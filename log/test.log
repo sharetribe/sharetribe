@@ -180,3 +180,16 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;35;1mItem Load (0.000586)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
   [4;36;1mItem Load (0.000542)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
   [4;35;1mSQL (0.000185)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000164)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000244)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000441)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000279)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000973)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000717)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000158)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000690)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000777)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000740)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000258)[0m   [0mROLLBACK[0m

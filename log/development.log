@@ -504,3 +504,40 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;35;1mSQL (0.000820)[0m   [0mSHOW TABLES[0m
   [4;36;1mSQL (0.000686)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
   [4;35;1mSQL (0.000812)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080806070738')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000432)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000662)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.052241)[0m   [0;1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.024257)[0m   [0mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;36;1mSQL (0.000862)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000745)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateItems (20080806070738)
+  [4;36;1mSQL (0.000337)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.006365)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `owner_id` varchar(255) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001005)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080806070738')[0m
+  [4;35;1mSQL (0.000454)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000596)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.033673)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.003752)[0m   [0;1mdescribe `items`[0m
+  [4;35;1mSQL (0.002156)[0m   [0mSHOW KEYS FROM `items`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000159)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000441)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000342)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001821)[0m   [0mSHOW FIELDS FROM `items`[0m
+  [4;36;1mSQL (0.002815)[0m   [0;1mdescribe `items`[0m
+  [4;35;1mSQL (0.001562)[0m   [0mSHOW KEYS FROM `items`[0m
+  [4;36;1mSQL (0.000159)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000419)[0m   [0mDROP DATABASE IF EXISTS `kassi_test`[0m
+  [4;36;1mSQL (0.032686)[0m   [0;1mCREATE DATABASE `kassi_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.000232)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002717)[0m   [0mCREATE TABLE `items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `owner_id` varchar(255) DEFAULT NULL NULL, `title` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000992)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.021397)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007278)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001341)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000628)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000973)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080806070738')[0m
