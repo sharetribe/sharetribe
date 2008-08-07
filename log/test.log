@@ -1,0 +1,182 @@
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000188)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000178)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000212)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000147)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000226)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000226)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000147)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.001262)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000875)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000188)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000146)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000795)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000840)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000640)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000211)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000212)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000138)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000830)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000695)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000204)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000139)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000663)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000574)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000536)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000148)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000186)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000272)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000653)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mSQL (0.000305)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Load (0.000836)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;36;1mItem Load (0.000696)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;35;1mItem Load (0.000641)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000185)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000156)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000745)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000704)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000163)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000129)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000616)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000544)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000523)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000146)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000192)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000140)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000128)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000713)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mSQL (0.000322)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mBEGIN[0m
+  [4;35;1mItem Load (0.000681)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;36;1mItem Load (0.000561)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;35;1mItem Load (0.000531)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;36;1mSQL (0.000144)[0m   [0;1mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000416)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000214)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000161)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000824)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000651)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000225)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000177)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000736)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000647)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000603)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000156)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000216)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000120)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000135)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000679)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000557)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000169)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000134)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000596)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000541)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000530)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000165)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000148)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000223)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000152)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000779)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000655)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000175)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000151)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000689)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000600)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000560)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000152)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000204)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000147)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000538)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000173)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000812)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000688)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000183)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000157)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000692)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000542)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000573)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000149)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000166)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000174)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000743)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000612)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000132)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000679)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000630)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000536)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000155)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000151)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000133)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000886)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000655)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000160)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000135)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000595)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000547)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000525)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000141)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000210)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000155)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000137)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000710)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000567)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000155)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000134)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000585)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000536)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000590)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000153)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000193)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000164)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000193)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000162)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000783)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000676)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000178)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000193)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000697)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000643)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000590)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000163)[0m   [0mROLLBACK[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000189)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000157)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000196)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000139)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000677)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 1063863810) [0m
+  [4;35;1mItem Load (0.000550)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 864936463) [0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.000139)[0m   [0mBEGIN[0m
+  [4;36;1mItem Load (0.000644)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 208282165) [0m
+  [4;35;1mItem Load (0.000586)[0m   [0mSELECT * FROM `items` WHERE (`items`.`id` = 982603050) [0m
+  [4;36;1mItem Load (0.000542)[0m   [0;1mSELECT * FROM `items` WHERE (`items`.`id` = 372225131) [0m
+  [4;35;1mSQL (0.000185)[0m   [0mROLLBACK[0m
