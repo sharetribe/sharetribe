@@ -1,0 +1,96 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+valid_listing:
+  author_id: "maija"
+  category_id: 1
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 34
+  status: "open"
+  language: "fin"
+  value_cc: 13
+  value_other: "viiniä"
+  
+no_author_id:
+  category_id: 1
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 1
+  status: "open"
+  language: "fin"
+  value_cc: 3
+  value_other: "MyString"
+
+no_category_id:
+  author_id: "maija"
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 2
+  status: "open"
+  language: "fin"
+  value_cc: 3
+  value_other: "MyString"
+  
+no_title: 
+  author_id: "maija"
+  category_id: 1
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 3
+  status: "open"
+  language: "swe"
+  value_cc: 3
+  value_other: "MyString"
+
+no_content:
+  author_id: "maija"
+  category_id: 1
+  title: "otsikko"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 4
+  status: "open"
+  language: "eng"
+  value_cc: 5
+  value_other: "MyString"
+  
+no_good_thru:
+  author_id: "maija"
+  category_id: 1
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  times_viewed: 677
+  status: "open"
+  language: "swe"
+  value_cc: 2
+  value_other: "MyString"
+   
+no_status:
+  author_id: "maija"
+  category_id: 1
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 578
+  language: "fin"
+  value_cc: 5
+  value_other: "MyString"
+    
+no_language:
+  author_id: "maija"
+  category_id: 1
+  title: "otsikko"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 37
+  status: "open"
+  value_cc: 6
+  value_other: "MyString"
+
+
+  
+  
+  
+

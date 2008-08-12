@@ -12,8 +12,6 @@ class FavorTest < ActiveSupport::TestCase
     assert !favors(:no_owner_id).valid?
   end
   
-  
-  
   def test_description_length
     assert !favors(:too_long_description).valid?
     assert favors(:valid_description).valid?
@@ -28,8 +26,6 @@ class FavorTest < ActiveSupport::TestCase
     nil_description = Favor.new(:owner_id => "matti", :title => "otsikko", :description => nil)
     assert nil_description.valid?
   end  
-  
-  
   
   def test_payment_length
     assert !favors(:too_long_payment).valid?
