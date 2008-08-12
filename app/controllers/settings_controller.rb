@@ -1,0 +1,2 @@
+class SettingsController < ApplicationController
+end

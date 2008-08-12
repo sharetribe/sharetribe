@@ -1,0 +1,12 @@
+<div id="top_navi">
+  <ul id="primary">
+    <% navi_items = get_top_navi_items %>
+    <% navi_items.each do |name, url| %>
+      <% if (name.to_s.eql?(session[:navi1])) %>
+        <li class="selected"><%= link_to t(name), url %></li>
+      <% else %>
+        <li><%= link_to t(name), url %></li>
+      <% end %>  
+    <% end %>
+  </ul>
+</div>

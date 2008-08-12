@@ -1,0 +1,384 @@
+/*
+ * COLORS
+ * Grey (unselected item in top navi and hover): #72776c;
+ * Lighter grey (hovered uselected item in top navi): 
+ * 
+ */
+
+/* 
+ *	Wraps everything except footer to make sure footer 
+ *	stays in the bottom of the page.
+ */
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -25px; /* the bottom margin is the negative value of the footer's height */
+}
+
+#main {
+	background: #f4f6d0 url(../images/background_gradient2.png) repeat-x top left;
+	height: 100%;
+	margin: 0;
+}
+
+/* Keeps the content centered */
+#centering {
+	margin: 0 auto;
+	width: 1000px;
+	text-align: left;
+}
+
+#top_links {
+	clear: both;
+	width: 1000px;
+	margin: 0px;
+}
+
+#top_links_left {
+	float: left;
+	font-size: 12px;
+	margin-top: 2px;
+	margin-left: 5px;
+	padding: 0px;
+	color: #ffffff;
+	height: 15px;
+}
+
+#top_links_right {
+	float: right;
+	font-size: 12px;
+	margin-top: 2px;
+	padding: 0px;
+	color: #ffffff;
+	height: 15px;
+}
+
+#top_links_left a, #top_links_right a {
+	font-size: 13px;
+	color: #f4f6d0;
+}
+
+#top_links_left a:hover, #top_links_right a:hover {
+	font-size: 13px;
+	color: #f4f6d0;
+}
+
+#logo_and_top_navi {
+	clear: both;
+	width: 1000px;
+	margin: 0px;
+}
+
+#logo {
+	position: absolute;
+	top: 35px;
+	margin: 0px;
+	width: 229px;
+	height: 125px;
+	background: url(../images/kassi_logo_smaller-trans.png) no-repeat;
+}
+
+#search_and_navi_container {
+	position: relative;
+	height: 125px;
+}
+
+#searchbar {
+	position: absolute;
+	right: 0px;
+	height: 30px;
+	margin-top: 15px;
+	float: right;
+}
+
+#top_navi {
+	position: absolute;
+	left: 0px;
+	margin: 0px;
+	margin-left: 6px;
+	height: 125px;
+	width: 45em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+#top_navi ul#primary {
+	position: absolute;
+	bottom: 0;
+	margin: 0;
+	margin-left: 250px;
+	padding: 0;
+	width: 45em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+#top_navi ul#primary li  {
+	display: inline;
+	list-style: none;
+}
+
+#top_navi ul#primary a {
+	width: 8em;
+	display: block;
+	float: left;
+	padding: 5px 0;
+	margin: 0px 8px 0 0;
+	text-align: center;
+	font-family: "lucida grande", helvetica, verdana, sans-serif;
+	font-size: 105%;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+#top_navi ul#primary li.selected a {
+	color: #000000;
+	background: #f4f6d0;
+	padding-bottom: 5px;
+	margin-top: 0;
+}
+
+#top_navi ul#primary li.selected a:hover {
+	background: #dbf5b1;
+}
+
+#top_navi ul#primary a {
+	background: #72776c;
+	font-family: "lucida grande", helvetica, verdana, sans-serif;
+}
+
+#top_navi ul#primary a:hover {
+	background: #9aa092;
+}
+
+#middle {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	width: 1000px;
+}
+
+#left_navi {
+	float: left;
+	margin-top: 30px;
+	border-right: 1px solid #666;
+	width: 229px;
+	height: 100%;
+}
+
+#links {
+	margin-left: 5px;
+}
+
+/*
+#left_navi ul#secondary {
+	margin: 0;
+	padding: 0;
+}
+
+#left_navi ul#secondary li  {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 223px;
+}
+
+#left_navi ul#secondary a {
+	border: 1px solid #666;
+	background: #c0e783;
+	display: block;
+	width: 213px;
+	height: 100%;
+	color: #304c03;
+	padding: 5px 0px 5px 10px;
+	text-decoration: none;
+}
+
+#left_navi ul#secondary li a:hover {
+	background: #dbf5b1;
+	width: 213px;
+}
+
+#left_navi ul#secondary li.selected a {
+	border: 1px solid #666;
+	border-right: 0px;
+	color: #000000;
+	background: #f4f6d0;
+	padding-bottom: 5px;
+	margin-top: 0;
+	width: 215px;
+}
+
+#left_navi ul#secondary li.selected a:hover {
+	width: 214px;
+	background: #dbf5b1;
+}
+
+#left_navi ul#tertiary {
+	border: 0px;
+	background: #f4f6d0;
+	display: inline;
+	width: 125px;
+	margin: 3px;
+}
+
+#left_navi ul#tertiary li {
+	border: 0px;
+	background: #f4f6d0;
+	list-style-type: square;
+	margin: 0 5px 0 30px;
+	width: 125px;
+}
+
+#left_navi ul#tertiary li.sub {
+	border: 0px;
+	margin-left: -20px;
+}
+
+#left_navi ul#tertiary li a.tertiary {
+	border: 0px;
+	text-decoration: underline;
+	background: #f4f6d0;
+	color: #406704;
+	padding: 1px;
+	margin: 3px;
+	width: 125px;
+}
+
+#left_navi ul#tertiary li a.tertiary:hover {
+	border: 0px;
+	background: #f4f6d0;
+	text-decoration: none;
+	background: #f4f6d0;
+	color: #406704;
+	width: 125px;
+}
+*/
+
+div.link {
+	border: 1px solid #666;
+	background: #c0e783;
+	width: 223px;
+}
+
+div.link_selected {
+	border: 1px solid #666;
+	border-right: 0px;
+	background: #f4f6d0;
+	width: 224px;
+} 
+
+#links a {
+	display: block;
+	width: 213px;
+	height: 100%;
+	color: #304c03;
+	padding: 5px 0px 5px 10px;
+	text-decoration: none;
+}
+
+#links a:hover {
+	background: #dbf5b1;
+	width: 213px;
+}
+
+#links ul {
+	margin-top: 7px;
+	margin-left: 0px;
+	padding-left: 30px;
+}
+
+#links ul.secondary {
+	margin-top: 2px;
+	margin-left: -5px;
+}
+
+#links li a {
+	text-decoration: underline;
+	display: inline;
+	color: #406704; 
+}
+
+#links li a:hover {
+	color: #64a006; 
+	text-decoration: none;
+	background: none; 
+}
+
+#links li a:active { 
+	color: #7ac307;
+	text-decoration: none; 
+}
+
+#sublinks ul {
+	margin-left: 15px;
+	padding-left: 0;
+	list-style: none;
+}
+
+#sublinks li {
+	padding-left: 5px;
+}
+
+#sublinks li.active {	
+	background-image: url(../images/arrow.png);
+	background-repeat: no-repeat;
+	background-position: 0 .5em;
+}
+
+#contents {
+	float: left;
+	margin-top: 30px;
+	text-align: left;
+	width: 730px;
+	padding-left: 30px;
+}
+
+#contents_full {
+	margin-top: 30px;
+	margin-left: 20px;
+	width: 960px;
+}
+
+/* 
+ * A push of same height than the footer is needed in 
+ * order to keep the footer in the bottom of the page.
+ */
+#footer, #push {
+	height: 25px; 
+}
+
+#footer {
+	margin: 0;
+	padding: 0;
+	clear: both;
+	background: #72776c;
+	width: 100%;
+}
+
+#footer_text {
+	margin: 0 auto;
+	width: 1000px;
+	text-align: center;
+}
+
+#footer_text_left {
+	color: #ffffff;
+	margin-top: 3px;
+	float: left;
+	text-align: left;
+}
+
+#footer_text_right {
+	color: #ffffff;
+	margin-top: 3px;
+	float: right;
+	text-align: left;
+}
+
+#footer_text a {
+	font-size: 13px;
+	color: #f4f6d0;
+}
+
+#footer_text a:hover {
+	font-size: 13px;
+	color: #f4f6d0;
+}
