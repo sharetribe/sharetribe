@@ -1,0 +1,17 @@
+<% left_navi_items = get_left_navi_items(session[:navi1])%>
+<% if (session[:left_navi]) %>
+<div id="left_navi">
+  <div id="links">
+    <br />
+    <% left_navi_items.each do |name, url| %>
+      <% if (name.to_s.eql?(session[:navi2])) %>
+        <div class="link_selected"><%= link_to t(name), url %></div>
+        <%= render :partial => "layouts/left_sub_navi" %>
+      <% else %>
+        <div class="link"><%= link_to t(name), url %></div>
+      <% end %>  
+    <% end %>
+    <br /><br />
+  </div>
+</div>
+<% end %>  

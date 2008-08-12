@@ -1,0 +1,64 @@
+html { 
+	min-width: 600px; 
+	height: 100%;
+}
+
+body, div, td, th, h2, h3, h4 { /* redundant rules for bad browsers  */ 
+  font-family: "lucida grande", helvetica, verdana, sans-serif;
+	font-size: 14px;
+	voice-family: "\"}\"";
+	voice-family: inherit;
+	font-size: 12px;
+	color: #333;
+}  
+
+/*Clears Box Model Hack in IE5*/
+.clearhack { 
+	display: inline; 
+} 
+
+body {
+	text-align: center; 
+	background: #f4f6d0;
+	color: #333;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+a { 
+	color: #406704; 
+}
+
+a:hover {
+	color: #64a006; 
+	text-decoration: none; 
+}
+
+a:active { 
+	color: #7ac307;
+	text-decoration: none; 
+}
+
+p { 
+	line-height: 140%;
+}
+
+h1,h2 {
+	font-family: "lucida grande", helvetica, verdana, sans-serif;
+	font-weight: bold;
+	color: #333;
+	text-align: left;
+}
+
+h1 {
+	font-size: 180%;
+	margin: 0;
+}
+
+h2 {
+	font-size: 140%;
+	padding-bottom: 2px;
+	border-bottom: 1px solid #000;
+	margin: 0;
+}

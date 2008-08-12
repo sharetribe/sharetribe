@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(:version => 20080808095031) do
 
   create_table "listings", :force => true do |t|
     t.string   "author_id"
-    t.integer  "category_id",  :limit => 11
+    t.integer  "category_id"
     t.string   "title"
     t.text     "content"
     t.date     "good_thru"
-    t.integer  "times_viewed", :limit => 11
+    t.integer  "times_viewed"
     t.string   "status"
-    t.integer  "value_cc",     :limit => 11
+    t.integer  "value_cc"
     t.string   "value_other"
     t.string   "language"
     t.datetime "created_at"

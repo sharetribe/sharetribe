@@ -36,6 +36,50 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
+  
+  map.connect '/people/logout', :controller => 'people', 
+                                        :action => 'logout', 
+                                        :format => 'html', 
+                                        :conditions => { :method => :get }
+
+  map.connect '/people/login', :controller => 'people', 
+                                        :action => 'login', 
+                                        :format => 'html', 
+                                        :conditions => { :method => :get }
+  
+  map.connect '/listings/categories/:category', :controller => 'listings', 
+                                        :action => 'index', 
+                                        :format => 'html', 
+                                        :conditions => { :method => :get }
+
+  map.connect '/people/:id/inbox', :controller => 'messages', 
+                                  :action => 'index', 
+                                  :format => 'html', 
+                                  :conditions => { :method => :get }
+                                                                        
+  map.connect '/people/:id/profile', :controller => 'profiles', 
+                                :action => 'index', 
+                                :format => 'html', 
+                                :conditions => { :method => :get }
+                                
+  map.connect '/people/:id/listings/:type', :controller => 'listings', 
+                                  :action => 'index', 
+                                  :format => 'html', 
+                                  :conditions => { :method => :get }
+
+  map.connect '/listings/search', :controller => 'listings', 
+                                  :action => 'search', 
+                                  :format => 'html', 
+                                  :conditions => { :method => :get }
+
+  map.resources :favors                            
+  map.resources :listings
+  map.resources :people
+  map.resources :items
+  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  
+  map.root :controller => "listings"
+  
 end
