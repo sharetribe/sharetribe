@@ -25,27 +25,12 @@ class ListingsController < ApplicationController
     end  
   end
 
-  def show
-    if (params[:id] == 0)
-      @category = Category.new(:name => 'marketplace')
-    else    
-      @category = Category.find_by_id(params[:id])
-    end
-    save_navi_state(['listings', 'browse_listings', @category.name])
-  end
-
   def search
     save_navi_state(['listings', 'search_listings', ''])
   end
-  
-  def show_person_listings
-    save_navi_state(['people', 'listings', 'own'])
-    @person = Person.find(params[:id])
-  end
-  
-  def show_interesting_listings
-    save_navi_state(['people', 'listings', 'interesting'])  
-    @person = Person.find(params[:id]) 
+
+  def add
+    save_navi_state(['listings', 'add_listing', ''])
   end
 
 end

@@ -5,6 +5,11 @@ I18n.store_translations 'fi',
 :not_logged_in => "Et ole kirjautuneena sisään.",
 :login => "Kirjaudu",
 :register => "Rekisteröidy",
+:logout => "Kirjaudu ulos",
+
+#Search
+:search_kassi => "Hae Kassista:",
+:search => "Hae",
 
 #Top navigation
 :people => "Oma",
@@ -47,6 +52,12 @@ I18n.store_translations 'fi',
 :all_listings => "Kaikki ilmoitukset",
 :own_listings => "Omat ilmoitukset",
 :interesting_listings => "Kiinnostavat ilmoitukset",
+
+#Items view
+:search_items_title => "Etsi tavaroita",
+
+#Favors view
+:search_favors_title => "Etsi palveluksia",
 
 #Footer
 :about => "Tietoa",
