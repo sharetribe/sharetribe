@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   
   before_filter :set_locale
 
+  # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
     session[:navi1] = navi_items[0] || session[:navi1]
     session[:navi2] = navi_items[1] || session[:navi2]
@@ -22,12 +23,14 @@ class ApplicationController < ActionController::Base
     session[:navi4] = navi_items[3] || session[:navi4]
   end
 
+  # Sets navigation state to "nothing selected".
   def clear_navi_state
     session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = nil
   end
 
   private 
 
+  # Sets locale file used.
   def set_locale
     locale = params[:locale] || session[:locale] || 'fi'
     I18n.locale = locale

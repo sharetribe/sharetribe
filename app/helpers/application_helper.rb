@@ -1,21 +1,24 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  # Short form for translate method
   def t(*args)
     translate(*args)
   end
   
+  # Returns hash containing link names and urls for top navigation.
   def get_top_navi_items
-    navi_items = ActiveSupport::OrderedHash.new
-    if (session[:person_id])
-      navi_items[:people ] = "/people/" + session[:person_id].to_s + "/listings/all"
-    end  
+    navi_items = ActiveSupport::OrderedHash.new  
     navi_items[:listings ] = "/listings/categories/all_categories"
     navi_items[:items ] = "/items"
     navi_items[:favors ] = "/favors"
+    if (session[:person_id])
+      navi_items[:people ] = "/people/" + session[:person_id].to_s + "/listings/all"
+    end
     return navi_items
   end
   
+  # Returns hash containing link names and urls for left navigation.
   def get_left_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     session[:left_navi] = true
@@ -26,7 +29,7 @@ module ApplicationHelper
       navi_items[:profile] = "/people/" + session[:person_id].to_s + "/profile"
       navi_items[:friends] = "/people/" + session[:person_id].to_s + "/friends"
       navi_items[:contacts] = "/people/" + session[:person_id].to_s + "/contacts"
-      navi_items[:purse] = "/people/" + session[:person_id].to_s + "/purses"
+      navi_items[:purse] = "/people/" + session[:person_id].to_s + "/purse"
       navi_items[:settings] = "/people/" + session[:person_id].to_s + "/settings"
     when 'listings'
       navi_items[:browse_listings] = "/listings/categories/all_categories"
@@ -44,6 +47,7 @@ module ApplicationHelper
     return navi_items
   end
   
+  # Returns hash containing link names and urls for left sub navigation.
   def get_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     case navi_type
@@ -65,6 +69,7 @@ module ApplicationHelper
     return navi_items 
   end
   
+  # Returns hash containing link names and urls for left "sub sub" navigation.
   def get_sub_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     case navi_type

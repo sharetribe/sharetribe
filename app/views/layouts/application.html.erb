@@ -30,7 +30,7 @@
           </div>
           <div id="search_and_navi_container">
             <div id="searchbar">
-              Hae Kassista: &nbsp;<input type="text" />&nbsp;&nbsp;<input type="button" value="Hae" />
+              <%= t(:search_kassi) %>&nbsp;<input type="text" />&nbsp;&nbsp;<input type="button" value="<%= t(:search) %>" />
             </div>
             <%= render :partial => "layouts/top_navi" %>
           </div>
@@ -41,7 +41,7 @@
             <div id="contents">
           <% else %>
             <div id="contents_full">
-          <% end %>         
+          <% end %>       
           <%= yield %>
           </div>
         </div>

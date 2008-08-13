@@ -51,12 +51,7 @@ h1,h2 {
 	text-align: left;
 }
 
-h1 {
-	font-size: 180%;
-	margin: 0;
-}
-
-h2 {
+h1,h2 {
 	font-size: 140%;
 	padding-bottom: 2px;
 	border-bottom: 1px solid #000;

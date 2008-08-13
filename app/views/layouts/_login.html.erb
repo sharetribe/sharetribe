@@ -1,6 +1,6 @@
 <% if (session[:person_id]) %>
   <%= t(:logged_in) + " TeemuT" %>. 
-  &nbsp;&nbsp;<a href="/people/logout">Kirjaudu ulos</a>
+  &nbsp;&nbsp;<a href="/people/logout"><%= t(:logout) %></a>
 <% else %>
   <%= t(:not_logged_in) %> &nbsp;<a href="/people/login"><%= t(:login) %></a> | <a href="#"><%= t(:register) %></a>
 <% end %>
