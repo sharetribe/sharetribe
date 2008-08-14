@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20080808095031) do
     t.integer  "value_cc"
     t.string   "value_other"
     t.string   "language"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
