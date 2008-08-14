@@ -11,6 +11,7 @@ class CreateListings < ActiveRecord::Migration
       t.integer :value_cc
       t.string :value_other
       t.string :language
+      t.string :category
       
       #image,  sent_to_news etc. should be added
 
