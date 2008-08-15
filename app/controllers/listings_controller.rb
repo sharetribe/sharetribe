@@ -31,7 +31,11 @@ class ListingsController < ApplicationController
         fetch_listings("category = 'sell' OR category = 'buy' OR category = 'give'")
       else  
         fetch_listings("category = '" + params[:category] + "'")
-      end  
+      end
+    else
+      save_navi_state(['listings', 'browse_listings', 'all_categories'])
+      @title = :all_listings
+      fetch_listings('')   
     end
   end
 
