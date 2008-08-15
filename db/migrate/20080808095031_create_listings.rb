@@ -2,7 +2,7 @@ class CreateListings < ActiveRecord::Migration
   def self.up
     create_table :listings do |t|
       t.string :author_id
-      t.integer :category_id
+      t.string :category
       t.string :title
       t.text :content
       t.date :good_thru

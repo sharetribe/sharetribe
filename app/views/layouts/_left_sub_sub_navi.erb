@@ -1,6 +1,6 @@
 <% sub_sub_navi_items = get_sub_sub_navi_items(session[:navi3])%>
 <% if (sub_sub_navi_items) %>
-  <ul>
+  <ul class="subsub">
     <% sub_sub_navi_items.each do |name, url| %>
       <% if (name.to_s.eql?(session[:navi4])) %>
         <li class="active"><%= link_to t(name), url %></li>

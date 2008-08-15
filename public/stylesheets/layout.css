@@ -107,7 +107,7 @@
 	margin: 0;
 	margin-left: 250px;
 	padding: 0;
-	width: 45em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+	width: 55em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
 }
 
 #top_navi ul#primary li  {
@@ -166,91 +166,6 @@
 #links {
 	margin-left: 5px;
 }
-
-/*
-#left_navi ul#secondary {
-	margin: 0;
-	padding: 0;
-}
-
-#left_navi ul#secondary li  {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-	width: 223px;
-}
-
-#left_navi ul#secondary a {
-	border: 1px solid #666;
-	background: #c0e783;
-	display: block;
-	width: 213px;
-	height: 100%;
-	color: #304c03;
-	padding: 5px 0px 5px 10px;
-	text-decoration: none;
-}
-
-#left_navi ul#secondary li a:hover {
-	background: #dbf5b1;
-	width: 213px;
-}
-
-#left_navi ul#secondary li.selected a {
-	border: 1px solid #666;
-	border-right: 0px;
-	color: #000000;
-	background: #f4f6d0;
-	padding-bottom: 5px;
-	margin-top: 0;
-	width: 215px;
-}
-
-#left_navi ul#secondary li.selected a:hover {
-	width: 214px;
-	background: #dbf5b1;
-}
-
-#left_navi ul#tertiary {
-	border: 0px;
-	background: #f4f6d0;
-	display: inline;
-	width: 125px;
-	margin: 3px;
-}
-
-#left_navi ul#tertiary li {
-	border: 0px;
-	background: #f4f6d0;
-	list-style-type: square;
-	margin: 0 5px 0 30px;
-	width: 125px;
-}
-
-#left_navi ul#tertiary li.sub {
-	border: 0px;
-	margin-left: -20px;
-}
-
-#left_navi ul#tertiary li a.tertiary {
-	border: 0px;
-	text-decoration: underline;
-	background: #f4f6d0;
-	color: #406704;
-	padding: 1px;
-	margin: 3px;
-	width: 125px;
-}
-
-#left_navi ul#tertiary li a.tertiary:hover {
-	border: 0px;
-	background: #f4f6d0;
-	text-decoration: none;
-	background: #f4f6d0;
-	color: #406704;
-	width: 125px;
-}
-*/
 
 div.link {
 	border: 1px solid #666;
@@ -313,14 +228,19 @@ div.link_selected {
 	list-style: none;
 }
 
+#sublinks ul.subsub {
+	margin-top: 0px;
+}
+
 #sublinks li {
+	margin-top: 2px;
 	padding-left: 5px;
 }
 
 #sublinks li.active {	
 	background-image: url(../images/arrow.png);
 	background-repeat: no-repeat;
-	background-position: 0 .5em;
+	background-position: 1px .5em;
 }
 
 #contents {
@@ -335,6 +255,55 @@ div.link_selected {
 	margin-top: 30px;
 	margin-left: 20px;
 	width: 960px;
+}
+
+#listing_header {
+	margin-bottom: 20px;
+}
+
+div.listing {
+	position: relative;
+	width: 728px;
+	height: 63px;
+	margin: 9px 0;
+	border-bottom: 2px dotted #666;
+}
+
+div.listing_image {
+	position: absolute;
+	left: 6px;
+	width: 50px;
+	height: 51px;
+	background: url(../images/teemu_t.jpg) no-repeat;
+}
+
+div.listing_text_left {
+	position: absolute;
+	top: -10px;
+	left: 70px;
+	width: 400px;
+	height: 51px;
+}
+
+div.listing_text_left h3 a {
+	font-size: 16px;
+	text-decoration: none;
+}
+
+div.listing_text_right {
+	top: -2px;
+	position: absolute;
+	left: 500px;
+	width: 250px;
+	height: 51px;
+}
+
+#add_listing_form {
+	margin-top: 10px;
+}
+
+div.fieldWithErrors {
+	border: 3px solid #f66;
 }
 
 /* 
