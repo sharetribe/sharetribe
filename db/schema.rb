@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080808095031) do
+ActiveRecord::Schema.define(:version => 20080815075550) do
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(:version => 20080808095031) do
     t.string   "value_other"
     t.string   "language"
     t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "sender_id"
+    t.string   "receiver_id"
+    t.integer  "listing_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
