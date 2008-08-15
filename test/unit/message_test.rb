@@ -18,7 +18,7 @@ class MessageTest < ActiveSupport::TestCase
     
   end
 
-  def test_listin_id_int
+  def test_listing_id_int
     message = messages(:valid_message)
     
     message.listing_id = "testi"
