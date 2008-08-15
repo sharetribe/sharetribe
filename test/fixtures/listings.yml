@@ -2,24 +2,24 @@
 
 valid_listing:
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 34
   status: "open"
-  language: "fin"
+  language: "fi"
   value_cc: 13
   value_other: "viiniä"
   
 no_author_id:
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 1
   status: "open"
-  language: "fin"
+  language: "fi"
   value_cc: 3
   value_other: "MyString"
 
@@ -30,13 +30,13 @@ no_category:
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 2
   status: "open"
-  language: "fin"
+  language: "fi"
   value_cc: 3
   value_other: "MyString"
   
 no_title: 
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 3
@@ -47,18 +47,18 @@ no_title:
 
 no_content:
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 4
   status: "open"
-  language: "eng"
+  language: "en-US"
   value_cc: 5
   value_other: "MyString"
   
 no_good_thru:
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   times_viewed: 677
@@ -69,7 +69,7 @@ no_good_thru:
    
 no_status:
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
@@ -80,7 +80,7 @@ no_status:
     
 no_language:
   author_id: "maija"
-  category: "market_place"
+  category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>

@@ -6,13 +6,16 @@ class ListingsController < ApplicationController
       case params[:type]
       when "all"
         @title = :all_listings
-        save_navi_state(['people', 'listings', 'all'])
+        save_navi_state(['own', 'listings', 'all'])
+        fetch_listings('')
       when "interesting"
         @title = :interesting_listings
-        save_navi_state(['people', 'listings', 'interesting'])
+        save_navi_state(['own', 'listings', 'interesting'])
+        fetch_listings('')
       when "own"
         @title = :own_listings
-        save_navi_state(['people', 'listings', 'own'])
+        save_navi_state(['own', 'listings', 'own_listings_navi'])
+        fetch_listings("author_id = '" + session[:person_id].to_s + "'")
       else
       end
     elsif (params[:category])
@@ -22,7 +25,19 @@ class ListingsController < ApplicationController
         save_navi_state(['listings', 'browse_listings', params[:category], ''])
       end
       @title = params[:category]
-    end  
+      if (params[:category].eql?("all_categories"))
+        fetch_listings('')
+      elsif (params[:category].eql?("marketplace"))
+        fetch_listings("category = 'sell' OR category = 'buy' OR category = 'give'")
+      else  
+        fetch_listings("category = '" + params[:category] + "'")
+      end  
+    end
+  end
+
+  def show
+    save_navi_state(['listings', 'browse_listings'])
+    @listing = Listing.find(params[:id])
   end
 
   def search
@@ -31,6 +46,24 @@ class ListingsController < ApplicationController
 
   def add
     save_navi_state(['listings', 'add_listing', ''])
+    @listing = Listing.new
+  end
+
+  def create
+    @listing = Listing.new(params[:listing])
+    if @listing.save
+      flash[:notice] = 'Ilmoitus lisätty.'
+      redirect_to listings_path
+    else
+      flash[:notice] = 'Ilmoituksen lisäys ei onnistunut.'
+      render :action => 'add'
+    end
+  end
+
+  def fetch_listings(conditions)
+    @listings = Listing.find :all,
+        :order => 'created_at DESC',
+        :conditions => conditions
   end
 
 end

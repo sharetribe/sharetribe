@@ -12,10 +12,11 @@ I18n.store_translations 'fi',
 :search => "Hae",
 
 #Top navigation
-:people => "Oma",
+:own => "Oma",
 :listings => "Ilmoitukset",
 :items => "Tavarat",
 :favors => "Palvelukset",
+:people => "Ihmiset",
 
 #Left navigation
 :inbox => "Postilaatikko",
@@ -31,10 +32,12 @@ I18n.store_translations 'fi',
 :search_items => "Hae",
 :browse_favors => "Selaa",
 :search_favors => "Hae",
+:browse_people => "Selaa",
+:search_people => "Hae",
 
 #Left sub navigation
 :all => "Kaikki",
-:own => "Omat",
+:own_listings_navi => "Omat",
 :interesting => "Kiinnostavat",
 
 #Categories
@@ -44,6 +47,7 @@ I18n.store_translations 'fi',
 :buy => "Ostetaan",
 :give => "Annetaan",
 :borrow_items => "Tavaralainat",
+:lost_property => "Löytötavarat",
 :rides => "Kimppakyydit",
 :groups => "Porukkahaku",
 :others => "Muut",

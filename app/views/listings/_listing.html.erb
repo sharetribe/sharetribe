@@ -1,0 +1,23 @@
+<div class="listing">
+  <div class="listing_image"></div>
+  <div class="listing_text_left">
+    <h3><%= link_to(listing.title,"/listings/" + listing.id.to_s) %></h3>
+    <i>Ilmoituksen jättänyt <%= link_to(listing.author_id,"/people/" + listing.author_id.to_s) %> 8.8.2008 08:08 </i>
+  </div>
+  <div class="listing_text_right">
+    <table>
+      <tr>
+        <td><b>Kategoria:</b>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to(t(listing.category),"/listings/categories/" + listing.category) %></a></td>
+      </tr>
+      <tr>
+        <td><b>Tila:</b></td> 
+        <td>Avoinna</td>
+      </tr>
+      <tr>
+        <td><b>Katsottu:</b></td> 
+        <td><%= listing.times_viewed %> kertaa</td>
+      </tr>
+    </table>    
+  </div>
+</div>

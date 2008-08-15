@@ -51,9 +51,32 @@ h1,h2 {
 	text-align: left;
 }
 
-h1,h2 {
-	font-size: 140%;
-	padding-bottom: 2px;
+h1 {
+	font-size: 18px;
+	padding-bottom: 4px;
 	border-bottom: 1px solid #000;
 	margin: 0;
+}
+
+h2 {
+	font-size: 16px;
+	padding-bottom: 3px;
+	margin: 0;
+}
+
+input {
+	font-family: "lucida grande", Tahoma, sans-serif;
+	font-size: 12px;
+}
+
+textarea {
+	font-family: "lucida grande", Tahoma, sans-serif;
+	font-size: 12px;
+	width: 600px;
+	height: 120px;
+	padding: 5px;
+}
+
+table.form {
+	border-spacing: 10px;
 }

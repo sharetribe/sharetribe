@@ -1,17 +1,17 @@
 class Listing < ActiveRecord::Base
   
+  has_many :messages
+  
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
   
   #allowed language codes
-  VALID_LANGUAGES = ["fin", "swe", "eng"]
+  VALID_LANGUAGES = ["fi", "swe", "en-US"]
   
-  VALID_CATEGORIES = ["market_place", "borrow_items", "rides", "groups", "favors", "others", "sell", "buy", "give"]
+  VALID_CATEGORIES = ["borrow_items", "lost_property", "rides", "groups", "favors", "others", "sell", "buy", "give"]
   
   has_many :comments
   has_many :messages
-  #category model is not gonnna happen anymore
-  #belongs_to :category
   belongs_to :person
   
   validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language

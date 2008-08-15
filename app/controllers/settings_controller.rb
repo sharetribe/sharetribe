@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
   def index
-    save_navi_state(['people','settings'])
+    save_navi_state(['own','settings'])
   end
 end
