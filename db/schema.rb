@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080815075550) do
+ActiveRecord::Schema.define(:version => 20080818092139) do
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20080815075550) do
   create_table "items", :force => true do |t|
     t.string   "owner_id"
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "listing_comments", :force => true do |t|
+    t.string   "author_id"
+    t.integer  "listing_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,6 +55,17 @@ ActiveRecord::Schema.define(:version => 20080815075550) do
     t.string   "receiver_id"
     t.integer  "listing_id"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "person_comments", :force => true do |t|
+    t.string   "author_id"
+    t.string   "target_person_id"
+    t.text     "text_content"
+    t.integer  "grade"
+    t.string   "task_type"
+    t.integer  "task_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
