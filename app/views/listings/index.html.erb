@@ -3,7 +3,7 @@
 </div>  		
 <h1><%= t(@title) %></h1>
 <% if (@listings.size > 0)%>
-<%= render :partial => 'listings/listing', :collection => @listings %>
+  <%= render :partial => @listings %>
 <% else %>
-<h3>Ei yhtään ilmoitusta!
+  <h3>Ei yhtään ilmoitusta!
 <% end %>

@@ -48,10 +48,25 @@ class ListingsController < ApplicationController
     save_navi_state(['listings', 'search_listings', ''])
   end
 
-  def add
+  def new_category
+    save_navi_state(['listings', 'add_listing', ''])
+  end
+
+  # def new
+  #   save_navi_state(['listings', 'add_listing', ''])
+  #   if (params[:category])
+  #     @category = params[:category]
+  #     if (params[:subcategory])
+  #       @subcategory = params[:subcategory]
+  #     end 
+  #     @listing = Listing.new 
+  #   end
+  # end
+  # 
+  def new
     save_navi_state(['listings', 'add_listing', ''])
     @listing = Listing.new
-  end
+  end  
 
   def create
     @listing = Listing.new(params[:listing])
@@ -59,8 +74,7 @@ class ListingsController < ApplicationController
       flash[:notice] = 'Ilmoitus lisätty.'
       redirect_to listings_path
     else
-      flash[:notice] = 'Ilmoituksen lisäys ei onnistunut.'
-      render :action => 'add'
+      render :action => "new"
     end
   end
 

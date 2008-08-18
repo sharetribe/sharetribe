@@ -1,0 +1,48 @@
+<% if @listing %>
+<div id="add_listing_form">
+<%= error_messages_for 'listing' %>
+<% form_for @listing do |f| %>
+<table class="form">
+  <tr>
+    <td><%= t(:title) %></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <td><%= t(:author) %></td>
+    <td><%= f.text_field :author_id %></td>
+  </tr>
+  <tr>
+    <td><%= t(:status) %></td>
+    <td><%= f.text_field :status %></td>
+  </tr>
+  <tr>
+    <td><%= t(:category) %></td>
+    <td><%= select("post", "category", ta(Listing::VALID_CATEGORIES)) %></td>
+  </tr>
+  <tr>
+    <td><%= t(:language) %></td>
+    <td><%= f.text_field :language %></td>
+  </tr>
+  <tr>
+    <td><%= t(:good_thru) %></td>
+    <td><%= f.text_field :good_thru %></td>
+  </tr>
+  <tr>
+    <td><%= t(:content) %></td>
+    <td><%= f.text_area :content %></td>
+  </tr>
+  <%= f.hidden_field :category, :value => @category %>
+    <% fields_for :additional_info do |ai| %>
+      <%= ai.hidden_field :subcategory, :value => @subcategory %>
+    <% end %>
+</table>
+<table class="form">  
+  <tr>
+    <td><%= submit_tag %></td>    
+  </tr>
+</table>
+<% end %>
+</div>
+<% else %>
+  <h3>Uuden ilmoituksen luominen ei onnistunut!</h3>
+<% end %>

@@ -1,0 +1,41 @@
+<%= render :partial => "listings/breadcrumb" %>
+
+<% if @listing %>
+<div id="add_listing_form">
+<%= error_messages_for 'listing' %>
+<% form_for @listing do |f| %>
+<table class="form">
+  <tr>
+    <td><%= t(:listing_title) %></td>
+    <td><%= f.text_field :title %></td>
+  </tr>
+  <tr>
+    <td><%= t(:listing_content) %></td>
+    <td><%= f.text_area :content %></td>
+  </tr>
+  <tr>
+    <td><%= t(:listing_language) %></td>
+    <td><%= f.text_field :language %></td>
+  </tr>
+  <tr>
+    <td><%= t(:listing_good_thru) %></td>
+    <td><%= f.text_field :good_thru %></td>
+  </tr>
+  <%= f.hidden_field :status, :value => "open" %>
+  <%= f.hidden_field :author_id, :value => "TeemuT" %>
+  <% if params[:subcategory]%>
+    <%= f.hidden_field :category, :value => params[:subcategory] %>
+  <% else %>
+    <%= f.hidden_field :category, :value => params[:category] %>
+  <% end %>
+</table>
+<table class="form">  
+  <tr>
+    <td><%= submit_tag %></td>    
+  </tr>
+</table>
+<% end %>
+</div>
+<% else %>
+  <h3>Uuden ilmoituksen luominen ei onnistunut!</h3>
+<% end %>

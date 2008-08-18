@@ -1,6 +1,6 @@
 class Session < ActiveResource::Base
  
-  self.site = "http://maps.cs.hut.fi/cos"
+  self.site = "http://cos.sizl.org"
   self.element_name = "session"
   self.collection_name = "session" #exceptionally not plural, bacause COS requires "session"
   self.format = :json 
