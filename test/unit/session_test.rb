@@ -1,19 +1,32 @@
 require 'test_helper'
 class SessionTest < ActiveSupport::TestCase
 
-  def test_create_session
-    s = Session.new( :app_password => "Xk4z5iZ", :app_name => "kassi" )
-    resp = s.save
-    resp = s.get("session")
-    puts resp.inspect
+  def test_create_get_and_destroy_session
+    s = Session.login
+    resp = s.check
+    assert_not_nil( resp["app_id"])
+    assert_nil(resp["user_id"])
+    resp = s.destroy
+    assert_equal(resp.class, Net::HTTPOK)
+  end
+  
+  def test_create_user_session
+    s = Session.login( {:username => "testguy", :password => "t3xxzs5"})
+    resp = s.get("")
+    assert_not_nil(resp["app_id"])
+    assert_not_nil(resp["user_id"])
     resp = s.destroy
   end
   
-  def test_get_session
-    #resp = Session.get("debug")
-  end
-  
-  def test_destroy_session
-    
+  def test_multiple_sessions
+    s1 = Session.login( {:username => "testguy", :password => "t3xxzs5"})
+    s2 = Session.login( {:username => "testchick", :password => "t3xxzs5"})
+    resp1 = s1.check
+    resp2 = s2.check
+    assert_not_nil(resp1["user_id"])
+    assert_not_nil(resp2["user_id"])
+    assert_not_equal(resp1["user_id"], resp2["user_id"])
+    s1.destroy
+    s2.destroy
   end
 end
