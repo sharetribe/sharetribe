@@ -59,12 +59,6 @@ ActiveRecord::Schema.define(:version => 20080818092139) do
     t.datetime "updated_at"
   end
 
-  create_table "people", :force => true do |t|
-    t.integer  "coin_amount", :default => 0, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "person_comments", :force => true do |t|
     t.string   "author_id"
     t.string   "target_person_id"
