@@ -20,6 +20,13 @@ def test_required_attributes_not_nil
   assert !listing_attributes_nil.valid?
 end
 
+def test_date_not_valid_format
+  listing_date_invalid = Listing.new(:author_id => "pekka", :category => "sell", :title => "nil", 
+                                       :content => "nil", :good_thru => "huomenna", :status => "open", 
+                                       :language => "fi")
+  assert !listing_date_invalid.valid?
+end
+
 def test_status_validation
   #testing with all valid status
     listing_status_valid = Listing.new(:author_id => "author", :category => "sell", :title => "title", 

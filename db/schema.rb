@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080815105324) do
-
-  create_table "comments", :force => true do |t|
-    t.string   "author_id"
-    t.integer  "listing_id"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20080815075550) do
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
