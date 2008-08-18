@@ -2,7 +2,8 @@
  * COLORS
  * Grey (unselected item in top navi and hover): #72776c;
  * Lighter grey (hovered uselected item in top navi): 
- * 
+ * Light green (left links, category box) => #c0e783;
+ * Lighter green (hovered left links, hovered category box) => #dbf5b1;
  */
 
 /* 
@@ -304,6 +305,32 @@ div.listing_text_right {
 
 div.fieldWithErrors {
 	border: 3px solid #f66;
+}
+
+div.category {
+	width: 500px;
+	height: 40px;
+	border: 2px solid #64a006;
+	background: #dbf5b1;
+	margin: 10px 5px;
+}
+
+div.category a {
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	height: 20px;
+	background: #c0e783;
+	padding: 10px;
+}
+
+div.category a:hover {
+	background: #dbf5b1;
+}
+
+#breadcrumb {
+	margin: 20px 5px;
 }
 
 /* 

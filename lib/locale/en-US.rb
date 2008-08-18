@@ -56,6 +56,15 @@ I18n.store_translations 'en-US',
 :all_listings => "All listings",
 :own_listings => "Own listings",
 :interesting_listings => "Interesting listings",
+:listing_text => "Ilmoitusteksti",
+
+#Create new listing form
+:select_category => "Select category",
+:select_sub_category => "Select sub category",
+:listing_title => "Title",
+:listing_content => "Content",
+:listing_language => "Language",
+:listing_good_thru => "Good thru",
 
 #Items view
 :search_items_title => "Search items",

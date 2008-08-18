@@ -47,11 +47,16 @@ ActionController::Routing::Routes.draw do |map|
                                :format => 'html', 
                                :conditions => { :method => :get }
  
-  map.connect '/listings/add', :controller => 'listings', 
-                               :action => 'add', 
-                               :format => 'html', 
-                               :conditions => { :method => :get }
+  map.connect '/listings/add/:category', :controller => 'listings', 
+                                :action => 'new_category', 
+                                :format => 'html', 
+                                :conditions => { :method => :get }
  
+  map.connect '/listings/add/', :controller => 'listings', 
+                                :action => 'new_category', 
+                                :format => 'html', 
+                                :conditions => { :method => :get }
+                                          
   map.connect '/listings/search', :controller => 'listings', 
                                   :action => 'search', 
                                   :format => 'html', 
@@ -61,11 +66,6 @@ ActionController::Routing::Routes.draw do |map|
                                                 :action => 'index', 
                                                 :format => 'html', 
                                                 :conditions => { :method => :get }
-                                                
-  map.connect '/listings/:id', :controller => 'listings', 
-                               :action => 'show', 
-                               :format => 'html', 
-                               :conditions => { :method => :get }
                                   
   map.connect '/people/:id/contacts', :controller => 'contacts', 
                                       :action => 'index', 

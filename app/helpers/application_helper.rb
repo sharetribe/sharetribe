@@ -7,16 +7,13 @@ module ApplicationHelper
   end
   
   def ta(array)
-    translated_array = []
+    translated_array = Array.new
+    index = 0;
     array.each do |array_item|
-      translated_array[] = translate(array_item)
+      translated_array[index] = t(array_item)
+      index += 1;
     end
     return translated_array  
-  end
-  
-  # Returns true if array is an array and contains at least one item.
-  def usable?(array)
-    defined?(array) && array && array.size > 0
   end
   
   # Returns hash containing link names and urls for top navigation.
