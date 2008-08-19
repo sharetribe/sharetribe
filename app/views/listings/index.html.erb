@@ -1,7 +1,15 @@
 <div id="listing_header">
-  Näytä: <a href="#">1 lukematon</a> | Kaikki
+  <%= t(:show_read_and_unread_listings) %> <a href="#">1 <%= t(:show_unread_single_listing) %></a> | <%= t(:show_all_listings) %>
 </div>  		
+
+<% unless flash[:notice].blank? %>
+  <div id="notification">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
 <h1><%= t(@title) %></h1>
+
 <% if (@listings.size > 0)%>
   <%= render :partial => @listings %>
 <% else %>

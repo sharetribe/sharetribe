@@ -52,13 +52,29 @@ I18n.store_translations 'en-US',
 :groups => "Groups",
 :others => "Others",
 
+#Category descriptions
+:marketplace_description => "buy, sell or give stuff",
+:sell_description => "sell stuff",
+:buy_description => "buy stuff",
+:give_description => "give stuff",
+:borrow_items_description => "borrow stuff",
+:lost_property_description => "find your lost items or let others know what you've found",
+:rides_description => "find or offer rides",
+:groups_description => "search for one or more people to do stuff with you (play badminton, study etc.)",
+:others_description => "all other listings",
+
 #Listings view
 :all_listings => "All listings",
 :own_listings => "Own listings",
 :interesting_listings => "Interesting listings",
-:listing_text => "Ilmoitusteksti",
+:listing_text => "Listing text",
+:show_read_and_unread_listings => "Show:",
+:show_unread_single_listing => "unread",
+:show_unread_multiple_listings => "unread",
+:show_all_listings => "All",
 
 #Create new listing form
+:add_new_listing => "Add new listing",
 :select_category => "Select category",
 :select_sub_category => "Select sub category",
 :listing_title => "Title",

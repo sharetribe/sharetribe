@@ -11,86 +11,18 @@ valid_listing:
   language: "fi"
   value_cc: 13
   value_other: "viiniä"
-  
-no_author_id:
-  category: "sell"
-  title: "otsikko"
-  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 1
-  status: "open"
-  language: "fi"
-  value_cc: 3
-  value_other: "MyString"
 
-no_category:
-  author_id: "maija"
-  title: "otsikko"
-  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 2
-  status: "open"
-  language: "fi"
-  value_cc: 3
-  value_other: "MyString"
-  
-no_title: 
+another_valid_listing:
   author_id: "maija"
   category: "sell"
+  title: "Myydään alastomia oravoita"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 3
-  status: "open"
+  times_viewed: 22
+  status: "in-progress"
   language: "swe"
-  value_cc: 3
-  value_other: "MyString"
-
-no_content:
-  author_id: "maija"
-  category: "sell"
-  title: "otsikko"
-  good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 4
-  status: "open"
-  language: "en-US"
-  value_cc: 5
-  value_other: "MyString"
-  
-no_good_thru:
-  author_id: "maija"
-  category: "sell"
-  title: "otsikko"
-  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  times_viewed: 677
-  status: "open"
-  language: "swe"
-  value_cc: 2
-  value_other: "MyString"
-   
-no_status:
-  author_id: "maija"
-  category: "sell"
-  title: "otsikko"
-  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 578
-  language: "fin"
-  value_cc: 5
-  value_other: "MyString"
-    
-no_language:
-  author_id: "maija"
-  category: "sell"
-  title: "otsikko"
-  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  good_thru: <%=DateTime.now+(2)%>
-  times_viewed: 37
-  status: "open"
-  value_cc: 6
-  value_other: "MyString"
-
-
-  
+  value_cc: 13
+  value_other: "rahaa"
   
   
 

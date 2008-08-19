@@ -68,4 +68,7 @@ I18n.store_translations 'fi',
 :help => "Ohjeet",
 :terms => "Käyttöehdot",
 :forum => "Foorumi",
-:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='www.sizl.org'>OtaSizzlen</a> palveluista."
+:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='www.sizl.org'>OtaSizzlen</a> palveluista.",
+
+#sdf
+:listing => "Ilmoitus"

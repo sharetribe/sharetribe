@@ -52,17 +52,6 @@ class ListingsController < ApplicationController
     save_navi_state(['listings', 'add_listing', ''])
   end
 
-  # def new
-  #   save_navi_state(['listings', 'add_listing', ''])
-  #   if (params[:category])
-  #     @category = params[:category]
-  #     if (params[:subcategory])
-  #       @subcategory = params[:subcategory]
-  #     end 
-  #     @listing = Listing.new 
-  #   end
-  # end
-  # 
   def new
     save_navi_state(['listings', 'add_listing', ''])
     @listing = Listing.new
