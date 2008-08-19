@@ -1,6 +1,7 @@
 class Listing < ActiveRecord::Base
   
   has_many :messages
+  has_many :comments
   
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
@@ -19,6 +20,8 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :status, :in => VALID_STATUS
   validates_inclusion_of :language, :in => VALID_LANGUAGES
   validates_inclusion_of :category, :in => VALID_CATEGORIES
+  validates_inclusion_of :good_thru, :on => :create, :allow_nil => true, 
+                         :in => DateTime.now..DateTime.now + 1.year
   
   validates_length_of :title, :within => 2..50
   validates_length_of :value_other, :allow_nil => true, :allow_blank => true, :maximum => 50

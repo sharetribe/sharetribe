@@ -12,6 +12,31 @@ class ListingTest < ActiveSupport::TestCase
     assert !listing.valid?
   end
 
+  def test_good_thru_too_big
+    listing = Listing.new(:author_id => "maija", :category => "sell", :title => "otsikko", 
+                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
+                          :good_thru => DateTime.now+2.year, 
+                          :times_viewed => 34, :status => "open",
+                          :language => "fi", :value_cc => 13, :value_other => "viiniä")
+    assert !listing.valid?
+  end
+    
+  def test_good_thru_too_small
+    listing = Listing.new(:author_id => "maija", :category => "sell", :title => "otsikko", 
+                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
+                          :good_thru => DateTime.now - 1.day, :times_viewed => 34, :status => "open",
+                          :language => "fi", :value_cc => 13, :value_other => "viiniä")
+    assert !listing.valid?
+  end
+
+  def test_good_thru_ok
+    listing = listings(:valid_listing)  
+    #date ok
+    listing.good_thru = DateTime.now + 7.day
+    assert listing.valid?
+    
+  end
+
   def test_status_validation
     #testing with all valid status
     listing_status_valid = listings(:valid_listing) 
