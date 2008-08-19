@@ -5,7 +5,7 @@ valid_listing:
   category: "sell"
   title: "otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
-  good_thru: <%=DateTime.now+(2)%>
+  good_thru: <%=DateTime.now+2%>
   times_viewed: 34
   status: "open"
   language: "fi"
@@ -23,6 +23,3 @@ another_valid_listing:
   language: "swe"
   value_cc: 13
   value_other: "rahaa"
-  
-  
-

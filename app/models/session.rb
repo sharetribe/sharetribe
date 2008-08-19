@@ -1,5 +1,6 @@
 class Session < ActiveResource::Base
  
+
   attr_accessor :username
   attr_accessor :password
  
