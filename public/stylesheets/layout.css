@@ -2,7 +2,7 @@
  * COLORS
  * Grey (unselected item in top navi and hover): #72776c;
  * Lighter grey (hovered uselected item in top navi): 
- * Light green (left links, category box) => #c0e783;
+ * Light green (left links, category box, notification box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
  */
 
@@ -308,7 +308,7 @@ div.fieldWithErrors {
 }
 
 div.category {
-	width: 500px;
+	width: 715px;
 	height: 40px;
 	border: 2px solid #64a006;
 	background: #dbf5b1;
@@ -329,8 +329,23 @@ div.category a:hover {
 	background: #dbf5b1;
 }
 
+div.category a span {
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+}
+
 #breadcrumb {
 	margin: 20px 5px;
+}
+
+#notification {
+	padding: 10px;
+	width: 100%;
+	font-size: 14px;
+	font-weight: bold;
+	background: #c0e783;
+	margin-bottom: 20px;
 }
 
 /* 

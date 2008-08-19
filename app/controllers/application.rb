@@ -7,12 +7,12 @@ class ApplicationController < ActionController::Base
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '26c58c750ac36e1713e76184b3b8e162'
-  
+
   # See ActionController::Base for details 
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
-  
+
   before_filter :set_locale
 
   # Change current navigation state based on array containing new navi items.
@@ -36,8 +36,15 @@ class ApplicationController < ActionController::Base
     I18n.locale = locale
     I18n.populate do
       require "lib/locale/#{locale}.rb"
+      unless (locale.eql?("en-US"))
+        require "lib/locale/#{locale}_errors_actionview.rb"
+        require "lib/locale/#{locale}_errors_actionsupport.rb"
+        require "lib/locale/#{locale}_errors_activerecord.rb"
+      end
     end
     session[:locale] = params[:locale] || session[:locale]
+    # Require locale files for error messages
+    require "lib/locale/#{locale}.rb"
   end
-  
+
 end

@@ -3,13 +3,6 @@ require 'test_helper'
 class ListingTest < ActiveSupport::TestCase
 
   def test_has_required_attributes
-    assert !listings(:no_author_id).valid?
-    assert !listings(:no_category).valid?
-    assert !listings(:no_title).valid?
-    assert !listings(:no_content).valid?
-    assert !listings(:no_good_thru).valid?
-    assert !listings(:no_status).valid?
-    assert !listings(:no_language).valid?
     assert listings(:valid_listing).valid?
   end
 
