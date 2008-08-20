@@ -3,6 +3,7 @@ class Session < ActiveResource::Base
 
   attr_accessor :username
   attr_accessor :password
+  attr_reader   :headers
  
   self.site = "http://cos.sizl.org"
   #self.site = "http://maps.cs.hut.fi/cos"
@@ -41,13 +42,18 @@ class Session < ActiveResource::Base
     return session
   end
   
+  def self.destroy(cookie)
+    deleting_headers = {"Cookie" => cookie}
+    connection.delete("#{prefix}#{element_name}", deleting_headers)
+  end
+  
   #this is added to class methods to get access to private method query_string
   def self.to_query_string(params)
       query_string(params)
       #TODO find a better way to do this...
   end
   
-  def create #params = {})
+  def create
     @headers = {}
     params = {}
     params[:username] = @username if @username
