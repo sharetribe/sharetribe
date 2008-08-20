@@ -4,6 +4,34 @@ class ListingTest < ActiveSupport::TestCase
 
   def test_has_required_attributes
     assert listings(:valid_listing).valid?
+    listing = listings(:valid_listing)
+    #not valid without author_id
+    listing.author_id = nil
+    assert !listing.valid?
+    
+    #not valid without category
+    listing.category = nil
+    assert !listing.valid?
+    
+    #not valid without title
+    listing.title = nil
+    assert !listing.valid?
+    
+    #not valid without content
+    listing.content = nil
+    assert !listing.valid?
+    
+    #not valid without good_thru
+    listing.good_thru = nil
+    assert !listing.valid?
+    
+    #not valid without status
+    listing.status = nil
+    assert !listing.valid?
+    
+    #not valid without language
+    listing.language = nil
+    assert !listing.valid?
   end
 
   def test_date_not_valid_format
