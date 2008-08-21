@@ -35,7 +35,7 @@ class ListingsControllerTest < ActionController::TestCase
       :good_thru => DateTime.now+(2),
       :times_viewed => 32,
       :status => "open",
-      :language => ["fi"],
+      :language => ["fi", "swe"],
       :value_cc => "8",
       :value_other => "Oravannahkoja"
     }
@@ -46,7 +46,7 @@ class ListingsControllerTest < ActionController::TestCase
   
   def test_add_invalid_listing
     post :create, :listing => {
-          :author_id => "Antti"
+      :author_id => "Antti"
     }
     assert assigns(:listing).errors.on(:category)
     assert assigns(:listing).errors.on(:title)
