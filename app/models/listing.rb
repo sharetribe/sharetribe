@@ -36,45 +36,17 @@ class Listing < ActiveRecord::Base
   validate :language_not_empty
   
   def given_language_is_one_of_valid_languages
-    language.each do |test_language|
-      errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
+    unless language == nil
+      language.each do |test_language|
+        errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
+      end
     end
   end
   
   def language_not_empty
-    errors.add(:language, "should not be empty") if language.empty?
+    if language != nil
+      errors.add(:language, "should not be empty") if language.empty?
+    end
   end
-  
-  #a method for incrementing times_viewed could be done maybe....?
-  
-   # def initialize(params)
-   #   if params != nil
-   #     languages = Array.new
-   # 
-   #     if params["fi"]
-   #       languages << "fi"
-   #     end
-   # 
-   #     if params["swe"]
-   #       languages << "swe"
-   #     end
-   # 
-   #     if params["en-US"]
-   #       languages << "en-US"
-   #     end
-   #     
-   #     puts languages
-   #     
-   #     language = languages
-   #     
-   #     puts language
-   #     
-   #     params.delete("fi")
-   #     params.delete("swe")
-   #     params.delete("en-US")
-   # 
-   #     super(params)
-   #   end
-   # end
     
 end
