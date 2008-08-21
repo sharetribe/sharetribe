@@ -1,6 +1,6 @@
 /*
  * COLORS
- * Link => 64a006
+ * Link => #406704;
  * 
  * 
  *
@@ -72,9 +72,18 @@ h2 {
 	margin: 0;
 }
 
+h3 {
+	font-size: 14px;
+}
+
 input {
 	font-family: "lucida grande", Tahoma, sans-serif;
 	font-size: 12px;
+	size: 25;
+}
+
+input.title {
+	
 }
 
 textarea {

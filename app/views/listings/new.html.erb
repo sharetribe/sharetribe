@@ -1,25 +1,48 @@
 <%= render :partial => "listings/breadcrumb" %>
 
+<h3><%= flash[:notice] %></h3>
+
 <% if @listing %>
 <div id="add_listing_form">
+<div id="form_error_messages">
 <%= error_messages_for 'listing' %>
+</div>
+<% error_class = "" %>
+<% @listing.errors.full_messages.each do |message| %>
+  <% if message.include? "Language" %>
+    <% error_class = "fieldWithErrors" %>
+  <% end %> 
+<% end %>
 <% form_for @listing do |f| %>
 <table class="form">
   <tr>
-    <td><%= t(:listing_title) %></td>
-    <td><%= f.text_field :title %></td>
+    <td><b><%= t(:title) %>:</b></td>
+    <td><%= f.text_field :title, :size => 80 %></td>
   </tr>
   <tr>
-    <td><%= t(:listing_content) %></td>
+    <td><b><%= t(:content) %>:</b></td>
     <td><%= f.text_area :content %></td>
   </tr>
   <tr>
-    <td><%= t(:listing_language) %></td>
-    <td><%= f.text_field :language %></td>
+    <td><b><%= t(:language) %>:</b></td>
+    <td>
+      <div class="<%= error_class %>">  
+      <table>
+        <tr>
+          <td><%= f.check_box :language_fi %></td>
+          <td><%= t(:fi) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><%= f.check_box :language_en %></td>
+          <td><%= t(:en) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+          <td><%= f.check_box :language_swe %></td>
+          <td><%= t(:swe) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+      </table>
+      </div>  
+    </td>  
   </tr>
   <tr>
-    <td><%= t(:listing_good_thru) %></td>
-    <td><%= f.text_field :good_thru %></td>
+    <td><b><%= t(:good_thru) %>:</b></td>
+    <td><%= f.text_field :good_thru, :size => "20" %> <%= t(:good_thru_format) %> </td>
   </tr>
   <%= f.hidden_field :status, :value => "open" %>
   <%= f.hidden_field :author_id, :value => "TeemuT" %>
@@ -34,6 +57,7 @@
     <td><%= submit_tag %></td>    
   </tr>
 </table>
+
 <% end %>
 </div>
 <% else %>

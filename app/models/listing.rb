@@ -32,19 +32,12 @@ class Listing < ActiveRecord::Base
   validates_numericality_of :times_viewed, :value_cc, :only_integer => true, :allow_nil => true
   
   validate :given_language_is_one_of_valid_languages
-  validate :language_not_empty
-  
+
   def given_language_is_one_of_valid_languages
     unless language.nil?
       language.each do |test_language|
         errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
       end
-    end  
-  end
-  
-  def language_not_empty
-    unless language.nil?
-      errors.add(:language, "should not be empty") if language.empty?
     end  
   end
 

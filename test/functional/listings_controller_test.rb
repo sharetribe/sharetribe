@@ -35,7 +35,8 @@ class ListingsControllerTest < ActionController::TestCase
       :good_thru => DateTime.now+(2),
       :times_viewed => 32,
       :status => "open",
-      :language => ["fi", "swe"],
+      :language_fi => 1,
+      :language_swe => 1,
       :value_cc => "8",
       :value_other => "Oravannahkoja"
     }

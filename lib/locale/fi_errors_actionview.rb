@@ -46,7 +46,7 @@ I18n.backend.store_translations :'fi', {
   },
   :active_record => {
     :error => {
-      :header_message => ["Yksi virhe esti {{object_name}} tallentamisen", "{{count}} virhettä estivät {{object_name}} tallentamisen"],
+      :header_message => ["Yksi virhe esti tallentamisen", "{{count}} virhettä esti tallentamisen"],
       :message => "Seuraavissa kentissä oli ongelmia:"
     }
   }

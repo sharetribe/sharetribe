@@ -348,6 +348,10 @@ div.category a span {
 	margin-bottom: 20px;
 }
 
+#form_error_messages {
+	padding: 5px;
+}
+
 /* 
  * A push of same height than the footer is needed in 
  * order to keep the footer in the bottom of the page.
