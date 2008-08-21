@@ -8,7 +8,9 @@ valid_listing:
   good_thru: <%=DateTime.now+2%>
   times_viewed: 34
   status: "open"
-  language: "fi"
+  language:
+    - fi
+    - swe
   value_cc: 13
   value_other: "viiniä"
 
@@ -20,6 +22,8 @@ another_valid_listing:
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 22
   status: "in-progress"
-  language: "swe"
+  language: 
+    - en-US
+    - swe
   value_cc: 13
   value_other: "rahaa"
