@@ -19,6 +19,7 @@ class ListingsController < ApplicationController
       else
       end
     elsif (params[:category])
+      # TODO: Do this better, now doesn't work when new categories are added.
       if (["buy", "sell", "give"].include?(params[:category]))
         save_navi_state(['listings', 'browse_listings', 'marketplace', params[:category]])
       else
@@ -59,10 +60,31 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(params[:listing])
+    language = []
+    if (params[:listing][:language_fi].to_s.eql?('1'))
+      language << "fi"
+    end  
+    if (params[:listing][:language_en].to_s.eql?('1'))
+      language << "en-US"
+    end
+    if (params[:listing][:language_swe].to_s.eql?('1'))
+      language << "swe"
+    end
+    # date_array = params[:listing][:good_thru].split(".")
+    # date_string = date_array[2] + "-" + date_array[1] + "-" + date_array[0]
+    # @listing.good_thru = date_string
+    @listing.language = language
     if @listing.save
       flash[:notice] = 'Ilmoitus lisätty.'
       redirect_to listings_path
     else
+      # TODO: Do this better, now doesn't work when new categories are added.
+      if (["buy", "sell", "give"].include?(params[:listing][:category]))
+        params[:category] = "marketplace"
+        params[:subcategory] = params[:listing][:category]
+      else
+        params[:category] = params[:listing][:category]
+      end
       render :action => "new"
     end
   end
@@ -72,5 +94,9 @@ class ListingsController < ApplicationController
         :order => 'created_at DESC',
         :conditions => conditions
   end
+
+  def edit_create_parameters(params)
+    
+  end  
 
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080821103835) do
+ActiveRecord::Schema.define(:version => 20080821105542) do
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"

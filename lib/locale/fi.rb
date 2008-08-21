@@ -53,9 +53,20 @@ I18n.store_translations 'fi',
 :others => "Muut",
 
 #Listings view
+:listing => "ilmoitus",
 :all_listings => "Kaikki ilmoitukset",
 :own_listings => "Omat ilmoitukset",
 :interesting_listings => "Kiinnostavat ilmoitukset",
+
+#Create new listing form
+:add_new_listing => "Lisää uusi ilmoitus",
+:select_category => "Valitse kategoria",
+:select_sub_category => "Valitse alakategoria",
+:title => "Otsikko",
+:content => "Sisältö",
+:language => "Kieli",
+:good_thru => "Voimassa",
+:good_thru_format => "asti (muodossa VVVV.KK.PP)",
 
 #Items view
 :search_items_title => "Etsi tavaroita",
@@ -68,7 +79,4 @@ I18n.store_translations 'fi',
 :help => "Ohjeet",
 :terms => "Käyttöehdot",
 :forum => "Foorumi",
-:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='www.sizl.org'>OtaSizzlen</a> palveluista.",
-
-#sdf
-:listing => "Ilmoitus"
+:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='www.sizl.org'>OtaSizzlen</a> palveluista."
