@@ -17,7 +17,7 @@ class Listing < ActiveRecord::Base
   has_many :messages
   belongs_to :person
   
-  #attr_accessor :language_fi, :language_en, :language_swe
+  attr_accessor :language_fi, :language_en, :language_swe
   
   validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language
 
@@ -36,17 +36,17 @@ class Listing < ActiveRecord::Base
   validate :language_not_empty
   
   def given_language_is_one_of_valid_languages
-    unless language == nil
+    unless language.nil?
       language.each do |test_language|
         errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
       end
-    end
+    end  
   end
   
   def language_not_empty
-    if language != nil
+    unless language.nil?
       errors.add(:language, "should not be empty") if language.empty?
-    end
+    end  
   end
-    
+
 end
