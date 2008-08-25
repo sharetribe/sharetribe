@@ -3,6 +3,12 @@ class Listing < ActiveRecord::Base
   has_many :messages
   has_many :comments
   
+  has_many :read_listings
+  has_many :persons, :through => :read_listings
+  
+  has_many :interesting_listings
+  has_many :persons, :through => :interesting_listings
+  
   serialize :language, Array
   
   #Options for status
