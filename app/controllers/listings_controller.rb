@@ -20,10 +20,11 @@ class ListingsController < ApplicationController
       end
     elsif (params[:category])
       # TODO: Do this better, now doesn't work when new categories are added.
-      if (["buy", "sell", "give"].include?(params[:category]))
-        save_navi_state(['listings', 'browse_listings', 'marketplace', params[:category]])
-      else
-        save_navi_state(['listings', 'browse_listings', params[:category], ''])
+      save_navi_state(['listings', 'browse_listings', params[:category], ''])
+      Listing::MAIN_CATEGORIES.each do |main_category|
+        if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:category])
+          save_navi_state(['listings', 'browse_listings', main_category, params[:category]]) 
+        end
       end
       @title = params[:category]
       if (params[:category].eql?("all_categories"))
@@ -43,6 +44,10 @@ class ListingsController < ApplicationController
   def show
     save_navi_state(['listings', 'browse_listings'])
     @listing = Listing.find(params[:id])
+    @listing.times_viewed += 1 
+    @listing.save
+    @next_listing = Listing.find(:first, :conditions => ["created_at > ?", @listing.created_at]) || @listing
+    @previous_listing = Listing.find(:last, :conditions => ["created_at < ?", @listing.created_at]) || @listing
   end
 
   def search
@@ -87,16 +92,10 @@ class ListingsController < ApplicationController
       end
       render :action => "new"
     end
-  end
-
-  def fetch_listings(conditions)
-    @listings = Listing.find :all,
-        :order => 'created_at DESC',
-        :conditions => conditions
-  end
+  end 
 
   def edit_create_parameters(params)
-    
+
   end  
 
 end

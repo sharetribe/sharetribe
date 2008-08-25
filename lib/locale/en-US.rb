@@ -64,6 +64,7 @@ I18n.store_translations 'en-US',
 :others_description => "all other listings",
 
 #Listings view
+:listing => "listing",
 :all_listings => "All listings",
 :own_listings => "Own listings",
 :interesting_listings => "Interesting listings",
@@ -81,6 +82,7 @@ I18n.store_translations 'en-US',
 :content => "Content",
 :language => "Language",
 :good_thru => "Good thru",
+:good_thru_format => "(YYYY-MM-DD)",
 
 #Items view
 :search_items_title => "Search items",

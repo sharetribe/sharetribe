@@ -1,7 +1,7 @@
 <%= render :partial => "listings/breadcrumb" %>
 
 <% if params[:category] %>
-  <%= render :partial => "listings/category", :collection => get_sub_categories(params[:category]) %>
+  <%= render :partial => "listings/category", :collection => Listing.get_sub_categories(params[:category]) %>
 <% else%>
-  <%= render :partial => "listings/category", :collection => get_main_categories %>
+  <%= render :partial => "listings/category", :collection => Listing::MAIN_CATEGORIES %>
 <% end %>

@@ -1,2 +1,74 @@
-<h1><%= @listing.title %></h1>
-<p><%= @listing.content %></p>
+<div id="title_with_border">
+  <div class="arrow_left">
+    <a href="/listings/<%= @previous_listing.id.to_s %>">
+      <img alt="Previous" src="/images/arrow_left.png"
+      onmouseover="this.src='/images/arrow_left_hilight.png';"
+      onmouseout="this.src='/images/arrow_left.png';" />
+    </a>
+  </div>
+  <div id="title_div">
+    <h1 class="no_border">
+      <% if (@listing.title.length > 38 && !@listing.title.include?(" "))%>
+        <%= @listing.title.slice!(0..38) + "..." %>
+      <% else %>
+        <%= @listing.title %>
+      <% end %>
+    </h1>
+  </div>
+  <div class="arrow_right">
+    <a href="/listings/<%= @next_listing.id.to_s %>">
+      <img alt="Next" src="/images/arrow_right.png"
+      onmouseover="this.src='/images/arrow_right_hilight.png';"
+      onmouseout="this.src='/images/arrow_right.png';" />
+    </a>
+  </div>
+</div>
+<div id="basic_content">
+  <table class="no_padding">
+    <tr>
+      <td>
+        <b><%= t(:author) %>: </b>
+      </td>
+      <td>
+        <i><%= link_to(@listing.author_id, "/people/" + @listing.author_id.to_s) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= t(:good_thru) %>: &nbsp;
+      </td>
+      <td>
+        </b><%= @listing.good_thru.to_formatted_s(:basic_date_format) %> asti
+      </td>
+    </tr>
+  </table>
+  <p><%= @listing.content %></p>
+  <br />
+  <%= link_to("Vastaa ilmoitukseen","#") %> | <%= link_to("Merkitse kiinnostavaksi","#") %>
+  <br /><br />
+  
+  <% unless flash[:notice].blank? %>
+    <div id="notification">
+      <%= t(flash[:notice]) %>
+    </div>
+  <% end %>
+  
+  <% form_for :listing_comment, :url => listing_listing_comments_path(@listing) do |f| %>
+    <b>Kommentoi ilmoitusta:</b><br />
+    <%= f.text_area :content, :size => "60x5" %>
+    <br /><br />
+    <%= f.hidden_field :author_id, :value => session[:person_id] %>
+    <%= f.hidden_field :listing_id, :value => @listing.id %>
+    <%= submit_tag t(:send_comment) %>
+  <% end %>
+  
+  <br /><br />
+  
+  <% if (@listing.comments.size > 0) %>
+    <h4><%= t(:comments) %></h4>
+    <table>
+      <%= render :partial => "listing_comments/listing_comment", :collection => @listing.comments %>
+    </table>
+  <% end %>  
+  
+</div>

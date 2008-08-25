@@ -1,7 +1,9 @@
 class Listing < ActiveRecord::Base
   
   has_many :messages
-  has_many :comments
+  has_many :comments, :class_name => "ListingComment"
+  
+  belongs_to :person
   
   has_many :read_listings
   has_many :persons, :through => :read_listings
@@ -17,11 +19,11 @@ class Listing < ActiveRecord::Base
   #allowed language codes
   VALID_LANGUAGES = ["fi", "swe", "en-US"]
   
+  # Categories that can be assigned to a listing.
   VALID_CATEGORIES = ["borrow_items", "lost_property", "rides", "groups", "favors", "others", "sell", "buy", "give"]
-  
-  has_many :comments
-  has_many :messages
-  belongs_to :person
+
+  # Main categories (only those that don's contain sub categories are valid listing categories.)
+  MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
 
   attr_accessor :language_fi, :language_en, :language_swe
   
@@ -44,6 +46,21 @@ class Listing < ActiveRecord::Base
       language.each do |test_language|
         errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
       end
+    end  
+  end
+  
+  # Overrides the to_param method to implement clean URLs
+  def to_param
+    "#{id}-#{title.gsub(/\W/, '-').downcase}"
+  end
+  
+  # Get sub categories for a category.
+  def self.get_sub_categories(main_category)
+    case main_category
+    when "marketplace"
+      ['sell', 'buy', 'give']
+    else
+      nil
     end  
   end
 
