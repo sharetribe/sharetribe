@@ -257,7 +257,22 @@ div.link_selected {
 	width: 960px;
 }
 
-#listing_header {
+#listings {
+	clear: both;
+}
+
+#listings_header {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#listings_header_links_left {
+	float: left;
+	margin-bottom: 20px;
+}
+
+#listings_header_links_right {
+	float: right;
 	margin-bottom: 20px;
 }
 
@@ -347,6 +362,7 @@ div.category a span {
 #basic_content {
   padding: 15px 10px;
 }
+
 
 /* 
  * A push of same height than the footer is needed in 

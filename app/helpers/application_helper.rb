@@ -93,4 +93,8 @@ module ApplicationHelper
     return navi_items 
   end
   
+  def show_listings
+  
+  end
+  
 end
