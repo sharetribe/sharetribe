@@ -70,14 +70,10 @@ module ApplicationHelper
       navi_items[:own_listings_navi] = "/people/" + session[:person_id].to_s + "/listings/own"
       navi_items[:interesting] = "/people/" + session[:person_id].to_s + "/listings/interesting"
     when 'browse_listings'
-      navi_items[:all_categories] = "/listings/categories/all_categories" 
-      navi_items[:marketplace] = "/listings/categories/marketplace"
-      navi_items[:borrow_items] = "/listings/categories/borrow_items"
-      navi_items[:lost_property] = "/listings/categories/lost_property"
-      navi_items[:rides] = "/listings/categories/rides"
-      navi_items[:groups] = "/listings/categories/groups"
-      navi_items[:favors] = "/listings/categories/favors"
-      navi_items[:others] = "/listings/categories/others"
+      navi_items[:all_categories] = "/listings/categories/all_categories"
+      Listing::MAIN_CATEGORIES.each do |category|
+        navi_items[category] = "/listings/categories/#{category}"
+      end   
     else
       navi_items = nil
     end 
@@ -87,11 +83,10 @@ module ApplicationHelper
   # Returns hash containing link names and urls for left "sub sub" navigation.
   def get_sub_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
-    case navi_type
-    when 'marketplace'
-      navi_items[:sell] = "/listings/categories/sell" 
-      navi_items[:buy] = "/listings/categories/buy" 
-      navi_items[:give] = "/listings/categories/give" 
+    if (Listing.get_sub_categories(navi_type))
+      Listing.get_sub_categories(navi_type).each do |category|
+        navi_items[category] = "/listings/categories/#{category}"
+      end   
     else
       navi_items = nil
     end 

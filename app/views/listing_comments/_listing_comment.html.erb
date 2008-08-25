@@ -1,0 +1,31 @@
+<tr>
+  <td>
+    <table class="comment_in">
+      <tr>  
+        <td> 
+          <div class="listing_image">
+            <img src="/images/teemu_t.jpg" alt="<%= listing_comment.author_id %>" width="50" height="50">
+          </div>
+        </td>
+        <td>
+          <table class="listing_inner comment_main">
+            <tr>
+              <td>
+                <%= listing_comment.content %>
+              </td>
+            </tr>  
+            <tr>
+              <td>
+                <i>
+                  <br />
+                  Kommentin jättänyt <%= link_to(listing_comment.author_id,"/people/" + listing_comment.author_id.to_s) %> 
+                  <%= listing_comment.created_at.to_formatted_s(:basic_date_format_minutes) %>
+                </i>  
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>

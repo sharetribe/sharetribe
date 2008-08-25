@@ -11,7 +11,9 @@
 <h1><%= t(@title) %></h1>
 
 <% if (@listings.size > 0)%>
+  <table class="listing">
   <%= render :partial => @listings %>
+  </table>
 <% else %>
   <h3>Ei yhtään ilmoitusta!
 <% end %>

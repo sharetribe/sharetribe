@@ -6,7 +6,7 @@
   <% if params[:subcategory] %>
     <%= link_to(t(params[:category]), "/listings/add") + " > " + link_to(t(params[:subcategory]), "/listings/add?category=" + params[:category]) + " > " + t(:listing_text)  %>
   <% else %>
-    <% if (get_sub_categories(params[:category])) %>
+    <% if (Listing.get_sub_categories(params[:category])) %>
       <%= link_to(t(params[:category]), "/listings/add") + " > " + t(:select_sub_category) %>
     <% else %>
       <%= link_to(t(params[:category]), "/listings/add") + " > " + t(:listing_text) %>

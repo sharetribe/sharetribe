@@ -77,7 +77,6 @@
 	margin: 0px;
 	width: 229px;
 	height: 125px;
-	background: url(../images/kassi_logo_smaller-trans.png) no-repeat;
 }
 
 #search_and_navi_container {
@@ -262,41 +261,34 @@ div.link_selected {
 	margin-bottom: 20px;
 }
 
-div.listing {
-	position: relative;
-	width: 728px;
-	height: 63px;
-	margin: 9px 0;
-	border-bottom: 2px dotted #666;
-}
-
 div.listing_image {
-	position: absolute;
-	left: 6px;
+	float: left;
+	margin-left: 6px;
 	width: 50px;
-	height: 51px;
-	background: url(../images/teemu_t.jpg) no-repeat;
+	height: 50px;
 }
 
-div.listing_text_left {
-	position: absolute;
-	top: -10px;
-	left: 70px;
-	width: 400px;
-	height: 51px;
+#title_with_border {
+	border-bottom: 1px solid #000;
+	height: 25px;
+	width: 100%;
 }
 
-div.listing_text_left h3 a {
-	font-size: 16px;
-	text-decoration: none;
+div.arrow_left {
+	width: 30px;
+	padding-top: 5px;
+	float: left;
 }
 
-div.listing_text_right {
-	top: -2px;
-	position: absolute;
-	left: 500px;
-	width: 250px;
-	height: 51px;
+div.arrow_right {
+	width: 20px;
+	padding-top: 6px;
+	float: left;
+}
+
+#title_div {
+	width: 680px;
+	float: left;
 }
 
 #add_listing_form {
@@ -350,6 +342,10 @@ div.category a span {
 
 #form_error_messages {
 	padding: 5px;
+}
+
+#basic_content {
+  padding: 15px 10px;
 }
 
 /* 

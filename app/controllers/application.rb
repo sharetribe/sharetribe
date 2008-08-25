@@ -27,6 +27,13 @@ class ApplicationController < ActionController::Base
   def clear_navi_state
     session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = nil
   end
+  
+  # Fetch listings based on conditions
+  def fetch_listings(conditions)
+    @listings = Listing.find :all,
+        :order => 'created_at DESC',
+        :conditions => conditions
+  end
 
   private 
 
