@@ -36,16 +36,6 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
- 
-  map.connect '/favors/search', :controller => 'favors', 
-                                  :action => 'search', 
-                                  :format => 'html', 
-                                  :conditions => { :method => :get }
-   
-    map.connect '/items/search', :controller => 'items', 
-                                 :action => 'search', 
-                                 :format => 'html', 
-                                 :conditions => { :method => :get }
    
     map.connect '/listings/add/:category', :controller => 'listings', 
                                   :action => 'new_category', 
@@ -55,76 +45,28 @@ ActionController::Routing::Routes.draw do |map|
     map.connect '/listings/add/', :controller => 'listings', 
                                   :action => 'new_category', 
                                   :format => 'html', 
-                                  :conditions => { :method => :get }
-                                            
-    map.connect '/listings/search', :controller => 'listings', 
-                                    :action => 'search', 
-                                    :format => 'html', 
-                                    :conditions => { :method => :get }
-   
-    map.connect '/listings/categories/:category', :controller => 'listings', 
-                                                  :action => 'index', 
-                                                  :format => 'html', 
-                                                  :conditions => { :method => :get }
-                                                                                  
-    map.connect '/people/:id/contacts', :controller => 'contacts', 
-                                        :action => 'index', 
-                                        :format => 'html', 
-                                        :conditions => { :method => :get }
-   
-    map.connect '/people/:id/friends', :controller => 'friends', 
-                                       :action => 'index', 
-                                       :format => 'html', 
-                                       :conditions => { :method => :get }
-    
-    map.connect '/people/logout', :controller => 'people', 
-                                  :action => 'logout', 
-                                  :format => 'html', 
-                                  :conditions => { :method => :get }
-  
-    map.connect '/people/login', :controller => 'people', 
-                                 :action => 'login', 
-                                 :format => 'html', 
-                                 :conditions => { :method => :get }
-  
-    map.connect '/people/:id/inbox', :controller => 'messages', 
-                                     :action => 'index', 
-                                     :format => 'html', 
-                                     :conditions => { :method => :get }
-    
-    map.connect '/people/:id/settings', :controller => 'settings', 
-                                        :action => 'index', 
-                                        :format => 'html', 
-                                        :conditions => { :method => :get }
-            
-    map.connect '/people/:id/purse', :controller => 'purses', 
-                                     :action => 'index', 
-                                     :format => 'html', 
-                                     :conditions => { :method => :get }         
-                                                                                            
-    map.connect '/people/:id/profile', :controller => 'profiles', 
-                                       :action => 'index', 
-                                       :format => 'html', 
-                                       :conditions => { :method => :get }
-                                  
-    map.connect '/people/:id/listings/:type', :controller => 'listings', 
-                                              :action => 'index', 
-                                              :format => 'html', 
-                                              :conditions => { :method => :get }
-  
-    map.connect '/people/search', :controller => 'people', 
-                                  :action => 'search', 
-                                  :format => 'html', 
-                                  :conditions => { :method => :get }
+                                  :conditions => { :method => :get }                                                                                                                             
 
-  map.resources :favors                            
-  map.resources :listings, :has_many => :listing_comments
-  map.resources :people
-  map.resources :items
+  map.resource :session
+  map.resources :favors, :collection => { :search => :get }                            
+  map.resources :listings, :collection => { :search => :get } do |listing|
+    listing.resources :listing_comments 
+    listing.resources :categories, :path_prefix => '/listings'
+  end  
+  map.resources :people, :collection => { :search => :get } do |person|
+    person.resource :profile
+    person.resources :inbox, :controller => :messages
+    person.resource :purse
+    person.resource :settings
+    person.resources :friends
+    person.resources :contacts
+    person.resources :listings, :collection => {:all => :get, :own => :get, :interesting => :get}
+  end  
+  map.resources :items, :collection => { :search => :get }
+  
+  map.root :controller => "listings"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  
-  map.root :controller => "listings"
   
 end

@@ -2,44 +2,30 @@ class ListingsController < ApplicationController
 
   def index
     save_navi_state(['listings', 'browse_listings', 'all_categories'])
-    if (params[:type])
-      case params[:type]
-      when "all"
-        @title = :all_listings
-        save_navi_state(['own', 'listings', 'all'])
-        fetch_listings('')
-      when "interesting"
-        @title = :interesting_listings
-        save_navi_state(['own', 'listings', 'interesting'])
-        fetch_listings('')
-      when "own"
-        @title = :own_listings
-        save_navi_state(['own', 'listings', 'own_listings_navi'])
-        fetch_listings("author_id = '" + session[:person_id].to_s + "'")
-      else
-      end
-    elsif (params[:category])
-      # TODO: Do this better, now doesn't work when new categories are added.
-      save_navi_state(['listings', 'browse_listings', params[:category], ''])
-      Listing::MAIN_CATEGORIES.each do |main_category|
-        if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:category])
-          save_navi_state(['listings', 'browse_listings', main_category, params[:category]]) 
-        end
-      end
-      @title = params[:category]
-      if (params[:category].eql?("all_categories"))
-        fetch_listings('')
-      elsif (params[:category].eql?("marketplace"))
-        fetch_listings("category = 'sell' OR category = 'buy' OR category = 'give'")
-      else  
-        fetch_listings("category = '" + params[:category] + "'")
-      end
-    else
-      save_navi_state(['listings', 'browse_listings', 'all_categories'])
-      @title = :all_listings
-      fetch_listings('')   
-    end
+    @title = :all_categories
+    fetch_listings('')
   end
+
+  def all
+    @title = :all_listings
+    save_navi_state(['own', 'listings', 'all'])
+    fetch_listings('')
+    render :action => "index"
+  end
+
+  def interesting
+    @title = :interesting_listings
+    save_navi_state(['own', 'listings', 'interesting'])
+    fetch_listings('')
+    render :action => "index"
+  end
+  
+  def own
+    @title = :own_listings
+    save_navi_state(['own', 'listings', 'own_listings_navi'])
+    fetch_listings("author_id = '" + session[:person_id].to_s + "'")
+    render :action => "index"
+  end  
 
   def show
     save_navi_state(['listings', 'browse_listings'])

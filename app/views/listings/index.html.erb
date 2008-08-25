@@ -1,7 +1,13 @@
-<div id="listing_header">
-  <%= t(:show_read_and_unread_listings) %> <a href="#">1 <%= t(:show_unread_single_listing) %></a> | <%= t(:show_all_listings) %>
+<div id="listings_header">
+  <div id="listings_header_links_left">
+    <%= t(:show_read_and_unread_listings) %> <a href="#">1 <%= t(:show_unread_single_listing) %></a> | <%= t(:show_all_listings) %>
+  </div>
+  <div id="listings_header_links_right">
+    <a href="#"><%= t(:mark_all_as_read) %></a>
+  </div>  
 </div>  		
 
+<div id="listings">
 <% unless flash[:notice].blank? %>
   <div id="notification">
     <%= flash[:notice] %>
@@ -17,3 +23,4 @@
 <% else %>
   <h3>Ei yhtään ilmoitusta!
 <% end %>
+</div>

@@ -1,5 +1,5 @@
 class SettingsController < ApplicationController
-  def index
+  def show
     save_navi_state(['own','settings'])
   end
 end

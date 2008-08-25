@@ -81,6 +81,7 @@ I18n.store_translations 'fi',
 :comments => "Kommentit",
 :comment_added => "Kommentti lisätty",
 :send_comment => "Lähetä kommentti",
+:mark_all_as_read => "Merkitse kaikki luetuiksi",
 
 #Listing statuses
 :open => "Avoinna",
@@ -96,6 +97,7 @@ I18n.store_translations 'fi',
 :language => "Kieli",
 :good_thru => "Voimassa",
 :good_thru_format => "asti (muodossa VVVV-KK-PP)",
+:add_listing_submit => "Lisää ilmoitus",
 
 #Items view
 :search_items_title => "Etsi tavaroita",

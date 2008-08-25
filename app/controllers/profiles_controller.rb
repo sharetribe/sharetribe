@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  def index
+  def show
     save_navi_state(['own','profile'])
   end
 end
