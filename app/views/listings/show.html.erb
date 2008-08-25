@@ -59,7 +59,7 @@
     <br /><br />
     <%= f.hidden_field :author_id, :value => session[:person_id] %>
     <%= f.hidden_field :listing_id, :value => @listing.id %>
-    <%= submit_tag t(:send_comment) %>
+    <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
   
   <br /><br />

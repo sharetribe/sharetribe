@@ -29,5 +29,9 @@ class ListingCommentTest < ActiveSupport::TestCase
     assert !comment.valid?
 
   end
+  
+  def test_listing_association
+    assert_equal listings(:valid_listing), listing_comments(:another_comment).listing
+  end  
 
 end

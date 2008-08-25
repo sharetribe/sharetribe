@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class ListingCommentsControllerTest < ActionController::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  
+  def test_accept_comment
+    assert listings(:another_valid_listing).comments.empty?
+    post :create, :listing_id => listings(:another_valid_listing)
+    assert ! assigns(:listing).comments.empty?
   end
+  
 end

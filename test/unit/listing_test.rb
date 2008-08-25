@@ -215,4 +215,9 @@ class ListingTest < ActiveSupport::TestCase
      assert !listing_category_invalid.valid?
    end
  
+   def test_comments_association
+     assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
+     listings(:valid_listing).comments    
+   end   
+ 
 end

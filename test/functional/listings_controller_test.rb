@@ -57,4 +57,11 @@ class ListingsControllerTest < ActionController::TestCase
     assert assigns(:listing).errors.on(:language)
   end
   
+  def test_show_listing
+    get :show, :id => listings(:valid_listing)
+    assert_response :success
+    assert_template 'show'
+    assert_equal listings(:valid_listing), assigns(:listing)
+  end
+  
 end
