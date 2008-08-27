@@ -1,15 +1,17 @@
 class Session < ActiveResource::Base
  
+  #URL for Common Services
+  #COS_URL = "http://cos.sizl.org"
+  COS_URL = "http://maps.cs.hut.fi/cos"
+  COS_TIMEOUT = 8
 
   attr_accessor :username
   attr_accessor :password
   attr_reader   :headers
  
-  self.site = "http://cos.sizl.org"
-  #self.site = "http://maps.cs.hut.fi/cos"
-  
+  self.site = COS_URL
   self.format = :json 
-  self.timeout = 5
+  self.timeout = COS_TIMEOUT
   @@app_password = "Xk4z5iZ"
   @@app_name = "kassi"
   @username
@@ -32,7 +34,6 @@ class Session < ActiveResource::Base
   #     "#{prefix(prefix_options)}#{collection_name}#{simplify_parameters(query_string(query_options))}?app_name=kassi&app_password=Xk4z5iZ"
   #   end
   #end
-
   
   def self.login(params = {})
     session = new
@@ -44,8 +45,10 @@ class Session < ActiveResource::Base
   
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
+    #puts "DESTROYING SESSION WITH COOKIE = "  + cookie
     connection.delete("#{prefix}#{element_name}", deleting_headers)
   end
+  
   
   #this is added to class methods to get access to private method query_string
   def self.to_query_string(params)
@@ -60,8 +63,9 @@ class Session < ActiveResource::Base
     params[:password] = @password if @password
     params.update({:app_name => @@app_name, :app_password => @@app_password})
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}#{self.class.to_query_string(params)}")
-    #puts @headers["Cookie"]
+    
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
+    #puts "OPENED SESSION WITH COOKIE = "  + @headers["Cookie"]
   end
   
   def check
@@ -72,6 +76,7 @@ class Session < ActiveResource::Base
   end
    
   def destroy
-    connection.delete("#{self.class.prefix}#{self.class.element_name}", @headers)
+    Session.destroy(@headers["Cookie"])
+    #connection.delete("#{self.class.prefix}#{self.class.element_name}", @headers)
   end
 end

@@ -35,4 +35,21 @@ class Test::Unit::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+  
+  def log_application_in
+    post "session" 
+  end
+  
+  def log_out
+    #Session.destroy(@request.session[:cookie])
+    delete "session"
+  end
+  
+  def generate_random_username(length = 12)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    random_username = "aaaTest"
+    1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
+    return random_username
+  end
+  
 end
