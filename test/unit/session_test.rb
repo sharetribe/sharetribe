@@ -9,7 +9,7 @@ class SessionTest < ActiveSupport::TestCase
     resp = s.destroy
     assert_equal(resp.class, Net::HTTPOK)
   end
-  
+
   def test_create_user_session
     s = Session.login( {:username => "testguy", :password => "t3xxzs5"})
     resp = s.get("")
