@@ -45,7 +45,7 @@ module ApplicationHelper
     when 'listings'
       navi_items[:browse_listings] = "/listings/categories/all_categories"
       navi_items[:search_listings] = "/listings/search"
-      navi_items[:add_listing] = "/listings/add"
+      navi_items[:add_listing] = "/listings/new"
     when 'items'
       navi_items[:browse_items] = "/items"
       navi_items[:search_items] = "/items/search"

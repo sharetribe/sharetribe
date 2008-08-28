@@ -283,6 +283,20 @@ div.listing_image {
 	height: 50px;
 }
 
+#listing_content {
+	float: left;
+	width: 375px;
+}
+
+#listing_image {
+	float: right;
+	width: 300px;
+}
+
+#listing_comments {
+	clear: both;
+}
+
 #title_with_border {
 	border-bottom: 1px solid #000;
 	height: 25px;

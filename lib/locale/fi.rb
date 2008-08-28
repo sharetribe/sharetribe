@@ -82,6 +82,7 @@ I18n.store_translations 'fi',
 :comment_added => "Kommentti lisätty",
 :send_comment => "Lähetä kommentti",
 :mark_all_as_read => "Merkitse kaikki luetuiksi",
+:image => "Kuva",
 
 #Listing statuses
 :open => "Avoinna",

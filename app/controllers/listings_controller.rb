@@ -19,7 +19,7 @@ class ListingsController < ApplicationController
     fetch_listings('')
     render :action => "index"
   end
-  
+
   def own
     @title = :own_listings
     save_navi_state(['own', 'listings', 'own_listings_navi'])
@@ -30,18 +30,13 @@ class ListingsController < ApplicationController
   def show
     save_navi_state(['listings', 'browse_listings'])
     @listing = Listing.find(params[:id])
-    @listing.times_viewed += 1 
-    @listing.save
+    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
     @next_listing = Listing.find(:first, :conditions => ["created_at > ?", @listing.created_at]) || @listing
     @previous_listing = Listing.find(:last, :conditions => ["created_at < ?", @listing.created_at]) || @listing
   end
 
   def search
     save_navi_state(['listings', 'search_listings', ''])
-  end
-
-  def new_category
-    save_navi_state(['listings', 'add_listing', ''])
   end
 
   def new
@@ -52,36 +47,23 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(params[:listing])
     language = []
-    if (params[:listing][:language_fi].to_s.eql?('1'))
-      language << "fi"
-    end  
-    if (params[:listing][:language_en].to_s.eql?('1'))
-      language << "en-US"
-    end
-    if (params[:listing][:language_swe].to_s.eql?('1'))
-      language << "swe"
-    end
-    # date_array = params[:listing][:good_thru].split(".")
-    # date_string = date_array[2] + "-" + date_array[1] + "-" + date_array[0]
-    # @listing.good_thru = date_string
+    language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
+    language << "en-US" if (params[:listing][:language_en].to_s.eql?('1'))
+    language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     if @listing.save
       flash[:notice] = 'Ilmoitus lisätty.'
       redirect_to listings_path
     else
-      # TODO: Do this better, now doesn't work when new categories are added.
-      if (["buy", "sell", "give"].include?(params[:listing][:category]))
-        params[:category] = "marketplace"
-        params[:subcategory] = params[:listing][:category]
-      else
-        params[:category] = params[:listing][:category]
+      params[:category] = params[:listing][:category]
+      Listing::MAIN_CATEGORIES.each do |main_category|
+        if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:listing][:category])
+          params[:category] = main_category.to_s
+          params[:subcategory] = params[:listing][:category] 
+        end
       end
       render :action => "new"
     end
   end 
-
-  def edit_create_parameters(params)
-
-  end  
 
 end
