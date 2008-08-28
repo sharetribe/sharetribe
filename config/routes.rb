@@ -35,21 +35,12 @@ ActionController::Routing::Routes.draw do |map|
 
   # See how all your routes lay out with "rake routes"
 
-  # Install the default routes as the lowest priority.
-   
-    map.connect '/listings/add/:category', :controller => 'listings', 
-                                  :action => 'new_category', 
-                                  :format => 'html', 
-                                  :conditions => { :method => :get }
-   
-    map.connect '/listings/add/', :controller => 'listings', 
-                                  :action => 'new_category', 
-                                  :format => 'html', 
-                                  :conditions => { :method => :get }                                                                                                                             
+  # Install the default routes as the lowest priority.                                                                                                                        
 
   map.resource :session
   map.resources :favors, :collection => { :search => :get }                            
   map.resources :listings, :collection => { :search => :get } do |listing|
+    listing.resource :image
     listing.resources :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'
   end  

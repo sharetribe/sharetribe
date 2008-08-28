@@ -27,6 +27,7 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_add_valid_listing
+    image = uploaded_file("Bison_skull_pile.png", "image/png")
     post :create, :listing => {
       :author_id => "Antti",
       :category => "sell",
@@ -37,8 +38,7 @@ class ListingsControllerTest < ActionController::TestCase
       :status => "open",
       :language_fi => 1,
       :language_swe => 1,
-      :value_cc => "8",
-      :value_other => "Oravannahkoja"
+      :image_file => image
     }
     assert ! assigns(:listing).new_record?
     assert_redirected_to listings_path
@@ -55,6 +55,26 @@ class ListingsControllerTest < ActionController::TestCase
     assert assigns(:listing).errors.on(:good_thru)
     assert assigns(:listing).errors.on(:status)
     assert assigns(:listing).errors.on(:language)
+  end
+  
+  def test_add_invalid_image_to_listing
+    image = uploaded_file("i_am_not_image.txt", "text/plain")
+    post :create, :listing => {
+      :author_id => "Antti",
+      :category => "sell",
+      :title => "Myydään alastomia oravoita",
+      :content => "Title says it all.",
+      :good_thru => DateTime.now+(2),
+      :times_viewed => 32,
+      :status => "open",
+      :language_fi => 1,
+      :language_swe => 1,
+      :image_file => image
+    }
+  end
+  
+  def test_delete_image_file
+    
   end
   
   def test_show_listing

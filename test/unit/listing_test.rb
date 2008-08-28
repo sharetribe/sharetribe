@@ -127,23 +127,7 @@ class ListingTest < ActiveSupport::TestCase
      listing_status_invalid.status = "testi_status"
      assert !listing_status_invalid.valid?
   
-   end
-  
-   #def test_language_validation
-   #  #test with valid language codes
-   #  listing_language_valid = listings(:valid_listing)
-   #
-   #  Listing::VALID_LANGUAGES.each do |valid_language|
-   #    listing_language_valid.language = valid_language
-   #    assert listing_language_valid.valid?
-   #  end
-  
-     #test with invalid language codes
-   #  listing_language_invalid = listings(:valid_listing)
-   #  listing_language_invalid.language = "moi"
-   #  assert !listing_language_invalid.valid?
-   #end
-  
+   end  
   
    def test_length_of_title
      listing_too_long_title = listings(:valid_listing)
@@ -218,6 +202,15 @@ class ListingTest < ActiveSupport::TestCase
    def test_comments_association
      assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
      listings(:valid_listing).comments    
-   end   
+   end
+   
+   def test_image_validation
+     listing = listings(:valid_listing)
+     listing.image_file = uploaded_file("Bison_skull_pile.png", "image/png")
+     assert listing.valid?
+     assert listing.write_image_to_file
+     listing.image_file = uploaded_file("i_am_not_image.txt", "text/plain")
+     assert !listing.valid?
+   end    
  
 end

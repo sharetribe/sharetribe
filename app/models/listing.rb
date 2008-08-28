@@ -1,4 +1,8 @@
 class Listing < ActiveRecord::Base
+
+  after_save :write_image_to_file
+  
+  after_destroy :delete_image_file
   
   has_many :messages
   has_many :comments, :class_name => "ListingComment"
@@ -13,6 +17,8 @@ class Listing < ActiveRecord::Base
   
   serialize :language, Array
   
+  attr_accessor :language_fi, :language_en, :language_swe
+  
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
   
@@ -25,12 +31,43 @@ class Listing < ActiveRecord::Base
   # Main categories (only those that don's contain sub categories are valid listing categories.)
   MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
 
-  attr_accessor :language_fi, :language_en, :language_swe
+  # Gets sub categories for a category.
+  def self.get_sub_categories(main_category)
+    case main_category
+    when "marketplace"
+      ['sell', 'buy', 'give']
+    else
+      nil
+    end  
+  end
+  
+  # Gets all categories that are valid for a single listing.
+  # Categories that have subcategories are not valid.
+  def self.get_valid_categories
+    valid_categories = ["borrow_items", "lost_property", "rides", "groups", "favors", "others", "sell", "buy", "give"]
+    MAIN_CATEGORIES.each do |category|
+      unless get_sub_categories(category)
+        valid_categories << category
+      end
+    end
+    return valid_categories
+  end  
+
+  # Image sizes
+  IMG_SIZE = '"300x240>"'
+  
+  # Image directories
+  if ENV["RAILS_ENV"] == "test"
+    URL_STUB = DIRECTORY = "tmp/test_images"
+  else
+    URL_STUB = "/images/listing_images"
+    DIRECTORY = File.join("public", "images", "listing_images")
+  end
   
   validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language
 
   validates_inclusion_of :status, :in => VALID_STATUS
-  validates_inclusion_of :category, :in => VALID_CATEGORIES
+  validates_inclusion_of :category, :in => get_valid_categories
   validates_inclusion_of :good_thru, :on => :create, :allow_nil => true, 
                          :in => DateTime.now..DateTime.now + 1.year
   
@@ -39,8 +76,9 @@ class Listing < ActiveRecord::Base
   
   validates_numericality_of :times_viewed, :value_cc, :only_integer => true, :allow_nil => true
   
-  validate :given_language_is_one_of_valid_languages
+  validate :given_language_is_one_of_valid_languages, :file_data_is_valid
 
+  # Makes sure that the all the languages given are valid.
   def given_language_is_one_of_valid_languages
     unless language.nil?
       language.each do |test_language|
@@ -54,14 +92,59 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  # Get sub categories for a category.
-  def self.get_sub_categories(main_category)
-    case main_category
-    when "marketplace"
-      ['sell', 'buy', 'give']
-    else
-      nil
-    end  
+  # Puts image file data in an instance variable.
+  def image_file=(file_data)
+    @file_data = file_data
+  end
+  
+  # Returns image filename.
+  def filename
+    File.join(DIRECTORY, self.id.to_s + ".png")
+  end
+  
+  # Converts image to right size and writes it to a PNG file.
+  # Filename is [LISTING_ID].png
+  def write_image_to_file
+    if (@file_data && !@file_data.size.zero?)
+      Dir.mkdir(DIRECTORY) unless File.directory?(DIRECTORY) 
+      # Prepare the filenames for the conversion.
+      source = File.join("tmp",self.id.to_s)
+      # Ensure that small and large images both work by writing to a normal file. 
+      # (Small files show up as StringIO, larger ones as Tempfiles.)
+      File.open(source, "wb") { |f| f.write(@file_data.read) }
+      # Convert the files.
+      img = system("#{'convert'} '#{source}' -resize #{IMG_SIZE} '#{filename}'")
+      # Delete temp file.
+      File.delete(source) if File.exists?(source)
+      # Conversion must succeed, else it's an error.
+      unless img
+        errors.add_to_base("File upload failed.  Try a different image?")
+        return false
+      end
+      return true
+    end
+  end
+  
+  # Deletes image file if listing is destroyed.
+  def delete_image_file
+    File.delete(filename) if File.exists?(filename)
+  end
+  
+  # Validates image if image data is given. Listing is also valid 
+  # without image, so no file data equals valid file data.
+  def file_data_is_valid
+    if @file_data
+      if @file_data.size.zero?
+        return true
+      elsif @file_data.content_type !~ /^image/
+        errors.add(:image_file, "is not a recognized format")
+        return false
+      elsif @file_data.size > 1.megabyte
+        errors.add(:image_file, "can't be bigger than 1 megabyte")
+        return false    
+      end
+    end
+    return true
   end
 
 end

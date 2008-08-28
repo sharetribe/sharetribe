@@ -23,7 +23,7 @@ class InsertMockListingsToDb < ActiveRecord::Migration
     }
     listing_data.each do |data|
       listing = Listing.create(data)
-    end    
+    end
   end
 
   def self.down

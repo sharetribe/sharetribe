@@ -52,4 +52,18 @@ class Test::Unit::TestCase
     return random_username
   end
   
+  def uploaded_file(filename, content_type)
+    t = Tempfile.new(filename)
+    t.binmode
+    path = RAILS_ROOT + "/test/fixtures/" + filename
+    FileUtils.copy_file(path, t.path)
+    (class << t; self; end).class_eval do
+      alias local_path path
+      define_method(:original_filename) {filename}
+      define_method(:content_type) {content_type}
+    end
+    return t
+  end
+  
+  
 end

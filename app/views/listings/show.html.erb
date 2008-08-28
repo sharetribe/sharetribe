@@ -24,6 +24,9 @@
   </div>
 </div>
 <div id="basic_content">
+  
+  <div id="listing_content">
+  
   <table class="no_padding">
     <tr>
       <td>
@@ -42,10 +45,11 @@
       </td>
     </tr>
   </table>
+   
   <p><%= @listing.content %></p>
   <br />
   <%= link_to("Vastaa ilmoitukseen","#") %> | <%= link_to("Merkitse kiinnostavaksi","#") %>
-  <br /><br />
+  <br /><br /><br />
   
   <% unless flash[:notice].blank? %>
     <div id="notification">
@@ -54,14 +58,22 @@
   <% end %>
   
   <% form_for :listing_comment, :url => listing_listing_comments_path(@listing) do |f| %>
-    <b>Kommentoi ilmoitusta:</b><br />
-    <%= f.text_area :content, :size => "60x5" %>
-    <br /><br />
+    <b>Kommentoi ilmoitusta:</b><br /><br />
+    <%= f.text_area :content, :size => "48x5" %>
+    <br />
     <%= f.hidden_field :author_id, :value => session[:person_id] %>
     <%= f.hidden_field :listing_id, :value => @listing.id %>
     <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
   
+  </div>
+
+  <div id="listing_image">
+    <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
+  </div>
+  
+  <div id="listing_comments">
+    
   <br /><br />
   
   <% if (@listing.comments.size > 0) %>
@@ -70,5 +82,7 @@
       <%= render :partial => "listing_comments/listing_comment", :collection => @listing.comments %>
     </table>
   <% end %>  
+  
+  </div>
   
 </div>

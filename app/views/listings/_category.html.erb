@@ -1,11 +1,7 @@
 <div class="category">
   <% category_description = category.to_s + "_description" %>
   <% if Listing::MAIN_CATEGORIES.include?(category) %>
-    <% if Listing.get_sub_categories(category.to_s) %>
-      <a href="/listings/add?category=<%= category %>"><%= t(category) %><span> - <%= t(category_description) %>.</span></a>
-    <% else %>
-      <a href="/listings/new?category=<%= category %>"><%= t(category) %><span> - <%= t(category_description) %>.</span></a>
-    <% end %>
+    <a href="/listings/new?category=<%= category %>"><%= t(category) %><span> - <%= t(category_description) %>.</span></a>
   <% else %>
     <% Listing::MAIN_CATEGORIES.each do |main_category| %>
       <% if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(category) %>
