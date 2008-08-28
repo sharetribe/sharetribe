@@ -27,11 +27,6 @@ class FavorTest < ActiveSupport::TestCase
     assert nil_description.valid?
   end  
   
-  def test_payment_length
-    assert !favors(:too_long_payment).valid?
-    assert favors(:valid_payment).valid? 
-  end
-  
   def test_nil_payment
     nil_payment = Favor.new(:owner_id => "ihan sama", :title => "nil-testi", :payment => nil)
     assert nil_payment.valid?
