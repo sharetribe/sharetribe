@@ -101,6 +101,7 @@ I18n.store_translations 'fi',
 
 #Items view
 :search_items_title => "Etsi tavaroita",
+:all_items => "Lainattavat tavarat",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
