@@ -1,1 +1,32 @@
-<h1>Tavarat</h1>
+<h1><%= t(@title) %></h1>
+
+<%@letters = "abcdefghijklmnopqrstuvxyzåäö".split("")
+  @letters.each do |letter|%>
+	<a href = "#<%=letter%>"><%=letter%> </a>
+  <%end%> 
+	
+	
+<% if (@item_titles.size > 0)
+	i = 0
+	@initial_group = Array.new
+	@letters.each do |letter|
+		@initial_group.clear
+		while @item_titles[i] != nil && @item_titles[i].downcase[0,1].eql?(letter)
+			@initial_group << @item_titles[i]
+			i += 1
+		end	
+		if !@initial_group.empty?
+		%>
+			<table class="item_title">
+			<h2><a name = "<%=letter%>"><%=letter.upcase%></a></h2>
+			<%= render :partial => 'item_title', :collection => @initial_group %>
+			</table>
+	
+	<%	end
+	end%>
+
+
+<% else %>
+  	<h3>Ei yhtään lainattavia tavaroita!
+<% end %>
+</div>
