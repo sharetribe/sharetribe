@@ -79,4 +79,8 @@ class Session < ActiveResource::Base
     Session.destroy(@headers["Cookie"])
     #connection.delete("#{self.class.prefix}#{self.class.element_name}", @headers)
   end
+  
+  def cookie
+    @headers["Cookie"]
+  end
 end
