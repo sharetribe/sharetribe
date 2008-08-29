@@ -37,11 +37,11 @@ class ListingsController < ApplicationController
 
   def search
     save_navi_state(['listings', 'search_listings', ''])
+    conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
     if params[:q]
       query = params[:q]
       begin
-        conditions = params[:only_open] ? ["status = 'closed'"] : [""]
-        @listings = Listing.find_by_contents(query, :limit => :all, :conditions => conditions , :order => 'created_at DESC')
+        @listings = Listing.find_by_contents(query, {:limit => :all}, {:conditions => conditions})
       rescue Ferret::QueryParser::QueryParseException
         @invalid = true
       end

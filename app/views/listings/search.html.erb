@@ -14,7 +14,11 @@
         <table class="no_padding">
           <tr>
             <td>
-              <%= check_box_tag params[:only_open], "true", :checked => "checked" %>
+              <% if params[:only_open] %>
+                <%= check_box_tag "only_open", "true", :checked => "checked" %>
+              <% else %>
+                <%= check_box_tag "only_open", "true" %>
+              <% end %>  
             </td>
             <td>
               <%= t(:search_only_open) %>
