@@ -14,10 +14,10 @@
         <table class="no_padding">
           <tr>
             <td>
-              <% if params[:only_open] %>
-                <%= check_box_tag "only_open", "true", :checked => "checked" %>
+              <% if params[:q] && !params[:only_open] %>
+                <%= check_box_tag "only_open", "true" %> 
               <% else %>
-                <%= check_box_tag "only_open", "true" %>
+                <%= check_box_tag "only_open", "true", :checked => "checked" %>
               <% end %>  
             </td>
             <td>
@@ -40,7 +40,7 @@
 
 <% if params[:q]%>
 
-<h4><%= t(:search_results) %></h4>
+<h4><%= t(:search_results) %> (<%= @listings.total_hits %>)</h4>
 <% if @listings && @listings.size > 0 %>
 <table class="listing">
 <%= render :partial => "listings/listing", :collection => @listings %>

@@ -19,7 +19,11 @@ class Listing < ActiveRecord::Base
   
   attr_accessor :language_fi, :language_en, :language_swe
   
-  acts_as_ferret :fields => ['title','content']
+  acts_as_ferret :fields => {
+    :title => {},
+    :content => {},
+    :created_at_sort => {:index => :untokenized}
+  }
   
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
@@ -148,6 +152,10 @@ class Listing < ActiveRecord::Base
       end
     end
     return true
+  end
+
+  def created_at_sort
+    created_at.to_i
   end
 
 end
