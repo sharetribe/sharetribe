@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+begin
+  require File.join(File.dirname(__FILE__), '../vendor/plugins/acts_as_ferret/lib/server_manager')
+rescue LoadError
+  # try the gem
+  require 'rubygems'
+  gem 'acts_as_ferret'
+  require 'server_manager'
+end

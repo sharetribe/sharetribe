@@ -1,0 +1,178 @@
+# Ferret Win32 Service Daemon install script 
+# created by Herryanto Siatono <herryanto@pluitsolutions.com>
+#
+# see doc/README.win32 for usage instructions
+#
+require 'optparse'
+require 'win32/service'
+include Win32
+
+module Ferret
+  # Parse and validate service command and options
+  class FerretServiceCommand
+    COMMANDS = ['install', 'remove', 'start', 'stop', 'help']
+    BANNER = "Usage: ruby script/ferret_service <command> [options]"
+    
+    attr_reader :options, :command
+    
+    def initialize
+      @options = {}
+    end
+    
+    def valid_command?      
+      COMMANDS.include?@command
+    end
+    
+    def valid_options?
+      @options[:name] and !@options[:name].empty?
+    end
+    
+    def print_command_list
+      puts BANNER 
+      puts "\nAvailable commands:\n"
+      puts COMMANDS.map {|cmd| " - #{cmd}\n"}
+      puts "\nUse option -h for each command to help."
+      exit
+    end
+    
+    def validate_options
+      errors = []
+      errors << "Service name is required." unless @options[:name]
+      
+      if (errors.size > 0)
+        errors << "Error found. Use: 'ruby script/ferret_service #{@command} -h' for to get help."
+        puts errors.join("\n")
+        exit
+      end
+    end
+    
+    def run(args)
+      @command = args.shift      
+      @command = @command.dup.downcase if @command
+      
+      # validate command and options      
+      print_command_list unless valid_command? or @command == 'help'
+      
+      opts_parser = create_options_parser
+      begin
+        opts_parser.parse!(args)
+      rescue OptionParser::ParseError => e
+        puts e
+        puts opts_parser
+      end
+      
+      # validate required options
+      validate_options
+    end
+    
+    def create_options_parser
+      opts_parser = OptionParser.new
+      opts_parser.banner = BANNER
+      opts_parser.on("-n", "--name=NAME", "Service name") {|name| @options[:name] = name }
+      opts_parser.on_tail("-t", "--trace",  "Display stack trace when exception thrown") { @options[:trace] = true }
+      opts_parser.on_tail("-h", "--help",   "Show this help message") { puts opts_parser; exit }
+      
+      if ['install'].include?@command
+        opts_parser.on("-d", "--display=NAME", "Service display name") {|name| @options[:display] = name }
+        
+        opts_parser.on("-l", "--log FILE", "Service log file") {|file| @options[:log] = file }  
+        opts_parser.on("-e",     "--environment ENV ",    "Rails environment") { |env|
+          @options[:environment] = env
+          ENV['RAILS_ENV'] = env
+        }    
+      end
+      opts_parser
+    end
+  end
+  
+  # Install, Remove, Start and Stop Ferret DRb server Win32 service
+  class FerretService
+    FERRET_DAEMON = 'ferret_daemon'
+    
+    def initialize
+    end
+    
+    def install
+      svc = Service.new
+      
+      begin
+        if Service.exists?(@options[:name])
+          puts "Service name '#{@options[:name]}' already exists."
+          return
+        end 
+        
+        svc.create_service do |s|
+          s.service_name = @options[:name]
+          s.display_name = @options[:display]
+          s.binary_path_name = binary_path_name
+          s.dependencies = []
+        end
+        
+        svc.close
+        puts "'#{@options[:name]}' service installed."
+      rescue => e
+        handle_error(e)
+      end
+    end
+    
+    def remove
+      begin
+        Service.stop(@options[:name])
+      rescue
+      end
+      
+      begin
+        Service.delete(@options[:name])    
+        puts "'#{@options[:name]}' service removed."
+      rescue => e      
+        handle_error(e)
+      end
+    end
+    
+    def start
+      begin
+        Service.start(@options[:name])
+        puts "'#{@options[:name]}' successfully started."
+      rescue => e
+        handle_error(e)
+      end 
+    end
+    
+    def stop
+      begin
+        Service.stop(@options[:name])
+        puts "'#{@options[:name]}' successfully stopped.\n"
+      rescue => e
+        handle_error(e)
+      end 
+    end
+    
+    def run(args)
+      svc_cmd = FerretServiceCommand.new
+      svc_cmd.run(args)
+      @options = svc_cmd.options
+      self.send(svc_cmd.command.to_sym)
+    end
+    
+    protected  
+    def handle_error(e)
+      if @options[:trace]
+        raise e
+      else
+        puts e
+      end
+    end
+    
+    def binary_path_name
+      path = ""
+      path << "#{ENV['RUBY_HOME']}/bin/" if ENV['RUBY_HOME']
+      path << "ruby.exe "
+      path << File.expand_path("script/" + FERRET_DAEMON)
+      path << " -e #{@options[:environment]} " if @options[:environment]
+      path << " -l #{@options[:log]} " if @options[:log]
+      path
+    end
+  end
+end
+
+Ferret::FerretService.new.run(ARGV)

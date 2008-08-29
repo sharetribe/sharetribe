@@ -1,1 +1,32 @@
-<h1>Etsi ihmisiä</h1>
+<h1>Hae ihmisiä</h1>
+
+<% form_tag({ :action => "search" }, :method => "get") do %>
+  <br />
+  <table class="form">
+    <tr>
+      <td><b><%= t(:name) %>:</b></td>
+      <td><%= text_field_tag "name", params[:name], :size => 30 %></td>
+    </tr>
+    <tr>
+      <td><b><%= t(:username) %>:</b></td>
+      <td><%= text_field_tag "username", params[:username], :size => 30 %></td>
+    </tr>
+    <tr>
+      <td><b><%= t(:lives_in) %>:</b></td>
+      <td><%= text_field_tag "lives_in", params[:lives_in], :size => 30 %></td>
+    </tr>
+    <tr>
+      <td><b><%= t(:item_that_person_owns) %>:</b></td>
+      <td><%= text_field_tag "q", params[:q], :size => 30 %></td>
+    </tr>
+    <tr>
+      <td><b><%= t(:favor_that_person_is_willing_to_do) %>:</b></td>
+      <td><%= text_field_tag "q", params[:q], :size => 30 %></td>
+    </tr>
+  </table>
+  <table class="form">  
+    <tr>
+      <td><%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();" %></td>    
+    </tr>
+  </table>
+<% end %>

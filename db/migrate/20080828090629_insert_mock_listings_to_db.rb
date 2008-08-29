@@ -17,7 +17,7 @@ class InsertMockListingsToDb < ActiveRecord::Migration
       :title => "Lainataan pora", 
       :content => "Tarvitaan pora lainaan mahdollisimman pikaisesti.", 
       :good_thru => "2008-09-08", 
-      :status => "open",
+      :status => "closed",
       :language => ["en-US","swe"],
       :times_viewed => "0"
     }

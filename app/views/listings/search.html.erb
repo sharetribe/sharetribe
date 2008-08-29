@@ -1,3 +1,47 @@
-<h1>Etsi ilmoituksia</h1>			
-<p>In mauris enim, suscipit a, consequat quis, porta ut, diam. Vivamus tempor. Donec nec enim quis ante ullamcorper mollis. Praesent dictum. Donec arcu arcu, tincidunt a, placerat sit amet, porta eget, erat. Aliquam erat volutpat. Aenean egestas, dolor ut consectetuer pulvinar, mauris ante volutpat leo, non pulvinar erat justo vitae mauris. Donec laoreet dui at quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris id libero. Morbi luctus sapien vitae dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam pharetra vestibulum leo. Maecenas magna velit, porta eu, viverra quis, cursus non, sapien.</p>
+<h1>Hae ilmoituksia</h1>			
+<% form_tag({ :action => "search" }, :method => "get") do %>
+  <br />
+  <table class="form">
+    <tr>
+      <td><b><%= t(:search_keyword) %>:</b></td>
+      <td><%= text_field_tag "q", params[:q], :size => 30 %></td>
+      <td><%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %></td>
+      <td><%= link_to t(:advanced_search), "?type=advanced" %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>
+        <table class="no_padding">
+          <tr>
+            <td>
+              <%= check_box_tag params[:only_open], "true", :checked => "checked" %>
+            </td>
+            <td>
+              <%= t(:search_only_open) %>
+            </td>  
+          </tr>
+        </table>    
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+<% end %>
 
+<br />
+
+<% if @invalid %>
+  <p><%= t(:invalid_char_in_search) %></p>
+<% end %>
+
+<% if params[:q]%>
+
+<h4><%= t(:search_results) %></h4>
+<% if @listings && @listings.size > 0 %>
+<table class="listing">
+<%= render :partial => "listings/listing", :collection => @listings %>
+</table>
+<% else %>
+ <p><%= t(:search_returned_no_hits) %></p>
+<% end %>
+<% end %>
