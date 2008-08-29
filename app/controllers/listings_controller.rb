@@ -66,4 +66,10 @@ class ListingsController < ApplicationController
     end
   end 
 
+  def destroy
+    Listing.find(params[:id]).destroy
+    flash[:notice] = 'Ilmoitus poistettu.'
+    redirect_to listings_path
+  end
+
 end

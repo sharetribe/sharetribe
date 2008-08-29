@@ -65,5 +65,20 @@ class Test::Unit::TestCase
     return t
   end
   
+  def assert_listing_valid(attribute, value, is_valid)
+    listing = listings(:valid_listing)
+    listing.update_attribute(attribute, value)
+    if is_valid
+      assert listing.valid?
+    else
+      assert !listing.valid?
+    end    
+  end  
   
+  def assert_listing_valid_group(values, is_valid)
+    values.each do |attribute, value|
+      assert_listing_valid(attribute, value, is_valid)
+    end
+  end
+      
 end

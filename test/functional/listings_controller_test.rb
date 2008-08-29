@@ -26,7 +26,7 @@ class ListingsControllerTest < ActionController::TestCase
     #TODO: test that all the form elements are in their places
   end
   
-  def test_add_valid_listing
+  def test_add_and_delete_valid_listing
     image = uploaded_file("Bison_skull_pile.png", "image/png")
     post :create, :listing => {
       :author_id => "Antti",
@@ -40,9 +40,16 @@ class ListingsControllerTest < ActionController::TestCase
       :language_swe => 1,
       :image_file => image
     }
+    id = assigns(:listing).id
     assert ! assigns(:listing).new_record?
     assert_redirected_to listings_path
     assert_not_nil flash[:notice]
+    assert Listing.find(id)
+    assert File.exists?("tmp/test_images/" + id.to_s + ".png")
+    # Delete just created listing
+    post :destroy, :id => id
+    # Image file must be deleted if listing is deleted
+    assert !File.exists?("tmp/test_images/" + id.to_s + ".png")
   end
   
   def test_add_invalid_listing
@@ -71,10 +78,7 @@ class ListingsControllerTest < ActionController::TestCase
       :language_swe => 1,
       :image_file => image
     }
-  end
-  
-  def test_delete_image_file
-    
+    assert assigns(:listing).errors.on(:image_file)
   end
   
   def test_show_listing

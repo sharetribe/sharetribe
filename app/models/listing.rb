@@ -22,16 +22,13 @@ class Listing < ActiveRecord::Base
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
   
-  #allowed language codes
+  # Allowed language codes
   VALID_LANGUAGES = ["fi", "swe", "en-US"]
   
-  # Categories that can be assigned to a listing.
-  VALID_CATEGORIES = ["borrow_items", "lost_property", "rides", "groups", "favors", "others", "sell", "buy", "give"]
-
-  # Main categories (only those that don's contain sub categories are valid listing categories.)
+  # Main categories.
   MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
 
-  # Gets sub categories for a category.
+  # Gets subcategories for a category.
   def self.get_sub_categories(main_category)
     case main_category
     when "marketplace"
@@ -44,10 +41,14 @@ class Listing < ActiveRecord::Base
   # Gets all categories that are valid for a single listing.
   # Categories that have subcategories are not valid.
   def self.get_valid_categories
-    valid_categories = ["borrow_items", "lost_property", "rides", "groups", "favors", "others", "sell", "buy", "give"]
+    valid_categories = []
     MAIN_CATEGORIES.each do |category|
-      unless get_sub_categories(category)
-        valid_categories << category
+      if get_sub_categories(category)
+        get_sub_categories(category).each do |subcategory|
+          valid_categories << subcategory
+        end  
+      else
+        valid_categories << category  
       end
     end
     return valid_categories
