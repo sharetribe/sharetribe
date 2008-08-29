@@ -107,6 +107,17 @@ I18n.store_translations 'fi',
 #Favors view
 :search_favors_title => "Etsi palveluksia",
 
+#Search people view
+:name => "Nimi",
+
+#Search listings view
+:search_keyword => "Hakusana",
+:advanced_search => "Laajennettu haku",
+:search_only_open => "Hae vain avoimista ilmoituksista",
+:search_results => "Hakutulokset",
+:invalid_char_in_search => "Ei-sallittu merkki hakukentässä",
+:search_returned_no_hits => "Haku ei tuottanut yhtään osumaa!",
+
 #Footer
 :about => "Tietoa",
 :help => "Ohjeet",

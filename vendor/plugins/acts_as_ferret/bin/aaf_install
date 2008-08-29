@@ -1,0 +1,23 @@
+# acts_as_ferret gem install script
+# Use inside the root of your Rails project
+require 'fileutils'
+
+@basedir = File.join(File.dirname(__FILE__), '..')
+
+def install(dir, file, executable=false)
+  puts "Installing: #{file}"
+  target = File.join('.', dir, file)
+  if File.exists?(target)
+    puts "#{target} already exists, skipping"
+  else
+    FileUtils.cp File.join(@basedir, dir, file), target
+    FileUtils.chmod 0755, target if executable
+  end
+end
+
+
+install 'script', 'ferret_server', true
+install 'config', 'ferret_server.yml'
+
+puts IO.read(File.join(@basedir, 'README'))
+

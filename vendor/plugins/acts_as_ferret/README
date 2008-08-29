@@ -1,0 +1,52 @@
+= acts_as_ferret
+
+This ActiveRecord mixin adds full text search capabilities to any Rails model.
+
+It is heavily based on the original acts_as_ferret plugin done by
+Kasper Weibel and a modified version done by Thomas Lockney, which 
+both can be found on http://ferret.davebalmain.com/trac/wiki/FerretOnRails
+
+== Installation
+
+=== Installation inside your Rails project via script/plugin
+
+script/plugin install svn://projects.jkraemer.net/acts_as_ferret/trunk/plugin/acts_as_ferret
+
+
+=== System-wide installation with Rubygems
+
+<tt>sudo gem install acts_as_ferret</tt>
+
+To use acts_as_ferret in your project, add the following line to your
+project's config/environment.rb:
+
+<tt>require 'acts_as_ferret'</tt>
+
+Call the aaf_install script inside your project directory to install the sample
+config file and the drb server start/stop script.
+
+
+== Usage
+
+include the following in your model class (specifiying the fields you want to get indexed):
+
+<tt>acts_as_ferret :fields => [ :title, :description ]</tt>
+
+now you can use ModelClass.find_by_contents(query) to find instances of your model
+whose indexed fields match a given query. All query terms are required by default, 
+but explicit OR queries are possible. This differs from the ferret default, but 
+imho is the more often needed/expected behaviour (more query terms result in 
+less results).
+
+Please see ActsAsFerret::ActMethods#acts_as_ferret for more information.
+
+== License
+
+Released under the MIT license.
+
+== Authors
+
+* Kasper Weibel Nielsen-Refs (original author)
+* Jens Kraemer <jk@jkraemer.net> (current maintainer)
+
+

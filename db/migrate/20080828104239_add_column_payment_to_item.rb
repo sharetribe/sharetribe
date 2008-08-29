@@ -4,6 +4,6 @@ class AddColumnPaymentToItem < ActiveRecord::Migration
   end
 
   def self.down
-      remove_column :items, :payement
+      remove_column :items, :payment
   end
 end

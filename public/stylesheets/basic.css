@@ -161,3 +161,7 @@ table.listing td, table.listing_inner td, table.listing_in td, table.comment_in 
 img {
 	border: 0;
 }
+
+input.button {
+	width: 75px;
+}

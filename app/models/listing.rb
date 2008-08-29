@@ -19,6 +19,8 @@ class Listing < ActiveRecord::Base
   
   attr_accessor :language_fi, :language_en, :language_swe
   
+  acts_as_ferret :fields => ['title','content']
+  
   #Options for status
   VALID_STATUS =  ["open", "in_progress", "closed"]
   
