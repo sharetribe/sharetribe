@@ -1,0 +1,20 @@
+<div id="search_results_header">
+<div id="search_results_title">
+  <%= t(:search_results) %> (<%= @listings.total_hits %>)
+</div>
+<%= will_paginate @listings %>
+</div>
+<% if @listings && @listings.size > 0 %>
+<table class="listing"> 
+<%= render :partial => "listings/listing", :collection => @listings %>
+</table>
+<div id="search_footer_left">
+  <%= t(:show_listings_on_page) %>:
+  <%= create_footer_pagination_links(["10", "30", "50", "all"], "search") %>
+</div
+<%= will_paginate @listings %>
+<br />
+<% else %>
+ <p><%= t(:search_returned_no_hits) %></p>
+<% end %>
+<br />

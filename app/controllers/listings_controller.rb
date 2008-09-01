@@ -37,18 +37,22 @@ class ListingsController < ApplicationController
 
   def search
     save_navi_state(['listings', 'search_listings', ''])
-   
-    if params[:q]
-      query = params[:q]
-      begin
-        s = Ferret::Search::SortField.new(:created_at_sort, :reverse => true)
-        per_page = 10
-        conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
-        @listings = Listing.find_by_contents(query, {:limit => :all, :sort => s, :page => params[:page], :per_page => per_page}, {:conditions => conditions})
-      rescue Ferret::QueryParser::QueryParseException
-        @invalid = true
+    if params[:type]
+      if params[:q]
+        # Advanced search
       end
-    end
+    else
+      if params[:q]
+        query = params[:q]
+        begin
+          s = Ferret::Search::SortField.new(:created_at_sort, :reverse => true)
+          conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
+          @listings = Listing.find_by_contents(query, {:page => params[:page], :per_page => per_page.to_i, :sort => s}, {:conditions => conditions})
+        rescue Ferret::QueryParser::QueryParseException
+          @invalid = true
+        end
+      end    
+    end   
   end
 
   def new

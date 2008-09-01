@@ -64,6 +64,10 @@ I18n.store_translations 'fi',
 :groups_description => "etsi ihmisiä yhteistä toimintaa varten (esim. sulkapalloseura, opintopiiri, muuttapu jne.)",
 :others_description => "kaikki muut ilmoitukset",
 
+#Pagination
+:next => "Seuraava",
+:previous => "Edellinen",
+
 #Listings view
 :listing => "ilmoitus",
 :all_listings => "Kaikki ilmoitukset",
@@ -83,6 +87,7 @@ I18n.store_translations 'fi',
 :send_comment => "Lähetä kommentti",
 :mark_all_as_read => "Merkitse kaikki luetuiksi",
 :image => "Kuva",
+:show_listings_on_page => "Näytä ilmoituksia sivulla",
 
 #Listing statuses
 :open => "Avoinna",
@@ -112,6 +117,7 @@ I18n.store_translations 'fi',
 
 #Search listings view
 :search_keyword => "Hakusana",
+:regular_search => "Perushaku",
 :advanced_search => "Laajennettu haku",
 :search_only_open => "Hae vain avoimista ilmoituksista",
 :search_results => "Hakutulokset",

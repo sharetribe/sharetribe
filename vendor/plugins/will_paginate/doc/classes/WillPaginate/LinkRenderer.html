@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: WillPaginate::LinkRenderer</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">WillPaginate::LinkRenderer</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/will_paginate/view_helpers_rb.html">
+                lib/will_paginate/view_helpers.rb
+                </a>
+        &nbsp;(<a href="http://github.com/mislav/will_paginate/tree/master/lib/will_paginate/view_helpers.rb"><acronym title="Concurrent Versioning System">CVS</acronym></a>)
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class does the heavy lifting of actually building the pagination
+links. It is used by the <tt>will_paginate</tt> helper internally.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000020">html_attributes</a>&nbsp;&nbsp;
+      <a href="#M000017">new</a>&nbsp;&nbsp;
+      <a href="#M000024">page_link</a>&nbsp;&nbsp;
+      <a href="#M000023">page_link_or_span</a>&nbsp;&nbsp;
+      <a href="#M000025">page_span</a>&nbsp;&nbsp;
+      <a href="#M000018">prepare</a>&nbsp;&nbsp;
+      <a href="#M000019">to_html</a>&nbsp;&nbsp;
+      <a href="#M000026">url_for</a>&nbsp;&nbsp;
+      <a href="#M000022">visible_page_numbers</a>&nbsp;&nbsp;
+      <a href="#M000021">windowed_links</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+    <div id="attribute-list">
+      <h3 class="section-bar">Attributes</h3>
+
+      <div class="name-list">
+        <table>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">gap_marker</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc">
+The gap in page links is represented by:
+
+<pre>
+  &lt;span class=&quot;gap&quot;&gt;&amp;hellip;&lt;/span&gt;
+</pre>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000017" class="method-detail">
+        <a name="M000017"></a>
+
+        <div class="method-heading">
+          <a href="#M000017" class="method-signature">
+          <span class="method-name">new</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000017-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000017-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 205</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
+      <span class="ruby-ivar">@gap_marker</span> = <span class="ruby-value str">'&lt;span class=&quot;gap&quot;&gt;&amp;hellip;&lt;/span&gt;'</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000020" class="method-detail">
+        <a name="M000020"></a>
+
+        <div class="method-heading">
+          <a href="#M000020" class="method-signature">
+          <span class="method-name">html_attributes</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns the subset of <tt>options</tt> this instance was initialized with
+that represent HTML attributes for the container element of pagination
+links.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000020-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000020-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 237</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">html_attributes</span>
+      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@html_attributes</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@html_attributes</span>
+      <span class="ruby-ivar">@html_attributes</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">except</span> <span class="ruby-operator">*</span>(<span class="ruby-constant">WillPaginate</span><span class="ruby-operator">::</span><span class="ruby-constant">ViewHelpers</span>.<span class="ruby-identifier">pagination_options</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">-</span> [<span class="ruby-identifier">:class</span>])
+      <span class="ruby-comment cmt"># pagination of Post models will have the ID of &quot;posts_pagination&quot;</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:container</span>] <span class="ruby-keyword kw">and</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:id</span>] <span class="ruby-operator">===</span> <span class="ruby-keyword kw">true</span>
+        <span class="ruby-ivar">@html_attributes</span>[<span class="ruby-identifier">:id</span>] = <span class="ruby-ivar">@collection</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">underscore</span>.<span class="ruby-identifier">pluralize</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'_pagination'</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-ivar">@html_attributes</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000018" class="method-detail">
+        <a name="M000018"></a>
+
+        <div class="method-heading">
+          <a href="#M000018" class="method-signature">
+          <span class="method-name">prepare</span><span class="method-args">(collection, options, template)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <ul>
+<li><tt>collection</tt> is a <a
+href="Collection.html">WillPaginate::Collection</a> instance or any other
+object that conforms to that API
+
+</li>
+<li><tt>options</tt> are forwarded from <tt>will_paginate</tt> view helper
+
+</li>
+<li><tt>template</tt> is the reference to the template being rendered
+
+</li>
+</ul>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000018-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000018-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 213</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prepare</span>(<span class="ruby-identifier">collection</span>, <span class="ruby-identifier">options</span>, <span class="ruby-identifier">template</span>)
+      <span class="ruby-ivar">@collection</span> = <span class="ruby-identifier">collection</span>
+      <span class="ruby-ivar">@options</span>    = <span class="ruby-identifier">options</span>
+      <span class="ruby-ivar">@template</span>   = <span class="ruby-identifier">template</span>
+
+      <span class="ruby-comment cmt"># reset values in case we're re-using this instance</span>
+      <span class="ruby-ivar">@total_pages</span> = <span class="ruby-ivar">@param_name</span> = <span class="ruby-ivar">@url_string</span> = <span class="ruby-keyword kw">nil</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000019" class="method-detail">
+        <a name="M000019"></a>
+
+        <div class="method-heading">
+          <a href="#M000019" class="method-signature">
+          <span class="method-name">to_html</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Process it! This method returns the complete HTML string which contains
+pagination links. Feel free to subclass <a
+href="LinkRenderer.html">LinkRenderer</a> and change this method as you see
+fit.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000019-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000019-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 225</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_html</span>
+      <span class="ruby-identifier">links</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:page_links</span>] <span class="ruby-operator">?</span> <span class="ruby-identifier">windowed_links</span> <span class="ruby-operator">:</span> []
+      <span class="ruby-comment cmt"># previous/next buttons</span>
+      <span class="ruby-identifier">links</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">page_link_or_span</span>(<span class="ruby-ivar">@collection</span>.<span class="ruby-identifier">previous_page</span>, <span class="ruby-value str">'disabled prev_page'</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:previous_label</span>])
+      <span class="ruby-identifier">links</span>.<span class="ruby-identifier">push</span>    <span class="ruby-identifier">page_link_or_span</span>(<span class="ruby-ivar">@collection</span>.<span class="ruby-identifier">next_page</span>,     <span class="ruby-value str">'disabled next_page'</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:next_label</span>])
+      
+      <span class="ruby-identifier">html</span> = <span class="ruby-identifier">links</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:separator</span>])
+      <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:container</span>] <span class="ruby-operator">?</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">content_tag</span>(<span class="ruby-identifier">:div</span>, <span class="ruby-identifier">html</span>, <span class="ruby-identifier">html_attributes</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">html</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-bar">Protected Instance methods</h3>
+
+      <div id="method-M000024" class="method-detail">
+        <a name="M000024"></a>
+
+        <div class="method-heading">
+          <a href="#M000024" class="method-signature">
+          <span class="method-name">page_link</span><span class="method-args">(page, text, attributes = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000024-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000024-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 300</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_link</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">attributes</span> = {})
+      <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">link_to</span> <span class="ruby-identifier">text</span>, <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">page</span>), <span class="ruby-identifier">attributes</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000023" class="method-detail">
+        <a name="M000023"></a>
+
+        <div class="method-heading">
+          <a href="#M000023" class="method-signature">
+          <span class="method-name">page_link_or_span</span><span class="method-args">(page, span_class, text = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000023-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000023-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 289</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_link_or_span</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">span_class</span>, <span class="ruby-identifier">text</span> = <span class="ruby-keyword kw">nil</span>)
+      <span class="ruby-identifier">text</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">page</span>.<span class="ruby-identifier">to_s</span>
+      
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">page</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">page</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">current_page</span>
+        <span class="ruby-identifier">classnames</span> = <span class="ruby-identifier">span_class</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">span_class</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value str">' '</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">span_class</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">' '</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">last</span>
+        <span class="ruby-identifier">page_link</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">:rel</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">rel_value</span>(<span class="ruby-identifier">page</span>), <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">classnames</span>
+      <span class="ruby-keyword kw">else</span>
+        <span class="ruby-identifier">page_span</span> <span class="ruby-identifier">page</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">span_class</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000025" class="method-detail">
+        <a name="M000025"></a>
+
+        <div class="method-heading">
+          <a href="#M000025" class="method-signature">
+          <span class="method-name">page_span</span><span class="method-args">(page, text, attributes = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000025-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000025-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 304</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">page_span</span>(<span class="ruby-identifier">page</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">attributes</span> = {})
+      <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">content_tag</span> <span class="ruby-identifier">:span</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">attributes</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000026" class="method-detail">
+        <a name="M000026"></a>
+
+        <div class="method-heading">
+          <a href="#M000026" class="method-signature">
+          <span class="method-name">url_for</span><span class="method-args">(page)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns URL params for <tt><a
+href="LinkRenderer.html#M000023">page_link_or_span</a></tt>, taking the
+current GET params and <tt>:params</tt> option into account.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000026-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000026-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 310</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">page</span>)
+      <span class="ruby-identifier">page_one</span> = <span class="ruby-identifier">page</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@url_string</span> <span class="ruby-keyword kw">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">page_one</span>
+        <span class="ruby-ivar">@url_params</span> = {}
+        <span class="ruby-comment cmt"># page links should preserve GET parameters</span>
+        <span class="ruby-identifier">stringified_merge</span> <span class="ruby-ivar">@url_params</span>, <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">params</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">request</span>.<span class="ruby-identifier">get?</span>
+        <span class="ruby-identifier">stringified_merge</span> <span class="ruby-ivar">@url_params</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:params</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:params</span>]
+        
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">complex</span> = <span class="ruby-identifier">param_name</span>.<span class="ruby-identifier">index</span>(<span class="ruby-regexp re">/[^\w-]/</span>)
+          <span class="ruby-identifier">page_param</span> = (<span class="ruby-keyword kw">defined?</span>(<span class="ruby-constant">CGIMethods</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">CGIMethods</span> <span class="ruby-operator">:</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractRequest</span>).
+            <span class="ruby-identifier">parse_query_parameters</span>(<span class="ruby-node">&quot;#{param_name}=#{page}&quot;</span>)
+          
+          <span class="ruby-identifier">stringified_merge</span> <span class="ruby-ivar">@url_params</span>, <span class="ruby-identifier">page_param</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@url_params</span>[<span class="ruby-identifier">param_name</span>] = <span class="ruby-identifier">page_one</span> <span class="ruby-value">? </span><span class="ruby-value">1</span> <span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+        <span class="ruby-keyword kw">end</span>
+
+        <span class="ruby-identifier">url</span> = <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">url_for</span>(<span class="ruby-ivar">@url_params</span>)
+        <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">url</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">page_one</span>
+        
+        <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">complex</span>
+          <span class="ruby-ivar">@url_string</span> = <span class="ruby-identifier">url</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">%r!((?:\?|&amp;amp;)#{CGI.escape param_name}=)#{page}!</span>, <span class="ruby-value str">'\1@'</span>)
+          <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">url</span>
+        <span class="ruby-keyword kw">else</span>
+          <span class="ruby-ivar">@url_string</span> = <span class="ruby-identifier">url</span>
+          <span class="ruby-ivar">@url_params</span>[<span class="ruby-identifier">param_name</span>] = <span class="ruby-value">3</span>
+          <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">url_for</span>(<span class="ruby-ivar">@url_params</span>).<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">//</span>).<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">char</span>, <span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">char</span> <span class="ruby-operator">==</span> <span class="ruby-value str">'3'</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">url</span>[<span class="ruby-identifier">i</span>, <span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">'2'</span>
+              <span class="ruby-ivar">@url_string</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-value str">'@'</span>
+              <span class="ruby-keyword kw">break</span>
+            <span class="ruby-keyword kw">end</span>
+          <span class="ruby-keyword kw">end</span>
+        <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-comment cmt"># finally!</span>
+      <span class="ruby-ivar">@url_string</span>.<span class="ruby-identifier">sub</span> <span class="ruby-value str">'@'</span>, <span class="ruby-identifier">page</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000022" class="method-detail">
+        <a name="M000022"></a>
+
+        <div class="method-heading">
+          <a href="#M000022" class="method-signature">
+          <span class="method-name">visible_page_numbers</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Calculates visible page numbers using the <tt>:inner_window</tt> and
+<tt>:outer_window</tt> options.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000022-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000022-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 264</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">visible_page_numbers</span>
+      <span class="ruby-identifier">inner_window</span>, <span class="ruby-identifier">outer_window</span> = <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:inner_window</span>].<span class="ruby-identifier">to_i</span>, <span class="ruby-ivar">@options</span>[<span class="ruby-identifier">:outer_window</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">window_from</span> = <span class="ruby-identifier">current_page</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">inner_window</span>
+      <span class="ruby-identifier">window_to</span> = <span class="ruby-identifier">current_page</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">inner_window</span>
+      
+      <span class="ruby-comment cmt"># adjust lower or upper limit if other is out of bounds</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">window_to</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total_pages</span>
+        <span class="ruby-identifier">window_from</span> <span class="ruby-operator">-=</span> <span class="ruby-identifier">window_to</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">total_pages</span>
+        <span class="ruby-identifier">window_to</span> = <span class="ruby-identifier">total_pages</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">window_from</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">window_to</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">window_from</span>
+        <span class="ruby-identifier">window_from</span> = <span class="ruby-value">1</span>
+        <span class="ruby-identifier">window_to</span> = <span class="ruby-identifier">total_pages</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">window_to</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total_pages</span>
+      <span class="ruby-keyword kw">end</span>
+      
+      <span class="ruby-identifier">visible</span>   = (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">total_pages</span>).<span class="ruby-identifier">to_a</span>
+      <span class="ruby-identifier">left_gap</span>  = (<span class="ruby-value">2</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">outer_window</span>)<span class="ruby-operator">...</span><span class="ruby-identifier">window_from</span>
+      <span class="ruby-identifier">right_gap</span> = (<span class="ruby-identifier">window_to</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)<span class="ruby-operator">...</span>(<span class="ruby-identifier">total_pages</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">outer_window</span>)
+      <span class="ruby-identifier">visible</span>  <span class="ruby-operator">-=</span> <span class="ruby-identifier">left_gap</span>.<span class="ruby-identifier">to_a</span>  <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">left_gap</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">left_gap</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">visible</span>  <span class="ruby-operator">-=</span> <span class="ruby-identifier">right_gap</span>.<span class="ruby-identifier">to_a</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">right_gap</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">right_gap</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+
+      <span class="ruby-identifier">visible</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000021" class="method-detail">
+        <a name="M000021"></a>
+
+        <div class="method-heading">
+          <a href="#M000021" class="method-signature">
+          <span class="method-name">windowed_links</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Collects link items for visible page numbers.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000021-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000021-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/will_paginate/view_helpers.rb, line 250</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">windowed_links</span>
+      <span class="ruby-identifier">prev</span> = <span class="ruby-keyword kw">nil</span>
+
+      <span class="ruby-identifier">visible_page_numbers</span>.<span class="ruby-identifier">inject</span> [] <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">links</span>, <span class="ruby-identifier">n</span><span class="ruby-operator">|</span>
+        <span class="ruby-comment cmt"># detect gaps:</span>
+        <span class="ruby-identifier">links</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">gap_marker</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">prev</span> <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">n</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">prev</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">links</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">page_link_or_span</span>(<span class="ruby-identifier">n</span>, <span class="ruby-value str">'current'</span>)
+        <span class="ruby-identifier">prev</span> = <span class="ruby-identifier">n</span>
+        <span class="ruby-identifier">links</span>
+      <span class="ruby-keyword kw">end</span>
+    <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>

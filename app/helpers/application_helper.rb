@@ -1,9 +1,13 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
-  # Short form for translate method
+  # Short form for translate method. Integers are not translated.
   def t(*args)
-    translate(*args)
+    if (args[0] && args[0].to_i.to_s.eql?(args[0]))
+      args
+    else  
+      translate(*args)
+    end  
   end
   
   def ta(array)
@@ -95,6 +99,12 @@ module ApplicationHelper
   
   def show_listings
   
+  end
+  
+  # Localizes default values of the pagination plugin "will paginate".
+  def localize_will_paginate
+    WillPaginate::ViewHelpers.pagination_options[:previous_label] = '&laquo; ' + translate(:previous)
+    WillPaginate::ViewHelpers.pagination_options[:next_label] = translate(:next) + ' &raquo;'
   end
   
 end

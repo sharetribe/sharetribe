@@ -6,7 +6,7 @@ class InsertMockListingsToDb < ActiveRecord::Migration
       :category => "sell", 
       :title => "Myydään tietokone", 
       :content => "Myydään erinomainen tietokone. Tulkaa ostamaan.", 
-      :good_thru => "2008-09-08", 
+      :good_thru => "2008-10-10", 
       :status => "open",
       :language => ["en-US"],
       :times_viewed => "0"
@@ -16,9 +16,9 @@ class InsertMockListingsToDb < ActiveRecord::Migration
       :category => "borrow_items", 
       :title => "Lainataan pora", 
       :content => "Tarvitaan pora lainaan mahdollisimman pikaisesti.", 
-      :good_thru => "2008-09-08", 
+      :good_thru => "2008-10-10", 
       :status => "closed",
-      :language => ["en-US","swe"],
+      :language => ["fi","swe"],
       :times_viewed => "0"
     }
     listing_data.each do |data|
