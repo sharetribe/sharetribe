@@ -377,6 +377,26 @@ div.category a span {
   padding: 15px 10px;
 }
 
+#search_results_header {
+	height: 22px;
+	border-bottom: 1px solid #000;
+}
+
+#search_results_title {
+	font-weight: bold;
+	font-size: 14px;
+	float: left;
+}
+
+div.pagination {
+	margin-top: 2px;
+	float: right;
+}
+
+#search_footer_left {
+	margin-top: 2px;
+	float: left;
+}
 
 /* 
  * A push of same height than the footer is needed in 

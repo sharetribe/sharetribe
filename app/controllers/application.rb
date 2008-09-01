@@ -30,11 +30,24 @@ class ApplicationController < ActionController::Base
   
   # Fetch listings based on conditions
   def fetch_listings(conditions)
-    @listings = Listing.find :all,
-        :order => 'created_at DESC',
-        :conditions => conditions
+    @listing_amount = Listing.find(:all,
+                             :order => 'created_at DESC', 
+                             :conditions => conditions).size                                                    
+    @listings = Listing.paginate :page => params[:page], 
+                                 :per_page => per_page.to_i, 
+                                 :order => 'created_at DESC', 
+                                 :conditions => conditions                 
   end
 
+  # Define how many listed items are shown per page.
+  def per_page
+    if params[:per_page].eql?("all")
+      :all
+    else  
+      params[:per_page] || 10
+    end  
+  end
+  
   private 
 
   # Sets locale file used.

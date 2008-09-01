@@ -20,12 +20,23 @@
   </div>
 <% end %>
 
-<h1><%= t(@title) %></h1>
+<div id="search_results_header">
+<div id="search_results_title">
+  <%= t(@title) %> (<%= (@listing_amount ) %> ilmoitusta)
+</div>
+<%= will_paginate @listings %>
+</div>
 
 <% if (@listings.size > 0)%>
   <table class="listing">
   <%= render :partial => @listings %>
   </table>
+  <div id="search_footer_left">
+    <%= t(:show_listings_on_page) %>:
+    <%= create_footer_pagination_links(["10", "30", "50", "all"], "category") %>
+  </div
+  <%= will_paginate @listings %>
+  <br />
 <% else %>
   <h3>Ei yhtään ilmoitusta!
 <% end %>
