@@ -23,10 +23,10 @@ module ApplicationHelper
   # Returns hash containing link names and urls for top navigation.
   def get_top_navi_items
     navi_items = ActiveSupport::OrderedHash.new  
-    navi_items[:listings ] = "/listings/categories/all_categories"
-    navi_items[:items ] = "/items"
-    navi_items[:favors ] = "/favors"
-    navi_items[:people ] = "/people"
+    navi_items[:listings ] = listing_category_path("all_categories")
+    navi_items[:items ] = items_path
+    navi_items[:favors ] = favors_path
+    navi_items[:people ] = people_path
     if (session[:person_id])
       navi_items[:own ] = "/people/" + session[:person_id].to_s + "/listings/all"
     end
@@ -47,18 +47,18 @@ module ApplicationHelper
       navi_items[:purse] = "/people/" + session[:person_id].to_s + "/purse"
       navi_items[:settings] = "/people/" + session[:person_id].to_s + "/settings"
     when 'listings'
-      navi_items[:browse_listings] = "/listings/categories/all_categories"
+      navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = "/listings/search"
       navi_items[:add_listing] = "/listings/new"
     when 'items'
-      navi_items[:browse_items] = "/items"
-      navi_items[:search_items] = "/items/search"
+      navi_items[:browse_items] = items_path
+      navi_items[:search_items] = search_items_path
     when 'favors'
-      navi_items[:browse_favors] = "/favors"
-      navi_items[:search_favors] = "/favors/search"
+      navi_items[:browse_favors] = favors_path
+      navi_items[:search_favors] = search_favors_path
     when 'people'
-      navi_items[:browse_people] = "/people"
-      navi_items[:search_people] = "/people/search"      
+      navi_items[:browse_people] = people_path
+      navi_items[:search_people] = search_people_path      
     else
       session[:left_navi] = false  
     end  
@@ -74,7 +74,7 @@ module ApplicationHelper
       navi_items[:own_listings_navi] = "/people/" + session[:person_id].to_s + "/listings/own"
       navi_items[:interesting] = "/people/" + session[:person_id].to_s + "/listings/interesting"
     when 'browse_listings'
-      navi_items[:all_categories] = "/listings/categories/all_categories"
+      navi_items[:all_categories] = listing_category_path("all_categories")
       Listing::MAIN_CATEGORIES.each do |category|
         navi_items[category] = "/listings/categories/#{category}"
       end   

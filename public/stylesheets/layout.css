@@ -206,6 +206,7 @@ div.link_selected {
 }
 
 #links li a {
+	font-weight: normal;
 	text-decoration: underline;
 	display: inline;
 	color: #406704; 
@@ -224,7 +225,7 @@ div.link_selected {
 
 #sublinks ul {
 	margin-left: 15px;
-	padding-left: 0;
+	padding: 0;
 	list-style: none;
 }
 
@@ -233,14 +234,30 @@ div.link_selected {
 }
 
 #sublinks li {
-	margin-top: 2px;
-	padding-left: 5px;
+	padding: 0;
 }
 
 #sublinks li.active {	
 	background-image: url(../images/arrow.png);
 	background-repeat: no-repeat;
-	background-position: 1px .5em;
+	background-position: 1px 10px;
+}
+
+#sublinks li a {
+	margin-left: 5px;
+	display: block;
+	width: 200px;
+	height: 13px;
+}
+
+#sublinks li a:hover {
+	color: #000000;
+	width: 194px;
+	background: #dbf5b1;
+}
+
+#sublinks ul.subsub li a:hover {
+	width: 179px;
 }
 
 #contents {
