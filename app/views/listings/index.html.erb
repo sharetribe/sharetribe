@@ -9,13 +9,13 @@
 
 <div id="listings">
 <% unless flash[:notice].blank? %>
-  <div id="notification">
+  <div class="announcement notification">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
 <% unless flash[:error].blank? %>
-  <div id="notification">
+  <div class="announcement error">
     Error: <%= flash[:error] %>
   </div>
 <% end %>
