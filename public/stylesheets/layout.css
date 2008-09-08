@@ -377,13 +377,20 @@ div.category a span {
 	margin: 20px 5px;
 }
 
-#notification {
+div.announcement {
 	padding: 10px;
 	width: 100%;
 	font-size: 14px;
 	font-weight: bold;
-	background: #c0e783;
 	margin-bottom: 20px;
+}
+
+div.notification {
+	background: #c0e783;
+}
+
+div.error {
+	background: #ff0000;
 }
 
 #form_error_messages {

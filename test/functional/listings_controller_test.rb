@@ -3,10 +3,10 @@ require 'test_helper'
 class ListingsControllerTest < ActionController::TestCase
   
   def test_show_index
-    # get :index
-    # assert_response :success
-    # assert_template 'index'
-    # assert_not_nil assigns(:listings)
+    get :index
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns(:listings)
   end
   
   def test_show_new_category

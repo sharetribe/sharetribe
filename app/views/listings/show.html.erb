@@ -52,8 +52,14 @@
   <br /><br /><br />
   
   <% unless flash[:notice].blank? %>
-    <div id="notification">
+    <div class="announcement notification">
       <%= t(flash[:notice]) %>
+    </div>
+  <% end %>
+
+  <% unless flash[:error].blank? %>
+    <div class="announcement error">
+      Error: <%= t(flash[:error]) %>
     </div>
   <% end %>
   

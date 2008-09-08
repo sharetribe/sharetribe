@@ -24,6 +24,5 @@ class InsertMockItemsToDb < ActiveRecord::Migration
   end
 
   def self.down
-    #truncate table Items
   end
 end
