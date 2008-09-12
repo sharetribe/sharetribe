@@ -112,6 +112,7 @@ I18n.store_translations 'fi',
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
+:all_favors => "Palvelukset",
 
 #Search people view
 :name => "Nimi",
