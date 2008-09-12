@@ -114,6 +114,9 @@ I18n.store_translations 'fi',
 :search_favors_title => "Etsi palveluksia",
 :all_favors => "Palvelukset",
 
+#Items&Favors view
+:coins => "killinkiä",
+
 #Search people view
 :name => "Nimi",
 

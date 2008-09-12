@@ -23,8 +23,7 @@ class InsertMockFavorsToDb < ActiveRecord::Migration
     favor_data[3] = {
       :owner_id => "Julia",
       :title => "Leivontaa",
-      :description => "Tykkään leipoa, mutten jaksa syödä itse kaikkea",
-      :payment => 3
+      :description => "Tykkään leipoa, mutten jaksa syödä itse kaikkea"
     }
     
     favor_data.each do |info|
