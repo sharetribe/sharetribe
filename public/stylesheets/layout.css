@@ -75,8 +75,6 @@
 	position: absolute;
 	top: 35px;
 	margin: 0px;
-	width: 229px;
-	height: 125px;
 }
 
 #search_and_navi_container {
@@ -274,7 +272,7 @@ div.link_selected {
 	width: 960px;
 }
 
-#listings {
+#container {
 	clear: both;
 }
 
@@ -401,15 +399,20 @@ div.error {
   padding: 15px 10px;
 }
 
-#search_results_header {
+.search_results_header {
 	height: 22px;
 	border-bottom: 1px solid #000;
 }
 
-#search_results_title {
+.search_results_title {
 	font-weight: bold;
 	font-size: 14px;
 	float: left;
+}
+
+.search_results_header_right {
+	margin-top: 2px;
+	float: right;
 }
 
 div.pagination {

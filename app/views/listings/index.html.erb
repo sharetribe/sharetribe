@@ -7,7 +7,7 @@
   </div>  
 </div>  		
 
-<div id="listings">
+<div id="container">
 <% unless flash[:notice].blank? %>
   <div class="announcement notification">
     <%= flash[:notice] %>
@@ -20,9 +20,9 @@
   </div>
 <% end %>
 
-<div id="search_results_header">
-<div id="search_results_title">
-  <%= t(@title) %> (<%= (@listing_amount ) %> ilmoitusta)
+<div class="search_results_header">
+<div class="search_results_title">
+  <%= t(@title) %> (<%= pluralize(@listing_amount, t(:listing), t(:listings_partitive)) %>)
 </div>
 <%= will_paginate @listings %>
 </div>

@@ -89,6 +89,7 @@ I18n.store_translations 'fi',
 :mark_all_as_read => "Merkitse kaikki luetuiksi",
 :image => "Kuva",
 :show_listings_on_page => "Näytä ilmoituksia sivulla",
+:listings_partitive => "ilmoitusta",
 
 #Listing statuses
 :open => "Avoinna",
@@ -113,6 +114,10 @@ I18n.store_translations 'fi',
 #Favors view
 :search_favors_title => "Etsi palveluksia",
 :all_favors => "Palvelukset",
+
+#Search view
+:show_all => "Näytä kaikki",
+:search_results_for_search_term => "Hakutulokset hakusanalle",
 
 #Items&Favors view
 :coins => "killinkiä",

@@ -67,8 +67,7 @@
     <b>Kommentoi ilmoitusta:</b><br /><br />
     <%= f.text_area :content, :size => "48x5" %>
     <br />
-    <%= f.hidden_field :author_id, :value => session[:person_id] %>
-    <%= f.hidden_field :listing_id, :value => @listing.id %>
+    <%= f.hidden_field :author_id, :value => "1" %>
     <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
   
