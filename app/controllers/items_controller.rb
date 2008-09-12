@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
     @title =  :all_items  
     @items_all = Item.find :all, :order => 'title ASC'
     
-    @item_titles = Item.find(:all, :select => "title").collect(&:title).uniq
+    @item_titles = Item.find(:all, :select => "title", :order => 'title ASC').collect(&:title).uniq
     
   end
   

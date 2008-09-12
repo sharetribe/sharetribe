@@ -90,6 +90,7 @@ I18n.store_translations 'en-US',
 
 #Favors view
 :search_favors_title => "Search favors",
+:all_favors => "Favors",
 
 #Footer
 :about => "About",
