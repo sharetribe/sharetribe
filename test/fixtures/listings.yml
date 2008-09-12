@@ -21,7 +21,7 @@ another_valid_listing:
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 22
-  status: "in-progress"
+  status: "in_progress"
   language: 
     - en-US
     - swe

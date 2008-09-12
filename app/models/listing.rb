@@ -40,7 +40,7 @@ class Listing < ActiveRecord::Base
     when "marketplace"
       ['sell', 'buy', 'give']
     else
-      nil
+      nil 
     end  
   end
   

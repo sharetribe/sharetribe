@@ -13,13 +13,16 @@ module ListingsHelper
         case type
         when "category"
           if params[:category]
-            links << link_to(t(value), listing_category_path(params.merge({:per_page => value})))
+            path = listing_category_path(params.merge({:per_page => value}))
           else
-            links << link_to(t(value), listing_category_path("all_categories", :per_page => value))
+            path = listing_category_path("all_categories", :per_page => value)
           end    
         when "search"
-          links << link_to(t(value), search_listings_path(params.merge({:per_page => value})))
+          path = search_listings_path(params.merge({:per_page => value}))
+        when "search_all"
+          path = search_path(params.merge({:per_page => value})) 
         end
+        links << link_to(t(value), path)  
       end    
     end
     links.join(" | ")  

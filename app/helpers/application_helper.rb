@@ -28,7 +28,7 @@ module ApplicationHelper
     navi_items[:favors ] = favors_path
     navi_items[:people ] = people_path
     if (session[:person_id])
-      navi_items[:own ] = "/people/" + session[:person_id].to_s + "/listings/all"
+      navi_items[:own ] = all_person_listings_path(session[:person_id].to_s)
     end
     return navi_items
   end
@@ -39,17 +39,17 @@ module ApplicationHelper
     session[:left_navi] = true
     case navi_type
     when 'own'
-      navi_items[:listings] = "/people/" + session[:person_id].to_s + "/listings/all"
-      navi_items[:inbox] = "/people/" + session[:person_id].to_s + "/inbox"
-      navi_items[:profile] = "/people/" + session[:person_id].to_s + "/profile"
-      navi_items[:friends] = "/people/" + session[:person_id].to_s + "/friends"
-      navi_items[:contacts] = "/people/" + session[:person_id].to_s + "/contacts"
-      navi_items[:purse] = "/people/" + session[:person_id].to_s + "/purse"
-      navi_items[:settings] = "/people/" + session[:person_id].to_s + "/settings"
+      navi_items[:listings] = all_person_listings_path(session[:person_id].to_s)
+      navi_items[:inbox] = person_inbox_path(session[:person_id].to_s)
+      navi_items[:profile] = person_profile_path(session[:person_id].to_s)
+      navi_items[:friends] = person_friends_path(session[:person_id].to_s)
+      navi_items[:contacts] = person_contacts_path(session[:person_id].to_s)
+      navi_items[:purse] = person_purse_path(session[:person_id].to_s)
+      navi_items[:settings] = person_settings_path(session[:person_id].to_s)
     when 'listings'
       navi_items[:browse_listings] = listing_category_path("all_categories")
-      navi_items[:search_listings] = "/listings/search"
-      navi_items[:add_listing] = "/listings/new"
+      navi_items[:search_listings] = search_listings_path
+      navi_items[:add_listing] = new_listing_path
     when 'items'
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path
@@ -70,13 +70,13 @@ module ApplicationHelper
     navi_items = ActiveSupport::OrderedHash.new
     case navi_type
     when 'listings'
-      navi_items[:all] = "/people/" + session[:person_id].to_s + "/listings/all"
-      navi_items[:own_listings_navi] = "/people/" + session[:person_id].to_s + "/listings/own"
-      navi_items[:interesting] = "/people/" + session[:person_id].to_s + "/listings/interesting"
+      navi_items[:all] = all_person_listings_path(session[:person_id].to_s)
+      navi_items[:own_listings_navi] = own_person_listings_path(session[:person_id].to_s)
+      navi_items[:interesting] = interesting_person_listings_path(session[:person_id].to_s)
     when 'browse_listings'
       navi_items[:all_categories] = listing_category_path("all_categories")
       Listing::MAIN_CATEGORIES.each do |category|
-        navi_items[category] = "/listings/categories/#{category}"
+        navi_items[category] = listing_category_path(category)
       end   
     else
       navi_items = nil
@@ -89,7 +89,7 @@ module ApplicationHelper
     navi_items = ActiveSupport::OrderedHash.new
     if (Listing.get_sub_categories(navi_type))
       Listing.get_sub_categories(navi_type).each do |category|
-        navi_items[category] = "/listings/categories/#{category}"
+        navi_items[category] = listing_category_path(category)
       end   
     else
       navi_items = nil

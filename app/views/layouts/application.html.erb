@@ -34,11 +34,15 @@
         </div>
         <div id="logo_and_top_navi">
           <div id="logo">
-            <img src="/images/kassi_logo_smaller-trans.png" alt="Kassi" />
+            <%= link_to image_tag("/images/kassi_logo_smaller-trans.png", :border => 0, :alt => "Kassi"), root_path %> 
           </div>
           <div id="search_and_navi_container">
             <div id="searchbar">
-              <%= t(:search_kassi) %>&nbsp;<input type="text" />&nbsp;&nbsp;<input type="button" value="<%= t(:search) %>" />
+              <% form_tag({ :controller => "search", :action => "index" }, :method => "get") do %>              
+                <%= t(:search_kassi) %>&nbsp;
+                <%= text_field_tag "qa", params[:qa], :size => 30 %>&nbsp;&nbsp;
+                <%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %>
+              <% end %>  
             </div>
             <%= render :partial => "layouts/top_navi" %>
           </div>
