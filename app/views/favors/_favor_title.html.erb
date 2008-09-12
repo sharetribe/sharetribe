@@ -1,5 +1,10 @@
 <table class='favor'>
 	<h3>	
 	<%= link_to(favor_title) %>
+	
+	<%if(Favor.find_by_title(favor_title).payment != nil)%>
+		<%= Favor.find_by_title(favor_title).payment%>
+		<%=t(:coins)%>
+	<%end%>
 	</h3>
 </table>

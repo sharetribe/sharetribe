@@ -1,5 +1,22 @@
 <table class='item'>
 	<h3>	
 	<%= link_to(item_title) %>
+	<%@values = Array.new
+	items = Item.find(:all, :conditions => {:title => item_title})
+	
+	items.each do |p|
+		@values << p.payment
+	end
+	
+	@values.compact!
+	if(!@values.empty?)
+		@values.sort!%>
+		<%=@values.first%>
+		<%if @values.size > 1 %>
+			-
+			<%=@values.last%>
+		<%end%>
+		<%=t(:coins)%>
+	<%end%>
 	</h3>
 </table>

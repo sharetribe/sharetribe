@@ -8,9 +8,7 @@ class InsertMockItemsToDb < ActiveRecord::Migration
     }
     item_data[1] = {
       :owner_id => "Antti",
-      :title => "Ketjunkatkaisin",
-      :payment => 2
-      
+      :title => "Ketjunkatkaisin"
     }
     item_data[2] = {
       :owner_id => "Antti",

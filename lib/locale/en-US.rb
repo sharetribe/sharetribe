@@ -92,6 +92,9 @@ I18n.store_translations 'en-US',
 :search_favors_title => "Search favors",
 :all_favors => "Favors",
 
+#Items&favors view
+:coins => "coins",
+
 #Footer
 :about => "About",
 :help => "Help",
