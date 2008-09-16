@@ -1,3 +1,15 @@
 <h3><%= flash[:notice] %></h3>
-<h3>Soon...</h3>
+<h3>Create new user</h3>
 
+<%= error_messages_for :person %>
+
+<% form_for @person do |f| -%>
+  <p><%= f.label :username, "Name" %></p>
+  <p><%= f.text_field :username %></p>
+  <p><%= f.label :password, "Password" %></p>
+  <p><%= f.password_field :password %></p>
+  <p><%= f.label :email, "Email" %></p>
+  <p><%= f.text_field :email %></p>
+  <p><%= f.submit "Create", :disable_with => 'Creating...' %></p>
+  
+<% end -%>

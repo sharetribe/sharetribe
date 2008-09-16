@@ -1,6 +1,6 @@
 class Person < ActiveRecord::Base
   
-  attr_accessor :guid
+  attr_accessor :guid, :username, :password, :email
   
   class PersonConnection < ActiveResource::Base
     self.site = Session::COS_URL
@@ -13,8 +13,9 @@ class Person < ActiveRecord::Base
       creating_headers = {"Cookie" => cookie}
       response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
     end
-    
   end
+  
+  
   def self.create(params, cookie)
     #return nil if params.nil?
     
