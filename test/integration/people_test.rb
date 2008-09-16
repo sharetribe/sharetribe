@@ -6,14 +6,14 @@ class PeopleTest < ActionController::IntegrationTest
   def test_create_users
     # this is done twice to get two records in Kassi database
     # to detecet collisions primart keys
-    log_application_in  
+    #log_application_in  
     username = generate_random_username
     create_user({:person => {:username => username,
                  :password => "testi",
                  :email => "#{username}@example.com"}})
                  
     log_out
-    log_application_in  
+    #log_application_in  
     username = generate_random_username
     create_user({:person => {:username => username,
                  :password => "testi",

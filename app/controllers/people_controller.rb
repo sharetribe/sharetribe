@@ -10,14 +10,15 @@ class PeopleController < ApplicationController
   end
 
   def create
+    # Open a Session first only for Kassi to be able to create a user
+    @session = Session.login
+    session[:cookie] = @session.headers["Cookie"]
+    
     @person = Person.create(params[:person], session[:cookie])
-    # if ! @person.valid?
-    #   render status :bad_request and return
-    # end
   end
   
   def new
-    
+    @person = Person.new({})
   end
   
 end
