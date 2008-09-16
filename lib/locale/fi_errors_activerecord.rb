@@ -20,6 +20,11 @@ I18n.backend.store_translations :'fi', {
       :less_than_or_equal_to => "pitää olla vähemmän tai yhtä paljon kuin {{count}}.",
       :odd => "pitää olla pariton luku.",
       :even => "pitää olla parillinen luku."
+    },
+    :attributes => {
+      :listing => {
+        :title => "Otsikko"
+      }
     }            
   }
 }

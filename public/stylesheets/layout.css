@@ -325,13 +325,12 @@ div.arrow_left {
 }
 
 div.arrow_right {
-	width: 20px;
 	padding-top: 6px;
 	float: left;
 }
 
 #title_div {
-	width: 680px;
+	width: 687px;
 	float: left;
 }
 
@@ -388,7 +387,7 @@ div.notification {
 }
 
 div.error {
-	background: #ff0000;
+	background: #fe5c58;
 }
 
 #form_error_messages {

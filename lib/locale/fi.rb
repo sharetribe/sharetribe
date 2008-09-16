@@ -90,6 +90,7 @@ I18n.store_translations 'fi',
 :image => "Kuva",
 :show_listings_on_page => "Näytä ilmoituksia sivulla",
 :listings_partitive => "ilmoitusta",
+:listing_cannot_be_created => "Ilmoitusta ei voitu luoda seuraavien virheiden takia:",
 
 #Listing statuses
 :open => "Avoinna",
@@ -133,6 +134,11 @@ I18n.store_translations 'fi',
 :search_results => "Hakutulokset",
 :invalid_char_in_search => "Ei-sallittu merkki hakukentässä",
 :search_returned_no_hits => "Haku ei tuottanut yhtään osumaa!",
+
+#Error messages
+:title_is_required => "Otsikko on pakollinen tieto.",
+:title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",
+:content_is_required => "Ilmoituksen sisältö on pakollinen tieto.",
 
 #Footer
 :about => "Tietoa",

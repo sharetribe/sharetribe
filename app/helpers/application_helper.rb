@@ -20,7 +20,7 @@ module ApplicationHelper
     return translated_array  
   end
   
-  # Returns hash containing link names and urls for top navigation.
+  # Returns a hash containing link names and urls for top navigation.
   def get_top_navi_items
     navi_items = ActiveSupport::OrderedHash.new  
     navi_items[:listings ] = listing_category_path("all_categories")
@@ -33,7 +33,7 @@ module ApplicationHelper
     return navi_items
   end
   
-  # Returns hash containing link names and urls for left navigation.
+  # Returns a hash containing link names and urls for left navigation.
   def get_left_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     session[:left_navi] = true
@@ -65,7 +65,7 @@ module ApplicationHelper
     return navi_items
   end
   
-  # Returns hash containing link names and urls for left sub navigation.
+  # Returns a hash containing link names and urls for left sub navigation.
   def get_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     case navi_type
@@ -84,7 +84,7 @@ module ApplicationHelper
     return navi_items 
   end
   
-  # Returns hash containing link names and urls for left "sub sub" navigation.
+  # Returns a hash containing link names and urls for left "sub sub" navigation.
   def get_sub_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     if (Listing.get_sub_categories(navi_type))
