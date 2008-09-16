@@ -1,10 +1,12 @@
 <div id="title_with_border">
   <div class="arrow_left">
-    <a href="/listings/<%= @previous_listing.id.to_s %>">
-      <img alt="Previous" src="/images/arrow_left.png"
-      onmouseover="this.src='/images/arrow_left_hilight.png';"
-      onmouseout="this.src='/images/arrow_left.png';" />
-    </a>
+    <%= 
+      link_to image_tag("/images/arrow_left.png", :border => 0, 
+                                                  :alt => t(:previous_listing),
+                                                  :onmouseover => "this.src='/images/arrow_left_hilight.png';",
+                                                  :onmouseout => "this.src='/images/arrow_left.png';"
+                       ), @previous_listing 
+    %>
   </div>
   <div id="title_div">
     <h1 class="no_border">
@@ -16,11 +18,13 @@
     </h1>
   </div>
   <div class="arrow_right">
-    <a href="/listings/<%= @next_listing.id.to_s %>">
-      <img alt="Next" src="/images/arrow_right.png"
-      onmouseover="this.src='/images/arrow_right_hilight.png';"
-      onmouseout="this.src='/images/arrow_right.png';" />
-    </a>
+    <%= 
+      link_to image_tag("/images/arrow_right.png", :border => 0, 
+                                                  :alt => t(:next_listing),
+                                                  :onmouseover => "this.src='/images/arrow_right_hilight.png';",
+                                                  :onmouseout => "this.src='/images/arrow_right.png';"
+                       ), @next_listing 
+    %>
   </div>
 </div>
 <div id="basic_content">

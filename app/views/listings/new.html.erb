@@ -6,10 +6,9 @@
   <% else %>
   <% if @listing %>
   <div id="add_listing_form">
-  <div id="form_error_messages">
-  <%= error_messages_for 'listing' %>
-  <%= error_messages_for 'image' %>
-  </div>
+  
+  <%= error_messages_for 'listing' %>  
+  
   <% error_class_language = "" %>
   <% @listing.errors.full_messages.each do |message| %>
     <% if message.include? "Language" %>
@@ -32,7 +31,13 @@
         <div class="<%= error_class_language %>">  
         <table>
           <tr>
-            <td><%= f.check_box :language_fi, :checked => "checked" %></td>
+            <td>
+              <% if (params[:listing] && params[:listing][:language_fi] && !params[:listing][:language_fi].to_s.eql?('1')) %>
+                <%= f.check_box :language_fi %>  
+              <% else %>
+                <%= f.check_box :language_fi, :checked => "checked" %>
+              <% end %>  
+            </td>
             <td><%= t(:fi) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
             <td><%= f.check_box :language_en %></td>
             <td><%= t(:en) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>

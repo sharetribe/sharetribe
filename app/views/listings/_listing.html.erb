@@ -32,7 +32,7 @@
           <table class="listing_inner listing_right">
             <tr>
               <td><b><%= t(:category) %>:</b></td>
-              <td><%= link_to(t(listing.category),"/listings/categories/" + listing.category) %></a></td>
+              <td><%= link_to(t(listing.category), listing_category_path(listing.category)) %></a></td>
             </tr>
             <tr>
               <td><b><%= t(:status) %>:</b></td> 
