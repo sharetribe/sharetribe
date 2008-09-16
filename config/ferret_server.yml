@@ -6,7 +6,7 @@
 # log_level: log level for the server's logger
 production:
   host: localhost
-  port: 9010
+  port: 9080
   pid_file: log/ferret.pid
   log_file: log/ferret_server.log
   log_level: warn
