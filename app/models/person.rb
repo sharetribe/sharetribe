@@ -27,7 +27,7 @@ class Person < ActiveRecord::Base
     super(params.except(:username, :password, :email))
   end
 
-  def initialize(params)
+  def initialize(params={})
     #puts params[:id] if ! params.nil?
     self.guid = params[:id] #store GUID to temporary attribute
     super(params)
