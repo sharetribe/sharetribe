@@ -35,13 +35,19 @@ class Session < ActiveResource::Base
   #   end
   #end
   
-  def self.login(params = {})
-    session = new
-    session.username = params[:username]
-    session.password = params[:password]
-    session.save
-    return session
-  end
+  # def self.login(params = {})
+  #   session = new
+  #   session.username = params[:username]
+  #   session.password = params[:password]
+  #   session.save
+  #   return session
+  # end
+  
+  # def self.create(params= {})
+  #   #@username = params[:username]
+  #   #@password = params[:password]
+  #   super(params)
+  # end
   
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
@@ -54,6 +60,12 @@ class Session < ActiveResource::Base
   def self.to_query_string(params)
       query_string(params)
       #TODO find a better way to do this...
+  end
+  
+  def initialize(params={})
+    self.username = params[:username]
+    self.password = params[:password]
+    super(params)
   end
   
   def create
