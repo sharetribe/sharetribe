@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password
 
   before_filter :set_locale
+  before_filter :fetch_logged_in_user
 
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -66,5 +67,10 @@ class ApplicationController < ActionController::Base
     # Require locale files for error messages
     require "lib/locale/#{locale}.rb"
   end
-
+  
+  def fetch_logged_in_user
+    if session[:person_id]
+      @current_user = Person.find_by_id(session[:person_id])
+    end
+  end
 end

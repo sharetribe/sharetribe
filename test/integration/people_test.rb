@@ -31,6 +31,6 @@ class PeopleTest < ActionController::IntegrationTest
   
   def create_user(params)
     post "people", params
-    assert_response :success, @response.body
+    assert_response :found, @response.body
   end
 end

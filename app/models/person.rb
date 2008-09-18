@@ -26,6 +26,10 @@ class Person < ActiveRecord::Base
     #create locally with less attributes
     super(params.except(:username, :password, :email))
   end
+  
+  # def self.add_to_kassi_db(id)
+  #   
+  # end
 
   def initialize(params={})
     #puts params[:id] if ! params.nil?

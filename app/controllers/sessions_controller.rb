@@ -3,7 +3,12 @@ class SessionsController < ApplicationController
     @session = Session.create({ :username => params[:username], 
                                :password => params[:password] })
     session[:cookie] = @session.headers["Cookie"]
-    session[:person_id] = @session.person_id 
+    session[:person_id] = @session.person_id
+    unless  @current_user = Person.find_by_id(session[:person_id])
+      # The user has succesfully logged in, but is not found in Kassi DB
+      #@current_user = Person.add_to_kassi_db(@session.person_id)
+    end
+    redirect_to(root_path) #TODO should redirect to the page where user was
   end
   
   def destroy
