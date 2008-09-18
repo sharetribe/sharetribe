@@ -97,7 +97,7 @@ module WillPaginate
       # See {Faking Cursors in ActiveRecord}[http://weblog.jamisbuck.org/2007/4/6/faking-cursors-in-activerecord]
       # where Jamis Buck describes this and a more efficient way for MySQL.
       def paginated_each(options = {}, &block)
-        options = { :order => 'id', :page => 1 }.merge options
+        options = { :order => 'id DESC', :page => 1 }.merge options
         options[:page] = options[:page].to_i
         options[:total_entries] = 0 # skip the individual count queries
         total = 0

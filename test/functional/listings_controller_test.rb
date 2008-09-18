@@ -88,4 +88,15 @@ class ListingsControllerTest < ActionController::TestCase
     assert_equal listings(:valid_listing), assigns(:listing)
   end
   
+  def test_search_listings_view
+    get :search
+    assert_response :success
+    assert_template 'search'
+  end
+  
+  def test_search_listings
+    get :search, :q => "*", :only_open => "true"
+    assert_response :success
+  end  
+  
 end

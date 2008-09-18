@@ -22,7 +22,7 @@ class Listing < ActiveRecord::Base
   acts_as_ferret :fields => {
     :title => {},
     :content => {},
-    :created_at_sort => {:index => :untokenized}
+    :id_sort => {:index => :untokenized}
   }
   
   #Options for status
@@ -154,8 +154,8 @@ class Listing < ActiveRecord::Base
     return true
   end
 
-  def created_at_sort
-    created_at.to_i
-  end
+  def id_sort
+    id
+  end  
 
 end

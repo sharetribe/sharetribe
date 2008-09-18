@@ -27,3 +27,17 @@ another_valid_listing:
     - swe
   value_cc: 13
   value_other: "rahaa"
+
+third_valid_listing:
+  author_id: "maija"
+  category: "sell"
+  title: "Myydään alastomia oravoita"
+  content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 22
+  status: "closed"
+  language: 
+    - en-US
+    - swe
+  value_cc: 13
+  value_other: "rahaa"
