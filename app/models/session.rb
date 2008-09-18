@@ -1,3 +1,5 @@
+require 'json'
+
 class Session < ActiveResource::Base
  
   #URL for Common Services
@@ -6,48 +8,15 @@ class Session < ActiveResource::Base
   COS_TIMEOUT = 8
 
   attr_accessor :username
-  attr_accessor :password
+  attr_writer   :password
   attr_reader   :headers
+  attr_reader   :person_id
  
   self.site = COS_URL
   self.format = :json 
   self.timeout = COS_TIMEOUT
   @@app_password = "Xk4z5iZ"
   @@app_name = "kassi"
-  @username
-  @password
-  @headers
- 
-  #self.element_name = "session"
-  #self.collection_name = "session" #exceptionally not plural, bacause COS requires "session"
-  
-  #class << self
-  #   def element_path(id, prefix_options = {}, query_options = nil)
-  #     prefix_options, query_options = split_options(prefix_options) if query_options.nil?
-  #     # path to the resource, which we want to access is evaluated in this statement: 
-  #     "#{prefix(prefix_options)}#{collection_name}#{query_string(query_options)}"
-  #   end
-  # 
-  #   def collection_path(prefix_options = {}, query_options = nil)
-  #     #puts prefix_options.inspect + "LASDFOIHASFGIOAUBHAEGAHDSIGU"
-  #     prefix_options, query_options = split_options(prefix_options) if query_options.nil?
-  #     "#{prefix(prefix_options)}#{collection_name}#{simplify_parameters(query_string(query_options))}?app_name=kassi&app_password=Xk4z5iZ"
-  #   end
-  #end
-  
-  # def self.login(params = {})
-  #   session = new
-  #   session.username = params[:username]
-  #   session.password = params[:password]
-  #   session.save
-  #   return session
-  # end
-  
-  # def self.create(params= {})
-  #   #@username = params[:username]
-  #   #@password = params[:password]
-  #   super(params)
-  # end
   
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
@@ -77,12 +46,15 @@ class Session < ActiveResource::Base
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}#{self.class.to_query_string(params)}")
     
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
-    #puts "OPENED SESSION WITH COOKIE = "  + @headers["Cookie"]
+    json = JSON.parse(resp.body)
+    @person_id = json["user_id"]
+    
   end
   
   def check
     get("")
   end
+  
   def get(path)
     connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
   end
