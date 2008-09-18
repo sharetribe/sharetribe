@@ -12,10 +12,6 @@
 
 <br />
 
-<% if @invalid %>
-  <p><%= t(:invalid_char_in_search) %></p>
-<% end %>
-
 <% if params[:q]%>
 
 <%= render :partial => "listings/search_results" %>

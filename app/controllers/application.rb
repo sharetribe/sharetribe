@@ -31,11 +31,11 @@ class ApplicationController < ActionController::Base
   # Fetch listings based on conditions
   def fetch_listings(conditions)
     @listing_amount = Listing.find(:all,
-                             :order => 'created_at DESC', 
+                             :order => 'id DESC', 
                              :conditions => conditions).size                                                    
     @listings = Listing.paginate :page => params[:page], 
                                  :per_page => per_page.to_i, 
-                                 :order => 'created_at DESC', 
+                                 :order => 'id DESC', 
                                  :conditions => conditions                 
   end
 
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
       :all
     else  
       params[:per_page] || 10
-    end  
+    end
   end
   
   private 

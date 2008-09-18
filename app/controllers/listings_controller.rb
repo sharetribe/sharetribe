@@ -31,8 +31,8 @@ class ListingsController < ApplicationController
     save_navi_state(['listings', 'browse_listings'])
     @listing = Listing.find(params[:id])
     @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
-    @next_listing = Listing.find(:first, :conditions => ["created_at > ?", @listing.created_at]) || @listing
-    @previous_listing = Listing.find(:last, :conditions => ["created_at < ?", @listing.created_at]) || @listing
+    @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
+    @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
   end
 
   def search
@@ -45,11 +45,9 @@ class ListingsController < ApplicationController
       if params[:q]
         query = params[:q]
         begin
-          s = Ferret::Search::SortField.new(:created_at_sort, :reverse => true)
+          s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
           conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
-          @listings = Listing.find_by_contents(query, {:page => params[:page], :per_page => per_page.to_i, :sort => s}, {:conditions => conditions})
-        rescue Ferret::QueryParser::QueryParseException
-          @invalid = true
+          @listings = Listing.find_by_contents(query, {:page => params[:page], :per_page => per_page.to_i, :order => 'id DESC', :sort => s}, {:conditions => conditions})
         end
       end    
     end   
