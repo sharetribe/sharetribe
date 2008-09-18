@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_not_nil session[:cookie]
 
     delete :destroy
-    assert_response :success
+    assert_response :found
     assert_nil session[:cookie]
   end
 end
