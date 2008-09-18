@@ -1,3 +1,5 @@
+require 'json'
+
 class Person < ActiveRecord::Base
   
   attr_accessor :guid, :username, :password, :email
@@ -12,6 +14,10 @@ class Person < ActiveRecord::Base
     def self.create_person(params, cookie)
       creating_headers = {"Cookie" => cookie}
       response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
+    end
+    
+    def self.get_person(id)
+      connection.get("#{prefix}#{element_name}/#{id}/@self")
     end
   end
   
@@ -32,15 +38,26 @@ class Person < ActiveRecord::Base
   # end
 
   def initialize(params={})
-    #puts params[:id] if ! params.nil?
     self.guid = params[:id] #store GUID to temporary attribute
     super(params)
   end
   
   def after_initialize
-    #puts "AFTER_INITIALIZE BEF self.id = #{self.id} ja self.guid= #{self.guid}"    
     self.id ||= self.guid
-    #puts "AFTER_INITIALIZE AFT self.id = #{self.id} ja self.guid= #{self.guid}"    
+  end
+  
+  def given_name
+    "Matti"
+  end
+  
+  def family_name
+    "Meikäläinen"
+  end
+  
+  def name
+    #person_json = JSON.parse(PersonConnection.get_person(self.id).body)
+    #return json["name"]["unstructured"]
+    "Masa Mäki"
   end
   
 end

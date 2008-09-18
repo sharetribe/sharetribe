@@ -7,6 +7,10 @@ I18n.store_translations 'en-US',
 :register => "Register",
 :logout => "Logout",
 
+#Login notices
+:logout_succesful => "Logout succesful.",
+:login_succesful => "Login succesful.",
+
 #Search
 :search_kassi => "Search Kassi:",
 :search => "Search",

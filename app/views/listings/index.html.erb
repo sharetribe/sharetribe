@@ -10,7 +10,7 @@
 <div id="container">
 <% unless flash[:notice].blank? %>
   <div class="announcement notification">
-    <%= flash[:notice] %>
+    <%= t(flash[:notice]) %>
   </div>
 <% end %>
 
