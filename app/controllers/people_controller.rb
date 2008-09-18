@@ -15,6 +15,8 @@ class PeopleController < ApplicationController
     session[:cookie] = @session.headers["Cookie"]
     
     @person = Person.create(params[:person], session[:cookie])
+    session[:person_id] = @person.id
+    redirect_to(root_path) #TODO should redirect to the page where user was
   end
   
   def new
