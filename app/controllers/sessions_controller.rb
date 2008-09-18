@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       # The user has succesfully logged in, but is not found in Kassi DB
       #@current_user = Person.add_to_kassi_db(@session.person_id)
     end
+    flash[:notice] = :login_succesful
     redirect_to(root_path) #TODO should redirect to the page where user was
   end
   
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
     Session.destroy(session[:cookie]) if session[:cookie]
     session[:cookie] = nil
     session[:person_id] = nil
+    flash[:notice] = :logout_succesful
     redirect_to(root_path)
   end
   

@@ -7,6 +7,10 @@ I18n.store_translations 'fi',
 :register => "Rekisteröidy",
 :logout => "Kirjaudu ulos",
 
+#Login notices
+:logout_succesful => "Uloskirjautuminen onnistui.",
+:login_succesful => "Sisäänkirjautumien onnistui.",
+
 #Search
 :search_kassi => "Hae Kassista:",
 :search => "Hae",
