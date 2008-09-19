@@ -2,7 +2,7 @@ require 'json'
 
 class Person < ActiveRecord::Base
   
-  attr_accessor :guid, :username, :password, :email
+  attr_accessor :guid, :password
   
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
   
@@ -25,19 +25,49 @@ class Person < ActiveRecord::Base
   
   
   def self.create(params, cookie)
-    #return nil if params.nil?
-    
     # create to Common Services
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
+    params[:cos_cookie] = cookie
     #create locally with less attributes
     super(params.except(:username, :email))
   end
   
-  # def self.add_to_kassi_db(id)
-  #   
-  # end
+  ##
+  # returns a test person. If doesn't exist already, creates him.
+  
+  def self.test_person
+    session = nil
+    test_person = nil
+    
+    #frist try loggin in to cos
+    begin
+      session = Session.create({:username => "kassi_testperson1", :password => "testi" })
+      #try to find in kassi database
+      test_person = Person.find(session.person_id)
+
+    rescue ActiveResource::UnauthorizedAccess => e
+      #if not found, create completely new
+      session = Session.create
+      session.headers["Cookie"]
+      test_person = Person.create({ :username => "kassi_testperson1", 
+                      :password => "testi", 
+                      :email => "kassi_testperson1@example.com"},
+                       session.headers["Cookie"])
+    rescue ActiveRecord::RecordNotFound  => e
+        test_person = Person.add_to_kassi_db(session.person_id)
+    end
+  end
+  
+  def self.add_to_kassi_db(id)
+    person = Person.new({:id => id })
+    if person.save
+      return person
+    else
+      return nil
+    end
+  end
 
   def initialize(params={})
     self.guid = params[:id] #store GUID to temporary attribute

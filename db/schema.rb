@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080912072238) do
+ActiveRecord::Schema.define(:version => 20080919122825) do
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
@@ -75,13 +75,14 @@ ActiveRecord::Schema.define(:version => 20080912072238) do
     t.datetime "updated_at"
   end
 
-  create_table "people", :id => false, :force => true, :primary_key => :id do |t|
+    create_table "people", :id => false, :force => true, :primary_key => :id do |t|
     t.string :id, :limit => 22, :null => false
     t.integer  "coin_amount", :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cos_cookie"
   end
-
+  
   execute "ALTER TABLE people ADD PRIMARY KEY (id)"
 
   create_table "person_comments", :force => true do |t|
