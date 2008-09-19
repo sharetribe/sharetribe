@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
   
   def fetch_logged_in_user
     if session[:person_id]
-      @current_user = Person.find_by_id(session[:person_id])
+      @current_user = Person.find_by_id(session[:person_id]) 
     end
   end
 end
