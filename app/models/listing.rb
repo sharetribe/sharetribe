@@ -7,13 +7,13 @@ class Listing < ActiveRecord::Base
   has_many :messages
   has_many :comments, :class_name => "ListingComment"
   
-  belongs_to :person
+  belongs_to :author, :class_name => "Person"
   
   has_many :read_listings
-  has_many :persons, :through => :read_listings
+  has_many :people, :through => :read_listings
   
   has_many :interesting_listings
-  has_many :persons, :through => :interesting_listings
+  has_many :people, :through => :interesting_listings
   
   serialize :language, Array
   

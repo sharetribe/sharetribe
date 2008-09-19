@@ -73,4 +73,12 @@ class ApplicationController < ActionController::Base
       @current_user = Person.find_by_id(session[:person_id]) 
     end
   end
+  
+  def logged_in
+    return true if @current_user
+    session[:return_to] = request.request_uri
+    flash[:warning] = :you_must_login_to_do_this
+    redirect_to new_session_path and return false
+  end
+  
 end

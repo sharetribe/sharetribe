@@ -1,38 +1,28 @@
 class ListingsController < ApplicationController
 
+  before_filter :logged_in, :only  => [ :new, :create, :destroy ]
+
   def index
     save_navi_state(['listings', 'browse_listings', 'all_categories'])
     @title = :all_categories
+    @pagination_type = "category"
     fetch_listings('')
   end
-
-  def all
-    @title = :all_listings
-    save_navi_state(['own', 'listings', 'all'])
-    fetch_listings('')
-    render :action => "index"
-  end
-
-  def interesting
-    @title = :interesting_listings
-    save_navi_state(['own', 'listings', 'interesting'])
-    fetch_listings('')
-    render :action => "index"
-  end
-
-  def own
-    @title = :own_listings
-    save_navi_state(['own', 'listings', 'own_listings_navi'])
-    fetch_listings("author_id = '" + session[:person_id].to_s + "'")
-    render :action => "index"
-  end  
 
   def show
-    save_navi_state(['listings', 'browse_listings'])
-    @listing = Listing.find(params[:id])
-    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
-    @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
-    @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
+    if (params[:id])
+      save_navi_state(['listings', 'browse_listings'])
+      @listing = Listing.find(params[:id])
+      @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
+      @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
+      @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
+    else  
+      @title = :own_listings
+      save_navi_state(['own', 'own_listings'])
+      fetch_listings("author_id = '" + @current_user.id.to_s + "'")
+      @pagination_type = "own_listings"
+      render :action => "index"
+    end
   end
 
   def search

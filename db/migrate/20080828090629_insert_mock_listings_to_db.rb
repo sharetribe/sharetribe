@@ -2,7 +2,7 @@ class InsertMockListingsToDb < ActiveRecord::Migration
   def self.up
     listing_data = []
     listing_data[0] = {
-      :author_id => "Kusti", 
+      :author_id => "dAnhlkHu8r3yVsaby-wlP4", 
       :category => "sell", 
       :title => "Myydään tietokone", 
       :content => "Myydään erinomainen tietokone. Tulkaa ostamaan.", 
@@ -12,7 +12,7 @@ class InsertMockListingsToDb < ActiveRecord::Migration
       :times_viewed => "0"
     }
     listing_data[1] = {
-      :author_id => "Jaakko", 
+      :author_id => "dAnhlkHu8r3yVsaby-wlP4", 
       :category => "borrow_items", 
       :title => "Lainataan pora", 
       :content => "Tarvitaan pora lainaan mahdollisimman pikaisesti.", 

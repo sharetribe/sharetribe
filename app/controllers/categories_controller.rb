@@ -17,6 +17,7 @@ class CategoriesController < ApplicationController
     else  
       fetch_listings("category = '" + params[:id] + "'")
     end
+    @pagination_type = "category"
     render :template => "listings/index"
   end
 

@@ -52,28 +52,31 @@
    
   <p><%= @listing.content %></p>
   <br />
-  <%= link_to("Vastaa ilmoitukseen","#") %> | <%= link_to("Merkitse kiinnostavaksi","#") %>
+  <% unless @current_user && @listing.author == @current_user %>
+    <%= link_to("Vastaa ilmoitukseen","#") %> 
+    <% if @current_user %>
+    | 
+    <% if InterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
+      <%= link_to t(:remove_from_interesting), "/people/" + @current_user.id + "/listings/interesting/" + @listing.id.to_s, :method => :delete %>
+    <% else %>
+      <%= link_to t(:mark_as_interesting), "/people/" + @current_user.id + "/listings/interesting?listing_id=" + @listing.id.to_s, :method => :post %>
+    <% end %>
+    <% end %>
+  <% end %>
   <br /><br /><br />
   
-  <% unless flash[:notice].blank? %>
-    <div class="announcement notification">
-      <%= t(flash[:notice]) %>
-    </div>
-  <% end %>
-
-  <% unless flash[:error].blank? %>
-    <div class="announcement error">
-      Error: <%= t(flash[:error]) %>
-    </div>
-  <% end %>
+  <% if @current_user %>
+  
+  <%= render :partial => "layouts/announcements" %>
   
   <% form_for :listing_comment, :url => listing_listing_comments_path(@listing) do |f| %>
     <b>Kommentoi ilmoitusta:</b><br /><br />
     <%= f.text_area :content, :size => "48x5" %>
     <br />
-    <%= f.hidden_field :author_id, :value => "1" %>
+    <%= f.hidden_field :author_id, :value => @current_user.id %>
     <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
+  <% end%>
   
   </div>
 

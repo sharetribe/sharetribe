@@ -1,17 +1,28 @@
-<h3><%= flash[:notice] %></h3>
-<h3>Login</h3>
+<h1><%= t(:logging_in) %></h1>
+
+<br />
+
+<%= render :partial => "layouts/announcements" %>
 
 <%= error_messages_for :session %>
 
-
 <% form_tag(:action => "create") do -%>
-    username
-    <%= text_field_tag :username %>
-    passu:
-    <%= password_field_tag :password %>
-    
-    <%= submit_tag 'Login' %>
+
+<table class="form">
+    <tr>
+      <td><%= t(:username) %></td>
+      <td><%= text_field_tag :username %></td>
+    </tr>  
+    <tr>
+      <td><%= t(:password) %></td>
+      <td><%= password_field_tag :password %></td>
+    </tr>
+</table>
+<table class="form">  
+  <tr>
+    <td><%= submit_tag t(:login), :onclick => "this.disabled=true,this.form.submit();" %></td>    
+  </tr>
+</table>
+
 <% end -%>
-
-
 

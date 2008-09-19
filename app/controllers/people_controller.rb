@@ -1,8 +1,32 @@
 class PeopleController < ApplicationController
 
-  
+  before_filter :logged_in, :only  => [ :show ]
+
   def index
     save_navi_state(['people', 'browse_people'])
+  end
+  
+  def home
+    if @current_user
+      if params[:id] && !params[:id].eql?(@current_user.id)
+        @title = :no_rights_to_view
+      else
+        save_navi_state(['own', 'home'])
+        @title = :home
+      end  
+    else
+      redirect_to(listings_path)
+    end    
+  end
+  
+  def show
+    if @current_user
+      @person = Person.find(params[:id])
+      save_navi_state(['own', 'profile']) if session[:navi1].eql?("own")
+      @title = @person.id 
+    else
+      @title = :only_logged_in_can_view
+    end    
   end
   
   def search

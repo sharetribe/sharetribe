@@ -4,6 +4,8 @@
  * Lighter grey (hovered uselected item in top navi): 
  * Light green (left links, category box, notification box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
+ * Orange (warning) => #fea04c;
+ * Red (error) => #fe5c58;
  */
 
 /* 
@@ -384,6 +386,10 @@ div.announcement {
 
 div.notification {
 	background: #c0e783;
+}
+
+div.warning {
+	background: #fea04c;
 }
 
 div.error {

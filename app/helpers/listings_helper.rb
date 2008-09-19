@@ -16,7 +16,11 @@ module ListingsHelper
             path = listing_category_path(params.merge({:per_page => value}))
           else
             path = listing_category_path("all_categories", :per_page => value)
-          end    
+          end
+        when "interesting_listings"
+          path = person_interesting_index_path(params.merge({:per_page => value}))
+        when "own_listings"
+          path = person_own_path(params.merge({:per_page => value}))       
         when "search"
           path = search_listings_path(params.merge({:per_page => value}))
         when "search_all"
@@ -26,6 +30,14 @@ module ListingsHelper
       end    
     end
     links.join(" | ")  
+  end
+  
+  # Returns a string containing information on the listings on current page
+  # (e.g. "Showing listings 11-20 of total 37 listings")
+  def listings_on_this_page
+    if (@listing_amount && @listing_amount <= 10) || (@listings.total_hits && @listings.total_hits <= 10)
+      "Showing listings " + 1 + " - " + @listing_amount || @listings.total_hits
+    end     
   end
   
   # def translate_error_messages(error_message_groups)

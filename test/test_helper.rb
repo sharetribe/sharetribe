@@ -80,5 +80,10 @@ class Test::Unit::TestCase
       assert_listing_valid(attribute, value, is_valid)
     end
   end
+  
+  def post_with_author(action, parameters = nil, session = nil, flash = nil)
+    @current_user = Person.test_person
+    post action, parameters, :author_id => @current_user.id
+  end
       
 end

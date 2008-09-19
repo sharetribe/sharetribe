@@ -22,7 +22,7 @@
             </tr>
             <tr>
               <td>
-                <i>Ilmoituksen jättänyt <%= link_to(listing.author_id,"/people/" + listing.author_id.to_s) %> 
+                <i>Ilmoituksen jättänyt <%= link_to(listing.author_id, person_path(listing.author_id)) %> 
                 <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> </i>
               </td>
             </tr>
