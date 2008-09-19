@@ -27,8 +27,8 @@ module ApplicationHelper
     navi_items[:items ] = items_path
     navi_items[:favors ] = favors_path
     navi_items[:people ] = people_path
-    if (session[:person_id])
-      navi_items[:own ] = all_person_listings_path(session[:person_id].to_s)
+    if (@current_user)
+      navi_items[:own] = home_person_path(@current_user)
     end
     return navi_items
   end
@@ -39,13 +39,12 @@ module ApplicationHelper
     session[:left_navi] = true
     case navi_type
     when 'own'
-      navi_items[:listings] = all_person_listings_path(session[:person_id].to_s)
-      navi_items[:inbox] = person_inbox_path(session[:person_id].to_s)
-      navi_items[:profile] = person_profile_path(session[:person_id].to_s)
-      navi_items[:friends] = person_friends_path(session[:person_id].to_s)
-      navi_items[:contacts] = person_contacts_path(session[:person_id].to_s)
-      navi_items[:purse] = person_purse_path(session[:person_id].to_s)
-      navi_items[:settings] = person_settings_path(session[:person_id].to_s)
+      navi_items[:home] = home_person_path(@current_user)
+      navi_items[:profile] = person_path(@current_user)
+      navi_items[:inbox] = person_inbox_index_path(@current_user)
+      navi_items[:interesting_listings] = person_interesting_index_path(@current_user)
+      navi_items[:purse] = person_purse_path(@current_user)
+      navi_items[:settings] = person_settings_path(@current_user)
     when 'listings'
       navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = search_listings_path
@@ -69,10 +68,6 @@ module ApplicationHelper
   def get_sub_navi_items(navi_type)
     navi_items = ActiveSupport::OrderedHash.new
     case navi_type
-    when 'listings'
-      navi_items[:all] = all_person_listings_path(session[:person_id].to_s)
-      navi_items[:own_listings_navi] = own_person_listings_path(session[:person_id].to_s)
-      navi_items[:interesting] = interesting_person_listings_path(session[:person_id].to_s)
     when 'browse_listings'
       navi_items[:all_categories] = listing_category_path("all_categories")
       Listing::MAIN_CATEGORIES.each do |category|

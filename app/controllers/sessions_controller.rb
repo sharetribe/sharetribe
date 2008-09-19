@@ -9,7 +9,12 @@ class SessionsController < ApplicationController
       #@current_user = Person.add_to_kassi_db(@session.person_id)
     end
     flash[:notice] = :login_succesful
-    redirect_to(root_path) #TODO should redirect to the page where user was
+    if session[:return_to]
+      redirect_to session[:return_to]
+      session[:return_to] = nil
+    else
+      redirect_to root_path
+    end
   end
   
   def destroy

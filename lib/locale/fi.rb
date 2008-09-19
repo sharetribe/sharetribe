@@ -1,15 +1,25 @@
 I18n.store_translations 'fi',
 
+#General
+:all => "Kaikki",
+:back_to_previous_page => "Takaisin edelliseen näkymään",
+
 #Login form
 :logged_in => "Olet kirjautuneena sisään käyttäjänä",
 :not_logged_in => "Et ole kirjautuneena sisään.",
 :login => "Kirjaudu",
 :register => "Rekisteröidy",
 :logout => "Kirjaudu ulos",
+:logging_in => "Sisäänkirjautuminen",
+:username => "Käyttäjätunnus",
+:password => "Salasana",
 
 #Login notices
 :logout_succesful => "Uloskirjautuminen onnistui.",
 :login_succesful => "Sisäänkirjautumien onnistui.",
+
+#Not logged in notices 
+:you_must_login_to_do_this => "Haluamasi toiminto on salittu ainoastaan sisäänkirjautuneille käyttäjille.",
 
 #Search
 :search_kassi => "Hae Kassista:",
@@ -23,6 +33,7 @@ I18n.store_translations 'fi',
 :people => "Ihmiset",
 
 #Left navigation
+:home => "Etusivu",
 :inbox => "Postilaatikko",
 :profile => "Profiili",
 :friends => "Kaverit",
@@ -40,9 +51,8 @@ I18n.store_translations 'fi',
 :search_people => "Hae",
 
 #Left sub navigation
-:all => "Kaikki",
-:own_listings_navi => "Omat",
-:interesting => "Kiinnostavat",
+:own_listings_navi => "Omat ilmoitukset",
+:interesting => "Kiinnostavat ilmoitukset",
 
 #Categories
 :category => "Kategoria",
@@ -95,6 +105,8 @@ I18n.store_translations 'fi',
 :show_listings_on_page => "Näytä ilmoituksia sivulla",
 :listings_partitive => "ilmoitusta",
 :listing_cannot_be_created => "Ilmoitusta ei voitu luoda seuraavien virheiden takia:",
+:mark_as_interesting => "Merkitse kiinnostavaksi",
+:remove_from_interesting => "Poista kiinnostavista",
 
 #Listing statuses
 :open => "Avoinna",
@@ -138,6 +150,9 @@ I18n.store_translations 'fi',
 :search_results => "Hakutulokset",
 :invalid_char_in_search => "Ei-sallittu merkki hakukentässä",
 :search_returned_no_hits => "Haku ei tuottanut yhtään osumaa!",
+
+#Profile view
+:information => "Tiedot",
 
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto.",

@@ -88,6 +88,15 @@ h4 {
 	margin: 0;
 }
 
+h5 {
+	text-align: center;
+	font-size: 16px;
+}
+
+p.center {
+	text-align: center;
+}
+
 input {
 	font-family: "lucida grande", Tahoma, sans-serif;
 	font-size: 12px;

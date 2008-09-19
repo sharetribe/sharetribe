@@ -8,17 +8,8 @@
 </div>  		
 
 <div id="container">
-<% unless flash[:notice].blank? %>
-  <div class="announcement notification">
-    <%= t(flash[:notice]) %>
-  </div>
-<% end %>
 
-<% unless flash[:error].blank? %>
-  <div class="announcement error">
-    Error: <%= flash[:error] %>
-  </div>
-<% end %>
+<%= render :partial => "layouts/announcements" %>
 
 <div class="search_results_header">
 <div class="search_results_title">
@@ -29,11 +20,11 @@
 
 <% if (@listings.size > 0)%>
   <table class="listing">
-  <%= render :partial => @listings %>
+  <%= render :partial => "listings/listing", :collection => @listings %>
   </table>
   <div id="search_footer_left">
     <%= t(:show_listings_on_page) %>:
-    <%= create_footer_pagination_links(["10", "30", "50", "all"], "category") %>
+    <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
   </div
   <%= will_paginate @listings %>
   <br />

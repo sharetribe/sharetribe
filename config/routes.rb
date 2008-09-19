@@ -44,19 +44,19 @@ ActionController::Routing::Routes.draw do |map|
     listing.resources :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'
   end  
-  map.resources :people, :collection => { :search => :get } do |person|
-    person.resource :profile
+  map.resources :people, :member => { :home => :get }, :collection => { :search => :get } do |person|
     person.resources :inbox, :controller => :messages
     person.resource :purse
     person.resource :settings
     person.resources :friends
     person.resources :contacts
-    person.resources :listings, :collection => {:all => :get, :own => :get, :interesting => :get}
+    person.resources :interesting, :controller => :interesting_listings, :path_prefix => '/people/:person_id/listings'
+    person.resource :own, :controller => :listings, :path_prefix => '/people/:person_id/listings'
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search
   
-  map.root :controller => "listings"
+  map.root :controller => "people", :action => "home"
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

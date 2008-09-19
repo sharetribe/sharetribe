@@ -1,5 +1,7 @@
 class ListingCommentsController < ApplicationController
 
+  before_filter :logged_in, :only  => [ :create ]
+
   def create
     @listing = Listing.find(params[:listing_id])
     @listing.comments.create(params[:listing_comment])
