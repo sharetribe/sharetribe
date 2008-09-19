@@ -1,7 +1,7 @@
-<% if (session[:person_id]) %>
-  <%= t(:logged_in) %>
-  <%= @current_user.name %>. 
-  &nbsp;&nbsp;<%= link_to t(:logout), session_path, :method => :delete %>
+<%if(@current_user != nil)%>
+  	<%= t(:logged_in) %>
+		<%= @current_user.name %>
+  	&nbsp;&nbsp;<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
-  <%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a> | <a href="/people/new"><%= t(:register) %></a>
+  	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a> | <a href="/people/new"><%= t(:register) %></a>
 <% end %>

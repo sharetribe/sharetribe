@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   
   attr_accessor :guid, :username, :password, :email
   
+  validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
+  
   class PersonConnection < ActiveResource::Base
     self.site = Session::COS_URL
     self.format = :json 
@@ -30,7 +32,7 @@ class Person < ActiveRecord::Base
     response = PersonConnection.create_person(person_hash, cookie)
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
     #create locally with less attributes
-    super(params.except(:username, :password, :email))
+    super(params.except(:username, :email))
   end
   
   # def self.add_to_kassi_db(id)

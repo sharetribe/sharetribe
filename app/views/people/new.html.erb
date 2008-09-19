@@ -8,8 +8,10 @@
   <p><%= f.text_field :username %></p>
   <p><%= f.label :password, "Password" %></p>
   <p><%= f.password_field :password %></p>
+  <p><%= f.label :password_confirmation, "Confirm password"%></p>
+  <p><%= f.password_field :password_confirmation%></p>
   <p><%= f.label :email, "Email" %></p>
   <p><%= f.text_field :email %></p>
-  <p><%= f.submit "Create", :disable_with => 'Creating...' %></p>
+  <p><%= f.submit "Create" %></p>
   
-<% end -%>
+<%end%>
