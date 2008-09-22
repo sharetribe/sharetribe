@@ -58,6 +58,7 @@ class ListingsController < ApplicationController
   end  
 
   def create
+    #puts "DEBUG CREATE " + params[:listing].inspect
     @listing = Listing.new(params[:listing])
     language = []
     language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
@@ -68,6 +69,7 @@ class ListingsController < ApplicationController
       flash[:notice] = 'Ilmoitus lisätty.'
       redirect_to listings_path
     else
+      #puts @listing.errors.full_messages
       params[:category] = params[:listing][:category]
       Listing::MAIN_CATEGORIES.each do |main_category|
         if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:listing][:category])

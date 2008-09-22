@@ -70,12 +70,16 @@ class ApplicationController < ActionController::Base
   end
   
   def fetch_logged_in_user
+   # puts "FETCH USER FILTER"
     if session[:person_id]
       @current_user = Person.find_by_id(session[:person_id]) 
+      #puts "session #{session[:person_id]}"
+     # puts @current_user.id + "JEI"
     end
   end
   
   def logged_in
+   # puts "LOGGED IN FILTER" + @current_user.to_s
     return true if @current_user
     session[:return_to] = request.request_uri
     flash[:warning] = :you_must_login_to_do_this
