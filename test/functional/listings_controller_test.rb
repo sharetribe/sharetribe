@@ -26,31 +26,32 @@ class ListingsControllerTest < ActionController::TestCase
     #TODO: test that all the form elements are in their places
   end
   
-  # def test_add_and_delete_valid_listing
-  #   image = uploaded_file("Bison_skull_pile.png", "image/png")
-  #   post_with_author :create, :listing => {
-  #     :category => "sell",
-  #     :title => "Myydään alastomia oravoita",
-  #     :content => "Title says it all.",
-  #     :good_thru => DateTime.now+(2),
-  #     :times_viewed => 32,
-  #     :status => "open",
-  #     :language_fi => 1,
-  #     :language_swe => 1,
-  #     :image_file => image
-  #   }
-  #   id = assigns(:listing).id
-  #   assert ! assigns(:listing).new_record?
-  #   assert_redirected_to listings_path
-  #   assert_not_nil flash[:notice]
-  #   assert Listing.find(id)
-  #   assert File.exists?("tmp/test_images/" + id.to_s + ".png")
-  #   # Delete just created listing
-  #   post :destroy, :id => id
-  #   # Image file must be deleted if listing is deleted
-  #   assert !File.exists?("tmp/test_images/" + id.to_s + ".png")
-  # end
-  # 
+  def test_add_and_delete_valid_listing
+    image = uploaded_file("Bison_skull_pile.png", "image/png")
+    post_with_author :create, :listing => {
+      :category => "sell",
+      :title => "Myydään alastomia oravoita",
+      :content => "Title says it all.",
+      :good_thru => DateTime.now+(2),
+      :times_viewed => 32,
+      :status => "open",
+      :language_fi => 1,
+      :language_swe => 1,
+      :image_file => image
+    }
+    assert_response :found, @response.body
+    assert_redirected_to listings_path
+    id = assigns(:listing).id
+    assert ! assigns(:listing).new_record?
+    assert_not_nil flash[:notice]
+    assert Listing.find(id)
+    assert File.exists?("tmp/test_images/" + id.to_s + ".png")
+    # Delete just created listing
+    post :destroy, :id => id
+    # Image file must be deleted if listing is deleted
+    assert !File.exists?("tmp/test_images/" + id.to_s + ".png")
+  end
+  
   
   # def test_add_invalid_listing
   #   post_with_author :create, :listing => {

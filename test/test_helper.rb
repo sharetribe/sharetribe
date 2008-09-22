@@ -83,7 +83,8 @@ class Test::Unit::TestCase
   
   def post_with_author(action, parameters = nil, session = nil, flash = nil)
     @current_user = Person.test_person
-    post action, parameters, :author_id => @current_user.id
+    parameters[:listing].merge!({:author_id => @current_user.id })
+    post action, parameters, :person_id => @current_user.id
   end
       
 end
