@@ -2,11 +2,6 @@ require 'test_helper'
 
 class ListingsControllerTest < ActionController::TestCase
   
-  def setup
-    @current_user = Person.new
-    @current_user.save
-  end
-  
   def test_show_index
     get :index
     assert_response :success

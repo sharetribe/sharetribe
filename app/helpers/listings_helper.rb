@@ -16,11 +16,11 @@ module ListingsHelper
             path = listing_category_path(params.merge({:per_page => value}))
           else
             path = listing_category_path("all_categories", :per_page => value)
-          end
+          end 
         when "interesting_listings"
-          path = person_interesting_index_path(params.merge({:per_page => value}))
+          path = interesting_person_listings_path(params.merge({:per_page => value}))
         when "own_listings"
-          path = person_own_path(params.merge({:per_page => value}))       
+          path = person_listings_path(params.merge({:per_page => value}))       
         when "search"
           path = search_listings_path(params.merge({:per_page => value}))
         when "search_all"

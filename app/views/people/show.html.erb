@@ -2,10 +2,7 @@
 
 <div id="basic_content">
 
-  <%= link_to t(:information), person_friends_path(@person) %> |
-  <%= link_to t(:friends), person_friends_path(@person) %> |
-  <%= link_to t(:contacts), person_friends_path(@person) %> |
-  <%= link_to t(:listings), person_friends_path(@person) %> 
+  <%= get_profile_navi_items(params[:id]) %>
   
   <br /><br />
 
