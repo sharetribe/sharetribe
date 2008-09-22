@@ -20,7 +20,6 @@ class Session < ActiveResource::Base
   
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
-    #puts "DESTROYING SESSION WITH COOKIE = "  + cookie
     connection.delete("#{prefix}#{element_name}", deleting_headers)
   end
   

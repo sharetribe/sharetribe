@@ -1,0 +1,11 @@
+<div id="basic_content">
+
+<% form_for :message, :url => person_inbox_index_path(@current_user) do |f| %>
+  <b>Kommentoi ilmoitusta:</b><br /><br />
+  <%= f.text_area :content, :size => "48x5" %>
+  <br />
+  <%= f.hidden_field :author_id, :value => @current_user.id %>
+  <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
+<% end %>
+
+</div>
