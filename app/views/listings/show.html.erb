@@ -52,15 +52,13 @@
    
   <p><%= @listing.content %></p>
   <br />
-  <% unless @current_user && @listing.author == @current_user %>
-    <%= link_to("Vastaa ilmoitukseen","#") %> 
-    <% if @current_user %>
+  <% if @current_user && @listing.author != @current_user %>
+    <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
     | 
     <% if InterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
-      <%= link_to t(:remove_from_interesting), "/people/" + @current_user.id + "/listings/remove_from_interesting/" + @listing.id.to_s, :method => :delete %>
+      <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
     <% else %>
-      <%= link_to t(:mark_as_interesting), "/people/" + @current_user.id + "/listings/mark_as_interesting?listing_id=" + @listing.id.to_s, :method => :post %>
-    <% end %>
+      <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
     <% end %>
   <% end %>
   <br /><br /><br />
@@ -69,13 +67,14 @@
   
   <%= render :partial => "layouts/announcements" %>
   
-  <% form_for :listing_comment, :url => listing_listing_comments_path(@listing) do |f| %>
+  <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
     <b>Kommentoi ilmoitusta:</b><br /><br />
     <%= f.text_area :content, :size => "48x5" %>
     <br />
     <%= f.hidden_field :author_id, :value => @current_user.id %>
     <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
+  
   <% end%>
   
   </div>

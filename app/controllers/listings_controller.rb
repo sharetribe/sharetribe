@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  before_filter :logged_in, :only  => [ :new, :create, :destroy ]
+  before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply ]
 
   def index
     conditions = ''
@@ -58,7 +58,6 @@ class ListingsController < ApplicationController
   end  
 
   def create
-    #puts "DEBUG CREATE " + params[:listing].inspect
     @listing = Listing.new(params[:listing])
     language = []
     language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
@@ -69,7 +68,6 @@ class ListingsController < ApplicationController
       flash[:notice] = 'Ilmoitus lisätty.'
       redirect_to listings_path
     else
-      #puts @listing.errors.full_messages
       params[:category] = params[:listing][:category]
       Listing::MAIN_CATEGORIES.each do |main_category|
         if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:listing][:category])
@@ -99,15 +97,19 @@ class ListingsController < ApplicationController
   end
 
   def mark_as_interesting
-    unless InterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:listing_id]) 
-      @current_user.interesting_listings.create(:listing_id => params[:listing_id])
+    unless InterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]) 
+      @current_user.interesting_listings.create(:listing_id => params[:id])
     end
-    redirect_to listing_path(Listing.find(params[:listing_id]))   
+    redirect_to listing_path(Listing.find(params[:id]))   
   end
   
-  def remove_from_interesting
+  def mark_as_not_interesting
     InterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]).destroy
     redirect_to listing_path(Listing.find(params[:id]))
+  end
+  
+  def reply
+    @message = Message.new
   end
 
 end

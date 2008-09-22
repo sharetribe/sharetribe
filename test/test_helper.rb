@@ -81,9 +81,15 @@ class Test::Unit::TestCase
     end
   end
   
-  def post_with_author(action, parameters = nil, session = nil, flash = nil)
+  def assert_redirect_when_not_logged_in
+    assert_response :found
+    assert_redirected_to new_session_path
+    assert_equal flash[:warning], :you_must_login_to_do_this
+  end
+  
+  def post_with_author(action, parameters = nil, parameter_type = :listing)
     @current_user = Person.test_person
-    parameters[:listing].merge!({:author_id => @current_user.id })
+    parameters[parameter_type].merge!({:author_id => @current_user.id })
     post action, parameters, :person_id => @current_user.id
   end
       

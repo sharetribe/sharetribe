@@ -39,9 +39,11 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
   map.resources :favors, :collection => { :search => :get }                            
-  map.resources :listings, :collection => { :search => :get } do |listing|
+  map.resources :listings, 
+                :member => { :mark_as_interesting => :post, :mark_as_not_interesting => :delete, :reply => :get },
+                :collection => { :search => :get } do |listing|
     listing.resource :image
-    listing.resources :listing_comments 
+    listing.resources :comments, :controller => :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'
   end  
   map.resources :people, :member => { :home => :get }, :collection => { :search => :get } do |person|
@@ -50,14 +52,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resource :settings
     person.resources :friends
     person.resources :contacts
-    person.resources :listings, :collection => { 
-      :interesting => :get, 
-      :mark_as_interesting => :post, 
-      :remove_from_interesting => :delete 
-    } do |listing|
-    end  
-    # person.resources :interesting, :controller => :interesting_listings, :path_prefix => '/people/:person_id/listings'
-    #     person.resource :own, :controller => :listings, :path_prefix => '/people/:person_id/listings'
+    person.resources :listings, :collection => { :interesting => :get }
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search

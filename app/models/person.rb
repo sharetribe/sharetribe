@@ -66,7 +66,6 @@ class Person < ActiveRecord::Base
   end
   
   def self.add_to_kassi_db(id)
-  #  puts "ADD TO KASSI DB"
     person = Person.new({:id => id })
     if person.save
       return person

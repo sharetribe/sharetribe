@@ -108,7 +108,8 @@ I18n.store_translations 'fi',
 :listings_partitive_plural => "Ilmoituksia",
 :listing_cannot_be_created => "Ilmoitusta ei voitu luoda seuraavien virheiden takia:",
 :mark_as_interesting => "Merkitse kiinnostavaksi",
-:remove_from_interesting => "Poista kiinnostavista",
+:mark_as_not_interesting => "Poista kiinnostavista",
+:reply => "Vastaa ilmoitukseen",
 
 #Listing statuses
 :open => "Avoinna",

@@ -8,8 +8,6 @@ class PeopleControllerTest < ActionController::TestCase
     assert_not_equal(0, @test_person.id)
     @test_person.coin_amount = 5
     assert_equal(5, @test_person.coin_amount)
-    puts @test_person.id
-    
   end
 
 end
