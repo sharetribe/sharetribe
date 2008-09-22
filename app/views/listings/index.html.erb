@@ -1,3 +1,14 @@
+<% if @person %>
+
+<h1><%= t(:listings_of_user) + " " + @person.name + " " + t(:users_listings) %> </h1>
+
+<div id="basic_content">
+<%= get_profile_navi_items(params[:person_id]) %>
+<br /><br />
+</div>
+
+<% else %>
+
 <div id="listings_header">
   <div id="listings_header_links_left">
     <%= t(:show_read_and_unread_listings) %> <a href="#">1 <%= t(:show_unread_single_listing) %></a> | <%= t(:show_all_listings) %>
@@ -6,6 +17,8 @@
     <a href="#"><%= t(:mark_all_as_read) %></a>
   </div>  
 </div>  		
+
+<% end %>
 
 <div id="container">
 

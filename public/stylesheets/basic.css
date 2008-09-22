@@ -34,14 +34,15 @@ body {
 	height: 100%;
 }
 
-a { 
+a {
+
 	border: 0;
 	color: #406704; 
 }
 
 a:hover {
 	color: #64a006; 
-	text-decoration: none; 
+	text-decoration: none;  
 }
 
 a:active { 

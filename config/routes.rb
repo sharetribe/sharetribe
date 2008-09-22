@@ -50,8 +50,14 @@ ActionController::Routing::Routes.draw do |map|
     person.resource :settings
     person.resources :friends
     person.resources :contacts
-    person.resources :interesting, :controller => :interesting_listings, :path_prefix => '/people/:person_id/listings'
-    person.resource :own, :controller => :listings, :path_prefix => '/people/:person_id/listings'
+    person.resources :listings, :collection => { 
+      :interesting => :get, 
+      :mark_as_interesting => :post, 
+      :remove_from_interesting => :delete 
+    } do |listing|
+    end  
+    # person.resources :interesting, :controller => :interesting_listings, :path_prefix => '/people/:person_id/listings'
+    #     person.resource :own, :controller => :listings, :path_prefix => '/people/:person_id/listings'
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search

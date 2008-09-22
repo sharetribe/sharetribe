@@ -49,6 +49,7 @@ I18n.store_translations 'fi',
 :search_favors => "Hae",
 :browse_people => "Selaa",
 :search_people => "Hae",
+:transactions => "Transaktiot",
 
 #Left sub navigation
 :own_listings_navi => "Omat ilmoitukset",
@@ -104,6 +105,7 @@ I18n.store_translations 'fi',
 :image => "Kuva",
 :show_listings_on_page => "Näytä ilmoituksia sivulla",
 :listings_partitive => "ilmoitusta",
+:listings_partitive_plural => "Ilmoituksia",
 :listing_cannot_be_created => "Ilmoitusta ei voitu luoda seuraavien virheiden takia:",
 :mark_as_interesting => "Merkitse kiinnostavaksi",
 :remove_from_interesting => "Poista kiinnostavista",
@@ -153,6 +155,18 @@ I18n.store_translations 'fi',
 
 #Profile view
 :information => "Tiedot",
+
+#Friend view
+:friends_of_user => "Käyttäjän",
+:users_friends => "kaverit",
+
+#Contact view
+:contacts_of_user => "Käyttäjän",
+:users_contacts => "kontaktit",
+
+#Listings view
+:listings_of_user => "Käyttäjän",
+:users_listings => "ilmoitukset",
 
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto.",

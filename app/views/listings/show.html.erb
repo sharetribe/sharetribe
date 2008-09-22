@@ -57,9 +57,9 @@
     <% if @current_user %>
     | 
     <% if InterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
-      <%= link_to t(:remove_from_interesting), "/people/" + @current_user.id + "/listings/interesting/" + @listing.id.to_s, :method => :delete %>
+      <%= link_to t(:remove_from_interesting), "/people/" + @current_user.id + "/listings/remove_from_interesting/" + @listing.id.to_s, :method => :delete %>
     <% else %>
-      <%= link_to t(:mark_as_interesting), "/people/" + @current_user.id + "/listings/interesting?listing_id=" + @listing.id.to_s, :method => :post %>
+      <%= link_to t(:mark_as_interesting), "/people/" + @current_user.id + "/listings/mark_as_interesting?listing_id=" + @listing.id.to_s, :method => :post %>
     <% end %>
     <% end %>
   <% end %>

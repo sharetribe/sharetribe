@@ -41,7 +41,7 @@
 #top_links_left {
 	float: left;
 	font-size: 12px;
-	margin-top: 2px;
+	margin-top: 3px;
 	margin-left: 5px;
 	padding: 0px;
 	color: #ffffff;
@@ -51,7 +51,7 @@
 #top_links_right {
 	float: right;
 	font-size: 12px;
-	margin-top: 2px;
+	margin-top: 3px;
 	padding: 0px;
 	color: #ffffff;
 	height: 15px;
@@ -97,7 +97,7 @@
 	left: 0px;
 	margin: 0px;
 	margin-left: 6px;
-	height: 125px;
+	height: 124px;
 	width: 45em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
 }
 
@@ -454,14 +454,14 @@ div.pagination {
 
 #footer_text_left {
 	color: #ffffff;
-	margin-top: 3px;
+	margin-top: 4px;
 	float: left;
 	text-align: left;
 }
 
 #footer_text_right {
 	color: #ffffff;
-	margin-top: 3px;
+	margin-top: 4px;
 	float: right;
 	text-align: left;
 }

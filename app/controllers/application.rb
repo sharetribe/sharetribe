@@ -22,11 +22,12 @@ class ApplicationController < ActionController::Base
     session[:navi2] = navi_items[1] || session[:navi2]
     session[:navi3] = navi_items[2] || session[:navi3]
     session[:navi4] = navi_items[3] || session[:navi4]
+    session[:profile_navi] = navi_items[4] || session[:profile_navi]
   end
 
   # Sets navigation state to "nothing selected".
   def clear_navi_state
-    session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = nil
+    session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = session[:navi_profile] = nil
   end
   
   # Fetch listings based on conditions

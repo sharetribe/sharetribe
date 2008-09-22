@@ -20,13 +20,9 @@ class PeopleController < ApplicationController
   end
   
   def show
-    if @current_user
-      @person = Person.find(params[:id])
-      save_navi_state(['own', 'profile']) if session[:navi1].eql?("own")
-      @title = @person.id 
-    else
-      @title = :only_logged_in_can_view
-    end    
+    @person = Person.find(params[:id])
+    save_navi_state(['own', 'profile', '', '', 'information']) if session[:navi1].eql?("own")
+    @title = @person.name 
   end
   
   def search
