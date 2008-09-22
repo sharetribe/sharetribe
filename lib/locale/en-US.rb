@@ -99,6 +99,15 @@ I18n.store_translations 'en-US',
 #Items&favors view
 :coins => "coins",
 
+#Search people view
+:name => "Name",
+
+#Search listings view
+
+
+#Profile view
+:information => "Information",
+
 #Footer
 :about => "About",
 :help => "Help",
