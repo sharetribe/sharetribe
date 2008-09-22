@@ -23,8 +23,10 @@ class Person < ActiveRecord::Base
       response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
     end
     
-    def self.get_person(id)
-      connection.get("#{prefix}#{element_name}/#{id}/@self")
+    def self.get_person(id, cookie)
+      #puts "#{prefix}#{element_name}/#{id}/@self"
+      #puts ({"Cookie" => cookie }.inspect)
+      return connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie } )
     end
   end
   
@@ -35,6 +37,7 @@ class Person < ActiveRecord::Base
     response = PersonConnection.create_person(person_hash, cookie)
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
     params[:cos_cookie] = cookie
+    #puts "createssa #{cookie}"
     #create locally with less attributes
     super(params.except(:username, :email))
   end
@@ -55,27 +58,28 @@ class Person < ActiveRecord::Base
     rescue ActiveResource::UnauthorizedAccess => e
       #if not found, create completely new
       session = Session.create
-      session.headers["Cookie"]
       test_person = Person.create({ :username => "kassi_testperson1", 
                       :password => "testi", 
                       :email => "kassi_testperson1@example.com"},
                        session.headers["Cookie"])
     rescue ActiveRecord::RecordNotFound  => e
-        test_person = Person.add_to_kassi_db(session.person_id)
+        test_person = Person.add_to_kassi_db(session.person_id, session.headers["Cookie"])
     end
   end
   
-  def self.add_to_kassi_db(id)
-    person = Person.new({:id => id })
+  def self.add_to_kassi_db(id, cos_cookie)
+    person = Person.new({:id => id, :cos_cookie => cos_cookie })
     if person.save
       return person
     else
       return nil
+      logger.error { "Error stroring person to Kassi DB with ID: #{id}" }
     end
   end
 
   def initialize(params={})
     self.guid = params[:id] #store GUID to temporary attribute
+    #puts "initializessa #{params[:cos_cookie]}"
     super(params)
   end
   
@@ -91,10 +95,18 @@ class Person < ActiveRecord::Base
     "Meikäläinen"
   end
   
+  def name_or_username
+      #puts (PersonConnection.get_person(self.id, self.cos_cookie).inspect)
+    person_hash = PersonConnection.get_person(self.id, self.cos_cookie)
+    if person_hash["name"] && person_hash["name"]["unstructured"]
+      return person_hash["name"]["unstructured"]
+    else
+      return person_hash["username"]
+    end
+  end
+  
   def name
-    #person_json = JSON.parse(PersonConnection.get_person(self.id).body)
-    #return json["name"]["unstructured"]
-    "Masa Mäki"
+    return name_or_username
   end
   
 end
