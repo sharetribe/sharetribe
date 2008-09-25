@@ -169,6 +169,18 @@ I18n.store_translations 'fi',
 :listings_of_user => "Käyttäjän",
 :users_listings => "ilmoitukset",
 
+#Messages view
+:write_reply => "Kirjoita vastaus",
+:send_reply => "Lähetä vastaus",
+:reply_sent => "Viesti lähetetty.",
+:received_messages => "Saapuneet",
+:sent_messages => "Lähetetyt",
+:no_received_messages => "Ei saapuneita.",
+:no_sent_messages => "Ei lähetettyjä.",
+:subject => "Otsikko",
+:sender => "Lähettäjä",
+:sent => "Lähetysaika",
+
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto.",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",

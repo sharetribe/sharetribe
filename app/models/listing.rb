@@ -4,16 +4,16 @@ class Listing < ActiveRecord::Base
   
   after_destroy :delete_image_file
   
-  has_many :messages
+  has_many :conversations
   has_many :comments, :class_name => "ListingComment"
   
   belongs_to :author, :class_name => "Person"
   
-  has_many :read_listings
-  has_many :people, :through => :read_listings
+  has_many :person_read_listings
+  has_many :readers, :through => :person_read_listings, :source => :person
   
-  has_many :interesting_listings
-  has_many :people, :through => :interesting_listings
+  has_many :person_interesting_listings
+  has_many :interested_people, :through => :person_interesting_listings, :source => :person
   
   serialize :language, Array
   

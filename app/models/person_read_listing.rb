@@ -1,4 +1,4 @@
-class ReadListing < ActiveRecord::Base
+class PersonReadListing < ActiveRecord::Base
   belongs_to :person
   belongs_to :listing
   

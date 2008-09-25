@@ -3,11 +3,18 @@ require 'json'
 class Person < ActiveRecord::Base
   
   attr_accessor :guid, :password, :username, :email
-  
+
   has_many :listings
-  
-  has_many :interesting_listings
-  has_many :int_listings, :through => :interesting_listings, :source => :listing
+
+  has_many :person_interesting_listings
+  has_many :interesting_listings, :through => :person_interesting_listings, :source => :listing
+
+  has_many :sent_messages, 
+           :class_name => "Message",
+           :conditions => "sender_id = '" + self.object_id.to_s + "'"
+           
+  has_many :person_conversations
+  has_many :conversations, :through => :person_conversations, :source => :conversation
   
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 

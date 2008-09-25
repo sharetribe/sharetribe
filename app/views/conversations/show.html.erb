@@ -1,0 +1,29 @@
+<div id="title_with_border_taller">
+  <div class="arrow_left">
+    <%= 
+      link_to image_tag("/images/arrow_left.png", :border => 0, 
+                                                  :alt => t(:previous_message),
+                                                  :onmouseover => "this.src='/images/arrow_left_hilight.png';",
+                                                  :onmouseout => "this.src='/images/arrow_left.png';"
+                       ), "#"
+    %>
+  </div>
+  <div id="title_div">
+    <h1 class="no_border">
+      RE: <%= @conversation.title %> 
+    </h1>
+    <%= t(:messaging_with) %>: <%= create_links_for_participants %>
+  </div>
+  <div class="arrow_right">
+    <%= 
+      link_to image_tag("/images/arrow_right.png", :border => 0, 
+                                                  :alt => t(:next_message),
+                                                  :onmouseover => "this.src='/images/arrow_right_hilight.png';",
+                                                  :onmouseout => "this.src='/images/arrow_right.png';"
+                       ), "#"
+    %>
+  </div>
+</div>
+<div id="basic_content">
+  <%= render :partial => "messages/message", :collection => @conversation.messages %>
+</div>
