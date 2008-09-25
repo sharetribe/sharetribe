@@ -4,13 +4,16 @@ class SessionsController < ApplicationController
                                :password => params[:password] })
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
-    unless  @current_user = Person.find_by_id(session[:person_id])
-      # The user has succesfully logged in, but is not found in Kassi DB
-      @current_user = Person.add_to_kassi_db(@session.person_id, @session.headers["Cookie"] )
-    end
-    if @current_user
+ 
+    if session[:person_id]  # if not app-only-session and person found in cos
+      unless  @current_user = Person.find_by_id(session[:person_id])
+        # The user has succesfully logged in, but is not found in Kassi DB
+        @current_user = Person.add_to_kassi_db(@session.person_id, @session.headers["Cookie"] )
+      end
       @current_user.cos_cookie = @session.headers["Cookie"]
-    end    
+      @current_user.save
+    end
+     
     flash[:notice] = :login_succesful
     if session[:return_to]
       redirect_to session[:return_to]

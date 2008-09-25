@@ -11,4 +11,10 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :found
     assert_nil session[:cookie]
   end
+  
+  def test_login_form
+    get :new
+    assert_response :success
+    assert_template "new"
+  end
 end

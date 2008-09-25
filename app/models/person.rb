@@ -2,7 +2,7 @@ require 'json'
 
 class Person < ActiveRecord::Base
   
-  attr_accessor :guid, :password
+  attr_accessor :guid, :password, :username, :email
   
   has_many :listings
   
@@ -28,6 +28,11 @@ class Person < ActiveRecord::Base
       #puts ({"Cookie" => cookie }.inspect)
       return connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie } )
     end
+    
+    def self.put_attributes(params, id, cookie)
+      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
+      
+    end
   end
   
   
@@ -44,7 +49,6 @@ class Person < ActiveRecord::Base
   
   ##
   # returns a test person. If doesn't exist already, creates him.
-  
   def self.test_person
     session = nil
     test_person = nil
@@ -87,13 +91,11 @@ class Person < ActiveRecord::Base
     self.id ||= self.guid
   end
   
-  def given_name
-    "Matti"
-  end
-  
-  def family_name
-    "Meikäläinen"
-  end
+  def username
+    return nil if ! self.cos_cookie
+    person_hash = PersonConnection.get_person(self.id, self.cos_cookie)
+    return person_hash["username"]
+   end
   
   def name_or_username
       #puts (PersonConnection.get_person(self.id, self.cos_cookie).inspect)
@@ -107,6 +109,18 @@ class Person < ActiveRecord::Base
   
   def name
     return name_or_username
+  end
+  
+  def given_name=(name)
+    update_attributes({:name => {:given_name => name, } })
+  end
+  
+  def family_name=(name)
+    update_attributes({:name => {:family_name => name, } })
+  end
+  
+  def update_attributes(params)
+    PersonConnection.put_attributes(params, self.id,self.cos_cookie)
   end
   
 end
