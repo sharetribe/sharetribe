@@ -9,5 +9,12 @@ class PeopleControllerTest < ActionController::TestCase
     @test_person.coin_amount = 5
     assert_equal(5, @test_person.coin_amount)
   end
+  
+  def test_register_form
+    get :new
+    assert_response :success
+    assert_template "new"
+    assert_select 'form#new_person'
+  end
 
 end
