@@ -1,4 +1,4 @@
-<h1><%= t(:friends_of_user) + " " + @person.name + " " + t(:users_friends) %> </h1>
+<h1><%= t(:friends_of_user) + " " + @person.name(session[:cookie]) + " " + t(:users_friends) %> </h1>
 
 <div id="basic_content">
 <%= get_profile_navi_items(params[:person_id]) %>

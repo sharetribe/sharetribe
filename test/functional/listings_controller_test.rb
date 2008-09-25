@@ -3,7 +3,8 @@ require 'test_helper'
 class ListingsControllerTest < ActionController::TestCase
   
   def setup
-    @test_person = Person.test_person
+    @test_person, @session = get_test_person_and_session
+    @cookie = @session.cookie
     @listing_params =  { :listing => {
       :category => "sell",
       :title => "Myydään alastomia oravoita",

@@ -1,6 +1,6 @@
 <% if @person %>
 
-<h1><%= t(:listings_of_user) + " " + @person.name + " " + t(:users_listings) %> </h1>
+<h1><%= t(:listings_of_user) + " " + @person.name(session[:cookie]) + " " + t(:users_listings) %> </h1>
 
 <div id="basic_content">
 <%= get_profile_navi_items(params[:person_id]) %>

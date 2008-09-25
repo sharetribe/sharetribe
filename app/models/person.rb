@@ -41,38 +41,13 @@ class Person < ActiveRecord::Base
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
-    params[:cos_cookie] = cookie
     #puts "createssa #{cookie}"
     #create locally with less attributes
     super(params.except(:username, :email))
-  end
+  end 
   
-  ##
-  # returns a test person. If doesn't exist already, creates him.
-  def self.test_person
-    session = nil
-    test_person = nil
-    
-    #frist try loggin in to cos
-    begin
-      session = Session.create({:username => "kassi_testperson1", :password => "testi" })
-      #try to find in kassi database
-      test_person = Person.find(session.person_id)
-
-    rescue ActiveResource::UnauthorizedAccess => e
-      #if not found, create completely new
-      session = Session.create
-      test_person = Person.create({ :username => "kassi_testperson1", 
-                      :password => "testi", 
-                      :email => "kassi_testperson1@example.com"},
-                       session.headers["Cookie"])
-    rescue ActiveRecord::RecordNotFound  => e
-        test_person = Person.add_to_kassi_db(session.person_id, session.headers["Cookie"])
-    end
-  end
-  
-  def self.add_to_kassi_db(id, cos_cookie)
-    person = Person.new({:id => id, :cos_cookie => cos_cookie })
+  def self.add_to_kassi_db(id)
+    person = Person.new({:id => id })
     if person.save
       return person
     else
@@ -91,15 +66,16 @@ class Person < ActiveRecord::Base
     self.id ||= self.guid
   end
   
-  def username
-    return nil if ! self.cos_cookie
-    person_hash = PersonConnection.get_person(self.id, self.cos_cookie)
+  def username(cookie=nil)
+    return nil if cookie.nil?
+    person_hash = PersonConnection.get_person(self.id, cookie)
     return person_hash["username"]
-   end
+  end
   
-  def name_or_username
+  def name_or_username(cookie=nil)
+    return "Cookie Missing!" if cookie.nil?
       #puts (PersonConnection.get_person(self.id, self.cos_cookie).inspect)
-    person_hash = PersonConnection.get_person(self.id, self.cos_cookie)
+    person_hash = PersonConnection.get_person(self.id, cookie)
     if person_hash["name"] && person_hash["name"]["unstructured"]
       return person_hash["name"]["unstructured"]
     else
@@ -107,20 +83,20 @@ class Person < ActiveRecord::Base
     end
   end
   
-  def name
-    return name_or_username
+  def name(cookie)
+    return name_or_username(cookie)
   end
   
-  def given_name=(name)
-    update_attributes({:name => {:given_name => name, } })
+  def set_given_name(name, cookie)
+    update_attributes({:name => {:given_name => name, } }, cookie)
   end
   
-  def family_name=(name)
-    update_attributes({:name => {:family_name => name, } })
+  def set_family_name(name, cookie)
+    update_attributes({:name => {:family_name => name, } }, cookie)
   end
   
-  def update_attributes(params)
-    PersonConnection.put_attributes(params, self.id,self.cos_cookie)
+  def update_attributes(params, cookie)
+    PersonConnection.put_attributes(params, self.id, cookie)
   end
   
 end
