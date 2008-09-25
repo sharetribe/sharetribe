@@ -8,6 +8,6 @@
 
   <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
   
-  <p><%= t(:name)%>: <%= @person.name %></p>
+  <p><%= t(:name)%>: <%= @person.name(session[:cookie]) %></p>
 
 </div>

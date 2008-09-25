@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
     save_navi_state(['own', 'profile', '', '', 'information']) if session[:navi1].eql?("own")
-    @title = @person.name 
+    @title = @person.name(session[:cookie]) 
   end
   
   def search

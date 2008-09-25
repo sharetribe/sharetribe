@@ -45,6 +45,33 @@ class Test::Unit::TestCase
     delete "session"
   end
   
+  ##
+  # returns a test person and a session-cookie where he's logged in. 
+  # If the person doesn't exist already, creates him.
+  
+  def get_test_person_and_session
+    session = nil
+    test_person = nil
+    
+    #frist try loggin in to cos
+    begin
+      session = Session.create({:username => "kassi_testperson1", :password => "testi" })
+      #try to find in kassi database
+      test_person = Person.find(session.person_id)
+
+    rescue ActiveResource::UnauthorizedAccess => e
+      #if not found, create completely new
+      session = Session.create
+      test_person = Person.create({ :username => "kassi_testperson1", 
+                      :password => "testi", 
+                      :email => "kassi_testperson1@example.com"},
+                       session.headers["Cookie"])
+    rescue ActiveRecord::RecordNotFound  => e
+        test_person = Person.add_to_kassi_db(session.person_id)
+    end
+    return [test_person, session]
+  end
+  
   def generate_random_username(length = 12)
     chars = ("a".."z").to_a + ("0".."9").to_a
     random_username = "aaaTest"
@@ -88,9 +115,9 @@ class Test::Unit::TestCase
   end
   
   def post_with_author(action, parameters = nil, parameter_type = :listing)
-    @current_user = Person.test_person
-    parameters[parameter_type].merge!({:author_id => @current_user.id })
-    post action, parameters, :person_id => @current_user.id
+    current_user, session = get_test_person_and_session
+    parameters[parameter_type].merge!({:author_id => current_user.id })
+    post action, parameters, :person_id => current_user.id
   end
       
 end
