@@ -1,4 +1,4 @@
-class InterestingListing < ActiveRecord::Base
+class PersonInterestingListing < ActiveRecord::Base
   belongs_to :person
   belongs_to :listing
   

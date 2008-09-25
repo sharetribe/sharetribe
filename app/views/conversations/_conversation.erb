@@ -1,0 +1,4 @@
+<tr>
+  <td><%= link_to "RE: " + conversation.title, person_inbox_path(@current_user, conversation) %></td>
+  <td><%= conversation.updated_at.to_formatted_s(:basic_date_format_minutes) %></td>
+</tr>

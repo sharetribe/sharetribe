@@ -88,27 +88,28 @@ class ListingsController < ApplicationController
   def interesting
     @title = :interesting_listings
     save_navi_state(['own', 'interesting_listings'])
-    @listing_amount = @current_user.int_listings.size
+    @listing_amount = @current_user.interesting_listings.size
     @pagination_type = "interesting_listings"
-    @listings = @current_user.int_listings.paginate :page => params[:page], 
+    @listings = @current_user.interesting_listings.paginate :page => params[:page], 
                                  :per_page => per_page.to_i, 
                                  :order => 'id DESC'
     render :template => "listings/index"
   end
 
   def mark_as_interesting
-    unless InterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]) 
-      @current_user.interesting_listings.create(:listing_id => params[:id])
+    unless PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]) 
+      @current_user.person_interesting_listings.create(:listing_id => params[:id])
     end
     redirect_to listing_path(Listing.find(params[:id]))   
   end
   
   def mark_as_not_interesting
-    InterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]).destroy
+    PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]).destroy
     redirect_to listing_path(Listing.find(params[:id]))
   end
   
   def reply
+    @listing = Listing.find(params[:id])
     @message = Message.new
   end
 

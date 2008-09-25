@@ -320,6 +320,12 @@ div.listing_image {
 	width: 100%;
 }
 
+#title_with_border_taller {
+	border-bottom: 1px solid #000;
+	height: 50px;
+	width: 100%;
+}
+
 div.arrow_left {
 	width: 30px;
 	padding-top: 5px;

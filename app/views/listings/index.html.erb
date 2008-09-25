@@ -26,7 +26,10 @@
 
 <div class="search_results_header">
 <div class="search_results_title">
-  <%= t(@title) %> (<%= pluralize(@listing_amount, t(:listing), t(:listings_partitive)) %>)
+  <%= t(@title) %> 
+  <% if @listings.size > 0 %> 
+    (<%= pluralize(@listing_amount, t(:listing), t(:listings_partitive))  %>)
+  <% end %>  
 </div>
 <%= will_paginate @listings %>
 </div>
@@ -42,6 +45,6 @@
   <%= will_paginate @listings %>
   <br />
 <% else %>
-  <h3>Ei yhtään ilmoitusta!
+  <p><%= t(:no_listings) %></p>
 <% end %>
 </div>

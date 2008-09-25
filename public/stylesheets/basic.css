@@ -168,6 +168,10 @@ table.listing td, table.listing_inner td, table.listing_in td, table.comment_in 
 	vertical-align: top;
 }
 
+table.content_table td {
+	min-width: 200px;
+}
+
 img {
 	border: 0;
 }

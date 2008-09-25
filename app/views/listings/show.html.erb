@@ -55,7 +55,7 @@
   <% if @current_user && @listing.author != @current_user %>
     <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
     | 
-    <% if InterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
+    <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
       <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
     <% else %>
       <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>

@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080919122825) do
+ActiveRecord::Schema.define(:version => 20080925114309) do
+
+  create_table "conversations", :force => true do |t|
+    t.string   "title"
+    t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
@@ -24,13 +31,6 @@ ActiveRecord::Schema.define(:version => 20080919122825) do
     t.string   "person_id"
     t.text     "keywords"
     t.string   "category"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "interesting_listings", :force => true do |t|
-    t.string   "person_id"
-    t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,11 +68,10 @@ ActiveRecord::Schema.define(:version => 20080919122825) do
 
   create_table "messages", :force => true do |t|
     t.string   "sender_id"
-    t.string   "receiver_id"
-    t.integer  "listing_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "conversation_id"
   end
 
   create_table "people", :id => false, :force => true, :primary_key => :id do |t|
@@ -94,7 +93,21 @@ ActiveRecord::Schema.define(:version => 20080919122825) do
     t.datetime "updated_at"
   end
 
-  create_table "read_listings", :force => true do |t|
+  create_table "person_conversations", :force => true do |t|
+    t.string   "person_id"
+    t.integer  "conversation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "person_interesting_listings", :force => true do |t|
+    t.string   "person_id"
+    t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "person_read_listings", :force => true do |t|
     t.string   "person_id"
     t.integer  "listing_id"
     t.datetime "created_at"
