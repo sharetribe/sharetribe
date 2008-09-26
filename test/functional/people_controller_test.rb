@@ -18,10 +18,49 @@ class PeopleControllerTest < ActionController::TestCase
     assert_select 'form#new_person'
   end
   
-  # def test_render_profile_page
-  #   get :show
-  #   assert_response :success
-  #   assert_template "show"
-  # end
-
+  def test_render_profile_page
+    @test_person, @session = get_test_person_and_session
+    get :show, {:id => @test_person.id }, {:person_id => @test_person.id, :cookie => @session.cookie}
+    assert_response :success
+    assert_template "show"
+  end
+  
+  def test_create_users
+    # this is done twice to get two records in Kassi database
+    # to detect collisions in primary keys
+    username = generate_random_username
+    post "create", ({:person => {:username => username,
+                 :password => "testi",
+                 :email => "#{username}@example.com"}})
+    assert_response :found, @response.body             
+                 
+    username = generate_random_username
+    post "create", ({:person => {:username => username,
+                 :password => "testi",
+                 :email => "#{username}@example.com"}})
+    assert_response :found, @response.body
+  end
+  
+  def test_home
+    get :home
+    assert_response :found
+    assert_redirected_to listings_path
+    
+    @test_person, @session = get_test_person_and_session
+    get :home, {}, {:person_id => @test_person.id}
+    #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
+    assert_response :success
+    assert_template "home"
+    
+  end
+  
+  
+  private
+  
+  def generate_random_username(length = 12)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    random_username = "aaaTest"
+    1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
+    return random_username
+  end
 end

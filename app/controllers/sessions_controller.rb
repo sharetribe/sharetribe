@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
         # The user has succesfully logged in, but is not found in Kassi DB
         @current_user = Person.add_to_kassi_db(@session.person_id )
       end
-      #@current_user.cos_cookie = @session.headers["Cookie"]
-      #@current_user.save
     end
      
     flash[:notice] = :login_succesful
