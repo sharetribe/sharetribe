@@ -1,5 +1,12 @@
 I18n.store_translations 'en-US',
 
+#Register
+:new_user => "Create new user",
+:username => "Username",
+:password => "Password",
+:confirm_password => "Password confirmation",
+:email => "Email address",
+
 #Login form
 :logged_in => "You're logged in as ",
 :not_logged_in => "You're not logged in.",

@@ -1,16 +1,16 @@
 <h3><%= flash[:notice] %></h3>
-<h3>Create new user</h3>
+<h3><%=t(:new_user)%></h3>
 
 <%= error_messages_for :person %>
 
 <% form_for @person do |f| -%>
-  <p><%= f.label :username, "Username" %></p>
+  <p><%= f.label :username, t(:username) %></p>
   <p><%= f.text_field :username %></p>
-  <p><%= f.label :password, "Password" %></p>
+  <p><%= f.label :password, t(:password) %></p>
   <p><%= f.password_field :password %></p>
-  <p><%= f.label :password_confirmation, "Confirm password"%></p>
+  <p><%= f.label :password_confirmation, t(:confirm_password)%></p>
   <p><%= f.password_field :password_confirmation%></p>
-  <p><%= f.label :email, "Email" %></p>
+  <p><%= f.label :email, t(:email) %></p>
   <p><%= f.text_field :email %></p>
   <p><%= f.submit "Create" %></p>
   
