@@ -1,4 +1,10 @@
 I18n.store_translations 'fi',
+#Register
+:new_user => "Luo uusi käyttäjä",
+:username => "Käyttäjänimi",
+:password => "Salasana",
+:confirm_password => "Salasanan vahvistus",
+:email => "Sähköpostiosoite",
 
 #General
 :all => "Kaikki",

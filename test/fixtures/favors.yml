@@ -1,9 +1,16 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
+valid_favor:
+  owner_id: emmi
+  title: plaas
+  description: tykkään hoitaa
+  payment: 2
+
 valid_title:
   owner_id: emmi
   title: plaas
   description: tykkään hoitaa
+  payment: 1
 
 too_short_title:
   owner_id: antti 
@@ -48,12 +55,3 @@ no_owner_id:
   description: jotain tais unohtua
   payment: 1
   
-too_long_payment:
-  owner_id: rikas 
-  title: annetaan kaikki rahat
-  payment: tähän nyt sitten pitäisi pystyä höpisemään vähintäänkin tämän verran
-  
-valid_payment:
-  owner_id: pekka
-  title: maksut hoituu
-  payment: tämän pitäisi vielä kelvata 1234/jee
