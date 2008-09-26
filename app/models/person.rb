@@ -42,7 +42,6 @@ class Person < ActiveRecord::Base
     end
   end
   
-  
   def self.create(params, cookie)
     # create to Common Services
     person_hash = {:person => params.slice(:username, :password, :email) }
@@ -65,11 +64,11 @@ class Person < ActiveRecord::Base
 
   def initialize(params={})
     self.guid = params[:id] #store GUID to temporary attribute
-    #puts "initializessa #{params[:cos_cookie]}"
     super(params)
   end
   
   def after_initialize
+    #self.id may already be correct in this point so use ||=
     self.id ||= self.guid
   end
   
@@ -105,7 +104,4 @@ class Person < ActiveRecord::Base
   def update_attributes(params, cookie)
     PersonConnection.put_attributes(params, self.id, cookie)
   end
-  
 end
-  
-

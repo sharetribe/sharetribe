@@ -3,7 +3,7 @@ require 'test_helper'
 class SessionsControllerTest < ActionController::TestCase
 
   def test_login_and_logout
-    post :create, { :username => "testi", :password => "testi"}
+    post :create, { :username => "kassi_testperson1", :password => "testi"}
     assert_response :found
     assert_not_nil session[:cookie]
 

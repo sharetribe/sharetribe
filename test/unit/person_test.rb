@@ -6,6 +6,15 @@ class PersonTest < ActiveSupport::TestCase
     @test_person, @session = get_test_person_and_session
     @cookie = @session.cookie
   end
+  
+  def teardown
+    @session.destroy
+  end
+
+  def test_person_valid
+    assert_not_nil(@test_person)
+    assert(@test_person.valid?, "Test_person is not valid #{@test_person.errors.full_messages}")
+  end
 
   def test_coin_amount
     assert_equal(0, @test_person.coin_amount)
