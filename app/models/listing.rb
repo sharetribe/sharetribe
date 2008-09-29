@@ -4,7 +4,9 @@ class Listing < ActiveRecord::Base
   
   after_destroy :delete_image_file
   
-  has_many :conversations
+  has_many :person_conversations
+  has_many :conversations, :through => :person_conversations, :source => :conversation
+  
   has_many :comments, :class_name => "ListingComment"
   
   belongs_to :author, :class_name => "Person"
@@ -58,7 +60,7 @@ class Listing < ActiveRecord::Base
       end
     end
     return valid_categories
-  end  
+  end
 
   # Image sizes
   IMG_SIZE = '"300x240>"'
@@ -75,7 +77,7 @@ class Listing < ActiveRecord::Base
 
   validates_inclusion_of :status, :in => VALID_STATUS
   validates_inclusion_of :category, :in => get_valid_categories
-  validates_inclusion_of :good_thru, :on => :create, :allow_nil => true, 
+  validates_inclusion_of :good_thru, :allow_nil => true, 
                          :in => DateTime.now..DateTime.now + 1.year
   
   validates_length_of :title, :within => 2..50
@@ -92,6 +94,23 @@ class Listing < ActiveRecord::Base
         errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
       end
     end  
+  end
+  
+  # Validates image if image data is given. Listing is also valid 
+  # without image, so no file data equals valid file data.
+  def file_data_is_valid
+    if @file_data
+      if @file_data.size.zero?
+        return true
+      elsif @file_data.content_type !~ /^image/
+        errors.add(:image_file, "is not a recognized format")
+        return false
+      elsif @file_data.size > 1.megabyte
+        errors.add(:image_file, "can't be bigger than 1 megabyte")
+        return false    
+      end
+    end
+    return true
   end
   
   # Overrides the to_param method to implement clean URLs
@@ -135,23 +154,6 @@ class Listing < ActiveRecord::Base
   # Deletes image file if listing is destroyed.
   def delete_image_file
     File.delete(filename) if File.exists?(filename)
-  end
-  
-  # Validates image if image data is given. Listing is also valid 
-  # without image, so no file data equals valid file data.
-  def file_data_is_valid
-    if @file_data
-      if @file_data.size.zero?
-        return true
-      elsif @file_data.content_type !~ /^image/
-        errors.add(:image_file, "is not a recognized format")
-        return false
-      elsif @file_data.size > 1.megabyte
-        errors.add(:image_file, "can't be bigger than 1 megabyte")
-        return false    
-      end
-    end
-    return true
   end
 
   def id_sort

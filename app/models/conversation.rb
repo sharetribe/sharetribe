@@ -4,6 +4,7 @@ class Conversation < ActiveRecord::Base
 
   has_many :person_conversations
   has_many :participants, :through => :person_conversations, :source => :person
+  
   has_many :messages
   
   validates_presence_of :title

@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
 
-  belongs_to :sender, :class_name => "Person", :foreign_key => "sender_id"
+  belongs_to :sender, :class_name => "Person"
   belongs_to :conversation
   
   attr_accessor :receiver_id, :listing_id, :title

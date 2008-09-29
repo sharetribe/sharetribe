@@ -102,13 +102,13 @@ class ListingTest < ActiveSupport::TestCase
     assert_listing_valid(:value_other, "asdfghjklöasdfghjklöasdfghjklöasdfghjklöasdfghjklö", true)
   end
 
-  def test_times_viewed
+  def test_times_viewed_integer
     assert_listing_valid(:times_viewed, 1.2, false)
     assert_listing_valid(:times_viewed, 1, true)
     assert_listing_valid(:times_viewed, nil, true)
   end
 
-  def test_value_cc
+  def test_value_cc_integer
     assert_listing_valid(:value_cc, 1.2, false)
     assert_listing_valid(:value_cc, 1, true)
     assert_listing_valid(:value_cc, nil, true)
@@ -139,6 +139,24 @@ class ListingTest < ActiveSupport::TestCase
     assert listing.write_image_to_file
     listing.image_file = uploaded_file("i_am_not_image.txt", "text/plain")
     assert !listing.valid?
+  end
+
+  private
+  
+  def assert_listing_valid(attribute, value, is_valid)
+    listing = listings(:valid_listing)
+    listing.update_attribute(attribute, value)
+    if is_valid
+      assert listing.valid?
+    else
+      assert !listing.valid?
+    end    
+  end  
+  
+  def assert_listing_valid_group(values, is_valid)
+    values.each do |attribute, value|
+      assert_listing_valid(attribute, value, is_valid)
+    end
   end
 
 end

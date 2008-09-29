@@ -31,8 +31,6 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_person(id, cookie)
-      #puts "#{prefix}#{element_name}/#{id}/@self"
-      #puts ({"Cookie" => cookie }.inspect)
       return connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie } )
     end
     
@@ -47,7 +45,6 @@ class Person < ActiveRecord::Base
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
-    #puts "createssa #{cookie}"
     #create locally with less attributes
     super(params.except(:username, :email))
   end 
@@ -58,7 +55,7 @@ class Person < ActiveRecord::Base
       return person
     else
       return nil
-      logger.error { "Error stroring person to Kassi DB with ID: #{id}" }
+      logger.error { "Error storing person to Kassi DB with ID: #{id}" }
     end
   end
 
@@ -80,7 +77,6 @@ class Person < ActiveRecord::Base
   
   def name_or_username(cookie=nil)
     return "Cookie Missing!" if cookie.nil?
-      #puts (PersonConnection.get_person(self.id, self.cos_cookie).inspect)
     person_hash = PersonConnection.get_person(self.id, cookie)
     if person_hash["name"] && person_hash["name"]["unstructured"]
       return person_hash["name"]["unstructured"]
