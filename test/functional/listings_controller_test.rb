@@ -17,6 +17,10 @@ class ListingsControllerTest < ActionController::TestCase
     }}
   end
   
+  def teardown
+    @session.destroy
+  end
+  
   def test_show_index
     get :index
     assert_response :success

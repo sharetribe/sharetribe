@@ -9,8 +9,9 @@ class PeopleControllerTest < ActionController::TestCase
     assert_not_equal(0, @test_person.id)
     @test_person.coin_amount = 5
     assert_equal(5, @test_person.coin_amount)
+    @session.destroy
   end
-  
+
   def test_register_form
     get :new
     assert_response :success
@@ -23,6 +24,7 @@ class PeopleControllerTest < ActionController::TestCase
     get :show, {:id => @test_person.id }, {:person_id => @test_person.id, :cookie => @session.cookie}
     assert_response :success
     assert_template "show"
+    @session.destroy
   end
   
   def test_create_users
@@ -51,7 +53,7 @@ class PeopleControllerTest < ActionController::TestCase
     #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
     assert_response :success
     assert_template "home"
-    
+    @session.destroy
   end
   
   

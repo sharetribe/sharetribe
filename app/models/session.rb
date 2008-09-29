@@ -23,13 +23,6 @@ class Session < ActiveResource::Base
     connection.delete("#{prefix}#{element_name}", deleting_headers)
   end
   
-  
-  #this is added to class methods to get access to private method query_string
-  def self.to_query_string(params)
-      query_string(params)
-      #TODO find a better way to do this...
-  end
-  
   def initialize(params={})
     self.username = params[:username]
     self.password = params[:password]
@@ -43,7 +36,6 @@ class Session < ActiveResource::Base
     params[:password] = @password if @password
     params.update({:app_name => @@app_name, :app_password => @@app_password})
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
-    #resp = connection.post("#{self.class.prefix}#{self.class.element_name}#{self.class.to_query_string(params)}")
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
     @person_id = json["user_id"]

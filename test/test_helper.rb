@@ -86,6 +86,7 @@ class Test::Unit::TestCase
     current_user, session = get_test_person_and_session
     parameters[parameter_type].merge!({:author_id => current_user.id })
     post action, parameters, :person_id => current_user.id
+    session.destroy
   end
       
 end
