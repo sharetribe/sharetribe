@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
   def destroy
     Session.destroy(session[:cookie]) if session[:cookie]
     session[:cookie] = nil
-    @current_user.cos_cookie = nil if @current_user
     session[:person_id] = nil
     flash[:notice] = :logout_succesful
     redirect_to(root_path)
