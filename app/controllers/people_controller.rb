@@ -19,6 +19,7 @@ class PeopleController < ApplicationController
     end    
   end
   
+  # Shows profile page of a person.
   def show
     @person = Person.find(params[:id])
     save_navi_state(['own', 'profile', '', '', 'information']) if session[:navi1].eql?("own")

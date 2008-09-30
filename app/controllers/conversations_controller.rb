@@ -9,6 +9,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
   end
 
+  # Creates new message and adds it to an existing conversation or creates a new conversation.
   def create
     @message = Message.new(params[:message])
     if @message.save

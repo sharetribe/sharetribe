@@ -38,8 +38,7 @@ class Session < ActiveResource::Base
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
-    @person_id = json["user_id"]
-    
+    @person_id = json["user_id"] 
   end
   
   def check
@@ -52,7 +51,6 @@ class Session < ActiveResource::Base
    
   def destroy
     Session.destroy(@headers["Cookie"])
-    #connection.delete("#{self.class.prefix}#{self.class.element_name}", @headers)
   end
   
   def cookie

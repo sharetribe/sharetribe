@@ -42,12 +42,8 @@ class ListingsControllerTest < ActionController::TestCase
     # When logged in
     get :new, {}, { 'person_id' => @test_person.id.to_s }
     assert_response :success
-    assert_template 'new'
+    assert_template 'new'  
     assert_not_nil assigns(:listing)
-  end
-  
-  def test_should_show_new_form
-    #TODO: test that all the form elements are in their places
   end
 
   def test_add_and_delete_valid_listing

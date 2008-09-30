@@ -74,10 +74,6 @@ ActiveRecord::Schema.define(:version => 20080929102121) do
     t.integer  "conversation_id"
   end
 
-#the lines bellow should be
-#create_table "people", :id => false, :force => true, :primary_key => :id do |t|
-#  t.string :id, :limit => 22, :null => false
-
   create_table "people", :id => false, :force => true, :primary_key => :id do |t|
     t.string :id, :limit => 22, :null => false
     t.integer  "coin_amount", :default => 0, :null => false
