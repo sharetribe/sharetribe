@@ -15,8 +15,8 @@ I18n.store_translations 'en-US',
 :logout => "Logout",
 
 #Login notices
-:logout_succesful => "Logout succesful.",
-:login_succesful => "Login succesful.",
+:logout_successful => "Logout successful.",
+:login_successful => "Login successful.",
 
 #Search
 :search_kassi => "Search Kassi:",

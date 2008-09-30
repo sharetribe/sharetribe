@@ -21,8 +21,8 @@ I18n.store_translations 'fi',
 :password => "Salasana",
 
 #Login notices
-:logout_succesful => "Uloskirjautuminen onnistui.",
-:login_succesful => "Sisäänkirjautumien onnistui.",
+:logout_successful => "Uloskirjautuminen onnistui.",
+:login_successful => "Sisäänkirjautumien onnistui.",
 
 #Not logged in notices 
 :you_must_login_to_do_this => "Haluamasi toiminto on salittu ainoastaan sisäänkirjautuneille käyttäjille.",

@@ -65,8 +65,6 @@ class ApplicationController < ActionController::Base
       end
     end
     session[:locale] = params[:locale] || session[:locale]
-    # Require locale files for error messages
-    require "lib/locale/#{locale}.rb"
   end
   
   def fetch_logged_in_user

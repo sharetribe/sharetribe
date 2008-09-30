@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       end
     end
      
-    flash[:notice] = :login_succesful
+    flash[:notice] = :login_successful
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
     Session.destroy(session[:cookie]) if session[:cookie]
     session[:cookie] = nil
     session[:person_id] = nil
-    flash[:notice] = :logout_succesful
+    flash[:notice] = :logout_successful
     redirect_to(root_path)
   end
   
