@@ -29,4 +29,12 @@ class SessionTest < ActiveSupport::TestCase
     s1.destroy
     s2.destroy
   end
+  
+  def test_getting_session_by_cookie
+    @test_person, @session = get_test_person_and_session
+    cookie = @session.cookie
+    other_session = Session.get_by_cookie(cookie)
+    assert_equal(@session.person_id, other_session.person_id)
+    @session.destroy
+  end
 end

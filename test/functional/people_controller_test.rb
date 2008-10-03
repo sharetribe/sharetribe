@@ -49,7 +49,7 @@ class PeopleControllerTest < ActionController::TestCase
     assert_redirected_to listings_path
     
     @test_person, @session = get_test_person_and_session
-    get :home, {}, {:person_id => @test_person.id}
+    get :home, {}, {:person_id => @test_person.id, :cookie => @session.cookie}
     #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
     assert_response :success
     assert_template "home"

@@ -40,7 +40,7 @@ class ListingsControllerTest < ActionController::TestCase
     assert_redirect_when_not_logged_in
     
     # When logged in
-    get :new, {}, { 'person_id' => @test_person.id.to_s }
+    get :new, {}, { 'person_id' => @test_person.id.to_s, :cookie => @cookie}
     assert_response :success
     assert_template 'new'  
     assert_not_nil assigns(:listing)
@@ -58,10 +58,13 @@ class ListingsControllerTest < ActionController::TestCase
     assert_not_nil flash[:notice]
     assert Listing.find(id)
     assert File.exists?("tmp/test_images/" + id.to_s + ".png")
+    
     # Delete just created listing
-    post :destroy, :id => id
+    test_person2, session2 = get_test_person_and_session #new session for same user 
+    post :destroy, {:id => id}, {:cookie => session2.cookie}
     # Image file must be deleted if listing is deleted
     assert !File.exists?("tmp/test_images/" + id.to_s + ".png")
+    session2.destroy
   end
   
   def test_add_invalid_listing
@@ -84,7 +87,7 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_show_listing
-    get :show, { :id => listings(:valid_listing) },  { 'person_id' => @test_person.id.to_s }
+    get :show, { :id => listings(:valid_listing) },  { 'person_id' => @test_person.id.to_s, :cookie => @cookie  }
     assert_response :success
     assert_template 'show'
     assert_equal listings(:valid_listing), assigns(:listing)

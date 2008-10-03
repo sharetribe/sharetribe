@@ -23,6 +23,15 @@ class Session < ActiveResource::Base
     connection.delete("#{prefix}#{element_name}", deleting_headers)
   end
   
+  #Use only for session containing a user (NO app-only session)
+  def self.get_by_cookie(cookie)
+    new_session = Session.new
+    new_session.cookie = cookie
+
+    return nil unless new_session.set_person_id()   
+    return new_session
+  end
+  
   def initialize(params={})
     self.username = params[:username]
     self.password = params[:password]
@@ -46,7 +55,13 @@ class Session < ActiveResource::Base
   end
   
   def get(path)
-    connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
+    begin
+      return connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
+    rescue ActiveResource::ResourceNotFound => e
+      return nil
+    rescue ActiveResource::UnauthorizedAccess => e
+      return nil
+    end
   end
    
   def destroy
@@ -55,5 +70,17 @@ class Session < ActiveResource::Base
   
   def cookie
     @headers["Cookie"]
+  end
+  
+  def cookie=(cookie)
+    @headers ||= {}
+    @headers["Cookie"] = cookie
+  end
+  
+  def set_person_id
+    info = self.check
+    return nil if info.nil?
+    @person_id =  info["user_id"]
+    return @person_id
   end
 end
