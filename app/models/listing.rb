@@ -64,6 +64,7 @@ class Listing < ActiveRecord::Base
 
   # Image sizes
   IMG_SIZE = '"300x240>"'
+  THUMB_SIZE = '"100x100>"'
   
   # Image directories
   if ENV["RAILS_ENV"] == "test"
@@ -128,6 +129,10 @@ class Listing < ActiveRecord::Base
     File.join(DIRECTORY, self.id.to_s + ".png")
   end
   
+  def thumb_filename
+    File.join(DIRECTORY, self.id.to_s + "_thumb.png")
+  end
+  
   # Converts image to right size and writes it to a PNG file.
   # Filename is [LISTING_ID].png
   def write_image_to_file
@@ -140,10 +145,11 @@ class Listing < ActiveRecord::Base
       File.open(source, "wb") { |f| f.write(@file_data.read) }
       # Convert the files.
       img = system("#{'convert'} '#{source}' -resize #{IMG_SIZE} '#{filename}'")
+      thumb = system("#{'convert'} '#{source}' -resize #{THUMB_SIZE} '#{thumb_filename}'")
       # Delete temp file.
       File.delete(source) if File.exists?(source)
       # Conversion must succeed, else it's an error.
-      unless img
+      unless img and thumb
         errors.add_to_base("File upload failed.  Try a different image?")
         return false
       end

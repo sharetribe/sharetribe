@@ -37,7 +37,7 @@
         <b><%= t(:author) %>: </b>
       </td>
       <td>
-        <i><%= link_to(@listing.author_id, "/people/" + @listing.author_id.to_s) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
+        <i><%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
       </td>
     </tr>
     <tr>
@@ -75,13 +75,15 @@
     <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
   
-  <% end%>
+  <% end %>
   
   </div>
 
+  <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
   <div id="listing_image">
     <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
   </div>
+  <% end %>
   
   <div id="listing_comments">
     

@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   belongs_to :sender, :class_name => "Person"
   belongs_to :conversation
   
-  attr_accessor :receiver_id, :listing_id, :title
+  attr_accessor :receiver_id, :listing_id, :title, :current_conversation
   
   validates_presence_of :sender_id
   

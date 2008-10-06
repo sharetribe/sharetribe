@@ -32,14 +32,6 @@ module ListingsHelper
     links.join(" | ")  
   end
   
-  # Returns a string containing information on the listings on current page
-  # (e.g. "Showing listings 11-20 of total 37 listings")
-  def listings_on_this_page
-    if (@listing_amount && @listing_amount <= 10) || (@listings.total_hits && @listings.total_hits <= 10)
-      "Showing listings " + 1 + " - " + @listing_amount || @listings.total_hits
-    end     
-  end
-  
   # def translate_error_messages(error_message_groups)
   #   translated_errors = []
   #   error_message_groups.each do |error_messages|

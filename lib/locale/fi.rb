@@ -86,8 +86,14 @@ I18n.store_translations 'fi',
 :others_description => "kaikki muut ilmoitukset",
 
 #Pagination
-:next => "Seuraava",
-:previous => "Edellinen",
+:next => "Seuraava &raquo;",
+:previous => "&laquo; Edellinen",
+:displaying => "Näytetään",
+:of => "yhteensä",
+:in_total => "osumasta",
+:no => "ei",
+:entries => "osumia",
+:found => "",
 
 #Listings view
 :listing => "ilmoitus",
@@ -116,6 +122,9 @@ I18n.store_translations 'fi',
 :mark_as_interesting => "Merkitse kiinnostavaksi",
 :mark_as_not_interesting => "Poista kiinnostavista",
 :reply => "Vastaa ilmoitukseen",
+:listing_created_by => "Ilmoituksen jättänyt",
+:listing_added => "Ilmoitus lisätty",
+:no_listings => "Ei ilmoituksia",
 
 #Listing statuses
 :open => "Avoinna",

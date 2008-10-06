@@ -35,19 +35,19 @@ body {
 }
 
 a {
-
 	border: 0;
-	color: #406704; 
+	color: #497506;
+	text-decoration: none;   
 }
 
 a:hover {
-	color: #64a006; 
-	text-decoration: none;  
+	color: #6fb107;
+	text-decoration: underline;  
 }
 
 a:active { 
 	color: #7ac307;
-	text-decoration: none; 
+	text-decoration: underline;
 }
 
 p { 
@@ -132,7 +132,7 @@ table.listing h3 {
 	margin-bottom: 10px;
 }
 
-table.listing_inner {
+table.listing_inner, message_inner {
 	border-spacing: 0px;
 	padding-bottom: 10px;
 	padding-left: 5px;
@@ -141,6 +141,11 @@ table.listing_inner {
 table.listing_main {
 	padding-left: 10px;
 	width: 450px;
+}
+
+table.listing_main_narrower {
+	padding-left: 10px;
+	width: 340px;
 }
 
 table.comment_main {
@@ -155,7 +160,7 @@ table.listing_right td {
 	width: 80px;
 }
 
-table.listing_in, table.comment_in {
+table.listing_in, table.comment_in, table.message_in {
 	border-bottom: 2px dotted #666;
 	border-spacing: 0px;
 }
@@ -164,12 +169,29 @@ table.comment_in {
 	margin-top: 5px;
 }
 
-table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td {
+table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.message_in td {
 	vertical-align: top;
 }
 
 table.content_table td {
-	min-width: 200px;
+	vertical-align: top;
+	width: 200px;
+}
+
+td.message_sender_image {
+	width: 75px;
+}
+
+td.message_sender {
+	width: 150px;
+}
+
+td.message_content {
+	width: 490px;
+}
+
+td.listing_image {
+	width: 110px;
 }
 
 img {
@@ -178,4 +200,12 @@ img {
 
 input.button {
 	width: 75px;
+}
+
+span.page_entries_info {
+	font-size: 10px;
+}
+
+div.extra_padding {
+	padding-bottom: 10px;
 }

@@ -2,15 +2,6 @@
 
 <div id="basic_content">
 
-<% form_for :message, :url => person_inbox_index_path(@current_user) do |f| %>
-  <b><%= t(:write_reply) %></b><br /><br />
-  <%= f.text_area :content, :size => "48x5" %>
-  <br /><br />
-  <%= f.hidden_field :title, :value => @listing.title %>
-  <%= f.hidden_field :listing_id, :value => @listing.id.to_s %>
-  <%= f.hidden_field :sender_id, :value => @current_user.id %>
-  <%= f.hidden_field :receiver_id, :value => @listing.author.id %>
-  <%= submit_tag t(:send_reply), :onclick => "this.disabled=true,this.form.submit();" %>
-<% end %>
+<%= render :partial => "messages/send_message" %>
 
 </div>

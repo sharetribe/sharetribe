@@ -5,7 +5,7 @@
                                                   :alt => t(:previous_message),
                                                   :onmouseover => "this.src='/images/arrow_left_hilight.png';",
                                                   :onmouseout => "this.src='/images/arrow_left.png';"
-                       ), "#"
+                       ), person_inbox_path(@current_user, @previous_conversation)
     %>
   </div>
   <div id="title_div">
@@ -20,10 +20,20 @@
                                                   :alt => t(:next_message),
                                                   :onmouseover => "this.src='/images/arrow_right_hilight.png';",
                                                   :onmouseout => "this.src='/images/arrow_right.png';"
-                       ), "#"
+                       ), person_inbox_path(@current_user, @next_conversation)
     %>
   </div>
 </div>
-<div id="basic_content">
+
+<table class="listing">
+  <tr>
+    <td>
+      <%= render :partial => "layouts/announcements"%>
+    </td>
+  </tr>
   <%= render :partial => "messages/message", :collection => @conversation.messages %>
-</div>
+</table>
+  
+<div id="basic_content" >
+  <%= render :partial => "messages/send_message" %>
+</div>  

@@ -52,7 +52,7 @@ class ListingsControllerTest < ActionController::TestCase
     
     post_with_author :create, @listing_params
     assert_response :found, @response.body
-    assert_redirected_to listings_path
+    assert_redirected_to listing_path(assigns(:listing))
     id = assigns(:listing).id
     assert ! assigns(:listing).new_record?
     assert_not_nil flash[:notice]

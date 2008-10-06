@@ -1,8 +1,8 @@
 <div class="search_results_header">
 <div class="search_results_title">
-  <%= t(:search_results) %> (<%= @listings.total_hits %>)
+  <%= t(:search_results) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
 </div>
-<%= will_paginate @listings %>
+<%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
 </div>
 <% if @listings && @listings.size > 0 %>
 <table class="listing"> 
@@ -11,8 +11,8 @@
 <div id="search_footer_left">
   <%= t(:show_listings_on_page) %>:
   <%= create_footer_pagination_links(["10", "30", "50", "all"], "search") %>
-</div
-<%= will_paginate @listings %>
+</div>
+<%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
 
 <% else %>
  <p><%= t(:search_returned_no_hits) %></p>
