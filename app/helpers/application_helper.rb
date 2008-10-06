@@ -93,14 +93,29 @@ module ApplicationHelper
     return navi_items 
   end
   
-  def show_listings
-  
+end
+
+# Overrides 'page_entries_info' method of will paginate plugin so that the messages
+# it provides can be translated.
+module WillPaginate
+  module ViewHelpers
+    def page_entries_info(collection, options = {})
+      entry_name = options[:entry_name] ||
+        (collection.empty?? 'entry' : collection.first.class.name.underscore.sub('_', ' '))
+      
+      if collection.total_pages < 2
+        case collection.size
+        when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found)}"
+        when 1; "<b>1</b> #{t(entry_name)}"
+        else;   "<b>#{collection.size}</b> #{t(entry_name.pluralize + "_partitive")}"
+        end
+      else
+        %{#{t(entry_name.pluralize)} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
+          collection.offset + 1,
+          collection.offset + collection.length,
+          collection.total_entries
+        ]
+      end
+    end
   end
-  
-  # Localizes default values of the pagination plugin "will paginate".
-  def localize_will_paginate
-    WillPaginate::ViewHelpers.pagination_options[:previous_label] = '&laquo; ' + translate(:previous)
-    WillPaginate::ViewHelpers.pagination_options[:next_label] = translate(:next) + ' &raquo;'
-  end
-  
 end

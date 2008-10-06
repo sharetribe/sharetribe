@@ -1,4 +1,23 @@
 <tr>
-  <td><%= message.sender.name %></td>
-  <td><%= message.content%></td>
+  <td>
+    <table class="message_in">
+      <tr>  
+        <td class="message_sender_image"> 
+          <div class="listing_image extra_padding">
+            <img src="/images/teemu_t.jpg" alt="<%= message.sender.name(session[:cookie]) %>" width="50" height="50">
+          </div>
+        </td>
+        <td class="message_sender">
+          <i>
+            <%= link_to(message.sender.name(session[:cookie]), person_path(message.sender.id)) %><br /> 
+            <%= message.created_at.to_formatted_s(:basic_date_format_minutes) %> 
+          </i>
+        </td>
+        <td class= "message_content">
+          <%= message.content %>
+          <br /> <br />
+        </td>
+      </tr>
+    </table>
+  </td>
 </tr>

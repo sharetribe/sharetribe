@@ -1,33 +1,58 @@
+<% 
+  if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{listing.id.to_s}_thumb.png")
+    has_image = true
+  else
+    has_image = false
+  end  
+%>  
 <tr>
   <td>
     <table class="listing_in">
       <tr>  
         <td> 
-          <div class="listing_image">
+          <div class="listing_author_image">
             <img src="/images/teemu_t.jpg" alt="<%= listing.author_id %>" width="50" height="50">
           </div>
         </td>
         <td>
-          <table class="listing_inner listing_main">
+          <% if has_image %>
+            <table class="listing_inner listing_main_narrower">
+          <% else %>
+            <table class="listing_inner listing_main">
+          <% end %>
             <tr>
               <td>
                 <h3>
-                  <% if (listing.title.length > 32 && !listing.title.include?(" "))%>
-                    <%= link_to(listing.title.slice!(0..32) + "...", listing) %>
-                  <% else %>
-                    <%= link_to(listing.title, listing) %>
+                  <% 
+                     if has_image &&
+                        listing.title.length > 25 && !listing.title.include?(" ")
+                  %>
+                    <%= link_to(listing.title.slice!(0..22) + "...", listing) %>
+                  <% else %>  
+                    <% if (listing.title.length > 32 && !listing.title.include?(" "))%>
+                      <%= link_to(listing.title.slice!(0..32) + "...", listing) %>
+                    <% else %>  
+                      <%= link_to(listing.title, listing) %>
+                    <% end %>  
                   <% end %>  
                 </h3>
               </td>
             </tr>
             <tr>
-              <td>
-                <i>Ilmoituksen jättänyt <%= link_to(listing.author_id, person_path(listing.author_id)) %> 
+              <td> 
+                <i><%= t(:listing_created_by) %> <%= link_to(listing.author.name(session[:cookie]), person_path(listing.author)) %> 
                 <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> </i>
+                <br />
+                
               </td>
             </tr>
           </table>
         </td>
+        <% if has_image %>
+        <td class="listing_image">
+          <img src="/images/listing_images/<%= listing.id %>_thumb.png" alt="<%= listing.title %>" /><br /><br />
+        </td>
+        <% end %>  
         <td>
           <table class="listing_inner listing_right">
             <tr>

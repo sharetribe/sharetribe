@@ -18,15 +18,14 @@
 </head>
 
 <body>
-  <% localize_will_paginate %>
   <div id="wrapper">
     <div id="main">
       <div id="centering">
         <div id="top_links">
           <div id="top_links_left">
-            <%= link_to 'Suomi', "?locale=fi" %> | 
-            <%= link_to 'English', "?locale=en-US" %> | 
-            <%= link_to 'Svenska', "?locale=swe" %>
+            <%= link_to 'Suomi', params.merge!(:locale => "fi") %> | 
+            <%= link_to 'English', params.merge!(:locale => "en-US") %> | 
+            <%= link_to 'Svenska', params.merge!(:locale => "swe") %>
           </div>
           <div id="top_links_right">
             <%= render :partial => "layouts/login" %>

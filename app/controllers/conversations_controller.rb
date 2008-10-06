@@ -7,6 +7,10 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
+    @next_conversation = Conversation.find(:first, :conditions => ["updated_at > ?", @conversation.updated_at]) || @conversation
+    @previous_conversation = Conversation.find(:last, :conditions => ["updated_at < ?", @conversation.updated_at]) || @conversation
+    @listing = @conversation.listing
+    @message = Message.new
   end
 
   # Creates new message and adds it to an existing conversation or creates a new conversation.
@@ -26,8 +30,12 @@ class ConversationsController < ApplicationController
         Person.find(params[:message][:receiver_id]).conversations << @conversation
       end  
       @conversation.messages << @message
-      flash[:notice] = :reply_sent  
-      redirect_to listing_path(listing)
+      flash[:notice] = :reply_sent
+      if params[:message][:current_conversation]
+        redirect_to person_inbox_path(@current_user, params[:message][:current_conversation])
+      else     
+        redirect_to listing_path(listing)
+      end  
     else
       flash[:error] = :reply_could_not_be_sent
       render :template => "listings/reply"

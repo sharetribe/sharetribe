@@ -65,8 +65,8 @@ class ListingsController < ApplicationController
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     if @listing.save
-      flash[:notice] = 'Ilmoitus lisätty.'
-      redirect_to listings_path
+      flash[:notice] = :listing_added
+      redirect_to listing_path(@listing)
     else
       params[:category] = params[:listing][:category]
       Listing::MAIN_CATEGORIES.each do |main_category|
@@ -88,7 +88,6 @@ class ListingsController < ApplicationController
   def interesting
     @title = :interesting_listings
     save_navi_state(['own', 'interesting_listings'])
-    @listing_amount = @current_user.interesting_listings.size
     @pagination_type = "interesting_listings"
     @listings = @current_user.interesting_listings.paginate :page => params[:page], 
                                  :per_page => per_page.to_i, 

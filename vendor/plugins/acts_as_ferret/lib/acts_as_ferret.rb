@@ -80,9 +80,17 @@ module ActsAsFerret
   @@ferret_indexes = Hash.new
   def self.ferret_indexes; @@ferret_indexes end
 
-  def total_pages
-    @total_pages
-  end
+  class SearchResults
+
+    def total_pages
+      @total_pages
+    end
+    
+    def total_entries
+      @total_hits
+    end
+    
+  end  
   
   def self.ensure_directory(dir)
     FileUtils.mkdir_p dir unless (File.directory?(dir) || File.symlink?(dir))

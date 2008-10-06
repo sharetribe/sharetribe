@@ -26,12 +26,9 @@
 
 <div class="search_results_header">
 <div class="search_results_title">
-  <%= t(@title) %> 
-  <% if @listings.size > 0 %> 
-    (<%= pluralize(@listing_amount, t(:listing), t(:listings_partitive))  %>)
-  <% end %>  
+  <%= t(@title) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
 </div>
-<%= will_paginate @listings %>
+<%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
 </div>
 
 <% if (@listings.size > 0)%>
@@ -42,7 +39,7 @@
     <%= t(:show_listings_on_page) %>:
     <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
   </div
-  <%= will_paginate @listings %>
+  <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
   <br />
 <% else %>
   <p><%= t(:no_listings) %></p>

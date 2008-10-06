@@ -240,10 +240,13 @@ div.link_selected {
 #sublinks li.active {	
 	background-image: url(../images/arrow.png);
 	background-repeat: no-repeat;
-	background-position: 1px 10px;
+	background-position: -1px 10px;
 }
 
 #sublinks li a {
+	border: 0;
+	color: #497506;
+	text-decoration: none;
 	margin-left: 5px;
 	display: block;
 	width: 200px;
@@ -253,11 +256,15 @@ div.link_selected {
 #sublinks li a:hover {
 	color: #000000;
 	width: 194px;
-	background: #dbf5b1;
+	background: #c0e783;
+}
+
+#sublinks ul.subsub {
+	margin-left: 18px;
 }
 
 #sublinks ul.subsub li a:hover {
-	width: 179px;
+	width: 176px;
 }
 
 #contents {
@@ -293,7 +300,7 @@ div.link_selected {
 	margin-bottom: 20px;
 }
 
-div.listing_image {
+div.listing_author_image {
 	float: left;
 	margin-left: 6px;
 	width: 50px;
@@ -384,7 +391,6 @@ div.category a span {
 
 div.announcement {
 	padding: 10px;
-	width: 100%;
 	font-size: 14px;
 	font-weight: bold;
 	margin-bottom: 20px;
