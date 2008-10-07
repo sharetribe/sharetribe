@@ -289,34 +289,72 @@ module ActsAsFerret
       end
     end
 
+    # def ar_find_by_contents(q, options = {}, find_options = {})
+    #   result_ids = {}
+    #   total_hits = find_id_by_contents(q, options) do |model, id, score, data|
+    #     # stores ids, index and score of each hit for later ordering of
+    #     # results
+    #     result_ids[id] = [ result_ids.size + 1, score ]
+    #   end
+    # 
+    #   result = retrieve_records( { self.name => result_ids }, find_options )
+    #   
+    #   # count total_hits via sql when using conditions or when we're called
+    #   # from an ActiveRecord association.
+    #   if find_options[:conditions] or caller.find{ |call| call =~ %r{active_record/associations} }
+    #     # chances are the ferret result count is not our total_hits value, so
+    #     # we correct this here.
+    #     if options[:limit] != :all || options[:page] || options[:offset] || find_options[:limit] || find_options[:offset]
+    #       # our ferret result has been limited, so we need to re-run that
+    #       # search to get the full result set from ferret.
+    #       result_ids = {}
+    #       find_id_by_contents(q, options.update(:limit => :all, :offset => 0)) do |model, id, score, data|
+    #         result_ids[id] = [ result_ids.size + 1, score ]
+    #       end
+    #       # Now ask the database for the total size of the final result set.
+    #       total_hits = count_records( { self.name => result_ids }, find_options )
+    #     else
+    #       # what we got from the database is our full result set, so take
+    #       # it's size
+    #       total_hits = result.length
+    #     end
+    #   end
+    # 
+    #   [ total_hits, result ]
+    # end
+    
     def ar_find_by_contents(q, options = {}, find_options = {})
       result_ids = {}
+      has_conditions = !find_options[:conditions].blank? || caller.find{ |call| call =~ %r{active_record/associations} }
+
+      # odd case - cannot do pagination combo with AR & Ferret
+      # must retrieve all then paginate after
+      if options[:per_page] && has_conditions
+        late_paginate = true
+        offset  = find_options.delete(:offset)
+        limit   = find_options.delete(:limit)
+        options.delete(:page)
+        options.delete(:per_page)
+        find_options.delete(:offset)
+        find_options.delete(:limit)
+        options[:limit] = :all
+      end
+
       total_hits = find_id_by_contents(q, options) do |model, id, score, data|
         # stores ids, index and score of each hit for later ordering of
         # results
         result_ids[id] = [ result_ids.size + 1, score ]
       end
 
-      result = retrieve_records( { self.name => result_ids }, find_options )
-      
-      # count total_hits via sql when using conditions or when we're called
-      # from an ActiveRecord association.
-      if find_options[:conditions] or caller.find{ |call| call =~ %r{active_record/associations} }
-        # chances are the ferret result count is not our total_hits value, so
-        # we correct this here.
-        if options[:limit] != :all || options[:page] || options[:offset] || find_options[:limit] || find_options[:offset]
-          # our ferret result has been limited, so we need to re-run that
-          # search to get the full result set from ferret.
-          result_ids = {}
-          find_id_by_contents(q, options.update(:limit => :all, :offset => 0)) do |model, id, score, data|
-            result_ids[id] = [ result_ids.size + 1, score ]
-          end
-          # Now ask the database for the total size of the final result set.
-          total_hits = count_records( { self.name => result_ids }, find_options )
-        else
-          # what we got from the database is our full result set, so take
-          # it's size
-          total_hits = result.length
+      result = retrieve_records( { self.name => result_ids }, 
+      find_options )
+
+      if has_conditions
+        # what we got from the database is our full result set, so take it'ssize
+        total_hits = result.length
+
+        if late_paginate
+          result = result[offset..offset+limit-1]
         end
       end
 

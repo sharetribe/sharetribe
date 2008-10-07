@@ -100,8 +100,17 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_search_listings
+    get :search, :q => "tsikko"
+    assert_response :success
+    assert_equal 0, assigns(:listings).size
+    
     get :search, :q => "*", :only_open => "true"
     assert_response :success
+    assert_equal 2, assigns(:listings).size
+    
+    get :search, :q => "*"
+    assert_response :success
+    assert_equal 3, assigns(:listings).size
   end  
   
 end

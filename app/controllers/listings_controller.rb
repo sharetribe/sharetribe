@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
         begin
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
           conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
-          @listings = Listing.find_by_contents(query, {:page => params[:page], :per_page => per_page.to_i, :order => 'id DESC', :sort => s}, {:conditions => conditions})
+          @listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions}).paginate :page => params[:page], :per_page => per_page
         end
       end    
     end   

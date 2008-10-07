@@ -25,7 +25,7 @@ I18n.store_translations 'fi',
 :login_successful => "Sisäänkirjautumien onnistui.",
 
 #Not logged in notices 
-:you_must_login_to_do_this => "Haluamasi toiminto on salittu ainoastaan sisäänkirjautuneille käyttäjille.",
+:you_must_login_to_do_this => "Haluamasi toiminto on sallittu ainoastaan sisäänkirjautuneille käyttäjille.",
 
 #Search
 :search_kassi => "Hae Kassista:",

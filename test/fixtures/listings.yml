@@ -30,8 +30,8 @@ another_valid_listing:
 
 third_valid_listing:
   author_id: dMF4WsJ7Kr3BN6ab9B7ckF
-  category: "sell"
-  title: "Myydään alastomia oravoita"
+  category: "borrow_items"
+  title: "toinen otsikko"
   content: "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 22
