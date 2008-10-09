@@ -120,6 +120,8 @@ class ListingTest < ActiveSupport::TestCase
     assert_listing_valid(:category, "borrow_items", true)
     assert_listing_valid(:category, "sell", true)
     assert_listing_valid(:category, "marketplace", false)
+    assert_listing_valid(:category, "found", true)
+    assert_listing_valid(:category, "lost_property", false)
     assert_listing_valid(:category, "dippa", false)
     # Test with all valid categories
     Listing.get_valid_categories.each do |valid_category|

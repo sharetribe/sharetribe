@@ -105,7 +105,7 @@ module WillPaginate
       
       if collection.total_pages < 2
         case collection.size
-        when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found)}"
+        when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
         when 1; "<b>1</b> #{t(entry_name)}"
         else;   "<b>#{collection.size}</b> #{t(entry_name.pluralize + "_partitive")}"
         end

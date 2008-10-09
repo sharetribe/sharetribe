@@ -4,11 +4,15 @@
   <div id="links">
     <br />
     <% left_navi_items.each do |name, url| %>
+      <% name_string = t(name) %>
+      <% if name.to_s.eql?("inbox") && @inbox_new_count > 0 %>
+        <% name_string += " (" + @inbox_new_count.to_s + ")" %>
+      <% end %>
       <% if (name.to_s.eql?(session[:navi2])) %>
-        <div class="link_selected"><%= link_to t(name), url %></div>
+        <div class="link_selected"><%= link_to name_string, url %></div>
         <%= render :partial => "layouts/left_sub_navi" %>
       <% else %>
-        <div class="link"><%= link_to t(name), url %></div>
+        <div class="link"><%= link_to name_string, url %></div>
       <% end %>  
     <% end %>
     <br /><br />

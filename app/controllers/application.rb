@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :fetch_logged_in_user
+  before_filter :count_new_items_in_inbox
 
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -81,6 +82,12 @@ class ApplicationController < ActionController::Base
     session[:return_to] = request.request_uri
     flash[:warning] = :you_must_login_to_do_this
     redirect_to new_session_path and return false
+  end
+  
+  def count_new_items_in_inbox
+    if @current_user
+      @inbox_new_count = PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "' AND 'read' = 0").size
+    end  
   end
   
 end
