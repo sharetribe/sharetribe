@@ -41,6 +41,8 @@ class Listing < ActiveRecord::Base
     case main_category
     when "marketplace"
       ['sell', 'buy', 'give']
+    when "lost_property"
+      ['lost', 'found']  
     else
       nil 
     end  

@@ -4,8 +4,8 @@ class Session < ActiveResource::Base
  
   #URL for Common Services
   #COS_URL = "http://cos.sizl.org"
-  COS_URL = "http://maps.cs.hut.fi/cos"
-  #COS_URL = "http://localhost:3001"
+  #COS_URL = "http://maps.cs.hut.fi/cos"
+  COS_URL = "http://localhost:3001"
   COS_TIMEOUT = 8
 
   attr_accessor :username

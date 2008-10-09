@@ -1,3 +1,13 @@
+<%
+  conversation.messages.sort{ |b,a| a.updated_at <=> b.updated_at }.each do |message|
+    unless message.sender == @current_user
+      newest_message = message
+      return
+    end  
+  end
+  
+%>
+
 <tr>
   <td><%= link_to "RE: " + conversation.title, person_inbox_path(@current_user, conversation) %></td>
   <td><%= conversation.updated_at.to_formatted_s(:basic_date_format_minutes) %></td>

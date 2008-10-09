@@ -21,12 +21,15 @@ class ConversationsController < ApplicationController
       @current_user.conversations.each do |conversation|
         if conversation.listing.id == listing.id
           @conversation = conversation
+          PersonConversation.find(:conditions => "conversation_id = '" + @conversation.id + "' AND person_id <> '" + @current_user.id + "'").each do |person_conversation|
+            person_conversation.update_attribute(:read, 0) 
+          end  
         end  
       end  
       unless @conversation
         @conversation = Conversation.new(:listing_id => listing.id, :title => params[:message][:title])
         @conversation.save
-        @current_user.conversations << @conversation
+        PersonConversation.create(:person_id => @current_user.id, :conversation_id => @conversation.id, :read => 1)
         Person.find(params[:message][:receiver_id]).conversations << @conversation
       end  
       @conversation.messages << @message
