@@ -442,6 +442,11 @@ div.pagination {
 	float: left;
 }
 
+#listing_author_box {
+	background: #cdd3c6;
+	padding: 10px;
+}
+
 /* 
  * A push of same height than the footer is needed in 
  * order to keep the footer in the bottom of the page.

@@ -86,7 +86,7 @@ class ApplicationController < ActionController::Base
   
   def count_new_items_in_inbox
     if @current_user
-      @inbox_new_count = PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "' AND 'read' = 0").size
+      @inbox_new_count = PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "' AND is_read = 0").size
     end  
   end
   

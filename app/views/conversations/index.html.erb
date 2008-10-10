@@ -1,19 +1,13 @@
 <h1><%= t(:inbox) %></h1>
 
-<br />
+<table class="listing">
 
-<table class="content_table">
-<% if @conversations && !@conversations.empty? %>
-  <tr>
-    <th><%= t(:subject) %></th>
-    <th><%= t(:sender) %></th>
-    <th><%= t(:sent) %></th>
-  </tr>  
-  <%= render :partial => @conversations %>
-
+<% if @person_conversations && !@person_conversations.empty? %>
+  <%= render :partial => "conversations/conversation", :collection => @person_conversations %>
 <% else %>  
 <tr>
   <td><%= t(:no_received_messages) %></td>
 </tr>
 <% end %>
+
 </table>

@@ -1,14 +1,25 @@
-<%
-  conversation.messages.sort{ |b,a| a.updated_at <=> b.updated_at }.each do |message|
-    unless message.sender == @current_user
-      newest_message = message
-      return
-    end  
-  end
-  
-%>
+<% last_message = get_last_message(conversation.conversation) %>
 
 <tr>
-  <td><%= link_to "RE: " + conversation.title, person_inbox_path(@current_user, conversation) %></td>
-  <td><%= conversation.updated_at.to_formatted_s(:basic_date_format_minutes) %></td>
+  <td>
+    <table class="message_in <%= 'unread_conversation' if conversation.is_read == 0 %>">
+      <tr>  
+        <td class="message_sender_image"> 
+          <div class="listing_image extra_padding">
+            <img src="/images/teemu_t.jpg" alt="<%= last_message.sender.name(session[:cookie]) %>" width="50" height="50">
+          </div>
+        </td>
+        <td class="message_sender">
+          <i>
+            <%= link_to(last_message.sender.name(session[:cookie]), person_path(last_message.sender.id)) %><br /> 
+            <%= last_message.created_at.to_formatted_s(:basic_date_format_minutes) %> 
+          </i>
+        </td>
+        <td class= "message_content">
+          <%= link_to "RE: " + conversation.conversation.title, person_inbox_path(@current_user, conversation.conversation) %>
+          <br /> <br />
+        </td>
+      </tr>
+    </table>
+  </td>
 </tr>

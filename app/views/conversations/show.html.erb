@@ -1,3 +1,5 @@
+<%= render :partial => "layouts/announcements"%>
+
 <div id="title_with_border_taller">
   <div class="arrow_left">
     <%= 
@@ -26,11 +28,6 @@
 </div>
 
 <table class="listing">
-  <tr>
-    <td>
-      <%= render :partial => "layouts/announcements"%>
-    </td>
-  </tr>
   <%= render :partial => "messages/message", :collection => @conversation.messages %>
 </table>
   

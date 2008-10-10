@@ -2,11 +2,25 @@ class ConversationsController < ApplicationController
 
   def index
     save_navi_state(['own','inbox','',''])
-    @conversations = @current_user.conversations.sort{ |b,a| a.updated_at <=> b.updated_at }
+    person_conversations = []
+    PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "'").each do |person_conversation|
+      conversation_ok = false
+      person_conversation.conversation.messages.each do |message|
+        unless message.sender == @current_user
+          conversation_ok = true
+        end        
+      end
+      if conversation_ok
+        person_conversations << person_conversation
+      end  
+    end    
+    @person_conversations = person_conversations.sort{ |b,a| a.conversation.updated_at <=> b.conversation.updated_at }
   end  
 
   def show
     @conversation = Conversation.find(params[:id])
+    PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id).update_attribute(:is_read, 1)
+    @inbox_new_count -= 1
     @next_conversation = Conversation.find(:first, :conditions => ["updated_at > ?", @conversation.updated_at]) || @conversation
     @previous_conversation = Conversation.find(:last, :conditions => ["updated_at < ?", @conversation.updated_at]) || @conversation
     @listing = @conversation.listing
@@ -21,15 +35,15 @@ class ConversationsController < ApplicationController
       @current_user.conversations.each do |conversation|
         if conversation.listing.id == listing.id
           @conversation = conversation
-          PersonConversation.find(:conditions => "conversation_id = '" + @conversation.id + "' AND person_id <> '" + @current_user.id + "'").each do |person_conversation|
-            person_conversation.update_attribute(:read, 0) 
+          PersonConversation.find(:all, :conditions => "conversation_id = '" + @conversation.id.to_s + "' AND person_id <> '" + @current_user.id + "'").each do |person_conversation|
+            person_conversation.update_attribute(:is_read, 0) 
           end  
         end  
       end  
       unless @conversation
         @conversation = Conversation.new(:listing_id => listing.id, :title => params[:message][:title])
         @conversation.save
-        PersonConversation.create(:person_id => @current_user.id, :conversation_id => @conversation.id, :read => 1)
+        PersonConversation.create(:person_id => @current_user.id, :conversation_id => @conversation.id, :is_read => 1)
         Person.find(params[:message][:receiver_id]).conversations << @conversation
       end  
       @conversation.messages << @message

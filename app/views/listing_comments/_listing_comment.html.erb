@@ -18,7 +18,7 @@
               <td>
                 <i>
                   <br />
-                  Kommentin jättänyt <%= link_to(listing_comment.author_id,person_path(listing_comment.author_id)) %> 
+                  Kommentin jättänyt <%= link_to(listing_comment.author.name(session[:cookie]),person_path(listing_comment.author)) %> 
                   <%= listing_comment.created_at.to_formatted_s(:basic_date_format_minutes) %>
                 </i>  
               </td>
