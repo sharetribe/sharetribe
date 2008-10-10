@@ -9,4 +9,13 @@ module ConversationsHelper
     participant_links.join(", ")
   end
 
+  def get_last_message(conversation, count = -1)
+    if conversation.messages[count].sender == @current_user
+      count -= 1
+      get_last_message(conversation, count)
+    else
+      conversation.messages[count]
+    end  
+  end
+
 end

@@ -1,3 +1,5 @@
+<%= render :partial => "layouts/announcements" %>
+
 <div id="title_with_border">
   <div class="arrow_left">
     <%= 
@@ -31,26 +33,40 @@
   
   <div id="listing_contents">
   
+  <%= @listing.content %>
+  
+  <br /><br />
+  
+  <div id="listing_author_box">
   <table class="no_padding">
     <tr>
       <td>
-        <b><%= t(:author) %>: </b>
+        <img src="/images/teemu_t.jpg" alt="<%= @listing.author.name(session[:cookie]) %>" width="50" height="50">
       </td>
       <td>
-        <i><%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= t(:good_thru) %>: &nbsp;
-      </td>
-      <td>
-        </b><%= @listing.good_thru.to_formatted_s(:basic_date_format) %> asti
-      </td>
+        <table class="margin">
+          <tr>
+            <td>
+              <b><%= t(:author) %>: </b>
+            </td>
+            <td>
+              <i><%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
+            </td>
+          </tr>
+          <tr>  
+            <td>
+              <b><%= t(:good_thru) %>: &nbsp;
+            </td>
+            <td>
+              </b><%= @listing.good_thru.to_formatted_s(:basic_date_format) %> asti
+            </td>
+          </tr>  
+        </table>    
+      </td>  
     </tr>
   </table>
-   
-  <p><%= @listing.content %></p>
+  </div>
+  
   <br />
   <% if @current_user && @listing.author != @current_user %>
     <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
@@ -61,11 +77,9 @@
       <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
     <% end %>
   <% end %>
-  <br /><br /><br />
+  <br /><br />
   
   <% if @current_user %>
-  
-  <%= render :partial => "layouts/announcements" %>
   
   <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
     <b>Kommentoi ilmoitusta:</b><br /><br />

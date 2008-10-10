@@ -1,5 +1,5 @@
 class ListingComment < ActiveRecord::Base
-  belongs_to :person
+  belongs_to :author, :class_name => "Person"
   belongs_to :listing
   
   validates_presence_of :author_id, :listing_id

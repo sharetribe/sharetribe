@@ -104,10 +104,6 @@ input {
 	size: 25;
 }
 
-input.title {
-	
-}
-
 textarea {
 	font-family: "lucida grande", Tahoma, sans-serif;
 	font-size: 12px;
@@ -120,6 +116,10 @@ table.form {
 
 table.no_padding {
 	border-spacing: 0px;
+}
+
+table.margin {
+	margin-left: 10px;
 }
 
 table.listing {
@@ -170,13 +170,17 @@ table.comment_in {
 	margin-top: 5px;
 }
 
-table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.message_in td {
+table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.message_in td, table.no_padding td {
 	vertical-align: top;
 }
 
 table.content_table td {
 	vertical-align: top;
 	width: 200px;
+}
+
+table.unread_conversation {
+	background: #cdd3c6;
 }
 
 td.message_sender_image {
