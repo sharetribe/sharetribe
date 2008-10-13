@@ -4,8 +4,8 @@ class Session < ActiveResource::Base
  
   #URL for Common Services
   #COS_URL = "http://cos.sizl.org"
-  #COS_URL = "http://maps.cs.hut.fi/cos"
-  COS_URL = "http://localhost:3001"
+  COS_URL = "http://maps.cs.hut.fi/cos"
+  #COS_URL = "http://localhost:3001"
   COS_TIMEOUT = 8
 
   attr_accessor :username
@@ -18,6 +18,7 @@ class Session < ActiveResource::Base
   self.timeout = COS_TIMEOUT
   @@app_password = "Xk4z5iZ"
   @@app_name = "kassi"
+  @@cookie = nil
   
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
@@ -31,6 +32,19 @@ class Session < ActiveResource::Base
 
     return nil unless new_session.set_person_id()   
     return new_session
+  end
+  
+  #a general app-only session cookie that maintains an open session to Cos for Kassi
+  def self.kassiCookie
+    if @@cookie.nil?
+      @@cookie = Session.create.cookie
+    end
+    return @@cookie
+  end
+  
+  #this method can be called, if kassiCookie is not valid anymore
+  def self.updateKassiCookie
+    @@cookie = Session.create.cookie
   end
   
   def initialize(params={})

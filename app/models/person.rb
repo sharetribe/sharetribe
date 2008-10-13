@@ -76,8 +76,17 @@ class Person < ActiveRecord::Base
   end
   
   def name_or_username(cookie=nil)
-    return "Cookie Missing!" if cookie.nil?
-    person_hash = PersonConnection.get_person(self.id, cookie)
+    #return "Cookie Missing!" if cookie.nil?
+    cookie = Session.kassiCookie if cookie.nil?
+    
+    begin
+      person_hash = PersonConnection.get_person(self.id, cookie)
+    rescue ActiveResource::UnauthorizedAccess => e
+      cookie = Session.updateKassiCookie
+      person_hash = PersonConnection.get_person(self.id, cookie)
+    end
+    
+    
     if person_hash["name"] && person_hash["name"]["unstructured"]
       return person_hash["name"]["unstructured"]
     else
