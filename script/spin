@@ -1,0 +1,8 @@
+#!/bin/sh
+
+/var/datat/kassi/current/script/process/spawner \
+  mongrel \
+  --environment=production \
+  --instances=1 \
+  --address=127.0.0.1 \
+  --port=8000
