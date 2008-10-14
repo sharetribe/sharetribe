@@ -56,6 +56,7 @@ ActionController::Routing::Routes.draw do |map|
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search
+  map.resources :transactions
   
   map.root :controller => "people", :action => "home"
   
