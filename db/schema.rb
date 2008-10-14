@@ -9,7 +9,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081009160751) do
+
+ActiveRecord::Schema.define(:version => 20081010114150) do
+
 
   create_table "conversations", :force => true do |t|
     t.string   "title"
@@ -125,6 +127,15 @@ ActiveRecord::Schema.define(:version => 20081009160751) do
   create_table "person_read_listings", :force => true do |t|
     t.string   "person_id"
     t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.string   "sender_id"
+    t.string   "receiver_id"
+    t.integer  "listing_id"
+    t.integer  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

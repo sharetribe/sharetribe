@@ -204,6 +204,7 @@ I18n.store_translations 'fi',
 :title_is_required => "Otsikko on pakollinen tieto.",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",
 :content_is_required => "Ilmoituksen sisältö on pakollinen tieto.",
+:transaction_amount_too_big => "Kukkarossa ei ole tarpeksi rahaa siirron suorittamiseksi",
 
 #Footer
 :about => "Tietoa",

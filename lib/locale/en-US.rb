@@ -115,6 +115,9 @@ I18n.store_translations 'en-US',
 #Profile view
 :information => "Information",
 
+#Error messages
+:transaction_amount_too_big => "There's not enough money in your purse to make a transaction",
+
 #Footer
 :about => "About",
 :help => "Help",

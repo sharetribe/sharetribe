@@ -40,22 +40,22 @@ class Test::Unit::TestCase
   # returns a test person and a session-cookie where he's logged in. 
   # If the person doesn't exist already, creates him.
   
-  def get_test_person_and_session
+  def get_test_person_and_session(username="kassi_testperson1")
     session = nil
     test_person = nil
     
     #frist try loggin in to cos
     begin
-      session = Session.create({:username => "kassi_testperson1", :password => "testi" })
+      session = Session.create({:username => username, :password => "testi" })
       #try to find in kassi database
       test_person = Person.find(session.person_id)
 
     rescue ActiveResource::UnauthorizedAccess => e
       #if not found, create completely new
       session = Session.create
-      test_person = Person.create({ :username => "kassi_testperson1", 
+      test_person = Person.create({ :username => username, 
                       :password => "testi", 
-                      :email => "kassi_testperson1@example.com"},
+                      :email => "#{username}@example.com"},
                        session.headers["Cookie"])
     rescue ActiveRecord::RecordNotFound  => e
       test_person = Person.add_to_kassi_db(session.person_id)
