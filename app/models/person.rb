@@ -19,7 +19,7 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 
   class PersonConnection < ActiveResource::Base
-    self.site = Session::COS_URL
+    self.site = COS_URL
     self.format = :json 
     self.timeout = Session::COS_TIMEOUT
     self.element_name = "people"
