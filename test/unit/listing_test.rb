@@ -19,32 +19,16 @@ class ListingTest < ActiveSupport::TestCase
     assert_equal "swe", retrieved.language[1]
     assert_equal nil, retrieved.language[2]
   end
+
   
-  def test_language_not_empty
-    listing = Listing.new(:author_id => "emmi", :category => "sell", :title => "otsikko", 
-                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
-                          :good_thru => DateTime.now+7.day, 
-                          :times_viewed => 34, :status => "open", :value_cc => 13, 
-                          :language => [],
-                          :value_other => "viiniä")
-                                                
-    assert !listing.valid?
-  end
-  
-  def test_language_one_of_valid_ones
-    listing = Listing.new(:author_id => "emmi", :category => "sell", :title => "otsikko", 
-                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
-                          :good_thru => DateTime.now+7.day, 
-                          :times_viewed => 34, :status => "open", :value_cc => 13, 
-                          :language => ["testi"],
-                          :value_other => "viiniä")
-    assert !listing.valid?
-    
+  def test_language_validity
+    assert_listing_valid(:language, ["testi"], false)
+    assert_listing_valid(:language, [], false)
+    listing = listings(:valid_listing)
     Listing::VALID_LANGUAGES.each_with_index do |valid_language, index|
-       listing.language[index] = valid_language
-       assert listing.valid?
-     end
-     
+      listing.language[index] = valid_language
+      assert listing.valid?
+    end     
   end
 
   def test_has_required_attributes
@@ -60,26 +44,11 @@ class ListingTest < ActiveSupport::TestCase
     assert_listing_valid_group(invalid_attributes, false)
   end
   
-  def test_good_thru_format
+  def test_good_thru
     assert_listing_valid(:good_thru, DateTime.now + 7.day, true)
     assert_listing_valid(:good_thru, "huomenna", false)
-  end
-  
-  def test_good_thru_too_big
-    listing = Listing.new(:author_id => "maija", :category => "sell", :title => "otsikko", 
-                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
-                          :good_thru => DateTime.now+2.year, 
-                          :times_viewed => 34, :status => "open",
-                          :language => ["swe"], :value_cc => 13, :value_other => "viiniä")
-    assert !listing.valid?
-  end
-     
-  def test_good_thru_too_small
-    listing = Listing.new(:author_id => "maija", :category => "sell", :title => "otsikko", 
-                          :content => "asdfghjklöäasdfghjköä asdfghjklöäasdfghjklöä asdfghjklöä",
-                          :good_thru => DateTime.now - 1.day, :times_viewed => 34, :status => "open",
-                          :language => ["fi", "swe"], :value_cc => 13, :value_other => "viiniä")
-    assert !listing.valid?
+    assert_listing_valid(:good_thru, DateTime.now+2.year, false)
+    assert_listing_valid(:good_thru, DateTime.now - 1.day, false)
   end
   
   def test_status_validation
@@ -129,11 +98,6 @@ class ListingTest < ActiveSupport::TestCase
     end
   end
 
-  def test_comments_association
-    assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
-    listings(:valid_listing).comments    
-  end
-
   def test_image_validation
     listing = listings(:valid_listing)
     listing.image_file = uploaded_file("Bison_skull_pile.png", "image/png")
@@ -141,6 +105,19 @@ class ListingTest < ActiveSupport::TestCase
     assert listing.write_image_to_file
     listing.image_file = uploaded_file("i_am_not_image.txt", "text/plain")
     assert !listing.valid?
+  end
+
+  def test_comments_association
+    assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
+    listings(:valid_listing).comments    
+  end
+
+  def test_conversation_association
+    assert_equal [conversations(:one), conversations(:two)], listings(:valid_listing).conversations
+  end
+  
+  def test_author_association
+    assert_equal people(:one), listings(:valid_listing).author
   end
 
   private

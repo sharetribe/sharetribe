@@ -43,7 +43,7 @@ module ApplicationHelper
       navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
       navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
-      navi_items[:transactions] = "#"
+      navi_items[:kassi_events] = "#"
       navi_items[:purse] = person_purse_path(@current_user)
       navi_items[:settings] = person_settings_path(@current_user)
     when 'listings'

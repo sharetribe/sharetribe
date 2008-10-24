@@ -48,14 +48,14 @@ I18n.store_translations 'fi',
 :settings => "Asetukset",
 :browse_listings => "Selaa",
 :search_listings => "Hae",
-:add_listing => "Lisää",
+:add_listing => "Lisää uusi",
 :browse_items => "Selaa",
 :search_items => "Hae",
 :browse_favors => "Selaa",
 :search_favors => "Hae",
 :browse_people => "Selaa",
 :search_people => "Hae",
-:transactions => "Transaktiot",
+:kassi_events => "Kassitapahtumat",
 
 #Left sub navigation
 :own_listings_navi => "Omat ilmoitukset",
@@ -87,6 +87,7 @@ I18n.store_translations 'fi',
 :found_description => "ilmoita löytämästäsi tavarasta",
 :rides_description => "etsi tai tarjoa kyytejä",
 :groups_description => "etsi ihmisiä yhteistä toimintaa varten (esim. sulkapalloseura, opintopiiri, muuttapu jne.)",
+:services_description => "pyydä jotakuta tekemään palvelus tai tarjoa palvelusta",
 :others_description => "kaikki muut ilmoitukset",
 
 #Pagination
@@ -107,7 +108,7 @@ I18n.store_translations 'fi',
 :listing_text => "Ilmoitusteksti",
 :show_read_and_unread_listings => "Näytä:",
 :show_unread_single_listing => "lukematon",
-:show_unread_multiple_listings => "lukematonta",
+:show_unread_multiple_listings => "Lukemattomat",
 :show_all_listings => "Kaikki",
 :viewed => "Katsottu",
 :times => "kertaa",
@@ -170,7 +171,6 @@ I18n.store_translations 'fi',
 :advanced_search => "Laajennettu haku",
 :search_only_open => "Hae vain avoimista ilmoituksista",
 :search_results => "Hakutulokset",
-:invalid_char_in_search => "Ei-sallittu merkki hakukentässä",
 :search_returned_no_hits => "Haku ei tuottanut yhtään osumaa!",
 
 #Profile view
@@ -184,7 +184,7 @@ I18n.store_translations 'fi',
 :contacts_of_user => "Käyttäjän",
 :users_contacts => "kontaktit",
 
-#Listings view
+#User listings view
 :listings_of_user => "Käyttäjän",
 :users_listings => "ilmoitukset",
 

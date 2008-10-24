@@ -1,20 +1,13 @@
 class ConversationsController < ApplicationController
 
+  before_filter :logged_in
+
   def index
-    save_navi_state(['own','inbox','',''])
-    person_conversations = []
-    PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "'").each do |person_conversation|
-      conversation_ok = false
-      person_conversation.conversation.messages.each do |message|
-        unless message.sender == @current_user
-          conversation_ok = true
-        end        
-      end
-      if conversation_ok
-        person_conversations << person_conversation
-      end  
-    end    
-    @person_conversations = person_conversations.sort{ |b,a| a.conversation.updated_at <=> b.conversation.updated_at }
+    fetch_messages
+  end
+  
+  def sent
+    
   end  
 
   def show
@@ -57,6 +50,25 @@ class ConversationsController < ApplicationController
       flash[:error] = :reply_could_not_be_sent
       render :template => "listings/reply"
     end    
+  end
+
+  private
+  
+  def fetch_messages(is_sent_mail = false)
+    save_navi_state(['own','inbox','',''])
+    person_conversations = []
+    PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "'").each do |person_conversation|
+      conversation_ok = false
+      person_conversation.conversation.messages.each do |message|
+        unless message.sender == @current_user
+          conversation_ok = true
+        end        
+      end
+      if conversation_ok
+        person_conversations << person_conversation
+      end  
+    end    
+    @person_conversations = person_conversations.sort{ |b,a| a.conversation.updated_at <=> b.conversation.updated_at }
   end
 
 end
