@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :fetch_logged_in_user
   before_filter :count_new_items_in_inbox
+  before_filter :set_up_feedback_form
 
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -84,10 +85,21 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_path and return false
   end
   
+  def is_admin
+    return true if @current_user && @current_user.is_admin == 1
+    flash[:warning] = :only_admin_users_are_allowed_to_do_this
+    redirect_to :back
+  end  
+  
   def count_new_items_in_inbox
     if @current_user
       @inbox_new_count = PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "' AND is_read = 0").size
     end  
+  end
+  
+  # Feedback form is present in every view.
+  def set_up_feedback_form
+    @feedback = Feedback.new
   end
   
 end

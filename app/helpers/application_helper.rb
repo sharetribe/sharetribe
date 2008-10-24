@@ -27,8 +27,11 @@ module ApplicationHelper
     navi_items[:items ] = items_path
     navi_items[:favors ] = favors_path
     navi_items[:people ] = people_path
-    if (@current_user)
+    if @current_user
       navi_items[:own] = home_person_path(@current_user)
+      if @current_user.is_admin == 1
+        navi_items[:admin] = admin_feedbacks_path
+      end  
     end
     return navi_items
   end

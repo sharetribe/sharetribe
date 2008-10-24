@@ -130,6 +130,7 @@ I18n.store_translations 'fi',
 :listing_created_by => "Ilmoituksen jättänyt",
 :listing_added => "Ilmoitus lisätty",
 :no_listings => "Ei ilmoituksia",
+:comment_listing => "Kommentoi ilmoitusta",
 
 #Listing statuses
 :open => "Avoinna",
@@ -210,6 +211,19 @@ I18n.store_translations 'fi',
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",
 :content_is_required => "Ilmoituksen sisältö on pakollinen tieto.",
 :transaction_amount_too_big => "Kukkarossa ei ole tarpeksi rahaa siirron suorittamiseksi",
+
+#Feedback
+:feedback => "Palaute",
+:leave_feedback => "Jätä palautetta",
+:feedback_saved => "Palaute tallennettu",
+:feedback_not_saved => "Palautetta ei voitu tallentaa",
+:send_feedback => "Lähetä palaute",
+:feedbacks => "Palauteviestit",
+:feedbacks_partitive => "palauteviestiä",
+
+#Admin
+:admin => "Ylläpito",
+:only_admin_users_are_allowed_to_do_this => "Tämä toiminto on sallittu ainoastaan ylläpitäjille",
 
 #Footer
 :about => "Tietoa",

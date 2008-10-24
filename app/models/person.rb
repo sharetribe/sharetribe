@@ -4,6 +4,8 @@ class Person < ActiveRecord::Base
   
   attr_accessor :guid, :password, :username, :email
 
+  has_many :feedbacks
+
   has_many :listings
 
   has_many :person_interesting_listings

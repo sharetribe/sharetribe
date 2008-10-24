@@ -1,0 +1,13 @@
+<div class="search_results_header">
+<div class="search_results_title">
+  <%= t(:feedback) %> <span class="page_entries_info">(<%= page_entries_info @feedbacks %>)</span>
+</div>
+<%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>
+
+<div id="basic_content">
+  <%= render :partial => @feedbacks %>
+</div>  
+<div class="right_float">
+  <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>

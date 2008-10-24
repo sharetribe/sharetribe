@@ -1,16 +1,10 @@
-
-<h3><%= flash[:notice] %></h3>
 <h1><%= t(:logging_in) %></h1>
 
-
 <br />
-
-<%= render :partial => "layouts/announcements" %>
 
 <%= error_messages_for :session %>
 
 <% form_tag(:action => "create") do -%>
-
 
 <table class="form">
     <tr>

@@ -469,6 +469,17 @@ div.pagination {
 	margin: 5px;
 }
 
+#feedback {
+	width: 1000px;
+	text-align: center;
+	clear: both;
+}
+
+.feedback_item {
+	margin: 3px;
+	border: 1px solid #000;;
+}
+
 /* 
  * A push of same height than the footer is needed in 
  * order to keep the footer in the bottom of the page.
