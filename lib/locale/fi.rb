@@ -199,6 +199,11 @@ I18n.store_translations 'fi',
 :subject => "Otsikko",
 :sender => "Lähettäjä",
 :sent => "Lähetysaika",
+:person_conversations_partitive => "keskustelua",
+:to => "Käyttäjälle",
+:messaging_with => "Keskustelu käyttäjän",
+:with => "kanssa",
+:show_original_listing => "Näytä alkuperäinen ilmoitus",
 
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto.",

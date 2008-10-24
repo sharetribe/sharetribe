@@ -11,13 +11,13 @@
         </td>
         <td class="message_sender">
           <i>
-            <%= link_to(last_message.sender.name(session[:cookie]), person_path(last_message.sender.id)) %><br /> 
+            <b><%= link_to(last_message.sender.name(session[:cookie]), person_path(last_message.sender.id)) %></b><br /> 
             <%= last_message.created_at.to_formatted_s(:basic_date_format_minutes) %> 
           </i>
         </td>
         <td class= "message_content">
-          <%= link_to "RE: " + conversation.conversation.title, person_inbox_path(@current_user, conversation.conversation) %>
-          <br /> <br />
+          <b><%= link_to "RE: " + conversation.conversation.title, person_inbox_path(@current_user, conversation.conversation) %></b> <br />
+          <%= link_to last_message.content.slice!(0..50), person_inbox_path(@current_user, conversation.conversation) %>...
         </td>
       </tr>
     </table>

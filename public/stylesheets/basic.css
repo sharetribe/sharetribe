@@ -94,6 +94,13 @@ h5 {
 	font-size: 16px;
 }
 
+h6 {
+	margin: 3px 0 3px 0;
+	padding: 0px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
 p.center {
 	text-align: center;
 }
@@ -131,6 +138,17 @@ table.listing h3 {
 	margin-top: 0px;
 	margin-bottom: 10px;
 }
+
+table.conversation {
+	border-spacing: 0px;
+	width: 100%;
+}
+
+table.conversation h3 {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
 
 table.listing_inner, message_inner {
 	border-spacing: 0px;
@@ -170,8 +188,12 @@ table.comment_in {
 	margin-top: 5px;
 }
 
-table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.message_in td, table.no_padding td {
+table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.no_padding td {
 	vertical-align: top;
+}
+
+td.message_sender {
+	vertical-align: middle;
 }
 
 table.content_table td {
@@ -180,7 +202,7 @@ table.content_table td {
 }
 
 table.unread_conversation {
-	background: #cdd3c6;
+	background: #dbf5b1;
 }
 
 td.message_sender_image {
@@ -212,5 +234,6 @@ span.page_entries_info {
 }
 
 div.extra_padding {
-	padding-bottom: 10px;
+	padding: 5px;
+	padding-bottom: 3px;
 }

@@ -107,7 +107,7 @@ module WillPaginate
         case collection.size
         when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
         when 1; "<b>1</b> #{t(entry_name)}"
-        else;   "<b>#{collection.size}</b> #{t(entry_name.pluralize + "_partitive")}"
+        else;   "<b>#{collection.size}</b> #{t((entry_name.pluralize + "_partitive").sub(' ', '_'))}"
         end
       else
         %{#{t(entry_name.pluralize)} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [

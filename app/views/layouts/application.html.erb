@@ -64,11 +64,10 @@
   <div id="footer">
     <div id="footer_text">
       <div id="footer_text_left">
-        <a href="#"><%= t(:about) %></a> | 
-        <a href="#"><%= t(:help) %></a> | 
-        <a href="#"><%= t(:terms) %></a> | 
-        <!--><a href="#">Blogi</a> | blog is not in plans at the moment-->
-        <a href="http://kassi.sizl.org/forum"><%= t(:forum)%></a>
+        <%= link_to t(:about), "#" %> |
+        <%= link_to t(:help), "#" %> |
+        <%= link_to t(:terms), "#" %> |
+        <%= link_to t(:forum), "http://kassi.sizl.org/forum" %>
       </div>
       <div id="footer_text_right">
         <%= t(:kassi_is_one_of_otasizzle_services) %>

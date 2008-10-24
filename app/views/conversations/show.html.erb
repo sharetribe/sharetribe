@@ -1,5 +1,18 @@
 <%= render :partial => "layouts/announcements"%>
 
+<div class="search_results_header">
+<div class="search_results_title">
+  <%= t(:inbox) %>
+</div>
+</div>
+
+<div id="inbox_links_panel">
+  <%= link_to t(:received_messages), person_inbox_index_path(@current_user) %> | 
+  <%= link_to t(:sent_messages), sent_person_inbox_path(@current_user) %>
+</div>
+
+<br />
+
 <div id="title_with_border_taller">
   <div class="arrow_left">
     <%= 
@@ -11,10 +24,15 @@
     %>
   </div>
   <div id="title_div">
-    <h1 class="no_border">
+    <h6>
       RE: <%= @conversation.title %> 
-    </h1>
-    <%= t(:messaging_with) %>: <%= create_links_for_participants %>
+    </h6>
+    <div class="left_float">
+      <%= t(:messaging_with) %> <%= create_links_for_participants %> <%= t(:with) %>
+    </div>
+    <div class="right_float">
+      <%= link_to t(:show_original_listing), listing_path(@conversation.listing) %>
+    </div>    
   </div>
   <div class="arrow_right">
     <%= 
@@ -27,7 +45,7 @@
   </div>
 </div>
 
-<table class="listing">
+<table class="conversation">
   <%= render :partial => "messages/message", :collection => @conversation.messages %>
 </table>
   

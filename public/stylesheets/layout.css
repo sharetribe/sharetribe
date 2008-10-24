@@ -1,11 +1,13 @@
 /*
  * COLORS
  * Grey (unselected item in top navi and hover): #72776c;
- * Lighter grey (hovered uselected item in top navi): 
+ * Lighter grey (hovered uselected item in top navi):
+ * Lightest grey (listing author box, new message): #e0e6d8;
  * Light green (left links, category box, notification box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
  * Orange (warning) => #fea04c;
  * Red (error) => #fe5c58;
+ *
  */
 
 /* 
@@ -17,6 +19,14 @@
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -25px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.left_float {
+	float: left;
+}
+
+.right_float {
+	float: right;
 }
 
 #main {
@@ -443,8 +453,20 @@ div.pagination {
 }
 
 #listing_author_box {
-	background: #cdd3c6;
+	background: #e0e6d8;
 	padding: 10px;
+}
+
+#inbox_links_panel {
+	background: #e0e6d8;
+	margin-top: 10px;
+	padding: 7px;
+	height: 16px;
+	border: 1px solid #000;
+}
+
+#conversations {
+	margin: 5px;
 }
 
 /* 

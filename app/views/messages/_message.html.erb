@@ -9,7 +9,7 @@
         </td>
         <td class="message_sender">
           <i>
-            <%= link_to(message.sender.name(session[:cookie]), person_path(message.sender.id)) %><br /> 
+            <b><%= link_to(message.sender.name(session[:cookie]), person_path(message.sender.id)) %></b><br /> 
             <%= message.created_at.to_formatted_s(:basic_date_format_minutes) %> 
           </i>
         </td>

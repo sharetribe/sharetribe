@@ -68,5 +68,6 @@ Rails::Initializer.run do |config|
    #environment variables
    PURSE_LIMIT = -10
    #COS_URL is different in production env
-   COS_URL = "http://maps.cs.hut.fi/cos"
+   #COS_URL = "http://maps.cs.hut.fi/cos"
+   COS_URL = "http://localhost:3001"
 end
