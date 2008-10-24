@@ -194,6 +194,11 @@ I18n.store_translations 'en-US',
 :subject => "Subject",
 :sender => "Sender",
 :sent => "Sent",
+:person_conversations_partitive => "conversations",
+:to => "To:",
+:messaging_with => "Messaging with",
+:with => "",
+:show_original_listing => "Show original listing",
 
 #Error messages
 :title_is_required => "Title is required.",

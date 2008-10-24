@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
   end
   
   def sent
-    
+    fetch_messages(true)
   end  
 
   def show
@@ -60,15 +60,21 @@ class ConversationsController < ApplicationController
     PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "'").each do |person_conversation|
       conversation_ok = false
       person_conversation.conversation.messages.each do |message|
-        unless message.sender == @current_user
-          conversation_ok = true
-        end        
+        if is_sent_mail
+          if message.sender == @current_user
+            conversation_ok = true
+          end  
+        else  
+          unless message.sender == @current_user
+            conversation_ok = true
+          end
+        end          
       end
       if conversation_ok
         person_conversations << person_conversation
       end  
     end    
-    @person_conversations = person_conversations.sort{ |b,a| a.conversation.updated_at <=> b.conversation.updated_at }
+    @person_conversations = person_conversations.sort{ |b,a| a.conversation.updated_at <=> b.conversation.updated_at }.paginate
   end
 
 end
