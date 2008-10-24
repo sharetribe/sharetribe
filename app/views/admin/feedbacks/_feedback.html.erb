@@ -1,0 +1,24 @@
+<div class="feedback_item">
+  <table class="feedback">
+    <tr>
+      <td class="feedback">
+        <b>
+        <% if feedback.author_id == "Anonymous"%>
+          Anonymous
+        <% else %>  
+          <%= link_to feedback.author.name(session[:cookie]), person_path(feedback.author) %>
+        <% end %>
+        </b>
+        <br />
+        <%= feedback.created_at.to_formatted_s(:basic_date_format_minutes) %>  
+      </td>
+      <td class="feedback">
+        <%= feedback.url %>
+      </td>    
+      <td>
+        <%= feedback.content %>
+      </td>
+      <td>
+    </tr>
+  </table>    
+</div>

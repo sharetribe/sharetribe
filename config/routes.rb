@@ -37,6 +37,9 @@ ActionController::Routing::Routes.draw do |map|
 
   # Install the default routes as the lowest priority.                                                                                                                        
 
+  map.namespace :admin do |admin|
+    admin.resources :feedbacks
+  end
   map.resource :session
   map.resources :favors, :collection => { :search => :get }                            
   map.resources :listings, 

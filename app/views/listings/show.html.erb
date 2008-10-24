@@ -1,5 +1,3 @@
-<%= render :partial => "layouts/announcements" %>
-
 <div id="title_with_border">
   <div class="arrow_left">
     <%= 
@@ -82,7 +80,7 @@
   <% if @current_user %>
   
   <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
-    <b>Kommentoi ilmoitusta:</b><br /><br />
+    <b><%= t(:comment_listing) %> </b><br /><br />
     <%= f.text_area :content, :size => "48x5" %>
     <br />
     <%= f.hidden_field :author_id, :value => @current_user.id %>

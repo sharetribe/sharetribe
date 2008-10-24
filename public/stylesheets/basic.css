@@ -188,12 +188,8 @@ table.comment_in {
 	margin-top: 5px;
 }
 
-table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.no_padding td {
+table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.no_padding td, table.feedback td {
 	vertical-align: top;
-}
-
-td.message_sender {
-	vertical-align: middle;
 }
 
 table.content_table td {
@@ -203,6 +199,18 @@ table.content_table td {
 
 table.unread_conversation {
 	background: #dbf5b1;
+}
+
+table.feedback {
+	border-spacing: 20px;
+}
+
+td.feedback {
+	width: 150px;
+}
+
+td.message_sender {
+	vertical-align: middle;
 }
 
 td.message_sender_image {

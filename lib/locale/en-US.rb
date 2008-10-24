@@ -125,6 +125,7 @@ I18n.store_translations 'en-US',
 :listing_created_by => "Listing created by",
 :listing_added => "Listing added",
 :no_listings => "No listings",
+:comment_listing => "Comment listing",
 
 #Listing statuses
 :open => "Open",
@@ -205,6 +206,19 @@ I18n.store_translations 'en-US',
 :title_is_too_short => "Title is too short (minimum is 2 characters).",
 :content_is_required => "Content is required.",
 :transaction_amount_too_big => "There's not enough money in your purse to make a transaction",
+
+#Feedback
+:feedback => "Feedback",
+:leave_feedback => "Leave feedback",
+:feedback_saved => "Feedback registered",
+:feedback_not_saved => "Feedback could not be registered",
+:send_feedback => "Send feedback",
+:feedbacks => "Feedback items",
+:feedbacks_partitive => "feedback items",
+
+#Admin
+:admin => "Admin",
+:only_admin_users_are_allowed_to_do_this => "Only admin users are allowed to do this",
 
 #Footer
 :about => "About",
