@@ -4,8 +4,7 @@ class Listing < ActiveRecord::Base
   
   after_destroy :delete_image_file
   
-  has_many :person_conversations
-  has_many :conversations, :through => :person_conversations, :source => :conversation
+  has_many :conversations
   
   has_many :comments, :class_name => "ListingComment"
   

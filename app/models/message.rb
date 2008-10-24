@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   
   attr_accessor :receiver_id, :listing_id, :title, :current_conversation
   
-  validates_presence_of :sender_id
+  validates_presence_of :sender_id, :content
   
   validates_numericality_of :conversation_id, :only_integer => true, :allow_nil => true
   
