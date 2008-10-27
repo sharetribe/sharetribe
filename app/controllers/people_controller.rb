@@ -41,6 +41,9 @@ class PeopleController < ApplicationController
   end
   
   def new
+    if RAILS_ENV == "production"
+      render :template => "people/beta"
+    end
     @person = Person.new
   end
   
