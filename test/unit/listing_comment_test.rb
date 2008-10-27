@@ -17,6 +17,9 @@ class ListingCommentTest < ActiveSupport::TestCase
     comment.listing_id = nil
     assert !comment.valid?
     
+    comment = listing_comments(:valid_listing_comment)
+    comment.content = nil
+    assert !comment.valid?
   end
 
   def test_listing_id_int

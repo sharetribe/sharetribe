@@ -1,4 +1,4 @@
-<% form_for :message, :url => person_inbox_index_path(@current_user) do |f| %>
+<% form_for :message, :url => person_inbox_messages_path(@current_user) do |f| %>
   <%= f.hidden_field :sender_id, :value => @current_user.id %>
   <%= f.hidden_field :current_conversation, :value => @conversation.id if @conversation %>
   <% if @listing %>

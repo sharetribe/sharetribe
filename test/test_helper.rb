@@ -88,9 +88,9 @@ class Test::Unit::TestCase
     session.destroy
   end
   
-  def post_with_author(action, parameters = nil, parameter_type = :listing)
-    current_user, session = get_test_person_and_session
-    parameters[parameter_type].merge!({:author_id => current_user.id })
+  def post_with_author(action, parameters = nil, parameter_type = :listing, author_type = :author_id)
+    current_user, session = get_test_person_and_session("kassi_testperson1")
+    parameters[parameter_type].merge!({author_type => current_user.id })
     post action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
     session.destroy
   end
