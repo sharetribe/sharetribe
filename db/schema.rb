@@ -66,27 +66,12 @@ ActiveRecord::Schema.define(:version => 20081010114150) do
     t.datetime "updated_at"
   end
 
-  create_table "mail", :force => true do |t|
-    t.integer  "message_id",                                       :null => false
-    t.integer  "conversation_id"
-    t.boolean  "read",                          :default => false
-    t.boolean  "trashed",                       :default => false
-    t.string   "mailbox",         :limit => 25
-    t.datetime "created_at",                                       :null => false
-    t.string   "person_id"
-  end
-
   create_table "messages", :force => true do |t|
     t.string   "sender_id"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "conversation_id"
-  end
-
-  create_table "messages_recipients", :id => false, :force => true do |t|
-    t.integer "message_id",   :null => false
-    t.integer "recipient_id", :null => false
   end
 
   create_table "people", :id => false, :force => true, :primary_key => :id do |t|

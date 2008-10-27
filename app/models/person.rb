@@ -23,7 +23,7 @@ class Person < ActiveRecord::Base
   class PersonConnection < ActiveResource::Base
     self.site = COS_URL
     self.format = :json 
-    self.timeout = Session::COS_TIMEOUT
+    self.timeout = COS_TIMEOUT
     self.element_name = "people"
     self.collection_name = "people"
     

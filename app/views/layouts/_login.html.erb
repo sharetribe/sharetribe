@@ -3,5 +3,8 @@
 		<%= @current_user.name_or_username(session[:cookie]) %>.
   	&nbsp;&nbsp;<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
-  	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a> | <a href="/people/new"><%= t(:register) %></a>
+  	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a>
+  	<% if RAILS_ENV != "production"  %>
+  	  | <a href="/people/new"><%= t(:register) %></a>
+  	<% end %>
 <% end %>
