@@ -5,6 +5,7 @@
       <%= render :partial => "listings/category", :collection => Listing.get_sub_categories(params[:category]) %>
   <% else %>
   <% if @listing %>
+  
   <div id="add_listing_form">
   
   <%= error_messages_for 'listing' %>  
@@ -18,15 +19,20 @@
   <% form_for @listing, :html => {:multipart => true} do |f| %>
   <table class="form">
     <tr>
-      <td><b><%= t(:title) %>:</b></td>
+      <td><b><%= t(:fields_marked_with_star_are_mandatory) %></b></td>
+    </tr>
+  </table>
+  <table class="form">      
+    <tr>
+      <td><b><%= t(:title) %>*:</b></td>
       <td><%= f.text_field :title, :size => 80 %></td>
     </tr>
     <tr>
-      <td><b><%= t(:content) %>:</b></td>
+      <td><b><%= t(:content) %>*:</b></td>
       <td><%= f.text_area :content, :size => "77x5" %></td>
     </tr>
     <tr>
-      <td><b><%= t(:language) %>:</b></td>
+      <td><b><%= t(:language) %>*:</b></td>
       <td>
         <div class="<%= error_class_language %>">  
         <table>
@@ -49,7 +55,7 @@
       </td>  
     </tr>
     <tr>
-      <td><b><%= t(:good_thru) %>:</b></td>
+      <td><b><%= t(:good_thru) %>*:</b></td>
       <td><%= f.text_field :good_thru, :size => "20" %> <%= t(:good_thru_format) %> </td>
     </tr>
       <tr>

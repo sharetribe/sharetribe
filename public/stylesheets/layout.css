@@ -426,6 +426,10 @@ div.error {
   padding: 15px 10px;
 }
 
+#basic_content_no_top_margin {
+	padding: 0px 10px;
+}
+
 .search_results_header {
 	height: 22px;
 	border-bottom: 1px solid #000;
@@ -457,7 +461,7 @@ div.pagination {
 	padding: 10px;
 }
 
-#inbox_links_panel {
+div.inbox_links_panel {
 	background: #e0e6d8;
 	margin-top: 10px;
 	padding: 7px;

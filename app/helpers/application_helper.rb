@@ -109,11 +109,11 @@ module WillPaginate
       if collection.total_pages < 2
         case collection.size
         when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
-        when 1; "<b>1</b> #{t(entry_name)}"
+        when 1; "<b>1</b> #{t(entry_name.sub(' ', '_'))}"
         else;   "<b>#{collection.size}</b> #{t((entry_name.pluralize + "_partitive").sub(' ', '_'))}"
         end
       else
-        %{#{t(entry_name.pluralize)} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
+        %{#{t(entry_name.pluralize.sub(' ', '_'))} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
           collection.offset + 1,
           collection.offset + collection.length,
           collection.total_entries

@@ -3,8 +3,9 @@ require 'test_helper'
 class ListingsControllerTest < ActionController::TestCase
   
   def setup
-    @test_person, @session = get_test_person_and_session
-    @cookie = @session.cookie
+    @test_person1, @session1 = get_test_person_and_session("kassi_testperson1")
+    @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
+    @cookie = @session1.cookie
     @listing_params =  { :listing => {
       :category => "sell",
       :title => "Myydään alastomia oravoita",
@@ -18,7 +19,8 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def teardown
-    @session.destroy
+    @session1.destroy
+    @session2.destroy
   end
   
   def test_show_index
@@ -40,7 +42,7 @@ class ListingsControllerTest < ActionController::TestCase
     assert_redirect_when_not_logged_in
     
     # When logged in
-    get :new, {}, { 'person_id' => @test_person.id.to_s, :cookie => @cookie}
+    get_logged_in :new
     assert_response :success
     assert_template 'new'  
     assert_not_nil assigns(:listing)
@@ -87,7 +89,7 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_show_listing
-    get :show, { :id => listings(:valid_listing) },  { 'person_id' => @test_person.id.to_s, :cookie => @cookie  }
+    get_logged_in :show, { :id => listings(:valid_listing) }
     assert_response :success
     assert_template 'show'
     assert_equal listings(:valid_listing), assigns(:listing)
@@ -111,6 +113,12 @@ class ListingsControllerTest < ActionController::TestCase
     get :search, :q => "*"
     assert_response :success
     assert_equal 3, assigns(:listings).size
-  end  
+  end
+  
+  # def test_mark_as_interesting_and_mark_as_not_interesting
+  #   post :mark_as_interesting, :id => listings(:valid_listing).id
+  #   assert_response :success
+  #   assert_equal [ listings(:valid_listing) ], @test_person1.interesting_listings
+  # end  
   
 end

@@ -4,7 +4,7 @@
 </div>
 </div>
 
-<div id="inbox_links_panel">
+<div class="inbox_links_panel">
   <div class="left_float">
     <%= t(:received_messages) %> <span class="page_entries_info">(<%= page_entries_info @person_conversations %>)</span> | 
     <%= link_to t(:sent_messages), sent_person_inbox_path(@current_user) %>
@@ -23,3 +23,13 @@
 <% end %>
 
 </div>
+
+<% if @person_conversations.total_pages > 1 %>
+
+<div class="inbox_links_panel">
+  <div class="right_float">
+    <%= will_paginate @person_conversations, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>    
+</div>
+
+<% end %>

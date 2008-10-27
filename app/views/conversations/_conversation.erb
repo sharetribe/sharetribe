@@ -16,8 +16,9 @@
           </i>
         </td>
         <td class= "message_content">
-          <b><%= link_to "RE: " + conversation.conversation.title, person_inbox_path(@current_user, conversation.conversation) %></b> <br />
-          <%= link_to last_message.content.slice!(0..50), person_inbox_path(@current_user, conversation.conversation) %>...
+          <b><%= link_to conversation.conversation.title, person_inbox_path(@current_user, conversation.conversation) %></b> <br />
+          <% dots = last_message.content.size > 50 ? "..." : "" %>
+          <%= link_to last_message.content.slice!(0..50) + dots, person_inbox_path(@current_user, conversation.conversation) %>
         </td>
       </tr>
     </table>
