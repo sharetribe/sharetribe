@@ -19,12 +19,4 @@ class ConversationsControllerTest < ActionController::TestCase
     
   end
   
-  def test_create_new_conversation
-    
-  end
-  
-  def test_post_to_existing_conversation
-    
-  end
-  
 end
