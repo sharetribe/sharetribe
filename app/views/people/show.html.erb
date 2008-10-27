@@ -8,6 +8,10 @@
 
   <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
   
+  <br /><br />
+  
+  <%= link_to t(:send_message_to_user), send_message_person_path(@person) %>
+  
   <p><%= t(:name)%>: <%= @person.name(session[:cookie]) %></p>
 
 </div>

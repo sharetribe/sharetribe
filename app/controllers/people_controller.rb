@@ -44,4 +44,9 @@ class PeopleController < ApplicationController
     @person = Person.new
   end
   
+  def send_message
+    @person = Person.find(params[:id])
+    @message = Message.new
+  end
+  
 end

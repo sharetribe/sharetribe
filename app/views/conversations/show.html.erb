@@ -4,7 +4,7 @@
 </div>
 </div>
 
-<div id="inbox_links_panel">
+<div class="inbox_links_panel">
   <%= link_to t(:received_messages), person_inbox_index_path(@current_user) %> | 
   <%= link_to t(:sent_messages), sent_person_inbox_path(@current_user) %>
 </div>
@@ -23,13 +23,13 @@
   </div>
   <div id="title_div">
     <h6>
-      RE: <%= @conversation.title %> 
+      <%= @conversation.title %> 
     </h6>
     <div class="left_float">
       <%= t(:messaging_with) %> <%= create_links_for_participants %> <%= t(:with) %>
     </div>
     <div class="right_float">
-      <%= link_to t(:show_original_listing), listing_path(@conversation.listing) %>
+      <%= link_to t(:show_original_listing), listing_path(@conversation.listing) if @conversation.listing %>
     </div>    
   </div>
   <div class="arrow_right">
@@ -47,6 +47,6 @@
   <%= render :partial => "messages/message", :collection => @conversation.messages %>
 </table>
   
-<div id="basic_content" >
-  <%= render :partial => "messages/send_message" %>
+<div id="basic_content_no_top_margin">
+  <%= render :partial => "messages/send_reply" %>
 </div>  

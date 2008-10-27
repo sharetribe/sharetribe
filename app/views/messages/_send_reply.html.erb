@@ -1,0 +1,20 @@
+<br />
+<% form_for :message, :url => person_inbox_index_path(@current_user) do |f| %>
+  <table class="form">
+    <tr>
+      <td>
+        <b><%= t(:reply_to_message_chain) %>:</b>
+      </td>
+    </tr>
+    <tr>  
+      <td>
+        <%= f.text_area :content, :size => "48x5" %>
+      </td>  
+    <tr>
+    <%= f.hidden_field :sender_id, :value => @current_user.id %>
+    <%= f.hidden_field :current_conversation, :value => @conversation.id %>
+    <tr>
+      <td><%= submit_tag t(:send_message), :onclick => "this.disabled=true,this.form.submit();" %></td>
+    <tr>
+  </table>      
+<% end %>

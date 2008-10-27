@@ -49,7 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     listing.resources :comments, :controller => :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'
   end  
-  map.resources :people, :member => { :home => :get }, :collection => { :search => :get } do |person|
+  map.resources :people, :member => { :home => :get, :send_message => :get }, :collection => { :search => :get } do |person|
     person.resources :inbox, :controller => :conversations, :collection => { :sent => :get }
     person.resource :purse
     person.resource :settings
