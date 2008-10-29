@@ -1,17 +1,102 @@
 <h1><%= @title %></h1>
 
-<div id="basic_content">
+  <div class="links_panel">
+    <div class="left_float">
+      <%= get_profile_navi_items(params[:id]) %>
+    </div>
+    <div class="right_float">
+      <% unless @person.id == @current_user.id %>
+        <%= link_to t(:send_message_to_user), send_message_person_path(@person) %> |
+        <%= link_to t(:add_as_friend), "#" %>
+      <% end %>  
+    </div>  
+  </div>
 
-  <%= get_profile_navi_items(params[:id]) %>
-  
-  <br /><br />
+<div id="profile_left">
 
-  <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
+  <div id="profile_picture">
+    <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
+  </div>  
+
+</div>  
+
+<div id="profile_right">  
+
+  <div class="profile_small_header">
+    <div class="left_float">
+      <b><%= t(:information) %></b>
+    </div>
+    <div class="right_float">
+      <%= link_to t(:edit), "#" %>
+    </div>
+  </div>
   
-  <br /><br />
+  <ul class="profile_info">
+    <li><b><%= t(:name)%>:</b> <%= @person.name(session[:cookie]) %></li>
+    <li><b><%= t(:email)%>:</b></li>
+    <li><b><%= t(:address)%>:</b></li>
+  </ul>
   
-  <%= link_to t(:send_message_to_user), send_message_person_path(@person) %>
+  <div class="profile_small_header">
+    <b><%= t(:items) %></b>
+  </div>
   
-  <p><%= t(:name)%>: <%= @person.name(session[:cookie]) %></p>
+  <ul class="profile_info">
+    <% if @items.size > 0 %>
+      <% @items.each do |item| %>
+        <li>
+          <%= item.title %>
+          <span class="right">
+            <%= link_to "X", item_path(item), :method => :delete %>
+          </span>
+        </li>
+      <% end %>
+    <% else %>
+      <li><b><%= t(:no_items)%></b></li>
+    <% end %>
+  </ul>
+  
+  <div class="profile_add_form">
+  
+  <% form_for :item, :url => items_path do |f| %>
+    <%= f.text_field :title, :size => 25 %> &nbsp;&nbsp;
+    <b><%= t(:price) %>:</b>
+    <%= f.text_field :payment, :size => 5, :value => 0 %> &nbsp;&nbsp;
+    <%= f.hidden_field :owner_id, :value => @current_user.id %>
+    <%= submit_tag t(:add_new_item), :onclick => "this.disabled=true,this.form.submit();" %>
+  <% end %>
+  
+  </div>
+  
+  <div class="profile_small_header">
+    <b><%= t(:favors) %></b>
+  </div>
+  
+  <ul class="profile_info">
+    <% if @favors.size > 0 %>
+      <% @favors.each do |favor| %>
+        <li>
+          <%= favor.title %>
+          <span class="right">
+            <%= link_to "X", favor_path(favor), :method => :delete %>
+          </span>
+        </li>
+      <% end %>
+    <% else %>
+      <li><%= t(:no_favors)%></li>
+    <% end %>
+  </ul>
+  
+  <div class="profile_add_form">
+  
+  <% form_for :favor, :url => favors_path do |f| %>
+    <%= f.text_field :title, :size => 25 %> &nbsp;&nbsp;
+    <b><%= t(:price) %>:</b>
+    <%= f.text_field :payment, :size => 5, :value => 0 %> &nbsp;&nbsp;
+    <%= f.hidden_field :owner_id, :value => @current_user.id %>
+    <%= submit_tag t(:add_new_favor), :onclick => "this.disabled=true,this.form.submit();" %><br />
+  <% end %>
+  
+  </div>
 
 </div>

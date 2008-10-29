@@ -21,6 +21,11 @@
 	margin: 0 auto -25px; /* the bottom margin is the negative value of the footer's height */
 }
 
+div.extra_padding {
+	padding: 5px;
+	padding-bottom: 3px;
+}
+
 .left_float {
 	float: left;
 }
@@ -461,11 +466,11 @@ div.pagination {
 	padding: 10px;
 }
 
-div.inbox_links_panel {
+div.links_panel {
 	background: #e0e6d8;
 	margin-top: 10px;
-	padding: 7px;
-	height: 16px;
+	padding: 7px 8px;
+	height: 15px;
 	border: 1px solid #000;
 }
 
@@ -481,7 +486,43 @@ div.inbox_links_panel {
 
 .feedback_item {
 	margin: 3px;
-	border: 1px solid #000;;
+	border: 1px solid #000;
+}
+
+#profile_picture {
+	width: 200px;
+	border: 10px solid #72776c;
+	margin-bottom: 10px;
+}
+
+#profile_left {
+	float: left;
+	width: 200px;
+	margin: 10px;
+}
+
+#profile_right {
+	margin-top: 10px;
+	float: right;
+	width: 475px;
+}
+
+div.profile_small_header {
+	font-size: 12px;
+	background: #c0e783;
+	padding: 5px 7px;
+	margin-bottom: 5px;
+	margin-right: 10px;
+	height: 14px;
+}
+
+div.profile_add_form {
+	margin: 0 10px 14px 22px;
+}
+
+span.right {
+	margin-left: 50px;
+	font-weight: bold;
 }
 
 /* 

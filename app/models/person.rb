@@ -7,6 +7,10 @@ class Person < ActiveRecord::Base
   has_many :feedbacks
 
   has_many :listings
+  
+  has_many :items, :conditions => "owner_id = '" + self.object_id.to_s + "'"
+  
+  has_many :favors
 
   has_many :person_interesting_listings
   has_many :interesting_listings, :through => :person_interesting_listings, :source => :listing
