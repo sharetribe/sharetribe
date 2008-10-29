@@ -23,16 +23,17 @@
             <tr>
               <td>
                 <h3>
+                  <% link_target = @person ? person_listing_path(@person, listing) : listing %>
                   <% 
                      if has_image &&
                         listing.title.length > 25 && !listing.title.include?(" ")
                   %>
-                    <%= link_to(listing.title.slice!(0..22) + "...", listing) %>
+                    <%= link_to(listing.title.slice!(0..22) + "...", link_target) %>
                   <% else %>  
                     <% if (listing.title.length > 32 && !listing.title.include?(" "))%>
-                      <%= link_to(listing.title.slice!(0..32) + "...", listing) %>
+                      <%= link_to(listing.title.slice!(0..32) + "...", link_target) %>
                     <% else %>  
-                      <%= link_to(listing.title, listing) %>
+                      <%= link_to(listing.title, link_target) %>
                     <% end %>  
                   <% end %>  
                 </h3>

@@ -5,7 +5,7 @@
 <%= will_paginate @person_conversations, :prev_label => t(:previous), :next_label => t(:next) %>
 </div>
 
-<div class="inbox_links_panel">
+<div class="links_panel">
   <div class="left_float">
     <%= link_to t(:received_messages), person_inbox_index_path(@current_user) %> | 
     <%= t(:sent_messages) %> <span class="page_entries_info">(<%= page_entries_info @person_conversations %>)</span>
@@ -27,7 +27,7 @@
 
 <% if @person_conversations.total_pages > 1 %>
 
-<div class="inbox_links_panel">
+<div class="links_panel">
   <div class="right_float">
     <%= will_paginate @person_conversations, :prev_label => t(:previous), :next_label => t(:next) %>
   </div>

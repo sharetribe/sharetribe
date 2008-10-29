@@ -1,24 +1,31 @@
 <h1><%= t(@title) %></h1>
 
-<%@letters = "abcdefghijklmnopqrstuvxyzåäö".split("")
-  @letters.each do |letter|%>
-	<a href = "#<%=letter%>"><%=letter%> </a>
-  <%end%> 
+<% @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("") %>
+
+<div class="links_panel">
+  <div class="left_float">
+    <% @letters.each do |letter| %>
+  	 <b><%= link_to letter, "##{letter}" %></b>
+  	 <%= " | " unless letter.equal?(@letters[-1]) %>
+    <% end %>
+  </div>
+</div>
 	
+<div id="basic_content">
 	
 <% if (@item_titles.size > 0)
 	i = 0
 	@initial_group = Array.new
 	@letters.each do |letter|
 		@initial_group.clear
-		while @item_titles[i] != nil && @item_titles[i].downcase[0,1].eql?(letter)
+		while @item_titles[i] != nil && @item_titles[i].upcase[0,1].eql?(letter)
 			@initial_group << @item_titles[i]
 			i += 1
 		end	
 		if !@initial_group.empty?
 		%>
 			<table class="item_title">
-			<h2><a name = "<%=letter%>"><%=letter.upcase%></a></h2>
+			<h2><a name = "<%=letter%>"></a><%=letter.upcase%></h2>
 			<%= render :partial => 'item_title', :collection => @initial_group %>
 			</table>
 	
@@ -27,6 +34,7 @@
 
 
 <% else %>
-  	<h3>Ei yhtään lainattavia tavaroita!
+  	<h3>Ei yhtään lainattavia tavaroita!</h3>
 <% end %>
+
 </div>

@@ -19,7 +19,7 @@ module ListingsHelper
           end 
         when "interesting_listings"
           path = interesting_person_listings_path(params.merge({:per_page => value}))
-        when "own_listings"
+        when "person_listings"
           path = person_listings_path(params.merge({:per_page => value}))       
         when "search"
           path = search_listings_path(params.merge({:per_page => value}))

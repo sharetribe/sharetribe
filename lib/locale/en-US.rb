@@ -11,6 +11,7 @@ I18n.store_translations 'en-US',
 :all => "All",
 :back_to_previous_page => "Back to previous page",
 :cancel => "Cancel",
+:edit => "Muokkaa",
 
 #Login form
 :logged_in => "You're logged in as ",
@@ -179,6 +180,17 @@ I18n.store_translations 'en-US',
 
 #Profile view
 :information => "Information",
+:address => "Address",
+:no_items => "No items",
+:no_favors => "No favors",
+:add_new_item => "Add new item",
+:item_added => "Item added",
+:item_removed => "Item removed",
+:add_new_favor => "Add new favor",
+:favor_added => "Favor added",
+:favor_removed => "Palvelus poistettu",
+:price => "Price",
+:add_as_friend => "Add as friend",
 
 #Friend view
 :friends_of_user => "Friends of user",

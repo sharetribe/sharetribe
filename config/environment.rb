@@ -70,7 +70,10 @@ Rails::Initializer.run do |config|
    #COS_URL is different in production env
    COS_URL = "http://maps.cs.hut.fi/cos"
    #COS_URL = "http://localhost:3001"
+   COS_URL = "http://maps.cs.hut.fi/cos"
+   #COS_URL = "http://localhost:3001"
    #COS_URL = "http://cos.alpha.sizl.org"
    #COS_URL = "http://localhost:3001"
    COS_TIMEOUT = 8
+
 end

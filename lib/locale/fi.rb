@@ -10,6 +10,7 @@ I18n.store_translations 'fi',
 :all => "Kaikki",
 :back_to_previous_page => "Takaisin edelliseen näkymään",
 :cancel => "Peruuta",
+:edit => "Muokkaa",
 
 #Login form
 :logged_in => "Olet kirjautuneena sisään käyttäjänä",
@@ -180,6 +181,17 @@ I18n.store_translations 'fi',
 
 #Profile view
 :information => "Tiedot",
+:address => "Osoite",
+:no_items => "Ei tavaroita",
+:no_favors => "Ei palveluksia",
+:add_new_item => "Lisää tavara",
+:item_added => "Tavara lisätty",
+:item_removed => "Tavara poistettu",
+:add_new_favor => "Lisää palvelus",
+:favor_added => "Palvelus lisätty",
+:favor_removed => "Palvelus poistettu",
+:price => "Hinta",
+:add_as_friend => "Lisää kaveriksi",
 
 #Friend view
 :friends_of_user => "Käyttäjän",

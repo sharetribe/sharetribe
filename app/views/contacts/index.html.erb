@@ -1,5 +1,12 @@
-<h1><%= t(:contacts_of_user) + " " + @person.name(session[:cookie]) + " " + t(:users_contacts) %> </h1>
+<h1><%= @person.name(session[:cookie]) %></h1>
+
+
+<div class="links_panel">
+  <div class="left_float">
+    <%= get_profile_navi_items(params[:person_id]) %>
+  </div>
+</div>
 
 <div id="basic_content">
-<%= get_profile_navi_items(params[:person_id]) %>
+
 </div>

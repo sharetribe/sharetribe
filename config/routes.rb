@@ -52,7 +52,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :people, :member => { :home => :get, :send_message => :get }, :collection => { :search => :get } do |person|
     person.resources :inbox, :controller => :conversations, :collection => { :sent => :get } do |inbox|
       inbox.resources :messages, :path_prefix => '/people/:id/inbox'
-    end  
+    end
     person.resource :purse
     person.resource :settings
     person.resources :friends

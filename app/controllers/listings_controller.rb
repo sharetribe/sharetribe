@@ -9,29 +9,26 @@ class ListingsController < ApplicationController
       @person = Person.find(params[:person_id])
       @title = :listings_partitive_plural
       conditions = "author_id = '" + @person.id.to_s + "'"
-      save_navi_state(['own', 'profile', '', '', 'listings'])
+      if @person.equal?(@current_user)  
+        save_navi_state(['own', 'profile', '', '', 'listings'])
+      else
+        session[:profile_navi] = 'listings'
+      end
+      fetch_listings(conditions)
+      render :template => "listings/own"
     else
       @pagination_type = "category"
       @title = :all_categories
       save_navi_state(['listings', 'browse_listings', 'all_categories'])
+      fetch_listings(conditions)
     end    
-    fetch_listings(conditions)
   end
 
   def show
-    if (params[:id])
-      save_navi_state(['listings', 'browse_listings'])
-      @listing = Listing.find(params[:id])
-      @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
-      @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
-      @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
-    else  
-      @title = :own_listings
-      save_navi_state(['own', 'own_listings'])
-      fetch_listings("author_id = '" + @current_user.id.to_s + "'")
-      @pagination_type = "own_listings"
-      render :action => "index"
-    end
+    @listing = Listing.find(params[:id])
+    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
+    @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
+    @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
   end
 
   def search
@@ -81,7 +78,7 @@ class ListingsController < ApplicationController
 
   def destroy
     Listing.find(params[:id]).destroy
-    flash[:notice] = 'Ilmoitus poistettu.'
+    flash[:notice] = :listing_removed
     redirect_to listings_path
   end
 

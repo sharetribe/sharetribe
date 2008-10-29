@@ -22,7 +22,15 @@ class PeopleController < ApplicationController
   # Shows profile page of a person.
   def show
     @person = Person.find(params[:id])
-    save_navi_state(['own', 'profile', '', '', 'information']) if session[:navi1].eql?("own")
+    @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'")
+    @item = Item.new
+    @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'")
+    @favor = Favor.new
+    if @person.id == @current_user.id
+      save_navi_state(['own', 'profile', '', '', 'information'])
+    else
+      session[:profile_navi] = 'information'
+    end     
     @title = @person.name(session[:cookie]) 
   end
   
