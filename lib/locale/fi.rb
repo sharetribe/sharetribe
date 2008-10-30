@@ -230,6 +230,14 @@ I18n.store_translations 'fi',
 :only_listing_author_sees_message => "Viesti näytetään ainoastaan ilmoituksen jättäjälle",
 :message_could_not_be_sent => "Tyhjää viestiä ei voi lähettää",
 
+#Purses view
+:purse => "Kukkaro",
+:do_transaction => "Maksa",
+:transfer_coins => "Tee killinkisiirtoja",
+:payment_receiver => "Vastaanottaja", 
+:amount => "Summa",
+:done_transactions => "Tehdyt killinkisiirrot",
+
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto.",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",

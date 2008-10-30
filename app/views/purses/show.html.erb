@@ -1,3 +1,22 @@
-<h1>Kukkaro</h1>			
-<p>In mauris enim, suscipit a, consequat quis, porta ut, diam. Vivamus tempor. Donec nec enim quis ante ullamcorper mollis. Praesent dictum. Donec arcu arcu, tincidunt a, placerat sit amet, porta eget, erat. Aliquam erat volutpat. Aenean egestas, dolor ut consectetuer pulvinar, mauris ante volutpat leo, non pulvinar erat justo vitae mauris. Donec laoreet dui at quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris id libero. Morbi luctus sapien vitae dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam pharetra vestibulum leo. Maecenas magna velit, porta eu, viverra quis, cursus non, sapien.</p>
+<h1><%=t(@title)%></h1>			
 
+<h2> <%=t(:transfer_coins)%></h2>
+	
+<% form_for :transaction, {:url => {:controller => "purses", :action => "create"}} do |f| %>
+	<p><%=f.label :payment_receiver, t(:payment_receiver)%></p>
+	<p><%= f.text_field :user_name, :size => 40 %></p>
+	<p><%=f.label :amount, t(:amount)%></p>
+	<p><%= f.text_field :amount, :size => 5 %></p>
+	<p><%= f.hidden_field :sender_id, :value => @current_user.id %></p>
+	<p><%=f.label :user_comment, t(:user_comment)%></p>
+	<p><%= f.text_field :comment, :size => 40 %> </p>
+	<p><%= submit_tag t(:do_transaction), :onclick => "this.disabled=true,this.form.submit();" %></p>
+<% end %>
+
+<h2><%=t(:done_transactions)%></h2>
+<%if(@sent_transactions != nil && @sent_transactions.size > 0)%>
+	<h3> Maksetut killingit </h3>
+	<%= render :partial => 'sent_transaction', :collection => @sent_transactions%>
+	<h3> Saadut killingit </h3>
+	<%= render :partial => 'received_transaction', :collection => @received_transactions%>
+<%end%>
