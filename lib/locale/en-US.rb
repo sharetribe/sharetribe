@@ -229,6 +229,14 @@ I18n.store_translations 'en-US',
 :only_listing_author_sees_message => "Only listing author can see the message",
 :message_could_not_be_sent => "Empty message cannot be sent",
 
+#Purses view
+:title => "Purse",
+:do_transaction => "Pay",
+:transfer_coins => "Transfer coins",
+:payment_receiver => "Receiver",
+:amount => "Amount",
+:done_transactions => "Coin transfer history",
+
 #Error messages
 :title_is_required => "Title is required.",
 :title_is_too_short => "Title is too short (minimum is 2 characters).",
