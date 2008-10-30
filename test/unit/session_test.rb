@@ -11,7 +11,7 @@ class SessionTest < ActiveSupport::TestCase
   end
 
   def test_create_user_session
-    s = Session.create( {:username => "testguy", :password => "t3xxzs5"})
+    s = Session.create( {:username => "kassi_testperson1", :password => "testi"})
     resp = s.get("")
     assert_not_nil(resp["app_id"])
     assert_not_nil(resp["user_id"])
@@ -19,8 +19,8 @@ class SessionTest < ActiveSupport::TestCase
   end
   
   def test_multiple_sessions
-    s1 = Session.create( {:username => "testguy", :password => "t3xxzs5"})
-    s2 = Session.create( {:username => "testchick", :password => "t3xxzs5"})
+    s1 = Session.create( {:username => "kassi_testperson1", :password => "testi"})
+    s2 = Session.create( {:username => "kassi_testperson2", :password => "testi"})
     resp1 = s1.check
     resp2 = s2.check
     assert_not_nil(resp1["user_id"])
