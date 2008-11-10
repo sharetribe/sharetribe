@@ -1,3 +1,12 @@
+<div id="listings_header">
+  <div id="listings_header_links_left">
+    <%= t(:show_read_and_unread_listings) %> <a href="#"><%= t(:show_unread_multiple_listings) %></a> | <%= t(:show_all_listings) %>
+  </div>
+  <div id="listings_header_links_right">
+    <a href="#"><%= t(:mark_all_as_read) %></a>
+  </div>  
+</div>
+
 <div id="container">
 
 <div class="search_results_header">
@@ -8,16 +17,15 @@
 </div>
 
 <% if (@listings.size > 0)%>
-  <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
-  <div class="solid_line">
-  </div>  
+  <table class="listing">
+  <%= render :partial => "listings/listing", :collection => @listings %>
+  </table>
   <div id="search_footer_left">
     <%= t(:show_listings_on_page) %>:
     <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
-  </div>
+  </div
   <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
   <br />
 <% else %>
   <p><%= t(:no_listings) %></p>
 <% end %>
-</div>

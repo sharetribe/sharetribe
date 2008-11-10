@@ -27,8 +27,12 @@ class MessagesController < ApplicationController
           unless @conversation.title.index('RE: ') == 0
             @conversation.update_attribute(:title, "RE: " +  @conversation.title)
           end  
-          PersonConversation.find(:all, :conditions => "conversation_id = '" + @conversation.id.to_s + "' AND person_id <> '" + @current_user.id + "'").each do |person_conversation|
-            person_conversation.update_attribute(:is_read, 0) 
+          PersonConversation.find(:all, :conditions => "conversation_id = '" + @conversation.id.to_s + "'").each do |person_conversation|
+            if person_conversation.person.id == @current_user.id
+              person_conversation.update_attribute(:last_sent_at, @message.created_at)
+            else  
+              person_conversation.update_attributes({ :is_read => 0, :last_received_at => @message.created_at })
+            end  
           end
         else
           if params[:message][:listing_id]  
@@ -37,8 +41,13 @@ class MessagesController < ApplicationController
             @conversation = Conversation.new(:title => params[:message][:title])
           end    
           @conversation.save
-          PersonConversation.create(:person_id => @current_user.id, :conversation_id => @conversation.id, :is_read => 1)
-          Person.find(params[:message][:receiver_id]).conversations << @conversation
+          PersonConversation.create(:person_id => @current_user.id, 
+                                    :conversation_id => @conversation.id, 
+                                    :is_read => 1,
+                                    :last_sent_at => @message.created_at)
+          PersonConversation.create(:person_id => params[:message][:receiver_id], 
+                                    :conversation_id => @conversation.id, 
+                                    :last_received_at => @message.created_at)
         end  
         @conversation.messages << @message
         flash[:notice] = :message_sent

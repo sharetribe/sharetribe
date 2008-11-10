@@ -7,8 +7,12 @@ class ItemsController < ApplicationController
     @title =  :all_items  
     @items_all = Item.find :all, :order => 'title ASC'
     
-    @item_titles = Item.find(:all, :select => "title", :order => 'title ASC').collect(&:title).uniq
+    @item_titles = Item.find(:all, :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
     
+  end
+  
+  def show
+    @items = Item.find(:all, :conditions)
   end
   
   def search

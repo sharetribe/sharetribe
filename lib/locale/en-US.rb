@@ -180,7 +180,9 @@ I18n.store_translations 'en-US',
 
 #Profile view
 :information => "Information",
+:otasizzle_username => "OtaSizzle username",
 :address => "Address",
+:favors_i_can_do => "Favors I can do",
 :no_items => "No items",
 :no_favors => "No favors",
 :add_new_item => "Add new item",

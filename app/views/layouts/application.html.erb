@@ -46,17 +46,15 @@
             <%= render :partial => "layouts/top_navi" %>
           </div>
         </div>
-        <div id="middle">
-          <%= render :partial => "layouts/left_navi" %>
-          <% if session[:left_navi] %>
-            <div id="contents">
-          <% else %>
-            <div id="contents_full">
-          <% end %>
-          <%= render :partial => "layouts/announcements"%>
-          <%= yield %>
-          <br /><br />
-          </div>
+        <%= render :partial => "layouts/left_navi" %>
+        <% if session[:left_navi] %>
+          <div id="contents">
+        <% else %>
+          <div id="contents_full">
+        <% end %>
+        <%= render :partial => "layouts/announcements"%>
+        <%= yield %>
+        <br /><br />
         </div>
         <div id="feedback">
           <br /><br /><br /><br /><br />
