@@ -1,11 +1,15 @@
 <table class='item'>
 	<h3>	
-	<%= link_to(item_title) %>
-	<%@values = Array.new
+	<%= link_to item_title, items_path(:item => item_title) %>
+	<%
+	
+	@values = Array.new
+	@owners = Array.new
 	items = Item.find(:all, :conditions => {:title => item_title})
 	
 	items.each do |p|
 		@values << p.payment
+		@owners << p.owner
 	end
 	
 	@values.compact!
@@ -19,4 +23,11 @@
 		<%=t(:coins)%>
 	<%end%>
 	</h3>
+	<% if params[:item] && params[:item].downcase.eql?(item_title.downcase) %>
+	  <%= t(:owners) %>:<br />
+	  <% @owners.each do |owner| %>
+	    <%= link_to owner.name(session[:cookie]), owner %><br />
+	  <% end %>
+	  <br /><br />
+	<% end %>
 </table>

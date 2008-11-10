@@ -26,12 +26,23 @@ div.extra_padding {
 	padding-bottom: 3px;
 }
 
-.left_float {
+div.left_float {
 	float: left;
 }
 
-.right_float {
+div.right_float {
 	float: right;
+}
+
+div.solid_line {
+	border-top: 1px solid #000;
+	width: 100%;
+}
+
+
+div.dashed_line {
+	border-top: 1px dashed #000;
+	width: 100%;
 }
 
 #main {
@@ -161,13 +172,6 @@ div.extra_padding {
 
 #top_navi ul#primary a:hover {
 	background: #9aa092;
-}
-
-#middle {
-	margin: 0px;
-	padding: 0px;
-	clear: both;
-	width: 1000px;
 }
 
 #left_navi {
@@ -327,11 +331,6 @@ div.listing_author_image {
 	width: 375px;
 }
 
-#listing_image {
-	float: right;
-	width: 300px;
-}
-
 #listing_comments {
 	clear: both;
 }
@@ -436,28 +435,28 @@ div.error {
 }
 
 .search_results_header {
-	height: 22px;
+	height: 26px;
 	border-bottom: 1px solid #000;
 }
 
 .search_results_title {
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 18px;
 	float: left;
 }
 
 .search_results_header_right {
-	margin-top: 2px;
+	margin-top: 6px;
 	float: right;
 }
 
 div.pagination {
-	margin-top: 2px;
+	margin-top: 6px;
 	float: right;
 }
 
 #search_footer_left {
-	margin-top: 2px;
+	margin-top: 6px;
 	float: left;
 }
 
@@ -523,6 +522,49 @@ div.profile_add_form {
 span.right {
 	margin-left: 50px;
 	font-weight: bold;
+}
+
+div.listed_listing {
+	width: 731px;
+	overflow: auto;
+}
+
+div.listed_listing_left {
+	float: left;
+	padding: 10px;
+	width: 50px;
+}
+
+div.listed_listing_center {
+	padding: 10px;
+	float: left;
+	width: 450px;
+}
+
+div.listed_listing_title {
+	margin-bottom: 13px;
+}
+
+div.listed_listing_title a {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+div.listed_listing_right_titles {
+	font-weight: bold;
+	padding: 10px;
+	float: left;
+	width: 60px;
+}	
+
+div.listed_listing_right_texts {
+	padding: 10px;
+	float: left;
+	width: 90px;
+}
+
+div.listed_listing_right_item {
+	margin-bottom: 3px;
 }
 
 /* 

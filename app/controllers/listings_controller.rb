@@ -26,9 +26,11 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
-    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1) 
-    @next_listing = Listing.find(:first, :conditions => ["id > ?", @listing.id]) || @listing
-    @previous_listing = Listing.find(:last, :conditions => ["id < ?", @listing.id]) || @listing
+    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
+    next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
+    @next_listing = next_id ? Listing.find(next_id) : @listing
+    previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
+    @previous_listing = previous_id ? Listing.find(previous_id) : @listing
   end
 
   def search
@@ -43,7 +45,9 @@ class ListingsController < ApplicationController
         begin
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
           conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
-          @listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions}).paginate :page => params[:page], :per_page => per_page
+          listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
+          save_collection_to_session(listings)
+          @listings = listings.paginate :page => params[:page], :per_page => per_page
         end
       end    
     end   

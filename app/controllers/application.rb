@@ -34,11 +34,17 @@ class ApplicationController < ActionController::Base
   
   # Fetch listings based on conditions
   def fetch_listings(conditions)                                                 
-    @listings = Listing.paginate :page => params[:page], 
-                                 :per_page => per_page, 
-                                 :order => 'id DESC',
-                                 :select => 'id, created_at, author_id, title, status, times_viewed, category', 
-                                 :conditions => conditions                 
+    # @listings = Listing.paginate :page => params[:page], 
+    #                              :per_page => per_page, 
+    #                              :order => 'id DESC',
+    #                              :select => 'id, created_at, author_id, title, status, times_viewed, category', 
+    #                              :conditions => conditions
+    listings = Listing.find(:all, 
+                            :order => 'id DESC',
+                            :select => 'id, created_at, author_id, title, status, times_viewed, category', 
+                            :conditions => conditions)
+    save_collection_to_session(listings)                      
+    @listings = listings.paginate :page => params[:page], :per_page => per_page                                             
   end
 
   # Define how many listed items are shown per page.
@@ -93,13 +99,23 @@ class ApplicationController < ActionController::Base
   
   def count_new_items_in_inbox
     if @current_user
-      @inbox_new_count = PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "' AND is_read = 0").size
+      conditions = "person_id = '" + @current_user.id + "' AND is_read = 0"
+      @inbox_new_count = PersonConversation.find(:all, :conditions => conditions).size
     end  
   end
   
   # Feedback form is present in every view.
   def set_up_feedback_form
     @feedback = Feedback.new
+  end
+  
+  # Saves all collection ids to a session so that they can
+  # be remembered when browsing the collection one by one.
+  def save_collection_to_session(collection)
+    session[:ids] = []                             
+    collection.each do |collection_item|
+      session[:ids] << collection_item.id
+    end
   end
   
 end

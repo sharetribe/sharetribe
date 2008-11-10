@@ -24,7 +24,7 @@ I18n.store_translations 'fi',
 
 #Login notices
 :logout_successful => "Uloskirjautuminen onnistui.",
-:login_successful => "Sisäänkirjautumien onnistui.",
+:login_successful => "Sisäänkirjautuminen onnistui.",
 
 #Not logged in notices 
 :you_must_login_to_do_this => "Haluamasi toiminto on sallittu ainoastaan sisäänkirjautuneille käyttäjille.",
@@ -181,7 +181,9 @@ I18n.store_translations 'fi',
 
 #Profile view
 :information => "Tiedot",
+:otasizzle_username => "OtaSizzle-käyttäjätunnus",
 :address => "Osoite",
+:favors_i_can_do => "Palvelukset joita voin tehdä",
 :no_items => "Ei tavaroita",
 :no_favors => "Ei palveluksia",
 :add_new_item => "Lisää tavara",

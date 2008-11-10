@@ -89,7 +89,7 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_show_listing
-    get_logged_in :show, { :id => listings(:valid_listing) }
+    get :show, { :id => listings(:valid_listing).id }, { :person_id => @test_person1.id, :cookie => @cookie, :ids => [listings(:valid_listing).id, listings(:another_valid_listing).id] }
     assert_response :success
     assert_template 'show'
     assert_equal listings(:valid_listing), assigns(:listing)

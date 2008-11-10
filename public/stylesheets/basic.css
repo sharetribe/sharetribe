@@ -179,7 +179,7 @@ table.listing_right td {
 	width: 80px;
 }
 
-table.listing_in, table.comment_in, table.message_in {
+table.comment_in, table.message_in {
 	border-bottom: 2px dotted #666;
 	border-spacing: 0px;
 }
@@ -218,11 +218,11 @@ td.message_sender_image {
 }
 
 td.message_sender {
-	width: 150px;
+	width: 200px;
 }
 
 td.message_content {
-	width: 490px;
+	width: 440px;
 }
 
 td.listing_image {

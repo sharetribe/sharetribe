@@ -19,9 +19,11 @@ class ConversationsController < ApplicationController
     if person_conversation.is_read == 0
       @inbox_new_count -= 1
       person_conversation.update_attribute(:is_read, 1)
-    end  
-    @next_conversation = Conversation.find(:first, :conditions => ["updated_at > ?", @conversation.updated_at]) || @conversation
-    @previous_conversation = Conversation.find(:last, :conditions => ["updated_at < ?", @conversation.updated_at]) || @conversation
+    end
+    next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
+    @next_conversation = next_id ? PersonConversation.find(next_id).conversation : @conversation
+    previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
+    @previous_conversation = previous_id ? PersonConversation.find(previous_id).conversation : @conversation
     @listing = @conversation.listing if @conversation.listing
     @message = Message.new
   end
@@ -48,10 +50,18 @@ class ConversationsController < ApplicationController
       if conversation_ok
         person_conversations << person_conversation
       end  
+    end
+    if is_sent_mail
+      person_conversations.sort! { 
+        |b,a| a.last_sent_at <=> b.last_sent_at
+      }
+    else
+      person_conversations.sort! { 
+        |b,a| a.last_received_at <=> b.last_received_at
+      }
     end    
-    @person_conversations = person_conversations.sort { 
-      |b,a| a.conversation.updated_at <=> b.conversation.updated_at 
-    }.paginate :page => params[:page], :per_page => per_page
+    save_collection_to_session(person_conversations)
+    @person_conversations = person_conversations.paginate :page => params[:page], :per_page => per_page
   end
 
 end

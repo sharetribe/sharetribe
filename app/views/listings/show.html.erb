@@ -3,8 +3,7 @@
     <%= 
       link_to image_tag("/images/arrow_left.png", :border => 0, 
                                                   :alt => t(:previous_listing),
-                                                  :onmouseover => "this.src='/images/arrow_left_hilight.png';",
-                                                  :onmouseout => "this.src='/images/arrow_left.png';"
+                                                  :mouseover => '/images/arrow_left_hilight.png'
                        ), @previous_listing 
     %>
   </div>
@@ -20,9 +19,8 @@
   <div class="arrow_right">
     <%= 
       link_to image_tag("/images/arrow_right.png", :border => 0, 
-                                                  :alt => t(:next_listing),
-                                                  :onmouseover => "this.src='/images/arrow_right_hilight.png';",
-                                                  :onmouseout => "this.src='/images/arrow_right.png';"
+                                                   :alt => t(:next_listing),
+                                                   :mouseover => '/images/arrow_right_hilight.png'
                        ), @next_listing 
     %>
   </div>
