@@ -31,72 +31,76 @@
     </div>
   </div>
   
-  <ul class="profile_info">
-    <li><b><%= t(:otasizzle_username)%>:</b> <%= @person.username(session[:cookie]) %></li>
-    <li><b><%= t(:email)%>:</b></li>
-    <li><b><%= t(:address)%>:</b></li>
-  </ul>
+  <div class="profile_info">
+    <div class="profile_info_field">
+      <div class="profile_info_field_title">
+        <b><%= t(:otasizzle_username)%>:</b> <%= @person.username(session[:cookie]) %>
+      </div>
+    </div>
+    <div class="dashed_line"></div>
+    <div class="profile_info_field">  
+      <div class="profile_info_field_title">  
+        <b><%= t(:email)%>:</b>
+      </div>
+    </div>  
+    <div class="dashed_line"></div>
+     <div class="profile_info_field">  
+      <div class="profile_info_field_title">  
+        <b><%= t(:address)%>:</b>
+      </div>  
+    </div>
+  </div>
   
   <div class="profile_small_header">
     <b><%= t(:items) %></b>
   </div>
   
-  <ul class="profile_info">
+  <div class="profile_info">
     <% if @items.size > 0 %>
-      <% @items.each do |item| %>
-        <li>
-          <%= item.title %>
-          <span class="right">
-            <%= link_to "X", item_path(item), :method => :delete %>
-          </span>
-        </li>
-      <% end %>
+      <%= render :partial => "profile_items", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
     <% else %>
-      <li><b><%= t(:no_items)%></b></li>
+      <div class="profile_info_field"><%= t(:no_items)%></div>
     <% end %>
-  </ul>
+  </div>
+  
+  <% if @person.id == @current_user.id %>
   
   <div class="profile_add_form">
   
   <% form_for :item, :url => items_path do |f| %>
-    <%= f.text_field :title, :size => 25 %> &nbsp;&nbsp;
-    <b><%= t(:price) %>:</b>
-    <%= f.text_field :payment, :size => 5, :value => 0 %> &nbsp;&nbsp;
+    <%= f.text_field :title, :size => 40 %> &nbsp;&nbsp;
     <%= f.hidden_field :owner_id, :value => @current_user.id %>
     <%= submit_tag t(:add_new_item), :onclick => "this.disabled=true,this.form.submit();" %>
   <% end %>
   
   </div>
   
+  <% end %>
+  
   <div class="profile_small_header">
     <b><%= t(:favors_i_can_do) %></b>
   </div>
   
-  <ul class="profile_info">
+  <div class="profile_info">
     <% if @favors.size > 0 %>
-      <% @favors.each do |favor| %>
-        <li>
-          <%= favor.title %>
-          <span class="right">
-            <%= link_to "X", favor_path(favor), :method => :delete %>
-          </span>
-        </li>
-      <% end %>
+      <%= render :partial => "profile_favors", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
     <% else %>
-      <li><%= t(:no_favors)%></li>
+      <div class="profile_info_field"><%= t(:no_favors)%></div>
     <% end %>
-  </ul>
+  </div>
+  
+  <% if @person.id == @current_user.id %>
   
   <div class="profile_add_form">
   
   <% form_for :favor, :url => favors_path do |f| %>
-    <%= f.text_field :title, :size => 25 %> &nbsp;&nbsp;
-    <b><%= t(:price) %>:</b>
-    <%= f.text_field :payment, :size => 5, :value => 0 %> &nbsp;&nbsp;
+    <%= f.text_field :title, :size => 40 %> &nbsp;&nbsp;
     <%= f.hidden_field :owner_id, :value => @current_user.id %>
     <%= submit_tag t(:add_new_favor), :onclick => "this.disabled=true,this.form.submit();" %><br />
   <% end %>
   
   </div>
+
+  <% end %>
 
 </div>

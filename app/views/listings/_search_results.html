@@ -1,5 +1,5 @@
-<div class="search_results_header">
-<div class="search_results_title">
+<div class="browse_listings_header">
+<div class="browse_listings_title">
   <%= t(:search_results) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
 </div>
 <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
@@ -8,7 +8,7 @@
 <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
 <div class="solid_line">
 </div>
-<div id="search_footer_left">
+<div id="browse_listings_footer_left">
   <%= t(:show_listings_on_page) %>:
   <%= create_footer_pagination_links(["10", "30", "50", "all"], "search") %>
 </div>

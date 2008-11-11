@@ -25,67 +25,60 @@
     %>
   </div>
 </div>
+
 <div id="basic_content">
   
-  <div id="listing_contents">
+  <div id="listing_content">
   
-  <%= @listing.content %>
+    <%= @listing.content %>
   
-  <br /><br />
+    <br /><br />
   
-  <div id="listing_author_box">
-  <table class="no_padding">
-    <tr>
-      <td>
+    <div id="listing_author_box">
+      <div id="listing_author_box_image">
         <img src="/images/teemu_t.jpg" alt="<%= @listing.author.name(session[:cookie]) %>" width="50" height="50">
-      </td>
-      <td>
-        <table class="margin">
-          <tr>
-            <td>
-              <b><%= t(:author) %>: </b>
-            </td>
-            <td>
-              <i><%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
-            </td>
-          </tr>
-          <tr>  
-            <td>
-              <b><%= t(:good_thru) %>: &nbsp;
-            </td>
-            <td>
-              </b><%= @listing.good_thru.to_formatted_s(:basic_date_format) %> asti
-            </td>
-          </tr>  
-        </table>    
-      </td>  
-    </tr>
-  </table>
-  </div>
+      </div>
+      <div id="listing_author_box_titles">
+        <div class="listing_author_box_item">
+          <%= t(:author) %>:
+        </div>
+        <div class="listing_author_box_item">
+          <%= t(:good_thru) %>:
+        </div>
+      </div>
+      <div id="listing_author_box_texts">
+        <div class="listing_author_box_item">
+          <%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
+        </div>
+        <div class="listing_author_box_item">
+          <%= t(:until_begin) %> <%= @listing.good_thru.to_formatted_s(:basic_date_format) %> <%= t(:until_end) %>
+        </div>
+      </div>  
+    </div>
   
-  <br />
-  <% if @current_user && @listing.author != @current_user %>
-    <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
-    | 
-    <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
-      <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
-    <% else %>
-      <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
-    <% end %>
-  <% end %>
-  <br /><br />
-  
-  <% if @current_user %>
-  
-  <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
-    <b><%= t(:comment_listing) %> </b><br /><br />
-    <%= f.text_area :content, :size => "48x5" %>
     <br />
-    <%= f.hidden_field :author_id, :value => @current_user.id %>
-    <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
-  <% end %>
   
-  <% end %>
+    <% if @current_user && @listing.author != @current_user %>
+      <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
+        | 
+      <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
+        <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
+      <% else %>
+        <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
+      <% end %>
+    <% end %>
+    
+    <br /><br />
+  
+    <% if @current_user %>
+      <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
+        <b><%= t(:comment_listing) %> </b><br /><br />
+        <%= f.text_area :content, :size => "48x5" %>
+        <br />
+        <%= f.hidden_field :author_id, :value => @current_user.id %>
+        <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
+      <% end %>  
+    <% end %>
   
   </div>
 
