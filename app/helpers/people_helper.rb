@@ -6,7 +6,8 @@ module PeopleHelper
     navi_items[:information] = person_path(person_id)
     navi_items[:friends] = person_friends_path(person_id)
     navi_items[:contacts] = person_contacts_path(person_id)
-    navi_items[:listings] = person_listings_path(person_id) 
+    navi_items[:kassi_events] = "#"
+    navi_items[:listings] = person_listings_path(person_id)
     links = [] 
     navi_items.each do |name, link|
       if name.to_s.eql?(session[:profile_navi])

@@ -134,6 +134,8 @@ I18n.store_translations 'en-US',
 :listing_added => "Listing added",
 :no_listings => "No listings",
 :comment_listing => "Comment listing",
+:until_begin => "Until",
+:until_end => "",
 
 #Listing statuses
 :open => "Open",
@@ -193,6 +195,9 @@ I18n.store_translations 'en-US',
 :favor_removed => "Palvelus poistettu",
 :price => "Price",
 :add_as_friend => "Add as friend",
+:remove => "Remove",
+:item_could_not_be_added => "Item could not be added",
+:favor_could_not_be_added => "Favor could not be added",
 
 #Friend view
 :friends_of_user => "Friends of user",

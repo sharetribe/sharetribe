@@ -1,4 +1,5 @@
 I18n.store_translations 'fi',
+
 #Register
 :new_user => "Luo uusi käyttäjä",
 :username => "Käyttäjänimi",
@@ -135,6 +136,8 @@ I18n.store_translations 'fi',
 :listing_added => "Ilmoitus lisätty",
 :no_listings => "Ei ilmoituksia",
 :comment_listing => "Kommentoi ilmoitusta",
+:until_begin => "",
+:until_end => "asti",
 
 #Listing statuses
 :open => "Avoinna",
@@ -194,6 +197,9 @@ I18n.store_translations 'fi',
 :favor_removed => "Palvelus poistettu",
 :price => "Hinta",
 :add_as_friend => "Lisää kaveriksi",
+:remove => "Poista",
+:item_could_not_be_added => "Tavaraa ei voitu lisätä",
+:favor_could_not_be_added => "Palvelusta ei voitu lisätä",
 
 #Friend view
 :friends_of_user => "Käyttäjän",
