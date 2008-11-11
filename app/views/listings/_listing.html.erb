@@ -11,8 +11,12 @@
 <div class="listed_listing_left">
   <img src="/images/teemu_t.jpg" alt="<%= listing.author_id %>" width="50" height="50">
 </div>
-  
-<div class="listed_listing_center">  
+
+<% if has_image %>  
+  <div class="listed_listing_center_narrow"> 
+<% else %>
+  <div class="listed_listing_center">
+<% end %>   
   <div class="listed_listing_title">
     <% link_target = @person ? person_listing_path(@person, listing) : listing %>
     <% if has_image && listing.title.length > 25 && !listing.title.include?(" ") %>
@@ -33,6 +37,14 @@
     </i>
   </div>    
 </div>
+  
+
+<% if has_image %>
+  <div class="listed_listing_image">  
+    <%= link_to (image_tag "/images/listing_images/#{listing.id}_thumb.png", :alt => listing.title, :border => 0), link_target %>
+  </div>        
+<% end %>
+
   
 <div class="listed_listing_right_titles">
   <div class="listed_listing_right_item">

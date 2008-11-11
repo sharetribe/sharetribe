@@ -10,16 +10,7 @@
  *
  */
 
-/* 
- *	Wraps everything except footer to make sure footer 
- *	stays in the bottom of the page.
- */
-#wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -25px; /* the bottom margin is the negative value of the footer's height */
-}
+/* Rulers */
 
 div.extra_padding {
 	padding: 5px;
@@ -39,10 +30,49 @@ div.solid_line {
 	width: 100%;
 }
 
-
 div.dashed_line {
 	border-top: 1px dashed #000;
 	width: 100%;
+}
+
+
+/* Error messages */
+
+div.announcement {
+	padding: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+div.notification {
+	background: #c0e783;
+}
+
+div.warning {
+	background: #fea04c;
+}
+
+div.error {
+	background: #fe5c58;
+}
+
+#form_error_messages {
+	padding: 5px;
+}
+
+
+/* General layout */
+
+/* 
+ *	Wraps everything except footer to make sure footer 
+ *	stays in the bottom of the page.
+ */
+#wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -25px; /* the bottom margin is the negative value of the footer's height */
 }
 
 #main {
@@ -118,6 +148,9 @@ div.dashed_line {
 	float: right;
 }
 
+
+/* Top navigation */
+
 #top_navi {
 	position: absolute;
 	left: 0px;
@@ -173,6 +206,9 @@ div.dashed_line {
 #top_navi ul#primary a:hover {
 	background: #9aa092;
 }
+
+
+/* Left navigation */
 
 #left_navi {
 	float: left;
@@ -286,6 +322,10 @@ div.link_selected {
 	width: 176px;
 }
 
+
+/* General content part layouting */
+
+/* Used if left navigation is present */
 #contents {
 	float: left;
 	margin-top: 30px;
@@ -294,15 +334,20 @@ div.link_selected {
 	padding-left: 30px;
 }
 
+/* Used when no left navigation is present */
 #contents_full {
 	margin-top: 30px;
 	margin-left: 20px;
 	width: 960px;
 }
 
-#container {
-	clear: both;
+/* Padding for a typical content page */
+#basic_content {
+  padding: 15px 10px;
 }
+
+
+/* Page-specific content part layouting */
 
 #listings_header {
 	width: 100%;
@@ -403,32 +448,6 @@ div.category a span {
 	margin: 20px 5px;
 }
 
-div.announcement {
-	padding: 10px;
-	font-size: 14px;
-	font-weight: bold;
-	margin-bottom: 20px;
-}
-
-div.notification {
-	background: #c0e783;
-}
-
-div.warning {
-	background: #fea04c;
-}
-
-div.error {
-	background: #fe5c58;
-}
-
-#form_error_messages {
-	padding: 5px;
-}
-
-#basic_content {
-  padding: 15px 10px;
-}
 
 #basic_content_no_top_margin {
 	padding: 0px 10px;
@@ -524,9 +543,12 @@ span.right {
 	font-weight: bold;
 }
 
+
+/* Listed listing */
+
 div.listed_listing {
 	width: 731px;
-	overflow: auto;
+	overflow: hidden;
 }
 
 div.listed_listing_left {
@@ -538,7 +560,13 @@ div.listed_listing_left {
 div.listed_listing_center {
 	padding: 10px;
 	float: left;
-	width: 450px;
+	width: 440px;
+}
+
+div.listed_listing_center_narrow {
+	padding: 10px;
+	float: left;
+	width: 320px;	
 }
 
 div.listed_listing_title {
@@ -548,6 +576,12 @@ div.listed_listing_title {
 div.listed_listing_title a {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+div.listed_listing_image {
+	padding: 10px;
+	float: left;
+	width: 100px;
 }
 
 div.listed_listing_right_titles {
@@ -566,6 +600,9 @@ div.listed_listing_right_texts {
 div.listed_listing_right_item {
 	margin-bottom: 3px;
 }
+
+
+/* Footer */
 
 /* 
  * A push of same height than the footer is needed in 
