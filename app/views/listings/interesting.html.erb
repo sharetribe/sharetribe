@@ -7,8 +7,6 @@
   </div>  
 </div>
 
-<div id="container">
-
 <div class="search_results_header">
 <div class="search_results_title">
   <%= t(@title) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
@@ -18,7 +16,7 @@
 
 <% if (@listings.size > 0)%>
   <table class="listing">
-  <%= render :partial => "listings/listing", :collection => @listings %>
+  <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
   </table>
   <div id="search_footer_left">
     <%= t(:show_listings_on_page) %>:

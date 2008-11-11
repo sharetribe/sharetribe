@@ -9,11 +9,9 @@
   </div>  
 </div>
 
-<div id="container">
-
 <% if (@listings.size > 0)%>
   <table class="listing">
-  <%= render :partial => "listings/listing", :collection => @listings %>
+  <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
   </table>
   <div class="links_panel">
     <div class="left_float">
@@ -28,4 +26,3 @@
 <% else %>
   <p><%= t(:no_listings) %></p>
 <% end %>
-</div>

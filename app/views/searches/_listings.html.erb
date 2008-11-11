@@ -6,7 +6,7 @@
   <%= link_to t(:show_all), search_listings_path(:q => params[:qa]) %>
 </div >
 </div>
-<div id="container">
+
 <% if @listings && @listings.size > 0 %>
 <table class="listing"> 
 <%= render :partial => "listings/listing", :collection => @listings %>
@@ -17,4 +17,3 @@
 <% end %>
 <br />
 <br />
-</div>
