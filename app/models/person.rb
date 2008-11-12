@@ -50,6 +50,7 @@ class Person < ActiveRecord::Base
     # create to Common Services
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
+    
     params[:id] = response.body[/"id": "([^"]+)"/, 1]
     #create locally with less attributes
     super(params.except(:username, :email))
@@ -90,6 +91,9 @@ class Person < ActiveRecord::Base
     rescue ActiveResource::UnauthorizedAccess => e
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return "Person not in DB!"
     end
     
     

@@ -43,7 +43,12 @@ class PeopleController < ApplicationController
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
     
-    @person = Person.create(params[:person], session[:cookie])
+    begin
+      @person = Person.create(params[:person], session[:cookie])
+    rescue ActiveResource::BadRequest => e
+      flash[:error] = e.response.body
+      redirect_to new_person_path and return
+    end
     session[:person_id] = @person.id
     redirect_to(root_path) #TODO should redirect to the page where user was
   end

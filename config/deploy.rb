@@ -15,3 +15,13 @@ role :web, "alpha.sizl.org"
 role :db,  "alpha.sizl.org", :primary => true
 
 set :use_sudo, false
+
+
+namespace :deploy do
+  task :symlink_listing_images do
+    run "rm -rf #{release_path}/public/images/listing_images"
+    run "ln -fs #{shared_path}/listing_images/ #{release_path}/public/images/listing_images"  
+  end  
+end
+
+after 'deploy:update_code', 'deploy:symlink_listing_images'

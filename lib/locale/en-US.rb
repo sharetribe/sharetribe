@@ -26,6 +26,7 @@ I18n.store_translations 'en-US',
 #Login notices
 :logout_successful => "Logout successful.",
 :login_successful => "Login successful.",
+:login_failed => "Login failed.",
 
 #Not logged in notices 
 :you_must_login_to_do_this => "This feature is available only to registered users.",

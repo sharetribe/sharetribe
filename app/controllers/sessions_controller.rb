@@ -1,7 +1,12 @@
 class SessionsController < ApplicationController
   def create
-    @session = Session.create({ :username => params[:username], 
+    begin
+      @session = Session.create({ :username => params[:username], 
                                :password => params[:password] })
+    rescue ActiveResource::UnauthorizedAccess => e
+      flash[:error] = :login_failed
+      redirect_to new_session_path and return
+    end
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
  
