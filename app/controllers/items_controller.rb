@@ -3,16 +3,14 @@ class ItemsController < ApplicationController
   before_filter :logged_in, :only => [ :create, :destroy ]
   
   def index
-    save_navi_state(['items','browse_items','',''])
-    @title =  :all_items  
-    @items_all = Item.find :all, :order => 'title ASC'
-    
-    @item_titles = Item.find(:all, :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
-    
+    fetch_items
   end
   
   def show
-    @items = Item.find(:all, :conditions)
+    @title = params[:id]
+    @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
+    fetch_items
+    render :action => :index
   end
   
   def search
@@ -37,6 +35,13 @@ class ItemsController < ApplicationController
     Item.find(params[:id]).destroy
     flash[:notice] = :item_removed
     redirect_to @current_user
+  end
+  
+  private
+  
+  def fetch_items
+    save_navi_state(['items','browse_items','',''])
+    @item_titles = Item.find(:all, :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
   end
   
 end

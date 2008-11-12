@@ -158,6 +158,9 @@ I18n.store_translations 'en-US',
 #Items view
 :search_items_title => "Search items",
 :all_items => "Items to borrow",
+:owner => "owner",
+:owners => "owners",
+:borrow => "Borrow",
 
 #Favors view
 :search_favors_title => "Search favors",

@@ -1,33 +1,19 @@
-<table class='item'>
-	<h3>	
-	<%= link_to item_title, items_path(:item => item_title) %>
-	<%
-	
-	@values = Array.new
-	@owners = Array.new
-	items = Item.find(:all, :conditions => {:title => item_title})
-	
-	items.each do |p|
-		@values << p.payment
-		@owners << p.owner
-	end
-	
-	@values.compact!
-	if(!@values.empty?)
-		@values.sort!%>
-		<%=@values.first%>
-		<%if @values.size > 1 %>
-			-
-			<%=@values.last%>
-		<%end%>
-		<%=t(:coins)%>
-	<%end%>
-	</h3>
-	<% if params[:item] && params[:item].downcase.eql?(item_title.downcase) %>
-	  <%= t(:owners) %>:<br />
-	  <% @owners.each do |owner| %>
-	    <%= link_to owner.name(session[:cookie]), owner %><br />
-	  <% end %>
-	  <br /><br />
-	<% end %>
-</table>
+<% if params[:id] && params[:id].downcase.eql?(item_title.downcase) %>
+  <div class="item_owners">
+    <div class="selected_item_title">
+      <div class="left_float">
+        <b>
+          <%= link_to item_title, items_path %> - 
+          <%= pluralize @items.size, t(:owner), t(:owners) %>
+        </b>
+      </div>
+      <div class="right_float"></div>    
+    </div>  
+    <div class="solid_line"></div>
+    <%= render :partial => "item_owner", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+  </div>
+<% else %>
+  <div class="item_title">
+    <b><%= link_to item_title, item_path(item_title.downcase) %></b>
+  </div>
+<% end %>  

@@ -1,4 +1,4 @@
-<h1><%= t(@title) %></h1>
+<h1><%= t(:all_items) %></h1>
 
 <% @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("") %>
 
@@ -10,30 +10,11 @@
     <% end %>
   </div>
 </div>
-	
-<div id="basic_content">
-	
-<% if (@item_titles.size > 0)
-	i = 0
-	@initial_group = Array.new
-	@letters.each do |letter|
-		@initial_group.clear
-		while @item_titles[i] != nil && @item_titles[i].upcase[0,1].eql?(letter)
-			@initial_group << @item_titles[i]
-			i += 1
-		end	
-		if !@initial_group.empty?
-		%>
-			<table class="item_title">
-			<h2><a name = "<%=letter%>"></a><%=letter.upcase%></h2>
-			<%= render :partial => 'item_title', :collection => @initial_group %>
-			</table>
-	<%	end
-	end%>
 
-
-<% else %>
-  	<h3>Ei yhtään lainattavia tavaroita!</h3>
-<% end %>
-
+<div id="item_content">	
+  <% if @item_titles.size > 0 %>
+    <%= render :partial => "letter", :collection => @letters, :as => :letter %>
+  <% else %>
+  	<h3><%= t(:no_items) %></h3>
+  <% end %>
 </div>
