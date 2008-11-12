@@ -1,0 +1,15 @@
+<div class="listed_object">
+  <div class="listed_object_person_image">
+    <img src="/images/teemu_t.jpg" alt="<%= item.owner.name(session[:cookie]) %>" width="50" height="50">
+  </div>
+  <div class="listed_item_owner_center">
+    <div class="listed_object_title">
+      <%= link_to item.owner.name(session[:cookie]), item.owner %>
+    </div>   
+  </div>
+  <div class="listed_item_owner_right">
+    <div class="listed_item_owner_right_link">
+      <%= link_to t(:borrow) + " " + item.title.downcase, "#" %>
+    </div>
+  </div>
+</div>
