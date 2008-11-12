@@ -26,6 +26,7 @@ I18n.store_translations 'fi',
 #Login notices
 :logout_successful => "Uloskirjautuminen onnistui.",
 :login_successful => "Sisäänkirjautuminen onnistui.",
+:login_failed => "Sisäänkirjautuminen epäonnistui.",
 
 #Not logged in notices 
 :you_must_login_to_do_this => "Haluamasi toiminto on sallittu ainoastaan sisäänkirjautuneille käyttäjille.",
