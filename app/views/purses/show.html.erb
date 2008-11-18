@@ -3,20 +3,23 @@
 <h2> <%=t(:transfer_coins)%></h2>
 	
 <% form_for :transaction, {:url => {:controller => "purses", :action => "create"}} do |f| %>
-	<p><%=f.label :payment_receiver, t(:payment_receiver)%></p>
-	<p><%= f.text_field :user_name, :size => 40 %></p>
+	<p><%=f.label :receiver_username, t(:receiver_username)%></p>
+	<p><%= f.text_field :receiver_username, :size => 40 %></p>
+	
 	<p><%=f.label :amount, t(:amount)%></p>
 	<p><%= f.text_field :amount, :size => 5 %></p>
+	
 	<p><%= f.hidden_field :sender_id, :value => @current_user.id %></p>
-	<p><%=f.label :user_comment, t(:user_comment)%></p>
-	<p><%= f.text_field :comment, :size => 40 %> </p>
+	
+	<p><%=f.label :description, t(:description)%></p>
+	<p><%= f.text_field :description, :size => 40 %> </p>
 	<p><%= submit_tag t(:do_transaction), :onclick => "this.disabled=true,this.form.submit();" %></p>
 <% end %>
 
-<h2><%=t(:done_transactions)%></h2>
+<!-- <h2><%=t(:done_transactions)%></h2>
 <%if(@sent_transactions != nil && @sent_transactions.size > 0)%>
 	<h3> Maksetut killingit </h3>
 	<%= render :partial => 'sent_transaction', :collection => @sent_transactions%>
 	<h3> Saadut killingit </h3>
 	<%= render :partial => 'received_transaction', :collection => @received_transactions%>
-<%end%>
+<%end%> -->

@@ -17,11 +17,11 @@ class PersonTest < ActiveSupport::TestCase
     assert(@test_person.valid?, "Test_person is not valid #{@test_person.errors.full_messages}")
   end
 
-  def test_coin_amount
-    assert_equal(0, @test_person.coin_amount)
-    @test_person.coin_amount = 5
-    assert_equal(5, @test_person.coin_amount)
-  end
+  # def test_coin_amount
+  #   assert_equal(0, @test_person.coin_amount)
+  #   @test_person.coin_amount = 5
+  #   assert_equal(5, @test_person.coin_amount)
+  # end
   
   def test_username
     assert_equal("kassi_testperson1", @test_person.username(@cookie) )

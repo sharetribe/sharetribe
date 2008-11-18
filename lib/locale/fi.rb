@@ -246,7 +246,7 @@ I18n.store_translations 'fi',
 :purse => "Kukkaro",
 :do_transaction => "Maksa",
 :transfer_coins => "Tee killinkisiirtoja",
-:payment_receiver => "Vastaanottaja", 
+:receiver_username => "Vastaanottaja", 
 :amount => "Summa",
 :done_transactions => "Tehdyt killinkisiirrot",
 
