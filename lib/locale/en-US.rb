@@ -244,7 +244,7 @@ I18n.store_translations 'en-US',
 :title => "Purse",
 :do_transaction => "Pay",
 :transfer_coins => "Transfer coins",
-:payment_receiver => "Receiver",
+:receiver_username => "Receiver",
 :amount => "Amount",
 :done_transactions => "Coin transfer history",
 

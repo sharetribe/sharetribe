@@ -7,8 +7,8 @@ class PeopleControllerTest < ActionController::TestCase
     @cookie = @session.cookie
     assert_not_nil( @test_person )
     assert_not_equal(0, @test_person.id)
-    @test_person.coin_amount = 5
-    assert_equal(5, @test_person.coin_amount)
+    # @test_person.coin_amount = 5
+    #    assert_equal(5, @test_person.coin_amount)
     @session.destroy
   end
 
