@@ -90,6 +90,7 @@ class ListingsController < ApplicationController
     @title = :interesting_listings
     save_navi_state(['own', 'interesting_listings'])
     @pagination_type = "interesting_listings"
+    save_collection_to_session(@current_user.interesting_listings)
     @listings = @current_user.interesting_listings.paginate :page => params[:page], 
                                  :per_page => per_page.to_i, 
                                  :order => 'id DESC'

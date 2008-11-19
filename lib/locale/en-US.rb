@@ -202,6 +202,10 @@ I18n.store_translations 'en-US',
 :remove => "Remove",
 :item_could_not_be_added => "Item could not be added",
 :favor_could_not_be_added => "Favor could not be added",
+:borrow_this_item => "Borrow",
+:i_have_borrowed_this_item => "I have borrowed this",
+:item_updated => "Item updated",
+:item_could_not_be_updated => "Item could not be updated",
 
 #Friend view
 :friends_of_user => "Friends of user",
@@ -239,6 +243,7 @@ I18n.store_translations 'en-US',
 :send_message_to_user => "Send message to user",
 :only_listing_author_sees_message => "Only listing author can see the message",
 :message_could_not_be_sent => "Empty message cannot be sent",
+:i_want_to_borrow_this_item => "I want to borrow an item",
 
 #Purses view
 :title => "Purse",

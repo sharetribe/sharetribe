@@ -96,6 +96,14 @@ module ApplicationHelper
     return navi_items 
   end
   
+  def is_current_user?(person)
+    if @current_user
+      return person.id == @current_user.id ? true : false 
+    else
+      return false
+    end    
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages

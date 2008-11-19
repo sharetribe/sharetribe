@@ -204,6 +204,10 @@ I18n.store_translations 'fi',
 :remove => "Poista",
 :item_could_not_be_added => "Tavaraa ei voitu lisätä",
 :favor_could_not_be_added => "Palvelusta ei voitu lisätä",
+:borrow_this_item => "Lainaa",
+:i_have_borrowed_this_item => "Olen lainannut tämän",
+:item_updated => "Tavaraa muokattu",
+:item_could_not_be_updated => "Tavaraa ei voitu muokata",
 
 #Friend view
 :friends_of_user => "Käyttäjän",
@@ -241,6 +245,7 @@ I18n.store_translations 'fi',
 :send_message_to_user => "Lähetä viesti käyttäjälle",
 :only_listing_author_sees_message => "Viesti näytetään ainoastaan ilmoituksen jättäjälle",
 :message_could_not_be_sent => "Tyhjää viestiä ei voi lähettää",
+:i_want_to_borrow_this_item => "Haluan lainata tavaran",
 
 #Purses view
 :purse => "Kukkaro",
