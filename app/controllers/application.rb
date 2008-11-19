@@ -33,12 +33,7 @@ class ApplicationController < ActionController::Base
   end
   
   # Fetch listings based on conditions
-  def fetch_listings(conditions)                                                 
-    # @listings = Listing.paginate :page => params[:page], 
-    #                              :per_page => per_page, 
-    #                              :order => 'id DESC',
-    #                              :select => 'id, created_at, author_id, title, status, times_viewed, category', 
-    #                              :conditions => conditions
+  def fetch_listings(conditions)
     listings = Listing.find(:all, 
                             :order => 'id DESC',
                             :select => 'id, created_at, author_id, title, status, times_viewed, category', 
@@ -54,6 +49,21 @@ class ApplicationController < ActionController::Base
     else  
       params[:per_page] || 10
     end
+  end
+  
+  # Shows the profile page of the user. This method is used in peoplecontroller/show,
+  # itemscontroller/edit and favorscontroller/edit.
+  def show_profile
+    @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
+    @item = Item.new
+    @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
+    @favor = Favor.new
+    if @person.id == @current_user.id
+      save_navi_state(['own', 'profile', '', '', 'information'])
+    else
+      session[:profile_navi] = 'information'
+    end     
+    @title = @person.name(session[:cookie])
   end
   
   private 
@@ -115,6 +125,21 @@ class ApplicationController < ActionController::Base
     session[:ids] = []                             
     collection.each do |collection_item|
       session[:ids] << collection_item.id
+    end
+  end
+  
+  # Saves all collection ids to a session so that they can
+  # be remembered when browsing the collection one by one.
+  def save_message_collection_to_session(collection)
+    session[:ids] = []
+    session[:dates] = {}                             
+    collection.each do |person_conversation|
+      session[:ids] << person_conversation.id
+      if session[:is_sent_mail]
+        session[:dates][person_conversation.id] = person_conversation.last_sent_at
+      else  
+        session[:dates][person_conversation.id] = person_conversation.last_received_at
+      end  
     end
   end
   

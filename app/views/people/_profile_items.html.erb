@@ -1,9 +1,25 @@
 <div class="profile_info_field">
-  <div class="profile_info_field_title">
-    <b><%= item.title %></b>
-  </div>    
-  <div class="profile_info_field_links">
-    <%= link_to t(:edit), "#" %> | 
-    <%= link_to t(:remove), item, :method => :delete %>
-  </div>  
+  <% if @editable_item && @editable_item.id == item.id %>
+    <% form_for @editable_item, :url => person_item_path(@person, @editable_item), :method => :put do |f| %>
+      <div class="profile_info_field_title">
+        <%= f.text_field :title, :size => 46 %>
+      </div>
+      <div class="profile_info_field_links">
+        <%= submit_tag t(:edit), :onclick => "this.disabled=true,this.form.submit();" %>
+      </div>
+    <% end %>
+  <% else %>  
+    <div class="profile_info_field_title">
+      <b><%= item.title %></b>
+    </div>    
+    <div class="profile_info_field_links">
+      <% if is_current_user?(@person) %>
+        <%= link_to t(:edit), edit_person_item_path(@person, item) %> | 
+        <%= link_to t(:remove), item, :method => :delete %>
+      <% else %>
+        <%= link_to t(:borrow_this_item), borrow_person_item_path(@person, item) %> | 
+        <%= link_to t(:i_have_borrowed_this_item), "#" %>
+      <% end %>  
+    </div>
+  <% end %>
 </div>

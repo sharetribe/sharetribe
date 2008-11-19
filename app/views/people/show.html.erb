@@ -27,7 +27,7 @@
       <b><%= t(:information) %></b>
     </div>
     <div class="right_float">
-      <%= link_to t(:edit), "#" %>
+      <%= link_to t(:edit), "#" if is_current_user?(@person) %>
     </div>
   </div>
   
@@ -57,7 +57,7 @@
   
   <div class="profile_info">
     <% if @items.size > 0 %>
-      <%= render :partial => "profile_items", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+      <%= render :partial => "people/profile_items", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
     <% else %>
       <div class="profile_info_field"><%= t(:no_items)%></div>
     <% end %>
@@ -83,7 +83,7 @@
   
   <div class="profile_info">
     <% if @favors.size > 0 %>
-      <%= render :partial => "profile_favors", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
+      <%= render :partial => "people/profile_favors", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
     <% else %>
       <div class="profile_info_field"><%= t(:no_favors)%></div>
     <% end %>
