@@ -1,5 +1,7 @@
 class Favor < ActiveRecord::Base
   belongs_to :person
+  has_many :kassi_events, :as => :eventable
+  
   validates_presence_of :owner_id, :title
   
   validates_length_of :title, :within => 2..70 

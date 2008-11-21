@@ -16,6 +16,8 @@ class Listing < ActiveRecord::Base
   has_many :person_interesting_listings
   has_many :interested_people, :through => :person_interesting_listings, :source => :person
   
+  has_many :kassi_events, :as => :eventable
+  
   serialize :language, Array
   
   attr_accessor :language_fi, :language_en, :language_swe

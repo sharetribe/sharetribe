@@ -22,6 +22,8 @@ class Person < ActiveRecord::Base
   has_many :person_conversations
   has_many :conversations, :through => :person_conversations, :source => :conversation
   
+  has_and_belongs_to_many :kassi_events
+  
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 
   class PersonConnection < ActiveResource::Base
