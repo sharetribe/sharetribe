@@ -7,7 +7,13 @@ class MessagesController < ApplicationController
     if params[:message][:cancel]
       if params[:message][:listing_id]     
         redirect_to listing_path(params[:message][:listing_id])
-      else
+      elsif params[:message][:item_id]
+        if session[:previous_page]
+          redirect_to session[:previous_page]
+        else  
+          redirect_to person_path(params[:message][:receiver_id]) 
+        end  
+      else  
         redirect_to person_path(params[:message][:receiver_id])  
       end
     else    
@@ -56,7 +62,11 @@ class MessagesController < ApplicationController
         elsif params[:message][:listing_id]     
           redirect_to listing_path(listing)
         else
-          redirect_to person_path(params[:message][:receiver_id])  
+          if session[:previous_page]
+            redirect_to session[:previous_page]
+          else  
+            redirect_to person_path(params[:message][:receiver_id]) 
+          end  
         end  
       else
         flash[:error] = :message_could_not_be_sent

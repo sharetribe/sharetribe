@@ -2,10 +2,11 @@
   <% if @editable_item && @editable_item.id == item.id %>
     <% form_for @editable_item, :url => person_item_path(@person, @editable_item), :method => :put do |f| %>
       <div class="profile_info_field_title">
-        <%= f.text_field :title, :size => 46 %>
+        <%= f.text_field :title, :size => 37 %>
       </div>
       <div class="profile_info_field_links">
-        <%= submit_tag t(:edit), :onclick => "this.disabled=true,this.form.submit();" %>
+        <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        <%= submit_tag t(:cancel), :name => "item[cancel]" %>
       </div>
     <% end %>
   <% else %>  

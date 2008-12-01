@@ -1,31 +1,18 @@
-<h1><%= t(@title) %></h1>
+<h1><%= t(:offered_favors) %></h1>
 
-<%@letters = "abcdefghijklmnopqrstuvxyzåäö".split("")
-  @letters.each do |letter|%>
-	<a href = "#<%=letter%>"><%=letter%> </a>
-  <%end%> 
-	
-<% if (@favor_titles.size > 0)
-	i = 0
-	@initial_group = Array.new
-	@letters.each do |letter|
-		@initial_group.clear
-		while @favor_titles[i] != nil && @favor_titles[i].downcase[0,1].eql?(letter)
-			@initial_group << @favor_titles[i]
-			i += 1
-		end	
-		if !@initial_group.empty?
-		%>
-			<table class="favor_title">
-			<h2><a name = "<%=letter%>"><%=letter.upcase%></a></h2>
-			<%= render :partial => 'favor_title', :collection => @initial_group %>
-			</table>
-  
-	<%	end
-	end%>
+<div class="links_panel">
+  <div class="left_float">
+    <% @letters.each do |letter| %>
+  	 <b><%= link_to letter, "##{letter}" %></b>
+  	 <%= " | " unless letter.equal?(@letters[-1]) %>
+    <% end %>
+  </div>
+</div>
 
-
-<% else %>
-  	<h3>Ei yhtään palveluksia!
-<% end %>
+<div id="item_content">	
+  <% if @favor_titles.size > 0 %>
+    <%= render :partial => "letter", :collection => @letters, :as => :letter %>
+  <% else %>
+  	<h3><%= t(:no_favors) %></h3>
+  <% end %>
 </div>

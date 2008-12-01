@@ -6,8 +6,7 @@
     </div>
     <div class="right_float">
       <% unless @person.id == @current_user.id %>
-        <%= link_to t(:send_message_to_user), send_message_person_path(@person) %> |
-        <%= link_to t(:add_as_friend), "#" %>
+        <%= link_to t(:send_message_to_user), send_message_person_path(@person) %>
       <% end %>  
     </div>  
   </div>
@@ -52,7 +51,7 @@
   </div>
   
   <div class="profile_small_header">
-    <b><%= t(:items) %></b>
+    <b><%= t(:items_i_can_lend) %></b>
   </div>
   
   <div class="profile_info">

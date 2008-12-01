@@ -1,22 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-valid_title:
+one:
   owner_id: dMF4WsJ7Kr3BN6ab9B7ckF
   title: vasara
-  
-too_short_title:
-  owner_id: antti 
-  title: p
-
-too_long_title:
-  owner_id: ville 
-  title: aivan_järjettömän_liian_pitkä_nimi_ollakseen_tavara
-  
-no_title:
-    owner_id: juho
-    
-no_owner_id:
-    title: säkki
     
   
   

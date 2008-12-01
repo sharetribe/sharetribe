@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
   end
   
   # Fetch listings based on conditions
-  def fetch_listings(conditions)
+  def fetch_listings(conditions, order = 'id DESC')
     listings = Listing.find(:all, 
-                            :order => 'id DESC',
+                            :order => order,
                             :select => 'id, created_at, author_id, title, status, times_viewed, category', 
                             :conditions => conditions)
     save_collection_to_session(listings)                      

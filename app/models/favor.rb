@@ -1,5 +1,6 @@
 class Favor < ActiveRecord::Base
-  belongs_to :person
+  belongs_to :owner, :class_name => "Person", :foreign_key => "owner_id"
+  
   has_many :kassi_events, :as => :eventable
   
   validates_presence_of :owner_id, :title

@@ -9,7 +9,7 @@
   </div>
   <div class="listed_item_owner_right">
     <div class="listed_item_owner_right_link">
-      <%= link_to t(:borrow) + " " + item.title.downcase, "#" %>
+      <%= link_to t(:borrow) + " " + item.title.downcase, borrow_person_item_path(item.owner, item) unless is_current_user?(item.owner) %>
     </div>
   </div>
 </div>

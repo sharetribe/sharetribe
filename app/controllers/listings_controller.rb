@@ -1,9 +1,8 @@
 class ListingsController < ApplicationController
 
-  before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply ]
+  before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
 
   def index
-    conditions = ''
     if params[:person_id]
       @pagination_type = "person_listings" 
       @person = Person.find(params[:person_id])
@@ -14,19 +13,21 @@ class ListingsController < ApplicationController
       else
         session[:profile_navi] = 'listings'
       end
-      fetch_listings(conditions)
+      fetch_listings(conditions, "status DESC, id DESC")
       render :template => "listings/own"
     else
       @pagination_type = "category"
       @title = :all_categories
       save_navi_state(['listings', 'browse_listings', 'all_categories'])
-      fetch_listings(conditions)
+      fetch_listings("status = 'open'")
     end    
   end
 
   def show
     @listing = Listing.find(params[:id])
-    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
+    unless @current_user && @listing.author.id == @current_user.id
+      @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
+    end  
     next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
     @next_listing = next_id ? Listing.find(next_id) : @listing
     previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
@@ -112,6 +113,10 @@ class ListingsController < ApplicationController
   def reply
     @listing = Listing.find(params[:id])
     @message = Message.new
+  end
+  
+  def close
+
   end
 
 end

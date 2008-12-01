@@ -1,0 +1,13 @@
+<% letter_favors = [] %>
+<% @favor_titles.each do |title| %>
+  <% if title && title.upcase[0,1].eql?(letter) %>
+    <% letter_favors << title %>
+  <% end %>
+<% end %>
+<% if letter_favors.size > 0 %>
+	<div class="letter_header">
+	  <a name = "<%=letter%>"></a>
+	  <%= letter.upcase %>
+	</div>  
+	<%= render :partial => 'favor_title', :collection => letter_favors, :as => "favor_title" %>
+<% end %>

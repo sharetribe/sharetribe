@@ -82,16 +82,20 @@ class Test::Unit::TestCase
     assert_equal flash[:warning], :you_must_login_to_do_this
   end
   
-  def get_logged_in(action, parameters = nil)
-    current_user, session = get_test_person_and_session
-    get action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
-    session.destroy
-  end
-  
-  def post_with_author(action, parameters = nil, parameter_type = :listing, author_type = :author_id)
+  def submit_with_person(action, parameters = nil, parameter_type = :listing, person_type = :author_id, method = :post)
     current_user, session = get_test_person_and_session("kassi_testperson1")
-    parameters[parameter_type].merge!({author_type => current_user.id })
-    post action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
+    case (method)
+    when :post
+      parameters[parameter_type].merge!({person_type => current_user.id })
+      post action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
+    when :put
+      parameters[parameter_type].merge!({person_type => current_user.id })
+      put action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
+    when :get
+      get action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
+    when :delete
+      delete action, parameters, {:person_id => current_user.id, :cookie => session.cookie}    
+    end  
     session.destroy
   end
       

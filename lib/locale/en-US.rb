@@ -11,7 +11,14 @@ I18n.store_translations 'en-US',
 :all => "All",
 :back_to_previous_page => "Back to previous page",
 :cancel => "Cancel",
-:edit => "Muokkaa",
+:edit => "Edit",
+:remove => "Remove",
+:save => "Save",
+
+#Languages
+:fi => "Finnish",
+:en => "English",
+:swe => "Swedish",
 
 #Login form
 :logged_in => "You're logged in as ",
@@ -137,6 +144,9 @@ I18n.store_translations 'en-US',
 :comment_listing => "Comment listing",
 :until_begin => "Until",
 :until_end => "",
+:own_listing => "Own listing",
+:created => "created",
+:close_listing => "Close listing",
 
 #Listing statuses
 :open => "Open",
@@ -157,14 +167,19 @@ I18n.store_translations 'en-US',
 
 #Items view
 :search_items_title => "Search items",
-:all_items => "Items to borrow",
+:items_to_borrow => "Items to borrow",
 :owner => "owner",
-:owners => "owners",
+:owner_partitive => "owners",
 :borrow => "Borrow",
+:i_want_to_borrow_this_item => "I want to borrow an item",
 
 #Favors view
 :search_favors_title => "Search favors",
-:all_favors => "Favors",
+:offered_favors => "Offered favors",
+:offerer => "offerer",
+:offerer_partitive => "offerers",
+:ask_for_favor => "Ask for favor",
+:i_want_to_ask_for_this_favor => "Asking_for_a_favor",
 
 #Search view
 :show_all => "Show all",
@@ -188,24 +203,31 @@ I18n.store_translations 'en-US',
 :information => "Information",
 :otasizzle_username => "OtaSizzle username",
 :address => "Address",
-:favors_i_can_do => "Favors I can do",
+:add_as_friend => "Add as friend",
+
+#Profile items
+:items_i_can_lend => "Items I can lend",
 :no_items => "No items",
-:no_favors => "No favors",
 :add_new_item => "Add new item",
 :item_added => "Item added",
 :item_removed => "Item removed",
+:item_could_not_be_added => "Item could not be added",
+:borrow_this_item => "Borrow",
+:i_have_borrowed_this_item => "Thank for lending",
+:item_updated => "Changes saved",
+:item_could_not_be_updated => "Changes could not be saved",
+
+#Profile favors
+:favors_i_can_do => "Favors I can do",
+:no_favors => "No favors",
 :add_new_favor => "Add new favor",
 :favor_added => "Favor added",
-:favor_removed => "Palvelus poistettu",
-:price => "Price",
-:add_as_friend => "Add as friend",
-:remove => "Remove",
-:item_could_not_be_added => "Item could not be added",
+:favor_removed => "Favor removed",
 :favor_could_not_be_added => "Favor could not be added",
-:borrow_this_item => "Borrow",
-:i_have_borrowed_this_item => "I have borrowed this",
-:item_updated => "Item updated",
-:item_could_not_be_updated => "Item could not be updated",
+:favor_updated => "Changes saved",
+:favor_could_not_be_updated => "Changes could not be saved",
+:ask_for_this_favor => "Ask for",
+:i_have_received_this_favor => "Thank for",
 
 #Friend view
 :friends_of_user => "Friends of user",
@@ -243,10 +265,10 @@ I18n.store_translations 'en-US',
 :send_message_to_user => "Send message to user",
 :only_listing_author_sees_message => "Only listing author can see the message",
 :message_could_not_be_sent => "Empty message cannot be sent",
-:i_want_to_borrow_this_item => "I want to borrow an item",
+:from_user => "from user",
 
 #Purses view
-:title => "Purse",
+:purse_title => "Purse",
 :do_transaction => "Pay",
 :transfer_coins => "Transfer coins",
 :receiver_username => "Receiver",
@@ -277,4 +299,4 @@ I18n.store_translations 'en-US',
 :help => "Help",
 :terms => "Terms",
 :forum => "Forum",
-:kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='www.sizl.org'>OtaSizzle</a> services."
+:kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle</a> services."

@@ -12,14 +12,14 @@ class Admin::FeedbacksControllerTest < ActionController::TestCase
   end
   
   def test_show_index
-    get_logged_in :index
+    submit_with_person :index, {}, nil, nil, :get
     assert_response :success
     assert_template 'index'
     assert_not_nil assigns(:feedbacks)
   end
 
   def test_add_feedback
-    post_with_author :create, { :feedback => {
+    submit_with_person :create, { :feedback => {
       :content => "Testisisältö",
       :url => "/listings"
     }}, :feedback
