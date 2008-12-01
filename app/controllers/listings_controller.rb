@@ -27,11 +27,15 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     unless @current_user && @listing.author.id == @current_user.id
       @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
+    end
+    if params[:cl]
+      @previous_listing = @next_listing = @listing
+    else   
+      next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
+      @next_listing = next_id ? Listing.find(next_id) : @listing
+      previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
+      @previous_listing = previous_id ? Listing.find(previous_id) : @listing
     end  
-    next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
-    @next_listing = next_id ? Listing.find(next_id) : @listing
-    previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
-    @previous_listing = previous_id ? Listing.find(previous_id) : @listing
   end
 
   def search
@@ -45,7 +49,7 @@ class ListingsController < ApplicationController
         query = params[:q]
         begin
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-          conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
+          conditions = params[:only_open] ? ["status = 'open'"] : [""]
           listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
           save_collection_to_session(listings)
           @listings = listings.paginate :page => params[:page], :per_page => per_page
@@ -116,7 +120,23 @@ class ListingsController < ApplicationController
   end
   
   def close
-
+    @listing = Listing.find(params[:id])
+    @person = Person.find(params[:person_id])
+    @kassi_event = KassiEvent.new
+    if params[:rid]
+      @kassi_event.realizer_id = params[:rid]
+    end
+    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
+  end
+  
+  def mark_as_closed
+    @listing = Listing.find(params[:id])
+    @listing.update_attribute(:status, "closed")
+    if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
+      create_kassi_event(@listing.category)
+    end
+    flash[:notice] = :listing_closed    
+    redirect_to person_listings_path(@current_user)
   end
 
 end

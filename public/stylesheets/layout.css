@@ -511,8 +511,8 @@ div.listing_author_box_item {
 
 #title_with_border {
 	border-bottom: 1px solid #000;
-	height: 25px;
 	width: 100%;
+	overflow: hidden;
 }
 
 #title_with_border_taller {

@@ -147,6 +147,9 @@ I18n.store_translations 'en-US',
 :own_listing => "Own listing",
 :created => "created",
 :close_listing => "Close listing",
+:listing_realizer => "Realizer",
+:no_realizer => "No realizer",
+:listing_closed => "Listing closed",
 
 #Listing statuses
 :open => "Open",

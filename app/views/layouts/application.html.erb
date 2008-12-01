@@ -37,7 +37,7 @@
           <div id="search_and_navi_container">
             <div id="searchbar">
               <% form_tag({ :controller => "search", :action => "index" }, :method => "get") do %>              
-                <%= t(:search_kassi) %>&nbsp;
+                <b><%= t(:search_kassi) %></b>&nbsp;
                 <%= text_field_tag "qa", params[:qa], :size => 30 %>&nbsp;&nbsp;
                 <%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %>
               <% end %>  
