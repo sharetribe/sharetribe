@@ -5,7 +5,7 @@ class ListingCommentsControllerTest < ActionController::TestCase
   def test_accept_comment
     listing = listings(:another_valid_listing)
     assert listing.comments.empty?
-    post_with_author :create, { 
+    submit_with_person :create, { 
       :listing_id => listing.id, 
       :listing_comment => { 
         :content => "Testikommentti" 

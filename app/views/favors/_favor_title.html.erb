@@ -1,10 +1,19 @@
-<table class='favor'>
-	<h3>	
-	<%= link_to(favor_title) %>
-	
-	<%if(Favor.find_by_title(favor_title).payment != nil)%>
-		<%= Favor.find_by_title(favor_title).payment%>
-		<%=t(:coins)%>
-	<%end%>
-	</h3>
-</table>
+<% if params[:id] && params[:id].downcase.eql?(favor_title.downcase) %>
+  <div class="item_owners">
+    <div class="selected_item_title">
+      <div class="left_float">
+        <b>
+          <%= link_to favor_title, favors_path %> - 
+          <%= pluralize @favors.size, t(:offerer), t(:offerer_partitive) %>
+        </b>
+      </div>
+      <div class="right_float"></div>    
+    </div>  
+    <div class="solid_line"></div>
+    <%= render :partial => "favor_offerer", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
+  </div>
+<% else %>
+  <div class="item_title">
+    <b><%= link_to favor_title, favor_path(favor_title.downcase) %></b>
+  </div>
+<% end %>

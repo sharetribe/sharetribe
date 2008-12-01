@@ -42,7 +42,7 @@ class ListingsControllerTest < ActionController::TestCase
     assert_redirect_when_not_logged_in
     
     # When logged in
-    get_logged_in :new
+    submit_with_person :new, {}, nil, nil, :get
     assert_response :success
     assert_template 'new'  
     assert_not_nil assigns(:listing)
@@ -52,7 +52,7 @@ class ListingsControllerTest < ActionController::TestCase
     image = uploaded_file("Bison_skull_pile.png", "image/png")
     @listing_params[:listing].merge!(:image_file => image)
     
-    post_with_author :create, @listing_params
+    submit_with_person :create, @listing_params
     assert_response :found, @response.body
     assert_redirected_to listing_path(assigns(:listing))
     id = assigns(:listing).id
@@ -63,14 +63,14 @@ class ListingsControllerTest < ActionController::TestCase
     
     # Delete just created listing
     test_person2, session2 = get_test_person_and_session #new session for same user 
-    post :destroy, {:id => id}, {:cookie => session2.cookie}
+    delete :destroy, {:id => id}, {:cookie => session2.cookie}
     # Image file must be deleted if listing is deleted
     assert !File.exists?("tmp/test_images/" + id.to_s + ".png")
     session2.destroy
   end
   
   def test_add_invalid_listing
-    post_with_author :create, :listing => {
+    submit_with_person :create, :listing => {
     }
     assert assigns(:listing).errors.on(:category)
     assert assigns(:listing).errors.on(:title)
@@ -84,7 +84,7 @@ class ListingsControllerTest < ActionController::TestCase
     image = uploaded_file("i_am_not_image.txt", "text/plain")
     @listing_params[:listing].merge!(:image_file => image)
     
-    post_with_author :create, @listing_params
+    submit_with_person :create, @listing_params
     assert assigns(:listing).errors.on(:image_file)
   end
   

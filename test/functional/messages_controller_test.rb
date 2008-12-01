@@ -8,7 +8,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
   
   def test_create_new_listing_based_conversation
-    post_with_author :create, { :message => {
+    submit_with_person :create, { :message => {
       :receiver_id => people(:two).id,
       :listing_id => listings(:third_valid_listing).id,
       :title => "RE: " + listings(:third_valid_listing).title,
@@ -26,7 +26,7 @@ class MessagesControllerTest < ActionController::TestCase
   end
   
   def test_create_new_free_conversation
-    post_with_author :create, { :message => {
+    submit_with_person :create, { :message => {
       :receiver_id => people(:two).id,
       :title => "test title",
       :content => "test content"
@@ -44,7 +44,7 @@ class MessagesControllerTest < ActionController::TestCase
   
   def test_post_to_existing_conversation
     conversation = conversations(:one)
-    post_with_author :create, { :message => {
+    submit_with_person :create, { :message => {
       :current_conversation => conversation.id,
       :content => "test reply"
     }}, :message, :sender_id
@@ -59,7 +59,7 @@ class MessagesControllerTest < ActionController::TestCase
   
   # TODO: This can be done after redirect_to :back can be tested
   # def test_create_invalid_message
-  #   post_with_author :create, { :message => {} }, :message, :sender_id
+  #   submit_with_person :create, { :message => {} }, :message, :sender_id
   #   assert assigns(:listing).errors.on(:content)
   # end
   

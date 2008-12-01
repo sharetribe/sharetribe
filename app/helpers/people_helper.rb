@@ -4,8 +4,8 @@ module PeopleHelper
   def get_profile_navi_items(person_id)
     navi_items = ActiveSupport::OrderedHash.new
     navi_items[:information] = person_path(person_id)
-    navi_items[:friends] = person_friends_path(person_id)
-    navi_items[:contacts] = person_contacts_path(person_id)
+    #navi_items[:friends] = person_friends_path(person_id)
+    #navi_items[:contacts] = person_contacts_path(person_id)
     navi_items[:kassi_events] = "#"
     navi_items[:listings] = person_listings_path(person_id)
     links = [] 

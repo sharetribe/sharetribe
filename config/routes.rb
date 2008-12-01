@@ -54,11 +54,14 @@ ActionController::Routing::Routes.draw do |map|
       inbox.resources :messages, :path_prefix => '/people/:id/inbox'
     end
     person.resources :items, :member => { :borrow => :get }
+    person.resources :favors, :member => { :ask_for => :get }
     person.resource :purse
     person.resource :settings
     person.resources :friends
     person.resources :contacts
-    person.resources :listings, :collection => { :interesting => :get }
+    person.resources :listings, 
+                     :member => { :close => :get, :mark_as_closed => :put }, 
+                     :collection => { :interesting => :get }
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search

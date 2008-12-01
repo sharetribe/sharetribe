@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    session[:previous_page] = request.request_uri
     @title = params[:id]
     @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
     fetch_items
@@ -22,6 +23,9 @@ class ItemsController < ApplicationController
   
   def update
     @person = Person.find(params[:person_id])
+    if params[:item][:cancel]
+      redirect_to person_path(@person) and return
+    end  
     @item = Item.find(params[:id])
     if @item.update_attribute(:title, params[:item][:title])
       flash[:notice] = :item_updated

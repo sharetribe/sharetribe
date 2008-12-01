@@ -45,10 +45,9 @@ module ApplicationHelper
       navi_items[:home] = home_person_path(@current_user)
       navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
-      navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
-      navi_items[:kassi_events] = "#"
-      navi_items[:purse] = person_purse_path(@current_user)
-      navi_items[:settings] = person_settings_path(@current_user)
+      #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
+      #navi_items[:purse] = person_purse_path(@current_user)
+      #navi_items[:settings] = person_settings_path(@current_user)
     when 'listings'
       navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = search_listings_path
@@ -61,7 +60,7 @@ module ApplicationHelper
       navi_items[:search_favors] = search_favors_path
     when 'people'
       navi_items[:browse_people] = people_path
-      navi_items[:search_people] = search_people_path      
+      #navi_items[:search_people] = search_people_path      
     else
       session[:left_navi] = false  
     end  

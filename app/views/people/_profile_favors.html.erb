@@ -1,9 +1,26 @@
 <div class="profile_info_field">
-  <div class="profile_info_field_title">
-    <b><%= favor.title %></b>
-  </div>    
-  <div class="profile_info_field_links">
-    <%= link_to t(:edit), "#" %> | 
-    <%= link_to t(:remove), favor, :method => :delete %>
-  </div>  
+  <% if @editable_favor && @editable_favor.id == favor.id %>
+    <% form_for @editable_favor, :url => person_favor_path(@person, @editable_favor), :method => :put do |f| %>
+      <div class="profile_info_field_title">
+        <%= f.text_field :title, :size => 37 %>
+      </div>
+      <div class="profile_info_field_links">
+        <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        <%= submit_tag t(:cancel), :name => "favor[cancel]" %>
+      </div>
+    <% end %>
+  <% else %>  
+    <div class="profile_info_field_title">
+      <b><%= favor.title %></b>
+    </div>    
+    <div class="profile_info_field_links">
+      <% if is_current_user?(@person) %>
+        <%= link_to t(:edit), edit_person_favor_path(@person, favor) %> | 
+        <%= link_to t(:remove), favor, :method => :delete %>
+      <% else %>
+        <%= link_to t(:ask_for_this_favor), ask_for_person_favor_path(@person, favor) %> | 
+        <%= link_to t(:i_have_received_this_favor), "#" %>
+      <% end %>  
+    </div>
+  <% end %>
 </div>

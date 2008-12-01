@@ -12,6 +12,13 @@ I18n.store_translations 'fi',
 :back_to_previous_page => "Takaisin edelliseen näkymään",
 :cancel => "Peruuta",
 :edit => "Muokkaa",
+:remove => "Poista",
+:save => "Tallenna",
+
+#Languages
+:fi => "Suomi",
+:en => "Englanti",
+:swe => "Ruotsi",
 
 #Login form
 :logged_in => "Olet kirjautuneena sisään käyttäjänä",
@@ -139,6 +146,9 @@ I18n.store_translations 'fi',
 :comment_listing => "Kommentoi ilmoitusta",
 :until_begin => "",
 :until_end => "asti",
+:own_listing => "Oma ilmoitus",
+:created => "jätetty",
+:close_listing => "Sulje ilmoitus",
 
 #Listing statuses
 :open => "Avoinna",
@@ -159,14 +169,19 @@ I18n.store_translations 'fi',
 
 #Items view
 :search_items_title => "Etsi tavaroita",
-:all_items => "Lainattavat tavarat",
+:items_to_borrow => "Lainattavat tavarat",
 :owner => "omistaja",
-:owners => "omistajaa",
+:owner_partitive => "omistajaa",
 :borrow => "Lainaa",
+:i_want_to_borrow_this_item => "Haluan lainata tavaran",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
-:all_favors => "Palvelukset",
+:offered_favors => "Tarjotut palvelukset",
+:offerer => "tarjoaja",
+:offerer_partitive => "tarjoajaa",
+:ask_for_favor => "Pyydä palvelusta",
+:i_want_to_ask_for_this_favor => "Pyydän palvelusta",
 
 #Search view
 :show_all => "Näytä kaikki",
@@ -190,24 +205,31 @@ I18n.store_translations 'fi',
 :information => "Tiedot",
 :otasizzle_username => "OtaSizzle-käyttäjätunnus",
 :address => "Osoite",
-:favors_i_can_do => "Palvelukset joita voin tehdä",
+:add_as_friend => "Lisää kaveriksi",
+
+#Profile items
 :no_items => "Ei tavaroita",
-:no_favors => "Ei palveluksia",
+:items_i_can_lend => "Tavarat jotka voin lainata",
 :add_new_item => "Lisää tavara",
 :item_added => "Tavara lisätty",
 :item_removed => "Tavara poistettu",
+:borrow_this_item => "Lainaa",
+:i_have_borrowed_this_item => "Kiitä lainasta",
+:item_updated => "Muutokset tallennettu",
+:item_could_not_be_updated => "Muutoksia ei voitu tallentaa",
+:item_could_not_be_added => "Tavaraa ei voitu lisätä",
+
+#Profile favors
 :add_new_favor => "Lisää palvelus",
 :favor_added => "Palvelus lisätty",
 :favor_removed => "Palvelus poistettu",
-:price => "Hinta",
-:add_as_friend => "Lisää kaveriksi",
-:remove => "Poista",
-:item_could_not_be_added => "Tavaraa ei voitu lisätä",
 :favor_could_not_be_added => "Palvelusta ei voitu lisätä",
-:borrow_this_item => "Lainaa",
-:i_have_borrowed_this_item => "Olen lainannut tämän",
-:item_updated => "Tavaraa muokattu",
-:item_could_not_be_updated => "Tavaraa ei voitu muokata",
+:favor_updated => "Muutokset tallennettu",
+:favor_could_not_be_updated => "Muutoksia ei voitu tallentaa",
+:favors_i_can_do => "Palvelukset joita voin tehdä",
+:no_favors => "Ei palveluksia",
+:ask_for_this_favor => "Pyydä",
+:i_have_received_this_favor => "Kiitä palveluksesta",
 
 #Friend view
 :friends_of_user => "Käyttäjän",
@@ -245,7 +267,7 @@ I18n.store_translations 'fi',
 :send_message_to_user => "Lähetä viesti käyttäjälle",
 :only_listing_author_sees_message => "Viesti näytetään ainoastaan ilmoituksen jättäjälle",
 :message_could_not_be_sent => "Tyhjää viestiä ei voi lähettää",
-:i_want_to_borrow_this_item => "Haluan lainata tavaran",
+:from_user => "käyttäjältä",
 
 #Purses view
 :purse => "Kukkaro",
@@ -279,4 +301,4 @@ I18n.store_translations 'fi',
 :help => "Ohjeet",
 :terms => "Käyttöehdot",
 :forum => "Foorumi",
-:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='www.sizl.org'>OtaSizzlen</a> palveluista."
+:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista."

@@ -1,0 +1,15 @@
+<div class="listed_object">
+  <div class="listed_object_person_image">
+    <img src="/images/teemu_t.jpg" alt="<%= favor.owner.name(session[:cookie]) %>" width="50" height="50">
+  </div>
+  <div class="listed_item_owner_center">
+    <div class="listed_object_title">
+      <%= link_to favor.owner.name(session[:cookie]), favor.owner %>
+    </div>   
+  </div>
+  <div class="listed_item_owner_right">
+    <div class="listed_item_owner_right_link">
+      <%= link_to t(:ask_for_favor) + " " + favor.title.downcase, ask_for_person_favor_path(favor.owner, favor) unless is_current_user?(favor.owner) %>
+    </div>
+  </div>
+</div>
