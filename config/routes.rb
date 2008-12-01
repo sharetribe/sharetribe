@@ -59,8 +59,9 @@ ActionController::Routing::Routes.draw do |map|
     person.resource :settings
     person.resources :friends
     person.resources :contacts
+    person.resources :kassi_events
     person.resources :listings, 
-                     :member => { :close => :get, :mark_as_closed => :put }, 
+                     :member => { :close => :get, :mark_as_closed => :post }, 
                      :collection => { :interesting => :get }
   end  
   map.resources :items, :collection => { :search => :get }

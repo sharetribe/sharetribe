@@ -143,4 +143,18 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # Creates a new Kassi event based on event type.
+  def create_kassi_event(category = nil)
+    @kassi_event = KassiEvent.new(params[:kassi_event])
+    if @kassi_event.save
+      @kassi_event.people << Person.find(params[:kassi_event][:realizer_id])
+      @kassi_event.people << Person.find(params[:kassi_event][:receiver_id])
+      if category && !["borrow_items", "favors"].include?(category)
+        @kassi_event.realizer = nil
+        @kassi_event.receiver = nil
+        @kassi_event.save
+      end
+    end
+  end
+  
 end

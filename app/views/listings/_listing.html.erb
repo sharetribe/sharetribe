@@ -31,8 +31,10 @@
   </div>
   <div class="listed_listing_author">
     <% if is_current_user?(listing.author) %>
-      <%= t(:own_listing)%>, <%= t(:created) %> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> | 
-      <b><%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %></b>
+      <%= t(:own_listing)%>, <%= t(:created) %> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> 
+      <% unless listing.status.eql?("closed") %>
+        | <b><%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %></b>
+      <% end %>  
     <% else %>
       <i>
         <%= t(:listing_created_by) %> 

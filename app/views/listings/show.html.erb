@@ -1,19 +1,24 @@
+<% cl = params[:cl] ? "?cl=" : "dsf"  %>
+
 <div id="title_with_border">
   <div class="arrow_left">
     <%= 
       link_to image_tag("/images/arrow_left.png", :border => 0, 
                                                   :alt => t(:previous_listing),
                                                   :mouseover => '/images/arrow_left_hilight.png'
-                       ), @previous_listing 
+                       ), listing_path(@previous_listing) + cl
     %>
   </div>
   <div id="title_div">
     <h1 class="no_border">
-      <% if (@listing.title.length > 38 && !@listing.title.include?(" "))%>
-        <%= @listing.title.slice!(0..38) + "..." %>
+      <% if (@listing.title.length > 35 && !@listing.title.include?(" "))%>
+        <%= @listing.title.slice!(0..35) + "..." %>
       <% else %>
-        <%= @listing.title %>
+        <%= @listing.title %> 
       <% end %>
+      <% if @current_user && @listing.author != @current_user %>
+        | <%= link_to t(:reply).downcase, reply_listing_path(@listing) %>
+      <% end %>  
     </h1>
   </div>
   <div class="arrow_right">
@@ -21,7 +26,7 @@
       link_to image_tag("/images/arrow_right.png", :border => 0, 
                                                    :alt => t(:next_listing),
                                                    :mouseover => '/images/arrow_right_hilight.png'
-                       ), @next_listing 
+                       ), listing_path(@next_listing) + cl
     %>
   </div>
 </div>
@@ -59,13 +64,13 @@
     <br />
   
     <% if @current_user && @listing.author != @current_user %>
-      <%= link_to(t(:reply), reply_listing_path(@listing)) %> 
-        | 
+    <!--    
       <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
         <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
       <% else %>
         <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
       <% end %>
+    -->  
     <% end %>
     
     <br /><br />

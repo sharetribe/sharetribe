@@ -149,6 +149,9 @@ I18n.store_translations 'fi',
 :own_listing => "Oma ilmoitus",
 :created => "jätetty",
 :close_listing => "Sulje ilmoitus",
+:listing_realizer => "Tekijä",
+:no_realizer => "Ei tekijää",
+:listing_closed => "Ilmoitus suljettu",
 
 #Listing statuses
 :open => "Avoinna",
