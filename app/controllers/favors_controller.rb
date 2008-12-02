@@ -63,6 +63,21 @@ class FavorsController < ApplicationController
     @favor = Favor.find(params[:id])
   end
   
+  def thank_for
+    @favor = Favor.find(params[:id])
+    @person = Person.find(params[:person_id])
+    @kassi_event = KassiEvent.new
+    @kassi_event.realizer_id = @person.id
+    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
+  end
+  
+  def mark_as_done
+    create_kassi_event
+    flash[:notice] = :thanks_for_favor_sent
+    @person = Person.find(params[:person_id])    
+    redirect_to @person
+  end
+  
   private
   
   def fetch_favors

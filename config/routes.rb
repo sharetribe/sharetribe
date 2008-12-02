@@ -43,18 +43,32 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :favors, :collection => { :search => :get }                            
   map.resources :listings, 
-                :member => { :mark_as_interesting => :post, :mark_as_not_interesting => :delete, :reply => :get },
+                :member => { 
+                             :mark_as_interesting => :post, 
+                             :mark_as_not_interesting => :delete, 
+                             :reply => :get 
+                           },
                 :collection => { :search => :get } do |listing|
     listing.resource :image
     listing.resources :comments, :controller => :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'
   end  
-  map.resources :people, :member => { :home => :get, :send_message => :get }, :collection => { :search => :get } do |person|
+  map.resources :people, 
+                :member => { :home => :get, :send_message => :get }, 
+                :collection => { :search => :get } do |person|
     person.resources :inbox, :controller => :conversations, :collection => { :sent => :get } do |inbox|
       inbox.resources :messages, :path_prefix => '/people/:id/inbox'
     end
-    person.resources :items, :member => { :borrow => :get }
-    person.resources :favors, :member => { :ask_for => :get }
+    person.resources :items, :member => { 
+                                          :borrow => :get, 
+                                          :thank_for => :get,
+                                          :mark_as_borrowed => :post
+                                        }
+    person.resources :favors, :member => { 
+                                           :ask_for => :get,
+                                           :thank_for => :get,
+                                           :mark_as_done => :post   
+                                         }
     person.resource :purse
     person.resource :settings
     person.resources :friends

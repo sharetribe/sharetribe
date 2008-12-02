@@ -18,8 +18,8 @@
         <%= link_to t(:edit), edit_person_favor_path(@person, favor) %> | 
         <%= link_to t(:remove), favor, :method => :delete %>
       <% else %>
-        <%= link_to t(:ask_for_this_favor), ask_for_person_favor_path(@person, favor) %> | 
-        <%= link_to t(:i_have_received_this_favor), "#" %>
+        <%= link_to t(:ask_for_this_favor), ask_for_person_favor_path(@person, favor) %> |
+        <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(@person, favor) %>
       <% end %>  
     </div>
   <% end %>

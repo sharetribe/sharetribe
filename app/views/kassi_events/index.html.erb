@@ -1,0 +1,15 @@
+<h1><%= @person.name(session[:cookie]) %></h1>
+
+<div class="links_panel">
+  <div class="left_float">
+    <%= get_profile_navi_items(params[:person_id]) %>
+  </div>
+</div>
+
+<% if (@person.kassi_events.size > 0)%>
+  <%= render :partial => "kassi_events/kassi_event", :collection => @person.kassi_events, :spacer_template => "layouts/dashed_line" %>
+<% else %>
+  <div id="basic_content">
+    <%= t(:no_kassi_events) %>
+  </div>  
+<% end %>

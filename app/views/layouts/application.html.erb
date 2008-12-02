@@ -54,7 +54,9 @@
         <%= render :partial => "layouts/announcements"%>
         <%= yield %>
         <br /><br />
+        
         </div>
+        
         <div id="feedback">
           <br /><br /><br /><br /><br />
           <% form_for :feedback, :url => admin_feedbacks_path do |f| %>

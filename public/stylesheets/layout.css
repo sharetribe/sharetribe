@@ -364,6 +364,26 @@ div.pagination {
 	float: right;
 }
 
+div.form_container {
+	overflow: hidden;
+	width: 700px;
+}
+
+div.form_left {
+	float: left;
+	width: 150px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+div.form_right {
+	float: left;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+/* Listed objects */
+
 div.listed_object {
 	width: 731px;
 	overflow: hidden;
@@ -376,12 +396,37 @@ div.listed_object_person_image {
 }
 
 div.listed_object_title {
+	font-size: 16px;
+	font-weight: bold;
 	margin-bottom: 13px;
 }
 
 div.listed_object_title a {
 	font-size: 16px;
 	font-weight: bold;
+}
+
+div.listed_object_right {
+	width: 292px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_object_right_line {
+	overflow: hidden;
+	width: 270px;
+	margin-bottom: 3px;
+}
+
+div.listed_object_right_line_title {
+	font-weight: bold;
+	float: left;
+	width: 150px;
+}
+
+div.listed_object_right_line_content {
+	float: left;
+	width: 120px;
 }
 
 
@@ -617,6 +662,26 @@ div.profile_info_field_links {
 
 div.profile_add_form {
 	margin: 0 10px 14px 22px;
+}
+
+
+/* Kassi events view */
+
+div.listed_kassi_event_left {
+	padding: 10px;
+	float: left;
+	width: 395px;
+}
+
+div.listed_kassi_event_title {
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 8px;
+}
+
+div.listed_kassi_event_title a {
+	font-size: 14px;
+	font-weight: bold;
 }
 
 

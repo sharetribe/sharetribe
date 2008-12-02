@@ -1,0 +1,86 @@
+<% 
+  case (kassi_event.eventable_type)
+  when "Listing"
+    listing = kassi_event.eventable
+    title = t(:closed_listing) + ": " + link_to(listing.title, listing_path(listing) + "?cl=")
+    if listing.category.eql?("borrow_items")
+      right_title1 = t(:item_borrower) + ": "
+      receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+      right_title2 = t(:item_lender) + ": "
+      realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+    elsif listing.category.eql?("favors")
+      right_title1 = t(:favor_receiver) + ": "
+      receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+      right_title2 = t(:favor_realizer) + ": "
+      realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+    else
+      right_title1 = t(:listing_author) + ": "
+      receiver = link_to(listing.author.name(session[:cookie]), listing.author)
+      another_participant = kassi_event.people.reject { |p| p.id == listing.author.id }.first
+      right_title2 = t(:listing_replier) + ": "
+      realizer = link_to(another_participant.name(session[:cookie]), another_participant)
+    end
+    category = listing.category
+  when "Item"
+    item = kassi_event.eventable
+    if @person.id == kassi_event.receiver.id
+      title = t(:borrowed_item) + ": " + link_to(item.title, item_path(item.title.downcase))
+    else 
+      title = t(:lent_item) + ": " + link_to(item.title, item_path(item.title.downcase))
+    end
+    right_title1 = t(:item_borrower) + ": "
+    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    right_title2 = t(:item_lender) + ": "
+    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)   
+  when "Favor"
+    favor = kassi_event.eventable
+    if @person.id == kassi_event.receiver.id
+      title = t(:received_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
+    else 
+      title = t(:done_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
+    end
+    right_title1 = t(:favor_receiver) + ": "
+    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    right_title2 = t(:favor_realizer) + ": "
+    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+  end      
+%>
+
+<div class="listed_object">
+  <div class="listed_kassi_event_left">
+    <div class="listed_kassi_event_title">
+      <%= title %>
+    </div>
+    <div class="listed_object_author">
+      <%= t(:event_created) + " " + kassi_event.created_at.to_formatted_s(:basic_date_format_minutes) %> 
+    </div>
+  </div>
+  <div class="listed_object_right">
+    <div class="listed_object_right_line">
+      <div class="listed_object_right_line_title">
+        <%= right_title1 %>
+      </div>  
+      <div class="listed_object_right_line_content">
+        <%= receiver %>
+      </div>
+    </div>
+    <div class="listed_object_right_line">  
+      <div class="listed_object_right_line_title">
+        <%= right_title2 %>
+      </div>  
+      <div class="listed_object_right_line_content">
+        <%= realizer %>
+      </div>
+    </div>
+    <% if category %>
+    <div class="listed_object_right_line">  
+      <div class="listed_object_right_line_title">
+        <%= t(:listing_category) %>:
+      </div>  
+      <div class="listed_object_right_line_content">
+        <%= link_to(t(category), listing_category_path(category)) %>
+      </div>
+    </div>
+    <% end %>  
+  </div>
+</div>

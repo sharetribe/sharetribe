@@ -272,6 +272,21 @@ I18n.store_translations 'fi',
 :message_could_not_be_sent => "Tyhjää viestiä ei voi lähettää",
 :from_user => "käyttäjältä",
 
+#Kassi events view
+:closed_listing => "Suljettu ilmoitus",
+:borrowed_item => "Lainaksi saatu tavara",
+:lent_item => "Lainaksi annettu tavara",
+:done_favor => "Tehty palvelus",
+:received_favor => "Saatu palvelus",
+:event_created => "Tapahtuma luotu",
+:listing_author => "Ilmoituksen jättäjä",
+:listing_replier => "Ilmoitukseen vastaaja",
+:listing_category => "Ilmoituskategoria",
+:item_borrower => "Lainaksi ottaja",
+:item_lender => "Lainaksi antaja",
+:favor_receiver=> "Palveluksen saaja",
+:favor_realizer => "Palveluksen antaja",
+
 #Purses view
 :purse => "Kukkaro",
 :do_transaction => "Maksa",

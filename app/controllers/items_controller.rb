@@ -64,6 +64,21 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   
+  def thank_for
+    @item = Item.find(params[:id])
+    @person = Person.find(params[:person_id])
+    @kassi_event = KassiEvent.new
+    @kassi_event.realizer_id = @person.id
+    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
+  end
+  
+  def mark_as_borrowed
+    create_kassi_event
+    flash[:notice] = :thanks_for_item_sent
+    @person = Person.find(params[:person_id])    
+    redirect_to @person
+  end
+  
   private
   
   def fetch_items
