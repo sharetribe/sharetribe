@@ -29,7 +29,7 @@
       <% end %>  
     <% end %>  
   </div>
-  <div class="listed_listing_author">
+  <div class="listed_object_author">
     <% if is_current_user?(listing.author) %>
       <%= t(:own_listing)%>, <%= t(:created) %> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> 
       <% unless listing.status.eql?("closed") %>

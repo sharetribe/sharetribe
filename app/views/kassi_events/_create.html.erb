@@ -1,0 +1,10 @@
+<div class="form_container">
+  <div class="form_left">
+    <%= t(:listing_realizer) %>: 
+  </div>
+  <div class="form_right">
+    <%= 
+      select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)}) 
+    %>
+  </div>
+</div>

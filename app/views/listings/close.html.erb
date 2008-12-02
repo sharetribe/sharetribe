@@ -2,15 +2,12 @@
 
 <div id="basic_content">
   <% form_for @kassi_event, :url => mark_as_closed_person_listing_path(@current_user, @listing) do |f| %>
-    <b><%= t(:listing_realizer) %>: </b><br /><br />
-    <%= 
-      select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)}, { :selected => @realizer_id }) 
-    %>
-    <br /><br />
     <%= f.hidden_field :eventable_id, :value => @listing.id %>
-    <%= f.hidden_field :eventable_type, :value => "listing" %>
+    <%= f.hidden_field :eventable_type, :value => "Listing" %>
     <%= f.hidden_field :receiver_id, :value => @current_user.id %>
-    <%= submit_tag t(:close_listing), :onclick => "this.disabled=true,this.form.submit();" %>
+    <%= render :partial => "kassi_events/create" %>
+    <div class="form_container">
+      <%= submit_tag t(:close_listing), :onclick => "this.disabled=true,this.form.submit();" %>
+    </div>
   <% end %>
 </div>  
-
