@@ -1,11 +1,27 @@
-<h1><%= t(:thank_for_doing_favor) %> "<%= @favor.title %>"</h1>
+<h1><%= t(:thank_for_doing_favor) %> "<%= @favor.title %>" <%= t(:thank_for_doing) %></h1>
 
 <div id="basic_content">
   <% form_for @kassi_event, :url => mark_as_done_person_favor_path(@person, @favor) do |f| %>
     <%= f.hidden_field :eventable_id, :value => @favor.id %>
     <%= f.hidden_field :eventable_type, :value => "Favor" %>
     <%= f.hidden_field :receiver_id, :value => @current_user.id %>
-    <%= render :partial => "kassi_events/create" %>
+    <%= f.hidden_field :realizer_id, :value => @person.id %>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:favor_realizer) %>:
+      </div>
+      <div class="form_right">
+        <%= link_to @person.name(session[:cookie]), @person %>
+      </div>
+    </div>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:comment_for_favor_realizer) %>: 
+      </div>
+      <div class="form_right">
+        <%= f.text_area :comment, :size => "48x5" %>
+      </div>
+    </div>
     <div class="form_container">
       <%= submit_tag t(:thank_for_favor), :onclick => "this.disabled=true,this.form.submit();" %>
     </div>

@@ -1,11 +1,27 @@
-<h1><%= t(:thank_for_borrowing_item) %> "<%= @item.title %>"</h1>
+<h1><%= t(:thank_for_borrowing_item) %> "<%= @item.title %>" <%= t(:thank_for_borrowing) %></h1>
 
 <div id="basic_content">
   <% form_for @kassi_event, :url => mark_as_borrowed_person_item_path(@person, @item) do |f| %>
     <%= f.hidden_field :eventable_id, :value => @item.id %>
     <%= f.hidden_field :eventable_type, :value => "Item" %>
     <%= f.hidden_field :receiver_id, :value => @current_user.id %>
-    <%= render :partial => "kassi_events/create" %>
+    <%= f.hidden_field :realizer_id, :value => @person.id %>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:item_lender) %>: 
+      </div>
+      <div class="form_right">
+        <%= @person.name(session[:cookie]) %>
+      </div>
+    </div>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:comment_for_lender) %>: 
+      </div>
+      <div class="form_right">
+        <%= f.text_area :comment, :size => "48x5" %>
+      </div>
+    </div>
     <div class="form_container">
       <%= submit_tag t(:thank_for_item), :onclick => "this.disabled=true,this.form.submit();" %>
     </div>

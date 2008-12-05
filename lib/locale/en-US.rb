@@ -207,6 +207,7 @@ I18n.store_translations 'en-US',
 :otasizzle_username => "OtaSizzle username",
 :address => "Address",
 :add_as_friend => "Add as friend",
+:edit_profile_picture => "Edit profile picture",
 
 #Profile items
 :items_i_can_lend => "Items I can lend",
@@ -231,6 +232,12 @@ I18n.store_translations 'en-US',
 :favor_could_not_be_updated => "Changes could not be saved",
 :ask_for_this_favor => "Ask for",
 :i_have_received_this_favor => "Thank for",
+
+#Profile comments
+:comment_is_related_to => "Comment is related to",
+:listing_illative => "listing",
+:item_illative => "item",
+:favor_illative => "favor",
 
 #Friend view
 :friends_of_user => "Friends of user",
@@ -269,6 +276,8 @@ I18n.store_translations 'en-US',
 :only_listing_author_sees_message => "Only listing author can see the message",
 :message_could_not_be_sent => "Empty message cannot be sent",
 :from_user => "from user",
+:message_must_have_title => "Message must have title",
+:show_messages_on_page => "Show messages on page",
 
 #Kassi events view
 :closed_listing => "Closed listing",
@@ -284,6 +293,19 @@ I18n.store_translations 'en-US',
 :item_lender => "Item lender",
 :favor_receiver=> "Favor receiver",
 :favor_realizer => "Favor realizer",
+:no_kassi_events => "No Kassi-events",
+:kassi_events_partitive => "kassi-events",
+:thank_for_item => "Send message",
+:thank_for_borrowing => "",
+:thank_for_borrowing_item => "Thank for borrowing item",
+:thanks_for_item_sent => "Message sent",
+:thank_for_favor => "Send message",
+:thank_for_doing => "",
+:thank_for_doing_favor => "Thank for doing favor",
+:thanks_for_favor_sent => "Message sent",
+:show_kassi_events_on_page => "Show Kassi-events on page",
+:comment_for_lender => "Comment for lender",
+:comment_for_favor_realizer => "Comment for realizer",
 
 #Purses view
 :purse_title => "Purse",

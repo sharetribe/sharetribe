@@ -187,7 +187,7 @@ div.fieldWithErrors {
 }
 
 #search_and_navi_container ul#primary li.selected a:hover {
-	background: #dbf5b1;
+	background: #f4f6d0;
 }
 
 #search_and_navi_container ul#primary a {
@@ -354,13 +354,13 @@ div.links_panel {
 	background: #e0e6d8;
 	margin-top: 10px;
 	padding: 7px 8px;
-	height: 15px;
+	overflow: hidden;
 	border: 1px solid #000;
 }
 
 /* Pagination links */
 div.pagination {
-	margin-top: 6px;
+	margin-top: 0px;
 	float: right;
 }
 
@@ -370,6 +370,7 @@ div.form_container {
 }
 
 div.form_left {
+	font-weight: bold;
 	float: left;
 	width: 150px;
 	margin-top: 5px;
@@ -429,6 +430,10 @@ div.listed_object_right_line_content {
 	width: 120px;
 }
 
+div.pagination_padding {
+	padding-top: 6px;
+}
+
 
 /* Page-specific content part layouting */
 
@@ -469,6 +474,7 @@ div.browse_listings_title {
 	margin-top: 6px;
 	float: left;
 }
+
 
 
 /* Single listing in a list. */
@@ -621,8 +627,12 @@ div.category a span {
 
 #profile_left {
 	float: left;
-	width: 200px;
+	width: 220px;
 	margin: 10px;
+}
+
+div.profile_left_link {
+	margin-bottom: 2px;
 }
 
 #profile_right {
@@ -758,6 +768,30 @@ div.browse_conversations_title {
 	font-size: 18px;
 	float: left;
 }
+
+
+/* Comments */
+
+#comments {
+	clear: both;
+}
+
+div.listed_comment_center {
+	width: 160px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_comment_right {
+	width: 450px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_comment_paragraph {
+	margin-bottom: 6px;
+}
+
 
 /* Feedback */
 

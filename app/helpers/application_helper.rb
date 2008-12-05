@@ -45,6 +45,8 @@ module ApplicationHelper
       navi_items[:home] = home_person_path(@current_user)
       navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
+      navi_items[:own_listings] = person_listings_path(@current_user)
+      navi_items[:kassi_events] = person_kassi_events_path(@current_user)
       #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
       #navi_items[:purse] = person_purse_path(@current_user)
       #navi_items[:settings] = person_settings_path(@current_user)
@@ -103,6 +105,44 @@ module ApplicationHelper
     end    
   end
   
+  # Create "show [link_value] listings on page" links for 
+  # each link value. Type defines the link target path.
+  def create_footer_pagination_links(link_values, type)
+    links = []
+    per_page_value = params[:per_page] || "10"
+    params[:page] = 1 if params[:page]
+    link_values.each do |value|
+      if per_page_value.eql?(value)
+        links << t(value)
+      else
+        case type
+        when "category"
+          if params[:id]
+            path = listing_category_path(params.merge({:per_page => value}))
+          else
+            path = listing_category_path("all_categories", :per_page => value)
+          end 
+        when "interesting_listings"
+          path = interesting_person_listings_path(params.merge({:per_page => value}))
+        when "person_listings"
+          path = person_listings_path(params.merge({:per_page => value}))       
+        when "search"
+          path = search_listings_path(params.merge({:per_page => value}))
+        when "search_all"
+          path = search_path(params.merge({:per_page => value})) 
+        when "kassi_events"
+          path = person_kassi_events_path(params.merge({:per_page => value}))
+        when "inbox"
+          path = person_inbox_index_path(params.merge({:per_page => value}))
+        when "sent_messages"
+          path = sent_person_inbox_path(params.merge({:per_page => value}))           
+        end
+        links << link_to(t(value), path)  
+      end    
+    end
+    links.join(" | ")  
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages
@@ -115,12 +155,15 @@ module WillPaginate
       
       if collection.total_pages < 2
         case collection.size
-        when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
-        when 1; "<b>1</b> #{t(entry_name.sub(' ', '_'))}"
-        else;   "<b>#{collection.size}</b> #{t((entry_name.pluralize + "_partitive").sub(' ', '_'))}"
+        #when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
+        #when 1; "<b>1</b> #{t(entry_name.sub(' ', '_'))}"
+        when 0; "0"
+        when 1; "<b>1</b>"
+        else;   "<b>#{collection.size}</b>/<b>#{collection.size}</b>"
         end
       else
-        %{#{t(entry_name.pluralize.sub(' ', '_'))} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
+        #%{#{t(entry_name.pluralize.sub(' ', '_'))} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
+        %{<b>%d-%d</b>/<b>%d</b>} % [
           collection.offset + 1,
           collection.offset + collection.length,
           collection.total_entries

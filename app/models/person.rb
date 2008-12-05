@@ -14,22 +14,13 @@ class Person < ActiveRecord::Base
 
   has_many :person_interesting_listings
   has_many :interesting_listings, :through => :person_interesting_listings, :source => :listing
-
-  has_many :sent_messages, 
-           :class_name => "Message",
-           :conditions => "sender_id = '" + self.object_id.to_s + "'"
            
   has_many :person_conversations
   has_many :conversations, :through => :person_conversations, :source => :conversation
   
   has_and_belongs_to_many :kassi_events
   
-  has_many :realized_events, 
-           :class_name => "Kassi_event",
-           :conditions => "realizer_id = '" + self.object_id.to_s + "'"
-  has_many :received_events, 
-           :class_name => "Kassi_event",
-           :conditions => "receiver_id = '" + self.object_id.to_s + "'"
+  has_many :received_comments, :class_name => "PersonComment", :foreign_key => "target_person_id"
   
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 

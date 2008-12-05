@@ -1,6 +1,6 @@
 <%if !@current_user.nil?%>
   	<%= t(:logged_in) %>
-		<%= @current_user.name_or_username(session[:cookie]) %>.
+		<%= link_to @current_user.name_or_username(session[:cookie]), @current_user %>.
   	&nbsp;&nbsp;<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
   	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a>

@@ -4,11 +4,13 @@ class ConversationsController < ApplicationController
 
   # Shows inbox
   def index
+    @pagination_type = "inbox"
     fetch_messages
   end
   
   # Shows sent-mail_box
   def sent
+    @pagination_type = "sent_messages"
     fetch_messages(true)
   end  
 

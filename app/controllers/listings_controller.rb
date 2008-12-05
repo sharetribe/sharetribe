@@ -8,11 +8,8 @@ class ListingsController < ApplicationController
       @person = Person.find(params[:person_id])
       @title = :listings_partitive_plural
       conditions = "author_id = '" + @person.id.to_s + "'"
-      if @person.equal?(@current_user)  
-        save_navi_state(['own', 'profile', '', '', 'listings'])
-      else
-        session[:profile_navi] = 'listings'
-      end
+      session[:profile_navi] = 'listings'
+      save_navi_state(['own', 'own_listings', '', '', 'listings']) if session[:navi1] == 'own'
       fetch_listings(conditions, "status DESC, id DESC")
       render :template => "listings/own"
     else

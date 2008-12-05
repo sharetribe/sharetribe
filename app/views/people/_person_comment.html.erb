@@ -1,0 +1,21 @@
+<div class="listed_object">
+  <div class="listed_object_person_image">
+    <img src="/images/teemu_t.jpg" alt="<%= comment.author.name(session[:cookie]) %>" width="50" height="50">
+  </div>
+  <div class="listed_comment_center">
+    <div class="listed_comment_paragraph">
+      <b><%= link_to comment.author.name(session[:cookie]), comment.author %></b>
+    </div>
+    <div class="listed_comment_paragraph">
+      <%= comment.created_at.to_formatted_s(:basic_date_format_minutes) %>
+    </div>    
+  </div>
+  <div class="listed_comment_right">
+    <div class="listed_comment_paragraph">
+      <%= comment.text_content %>
+    </div>  
+    <div class="listed_comment_paragraph">
+      <i><%= get_kassi_event_relation(comment.kassi_event) %></i>
+    </div>  
+  </div>     
+</div>  

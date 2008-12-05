@@ -54,6 +54,7 @@ class ApplicationController < ActionController::Base
   # Shows the profile page of the user. This method is used in peoplecontroller/show,
   # itemscontroller/edit and favorscontroller/edit.
   def show_profile
+    session[:previous_page] = request.request_uri
     @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
     @item = Item.new
     @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
@@ -154,6 +155,14 @@ class ApplicationController < ActionController::Base
         @kassi_event.receiver = nil
         @kassi_event.save
       end
+      @comment = PersonComment.new
+      @comment.author = @current_user
+      @comment.target_person_id = params[:kassi_event][:realizer_id]
+      @comment.text_content = params[:kassi_event][:comment]
+      @comment.kassi_event = @kassi_event
+      unless @comment.text_content.eql?("") 
+        @comment.save 
+      end  
     end
   end
   
