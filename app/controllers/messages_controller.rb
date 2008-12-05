@@ -46,14 +46,19 @@ class MessagesController < ApplicationController
           else 
             @conversation = Conversation.new(:title => params[:message][:title])
           end    
-          @conversation.save
-          PersonConversation.create(:person_id => @current_user.id, 
-                                    :conversation_id => @conversation.id, 
-                                    :is_read => 1,
-                                    :last_sent_at => @message.created_at)
-          PersonConversation.create(:person_id => params[:message][:receiver_id], 
-                                    :conversation_id => @conversation.id, 
-                                    :last_received_at => @message.created_at)
+          if @conversation.save
+            PersonConversation.create(:person_id => @current_user.id, 
+                                      :conversation_id => @conversation.id, 
+                                      :is_read => 1,
+                                      :last_sent_at => @message.created_at)
+            PersonConversation.create(:person_id => params[:message][:receiver_id], 
+                                      :conversation_id => @conversation.id, 
+                                      :last_received_at => @message.created_at)
+          else
+            @message.destroy
+            flash[:error] = :message_must_have_title
+            redirect_to :back and return
+          end                              
         end  
         @conversation.messages << @message
         flash[:notice] = :message_sent

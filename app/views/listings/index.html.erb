@@ -2,7 +2,9 @@
 <div class="browse_listings_title">
   <%= t(@title) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
 </div>
-<%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
+<div class="pagination_padding">
+  <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>  
 </div>
 
 <% if (@listings.size > 0)%>
@@ -13,7 +15,9 @@
     <%= t(:show_listings_on_page) %>:
     <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
   </div>
-  <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
+  <div class="pagination_padding">
+    <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>  
   <br />
 <% else %>
   <p><%= t(:no_listings) %></p>

@@ -4,10 +4,24 @@
   <div class="left_float">
     <%= get_profile_navi_items(params[:person_id]) %>
   </div>
+  <div class="right_float">
+    <%= will_paginate @kassi_events, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div> 
 </div>
 
-<% if (@person.kassi_events.size > 0)%>
-  <%= render :partial => "kassi_events/kassi_event", :collection => @person.kassi_events, :spacer_template => "layouts/dashed_line" %>
+<% if (@kassi_events.size > 0)%>
+  <%= render :partial => "kassi_events/kassi_event", :collection => @kassi_events, :spacer_template => "layouts/dashed_line" %>
+  <% if @kassi_events.total_pages > 1 || params[:per_page] %>
+  <div class="links_panel">
+    <div class="left_float">
+      <%= t(:show_kassi_events_on_page) %>:
+      <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
+    </div>
+    <div class="right_float">
+      <%= will_paginate @kassi_events, :prev_label => t(:previous), :next_label => t(:next) %>
+    </div>  
+  </div>
+  <% end %>
 <% else %>
   <div id="basic_content">
     <%= t(:no_kassi_events) %>

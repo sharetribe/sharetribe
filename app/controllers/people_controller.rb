@@ -21,7 +21,6 @@ class PeopleController < ApplicationController
   
   # Shows profile page of a person.
   def show
-    session[:previous_page] = request.request_uri
     @person = Person.find(params[:id])
     show_profile
   end

@@ -16,6 +16,12 @@
   <div id="profile_picture">
     <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
   </div>  
+  
+  <div class="profile_left_link">
+    <%= link_to t(:edit_profile_picture), "#" %>
+  </div>  
+  <div class="dashed_line"></div>
+  <br />
 
 </div>  
 
@@ -103,3 +109,13 @@
   <% end %>
 
 </div>
+
+<% if (@person.received_comments.size > 0) %>
+  <div id="comments">
+    <h4><%= t(:comments) %></h4>
+    <%= render :partial => "person_comment", 
+               :collection => @person.received_comments, 
+               :as => :comment, 
+               :spacer_template => "layouts/dashed_line" %>
+  </div>
+<% end %>

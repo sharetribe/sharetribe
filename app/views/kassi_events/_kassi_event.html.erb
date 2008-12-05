@@ -56,6 +56,16 @@
     </div>
   </div>
   <div class="listed_object_right">
+    <% if category %>
+    <div class="listed_object_right_line">  
+      <div class="listed_object_right_line_title">
+        <%= t(:listing_category) %>:
+      </div>  
+      <div class="listed_object_right_line_content">
+        <%= link_to(t(category), listing_category_path(category)) %>
+      </div>
+    </div>
+    <% end %>
     <div class="listed_object_right_line">
       <div class="listed_object_right_line_title">
         <%= right_title1 %>
@@ -71,16 +81,6 @@
       <div class="listed_object_right_line_content">
         <%= realizer %>
       </div>
-    </div>
-    <% if category %>
-    <div class="listed_object_right_line">  
-      <div class="listed_object_right_line_title">
-        <%= t(:listing_category) %>:
-      </div>  
-      <div class="listed_object_right_line_content">
-        <%= link_to(t(category), listing_category_path(category)) %>
-      </div>
-    </div>
-    <% end %>  
+    </div> 
   </div>
 </div>
