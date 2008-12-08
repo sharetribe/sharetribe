@@ -1,1 +1,47 @@
-<h1><%= t(:search_items_title) %></h1>
+<h1><%= t(:search_items_title)%> </h1>			
+<div id="basic_content">
+<% form_tag({ :action => "search" }, :method => "get") do %>
+  <br />
+  <div class="form_container">
+    <b><%= t(:search_keyword) %>:</b>
+    &nbsp;&nbsp;&nbsp; 
+    <%= text_field_tag "q", params[:q], :size => 30 %>
+    &nbsp;&nbsp;&nbsp;
+    <%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %>
+  </div>
+<% end %>
+</div>
+
+
+<br />
+
+<% if params[:q]%>
+
+<div class="browse_listings_header">
+<div class="browse_listings_title">
+  <%= t(:search_results) %> <span class="page_entries_info">(<%= page_entries_info @items %>)</span>
+</div>
+<div class="pagination_padding">
+  <%= will_paginate @items, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>
+</div>
+
+<% if @items && @items.size > 0 %>
+<%= render :partial => "items/searched_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+<div class="solid_line">
+</div>
+<div id="browse_listings_footer_left">
+  <%= t(:show_items_on_page) %>:
+  <%= create_footer_pagination_links(["10", "30", "50", "all"], "search_items") %>
+</div>
+<div class="pagination_padding">
+  <%= will_paginate @items, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>
+<% else %>
+ <p><%= t(:search_returned_no_hits) %></p>
+<% end %>
+
+<br />
+<br />
+
+<% end %>

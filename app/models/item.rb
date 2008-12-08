@@ -4,6 +4,13 @@ class Item < ActiveRecord::Base
   
   has_many :kassi_events, :as => :eventable
   
+  acts_as_ferret :fields => {
+    :title => {},
+    :title_sort => {
+      :index => :untokenized
+    }
+  }
+  
   validates_presence_of :title, :owner_id
   validates_length_of :title, :within => 2..50   
   validates_numericality_of :payment, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true, :allow_blank => true
@@ -19,6 +26,10 @@ class Item < ActiveRecord::Base
         end
       end 
     end 
+  end
+  
+  def title_sort
+    title
   end
   
 end

@@ -73,7 +73,7 @@ I18n.store_translations 'en-US',
 :interesting => "Interesting",
 
 #Categories
-:category => "Kategoria",
+:category => "Category",
 :all_categories => "All categories",
 :marketplace => "Marketplace",
 :sell => "Sell",
@@ -195,6 +195,7 @@ I18n.store_translations 'en-US',
 :name => "Name",
 
 #Search listings view
+:search_listings_title => "Search listings",
 :search_keyword => "Keyword",
 :regular_search => "Regular search",
 :advanced_search => "Advanced search",

@@ -57,6 +57,15 @@ class ItemsController < ApplicationController
   
   def search
     save_navi_state(['items', 'search_items'])
+    if params[:q]
+      query = params[:q]
+      begin
+        @items = Listing.find_by_contents(query)
+        # s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+        # items = Item.find_by_contents(query, {:sort => s})
+        # @items = items.paginate :page => params[:page], :per_page => per_page
+      end
+    end
   end
   
   def borrow

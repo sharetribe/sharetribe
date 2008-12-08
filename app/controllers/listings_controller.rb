@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
         query = params[:q]
         begin
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-          conditions = params[:only_open] ? ["status = 'open'"] : [""]
+          conditions = params[:only_open] ? ["status = 'open'"] : ["status IN ('open', 'closed')"]
           listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
           save_collection_to_session(listings)
           @listings = listings.paginate :page => params[:page], :per_page => per_page
