@@ -4,8 +4,11 @@
   </div>
   <div class="listed_item_owner_center">
     <div class="listed_object_title">
-      <%= link_to item.owner.name(session[:cookie]), item.owner %>
-    </div>   
+      <%= item.title %>
+    </div>
+    <div class="listed_object_author">
+      <%= t(:owner) %>: <%= link_to item.owner.name(session[:cookie]), item.owner %>
+    </div>     
   </div>
   <div class="listed_item_owner_right">
     <% unless is_current_user?(item.owner) %>

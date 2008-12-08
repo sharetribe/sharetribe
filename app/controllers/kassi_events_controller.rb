@@ -1,5 +1,7 @@
 class KassiEventsController < ApplicationController
 
+  before_filter :logged_in
+
   def index
     session[:profile_navi] = 'kassi_events'
     save_navi_state(['own', 'kassi_events', '', '', 'kassi_events']) if session[:navi1] == 'own'

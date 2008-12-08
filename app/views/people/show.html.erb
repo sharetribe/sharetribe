@@ -17,11 +17,13 @@
     <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
   </div>  
   
+  <% if is_current_user?(@person) %>
   <div class="profile_left_link">
     <%= link_to t(:edit_profile_picture), "#" %>
   </div>  
   <div class="dashed_line"></div>
   <br />
+  <% end %>
 
 </div>  
 

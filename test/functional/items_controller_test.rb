@@ -53,5 +53,47 @@ class ItemsControllerTest < ActionController::TestCase
     assert_response :found, @response.body
     assert_equal flash[:notice], :item_updated
   end
+  
+  def test_borrow
+    item = items(:two)
+    submit_with_person :borrow, {
+      :person_id => people(:two).id,
+      :id => item.id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'borrow'
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:item)
+  end
+  
+  def test_thank_for
+    submit_with_person :thank_for, { 
+      :person_id => people(:one),
+      :id => items(:two).id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'thank_for'  
+    assert_not_nil assigns(:item)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:kassi_event)
+    assert_not_nil assigns(:people)
+  end
+  
+  def test_mark_as_borrowed
+    item = items(:two)
+    submit_with_person :mark_as_borrowed, { 
+      :person_id => people(:two),
+      :id => item.id,
+      :kassi_event => {
+        :realizer_id => people(:two),
+        :eventable_id => item.id,
+        :eventable_type => "Item",
+        :comment => "Kommentti"
+      }  
+    }, :kassi_event, :receiver_id, :post
+    assert_redirected_to people(:two)
+    assert ! assigns(:kassi_event).new_record?
+    assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
+  end
 
 end

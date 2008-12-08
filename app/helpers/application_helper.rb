@@ -126,8 +126,10 @@ module ApplicationHelper
           path = interesting_person_listings_path(params.merge({:per_page => value}))
         when "person_listings"
           path = person_listings_path(params.merge({:per_page => value}))       
-        when "search"
+        when "search_listings"
           path = search_listings_path(params.merge({:per_page => value}))
+        when "search_items"
+          path = search_items_path(params.merge({:per_page => value}))  
         when "search_all"
           path = search_path(params.merge({:per_page => value})) 
         when "kassi_events"

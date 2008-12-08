@@ -89,7 +89,11 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_show_listing
-    get :show, { :id => listings(:valid_listing).id }, { :person_id => @test_person1.id, :cookie => @cookie, :ids => [listings(:valid_listing).id, listings(:another_valid_listing).id] }
+    get :show, 
+        { :id => listings(:valid_listing).id }, 
+        { :person_id => @test_person1.id, 
+          :cookie => @cookie, 
+          :ids => [listings(:valid_listing).id, listings(:another_valid_listing).id] }
     assert_response :success
     assert_template 'show'
     assert_equal listings(:valid_listing), assigns(:listing)
@@ -121,5 +125,46 @@ class ListingsControllerTest < ActionController::TestCase
   #   assert_response :success
   #   assert_equal [ listings(:valid_listing) ], @test_person1.interesting_listings
   # end  
+  
+  def test_reply
+    listing = listings(:third_valid_listing)
+    submit_with_person :reply, {
+      :id => listing.id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'reply'
+    assert_not_nil assigns(:listing)
+    assert_not_nil assigns(:message)
+  end
+  
+  def test_show_close
+    submit_with_person :close, { 
+      :person_id => people(:one),
+      :id => listings(:valid_listing)
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'close'  
+    assert_not_nil assigns(:listing)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:kassi_event)
+    assert_not_nil assigns(:people)
+  end
+  
+  def test_mark_as_closed
+    listing = listings(:valid_listing)
+    submit_with_person :mark_as_closed, {
+      :person_id => people(:one),
+      :id => listing.id,
+      :kassi_event => {
+        :realizer_id => people(:two),
+        :eventable_id => listing.id,
+        :eventable_type => "Listing",
+        :comment => "Kommentti"
+      }  
+    }, :kassi_event, :receiver_id, :post
+    assert_redirected_to person_listings_path(people(:one))
+    assert ! assigns(:kassi_event).new_record?
+    assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
+  end
   
 end

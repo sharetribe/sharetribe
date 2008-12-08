@@ -197,6 +197,7 @@ I18n.store_translations 'fi',
 :name => "Nimi",
 
 #Search listings view
+:search_listings_title => "Hae ilmoituksia",
 :search_keyword => "Hakusana",
 :regular_search => "Perushaku",
 :advanced_search => "Laajennettu haku",

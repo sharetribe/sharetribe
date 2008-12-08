@@ -47,4 +47,46 @@ class FavorsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], :favor_updated
   end
 
+  def test_ask_for
+    favor = favors(:two)
+    submit_with_person :ask_for, {
+      :person_id => people(:two).id,
+      :id => favor.id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'ask_for'
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:favor)
+  end
+  
+  def test_thank_for
+    submit_with_person :thank_for, { 
+      :person_id => people(:one),
+      :id => favors(:two).id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'thank_for'  
+    assert_not_nil assigns(:favor)
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:kassi_event)
+    assert_not_nil assigns(:people)
+  end
+  
+  def test_mark_as_done
+    favor = favors(:two)
+    submit_with_person :mark_as_done, { 
+      :person_id => people(:two),
+      :id => favor.id,
+      :kassi_event => {
+        :realizer_id => people(:two),
+        :eventable_id => favor.id,
+        :eventable_type => "Favor",
+        :comment => "Kommentti"
+      }  
+    }, :kassi_event, :receiver_id, :post
+    assert_redirected_to people(:two)
+    assert ! assigns(:kassi_event).new_record?
+    assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
+  end
+
 end
