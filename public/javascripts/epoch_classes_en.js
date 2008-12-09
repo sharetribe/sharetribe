@@ -980,7 +980,7 @@ Date.prototype.getUeDay = function () //returns the number of DAYS since the UNI
 Date.prototype.dateFormat = function(format)
 {
 	if(!format) { // the default date format to use - can be customized to the current locale
-		format = 'm/d/Y';
+		format = 'Y-m-d';
 	}
 	LZ = function(x) {return(x < 0 || x > 9 ? '' : '0') + x};
 	var MONTH_NAMES = new Array('January','February','March','April','May','June','July','August','September','October','November','December','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec');

@@ -56,7 +56,14 @@
     </tr>
     <tr>
       <td><b><%= t(:good_thru) %>*:</b></td>
-      <td><%= f.text_field :good_thru, :size => "20" %> <%= t(:good_thru_format) %> </td>
+      <td>
+        <% if @listing.good_thru %>
+          <%= f.text_field :good_thru, :size => "20" %>
+        <% else %>
+          <%= f.text_field :good_thru, :size => "20", :value => Date.today + 1.month %>
+        <% end %>   
+        <%= t(:good_thru_format) %> 
+      </td>
     </tr>
       <tr>
         <td><b><%= t(:image) %>:</b></td>

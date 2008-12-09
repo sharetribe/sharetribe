@@ -137,7 +137,9 @@ module ApplicationHelper
         when "inbox"
           path = person_inbox_index_path(params.merge({:per_page => value}))
         when "sent_messages"
-          path = sent_person_inbox_path(params.merge({:per_page => value}))           
+          path = sent_person_inbox_path(params.merge({:per_page => value}))   
+        when "people"
+          path = people_path(params.merge({:per_page => value}))          
         end
         links << link_to(t(value), path)  
       end    

@@ -286,6 +286,7 @@ I18n.store_translations 'en-US',
 :from_user => "from user",
 :message_must_have_title => "Message must have title",
 :show_messages_on_page => "Show messages on page",
+:unread_messages_partitive => "unread messages",
 
 #Kassi events view
 :closed_listing => "Closed listing",
