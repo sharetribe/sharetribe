@@ -106,18 +106,11 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_search_listings
-    get :search, :q => "tsikko"
-    assert_response :success
-    assert_equal 0, assigns(:listings).size
-    
-    get :search, :q => "*", :only_open => "true"
-    assert_response :success
-    assert_equal 2, assigns(:listings).size
-    
-    # This is commented, because caused errors on some computers. Reason unknown. :(
-    # get :search, :q => "*"
-    #     assert_response :success
-    #     assert_equal 3, assigns(:listings).size
+    search("tsikko", 0, true)
+    search("*", 2, true)
+    search("*", 3, false)
+    search("otsikko", 1, true)
+    search("*tsikk*", 2, false)
   end
   
   # def test_mark_as_interesting_and_mark_as_not_interesting
@@ -166,5 +159,13 @@ class ListingsControllerTest < ActionController::TestCase
     assert ! assigns(:kassi_event).new_record?
     assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
   end
+  
+  private
+  
+  def search(query, result_count, only_open)
+    get :search, :q => query, :only_open => only_open
+    assert_response :success
+    assert_equal result_count, assigns(:listings).size
+  end  
   
 end

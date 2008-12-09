@@ -1,0 +1,14 @@
+<div class="search_header">
+  <div class="left_float">
+    <%= t(:items) %> (<%= @items.total_hits %>)
+  </div>
+  <div class="right_float">
+    <%= link_to t(:show_all), search_items_path(:q => params[:qa]) %>
+  </div>    
+</div>
+
+<% if @items && @items.size > 0 %>
+  <%= render :partial => "items/searched_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+<% else %>
+ <p><%= t(:no_items) %></p>
+<% end %>

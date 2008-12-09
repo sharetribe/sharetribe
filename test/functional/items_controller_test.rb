@@ -76,7 +76,6 @@ class ItemsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:item)
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:kassi_event)
-    assert_not_nil assigns(:people)
   end
   
   def test_mark_as_borrowed
@@ -95,5 +94,27 @@ class ItemsControllerTest < ActionController::TestCase
     assert ! assigns(:kassi_event).new_record?
     assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
   end
+  
+  def test_search_items_view
+    get :search
+    assert_response :success
+    assert_template 'search'
+  end
+  
+  def test_search_items
+    search("dsfds", 0)
+    search("*", 2)
+    search("saha", 1)
+    search("*asar*", 1)
+  end
+  
+  private
+  
+  def search(query, result_count)
+    get :search, :q => query
+    assert_response :success
+    assert_equal result_count, assigns(:items).size
+    assert_template 'search'
+  end  
 
 end

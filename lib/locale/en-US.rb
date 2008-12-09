@@ -175,6 +175,7 @@ I18n.store_translations 'en-US',
 :owner_partitive => "owners",
 :borrow => "Borrow",
 :i_want_to_borrow_this_item => "I want to borrow an item",
+:show_items_on_page => "Show items on page",
 
 #Favors view
 :search_favors_title => "Search favors",
@@ -183,6 +184,7 @@ I18n.store_translations 'en-US',
 :offerer_partitive => "offerers",
 :ask_for_favor => "Ask for favor",
 :i_want_to_ask_for_this_favor => "Asking_for_a_favor",
+:show_favors_on_page => "Show favors on page",
 
 #Search view
 :show_all => "Show all",

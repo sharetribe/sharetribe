@@ -8,12 +8,13 @@
     </div>   
   </div>
   <div class="listed_item_owner_right">
+    <% unless is_current_user?(favor.owner) %>
     <div class="listed_item_owner_right_link">
-      <% unless is_current_user?(favor.owner) %>
-        <%= link_to t(:ask_for_favor) + " " + favor.title.downcase, ask_for_person_favor_path(favor.owner, favor) %>
-        <br />
-        <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(favor.owner, favor) %>
-      <% end %>  
+      <%= link_to t(:ask_for_favor), ask_for_person_favor_path(favor.owner, favor) %>
     </div>
+    <div class="listed_item_owner_right_link">    
+      <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(favor.owner, favor) %>
+    </div>  
+    <% end %>  
   </div>
 </div>

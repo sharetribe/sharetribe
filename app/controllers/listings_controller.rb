@@ -123,6 +123,7 @@ class ListingsController < ApplicationController
     if params[:rid]
       @kassi_event.realizer_id = params[:rid]
     end
+    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]), p.id ] } 
     @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
   end
   
