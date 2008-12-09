@@ -287,6 +287,7 @@ I18n.store_translations 'fi',
 :from_user => "käyttäjältä",
 :message_must_have_title => "Viestin otsikko on pakollinen tieto",
 :show_messages_on_page => "Näytä viestejä sivulla",
+:unread_messages_partitive => "lukematonta viestiä",
 
 #Kassi events view
 :closed_listing => "Suljettu ilmoitus",
