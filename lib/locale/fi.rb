@@ -188,6 +188,11 @@ I18n.store_translations 'fi',
 :i_want_to_ask_for_this_favor => "Pyydän palvelusta",
 :show_favors_on_page => "Näytä palveluksia sivulla",
 
+#People view
+:kassi_users => "Kassin käyttäjät",
+:show_users_on_page => "Näytä käyttäjiä sivulla",
+:joined_kassi => "Liittynyt Kassin käyttäjäksi",
+
 #Search view
 :show_all => "Näytä kaikki",
 :search_results_for_search_term => "Hakutulokset hakusanalle",

@@ -1,3 +1,24 @@
-<h1>Kassin käyttäjät</h1>			
-<p>In mauris enim, suscipit a, consequat quis, porta ut, diam. Vivamus tempor. Donec nec enim quis ante ullamcorper mollis. Praesent dictum. Donec arcu arcu, tincidunt a, placerat sit amet, porta eget, erat. Aliquam erat volutpat. Aenean egestas, dolor ut consectetuer pulvinar, mauris ante volutpat leo, non pulvinar erat justo vitae mauris. Donec laoreet dui at quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris id libero. Morbi luctus sapien vitae dolor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam pharetra vestibulum leo. Maecenas magna velit, porta eu, viverra quis, cursus non, sapien.</p>
+<div class="browse_objects_header">
+<div class="browse_objects_title">
+  <%= t(:kassi_users) %> <span class="page_entries_info">(<%= page_entries_info @people %>)</span>
+</div>
+<div class="pagination_padding">
+  <%= will_paginate @people, :prev_label => t(:previous), :next_label => t(:next) %>
+</div>  
+</div>
 
+<% if (@people.size > 0)%>
+  <%= render :partial => "person", :collection => @people, :as => :person, :spacer_template => "layouts/dashed_line" %>
+  <div class="solid_line">
+  </div>  
+  <div id="browse_objects_footer_left">
+    <%= t(:show_users_on_page) %>:
+    <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
+  </div>
+  <div class="pagination_padding">
+    <%= will_paginate @people, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>  
+  <br />
+<% else %>
+  <p><%= t(:no_users) %></p>
+<% end %>

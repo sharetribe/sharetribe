@@ -454,23 +454,23 @@ div.pagination_padding {
 	margin-bottom: 20px;
 }
 
-div.browse_listings_header {
+div.browse_objects_header {
 	height: 26px;
 	border-bottom: 1px solid #000;
 }
 
-div.browse_listings_header_right {
+div.browse_objects_header_right {
 	margin-top: 6px;
 	float: right;
 }
 
-div.browse_listings_title {
+div.browse_objects_title {
 	font-weight: bold;
 	font-size: 18px;
 	float: left;
 }
 
-#browse_listings_footer_left {
+#browse_objects_footer_left {
 	margin-top: 6px;
 	float: left;
 }

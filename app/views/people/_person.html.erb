@@ -1,0 +1,20 @@
+<div class="listed_object">
+  <div class="listed_object_person_image">
+    <img src="/images/teemu_t.jpg" alt="<%= person.name(session[:cookie]) %>" width="50" height="50">
+  </div>
+  <div class="listed_item_owner_center">
+    <div class="listed_object_title">
+      <%= link_to person.name(session[:cookie]), person %>
+    </div>
+    <div class="listed_object_date">
+      <i><%= t(:joined_kassi) + " " + person.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
+    </div>   
+  </div>
+  <div class="listed_item_owner_right">
+    <% unless is_current_user?(person) %>
+      <div class="listed_item_owner_right_link">
+        <%= link_to t(:send_message_to_user), send_message_person_path(person) %>
+      </div>
+    <% end %>
+  </div>
+</div>

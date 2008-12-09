@@ -16,8 +16,8 @@
 
 <% if params[:q]%>
 
-<div class="browse_listings_header">
-<div class="browse_listings_title">
+<div class="browse_objects_header">
+<div class="browse_objects_title">
   <%= t(:search_results) %> <span class="page_entries_info">(<%= page_entries_info @favors %>)</span>
 </div>
 <div class="pagination_padding">
@@ -29,7 +29,7 @@
 <%= render :partial => "favors/searched_favor", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
 <div class="solid_line">
 </div>
-<div id="browse_listings_footer_left">
+<div id="browse_objects_footer_left">
   <%= t(:show_favors_on_page) %>:
   <%= create_footer_pagination_links(["10", "30", "50", "all"], "search_favors") %>
 </div>

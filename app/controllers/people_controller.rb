@@ -4,6 +4,9 @@ class PeopleController < ApplicationController
 
   def index
     save_navi_state(['people', 'browse_people'])
+    @people = Person.find(:all).sort { 
+      |a,b| a.name(session[:cookie]) <=> b.name(session[:cookie])
+    }.paginate :page => params[:page], :per_page => per_page
   end
   
   def home
