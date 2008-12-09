@@ -186,6 +186,11 @@ I18n.store_translations 'en-US',
 :i_want_to_ask_for_this_favor => "Asking_for_a_favor",
 :show_favors_on_page => "Show favors on page",
 
+#People view
+:kassi_users => "Kassi users",
+:show_users_on_page => "Show users on page",
+:joined_kassi => "Joined Kassi",
+
 #Search view
 :show_all => "Show all",
 :search_results_for_search_term => "Search results for search term",
