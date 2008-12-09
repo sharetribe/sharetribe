@@ -5,11 +5,16 @@ class SearchesController < ApplicationController
     if params[:qa]
       query = params[:qa]
       begin
-        s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-        conditions = params[:only_open] ? ["status = 'open' OR status = 'in_progress'"] : ["status = 'open' OR status = 'in_progress' OR status = 'closed'"]
-        @listings = Listing.find_by_contents(query, {:limit => 3, :sort => s}, {:conditions => conditions})
-      rescue Ferret::QueryParser::QueryParseException
-        @invalid = true
+        sl = Ferret::Search::SortField.new(:id_sort, :reverse => true)
+        conditions = ["status = 'open'"]
+        @listing_amount = Listing.find_by_contents(query, {:sort => sl}, {:conditions => conditions}).total_hits
+        @listings = Listing.find_by_contents(query, {:limit => 3, :sort => sl}, {:conditions => conditions})
+        
+        si = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+        @items = Item.find_by_contents(query, {:limit => 3, :sort => si}, {:conditions => ''})
+        
+        sf = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+        @favors = Favor.find_by_contents(query, {:limit => 3, :sort => sf}, {:conditions => ''})
       end
     end
   end

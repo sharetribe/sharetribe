@@ -14,7 +14,14 @@ class FavorsController < ApplicationController
   
   def search
     save_navi_state(['favors', 'search_favors'])
-    @title = :search_favors_title
+    if params[:q]
+      query = params[:q]
+      begin
+        s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+        favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => ''})
+        @favors = favors.paginate :page => params[:page], :per_page => per_page
+      end
+    end
   end
   
   def create
@@ -67,8 +74,7 @@ class FavorsController < ApplicationController
     @favor = Favor.find(params[:id])
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
-    @kassi_event.realizer_id = @person.id
-    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
+    @kassi_event.realizer_id = @person.id  
   end
   
   def mark_as_done

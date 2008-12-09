@@ -177,6 +177,7 @@ I18n.store_translations 'fi',
 :owner_partitive => "omistajaa",
 :borrow => "Lainaa",
 :i_want_to_borrow_this_item => "Haluan lainata tavaran",
+:show_items_on_page => "Näytä tavaroita sivulla",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
@@ -185,6 +186,7 @@ I18n.store_translations 'fi',
 :offerer_partitive => "tarjoajaa",
 :ask_for_favor => "Pyydä palvelusta",
 :i_want_to_ask_for_this_favor => "Pyydän palvelusta",
+:show_favors_on_page => "Näytä palveluksia sivulla",
 
 #Search view
 :show_all => "Näytä kaikki",

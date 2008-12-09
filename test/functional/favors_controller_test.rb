@@ -69,7 +69,6 @@ class FavorsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:favor)
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:kassi_event)
-    assert_not_nil assigns(:people)
   end
   
   def test_mark_as_done
@@ -87,6 +86,19 @@ class FavorsControllerTest < ActionController::TestCase
     assert_redirected_to people(:two)
     assert ! assigns(:kassi_event).new_record?
     assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
+  end
+  
+  def test_search_favors
+    search("dsfds", 0)
+    search("*", 2)
+  end
+  
+  private
+  
+  def search(query, result_count)
+    get :search, :q => query
+    assert_response :success
+    assert_equal result_count, assigns(:favors).size
   end
 
 end

@@ -60,10 +60,9 @@ class ItemsController < ApplicationController
     if params[:q]
       query = params[:q]
       begin
-        @items = Listing.find_by_contents(query)
-        # s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-        # items = Item.find_by_contents(query, {:sort => s})
-        # @items = items.paginate :page => params[:page], :per_page => per_page
+        s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+        items = Item.find_by_contents(query, {:sort => s}, {:conditions => ''})
+        @items = items.paginate :page => params[:page], :per_page => per_page
       end
     end
   end
@@ -78,7 +77,6 @@ class ItemsController < ApplicationController
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
     @kassi_event.realizer_id = @person.id
-    @people = Person.find(:all).collect { |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] }  
   end
   
   def mark_as_borrowed

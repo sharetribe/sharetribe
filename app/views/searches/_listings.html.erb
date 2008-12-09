@@ -1,19 +1,16 @@
-<div class="browse_listings_header">
-<div class="browse_listings_title">
-  <%= t(:listings) %> (<%= @listings.total_hits %>)
-</div>
-<div class="browse_listings_header_right">
-  <%= link_to t(:show_all), search_listings_path(:q => params[:qa]) %>
-</div >
+<div class="search_header">
+  <div class="left_float">
+    <%= t(:listings) %> (<%= @listing_amount %>)
+  </div>
+  <div class="right_float">
+    <%= link_to t(:show_all), search_listings_path(:q => params[:qa], :only_open => "true") %>
+  </div>    
 </div>
 
 <% if @listings && @listings.size > 0 %>
 <table class="listing"> 
-<%= render :partial => "listings/listing", :collection => @listings %>
+<%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
 </table>
-
 <% else %>
- <p><%= t(:search_returned_no_hits) %></p>
+ <p><%= t(:no_listings) %></p>
 <% end %>
-<br />
-<br />

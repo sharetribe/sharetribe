@@ -728,14 +728,15 @@ div.item_owners {
 div.listed_item_owner_center {
 	padding: 10px;
 	float: left;
-	width: 340px;
+	width: 350px;
 }
 
 div.listed_item_owner_right {
-	font-weight: bold;
+	width: 250px;
 	padding: 10px;
 	margin-right: 20px;
 	float: right;
+	text-align: right;
 }	
 
 div.listed_item_owner_right_link {
@@ -791,6 +792,25 @@ div.listed_comment_right {
 div.listed_comment_paragraph {
 	margin-bottom: 6px;
 }
+
+
+/* Search */
+
+div.search_title {
+	font-weight: bold;
+	font-size: 16px;
+	float: left;
+}
+
+div.search_header {
+	font-size: 14px;
+	font-weight: bold;
+	background: #c0e783;
+	padding: 5px 7px;
+	width: 945px;
+	overflow: hidden;
+}
+
 
 
 /* Feedback */
