@@ -168,5 +168,13 @@ class Listing < ActiveRecord::Base
   def id_sort
     id
   end  
+  
+  def open?
+    if status.eql?("closed") || good_thru < Date.today
+      return false
+    else
+      return true
+    end    
+  end
 
 end

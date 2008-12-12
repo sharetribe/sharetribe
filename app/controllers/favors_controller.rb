@@ -5,7 +5,6 @@ class FavorsController < ApplicationController
   end
   
   def show
-    session[:previous_page] = request.request_uri
     @title = params[:id]
     @favors = Favor.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
     fetch_favors

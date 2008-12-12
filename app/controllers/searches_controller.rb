@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
       query = params[:qa]
       begin
         sl = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-        conditions = ["status = 'open'"]
+        conditions = ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"]
         @listing_amount = Listing.find_by_contents(query, {:sort => sl}, {:conditions => conditions}).total_hits
         @listings = Listing.find_by_contents(query, {:limit => 3, :sort => sl}, {:conditions => conditions})
         
