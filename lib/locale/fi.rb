@@ -111,6 +111,12 @@ I18n.store_translations 'fi',
 :entries => "osumia",
 :found_items => "",
 
+#Home view
+:newest_listings => "Uusimmat ilmoitukset", 
+:browse_all_listings => "Selaa ilmoituksia",
+:newest_messages => "Uusimmat viestit",
+:go_to_inbox => "Näytä postilaatikko",   
+
 #Listings view
 :listing => "ilmoitus",
 :all_listings => "Kaikki ilmoitukset",
@@ -287,7 +293,10 @@ I18n.store_translations 'fi',
 :from_user => "käyttäjältä",
 :message_must_have_title => "Viestin otsikko on pakollinen tieto",
 :show_messages_on_page => "Näytä viestejä sivulla",
-:unread_messages_partitive => "lukematonta viestiä",
+:unread_message => "lukematon viesti",
+:unread_message_partitive => "lukematonta viestiä",
+:no_unread_messages => "ei lukemattomia viestejä",
+:no_messages => "Ei viestejä",
 
 #Kassi events view
 :closed_listing => "Suljettu ilmoitus",

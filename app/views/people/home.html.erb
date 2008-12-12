@@ -1,1 +1,36 @@
-<h1><%= t(@title) %> </h1>
+<div class="home_header">
+  <div class="left_float">
+    <%= t(:newest_listings) %>
+  </div>
+  <div class="right_float">
+    <%= link_to t(:browse_all_listings), listings_path %> | <%= link_to t(:add_new_listing), new_listing_path %>
+  </div>    
+</div>
+
+<% if @listings.size > 0 %>
+  <%= render :partial => "listings/listing", 
+             :collection => @listings, 
+             :as => :listing, 
+             :spacer_template => "layouts/dashed_line" %>
+<% else %>             
+  <p><%= t(:no_listings) %></p>    
+<% end %>
+<br />
+
+<div class="home_header">
+  <div class="left_float">
+    <%= t(:newest_messages) %>
+  </div>
+  <div class="right_float">
+    <%= link_to t(:go_to_inbox), person_inbox_index_path(@current_user) %>
+  </div>
+</div>    
+
+<% if @person_conversations.size > 0 %>
+  <%= render :partial => "conversations/conversation", 
+             :collection => @person_conversations.values_at(0,1), 
+             :as => :conversation,
+             :spacer_template => "layouts/dashed_line" %>
+<% else %>             
+  <p><%= t(:no_messages) %></p>    
+<% end %>

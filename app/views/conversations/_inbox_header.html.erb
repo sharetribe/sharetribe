@@ -1,0 +1,12 @@
+<div class="browse_conversations_header">
+  <div class="browse_conversations_title">
+    <%= t(:inbox) %>
+    <span class="unread_messages">
+      <% if @inbox_new_count > 0 %> 
+        (<%= pluralize(@inbox_new_count, t(:unread_message), t(:unread_message_partitive)) %>)
+      <% else %>
+        (<%= t(:no_unread_messages) %>)
+      <% end %>  
+    </span>
+  </div>
+</div>

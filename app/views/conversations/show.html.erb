@@ -1,8 +1,4 @@
-<div class="browse_conversations_header">
-<div class="browse_conversations_title">
-  <%= t(:inbox) %>
-</div>
-</div>
+<%= render :partial => "inbox_header" %>
 
 <div class="links_panel">
   <%= link_to t(:received_messages), person_inbox_index_path(@current_user) %> | 
@@ -29,7 +25,7 @@
       <%= t(:messaging_with) %> <%= create_links_for_participants %> <%= t(:with) %>
     </div>
     <div class="right_float">
-      <%= link_to t(:show_original_listing), listing_path(@conversation.listing) + "?cl=" if @conversation.listing %>
+      <%= link_to t(:show_original_listing), listing_path(@conversation.listing) if @conversation.listing %>
       <% if @conversation.listing && @conversation.listing.status.eql?("open") && is_current_user?(@conversation.listing.author) %>
         <% receiver = @conversation.participants.reject { |p| p.id == @current_user.id }.first %>
         | <%= link_to t(:close_listing), close_person_listing_path(@current_user, @conversation.listing) + "?rid=" + receiver.id %>

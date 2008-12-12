@@ -13,13 +13,29 @@ class PeopleController < ApplicationController
   def home
     if @current_user
       if params[:id] && !params[:id].eql?(@current_user.id)
-        @title = :no_rights_to_view
+        redirect_to listings_path
       else
         save_navi_state(['own', 'home'])
-        @title = :home
+        @listings = Listing.find(:all, 
+                                 :limit => 2, 
+                                 :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'",
+                                 :order => "id DESC")                         
+        @person_conversations = []                         
+        person_conversations = PersonConversation.find(:all,
+                                                       :conditions => "person_id = '" + @current_user.id + "'",
+                                                       :order => "last_received_at DESC") 
+        person_conversations.each do |person_conversation|
+          conversation_ok = false
+          person_conversation.conversation.messages.each do |message|
+            conversation_ok = true unless message.sender == @current_user      
+          end
+          @person_conversations << person_conversation if conversation_ok  
+        end
+        session[:is_sent_mail] = false
+        save_message_collection_to_session(@person_conversations)                                               
       end  
     else
-      redirect_to(listings_path)
+      redirect_to listings_path
     end    
   end
   

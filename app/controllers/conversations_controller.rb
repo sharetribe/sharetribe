@@ -7,7 +7,7 @@ class ConversationsController < ApplicationController
     @pagination_type = "inbox"
     fetch_messages
   end
-  
+
   # Shows sent-mail_box
   def sent
     @pagination_type = "sent_messages"
@@ -39,37 +39,26 @@ class ConversationsController < ApplicationController
   end
 
   private
-  
+
   # Gets all messages for inbox or sent-mail-box.
   def fetch_messages(is_sent_mail = false)
     save_navi_state(['own','inbox','',''])
+    order = is_sent_mail ? "last_sent_at DESC" : "last_received_at DESC"
     person_conversations = []
-    PersonConversation.find(:all, :conditions => "person_id = '" + @current_user.id + "'").each do |person_conversation|
+    result = PersonConversation.find(:all,
+                                     :conditions => "person_id = '" + @current_user.id + "'",
+                                     :order => order)
+    result.each do |person_conversation|
       conversation_ok = false
       person_conversation.conversation.messages.each do |message|
         if is_sent_mail
-          if message.sender == @current_user
-            conversation_ok = true
-          end  
+          conversation_ok = true if message.sender == @current_user
         else  
-          unless message.sender == @current_user
-            conversation_ok = true
-          end
+          conversation_ok = true unless message.sender == @current_user
         end          
       end
-      if conversation_ok
-        person_conversations << person_conversation
-      end  
-    end
-    if is_sent_mail
-      person_conversations.sort! { 
-        |b,a| a.last_sent_at <=> b.last_sent_at
-      }
-    else
-      person_conversations.sort! { 
-        |b,a| a.last_received_at <=> b.last_received_at
-      }
-    end
+      person_conversations << person_conversation if conversation_ok  
+    end                                 
     session[:is_sent_mail] = is_sent_mail
     save_message_collection_to_session(person_conversations)
     @person_conversations = person_conversations.paginate :page => params[:page], :per_page => per_page

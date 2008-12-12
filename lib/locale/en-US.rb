@@ -109,6 +109,12 @@ I18n.store_translations 'en-US',
 :entries => "entries",
 :found_items => "found",
 
+#Home view
+:newest_listings => "Newest listings", 
+:browse_all_listings => "Browse listings",
+:newest_messages => "Newest messages",
+:go_to_inbox => "Go to inbox",
+
 #Listings view
 :listing => "listing",
 :all_listings => "All listings",
@@ -286,7 +292,10 @@ I18n.store_translations 'en-US',
 :from_user => "from user",
 :message_must_have_title => "Message must have title",
 :show_messages_on_page => "Show messages on page",
-:unread_messages_partitive => "unread messages",
+:unread_message => "unread message",
+:unread_message_partitive => "unread messages",
+:no_unread_messages => "no unread messages",
+:no_messages => "No messages",
 
 #Kassi events view
 :closed_listing => "Closed listing",

@@ -1,14 +1,4 @@
-<% cl = params[:cl] ? "?cl=" : "dsf"  %>
-
 <div id="title_with_border">
-  <div class="arrow_left">
-    <%= 
-      link_to image_tag("/images/arrow_left.png", :border => 0, 
-                                                  :alt => t(:previous_listing),
-                                                  :mouseover => '/images/arrow_left_hilight.png'
-                       ), listing_path(@previous_listing) + cl
-    %>
-  </div>
   <div id="title_div">
     <h1 class="no_border">
       <% if (@listing.title.length > 35 && !@listing.title.include?(" "))%>
@@ -16,18 +6,10 @@
       <% else %>
         <%= @listing.title %> 
       <% end %>
-      <% if @current_user && @listing.author != @current_user %>
+      <% if @current_user && @listing.author != @current_user && @listing.open? %>
         | <%= link_to t(:reply).downcase, reply_listing_path(@listing) %>
       <% end %>  
     </h1>
-  </div>
-  <div class="arrow_right">
-    <%= 
-      link_to image_tag("/images/arrow_right.png", :border => 0, 
-                                                   :alt => t(:next_listing),
-                                                   :mouseover => '/images/arrow_right_hilight.png'
-                       ), listing_path(@next_listing) + cl
-    %>
   </div>
 </div>
 
@@ -48,7 +30,7 @@
           <%= t(:author) %>:
         </div>
         <div class="listing_author_box_item">
-          <%= t(:good_thru) %>:
+          <%= t(:status) %>:  
         </div>
       </div>
       <div id="listing_author_box_texts">
@@ -56,7 +38,11 @@
           <%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
         </div>
         <div class="listing_author_box_item">
-          <%= t(:until_begin) %> <%= @listing.good_thru.to_formatted_s(:basic_date_format) %> <%= t(:until_end) %>
+          <% if @listing.open? %>
+            <%= t(:open) + " " + t(:until_begin).downcase + " " + @listing.good_thru.to_formatted_s(:basic_date_format) + " " + t(:until_end) %>
+          <% else %>
+            <%= t(:closed) %>
+          <% end %>  
         </div>
       </div>  
     </div>
@@ -75,7 +61,7 @@
     
     <br /><br />
   
-    <% if @current_user %>
+    <% if @current_user && @listing.open? %>
       <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
         <b><%= t(:comment_listing) %> </b><br /><br />
         <%= f.text_area :content, :size => "48x5" %>
@@ -93,16 +79,19 @@
   </div>
   <% end %>
   
-  <div id="listing_comments">
+  <div id="comments">
     
   <br /><br />
   
   <% if (@listing.comments.size > 0) %>
-    <h4><%= t(:comments) %></h4>
-    <table>
-      <%= render :partial => "listing_comments/listing_comment", :collection => @listing.comments %>
-    </table>
-  <% end %>  
+    <div id="comments">
+      <h4><%= t(:comments) %></h4>
+      <%= render :partial => "listing_comments/listing_comment", 
+                 :collection => @listing.comments, 
+                 :as => :comment, 
+                 :spacer_template => "layouts/dashed_line" %>
+    </div>
+  <% end %>
   
   </div>
   
