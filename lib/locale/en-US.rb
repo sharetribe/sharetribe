@@ -325,9 +325,14 @@ I18n.store_translations 'en-US',
 :done_transactions => "Coin transfer history",
 
 #Error messages
-:title_is_required => "Title is required.",
-:title_is_too_short => "Title is too short (minimum is 2 characters).",
-:content_is_required => "Content is required.",
+:title_is_required => "Title is required",
+:title_is_too_short => "Title is too short (minimum is 2 characters)",
+:title_is_too_long => "Title is too long (maximum is 50 characters).",
+:content_is_required => "Content is required",
+:listing_must_have_language => "Listing must have at least 1 language",
+:good_thru_is_required => "Good thru is required",
+:image_file_is_not_a_recognized_format => "Image file is not a recognized format",
+:image_file_is_too_big => "Image file can't be bigger than 5 megabytes",
 :transaction_amount_too_big => "There's not enough money in your purse to make a transaction",
 
 #Feedback

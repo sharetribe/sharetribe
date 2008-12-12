@@ -326,9 +326,14 @@ I18n.store_translations 'fi',
 :done_transactions => "Tehdyt killinkisiirrot",
 
 #Error messages
-:title_is_required => "Otsikko on pakollinen tieto.",
-:title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä).",
-:content_is_required => "Ilmoituksen sisältö on pakollinen tieto.",
+:title_is_required => "Otsikko on pakollinen tieto",
+:title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä)",
+:title_is_too_long => "Otsikko on liian pitkä (maksimi on 50 merkkiä).", 
+:content_is_required => "Ilmoituksen sisältö on pakollinen tieto",
+:listing_must_have_language => "Ilmoituksella on oltava vähintään yksi kieli",
+:good_thru_is_required => "Voimassaoloaika on pakollinen tieto",
+:image_file_is_not_a_recognized_format => "Kuvatiedosto on vääräntyyppinen",
+:image_file_is_too_big => "Kuvatiedoston maksimikoko on 5 Megabittiä",
 :transaction_amount_too_big => "Kukkarossa ei ole tarpeksi rahaa siirron suorittamiseksi",
 
 #Feedback
