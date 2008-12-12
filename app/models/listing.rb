@@ -109,8 +109,8 @@ class Listing < ActiveRecord::Base
       elsif @file_data.content_type !~ /^image/
         errors.add(:image_file, "is not a recognized format")
         return false
-      elsif @file_data.size > 1.megabyte
-        errors.add(:image_file, "can't be bigger than 1 megabyte")
+      elsif @file_data.size > 5.megabyte
+        errors.add(:image_file, "can't be bigger than 5 megabytes")
         return false    
       end
     end
