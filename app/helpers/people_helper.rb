@@ -30,7 +30,7 @@ module PeopleHelper
     case kassi_event.eventable_type
     when "Listing"
       listing = kassi_event.eventable
-      relation += t(:listing_illative) + " " + link_to(listing.title, listing_path(listing) + "?cl=")
+      relation += t(:listing_illative) + " " + link_to(listing.title, listing_path(listing))
     when "Item"
       item = kassi_event.eventable
       relation += t(:item_illative) + " " + link_to(item.title, item_path(item))

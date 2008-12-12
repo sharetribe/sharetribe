@@ -25,14 +25,6 @@ class ListingsController < ApplicationController
     unless @current_user && @listing.author.id == @current_user.id
       @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
     end
-    if params[:cl]
-      @previous_listing = @next_listing = @listing
-    else   
-      next_id = session[:ids].reject {|id| id <= params[:id].to_i }.last
-      @next_listing = next_id ? Listing.find(next_id) : @listing
-      previous_id = session[:ids].reject {|id| id >= params[:id].to_i }.first
-      @previous_listing = previous_id ? Listing.find(previous_id) : @listing
-    end  
   end
 
   def search
@@ -48,7 +40,6 @@ class ListingsController < ApplicationController
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
           conditions = params[:only_open] ? ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"] : ""
           listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
-          save_collection_to_session(listings)
           @listings = listings.paginate :page => params[:page], :per_page => per_page
         end
       end    

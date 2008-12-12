@@ -1,8 +1,4 @@
-<div class="browse_conversations_header">
-<div class="browse_conversations_title">
-  <%= t(:inbox) %> (<%= @inbox_new_count.to_s + " " + t(:unread_messages_partitive) %>)
-</div>
-</div>
+<%= render :partial => "inbox_header" %>
 
 <div class="links_panel">
   <div class="left_float">
@@ -15,25 +11,13 @@
 </div>
 
 <div id="conversations">
-
-<% if @person_conversations && !@person_conversations.empty? %>
-  <%= render :partial => "conversations/sent_conversation", :collection => @person_conversations %>
-<% else %>  
-  <%= t(:no_received_messages) %>
-<% end %>
-
+  <% if @person_conversations && !@person_conversations.empty? %>
+    <%= render :partial => "conversations/sent_conversation", 
+               :collection => @person_conversations,
+               :spacer_template => "layouts/dashed_line" %>
+  <% else %>  
+    <%= t(:no_received_messages) %>
+  <% end %>
 </div>
 
-<% if @person_conversations.total_pages > 1 || params[:per_page] %>
-
-<div class="links_panel">
-  <div class="left_float">
-    <%= t(:show_messages_on_page) %>:
-    <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
-  </div>
-  <div class="right_float">
-    <%= will_paginate @person_conversations, :prev_label => t(:previous), :next_label => t(:next) %>
-  </div>    
-</div>
-
-<% end %>
+<%= render :partial => "inbox_footer" %>

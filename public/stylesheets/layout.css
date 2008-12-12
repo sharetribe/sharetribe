@@ -746,10 +746,6 @@ div.listed_item_owner_right_link {
 
 /* Message views  */
 
-#conversations {
-	margin: 5px;
-}
-
 #send_message_to_existing_conversation {
 	padding: 0px 10px;
 }
@@ -768,6 +764,26 @@ div.browse_conversations_title {
 	font-weight: bold;
 	font-size: 18px;
 	float: left;
+}
+
+span.unread_messages {
+	font-size: 14px;
+}
+
+div.listed_message_center {
+	width: 160px;
+	float: left;
+	padding: 18px 10px 10px 10px;
+}
+
+div.listed_message_right {
+	width: 450px;
+	float: left;
+	padding: 18px 10px 10px 10px;
+}
+
+div.unread_conversation {
+	background: #dbf5b1;
 }
 
 
@@ -811,6 +827,17 @@ div.search_header {
 	overflow: hidden;
 }
 
+
+/* Home */
+
+div.home_header {
+	font-size: 14px;
+	font-weight: bold;
+	background: #c0e783;
+	padding: 5px 7px;
+	width: 715px;
+	overflow: hidden;
+}
 
 
 /* Feedback */

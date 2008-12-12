@@ -30,12 +30,6 @@ class ListingsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:listings)
   end
   
-  def test_show_new_category
-    get :new_category
-    assert_response :success
-    assert_template 'new_category'
-  end
-  
   def test_show_new
     # When not logged in 
     get :new

@@ -2,7 +2,7 @@
   case (kassi_event.eventable_type)
   when "Listing"
     listing = kassi_event.eventable
-    title = t(:closed_listing) + ": " + link_to(listing.title, listing_path(listing) + "?cl=")
+    title = t(:closed_listing) + ": " + link_to(listing.title, listing_path(listing))
     if listing.category.eql?("borrow_items")
       right_title1 = t(:item_borrower) + ": "
       receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
