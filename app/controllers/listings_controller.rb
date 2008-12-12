@@ -16,7 +16,7 @@ class ListingsController < ApplicationController
       @pagination_type = "category"
       @title = :all_categories
       save_navi_state(['listings', 'browse_listings', 'all_categories'])
-      fetch_listings("status = 'open'")
+      fetch_listings("status = 'open' AND good_thru >= '" + Date.today.to_s + "'")
     end    
   end
 
@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
         query = params[:q]
         begin
           s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-          conditions = params[:only_open] ? ["status = 'open'"] : ["status IN ('open', 'closed')"]
+          conditions = params[:only_open] ? ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"] : ""
           listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
           save_collection_to_session(listings)
           @listings = listings.paginate :page => params[:page], :per_page => per_page

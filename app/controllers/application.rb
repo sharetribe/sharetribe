@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
   def fetch_listings(conditions, order = 'id DESC')
     listings = Listing.find(:all, 
                             :order => order,
-                            :select => 'id, created_at, author_id, title, status, times_viewed, category', 
+                            :select => 'id, created_at, author_id, title, status, times_viewed, category, good_thru', 
                             :conditions => conditions)
     save_collection_to_session(listings)                      
     @listings = listings.paginate :page => params[:page], :per_page => per_page                                             
@@ -54,7 +54,6 @@ class ApplicationController < ActionController::Base
   # Shows the profile page of the user. This method is used in peoplecontroller/show,
   # itemscontroller/edit and favorscontroller/edit.
   def show_profile
-    session[:previous_page] = request.request_uri
     @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
     @item = Item.new
     @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")

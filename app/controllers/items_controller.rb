@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   end
   
   def show
-    session[:previous_page] = request.request_uri
     @title = params[:id]
     @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
     fetch_items

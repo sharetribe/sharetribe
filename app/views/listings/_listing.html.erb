@@ -32,7 +32,7 @@
   <div class="listed_object_author">
     <% if is_current_user?(listing.author) %>
       <%= t(:own_listing)%>, <%= t(:created) %> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> 
-      <% unless listing.status.eql?("closed") %>
+      <% if listing.open? %>
         | <b><%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %></b>
       <% end %>  
     <% else %>
@@ -70,7 +70,7 @@
     <%= link_to(t(listing.category), listing_category_path(listing.category)) %>
   </div>
   <div class="listed_listing_right_item">  
-    <%= t(listing.status) %>
+    <%= listing.open? ? t(:open) : t(:closed) %>
   </div>
   <div class="listed_listing_right_item">  
     <%= listing.times_viewed %> <%= t(:times) %>
