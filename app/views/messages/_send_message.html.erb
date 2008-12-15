@@ -1,51 +1,54 @@
+<div class="form_container">
 <% form_for :message, :url => person_inbox_messages_path(@current_user) do |f| %>
   <%= f.hidden_field :sender_id, :value => @current_user.id %>
   <%= f.hidden_field :current_conversation, :value => @conversation.id if @conversation %>
   <% if @listing %>
-    <div id="basic_content">
-      <%= t(:only_listing_author_sees_message) %>.
-    </div>  
+    <%= t(:only_listing_author_sees_message) %>.
     <%= f.hidden_field :title, :value => "RE: " + @listing.title %>  
     <%= f.hidden_field :listing_id, :value => @listing.id.to_s %>
     <%= f.hidden_field :receiver_id, :value => @listing.author.id %>
-    <table class="form">
   <% elsif @item %>
     <%= f.hidden_field :receiver_id, :value => @person.id %>
     <%= f.hidden_field :item_id, :value => @item.title.downcase %>
     <%= f.hidden_field :title, :value => t(:i_want_to_borrow_this_item) + ": " + @item.title %>
-    <table class="form">
-      <tr>
-        <td><b><%= t(:title) %></b></td>
-        <td><%= t(:i_want_to_borrow_this_item) + ": " + @item.title %></td>
-      </tr>
+    <div class="form_header">
+      <%= t(:title) %>:
+    </div>
+    <div class="form_field">  
+      <%= t(:i_want_to_borrow_this_item) + ": " + @item.title %>
+    </div>
   <% elsif @favor %>
     <%= f.hidden_field :receiver_id, :value => @person.id %>
     <%= f.hidden_field :favor_id, :value => @favor.title.downcase %>
     <%= f.hidden_field :title, :value => t(:i_want_to_ask_for_this_favor) + ": " + @favor.title %>
-    <table class="form">
-      <tr>
-        <td><b><%= t(:title) %></b></td>
-        <td><%= t(:i_want_to_ask_for_this_favor) + ": " + @favor.title %></td>
-      </tr>    
+    <div class="form_header">
+      <%= t(:title) %>:
+    </div> 
+    <div class="form_field"> 
+      <%= t(:i_want_to_ask_for_this_favor) + ": " + @favor.title %>
+    </div>    
   <% else %>
     <%= f.hidden_field :receiver_id, :value => @person.id %>
-    <table class="form"> 
-      <tr>
-        <td><b><%= t(:title) %></b></td>
-        <td><%= f.text_field :title, :size => 73 %></td>
-      </tr>  
+    <div class="form_header">
+      <%= t(:title) %>:
+    </div>
+    <div class="form_field">  
+      <%= f.text_field :title, :size => 95 %>
+    </div>  
   <% end %>
-      <tr>
-        <td>
-          <b><%= t(:message_content) %>:</b>
-        </td>
-        <td>
-          <%= f.text_area :content, :size => "70x5" %>
-        </td>  
-      <tr>
-      <tr>
-        <td><%= submit_tag t(:send_message), :onclick => "this.disabled=true,this.form.submit();" %></td>
-        <td><%= submit_tag t(:cancel), :name => "message[cancel]" %></td>
-      <tr>
-    </table>      
+    <div class="form_header">
+      <%= t(:message_content) %>:
+    </div>
+    <div class="form_field">
+      <%= f.text_area :content, :size => "95x5" %>
+    </div>
+  </div>
+  <div class="form_container">    
+    <div id="form_field">
+      <%= submit_tag t(:send_message), :onclick => "this.disabled=true,this.form.submit();" %>
+      &nbsp;&nbsp;
+      <%= submit_tag t(:cancel), :name => "message[cancel]" %>
+    </div>
+  </div>     
 <% end %>
+</div>

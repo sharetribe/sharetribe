@@ -18,6 +18,10 @@ div.extra_padding {
 	padding-bottom: 3px;
 }
 
+div.small_margin {
+	margin-left: 5px;
+}
+
 div.left_float {
 	float: left;
 }
@@ -63,6 +67,7 @@ div.error {
 }
 
 div.fieldWithErrors {
+	float: left;
 	border: 3px solid #f66;
 }
 
@@ -382,6 +387,16 @@ div.form_right {
 	margin-top: 5px;
 	margin-bottom: 10px;
 }
+
+div.form_header {
+	font-weight: bold;
+	margin-bottom: 7px;
+}
+
+div.form_field {
+	margin-bottom: 15px;
+}
+
 
 /* Listed objects */
 

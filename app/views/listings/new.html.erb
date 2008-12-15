@@ -4,9 +4,8 @@
   <% if !params[:subcategory] && Listing.get_sub_categories(params[:category]) %>
       <%= render :partial => "listings/category", :collection => Listing.get_sub_categories(params[:category]) %>
   <% else %>
-  <% if @listing %>
   
-  <div id="add_listing_form">
+  <% if @listing %>
   
   <% errors = translate_error_messages([@listing.errors.full_messages]) %>
   <% unless errors.empty? %>
@@ -20,6 +19,8 @@
   </div>
   <% end %>  
   
+  <div class="small_margin">
+  
   <% error_class_language = "" %>
   <% @listing.errors.full_messages.each do |message| %>
     <% if message.include? "Language" %>
@@ -27,58 +28,73 @@
     <% end %> 
   <% end %>
   <% form_for @listing, :html => {:multipart => true} do |f| %>
-  <table class="form">
-    <tr>
-      <td><b><%= t(:fields_marked_with_star_are_mandatory) %></b></td>
-    </tr>
-  </table>
-  <table class="form">      
-    <tr>
-      <td><b><%= t(:title) %>*:</b></td>
-      <td><%= f.text_field :title, :size => 80 %></td>
-    </tr>
-    <tr>
-      <td><b><%= t(:content) %>*:</b></td>
-      <td><%= f.text_area :content, :size => "77x5" %></td>
-    </tr>
-    <tr>
-      <td><b><%= t(:language) %>*:</b></td>
-      <td>
-        <div class="<%= error_class_language %>">  
-        <table>
-          <tr>
-            <td>
-              <% if (params[:listing] && params[:listing][:language_fi] && !params[:listing][:language_fi].to_s.eql?('1')) %>
-                <%= f.check_box :language_fi %>  
-              <% else %>
-                <%= f.check_box :language_fi, :checked => "checked" %>
-              <% end %>  
-            </td>
-            <td><%= t(:fi) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td><%= f.check_box :language_en %></td>
-            <td><%= t(:en) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-            <td><%= f.check_box :language_swe %></td>
-            <td><%= t(:swe) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-          </tr>
-        </table>
-        </div>  
-      </td>  
-    </tr>
-    <tr>
-      <td><b><%= t(:good_thru) %>*:</b></td>
-      <td>
-        <% if @listing.good_thru %>
-          <%= f.text_field :good_thru, :size => "20" %>
+  <div class="form_container">
+    <div class="form_right">
+      <%= t(:fields_marked_with_star_are_mandatory) %>
+    </div>
+  </div>
+  <div class="form_container">    
+    <div class="form_left">
+      <%= t(:title) %>*:
+    </div>  
+    <div class="form_right">
+      <%= f.text_field :title, :size => 70 %>
+    </div>  
+    <div class="form_left">
+      <%= t(:content) %>*:
+    </div>
+    <div class="form_right">
+      <%= f.text_area :content, :size => "67x5" %>
+    </div>  
+    <div class="form_left">
+      <%= t(:language) %>*:
+    </div>
+    <div class="<%= error_class_language %>">  
+      <div class="form_right">
+        <% if session[:locale] == 'fi' %>
+          <% if (params[:listing] && params[:listing][:language_fi] && params[:listing][:language_fi].to_s.eql?('0')) %>
+            <%= f.check_box :language_fi %>  
+          <% else %>
+            <%= f.check_box :language_fi, :checked => "checked" %>
+          <% end %>  
+          <%= t(:fi) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= f.check_box :language_en %>
+          <%= t(:en) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <% else %>
-          <%= f.text_field :good_thru, :size => "20", :value => Date.today + 1.month %>
-        <% end %>   
-        <%= t(:good_thru_format) %> 
-      </td>
-    </tr>
-      <tr>
-        <td><b><%= t(:image) %>:</b></td>
-        <td><%= f.file_field :image_file %></td>
-      </tr>
+          <% if (params[:listing] && params[:listing][:language_en] && params[:listing][:language_en].to_s.eql?('0')) %>
+            <%= f.check_box :language_en %>  
+          <% else %>
+            <%= f.check_box :language_en, :checked => "checked" %>
+          <% end %>  
+          <%= t(:en) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <%= f.check_box :language_fi %>
+          <%= t(:fi) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <% end %>  
+        <%= f.check_box :language_swe %>
+        <%= t(:swe) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>  
+    </div>
+  </div>
+  <div class="form_container">  
+    <div class="form_left">
+      <%= t(:good_thru) %>*:
+    </div>
+    <div class="form_right">
+      <% if @listing.good_thru %>
+        <%= f.text_field :good_thru, :size => "20" %>
+      <% else %>
+        <%= f.text_field :good_thru, :size => "20", :value => Date.today + 1.month %>
+      <% end %>   
+      &nbsp;<%= t(:good_thru_format) %> 
+    </div>
+  </div>
+  <div class="form_container">  
+    <div class="form_left">
+      <%= t(:image) %>:
+    </div>  
+    <div class="form_right">
+      <%= f.file_field :image_file %>
+    </div>
     <%= f.hidden_field :author_id, :value => @current_user.id %>
     <%= f.hidden_field :status, :value => "open" %>
     <%= f.hidden_field :times_viewed, :value => "0" %>
@@ -86,20 +102,19 @@
       <%= f.hidden_field :category, :value => params[:subcategory] %>
     <% else %>
       <%= f.hidden_field :category, :value => params[:category] %>
-    <% end %>
-  </table>
-  <table class="form">  
-    <tr>
-      <td><%= submit_tag t(:add_listing_submit), :onclick => "this.disabled=true,this.form.submit();" %></td>    
-    </tr>
-  </table>
-
-  <% end %>
+    <% end %>  
+  </div>
+  <div class="form_container">  
+    <div class="form_right">
+      <%= submit_tag t(:add_listing_submit), :onclick => "this.disabled=true,this.form.submit();" %>  
+    </div>
   </div>
   <% end %>
   <% end %>
+  <% end %>
+  </div>
 <% else %>
-  <%= render :partial => "listings/category", :collection => Listing::MAIN_CATEGORIES %>
+    <%= render :partial => "listings/category", :collection => Listing::MAIN_CATEGORIES %>
 <% end %>
 
 

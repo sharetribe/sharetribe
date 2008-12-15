@@ -13,9 +13,9 @@ class ConversationTest < ActiveSupport::TestCase
   end
   
   def test_title_length
-    assert_conversation_valid(:title, "this is a too long title for a conversation as far a", false)
+    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanas", false)
     assert_conversation_valid(:title, "w", false)
-    assert_conversation_valid(:title, "this is a valid title for a conversation as fa", true)
+    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasana", true)
     assert_conversation_valid(:title, "mo", true)
   end
   
