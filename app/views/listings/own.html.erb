@@ -10,9 +10,7 @@
 </div>
 
 <% if @listings.size > 0 %>
-  <table class="listing">
   <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
-  </table>
   <% if @listings.total_pages > 1 %>
   <div class="links_panel">
     <div class="left_float">

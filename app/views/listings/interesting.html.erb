@@ -15,9 +15,7 @@
 </div>
 
 <% if (@listings.size > 0)%>
-  <table class="listing">
   <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
-  </table>
   <div id="browse_objects_footer_left">
     <%= t(:show_listings_on_page) %>:
     <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>

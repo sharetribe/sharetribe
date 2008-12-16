@@ -33,10 +33,18 @@ module PeopleHelper
       relation += t(:listing_illative) + " " + link_to(listing.title, listing_path(listing))
     when "Item"
       item = kassi_event.eventable
-      relation += t(:item_illative) + " " + link_to(item.title, item_path(item))
+      if item.status.eql?("disabled")
+        relation += t(:item_illative) + " " + item.title + " (" + t(:item_removed) + ")"
+      else  
+        relation += t(:item_illative) + " " + link_to(item.title, item_path(item))
+      end  
     when "Favor"
       favor = kassi_event.eventable
-      relation += t(:favor_illative) + " " + link_to(favor.title, favor_path(favor))
+      if favor.status.eql?("disabled")
+        relation += t(:favor_illative) + " " + favor.title + " (" + t(:favor_removed) + ")"
+      else  
+        relation += t(:favor_illative) + " " + link_to(favor.title, favor_path(favor))
+      end
     end
     return relation       
   end

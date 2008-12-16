@@ -53,16 +53,15 @@ class ApplicationController < ActionController::Base
   # Shows the profile page of the user. This method is used in peoplecontroller/show,
   # itemscontroller/edit and favorscontroller/edit.
   def show_profile
-    @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
+    @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "' AND status <> 'disabled'", :order => "title")
     @item = Item.new
-    @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "'", :order => "title")
+    @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "' AND status <> 'disabled'", :order => "title")
     @favor = Favor.new
     if @person.id == @current_user.id
       save_navi_state(['own', 'profile', '', '', 'information'])
     else
       session[:profile_navi] = 'information'
-    end     
-    @title = @person.name(session[:cookie])
+    end
   end
   
   private 

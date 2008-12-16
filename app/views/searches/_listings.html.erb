@@ -7,10 +7,8 @@
   </div>    
 </div>
 
-<% if @listings && @listings.size > 0 %>
-<table class="listing"> 
-<%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
-</table>
+<% if @listings && @listings.size > 0 %> 
+  <%= render :partial => "listings/listing", :collection => @listings, :spacer_template => "layouts/dashed_line" %>
 <% else %>
- <p><%= t(:no_listings) %></p>
+  <p><%= t(:no_listings) %></p>
 <% end %>

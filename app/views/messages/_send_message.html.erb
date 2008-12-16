@@ -1,9 +1,20 @@
-<div class="form_container">
 <% form_for :message, :url => person_inbox_messages_path(@current_user) do |f| %>
   <%= f.hidden_field :sender_id, :value => @current_user.id %>
   <%= f.hidden_field :current_conversation, :value => @conversation.id if @conversation %>
   <% if @listing %>
-    <%= t(:only_listing_author_sees_message) %>.
+    <div class="form_container">
+      <div class="form_right">
+        <%= t(:only_listing_author_sees_message) %>.
+      </div>
+    </div>
+    <div class="form_container">
+      <div class="form_header">
+        <%= t(:title) %>:
+      </div>  
+      <div class="form_field">
+        <%= "RE: " + @listing.title %>
+      </div>
+    </div>    
     <%= f.hidden_field :title, :value => "RE: " + @listing.title %>  
     <%= f.hidden_field :listing_id, :value => @listing.id.to_s %>
     <%= f.hidden_field :receiver_id, :value => @listing.author.id %>
@@ -33,16 +44,15 @@
       <%= t(:title) %>:
     </div>
     <div class="form_field">  
-      <%= f.text_field :title, :size => 95 %>
+      <%= f.text_field :title, :size => 90 %>
     </div>  
   <% end %>
     <div class="form_header">
       <%= t(:message_content) %>:
     </div>
     <div class="form_field">
-      <%= f.text_area :content, :size => "95x5" %>
+      <%= f.text_area :content, :size => "90x5" %>
     </div>
-  </div>
   <div class="form_container">    
     <div id="form_field">
       <%= submit_tag t(:send_message), :onclick => "this.disabled=true,this.form.submit();" %>

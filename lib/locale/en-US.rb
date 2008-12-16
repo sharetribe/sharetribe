@@ -252,6 +252,8 @@ I18n.store_translations 'en-US',
 :listing_illative => "listing",
 :item_illative => "item",
 :favor_illative => "favor",
+:item_removed => "item removed",
+:favor_removed => "favor removed",
 
 #Friend view
 :friends_of_user => "Friends of user",

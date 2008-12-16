@@ -1,27 +1,24 @@
-<tr>
-  <td><b><%= t(:search_keyword) %>:</b></td>
-  <td><%= text_field_tag "q", params[:q], :size => 30 %></td>
-  <td><%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %></td>
-  <!-- <td><%= link_to t(:advanced_search), "?type=advanced" %></td> -->
-</tr>
-<tr>
-  <td>&nbsp;</td>
-  <td>
-    <table class="no_padding">
-      <tr>
-        <td>
-          <% if params[:q] && !params[:only_open] %>
-            <%= check_box_tag "only_open", "true" %> 
-          <% else %>
-            <%= check_box_tag "only_open", "true", :checked => "checked" %>
-          <% end %>  
-        </td>
-        <td>
-          <%= t(:search_only_open) %>
-        </td>  
-      </tr>
-    </table>    
-  </td>
-  <td></td>
-  <td></td>
-</tr>
+<div class="form_container">
+  <div class="search_form_left">
+    <%= t(:search_keyword) %>:
+  </div>  
+  <div class="search_form_right">
+    <%= text_field_tag "q", params[:q], :size => 30 %>
+    &nbsp;&nbsp;&nbsp;
+    <%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %>
+  </div>  
+</div>
+
+<div class="form_container">
+  <div class="search_form_left">
+    &nbsp;
+  </div>
+  <div class="search_form_right">  
+    <% if params[:q] && !params[:only_open] %>
+      <%= check_box_tag "only_open", "true" %> 
+    <% else %>
+      <%= check_box_tag "only_open", "true", :checked => "checked" %>
+    <% end %>
+    <%= t(:search_only_open) %>
+  </div>
+</div>  

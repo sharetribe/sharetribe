@@ -20,4 +20,8 @@ class Favor < ActiveRecord::Base
     title
   end
   
+  def disable
+    update_attribute :status, "disabled"
+  end
+  
 end

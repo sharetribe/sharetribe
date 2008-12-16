@@ -43,11 +43,10 @@
   </div>
 </div>
 
-<table class="conversation">
-  <%= render :partial => "messages/message", 
-             :collection => @conversation.messages,
-             :spacer_template => "layouts/dashed_line" %>
-</table>
+
+<%= render :partial => "messages/message", 
+           :collection => @conversation.messages,
+           :spacer_template => "layouts/dashed_line" %>
   
 <div id="send_message_to_existing_conversation">
   <%= render :partial => "messages/send_reply" %>

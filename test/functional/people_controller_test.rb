@@ -25,11 +25,16 @@ class PeopleControllerTest < ActionController::TestCase
   end
   
   def test_render_profile_page
-    @test_person, @session = get_test_person_and_session
-    get :show, {:id => @test_person.id }, {:person_id => @test_person.id, :cookie => @session.cookie}
+    submit_with_person :show, {
+      :id => people(:one).id
+    }, nil, nil, :get
     assert_response :success
     assert_template "show"
-    @session.destroy
+    assert_not_nil assigns(:person)
+    assert_not_nil assigns(:item)
+    assert_not_nil assigns(:favor)
+    assert_equal assigns(:items), [ items(:one) ]
+    assert_equal assigns(:favors), [ favors(:one) ]
   end
   
   def test_create_users
