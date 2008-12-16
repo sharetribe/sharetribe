@@ -24,7 +24,7 @@ class ConversationTest < ActiveSupport::TestCase
   end
   
   def test_participant_association
-    assert_equal [people(:one)], conversations(:one).participants   
+    assert_equal [people(:one), people(:two)], conversations(:one).participants   
   end
   
   private

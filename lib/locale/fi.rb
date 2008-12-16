@@ -254,6 +254,8 @@ I18n.store_translations 'fi',
 :listing_illative => "ilmoitukseen",
 :item_illative => "lainattuun tavaraan",
 :favor_illative => "tarjottuun palvelukseen",
+:item_removed => "tavara poistettu",
+:favor_removed => "palvelus poistettu",
 
 #Friend view
 :friends_of_user => "Käyttäjän",

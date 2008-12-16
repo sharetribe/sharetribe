@@ -397,6 +397,20 @@ div.form_field {
 	margin-bottom: 15px;
 }
 
+div.search_form_left {
+	font-weight: bold;
+	float: left;
+	width: 75px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+div.search_form_right {
+	float: left;
+	margin-top: 3px;
+	margin-bottom: 7px;
+}
+
 
 /* Listed objects */
 
@@ -863,9 +877,20 @@ div.home_header {
 	clear: both;
 }
 
-.feedback_item {
+div.feedback_item {
 	margin: 3px;
 	border: 1px solid #000;
+}
+
+div.listed_feedback_field {
+	width: 130px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_feedback_content {
+	float: left;
+	padding: 10px;
 }
 
 

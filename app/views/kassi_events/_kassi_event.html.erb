@@ -24,9 +24,17 @@
   when "Item"
     item = kassi_event.eventable
     if @person.id == kassi_event.receiver.id
-      title = t(:borrowed_item) + ": " + link_to(item.title, item_path(item.title.downcase))
-    else 
-      title = t(:lent_item) + ": " + link_to(item.title, item_path(item.title.downcase))
+      if item.status.eql?("disabled")
+        title = t(:borrowed_item) + ": " + item.title + " (" + t(:item_removed) + ")"
+      else  
+        title = t(:borrowed_item) + ": " + link_to(item.title, item_path(item.title.downcase))
+      end  
+    else
+      if item.status.eql?("disabled") 
+        title = t(:lent_item) + ": " + item.title + " (" + t(:item_removed) + ")"
+      else  
+        title = t(:lent_item) + ": " + link_to(item.title, item_path(item.title.downcase))
+      end  
     end
     right_title1 = t(:item_borrower) + ": "
     receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
@@ -35,9 +43,17 @@
   when "Favor"
     favor = kassi_event.eventable
     if @person.id == kassi_event.receiver.id
-      title = t(:received_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
-    else 
-      title = t(:done_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
+      if favor.status.eql?("disabled")
+        title = t(:received_favor) + ": " + favor.title + " (" + t(:favor_removed) + ")"
+      else  
+        title = t(:received_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
+      end  
+    else
+      if favor.status.eql?("disabled")
+        title = t(:done_favor) + ": " + favor.title + " (" + t(:favor_removed) + ")"
+      else   
+        title = t(:done_favor) + ": " + link_to(favor.title, favor_path(favor.title.downcase))
+      end  
     end
     right_title1 = t(:favor_receiver) + ": "
     receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)

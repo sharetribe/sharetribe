@@ -11,9 +11,12 @@ class Item < ActiveRecord::Base
     }
   }
   
+  VALID_STATUSES = ["enabled", "disabled"]
+  
   validates_presence_of :title, :owner_id
   validates_length_of :title, :within => 2..50   
   validates_numericality_of :payment, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true, :allow_blank => true
+  validates_inclusion_of :status, :in => VALID_STATUSES
   
   validate :owner_does_not_have_item_with_same_title
   
@@ -30,6 +33,10 @@ class Item < ActiveRecord::Base
   
   def title_sort
     title
+  end
+  
+  def disable
+    update_attribute :status, "disabled"
   end
   
 end

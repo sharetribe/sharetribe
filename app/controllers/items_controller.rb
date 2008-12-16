@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
   
   def show
     @title = params[:id]
-    @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
+    @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "' AND status <> 'disabled'")
     fetch_items
     render :action => :index
   end
@@ -49,7 +49,7 @@ class ItemsController < ApplicationController
   end  
   
   def destroy
-    Item.find(params[:id]).destroy
+    Item.find(params[:id]).disable
     flash[:notice] = :item_removed
     redirect_to @current_user
   end
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
       query = params[:q]
       begin
         s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-        items = Item.find_by_contents(query, {:sort => s}, {:conditions => ''})
+        items = Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
         @items = items.paginate :page => params[:page], :per_page => per_page
       end
     end
@@ -90,7 +90,7 @@ class ItemsController < ApplicationController
   def fetch_items
     save_navi_state(['items','browse_items','',''])
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
-    @item_titles = Item.find(:all, :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    @item_titles = Item.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
   end
   
 end

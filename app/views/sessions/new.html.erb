@@ -1,26 +1,34 @@
 <h1><%= t(:logging_in) %></h1>
 
-<br />
+<div id="basic_content">
 
 <%= error_messages_for :session %>
 
 <% form_tag(:action => "create") do -%>
 
-<table class="form">
-    <tr>
-      <td><%= t(:username) %></td>
-      <td><%= text_field_tag :username %></td>
-    </tr>  
-    <tr>
-      <td><%= t(:password) %></td>
-      <td><%= password_field_tag :password %></td>
-    </tr>
-</table>
-<table class="form">  
-  <tr>
-    <td><%= submit_tag t(:login) %></td>    
-  </tr>
-</table>
+<div class="form_container">
+  <div class="form_left">
+    <%= t(:username) %>:
+  </div>  
+  <div class="form_right">
+    <%= text_field_tag :username %>
+  </div>
+</div>  
+<div class="form_container">    
+  <div class="form_left">
+    <%= t(:password) %>:
+  </div>
+  <div class="form_right">  
+    <%= password_field_tag :password %>
+  </div>
+</div>
+<div class="form_container">  
+  <div class="form_right">
+    <%= submit_tag t(:login) %>   
+  </div>
+</div>
 
 <% end -%>
+
+</div>
 

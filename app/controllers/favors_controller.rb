@@ -6,7 +6,7 @@ class FavorsController < ApplicationController
   
   def show
     @title = params[:id]
-    @favors = Favor.find(:all, :conditions => "title = '" + params[:id].capitalize + "'")
+    @favors = Favor.find(:all, :conditions => "title = '" + params[:id].capitalize + "' AND status = 'enabled'")
     fetch_favors
     render :action => :index
   end
@@ -17,7 +17,7 @@ class FavorsController < ApplicationController
       query = params[:q]
       begin
         s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-        favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => ''})
+        favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
         @favors = favors.paginate :page => params[:page], :per_page => per_page
       end
     end
@@ -59,7 +59,7 @@ class FavorsController < ApplicationController
   end
   
   def destroy
-    Favor.find(params[:id]).destroy
+    Favor.find(params[:id]).disable
     flash[:notice] = :favor_removed
     redirect_to @current_user
   end
@@ -88,7 +88,7 @@ class FavorsController < ApplicationController
   def fetch_favors
     save_navi_state(['favors','browse_favors','',''])
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
-    @favor_titles = Favor.find(:all, :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    @favor_titles = Favor.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
   end
   
 end
