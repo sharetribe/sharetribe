@@ -26,7 +26,8 @@ class ItemsController < ApplicationController
       redirect_to person_path(@person) and return
     end  
     @item = Item.find(params[:id])
-    if @item.update_attribute(:title, params[:item][:title])
+    @item.title = params[:item][:title]
+    if @item.save
       flash[:notice] = :item_updated
     else 
       flash[:error] = :item_could_not_be_updated

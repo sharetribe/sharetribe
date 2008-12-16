@@ -6,7 +6,7 @@ valid_listing:
   category: "sell"
   title: "otsikko"
   content: "jotain tekstii"
-  good_thru: <%=DateTime.now+2%>
+  good_thru: <%=DateTime.now+(2)%>
   times_viewed: 34
   status: "open"
   language:
@@ -17,7 +17,7 @@ valid_listing:
 
 another_valid_listing:
   author_id: dMF4WsJ7Kr3BN6ab9B7ckF
-  category: "sell"
+  category: "others"
   title: "Myydään alastomia oravoita"
   content: "Erityisen hyvä on, jos oravalla on mukanaan saha."
   good_thru: <%=DateTime.now+(2)%>
