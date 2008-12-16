@@ -50,7 +50,11 @@ class MessagesController < ApplicationController
                                       :last_received_at => @message.created_at)
           else
             @message.destroy
-            flash[:error] = :message_must_have_title
+            if @conversation.errors.full_messages.first.to_s.include?("liian")
+              flash[:error] = :message_title_is_too_long
+            else  
+              flash[:error] = :message_must_have_title
+            end  
             redirect_to :back and return
           end                              
         end  

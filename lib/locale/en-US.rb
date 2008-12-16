@@ -345,6 +345,7 @@ I18n.store_translations 'en-US',
 :image_file_is_not_a_recognized_format => "Image file is not a recognized format",
 :image_file_is_too_big => "Image file can't be bigger than 5 megabytes",
 :transaction_amount_too_big => "There's not enough money in your purse to make a transaction",
+:message_title_is_too_long => "Title is too long (maximum is 80 characters)",
 
 #Feedback
 :feedback => "Feedback",
