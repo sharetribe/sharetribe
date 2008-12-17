@@ -85,6 +85,7 @@ I18n.store_translations 'fi',
 :found => "Löydetyt",
 :rides => "Kimppakyydit",
 :groups => "Porukkahaku",
+:favors_description => "Palvelukset",
 :others => "Muut",
 
 #Category descriptions
@@ -327,6 +328,7 @@ I18n.store_translations 'fi',
 :show_kassi_events_on_page => "Näytä tapahtumia sivulla",
 :comment_for_lender => "Kommentti lainaajalle",
 :comment_for_favor_realizer => "Kommentti tekijälle",
+:no_kassi_events => "Ei Kassitapahtumia",
 
 #Purses view
 :purse => "Kukkaro",
@@ -366,4 +368,98 @@ I18n.store_translations 'fi',
 :help => "Ohjeet",
 :terms => "Käyttöehdot",
 :forum => "Foorumi",
-:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista."
+:kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista.",
+
+#About
+:about_title => "Tietoa Kassista",
+:about_title_what_is_kassi => "Mikä on Kassi?",
+:about_text_what_is_kassi => "<p>Kassi on palvelu, joka mahdollistaa erilaisten palvelusten vaihdon käyttäjien jättämien ilmoitusten kautta. 
+Ilmoitukset on jaettu kuuteen eri kategoriaan, joita ovat kauppapaikka, palvelukset, porukkahaku, kimppakyydit, löytötavarat ja muut. 
+Ilmoituksia voi selata rekisteröitymättä, mutta ilmoituksiin vastaaminen ja käyttäjien profiilien tarkastelu vaatii rekisteröitymisen.</p>
+<p>
+Kassi on yksi Otasizzle-palveluista, ja Sizl.org-portaalissa tai missä tahansa muussa Otasizzle-palvelussa luodut tunnukset käyvät 
+sellaisinaan myös Kassiin. Jokaiselle käyttäjälle luodaan kuitenkin oma Kassi-profiili, johon tallennetut tiedot eivät näy muissa 
+Otasizzle-palveluissa.</p>",
+:about_title_why_is_kassi => "Miksi Kassi on olemassa?",
+:about_text_why_is_kassi => "Kassin tavoite on helpottaa päivittäisten palvelusten vaihtoa Otaniemen alueella. 
+Kassi on osa TKK:n ja HIIT:n yhteistä Otasizzle-projektia, jonka tarkoitus on tutkia sosiaalisten internetpalveluiden kehittämistä ja käyttöä. ",
+:about_title_who_is_kassi_for => "Kenelle Kassi on tarkoitettu?",
+:about_text_who_is_kassi_for => "Kassi on palvelun paikallisuutta hyödyntävästä luonteesta johtuen tarkoitettu ensisijaisesti kaikille 
+Otaniemen alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi. Myös mm. TKY:n 
+yhteydessä toimivat yhdistykset (esim. killat ja ainejärjestöt) voivat rekisteröityä ja käyttää Kassia omiin tarpeisiinsa.",
+
+#Help
+:help_title => "Apua Kassin käyttöön",
+:help_title_concepts => "Kassi käsitteitä",
+:help_title_concept_listing =>"Ilmoitus",
+:help_text_concept_listing =>"Kassissa voit jättää ilmoituksia, joilla voit hakea henkilöitä tekemään palveluksia, tai lainaamaan tavaroita, 
+tai jalkapalloseuraksi tai mitä ikinä keksitkään!",
+:help_title_concept_category =>"Kategoria",
+:help_text_concept_category =>"Ilmoituksen luokitus.(Tarkemmin alla)",
+:help_title_concept_profile =>"Profiili",
+:help_text_concept_profile =>"Käyttäjän yhteystiedot ja tarjoamat palvelukset ja lainatavarat näkyvät täällä. Lisäksi voi katsoa käyttäjälle
+ annettua palautetta, hänen ilmoituksiaan sekä toteutuneita kassitapahtumiaan. ",
+:help_title_concept_inbox =>"Postilaatikko",
+:help_text_concept_inbox =>"Postilaatikosta löytyvät kaikki käyttäjän saamat vastaukset ilmoituksiin, sekä käyttäjän itse lähettämät vastaukset.",
+:help_title_concept_favor =>"Palvelus",
+:help_text_concept_favor =>"Palvelus on jonkinlainen pieni mukava asia, jonka voi tehdä toiselle käyttäjälle.",
+:help_title_concept_item =>"Tavara",
+:help_text_concept_item =>"Tavaralla Kassissa tarkoitetaan yleensä tavaraa, jonka olet valmis lainaamaan muille Kassikäyttäjille.",
+:help_title_concept_Kassi_event =>"Kassitapahtuma",
+:help_text_concept_Kassi_event =>"Kassitapahtuma syntyy, kun kaksi tai useampaa henkilöä vaihtavat palveluksia tai tavaroita Kassin kautta. 
+Tapahtumat syntyvät suljettaessa ilmoituksia, tai kiitettäessä tavarasta, joten ne ovat toimintoja, jotka on syytä muistaa :) !",
+:help_title_concept_comment =>"Kommentti",
+:help_text_concept_comment =>"Kommentin voi jättää joko ilmoitukseen tai toiseen käyttäjään liittyen. Kommentti on julkinen. ",
+:help_title_concept_thank_you =>"Tavaralainasta / palveluksesta kiittäminen",
+:help_text_concept_thank_you =>" Kun kiität tavarasta, merkitset lainaajan lainaajaksi, jolloin lainaajan maine kasvaa. Samalla voit myös jättää sanallisen 
+kommentin tapahtumasta, joka näkyy lainaajan profiilissa. ",
+:help_title_concept_closure =>"Ilmoituksen sulkeminen", 
+:help_text_concept_closure =>"Ilmoituksen voi sulkea, jolloin se ei enää näy avoimien ilmoitusten listassa ja samalla voit jättää sanallisia kommentteja 
+ilmoitukseen vastanneille hyvin tehdystä työstä.",
+
+
+:help_title_categories => "Kategoriat",
+:help_title_examples => "Esimerkkejä:",
+:help_title_categories_market_place => "Kauppapaikka",
+:help_text_categories_market_place => "Kauppapaikalla voi ostaa, myydä ja antaa tavaraa.",
+:help_examples_categories_market_place => "Ostetaan kurssikirja <br> 
+Myydään sohva <br>
+Annetaan tarpeettomaksi jäänyt televisio ilmaiseksi pois
+",
+:help_title_categories_borrow_items => "Lainatavarat",
+:help_text_categories_borrow_items => "Täällä voit pyytä tavaroita lainaksi" ,
+:help_examples_categories_borrow_items => "Vasaran lainaaminen <br>
+Guitar Heron toisen kitaran lainaaminen juhliin 
+",
+:help_title_categories_favors => "Palvelukset",
+:help_text_categories_favors => "Palveluksista löytyvät ilmoitukset, joissa etsitään apua erilaisiin asioihin.",
+:help_examples_categories_favors => "Taulun kiinnittäminen seinään <br>
+Kaupassa käynti <br>
+Koiran ulkoilutus <br>
+Apua tietokoneongelmissa <br>
+Askareet, joihin tarvitaan useampi kuin yksi ihminen (esim. lakanoiden viikkaus) <br>",
+:help_title_categories_groups => "Porukkahaku",
+:help_text_categories_groups => "Porukkahaulla voi hakea useampia ihmisiä kerrallaan joko huvia tai hyötyä varten.
+ Porukkahaku-kategoriasta löytyvät ilmoitukset ovat useimmiten sellaisia, joista ei pyydetä tai tarjota maksua.",
+:help_examples_categories_groups => " Porukan kokoaminen leffaa katsomaan<br>
+ Talkootyöntekijöitä<br>
+ Sulkapallokaverin tai lenkkiseuran etsintä <br>
+",
+:help_title_categories_rides => "Kimppakyydit",
+:help_text_categories_rides => "Kimppakyydit -kategoriassa voi kategorian nimen mukaisesti pyytää ja tarjota kyytiä 
+ja jakaa samalla matkakustannuksia (sekä säästää ympäristöä).",
+:help_examples_categories_rides => "",
+:help_title_categories_lost_property => "Löytötavarat",
+:help_text_categories_lost_property => "Otaniemessä kadonneet tavarat löytävät täällä oikeat omistajansa.",
+:help_examples_categories_lost_property => "Useamman killan sitsien jäljiltä jääneet löytötavarat.<br>
+Sateenvarjo hukattu TKK:n päärakennukselle.<br>
+",
+:help_title_categories_other => "Muut",
+:help_text_categories_other => "Tähän kategoriaan voi laittaa ilmoitukset, jotka eivät sovi mihinkään muuhun kategoriaan.",
+:help_examples_categories_other => "Koska kaikki tapaukset on pyritty ottamaan huomioon, ei tällä kategorialla luonnollisestikaan ole 
+esimerkkitapausta. :)",
+
+#Terms
+:terms_title => "Käyttöehdot"
+
+
