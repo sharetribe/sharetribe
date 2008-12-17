@@ -40,4 +40,25 @@ class PersonTest < ActiveSupport::TestCase
     assert(Person.find_by_id("testingID"), "Person added to kassi DB was not found.")
     p.destroy
   end
+  
+  # def test_address
+  #   @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
+  #   assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie))
+  #   @test_person.set_address("SMT 49, 02150, ESPOO", @cookie)
+  #   assert_equal("SMT 49, 02150, ESPOO", @test_person.address(@cookie))
+  # end
+  
+  def test_phone_number
+    @test_person.set_phone_number("123456789-123", @cookie)
+    assert_equal("123456789-123", @test_person.phone_number(@cookie))
+    @test_person.set_phone_number("55555555", @cookie)
+    assert_equal("55555555", @test_person.phone_number(@cookie))
+  end
+  
+  # def test_email
+  #   @test_person.set_email("testing_one@example.com", @cookie)
+  #   assert_equal("testing_one@example.com", @test_person.email(@cookie))
+  #   @test_person.set_email("testing_two@example.com", @cookie)
+  #   assert_equal("testing_two@example.com", @test_person.email(@cookie))
+  # end
 end

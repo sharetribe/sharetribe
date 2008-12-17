@@ -1,6 +1,11 @@
 ENV["RAILS_ENV"] = "test"
 require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'test_help'
+begin
+  require 'redgreen'
+rescue Exception => e
+  #Redgreen is copletely optional so no problem if not found :)
+end
 
 class Test::Unit::TestCase
   # Transactional fixtures accelerate your tests by wrapping each test method

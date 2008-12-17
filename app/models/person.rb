@@ -3,6 +3,7 @@ require 'json'
 class Person < ActiveRecord::Base
   
   attr_accessor :guid, :password, :username, :email
+  attr_protected :is_admin
 
   has_many :feedbacks
 
@@ -77,25 +78,14 @@ class Person < ActiveRecord::Base
   end
   
   def username(cookie=nil)
-    return nil if cookie.nil?
-    person_hash = PersonConnection.get_person(self.id, cookie)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
     return person_hash["username"]
   end
   
   def name_or_username(cookie=nil)
-    #return "Cookie Missing!" if cookie.nil?
-    cookie = Session.kassiCookie if cookie.nil?
-    
-    begin
-      person_hash = PersonConnection.get_person(self.id, cookie)
-    rescue ActiveResource::UnauthorizedAccess => e
-      cookie = Session.updateKassiCookie
-      person_hash = PersonConnection.get_person(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
-      return "Person not in DB!"
-    end
-    
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
     
     if person_hash["name"] && person_hash["name"]["unstructured"]
       return person_hash["name"]["unstructured"]
@@ -116,7 +106,56 @@ class Person < ActiveRecord::Base
     update_attributes({:name => {:family_name => name, } }, cookie)
   end
   
+  def address(cookie)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    
+    return person_hash["unstructured_address"]
+  end
+  
+  def set_address(address, cookie)
+    update_attributes({:unstructured_address => address}, cookie)
+  end
+  
+  def phone_number(cookie)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    
+    return person_hash["phone_number"]
+  end
+  
+  def set_phone_number(number, cookie)
+    update_attributes({:phone_number => number}, cookie)
+  end
+  
+  # def email(cookie)
+  #   person_hash = get_person_hash(cookie)
+  #   return "Person not found!" if person_hash.nil?
+  #   
+  #   return person_hash["email"]
+  # end
+  # 
+  # def set_email(email, cookie)
+  #   update_attributes({:email => email}, cookie)
+  # end
+  # 
   def update_attributes(params, cookie)
     PersonConnection.put_attributes(params, self.id, cookie)
+  end
+  
+  def get_person_hash(cookie=nil)
+    cookie = Session.kassiCookie if cookie.nil?
+    
+    begin
+      person_hash = PersonConnection.get_person(self.id, cookie)
+    rescue ActiveResource::UnauthorizedAccess => e
+      cookie = Session.updateKassiCookie
+      person_hash = PersonConnection.get_person(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return nil
+    end
+    
+    return person_hash
   end
 end

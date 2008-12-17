@@ -2,10 +2,10 @@ class PursesController < ApplicationController
   
   def create 
     begin
-    @transaction = Transaction.create(params[:transaction])
+      @transaction = Transaction.create(params[:transaction])
     rescue Exception => e
-    puts e.class
-    flash[:error] = :transaction_could_not_be_made
+      puts e.class
+      flash[:error] = :transaction_could_not_be_made
     end
     render :action => "show"
   end

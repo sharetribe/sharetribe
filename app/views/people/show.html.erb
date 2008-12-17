@@ -14,7 +14,7 @@
 <div id="profile_left">
 
   <div id="profile_picture">
-    <img src="/images/teemu_t_iso.jpg" alt="TeemuT">
+    <img src="<%= COS_URL %>/people/<%= @current_user.id %>/@avatar/large_thumbnail" alt="TeemuT">
   </div>  
   
   <% if is_current_user?(@person) %>
@@ -53,7 +53,7 @@
     <div class="dashed_line"></div>
      <div class="profile_info_field">  
       <div class="profile_info_field_title">  
-        <b><%= t(:address)%>:</b>
+        <b><%= t(:address)%>:</b> <%= @person.address(session[:cookie]) %>
       </div>  
     </div>
   </div>
