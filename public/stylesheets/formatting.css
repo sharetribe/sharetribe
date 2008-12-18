@@ -12,7 +12,7 @@ html {
 }
 
 body, div, td, th, h2, h3, h4 { /* redundant rules for bad browsers  */ 
-  font-family: "lucida grande", helvetica, verdana, sans-serif;
+  font-family: "lucida grande", arial, helvetica, verdana, sans-serif;
 	font-size: 14px;
 	voice-family: "\"}\"";
 	voice-family: inherit;
@@ -59,7 +59,6 @@ p {
 }
 
 h1,h2 {
-	font-family: "lucida grande", helvetica, verdana, sans-serif;
 	font-weight: bold;
 	color: #333;
 	text-align: left;
