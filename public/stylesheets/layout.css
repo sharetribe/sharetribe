@@ -38,6 +38,9 @@ div.solid_line {
 div.dashed_line {
 	border-top: 1px dashed #000;
 	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 0;
 }
 
 
@@ -178,7 +181,6 @@ div.fieldWithErrors {
 	padding: 5px 0;
 	margin: 0px 8px 0 0;
 	text-align: center;
-	font-family: "lucida grande", helvetica, verdana, sans-serif;
 	font-size: 105%;
 	text-decoration: none;
 	color: #ffffff;
@@ -197,7 +199,6 @@ div.fieldWithErrors {
 
 #search_and_navi_container ul#primary a {
 	background: #72776c;
-	font-family: "lucida grande", helvetica, verdana, sans-serif;
 }
 
 #search_and_navi_container ul#primary a:hover {
