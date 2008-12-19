@@ -19,7 +19,7 @@
   </div>
   <div id="title_div">
     <h6>
-      <%= @conversation.title %> 
+      <%= h(@conversation.title) %> 
     </h6>
     <div class="left_float">
       <%= t(:messaging_with) %> <%= create_links_for_participants %> <%= t(:with) %>

@@ -11,7 +11,7 @@
     <% end %>
   <% else %>  
     <div class="profile_info_field_title">
-      <b><%= item.title %></b>
+      <b><%= h(item.title) %></b>
     </div>    
     <div class="profile_info_field_links">
       <% if is_current_user?(@person) %>

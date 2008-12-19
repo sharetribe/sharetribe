@@ -3,7 +3,7 @@
     <div class="selected_item_title">
       <div class="left_float">
         <b>
-          <%= link_to item_title, items_path %> - 
+          <%= link_to h(item_title), items_path %> - 
           <%= pluralize @items.size, t(:owner), t(:owner_partitive) %>
         </b>
       </div>
@@ -14,6 +14,6 @@
   </div>
 <% else %>
   <div class="item_title">
-    <b><%= link_to item_title, item_path(item_title.downcase) %></b>
+    <b><%= link_to h(item_title), item_path(item_title.downcase) %></b>
   </div>
 <% end %>  

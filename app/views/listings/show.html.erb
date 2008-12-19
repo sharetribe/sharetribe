@@ -4,11 +4,8 @@
       <% if (@listing.title.length > 35 && !@listing.title.include?(" "))%>
         <%= @listing.title.slice!(0..35) + "..." %>
       <% else %>
-        <%= @listing.title %> 
+        <%= h(@listing.title) %> 
       <% end %>
-      <% if @current_user && @listing.author != @current_user && @listing.open? %>
-        | <%= link_to t(:reply).downcase, reply_listing_path(@listing) %>
-      <% end %>  
     </h1>
   </div>
 </div>
@@ -73,11 +70,16 @@
   
   </div>
 
-  <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
   <div id="listing_image">
-    <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
+    <% if @current_user && @listing.author != @current_user && @listing.open? %>
+      <div id="reply_to_listing">
+        <%= link_to t(:reply), reply_listing_path(@listing) %>
+      </div>
+    <% end %>   
+    <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
+      <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
+    <% end %>
   </div>
-  <% end %>
   
   <div id="comments">
     
