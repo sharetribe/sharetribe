@@ -14,8 +14,8 @@
 <div id="profile_left">
 
   <div id="profile_picture">
-    <img src="<%= COS_URL %>/people/<%= @current_user.id %>/@avatar/large_thumbnail" alt="TeemuT">
-  </div>  
+    <%= large_avatar_thumb(@person) %>
+  </div>
   
   <% if is_current_user?(@person) %>
   <div class="profile_left_link">

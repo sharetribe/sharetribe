@@ -1,5 +1,5 @@
 <div class="feedback_item">
-  <div class="listed_object">
+  <div class="listed_full_width_object">
     <div class="listed_feedback_field">
       <b>
       <% if feedback.author_id == "Anonymous"%>
@@ -16,7 +16,7 @@
       <%= feedback.url %>
     </div>    
     <div class="listed_feedback_content">
-      <%= feedback.content %>
+      <%= text_with_line_breaks(feedback.content) %>
     </div>
   </div>     
 </div>

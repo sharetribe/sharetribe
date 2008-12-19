@@ -351,7 +351,7 @@ I18n.store_translations 'en-US',
 
 #Feedback
 :feedback => "Feedback",
-:leave_feedback => "Leave feedback",
+:leave_feedback => "Leave feedback of Kassi",
 :feedback_saved => "Feedback registered",
 :feedback_not_saved => "Feedback could not be registered",
 :send_feedback => "Send feedback",

@@ -12,7 +12,7 @@
   </div>
   <div class="listed_comment_right">
     <div class="listed_comment_paragraph">
-      <%= comment.text_content %>
+      <%= text_with_line_breaks(comment.text_content) %>
     </div>  
     <div class="listed_comment_paragraph">
       <i><%= get_kassi_event_relation(comment.kassi_event) %></i>
