@@ -65,7 +65,7 @@
 <div class="listed_object">
   <div class="listed_kassi_event_left">
     <div class="listed_kassi_event_title">
-      <%= title %>
+      <%= h(title) %>
     </div>
     <div class="listed_object_author">
       <%= t(:event_created) + " " + kassi_event.created_at.to_formatted_s(:basic_date_format_minutes) %> 

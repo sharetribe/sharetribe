@@ -13,7 +13,7 @@ class Conversation < ActiveRecord::Base
   validates_numericality_of :listing_id, :only_integer => true, :allow_nil => true 
 
   def to_param
-    "#{id}-re:#{title.to_s.gsub(/\W/, '-').downcase}"
+    "#{id}_re:#{title.to_s.gsub(/\W/, '_').downcase}"
   end
 
 end

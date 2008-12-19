@@ -612,6 +612,28 @@ div.listing_author_box_item {
 	float: left;
 }
 
+#reply_to_listing {
+	width: 296px;
+	height: 40px;
+	border: 2px solid #64a006;
+	background: #dbf5b1;
+	margin-bottom: 10px;
+}
+
+#reply_to_listing a {
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	height: 20px;
+	background: #c0e783;
+	padding: 10px;
+}
+
+#reply_to_listing a:hover {
+	background: #dbf5b1;
+}
+
 
 /* Add a listing view */
 

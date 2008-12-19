@@ -62,7 +62,12 @@ module ApplicationHelper
       navi_items[:search_favors] = search_favors_path
     when 'people'
       navi_items[:browse_people] = people_path
-      #navi_items[:search_people] = search_people_path      
+      #navi_items[:search_people] = search_people_path
+    when 'info'
+      navi_items[:about] = about_info_path
+      navi_items[:help] = help_info_path
+      navi_items[:terms] = terms_info_path
+      #navi_items[:search_people] = search_people_path        
     else
       session[:left_navi] = false  
     end  
@@ -147,8 +152,9 @@ module ApplicationHelper
     links.join(" | ")  
   end
   
+  # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(text)
-    text.gsub(/\n/, "<br />")
+    h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to link_url, link_url }.gsub(/\n/, "<br />")
   end
   
   def small_avatar_thumb(person)

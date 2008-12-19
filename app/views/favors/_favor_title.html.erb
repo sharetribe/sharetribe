@@ -3,7 +3,7 @@
     <div class="selected_item_title">
       <div class="left_float">
         <b>
-          <%= link_to favor_title, favors_path %> - 
+          <%= link_to h(favor_title), favors_path %> - 
           <%= pluralize @favors.size, t(:offerer), t(:offerer_partitive) %>
         </b>
       </div>
@@ -14,6 +14,6 @@
   </div>
 <% else %>
   <div class="item_title">
-    <b><%= link_to favor_title, favor_path(favor_title.downcase) %></b>
+    <b><%= link_to h(favor_title), favor_path(favor_title.downcase) %></b>
   </div>
 <% end %>

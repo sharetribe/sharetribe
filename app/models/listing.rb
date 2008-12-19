@@ -119,7 +119,7 @@ class Listing < ActiveRecord::Base
   
   # Overrides the to_param method to implement clean URLs
   def to_param
-    "#{id}-#{title.gsub(/\W/, '-').downcase}"
+    "#{id}_#{title.gsub(/\W/, '_').downcase}"
   end
   
   # Puts image file data in an instance variable.

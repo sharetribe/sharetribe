@@ -40,6 +40,11 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :feedbacks
   end
+  map.resource :info, :collection => {
+                                       :about => :get,
+                                       :help => :get,
+                                       :terms => :get
+                                     }
   map.resource :session
   map.resources :favors, :collection => { :search => :get }                            
   map.resources :listings, 
