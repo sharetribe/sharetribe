@@ -352,7 +352,7 @@ I18n.store_translations 'fi',
 
 #Feedback
 :feedback => "Palaute",
-:leave_feedback => "Jätä palautetta",
+:leave_feedback => "Jätä palautetta Kassista",
 :feedback_saved => "Palaute tallennettu",
 :feedback_not_saved => "Palautetta ei voitu tallentaa",
 :send_feedback => "Lähetä palaute",

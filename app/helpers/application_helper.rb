@@ -147,6 +147,20 @@ module ApplicationHelper
     links.join(" | ")  
   end
   
+  def text_with_line_breaks(text)
+    text.gsub(/\n/, "<br />")
+  end
+  
+  def small_avatar_thumb(person)
+    image_tag COS_URL + "/people/" + person.id + "/@avatar/small_thumbnail", 
+              :alt => person.name(session[:cookie])  
+  end
+  
+  def large_avatar_thumb(person)
+    image_tag COS_URL + "/people/" + person.id + "/@avatar/large_thumbnail", 
+              :alt => person.name(session[:cookie])
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages

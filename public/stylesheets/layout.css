@@ -420,6 +420,11 @@ div.listed_object {
 	overflow: hidden;
 }
 
+div.listed_full_width_object {
+	width: 931px;
+	overflow: hidden;
+}
+
 div.listed_object_person_image {
 	float: left;
 	padding: 10px;
@@ -651,24 +656,23 @@ div.category a span {
 
 #profile_picture {
 	width: 200px;
-	border: 10px solid #72776c;
-	margin-bottom: 10px;
 }
 
 #profile_left {
 	float: left;
-	width: 220px;
+	width: 200px;
 	margin: 10px;
 }
 
 div.profile_left_link {
+	margin-top: 2px;
 	margin-bottom: 2px;
 }
 
 #profile_right {
 	margin-top: 10px;
 	float: right;
-	width: 475px;
+	width: 495px;
 }
 
 div.profile_small_header {
@@ -884,13 +888,14 @@ div.feedback_item {
 }
 
 div.listed_feedback_field {
-	width: 130px;
+	width: 150px;
 	float: left;
 	padding: 10px;
 }
 
 div.listed_feedback_content {
 	float: left;
+	width: 400px;
 	padding: 10px;
 }
 
