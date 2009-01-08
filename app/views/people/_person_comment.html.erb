@@ -1,6 +1,6 @@
 <div class="listed_object">
   <div class="listed_object_person_image">
-    <img src="/images/teemu_t.jpg" alt="<%= comment.author.name(session[:cookie]) %>" width="50" height="50">
+    <%= small_avatar_thumb(comment.author) %>
   </div>
   <div class="listed_comment_center">
     <div class="listed_comment_paragraph">

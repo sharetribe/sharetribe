@@ -14,8 +14,10 @@
   <%= render :partial => "conversations/conversation", 
              :collection => @person_conversations,
              :spacer_template => "layouts/dashed_line" %>
-<% else %>  
-  <%= t(:no_received_messages) %>
+<% else %>
+  <div id="basic_content">  
+    <%= t(:no_received_messages) %>
+  </div>  
 <% end %>
 
 <%= render :partial => "inbox_footer" %>

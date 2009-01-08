@@ -197,6 +197,7 @@ I18n.store_translations 'en-US',
 :kassi_users => "Kassi users",
 :show_users_on_page => "Show users on page",
 :joined_kassi => "Joined Kassi",
+:no_users => "No users",
 
 #Search view
 :show_all => "Show all",

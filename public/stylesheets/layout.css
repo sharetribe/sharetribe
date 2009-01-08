@@ -904,6 +904,16 @@ div.home_header {
 	clear: both;
 }
 
+#feedback_spacer {
+	height: 50px;
+}
+
+#feedback_form {
+	border-top: 1px solid #000;
+	margin: 50px 0;
+	padding-top: 50px;
+}
+
 div.feedback_item {
 	margin: 3px;
 	border: 1px solid #000;

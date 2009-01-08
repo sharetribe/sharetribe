@@ -2,7 +2,7 @@
 
 <div class="listed_object <%= 'unread_conversation' if conversation.is_read == 0 %>">
   <div class="listed_object_person_image">
-    <img src="/images/teemu_t.jpg" alt="<%= last_message.sender.name(session[:cookie]) %>" width="50" height="50">
+    <%= small_avatar_thumb(last_message.sender) %>
   </div>
   <div class="listed_message_center">
     <i>

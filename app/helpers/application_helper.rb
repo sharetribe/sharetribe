@@ -159,7 +159,7 @@ module ApplicationHelper
   
   def small_avatar_thumb(person)
     image_tag COS_URL + "/people/" + person.id + "/@avatar/small_thumbnail", 
-              :alt => person.name(session[:cookie])  
+              :alt => person.name(session[:cookie]), :width => 50, :height => 50  
   end
   
   def large_avatar_thumb(person)

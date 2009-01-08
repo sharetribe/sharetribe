@@ -27,8 +27,9 @@
 </div>    
 
 <% if @person_conversations.size > 0 %>
+  <% collection = (@person_conversations.size > 2) ? @person_conversations.values_at(0,1) : @person_conversations %>
   <%= render :partial => "conversations/conversation", 
-             :collection => @person_conversations.values_at(0,1), 
+             :collection => collection, 
              :as => :conversation,
              :spacer_template => "layouts/dashed_line" %>
 <% else %>             
