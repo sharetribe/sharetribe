@@ -20,7 +20,7 @@
   
     <div id="listing_author_box">
       <div id="listing_author_box_image">
-        <img src="/images/teemu_t.jpg" alt="<%= @listing.author.name(session[:cookie]) %>" width="50" height="50">
+        <%= small_avatar_thumb(@listing.author) %>
       </div>
       <div id="listing_author_box_titles">
         <div class="listing_author_box_item">

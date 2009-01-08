@@ -199,6 +199,7 @@ I18n.store_translations 'fi',
 :kassi_users => "Kassin käyttäjät",
 :show_users_on_page => "Näytä käyttäjiä sivulla",
 :joined_kassi => "Liittynyt Kassin käyttäjäksi",
+:no_users => "Ei käyttäjiä",
 
 #Search view
 :show_all => "Näytä kaikki",
