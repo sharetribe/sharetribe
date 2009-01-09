@@ -120,118 +120,6 @@ textarea {
 	padding: 5px;
 }
 
-table.form {
-	border-spacing: 10px;
-}
-
-table.no_padding {
-	border-spacing: 0px;
-}
-
-table.margin {
-	margin-left: 10px;
-}
-
-table.listing {
-	border-spacing: 10px;
-	width: 100%;
-}
-
-table.listing h3 {
-	margin-top: 0px;
-	margin-bottom: 10px;
-}
-
-table.conversation {
-	border-spacing: 0px;
-	width: 100%;
-}
-
-table.conversation h3 {
-	margin-top: 0px;
-	margin-bottom: 0px;
-}
-
-
-table.listing_inner, message_inner {
-	border-spacing: 0px;
-	padding-bottom: 10px;
-	padding-left: 5px;
-}
-
-table.listing_main {
-	padding-left: 10px;
-	width: 450px;
-}
-
-table.listing_main_narrower {
-	padding-left: 10px;
-	padding-right: 10px;
-	width: 337px;
-}
-
-table.comment_main {
-	width: 640px;
-}
-
-table.listing_right {
-	width: 190px;
-}
-
-table.listing_right td {
-	width: 80px;
-}
-
-table.comment_in, table.message_in {
-	border-bottom: 2px dotted #666;
-	border-spacing: 0px;
-}
-
-table.comment_in {
-	margin-top: 5px;
-}
-
-table.listing td, table.listing_inner td, table.listing_in td, table.comment_in td, table.no_padding td, table.feedback td, table.form td {
-	vertical-align: top;
-}
-
-table.content_table td {
-	vertical-align: top;
-	width: 200px;
-}
-
-table.unread_conversation {
-	background: #dbf5b1;
-}
-
-table.feedback {
-	border-spacing: 20px;
-}
-
-td.feedback {
-	width: 150px;
-}
-
-td.message_sender {
-	vertical-align: middle;
-}
-
-td.message_sender_image {
-	width: 75px;
-}
-
-td.message_sender {
-	width: 200px;
-}
-
-td.message_content {
-	width: 440px;
-}
-
-td.listing_image {
-	width: 110px;
-}
-
 img {
 	border: 0;
 }
@@ -254,5 +142,9 @@ ul.profile_info li {
 	border-bottom: 1px dotted #000;
 }
 
+form {
+	margin: 0px;
+	padding: 0px;
+}
 
 

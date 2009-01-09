@@ -12,8 +12,8 @@
     </i>
   </div>
   <div class="listed_message_right">
-    <b><%= link_to sent_conversation.conversation.title, person_inbox_path(@current_user, sent_conversation.conversation) %></b><br />
+    <b><%= link_to h(sent_conversation.conversation.title), person_inbox_path(@current_user, sent_conversation.conversation) %></b><br />
     <% dots = last_message.content.size > 50 ? "..." : "" %>
-    <%= link_to last_message.content.slice!(0..50) + dots, person_inbox_path(@current_user, sent_conversation.conversation) %>
+    <%= link_to h(last_message.content.slice!(0..50) + dots), person_inbox_path(@current_user, sent_conversation.conversation) %>
   </div>     
 </div>
