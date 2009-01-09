@@ -33,6 +33,9 @@ div.right_float {
 div.solid_line {
 	border-top: 1px solid #000;
 	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 0;
 }
 
 div.dashed_line {

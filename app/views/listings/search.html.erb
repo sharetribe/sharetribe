@@ -1,14 +1,13 @@
-<h1><%= t(:search_listings_title)%> </h1>			
-<% form_tag({ :action => "search" }, :method => "get") do %>
-  <br />
-  <div id="basic_content">
+<h1><%= t(:search_listings_title)%> </h1>
+<div id="basic_content">			
+  <% form_tag({ :action => "search" }, :method => "get") do %>
     <% if params[:type].eql?("advanced") %>  
       <%= render :partial => "listings/search_advanced" %>
     <% else %>
       <%= render :partial => "listings/search_regular" %>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <br />
 
