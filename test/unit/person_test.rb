@@ -51,6 +51,8 @@ class PersonTest < ActiveSupport::TestCase
   def test_address
     @test_person.set_address("SMT 49, 02150, ESPOO", @cookie)
     assert_equal("SMT 49, 02150, ESPOO", @test_person.address(@cookie))
+    @test_person.update_attributes({'address' => "salainen"},@cookie)
+    assert_equal("salainen", @test_person.address(@cookie))
     # @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
     # assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie), "Scandinavic letters Fail!")
   end

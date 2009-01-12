@@ -169,6 +169,12 @@ class Person < ActiveRecord::Base
       params['name'].update({'family_name' => params['family_name']})
       params.delete('family_name')
     end
+    
+    if params['address']
+      params.update({'unstructured_address' => params['address']})
+      params.delete('address')
+    end
+      
     PersonConnection.put_attributes(params, self.id, cookie)
   end
   
