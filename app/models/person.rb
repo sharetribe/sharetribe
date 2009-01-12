@@ -88,7 +88,12 @@ class Person < ActiveRecord::Base
     return "Person not found!" if person_hash.nil?
     
     if person_hash["name"] && person_hash["name"]["unstructured"]
-      return person_hash["name"]["unstructured"]
+      #logger.info { "debugx:#{person_hash.class}" }
+      j = JSON.parse(person_hash.to_json)
+      #return "nalle"
+      return j["name"]["unstructured"]
+      #return person_hash["name"]["unstructured"]
+      
     else
       return person_hash["username"]
     end
@@ -153,6 +158,17 @@ class Person < ActiveRecord::Base
   # end
   
   def update_attributes(params, cookie)
+    #Handle name part parameters also if they are in hash root level
+    if params['given_name'] && (params['name'].nil? || params['name']['given_name'].nil?)
+      params.update({'name' => Hash.new}) if params['name'].nil?
+      params['name'].update({'given_name' => params['given_name']})
+      params.delete('given_name')
+    end
+    if params['family_name'] && (params['name'].nil? || params['name']['family_name'].nil?)
+      params.update({'name' => Hash.new}) if params['name'].nil?
+      params['name'].update({'family_name' => params['family_name']})
+      params.delete('family_name')
+    end
     PersonConnection.put_attributes(params, self.id, cookie)
   end
   

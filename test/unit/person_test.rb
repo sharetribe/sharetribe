@@ -33,6 +33,10 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal("Totti Testaaja", @test_person.name(@cookie) )
     assert_equal("Totti", @test_person.given_name)
     assert_equal("Testaaja", @test_person.family_name(@cookie))
+    @test_person.update_attributes({'given_name' => "Rotta"},@cookie)
+    assert_equal("Rotta", @test_person.given_name)
+    @test_person.update_attributes({'family_name' => "Riuska", 'given_name' => 'Ripa'},@cookie)
+    assert_equal("Ripa Riuska", @test_person.name(@cookie) )
     
   end
   
