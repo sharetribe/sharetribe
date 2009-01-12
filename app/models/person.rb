@@ -94,7 +94,7 @@ class Person < ActiveRecord::Base
     end
   end
   
-  def name(cookie)
+  def name(cookie=nil)
     return name_or_username(cookie)
   end
   
@@ -106,7 +106,7 @@ class Person < ActiveRecord::Base
     update_attributes({:name => {:family_name => name, } }, cookie)
   end
   
-  def address(cookie)
+  def address(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     
@@ -117,7 +117,7 @@ class Person < ActiveRecord::Base
     update_attributes({:unstructured_address => address}, cookie)
   end
   
-  def phone_number(cookie)
+  def phone_number(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     
