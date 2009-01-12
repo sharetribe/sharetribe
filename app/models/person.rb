@@ -98,8 +98,22 @@ class Person < ActiveRecord::Base
     return name_or_username(cookie)
   end
   
+  def given_name(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["name"].nil?
+    return person_hash["name"]["given_name"]
+  end
+  
   def set_given_name(name, cookie)
     update_attributes({:name => {:given_name => name, } }, cookie)
+  end
+  
+  def family_name(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["name"].nil?
+    return person_hash["name"]["family_name"]
   end
   
   def set_family_name(name, cookie)
@@ -109,7 +123,6 @@ class Person < ActiveRecord::Base
   def address(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
-    
     return person_hash["unstructured_address"]
   end
   
@@ -138,7 +151,7 @@ class Person < ActiveRecord::Base
   # def set_email(email, cookie)
   #   update_attributes({:email => email}, cookie)
   # end
-  # 
+  
   def update_attributes(params, cookie)
     PersonConnection.put_attributes(params, self.id, cookie)
   end

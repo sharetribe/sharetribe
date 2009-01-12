@@ -31,6 +31,9 @@ class PersonTest < ActiveSupport::TestCase
     @test_person.set_given_name("Totti", @cookie)
     @test_person.set_family_name("Testaaja", @cookie)
     assert_equal("Totti Testaaja", @test_person.name(@cookie) )
+    assert_equal("Totti", @test_person.given_name)
+    assert_equal("Testaaja", @test_person.family_name(@cookie))
+    
   end
   
   def test_add_to_kassi_db
@@ -41,12 +44,12 @@ class PersonTest < ActiveSupport::TestCase
     p.destroy
   end
   
-  # def test_address
-  #   @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
-  #   assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie))
-  #   @test_person.set_address("SMT 49, 02150, ESPOO", @cookie)
-  #   assert_equal("SMT 49, 02150, ESPOO", @test_person.address(@cookie))
-  # end
+  def test_address
+    @test_person.set_address("SMT 49, 02150, ESPOO", @cookie)
+    assert_equal("SMT 49, 02150, ESPOO", @test_person.address(@cookie))
+    # @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
+    # assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie), "Scandinavic letters Fail!")
+  end
   
   def test_phone_number
     @test_person.set_phone_number("123456789-123", @cookie)
