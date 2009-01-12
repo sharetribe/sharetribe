@@ -5,8 +5,10 @@
         <%= f.text_field :title, :size => 37 %>
       </div>
       <div class="profile_info_field_links">
+        <div class="right_float">
         <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
         <%= submit_tag t(:cancel), :name => "item[cancel]" %>
+        </div>
       </div>
     <% end %>
   <% else %>  
@@ -14,13 +16,15 @@
       <b><%= h(item.title) %></b>
     </div>    
     <div class="profile_info_field_links">
+      <div class="right_float">
       <% if is_current_user?(@person) %>
         <%= link_to t(:edit), edit_person_item_path(@person, item) %> | 
         <%= link_to t(:remove), item, :method => :delete %>
       <% else %>
         <%= link_to t(:borrow_this_item), borrow_person_item_path(@person, item) %> | 
         <%= link_to t(:i_have_borrowed_this_item), thank_for_person_item_path(@person, item) %>
-      <% end %>  
+      <% end %>
+      </div>  
     </div>
   <% end %>
 </div>

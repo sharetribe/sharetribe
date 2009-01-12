@@ -223,7 +223,11 @@ I18n.store_translations 'fi',
 #Profile view
 :information => "Tiedot",
 :otasizzle_username => "OtaSizzle-käyttäjätunnus",
+:given_name => "Etunimi",
+:family_name => "Sukunimi",
+:phone_number => "Puhelinnumero",
 :address => "Osoite",
+:person_updated_successfully => "Tiedot päivitetty",
 :add_as_friend => "Lisää kaveriksi",
 :edit_profile_picture => "Muokkaa profiilikuvaa",
 

@@ -710,6 +710,7 @@ div.profile_small_header {
 }
 
 div.profile_info {
+	width: 465px;
 	padding: 1px 10px 7px 10px;
 }
 
@@ -726,13 +727,29 @@ div.profile_info_field_title {
 
 div.profile_info_field_links {
 	float: right;
-	margin-right: 10px;
+	width: 205px;
 }
 
 div.profile_add_form {
 	margin: 0 10px 14px 22px;
 }
 
+div.profile_update_form_left {
+	padding: 2px 0 9px 0;
+	font-weight: bold;
+	float: left;
+	width: 150px;
+}
+
+div.profile_update_form_right {
+	float: right;
+	margin: 0 10px 0 0;
+}
+
+div.profile_update_form_buttons {
+	clear: both;
+	margin: 10px 0;
+}
 
 /* Kassi events view */
 

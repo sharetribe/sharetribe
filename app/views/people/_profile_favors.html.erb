@@ -5,8 +5,10 @@
         <%= f.text_field :title, :size => 37 %>
       </div>
       <div class="profile_info_field_links">
+        <div class="right_float">
         <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
         <%= submit_tag t(:cancel), :name => "favor[cancel]" %>
+        </div>
       </div>
     <% end %>
   <% else %>  
@@ -14,6 +16,7 @@
       <b><%= h(favor.title) %></b>
     </div>    
     <div class="profile_info_field_links">
+      <div class="right_float">
       <% if is_current_user?(@person) %>
         <%= link_to t(:edit), edit_person_favor_path(@person, favor) %> | 
         <%= link_to t(:remove), favor, :method => :delete %>
@@ -21,6 +24,7 @@
         <%= link_to t(:ask_for_this_favor), ask_for_person_favor_path(@person, favor) %> |
         <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(@person, favor) %>
       <% end %>  
+      </div>
     </div>
   <% end %>
 </div>
