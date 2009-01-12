@@ -38,12 +38,17 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_person(id, cookie)
-      return connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie } )
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
     def self.put_attributes(params, id, cookie)
       connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
       
+    end
+    
+    def self.fix_alphabets(json_hash) #fixes nordic letters
+      #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
+      JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
     end
   end
   
@@ -88,12 +93,7 @@ class Person < ActiveRecord::Base
     return "Person not found!" if person_hash.nil?
     
     if person_hash["name"] && person_hash["name"]["unstructured"]
-      #logger.info { "debugx:#{person_hash.class}" }
-      j = JSON.parse(person_hash.to_json)
-      #return "nalle"
-      return j["name"]["unstructured"]
-      #return person_hash["name"]["unstructured"]
-      
+      return person_hash["name"]["unstructured"]
     else
       return person_hash["username"]
     end
