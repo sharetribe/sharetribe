@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
 
-  before_filter :logged_in, :only  => [ :show ]
+  before_filter :logged_in, :only  => [ :show, :edit, :update ]
 
   def index
     save_navi_state(['people', 'browse_people'])
@@ -69,6 +69,28 @@ class PeopleController < ApplicationController
       render :template => "people/beta"
     end
     @person = Person.new
+  end
+  
+  def edit
+    @person = Person.find(params[:id])
+    @editing = true
+    show_profile
+    render :action => :show
+  end
+  
+  def update
+    @person = Person.find(params[:id])
+    if params[:person][:cancel]
+      redirect_to person_path(@person) and return
+    end
+    begin
+      @person.update_attributes(params[:person], session[:cookie])
+    rescue ActiveResource::BadRequest => e
+      flash[:error] = e.response.body
+      redirect_to @person and return
+    end
+    flash[:notice] = :person_updated_successfully
+    redirect_to @person
   end
   
   def send_message

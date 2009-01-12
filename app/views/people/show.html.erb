@@ -34,28 +34,67 @@
       <b><%= t(:information) %></b>
     </div>
     <div class="right_float">
-      <%= link_to t(:edit), "#" if is_current_user?(@person) %>
+      <%= link_to t(:edit), edit_person_path(@person) if is_current_user?(@person) %>
     </div>
   </div>
   
   <div class="profile_info">
+  <% if @editing %>
+    <% form_for @person, :url => person_path(@person), :method => :put do |f| %>
     <div class="profile_info_field">
-      <div class="profile_info_field_title">
-        <b><%= t(:otasizzle_username)%>:</b> <%= @person.username(session[:cookie]) %>
+      <div class="profile_update_form_left">
+        <%= t(:given_name) %>:
+      </div>
+      <div class="profile_update_form_right">
+        <%= f.text_field :given_name, :size => 37 %>
       </div>
     </div>
+    <div class="profile_info_field">
+      <div class="profile_update_form_left">
+        <%= t(:family_name) %>:
+      </div>
+      <div class="profile_update_form_right">
+        <%= f.text_field :family_name, :size => 37 %>
+      </div>
+    </div>
+    <div class="profile_info_field">  
+      <div class="profile_update_form_left">
+        <%= t(:address) %>:
+      </div>
+      <div class="profile_update_form_right">
+        <%= f.text_field :address, :size => 37 %>
+      </div>
+    </div>
+    <div class="profile_info_field">  
+      <div class="profile_update_form_left">
+        <%= t(:phone_number) %>:
+      </div>
+      <div class="profile_update_form_right">
+        <%= f.text_field :phone_number, :size => 37 %>
+      </div>
+    </div>
+    <div class="profile_update_form_buttons">
+      <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+      <%= submit_tag t(:cancel), :name => "person[cancel]" %>
+    </div>  
+    <% end %>
+  <% else %>
+    <div class="profile_info_field">
+      <b><%= t(:otasizzle_username)%>:</b> <%= @person.username(session[:cookie]) %>
+    </div>
+    <% unless (@person.address == nil || @person.address.eql?("")) && @person.id != @current_user.id %>
     <div class="dashed_line"></div>
     <div class="profile_info_field">  
-      <div class="profile_info_field_title">  
-        <b><%= t(:email)%>:</b>
-      </div>
-    </div>  
-    <div class="dashed_line"></div>
-     <div class="profile_info_field">  
-      <div class="profile_info_field_title">  
-        <b><%= t(:address)%>:</b> <%= @person.address(session[:cookie]) %>
-      </div>  
+      <b><%= t(:address)%>:</b> <%= @person.address %>
     </div>
+    <% end %>
+    <% unless (@person.phone_number == nil || @person.phone_number.eql?("")) && @person.id != @current_user.id %>
+    <div class="dashed_line"></div>
+    <div class="profile_info_field">    
+      <b><%= t(:phone_number)%>:</b> <%= @person.phone_number %>
+    </div>
+    <% end %>
+  <% end %>
   </div>
   
   <div class="profile_small_header">

@@ -221,7 +221,11 @@ I18n.store_translations 'en-US',
 #Profile view
 :information => "Information",
 :otasizzle_username => "OtaSizzle username",
+:given_name => "Given name",
+:family_name => "Family name",
+:phone_number => "Phone number",
 :address => "Address",
+:person_updated_successfully => "Update successful"
 :add_as_friend => "Add as friend",
 :edit_profile_picture => "Edit profile picture",
 
