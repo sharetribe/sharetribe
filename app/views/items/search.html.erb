@@ -6,7 +6,7 @@
     &nbsp;&nbsp;&nbsp; 
     <%= text_field_tag "q", params[:q], :size => 30 %>
     &nbsp;&nbsp;&nbsp;
-    <%= submit_tag t(:search), :onclick => "this.disabled=true,this.form.submit();", :class => "button" %>
+    <%= submit_tag t(:search), :onclick => "this.form.submit();", :class => "button" %>
   </div>
 <% end %>
 </div>
