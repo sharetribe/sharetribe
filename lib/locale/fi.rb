@@ -382,15 +382,14 @@ I18n.store_translations 'fi',
 Ilmoitukset on jaettu seitsemään eri kategoriaan, joita ovat kauppapaikka, palvelukset, tavaralainat, porukkahaku, kimppakyydit, löytötavarat ja muut.  
 Ilmoituksia voi selata rekisteröitymättä, mutta ilmoituksiin vastaaminen ja käyttäjien profiilien tarkastelu vaatii rekisteröitymisen.</p>
 <p>
-Kassi on yksi Otasizzle-palveluista, ja Sizl.org-portaalissa tai missä tahansa muussa Otasizzle-palvelussa luodut tunnukset käyvät 
-sellaisinaan myös Kassiin. Jokaiselle käyttäjälle luodaan kuitenkin oma Kassi-profiili, johon tallennetut tiedot eivät näy muissa 
-Otasizzle-palveluissa.</p>",
+Kassi on yksi Otasizzle-palveluista. Sizl.org-portaalissa tai missä tahansa muussa Otasizzle-palvelussa luodut tunnukset käyvät 
+sellaisinaan myös Kassiin. Kassin käyttäjäprofiili toimii siis suoraan muissakin Otasizzle-palveluissa, mutta ne tiedot, jotka liittyvät vain Kassiin (esimerkiksi tarjotut lainaesineet), eivät näy muualla kuin Kassissa.</p>",
 :about_title_why_is_kassi => "Miksi Kassi on olemassa?",
-:about_text_why_is_kassi => "Kassin tavoite on helpottaa päivittäisten palvelusten vaihtoa Otaniemen alueella. 
+:about_text_why_is_kassi => "Kassin tavoite on helpottaa päivittäisten palvelusten vaihtoa pääkaupunkiseudun alueella. 
 Kassi on osa TKK:n ja HIIT:n yhteistä Otasizzle-projektia, jonka tarkoitus on tutkia sosiaalisten internetpalveluiden kehittämistä ja käyttöä.",
 :about_title_who_is_kassi_for => "Kenelle Kassi on tarkoitettu?",
-:about_text_who_is_kassi_for => "Kassi on palvelun paikallisuutta hyödyntävästä luonteesta johtuen tarkoitettu ensisijaisesti kaikille 
-Otaniemen alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi. Myös mm. TKY:n 
+:about_text_who_is_kassi_for => "Kassi on palvelun paikallisuutta hyödyntävästä luonteesta johtuen suunnattu alussa ensisijaisesti kaikille 
+pääkaupunkiseudun alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi. Myös mm. TKY:n 
 yhteydessä toimivat yhdistykset (esim. killat ja ainejärjestöt) voivat rekisteröityä ja käyttää Kassia omiin tarpeisiinsa.",
 
 #Help
