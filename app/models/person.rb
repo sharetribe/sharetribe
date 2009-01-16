@@ -146,16 +146,16 @@ class Person < ActiveRecord::Base
     update_attributes({:phone_number => number}, cookie)
   end
   
-  # def email(cookie)
-  #   person_hash = get_person_hash(cookie)
-  #   return "Person not found!" if person_hash.nil?
-  #   
-  #   return person_hash["email"]
-  # end
-  # 
-  # def set_email(email, cookie)
-  #   update_attributes({:email => email}, cookie)
-  # end
+  def email(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    
+    return person_hash["email"]
+  end
+  
+  def set_email(email, cookie)
+    update_attributes({:email => email}, cookie)
+  end
   
   def update_attributes(params, cookie)
     #Handle name part parameters also if they are in hash root level
