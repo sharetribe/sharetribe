@@ -41,7 +41,13 @@ I18n.store_translations 'en-US',
 #Search
 :search_kassi => "Search Kassi:",
 :search => "Search",
-:search_instructions => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all listings with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve listings with word 'teamsportshall' (if there were such a word). A single * finds all listings.",
+:search_instructions => "Search guide",
+:search_instructions_listings => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all listings with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve listings with word 'teamsportshall' (if there were such a word). A single * finds all listings.",
+
+:search_instructions_items => "<b>Search guide: </b>* replaces any set of characters. An example: 'saw' gets all items with saw as a separate word, while '*saw' also finds words like 'jigsaw'. Keyword 'saw*' would also find 'sawdust' and '*saw*' would retrieve items with word 'jigsawdust' (if there were such a word). A single * finds all items.",
+
+:search_instructions_favors => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all favors with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve favors with word 'teamsportshall' (if there were such a word). A single * finds all favors.",
+
 
 #Top navigation
 :own => "Own",
@@ -132,7 +138,9 @@ I18n.store_translations 'en-US',
 :times => "times",
 :status => "Status",
 :author => "Author",
+:comment => "comment",
 :comments => "Comments",
+:comments_partitive => "comments",
 :comment_added => "Comment sent.",
 :comment_not_added => "Comment not added due to an error",
 :empty_comment_not_accepted => "Comment cannot be empty",
@@ -147,7 +155,7 @@ I18n.store_translations 'en-US',
 :mark_as_not_interesting => "Mark as not interesting",
 :reply => "Reply",
 :reply_to_message_chain => "Reply",
-:listing_created_by => "Listing created by",
+:listing_created_by => "Created by",
 :listing_added => "Listing added",
 :no_listings => "No listings",
 :comment_listing => "Comment listing",

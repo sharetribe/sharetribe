@@ -1,4 +1,5 @@
-<h1><%= t(:search_items_title)%> </h1>			
+<h1><%= t(:search_items_title)%> </h1>
+
 <div id="basic_content">
 <% form_tag({ :action => "search" }, :method => "get") do %>
   <div class="form_container">
@@ -7,8 +8,16 @@
     <%= text_field_tag "q", params[:q], :size => 30 %>
     &nbsp;&nbsp;&nbsp;
     <%= submit_tag t(:search), :onclick => "this.form.submit();", :class => "button" %>
+    &nbsp;&nbsp;
+    <%= link_to_function t(:search_instructions), "$('search_instructions').show();" %>
   </div>
 <% end %>
+</div>
+
+<div id="search_instructions" style="display:none;">
+  <p>
+    <%= t(:search_instructions_items) %>
+  </p>
 </div>
 
 <br />

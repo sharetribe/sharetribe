@@ -738,7 +738,12 @@ div.profile_update_form_left {
 	padding: 2px 0 9px 0;
 	font-weight: bold;
 	float: left;
-	width: 150px;
+	width: 175px;
+}
+
+div.profile_update_form_center {
+	float: left;
+	margin: 2px 10px 0 10px;
 }
 
 div.profile_update_form_right {
@@ -901,6 +906,12 @@ div.search_header {
 	padding: 5px 7px;
 	width: 945px;
 	overflow: hidden;
+}
+
+#search_instructions {
+	width: 718px;
+	background: #dbf5b1;
+	padding: 5px;
 }
 
 

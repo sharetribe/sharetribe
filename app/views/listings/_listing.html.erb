@@ -31,16 +31,20 @@
   </div>
   <div class="listed_object_author">
     <% if is_current_user?(listing.author) %>
-      <%= t(:own_listing)%>, <%= t(:created) %> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> 
+      <%= t(:own_listing)%> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
+      <% if listing.comments.size > 0 %> 
+        | <%= link_to pluralize(listing.comments.size, t(:comment), t(:comments_partitive)), listing_path(listing) + "#comments" %>
+      <% end %>  
       <% if listing.open? %>
-        | <b><%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %></b>
+        | <%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %>
       <% end %>  
     <% else %>
-      <i>
-        <%= t(:listing_created_by) %> 
-        <%= link_to(listing.author.name(session[:cookie]), person_path(listing.author)) %> 
-        <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %> 
-      </i>
+      <%= t(:listing_created_by) %> 
+      <%= link_to(listing.author.name(session[:cookie]), person_path(listing.author)) %> 
+      <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
+      <% if listing.comments.size > 0 %> 
+        | <%= link_to pluralize(listing.comments.size, t(:comment), t(:comments_partitive)), listing_path(listing) + "#comments" %>
+      <% end %> 
     <% end %>  
   </div>    
 </div>

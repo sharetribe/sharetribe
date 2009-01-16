@@ -41,8 +41,13 @@ I18n.store_translations 'fi',
 #Search
 :search_kassi => "Hae Kassista:",
 :search => "Hae",
-:search_instructions => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi: 'urheilu' hakee ainoastaan kaikki ilmoitukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa ilmoitukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää  vesiurheilujoukkueen tai kilpaurheiluhallin.
+:search_instructions => "Hakuohje",
+:search_instructions_listings => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'urheilu' hakee ainoastaan kaikki ilmoitukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa ilmoitukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin.
 Pelkkä * hakee kaikki ilmoitukset.",
+
+:search_instructions_items => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'vasara' hakee ainoastaan kaikki tavarat, joiden nimessä on urheilu erillisenä sanana, kun taas '*vasara' löytää myös poravasaran. Hakusana 'vasara*' löytää puolestaan vaikkapa vasaratelineen ja '*vasara*' -hakusanalla tavoittaisi poravasaratelineen. Pelkkä * hakee kaikki ilmoitukset.",
+
+:search_instructions_favors => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'urheilu' hakee ainoastaan kaikki palvelukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa palvelukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin. Pelkkä * hakee kaikki palvelukset.",
 
 #Top navigation
 :own => "Oma",
@@ -135,7 +140,9 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :times => "kertaa",
 :status => "Tila",
 :author => "Lähettäjä",
+:comment => "kommentti",
 :comments => "Kommentit",
+:comments_partitive => "kommenttia",
 :comment_added => "Kommentti lisätty.",
 :comment_not_added => "Tapahtui virhe, jonka vuoksi kommenttia ei voitu lisätä",
 :empty_comment_not_accepted => "Kommentti ei voi olla tyhjä",
@@ -150,7 +157,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :mark_as_not_interesting => "Poista kiinnostavista",
 :reply => "Vastaa ilmoitukseen",
 :reply_to_message_chain => "Vastaa",
-:listing_created_by => "Ilmoituksen jättänyt",
+:listing_created_by => "Jättäjä",
 :listing_added => "Ilmoitus lisätty",
 :no_listings => "Ei ilmoituksia",
 :comment_listing => "Kommentoi ilmoitusta",

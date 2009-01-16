@@ -1,7 +1,5 @@
 <h1><%= t(:search_listings_title)%> </h1>
-<p>
-  <%= t(:search_instructions) %>
-</p>
+
 <div id="basic_content">
   <% form_tag({ :action => "search" }, :method => "get") do %>
     <% if params[:type].eql?("advanced") %>  
@@ -10,6 +8,12 @@
       <%= render :partial => "listings/search_regular" %>
     <% end %>
   <% end %>
+</div>
+
+<div id="search_instructions" style="display:none;">
+  <p>
+    <%= t(:search_instructions_listings) %>
+  </p>
 </div>
 
 <br />
