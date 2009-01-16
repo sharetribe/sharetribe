@@ -30,6 +30,7 @@ class PeopleController < ApplicationController
             conversation_ok = true unless message.sender == @current_user      
           end
           @person_conversations << person_conversation if conversation_ok  
+          @comments = ListingComment.find_by_sql("SELECT listing_comments.id, listing_comments.created_at, listing_comments.content, listing_comments.listing_id, listings.title, listing_comments.author_id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' ORDER BY listing_comments.created_at desc LIMIT 2")
         end
         session[:is_sent_mail] = false
         save_message_collection_to_session(@person_conversations)                                               

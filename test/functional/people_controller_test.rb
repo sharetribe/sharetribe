@@ -63,6 +63,9 @@ class PeopleControllerTest < ActionController::TestCase
     #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
     assert_response :success
     assert_template "home"
+    assert_equal 2, assigns(:listings).size
+    assert_not_nil assigns(:person_conversations)
+    assert_not_nil assigns(:comments)
     @session.destroy
   end
   

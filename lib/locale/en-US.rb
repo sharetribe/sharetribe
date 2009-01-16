@@ -41,6 +41,7 @@ I18n.store_translations 'en-US',
 #Search
 :search_kassi => "Search Kassi:",
 :search => "Search",
+:search_instructions => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all listings with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve listings with word 'teamsportshall' (if there were such a word). A single * finds all listings.",
 
 #Top navigation
 :own => "Own",
@@ -50,7 +51,7 @@ I18n.store_translations 'en-US',
 :people => "People",
 
 #Left navigation
-:home => "Etusivu",
+:home => "Home",
 :inbox => "Inbox",
 :profile => "Profile",
 :friends => "Friends",
@@ -67,6 +68,7 @@ I18n.store_translations 'en-US',
 :browse_people => "Browse",
 :search_people => "Search",
 :kassi_events => "Kassi-events",
+:comments_to_own_listings => "Comments to own listings",
 
 #Left sub navigation
 :own_listings_navi => "Own",
@@ -85,7 +87,6 @@ I18n.store_translations 'en-US',
 :found => "Found",
 :rides => "Rides",
 :groups => "Groups",
-:favors_description => "Favors",
 :others => "Others",
 
 #Category descriptions
@@ -97,7 +98,7 @@ I18n.store_translations 'en-US',
 :lost_property_description => "find your lost items or let others know what you've found",
 :rides_description => "find or offer rides",
 :groups_description => "search for one or more people to do stuff with you (play badminton, study etc.)",
-:services_description => "ask somebody to do you a favor or offer to do a favor to somebody",
+:favors_description => "ask somebody to do you a favor or offer to do a favor to somebody",
 :others_description => "all other listings",
 
 #Pagination
@@ -115,6 +116,7 @@ I18n.store_translations 'en-US',
 :browse_all_listings => "Browse listings",
 :newest_messages => "Newest messages",
 :go_to_inbox => "Go to inbox",
+:newest_comments_to_own_listings => "Newest comments to own listings",
 
 #Listings view
 :listing => "listing",
@@ -225,7 +227,7 @@ I18n.store_translations 'en-US',
 :family_name => "Family name",
 :phone_number => "Phone number",
 :address => "Address",
-:person_updated_successfully => "Update successful"
+:person_updated_successfully => "Update successful",
 :add_as_friend => "Add as friend",
 :edit_profile_picture => "Edit profile picture",
 
@@ -272,6 +274,11 @@ I18n.store_translations 'en-US',
 #User listings view
 :listings_of_user => "Listings of user",
 :users_listings => "",
+
+#User listing comments view
+:comment_to_listing => "Comment to listing",
+:no_comments => "No comments",
+:show_comments_on_page => "Show comments on page",
 
 #Messages view
 :write_reply => "Write reply",
@@ -356,7 +363,7 @@ I18n.store_translations 'en-US',
 
 #Feedback
 :feedback => "Feedback",
-:leave_feedback => "Leave feedback of Kassi",
+:leave_feedback => "Give feedback to Kassi administrators",
 :feedback_saved => "Feedback registered",
 :feedback_not_saved => "Feedback could not be registered",
 :send_feedback => "Send feedback",

@@ -75,6 +75,10 @@
       <div id="reply_to_listing">
         <%= link_to t(:reply), reply_listing_path(@listing) %>
       </div>
+    <% elsif @listing.open? %>
+      <div id="reply_to_listing">
+        <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
+      </div>
     <% end %>   
     <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
       <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />

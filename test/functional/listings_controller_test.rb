@@ -154,6 +154,15 @@ class ListingsControllerTest < ActionController::TestCase
     assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
   end
   
+  def test_show_comments_to_own_listings
+    submit_with_person :comments, { 
+      :person_id => people(:two)
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'comments'
+    assert_equal assigns(:comments).size, 1
+  end
+  
   private
   
   def search(query, result_count, only_open)
