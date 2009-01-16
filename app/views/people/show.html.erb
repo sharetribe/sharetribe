@@ -43,6 +43,14 @@
     <% form_for @person, :url => person_path(@person), :method => :put do |f| %>
     <div class="profile_info_field">
       <div class="profile_update_form_left">
+        <%= t(:email) %>:
+      </div>
+      <div class="profile_update_form_right">
+        <%= @person.email %> <%= link_to("edit", "#") %>
+      </div>
+    </div>
+    <div class="profile_info_field">
+      <div class="profile_update_form_left">
         <%= t(:given_name) %>:
       </div>
       <div class="profile_update_form_right">

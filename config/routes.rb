@@ -81,7 +81,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :kassi_events
     person.resources :listings, 
                      :member => { :close => :get, :mark_as_closed => :post }, 
-                     :collection => { :interesting => :get }
+                     :collection => { :interesting => :get, :comments => :get }
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search

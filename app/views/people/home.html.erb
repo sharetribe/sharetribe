@@ -35,3 +35,23 @@
 <% else %>             
   <p><%= t(:no_messages) %></p>    
 <% end %>
+
+<br />
+
+<div class="home_header">
+  <div class="left_float">
+    <%= t(:newest_comments_to_own_listings) %>
+  </div>
+  <div class="right_float">
+    <%= link_to t(:show_all), comments_person_listings_path(@current_user) %>
+  </div>
+</div>    
+
+<% if @comments && @comments.size > 0 %>
+  <%= render :partial => "home_comment", 
+             :collection => @comments, 
+             :as => :comment,
+             :spacer_template => "layouts/dashed_line" %>
+<% else %>             
+  <p><%= t(:no_comments) %></p>    
+<% end %>

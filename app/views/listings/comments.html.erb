@@ -1,0 +1,27 @@
+<div class="browse_objects_header">
+  <div class="browse_objects_title">
+    <%= t(:comments_to_own_listings) %> <span class="page_entries_info">(<%= page_entries_info @comments %>)</span>
+  </div>
+  <div class="pagination_padding">
+    <%= will_paginate @comments, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>  
+</div>
+
+<% if (@comments.size > 0) %>
+  <%= render :partial => "people/home_comment", 
+             :collection => @comments, 
+             :as => :comment, 
+             :spacer_template => "layouts/dashed_line" %>
+  <div class="solid_line">
+  </div>  
+  <div id="browse_objects_footer_left">
+    <%= t(:show_comments_on_page) %>:
+    <%= create_footer_pagination_links(["10", "30", "50", "all"], "comments") %>
+  </div>
+  <div class="pagination_padding">
+    <%= will_paginate @comments, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>  
+  <br />
+<% else %>
+  <p><%= t(:no_comments) %></p>           
+<% end %>

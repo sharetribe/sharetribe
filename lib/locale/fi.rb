@@ -41,6 +41,8 @@ I18n.store_translations 'fi',
 #Search
 :search_kassi => "Hae Kassista:",
 :search => "Hae",
+:search_instructions => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi: 'urheilu' hakee ainoastaan kaikki ilmoitukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa ilmoitukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää  vesiurheilujoukkueen tai kilpaurheiluhallin.
+Pelkkä * hakee kaikki ilmoitukset.",
 
 #Top navigation
 :own => "Oma",
@@ -67,6 +69,7 @@ I18n.store_translations 'fi',
 :browse_people => "Selaa",
 :search_people => "Hae",
 :kassi_events => "Kassitapahtumat",
+:comments_to_own_listings => "Kommentit omiin ilmoituksiin",
 
 #Left sub navigation
 :own_listings_navi => "Omat ilmoitukset",
@@ -85,7 +88,6 @@ I18n.store_translations 'fi',
 :found => "Löydetyt",
 :rides => "Kimppakyydit",
 :groups => "Porukkahaku",
-:favors_description => "Palvelukset",
 :others => "Muut",
 
 #Category descriptions
@@ -99,7 +101,7 @@ I18n.store_translations 'fi',
 :found_description => "ilmoita löytämästäsi tavarasta",
 :rides_description => "etsi tai tarjoa kyytejä",
 :groups_description => "etsi ihmisiä yhteistä toimintaa varten (esim. sulkapalloseura, opintopiiri, muuttapu jne.)",
-:services_description => "pyydä jotakuta tekemään palvelus tai tarjoa palvelusta",
+:favors_description => "pyydä jotakuta tekemään palvelus tai tarjoa palvelusta",
 :others_description => "kaikki muut ilmoitukset",
 
 #Pagination
@@ -116,7 +118,8 @@ I18n.store_translations 'fi',
 :newest_listings => "Uusimmat ilmoitukset", 
 :browse_all_listings => "Selaa ilmoituksia",
 :newest_messages => "Uusimmat viestit",
-:go_to_inbox => "Näytä postilaatikko",   
+:go_to_inbox => "Näytä postilaatikko",
+:newest_comments_to_own_listings => "Uusimmat kommentit omiin ilmoituksiin", 
 
 #Listings view
 :listing => "ilmoitus",
@@ -275,6 +278,11 @@ I18n.store_translations 'fi',
 :listings_of_user => "Käyttäjän",
 :users_listings => "ilmoitukset",
 
+#User listing comments view
+:comment_to_listing => "Kommentti ilmoitukseen",
+:no_comments => "Ei kommentteja",
+:show_comments_on_page => "Näytä kommentteja sivulla",
+
 #Messages view
 :write_reply => "Kirjoita vastaus",
 :send_message => "Lähetä viesti",
@@ -357,7 +365,7 @@ I18n.store_translations 'fi',
 
 #Feedback
 :feedback => "Palaute",
-:leave_feedback => "Jätä palautetta Kassista",
+:leave_feedback => "Jätä palautetta Kassin ylläpidolle",
 :feedback_saved => "Palaute tallennettu",
 :feedback_not_saved => "Palautetta ei voitu tallentaa",
 :send_feedback => "Lähetä palaute",

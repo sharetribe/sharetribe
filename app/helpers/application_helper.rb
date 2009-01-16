@@ -82,7 +82,9 @@ module ApplicationHelper
       navi_items[:all_categories] = listing_category_path("all_categories")
       Listing::MAIN_CATEGORIES.each do |category|
         navi_items[category] = listing_category_path(category)
-      end   
+      end
+    when 'own_listings'
+      navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)     
     else
       navi_items = nil
     end 
@@ -144,7 +146,9 @@ module ApplicationHelper
         when "sent_messages"
           path = sent_person_inbox_path(params.merge({:per_page => value}))   
         when "people"
-          path = people_path(params.merge({:per_page => value}))          
+          path = people_path(params.merge({:per_page => value}))
+        when "comments"
+          path = comments_person_listings_path(params.merge({:per_page => value}))            
         end
         links << link_to(t(value), path)  
       end    
