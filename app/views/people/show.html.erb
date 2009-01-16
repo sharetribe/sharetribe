@@ -43,9 +43,17 @@
     <% form_for @person, :url => person_path(@person), :method => :put do |f| %>
     <div class="profile_info_field">
       <div class="profile_update_form_left">
+        <%= t(:otasizzle_username) %>:
+      </div>
+      <div class="profile_update_form_center">
+        <%= @person.username %>
+      </div>
+    </div>
+    <div class="profile_info_field">  
+      <div class="profile_update_form_left">
         <%= t(:email) %>:
       </div>
-      <div class="profile_update_form_right">
+      <div class="profile_update_form_center">
         <%= @person.email %> <%= link_to("edit", "#") %>
       </div>
     </div>
@@ -54,7 +62,7 @@
         <%= t(:given_name) %>:
       </div>
       <div class="profile_update_form_right">
-        <%= f.text_field :given_name, :size => 37 %>
+        <%= f.text_field :given_name, :size => 34 %>
       </div>
     </div>
     <div class="profile_info_field">
@@ -62,7 +70,7 @@
         <%= t(:family_name) %>:
       </div>
       <div class="profile_update_form_right">
-        <%= f.text_field :family_name, :size => 37 %>
+        <%= f.text_field :family_name, :size => 34 %>
       </div>
     </div>
     <div class="profile_info_field">  
@@ -70,7 +78,7 @@
         <%= t(:address) %>:
       </div>
       <div class="profile_update_form_right">
-        <%= f.text_field :address, :size => 37 %>
+        <%= f.text_field :address, :size => 34 %>
       </div>
     </div>
     <div class="profile_info_field">  
@@ -78,7 +86,7 @@
         <%= t(:phone_number) %>:
       </div>
       <div class="profile_update_form_right">
-        <%= f.text_field :phone_number, :size => 37 %>
+        <%= f.text_field :phone_number, :size => 34 %>
       </div>
     </div>
     <div class="profile_update_form_buttons">
@@ -161,7 +169,7 @@
 
 <% if (@person.received_comments.size > 0) %>
   <div id="comments">
-    <h4><%= t(:comments) %></h4>
+    <h4><%= t(:comments) %> (<%= @person.received_comments.size.to_s %>) </h4>
     <%= render :partial => "people/person_comment", 
                :collection => @person.received_comments, 
                :as => :comment, 

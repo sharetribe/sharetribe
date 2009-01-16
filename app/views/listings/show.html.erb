@@ -90,8 +90,9 @@
   <br /><br />
   
   <% if (@listing.comments.size > 0) %>
+    <a name="comments"></a>
     <div id="comments">
-      <h4><%= t(:comments) %></h4>
+      <h4><%= t(:comments) + " (" + @listing.comments.size.to_s + ")" %></h4>
       <%= render :partial => "listing_comments/listing_comment", 
                  :collection => @listing.comments, 
                  :as => :comment, 
