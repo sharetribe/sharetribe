@@ -26,6 +26,7 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 
   class PersonConnection < ActiveResource::Base
+    
     self.site = COS_URL
     self.format = :json 
     self.timeout = COS_TIMEOUT
@@ -42,14 +43,18 @@ class Person < ActiveRecord::Base
     end
     
     def self.put_attributes(params, id, cookie)
-      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
-      
+      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )   
+    end
+    
+    def self.update_avatar(image, id, cookie)
+      connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
     end
     
     def self.fix_alphabets(json_hash) #fixes nordic letters
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
       JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
     end
+    
   end
   
   def self.create(params, cookie)
@@ -176,6 +181,10 @@ class Person < ActiveRecord::Base
     end
       
     PersonConnection.put_attributes(params, self.id, cookie)
+  end
+  
+  def update_avatar(image, cookie)
+    PersonConnection.update_avatar(image, self.id, cookie)
   end
   
   def get_person_hash(cookie=nil)

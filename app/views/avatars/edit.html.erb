@@ -1,0 +1,18 @@
+<h1><%= t(:upload_avatar) %></h1>
+<div id="basic_content">
+<% form_for :avatar, :url => person_avatar_path(@person), :html => {:multipart => true} do |f| %>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:image_file) %>:
+    </div>  
+    <div class="form_right">
+      <%= f.file_field :image_file %>
+    </div>
+  </div>
+  <div class="form_container">  
+    <div class="form_right">
+      <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>  
+    </div>
+  </div>
+<% end %>
+</div>
