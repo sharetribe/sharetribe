@@ -1,4 +1,5 @@
 class InfosController < ApplicationController
+  
   def about
     save_navi_state(['info','about','',''])
   end

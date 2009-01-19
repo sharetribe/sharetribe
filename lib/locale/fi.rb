@@ -253,6 +253,11 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :item_could_not_be_updated => "Muutoksia ei voitu tallentaa",
 :item_could_not_be_added => "Tavaraa ei voitu lisätä",
 
+#Avatar upload
+:upload_avatar => "Muuta profiilikuvaa",
+:image_file => "Kuvatiedosto",
+:add_avatar_submit => "Tallenna kuva",
+
 #Profile favors
 :add_new_favor => "Lisää palvelus",
 :favor_added => "Palvelus lisätty",

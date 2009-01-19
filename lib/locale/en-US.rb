@@ -239,6 +239,11 @@ I18n.store_translations 'en-US',
 :add_as_friend => "Add as friend",
 :edit_profile_picture => "Edit profile picture",
 
+#Avatar upload
+:upload_avatar => "Edit avatar image",
+:image_file => "Image file",
+:add_avatar_submit => "Save image",
+
 #Profile items
 :items_i_can_lend => "Items I can lend",
 :no_items => "No items",
