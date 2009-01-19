@@ -46,6 +46,7 @@ module ApplicationHelper
       navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
       navi_items[:own_listings] = person_listings_path(@current_user)
+      navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)
       navi_items[:kassi_events] = person_kassi_events_path(@current_user)
       #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
       #navi_items[:purse] = person_purse_path(@current_user)
@@ -82,9 +83,7 @@ module ApplicationHelper
       navi_items[:all_categories] = listing_category_path("all_categories")
       Listing::MAIN_CATEGORIES.each do |category|
         navi_items[category] = listing_category_path(category)
-      end
-    when 'own_listings'
-      navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)     
+      end    
     else
       navi_items = nil
     end 

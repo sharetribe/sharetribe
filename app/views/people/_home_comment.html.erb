@@ -1,4 +1,4 @@
-<div class="listed_object">
+<div class="listed_object <%= 'unread_conversation' if comment.is_read == 0 %>">
   <div class="listed_object_person_image">
     <%= small_avatar_thumb(comment.author) %>
   </div>

@@ -54,6 +54,14 @@ a:active {
 	text-decoration: underline;
 }
 
+a.listing {
+	color: #609a08;
+}
+
+a.listing:visited {
+	color: #406606;
+}
+
 p { 
 	line-height: 140%;
 }

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
   before_filter :fetch_logged_in_user
-  before_filter :count_new_items_in_inbox
+  before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
 
   # Change current navigation state based on array containing new navi items.
@@ -105,13 +105,14 @@ class ApplicationController < ActionController::Base
     redirect_to :back
   end  
   
-  def count_new_items_in_inbox
+  def count_new_arrived_items
     if @current_user
       conditions = "person_id = '" + @current_user.id + "' AND is_read = 0"
-      @inbox_new_count = PersonConversation.find(:all, :conditions => conditions).size
+      @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
+      @comments_new_count = ListingComment.find_by_sql("SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' AND is_read = 0").size
     end  
   end
-  
+
   # Feedback form is present in every view.
   def set_up_feedback_form
     @feedback = Feedback.new
