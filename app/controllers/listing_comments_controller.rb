@@ -6,6 +6,7 @@ class ListingCommentsController < ApplicationController
     @listing = Listing.find(params[:listing_id])
     params[:listing_comment][:listing_id] = @listing.id.to_s
     @comment = ListingComment.new(params[:listing_comment])
+    @comment.is_read = (@comment.author.id == @listing.author.id) ? 1 : 0
     if @comment.save
       flash[:notice] = "comment_added"  
       respond_to do |format|
