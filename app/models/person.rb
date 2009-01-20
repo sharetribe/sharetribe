@@ -26,7 +26,13 @@ class Person < ActiveRecord::Base
   validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 
   class PersonConnection < ActiveResource::Base
-    
+    # This is an inner class to handle remote connection to COS database where the actual information
+    # of person model is stored. This is subclass of ActiveResource so it includes some automatic
+    # functionality to acceess REST interface.
+    #
+    # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
+    # in COS documentation at #{COS_URL}
+
     self.site = COS_URL
     self.format = :json 
     self.timeout = COS_TIMEOUT

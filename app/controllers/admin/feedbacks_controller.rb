@@ -1,7 +1,8 @@
 class Admin::FeedbacksController < ApplicationController
 
   before_filter :is_admin, :only => :index
-
+  protect_from_forgery :except => :create
+  
   def index
     save_navi_state(['admin','','',''])
     @feedbacks = Feedback.paginate :page => params[:page], 
