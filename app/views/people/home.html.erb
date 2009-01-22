@@ -19,7 +19,7 @@
 
 <div class="home_header">
   <div class="left_float">
-    <%= t(:newest_messages) %>
+    <%= t(:newest_messages) %> <%= "(" + pluralize(@inbox_new_count, t(:new), t(:new_partitive)) + ")" if @inbox_new_count > 0 %>
   </div>
   <div class="right_float">
     <%= link_to t(:go_to_inbox), person_inbox_index_path(@current_user) %>
@@ -40,7 +40,7 @@
 
 <div class="home_header">
   <div class="left_float">
-    <%= t(:newest_comments_to_own_listings) %>
+    <%= t(:newest_comments_to_own_listings) %> <%= "(" + pluralize(@comments_new_count, t(:new), t(:new_partitive)) + ")" if @comments_new_count > 0 %>
   </div>
   <div class="right_float">
     <%= link_to t(:show_all), comments_person_listings_path(@current_user) %>

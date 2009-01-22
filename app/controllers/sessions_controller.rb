@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
   def new
     # TODO: this clearence of navi state causes problems, when returning somewhere
     # there is no navi. Should store the navi state or do something else...
-    clear_navi_state
+    # clear_navi_state
     @session =  Session.new
   end
 end

@@ -152,6 +152,7 @@ div.fieldWithErrors {
 
 #search_and_navi_container {
 	position: relative;
+	margin-left: 250px;
 	height: 125px;
 }
 
@@ -167,7 +168,7 @@ div.fieldWithErrors {
 	position: absolute;
 	bottom: 1px;
 	margin: 0;
-	margin-left: 256px;
+	margin-left: 6px;
 	padding: 0;
 	width: 65	em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
 }
@@ -368,6 +369,9 @@ div.links_panel {
 }
 
 /* Pagination links */
+
+
+
 div.pagination {
 	margin-top: 0px;
 	float: right;
