@@ -105,6 +105,7 @@ class ListingsControllerTest < ActionController::TestCase
     search("*", 3, false)
     search("otsikko", 1, true)
     search("*tsikk*", 2, false)
+    search("*", 1, false, "sell")
   end
   
   # def test_mark_as_interesting_and_mark_as_not_interesting
@@ -165,8 +166,8 @@ class ListingsControllerTest < ActionController::TestCase
   
   private
   
-  def search(query, result_count, only_open)
-    get :search, :q => query, :only_open => only_open
+  def search(query, result_count, only_open, category = "")
+    get :search, :q => query, :only_open => only_open, :category => { :category => category }
     assert_response :success
     assert_equal result_count, assigns(:listings).size
   end  

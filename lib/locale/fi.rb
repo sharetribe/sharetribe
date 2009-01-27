@@ -209,7 +209,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 
 #People view
 :kassi_users => "Kassin käyttäjät",
-:show_users_on_page => "Näytä käyttäjiä sivulla",
+:show_kassi_users_on_page => "Näytä käyttäjiä sivulla",
 :joined_kassi => "Liittynyt Kassin käyttäjäksi",
 :no_users => "Ei käyttäjiä",
 
@@ -280,6 +280,16 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :item_removed => "tavara poistettu",
 :favor_removed => "palvelus poistettu",
 
+#Request view
+:requests => "Kutsut",
+:friend_request_from_user => "Kaverikutsu käyttäjältä", 
+:show_requests_on_page => "Näytä kutsuja sivulla",
+:accept_request => "Hyväksy kutsu",
+:reject_request => "Hylkää kutsu",  
+:friend_request_accepted => "Kaverikutsu hyväksytty",
+:friend_request_rejected => "Kaverikutsu hylätty",
+:no_requests => "Ei aktiivisia kutsuja",   
+
 #Friend view
 :friends_of_user => "Käyttäjän",
 :users_friends => "kaverit",
@@ -287,6 +297,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 #Contact view
 :contacts_of_user => "Käyttäjän",
 :users_contacts => "kontaktit",
+:show_contacts_on_page => "Näytä kontakteja sivulla",
+:contacts_info => "Kunkin käyttäjän kontakteja ovat kaikki ne käyttäjät, joiden kanssa kyseinen käyttäjä on ollut tekemisissä Kassin kautta siten, että on syntynyt <i>kassitapahtuma</i>.",
 
 #User listings view
 :listings_of_user => "Käyttäjän",

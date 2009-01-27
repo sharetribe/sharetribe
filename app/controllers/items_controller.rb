@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   
-  before_filter :logged_in, :only => [ :edit, :update, :create, :destroy, :borrow ]
+  before_filter :logged_in, :except => [ :index, :show, :search]
   
   def index
     fetch_items

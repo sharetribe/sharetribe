@@ -5,7 +5,7 @@ module PeopleHelper
     navi_items = ActiveSupport::OrderedHash.new
     navi_items[:information] = person_path(person_id)
     #navi_items[:friends] = person_friends_path(person_id)
-    #navi_items[:contacts] = person_contacts_path(person_id)
+    navi_items[:contacts] = person_contacts_path(person_id)
     navi_items[:kassi_events] = person_kassi_events_path(person_id)
     navi_items[:listings] = person_listings_path(person_id)
     links = [] 
@@ -14,7 +14,9 @@ module PeopleHelper
         if name.eql?(:kassi_events)
           links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@kassi_events) + ")</span>"
         elsif name.eql?(:listings)
-          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@listings) + ")</span>"  
+          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@listings) + ")</span>"
+        elsif name.eql?(:contacts)
+          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@contacts) + ")</span>"    
         else
           links << t(name)
         end  

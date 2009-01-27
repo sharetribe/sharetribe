@@ -1,12 +1,33 @@
-<h1><%= @person.name(session[:cookie]) %></h1>
+<div id="info_box">
+  <%= t(:contacts_info) %>
+</div>
 
+<h1><%= @person.name(session[:cookie]) %></h1>
 
 <div class="links_panel">
   <div class="left_float">
     <%= get_profile_navi_items(params[:person_id]) %>
   </div>
+  <div class="right_float">
+    <%= will_paginate @contacts, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div> 
 </div>
 
-<div id="basic_content">
-
-</div>
+<% if (@contacts.size > 0)%>
+  <%= render :partial => "people/person", :collection => @contacts, :as => "person", :spacer_template => "layouts/dashed_line" %>
+  <% if @contacts.total_pages > 1 || params[:per_page] %>
+  <div class="links_panel">
+    <div class="left_float">
+      <%= t("show_#{@title}_on_page") %>:
+      <%= create_footer_pagination_links(["10", "30", "50", "all"], @title) %>
+    </div>
+    <div class="right_float">
+      <%= will_paginate @contacts, :prev_label => t(:previous), :next_label => t(:next) %>
+    </div>  
+  </div>
+  <% end %>
+<% else %>
+  <div id="basic_content">
+    <%= t(:no_contacts) %>
+  </div>  
+<% end %>

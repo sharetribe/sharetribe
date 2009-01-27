@@ -780,6 +780,20 @@ div.listed_kassi_event_title a {
 }
 
 
+/* Requests view */
+
+div.listed_request_right {
+	padding: 10px;
+	float: left;
+	width: 540px;
+	overflow: hidden;
+}
+
+div.listed_request_button {
+	float: left;
+	padding: 5px;
+}
+
 /* Items and favors view */
 
 #item_content {
@@ -928,6 +942,16 @@ div.home_header {
 	padding: 5px 10px;
 	width: 715px;
 	overflow: hidden;
+}
+
+
+/* Contacts */
+
+#info_box {
+	width: 712px;
+	background: #dbf5b1;
+	padding: 10px;
+	margin-bottom: 10px;
 }
 
 

@@ -33,21 +33,22 @@ class ListingsController < ApplicationController
 
   def search
     save_navi_state(['listings', 'search_listings', ''])
-    if params[:type]
-      if params[:q]
-        # Advanced search
+    conditions = params[:only_open] ? ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"] : ""
+    if params[:q]
+      if params[:category] && !params[:category][:category].eql?("")
+        if params[:only_open]
+          conditions = ["status = 'open' AND good_thru >= '" + Date.today.to_s + "' AND category = '" + params[:category][:category] + "'"]
+        else  
+          conditions = ["category = '" + params[:category][:category] + "'"]
+        end    
       end
-    else
-      if params[:q]
-        query = params[:q]
-        begin
-          s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
-          conditions = params[:only_open] ? ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"] : ""
-          listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
-          @listings = listings.paginate :page => params[:page], :per_page => per_page
-        end
+      query = params[:q]
+      begin
+        s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
+        listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
+        @listings = listings.paginate :page => params[:page], :per_page => per_page
       end    
-    end   
+    end
   end
 
   def new
