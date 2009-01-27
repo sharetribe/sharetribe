@@ -1,5 +1,7 @@
 class FavorsController < ApplicationController
   
+  before_filter :logged_in, :except  => [ :index, :show, :search ]
+  
   def index
     fetch_favors
   end

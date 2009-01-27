@@ -7,7 +7,8 @@
     &nbsp;&nbsp;&nbsp;
     <%= submit_tag t(:search), :onclick => "this.form.submit();", :class => "button" %>
     &nbsp;&nbsp;
-    <%= link_to_function t(:search_instructions), "$('search_instructions').show();" %>
+    <%= link_to_function t(:search_instructions), "$('search_instructions').show();" %> |
+    <%= link_to t(:advanced_search), search_listings_path(:type => "advanced") %>
   </div>  
 </div>
 

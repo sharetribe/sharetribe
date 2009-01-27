@@ -110,6 +110,8 @@ class ApplicationController < ActionController::Base
       conditions = "person_id = '" + @current_user.id + "' AND is_read = 0"
       @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
       @comments_new_count = ListingComment.find_by_sql("SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' AND is_read = 0").size
+      @requests_count = 2
+      @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
     end  
   end
 

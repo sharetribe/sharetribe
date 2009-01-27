@@ -207,7 +207,7 @@ I18n.store_translations 'en-US',
 
 #People view
 :kassi_users => "Kassi users",
-:show_users_on_page => "Show users on page",
+:show_kassi_users_on_page => "Show users on page",
 :joined_kassi => "Joined Kassi",
 :no_users => "No users",
 
@@ -278,6 +278,16 @@ I18n.store_translations 'en-US',
 :item_removed => "item removed",
 :favor_removed => "favor removed",
 
+#Request view
+:requests => "Requests",
+:friend_request_from_user => "Friend request from",
+:show_requests_on_page => "Show requests on page",
+:accept_request => "Accept request",
+:reject_request => "Reject request",
+:friend_request_accepted => "Friend request accepted",
+:friend_request_rejected => "Friend request rejected",
+:no_requests => "No active requests",  
+
 #Friend view
 :friends_of_user => "Friends of user",
 :users_friends => "",
@@ -285,6 +295,8 @@ I18n.store_translations 'en-US',
 #Contact view
 :contacts_of_user => "Contacts of user",
 :users_contacts => "",
+:show_contacts_on_page => "Show contacts on page",
+:contacts_info => "User's contacts are those users who have been in contact with the user via Kassi in a way that has produced a <i>kassi-event</i>.",
 
 #User listings view
 :listings_of_user => "Listings of user",

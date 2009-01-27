@@ -43,11 +43,13 @@ module ApplicationHelper
     case navi_type
     when 'own'
       navi_items[:home] = home_person_path(@current_user)
-      navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
-      navi_items[:own_listings] = person_listings_path(@current_user)
-      navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)
+      navi_items[:profile] = person_path(@current_user)
+      navi_items[:contacts] = person_contacts_path(@current_user)
       navi_items[:kassi_events] = person_kassi_events_path(@current_user)
+      navi_items[:own_listings] = person_listings_path(@current_user)
+      navi_items[:requests] = person_requests_path(@current_user)
+      navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)
       #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
       #navi_items[:purse] = person_purse_path(@current_user)
       #navi_items[:settings] = person_settings_path(@current_user)
@@ -144,10 +146,14 @@ module ApplicationHelper
           path = person_inbox_index_path(params.merge({:per_page => value}))
         when "sent_messages"
           path = sent_person_inbox_path(params.merge({:per_page => value}))   
-        when "people"
+        when "kassi_users"
           path = people_path(params.merge({:per_page => value}))
+        when "contacts"
+          path = person_contacts_path(params.merge({:per_page => value}))  
         when "comments"
-          path = comments_person_listings_path(params.merge({:per_page => value}))            
+          path = comments_person_listings_path(params.merge({:per_page => value}))
+        when "requests"
+          path = person_requests_path(params.merge({:per_page => value}))              
         end
         links << link_to(t(value), path)  
       end    
@@ -182,14 +188,11 @@ module WillPaginate
       
       if collection.total_pages < 2
         case collection.size
-        #when 0; "#{t(:no)} #{t(entry_name.pluralize)} #{t(:found_items)}"
-        #when 1; "<b>1</b> #{t(entry_name.sub(' ', '_'))}"
         when 0; "0"
         when 1; "<b>1</b>"
         else;   "<b>#{collection.size}</b>/<b>#{collection.size}</b>"
         end
       else
-        #%{#{t(entry_name.pluralize.sub(' ', '_'))} <b>%d&nbsp;-&nbsp;%d</b> #{t(:of)} <b>%d</b> #{t(:in_total)}} % [
         %{<b>%d-%d</b>/<b>%d</b>} % [
           collection.offset + 1,
           collection.offset + collection.length,

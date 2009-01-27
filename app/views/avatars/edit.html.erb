@@ -1,18 +1,5 @@
-<h1><%= t(:upload_avatar) %></h1>
-<div id="basic_content">
-<% form_for :avatar, :url => person_avatar_path(@person), :html => {:multipart => true} do |f| %>
-  <div class="form_container">
-    <div class="form_left">
-      <%= t(:image_file) %>:
-    </div>  
-    <div class="form_right">
-      <%= f.file_field :image_file %>
-    </div>
-  </div>
-  <div class="form_container">  
-    <div class="form_right">
-      <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>  
-    </div>
-  </div>
-<% end %>
-</div>
+<form action="http://maps.cs.hut.fi/cos/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">                    
+  <input name="_method" class="upload_pic" value="PUT" type="hidden">                    
+  <input name="file" id="avatar_file" type="file">
+  <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>
+</form>

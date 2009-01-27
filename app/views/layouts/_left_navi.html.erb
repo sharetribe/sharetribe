@@ -9,6 +9,8 @@
         <% name_string += " (" + @inbox_new_count.to_s + ")" %>
       <% elsif name.to_s.eql?("comments_to_own_listings") && @comments_new_count > 0 %>
         <% name_string += " (" + @comments_new_count.to_s + ")" %>
+      <% elsif name.to_s.eql?("requests") && @requests_count > 0 %>
+        <% name_string += " (" + @requests_count.to_s + ")" %>  
       <% end %>
       <% if (name.to_s.eql?(session[:navi2])) %>
         <div class="link_selected"><%= link_to name_string, url %></div>
