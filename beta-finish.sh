@@ -15,6 +15,8 @@ ln -s /var/datat/kassi/shared/listing_images/ listing_images
 cd ..
 cd ..
 
+#change production environment to use production COS
+sed -i "s/cos\.alpha\.sizl/cos\.sizl/" config/environments/production.rb
 
 
 rake db:migrate
