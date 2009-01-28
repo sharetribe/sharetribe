@@ -6,7 +6,8 @@
   </div>
   <div class="right_float">
     <% unless @person.id == @current_user.id %>
-      <%= link_to t(:send_message_to_user), send_message_person_path(@person) %>
+      <%= link_to t(:send_message_to_user), send_message_person_path(@person) %> |
+      <%= link_to t(:add_as_friend), person_friends_path(@person), :method => :post %>
     <% end %>  
   </div>  
 </div>
@@ -34,7 +35,11 @@
       <b><%= t(:information) %></b>
     </div>
     <div class="right_float">
-      <%= link_to t(:edit), edit_person_path(@person) if is_current_user?(@person) %>
+      <% if @editing %>
+        <%= link_to t(:edit), person_path(@person) if is_current_user?(@person) %>
+      <% else %>
+        <%= link_to t(:edit), edit_person_path(@person) if is_current_user?(@person) %>
+      <% end %>  
     </div>
   </div>
   
@@ -53,8 +58,13 @@
       <div class="profile_update_form_left">
         <%= t(:email) %>:
       </div>
-      <div class="profile_update_form_center">
-        <%= @person.email %> <%= link_to("edit", "#") %>
+      <div class="profile_update_form_two_columns">
+        <div class="left_float">
+          <%= @person.email(session[:cookie]) %> 
+        </div>
+        <div class="right_float">  
+          <%= link_to(t(:edit).downcase, person_settings_path(@person)) %>
+        </div>  
       </div>
     </div>
     <div class="profile_info_field">

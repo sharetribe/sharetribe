@@ -1,15 +1,27 @@
 class FriendsController < ApplicationController
   
+  before_filter :logged_in
+  
   def index
-    if @person.equal?(@current_user)  
-      save_navi_state(['own', 'profile', '', '', 'friends'])
-    else
-      session[:profile_navi] = 'friends'
-    end
     @person = Person.find(params[:person_id])
+    session[:profile_navi] = 'friends'
+    save_navi_state(['own', 'friends']) if current_user?(@person)
+    @friends = @person.get_friends
   end
 
-  def add
+  def create
+    @friend = Person.find(params[:person_id])
+    begin
+      @current_user.add_as_friend(@friend.id, session[:cookie])
+      flash[:notice] = :friend_requested
+    rescue ActiveResource::ResourceNotFound => e
+      flash[:error] = e.response.body
+    end
+    redirect_to :back
+  end
+  
+  def destroy
+    
   end
 
 end

@@ -55,7 +55,7 @@
     </div>
     <div class="<%= error_class_language %>">  
       <div class="form_right">
-        <% if session[:locale] == 'fi' %>
+        <% if !session[:locale] || session[:locale] == 'fi'  %>
           <% if (params[:listing] && params[:listing][:language_fi] && params[:listing][:language_fi].to_s.eql?('0')) %>
             <%= f.check_box :language_fi %>  
           <% else %>

@@ -367,7 +367,6 @@ I18n.store_translations 'en-US',
 :comment_for_lender => "Comment for lender",
 :comment_for_favor_realizer => "Comment for realizer",
 
-
 #Purses view
 :purse_title => "Purse",
 :do_transaction => "Pay",
@@ -375,6 +374,10 @@ I18n.store_translations 'en-US',
 :receiver_username => "Receiver",
 :amount => "Amount",
 :done_transactions => "Coin transfer history",
+
+#Settings view
+:email_updated_successfully => "Email address saved",
+:email_is_invalid => "Email address is invalid",
 
 #Error messages
 :title_is_required => "Title is required",

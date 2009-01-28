@@ -1,14 +1,10 @@
 class ContactsController < ApplicationController
   
   def index
-    save_navi_state(['own', 'contacts'])
     @title = "contacts"
-    if @person.equal?(@current_user)  
-      save_navi_state(['own', 'profile', '', '', 'contacts'])
-    else
-      session[:profile_navi] = 'contacts'
-    end
     @person = Person.find(params[:person_id])
+    save_navi_state(['own', 'contacts']) if current_user?(@person)
+    session[:profile_navi] = 'contacts'
     @contacts = Array.new
     @person.kassi_events.each do |kassi_event|
       kassi_event.people.each do |person|
