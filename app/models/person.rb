@@ -104,7 +104,7 @@ class Person < ActiveRecord::Base
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     
-    if person_hash["name"] && person_hash["name"]["unstructured"]
+    if person_hash["name"] && person_hash["name"]["unstructured"] && person_hash["name"]["unstructured"] =~ /\S/
       return person_hash["name"]["unstructured"]
     else
       return person_hash["username"]
