@@ -157,4 +157,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def current_user?(person)
+    if @current_user
+      return @current_user.id == person.id
+    end
+    return false   
+  end
+  
 end

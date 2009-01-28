@@ -75,7 +75,7 @@ ActionController::Routing::Routes.draw do |map|
                                            :mark_as_done => :post   
                                          }
     person.resource :purse
-    person.resource :settings
+    person.resource :settings, :collection => { :change_email => :put, :change_password => :put }
     person.resources :friends
     person.resources :contacts
     person.resources :kassi_events

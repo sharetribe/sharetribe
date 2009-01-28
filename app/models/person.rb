@@ -48,12 +48,24 @@ class Person < ActiveRecord::Base
       return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
+    def self.get_friends(id, cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
+    end
+    
+    def self.get_pending_friend_requests(id, cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@pending_friend_requests", {"Cookie" => cookie }))
+    end
+    
     def self.put_attributes(params, id, cookie)
       connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )   
     end
     
     def self.update_avatar(image, id, cookie)
       connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
+    end
+    
+    def self.add_as_friend(friend_id, id, cookie)
+      connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
     end
     
     #fixes nordic letters
@@ -167,6 +179,30 @@ class Person < ActiveRecord::Base
   
   def set_email(email, cookie)
     update_attributes({:email => email}, cookie)
+  end
+  
+  def add_as_friend(friend_id, cookie)
+    PersonConnection.add_as_friend(friend_id, self.id, cookie)
+  end
+  
+  def remove_from_friends(person, cookie)
+    
+  end
+  
+  def get_friends(cookie=nil)
+    cookie = Session.kassiCookie if cookie.nil?
+    
+    begin
+      friend_hash = PersonConnection.get_friends(self.id, cookie)
+    rescue ActiveResource::UnauthorizedAccess => e
+      cookie = Session.updateKassiCookie
+      friend_hash = PersonConnection.get_friends(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return nil
+    end
+    
+    return friend_hash
   end
   
   def update_attributes(params, cookie)

@@ -1,1 +1,16 @@
 <h1><%= t(:settings) %></h1>
+
+<div id="basic_content">
+  <% form_for @person, :url => change_email_person_settings_path(@person), :method => :put do |f| %>
+    <div class="profile_info_field">  
+      <div class="profile_update_form_left">
+        <%= t(:email) %>:
+      </div>
+      <div class="profile_update_form_center">
+        <%= f.text_field :email, :size => 34, :value => @person.email(session[:cookie]) %>
+        &nbsp;&nbsp;&nbsp;
+        <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+      </div>
+    </div>
+  <% end %>
+</div>

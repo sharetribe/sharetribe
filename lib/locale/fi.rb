@@ -377,6 +377,10 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :amount => "Summa",
 :done_transactions => "Tehdyt killinkisiirrot",
 
+#Settings view
+:email_updated_successfully => "Sähköpostiosoite tallennettu",
+:email_is_invalid => "Sähköpostiosoite ei kelpaa", 
+
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä)",
