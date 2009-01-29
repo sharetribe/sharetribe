@@ -29,6 +29,7 @@ I18n.store_translations 'en-US',
 :logging_in => "Login",
 :username => "Username",
 :password => "Password",
+:account => "Account",
 
 #Login notices
 :logout_successful => "Logout successful.",
@@ -378,6 +379,13 @@ I18n.store_translations 'en-US',
 #Settings view
 :email_updated_successfully => "Email address saved",
 :email_is_invalid => "Email address is invalid",
+:password_updated_successfully => "Password changed",
+:password_is_invalid => "Password is invalid",
+:passwords_dont_match => "Passwords don't match",
+:password_again => "Password again",
+:change_email => "Change email",
+:change_password => "Change password",
+:email_has_already_been_taken => "Email address has already been taken",
 
 #Error messages
 :title_is_required => "Title is required",

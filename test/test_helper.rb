@@ -94,7 +94,7 @@ class Test::Unit::TestCase
       parameters[parameter_type].merge!({person_type => current_user.id })
       post action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
     when :put
-      parameters[parameter_type].merge!({person_type => current_user.id })
+      parameters[parameter_type].merge!({person_type => current_user.id }) if person_type 
       put action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
     when :get
       get action, parameters, {:person_id => current_user.id, :cookie => session.cookie}

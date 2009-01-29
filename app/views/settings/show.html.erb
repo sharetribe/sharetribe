@@ -1,16 +1,53 @@
 <h1><%= t(:settings) %></h1>
 
-<div id="basic_content">
+<br />
+
   <% form_for @person, :url => change_email_person_settings_path(@person), :method => :put do |f| %>
-    <div class="profile_info_field">  
-      <div class="profile_update_form_left">
-        <%= t(:email) %>:
+    <fieldset>
+      <legend>
+        <%= t(:change_email) %>:
+      </legend>
+      <div class="form_container">
+        <div class="form_left">
+          <%= t(:email) %>:
+        </div>
+        <div class="form_right">
+          <%= f.text_field :email, :size => 26, :value => @person.email(session[:cookie]) %>
+        </div>
+      </div>  
+      <div class="form_container">
+        <div class="form_right">
+          <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        </div>
       </div>
-      <div class="profile_update_form_center">
-        <%= f.text_field :email, :size => 34, :value => @person.email(session[:cookie]) %>
-        &nbsp;&nbsp;&nbsp;
-        <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
-      </div>
-    </div>
+    </fieldset>
   <% end %>
-</div>
+  <br />
+  <% form_for @person, :url => change_password_person_settings_path(@person), :method => :put do |f| %>
+    <fieldset>  
+      <legend>
+        <%= t(:change_password) %>:
+      </legend>
+      <div class="form_container">
+        <div class="form_left">
+          <%= t(:password) %>:
+        </div>
+        <div class="form_right">
+          <%= f.password_field :password, :size => 26 %>
+        </div>
+      </div>
+      <div class="form_container">    
+        <div class="form_left">
+          <%= t(:password_again) %>:
+        </div>    
+        <div class="form_right">  
+          <%= f.password_field :password2, :size => 26 %>
+        </div>
+      </div>  
+      <div class="form_container">
+        <div class="form_right">
+          <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        </div>
+      </div>  
+    </fieldset>
+  <% end %>

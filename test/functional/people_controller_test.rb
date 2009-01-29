@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
+  
+  def setup
+    @test_person1, @session1 = get_test_person_and_session("kassi_testperson1")
+    @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
+    @cookie = @session1.cookie
+  end
+  
+  def teardown
+    @session1.destroy
+    @session2.destroy
+  end
 
   def test_show_index
     get :index
@@ -69,6 +80,23 @@ class PeopleControllerTest < ActionController::TestCase
     @session.destroy
   end
   
+  def test_update
+    submit_with_person :update, { 
+      :person => { 
+        :given_name => "Teppo",
+        :family_name => "Testaaja",
+        :address => "Osoite",
+        :phone_number => "0700-715517" 
+      },
+      :id => @test_person1.id
+    }, :person, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :person_updated_successfully
+    assert_equal @test_person1.given_name, "Teppo"
+    assert_equal @test_person1.family_name, "Testaaja"
+    assert_equal @test_person1.address, "Osoite"
+    assert_equal @test_person1.phone_number, "0700-715517"
+  end
   
   private
   
