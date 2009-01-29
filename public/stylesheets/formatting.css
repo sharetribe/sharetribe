@@ -155,4 +155,33 @@ form {
 	padding: 0px;
 }
 
+/* Hack to get IE to display fieldset/legend correctly */ 
+html fieldset { 
+  position: relative; 
+} 
+
+html legend { 
+  position: absolute; 
+  top: -1em; 
+  left: .5em; 
+} 
+
+html fieldset { 
+  position: relative; 
+  margin-top: 1em;
+  padding-top: 1em; 
+  padding-bottom: 1em;
+} 
+
+/* Form Styles */ 
+fieldset { 
+  background: #dbf5b1;
+} 
+
+legend { 
+  color: white; 
+  background: #72776c; 
+  padding: .4em 1em; 
+}
+
 

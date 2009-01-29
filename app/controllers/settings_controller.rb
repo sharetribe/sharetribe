@@ -12,7 +12,11 @@ class SettingsController < ApplicationController
     begin
       @person.update_attributes(params[:person], session[:cookie])
     rescue ActiveResource::BadRequest => e
-      flash[:error] = :email_is_invalid
+      if e.response.body.include?("taken")
+        flash[:error] = :email_has_already_been_taken
+      else
+        flash[:error] = :email_is_invalid
+      end    
       redirect_to person_settings_path(@person) and return
     end
     flash[:notice] = :email_updated_successfully
@@ -20,7 +24,19 @@ class SettingsController < ApplicationController
   end
   
   def change_password
-    
+    @person = Person.find(params[:person_id])
+    unless params[:person][:password].eql?(params[:person][:password2])
+      flash[:error] = :passwords_dont_match
+      redirect_to person_settings_path(@person) and return  
+    end
+    begin
+      @person.update_attributes(params[:person].except("password2"), session[:cookie])
+    rescue ActiveResource::BadRequest => e
+      flash[:error] = :password_is_invalid
+      redirect_to person_settings_path(@person) and return
+    end
+    flash[:notice] = :password_updated_successfully
+    redirect_to person_settings_path(@person)
   end
   
 end

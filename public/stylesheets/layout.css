@@ -386,7 +386,7 @@ div.form_left {
 	font-weight: bold;
 	float: left;
 	width: 150px;
-	margin-top: 5px;
+	margin-top: 8px;
 	margin-bottom: 10px;
 }
 
@@ -739,6 +739,7 @@ div.profile_add_form {
 }
 
 div.profile_update_form_left {
+	margin-top: 2px;
 	padding: 2px 0 9px 0;
 	font-weight: bold;
 	float: left;
@@ -747,14 +748,14 @@ div.profile_update_form_left {
 
 div.profile_update_form_center {
 	float: left;
-	margin: 2px 10px 0 10px;
+	margin: 4px 10px 0 10px;
 }
 
 div.profile_update_form_two_columns {
 	float: left;
 	overflow: hidden;
 	width: 270px;
-	margin: 2px 10px 0 10px;
+	margin: 4px 10px 0 10px;
 }
 
 div.profile_update_form_right {

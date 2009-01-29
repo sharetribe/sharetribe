@@ -29,6 +29,7 @@ I18n.store_translations 'fi',
 :logging_in => "Sisäänkirjautuminen",
 :username => "Käyttäjätunnus",
 :password => "Salasana",
+:account => "Oma tili",
 
 #Login notices
 :logout_successful => "Uloskirjautuminen onnistui.",
@@ -379,7 +380,14 @@ Pelkkä * hakee kaikki ilmoitukset.",
 
 #Settings view
 :email_updated_successfully => "Sähköpostiosoite tallennettu",
-:email_is_invalid => "Sähköpostiosoite ei kelpaa", 
+:email_is_invalid => "Sähköpostiosoite ei kelpaa",
+:password_updated_successfully => "Salasana vaihdettu",
+:password_is_invalid => "Salasana ei kelpaa",
+:passwords_dont_match => "Salasanat eivät täsmää",
+:password_again => "Salasana uudestaan",
+:change_email => "Vaihda sähköpostiosoitetta",
+:change_password => "Vaihda salasanaa",
+:email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",   
 
 #Error messages
 :title_is_required => "Otsikko on pakollinen tieto",

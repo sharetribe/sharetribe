@@ -2,7 +2,7 @@ require 'json'
 
 class Person < ActiveRecord::Base
   
-  attr_accessor :guid, :password, :username, :email
+  attr_accessor :guid, :password, :password2, :username, :email
   attr_protected :is_admin
 
   has_many :feedbacks
@@ -22,8 +22,6 @@ class Person < ActiveRecord::Base
   has_and_belongs_to_many :kassi_events
   
   has_many :received_comments, :class_name => "PersonComment", :foreign_key => "target_person_id"
-  
-  validates_confirmation_of :password, :on => :create, :message => "Given passwords are not same"
 
   class PersonConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information
@@ -179,6 +177,17 @@ class Person < ActiveRecord::Base
   
   def set_email(email, cookie)
     update_attributes({:email => email}, cookie)
+  end
+  
+  def password(cookie = nil)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    
+    return person_hash["password"]
+  end
+  
+  def set_password(password, cookie)
+    update_attributes({:password => password}, cookie)
   end
   
   def add_as_friend(friend_id, cookie)
