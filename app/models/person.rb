@@ -66,6 +66,14 @@ class Person < ActiveRecord::Base
       connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
     end
     
+    def self.remove_from_friends(friend_id, id, cookie)
+      connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
+    end
+    
+    def self.remove_pending_friend_request(friend_id, id, cookie)
+      connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
+    end
+    
     #fixes nordic letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
@@ -194,17 +202,17 @@ class Person < ActiveRecord::Base
     PersonConnection.add_as_friend(friend_id, self.id, cookie)
   end
   
-  def remove_from_friends(person, cookie)
-    
+  def remove_from_friends(friend_id, cookie)
+    PersonConnection.remove_from_friends(friend_id, self.id, cookie)
   end
   
-  def get_friends(cookie=nil)
-    cookie = Session.kassiCookie if cookie.nil?
+  def remove_pending_friend_request(friend_id, cookie)
+    PersonConnection.remove_from_friends(friend_id, self.id, cookie)
+  end
+  
+  def get_friends(cookie)
     
     begin
-      friend_hash = PersonConnection.get_friends(self.id, cookie)
-    rescue ActiveResource::UnauthorizedAccess => e
-      cookie = Session.updateKassiCookie
       friend_hash = PersonConnection.get_friends(self.id, cookie)
     rescue ActiveResource::ResourceNotFound => e
       #Could not find person with that id in COS Database!
@@ -212,6 +220,18 @@ class Person < ActiveRecord::Base
     end
     
     return friend_hash
+  end
+  
+  def get_friend_requests(cookie)
+    
+    begin
+      request_hash = PersonConnection.get_pending_friend_requests(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return nil
+    end
+    
+    return request_hash
   end
   
   def update_attributes(params, cookie)
@@ -254,4 +274,11 @@ class Person < ActiveRecord::Base
     
     return person_hash
   end
+  
+  def friend_status(cookie = nil)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    return person_hash["connection"]
+  end
+  
 end

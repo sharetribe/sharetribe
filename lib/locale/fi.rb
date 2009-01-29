@@ -213,6 +213,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :show_kassi_users_on_page => "Näytä käyttäjiä sivulla",
 :joined_kassi => "Liittynyt Kassin käyttäjäksi",
 :no_users => "Ei käyttäjiä",
+:friend_requested => "Kaverikutsu lähetetty",
+:friend_request_failed => "Kaverikutsun lähettäminen epäonnistui",
 
 #Search view
 :show_all => "Näytä kaikki",
@@ -289,11 +291,23 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :reject_request => "Hylkää kutsu",  
 :friend_request_accepted => "Kaverikutsu hyväksytty",
 :friend_request_rejected => "Kaverikutsu hylätty",
+:friend_request_canceled => "Kaverikutsu peruttu",
+:accepting_friend_request_failed => "Kaverikutsun hyväksyminen epäonnistui",
+:rejecting_friend_request_failed => "Kaverikutsun hylkääminen epäonnistui",
+:canceling_friend_request_failed => "Kaverikutsun peruminen epäonnistui",
 :no_requests => "Ei aktiivisia kutsuja",   
 
 #Friend view
 :friends_of_user => "Käyttäjän",
 :users_friends => "kaverit",
+:no_friends => "Ei kavereita",
+:show_friends_on_page => "Näytä kavereita sivulla",
+:remove_from_friends => "Poista kavereista",
+:friend_removed => "Kaveri poistettu",
+:removing_friend_failed => "Kaverin poistaminen epäonnistui",
+:accept_friend_request => "Hyväksy kaverikutsu",
+:reject_friend_request => "Hylkää kaverikutsu",
+:cancel_friend_request => "Peru kaverikutsu",
 
 #Contact view
 :contacts_of_user => "Käyttäjän",

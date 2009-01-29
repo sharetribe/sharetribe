@@ -4,4 +4,26 @@
   <div class="left_float">
     <%= get_profile_navi_items(params[:person_id]) %>
   </div>
+  <div class="right_float">
+    <%= will_paginate @friends, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div> 
 </div>
+
+<% if (@friends.size > 0)%>
+  <%= render :partial => "people/person", :collection => @friends, :as => "person", :spacer_template => "layouts/dashed_line" %>
+  <% if @friends.total_pages > 1 || params[:per_page] %>
+  <div class="links_panel">
+    <div class="left_float">
+      <%= t("show_#{@title}_on_page") %>:
+      <%= create_footer_pagination_links(["10", "30", "50", "all"], @title) %>
+    </div>
+    <div class="right_float">
+      <%= will_paginate @friends, :prev_label => t(:previous), :next_label => t(:next) %>
+    </div>  
+  </div>
+  <% end %>
+<% else %>
+  <div id="basic_content">
+    <%= t(:no_friends) %>
+  </div>  
+<% end %>

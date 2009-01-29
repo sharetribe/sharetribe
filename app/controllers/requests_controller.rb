@@ -3,21 +3,41 @@ class RequestsController < ApplicationController
   def index
     save_navi_state(['own', 'requests'])
     @person = Person.find(params[:person_id])
-    @requests = ["kutsu1", "kutsu2"].paginate :page => params[:page], :per_page => per_page
+    ids = Array.new
+    @person.get_friend_requests(session[:cookie])["entry"].each do |person|
+      ids << person["id"]
+    end
+    @requesters = Person.find(ids).paginate :page => params[:page], :per_page => per_page
   end
 
   def accept
-    @person = params[:person_id]
-    @request = params[:id]
-    flash[:notice] = :friend_request_accepted
-    redirect_to person_requests_path(@person)
+    begin
+      @current_user.add_as_friend(params[:id], session[:cookie])
+      flash[:notice] = :friend_request_accepted
+    rescue ActiveResource::ResourceNotFound => e
+      flash[:error] = :accepting_friend_request_failed
+    end
+    redirect_to :back
   end
 
   def reject
-    @person = params[:person_id]
-    @request = params[:id]
-    flash[:notice] = :friend_request_rejected
-    redirect_to person_requests_path(@person)
+    begin
+      @current_user.remove_pending_friend_request(params[:id], session[:cookie])
+      flash[:notice] = :friend_request_rejected
+    rescue ActiveResource::ResourceNotFound => e
+      flash[:error] = :rejecting_friend_request_failed
+    end
+    redirect_to :back
+  end
+  
+  def cancel
+    begin
+      @current_user.remove_pending_friend_request(params[:id], session[:cookie])
+      flash[:notice] = :friend_request_canceled
+    rescue ActiveResource::ResourceNotFound => e
+      flash[:error] = :canceling_friend_request_failed
+    end
+    redirect_to :back
   end
 
 end
