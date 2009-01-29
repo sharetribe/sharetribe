@@ -151,7 +151,9 @@ module ApplicationHelper
         when "kassi_users"
           path = people_path(params.merge({:per_page => value}))
         when "contacts"
-          path = person_contacts_path(params.merge({:per_page => value}))  
+          path = person_contacts_path(params.merge({:per_page => value}))
+        when "friends"
+          path = person_friends_path(params.merge({:per_page => value}))    
         when "comments"
           path = comments_person_listings_path(params.merge({:per_page => value}))
         when "requests"

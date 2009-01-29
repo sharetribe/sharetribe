@@ -211,6 +211,8 @@ I18n.store_translations 'en-US',
 :show_kassi_users_on_page => "Show users on page",
 :joined_kassi => "Joined Kassi",
 :no_users => "No users",
+:friend_requested => "Friend requested",
+:friend_request_failed => "Friend request failed",
 
 #Search view
 :show_all => "Show all",
@@ -287,11 +289,22 @@ I18n.store_translations 'en-US',
 :reject_request => "Reject request",
 :friend_request_accepted => "Friend request accepted",
 :friend_request_rejected => "Friend request rejected",
+:friend_request_canceled => "Friend request canceled",
+:accepting_friend_request_failed => "Accepting friend request failed",
+:rejecting_friend_request_failed => "Rejecting friend request failed",
+:canceling_friend_request_failed => "Canceling friend request failed",
 :no_requests => "No active requests",  
 
 #Friend view
 :friends_of_user => "Friends of user",
 :users_friends => "",
+:no_friends => "No friends",
+:show_friends_on_page => "Show friends on page",
+:remove_from_friends => "Remove from friends",
+:friend_removed => "Friend removed",
+:removing_friend_failed => "Removing friend failed",
+:accept_friend_request => "Accept friend request",
+:cancel_friend_request => "Cancel friend request",
 
 #Contact view
 :contacts_of_user => "Contacts of user",

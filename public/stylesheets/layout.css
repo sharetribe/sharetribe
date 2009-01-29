@@ -768,6 +768,11 @@ div.profile_update_form_buttons {
 	margin: 10px 0;
 }
 
+div.form_extra_padding {
+	width: 400px;
+	padding: 0px 10px;
+}
+
 /* Kassi events view */
 
 div.listed_kassi_event_left {

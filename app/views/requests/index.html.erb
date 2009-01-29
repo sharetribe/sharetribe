@@ -1,14 +1,14 @@
 <div class="browse_objects_header">
 <div class="browse_objects_title">
-  <%= t(:requests) %> <span class="page_entries_info">(<%= page_entries_info @requests %>)</span>
+  <%= t(:requests) %> <span class="page_entries_info">(<%= page_entries_info @requesters %>)</span>
 </div>
 <div class="pagination_padding">
-  <%= will_paginate @requests, :prev_label => t(:previous), :next_label => t(:next) %>
+  <%= will_paginate @requesters, :prev_label => t(:previous), :next_label => t(:next) %>
 </div>  
 </div>
 
-<% if (@requests.size > 0)%>
-  <%= render :partial => "request", :collection => @requests, :as => :request, :spacer_template => "layouts/dashed_line" %>
+<% if (@requesters.size > 0)%>
+  <%= render :partial => "request", :collection => @requesters, :as => :requester, :spacer_template => "layouts/dashed_line" %>
   <div class="solid_line">
   </div>  
   <div id="browse_objects_footer_left">
@@ -16,7 +16,7 @@
     <%= create_footer_pagination_links(["10", "30", "50", "all"], "requests") %>
   </div>
   <div class="pagination_padding">
-    <%= will_paginate @requests, :prev_label => t(:previous), :next_label => t(:next) %>
+    <%= will_paginate @requesters, :prev_label => t(:previous), :next_label => t(:next) %>
   </div>  
   <br />
 <% else %>

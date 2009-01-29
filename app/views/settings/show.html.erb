@@ -7,6 +7,7 @@
       <legend>
         <%= t(:change_email) %>:
       </legend>
+      <div class="form_extra_padding">
       <div class="form_container">
         <div class="form_left">
           <%= t(:email) %>:
@@ -20,6 +21,7 @@
           <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
         </div>
       </div>
+      </div>
     </fieldset>
   <% end %>
   <br />
@@ -28,6 +30,7 @@
       <legend>
         <%= t(:change_password) %>:
       </legend>
+      <div class="form_extra_padding">
       <div class="form_container">
         <div class="form_left">
           <%= t(:password) %>:
@@ -48,6 +51,7 @@
         <div class="form_right">
           <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
         </div>
+      </div>
       </div>  
     </fieldset>
   <% end %>

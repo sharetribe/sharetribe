@@ -83,7 +83,7 @@ ActionController::Routing::Routes.draw do |map|
                      :member => { :close => :get, :mark_as_closed => :post }, 
                      :collection => { :interesting => :get, :comments => :get }
     person.resource :avatar
-    person.resources :requests, :member => { :accept => :post, :reject => :post }               
+    person.resources :requests, :member => { :accept => :post, :reject => :post, :cancel => :post }               
   end  
   map.resources :items, :collection => { :search => :get }
   map.resource :search
