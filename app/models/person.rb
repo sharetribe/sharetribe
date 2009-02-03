@@ -74,7 +74,7 @@ class Person < ActiveRecord::Base
       connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
     end
     
-    #fixes nordic letters
+    #fixes utf8 letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
       JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
