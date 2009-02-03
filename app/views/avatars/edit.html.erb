@@ -1,5 +1,12 @@
-<form action="http://maps.cs.hut.fi/cos/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">                    
+<script type="text/javascript">
+        function handleResponse() {
+               alert("Hola!");
+        }
+</script>
+<form  target="upload_frame" action="<%= COS_URL %>/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">                    
   <input name="_method" class="upload_pic" value="PUT" type="hidden">                    
   <input name="file" id="avatar_file" type="file">
   <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>
 </form>
+<iframe id="upload_frame" name="upload_frame" style="display: none"></iframe>
+
