@@ -48,6 +48,13 @@ class PeopleController < ApplicationController
   
   def search
     save_navi_state(['people', 'search_people'])
+    if params[:q]
+      ids = Array.new
+      Person.search(params[:q])["entry"].each do |person|
+        ids << person["id"]
+      end
+      @people = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+    end
   end
 
   def create
@@ -86,17 +93,34 @@ class PeopleController < ApplicationController
     end
     begin
       @person.update_attributes(params[:person], session[:cookie])
-    rescue ActiveResource::BadRequest => e
-      flash[:error] = e.response.body
+      flash[:notice] = :person_updated_successfully
       redirect_to @person and return
+    rescue ActiveResource::BadRequest => e
+      #flash[:error] = e.response.body.to_s
+      flash[:error] = translate_error_message(e.response.body.to_s)
+      redirect_to edit_person_path(@person) and return
     end
-    flash[:notice] = :person_updated_successfully
-    redirect_to @person
   end
   
   def send_message
     @person = Person.find(params[:id])
     @message = Message.new
+  end
+  
+  private
+  
+  def translate_error_message(message)
+    if message.include?("Given name is too long")
+      return :given_name_is_too_long
+    elsif message.include?("Family name is too long")
+      return :family_name_is_too_long
+    elsif message.include?("address is too long")
+      return :address_is_too_long
+    elsif message.include?("Phone number is too long")
+      return :phone_number_is_too_long        
+    else
+      return :user_data_could_not_be_saved_due_to_unknown_error 
+    end  
   end
   
 end

@@ -8,7 +8,7 @@ class Conversation < ActiveRecord::Base
   has_many :messages
   
   validates_presence_of :title
-  validates_length_of :title, :within => 2..80
+  validates_length_of :title, :within => 2..100
   
   validates_numericality_of :listing_id, :only_integer => true, :allow_nil => true 
 

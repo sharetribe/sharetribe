@@ -1,5 +1,9 @@
 class InfosController < ApplicationController
   
+  def show
+    redirect_to :action => :about
+  end
+  
   def about
     save_navi_state(['info','about','',''])
   end

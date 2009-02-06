@@ -7,7 +7,6 @@ class FriendsController < ApplicationController
     session[:profile_navi] = 'friends'
     save_navi_state(['own', 'friends']) if current_user?(@person)
     ids = Array.new
-    @all_friends = true 
     @person.get_friends(session[:cookie])["entry"].each do |person|
       ids << person["id"]
     end

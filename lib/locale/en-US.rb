@@ -43,19 +43,20 @@ I18n.store_translations 'en-US',
 :search_kassi => "Search Kassi:",
 :search => "Search",
 :search_instructions => "Search guide",
-:search_instructions_listings => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all listings with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve listings with word 'teamsportshall' (if there were such a word). A single * finds all listings.",
+:search_instructions_listings => "<b>Search guide: </b>* replaces any set of characters that doesn't include spaces. An example: 'sports' gets all listings with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also return 'sportshall' and '*sports*' would retrieve listings with word 'teamsportshall' (if there were such a word). A single * finds all listings.",
 
-:search_instructions_items => "<b>Search guide: </b>* replaces any set of characters. An example: 'saw' gets all items with saw as a separate word, while '*saw' also finds words like 'jigsaw'. Keyword 'saw*' would also find 'sawdust' and '*saw*' would retrieve items with word 'jigsawdust' (if there were such a word). A single * finds all items.",
+:search_instructions_items => "<b>Search guide: </b>* replaces any set of characters that doesn't include spaces. An example: 'saw' gets all items with saw as a separate word, while '*saw' also finds words like 'jigsaw'. Keyword 'saw*' would also return 'sawdust' and '*saw*' would retrieve items with word 'jigsawdust' (if there were such a word). A single * finds all items.",
 
-:search_instructions_favors => "<b>Search guide: </b>* replaces any set of characters. An example: 'sports' gets all favors with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also find 'sportshall' and '*sports*' would retrieve favors with word 'teamsportshall' (if there were such a word). A single * finds all favors.",
+:search_instructions_favors => "<b>Search guide: </b>* replaces any set of characters that doesn't include spaces. An example: 'sports' gets all favors with sports as a separate word, while '*sports' also finds words like 'teamsports'. Keyword 'sports*' would also return 'sportshall' and '*sports*' would retrieve favors with word 'teamsportshall' (if there were such a word). A single * finds all favors.",
 
+:search_instructions_people => "<b>Search guide: </b>* replaces any set of characters that doesn't include spaces. An example: 'jack' gets all people who have Jack as their first or last name, while 'jack*' also finds all Jacksons. Keyword '*jack' would also return 'Lumberjack' and '*jack*' would retrieve all Smith-Jacksons. A single * finds all favors.",
 
 #Top navigation
 :own => "Own",
 :listings => "Listings",
 :items => "Items",
 :favors => "Favors",
-:people => "People",
+:people => "Users",
 
 #Left navigation
 :home => "Home",
@@ -196,6 +197,7 @@ I18n.store_translations 'en-US',
 :borrow => "Borrow",
 :i_want_to_borrow_this_item => "I want to borrow an item",
 :show_items_on_page => "Show items on page",
+:add_item => "Add new",
 
 #Favors view
 :search_favors_title => "Search favors",
@@ -203,8 +205,9 @@ I18n.store_translations 'en-US',
 :offerer => "offerer",
 :offerer_partitive => "offerers",
 :ask_for_favor => "Ask for favor",
-:i_want_to_ask_for_this_favor => "Asking_for_a_favor",
+:i_want_to_ask_for_this_favor => "Asking for a favor",
 :show_favors_on_page => "Show favors on page",
+:add_favor => "Add new",
 
 #People view
 :kassi_users => "Kassi users",
@@ -213,7 +216,7 @@ I18n.store_translations 'en-US',
 :no_users => "No users",
 :friend_requested => "Friend requested",
 :friend_request_failed => "Friend request failed",
-
+:search_people_title => "Search users",
 #Search view
 :show_all => "Show all",
 :search_results_for_search_term => "Search results for search term",
@@ -311,6 +314,7 @@ I18n.store_translations 'en-US',
 :users_contacts => "",
 :show_contacts_on_page => "Show contacts on page",
 :contacts_info => "User's contacts are those users who have been in contact with the user via Kassi in a way that has produced a <i>kassi-event</i>.",
+:no_contacts => "No contacts",
 
 #User listings view
 :listings_of_user => "Listings of user",
@@ -354,6 +358,7 @@ I18n.store_translations 'en-US',
 :no_messages => "No messages",
 
 #Kassi events view
+:kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: thank each other for items or services or mark each other as listing realizers.",
 :closed_listing => "Closed listing",
 :borrowed_item => "Borrowed item",
 :lent_item => "Lent item", 
@@ -411,13 +416,17 @@ I18n.store_translations 'en-US',
 :image_file_is_too_big => "Image file can't be bigger than 5 megabytes",
 :transaction_amount_too_big => "There's not enough money in your purse to make a transaction",
 :message_title_is_too_long => "Title is too long (maximum is 80 characters)",
+:given_name_is_too_long => "Given name is too long (maximum is 30 characters)",
+:family_name_is_too_long => "Family name is too long (maximum is 30 characters)",
+:address_is_too_long => "Address is too long (maximum is 255 characters)",
+:phone_number_is_too_long => "Phone number is too long (maximum is 25 characters)",
 
 #Feedback
 :feedback => "Feedback",
 :leave_feedback => "Give feedback to Kassi administrators",
 :feedback_saved => "Feedback registered",
 :feedback_not_saved => "Feedback could not be registered",
-:send_feedback => "Send feedback",
+:send_feedback => "Send feedback to administrators",
 :feedbacks => "Feedback items",
 :feedbacks_partitive => "feedback items",
 

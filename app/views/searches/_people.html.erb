@@ -1,0 +1,18 @@
+<div class="search_header">
+  <div class="left_float">
+    <%= t(:people) %> (<%= @people_amount %>)
+  </div>
+  <div class="right_float">
+    <%= link_to t(:show_all), search_people_path(:q => params[:qa]) %>
+  </div>    
+</div>
+
+<% if (@people.size > 0)%>
+  <% collection = (@people.size > 2) ? @people.values_at(0,1) : @people %>
+  <%= render :partial => "people/person", 
+             :collection => collection, 
+             :as => :person, 
+             :spacer_template => "layouts/dashed_line" %>
+<% else %>
+  <p><%= t(:no_users) %></p>
+<% end %>

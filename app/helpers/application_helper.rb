@@ -54,7 +54,6 @@ module ApplicationHelper
       navi_items[:settings] = person_settings_path(@current_user)
       #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
       #navi_items[:purse] = person_purse_path(@current_user)
-      #navi_items[:settings] = person_settings_path(@current_user)
     when 'listings'
       navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = search_listings_path
@@ -62,12 +61,14 @@ module ApplicationHelper
     when 'items'
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path
+      navi_items[:add_item] = person_path(@current_user) + "#items" if @current_user
     when 'favors'
       navi_items[:browse_favors] = favors_path
       navi_items[:search_favors] = search_favors_path
+      navi_items[:add_favor] = person_path(@current_user) + "#favors" if @current_user
     when 'people'
       navi_items[:browse_people] = people_path
-      #navi_items[:search_people] = search_people_path
+      navi_items[:search_people] = search_people_path
     when 'info'
       navi_items[:about] = about_info_path
       navi_items[:help] = help_info_path
@@ -157,7 +158,9 @@ module ApplicationHelper
         when "comments"
           path = comments_person_listings_path(params.merge({:per_page => value}))
         when "requests"
-          path = person_requests_path(params.merge({:per_page => value}))              
+          path = person_requests_path(params.merge({:per_page => value}))
+        when "search_people"
+          path = search_people_path(params.merge({:per_page => value}))                
         end
         links << link_to(t(value), path)  
       end    

@@ -15,6 +15,12 @@ class SearchesController < ApplicationController
         
         sf = Ferret::Search::SortField.new(:title_sort, :reverse => false)
         @favors = Favor.find_by_contents(query, {:limit => 3, :sort => sf}, {:conditions => ''})
+        ids = Array.new
+        Person.search(query)["entry"].each do |person|
+          ids << person["id"]
+        end
+        @people = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+        @people_amount = @people.size
       end
     end
   end
