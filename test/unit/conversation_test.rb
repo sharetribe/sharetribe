@@ -13,9 +13,9 @@ class ConversationTest < ActiveSupport::TestCase
   end
   
   def test_title_length
-    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanas", false)
+    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanassanasanasanasanasana", false)
     assert_conversation_valid(:title, "w", false)
-    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasana", true)
+    assert_conversation_valid(:title, "sanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasanasana", true)
     assert_conversation_valid(:title, "mo", true)
   end
   

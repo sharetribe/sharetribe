@@ -26,7 +26,7 @@ class Person < ActiveRecord::Base
   class PersonConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information
     # of person model is stored. This is subclass of ActiveResource so it includes some automatic
-    # functionality to acceess REST interface.
+    # functionality to access REST interface.
     #
     # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
     # in COS documentation at #{COS_URL}
@@ -44,6 +44,10 @@ class Person < ActiveRecord::Base
     
     def self.get_person(id, cookie)
       return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
+    end
+    
+    def self.search(query, cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}?search=" + query, {"Cookie" => cookie} ))
     end
     
     def self.get_friends(id, cookie)
@@ -110,6 +114,17 @@ class Person < ActiveRecord::Base
   def after_initialize
     #self.id may already be correct in this point so use ||=
     self.id ||= self.guid
+  end
+  
+  def self.search(query)
+    cookie = Session.kassiCookie
+    begin
+      person_hash = PersonConnection.search(query, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return nil
+    end  
+    return person_hash
   end
   
   def username(cookie=nil)

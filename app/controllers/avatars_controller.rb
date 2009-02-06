@@ -1,5 +1,7 @@
 class AvatarsController < ApplicationController
   
+  before_filter :logged_in
+  
   def edit
     @person = Person.find(params[:person_id])
   end

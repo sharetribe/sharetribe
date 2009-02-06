@@ -43,19 +43,21 @@ I18n.store_translations 'fi',
 :search_kassi => "Hae Kassista:",
 :search => "Hae",
 :search_instructions => "Hakuohje",
-:search_instructions_listings => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'urheilu' hakee ainoastaan kaikki ilmoitukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa ilmoitukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin.
+:search_instructions_listings => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon, joka ei sisällä välilyöntejä. Esimerkiksi 'urheilu' hakee ainoastaan kaikki ilmoitukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa ilmoitukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin.
 Pelkkä * hakee kaikki ilmoitukset.",
 
-:search_instructions_items => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'vasara' hakee ainoastaan kaikki tavarat, joiden nimessä on urheilu erillisenä sanana, kun taas '*vasara' löytää myös poravasaran. Hakusana 'vasara*' löytää puolestaan vaikkapa vasaratelineen ja '*vasara*' -hakusanalla tavoittaisi poravasaratelineen. Pelkkä * hakee kaikki ilmoitukset.",
+:search_instructions_items => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon, joka ei sisällä välilyöntejä. Esimerkiksi 'vasara' hakee ainoastaan kaikki tavarat, joiden nimessä on urheilu erillisenä sanana, kun taas '*vasara' löytää myös poravasaran. Hakusana 'vasara*' löytää puolestaan vaikkapa vasaratelineen ja '*vasara*' -hakusanalla tavoittaisi poravasaratelineen. Pelkkä * hakee kaikki ilmoitukset.",
 
-:search_instructions_favors => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon. Esimerkiksi 'urheilu' hakee ainoastaan kaikki palvelukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa palvelukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin. Pelkkä * hakee kaikki palvelukset.",
+:search_instructions_favors => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon, joka ei sisällä välilyöntejä. Esimerkiksi 'urheilu' hakee ainoastaan kaikki palvelukset, joissa lukee urheilu erillisenä sanana, kun taas '*urheilu' löytää myös vesi- tai joukkueurheilun. Hakusana 'urheilu*' löytää puolestaan vaikkapa palvelukset, joissa mainitaan urheilujoukkue ja '*urheilu*' -hakusanalla voit löytää vesiurheilujoukkueen tai kilpaurheiluhallin. Pelkkä * hakee kaikki palvelukset.",
+
+:search_instructions_people => "<b>Hakuohje: </b>Merkki * hakusanassa korvaa minkä tahansa merkkijonon, joka ei sisällä välilyöntejä. Esimerkiksi 'virta' hakee ainoastaan kaikki Virta-nimiset henkilöt, kun taas 'virta*' löytää myös Virtaset. Hakusana '*virta' löytää puolestaan Järvinen-Virran ja '*Virta*' myös Järvinen-Virtaset.",
 
 #Top navigation
 :own => "Oma",
 :listings => "Ilmoitukset",
 :items => "Tavarat",
 :favors => "Palvelukset",
-:people => "Ihmiset",
+:people => "Käyttäjät",
 
 #Left navigation
 :home => "Etusivu",
@@ -198,6 +200,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :borrow => "Lainaa",
 :i_want_to_borrow_this_item => "Haluan lainata tavaran",
 :show_items_on_page => "Näytä tavaroita sivulla",
+:add_item => "Lisää uusi",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
@@ -207,6 +210,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :ask_for_favor => "Pyydä palvelusta",
 :i_want_to_ask_for_this_favor => "Pyydän palvelusta",
 :show_favors_on_page => "Näytä palveluksia sivulla",
+:add_favor => "Lisää uusi",
 
 #People view
 :kassi_users => "Kassin käyttäjät",
@@ -215,6 +219,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :no_users => "Ei käyttäjiä",
 :friend_requested => "Kaverikutsu lähetetty",
 :friend_request_failed => "Kaverikutsun lähettäminen epäonnistui",
+:search_people_title => "Hae käyttäjiä",
 
 #Search view
 :show_all => "Näytä kaikki",
@@ -259,7 +264,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :item_could_not_be_added => "Tavaraa ei voitu lisätä",
 
 #Avatar upload
-:upload_avatar => "Muuta profiilikuvaa",
+:upload_avatar => "Profiilikuvan vaihto",
 :image_file => "Kuvatiedosto",
 :add_avatar_submit => "Tallenna kuva",
 
@@ -314,6 +319,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :users_contacts => "kontaktit",
 :show_contacts_on_page => "Näytä kontakteja sivulla",
 :contacts_info => "Kunkin käyttäjän kontakteja ovat kaikki ne käyttäjät, joiden kanssa kyseinen käyttäjä on ollut tekemisissä Kassin kautta siten, että on syntynyt <i>kassitapahtuma</i>.",
+:no_contacts => "Ei kontakteja", 
 
 #User listings view
 :listings_of_user => "Käyttäjän",
@@ -356,6 +362,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :no_messages => "Ei viestejä",
 
 #Kassi events view
+:kassi_events_info => "Kassitapahtuma syntyy aina, kun käyttäjät ovat tekemisissä toistensa kanssa Kassin kautta: kiittävät toisiaan tavaralainoista tai palveluksista tai merkitsevät toisiaan ilmoitusten tekijöiksi.",
 :closed_listing => "Suljettu ilmoitus",
 :borrowed_item => "Lainaksi saatu tavara",
 :lent_item => "Lainaksi annettu tavara",
@@ -414,13 +421,17 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :image_file_is_too_big => "Kuvatiedoston maksimikoko on 5 Megabittiä",
 :transaction_amount_too_big => "Kukkarossa ei ole tarpeksi rahaa siirron suorittamiseksi",
 :message_title_is_too_long => "Otsikko on liian pitkä (maksimi on 80 merkkiä)",
+:given_name_is_too_long => "Etunimi on liian pitkä (maksimi on 30 merkkiä)",
+:family_name_is_too_long => "Sukunimi on liian pitkä (maksimi on 30 merkkiä)",
+:address_is_too_long => "Osoite on liian pitkä (maksimi on 255 merkkiä)",
+:phone_number_is_too_long => "Puhelinnumero on liian pitkä (maksimi on 25 merkkiä)",    
 
 #Feedback
 :feedback => "Palaute",
 :leave_feedback => "Jätä palautetta Kassin ylläpidolle",
 :feedback_saved => "Palaute tallennettu",
 :feedback_not_saved => "Palautetta ei voitu tallentaa",
-:send_feedback => "Lähetä palaute",
+:send_feedback => "Lähetä palaute ylläpidolle",
 :feedbacks => "Palauteviestit",
 :feedbacks_partitive => "palauteviestiä",
 
@@ -438,19 +449,30 @@ Pelkkä * hakee kaikki ilmoitukset.",
 #About
 :about_title => "Tietoa Kassista",
 :about_title_what_is_kassi => "Mikä on Kassi?",
-:about_text_what_is_kassi => "<p>Kassi on palvelu, joka mahdollistaa erilaisten palvelusten vaihdon käyttäjien jättämien ilmoitusten kautta. 
-Ilmoitukset on jaettu seitsemään eri kategoriaan, joita ovat kauppapaikka, palvelukset, tavaralainat, porukkahaku, kimppakyydit, löytötavarat ja muut.  
-Ilmoituksia voi selata rekisteröitymättä, mutta ilmoituksiin vastaaminen ja käyttäjien profiilien tarkastelu vaatii rekisteröitymisen.</p>
+:about_text_what_is_kassi => "<p>Kassi on palvelu, jonka tarkoituksena on helpottaa tavaroiden lainaamista, ostoa ja myyntiä, palvelusten vaihtoa, 
+kimppakyytien organisointia ja muita sen käyttäjien päivittäisiä askareita.
+Kassin käyttäjät voivat tarjota profiilissaan muille lainatavaroita ja palveluksia ja tehdä hakuja muiden profiileihin.</p>
+
 <p>
-Kassi on yksi Otasizzle-palveluista. Sizl.org-portaalissa tai missä tahansa muussa Otasizzle-palvelussa luodut tunnukset käyvät 
-sellaisinaan myös Kassiin. Kassin käyttäjäprofiili toimii siis suoraan muissakin Otasizzle-palveluissa, mutta ne tiedot, jotka liittyvät vain Kassiin (esimerkiksi tarjotut lainaesineet), eivät näy muualla kuin Kassissa.</p>",
+Jos haluttua tavaraa tai palvelusta ei löydy, voi jättää palveluun ilmoituksen. 
+Ilmoitukset on jaettu seitsemään kategoriaan, joita ovat kauppapaikka, palvelukset, tavaralainat, porukkahaku, kimppakyydit, löytötavarat ja muut.  
+Tavaroita, palveluksia ja ilmoituksia voi selata rekisteröitymättä, mutta ilmoituksiin vastaaminen ja käyttäjien profiilien tarkastelu vaatii 
+rekisteröitymisen.</p>",
 :about_title_why_is_kassi => "Miksi Kassi on olemassa?",
-:about_text_why_is_kassi => "Kassin tavoite on helpottaa päivittäisten palvelusten vaihtoa pääkaupunkiseudun alueella. 
-Kassi on osa TKK:n ja HIIT:n yhteistä Otasizzle-projektia, jonka tarkoitus on tutkia sosiaalisten internetpalveluiden kehittämistä ja käyttöä.",
+:about_text_why_is_kassi => "
+<p>
+Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle-projektin</a> palveluista. Projektin tarkoituksena on tutkia sosiaalisten
+internetpalveluiden kehittämistä ja käyttöä sekä helpottaa niiden avulla ihmisten arkielämää. 
+</p>
+<p>
+Kassin käyttäjätunnukset toimivat myös projektin
+muissa palveluissa, ja myös profiilitiedot ja kaverilistat ovat kaikkien palveluiden käytössä. Ne tiedot, jotka liittyvät vain Kassiin 
+(esimerkiksi tarjotut lainaesineet), eivät näy muualla kuin Kassissa.
+</p>
+",
 :about_title_who_is_kassi_for => "Kenelle Kassi on tarkoitettu?",
 :about_text_who_is_kassi_for => "Kassi on palvelun paikallisuutta hyödyntävästä luonteesta johtuen suunnattu alussa ensisijaisesti kaikille 
-pääkaupunkiseudun alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi. Myös mm. TKY:n 
-yhteydessä toimivat yhdistykset (esim. killat ja ainejärjestöt) voivat rekisteröityä ja käyttää Kassia omiin tarpeisiinsa.",
+pääkaupunkiseudun alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi.",
 
 #Help
 :help_title => "Apua Kassin käyttöön",

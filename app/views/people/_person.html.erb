@@ -16,18 +16,7 @@
         <%= link_to t(:send_message_to_user), send_message_person_path(person) %>
       </div>
       <div class="listed_item_owner_right_link">
-        <% friend_status = person.friend_status(session[:cookie]) %>
-        <% if !@current_user || is_current_user?(person) %>
-          
-        <% elsif friend_status.eql?("friend") %>
-          <%= link_to t(:remove_from_friends), person_friend_path(@current_user, person), :method => :delete %>
-        <% elsif friend_status.eql?("requested") %>
-          <%= link_to t(:cancel_friend_request), cancel_person_request_path(@current_user, person), :method => :post %>
-        <% elsif friend_status.eql?("pending") %>
-          <%= link_to t(:accept_friend_request), accept_person_request_path(@current_user, person), :method => :post %>
-        <% else %>  
-          <%= link_to t(:add_as_friend), person_friends_path(person), :method => :post %>
-        <% end %>  
+        <%= get_friend_status_link(person) %> 
       </div>  
     <% end %>
   </div>

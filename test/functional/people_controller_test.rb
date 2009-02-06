@@ -98,6 +98,43 @@ class PeopleControllerTest < ActionController::TestCase
     assert_equal @test_person1.phone_number, "0700-715517"
   end
   
+  def test_invalid_given_name
+    update_with_invalid_data(:given_name, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :given_name_is_too_long)
+  end
+  
+  def test_invalid_family_name
+    update_with_invalid_data(:family_name, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :family_name_is_too_long)
+  end
+  
+  def test_invalid_address  
+    update_with_invalid_data(:unstructured_address, "TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
+    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo    
+    ", :address_is_too_long)
+  end
+  
+  def test_invalid_phone_number  
+    update_with_invalid_data(:phone_number, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :phone_number_is_too_long)
+  end
+  
+  def test_search_people_view
+    get :search
+    assert_response :success
+    assert_template 'search'
+  end
+  
+  def test_search_people
+    search("dsfds", 0)
+    search("*", 2)
+    search("Teppo", 1)
+    search("*epp*", 1)
+  end
+  
   private
   
   def generate_random_username(length = 12)
@@ -105,6 +142,24 @@ class PeopleControllerTest < ActionController::TestCase
     random_username = "aaaTest"
     1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
     return random_username
+  end
+  
+  def search(query, result_count)
+    get :search, :q => query
+    assert_response :success
+    assert_equal result_count, assigns(:people).size
+    assert_template 'search'
+  end
+  
+  def update_with_invalid_data(key, value, error)
+    submit_with_person :update, { 
+      :person => { 
+        key => value
+      },
+      :id => @test_person1.id
+    }, :person, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:error], error
   end
   
 end
