@@ -15,13 +15,18 @@ ln -s /var/datat/kassi/shared/listing_images/ listing_images
 cd ..
 cd ..
 
-# REV=$((`svn info file:///svn/kassi | \
-# grep "^Last Changed Rev" | \
-# perl -pi -e "s/Last Changed Rev: //"`-`svn info file:///svn/kassi/tags | \
-# grep "^Last Changed Rev" | \
-# perl -pi -e "s/Last Changed Rev: //"`))
-# echo "BETA_VERSION = \"$REV\"\n" > config/environments/production.rb
-#date > app/views/layouts/_build_date.html.erb
+ REV=$((`svn info file:///svn/kassi | \
+ grep "^Last Changed Rev" | \
+ perl -pi -e "s/Last Changed Rev: //"`-`svn info file:///svn/kassi/tags | \
+ grep "^Last Changed Rev" | \
+ perl -pi -e "s/Last Changed Rev: //"`))
+echo "BETA_VERSION = \"0.6.$REV\"" >> config/environments/production.rb
+BUILD_DATE=`svn info file:///svn/kassi | \
+ grep "^Last Changed Date" | \
+ perl -pi -e "s/Last Changed Date: //" | perl -pi -e "s/\+.+$//"`
+echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
+
+
 
 
 #rake db:migrate
