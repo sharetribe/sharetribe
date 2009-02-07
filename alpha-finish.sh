@@ -15,6 +15,13 @@ ln -s /var/datat/kassi/shared/listing_images/ listing_images
 cd ..
 cd ..
 
+# REV=$((`svn info file:///svn/kassi | \
+# grep "^Last Changed Rev" | \
+# perl -pi -e "s/Last Changed Rev: //"`-`svn info file:///svn/kassi/tags | \
+# grep "^Last Changed Rev" | \
+# perl -pi -e "s/Last Changed Rev: //"`))
+# echo "BETA_VERSION = \"$REV\"\n" > config/environments/production.rb
+#date > app/views/layouts/_build_date.html.erb
 
 
 #rake db:migrate

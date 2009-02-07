@@ -439,6 +439,8 @@ I18n.store_translations 'en-US',
 :help => "Help",
 :terms => "Terms",
 :forum => "Forum",
+:beta_version => "Beta-version",
+:updated => "updated",
 :kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle</a> services.",
 
 #About
