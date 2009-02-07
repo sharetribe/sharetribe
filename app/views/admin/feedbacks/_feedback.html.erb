@@ -4,6 +4,8 @@
       <b>
       <% if feedback.author_id == "Anonymous"%>
         Anonymous
+      <% elsif feedback.author_id == "virheilmoitus500" %>
+        Errorpage500
       <% else %>  
         <%= link_to feedback.author.name(session[:cookie]), person_path(feedback.author) %>
       <% end %>
