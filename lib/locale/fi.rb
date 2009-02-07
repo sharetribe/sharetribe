@@ -444,6 +444,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :help => "Ohjeet",
 :terms => "Käyttöehdot",
 :forum => "Foorumi",
+:beta_version => "Beta-versio",
+:updated => "päivitetty",
 :kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista.",
 
 #About
