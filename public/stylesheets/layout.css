@@ -2,7 +2,7 @@
  * COLORS
  * Greenish light yellow (background): #f4f6d0;
  * Grey (unselected item in top navi and hover): #72776c;
- * Lighter grey (hovered uselected item in top navi):
+ * Lighter grey (hovered uselected item in top navi): #9aa092;
  * Lightest grey (listing author box, new message): #e0e6d8;
  * Light green (left links, category box, notification box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
@@ -138,7 +138,7 @@ div.fieldWithErrors {
 	color: #f4f6d0;
 }
 
-#logo_and_top_navi {
+#top_navi {
 	clear: both;
 	width: 1000px;
 	margin: 0px;
@@ -152,7 +152,7 @@ div.fieldWithErrors {
 
 #search_and_navi_container {
 	position: relative;
-	margin-left: 250px;
+	margin-left: 256px;
 	height: 125px;
 }
 
@@ -168,7 +168,6 @@ div.fieldWithErrors {
 	position: absolute;
 	bottom: 1px;
 	margin: 0;
-	margin-left: 6px;
 	padding: 0;
 	width: 65	em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
 }

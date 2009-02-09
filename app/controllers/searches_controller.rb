@@ -19,7 +19,7 @@ class SearchesController < ApplicationController
         Person.search(query)["entry"].each do |person|
           ids << person["id"]
         end
-        @people = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+        @people = Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')")
         @people_amount = @people.size
       end
     end

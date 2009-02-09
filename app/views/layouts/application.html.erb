@@ -31,10 +31,10 @@
             <%= render :partial => "layouts/login" %>
           </div>
         </div>
-        <div id="logo_and_top_navi">
-          <div id="logo">
-            <%= link_to image_tag("/images/kassi_logo_beta.png", :border => 0, :alt => "Kassi"), root_path %> 
-          </div>
+        <div id="logo">
+          <%= link_to image_tag("/images/kassi_logo_beta.png", :border => 0, :alt => "Kassi"), root_path %> 
+        </div>
+        <div id="top_navi">
           <div id="search_and_navi_container">
             <div id="searchbar">
               <% form_tag({ :controller => "search", :action => "index" }, :method => "get") do %>              

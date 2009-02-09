@@ -130,7 +130,7 @@ class PeopleControllerTest < ActionController::TestCase
   
   def test_search_people
     search("dsfds", 0)
-    search("*", 2)
+    search("*", 1)
     search("Teppo", 1)
     search("*epp*", 1)
   end
