@@ -10,7 +10,7 @@ class FriendsController < ApplicationController
     @person.get_friends(session[:cookie])["entry"].each do |person|
       ids << person["id"]
     end
-    @friends = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+    @friends = Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')").paginate :page => params[:page], :per_page => per_page
   end
 
   def create

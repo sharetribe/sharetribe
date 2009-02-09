@@ -12,7 +12,7 @@ html {
 }
 
 body, div, td, th, h2, h3, h4 { /* redundant rules for bad browsers  */ 
-  font-family: "lucida grande", arial, helvetica, verdana, sans-serif;
+  font-family: "lucida grande", arial, verdana, sans-serif;
 	font-size: 14px;
 	voice-family: "\"}\"";
 	voice-family: inherit;
@@ -117,13 +117,11 @@ p.center {
 }
 
 input {
-	font-family: "lucida grande", Tahoma, sans-serif;
 	font-size: 12px;
 	size: 25;
 }
 
 textarea {
-	font-family: "lucida grande", Tahoma, sans-serif;
 	font-size: 12px;
 	padding: 5px;
 }
@@ -168,10 +166,11 @@ html legend {
 
 html fieldset { 
   position: relative; 
-  margin-top: 1em;
-  padding-top: 1em; 
-  padding-bottom: 1em;
-} 
+  margin-top: 2em;
+  padding-top: 1.5em; 
+  padding-bottom: 1.5em;
+	padding-left: 1em;
+}
 
 /* Form Styles */ 
 fieldset { 

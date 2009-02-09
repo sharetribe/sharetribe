@@ -1,7 +1,5 @@
 <h1><%= t(:settings) %></h1>
 
-<br />
-
   <% form_for @person, :url => change_email_person_settings_path(@person), :method => :put do |f| %>
     <fieldset>
       <legend>
@@ -13,7 +11,7 @@
           <%= t(:email) %>:
         </div>
         <div class="form_right">
-          <%= f.text_field :email, :size => 26, :value => @person.email(session[:cookie]) %>
+          <%= f.text_field :email, :size => 30, :value => @person.email(session[:cookie]) %>
         </div>
       </div>  
       <div class="form_container">
@@ -24,7 +22,6 @@
       </div>
     </fieldset>
   <% end %>
-  <br />
   <% form_for @person, :url => change_password_person_settings_path(@person), :method => :put do |f| %>
     <fieldset>  
       <legend>
@@ -36,7 +33,7 @@
           <%= t(:password) %>:
         </div>
         <div class="form_right">
-          <%= f.password_field :password, :size => 26 %>
+          <%= f.password_field :password, :size => 30 %>
         </div>
       </div>
       <div class="form_container">    
@@ -44,7 +41,7 @@
           <%= t(:password_again) %>:
         </div>    
         <div class="form_right">  
-          <%= f.password_field :password2, :size => 26 %>
+          <%= f.password_field :password2, :size => 30 %>
         </div>
       </div>  
       <div class="form_container">

@@ -4,7 +4,7 @@ class SearchesControllerTest < ActionController::TestCase
 
   def test_search_items
     search("sdfsdfjiji", 0, 0, 0, 0)
-    search("*", 2, 2, 2, 2)
+    search("*", 2, 2, 2, 1)
   end
   
   private

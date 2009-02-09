@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
       Person.search(params[:q])["entry"].each do |person|
         ids << person["id"]
       end
-      @people = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+      @people = Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')").paginate :page => params[:page], :per_page => per_page
     end
   end
 
