@@ -31,6 +31,10 @@ I18n.store_translations 'en-US',
 :password => "Password",
 :account => "Account",
 
+#Concent
+:accept => "Accept",
+:decline => "Decline",
+
 #Login notices
 :logout_successful => "Logout successful.",
 :login_successful => "Login successful.",
