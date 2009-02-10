@@ -31,6 +31,10 @@ I18n.store_translations 'fi',
 :password => "Salasana",
 :account => "Oma tili",
 
+#Concent
+:accept => "Hyväksyn",
+:decline => "En hyväksy",
+
 #Login notices
 :logout_successful => "Uloskirjautuminen onnistui.",
 :login_successful => "Sisäänkirjautuminen onnistui.",
