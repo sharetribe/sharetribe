@@ -3,9 +3,9 @@ class KassiEventsController < ApplicationController
   before_filter :logged_in
 
   def index
-    session[:profile_navi] = 'kassi_events'
-    save_navi_state(['own', 'kassi_events', '', '', 'kassi_events']) if session[:navi1] == 'own'
     @person = Person.find(params[:person_id])
+    session[:profile_navi] = 'kassi_events'
+    save_navi_state(['own', 'kassi_events']) if current_user?(@person)
     @kassi_events = @person.kassi_events.paginate :page => params[:page], 
                                                   :per_page => per_page, 
                                                   :order => 'id DESC'

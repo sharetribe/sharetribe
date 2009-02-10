@@ -7,7 +7,7 @@ class RequestsController < ApplicationController
     @person.get_friend_requests(session[:cookie])["entry"].each do |person|
       ids << person["id"]
     end
-    @requesters = Person.find(ids).paginate :page => params[:page], :per_page => per_page
+    @requesters = find_kassi_users_by_ids(ids)
   end
 
   def accept

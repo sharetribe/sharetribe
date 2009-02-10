@@ -57,14 +57,12 @@ class ApplicationController < ActionController::Base
     @item = Item.new
     @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "' AND status <> 'disabled'", :order => "title")
     @favor = Favor.new
-    if @person.id == @current_user.id || !session[:profile_navi]
+    if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])
     else
       session[:profile_navi] = 'information'
     end
-  end
-  
-  private 
+  end 
 
   # Sets locale file used.
   def set_locale
@@ -155,6 +153,10 @@ class ApplicationController < ActionController::Base
         @comment.save 
       end  
     end
+  end
+  
+  def find_kassi_users_by_ids(ids)
+    Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')").paginate :page => params[:page], :per_page => per_page
   end
   
   def current_user?(person)

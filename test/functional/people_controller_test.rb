@@ -131,6 +131,7 @@ class PeopleControllerTest < ActionController::TestCase
   def test_search_people
     search("dsfds", 0)
     search("*", 1)
+    #puts assigns(:people).inspect
     search("Teppo", 1)
     search("*epp*", 1)
   end
