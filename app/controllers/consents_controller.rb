@@ -1,11 +1,11 @@
 class ConsentsController < ApplicationController
   
     def show
-      if session[:locale] = "fi"
+      if session[:locale] == "fi"
         #logger.info { "FINNISH" }
         render:template => "consents/consent_fi"
       else
-        #logger.info { "ENGLISH" }
+        render:template => "consents/consent_en"
       end    
     end
     
