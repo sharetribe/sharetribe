@@ -75,7 +75,7 @@ Rails::Initializer.run do |config|
    #COS_URL = "http://localhost:3001"
    #COS_URL = "http://cos.alpha.sizl.org"
 
-   COS_TIMEOUT = 8
+   COS_TIMEOUT = 15
    BETA_VERSION = "local"
    BUILT_AT = Time.now
    
