@@ -133,6 +133,7 @@ I18n.store_translations 'en-US',
 :new_partitive => "new",
 
 #Listings view
+:operation_not_permitted => "Operation not permitted",
 :listing => "listing",
 :all_listings => "All listings",
 :own_listings => "Own listings",
@@ -175,6 +176,7 @@ I18n.store_translations 'en-US',
 :listing_realizer => "Realizer",
 :no_realizer => "No realizer",
 :listing_closed => "Listing closed",
+:cant_reply_to_own_listing => "Can't reply to own listing",
 
 #Listing statuses
 :open => "Open",
@@ -202,6 +204,8 @@ I18n.store_translations 'en-US',
 :i_want_to_borrow_this_item => "I want to borrow an item",
 :show_items_on_page => "Show items on page",
 :add_item => "Add new",
+:cant_borrow_from_self => "You can't borrow from yourself",
+:cant_thank_self_for_item => "You can't thank yourself for lending",
 
 #Favors view
 :search_favors_title => "Search favors",
@@ -212,6 +216,8 @@ I18n.store_translations 'en-US',
 :i_want_to_ask_for_this_favor => "Asking for a favor",
 :show_favors_on_page => "Show favors on page",
 :add_favor => "Add new",
+:cant_ask_for_own_favor => "You can't ask yourself for a favor",
+:cant_thank_self_for_favor => "You can't thank yourself for a favor",
 
 #People view
 :kassi_users => "Kassi users",
@@ -360,6 +366,7 @@ I18n.store_translations 'en-US',
 :unread_message_partitive => "unread messages",
 :no_unread_messages => "no unread messages",
 :no_messages => "No messages",
+:cant_send_message_to_self => "You can't send a message to yourself",
 
 #Kassi events view
 :kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: thank each other for items or services or mark each other as listing realizers.",

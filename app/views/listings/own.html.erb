@@ -2,7 +2,7 @@
 
 <div class="links_panel">
   <div class="left_float">
-    <%= get_profile_navi_items(params[:person_id]) %>
+    <%= get_profile_navi_items(@person.id) %>
   </div>
   <div class="right_float">
     <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>

@@ -2,7 +2,7 @@
 
 <div class="links_panel">
   <div class="left_float">
-    <%= get_profile_navi_items(params[:id]) %>
+    <%= get_profile_navi_items(@person.id) %>
   </div>
   <div class="right_float">
     <% unless @person.id == @current_user.id %>

@@ -5,7 +5,7 @@ CREATE TABLE `conversations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `favors` (
   `id` int(11) NOT NULL auto_increment,
@@ -59,7 +59,7 @@ CREATE TABLE `kassi_events` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events_people` (
   `person_id` varchar(255) default NULL,
@@ -92,19 +92,7 @@ CREATE TABLE `listings` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
-
-CREATE TABLE `mail` (
-  `id` int(11) NOT NULL auto_increment,
-  `message_id` int(11) NOT NULL,
-  `conversation_id` int(11) default NULL,
-  `read` tinyint(1) default '0',
-  `trashed` tinyint(1) default '0',
-  `mailbox` varchar(25) default NULL,
-  `created_at` datetime NOT NULL,
-  `person_id` varchar(255) default NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL auto_increment,
@@ -114,12 +102,7 @@ CREATE TABLE `messages` (
   `updated_at` datetime default NULL,
   `conversation_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
-
-CREATE TABLE `messages_recipients` (
-  `message_id` int(11) NOT NULL,
-  `recipient_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
@@ -140,7 +123,7 @@ CREATE TABLE `person_comments` (
   `updated_at` datetime default NULL,
   `kassi_event_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `person_conversations` (
   `id` int(11) NOT NULL auto_increment,
@@ -152,7 +135,7 @@ CREATE TABLE `person_conversations` (
   `last_sent_at` datetime default NULL,
   `last_received_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `person_interesting_listings` (
   `id` int(11) NOT NULL auto_increment,

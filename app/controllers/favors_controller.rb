@@ -41,6 +41,7 @@ class FavorsController < ApplicationController
   
   def edit
     @editable_favor = Favor.find(params[:id])
+    return unless must_be_current_user(@editable_favor.owner)
     @person = Person.find(params[:person_id])
     show_profile
     render :template => "people/show" 
@@ -52,6 +53,7 @@ class FavorsController < ApplicationController
       redirect_to person_path(@person) and return
     end  
     @favor = Favor.find(params[:id])
+    return unless must_be_current_user(@favor.owner)
     if @favor.update_attribute(:title, params[:favor][:title])
       flash[:notice] = :favor_updated
     else 
@@ -61,7 +63,9 @@ class FavorsController < ApplicationController
   end
   
   def destroy
-    Favor.find(params[:id]).disable
+    @favor = Favor.find(params[:id])
+    return unless must_be_current_user(@favor.owner)
+    @favor.disable
     flash[:notice] = :favor_removed
     redirect_to @current_user
   end
@@ -69,16 +73,20 @@ class FavorsController < ApplicationController
   def ask_for
     @person = Person.find(params[:person_id])
     @favor = Favor.find(params[:id])
+    return unless must_not_be_current_user(@favor.owner, :cant_ask_for_own_favor)
   end
   
   def thank_for
     @favor = Favor.find(params[:id])
+    return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
     @kassi_event.realizer_id = @person.id  
   end
   
   def mark_as_done
+    @favor = Favor.find(params[:kassi_event][:eventable_id])
+    return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
     create_kassi_event
     flash[:notice] = :thanks_for_favor_sent
     @person = Person.find(params[:person_id])    

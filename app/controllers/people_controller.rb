@@ -105,6 +105,7 @@ class PeopleController < ApplicationController
   def send_message
     @person = Person.find(params[:id])
     @message = Message.new
+    return unless must_not_be_current_user(@person, :cant_send_message_to_self)
   end
   
   private
