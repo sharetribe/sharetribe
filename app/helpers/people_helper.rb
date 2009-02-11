@@ -38,14 +38,14 @@ module PeopleHelper
     when "Item"
       item = kassi_event.eventable
       if item.status.eql?("disabled")
-        relation += t(:item_illative) + " " + h(item.title) + " (" + t(:item_removed) + ")"
+        relation += t(:item_illative) + " " + h(item.title) + " (" + t(:item_removed_at) + ")"
       else  
         relation += t(:item_illative) + " " + link_to(h(item.title), item_path(h(item.title)) + "#" + item.id.to_s)
       end  
     when "Favor"
       favor = kassi_event.eventable
       if favor.status.eql?("disabled")
-        relation += t(:favor_illative) + " " + h(favor.title) + " (" + t(:favor_removed) + ")"
+        relation += t(:favor_illative) + " " + h(favor.title) + " (" + t(:favor_removed_at) + ")"
       else  
         relation += t(:favor_illative) + " " + link_to(h(favor.title), favor_path(h(favor.title)) + "#" + favor.id.to_s)
       end

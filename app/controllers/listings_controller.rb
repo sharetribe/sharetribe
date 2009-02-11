@@ -79,7 +79,9 @@ class ListingsController < ApplicationController
   end 
 
   def destroy
-    Listing.find(params[:id]).destroy
+    @listing = Listing.find(params[:id])
+    return unless must_be_current_user(@listing.author)
+    @listing.destroy
     flash[:notice] = :listing_removed
     redirect_to listings_path
   end
@@ -114,11 +116,13 @@ class ListingsController < ApplicationController
   
   def reply
     @listing = Listing.find(params[:id])
+    return unless must_not_be_current_user(@listing.author, :cant_reply_to_own_listing)
     @message = Message.new
   end
   
   def close
     @listing = Listing.find(params[:id])
+    return unless must_be_current_user(@listing.author)
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
     if params[:rid]
@@ -129,6 +133,7 @@ class ListingsController < ApplicationController
   
   def mark_as_closed
     @listing = Listing.find(params[:id])
+    return unless must_be_current_user(@listing.author)
     @listing.update_attribute(:status, "closed")
     if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
       create_kassi_event(@listing.category)

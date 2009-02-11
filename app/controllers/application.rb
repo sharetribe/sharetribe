@@ -108,7 +108,11 @@ class ApplicationController < ActionController::Base
       conditions = "person_id = '" + @current_user.id + "' AND is_read = 0"
       @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
       @comments_new_count = ListingComment.find_by_sql("SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' AND is_read = 0").size
-      @requests_count = @current_user.get_friend_requests(session[:cookie])["entry"].size
+      ids = Array.new
+      @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
+        ids << person["id"]
+      end
+      @requests_count = find_kassi_users_by_ids(ids).size
       @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
     end  
   end
@@ -164,6 +168,24 @@ class ApplicationController < ActionController::Base
       return @current_user.id == person.id
     end
     return false   
+  end
+  
+  def must_be_current_user(person)
+    unless current_user?(person)
+      flash[:error] = :operation_not_permitted
+      redirect_to home_person_path(@current_user)
+      return false
+    end
+    return true
+  end
+  
+  def must_not_be_current_user(person, error_message)
+    if current_user?(person)
+      flash[:warning] = error_message
+      redirect_to home_person_path(@current_user)
+      return false
+    end
+    return true
   end
   
 end

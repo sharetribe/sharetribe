@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   
   def edit
     @editable_item = Item.find(params[:id])
+    return unless must_be_current_user(@editable_item.owner)
     @person = Person.find(params[:person_id])
     show_profile
     render :template => "people/show" 
@@ -26,6 +27,7 @@ class ItemsController < ApplicationController
       redirect_to person_path(@person) and return
     end  
     @item = Item.find(params[:id])
+    return unless must_be_current_user(@item.owner)
     @item.title = params[:item][:title]
     if @item.save
       flash[:notice] = :item_updated
@@ -50,7 +52,9 @@ class ItemsController < ApplicationController
   end  
   
   def destroy
-    Item.find(params[:id]).disable
+    @item = Item.find(params[:id])
+    return unless must_be_current_user(@item.owner)
+    @item.disable
     flash[:notice] = :item_removed
     redirect_to @current_user
   end
@@ -70,16 +74,20 @@ class ItemsController < ApplicationController
   def borrow
     @person = Person.find(params[:person_id])
     @item = Item.find(params[:id])
+    return unless must_not_be_current_user(@item.owner, :cant_borrow_from_self)
   end
   
   def thank_for
     @item = Item.find(params[:id])
+    return unless must_not_be_current_user(@item.owner, :cant_thank_self_for_item)
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
     @kassi_event.realizer_id = @person.id
   end
   
   def mark_as_borrowed
+    @item = Item.find(params[:kassi_event][:eventable_id])
+    return unless must_not_be_current_user(@item.owner, :cant_thank_self_for_item)
     create_kassi_event
     flash[:notice] = :thanks_for_item_sent
     @person = Person.find(params[:person_id])    

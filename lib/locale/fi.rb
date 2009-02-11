@@ -178,6 +178,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :listing_realizer => "Tekijä",
 :no_realizer => "Ei tekijää",
 :listing_closed => "Ilmoitus suljettu",
+:cant_reply_to_own_listing => "Omaan ilmoitukseen ei voi vastata",
 
 #Listing statuses
 :open => "Avoinna",
@@ -205,6 +206,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :i_want_to_borrow_this_item => "Haluan lainata tavaran",
 :show_items_on_page => "Näytä tavaroita sivulla",
 :add_item => "Lisää uusi",
+:cant_borrow_from_self => "Et voi lainata itseltäsi",
+:cant_thank_self_for_item => "Et voi kiittää itseäsi lainasta",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",
@@ -215,6 +218,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :i_want_to_ask_for_this_favor => "Pyydän palvelusta",
 :show_favors_on_page => "Näytä palveluksia sivulla",
 :add_favor => "Lisää uusi",
+:cant_ask_for_own_favor => "Et voi pyytää itseltäsi palvelusta",
+:cant_thank_self_for_favor => "Et voi kiittää itseäsi palveluksesta",
 
 #People view
 :kassi_users => "Kassin käyttäjät",
@@ -289,8 +294,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :listing_illative => "ilmoitukseen",
 :item_illative => "lainattuun tavaraan",
 :favor_illative => "tarjottuun palvelukseen",
-:item_removed => "tavara poistettu",
-:favor_removed => "palvelus poistettu",
+:item_removed_at => "tavara poistettu",
+:favor_removed_at => "palvelus poistettu",
 
 #Request view
 :requests => "Kutsut",
@@ -364,6 +369,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :unread_message_partitive => "lukematonta viestiä",
 :no_unread_messages => "ei lukemattomia viestejä",
 :no_messages => "Ei viestejä",
+:cant_send_message_to_self => "Et voi lähettää viestiä itsellesi",
 
 #Kassi events view
 :kassi_events_info => "Kassitapahtuma syntyy aina, kun käyttäjät ovat tekemisissä toistensa kanssa Kassin kautta: kiittävät toisiaan tavaralainoista tai palveluksista tai merkitsevät toisiaan ilmoitusten tekijöiksi.",
@@ -415,6 +421,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",   
 
 #Error messages
+:operation_not_permitted => "Toiminto ei ole sallittu",
 :title_is_required => "Otsikko on pakollinen tieto",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä)",
 :title_is_too_long => "Otsikko on liian pitkä (maksimi on 50 merkkiä)", 
