@@ -34,11 +34,14 @@
     </div>  
     <div class="form_container">
       <div class="form_right">
-        <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>
-        <%= submit_tag t(:cancel), :name => "avatar[cancel]" %>
-    </div>
+        <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>  
+      </div>
     </div>
   </fieldset>
 </form>
+<!--
+<% form_for :avatar, :url => person_avatar_path(@person) do |f| %>
+  <%= submit_tag t(:cancel), :name => "avatar[cancel]" %>
+<% end %>
+-->
 <iframe id="upload_frame" name="upload_frame" style="display: none"></iframe>
-
