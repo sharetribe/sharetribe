@@ -20,7 +20,7 @@ cd ..
  perl -pi -e "s/Last Changed Rev: //"`-`svn info file:///svn/kassi/tags | \
  grep "^Last Changed Rev" | \
  perl -pi -e "s/Last Changed Rev: //"`))
-echo "BETA_VERSION = \"0.6.$REV\"" >> config/environments/production.rb
+echo "BETA_VERSION = \"0.7.$REV\"" >> config/environments/production.rb
 BUILD_DATE=`svn info file:///svn/kassi | \
  grep "^Last Changed Date" | \
  perl -pi -e "s/Last Changed Date: //" | perl -pi -e "s/\+.+$//"`
