@@ -29,10 +29,16 @@
         <div class="listing_author_box_item">
           <%= t(:status) %>:  
         </div>
+        <div class="listing_author_box_item">
+          <%= t(:created).capitalize %>:  
+        </div>
+        <div class="listing_author_box_item">
+          <%= t(:updated).capitalize %>:  
+        </div>
       </div>
       <div id="listing_author_box_texts">
         <div class="listing_author_box_item">
-          <%= link_to(@listing.author.name(session[:cookie]), @listing.author) + " " + @listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
+          <%= link_to(@listing.author.name(session[:cookie]), @listing.author) %>
         </div>
         <div class="listing_author_box_item">
           <% if @listing.open? %>
@@ -40,6 +46,12 @@
           <% else %>
             <%= t(:closed) %>
           <% end %>  
+        </div>
+        <div class="listing_author_box_item">
+          <%= @listing.created_at.to_formatted_s(:basic_date_format) %>
+        </div>
+        <div class="listing_author_box_item">
+          <%= @listing.updated_at.to_formatted_s(:basic_date_format) %>
         </div>
       </div>  
     </div>
@@ -54,18 +66,6 @@
         <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
       <% end %>
     -->  
-    <% end %>
-    
-    <br /><br />
-  
-    <% if @current_user && @listing.open? %>
-      <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
-        <b><%= t(:comment_listing) %> </b><br /><br />
-        <%= f.text_area :content, :size => "48x5" %>
-        <br />
-        <%= f.hidden_field :author_id, :value => @current_user.id %>
-        <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
-      <% end %>  
     <% end %>
   
   </div>
@@ -89,7 +89,7 @@
   
   <div id="comments">
     
-  <br /><br />
+    <br /><br />
   
   <% if (@listing.comments.size > 0) %>
     <a name="comments"></a>
@@ -100,6 +100,16 @@
                  :as => :comment, 
                  :spacer_template => "layouts/dashed_line" %>
     </div>
+  <% end %>
+  
+  <% if @current_user && @listing.open? %>
+    <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
+      <b><%= t(:comment_listing) %> </b><br /><br />
+      <%= f.text_area :content, :size => "48x5" %>
+      <br />
+      <%= f.hidden_field :author_id, :value => @current_user.id %>
+      <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
+    <% end %>  
   <% end %>
   
   </div>

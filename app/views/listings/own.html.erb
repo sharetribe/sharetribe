@@ -8,9 +8,9 @@
     <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
     <div class="pagination">
       <% if is_current_user?(@person) %>
-        <%= link_to t(:add_new_listing), new_listing_path %> 
+        <%= link_to t(:add_new_own_listing), new_listing_path %> 
         <% if @listings.total_pages > 1 %>
-          | &nbsp;
+          |&nbsp;
         <% end %>  
       <% end %>
     </div>

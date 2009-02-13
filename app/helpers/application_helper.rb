@@ -62,10 +62,12 @@ module ApplicationHelper
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path
       navi_items[:add_item] = person_path(@current_user) + "#items" if @current_user
+      navi_items[:request_item] = new_listing_path(:category => "borrow_items")
     when 'favors'
       navi_items[:browse_favors] = favors_path
       navi_items[:search_favors] = search_favors_path
       navi_items[:add_favor] = person_path(@current_user) + "#favors" if @current_user
+      navi_items[:request_favor] = new_listing_path(:category => "favors")
     when 'people'
       navi_items[:browse_people] = people_path
       navi_items[:search_people] = search_people_path
