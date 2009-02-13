@@ -76,8 +76,8 @@
   <div class="listed_listing_right_item">  
     <%= listing.open? ? t(:open) : t(:closed) %>
   </div>
-  <div class="listed_listing_right_item">  
-    <%= listing.times_viewed %> <%= t(:times) %>
+  <div class="listed_listing_right_item">
+    <%= pluralize(listing.times_viewed, t(:one_time), t(:times)) %>
   </div>  
 </div>
 
