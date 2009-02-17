@@ -1,5 +1,5 @@
 <a name="<%= item_title.downcase %>"></a>
-<% if params[:id] && params[:id].downcase.eql?(item_title.downcase) %>
+<% if @title && @title.downcase.eql?(item_title.downcase) %>
   <div class="item_owners">
     <div class="selected_item_title">
       <div class="left_float">
@@ -15,6 +15,7 @@
   </div>
 <% else %>
   <div class="item_title">
-    <b><%= link_to h(item_title), item_path(item_title.downcase) + "#" + item_title.downcase %></b>
+    <% escaped_title =  URI.escape(item_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
+    <b><%= link_to( h(item_title), item_path(escaped_title) + "#" + escaped_title)%></b>
   </div>
 <% end %>  

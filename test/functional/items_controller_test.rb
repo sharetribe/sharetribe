@@ -23,6 +23,14 @@ class ItemsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:title)
     assert_equal assigns(:items), [ items(:one) ]
   end
+  
+  def test_show_item_with_difficult_name
+    get :show, :id => "Örkki's tapponuija 2.5,6 /nn%6?"
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns(:title)
+    assert_equal assigns(:items), [ items(:difficult) ] 
+  end
 
   def test_create_and_delete_item
     submit_with_person :create, { 

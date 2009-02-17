@@ -7,8 +7,9 @@ class ItemsController < ApplicationController
   end
   
   def show
-    @title = params[:id]
-    @items = Item.find(:all, :conditions => "title = '" + params[:id].capitalize + "' AND status <> 'disabled'")
+    @title = URI.unescape(params[:id])
+    #OPTIMIZE Is here two separate BD calls, could these be done in one time?
+    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title.capitalize])
     fetch_items
     render :action => :index
   end

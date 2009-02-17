@@ -1,4 +1,5 @@
-<% if params[:id] && params[:id].downcase.eql?(favor_title.downcase) %>
+<a name="<%= favor_title.downcase %>"></a>
+<% if @title && @title.downcase.eql?(favor_title.downcase) %>
   <div class="item_owners">
     <div class="selected_item_title">
       <div class="left_float">
@@ -14,6 +15,7 @@
   </div>
 <% else %>
   <div class="item_title">
-    <b><%= link_to h(favor_title), favor_path(favor_title.downcase) %></b>
+    <% escaped_title =  URI.escape(favor_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
+    <b><%= link_to( h(favor_title), favor_path(escaped_title)  + "#" + escaped_title) %></b>
   </div>
 <% end %>
