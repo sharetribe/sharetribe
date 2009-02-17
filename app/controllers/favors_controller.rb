@@ -7,9 +7,12 @@ class FavorsController < ApplicationController
   end
   
   def show
-    @title = params[:id]
-    @favors = Favor.find(:all, :conditions => "title = '" + params[:id].capitalize + "' AND status = 'enabled'")
+    @title = URI.unescape(params[:id])
+    #OPTIMIZE Is here two separate BD calls, could these be done in one time?
+    @favors = Favor.find(:all, :conditions => ["title = ? AND status = 'enabled'",@title.capitalize])
     fetch_favors
+    
+    
     render :action => :index
   end
   
@@ -99,6 +102,7 @@ class FavorsController < ApplicationController
     save_navi_state(['favors','browse_favors','',''])
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
     @favor_titles = Favor.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    #puts "FAVOR_TITLES ON: #{@favor_titles}"
   end
   
 end

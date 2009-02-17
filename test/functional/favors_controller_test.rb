@@ -24,6 +24,15 @@ class FavorsControllerTest < ActionController::TestCase
     assert_equal assigns(:favors), [ favors(:one) ]
   end
   
+  def test_show_favor_with_difficult_characters
+    get :show, :id => "Ämyrien laina'us/roudaus (12.00-14.00) *lol* + web 2.0-opas (fi/en)"
+    assert_response :success
+    assert_template 'index'
+    assert_not_nil assigns(:title)
+    assert_not_nil assigns(:favors)
+    assert_equal assigns(:favors), [ favors(:difficult) ]
+  end
+  
   def test_create_and_delete_favor
     submit_with_person :create, { 
       :favor => { :title => "TestTitle" }
