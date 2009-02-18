@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
       @pagination_type = "person_listings" 
       @person = Person.find(params[:person_id])
       @title = :listings_partitive_plural
-      conditions = "author_id = '" + @person.id.to_s + "'"
+      conditions = ["author_id = ?", @person.id.to_s ]
       session[:profile_navi] = 'listings'
       save_navi_state(['own', 'own_listings']) if current_user?(@person)
       fetch_listings(conditions, "status DESC, id DESC")
@@ -37,9 +37,9 @@ class ListingsController < ApplicationController
     if params[:q]
       if params[:category] && !params[:category][:category].eql?("")
         if params[:only_open]
-          conditions = ["status = 'open' AND good_thru >= '" + Date.today.to_s + "' AND category = '" + params[:category][:category] + "'"]
+          conditions = ["status = 'open' AND good_thru >= ? AND category = ?", Date.today.to_s, params[:category][:category]]
         else  
-          conditions = ["category = '" + params[:category][:category] + "'"]
+          conditions = ["category = ?", params[:category][:category]]
         end    
       end
       query = params[:q]

@@ -22,7 +22,7 @@ class Item < ActiveRecord::Base
   
   def owner_does_not_have_item_with_same_title
     if self.owner_id
-      items = Item.find(:all, :conditions => "owner_id = '" + self.owner.id + "'")
+      items = Item.find(:all, :conditions => ["owner_id = ?", self.owner.id])
       items.each do |item|
         if item.title && self.title && item.title.downcase.eql?(self.title.downcase)
           errors.add(:title, "item_with_proposed_title_already_exists")

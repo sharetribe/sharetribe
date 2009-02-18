@@ -17,6 +17,7 @@ class ApplicationController < ActionController::Base
   before_filter :fetch_logged_in_user
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
+  
 
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -53,9 +54,9 @@ class ApplicationController < ActionController::Base
   # Shows the profile page of the user. This method is used in peoplecontroller/show,
   # itemscontroller/edit and favorscontroller/edit.
   def show_profile
-    @items = Item.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "' AND status <> 'disabled'", :order => "title")
+    @items = Item.find(:all, :conditions => ["owner_id = ? AND status <> 'disabled'", @person.id.to_s], :order => "title")
     @item = Item.new
-    @favors = Favor.find(:all, :conditions => "owner_id = '" + @person.id.to_s + "' AND status <> 'disabled'", :order => "title")
+    @favors = Favor.find(:all, :conditions => ["owner_id = ? AND status <> 'disabled'", @person.id.to_s], :order => "title")
     @favor = Favor.new
     if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])
@@ -105,9 +106,9 @@ class ApplicationController < ActionController::Base
   
   def count_new_arrived_items
     if @current_user
-      conditions = "person_id = '" + @current_user.id + "' AND is_read = 0"
+      conditions = ["person_id = ? AND is_read = 0", @current_user.id]
       @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
-      @comments_new_count = ListingComment.find_by_sql("SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' AND is_read = 0").size
+      @comments_new_count = ListingComment.find_by_sql(["SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id]).size
       ids = Array.new
       @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
         ids << person["id"]

@@ -14,10 +14,10 @@
 
 <script type="text/javascript">
         function handleResponse() {
-               alert("Hola!");
+               alert("Hola! nyt toimi viesti cosista");
         }
 </script>
-<form  target="upload_frame" action="<%= COS_URL %>/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">
+<form  target="upload_frame" action="http://kassi.alpha.sizl.org/cos/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">
   <fieldset>
     <legend>
       <%= t(:upload_avatar) %>
