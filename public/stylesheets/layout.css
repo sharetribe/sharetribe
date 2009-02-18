@@ -618,7 +618,7 @@ div.listing_author_box_item {
 	float: left;
 }
 
-#reply_to_listing {
+.reply_to_listing {
 	width: 296px;
 	height: 40px;
 	border: 2px solid #64a006;
@@ -626,7 +626,7 @@ div.listing_author_box_item {
 	margin-bottom: 10px;
 }
 
-#reply_to_listing a {
+.reply_to_listing a {
 	font-size: 15px;
 	font-weight: bold;
 	text-decoration: none;

@@ -57,6 +57,7 @@
     </div>
   
     <br />
+
   
     <% if @current_user && @listing.author != @current_user %>
     <!--    
@@ -73,8 +74,11 @@
   <div id="listing_image">
     <% if @listing.open? %>
       <% if @current_user && is_current_user?(@listing.author) %>
-        <div id="reply_to_listing">
+        <div class="reply_to_listing">
           <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
+        </div>
+				<div class="reply_to_listing">
+					<%= link_to t(:edit_listing), edit_listing_path(@listing) %>
         </div>
       <% else %>
         <div id="reply_to_listing">

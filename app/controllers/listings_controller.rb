@@ -78,6 +78,48 @@ class ListingsController < ApplicationController
     end
   end 
 
+  def edit
+    @listing = Listing.find(params[:id])
+    return unless must_be_current_user(@listing.author)  
+    
+    @language_fi = 0
+    @language_swe = 0
+    @language_en = 0
+     
+    @listing.language.each do |i|
+      if i.eql?("fi")
+       @language_fi = 1
+      elsif i.eql?("swe")
+        @language_swe = 1
+      else
+        @language_en = 1
+      end
+    end
+  end
+  
+  def update
+    @listing = Listing.find(params[:id])
+    language = []
+    language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
+    language << "en-US" if (params[:listing][:language_en].to_s.eql?('1'))
+    language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
+    @listing.language = language
+    @listing.update_attributes(params[:listing])
+    if @listing.save
+      flash[:notice] = :listing_updated
+      redirect_to listing_path(@listing)
+    else
+      params[:category] = params[:listing][:category]
+      Listing::MAIN_CATEGORIES.each do |main_category|
+        if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:listing][:category])
+          params[:category] = main_category.to_s
+          params[:subcategory] = params[:listing][:category] 
+        end
+      end
+      render :action => "new"
+    end
+  end
+  
   def destroy
     @listing = Listing.find(params[:id])
     return unless must_be_current_user(@listing.author)
