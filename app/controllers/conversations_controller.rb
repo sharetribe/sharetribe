@@ -46,7 +46,7 @@ class ConversationsController < ApplicationController
     order = is_sent_mail ? "last_sent_at DESC" : "last_received_at DESC"
     person_conversations = []
     result = PersonConversation.find(:all,
-                                     :conditions => "person_id = '" + @current_user.id + "'",
+                                     :conditions => ["person_id = ?", @current_user.id],
                                      :order => order)
     result.each do |person_conversation|
       conversation_ok = false

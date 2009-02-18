@@ -48,7 +48,7 @@ CREATE TABLE `items` (
   `payment` int(11) default NULL,
   `status` varchar(255) default 'enabled',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events` (
   `id` int(11) NOT NULL auto_increment,
