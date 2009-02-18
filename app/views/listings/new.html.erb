@@ -101,7 +101,6 @@
     </div>
     <%= f.hidden_field :author_id, :value => @current_user.id %>
     <%= f.hidden_field :status, :value => "open" %>
-    <%= f.hidden_field :times_viewed, :value => "0" %>
     <% if params[:subcategory]%>
       <%= f.hidden_field :category, :value => params[:subcategory] %>
     <% else %>
