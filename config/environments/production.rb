@@ -23,3 +23,4 @@ config.action_view.cache_template_loading            = true
 
 # Environment variables specific for production version
 COS_URL = "http://cos.alpha.sizl.org"
+COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
