@@ -17,6 +17,8 @@ cd ..
 
 #change production environment to use production COS
 sed -i "s/cos\.alpha\.sizl/cos\.sizl/" config/environments/production.rb
+sed -i "s/kassi\.alpha\.sizl/kassi\.sizl/" config/environments/production.rb
+
 
  REV=$((`svn info svn+ssh://alpha.sizl.org/svn/kassi | \
  grep "^Last Changed Rev" | \
