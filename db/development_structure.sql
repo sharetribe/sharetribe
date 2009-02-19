@@ -5,7 +5,7 @@ CREATE TABLE `conversations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `favors` (
   `id` int(11) NOT NULL auto_increment,
@@ -17,7 +17,7 @@ CREATE TABLE `favors` (
   `updated_at` datetime default NULL,
   `status` varchar(255) default 'enabled',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL auto_increment,
@@ -27,7 +27,7 @@ CREATE TABLE `feedbacks` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `filters` (
   `id` int(11) NOT NULL auto_increment,
@@ -49,7 +49,6 @@ CREATE TABLE `items` (
   `status` varchar(255) default 'enabled',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `kassi_events` (
   `id` int(11) NOT NULL auto_increment,
@@ -76,7 +75,7 @@ CREATE TABLE `listing_comments` (
   `updated_at` datetime default NULL,
   `is_read` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listings` (
   `id` int(11) NOT NULL auto_increment,
@@ -93,7 +92,7 @@ CREATE TABLE `listings` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL auto_increment,
@@ -103,7 +102,7 @@ CREATE TABLE `messages` (
   `updated_at` datetime default NULL,
   `conversation_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
@@ -137,7 +136,7 @@ CREATE TABLE `person_conversations` (
   `last_sent_at` datetime default NULL,
   `last_received_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `person_interesting_listings` (
   `id` int(11) NOT NULL auto_increment,
@@ -197,8 +196,6 @@ INSERT INTO schema_migrations (version) VALUES ('20080825064927');
 
 INSERT INTO schema_migrations (version) VALUES ('20080825114546');
 
-INSERT INTO schema_migrations (version) VALUES ('20080827072951');
-
 INSERT INTO schema_migrations (version) VALUES ('20080827084204');
 
 INSERT INTO schema_migrations (version) VALUES ('20080828090629');
@@ -206,10 +203,6 @@ INSERT INTO schema_migrations (version) VALUES ('20080828090629');
 INSERT INTO schema_migrations (version) VALUES ('20080828104013');
 
 INSERT INTO schema_migrations (version) VALUES ('20080828104239');
-
-INSERT INTO schema_migrations (version) VALUES ('20080912065042');
-
-INSERT INTO schema_migrations (version) VALUES ('20080912070127');
 
 INSERT INTO schema_migrations (version) VALUES ('20080912072148');
 
@@ -247,13 +240,7 @@ INSERT INTO schema_migrations (version) VALUES ('20081103092143');
 
 INSERT INTO schema_migrations (version) VALUES ('20081104070403');
 
-INSERT INTO schema_migrations (version) VALUES ('20081118140107');
-
 INSERT INTO schema_migrations (version) VALUES ('20081118145857');
-
-INSERT INTO schema_migrations (version) VALUES ('20081118152932');
-
-INSERT INTO schema_migrations (version) VALUES ('20081121084051');
 
 INSERT INTO schema_migrations (version) VALUES ('20081121084337');
 
