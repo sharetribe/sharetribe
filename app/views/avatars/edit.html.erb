@@ -13,9 +13,9 @@
 </div>
 
 <script type="text/javascript">
-        function handleResponse() {
-               alert("Kuvan lisäys todennäköisesti onnistui.");
-        }
+  function handleResponse() {
+    location = "<%= @return_url %>"
+  }
 </script>
 <form  target="upload_frame" action="<%= COS_URL_PROXIED %>/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">
   <fieldset>

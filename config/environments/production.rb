@@ -22,5 +22,6 @@ config.action_view.cache_template_loading            = true
 # config.action_mailer.raise_delivery_errors = false
 
 # Environment variables specific for production version
+# these are specified here for alpha, but changed to fit for beta in beta-finish.sh
 COS_URL = "http://cos.alpha.sizl.org"
 COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"

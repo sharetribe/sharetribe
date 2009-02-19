@@ -283,6 +283,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :upload_avatar => "Profiilikuvan vaihto",
 :image_file => "Kuvatiedosto",
 :add_avatar_submit => "Tallenna kuva",
+:avatar_upload_successful => "Profiilikuvan lataus onnistui",
 
 #Profile favors
 :add_new_favor => "Lisää palvelus",

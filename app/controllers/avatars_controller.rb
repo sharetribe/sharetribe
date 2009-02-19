@@ -4,6 +4,7 @@ class AvatarsController < ApplicationController
   
   def edit
     @person = Person.find(params[:person_id])
+    @return_url = "#{request.protocol}#{request.host}#{person_path(params[:person_id])}/avatar/upload_successful"
   end
 
   def create
@@ -19,6 +20,11 @@ class AvatarsController < ApplicationController
     #   flash[:error] = e.response.body
     #   render :action => :edit
     # end  
+  end
+  
+  def upload_successful
+    flash[:notice] = :avatar_upload_successful
+    redirect_to person_path(params[:person_id])
   end
 
 end
