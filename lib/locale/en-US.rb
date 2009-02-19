@@ -268,6 +268,7 @@ I18n.store_translations 'en-US',
 :upload_avatar => "Edit avatar image",
 :image_file => "Image file",
 :add_avatar_submit => "Save image",
+:avatar_upload_successful => "Avatar upload successful",
 
 #Profile items
 :items_i_can_lend => "Items I can lend",
