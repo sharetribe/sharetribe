@@ -6,6 +6,13 @@
   <div class="listed_item_owner_center">
     <div class="listed_object_title">
       <%= link_to favor.owner.name(session[:cookie]), favor.owner %>
+    </div>
+    <div class="item_description">
+      <% if favor.description && !favor.description.eql?("") %>
+        <%= text_with_line_breaks(favor.description) %>
+      <% else %>
+        <%=  t(:no_description) %>
+      <% end %>
     </div>   
   </div>
   <div class="listed_item_owner_right">
