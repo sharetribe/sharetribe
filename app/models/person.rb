@@ -19,9 +19,21 @@ class Person < ActiveRecord::Base
            
   has_many :disabled_items, 
            :class_name => "Item",
+           :foreign_key => "owner_id",
+           :conditions => "status = 'disabled'",
+           :order => "title"
+                    
+  has_many :available_favors, 
+           :class_name => "Favor",
+           :foreign_key => "owner_id", 
+           :conditions => "status <> 'disabled'",
+           :order => "title"
+  
+  has_many :disabled_favors, 
+           :class_name => "Favor",
            :foreign_key => "owner_id", 
            :conditions => "status = 'disabled'",
-           :order => "title"         
+           :order => "title"
   
   has_many :favors
 
@@ -326,6 +338,22 @@ class Person < ActiveRecord::Base
       end  
     else
       return true if item.save
+    end  
+    return false
+  end
+  
+  def save_favor(favor)
+    existing_favor = disabled_favors.find_by_title(favor.title)
+    if existing_favor
+      existing_favor.description = favor.description
+      if existing_favor.save
+        existing_favor.enable
+        return true
+      else
+        favor.errors.add(:description, "is too long")
+      end  
+    else
+      return true if favor.save
     end  
     return false
   end

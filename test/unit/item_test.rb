@@ -12,7 +12,7 @@ class ItemTest < ActiveSupport::TestCase
   end  
 
   def test_title_length
-    assert_item_valid(:title, "aivan_järjettömän_liian_pitkä_nimi_ollakseen_tavara", false)
+    assert_item_valid(:title, "aivan_järjettömän_liian_pitkä_nimi_ollakseen_tavaraaaaaaaaaaaaaaaaaaaaa", false)
     assert_item_valid(:title, "p", false)
   end
   

@@ -45,8 +45,7 @@ ActionController::Routing::Routes.draw do |map|
                                        :help => :get,
                                        :terms => :get
                                      }
-  map.resource :session
-  map.resources :favors, :collection => { :search => :get }                            
+  map.resource :session                            
   map.resources :listings, 
                 :member => { 
                              :mark_as_interesting => :post, 
@@ -65,7 +64,7 @@ ActionController::Routing::Routes.draw do |map|
       inbox.resources :messages, :path_prefix => '/people/:id/inbox'
     end
     person.resources :items, :member => { 
-                                          :borrow => :get, 
+                                          :borrow => :get,
                                           :thank_for => :get,
                                           :mark_as_borrowed => :post,
                                           :view_description => :get,
@@ -76,8 +75,12 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :favors, :member => { 
                                            :ask_for => :get,
                                            :thank_for => :get,
-                                           :mark_as_done => :post   
-                                         }
+                                           :mark_as_done => :post,
+                                           :view_description => :get,
+                                           :hide_description => :get,
+                                           :cancel_update => :get   
+                                         },
+                              :collection => { :cancel_create => :get }
     person.resource :purse
     person.resource :settings, :collection => { :change_email => :put, :change_password => :put }
     person.resources :friends
@@ -88,7 +91,8 @@ ActionController::Routing::Routes.draw do |map|
                      :collection => { :interesting => :get, :comments => :get }
     person.resource :avatar, :member => { :upload_successful => :get}
     person.resources :requests, :member => { :accept => :post, :reject => :post, :cancel => :post }               
-  end  
+  end
+  map.resources :favors, :collection => { :search => :get }, :member => { :hide => :get }  
   map.resources :items, :collection => { :search => :get }, :member => { :hide => :get }
   map.resource :search
   map.resources :transactions

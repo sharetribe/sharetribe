@@ -62,6 +62,7 @@ class ApplicationController < ActionController::Base
       save_navi_state(['own', 'profile', '', '', 'information'])
     else
       save_navi_state(['people', 'browse_people'])
+      session[:profile_navi] = 'information'
     end
   end 
 

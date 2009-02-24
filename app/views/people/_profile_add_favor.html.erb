@@ -1,0 +1,5 @@
+<b>
+  <%= link_to_remote "+ " + t(:add_new_favor), :url => new_person_favor_path(@person), 
+                                              :update => "profile_add_favor",
+                                              :method => :get %>
+</b>

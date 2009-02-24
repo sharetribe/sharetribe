@@ -725,12 +725,12 @@ div.profile_info_field {
 
 div.profile_info_field_title {
 	float: left;
-	width: 320px;
+	width: 300px;
 }
 
 div.profile_info_field_links {
 	float: right;
-	width: 140px;
+	width: 160px;
 }
 
 div.profile_add_form {
@@ -768,6 +768,10 @@ div.profile_update_form_buttons {
 }
 
 div#profile_add_item {
+	margin: 0px 5px 10px 10px;
+}
+
+div#profile_add_favor {
 	margin: 0px 5px 10px 10px;
 }
 

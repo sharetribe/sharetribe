@@ -193,11 +193,13 @@ module ApplicationHelper
       :title_is_too_short
     when "Title is too short (minimum is 2 characters)"
       :title_is_too_short  
-    when "Title on liian pitkä (maksimi on 50 merkkiä)."
+    when "Title on liian pitkä (maksimi on 70 merkkiä)."
       :title_is_too_long
     when "Title item_with_proposed_title_already_exists"
-      :title_with_same_name_already_exists
-    when "Description is too long"
+      :item_title_with_same_name_already_exists
+    when "Title favor_with_proposed_title_already_exists"
+      :favor_title_with_same_name_already_exists  
+    when "Description is too long"    
       :description_is_too_long 
     else
       message
