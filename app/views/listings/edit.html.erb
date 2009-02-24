@@ -1,7 +1,11 @@
+<h1><%= t(:edit_listing) + " " + @listing.title %></h1>
+
+<br />
+
 <% errors = translate_error_messages([@listing.errors.full_messages]) %>
  <% unless errors.empty? %>
  <div id="form_error_messages">
-   <h2><%= t(:listing_cannot_be_created) %></h2>
+   <h2><%= t(:listing_cannot_be_edited) %></h2>
    <ul>
      <% errors.each do |error| %>
        <li><%= error %></li>
