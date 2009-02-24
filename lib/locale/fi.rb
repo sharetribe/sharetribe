@@ -281,14 +281,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :item_updated => "Muutokset tallennettu",
 :item_could_not_be_updated => "Muutoksia ei voitu tallentaa",
 :item_could_not_be_added => "Tavaraa ei voitu lisätä",
-:title_with_same_name_already_exists => "Et voi lisätä kahta samannimistä tavaraa",
+:item_title_with_same_name_already_exists => "Et voi lisätä kahta samannimistä tavaraa",
 :description => "Kuvaus",
-
-#Avatar upload
-:upload_avatar => "Profiilikuvan vaihto",
-:image_file => "Kuvatiedosto",
-:add_avatar_submit => "Tallenna kuva",
-:avatar_upload_successful => "Profiilikuvan lataus onnistui",
 
 #Profile favors
 :add_new_favor => "Lisää palvelus",
@@ -301,6 +295,13 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :no_favors => "Ei palveluksia",
 :ask_for_this_favor => "Pyydä",
 :i_have_received_this_favor => "Kiitä palveluksesta",
+:favor_title_with_same_name_already_exists => "Et voi lisätä kahta samannimistä palvelusta",
+
+#Avatar upload
+:upload_avatar => "Profiilikuvan vaihto",
+:image_file => "Kuvatiedosto",
+:add_avatar_submit => "Tallenna kuva",
+:avatar_upload_successful => "Profiilikuvan lataus onnistui",
 
 #Profile comments
 :comment_is_related_to => "Kommentti liittyy",
@@ -438,7 +439,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :operation_not_permitted => "Toiminto ei ole sallittu",
 :title_is_required => "Otsikko on pakollinen tieto",
 :title_is_too_short => "Otsikko on liian lyhyt (minimi on 2 merkkiä)",
-:title_is_too_long => "Otsikko on liian pitkä (maksimi on 50 merkkiä)", 
+:title_is_too_long => "Otsikko on liian pitkä (maksimi on 70 merkkiä)", 
 :content_is_required => "Ilmoituksen sisältö on pakollinen tieto",
 :listing_must_have_language => "Ilmoituksella on oltava vähintään yksi kieli",
 :good_thru_is_required => "Voimassaoloaika on pakollinen tieto",

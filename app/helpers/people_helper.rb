@@ -18,7 +18,7 @@ module PeopleHelper
         elsif name.eql?(:contacts)
           links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@contacts) + ")</span>"
         elsif name.eql?(:friends)
-          links << t(name) # + " <span class='page_entries_info'>(" + page_entries_info(@friends) + ")</span>"      
+          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@friends) + ")</span>"      
         else
           links << t(name)
         end  
@@ -39,15 +39,15 @@ module PeopleHelper
       item = kassi_event.eventable
       if item.status.eql?("disabled")
         relation += t(:item_illative) + " " + h(item.title) + " (" + t(:item_removed_at) + ")"
-      else  
-        relation += t(:item_illative) + " " + link_to(h(item.title), item_path(h(item.title)) + "#" + item.id.to_s)
+      else
+        relation += t(:item_illative) + " " + link_to(h(item.title), "#item_" + item.id.to_s)
       end  
     when "Favor"
       favor = kassi_event.eventable
       if favor.status.eql?("disabled")
         relation += t(:favor_illative) + " " + h(favor.title) + " (" + t(:favor_removed_at) + ")"
       else  
-        relation += t(:favor_illative) + " " + link_to(h(favor.title), favor_path(h(favor.title)) + "#" + favor.id.to_s)
+        relation += t(:favor_illative) + " " + link_to(h(favor.title), "#favor_" + favor.id.to_s)
       end
     end
     return relation       

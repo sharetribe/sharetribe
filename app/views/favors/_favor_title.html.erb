@@ -1,21 +1,5 @@
-<a name="<%= favor_title.downcase %>"></a>
-<% if @title && @title.downcase.eql?(favor_title.downcase) %>
-  <div class="item_owners">
-    <div class="selected_item_title">
-      <div class="left_float">
-        <b>
-          <%= link_to h(favor_title), favors_path %> - 
-          <%= pluralize @favors.size, t(:offerer), t(:offerer_partitive) %>
-        </b>
-      </div>
-      <div class="right_float"></div>    
-    </div>  
-    <div class="solid_line"></div>
-    <%= render :partial => "favor_offerer", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
-  </div>
-<% else %>
-  <div class="item_title">
-    <% escaped_title =  URI.escape(favor_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
-    <b><%= link_to( h(favor_title), favor_path(escaped_title)  + "#" + escaped_title) %></b>
-  </div>
-<% end %>
+<div class="item_title">
+  <div id="<%= "favor_" + favor_title.downcase %>">
+    <%= render :partial => "favor_title_link", :locals => { :favor_title => favor_title } %>
+  </div>  
+</div>

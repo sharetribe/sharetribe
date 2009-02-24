@@ -17,7 +17,7 @@ CREATE TABLE `favors` (
   `updated_at` datetime default NULL,
   `status` varchar(255) default 'enabled',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL auto_increment,

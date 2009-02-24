@@ -284,7 +284,7 @@ I18n.store_translations 'en-US',
 :i_have_borrowed_this_item => "Thank for",
 :item_updated => "Changes saved",
 :item_could_not_be_updated => "Changes could not be saved",
-:title_with_same_name_already_exists => "You can't add two items with the same title",
+:item_title_with_same_name_already_exists => "You can't add two items with the same title",
 :description => "Description",
 
 #Profile favors
@@ -298,6 +298,7 @@ I18n.store_translations 'en-US',
 :favor_could_not_be_updated => "Changes could not be saved",
 :ask_for_this_favor => "Ask for",
 :i_have_received_this_favor => "Thank for",
+:favor_title_with_same_name_already_exists => "You can't add two favors with the same title",
 
 #Profile comments
 :comment_is_related_to => "Comment is related to",
@@ -433,7 +434,7 @@ I18n.store_translations 'en-US',
 #Error messages
 :title_is_required => "Title is required",
 :title_is_too_short => "Title is too short (minimum is 2 characters)",
-:title_is_too_long => "Title is too long (maximum is 50 characters).",
+:title_is_too_long => "Title is too long (maximum is 70 characters).",
 :content_is_required => "Content is required",
 :listing_must_have_language => "Listing must have at least 1 language",
 :good_thru_is_required => "Good thru is required",

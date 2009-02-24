@@ -119,7 +119,7 @@ class ItemsControllerTest < ActionController::TestCase
   
   def test_search_items
     search("dsfds", 0)
-    search("*", 2)
+    search("*", 3)
     search("saha", 1)
     search("*asar*", 1)
   end

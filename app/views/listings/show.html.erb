@@ -77,15 +77,17 @@
         <div class="reply_to_listing">
           <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
         </div>
-				<div class="reply_to_listing">
-					<%= link_to t(:edit_listing), edit_listing_path(@listing) %>
-        </div>
       <% else %>
         <div id="reply_to_listing">
           <%= link_to t(:reply), reply_listing_path(@listing) %>
         </div>
-      <% end %>
-    <% end %>   
+      <% end %> 
+    <% end %> 
+    <% if @current_user && is_current_user?(@listing.author) %>
+      <div class="reply_to_listing">
+			  <%= link_to t(:edit_listing), edit_listing_path(@listing) %>
+      </div>
+    <% end %>  
     <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
       <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
     <% end %>
