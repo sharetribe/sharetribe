@@ -9,19 +9,37 @@ class Person < ActiveRecord::Base
 
   has_many :listings
   
-  has_many :items, :conditions => "owner_id = '" + self.object_id.to_s + "'"
+  has_many :items, :foreign_key => "owner_id"
+  
+  has_many :available_items, 
+           :class_name => "Item",
+           :foreign_key => "owner_id", 
+           :conditions => "status <> 'disabled'",
+           :order => "title"
+           
+  has_many :disabled_items, 
+           :class_name => "Item",
+           :foreign_key => "owner_id", 
+           :conditions => "status = 'disabled'",
+           :order => "title"         
   
   has_many :favors
 
   has_many :person_interesting_listings
-  has_many :interesting_listings, :through => :person_interesting_listings, :source => :listing
+  has_many :interesting_listings, 
+           :through => :person_interesting_listings, 
+           :source => :listing
            
   has_many :person_conversations
-  has_many :conversations, :through => :person_conversations, :source => :conversation
+  has_many :conversations, 
+           :through => :person_conversations, 
+           :source => :conversation
   
   has_and_belongs_to_many :kassi_events
   
-  has_many :received_comments, :class_name => "PersonComment", :foreign_key => "target_person_id"
+  has_many :received_comments, 
+           :class_name => "PersonComment", 
+           :foreign_key => "target_person_id"
 
   class PersonConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information
@@ -294,6 +312,22 @@ class Person < ActiveRecord::Base
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     return person_hash["connection"]
+  end
+  
+  def save_item(item)
+    existing_item = disabled_items.find_by_title(item.title)
+    if existing_item
+      existing_item.description = item.description
+      if existing_item.save
+        existing_item.enable
+        return true
+      else
+        item.errors.add(:description, "is too long")
+      end  
+    else
+      return true if item.save
+    end  
+    return false
   end
   
 end

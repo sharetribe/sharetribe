@@ -1,3 +1,4 @@
+<div id="announcement_div">
 <% unless flash[:notice].blank? %>
   <div class="announcement notification">
     <%= t(flash[:notice]) %>
@@ -15,3 +16,4 @@
     <%= t(flash[:error]) %>
   </div>
 <% end %>
+</div>

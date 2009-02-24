@@ -129,25 +129,19 @@
   </div>
   
   <div class="profile_info">
-    <% if @items.size > 0 %>
-      <%= render :partial => "people/profile_items", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
-    <% else %>
-      <div class="profile_info_field"><%= t(:no_items)%></div>
-    <% end %>
+    <div id="profile_items">
+      <% if @items.size > 0 %>
+        <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+      <% else %>
+        <div class="profile_info_field"><%= t(:no_items)%></div>
+      <% end %>
+    </div>  
   </div>
   
   <% if @person.id == @current_user.id %>
-  
-  <div class="profile_add_form">
-  
-  <% form_for :item, :url => items_path do |f| %>
-    <%= f.text_field :title, :size => 40 %> &nbsp;&nbsp;
-    <%= f.hidden_field :owner_id, :value => @current_user.id %>
-    <%= submit_tag t(:add_new_item), :onclick => "this.disabled=true,this.form.submit();" %>
-  <% end %>
-  
-  </div>
-  
+    <div id="profile_add_item">
+      <%= render :partial => "people/profile_add_item" %>
+    </div>  
   <% end %>
   
   <a name="favors"></a>
@@ -157,7 +151,7 @@
   
   <div class="profile_info">
     <% if @favors.size > 0 %>
-      <%= render :partial => "people/profile_favors", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
+      <%= render :partial => "people/profile_favor", :collection => @favors, :as => :favor, :spacer_template => "layouts/dashed_line" %>
     <% else %>
       <div class="profile_info_field"><%= t(:no_favors)%></div>
     <% end %>

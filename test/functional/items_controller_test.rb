@@ -19,7 +19,6 @@ class ItemsControllerTest < ActionController::TestCase
   def test_show_item
     get :show, :id => "vasara"
     assert_response :success
-    assert_template 'index'
     assert_not_nil assigns(:title)
     assert_equal assigns(:items), [ items(:one) ]
   end
@@ -27,7 +26,6 @@ class ItemsControllerTest < ActionController::TestCase
   def test_show_item_with_difficult_name
     get :show, :id => "Örkki's tapponuija 2.5,6 /nn%6?"
     assert_response :success
-    assert_template 'index'
     assert_not_nil assigns(:title)
     assert_equal assigns(:items), [ items(:difficult) ] 
   end
@@ -36,13 +34,13 @@ class ItemsControllerTest < ActionController::TestCase
     submit_with_person :create, { 
       :item => { :title => "TestTitle" }
     }, :item, :owner_id
-    assert_response :found, @response.body
+    assert_response :success, @response.body
     assert_not_nil flash[:notice]
     assert ! assigns(:item).new_record?
     submit_with_person :destroy, {
       :id => assigns(:item).id 
     }, :item, :owner_id, :delete
-    assert_redirected_to @test_person1
+    assert_equal "disabled", assigns(:item).status
   end
 
   def test_create_item_with_title_that_already_exists 
@@ -51,6 +49,15 @@ class ItemsControllerTest < ActionController::TestCase
     }, :item, :owner_id
     assert assigns(:item).errors.on(:title)
   end
+  
+  def test_recover_disabled_item 
+    submit_with_person :create, { 
+      :item => { :title => "kirves" }
+    }, :item, :owner_id
+    assert_response :success, @response.body
+    assert_nil assigns(:item).id
+    assert_equal "enabled", items(:three).status
+  end
 
   def test_edit_item
     submit_with_person :update, { 
@@ -58,7 +65,7 @@ class ItemsControllerTest < ActionController::TestCase
       :id => items(:one).id,
       :person_id => @test_person1.id
     }, :item, :owner_id, :put
-    assert_response :found, @response.body
+    assert_response :success, @response.body
     assert_equal flash[:notice], :item_updated
   end
   
