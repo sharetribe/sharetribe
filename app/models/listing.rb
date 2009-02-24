@@ -82,7 +82,7 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :status, :in => VALID_STATUS
   validates_inclusion_of :category, :in => get_valid_categories
   validates_inclusion_of :good_thru, :allow_nil => true, 
-                         :in => DateTime.now..DateTime.now + 1.year
+                         :in => DateTime.now..DateTime.now + 1.year, :message => "must not be more than one year"
   
   validates_length_of :title, :within => 2..50
   validates_length_of :value_other, :allow_nil => true, :allow_blank => true, :maximum => 50

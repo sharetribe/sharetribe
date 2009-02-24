@@ -1,0 +1,16 @@
+<div class="profile_info_field_title">
+  <div id="item_description_<%= item.id.to_s %>">
+    <%= render :partial => 'items/title_no_description', :locals => { :item => item } %>
+  </div>
+</div>
+<div class="profile_info_field_links">
+  <div class="right_float">
+  <% if is_current_user?(@person) %>
+    <%= link_to_remote t(:edit), :url => edit_person_item_path(@person, item), :update => "item_" + item.id.to_s, :method => :get %> | 
+    <%= link_to_remote t(:remove), :url => item_path(item), :method => :delete %>
+  <% else %>
+    <%= link_to t(:borrow_this_item), borrow_person_item_path(@person, item) %> | 
+    <%= link_to t(:i_have_borrowed_this_item), thank_for_person_item_path(@person, item) %>
+  <% end %>
+  </div>  
+</div>

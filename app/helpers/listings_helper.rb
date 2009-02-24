@@ -28,6 +28,8 @@ module ListingsHelper
       t(:image_file_is_not_a_recognized_format)
     when "Image file can't be bigger than 10 megabytes"
       t(:image_file_is_too_big)           
+    when "Good thru must not be more than one year"
+      t(:good_thru_must_not_be_more_than_year)
     else
       message
     end  

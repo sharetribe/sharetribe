@@ -725,12 +725,12 @@ div.profile_info_field {
 
 div.profile_info_field_title {
 	float: left;
-	width: 250px;
+	width: 320px;
 }
 
 div.profile_info_field_links {
 	float: right;
-	width: 205px;
+	width: 140px;
 }
 
 div.profile_add_form {
@@ -767,9 +767,40 @@ div.profile_update_form_buttons {
 	margin: 10px 0;
 }
 
+div#profile_add_item {
+	margin: 0px 5px 10px 10px;
+}
+
 div.form_extra_padding {
 	width: 400px;
 	padding: 0px 10px;
+}
+
+div.profile_add_item_form_container {
+	overflow: hidden;
+	width: 465px;
+}
+
+div.profile_add_item_form_left {
+	font-weight: bold;
+	float: left;
+	width: 100px;
+	margin: 8px 0;
+}
+
+div.profile_add_item_form_right {
+	float: left;
+	width: 365px;
+	margin: 5px 0;
+}
+
+textarea.add_item_form {
+	width: 350px;
+	height: 50px;
+}
+
+input.add_item_form {
+	width: 356px;
 }
 
 /* Kassi events view */
@@ -843,9 +874,9 @@ div.listed_item_owner_center {
 }
 
 div.listed_item_owner_right {
-	width: 250px;
+	width: 210px;
 	padding: 10px;
-	margin-right: 20px;
+	margin-right: 40px;
 	float: right;
 	text-align: right;
 }	
@@ -853,7 +884,6 @@ div.listed_item_owner_right {
 div.listed_item_owner_right_link {
 	margin-bottom: 5px;
 }
-
 
 /* Message views  */
 

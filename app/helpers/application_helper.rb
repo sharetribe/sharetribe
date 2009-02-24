@@ -185,6 +185,25 @@ module ApplicationHelper
               :alt => person.name(session[:cookie])
   end
   
+  def translate_announcement_error_message(message)
+    case message
+    when "Title is required"
+      :title_is_required
+    when "Title on liian lyhyt (minimi on 2 merkkiä)."
+      :title_is_too_short
+    when "Title is too short (minimum is 2 characters)"
+      :title_is_too_short  
+    when "Title on liian pitkä (maksimi on 50 merkkiä)."
+      :title_is_too_long
+    when "Title item_with_proposed_title_already_exists"
+      :title_with_same_name_already_exists
+    when "Description is too long"
+      :description_is_too_long 
+    else
+      message
+    end  
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages

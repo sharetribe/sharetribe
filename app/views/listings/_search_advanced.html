@@ -6,7 +6,7 @@
   <div class="form_right">
     <%= text_field_tag "q", params[:q], :size => 30 %>
     &nbsp;&nbsp;
-    <%= link_to_function t(:search_instructions), "$('search_instructions').show();" %> |
+    <%= link_to_function t(:search_instructions), "new Effect.toggle('search_instructions', 'blind')" %> |
     <%= link_to t(:regular_search), search_listings_path %>
   </div>  
 </div>

@@ -34,9 +34,11 @@
       <%= t(:own_listing)%> <%= listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
       <% if listing.comments.size > 0 %> 
         | <%= link_to pluralize(listing.comments.size, t(:comment), t(:comments_partitive)), listing_path(listing) + "#comments" %>
-      <% end %>  
+      <% end %>
+      <br />
+      <%= link_to t(:edit), edit_listing_path(listing) %>   
       <% if listing.open? %>
-        | <%= link_to t(:close_listing), close_person_listing_path(@current_user, listing) %>
+        | <%= link_to t(:close), close_person_listing_path(@current_user, listing) %>
       <% end %>  
     <% else %>
       <%= t(:listing_created_by) %> 

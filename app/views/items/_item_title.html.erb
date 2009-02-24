@@ -1,21 +1,5 @@
-<a name="<%= item_title.downcase %>"></a>
-<% if @title && @title.downcase.eql?(item_title.downcase) %>
-  <div class="item_owners">
-    <div class="selected_item_title">
-      <div class="left_float">
-        <b>
-          <%= link_to h(item_title), items_path %> - 
-          <%= pluralize @items.size, t(:owner), t(:owner_partitive) %>
-        </b>
-      </div>
-      <div class="right_float"></div>    
-    </div>  
-    <div class="solid_line"></div>
-    <%= render :partial => "item_owner", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
-  </div>
-<% else %>
-  <div class="item_title">
-    <% escaped_title =  URI.escape(item_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
-    <b><%= link_to( h(item_title), item_path(escaped_title) + "#" + escaped_title)%></b>
-  </div>
-<% end %>  
+<div class="item_title">
+  <div id="<%= "item_" + item_title.downcase %>">
+    <%= render :partial => "item_title_link", :locals => { :item_title => item_title } %>
+  </div>  
+</div>

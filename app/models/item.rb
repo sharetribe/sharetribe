@@ -13,8 +13,10 @@ class Item < ActiveRecord::Base
   
   VALID_STATUSES = ["enabled", "disabled"]
   
-  validates_presence_of :title, :owner_id
-  validates_length_of :title, :within => 2..50    
+  validates_presence_of :title, :message => "is required"
+  validates_presence_of :owner_id
+  validates_length_of :title, :within => 2..50
+  validates_length_of :description, :allow_nil => true, :allow_blank => true, :maximum => 400, :message => "is too long"    
   validates_numericality_of :payment, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true, :allow_blank => true
   validates_inclusion_of :status, :in => VALID_STATUSES
   
@@ -25,7 +27,9 @@ class Item < ActiveRecord::Base
       items = Item.find(:all, :conditions => ["owner_id = ?", self.owner.id])
       items.each do |item|
         if item.title && self.title && item.title.downcase.eql?(self.title.downcase)
-          errors.add(:title, "item_with_proposed_title_already_exists")
+          unless self.id && self.id == item.id 
+            errors.add(:title, "item_with_proposed_title_already_exists")
+          end  
         end
       end 
     end 
@@ -37,6 +41,10 @@ class Item < ActiveRecord::Base
   
   def disable
     update_attribute :status, "disabled"
+  end
+  
+  def enable
+    update_attribute :status, "enabled"
   end
   
 end

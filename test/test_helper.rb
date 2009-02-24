@@ -103,5 +103,14 @@ class Test::Unit::TestCase
     end  
     session.destroy
   end
+  
+  def assert_does_not_exist(id, model)
+    assert_raise(ActiveRecord::RecordNotFound) {
+      case model
+      when "item"
+        Item.find(id)
+      end  
+    }
+  end
       
 end

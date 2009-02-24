@@ -67,8 +67,12 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :items, :member => { 
                                           :borrow => :get, 
                                           :thank_for => :get,
-                                          :mark_as_borrowed => :post
-                                        }
+                                          :mark_as_borrowed => :post,
+                                          :view_description => :get,
+                                          :hide_description => :get,
+                                          :cancel_update => :get
+                                        },
+                             :collection => { :cancel_create => :get }
     person.resources :favors, :member => { 
                                            :ask_for => :get,
                                            :thank_for => :get,
@@ -85,7 +89,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resource :avatar, :member => { :upload_successful => :get}
     person.resources :requests, :member => { :accept => :post, :reject => :post, :cancel => :post }               
   end  
-  map.resources :items, :collection => { :search => :get }
+  map.resources :items, :collection => { :search => :get }, :member => { :hide => :get }
   map.resource :search
   map.resources :transactions
   map.resource :consent

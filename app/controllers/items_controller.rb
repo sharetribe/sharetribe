@@ -1,63 +1,109 @@
 class ItemsController < ApplicationController
   
-  before_filter :logged_in, :except => [ :index, :show, :search]
+  before_filter :logged_in, :except => [ :index, :show, :hide, :search ]
   
   def index
-    fetch_items
+    save_navi_state(['items','browse_items','',''])
+    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
+    @item_titles = Item.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
   end
   
   def show
     @title = URI.unescape(params[:id])
-    #OPTIMIZE Is here two separate BD calls, could these be done in one time?
-    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title.capitalize])
-    fetch_items
-    render :action => :index
-  end
-  
-  def edit
-    @editable_item = Item.find(params[:id])
-    return unless must_be_current_user(@editable_item.owner)
-    @person = Person.find(params[:person_id])
-    show_profile
-    render :template => "people/show" 
-  end
-  
-  def update
-    @person = Person.find(params[:person_id])
-    if params[:item][:cancel]
-      redirect_to person_path(@person) and return
+    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    render :update do |page|
+      if @items.size > 0
+        page["item_" + @title.downcase].replace_html :partial => "item_title_link_and_owners"
+      else
+        flash[:error] = :no_item_with_such_title
+        page["announcement_div"].replace_html :partial => 'layouts/announcements'
+      end    
     end  
-    @item = Item.find(params[:id])
-    return unless must_be_current_user(@item.owner)
-    @item.title = params[:item][:title]
-    if @item.save
-      flash[:notice] = :item_updated
-    else 
-      flash[:error] = :item_could_not_be_updated
-    end    
-    redirect_to person_path(@person)
+  end
+  
+  def hide
+    @title = URI.unescape(params[:id])
+    render :update do |page|
+      page["item_" + @title.downcase].replace_html :partial => "item_title_link", :locals => { :item_title => @title }
+    end
+  end
+  
+  def new
+    @item = Item.new
+    @form_path = items_path
+    @cancel_path = cancel_create_person_items_path(@current_user)
+    @method = :post
   end
   
   def create
     @item = Item.new(params[:item])
-    if @item.save
-      flash[:notice] = :item_added  
-      respond_to do |format|
-        format.html { redirect_to @current_user }
-        format.js  
+    @person = @item.owner
+    render :update do |page|
+      if !is_current_user?(@person)
+        flash[:error] = :operation_not_permitted
+      elsif @current_user.save_item(@item)
+        flash[:notice] = :item_added
+        flash[:error] = nil
+        page["profile_items"].replace_html :partial => "people/profile_item", 
+                                           :collection => @current_user.available_items,
+                                           :as => :item, 
+                                           :spacer_template => "layouts/dashed_line"
+        page["profile_add_item"].replace_html :partial => "people/profile_add_item"                                   
+      else
+        flash[:notice] = nil
+        flash[:error] = translate_announcement_error_message(@item.errors.full_messages.first)
       end
-    else 
-      flash[:error] = :item_could_not_be_added 
-      redirect_to @current_user
+      page["announcement_div"].replace_html :partial => 'layouts/announcements'            
     end
-  end  
+  end
+  
+  def edit
+    @item = Item.find(params[:id])
+    @form_path = item_path(@item)
+    @cancel_path = cancel_update_person_item_path(@item.owner, @item)
+    @method = :put
+    render :action => :new
+  end
+  
+  def update
+    @item = Item.find(params[:id])
+    @person = @item.owner
+    render :update do |page|
+      if !is_current_user?(@item.owner)
+        flash[:error] = :operation_not_permitted
+        page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
+      else   
+        @item.title = params[:item][:title]
+        @item.description = params[:item][:description]
+        if @current_user.save_item(@item)
+          flash[:notice] = :item_updated
+          flash[:error] = nil
+          page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
+        else
+          flash[:error] = translate_announcement_error_message(@item.errors.full_messages.first)
+        end  
+      end
+      page["announcement_div"].replace_html :partial => 'layouts/announcements'
+    end
+  end
   
   def destroy
+    logger.info "this is controller"
     @item = Item.find(params[:id])
-    return unless must_be_current_user(@item.owner)
-    @item.disable
-    flash[:notice] = :item_removed
-    redirect_to @current_user
+    @person = @item.owner    
+    render :update do |page|
+      if !is_current_user?(@person)
+        flash[:error] = :operation_not_permitted
+      else
+        @item.disable
+        flash[:notice] = :item_removed
+        page["profile_items"].replace_html :partial => "people/profile_item", 
+                                           :collection => @current_user.available_items,
+                                           :as => :item, 
+                                           :spacer_template => "layouts/dashed_line"                             
+      end
+      page["announcement_div"].replace_html :partial => 'layouts/announcements'          
+    end
   end
   
   def search
@@ -95,12 +141,39 @@ class ItemsController < ApplicationController
     redirect_to @person
   end
   
+  def view_description
+    set_description_visibility(true)
+  end
+  
+  def hide_description
+    set_description_visibility(false)
+  end
+  
+  def cancel_create
+    @person = Person.find(params[:person_id])
+    render :update do |page|
+      page["profile_add_item"].replace_html :partial => "people/profile_add_item"
+    end
+  end
+  
+  def cancel_update
+    @person = Person.find(params[:person_id])
+    @item = Item.find(params[:id])
+    render :update do |page|
+      page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
+    end
+  end
+  
   private
   
-  def fetch_items
-    save_navi_state(['items','browse_items','',''])
-    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
-    @item_titles = Item.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+  def set_description_visibility(visible)
+    partial = visible ? "items/title_and_description" : "items/title_no_description"
+    @item = Item.find(params[:id])
+    @person = Person.find(params[:person_id])
+    render :update do |page|
+      page["item_description_#{@item.id}"].replace_html :partial => partial, 
+                                                        :locals => { :item => @item }          
+    end
   end
   
 end

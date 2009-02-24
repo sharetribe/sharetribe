@@ -1,0 +1,5 @@
+<b>
+  <%= link_to_remote "+ " + t(:add_new_item), :url => new_person_item_path(@person), 
+                                              :update => "profile_add_item",
+                                              :method => :get %>
+</b>
