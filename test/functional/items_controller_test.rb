@@ -67,6 +67,7 @@ class ItemsControllerTest < ActionController::TestCase
     }, :item, :owner_id, :put
     assert_response :success, @response.body
     assert_equal flash[:notice], :item_updated
+    assert_equal "muutettu_vasara", assigns(:item).title
   end
   
   def test_borrow

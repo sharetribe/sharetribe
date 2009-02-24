@@ -109,14 +109,7 @@ class ListingsController < ApplicationController
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
     else
-      params[:category] = params[:listing][:category]
-      Listing::MAIN_CATEGORIES.each do |main_category|
-        if Listing.get_sub_categories(main_category.to_s) && Listing.get_sub_categories(main_category.to_s).include?(params[:listing][:category])
-          params[:category] = main_category.to_s
-          params[:subcategory] = params[:listing][:category] 
-        end
-      end
-      render :action => "new"
+      render :action => "edit"
     end
   end
   
