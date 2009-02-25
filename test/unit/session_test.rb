@@ -6,8 +6,18 @@ class SessionTest < ActiveSupport::TestCase
     resp = s.check
     assert_not_nil( resp["app_id"])
     assert_nil(resp["user_id"])
+    cookie = s.cookie
     resp = s.destroy
     assert_equal(resp.class, Net::HTTPOK)
+    
+    #test that the cookie is no more valid  
+    #do another session
+    s2 = Session.create
+    assert_not_nil(s2.check)
+    #use old cookie for s2
+    s2.cookie = cookie
+    assert_nil(s2.check)
+    
   end
 
   def test_create_user_session
