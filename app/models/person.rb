@@ -120,8 +120,8 @@ class Person < ActiveRecord::Base
     # create to Common Services
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
-    
-    params[:id] = response.body[/"id": "([^"]+)"/, 1]
+    #pick id from the response (same id in kassi and COS DBs)
+    params[:id] = response.body[/"id":"([^"]+)"/, 1]
     #create locally with less attributes
     super(params.except(:username, :email))
   end 
