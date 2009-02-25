@@ -32,9 +32,11 @@
         <div class="listing_author_box_item">
           <%= t(:created).capitalize %>:  
         </div>
-        <div class="listing_author_box_item">
-          <%= t(:updated).capitalize %>:  
-        </div>
+				<% if @listing.last_modified %>
+        	<div class="listing_author_box_item">
+          	<%= t(:updated).capitalize %>:  
+        	</div>
+				<%end%>
       </div>
       <div id="listing_author_box_texts">
         <div class="listing_author_box_item">
@@ -48,11 +50,13 @@
           <% end %>  
         </div>
         <div class="listing_author_box_item">
-          <%= @listing.created_at.to_formatted_s(:basic_date_format) %>
+          <%= @listing.created_at.to_formatted_s(:basic_date_format_minutes) %>
         </div>
-        <div class="listing_author_box_item">
-          <%= @listing.updated_at.to_formatted_s(:basic_date_format) %>
-        </div>
+				<% if @listing.last_modified%>
+        	<div class="listing_author_box_item">
+          	<%= @listing.last_modified.to_formatted_s(:basic_date_format_minutes) %>
+        	</div>
+				<%end%>
       </div>  
     </div>
   
