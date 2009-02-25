@@ -20,6 +20,5 @@ chgrp -R adm .
 chmod -R 2770 . 
 umask 007
 
-
 ./alpha-finish.sh
 
