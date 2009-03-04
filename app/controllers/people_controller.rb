@@ -43,7 +43,16 @@ class PeopleController < ApplicationController
   # Shows profile page of a person.
   def show
     @person = Person.find(params[:id])
-    show_profile
+    @items = @person.available_items
+    @item = Item.new
+    @favors = Favor.find(:all, :conditions => ["owner_id = ? AND status <> 'disabled'", @person.id.to_s], :order => "title")
+    @favor = Favor.new
+    if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
+      save_navi_state(['own', 'profile', '', '', 'information'])
+    else
+      save_navi_state(['people', 'browse_people'])
+      session[:profile_navi] = 'information'
+    end
   end
   
   def search
@@ -81,24 +90,30 @@ class PeopleController < ApplicationController
   
   def edit
     @person = Person.find(params[:id])
-    @editing = true
-    show_profile
-    render :action => :show
+    render :update do |page|
+      page["profile_info_texts"].replace_html :partial => 'people/edit_profile_info'
+      page["edit_profile_link"].replace_html :partial => 'cancel_edit_profile_link'
+    end  
   end
   
   def update
     @person = Person.find(params[:id])
-    if params[:person][:cancel]
-      redirect_to person_path(@person) and return
+    @successful = update_person(@person)
+    render :update do |page|
+      if @successful
+        page["profile_info_texts"].replace_html :partial => 'people/profile_info'
+        page["edit_profile_link"].replace_html :partial => 'edit_profile_link'
+        page["profile_header"].replace_html :partial => 'profile_header'
+      end  
+      refresh_announcements(page)
     end
-    begin
-      @person.update_attributes(params[:person], session[:cookie])
-      flash[:notice] = :person_updated_successfully
-      redirect_to @person and return
-    rescue ActiveResource::BadRequest => e
-      #flash[:error] = e.response.body.to_s
-      flash[:error] = translate_error_message(e.response.body.to_s)
-      redirect_to edit_person_path(@person) and return
+  end
+  
+  def cancel_edit
+    @person = Person.find(params[:id])
+    render :update do |page|
+      page["profile_info_texts"].replace_html :partial => 'people/profile_info'
+      page["edit_profile_link"].replace_html :partial => 'edit_profile_link'
     end
   end
   
@@ -122,6 +137,19 @@ class PeopleController < ApplicationController
     else
       return :user_data_could_not_be_saved_due_to_unknown_error 
     end  
+  end
+  
+  def update_person(person)
+    begin
+      person.update_attributes(params[:person], session[:cookie])
+      flash[:notice] = :person_updated_successfully
+      flash[:error] = nil
+    rescue ActiveResource::BadRequest => e
+      flash[:error] = translate_error_message(e.response.body.to_s)
+      flash[:notice] = nil
+      return false
+    end
+    return true
   end
   
 end

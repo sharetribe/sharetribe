@@ -210,6 +210,10 @@ class Person < ActiveRecord::Base
     update_attributes({:unstructured_address => address}, cookie)
   end
   
+  def street_address(cookie=nil)
+    person_hash = get_person_hash(cookie)
+  end
+  
   def phone_number(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?

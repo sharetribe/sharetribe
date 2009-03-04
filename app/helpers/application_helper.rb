@@ -206,6 +206,10 @@ module ApplicationHelper
     end  
   end
   
+  def refresh_announcements(page)
+    page["announcement_div"].replace_html :partial => 'layouts/announcements'
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages
