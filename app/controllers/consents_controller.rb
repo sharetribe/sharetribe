@@ -2,20 +2,20 @@ class ConsentsController < ApplicationController
   
     def show
       if session[:locale] == "en-US"
-        render:template => "consents/consent_en"
+        render :template => "consents/consent_en"
       else
-        render:template => "consents/consent_fi"
+        render :template => "consents/consent_fi"
       end    
     end
     
     def show_research_information
       #TODO language choice
-         render:template => "consents/research_information_fi"
+         render :template => "consents/research_information_fi"
     end
     
     def show_agreement
       #TODO language choice
-        render:template => "consents/service_agreement_fi"
+        render :template => "consents/service_agreement_fi"
     end
     
     def accept
