@@ -50,21 +50,6 @@ class ApplicationController < ActionController::Base
       params[:per_page] || 10
     end
   end
-  
-  # Shows the profile page of the user. This method is used in peoplecontroller/show,
-  # itemscontroller/edit and favorscontroller/edit.
-  def show_profile
-    @items = @person.available_items
-    @item = Item.new
-    @favors = Favor.find(:all, :conditions => ["owner_id = ? AND status <> 'disabled'", @person.id.to_s], :order => "title")
-    @favor = Favor.new
-    if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
-      save_navi_state(['own', 'profile', '', '', 'information'])
-    else
-      save_navi_state(['people', 'browse_people'])
-      session[:profile_navi] = 'information'
-    end
-  end 
 
   # Sets locale file used.
   def set_locale

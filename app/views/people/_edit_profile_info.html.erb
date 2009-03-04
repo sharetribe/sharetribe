@@ -1,0 +1,59 @@
+<% remote_form_for @person, :url => person_path(@person), :method => :put do |f| %>
+<div class="profile_info_field">
+  <div class="profile_update_form_left">
+    <%= t(:otasizzle_username) %>:
+  </div>
+  <div class="profile_update_form_center">
+    <%= @person.username %>
+  </div>
+</div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:email) %>:
+  </div>
+  <div class="profile_update_form_two_columns">
+    <div class="left_float">
+      <%= @person.email(session[:cookie]) %> 
+    </div>
+    <div class="right_float">  
+      <%= link_to(t(:edit).downcase, person_settings_path(@person)) %>
+    </div>  
+  </div>
+</div>
+<div class="profile_info_field">
+  <div class="profile_update_form_left">
+    <%= t(:given_name) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :given_name, :size => 34 %>
+  </div>
+</div>
+<div class="profile_info_field">
+  <div class="profile_update_form_left">
+    <%= t(:family_name) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :family_name, :size => 34 %>
+  </div>
+</div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:address) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :address, :size => 34 %>
+  </div>
+</div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:phone_number) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :phone_number, :size => 34 %>
+  </div>
+</div>
+<div class="profile_update_form_buttons">
+  <%= submit_tag t(:save) %> &nbsp;
+  <%= submit_to_remote 'cancel_button', t(:cancel), :url => cancel_edit_person_path(@person), :method => :get %>
+</div>  
+<% end %>

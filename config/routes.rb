@@ -58,7 +58,7 @@ ActionController::Routing::Routes.draw do |map|
     listing.resources :categories, :path_prefix => '/listings'
   end  
   map.resources :people, 
-                :member => { :home => :get, :send_message => :get }, 
+                :member => { :home => :get, :send_message => :get, :cancel_edit => :get }, 
                 :collection => { :search => :get } do |person|
     person.resources :inbox, :controller => :conversations, :collection => { :sent => :get } do |inbox|
       inbox.resources :messages, :path_prefix => '/people/:id/inbox'

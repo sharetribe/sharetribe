@@ -90,7 +90,7 @@ class PeopleControllerTest < ActionController::TestCase
       },
       :id => @test_person1.id
     }, :person, nil, :put
-    assert_response :found, @response.body
+    assert_response :success, @response.body
     assert_equal flash[:notice], :person_updated_successfully
     assert_equal @test_person1.given_name, "Teppo"
     assert_equal @test_person1.family_name, "Testaaja"
@@ -159,7 +159,7 @@ class PeopleControllerTest < ActionController::TestCase
       },
       :id => @test_person1.id
     }, :person, nil, :put
-    assert_response :found, @response.body
+    assert_response :success, @response.body
     assert_equal flash[:error], error
   end
   

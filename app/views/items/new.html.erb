@@ -18,12 +18,7 @@
   </div>
   <div class="profile_add_item_form_container">
     <div class="profile_add_item_form_right">
-      <%= submit_tag t(:save), {
-                                :id => "save", 
-                                :name => "save",
-                                :onclick => "$('cancel_button').disabled = true;"
-                               } %>
-      &nbsp;
+      <%= submit_tag t(:save) %> &nbsp;
       <%= submit_to_remote 'cancel_button', t(:cancel), :url => @cancel_path, :method => :get %>
     </div>
   </div>
