@@ -747,18 +747,18 @@ div.profile_update_form_left {
 
 div.profile_update_form_center {
 	float: left;
-	margin: 4px 10px 0 10px;
+	margin: 4px 0px 0 0px;
 }
 
 div.profile_update_form_two_columns {
 	float: left;
 	overflow: hidden;
-	width: 270px;
-	margin: 4px 10px 0 10px;
+	width: 280px;
+	margin: 4px 0 0 0;
 }
 
 div.profile_update_form_right {
-	float: right;
+	float: left;
 	margin: 0 10px 0 0;
 }
 

@@ -4,7 +4,7 @@
 <% unless (@person.address == nil || @person.address.eql?("")) && @person.id != @current_user.id %>
 <div class="dashed_line"></div>
 <div class="profile_info_field">  
-  <b><%= t(:address)%>:</b> <%= @person.address %>
+  <b><%= t(:address)%>:</b> <%= @person.street_address + " " + @person.postal_code + " " + @person.locality %>
 </div>
 <% end %>
 <% unless (@person.phone_number == nil || @person.phone_number.eql?("")) && @person.id != @current_user.id %>

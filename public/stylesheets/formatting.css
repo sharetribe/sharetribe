@@ -134,6 +134,15 @@ input.button {
 	width: 75px;
 }
 
+input.update_profile {
+	width: 274px;
+}
+
+input.update_postal_code {
+	width: 40px;
+}
+
+
 span.page_entries_info {
 	font-size: 10px;
 }
