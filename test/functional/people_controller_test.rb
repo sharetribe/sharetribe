@@ -85,7 +85,9 @@ class PeopleControllerTest < ActionController::TestCase
       :person => { 
         :given_name => "Teppo",
         :family_name => "Testaaja",
-        :address => "Osoite",
+        :street_address => "Osoite",
+        :postal_code => "00000",
+        :locality => "Postitoimipaikka",
         :phone_number => "0700-715517" 
       },
       :id => @test_person1.id
@@ -94,7 +96,9 @@ class PeopleControllerTest < ActionController::TestCase
     assert_equal flash[:notice], :person_updated_successfully
     assert_equal @test_person1.given_name, "Teppo"
     assert_equal @test_person1.family_name, "Testaaja"
-    assert_equal @test_person1.address, "Osoite"
+    assert_equal @test_person1.street_address, "Osoite"
+    assert_equal @test_person1.postal_code, "00000"
+    assert_equal @test_person1.locality, "Postitoimipaikka"
     assert_equal @test_person1.phone_number, "0700-715517"
   end
   
@@ -106,16 +110,16 @@ class PeopleControllerTest < ActionController::TestCase
     update_with_invalid_data(:family_name, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :family_name_is_too_long)
   end
   
-  def test_invalid_address  
-    update_with_invalid_data(:unstructured_address, "TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo
-    TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppo    
-    ", :address_is_too_long)
+  def test_invalid_street_address  
+    update_with_invalid_data(:street_address, "TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoT", :street_address_is_too_long)
+  end
+  
+  def test_invalid_postal_code  
+    update_with_invalid_data(:postal_code, "TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoT", :postal_code_is_too_long)
+  end
+  
+  def test_invalid_locality  
+    update_with_invalid_data(:locality, "TeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoTeppoT", :locality_is_too_long)
   end
   
   def test_invalid_phone_number  

@@ -125,20 +125,6 @@ class PeopleController < ApplicationController
   
   private
   
-  def translate_error_message(message)
-    if message.include?("Given name is too long")
-      return :given_name_is_too_long
-    elsif message.include?("Family name is too long")
-      return :family_name_is_too_long
-    elsif message.include?("address is too long")
-      return :address_is_too_long
-    elsif message.include?("Phone number is too long")
-      return :phone_number_is_too_long        
-    else
-      return :user_data_could_not_be_saved_due_to_unknown_error 
-    end  
-  end
-  
   def update_person(person)
     begin
       person.update_attributes(params[:person], session[:cookie])
@@ -150,6 +136,25 @@ class PeopleController < ApplicationController
       return false
     end
     return true
+  end
+  
+  def translate_error_message(message)
+    if message.include?("Given name is too long")
+      return :given_name_is_too_long
+    elsif message.include?("Family name is too long")
+      return :family_name_is_too_long
+    elsif message.include?("address is too long")
+      return :street_address_is_too_long
+    elsif message.include?("Postal code is too long") 
+      return :postal_code_is_too_long  
+    elsif message.include?("Locality is too long") 
+      return :locality_is_too_long    
+    elsif message.include?("Phone number is too long")
+      return :phone_number_is_too_long 
+    else
+      return message
+      #return :user_data_could_not_be_saved_due_to_unknown_error 
+    end  
   end
   
 end

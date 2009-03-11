@@ -25,7 +25,7 @@
     <%= t(:given_name) %>:
   </div>
   <div class="profile_update_form_right">
-    <%= f.text_field :given_name, :size => 34 %>
+    <%= f.text_field :given_name, :class => "update_profile" %>
   </div>
 </div>
 <div class="profile_info_field">
@@ -33,15 +33,31 @@
     <%= t(:family_name) %>:
   </div>
   <div class="profile_update_form_right">
-    <%= f.text_field :family_name, :size => 34 %>
+    <%= f.text_field :family_name, :class => "update_profile" %>
   </div>
 </div>
 <div class="profile_info_field">  
   <div class="profile_update_form_left">
-    <%= t(:address) %>:
+    <%= t(:street_address) %>:
   </div>
   <div class="profile_update_form_right">
-    <%= f.text_field :address, :size => 34 %>
+    <%= f.text_field :street_address, :class => "update_profile" %>
+  </div>
+</div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:postal_code) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :postal_code, :class => "update_postal_code" %>
+  </div>
+</div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:locality) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_field :locality, :class => "update_profile" %>
   </div>
 </div>
 <div class="profile_info_field">  
@@ -49,7 +65,7 @@
     <%= t(:phone_number) %>:
   </div>
   <div class="profile_update_form_right">
-    <%= f.text_field :phone_number, :size => 34 %>
+    <%= f.text_field :phone_number, :class => "update_profile" %>
   </div>
 </div>
 <div class="profile_update_form_buttons">

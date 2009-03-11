@@ -197,7 +197,7 @@ class Person < ActiveRecord::Base
   end
   
   def set_family_name(name, cookie)
-    update_attributes({:name => {:family_name => name, } }, cookie)
+    update_attributes({:name => {:family_name => name } }, cookie)
   end
   
   def address(cookie=nil)
@@ -212,6 +212,35 @@ class Person < ActiveRecord::Base
   
   def street_address(cookie=nil)
     person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["address"].nil?
+    return person_hash["address"]["street_address"]
+  end
+  
+  def set_street_address(street_address, cookie)
+    update_attributes({:address => {:street_address => street_address } }, cookie)
+  end
+  
+  def postal_code(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["address"].nil?
+    return person_hash["address"]["postal_code"]
+  end
+  
+  def set_postal_code(postal_code, cookie)
+    update_attributes({:address => {:postal_code => postal_code } }, cookie)
+  end
+  
+  def locality(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["address"].nil?
+    return person_hash["address"]["locality"]
+  end
+  
+  def set_locality(locality, cookie)
+    update_attributes({:address => {:locality => locality } }, cookie)
   end
   
   def phone_number(cookie=nil)
@@ -295,15 +324,31 @@ class Person < ActiveRecord::Base
       params['name'].update({'family_name' => params['family_name']})
       params.delete('family_name')
     end
+    remove_root_level_address_fields(params, ["street_address", "postal_code", "locality"])
+    # if params['street_address'] && (params['address'].nil? || params['address']['street_address'].nil?)
+    #   params.update({'address' => Hash.new}) if params['address'].nil?
+    #   params['address'].update({'street_address' => params['street_address']})
+    #   params.delete('street_address')
+    # end
     
-    if params['address']
-      params.update({'unstructured_address' => params['address']})
-      params.delete('address')
-    end
+    # if params['address']
+    #   params.update({'unstructured_address' => params['address']})
+    #   params.delete('address')
+    # end
       
     PersonConnection.put_attributes(params, self.id, cookie)
     #clear old data from cache
     Rails.cache.delete("person_hash.#{id}")
+  end
+  
+  def remove_root_level_address_fields(params, fields)
+    fields.each do |field|
+      if params[field] && (params['address'].nil? || params['address'][field].nil?)
+        params.update({'address' => Hash.new}) if params['address'].nil?
+        params['address'].update({field => params[field]})
+        params.delete(field)
+      end
+    end  
   end
   
   def update_avatar(image, cookie)

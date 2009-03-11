@@ -48,11 +48,11 @@ class PersonTest < ActiveSupport::TestCase
     p.destroy
   end
   
-  def test_address
-    @test_person.set_address("SMT 49, 02150, ESPOO", @cookie)
-    assert_equal("SMT 49, 02150, ESPOO", @test_person.address(@cookie))
-    @test_person.update_attributes({'address' => "salainen"},@cookie)
-    assert_equal("salainen", @test_person.address(@cookie))
+  def test_street_address
+    @test_person.set_street_address("SMT 49", @cookie)
+    assert_equal("SMT 49", @test_person.street_address(@cookie))
+    @test_person.update_attributes({'street_address' => "salainen"},@cookie)
+    assert_equal("salainen", @test_person.street_address(@cookie))
     # @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
     # assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie), "Scandinavic letters Fail!")
   end
