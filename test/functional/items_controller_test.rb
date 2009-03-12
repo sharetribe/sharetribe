@@ -14,6 +14,7 @@ class ItemsControllerTest < ActionController::TestCase
     assert_template 'index'
     assert_not_nil assigns(:letters)
     assert_not_nil assigns(:item_titles)
+    assert_not_nil assigns(:item_title_hash)
   end
 
   def test_show_item

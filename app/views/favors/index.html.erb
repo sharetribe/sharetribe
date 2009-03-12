@@ -11,8 +11,15 @@
 
 <div id="item_content">	
   <% if @favor_titles.size > 0 %>
-    <%= render :partial => "letter", :collection => @letters, :as => :letter %>
+		<% @letters.each do |key| %>
+		<%if !@favor_title_hash[key].empty?%>
+			<div class="letter_header">
+		  	<a name = "<%=key%>"></a>
+		  	<%= key.upcase %>
+			</div>
+    	<%= render :partial => "favor_title", :collection => @favor_title_hash[key], :as => :favor_title%>
+			<%end%>
+		<%end%>
   <% else %>
   	<h3><%= t(:no_favors) %></h3>
   <% end %>
-</div>

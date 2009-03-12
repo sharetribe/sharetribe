@@ -4,8 +4,30 @@ class FavorsController < ApplicationController
   
   def index
     save_navi_state(['favors','browse_favors','',''])
-    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
+    #TODO cache
+    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
     @favor_titles = Favor.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    @favor_title_hash = {}
+    
+    #doing hash with all the letters as key values
+    @letters.each do |letter|
+      @favor_title_hash[letter] = Array.new
+    end
+    
+    @favor_titles.each do |title|
+      if @favor_title_hash.has_key?(title[0,1].upcase)
+        @favor_title_hash[title[0,1].upcase].push(title)
+      elsif title[0,2].eql?("ä") || title[0,2].eql?("Ä")
+          @favor_title_hash["Ä"].push(title)
+      elsif title[0,2].eql?("ö") || title[0,2].eql?("Ö")
+          @favor_title_hash["Ö"].push(title)
+      elsif title[0,2].eql?("å") || title[0,2].eql?("Å")
+          @favor_title_hash["Å"].push(title)
+      else
+          @favor_title_hash["#"].push(title)
+      end  
+    end
+     
   end
   
   def show

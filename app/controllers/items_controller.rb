@@ -4,8 +4,29 @@ class ItemsController < ApplicationController
   
   def index
     save_navi_state(['items','browse_items','',''])
-    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ".split("")
+    @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
     @item_titles = Item.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    
+    @item_title_hash = {}
+    
+    #doing hash with all the letters as key values
+    @letters.each do |letter|
+      @item_title_hash[letter] = Array.new
+    end
+    
+    @item_titles.each do |title|
+      if @item_title_hash.has_key?(title[0,1].upcase)
+        @item_title_hash[title[0,1].upcase].push(title)
+      elsif title[0,2].eql?("ä") || title[0,2].eql?("Ä")
+          @item_title_hash["Ä"].push(title)
+      elsif title[0,2].eql?("ö") || title[0,2].eql?("Ö")
+          @item_title_hash["Ö"].push(title)
+      elsif title[0,2].eql?("å") || title[0,2].eql?("Å")
+          @item_title_hash["Å"].push(title)
+      else
+          @item_title_hash["#"].push(title)
+      end  
+    end
   end
   
   def show

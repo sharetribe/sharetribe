@@ -14,6 +14,7 @@ class FavorsControllerTest < ActionController::TestCase
     assert_template 'index'
     assert_not_nil assigns(:letters)
     assert_not_nil assigns(:favor_titles)
+    assert_not_nil assigns(:favor_title_hash)
   end
   
   def test_show_favor
