@@ -11,7 +11,15 @@
 
 <div id="item_content">	
   <% if @item_titles.size > 0 %>
-    <%= render :partial => "letter", :collection => @letters, :as => :letter %>
+  <% @letters.each do |key| %>
+	<%if !@item_title_hash[key].empty?%>
+		<div class="letter_header">
+	  	<a name = "<%=key%>"></a>
+	  	<%= key.upcase %>
+		</div>
+  	<%= render :partial => "item_title", :collection => @item_title_hash[key], :as => :item_title%>
+		<%end%>
+	<%end%>
   <% else %>
   	<h3><%= t(:no_items) %></h3>
   <% end %>
