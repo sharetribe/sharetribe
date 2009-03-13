@@ -14,8 +14,9 @@
     <%= javascript_include_tag "epoch_classes" %>
   <% else %>
     <%= javascript_include_tag "epoch_classes_en" %>
-  <% end %>  
-
+  <% end %>
+  
+  <%= yield :head %>
 
 </head>
 

@@ -4,7 +4,8 @@
     <div class="left_float">
       <b>
         <%= link_to_remote h(@title.capitalize), :url => hide_item_path(escaped_title), :method => :get %> - 
-        <%= pluralize @items.size, t(:owner), t(:owner_partitive) %>
+        <%= pluralize @items.size, t(:owner), t(:owner_partitive) %> |
+        <%= link_to t(:show_on_map), show_on_map_item_path(escaped_title) %>
       </b>
     </div>   
   </div>  

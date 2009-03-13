@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'google_geocode'
+
 class ItemsController < ApplicationController
   
   before_filter :logged_in, :except => [ :index, :show, :hide, :search ]
@@ -183,6 +186,69 @@ class ItemsController < ApplicationController
     render :update do |page|
       page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
     end
+  end
+  
+  # Shows an item with a specific id (params[:id]) on the map.
+  def map
+    @item = Item.find(params[:id])
+    @title = @item.title.capitalize
+    gg = GoogleGeocode.new YAML.load_file(RAILS_ROOT + '/config/gmaps_api_key.yml')[ENV['RAILS_ENV']]
+    begin
+      loc = gg.locate @item.owner.unstructured_address
+    rescue
+      flash[:error] = :item_owner_has_not_provided_location
+      return
+    end  
+    @map = GMap.new("map_div")
+    @map.control_init(:large_map => true, :map_type => false)
+    @map.center_zoom_init([loc.latitude, loc.longitude], 15)
+    @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => @item.owner.street_address, :info_bubble => loc.address))
+  end
+  
+  # Shows items with a specific title (params[:id]) on the map.
+  def show_on_map
+    @title = URI.unescape(params[:id])
+    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    @title = @title.capitalize
+    gg = GoogleGeocode.new YAML.load_file(RAILS_ROOT + '/config/gmaps_api_key.yml')[ENV['RAILS_ENV']]
+    
+    # If there's only one item, zoom to it, otherwise render a default view.
+    if @items.size > 1
+      central_loc = gg.locate "Seurasaari, Helsinki"
+      zoom = 12
+    else
+      begin
+        central_loc = gg.locate @items.first.owner.unstructured_address
+      rescue
+        flash[:error] = :item_owner_has_not_provided_location
+        render :action => :map and return
+      end    
+      zoom = 15
+    end
+    
+    # Initialize map      
+    @map = GMap.new("map_div")
+    @map.control_init(:large_map => true, :map_type => false)
+    @map.center_zoom_init([central_loc.latitude, central_loc.longitude], zoom)
+    
+    # If at least one item owner has a valid address, display it on the map; otherwise don't render map.
+    at_least_one_is_valid = false;
+    @items.each do |item|
+      begin
+        loc = gg.locate item.owner.unstructured_address
+        @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => item.owner.name, :info_bubble => loc.address))
+        at_least_one_is_valid = true;
+      rescue
+        flash[:warning] = :all_item_owners_have_not_provided_their_info
+      end  
+    end
+    unless at_least_one_is_valid 
+      @map = nil
+      flash[:error] = :item_owners_have_not_provided_their_location
+      flash[:warning] = nil
+    end   
+     
+    render :action => :map 
   end
   
   private

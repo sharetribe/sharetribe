@@ -71,7 +71,9 @@ ActionController::Routing::Routes.draw do |map|
                                           :hide_description => :get,
                                           :cancel_update => :get
                                         },
-                             :collection => { :cancel_create => :get }
+                             :collection => { 
+                                              :cancel_create => :get
+                                            }
     person.resources :favors, :member => { 
                                            :ask_for => :get,
                                            :thank_for => :get,
@@ -93,7 +95,7 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :requests, :member => { :accept => :post, :reject => :post, :cancel => :post }               
   end
   map.resources :favors, :collection => { :search => :get }, :member => { :hide => :get }  
-  map.resources :items, :collection => { :search => :get }, :member => { :hide => :get }
+  map.resources :items, :collection => { :search => :get }, :member => { :hide => :get, :map => :get, :show_on_map => :get }
   map.resource :search
   map.resources :transactions
   map.resource :consent

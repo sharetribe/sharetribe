@@ -210,6 +210,13 @@ module ApplicationHelper
     page["announcement_div"].replace_html :partial => 'layouts/announcements'
   end
   
+  def has_address?(person)
+    if person.street_address && person.street_address != ""
+      return true
+    end
+    return false  
+  end
+  
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages
