@@ -218,6 +218,12 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :cant_borrow_from_self => "Et voi lainata itseltäsi",
 :cant_thank_self_for_item => "Et voi kiittää itseäsi lainasta",
 :no_description => "Ei kuvausta",
+:show_on_map => "Näytä kartalla",
+:show_items_on_map => "Näytä tavarat kartalla",
+:back_to_item_view => "Takaisin tavaranäkymään",
+:all_item_owners_have_not_provided_their_info => "Osa tavaran omistajista ei ole kertonut sijaintiaan, eikä heitä siksi näytetä kartalla.",
+:item_owner_has_not_provided_location => "Tavaran omistaja ei ole lisännyt sijaintiaan Kassiin tai annettua osoitetta ei löydy.",
+:item_owners_have_not_provided_their_location => "Tavaran omistajat eivät ole lisänneet sijaintiaan Kassiin.",
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",

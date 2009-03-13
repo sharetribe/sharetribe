@@ -5,7 +5,6 @@ CREATE TABLE `conversations` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `favors` (
@@ -28,9 +27,7 @@ CREATE TABLE `feedbacks` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `filters` (
   `id` int(11) NOT NULL auto_increment,
@@ -52,9 +49,7 @@ CREATE TABLE `items` (
   `status` varchar(255) default 'enabled',
   `description` text,
   PRIMARY KEY  (`id`)
-
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events` (
   `id` int(11) NOT NULL auto_increment,
@@ -81,7 +76,6 @@ CREATE TABLE `listing_comments` (
   `updated_at` datetime default NULL,
   `is_read` int(11) default '0',
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listings` (
@@ -100,7 +94,6 @@ CREATE TABLE `listings` (
   `updated_at` datetime default NULL,
   `last_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
@@ -111,11 +104,7 @@ CREATE TABLE `messages` (
   `updated_at` datetime default NULL,
   `conversation_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-<<<<<<< .mine
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
-=======
 ) ENGINE=InnoDB AUTO_INCREMENT=97 DEFAULT CHARSET=utf8;
->>>>>>> .r201
 
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
@@ -204,8 +193,6 @@ INSERT INTO schema_migrations (version) VALUES ('20080825064927');
 
 INSERT INTO schema_migrations (version) VALUES ('20080825114546');
 
-INSERT INTO schema_migrations (version) VALUES ('20080827072951');
-
 INSERT INTO schema_migrations (version) VALUES ('20080827084204');
 
 INSERT INTO schema_migrations (version) VALUES ('20080828090629');
@@ -213,10 +200,6 @@ INSERT INTO schema_migrations (version) VALUES ('20080828090629');
 INSERT INTO schema_migrations (version) VALUES ('20080828104013');
 
 INSERT INTO schema_migrations (version) VALUES ('20080828104239');
-
-INSERT INTO schema_migrations (version) VALUES ('20080912065042');
-
-INSERT INTO schema_migrations (version) VALUES ('20080912070127');
 
 INSERT INTO schema_migrations (version) VALUES ('20080912072148');
 
@@ -266,13 +249,7 @@ INSERT INTO schema_migrations (version) VALUES ('20081103092143');
 
 INSERT INTO schema_migrations (version) VALUES ('20081104070403');
 
-INSERT INTO schema_migrations (version) VALUES ('20081118140107');
-
 INSERT INTO schema_migrations (version) VALUES ('20081118145857');
-
-INSERT INTO schema_migrations (version) VALUES ('20081118152932');
-
-INSERT INTO schema_migrations (version) VALUES ('20081121084051');
 
 INSERT INTO schema_migrations (version) VALUES ('20081121084337');
 

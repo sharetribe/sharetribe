@@ -216,6 +216,12 @@ I18n.store_translations 'en-US',
 :cant_borrow_from_self => "You can't borrow from yourself",
 :cant_thank_self_for_item => "You can't thank yourself for lending",
 :no_description => "No description",
+:show_on_map => "Show on map",
+:show_items_on_map => "Show items on map",
+:back_to_item_view => "Back to item view",
+:all_item_owners_have_not_provided_their_info => "All item owners have not provided their location and thus are not displayed on the map.",
+:item_owner_has_not_provided_location => "Item owner has not provided location or given address can't be found.",
+:item_owners_have_not_provided_their_location => "Item owners have not provided their location.",
 
 #Favors view
 :search_favors_title => "Search favors",

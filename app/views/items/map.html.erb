@@ -1,0 +1,19 @@
+<h1><%= @title %></h1>
+
+<br />
+
+<% if @map %>
+  <% content_for :head do %>
+    <%= GMap.header %>
+    <%= @map.to_html %>  
+  <% end %>
+  <%= link_to t(:back_to_item_view), items_path %>
+  <br /> <br />
+  <%= @map.div(:width => 720, :height => 500) %>
+<% else %>
+  <%= link_to t(:back_to_item_view), items_path %>
+<% end %>  
+  
+  
+
+

@@ -243,6 +243,13 @@ class Person < ActiveRecord::Base
     update_attributes({:address => {:locality => locality } }, cookie)
   end
   
+  def unstructured_address(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    return "" if person_hash["address"].nil?
+    return person_hash["address"]["unstructured"]
+  end
+  
   def phone_number(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
@@ -314,38 +321,19 @@ class Person < ActiveRecord::Base
   
   def update_attributes(params, cookie)
     #Handle name part parameters also if they are in hash root level
-    if params['given_name'] && (params['name'].nil? || params['name']['given_name'].nil?)
-      params.update({'name' => Hash.new}) if params['name'].nil?
-      params['name'].update({'given_name' => params['given_name']})
-      params.delete('given_name')
-    end
-    if params['family_name'] && (params['name'].nil? || params['name']['family_name'].nil?)
-      params.update({'name' => Hash.new}) if params['name'].nil?
-      params['name'].update({'family_name' => params['family_name']})
-      params.delete('family_name')
-    end
-    remove_root_level_address_fields(params, ["street_address", "postal_code", "locality"])
-    # if params['street_address'] && (params['address'].nil? || params['address']['street_address'].nil?)
-    #   params.update({'address' => Hash.new}) if params['address'].nil?
-    #   params['address'].update({'street_address' => params['street_address']})
-    #   params.delete('street_address')
-    # end
-    
-    # if params['address']
-    #   params.update({'unstructured_address' => params['address']})
-    #   params.delete('address')
-    # end
+    remove_root_level_fields(params, "name", ["given_name", "family_name"])
+    remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"])
       
     PersonConnection.put_attributes(params, self.id, cookie)
     #clear old data from cache
     Rails.cache.delete("person_hash.#{id}")
   end
   
-  def remove_root_level_address_fields(params, fields)
+  def remove_root_level_fields(params, field_type, fields)
     fields.each do |field|
-      if params[field] && (params['address'].nil? || params['address'][field].nil?)
-        params.update({'address' => Hash.new}) if params['address'].nil?
-        params['address'].update({field => params[field]})
+      if params[field] && (params[field_type].nil? || params[field_type][field].nil?)
+        params.update({field_type => Hash.new}) if params[field_type].nil?
+        params[field_type].update({field => params[field]})
         params.delete(field)
       end
     end  
