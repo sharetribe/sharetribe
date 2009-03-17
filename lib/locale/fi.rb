@@ -224,6 +224,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :all_item_owners_have_not_provided_their_info => "Osa tavaran omistajista ei ole kertonut sijaintiaan, eikä heitä siksi näytetä kartalla.",
 :item_owner_has_not_provided_location => "Tavaran omistaja ei ole lisännyt sijaintiaan Kassiin tai annettua osoitetta ei löydy.",
 :item_owners_have_not_provided_their_location => "Tavaran omistajat eivät ole lisänneet sijaintiaan Kassiin.",
+:show_users_profile => "Näytä käyttäjän profiili", 
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",

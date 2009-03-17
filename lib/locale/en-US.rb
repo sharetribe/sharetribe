@@ -222,6 +222,7 @@ I18n.store_translations 'en-US',
 :all_item_owners_have_not_provided_their_info => "All item owners have not provided their location and thus are not displayed on the map.",
 :item_owner_has_not_provided_location => "Item owner has not provided location or given address can't be found.",
 :item_owners_have_not_provided_their_location => "Item owners have not provided their location.",
+:show_users_profile => "Show user's profile", 
 
 #Favors view
 :search_favors_title => "Search favors",

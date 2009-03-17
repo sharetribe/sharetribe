@@ -202,7 +202,8 @@ class ItemsController < ApplicationController
     @map = GMap.new("map_div")
     @map.control_init(:large_map => true, :map_type => false)
     @map.center_zoom_init([loc.latitude, loc.longitude], 15)
-    @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => @item.owner.street_address, :info_bubble => loc.address))
+    info_text = render_to_string :partial => "items/map_item", :locals => { :item => item }
+    @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => @item.owner.street_address, :info_window => info_text))
   end
   
   # Shows items with a specific title (params[:id]) on the map.
@@ -236,7 +237,8 @@ class ItemsController < ApplicationController
     @items.each do |item|
       begin
         loc = gg.locate item.owner.unstructured_address
-        @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => item.owner.name, :info_bubble => loc.address))
+        info_text = render_to_string :partial => "items/map_item", :locals => { :item => item }
+        @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => item.owner.name, :info_window => info_text))
         at_least_one_is_valid = true;
       rescue
         flash[:warning] = :all_item_owners_have_not_provided_their_info
