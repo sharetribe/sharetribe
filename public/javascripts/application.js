@@ -4,5 +4,3 @@ window.onload = function () {
 	good_thru_cal = new Epoch('epoch_popup','popup',document.getElementById('listing_good_thru'));
 };
 /*]]>*/
-
-alert(window.location.host);
