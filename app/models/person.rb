@@ -98,14 +98,20 @@ class Person < ActiveRecord::Base
     
     def self.add_as_friend(friend_id, id, cookie)
       connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
+      # Rails.cache.delete("person_hash.#{id}")
+      # Rails.cache.delete("person_hash.#{friend_id}")
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
+      # Rails.cache.delete("person_hash.#{id}")
+      # Rails.cache.delete("person_hash.#{friend_id}")
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
+      # Rails.cache.delete("person_hash.#{id}")
+      # Rails.cache.delete("person_hash.#{friend_id}")
     end
     
     #fixes utf8 letters
@@ -326,7 +332,7 @@ class Person < ActiveRecord::Base
       
     PersonConnection.put_attributes(params, self.id, cookie)
     #clear old data from cache
-    Rails.cache.delete("person_hash.#{id}")
+    # Rails.cache.delete("person_hash.#{id}")
   end
   
   def remove_root_level_fields(params, field_type, fields)
@@ -347,11 +353,12 @@ class Person < ActiveRecord::Base
     cookie = Session.kassiCookie if cookie.nil?
     
     begin
-      person_hash = Rails.cache.fetch("person_hash.#{id}") {PersonConnection.get_person(self.id, cookie)}
+      # person_hash = Rails.cache.fetch("person_hash.#{id}") {PersonConnection.get_person(self.id, cookie)}
+      person_hash = PersonConnection.get_person(self.id, cookie)
     rescue ActiveResource::UnauthorizedAccess => e
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
-      Rails.cache.write("person_hash.#{id}", person_hash)
+      # Rails.cache.write("person_hash.#{id}", person_hash)
     rescue ActiveResource::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil

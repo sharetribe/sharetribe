@@ -8,7 +8,7 @@
     </div>
     <div class="listed_object_date">
       <div class="listed_request_button">
-        <% form_for :request, :url => accept_person_request_path(@person, requester) do |f| %>
+        <% form_for :request, :url => accept_redirect_person_request_path(@person, requester) do |f| %>
           <%= submit_tag t(:accept_request), :onclick => "this.disabled=true,this.form.submit();" %>
         <% end %>
       </div>

@@ -1,3 +1,4 @@
+<div id="friend_<%= person.id %>">
 <div class="listed_object">
   <div class="listed_object_person_image">
     <%= small_avatar_thumb(person) %>
@@ -16,8 +17,11 @@
         <%= link_to t(:send_message_to_user), send_message_person_path(person) %>
       </div>
       <div class="listed_item_owner_right_link">
-        <%= get_friend_status_link(person) %> 
+        <span id="<%= person.id %>_friendstatus">
+          <%= render :partial => "people/friend_status_link", :locals => { :person => person } %>
+        </span> 
       </div>  
     <% end %>
   </div>
+</div>
 </div>

@@ -1,13 +1,29 @@
-<div class="search_results_header">
-<div class="search_results_title">
-  <%= t(:feedback) %> <span class="page_entries_info">(<%= page_entries_info @feedbacks %>)</span>
-</div>
-<%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+<div class="browse_objects_header">
+  <div class="browse_objects_title">
+    <%= t(:feedback) %> (<%= @new_feedback_item_amount.to_s + " " + t(:non_handled) %>)
+  </div>
 </div>
 
-<div id="basic_content">
-  <%= render :partial => @feedbacks %>
-</div>  
-<div class="right_float">
-  <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+<div class="links_panel">
+  <div class="left_float">
+     <%= page_entries_info @feedbacks %> | <%= link_to t(:select_all), "#" %> | <%= link_to_function t(:handle_selected), "$(this).up('form').submit()" %>
+  </div>
+  <div class="right_float">
+    <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>    
+</div>
+
+<% form_for :feedback do |f| %>
+  <div id="basic_content">
+    <%= render :partial => @feedbacks %>
+  </div>
+<% end %>  
+
+<div class="links_panel">
+  <div class="left_float">
+     <%= page_entries_info @feedbacks %> | <%= link_to t(:select_all), "#" %> | <%= link_to_function t(:handle_selected), "$(this).up('form').submit()" %>
+  </div>
+  <div class="right_float">
+    <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
+  </div>    
 </div>

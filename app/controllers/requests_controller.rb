@@ -11,14 +11,22 @@ class RequestsController < ApplicationController
   end
 
   def accept
-    begin
-      @current_user.add_as_friend(params[:id], session[:cookie])
-      flash[:notice] = :friend_request_accepted
-    rescue ActiveResource::ResourceNotFound => e
-      flash[:error] = :accepting_friend_request_failed
+    @friend = Person.find(params[:id])
+    @successful = accept_friend_request(@friend)
+    render :update do |page|
+      if @successful
+        page["#{@friend.id}_friendstatus"].replace_html :partial => 'people/friend_status_link', 
+                                                          :locals => { :person => @friend }                                                  
+      end       
+      refresh_announcements(page)
     end
-    redirect_to :back
   end
+  
+  def accept_redirect
+    @friend = Person.find(params[:id])
+    @success = accept_friend_request(@friend)
+    redirect_to :back
+  end  
 
   def reject
     begin
@@ -31,13 +39,48 @@ class RequestsController < ApplicationController
   end
   
   def cancel
+    @friend = Person.find(params[:id])
+    @successful = cancel_friend_request(@friend)
+    render :update do |page|
+      if @successful
+        page["#{@friend.id}_friendstatus"].replace_html :partial => 'people/friend_status_link', 
+                                                        :locals => { :person => @friend }
+      end       
+      refresh_announcements(page)
+    end
+  end
+
+  private
+  
+  def accept_friend_request(friend)
     begin
-      @current_user.remove_pending_friend_request(params[:id], session[:cookie])
+      @current_user.add_as_friend(friend.id, session[:cookie])
+      flash[:notice] = :friend_request_accepted
+      return true
+    rescue ActiveResource::ResourceNotFound => e
+      flash[:error] = :accepting_friend_request_failed
+      return false
+    end
+  end
+  
+  def cancel_friend_request(friend)
+    begin
+      @current_user.remove_pending_friend_request(friend.id, session[:cookie])
       flash[:notice] = :friend_request_canceled
     rescue ActiveResource::ResourceNotFound => e
       flash[:error] = :canceling_friend_request_failed
     end
-    redirect_to :back
+  end
+  
+  # Updates friend status link
+  def update_friend_status(friend, successful)
+    render :update do |page|
+      if successful
+        page["#{friend.id}_friendstatus"].replace_html :partial => 'people/friend_status_link', 
+                                                        :locals => { :person => friend }
+      end       
+      refresh_announcements(page)
+    end
   end
 
 end

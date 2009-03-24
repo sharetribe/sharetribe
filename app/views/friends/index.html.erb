@@ -2,33 +2,6 @@
   <%= t(:friends_info) %>
 </div>
 
-
-<h1><%= @person.name(session[:cookie]) %></h1>
-
-<div class="links_panel">
-  <div class="left_float">
-    <%= get_profile_navi_items(@person.id) %>
-  </div>
-  <div class="right_float">
-    <%= will_paginate @friends, :prev_label => t(:previous), :next_label => t(:next) %>
-  </div> 
+<div id="friend_view">
+  <%= render :partial => "friends/friend_view"%>
 </div>
-
-<% if (@friends.size > 0)%>
-  <%= render :partial => "people/person", :collection => @friends, :as => "person", :spacer_template => "layouts/dashed_line" %>
-  <% if @friends.total_pages > 1 || params[:per_page] %>
-  <div class="links_panel">
-    <div class="left_float">
-      <%= t("show_friends_on_page") %>:
-      <%= create_footer_pagination_links(["10", "30", "50", "all"], "friends") %>
-    </div>
-    <div class="right_float">
-      <%= will_paginate @friends, :prev_label => t(:previous), :next_label => t(:next) %>
-    </div>  
-  </div>
-  <% end %>
-<% else %>
-  <div id="basic_content">
-    <%= t(:no_friends) %>
-  </div>  
-<% end %>

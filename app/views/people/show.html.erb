@@ -9,7 +9,9 @@
   <div class="right_float">
     <% unless @person.id == @current_user.id %>
       <%= link_to t(:send_message_to_user), send_message_person_path(@person) %> |
-      <%= get_friend_status_link(@person) %>
+      <span id="<%= @person.id %>_friendstatus">
+        <%= render :partial => "people/friend_status_link", :locals => { :person => @person } %>
+      </span>
     <% end %>  
   </div>  
 </div>

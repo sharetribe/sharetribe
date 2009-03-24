@@ -14,9 +14,9 @@ class CategoriesController < ApplicationController
     if (params[:id].eql?("all_categories"))
       fetch_listings(default_conditions)
     elsif (conditions)
-      fetch_listings(conditions + " AND " + default_conditions)
+      fetch_listings(default_conditions + " AND (" + conditions + ")")
     else  
-      fetch_listings("category = '" + params[:id] + "'")
+      fetch_listings("category = '" + params[:id] + "'" + " AND " + default_conditions)
     end
     @pagination_type = "category"
     render :template => "listings/index"

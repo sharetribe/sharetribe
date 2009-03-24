@@ -17,7 +17,7 @@ CREATE TABLE `favors` (
   `updated_at` datetime default NULL,
   `status` varchar(255) default 'enabled',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL auto_increment,
@@ -26,8 +26,9 @@ CREATE TABLE `feedbacks` (
   `url` varchar(255) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `is_handled` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `filters` (
   `id` int(11) NOT NULL auto_increment,
@@ -49,7 +50,7 @@ CREATE TABLE `items` (
   `status` varchar(255) default 'enabled',
   `description` text,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events` (
   `id` int(11) NOT NULL auto_increment,
@@ -60,7 +61,7 @@ CREATE TABLE `kassi_events` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events_people` (
   `person_id` varchar(255) default NULL,
@@ -94,7 +95,7 @@ CREATE TABLE `listings` (
   `updated_at` datetime default NULL,
   `last_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL auto_increment,
@@ -125,7 +126,7 @@ CREATE TABLE `person_comments` (
   `updated_at` datetime default NULL,
   `kassi_event_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `person_conversations` (
   `id` int(11) NOT NULL auto_increment,
@@ -268,3 +269,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090218112317');
 INSERT INTO schema_migrations (version) VALUES ('20090219094209');
 
 INSERT INTO schema_migrations (version) VALUES ('20090225073742');
+
+INSERT INTO schema_migrations (version) VALUES ('20090323121824');
