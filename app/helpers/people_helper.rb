@@ -18,7 +18,8 @@ module PeopleHelper
         elsif name.eql?(:contacts)
           links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@contacts) + ")</span>"
         elsif name.eql?(:friends)
-          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@friends) + ")</span>"      
+          friend_amount = render :partial => "friends/friend_amount" 
+          links << t(name) + "<span id='friend_amount'>" + friend_amount + "</span>"      
         else
           links << t(name)
         end  
@@ -57,13 +58,20 @@ module PeopleHelper
     friend_status = person.friend_status(session[:cookie])
     case friend_status
     when "friend"
-      link_to t(:remove_from_friends), person_friend_path(@current_user, person), :method => :delete 
+      if @friend_view
+        url = person_friend_path(@current_user, person, :friend_view => @friend_view, :friend_view_person => @person)
+        link_to_remote t(:remove_from_friends), :url => url, :method => :delete
+      else  
+        link_to_remote t(:remove_from_friends), :url => person_friend_path(@current_user, person), :method => :delete
+      end   
     when "none"
-      link_to t(:add_as_friend), person_friends_path(person), :method => :post 
+      link_to_remote t(:add_as_friend), :url => person_friends_path(person), :method => :post 
     when "requested"
-      link_to t(:cancel_friend_request), cancel_person_request_path(@current_user, person), :method => :post
+      link_to_remote t(:cancel_friend_request), :url => cancel_person_request_path(@current_user, person), :method => :post
     when "pending"
-      link_to t(:accept_friend_request), accept_person_request_path(@current_user, person), :method => :post
+      link_to_remote t(:accept_friend_request), :url => accept_person_request_path(@current_user, person), :method => :post
+    else
+      friend_status
     end
   end
 

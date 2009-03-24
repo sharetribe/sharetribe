@@ -1,5 +1,13 @@
-<div class="feedback_item">
+<% handled_style = feedback.is_handled == 0 ? "unhandled_feedback" : "" %>
+<div class="feedback_item <%= handled_style %>">
   <div class="listed_full_width_object">
+    <div class="listed_feedback_checkbox">
+      <% if feedback.is_handled == 0 %>
+        <%= check_box_tag :feedback %>
+      <% else %>
+        &nbsp;
+      <% end %>  
+    </div>  
     <div class="listed_feedback_field">
       <b>
       <% if feedback.author_id == "Anonymous"%>
@@ -14,7 +22,7 @@
     <div class="listed_feedback_field">  
       <%= feedback.created_at.to_formatted_s(:basic_date_format_minutes) %>  
     </div>
-    <div class="listed_feedback_field">
+    <div class="listed_feedback_field_wider">
       <%= feedback.url %>
     </div>    
     <div class="listed_feedback_content">

@@ -1032,16 +1032,32 @@ div.feedback_item {
 	border: 1px solid #000;
 }
 
+div.listed_feedback_checkbox {
+	width: 25px;
+	float: left;
+	padding: 10px;
+}
+
 div.listed_feedback_field {
-	width: 150px;
+	width: 125px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_feedback_field_wider {
+	width: 200px;
 	float: left;
 	padding: 10px;
 }
 
 div.listed_feedback_content {
 	float: left;
-	width: 400px;
+	width: 350px;
 	padding: 10px;
+}
+
+div.unhandled_feedback {
+	background: #dbf5b1;
 }
 
 

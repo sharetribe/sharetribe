@@ -7,7 +7,8 @@ class Admin::FeedbacksController < ApplicationController
     save_navi_state(['admin','','',''])
     @feedbacks = Feedback.paginate :page => params[:page], 
                                    :per_page => per_page,
-                                   :order => "id DESC"
+                                   :order => "is_handled, id DESC"
+    @new_feedback_item_amount = Feedback.count(:all, :conditions => "is_handled = '0'")                                
   end
 
   def create
