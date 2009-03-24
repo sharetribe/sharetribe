@@ -230,11 +230,11 @@ module WillPaginate
       if collection.total_pages < 2
         case collection.size
         when 0; "0"
-        when 1; "<b>1</b>"
-        else;   "<b>#{collection.size}</b>/<b>#{collection.size}</b>"
+        when 1; "1"
+        else;   "#{collection.size}/#{collection.size}"
         end
       else
-        %{<b>%d-%d</b>/<b>%d</b>} % [
+        %{%d-%d/%d} % [
           collection.offset + 1,
           collection.offset + collection.length,
           collection.total_entries

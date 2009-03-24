@@ -1,7 +1,8 @@
 <div class="map_marker_info_text_header">
   <%= item.owner.name %>
 </div>
-<div class="map_marker_info_text_content">  
+<div class="map_marker_info_text_content">
+  <%= item.owner.unstructured_address %><br /><br />  
   <%= link_to t(:show_users_profile), item.owner %><br />
   <%= link_to t(:borrow) + " " + item.title.downcase, borrow_person_item_path(item.owner, item) %>
 </div>  

@@ -7,6 +7,12 @@
       <%= favor.title %>
     </div>
     <div class="listed_object_author">
+      <% if favor.description && !favor.description.eql?("") %>
+        <%= text_with_line_breaks(favor.description) %>
+      <% else %>
+        <%=  t(:no_description) %>
+      <% end %>
+      <br /><br />
       <%= t(:offerer).capitalize %>: <%= link_to favor.owner.name(session[:cookie]), favor.owner %>
     </div>     
   </div>

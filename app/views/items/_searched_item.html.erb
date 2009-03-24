@@ -18,6 +18,11 @@
   </div>
   <div class="listed_item_owner_right">
     <% unless is_current_user?(item.owner) %>
+      <% if has_address?(item.owner) %>
+        <div class="listed_item_owner_right_link">
+          <%= link_to t(:show_on_map), map_item_path(item) %>
+        </div>
+      <% end %>
       <div class="listed_item_owner_right_link">
         <%= link_to t(:borrow) + " " + item.title.downcase, borrow_person_item_path(item.owner, item) %>
       </div>  

@@ -50,7 +50,7 @@ CREATE TABLE `items` (
   `status` varchar(255) default 'enabled',
   `description` text,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `kassi_events` (
   `id` int(11) NOT NULL auto_increment,

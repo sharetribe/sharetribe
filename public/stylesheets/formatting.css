@@ -13,9 +13,6 @@ html {
 
 body, div, td, th, h2, h3, h4 { /* redundant rules for bad browsers  */ 
   font-family: "lucida grande", arial, verdana, sans-serif;
-	font-size: 14px;
-	voice-family: "\"}\"";
-	voice-family: inherit;
 	font-size: 12px;
 	color: #333;
 }  
@@ -142,9 +139,9 @@ input.update_postal_code {
 	width: 40px;
 }
 
-
 span.page_entries_info {
-	font-size: 10px;
+	font-size: 12px;
+	font-weight: normal;
 }
 
 ul.profile_info {
