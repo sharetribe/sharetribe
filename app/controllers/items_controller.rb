@@ -134,11 +134,8 @@ class ItemsController < ApplicationController
     save_navi_state(['items', 'search_items'])
     if params[:q]
       query = params[:q]
-      begin
-        s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-        items = Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
-        @items = items.paginate :page => params[:page], :per_page => per_page
-      end
+      items = search_items(query)
+      @items = items.paginate :page => params[:page], :per_page => per_page
     end
   end
   
@@ -202,14 +199,19 @@ class ItemsController < ApplicationController
     @map = GMap.new("map_div")
     @map.control_init(:large_map => true, :map_type => false)
     @map.center_zoom_init([loc.latitude, loc.longitude], 15)
-    info_text = render_to_string :partial => "items/map_item", :locals => { :item => item }
+    info_text = render_to_string :partial => "items/map_item", :locals => { :item => @item }
     @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => @item.owner.street_address, :info_window => info_text))
   end
   
   # Shows items with a specific title (params[:id]) on the map.
   def show_on_map
-    @title = URI.unescape(params[:id])
-    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    if params[:q]
+      @title = params[:q]
+      @items = search_items(params[:q])
+    else  
+      @title = URI.unescape(params[:id])
+      @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    end  
     @title = @title.capitalize
     gg = GoogleGeocode.new YAML.load_file(RAILS_ROOT + '/config/gmaps_api_key.yml')[ENV['RAILS_ENV']]
     
@@ -218,6 +220,10 @@ class ItemsController < ApplicationController
       central_loc = gg.locate "Seurasaari, Helsinki"
       zoom = 12
     else
+      if !@items.first.owner.street_address || @items.first.owner.street_address == ""
+        flash[:error] = :item_owner_has_not_provided_location
+        render :action => :map and return
+      end  
       begin
         central_loc = gg.locate @items.first.owner.unstructured_address
       rescue
@@ -235,6 +241,10 @@ class ItemsController < ApplicationController
     # If at least one item owner has a valid address, display it on the map; otherwise don't render map.
     at_least_one_is_valid = false;
     @items.each do |item|
+      if !item.owner.street_address || item.owner.street_address == ""
+        flash[:warning] = :all_item_owners_have_not_provided_their_info
+        next
+      end
       begin
         loc = gg.locate item.owner.unstructured_address
         info_text = render_to_string :partial => "items/map_item", :locals => { :item => item }
@@ -254,6 +264,11 @@ class ItemsController < ApplicationController
   end
   
   private
+  
+  def search_items(query)
+    s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
+    Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
+  end
   
   def set_description_visibility(visible)
     partial = visible ? "items/title_and_description" : "items/title_no_description"

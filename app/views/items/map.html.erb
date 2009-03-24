@@ -7,11 +7,15 @@
     <%= GMap.header %>
     <%= @map.to_html %>  
   <% end %>
-  <%= link_to t(:back_to_item_view), items_path %>
+  <%= link_to t(:to_item_view), items_path %>
   <br /> <br />
-  <%= @map.div(:width => 720, :height => 500) %>
+  <% if params[:size] %>
+    <%= @map.div(:width => 960, :height => 600) %>
+  <% else %>  
+    <%= @map.div(:width => 720, :height => 500) %>
+  <% end %>  
 <% else %>
-  <%= link_to t(:back_to_item_view), items_path %>
+  <%= link_to t(:to_item_view), items_path %>
 <% end %>  
   
   
