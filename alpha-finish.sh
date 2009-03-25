@@ -5,6 +5,7 @@
 
 rm -rf log
 ln -s /var/datat/kassi/shared/log log
+ln -s /var/datat/kassi/shared/ferret_index index
 rm -rf tmp/pids/
 cd tmp
 ln -s /var/datat/kassi/shared/pids pids
