@@ -162,7 +162,9 @@ module ApplicationHelper
         when "requests"
           path = person_requests_path(params.merge({:per_page => value}))
         when "search_people"
-          path = search_people_path(params.merge({:per_page => value}))                
+          path = search_people_path(params.merge({:per_page => value}))
+        when "feedback"
+          path = admin_feedbacks_path(params.merge({:per_page => value}))                  
         end
         links << link_to(t(value), path)  
       end    

@@ -88,6 +88,11 @@ class ApplicationController < ActionController::Base
     return true if @current_user && @current_user.is_admin == 1
     flash[:warning] = :only_admin_users_are_allowed_to_do_this
     redirect_to :back
+  end
+  
+  def is_admin?
+    return true if @current_user && @current_user.is_admin == 1
+    return false
   end  
   
   def count_new_arrived_items
@@ -101,6 +106,9 @@ class ApplicationController < ActionController::Base
       end
       @requests_count = find_kassi_users_by_ids(ids).size
       @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
+      if is_admin?
+        @new_feedback_item_amount = Feedback.count(:all, :conditions => "is_handled = '0'")
+      end  
     end  
   end
 

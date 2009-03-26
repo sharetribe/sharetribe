@@ -1,27 +1,46 @@
 <div class="browse_objects_header">
   <div class="browse_objects_title">
-    <%= t(:feedback) %> (<%= @new_feedback_item_amount.to_s + " " + t(:non_handled) %>)
+    <%= t(:feedback) %> (<%= pluralize(@new_feedback_item_amount, t(:non_handled), t(:non_handled_partitive)) %>)
   </div>
 </div>
 
 <div class="links_panel">
   <div class="left_float">
-     <%= page_entries_info @feedbacks %> | <%= link_to t(:select_all), "#" %> | <%= link_to_function t(:handle_selected), "$(this).up('form').submit()" %>
+     <%= page_entries_info @feedbacks %> | 
+     <%= t(:show_feedback_items_on_page) %>:
+     <%= create_footer_pagination_links(["10", "30", "50", "all"], "feedback") %>
   </div>
   <div class="right_float">
     <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>
   </div>    
 </div>
 
-<% form_for :feedback do |f| %>
-  <div id="basic_content">
-    <%= render :partial => @feedbacks %>
+
+  <div class="listed_full_width_object">
+    <div class="listed_feedback_checkbox">
+      &nbsp;
+    </div>  
+    <div class="listed_feedback_field">
+      <b><%= t(:feedback_sender) %></b>
+    </div>
+    <div class="listed_feedback_field">  
+      <b><%= t(:feedback_sent_at) %></b>  
+    </div>
+    <div class="listed_feedback_field_wider">
+      <b><%= t(:feedback_url) %></b>
+    </div>    
+    <div class="listed_feedback_content">
+      <b><%= t(:feedback_content) %></b>
+    </div>
   </div>
-<% end %>  
+  <%= render :partial => @feedbacks %>
+
 
 <div class="links_panel">
   <div class="left_float">
-     <%= page_entries_info @feedbacks %> | <%= link_to t(:select_all), "#" %> | <%= link_to_function t(:handle_selected), "$(this).up('form').submit()" %>
+     <%= page_entries_info @feedbacks %> |
+     <%= t(:show_feedback_items_on_page) %>:
+     <%= create_footer_pagination_links(["10", "30", "50", "all"], "feedback") %>
   </div>
   <div class="right_float">
     <%= will_paginate @feedbacks, :prev_label => t(:previous), :next_label => t(:next) %>

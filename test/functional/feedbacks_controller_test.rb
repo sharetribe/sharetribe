@@ -15,7 +15,8 @@ class Admin::FeedbacksControllerTest < ActionController::TestCase
     submit_with_person :index, {}, nil, nil, :get
     assert_response :success
     assert_template 'index'
-    assert_not_nil assigns(:feedbacks)
+    assert_equal 2, assigns(:feedbacks).size
+    assert_equal 1, assigns(:new_feedback_item_amount)
   end
 
   def test_add_feedback
@@ -34,6 +35,16 @@ class Admin::FeedbacksControllerTest < ActionController::TestCase
     }
     assert assigns(:feedback).errors.on(:author_id)
     assert assigns(:feedback).errors.on(:content)
+  end
+  
+  def test_handle_feedback
+    @request.env['HTTP_REFERER'] = admin_feedbacks_path
+    feedback = feedbacks(:one)
+    assert_equal 0, feedback.is_handled
+    submit_with_person :handle, { 
+      :id => feedback.id
+    }, nil, nil, :put
+    assert_redirected_to admin_feedbacks_path
   end
   
 end

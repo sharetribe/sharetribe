@@ -1,9 +1,11 @@
 <% handled_style = feedback.is_handled == 0 ? "unhandled_feedback" : "" %>
-<div class="feedback_item <%= handled_style %>">
+<div id="feedback_<%= feedback.id.to_s %>" class="feedback_item <%= handled_style %>">
   <div class="listed_full_width_object">
     <div class="listed_feedback_checkbox">
       <% if feedback.is_handled == 0 %>
-        <%= check_box_tag :feedback %>
+        <div class="handle_feedback_button">
+          <%= link_to t(:mark_as_handled), handle_admin_feedback_path(feedback), :method => :put %>
+        </div>  
       <% else %>
         &nbsp;
       <% end %>  
