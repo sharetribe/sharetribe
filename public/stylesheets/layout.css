@@ -1033,7 +1033,7 @@ div.feedback_item {
 }
 
 div.listed_feedback_checkbox {
-	width: 25px;
+	width: 90px;
 	float: left;
 	padding: 10px;
 }
@@ -1052,13 +1052,35 @@ div.listed_feedback_field_wider {
 
 div.listed_feedback_content {
 	float: left;
-	width: 350px;
+	width: 280px;
 	padding: 10px;
 }
 
 div.unhandled_feedback {
 	background: #dbf5b1;
 }
+
+div.handle_feedback_button {
+	width: 80px;
+	height: 35px;
+	border: 2px solid #64a006;
+	background: #dbf5b1;
+}
+
+div.handle_feedback_button a {
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	display: block;
+	height: 25px;
+	background: #c0e783;
+	padding: 5px;
+}
+
+div.handle_feedback_button a:hover {
+	background: #dbf5b1;
+}
+
 
 
 /* Footer */
