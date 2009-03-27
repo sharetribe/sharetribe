@@ -24,7 +24,7 @@ class MessagesControllerTest < ActionController::TestCase
     assert_equal message.conversation.participants, [ people(:one), people(:two) ]
     assert_equal message.conversation.listing, listings(:third_valid_listing)
   end
-  
+
   def test_create_new_free_conversation
     submit_with_person :create, { :message => {
       :receiver_id => people(:two).id,

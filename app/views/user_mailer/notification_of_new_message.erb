@@ -1,0 +1,9 @@
+<%= @message.sender.name %> on lähettänyt sinulle Kassissa seuraavan viestin:
+
+***
+
+<%= @message.content %>
+
+***
+
+Voit vastata viestiin osoitteessa <%= "http://kassi.alpha.sizl.org/people/#{@recipient.id}/inbox/#{@message.conversation.id}" %>

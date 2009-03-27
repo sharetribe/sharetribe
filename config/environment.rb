@@ -82,5 +82,7 @@ Rails::Initializer.run do |config|
    BETA_VERSION = "local"
    BUILT_AT = Time.now
    
+   KASSI_MAIL_FROM_ADRESS = "tuki@sizl.org"
+   
 
 end

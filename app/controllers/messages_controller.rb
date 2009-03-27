@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
       else  
         redirect_to person_path(params[:message][:receiver_id])  
       end
-    else    
+    else   
       @message = Message.new(params[:message])
       if @message.save
         if params[:message][:current_conversation]
@@ -32,10 +32,12 @@ class MessagesController < ApplicationController
               person_conversation.update_attribute(:last_sent_at, @message.created_at)
             else  
               person_conversation.update_attributes({ :is_read => 0, :last_received_at => @message.created_at })
+              @receiver = person_conversation.person
             end  
           end
         else
-          if params[:message][:listing_id]  
+          @receiver = Person.find(params[:message][:receiver_id])
+          if params[:message][:listing_id]
             @conversation = Conversation.new(:listing_id => listing.id, :title => params[:message][:title])
           else 
             @conversation = Conversation.new(:title => params[:message][:title])
@@ -59,6 +61,9 @@ class MessagesController < ApplicationController
           end                              
         end  
         @conversation.messages << @message
+        if RAILS_ENV != "development"
+          UserMailer.deliver_notification_of_new_message(@receiver, @message)
+        end  
         flash[:notice] = :message_sent
         if params[:message][:current_conversation]
           redirect_to person_inbox_path(@current_user, params[:message][:current_conversation])

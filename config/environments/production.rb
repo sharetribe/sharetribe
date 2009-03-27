@@ -25,3 +25,13 @@ config.action_view.cache_template_loading            = true
 # these are specified here for alpha, but changed to fit for beta in beta-finish.sh
 COS_URL = "http://cos.alpha.sizl.org"
 COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
+
+# Disable delivery errors, bad email addresses will be ignored
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.delivery_method = :sendmail
+ActionMailer::Base.sendmail_settings = {
+  :location       => '/usr/sbin/sendmail',
+  :arguments      => '-i -t'
+}
+ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
+ActionMailer::Base.default_charset = "utf-8"
