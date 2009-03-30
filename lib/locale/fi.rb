@@ -444,7 +444,11 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :password_again => "Salasana uudestaan",
 :change_email => "Vaihda sähköpostiosoitetta",
 :change_password => "Vaihda salasanaa",
-:email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",   
+:email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",
+:send_email_notifications => "Lähetä sähköpostimuistutus",
+:email_when_new_message => "uusista viesteistä",
+:email_when_new_comment => "uusista kommenteista omiin ilmoituksiin",
+:settings_updated_successfully => "Asetukset päivitetty",  
 
 #Error messages
 :operation_not_permitted => "Toiminto ei ole sallittu",

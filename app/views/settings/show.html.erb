@@ -52,3 +52,31 @@
       </div>  
     </fieldset>
   <% end %>
+  <% form_for @person.settings, :url => person_settings_path(@person), :method => :put do |f| %>
+    <fieldset>  
+      <legend>
+        <%= t(:send_email_notifications) %>:
+      </legend>
+      <div class="form_extra_padding">
+      <div class="form_container">
+        <div class="form_right">
+          <%= f.check_box :email_when_new_message %>
+          &nbsp;
+          <%= t(:email_when_new_message) %>
+        </div>
+      </div>
+      <div class="form_container">    
+        <div class="form_right">
+          <%= f.check_box :email_when_new_comment %>
+          &nbsp;
+          <%= t(:email_when_new_comment) %>
+        </div>
+      </div>  
+      <div class="form_container">
+        <div class="form_right">
+          <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        </div>
+      </div>
+      </div>  
+    </fieldset>
+  <% end %>

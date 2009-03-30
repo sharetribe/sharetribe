@@ -444,6 +444,10 @@ I18n.store_translations 'en-US',
 :change_email => "Change email",
 :change_password => "Change password",
 :email_has_already_been_taken => "Email address has already been taken",
+:send_email_notifications => "Send email notifications",
+:email_when_new_message => "of new messages",
+:email_when_new_comment => "of new comments to own listings",
+:settings_updated_successfully => "Settings updated",
 
 #Error messages
 :title_is_required => "Title is required",

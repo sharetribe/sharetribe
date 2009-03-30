@@ -46,6 +46,18 @@ class SettingsControllerTest < ActionController::TestCase
     change_password("testitestitestitestitestitestitestitestitestitesti", "testitestitestitestitestitestitestitestitestitesti", :password_is_invalid, false)
   end
   
+  def test_update
+    submit_with_person :update, { 
+      :settings => { 
+        :email_when_new_message => 0,
+        :email_when_new_comment => 0 
+      },
+      :person_id => @test_person1.id
+    }, :person, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :settings_updated_successfully
+  end
+  
   private 
   
   def change_email(email, message, should_succeed)
