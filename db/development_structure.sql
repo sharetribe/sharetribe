@@ -77,7 +77,7 @@ CREATE TABLE `listing_comments` (
   `updated_at` datetime default NULL,
   `is_read` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listings` (
   `id` int(11) NOT NULL auto_increment,
@@ -95,7 +95,7 @@ CREATE TABLE `listings` (
   `updated_at` datetime default NULL,
   `last_modified` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `messages` (
   `id` int(11) NOT NULL auto_increment,
@@ -162,6 +162,16 @@ CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
   UNIQUE KEY `unique_schema_migrations` (`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `settings` (
+  `id` int(11) NOT NULL auto_increment,
+  `email_when_new_message` int(11) default '1',
+  `email_when_new_comment` int(11) default '1',
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `person_id` varchar(255) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL auto_increment,
@@ -271,3 +281,9 @@ INSERT INTO schema_migrations (version) VALUES ('20090219094209');
 INSERT INTO schema_migrations (version) VALUES ('20090225073742');
 
 INSERT INTO schema_migrations (version) VALUES ('20090323121824');
+
+INSERT INTO schema_migrations (version) VALUES ('20090330064443');
+
+INSERT INTO schema_migrations (version) VALUES ('20090330070210');
+
+INSERT INTO schema_migrations (version) VALUES ('20090330072036');

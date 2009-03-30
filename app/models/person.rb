@@ -52,6 +52,8 @@ class Person < ActiveRecord::Base
   has_many :received_comments, 
            :class_name => "PersonComment", 
            :foreign_key => "target_person_id"
+           
+  has_one :settings         
 
   class PersonConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information

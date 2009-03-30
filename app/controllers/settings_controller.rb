@@ -39,4 +39,11 @@ class SettingsController < ApplicationController
     redirect_to person_settings_path(@person)
   end
   
+  def update
+    @person = Person.find(params[:person_id])
+    @person.settings.update_attributes(params[:settings])
+    flash[:notice] = :settings_updated_successfully
+    redirect_to person_settings_path(@person)
+  end
+  
 end

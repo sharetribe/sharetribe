@@ -79,6 +79,7 @@ class PeopleController < ApplicationController
       redirect_to new_person_path and return
     end
     session[:person_id] = @person.id
+    @person.settings = Settings.create
     redirect_to(root_path) #TODO should redirect to the page where user was
   end
   
