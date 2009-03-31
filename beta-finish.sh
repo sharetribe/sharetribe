@@ -25,6 +25,10 @@ sed -i "s/kassi\.alpha\.sizl/kassi\.sizl/" config/environments/production.rb
  perl -pi -e "s/Last Changed Rev: //"`-`svn info svn+ssh://alpha.sizl.org/svn/kassi/tags | \
  grep "^Last Changed Rev" | \
  perl -pi -e "s/Last Changed Rev: //"`))
+ 
+ #ensure new line at the end of file
+echo "" >> config/environments/production.rb
+ 
 echo "BETA_VERSION = \"0.7.$REV\"" >> config/environments/production.rb
 BUILD_DATE=`svn info svn+ssh://alpha.sizl.org/svn/kassi | \
  grep "^Last Changed Date" | \
