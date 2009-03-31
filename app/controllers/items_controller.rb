@@ -205,6 +205,8 @@ class ItemsController < ApplicationController
   
   # Shows items with a specific title (params[:id]) on the map.
   def show_on_map
+    
+    # if there is params[:q] we are in the search view, otherwise in the list view
     if params[:q]
       @title = params[:q]
       @items = search_items(params[:q])

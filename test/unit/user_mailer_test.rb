@@ -13,7 +13,7 @@ class UserMailerTest < ActionMailer::TestCase
     recipient = people(:two)
     message = messages(:valid_message)
     # Message is sent by person 1, so using cookie 1
-    mail = UserMailer.create_notification_of_new_message(recipient, message, @cookie2)
+    mail = UserMailer.create_notification_of_new_message(recipient, message, @cookie1)
     assert_equal(KASSI_MAIL_FROM_ADRESS, mail.from.first)
     assert_equal(message.sender.name + "on lähettänyt sinulle viestin Kassissa", mail.subject)
     assert_equal(recipient.email(@cookie2), mail.to.first)
@@ -22,7 +22,7 @@ class UserMailerTest < ActionMailer::TestCase
   def test_notification_of_new_comment
     comment = listing_comments(:third_comment)
     # Comment is left by person 2, so using cookie 2
-    mail = UserMailer.create_notification_of_new_comment(comment, @cookie1)
+    mail = UserMailer.create_notification_of_new_comment(comment, @cookie2)
     assert_equal(KASSI_MAIL_FROM_ADRESS, mail.from.first)
     assert_equal(comment.author.name + 'on kommentoinut ilmoitustasi "' + comment.listing.title + '"', mail.subject)
     assert_equal(comment.listing.author.email(@cookie1), mail.to.first)

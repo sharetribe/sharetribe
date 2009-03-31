@@ -57,10 +57,20 @@ class MessagesControllerTest < ActionController::TestCase
     assert_equal conversation.messages, [ messages(:valid_message), messages(:two), message]
   end
   
-  # TODO: This can be done after redirect_to :back can be tested
-  # def test_create_invalid_message
-  #   submit_with_person :create, { :message => {} }, :message, :sender_id
-  #   assert assigns(:listing).errors.on(:content)
-  # end
+  def test_create_message_with_no_content
+    @request.env['HTTP_REFERER'] = send_message_person_path(people(:one))
+    submit_with_person :create, { :message => {} }, :message, :sender_id
+    assert assigns(:message).errors.on(:content)
+    assert_equal :message_could_not_be_sent, flash[:error]
+  end
+  
+  def test_create_message_with_no_title
+    @request.env['HTTP_REFERER'] = send_message_person_path(people(:one))
+    submit_with_person :create, { :message => { 
+      :receiver_id => people(:two).id, 
+      :content => "test_content" 
+    }}, :message, :sender_id
+    assert_equal :message_must_have_title, flash[:error]
+  end
   
 end
