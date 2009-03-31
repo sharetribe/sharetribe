@@ -1,13 +1,13 @@
 <div class="profile_info_field">
   <b><%= t(:otasizzle_username)%>:</b> <%= @person.username(session[:cookie]) %>
 </div>
-<% unless (@person.address == nil || @person.address.eql?("")) && @person.id != @current_user.id %>
+<% unless (@person.unstructured_address == nil || @person.unstructured_address.eql?("")) && !is_current_user(@person) %>
 <div class="dashed_line"></div>
 <div class="profile_info_field">  
   <b><%= t(:address)%>:</b> <%= @person.unstructured_address %>
 </div>
 <% end %>
-<% unless (@person.phone_number == nil || @person.phone_number.eql?("")) && @person.id != @current_user.id %>
+<% unless (@person.phone_number == nil || @person.phone_number.eql?("")) && !is_current_user(@person) %>
 <div class="dashed_line"></div>
 <div class="profile_info_field">    
   <b><%= t(:phone_number)%>:</b> <%= @person.phone_number %>

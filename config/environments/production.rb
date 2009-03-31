@@ -26,7 +26,6 @@ config.action_view.cache_template_loading            = true
 COS_URL = "http://cos.alpha.sizl.org"
 COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
 
-# Disable delivery errors, bad email addresses will be ignored
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :sendmail
 ActionMailer::Base.sendmail_settings = {

@@ -208,16 +208,6 @@ class Person < ActiveRecord::Base
     update_attributes({:name => {:family_name => name } }, cookie)
   end
   
-  def address(cookie=nil)
-    person_hash = get_person_hash(cookie)
-    return "Person not found!" if person_hash.nil?
-    return person_hash["unstructured_address"]
-  end
-  
-  def set_address(address, cookie)
-    update_attributes({:unstructured_address => address}, cookie)
-  end
-  
   def street_address(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Not found!" if person_hash.nil?

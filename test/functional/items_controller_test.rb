@@ -125,6 +125,17 @@ class ItemsControllerTest < ActionController::TestCase
     search("*asar*", 1)
   end
   
+  def test_map
+    submit_with_person :map, {
+      :id => items(:one).id
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'map'
+    assert_equal assigns(:item), items(:one)
+    # Fails, probably because tests can't connect to Google Maps for some reason
+    # assert_not_nil assigns(:map)
+  end
+  
   private
   
   def search(query, result_count)
