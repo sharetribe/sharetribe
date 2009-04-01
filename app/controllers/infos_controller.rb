@@ -14,6 +14,9 @@ class InfosController < ApplicationController
 
   def terms
     save_navi_state(['info','terms','',''])
+    @not_first_time = true
+    #TODO english version of terms
+    render :template => "consents/service_agreement_fi"
   end
 
 end

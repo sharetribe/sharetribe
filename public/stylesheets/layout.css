@@ -1081,7 +1081,14 @@ div.handle_feedback_button a:hover {
 	background: #dbf5b1;
 }
 
+div.accept_or_reject_terms {
+	margin-left: 10px;
+	overflow: hidden;
+}
 
+div.terms {
+	clear: both;
+}
 
 /* Footer */
 
