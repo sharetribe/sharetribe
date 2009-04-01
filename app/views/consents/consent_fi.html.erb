@@ -1,33 +1,58 @@
-<p><b>Kassin, kuten muidenkin OtaSizzle-palveluiden käytöstä kerätään tietoa tieteellistä tutkimusta varten, joten palvelun käyttö edellyttää alla olevan suostumuksen hyväksymistä.</b></p>
+<p>
+  <b>Kassin, kuten muidenkin OtaSizzle-palveluiden käytöstä kerätään tietoa tieteellistä tutkimusta varten, joten palvelun käyttö edellyttää alla olevan suostumuksen hyväksymistä.</b>
+</p>
+
 <br/>
+
 <h1>KIRJALLINEN SUOSTUMUS TUTKIMUKSEEN</h1>
-<p>Hyväksymällä tämän suostumuksen vahvistan, että osallistun vapaaehtoisesti OtaSizzle-projektiin liittyvään tutkimukseen nimeltä Kassieksperimentti.
+
+<div class="terms">
+
+<p>
+  Hyväksymällä tämän suostumuksen vahvistan, että osallistun vapaaehtoisesti OtaSizzle-projektiin liittyvään tutkimukseen nimeltä Kassieksperimentti.
 </p>
-<p>Olen lukenut ja ymmärtänyt oheisen tutkimusselosteen "<%= link_to "Tiedote osallistumisesta tieteelliseen tutkimukseen", :action => "show_research_information" %>"  ja vahvistan, että minulle on annettu riittävästi tietoja ja mahdollisuus esittää kysymyksiä tutkimuksesta (tai mikäli tiedot vaikuttaisivat tutkimukseen, minulle on luvattu kyseinen mahdollisuus kokeen jälkeen). 
+<p>
+  Olen lukenut ja ymmärtänyt oheisen tutkimusselosteen "<%= link_to "Tiedote osallistumisesta tieteelliseen tutkimukseen", :action => "show_research_information" %>"  ja vahvistan, että minulle on annettu riittävästi tietoja ja mahdollisuus esittää kysymyksiä tutkimuksesta (tai mikäli tiedot vaikuttaisivat tutkimukseen, minulle on luvattu kyseinen mahdollisuus kokeen jälkeen). 
 </p>
-<p>Olen valmis seuraamaan tutkijoiden minulle antamia ohjeita ennen tutkimusta, sen aikana ja sen jälkeen. 
+<p>
+  Olen valmis seuraamaan tutkijoiden minulle antamia ohjeita ennen tutkimusta, sen aikana ja sen jälkeen. 
 </p>
-<p>Annan suostumukseni siihen, että henkilötietojani käsitellään tutkimusselosteessa kuvatulla tavalla. 
+<p>
+  Annan suostumukseni siihen, että henkilötietojani käsitellään tutkimusselosteessa kuvatulla tavalla. 
 </p>
-<p>Minulle on kerrottu, että minulla on oikeus keskeyttää tutkimukseen osallistuminen missä tahansa vaiheessa tarvitsematta kertoa syytä ja olla vastaamatta mihin tahansa kysymykseen mitä tutkimuksen aikana, sitä ennen, tai sen jälkeen minulle  esitetään.
+<p>
+  Minulle on kerrottu, että minulla on oikeus keskeyttää tutkimukseen osallistuminen missä tahansa vaiheessa tarvitsematta kertoa syytä ja olla vastaamatta mihin tahansa kysymykseen mitä tutkimuksen aikana, sitä ennen, tai sen jälkeen minulle  esitetään.
 </p>
-<p>Tutkimuksessa käytettäviä palveluita (Kassi yms.) saa käyttää vain niiden käyttöehtojen mukaisesti. Hyväksyn <%= link_to "käyttöehdot", :action => "show_agreement" %> ennen kuin käytän palveluita.
+<p>
+  Tutkimuksessa käytettäviä palveluita (Kassi yms.) saa käyttää vain niiden käyttöehtojen mukaisesti. Hyväksyn <%= link_to "käyttöehdot", :action => "show_agreement" %> ennen kuin käytän palveluita.
 </p>
 
+</div>
 
-<% form_tag(:action => "accept") do %>
-  
-   <%= submit_tag t(:accept) %>  
-   
-<% end -%>
-<% form_tag(:action => "decline") do %>
-  
-   <%= submit_tag t(:decline) %>  
-   
-<% end -%>
+<div class="accept_or_reject_terms">
+  <div class="left_float">
+    <% form_tag(:action => "accept") do %>
+      <%= submit_tag t(:accept) %>
+      &nbsp; 
+    <% end -%>
+  </div>
+  <div class="left_float">  
+    <% form_tag(:action => "decline") do %>
+      <%= submit_tag t(:decline) %>
+    <% end -%>
+  </div>
+</div>
 
-<p>Mikäli haluat tutkimuksesta lisää tietoa tai sinulla on muuta kysyttävää, voit ottaa yhteyttä:</p>
-<p>Tutkimusapulainen Antti Virolainen, tutkimusapulainen Juho Makkonen, projektipäällikkö Olli Pitkänen tai professori Martti Mäntylä
+<div class="terms">
+
+<p>
+  Mikäli haluat tutkimuksesta lisää tietoa tai sinulla on muuta kysyttävää, voit ottaa yhteyttä:
 </p>
-<p>Tietotekniikan tutkimuslaitos HIIT, Spekti Pilotti, Metsänneidonkuja 4, 02130  Espoo, Puh: (09) 4511, Email: antti.virolainen (ät) tkk.fi, juho.makkonen (ät) tkk.fi, olli.pitkanen (ät) hiit.fi, martti.mantyla (ät) hiit.fi
+<p>
+  Tutkimusapulainen Antti Virolainen, tutkimusapulainen Juho Makkonen, projektipäällikkö Olli Pitkänen tai professori Martti Mäntylä
 </p>
+<p>
+  Tietotekniikan tutkimuslaitos HIIT, Spekti Pilotti, Metsänneidonkuja 4, 02130  Espoo, Puh: (09) 4511, Email: antti.virolainen (ät) tkk.fi, juho.makkonen (ät) tkk.fi, olli.pitkanen (ät) hiit.fi, martti.mantyla (ät) hiit.fi
+</p>
+
+</div>
