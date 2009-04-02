@@ -174,7 +174,9 @@ module ApplicationHelper
   
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(text)
-    h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to link_url, link_url }.gsub(/\n/, "<br />")
+   #pattern for ending characters that are not part of the url
+   pattern = /[\.)]+$/
+    h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
   
   def small_avatar_thumb(person)

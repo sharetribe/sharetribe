@@ -34,8 +34,8 @@ echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
 
 
 
-#rake db:migrate
-#rake test
+rake db:migrate
+rake test
 rake db:migrate RAILS_ENV=production
 #script/server -d -e production -p 8000
 mongrel_rails cluster::start
