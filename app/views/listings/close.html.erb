@@ -14,13 +14,13 @@
           select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)}) 
         %>
       </div>
-      <div class="form_container">
-        <div class="form_left">
-          <%= t(:comment_for_favor_realizer) %>: 
-        </div>
-        <div class="form_right">
-          <%= f.text_area :comment, :size => "48x5" %>
-        </div>
+    </div>  
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:comment_for_favor_realizer) %>: 
+      </div>
+      <div class="form_right">
+        <%= f.text_area :comment, :size => "48x5" %>
       </div>
     </div>
     <div class="form_container">

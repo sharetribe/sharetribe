@@ -16,6 +16,12 @@ I18n.store_translations 'fi',
 :remove => "Poista",
 :save => "Tallenna",
 
+#Visibility
+:visibility => "Näkyvyys",
+:visible_to_all => "Näkyy kaikille",
+:visible_to_kassi_users => "Näkyy vain Kassin käyttäjille",
+:visible_to_certain_groups => "Näkyy vain tietyille käyttäjäryhmille",  
+
 #Languages
 :fi => "Suomi",
 :en => "Englanti",

@@ -21,6 +21,12 @@ I18n.store_translations 'en-US',
 :en => "English",
 :swe => "Swedish",
 
+#Visibility
+:visibility => "Visibility", 
+:visible_to_all => "Visible to everybody",
+:visible_to_kassi_users => "Visible only to users of Kassi",
+:visible_to_certain_groups => "Visible only to certain user groups",
+
 #Login form
 :logged_in => "You're logged in as ",
 :not_logged_in => "You're not logged in.",
