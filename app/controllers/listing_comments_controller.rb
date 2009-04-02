@@ -9,7 +9,7 @@ class ListingCommentsController < ApplicationController
     @comment.is_read = (@comment.author.id == @listing.author.id) ? 1 : 0
     if @comment.save
       if RAILS_ENV != "development" && !current_user?(@listing.author) && @listing.author.settings.email_when_new_comment == 1
-        UserMailer.deliver_notification_of_new_comment(@comment, session[:cookie])
+        UserMailer.deliver_notification_of_new_comment(@comment, @request)
       end
       flash[:notice] = "comment_added"  
       respond_to do |format|

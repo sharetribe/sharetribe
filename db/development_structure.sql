@@ -77,7 +77,7 @@ CREATE TABLE `listing_comments` (
   `updated_at` datetime default NULL,
   `is_read` int(11) default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `listings` (
   `id` int(11) NOT NULL auto_increment,
