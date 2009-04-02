@@ -105,8 +105,7 @@ CREATE TABLE `messages` (
   `updated_at` datetime default NULL,
   `conversation_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `people` (
   `id` varchar(22) NOT NULL,
