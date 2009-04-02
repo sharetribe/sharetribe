@@ -62,7 +62,7 @@ class MessagesController < ApplicationController
         end  
         @conversation.messages << @message
         if RAILS_ENV != "development" && @receiver.settings.email_when_new_message == 1
-          UserMailer.deliver_notification_of_new_message(@receiver, @message, @request)
+          UserMailer.deliver_notification_of_new_message(@receiver, @message, request)
         end  
         flash[:notice] = :message_sent
         if params[:message][:current_conversation]
