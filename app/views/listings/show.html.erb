@@ -99,9 +99,10 @@
   
   <div id="comments">
     
-    <br /><br />
+    
   
   <% if (@listing.comments.size > 0) %>
+    <br /><br />
     <a name="comments"></a>
     <div id="comments">
       <h4><%= t(:comments) + " (" + @listing.comments.size.to_s + ")" %></h4>
@@ -112,12 +113,16 @@
     </div>
   <% end %>
   
+  <br /><br />
+  
+  
   <% if @current_user && @listing.open? %>
     <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
       <b><%= t(:comment_listing) %> </b><br /><br />
       <%= f.text_area :content, :size => "48x5" %>
       <br />
       <%= f.hidden_field :author_id, :value => @current_user.id %>
+      <br />
       <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
     <% end %>  
   <% end %>
