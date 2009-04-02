@@ -29,10 +29,13 @@ class Listing < ActiveRecord::Base
   }
   
   #Options for status
-  VALID_STATUS =  ["open", "in_progress", "closed"]
+  VALID_STATUS = ["open", "in_progress", "closed"]
   
   # Allowed language codes
   VALID_LANGUAGES = ["fi", "swe", "en-US"]
+  
+  # Possible visibility types
+  POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends"]
   
   # Main categories.
   MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
@@ -80,6 +83,7 @@ class Listing < ActiveRecord::Base
   validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language
 
   validates_inclusion_of :status, :in => VALID_STATUS
+  validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
   validates_inclusion_of :category, :in => get_valid_categories
   validates_inclusion_of :good_thru, :allow_nil => true, 
                          :in => DateTime.now..DateTime.now + 1.year, :message => "must not be more than one year"

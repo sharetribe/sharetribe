@@ -72,8 +72,8 @@ Rails::Initializer.run do |config|
    
 
    #COS_URL = "http://maps.cs.hut.fi/cos"
-   #COS_URL = "http://localhost:3001"
-   COS_URL = "http://cos.alpha.sizl.org"
+   COS_URL = "http://localhost:3001"
+   #COS_URL = "http://cos.alpha.sizl.org"
    
    COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
   #For example there will be no confirmation when adding profile avatar picture
@@ -82,7 +82,7 @@ Rails::Initializer.run do |config|
    BETA_VERSION = "local"
    BUILT_AT = Time.now
    
-   KASSI_MAIL_FROM_ADRESS = "tuki@sizl.org"
+   KASSI_MAIL_FROM_ADRESS = "kassi@sizl.org"
    
 
 end

@@ -35,11 +35,25 @@ class ApplicationController < ActionController::Base
   
   # Fetch listings based on conditions
   def fetch_listings(conditions, order = 'id DESC')
+    conditions += get_visibility_conditions("author_id")
     @listings = Listing.paginate(:page => params[:page], 
                                  :per_page => per_page,
                                  :order => order,
-                                 :select => 'id, created_at, author_id, title, status, times_viewed, category, good_thru', 
-                                 :conditions => conditions)                                            
+                                 :select => 'id, created_at, author_id, title, status, times_viewed, category, good_thru, visibility', 
+                                 :conditions => conditions)                                                                       
+  end
+
+  def get_visibility_conditions(person_type)
+    conditions = "AND (visibility = 'everybody'"
+    if @current_user
+      conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{@current_user.id}'"
+      ids = Array.new
+      @current_user.get_friends(session[:cookie])["entry"].each do |person|
+        ids << person["id"]
+      end
+      conditions += " OR author_id IN (" + ids.collect { |id| "'#{id}'" }.join(",") + ")"
+    end
+    conditions += ")"
   end
 
   # Define how many listed items are shown per page.

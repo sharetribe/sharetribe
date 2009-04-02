@@ -1,0 +1,17 @@
+<% 
+  visibility_types = [
+    [ t(:visible_to_all), "everybody" ],
+    [ t(:visible_to_kassi_users), "kassi_users" ],
+    [ t(:visible_to_certain_groups), "friends" ]
+  ]
+%>
+<div class="form_container">
+  <div class="form_left">
+    <%= t(:visibility) %>: 
+  </div>
+  <div class="form_right">
+    <%= 
+      select(form_type, "visibility", visibility_types) 
+    %>
+  </div>
+</div>

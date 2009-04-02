@@ -107,6 +107,7 @@
       <%= f.hidden_field :category, :value => params[:category] %>
     <% end %>  
   </div>
+  <%= render :partial => "layouts/visibility_form", :locals => { :form_type => "listing" } %>
   <div class="form_container">  
     <div class="form_right">
       <%= submit_tag t(:add_listing_submit), :onclick => "this.disabled=true,this.form.submit();" %>  

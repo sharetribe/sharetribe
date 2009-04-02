@@ -107,6 +107,13 @@ class ListingTest < ActiveSupport::TestCase
     assert !listing.valid?
   end
 
+  def test_visibility
+    assert_listing_valid(:visibility, "test", false)
+    Listing::POSSIBLE_VISIBILITIES.each do |visibility|
+      assert_listing_valid(:visibility, visibility, true)
+    end
+  end
+
   def test_comments_association
     assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
     listings(:valid_listing).comments    

@@ -14,6 +14,7 @@ valid_listing:
     - swe
   value_cc: 13
   value_other: "viiniä"
+  visibility: "everybody"
 
 another_valid_listing:
   author_id: dMF4WsJ7Kr3BN6ab9B7ckF
@@ -28,6 +29,7 @@ another_valid_listing:
     - swe
   value_cc: 13
   value_other: "rahaa"
+  visibility: "everybody"
 
 third_valid_listing:
   author_id: df0LOkLS4r3yF-aby-BSxS
@@ -42,3 +44,4 @@ third_valid_listing:
     - swe
   value_cc: 13
   value_other: "rahaa"
+  visibility: "everybody"
