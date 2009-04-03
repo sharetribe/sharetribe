@@ -10,6 +10,7 @@ class CasSession < ActiveResource::Base
   self.site = COS_URL
   self.format = :json 
   self.timeout = COS_TIMEOUT
+  self.element_name = "session"
   @@app_password = "Xk4z5iZ"
   @@app_name = "kassi"
   @@cookie = nil
