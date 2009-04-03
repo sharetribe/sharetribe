@@ -46,6 +46,7 @@ ActionController::Routing::Routes.draw do |map|
                                        :terms => :get
                                      }
   map.resource :session                            
+  map.resource :cas_session
   map.resources :listings, 
                 :member => { 
                              :mark_as_interesting => :post, 
