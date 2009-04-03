@@ -1,22 +1,23 @@
 require 'casclient'
 require 'casclient/frameworks/rails/filter'
 
-class CasSessionController < ApplicationController
+class CasSessionsController < ApplicationController
 
   before_filter CASClient::Frameworks::Rails::Filter, :only => [:new]
 
   def create
 
-    service_uri = "http://cos:3000"
-    proxy_granting_ticket = session[:cas_pgt]
-    logger.info proxy_granting_ticket
-    pt_ticket = CASClient::Frameworks::Rails::Filter.client.request_proxy_ticket(proxy_granting_ticket, service_uri).ticket
-    logger.info pt_ticket
+    service_uri = COS_URL
+    # 4 lines commented out, until PT is used
+    # proxy_granting_ticket = session[:cas_pgt]
+    #     logger.info proxy_granting_ticket
+    #     pt_ticket = CASClient::Frameworks::Rails::Filter.client.request_proxy_ticket(proxy_granting_ticket, service_uri).ticket
+    #     logger.info pt_ticket
 
 #    @session = Session.create({ :username => params[:username], 
 #                               :password => params[:password] })
-    @session = Session.create({ :username => session[:cas_user],
-                                :password => pt_ticket })
+    @session = CasSession.create({ :username => session[:cas_user],
+                                :password => "pt_ticket" })     # should be pt_ticket without ""
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
 
@@ -39,7 +40,7 @@ class CasSessionController < ApplicationController
   end
   
   def destroy
-    Session.destroy(session[:cookie]) if session[:cookie]
+    CasSession.destroy(session[:cookie]) if session[:cookie]
     session[:cookie] = nil
     session[:person_id] = nil
     flash[:notice] = :logout_successful
@@ -51,7 +52,7 @@ class CasSessionController < ApplicationController
     # there is no navi. Should store the navi state or do something else...
 
     #clear_navi_state
-    @session =  Session.new
+    @session =  CasSession.new
     #debugger
     self.create
   end

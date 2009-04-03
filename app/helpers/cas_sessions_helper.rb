@@ -1,0 +1,2 @@
+module CasSessionsHelper
+end
