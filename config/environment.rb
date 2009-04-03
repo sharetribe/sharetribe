@@ -86,3 +86,19 @@ Rails::Initializer.run do |config|
    
 
 end
+
+require 'casclient'
+require 'casclient/frameworks/rails/filter'
+#require 'casclient/frameworks/rails/cas_proxy_callback_controller'
+
+
+# enable detailed CAS logging for easier troubleshooting
+cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
+cas_logger.level = Logger::DEBUG
+
+CASClient::Frameworks::Rails::Filter.configure(
+    :cas_base_url => "http://alpha.sizl.org:8180/cas",
+    :logger => cas_logger
+ #   :proxy_retrieval_url => "https://kassi:3444/cas_proxy_callback/retrieve_pgt",
+ #   :proxy_callback_url => "https://kassi:3444/cas_proxy_callback/receive_pgt"
+)
