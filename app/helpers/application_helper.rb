@@ -175,7 +175,7 @@ module ApplicationHelper
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(text)
    #pattern for ending characters that are not part of the url
-   pattern = /[\.)]+$/
+   pattern = /[\.)]*$/
     h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
   
