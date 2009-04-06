@@ -41,6 +41,13 @@ CREATE TABLE `filters` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `groups` (
+  `id` varchar(22) NOT NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 CREATE TABLE `items` (
   `id` int(11) NOT NULL auto_increment,
   `owner_id` varchar(255) default NULL,
@@ -298,3 +305,5 @@ INSERT INTO schema_migrations (version) VALUES ('20090401184511');
 INSERT INTO schema_migrations (version) VALUES ('20090401185039');
 
 INSERT INTO schema_migrations (version) VALUES ('20090402144456');
+
+INSERT INTO schema_migrations (version) VALUES ('20090406081353');
