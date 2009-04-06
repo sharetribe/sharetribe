@@ -8,7 +8,10 @@ class ItemsController < ApplicationController
   def index
     save_navi_state(['items','browse_items','',''])
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
-    @item_titles = Item.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    @item_titles = Item.find(:all, 
+                             :conditions => "status <> 'disabled'" + get_visibility_conditions("item"), 
+                             :select => "DISTINCT title", 
+                             :order => 'title ASC').collect(&:title)
     
     @item_title_hash = {}
     
@@ -60,8 +63,10 @@ class ItemsController < ApplicationController
   end
   
   def create
+    get_visibility(:item)
     @item = Item.new(params[:item])
     @person = @item.owner
+    @conditions = get_visibility_conditions("item")
     render :update do |page|
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
@@ -69,7 +74,7 @@ class ItemsController < ApplicationController
         flash[:notice] = :item_added
         flash[:error] = nil
         page["profile_items"].replace_html :partial => "people/profile_item", 
-                                           :collection => @current_user.available_items,
+                                           :collection => @current_user.available_items(@conditions),
                                            :as => :item, 
                                            :spacer_template => "layouts/dashed_line"
         page["profile_add_item"].replace_html :partial => "people/profile_add_item"                                   
@@ -83,6 +88,7 @@ class ItemsController < ApplicationController
   
   def edit
     @item = Item.find(params[:id])
+    @object_visibility = @item.visibility
     @form_path = item_path(@item)
     @cancel_path = cancel_update_person_item_path(@item.owner, @item)
     @method = :put
@@ -92,13 +98,15 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @person = @item.owner
+    get_visibility(:item)
     render :update do |page|
       if !is_current_user?(@item.owner)
         flash[:error] = :operation_not_permitted
         page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
-      else   
+      else
         @item.title = params[:item][:title]
         @item.description = params[:item][:description]
+        @item.visibility = params[:item][:visibility]
         if @current_user.save_item(@item)
           flash[:notice] = :item_updated
           flash[:error] = nil
@@ -114,7 +122,8 @@ class ItemsController < ApplicationController
   def destroy
     logger.info "this is controller"
     @item = Item.find(params[:id])
-    @person = @item.owner    
+    @person = @item.owner
+    @conditions = get_visibility_conditions("item")    
     render :update do |page|
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
@@ -122,7 +131,7 @@ class ItemsController < ApplicationController
         @item.disable
         flash[:notice] = :item_removed
         page["profile_items"].replace_html :partial => "people/profile_item", 
-                                           :collection => @current_user.available_items,
+                                           :collection => @current_user.available_items(@conditions),
                                            :as => :item, 
                                            :spacer_template => "layouts/dashed_line"                             
       end
@@ -269,7 +278,7 @@ class ItemsController < ApplicationController
   
   def search_items(query)
     s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-    Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
+    Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("item")})
   end
   
   def set_description_visibility(visible)

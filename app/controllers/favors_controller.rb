@@ -6,7 +6,10 @@ class FavorsController < ApplicationController
     save_navi_state(['favors','browse_favors','',''])
     #TODO cache
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
-    @favor_titles = Favor.find(:all, :conditions => "status <> 'disabled'", :select => "DISTINCT title", :order => 'title ASC').collect(&:title)
+    @favor_titles = Favor.find(:all, 
+                               :conditions => "status <> 'disabled'" + get_visibility_conditions("favor"), 
+                               :select => "DISTINCT title", 
+                               :order => 'title ASC').collect(&:title)
     @favor_title_hash = {}
     
     #doing hash with all the letters as key values
@@ -58,8 +61,10 @@ class FavorsController < ApplicationController
   end
   
   def create
+    get_visibility(:favor)
     @favor = Favor.new(params[:favor])
     @person = @favor.owner
+    @conditions = get_visibility_conditions("favor")
     render :update do |page|
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
@@ -67,9 +72,9 @@ class FavorsController < ApplicationController
         flash[:notice] = :favor_added
         flash[:error] = nil
         page["profile_favors"].replace_html :partial => "people/profile_favor", 
-                                           :collection => @current_user.available_favors,
-                                           :as => :favor, 
-                                           :spacer_template => "layouts/dashed_line"
+                                            :collection => @current_user.available_favors(@conditions),
+                                            :as => :favor, 
+                                            :spacer_template => "layouts/dashed_line"
         page["profile_add_favor"].replace_html :partial => "people/profile_add_favor"                                   
       else
         flash[:notice] = nil
@@ -81,6 +86,7 @@ class FavorsController < ApplicationController
   
   def edit
     @favor = Favor.find(params[:id])
+    @object_visibility = @favor.visibility
     @form_path = favor_path(@favor)
     @cancel_path = cancel_update_person_favor_path(@favor.owner, @favor)
     @method = :put
@@ -90,6 +96,7 @@ class FavorsController < ApplicationController
   def update
     @favor = Favor.find(params[:id])
     @person = @favor.owner
+    get_visibility(:favor)
     render :update do |page|
       if !is_current_user?(@favor.owner)
         flash[:error] = :operation_not_permitted
@@ -97,6 +104,7 @@ class FavorsController < ApplicationController
       else   
         @favor.title = params[:favor][:title]
         @favor.description = params[:favor][:description]
+        @favor.visibility = params[:favor][:visibility]
         if @current_user.save_favor(@favor)
           flash[:notice] = :favor_updated
           flash[:error] = nil
@@ -112,7 +120,8 @@ class FavorsController < ApplicationController
   def destroy
     logger.info "this is controller"
     @favor = Favor.find(params[:id])
-    @person = @favor.owner    
+    @person = @favor.owner
+    @conditions = get_visibility_conditions("favor")    
     render :update do |page|
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
@@ -120,7 +129,7 @@ class FavorsController < ApplicationController
         @favor.disable
         flash[:notice] = :favor_removed
         page["profile_favors"].replace_html :partial => "people/profile_favor", 
-                                           :collection => @current_user.available_favors,
+                                           :collection => @current_user.available_favors(@conditions),
                                            :as => :favor, 
                                            :spacer_template => "layouts/dashed_line"                             
       end
@@ -134,7 +143,7 @@ class FavorsController < ApplicationController
       query = params[:q]
       begin
         s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-        favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'"})
+        favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("favor")})
         @favors = favors.paginate :page => params[:page], :per_page => per_page
       end
     end

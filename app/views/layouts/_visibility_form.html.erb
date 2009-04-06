@@ -2,16 +2,29 @@
   visibility_types = [
     [ t(:visible_to_all), "everybody" ],
     [ t(:visible_to_kassi_users), "kassi_users" ],
-    [ t(:visible_to_certain_groups), "friends" ]
+    [ t(:visible_to_certain_groups), "other" ]
   ]
+  if ["everybody", "kassi_users"].include?(object.visibility)
+    selected = object.visibility
+  else
+    selected = "other"
+  end
+  form_type_url = object.id ? "#{form_type}_#{object.id.to_s}_visibility_checkboxes" : form_type + "_visibility_checkboxes"        
 %>
+
 <div class="form_container">
-  <div class="form_left">
+  <div class="<%= "profile_add_item_" unless form_type.eql?("listing") %>form_left">
     <%= t(:visibility) %>: 
   </div>
   <div class="form_right">
-    <%= 
-      select(form_type, "visibility", visibility_types) 
-    %>
+    <% with = "'visibility='+value+'&object_visibility=" + object.visibility.to_s + "'" %>
+    <%= select(form_type, "visibility", visibility_types, { :selected => selected }, 
+               {:onchange => "#{remote_function(:url => { :action => "visibility_form_checkboxes" },
+                                                :with => with,
+                                                :update => form_type_url) }" }) %>
+    <br />
+    <div id="<%= form_type_url %>">
+      <%= render :partial => "layouts/visibility_form_checkboxes" %>
+    </div>                                            
   </div>
 </div>

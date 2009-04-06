@@ -35,7 +35,7 @@ class Listing < ActiveRecord::Base
   VALID_LANGUAGES = ["fi", "swe", "en-US"]
   
   # Possible visibility types
-  POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends"]
+  POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
   
   # Main categories.
   MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]

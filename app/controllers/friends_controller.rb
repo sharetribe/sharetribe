@@ -7,7 +7,8 @@ class FriendsController < ApplicationController
     session[:profile_navi] = 'friends'
     save_navi_state(['own', 'friends']) if current_user?(@person)
     @friend_view = true
-    @friends = get_friends(@person)
+    # @friends = get_friends(@person)
+    @friends = @person.friends(session[:cookie]).paginate :page => params[:page], :per_page => per_page
   end
 
   def create
@@ -30,7 +31,7 @@ class FriendsController < ApplicationController
       @person = Person.find(params[:friend_view_person])
       if current_user?(@person)
         @own_friend_view = true
-        @friends = get_friends(@person)
+        @friends = @person.friends(session[:cookie]).paginate :page => params[:page], :per_page => per_page
       end  
     end  
     render :update do |page|
@@ -39,8 +40,6 @@ class FriendsController < ApplicationController
                                                         :locals => { :person => @friend }
         if @own_friend_view
           page["friend_view"].replace_html :partial => "friends/friend_view"
-          # page["friend_amount"].replace_html :partial => "friends/friend_amount"          
-          # page.remove "friend_#{@friend.id}"
         end                                         
       end       
       refresh_announcements(page)
@@ -69,14 +68,6 @@ class FriendsController < ApplicationController
       flash[:error] = :removing_friend_failed
       return false
     end
-  end
-
-  def get_friends(person_with_friends)
-    ids = Array.new
-    person_with_friends.get_friends(session[:cookie])["entry"].each do |person|
-      ids << person["id"]
-    end
-    find_kassi_users_by_ids(ids)
   end
 
 end

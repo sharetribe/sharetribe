@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
     end
     @title = params[:id]
     default_conditions = "status = 'open' AND good_thru >= '" + Date.today.to_s + "'"
+    default_conditions += get_visibility_conditions("listing")
     if (params[:id].eql?("all_categories"))
       fetch_listings(default_conditions)
     elsif (conditions)

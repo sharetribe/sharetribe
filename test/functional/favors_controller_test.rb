@@ -63,7 +63,10 @@ class FavorsControllerTest < ActionController::TestCase
 
   def test_edit_favor
     submit_with_person :update, { 
-      :favor => { :title => "thaihieronta" },
+      :favor => { 
+        :title => "thaihieronta",
+        :visibility => "everybody" 
+      },
       :id => favors(:one).id,
       :person_id => @test_person1.id
     }, :favor, :owner_id, :put

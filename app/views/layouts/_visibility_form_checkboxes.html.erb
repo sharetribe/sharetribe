@@ -1,0 +1,6 @@
+<% if (@visibility && @visibility.eql?("other")) || 
+      (!@visibility && @object_visibility && ["friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"].include?(@object_visibility)) %>
+  <div class="visibility_checkboxes">
+    <%= get_visibility_checkboxes(@object_visibility) %>
+  </div>
+<% end %>
