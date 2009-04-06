@@ -27,7 +27,7 @@ module ApplicationHelper
     navi_items[:items ] = items_path
     navi_items[:favors ] = favors_path
     navi_items[:people ] = people_path
-    #navi_items[:groups] = "#"
+    navi_items[:groups_title] = groups_path
     if @current_user
       navi_items[:own] = home_person_path(@current_user)
       if @current_user.is_admin == 1
@@ -72,11 +72,14 @@ module ApplicationHelper
     when 'people'
       navi_items[:browse_people] = people_path
       navi_items[:search_people] = search_people_path
+    when 'groups_title'
+      navi_items[:browse_groups] = groups_path
+      navi_items[:search_groups] = search_groups_path
+      navi_items[:new_group] = new_group_path
     when 'info'
       navi_items[:about] = about_info_path
       navi_items[:help] = help_info_path
-      navi_items[:terms] = terms_info_path
-      #navi_items[:search_people] = search_people_path        
+      navi_items[:terms] = terms_info_path      
     else
       session[:left_navi] = false  
     end  
@@ -165,7 +168,9 @@ module ApplicationHelper
         when "search_people"
           path = search_people_path(params.merge({:per_page => value}))
         when "feedback"
-          path = admin_feedbacks_path(params.merge({:per_page => value}))                  
+          path = admin_feedbacks_path(params.merge({:per_page => value}))
+        when "groups_title"
+          path = groups_path(params.merge({:per_page => value}))                    
         end
         links << link_to(t(value), path)  
       end    
