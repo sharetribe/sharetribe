@@ -62,7 +62,10 @@ class ItemsControllerTest < ActionController::TestCase
 
   def test_edit_item
     submit_with_person :update, { 
-      :item => { :title => "muutettu_vasara" },
+      :item => { 
+        :title => "muutettu_vasara",
+        :visibility => "everybody"  
+      },
       :id => items(:one).id,
       :person_id => @test_person1.id
     }, :item, :owner_id, :put

@@ -10,12 +10,19 @@ class Favor < ActiveRecord::Base
     }
   }
   
+  VALID_STATUSES = ["enabled", "disabled"]
+  
+  # Possible visibility types
+  POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
+  
   validates_presence_of :title, :message => "is required"
   validates_presence_of :owner_id
-  
   validates_length_of :title, :within => 2..70 
   validates_length_of :description, :allow_nil => true, :allow_blank => true, :maximum => 400, :message => "is too long"  
   validates_numericality_of :payment, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true, :allow_blank => true
+  validates_inclusion_of :status, :in => VALID_STATUSES
+  validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
+  
   validate :owner_does_not_have_favor_with_same_title
   
   def owner_does_not_have_favor_with_same_title

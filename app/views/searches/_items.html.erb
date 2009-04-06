@@ -1,6 +1,6 @@
 <div class="search_header">
   <div class="left_float">
-    <%= t(:items) %> (<%= @items.total_hits %>)
+    <%= t(:items) %> (<%= @item_amount %>)
   </div>
   <div class="right_float">
     <%= link_to t(:show_on_map), show_on_map_item_path("search", :q => params[:qa], :size => "full") %> | <%= link_to t(:show_all), search_items_path(:q => params[:qa]) %>

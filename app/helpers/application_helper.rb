@@ -27,6 +27,7 @@ module ApplicationHelper
     navi_items[:items ] = items_path
     navi_items[:favors ] = favors_path
     navi_items[:people ] = people_path
+    #navi_items[:groups] = "#"
     if @current_user
       navi_items[:own] = home_person_path(@current_user)
       if @current_user.is_admin == 1
@@ -221,6 +222,48 @@ module ApplicationHelper
     return false  
   end
   
+  # Returns checkboxes for item, favor and listing visibility settings
+  def get_visibility_checkboxes(visibility = nil, groups = nil)
+    checkboxes = []
+    box_values = {
+      "friends" => "checked",
+      "contacts" => "checked", 
+    }
+    if visibility
+      case visibility
+      when "friends"
+        box_values["contacts"] = nil
+      when "contacts"
+        box_values["friends"] = nil
+      when "f_g"
+        box_values["contacts"] = nil
+      when "c_g"      
+        box_values["friends"] = nil
+      when "none"
+        box_values["friends"] = nil
+        box_values["contacts"] = nil
+      when "groups"
+        box_values["friends"] = nil
+        box_values["contacts"] = nil  
+      end     
+    end
+    box_values.each do |name, value|
+      if value
+        checkboxes << check_box_tag(name, "true", :checked => "checked") + " &nbsp; " + t(name)
+      else
+        checkboxes << check_box_tag(name, "true") + " &nbsp; " + t(name)
+      end    
+    end
+    # GROUP FUNCTIONALITY
+    # @current_user.groups.each do |group|
+    #   if groups && groups.size > 0 && groups.include?(group)
+    #     checkboxes << check_box_tag("groups[]", "true", :checked => "checked") + " &nbsp; " + group.name
+    #   else
+    #     checkboxes << check_box_tag("groups[]", "true") + " &nbsp; " + group.name  
+    #   end  
+    # end
+    return checkboxes.join("<br />")
+  end
 end
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages

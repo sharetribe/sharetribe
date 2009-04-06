@@ -19,7 +19,7 @@ class PeopleController < ApplicationController
         save_navi_state(['own', 'home'])
         @listings = Listing.find(:all, 
                                  :limit => 2, 
-                                 :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'",
+                                 :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'" + get_visibility_conditions("listing"),
                                  :order => "id DESC")                         
         @person_conversations = []                         
         person_conversations = PersonConversation.find(:all,
@@ -44,9 +44,9 @@ class PeopleController < ApplicationController
   # Shows profile page of a person.
   def show
     @person = Person.find(params[:id])
-    @items = @person.available_items
+    @items = @person.available_items(get_visibility_conditions("item"))
     @item = Item.new
-    @favors = Favor.find(:all, :conditions => ["owner_id = ? AND status <> 'disabled'", @person.id.to_s], :order => "title")
+    @favors = @person.available_favors(get_visibility_conditions("item"))
     @favor = Favor.new
     if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])
@@ -63,7 +63,7 @@ class PeopleController < ApplicationController
       Person.search(params[:q])["entry"].each do |person|
         ids << person["id"]
       end
-      @people = find_kassi_users_by_ids(ids)
+      @people = Person.find_kassi_users_by_ids(ids).paginate :page => params[:page], :per_page => per_page
     end
   end
 

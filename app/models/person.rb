@@ -10,24 +10,26 @@ class Person < ActiveRecord::Base
   has_many :listings
   
   has_many :items, :foreign_key => "owner_id"
-  
-  has_many :available_items, 
-           :class_name => "Item",
-           :foreign_key => "owner_id", 
-           :conditions => "status <> 'disabled'",
-           :order => "title"
+
+  # Can't be used because conditions parameter can't be passed from controller
+  # has_many :available_items, 
+  #          :class_name => "Item",
+  #          :foreign_key => "owner_id", 
+  #          :conditions => "status <> 'disabled'",
+  #          :order => "title"
            
   has_many :disabled_items, 
            :class_name => "Item",
            :foreign_key => "owner_id",
            :conditions => "status = 'disabled'",
            :order => "title"
-                    
-  has_many :available_favors, 
-           :class_name => "Favor",
-           :foreign_key => "owner_id", 
-           :conditions => "status <> 'disabled'",
-           :order => "title"
+  
+  # Can't be used because conditions parameter can't be passed from controller                  
+  # has_many :available_favors, 
+  #          :class_name => "Favor",
+  #          :foreign_key => "owner_id", 
+  #          :conditions => "status <> 'disabled'",
+  #          :order => "title"
   
   has_many :disabled_favors, 
            :class_name => "Favor",
@@ -281,6 +283,43 @@ class Person < ActiveRecord::Base
     update_attributes({:password => password}, cookie)
   end
   
+  # Returns contacts of this person as an array of Person objects 
+  def contacts
+    Person.find_by_sql(contact_query("id, created_at"))
+  end
+  
+  # Returns a query that gets the selected attributes for contacts
+  def contact_query(select)
+    "SELECT #{select} 
+    FROM 
+      people, kassi_events_people 
+    WHERE
+      id = person_id AND
+      person_id <> '#{id}' AND 
+      kassi_event_id IN (
+        SELECT kassi_event_id FROM kassi_events_people WHERE person_id = '#{id}'
+      )"
+  end
+  
+  # Returns friends of this person as an array of Person objects
+  def friends(cookie)
+    Person.find_kassi_users_by_ids(get_friend_ids(cookie))
+  end
+  
+  # Returns ids of OtaSizzle friends of this person
+  def get_friend_ids(cookie)
+    ids = Array.new
+    get_friends(cookie)["entry"].each do |person|
+      ids << person["id"]
+    end
+    return ids
+  end
+  
+  # Returns those people who are also kassi users
+  def self.find_kassi_users_by_ids(ids)
+    Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')")
+  end
+  
   def add_as_friend(friend_id, cookie)
     PersonConnection.add_as_friend(friend_id, self.id, cookie)
   end
@@ -293,6 +332,7 @@ class Person < ActiveRecord::Base
     PersonConnection.remove_from_friends(friend_id, self.id, cookie)
   end
   
+  # Retrieves friends of this person from COS
   def get_friends(cookie)
     
     begin
@@ -365,6 +405,12 @@ class Person < ActiveRecord::Base
     return person_hash["connection"]
   end
   
+  def available_items(conditions)
+    Item.find :all, 
+              :conditions => ["owner_id = '#{id}' AND status <> 'disabled'" + conditions],
+              :order => "title"
+  end
+  
   def save_item(item)
     existing_item = disabled_items.find_by_title(item.title)
     if existing_item
@@ -377,8 +423,14 @@ class Person < ActiveRecord::Base
       end  
     else
       return true if item.save
-    end  
+    end
     return false
+  end
+  
+  def available_favors(conditions)
+    Favor.find :all, 
+              :conditions => ["owner_id = '#{id}' AND status <> 'disabled'" + conditions],
+              :order => "title"
   end
   
   def save_favor(favor)

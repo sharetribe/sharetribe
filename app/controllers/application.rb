@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
   
   # Fetch listings based on conditions
   def fetch_listings(conditions, order = 'id DESC')
-    conditions += get_visibility_conditions("author_id")
     @listings = Listing.paginate(:page => params[:page], 
                                  :per_page => per_page,
                                  :order => order,
@@ -43,17 +42,67 @@ class ApplicationController < ActionController::Base
                                  :conditions => conditions)                                                                       
   end
 
-  def get_visibility_conditions(person_type)
-    conditions = "AND (visibility = 'everybody'"
+  # Returns visibility conditions for object_type (item, favor or listing)
+  def get_visibility_conditions(object_type)
+    conditions = " AND (visibility = 'everybody'"
     if @current_user
+      case object_type
+      when "listing"
+        person_type = "author_id"
+      when "item"
+        person_type = "owner_id"
+      when "favor"  
+        person_type = "owner_id"
+      end  
       conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{@current_user.id}'"
-      ids = Array.new
-      @current_user.get_friends(session[:cookie])["entry"].each do |person|
-        ids << person["id"]
+      friend_ids = @current_user.get_friend_ids(session[:cookie]) 
+      if friend_ids.size > 0
+        conditions += " OR (visibility IN ('friends', 'f_c', 'f_g', 'f_c_g') 
+        AND #{person_type} IN (" + friend_ids.collect { |id| "'#{id}'" }.join(",") + "))"
       end
-      conditions += " OR author_id IN (" + ids.collect { |id| "'#{id}'" }.join(",") + ")"
+      if Person.count_by_sql(@current_user.contact_query("COUNT(id)")) > 0
+        conditions += " OR (visibility IN ('contacts', 'f_c', 'c_g', 'f_c_g') 
+        AND #{person_type} IN (#{@current_user.contact_query('id')}))"
+      end
+      # GROUP FUNCTIONALITY
+      # if @current_user.groups.size > 0
+      #   group_ids = @current_user.group_ids.collect { |id| "'#{id}'" }.join(",")
+      #   conditions += " OR (visibility IN ('groups', 'f_g', 'c_g', 'f_c_g')
+      #   AND id IN (
+      #     SELECT #{object_type}s.id 
+      #     FROM #{object_type}s_groups, #{object_type}s
+      #     WHERE #{object_type}s_groups.group_id IN (#{group_ids})
+      #     AND #{object_type}s_groups.#{object_type}_id = #{object_type}s.id
+      #   ))"
+      # end  
     end
     conditions += ")"
+  end
+  
+  # Returns the visibility value to be saved in db based 
+  # on the visibility parameter and checkbox values
+  def get_visibility(object_type)
+    if params[object_type][:visibility].eql?("other")
+      if params[:friends]
+        if params[:contacts]
+          params[object_type][:visibility] = "f_c"
+        else
+          params[object_type][:visibility] = "friends"
+        end  
+      else
+        if params[:contacts]
+          params[object_type][:visibility] = "contacts"
+        else
+          params[object_type][:visibility] = "none"
+        end  
+      end
+    end  
+  end
+  
+  # Renders friend and group checkboxes for visibility
+  def visibility_form_checkboxes
+    @visibility = params[:visibility]
+    @object_visibility = params[:object_visibility]
   end
 
   # Define how many listed items are shown per page.
@@ -113,12 +162,12 @@ class ApplicationController < ActionController::Base
     if @current_user
       conditions = ["person_id = ? AND is_read = 0", @current_user.id]
       @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
-      @comments_new_count = ListingComment.find_by_sql(["SELECT listing_comments.id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id]).size
+      @comments_new_count = ListingComment.count_by_sql(["SELECT COUNT(listing_comments.id) FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id])
       ids = Array.new
       @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
         ids << person["id"]
       end
-      @requests_count = find_kassi_users_by_ids(ids).size
+      @requests_count = Person.find_kassi_users_by_ids(ids).size
       @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
       if is_admin?
         @new_feedback_item_amount = Feedback.count(:all, :conditions => "is_handled = '0'")
@@ -166,10 +215,6 @@ class ApplicationController < ActionController::Base
         @comment.save 
       end  
     end
-  end
-  
-  def find_kassi_users_by_ids(ids)
-    Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')").paginate :page => params[:page], :per_page => per_page
   end
   
   def current_user?(person)

@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
       @pagination_type = "person_listings" 
       @person = Person.find(params[:person_id])
       @title = :listings_partitive_plural
-      conditions = ["author_id = ?", @person.id.to_s ]
+      conditions = ["author_id = ?" + get_visibility_conditions("listing"), @person.id.to_s ]
       session[:profile_navi] = 'listings'
       save_navi_state(['own', 'own_listings']) if current_user?(@person)
       fetch_listings(conditions, "status DESC, id DESC")
@@ -16,7 +16,9 @@ class ListingsController < ApplicationController
       @pagination_type = "category"
       @title = :all_categories
       save_navi_state(['listings', 'browse_listings', 'all_categories'])
-      fetch_listings("status = 'open' AND good_thru >= '" + Date.today.to_s + "'")
+      conditions = "status = 'open' AND good_thru >= '" + Date.today.to_s + "'"
+      conditions += get_visibility_conditions("listing")
+      fetch_listings(conditions)
     end    
   end
 
@@ -33,13 +35,13 @@ class ListingsController < ApplicationController
 
   def search
     save_navi_state(['listings', 'search_listings', ''])
-    conditions = params[:only_open] ? ["status = 'open' AND good_thru >= '" + Date.today.to_s + "'"] : ""
+    conditions = params[:only_open] ? ["status = 'open' AND good_thru >= ?" + get_visibility_conditions("listing"), Date.today.to_s] : ""
     if params[:q]
       if params[:category] && !params[:category][:category].eql?("")
         if params[:only_open]
-          conditions = ["status = 'open' AND good_thru >= ? AND category = ?", Date.today.to_s, params[:category][:category]]
+          conditions = ["status = 'open' AND good_thru >= ? AND category = ?" + get_visibility_conditions("listing"), Date.today.to_s, params[:category][:category]]
         else  
-          conditions = ["category = ?", params[:category][:category]]
+          conditions = ["category = ?" + get_visibility_conditions("listing"), params[:category][:category]]
         end    
       end
       query = params[:q]
@@ -57,6 +59,7 @@ class ListingsController < ApplicationController
   end  
 
   def create
+    get_visibility(:listing)
     @listing = Listing.new(params[:listing])
     language = []
     language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
@@ -80,6 +83,7 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+    @object_visibility = @listing.visibility
     return unless must_be_current_user(@listing.author)  
     
     @language_fi = 0
@@ -104,6 +108,7 @@ class ListingsController < ApplicationController
     language << "en-US" if (params[:listing][:language_en].to_s.eql?('1'))
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
+    get_visibility(:listing)
     @listing.update_attributes(params[:listing])
     if @listing.save
       flash[:notice] = :listing_updated
