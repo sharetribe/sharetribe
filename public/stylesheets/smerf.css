@@ -1,0 +1,146 @@
+/* Basics */
+/* -------------------------------------------------------------------------- */
+
+body {
+background-color: #f7f7f7;
+font-size: 1em;
+font-family: Verdana, Helvetica, Arial, sans-serif;
+color:#564b47;
+padding:0;
+margin:0;
+}
+
+/* Smerf form */
+/* -------------------------------------------------------------------------- */
+
+form.smerfForm {
+}
+
+form.smerfForm p {
+font-size: 0.8em;
+}
+
+form.smerfForm .checkbox input {
+margin-right: 3px;
+float: left;
+}
+
+form.smerfForm .radiobutton input {
+margin-right: 3px;
+float: left;
+}
+
+form.smerfForm input[type='submit'] {
+width: 200px; 
+display: inline; 
+}
+
+form.smerfForm textarea { }
+form.smerfForm .text input {margin: 5px 10px 5px 10px;}
+
+
+/* Welcome message */
+form.smerfForm .smerfWelcome p {
+font-size: 14px;
+}
+
+/* Thank you message */
+form.smerfForm .smerfThankyou p {
+font-size: 12px;
+}
+
+
+/* Form Title */
+form.smerfForm h2 { 
+font-size: 1.4em; 
+font-weight: bold; 
+padding: 5px 10px;
+margin:0;
+color: #264764;
+border-bottom: 1px solid #B8B8B8;
+}
+
+/* Group Name */
+form.smerfForm h3 { 
+font-size: 1.2em; 
+font-weight: bold; 
+font-style: italic;
+background-color : #EDE9C5;
+text-align: center;
+border: 1px #b7b7b7 solid;
+}
+
+/* Group Description */
+form.smerfForm .smerfGroupDescription p {
+font-size: 12px;
+border-bottom: 1px dotted #B8B8B8;
+padding: 5px 10px;
+}
+
+/* Question Heading (You can group questions under another heading) */
+form.smerfForm .smerfQuestionHeader p {
+font-weight: bold;
+background-color : #EDE9C5;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}
+
+/* Question */
+form.smerfForm .smerfQuestion p {
+font-weight: bold;
+background-color : #e0ebf1;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}	
+
+/* Subquestion */
+form.smerfForm .smerfSubquestion p {
+font-weight: bold;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+font-style: italic;
+}	
+
+/* Question error (error displayed above the actual question) */
+form.smerfForm .smerfQuestionError p {
+font-weight: bold;
+background-color : #ffdee2;
+text-align: left;
+margin: 5px 10px 5px 10px;
+padding: 2px 2px;
+}	
+
+/* Error messages */
+form.smerfForm .smerfFormError {
+background-color: #ffdee2;
+border-top: 1px solid #ffb0bd;
+border-bottom: 1px #ffb0bd solid;
+margin: 2px 1px 2px 1px;
+color: #ff5762;
+font-weight: normal;
+}
+
+form.smerfForm .smerfFormError li, p, ul { 
+font-size: 10px;
+padding-left: 10px;}
+
+form.smerfForm .smerfFormError h2 { 
+font-size: 12px;
+border-bottom: none}
+
+form.smerfForm .smerfFormError a { color: #fff; }
+
+/* Notice messages */
+form.smerfForm .smerfFormNotice p {
+background-color: #e9ffe7;
+border-top: 1px solid #ffb0bd;
+border-bottom: 1px #ffb0bd solid;
+margin: 2px 1px 2px 1px;
+color: #288320;
+font-weight: normal;
+padding-left: 10px;
+font-size: 14px;}
+

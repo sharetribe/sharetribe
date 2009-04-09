@@ -1,0 +1,42 @@
+Description:
+
+    SMERF - Simple MEta Rails Form Plugin Generator
+    -----------------------------------------------
+    This generator sets up the required files so that you can start using 
+    SMERF with your application. SMERF allows you to easily define dynamic  
+    forms which you can use for surveys, questionnaires, and data collection  
+    forms for example.
+
+Requirements:
+
+    1. You need to have a table that stores details about the users of your
+       application. SMERF will keep track of the forms a user completes as
+       well as the users responses to questions on these forms.
+    2. The name of this users table as well as the primary key and model needs
+       to conform to the Rails convention, i.e.     
+       - DB table name needs to be plural, e.g. users
+       - Primary key assumed to be named id
+       - Model name is singular of the DB table, e.g. user
+    3. SMERF is a RESTful plugin
+    4. It has only been tested with Rails V2
+
+Actions:
+
+    The generator performs the following actions:
+    
+    1. Generate a migration file for the DB tables required by SMERF
+       and uses the UserModelName parameter you specify
+    2. Create route entry in routes.rb
+    3. Create the smerf directory and copy an example form definition file
+    4. Copy example stylesheet and required images to the public directory
+    5. Copy the smerf helper file to the lib directory
+    6. Setup the plugin to work with your user model name
+
+Example:
+    `./script/generate smerf user`
+
+More Information:
+
+    See the README in /vendor/plugin/smerf for more details
+
+    SMERF homepage is smerf.itsignals.com.au

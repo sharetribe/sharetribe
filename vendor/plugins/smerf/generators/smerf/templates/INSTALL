@@ -1,0 +1,71 @@
+
+SMERF - Simple MEta Rails Form Plugin Generator
+===============================================
+
+A. Completing the Installation
+------------------------------
+
+1. Run the DB migration
+
+rake db:migrate
+
+2. Include smerf in the controller where it will be used, if you want all 
+controllers to have access add it to the application.rb, e.g.
+
+include Smerf
+
+3. Set the record ID of the current user so that SMERF can save responses 
+for each user. This can normally be done once the user has been authenticated 
+by using the following code as an example:
+
+self.smerf_user_id = current_user.id
+
+4. You can use the example stylesheet(smerf.css) supplied with the plugin 
+which was copied to the /public/stylesheets directory by adding it to your 
+application layout, e.g.
+
+<%= stylesheet_link_tag "smerf", :cache => true  %>
+
+5. To create a link to display a form you can use the Standard REST Path 
+method used for the show action passing the name of the form definition file
+as a parameter, for example
+
+link_to('Complete Test Smerf Form', smerf_url('testsmerf'))
+
+B. Testing your installation
+----------------------------
+
+To test the installation you can display the test form that comes with SMERF when
+you install it. Everything will work as is as long as you have an existing user record
+with id = 1. If not you need to modify the smerf_test_cotroller.rb file found
+in vendor/plugins/smerf/app/controllers.
+
+Simply change the line 
+
+    self.smerf_user_id = 1
+
+and set smerf_user_id to an existing user record id.
+
+To display the SMERF test form by doing something similar to this
+
+http://localhost:3000/smerf_test
+
+C. More Information
+-------------------
+
+See the README in /vendor/plugin/smerf for more details
+
+SMERF homepage is smerf.itsignals.com.au
+
+D. Please Consider
+------------------
+
+1. If you find this plugin useful it would be greatly appreciated if you could
+recommend me at Working With Rails. I'm a freelance developer and would value
+your recommendations.
+
+http://workingwithrails.com/recommendation/new/person/10053-etienne-van-tonder
+
+2. That you consider freely sharing any changes that you make to the plugin. 
+Also that you share any new functionality that you creare for use with the 
+plugin that you consider may be useful to other users.

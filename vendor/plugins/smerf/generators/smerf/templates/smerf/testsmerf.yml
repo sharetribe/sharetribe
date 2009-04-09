@@ -1,0 +1,255 @@
+--- 
+smerfform:   
+  name: Test SMERF Form
+  welcome: | 
+    <b>Welcome:</b><br>
+    Thank you for taking part in our Test survey we appreciate your
+    input.<br><br>
+
+    <b>PRIVACY STATEMENT</b><br>
+    We will keep all the information you provide private and not share
+    it with anyone else....<br>
+
+  thank_you: | 
+    <b>Thank you for your input.</b><br><br>
+
+    Should you wish to discuss this survey please contact<br>
+    Joe Bloggs<br>
+    Tel. 12 345 678<br>
+    e-mail <A HREF=\"mailto:jbloggs@xyz.com.au\">Joe's email</A><br><br>
+ 
+    February 2007
+  group_sort_order_field: code
+
+  groups:
+    personal_details:
+      code: 1
+      name: Personal Details Group
+      description: | This is a brief description of the Personal Details Group
+        here we ask you some personal details ...
+      questions:
+        specify_your_age:
+          code: g1q1
+          type: singlechoice
+          sort_order: 1
+          question: | Specify your ages  
+          help: | Select the <b>one</b> that apply 
+          validation: validate_mandatory_question
+          answers:
+            1_20:
+              code: 1
+              answer: | 1-20
+              sort_order: 1
+              default: N
+            21_40:
+              code: 2
+              answer: | 21_40
+              sort_order: 2
+              default: N
+            >40:
+              code: 3
+              answer: | > 40
+              sort_order: 3
+              default: N
+              subquestions:
+                >40:
+                  code: g1q1a3s1
+                  type: singlechoice
+                  sort_order: 1
+                  question: | Are you aged over 40
+                  help: | Select the <b>one</b> that apply 
+                  validation: validate_sub_question
+                  answers:
+                    41_50:
+                      code: 1
+                      answer: | 41-50
+                      sort_order: 1
+                      default: N
+                    51_60:
+                      code: 2
+                      answer: | 51_60
+                      sort_order: 2
+                      default: N
+                    >61:
+                      code: 3
+                      answer: | > 61
+                      sort_order: 3
+                      default: N
+                      subquestions:
+                        >61:
+                          code: g1q1a3s1a3s1
+                          type: textfield
+                          sort_order: 1
+                          header: 
+                          question: | If you are older than 61, please specify
+                          textfield_size: 10
+                          validation: validate_sub_question
+
+        are_you_married:
+          code: g1q2
+          type: singlechoice
+          sort_order: 2
+          question: | Are you married  
+          help: 
+          answers:
+            no:
+              code: 1
+              answer: | No
+              sort_order: 1
+              default: Y
+            yes:
+              code: 2
+              answer: | Yes
+              sort_order: 2
+              default: N
+
+        hobbies:
+          code: g1q3
+          type: multiplechoice
+          sort_order: 3
+          question: | What are your hobbies 
+          help: | Mark <b>all</b> that apply      
+          header: Another header that you can group questions under
+          answers:
+            chess:
+              code: 1
+              answer: | Chess
+              sort_order: 1
+              default: N
+            woodwork:
+              code: 2
+              answer: | Wood work
+              sort_order: 2
+              default: N
+            sleeping:
+              code: 3
+              answer: | Sleeping
+              sort_order: 3
+              default: N
+            other:
+              code: 4
+              answer: | Other 
+              sort_order: 4
+              default: N
+              subquestions:
+                other_industries:
+                    code: g1q3a4s1
+                    type: textbox
+                    sort_order: 1
+                    question: 
+                    help: | Please specify 
+                    textbox_size: 30x3
+                    validation: validate_sub_question
+
+        favourite_color:
+          code: g1q4
+          type: selectionbox
+          sort_order: 4
+          question: | What is your favourite colour 
+          help: | Choose <b>one</b> of the following    
+          validation: validate_mandatory_question
+          answers:
+            red:
+              code: 1
+              answer: | Red
+              sort_order: 1
+              default: N
+            blue:
+              code: 2
+              answer: | Blue 
+              sort_order: 2
+              default: Y
+            green:
+              code: 3
+              answer: | Green 
+              sort_order: 3
+              default: N
+            yellow:
+              code: 4
+              answer: | Yellow 
+              sort_order: 4
+              default: N
+
+        os_travel:
+          code: g1q5
+          type: selectionbox
+          sort_order: 4
+          question: | Which countries have you visited 
+          help: | Choose <b>all</b> that apply 
+          selectionbox_multiplechoice: Y
+          answers:
+            au:
+              code: 1
+              answer: | Australia
+              sort_order: 1
+              default: N
+            us:
+              code: 2
+              answer: | United States 
+              sort_order: 2
+              default: Y
+            fr:
+              code: 3
+              answer: | France
+              sort_order: 3
+              default: N
+            sa:
+              code: 4
+              answer: | South Africa 
+              sort_order: 4
+              default: N
+
+    employment_details:
+      code: 2
+      name: | Employment Details Group
+      description: | Brief description of the employment details group  
+      question_sort_order_field: sort_order
+      questions:
+        which_industry:
+          code: g2q1
+          type: multiplechoice
+          sort_order: 1
+          question: | Which industries have you worked in  
+          help: | Mark <b>all</b> that apply    
+          validation: validate_mandatory_question
+          answers:
+            it:
+              code: 1
+              answer: | Information Technology
+              sort_order: 1
+              default: N
+            accounting:
+              code: 2
+              answer: | Accounting 
+              sort_order: 2
+              default: N
+            finance:
+              code: 3
+              answer: | Finance 
+              sort_order: 3
+              default: N
+            other:
+              code: 4
+              answer: | Other 
+              sort_order: 4
+              default: N
+              subquestions:
+                other_industries:
+                    code: g2q1a4s1
+                    type: textbox
+                    sort_order: 1
+                    question: 
+                    help: | Please specify 
+                    textbox_size: 30x3
+                    validation: validate_sub_question
+
+        how_many_years:
+          code: g2q3
+          type: textfield
+          sort_order: 3
+          header: 
+          question: | How many years have you worked in the industry
+          textfield_size: 10
+          validation: validate_mandatory_question, validate_years
+          help: 
+
