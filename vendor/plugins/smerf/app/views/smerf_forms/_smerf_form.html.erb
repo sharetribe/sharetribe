@@ -1,0 +1,29 @@
+  <!-- Handle notice messages -->
+  <%= get_notice_messages() %>
+  <!-- Handle error messages -->       
+  <%= get_error_messages(@errors) %>
+  <!-- Specify page title -->
+  <%= smerf_title() %>
+  <!-- Display form welcome message -->
+  <%= smerf_welcome() %>
+  <!-- Display groups and the questions within each group -->
+  <% smerf_get_groups().each do |group| %>
+    <!-- Display the group name and description -->
+    <%= smerf_group_name(group) %>
+    <%= smerf_group_description(group) %>
+    <!-- Display the questions within the group -->
+    <% smerf_get_group_questions(group).each do |question| %>
+      <%= smerf_group_question(question) %>
+    <% end %>
+  <% end %>
+  <!-- Display form thank you -->
+  <%= smerf_thank_you() %>
+  <!-- Add save button -->
+  <div class="submit">
+    <p>
+    <%= submit_tag 'Press to Save your answers', :disable_with => "Saving&hellip;" %>
+    </p>                        
+  </div> 
+  <%= hidden_field_tag("smerf_form_id", @smerfform.id) %>
+
+  

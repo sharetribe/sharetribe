@@ -1,0 +1,605 @@
+= Simple MEta Rails Form (SMERF)
+
+SMERF is a Ruby on Rails plugin that allows you to easily define dynamic  
+forms which you can use for surveys, questionnaires, and data collection  
+forms for example. It records which forms a user have completed and saves
+the users responses so that they can easily be analysed via SQL.
+
+== Requirements
+
+1. You need to have a table that stores details about the users of your
+   application. SMERF will keep track of the forms a user completes as
+   well as the users responses to questions on these forms.
+2. The name of this users table as well as the primary key and model needs
+   to conform to the Rails convention, i.e.     
+    - DB table name needs to be plural, e.g. users
+    - Primary key assumed to be named id
+    - Model name is singular of the DB table, e.g. user
+3. SMERF is a RESTful plugin
+4. It has only been tested with Rails V2
+
+== Download
+
+=== Get it from GitHub
+    http://github.com/springbok/smerf
+
+== Installation
+
+The plugin is easy to install, once you have downloaded the source code run 
+the following command from the root directory of your Rails application
+
+    ./script/generate smerf usermodelname
+
+Replace UserModelName with the model you use for storing details about your 
+applications users, for example
+
+    ./script/generate smerf user
+
+Please note the model name needs to be specified in lowercase.
+
+== Configuration
+
+1. Run the DB migration    
+    rake db:migrate
+2. Include smerf in the controller where it will be used, if you want all 
+   controllers to have access add it to the application.rb, e.g.
+    include Smerf
+3. Set the record ID of the current user so that SMERF can save responses 
+   for each user. This can normally be done once the user has been authenticated 
+   by using the following code as an example:
+    self.smerf_user_id = current_user.id
+4. You can use the example stylesheet(smerf.css) supplied with the plugin 
+   which was copied to the /public/stylesheets directory by adding it to your 
+   application layout, e.g.
+    <%= stylesheet_link_tag "smerf", :cache => true  %>
+5. To create a link to display a form you can use the Standard REST Path 
+   method used for the show action passing the name of the form definition file
+   as a parameter, for example
+    link_to('Complete Test Smerf Form', smerf_form_url('testsmerf'))
+
+== Testing your installation
+
+To test the installation you can display the test form that comes with SMERF when
+you install it. Everything will work as is as long as you have an existing user record
+with id = 1. If not you need to modify the smerf_test_cotroller.rb file found
+in vendor/plugins/smerf/app/controllers.
+
+Simply change the line
+    self.smerf_user_id = 1
+and set smerf_user_id to an existing user record id.
+
+To display the SMERF test form by doing something similar to this
+    http://localhost:3000/smerf_test
+
+== License
+SMERF is Copyright(c) 2008 Etienne van Tonder, Cascadia Software Pty Ltd,
+released under the MIT license
+
+== Support
+The SMERF homepage is http://smerf.cascadia.com.au and the project is hosted on  
+SourceForge at http://rubyforge.org/projects/smerf. If you go to these 
+sites you will find links to downloading the plugin, documentation and forums 
+for requesting new features or to notify us of bugs.
+ 
+Also feel free to contact me by sending an email to smerf@cascadia.com.au
+
+== Please Consider
+1. If you find this plugin useful it would be greatly appreciated if you could
+   recommend me at Working With Rails. I'm a freelance developer and would value
+   your recommendations.
+
+   http://workingwithrails.com/recommendation/new/person/10053-etienne-van-tonder
+
+2. That you consider freely sharing any changes that you make to the plugin. 
+   Also that you share any new functionality that you creare for use with the 
+   plugin that you consider may be useful to other users.
+
+== Usage
+The SMERF form definition file allows you to define the contents of a form. 
+Each form is made up of groups and within each group there are any number of 
+questions which can accept free form text as the answer or presents a list of 
+possibilties to the user. 
+
+In some cases an answer may ask for additional information by asking another
+questions, these can be defined using the subquestion field when defining the 
+answer. Subquestion fields are defined using exactly the same fields as a 
+normal question, you can nest subquestions to any level. An example subquestion 
+may be for the answer 'Other', in some cases additional information is required 
+when the user selects this answer, a subquestion can be defined to accept free 
+form text where the user can add additional information.
+
+=== Form Definition File
+
+To create a new form we define the content of the form using a YAML file. I 
+decided to use YAML as it seems to be the defacto standard for Rails, 
+its simple and has a nice hierarchical structure which suits the way forms 
+are structured. At a later date I or someone else may develop a web based
+form definition interface. All form definition files are assumed to be located
+in the /smerf directory.
+
+The definitions within the file is space sensitive, be very careful to get 
+this correct otherwise items will be grouped incorrectly. The structure must be 
+as follows with items at the following levels:
+
+    smerfform
+        groups
+            questions
+                answers
+
+<em>The name of the form definition file is used to identify the form.</em> If you 
+change the name of the file then a new DB record will be created with the new 
+code and all links to any history will be lost as this will be treated as a 
+brand new form. When the system loads the form file for the very first time a 
+new record will be created with a code that is set to the name of the file. 
+
+To create a link to display a form you can use the Standard REST Path 
+method used for the show action passing the name of the form definition file
+as a parameter, for example
+
+link_to('Complete Test Smerf Form', smerf_form_url('testsmerf'))
+
+=== Defining the Form
+
+When setting up a new form the first thing we do is define some settings for 
+the form as a whole. Currently the following items can be defined for the form:
+
+name:: Name of the form (mandatory) 
+welcome:: Message displayed at the start of the form (optional) 
+thank_you:: Message displayed at the end of the form (optional) 
+group_sort_order_field:: Nominates which group field to use when sorting groups for display (mandatory) 
+groups:: Defines the question groups within the form (mandatory) 
+
+Here is the definition for the test form included with the plugin:
+
+    --- 
+    smerfform:   
+      name: Test SMERF Form
+      welcome: | 
+        <b>Welcome:</b><br>
+        Thank you for taking part in our Test survey we appreciate your
+        input.<br><br>
+
+        <b>PRIVACY STATEMENT</b><br>
+        We will keep all the information you provide private and not share
+        it with anyone else....<br>
+
+      thank_you: | 
+        <b>Thank you for your input.</b><br><br>
+
+        Should you wish to discuss this survey please contact<br>
+        Joe Bloggs<br>
+        Tel. 12 345 678<br>
+        e-mail <A HREF=\"mailto:jbloggs@xyz.com.au\">Joe's email</A><br><br>
+
+        February 2007
+      group_sort_order_field: code
+
+      groups:
+      ...
+
+=== Defining Groups
+
+Each form is divided up into groups of questions, you must have at least one 
+group per form. Here are the fields that are currently available when 
+defining a group:
+
+code:: This code must be unique for all groups within the form as it is used to identify each group (mandatory) 
+name:: The name of the group, this is displayed as the group heading (mandatory) 
+description:: Provide more detailed description/instructions for the group (optional) 
+questions:: Defines all the questions contained within this group (mandatory) 
+
+Here is the definition for the Personal Details group of the test form:
+
+    personal_details:
+      code: 1
+      name: Personal Details Group
+      description: | This is a brief description of the Personal Details Group
+        here we ask you some personal details ...
+      questions:
+      ...
+
+=== Defining Questions 
+
+A group can contain any number of questions, there must be at least one question 
+per group. When defining a question you must specify the question type, 
+the type determines the type of form field that will be created. 
+There are currently four types that can be used, this will be expanded as 
+needed. The current question types are:
+
+multiplechoice:: Allows the user to select all of the answers that apply from a 
+                 list of possible choices, check boxes are used for this question 
+                 type as multiple selections can be made 
+singlechoice:: Allows the user to select one answer from a list of possible choices, 
+               radio buttons are used for the question type as only a single answer 
+               can be selected 
+textbox:: Allows the user to enter a large amount of free text, the size of the 
+          text box can be specified 
+textfield:: Allows the user to enter a small amount of free form text, the size 
+            of the text field can be specified 
+selectionbox:: Allows the user to select one or more answers from a dropdown list 
+               of possible choices
+
+The following fields can be used to define a question:
+
+code:: Unique code that will identify the question, the code must be unique within 
+       a form (mandatory) 
+type:: Specifies the type of field that should be constructed on the form for 
+       this question, see above list for current types (mandatory) 
+question:: The text of the question, this field is optional as subquestions do 
+           not have to have question text 
+textbox_size:: Specifies the size of the text box to construct, rows x cols, 
+               defaults to 30x5 (optional) 
+textfield_size:: Specified the size of the text field that should be constructed, 
+                 specified in the number of visible characters, default to 30 (optional) 
+header:: Specifies a separate heading for the question. The text will be 
+         displayed above the question allowing questions to be broken up into 
+         subsections (optional) 
+sort_order:: Specifies the sort order for the question 
+help:: Help text that will be displayed below the question 
+answers:: Defines the answers to the question if the question type displays a 
+          list of possibilities to the user 
+validation:: Specifies the validation methods (comma separated) that should be 
+             executed for this question, see Validation and Errors section for 
+             more details
+selectionbox_multiplechoice:: Specifies if the selection box should allow multiple choices
+ 
+Below is an example question definition:
+
+      questions:
+        specify_your_age:
+          code: g1q1
+          type: singlechoice
+          sort_order: 1
+          question: | Specify your ages  
+          help: | Select the <b>one</b> that apply 
+          validation: validate_mandatory_question
+          ...
+
+=== Defining Answers
+
+If the question presents a list of possible answers to the user then we can 
+easily define these answers by using the following fields:
+
+code:: Code to uniquely identify the answer, code needs to be unique for each 
+       question (mandatory). The value specified here will be saved as the users 
+       response when the answer is selected.
+answer:: The text that will be displayed to the user (mandatory) 
+default:: If set to Y then this answer will be selected by default (optional) 
+sort_order:: The sort order for this answer (mandatory) 
+subquestions:: Some answers may need additional information, another question 
+               can be defined to obtain this information. To define a 
+               subquestion the same fields that define a normal question is 
+               used (optional) 
+
+Here is an example answer definition:
+
+      answers:
+        1_20:
+          code: 1
+          answer: | 1-20
+          sort_order: 1
+          default: N
+          ...
+
+=== Defining Subquestions 
+
+Additional questions can be defined for an answer if more information is 
+required if the user selects the answer. For example you may have an 
+answer 'Other' that requires additional information from the user. A 
+subquestion can be defined for the 'Other' answer that takes an additional 
+input from the user. To define a subquestion you use the same fields as for a 
+normal question (Refer to the Defining Question section above).
+
+Below is an example subquestion definition:
+
+      subquestions:
+        other_industries:
+            code: g1q3a4s1
+            type: textbox
+            sort_order: 1
+            question: 
+            help: | Please specify 
+            textbox_size: 30x3
+            validation: validate_sub_question
+            ...
+
+=== Data Store
+
+There are three tables used by SMERF:
+
+smerf_forms:: contains details about each form 
+smerf_forms_users:: contains a record for each of the forms a user completes
+smerf_responses:: contains a record for each response given to each question on 
+                  the form. This allows analysis of answers via SQL queries.
+
+When a user selects to view a form the system checks the form definition file 
+to see if any changes have been made since the last time the form was loaded, 
+if it has the form definition file is processed and validated. A set of classes 
+and objects are created that describes the form including SmerfFile, 
+SmerfGroup, SmerfQuestion, SmerfAnswer, these are serialized to YAML format 
+and stored in a single database field within the smerf_forms table. If no 
+changes have been made to the definition file then the form is simply read 
+from the smerf_forms table and unserialized from YAML with all classes and 
+objects reconstructed.
+
+The users responses to questions on a form are stored in the smerf_responses 
+table which stores a separate record for each response to a question. If a 
+question has multiple answers then multiple records will be created for the 
+question. Responses for a question can be found by using the unique question 
+code assigned within the form definition file. So for example if we had a 
+question with code 'g1q1' and the user selects two answers which have been 
+assigned code values 3 and 5 then two records will be created, i.e.
+
+    g1q1, 3
+    g1q1, 5
+
+Check your DB or the migration file to see the table and column definitions
+for each table.
+
+=== Validation and Errors
+
+All validations are specified as part of the question (or subquestion) definition
+using the 'validation:' field. The SMERF validation system is very flexible and
+allows any number of validation methods to be specified for a question by comma
+separating each method.
+
+    validation: validate_mandatory_question, validate_years 
+
+Currently there are two validation methods provided with the plugin:
+
+validate_mandatory_question:: This method will ensure that the user has answered 
+                              the question
+validate_sub_question:: Only applies to subquestions and makes sure that the user 
+                        has selected the answer that relates to the subquestion, it 
+                        will also ensure the subquestion has been answered if the 
+                        answer that relates to the subquestion has been selected.
+
+SMERF also allows you to define your own custom validation methods. During
+the installation process SMERF creates a helper module called smerf_helpers.rb in 
+the /lib directory. You can add new validation methods into this module and 
+access them by simply referencing them in the form definition file. For example
+we have question 'How many years have you worked in the industry' and we want
+to ensure that the answer provided is between 0-99 we can create a new validation
+method called 'validate_years'.
+
+  # Example validation method for "How many years have you worked in the industry"
+  # it uses a regex to make sure 0-99 years specified.
+  #
+  def validate_years(question, responses, form)
+    # Validate entry and make sure years are numeric and between 0-99
+    answer = smerf_get_question_answer(question, responses)    
+    if (answer)
+      # Expression will return nil if regex fail, also check charcters
+      # after the match to determine if > 2 numbers specified
+      res = ("#{answer}" =~ /\d{1,2}/)      
+      return "Years must be between 0 and 99" if (!res or $'.length() > 0)      
+    end
+    
+    return nil
+  end
+
+Note: There are some helper methods that you can use within these methods included
+in the smerf_system_helpers.rb module which you can find in the plugins lib
+directory.
+
+Your question definition may then look like this:
+
+    how_many_years:
+      code: g2q3
+      type: textfield
+      sort_order: 3
+      header: 
+      question: | How many years have you worked in the industry
+      textfield_size: 10
+      validation: validate_mandatory_question, validate_years
+      help: 
+
+When the form is validated your custom validation method will be called. When 
+an error is detected, a summary of the errors are displayed at the top of the 
+form, additionally an error message is displayed for each question that has an 
+error. This makes it very easy for the user to see which question they need 
+to fix. 
+
+=== Complete Example
+
+Here is the complete form definition file for the test form included with the
+plugin:
+
+    --- 
+    smerfform:   
+      name: Test SMERF Form
+      welcome: | 
+        <b>Welcome:</b><br>
+        Thank you for taking part in our Test survey we appreciate your
+        input.<br><br>
+
+        <b>PRIVACY STATEMENT</b><br>
+        We will keep all the information you provide private and not share
+        it with anyone else....<br>
+
+      thank_you: | 
+        <b>Thank you for your input.</b><br><br>
+
+        Should you wish to discuss this survey please contact<br>
+        Joe Bloggs<br>
+        Tel. 12 345 678<br>
+        e-mail <A HREF=\"mailto:jbloggs@xyz.com.au\">Joe's email</A><br><br>
+
+        February 2007
+      group_sort_order_field: code
+
+      groups:
+        personal_details:
+          code: 1
+          name: Personal Details Group
+          description: | This is a brief description of the Personal Details Group
+            here we ask you some personal details ...
+          questions:
+            specify_your_age:
+              code: g1q1
+              type: singlechoice
+              sort_order: 1
+              question: | Specify your ages  
+              help: | Select the <b>one</b> that apply 
+              validation: validate_mandatory_question
+              answers:
+                1_20:
+                  code: 1
+                  answer: | 1-20
+                  sort_order: 1
+                  default: N
+                21_40:
+                  code: 2
+                  answer: | 21_40
+                  sort_order: 2
+                  default: N
+                >40:
+                  code: 3
+                  answer: | > 40
+                  sort_order: 3
+                  default: N
+                  subquestions:
+                    >40:
+                      code: g1q1a3s1
+                      type: singlechoice
+                      sort_order: 1
+                      question: | Are you aged over 40
+                      help: | Select the <b>one</b> that apply 
+                      validation: validate_sub_question
+                      answers:
+                        41_50:
+                          code: 1
+                          answer: | 41-50
+                          sort_order: 1
+                          default: N
+                        51_60:
+                          code: 2
+                          answer: | 51_60
+                          sort_order: 2
+                          default: N
+                        >61:
+                          code: 3
+                          answer: | > 61
+                          sort_order: 3
+                          default: N
+                          subquestions:
+                            >61:
+                              code: g1q1a3s1a3s1
+                              type: textfield
+                              sort_order: 1
+                              header: 
+                              question: | If you are older than 61, please specify
+                              textfield_size: 10
+                              validation: validate_sub_question
+
+            are_you_married:
+              code: g1q2
+              type: singlechoice
+              sort_order: 2
+              question: | Are you married  
+              help: 
+              answers:
+                no:
+                  code: 1
+                  answer: | No
+                  sort_order: 1
+                  default: Y
+                yes:
+                  code: 2
+                  answer: | Yes
+                  sort_order: 2
+                  default: N
+
+            hobbies:
+              code: g1q3
+              type: multiplechoice
+              sort_order: 3
+              question: | What are your hobbies 
+              help: | Mark <b>all</b> that apply      
+              header: Another header that you can group questions under
+              answers:
+                chess:
+                  code: 1
+                  answer: | Chess
+                  sort_order: 1
+                  default: N
+                woodwork:
+                  code: 2
+                  answer: | Wood work
+                  sort_order: 2
+                  default: N
+                sleeping:
+                  code: 3
+                  answer: | Sleeping
+                  sort_order: 3
+                  default: N
+                other:
+                  code: 4
+                  answer: | Other 
+                  sort_order: 4
+                  default: N
+                  subquestions:
+                    other_industries:
+                        code: g1q3a4s1
+                        type: textbox
+                        sort_order: 1
+                        question: 
+                        help: | Please specify 
+                        textbox_size: 30x3
+                        validation: validate_sub_question
+
+        employment_details:
+          code: 2
+          name: | Employment Details Group
+          description: | Brief description of the employment details group  
+          question_sort_order_field: sort_order
+          questions:
+            which_industry:
+              code: g2q1
+              type: multiplechoice
+              sort_order: 1
+              question: | Which industries have you worked in  
+              help: | Mark <b>all</b> that apply    
+              validation: validate_mandatory_question
+              answers:
+                it:
+                  code: 1
+                  answer: | Information Technology
+                  sort_order: 1
+                  default: N
+                accounting:
+                  code: 2
+                  answer: | Accounting 
+                  sort_order: 2
+                  default: N
+                finance:
+                  code: 3
+                  answer: | Finance 
+                  sort_order: 3
+                  default: N
+                other:
+                  code: 4
+                  answer: | Other 
+                  sort_order: 4
+                  default: N
+                  subquestions:
+                    other_industries:
+                        code: g2q1a4s1
+                        type: textbox
+                        sort_order: 1
+                        question: 
+                        help: | Please specify 
+                        textbox_size: 30x3
+                        validation: validate_sub_question
+
+            how_many_years:
+              code: g2q3
+              type: textfield
+              sort_order: 3
+              header: 
+              question: | How many years have you worked in the industry
+              textfield_size: 10
+              validation: validate_mandatory_question, validate_years
+              help: 
+
+
