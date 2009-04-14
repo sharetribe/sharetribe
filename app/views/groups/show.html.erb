@@ -1,0 +1,49 @@
+<div id="title_with_border">
+  <div id="title_div">
+    <h1 class="no_border">
+      <% if (@group.title.length > 35 && !@group.title.include?(" "))%>
+        <%= @group.title.slice!(0..35) + "..." %>
+      <% else %>
+        <%= h(@group.title) %> 
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<div id="basic_content">
+  <div id="listing_contents">
+    <%= text_with_line_breaks(@group.description) %>
+    <br /><br />
+  </div>
+  <div id="listing_image">
+    <% if @current_user && !@group.is_member?(@current_user, session[:cookie]) %>
+      <div class="reply_to_listing">
+        <%= link_to t(:join_group), join_person_group_path(@current_user, @group), :method => :post %>
+      </div>
+    <% end %>
+  </div>
+  <div id="comments">
+    <div class="browse_objects_header">
+      <div class="browse_objects_title">
+        <%= t(:group_members) %> <span class="page_entries_info">(<%= page_entries_info @members %>)
+      </div>
+      <div class="pagination_padding">
+        <%= will_paginate @members, :prev_label => t(:previous), :next_label => t(:next) %>
+      </div>
+    </div>
+
+    <% if @members && @members.size > 0 %>
+      <%= render :partial => "people/person", :collection => @members, :as => :item, :spacer_template => "layouts/dashed_line" %>
+      <div class="solid_line"></div>
+      <div id="browse_objects_footer_left">
+        <%= t(:show_members_on_page) %>:
+        <%= create_footer_pagination_links(["10", "30", "50", "all"], "group_members") %>
+      </div>
+      <div class="pagination_padding">
+        <%= will_paginate @members, :prev_label => t(:previous), :next_label => t(:next) %>
+      </div>
+      <% else %>
+        <p><%= t(:no_members) %></p>
+      <% end %>
+  </div>    
+</div>    

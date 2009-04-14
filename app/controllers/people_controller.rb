@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
     # @people = Person.find(:all).sort { 
     #   |a,b| a.name(session[:cookie]) <=> b.name(session[:cookie])
     # }.paginate :page => params[:page], :per_page => per_page
-    @people = Person.find(:all).paginate :page => params[:page], :per_page => per_page
+    @people = Person.paginate(:page => params[:page], :per_page => per_page)
   end
   
   def home
@@ -48,6 +48,7 @@ class PeopleController < ApplicationController
     @item = Item.new
     @favors = @person.available_favors(get_visibility_conditions("item"))
     @favor = Favor.new
+    @groups = @person.groups(session[:cookie])
     if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])
     else

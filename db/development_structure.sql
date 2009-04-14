@@ -7,7 +7,6 @@ CREATE TABLE `conversations` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `favors` (
   `id` int(11) NOT NULL auto_increment,
   `owner_id` varchar(255) default NULL,
@@ -21,7 +20,6 @@ CREATE TABLE `favors` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL auto_increment,
   `content` text,
@@ -32,7 +30,6 @@ CREATE TABLE `feedbacks` (
   `is_handled` int(11) default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `filters` (
   `id` int(11) NOT NULL auto_increment,
@@ -127,14 +124,13 @@ CREATE TABLE `people` (
   `is_admin` int(11) default '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `people_smerf_forms` (
   `id` int(11) NOT NULL auto_increment,
   `person_id` int(11) NOT NULL,
   `smerf_form_id` int(11) NOT NULL,
   `responses` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `person_comments` (
   `id` int(11) NOT NULL auto_increment,
@@ -148,9 +144,7 @@ CREATE TABLE `person_comments` (
   `updated_at` datetime default NULL,
   `kassi_event_id` int(11) default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `person_conversations` (
   `id` int(11) NOT NULL auto_increment,
@@ -162,10 +156,7 @@ CREATE TABLE `person_conversations` (
   `last_sent_at` datetime default NULL,
   `last_received_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
-
-
 
 CREATE TABLE `person_interesting_listings` (
   `id` int(11) NOT NULL auto_increment,
@@ -174,10 +165,7 @@ CREATE TABLE `person_interesting_listings` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-
-
 
 CREATE TABLE `person_read_listings` (
   `id` int(11) NOT NULL auto_increment,
@@ -203,7 +191,6 @@ CREATE TABLE `settings` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
-
 CREATE TABLE `smerf_forms` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) NOT NULL,
@@ -213,7 +200,7 @@ CREATE TABLE `smerf_forms` (
   `cache_date` datetime default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_smerf_forms_on_code` (`code`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `smerf_responses` (
   `id` int(11) NOT NULL auto_increment,
@@ -221,7 +208,7 @@ CREATE TABLE `smerf_responses` (
   `question_code` varchar(255) NOT NULL,
   `response` text NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL auto_increment,
@@ -254,9 +241,17 @@ INSERT INTO schema_migrations (version) VALUES ('20080825064927');
 
 INSERT INTO schema_migrations (version) VALUES ('20080825114546');
 
+INSERT INTO schema_migrations (version) VALUES ('20080827084204');
+
+INSERT INTO schema_migrations (version) VALUES ('20080828090629');
+
 INSERT INTO schema_migrations (version) VALUES ('20080828104013');
 
 INSERT INTO schema_migrations (version) VALUES ('20080828104239');
+
+INSERT INTO schema_migrations (version) VALUES ('20080912072148');
+
+INSERT INTO schema_migrations (version) VALUES ('20080912072238');
 
 INSERT INTO schema_migrations (version) VALUES ('20080919122825');
 
@@ -334,11 +329,10 @@ INSERT INTO schema_migrations (version) VALUES ('20090401181848');
 
 INSERT INTO schema_migrations (version) VALUES ('20090401184511');
 
-INSERT INTO schema_migrations (version) VALUES ('20090403093157');
-
 INSERT INTO schema_migrations (version) VALUES ('20090401185039');
 
 INSERT INTO schema_migrations (version) VALUES ('20090402144456');
 
-INSERT INTO schema_migrations (version) VALUES ('20090406081353');
+INSERT INTO schema_migrations (version) VALUES ('20090403093157');
 
+INSERT INTO schema_migrations (version) VALUES ('20090406081353');
