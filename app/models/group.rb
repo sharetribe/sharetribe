@@ -18,8 +18,16 @@ class Group < ActiveRecord::Base
     self.element_name = "groups"
     self.collection_name = "groups"
     
+    def self.get_public_groups(cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/@public", {"Cookie" => cookie }))
+    end
+    
     def self.get_group(id, cookie)
       return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}", {"Cookie" => cookie }))
+    end
+    
+    def self.get_members(id, cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@members", {"Cookie" => cookie }))
     end
     
     def self.create_group(params, cookie)
@@ -40,13 +48,22 @@ class Group < ActiveRecord::Base
   end
 
   def self.create(params, cookie)
-    # create to Common Services
-    response = GroupConnection.create_group(params, cookie)
-    #pick id from the response (same id in kassi and COS DBs)
-    params[:id] = response.body[/"id":"([^"]+)"/, 1]
-    puts "Iidee: " + response.body + "loppuu tähän" + params[:id]
-    #create locally with less attributes
-    super(params.except(:title, :description, :type))
+    if (cookie)
+      # create to Common Services
+      response = GroupConnection.create_group(params, cookie)
+      #pick id from the response (same id in kassi and COS DBs)
+      params[:id] = response.body[/"id":"([^"]+)"/, 1]
+      puts "Iidee: " + response.body + "loppuu tähän" + params[:id]
+      #create locally with less attributes
+      super(params.except(:title, :description, :type))
+    else
+      # create given group ids to kassi db
+      params.each do |param|
+        super(param)
+      end  
+      # TODO: should work like this but doesn't
+      # super(params)
+    end    
   end
   
   def initialize(params={})
@@ -59,10 +76,24 @@ class Group < ActiveRecord::Base
     self.id ||= self.guid
   end
   
+  # Gets all groups from COS and adds to Kassi db all that are not already there.
+  def self.add_new_public_groups_to_kassi_db(cookie=nil)
+    cookie = Session.kassiCookie if cookie.nil?
+    group_ids_not_in_kassi = []
+    cos_group_ids = Group.get_group_ids(GroupConnection.get_public_groups(cookie))
+    kassi_group_ids = Group.find(:all, :select => "id").collect(&:id)
+    cos_group_ids.each do |id|
+      unless kassi_group_ids.include?(id)
+        group_ids_not_in_kassi << { :id => id }
+      end
+    end
+    Group.create(group_ids_not_in_kassi, nil)
+  end
+  
   def title(cookie=nil)
     return "" if new_record?
     group_hash = get_group_hash(cookie)
-    return "Group not found!" if group_hash.nil?
+    return "Not found!" if group_hash.nil?
     return group_hash["group"]["title"]
   end
   
@@ -73,7 +104,7 @@ class Group < ActiveRecord::Base
   def description(cookie=nil)
     return "" if new_record?
     group_hash = get_group_hash(cookie)
-    return "Group not found!" if group_hash.nil?
+    return "Not found!" if group_hash.nil?
     return group_hash["group"]["description"]
   end
   
@@ -85,10 +116,19 @@ class Group < ActiveRecord::Base
     update_attributes({:type => type}, cookie)
   end
   
+  def members(cookie)
+    Person.find_kassi_users_by_ids(get_member_ids(cookie))
+  end
+  
+  def get_member_ids(cookie)
+    Person.get_person_ids(get_members(cookie))
+  end
+  
   def update_attributes(params, cookie)
     GroupConnection.put_attributes(params, self.id, cookie)
   end
 
+  # Returns a hash from COS containing attributes of a group
   def get_group_hash(cookie=nil)
     cookie = Session.kassiCookie if cookie.nil?
     
@@ -103,6 +143,29 @@ class Group < ActiveRecord::Base
     end
     
     return group_hash
+  end
+  
+  # Retrieves members of this group from COS
+  def get_members(cookie)
+    
+    begin
+      member_hash = GroupConnection.get_members(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find group with that id in COS Database!
+      return nil
+    end
+    
+    return member_hash
+  end
+  
+  def is_member?(person, cookie)
+    get_member_ids(cookie).include?(person.id) 
+  end
+  
+  # Takes a group hash from COS and extracts ids from it
+  # into an array.
+  def self.get_group_ids(group_hash)
+    group_hash["entry"].collect { |group| group["group"]["id"] }
   end
 
 end

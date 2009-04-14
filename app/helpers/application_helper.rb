@@ -74,7 +74,7 @@ module ApplicationHelper
       navi_items[:search_people] = search_people_path
     when 'groups_title'
       navi_items[:browse_groups] = groups_path
-      navi_items[:search_groups] = search_groups_path
+      #navi_items[:search_groups] = search_groups_path
       navi_items[:new_group] = new_group_path
     when 'info'
       navi_items[:about] = about_info_path
@@ -170,7 +170,9 @@ module ApplicationHelper
         when "feedback"
           path = admin_feedbacks_path(params.merge({:per_page => value}))
         when "groups_title"
-          path = groups_path(params.merge({:per_page => value}))                    
+          path = groups_path(params.merge({:per_page => value}))
+        when "group_members"
+          path = group_path(params.merge({:per_page => value}))                      
         end
         links << link_to(t(value), path)  
       end    
@@ -180,8 +182,8 @@ module ApplicationHelper
   
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(text)
-   #pattern for ending characters that are not part of the url
-   pattern = /[\.)]*$/
+    #pattern for ending characters that are not part of the url
+    pattern = /[\.)]*$/
     h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
   

@@ -1,11 +1,17 @@
 class GroupsController < ApplicationController
 
-  before_filter :logged_in, :only  => [ :new, :create ]
+  before_filter :logged_in, :except  => [ :index, :search ]
 
   def index
     @title = "groups_title"
     save_navi_state(['groups_title', 'browse_groups'])
-    @groups = Group.find(:all).paginate :page => params[:page], :per_page => per_page
+    Group.add_new_public_groups_to_kassi_db(session[:cookie])
+    @groups = Group.paginate(:page => params[:page], :per_page => per_page)
+  end
+  
+  def show
+    @group = Group.find(params[:id])
+    @members = @group.members(session[:cookie]).paginate :page => params[:page], :per_page => per_page
   end
 
   def new
@@ -29,6 +35,13 @@ class GroupsController < ApplicationController
   
   def search
     save_navi_state(['groups_title', 'search_groups'])
+  end
+  
+  def join
+    @person = Person.find(params[:person_id])
+    @person.join_group(params[:id], session[:cookie])
+    flash[:notice] = :you_have_joined_to_this_group
+    redirect_to group_path(params[:id])
   end
   
 end

@@ -442,7 +442,12 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :group_created_successfully => "Ryhmä lisätty onnistuneesti",      
 :group_title => "Ryhmän nimi",
 :group_description => "Ryhmän kuvaus",
-:create_group => "Luo ryhmä", 
+:create_group => "Luo ryhmä",
+:join_group => "Liity ryhmään",
+:group_members => "Jäsenet",
+:show_members_on_page => "Näytä jäseniä sivulla",
+:you_have_joined_to_this_group => "Ryhmään liittyminen onnistui",
+:no_groups => "Ei ryhmiä",    
 
 #Purses view
 :purse => "Kukkaro",

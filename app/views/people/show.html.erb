@@ -88,12 +88,25 @@
       <% end %>
     </div>
   </div>
-  
+
   <% if @person.id == @current_user.id %>
     <div id="profile_add_favor">
       <%= render :partial => "people/profile_add_favor" %>
     </div>
   <% end %>
+  
+  <a name="groups"></a>
+  <div class="profile_small_header">
+    <b><%= t(:groups_title) %></b>
+  </div>
+  
+  <div class="profile_info">
+    <% if @groups.size > 0 %>
+      <%= render :partial => "people/profile_group", :collection => @groups, :as => :group, :spacer_template => "layouts/dashed_line" %>
+    <% else %>
+      <div class="profile_info_field"><%= t(:no_groups)%></div>
+    <% end %>
+  </div>
 
 </div>
 

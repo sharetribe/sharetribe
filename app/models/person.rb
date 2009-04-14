@@ -118,6 +118,15 @@ class Person < ActiveRecord::Base
       # Rails.cache.delete("person_hash.#{friend_id}")
     end
     
+    def self.get_groups(id, cookie)
+      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
+    end
+    
+    def self.join_group(id, group_id, cookie)
+      creating_headers = {"Cookie" => cookie}
+      response = connection.post("#{prefix}#{element_name}/#{id}/@groups", {:group_id => group_id}.to_json, creating_headers)
+    end
+    
     #fixes utf8 letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
@@ -308,11 +317,7 @@ class Person < ActiveRecord::Base
   
   # Returns ids of OtaSizzle friends of this person
   def get_friend_ids(cookie)
-    ids = Array.new
-    get_friends(cookie)["entry"].each do |person|
-      ids << person["id"]
-    end
-    return ids
+    Person.get_person_ids(get_friends(cookie))
   end
   
   # Returns those people who are also kassi users
@@ -355,6 +360,30 @@ class Person < ActiveRecord::Base
     end
     
     return request_hash
+  end
+  
+  # Returns all the groups that this user is a member in 
+  # as an array of Group objects
+  def groups(cookie)
+    Group.find(get_group_ids(cookie))
+  end
+  
+  # Returns ids of OtaSizzle groups of this person
+  def get_group_ids(cookie)
+    Group.get_group_ids(get_groups(cookie))
+  end
+  
+  # Returns a hash from COS containing groups of this person
+  def get_groups(cookie)
+    
+    begin
+      group_hash = PersonConnection.get_groups(self.id, cookie)
+    rescue ActiveResource::ResourceNotFound => e
+      #Could not find person with that id in COS Database!
+      return nil
+    end
+    
+    return group_hash
   end
   
   def update_attributes(params, cookie)
@@ -447,6 +476,16 @@ class Person < ActiveRecord::Base
       return true if favor.save
     end  
     return false
+  end
+  
+  def join_group(group_id, cookie)
+    PersonConnection.join_group(self.id, group_id, cookie)
+  end
+  
+  # Takes a person hash from COS and extracts ids from it
+  # into an array.
+  def self.get_person_ids(person_hash)
+    person_hash["entry"].collect { |person| person["id"] }
   end
   
 end

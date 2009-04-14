@@ -442,6 +442,11 @@ I18n.store_translations 'en-US',
 :group_title => "Group name",
 :group_description => "Group description",
 :create_group => "Create group",
+:join_group => "Join group",
+:group_members => "Members",
+:show_members_on_page => "Show members on page",
+:you_have_joined_to_this_group => "You have successfully joined to this group",
+:no_groups => "No groups",  
 
 #Purses view
 :purse_title => "Purse",
