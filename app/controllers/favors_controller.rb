@@ -35,7 +35,7 @@ class FavorsController < ApplicationController
   
   def show
     @title = URI.unescape(params[:id])
-    @favors = Favor.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    @favors = Favor.find(:all, :conditions => ["title = ? AND status <> 'disabled'" + get_visibility_conditions("favor"), @title])
     render :update do |page|
       if @favors.size > 0
         page["favor_" + @title.downcase].replace_html :partial => "favor_title_link_and_owners"
@@ -69,6 +69,7 @@ class FavorsController < ApplicationController
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
       elsif @current_user.save_favor(@favor)
+        @favor.save_group_visibilities(params[:groups])
         flash[:notice] = :favor_added
         flash[:error] = nil
         page["profile_favors"].replace_html :partial => "people/profile_favor", 
@@ -87,6 +88,7 @@ class FavorsController < ApplicationController
   def edit
     @favor = Favor.find(params[:id])
     @object_visibility = @favor.visibility
+    @groups = @favor.groups
     @form_path = favor_path(@favor)
     @cancel_path = cancel_update_person_favor_path(@favor.owner, @favor)
     @method = :put
@@ -106,6 +108,7 @@ class FavorsController < ApplicationController
         @favor.description = params[:favor][:description]
         @favor.visibility = params[:favor][:visibility]
         if @current_user.save_favor(@favor)
+          @favor.save_group_visibilities(params[:groups])
           flash[:notice] = :favor_updated
           flash[:error] = nil
           page["favor_" + @favor.id.to_s].replace_html :partial => 'people/profile_favor_inner', :locals => {:favor => @favor}

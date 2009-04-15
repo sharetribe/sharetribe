@@ -4,6 +4,12 @@ class Group < ActiveRecord::Base
   
   attr_accessor :guid
   
+  has_and_belongs_to_many :items
+  
+  has_and_belongs_to_many :listings
+  
+  has_and_belongs_to_many :favors, :join_table => "groups_favors"
+  
   class GroupConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information
     # of group model is stored. This is subclass of ActiveResource so it includes some automatic

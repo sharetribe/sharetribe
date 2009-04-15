@@ -1,15 +1,6 @@
 /* Basics */
 /* -------------------------------------------------------------------------- */
 
-body {
-background-color: #f7f7f7;
-font-size: 1em;
-font-family: Verdana, Helvetica, Arial, sans-serif;
-color:#564b47;
-padding:0;
-margin:0;
-}
-
 /* Smerf form */
 /* -------------------------------------------------------------------------- */
 
@@ -123,9 +114,15 @@ color: #ff5762;
 font-weight: normal;
 }
 
-form.smerfForm .smerfFormError li, p, ul { 
-font-size: 10px;
-padding-left: 10px;}
+form.smerfForm li, form.smerfForm p, form.smerfForm ul { 
+	font-size: 10px;
+	padding-left: 10px;
+}
+
+form.smerfFormError li, form.smerfFormError p, form.smerfFormError ul {
+	font-size: 10px;
+	padding-left: 10px;
+}
 
 form.smerfForm .smerfFormError h2 { 
 font-size: 12px;

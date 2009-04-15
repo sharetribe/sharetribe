@@ -13,7 +13,7 @@
   <div class="listed_item_owner_right">
     <% if @current_user && !group.is_member?(@current_user, session[:cookie]) %>
       <div class="listed_item_owner_right_link">
-        <%= link_to t(:join_group), join_person_group_path(@current_user, @group), :method => :post %>
+        <%= link_to t(:join_group), join_person_group_path(@current_user, group), :method => :post %>
       </div>
     <% end %>
   </div>

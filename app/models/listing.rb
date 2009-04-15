@@ -18,6 +18,8 @@ class Listing < ActiveRecord::Base
   
   has_many :kassi_events, :as => :eventable
   
+  has_and_belongs_to_many :groups
+  
   serialize :language, Array
   
   attr_accessor :language_fi, :language_en, :language_swe
@@ -179,6 +181,17 @@ class Listing < ActiveRecord::Base
     else
       return true
     end    
+  end
+  
+  # Save group visibility data to db
+  def save_group_visibilities(group_ids)
+    if group_ids
+      groups.clear
+      selected_groups = Group.find(group_ids)
+      selected_groups.each do |group|
+        groups << group
+      end
+    end
   end
 
 end

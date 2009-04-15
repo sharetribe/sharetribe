@@ -17,7 +17,8 @@
     <%= t(:visibility) %>: 
   </div>
   <div class="form_right">
-    <% with = "'visibility='+value+'&object_visibility=" + object.visibility.to_s + "'" %>
+    <% object_details = object.id ? "&object_id=" + object.id.to_s + "&object_type=" + object.class.to_s : "" %>
+    <% with = "'visibility='+value+'&object_visibility=" + object.visibility.to_s + object_details + "'" %>
     <%= select(form_type, "visibility", visibility_types, { :selected => selected }, 
                {:onchange => "#{remote_function(:url => { :action => "visibility_form_checkboxes" },
                                                 :with => with,

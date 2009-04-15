@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
   
   def show
     @title = URI.unescape(params[:id])
-    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'", @title])
+    @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'" + get_visibility_conditions("item"), @title])
     render :update do |page|
       if @items.size > 0
         page["item_" + @title.downcase].replace_html :partial => "item_title_link_and_owners"
@@ -71,6 +71,7 @@ class ItemsController < ApplicationController
       if !is_current_user?(@person)
         flash[:error] = :operation_not_permitted
       elsif @current_user.save_item(@item)
+        @item.save_group_visibilities(params[:groups])
         flash[:notice] = :item_added
         flash[:error] = nil
         page["profile_items"].replace_html :partial => "people/profile_item", 
@@ -89,6 +90,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @object_visibility = @item.visibility
+    @groups = @item.groups
     @form_path = item_path(@item)
     @cancel_path = cancel_update_person_item_path(@item.owner, @item)
     @method = :put
@@ -108,6 +110,7 @@ class ItemsController < ApplicationController
         @item.description = params[:item][:description]
         @item.visibility = params[:item][:visibility]
         if @current_user.save_item(@item)
+          @item.save_group_visibilities(params[:groups])
           flash[:notice] = :item_updated
           flash[:error] = nil
           page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}

@@ -261,14 +261,13 @@ module ApplicationHelper
         checkboxes << check_box_tag(name, "true") + " &nbsp; " + t(name)
       end    
     end
-    # GROUP FUNCTIONALITY
-    # @current_user.groups.each do |group|
-    #   if groups && groups.size > 0 && groups.include?(group)
-    #     checkboxes << check_box_tag("groups[]", "true", :checked => "checked") + " &nbsp; " + group.name
-    #   else
-    #     checkboxes << check_box_tag("groups[]", "true") + " &nbsp; " + group.name  
-    #   end  
-    # end
+    @current_user.groups(session[:cookie]).each do |group|
+      if groups && groups.size > 0 && groups.include?(group)
+        checkboxes << check_box_tag("groups[]", group.id.to_s, :checked => "checked") + " &nbsp; " + group.title(session[:cookie])
+      else
+        checkboxes << check_box_tag("groups[]", group.id.to_s) + " &nbsp; " + group.title(session[:cookie])  
+      end  
+    end
     return checkboxes.join("<br />")
   end
 end

@@ -4,6 +4,8 @@ class Item < ActiveRecord::Base
   
   has_many :kassi_events, :as => :eventable
   
+  has_and_belongs_to_many :groups
+  
   acts_as_ferret :fields => {
     :title => {},
     :title_sort => {
@@ -49,6 +51,17 @@ class Item < ActiveRecord::Base
   
   def enable
     update_attribute :status, "enabled"
+  end
+  
+  # Save group visibility data to db
+  def save_group_visibilities(group_ids)
+    if group_ids
+      groups.clear
+      selected_groups = Group.find(group_ids)
+      selected_groups.each do |group|
+        groups << group
+      end
+    end
   end
   
 end
