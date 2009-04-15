@@ -65,17 +65,16 @@ class ApplicationController < ActionController::Base
         conditions += " OR (visibility IN ('contacts', 'f_c', 'c_g', 'f_c_g') 
         AND #{person_type} IN (#{@current_user.contact_query('id')}))"
       end
-      # GROUP FUNCTIONALITY
-      # if @current_user.groups.size > 0
-      #   group_ids = @current_user.group_ids.collect { |id| "'#{id}'" }.join(",")
-      #   conditions += " OR (visibility IN ('groups', 'f_g', 'c_g', 'f_c_g')
-      #   AND id IN (
-      #     SELECT #{object_type}s.id 
-      #     FROM #{object_type}s_groups, #{object_type}s
-      #     WHERE #{object_type}s_groups.group_id IN (#{group_ids})
-      #     AND #{object_type}s_groups.#{object_type}_id = #{object_type}s.id
-      #   ))"
-      # end  
+      if @current_user.groups(session[:cookie]).size > 0
+        group_ids = @current_user.get_group_ids(session[:cookie]).collect { |id| "'#{id}'" }.join(",")
+        conditions += " OR (visibility IN ('groups', 'f_g', 'c_g', 'f_c_g')
+        AND id IN (
+          SELECT #{object_type}s.id 
+          FROM groups_#{object_type}s, #{object_type}s
+          WHERE groups_#{object_type}s.group_id IN (#{group_ids})
+          AND groups_#{object_type}s.#{object_type}_id = #{object_type}s.id
+        ))"
+      end
     end
     conditions += ")"
   end
@@ -86,23 +85,46 @@ class ApplicationController < ActionController::Base
     if params[object_type][:visibility].eql?("other")
       if params[:friends]
         if params[:contacts]
-          params[object_type][:visibility] = "f_c"
+          if params[:groups]
+            params[object_type][:visibility] = "f_c_g"
+          else  
+            params[object_type][:visibility] = "f_c"
+          end  
         else
-          params[object_type][:visibility] = "friends"
+          if params[:groups]
+            params[object_type][:visibility] = "f_g"
+          else
+            params[object_type][:visibility] = "friends"
+          end  
         end  
       else
         if params[:contacts]
-          params[object_type][:visibility] = "contacts"
+          if params[:groups]
+            params[object_type][:visibility] = "c_g"
+          else
+            params[object_type][:visibility] = "contacts"
+          end    
         else
-          params[object_type][:visibility] = "none"
+          if params[:groups]
+            params[object_type][:visibility] = "groups"
+          else  
+            params[object_type][:visibility] = "none"
+          end  
         end  
       end
-    end  
+    end
   end
   
   # Renders friend and group checkboxes for visibility
   def visibility_form_checkboxes
     @visibility = params[:visibility]
+    if params[:object_type]
+      case params[:object_type]
+      when "Item"
+        @object = Item.find(params[:object_id])
+      end
+    end
+    @groups = @object.groups if @object
     @object_visibility = params[:object_visibility]
   end
 

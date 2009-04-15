@@ -67,6 +67,7 @@ class ListingsController < ApplicationController
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     if @listing.save
+      @listing.save_group_visibilities(params[:groups])
       flash[:notice] = :listing_added
       redirect_to listing_path(@listing)
     else
@@ -99,6 +100,7 @@ class ListingsController < ApplicationController
         @language_en = 1
       end
     end
+    @groups = @listing.groups
   end
   
   def update
@@ -111,6 +113,7 @@ class ListingsController < ApplicationController
     get_visibility(:listing)
     @listing.update_attributes(params[:listing])
     if @listing.save
+      @listing.save_group_visibilities(params[:groups])
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
     else
