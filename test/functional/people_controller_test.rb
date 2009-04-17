@@ -94,12 +94,12 @@ class PeopleControllerTest < ActionController::TestCase
     }, :person, nil, :put
     assert_response :success, @response.body
     assert_equal flash[:notice], :person_updated_successfully
-    assert_equal @test_person1.given_name, "Teppo"
-    assert_equal @test_person1.family_name, "Testaaja"
-    assert_equal @test_person1.street_address, "Osoite"
-    assert_equal @test_person1.postal_code, "00000"
-    assert_equal @test_person1.locality, "Postitoimipaikka"
-    assert_equal @test_person1.phone_number, "0700-715517"
+    assert_equal "Testaaja", @test_person1.family_name(@cookie) 
+    assert_equal "Teppo", @test_person1.given_name(@cookie)
+    assert_equal "Osoite", @test_person1.street_address(@cookie)
+    assert_equal @test_person1.postal_code(@cookie), "00000"
+    assert_equal @test_person1.locality(@cookie), "Postitoimipaikka"
+    assert_equal @test_person1.phone_number(@cookie), "0700-715517"
   end
   
   def test_invalid_given_name
