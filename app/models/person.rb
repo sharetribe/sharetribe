@@ -96,7 +96,7 @@ class Person < ActiveRecord::Base
     
     def self.put_attributes(params, id, cookie)
       connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )   
-      Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
     end
     
     def self.update_avatar(image, id, cookie)
@@ -105,20 +105,20 @@ class Person < ActiveRecord::Base
     
     def self.add_as_friend(friend_id, id, cookie)
       connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
-      Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
-      Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
-      Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
-      Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
-      Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
-      Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
     end
     
     def self.get_groups(id, cookie)
@@ -414,12 +414,12 @@ class Person < ActiveRecord::Base
     cookie = Session.kassiCookie if cookie.nil?
     
     begin
-      person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
-      #person_hash = PersonConnection.get_person(self.id, cookie)
+      #person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
+      person_hash = PersonConnection.get_person(self.id, cookie)
     rescue ActiveResource::UnauthorizedAccess => e
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
-      Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
+      #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
     rescue ActiveResource::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
