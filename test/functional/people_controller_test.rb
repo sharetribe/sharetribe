@@ -54,12 +54,14 @@ class PeopleControllerTest < ActionController::TestCase
     username = generate_random_username
     post "create", ({:person => {:username => username,
                  :password => "testi",
+                 :password2 => "testi",
                  :email => "#{username}@example.com"}})
     assert_response :found, @response.body             
                  
     username = generate_random_username
     post "create", ({:person => {:username => username,
                  :password => "testi",
+                 :password2 => "testi",
                  :email => "#{username}@example.com"}})
     assert_response :found, @response.body
   end

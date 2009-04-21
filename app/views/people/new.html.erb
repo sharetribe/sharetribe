@@ -1,17 +1,48 @@
-<h3><%= flash[:notice] %></h3>
-<h3><%=t(:new_user)%></h3>
-
-<%= error_messages_for :person %>
+<h1><%=t(:register_as_a_kassi_user)%></h1>
 
 <% form_for @person do |f| -%>
-  <p><%= f.label :username, t(:username) %></p>
-  <p><%= f.text_field :username %></p>
-  <p><%= f.label :password, t(:password) %></p>
-  <p><%= f.password_field :password %></p>
-  <p><%= f.label :password_confirmation, t(:confirm_password)%></p>
-  <p><%= f.password_field :password2 %></p>
-  <p><%= f.label :email, t(:email) %></p>
-  <p><%= f.text_field :email %></p>
-  <p><%= f.submit "Create" %></p>
+
+<div id="basic_content">
   
+  <%= error_messages_for :person %>
+  
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:username) %>:  
+    </div>  
+    <div class="form_right">
+      <%= f.text_field :username %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:password) %>:
+    </div>  
+    <div class="form_right">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:confirm_password) %>:  
+    </div>  
+    <div class="form_right">
+      <%= f.password_field :password2 %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:email) %>:  
+    </div>  
+    <div class="form_right">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_right">
+      <%= f.submit t(:register), :onclick => "this.disabled=true,this.form.submit();" %>
+    </div>
+  </div>
+</div>
+
 <%end%>

@@ -37,6 +37,7 @@ I18n.store_translations 'fi',
 :username => "Käyttäjätunnus",
 :password => "Salasana",
 :account => "Oma tili",
+:register_as_a_kassi_user => "Rekisteröidy Kassin käyttäjäksi", 
 
 #Concent
 :accept => "Hyväksyn",
