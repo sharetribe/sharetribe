@@ -37,6 +37,7 @@ I18n.store_translations 'en-US',
 :username => "Username",
 :password => "Password",
 :account => "Account",
+:register_as_a_kassi_user => "Register as a Kassi user",
 
 #Concent
 :accept => "Accept",

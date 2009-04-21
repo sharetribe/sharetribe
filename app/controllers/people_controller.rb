@@ -73,22 +73,25 @@ class PeopleController < ApplicationController
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
-    
-    begin
-      @person = Person.create(params[:person], session[:cookie])
-    rescue ActiveResource::BadRequest => e
-      flash[:error] = e.response.body
-      redirect_to new_person_path and return
+    @person = Person.new
+    if params[:person][:password].eql?(params[:person][:password2])
+      begin
+        @person = Person.create(params[:person], session[:cookie])
+      rescue ActiveResource::BadRequest => e
+        handle_person_errors(@person, e)
+        render :action => "new" and return
+      end  
+      session[:person_id] = @person.id
+      @person.settings = Settings.create
+      redirect_to(root_path) #TODO should redirect to the page where user was
+    else
+      @person.errors.add(:password, "does not match")
+      handle_person_errors(@person)
+      render :action => "new" and return
     end
-    session[:person_id] = @person.id
-    @person.settings = Settings.create
-    redirect_to(root_path) #TODO should redirect to the page where user was
-  end
+  end  
   
   def new
-    if RAILS_ENV == "production"
-      render :template => "people/beta"
-    end
     @person = Person.new
   end
   
@@ -159,6 +162,19 @@ class PeopleController < ApplicationController
       return message
       #return :user_data_could_not_be_saved_due_to_unknown_error 
     end  
+  end
+  
+  def handle_person_errors(person, exception=nil)
+    if exception
+      error_array = exception.response.body[2..-3].split('","').each do |error|
+        error = error.split(" ", 2)
+        person.errors.add(error[0].downcase, error[1]) 
+      end
+    end
+    person.form_username = params[:person][:username]
+    person.form_password = params[:person][:password]
+    person.form_password2 = params[:person][:password2]
+    person.form_email = params[:person][:email]
   end
   
 end
