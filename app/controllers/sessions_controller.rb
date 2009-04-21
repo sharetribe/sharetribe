@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
   
-    #self.smerf_user_id = @session.person_id
+    self.smerf_user_id = @session.person_id
       
     flash[:notice] = :login_successful
     if session[:return_to]

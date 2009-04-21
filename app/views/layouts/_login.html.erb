@@ -6,8 +6,9 @@
   	<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
   	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a>
+
+  	<%  if PRODUCTION_SERVER != "beta" %>
   	| <a href="/cas_session/new">CAS-login(test)</a>
-  	<% # if RAILS_ENV != "production"  %>
-  	  | <a href="/people/new"><%= t(:register) %></a>
-  	<% # end %>
+  	| <a href="/people/new"><%= t(:register) %></a>
+  	<%  end %>
 <% end %>

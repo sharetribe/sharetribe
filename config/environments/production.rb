@@ -23,6 +23,8 @@ config.cache_store = :mem_cache_store
 COS_URL = "http://cos.alpha.sizl.org"
 COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
 
+PRODUCTION_SERVER = "alpha"
+
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :sendmail
 ActionMailer::Base.sendmail_settings = {
@@ -31,3 +33,4 @@ ActionMailer::Base.sendmail_settings = {
 }
 ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
 ActionMailer::Base.default_charset = "utf-8"
+

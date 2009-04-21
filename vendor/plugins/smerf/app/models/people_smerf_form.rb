@@ -19,7 +19,7 @@ class PeopleSmerfForm < ActiveRecord::Base
   def PeopleSmerfForm.find_user_smerf_form(person_id, smerf_form_id)
     # Find the form record for the current user
     people_smerf_form = nil
-    if (person_id∫)
+    if (person_id)
       people_smerf_form = PeopleSmerfForm.find(:first, 
         :conditions => ['smerf_form_id = ? AND person_id = ?', 
         smerf_form_id, person_id])
