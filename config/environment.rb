@@ -10,6 +10,21 @@
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+require 'casclient'
+require 'casclient/frameworks/rails/filter'
+#require 'casclient/frameworks/rails/cas_proxy_callback_controller'
+
+# enable detailed CAS logging for easier troubleshooting
+cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
+cas_logger.level = Logger::DEBUG
+
+CASClient::Frameworks::Rails::Filter.configure(
+    :cas_base_url => "http://alpha.sizl.org:8180/cas",
+    :logger => cas_logger
+ #   :proxy_retrieval_url => "https://kassi:3444/cas_proxy_callback/retrieve_pgt",
+ #   :proxy_callback_url => "https://kassi:3444/cas_proxy_callback/receive_pgt"
+)
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -82,22 +97,9 @@ Rails::Initializer.run do |config|
    BUILT_AT = Time.now
    
    KASSI_MAIL_FROM_ADRESS = "kassi@sizl.org"
+   PRODUCTION_SERVER = "local"
    
 
 end
 
-require 'casclient'
-require 'casclient/frameworks/rails/filter'
-#require 'casclient/frameworks/rails/cas_proxy_callback_controller'
 
-
-# enable detailed CAS logging for easier troubleshooting
-cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
-cas_logger.level = Logger::DEBUG
-
-CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "http://alpha.sizl.org:8180/cas",
-    :logger => cas_logger
- #   :proxy_retrieval_url => "https://kassi:3444/cas_proxy_callback/retrieve_pgt",
- #   :proxy_callback_url => "https://kassi:3444/cas_proxy_callback/receive_pgt"
-)
