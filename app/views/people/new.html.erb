@@ -4,11 +4,26 @@
 
 <div id="basic_content">
   
-  <%= error_messages_for :person %>
+  <% errors = translate_error_messages([@person.errors.full_messages]) %>
+  <% unless errors.empty? %>
+  <div id="form_error_messages">
+    <h2><%= t(:registration_failed) %>:</h2>
+    <ul>
+      <% errors.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
   
   <div class="form_container">
+    <div class="form_right">
+      <%= t(:fields_marked_with_star_are_mandatory) %>
+    </div>
+  </div>
+  <div class="form_container">
     <div class="form_left">
-      <%= t(:username) %>:  
+      <%= t(:username) %>*:  
     </div>  
     <div class="form_right">
       <%= f.text_field :username %>
@@ -16,7 +31,23 @@
   </div>
   <div class="form_container">
     <div class="form_left">
-      <%= t(:password) %>:
+      <%= t(:given_name) %>:  
+    </div>  
+    <div class="form_right">
+      <%= f.text_field :given_name %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:family_name) %>:  
+    </div>  
+    <div class="form_right">
+      <%= f.text_field :family_name %>
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:password) %>*:
     </div>  
     <div class="form_right">
       <%= f.password_field :password %>
@@ -24,7 +55,7 @@
   </div>
   <div class="form_container">
     <div class="form_left">
-      <%= t(:confirm_password) %>:  
+      <%= t(:password_again) %>*:  
     </div>  
     <div class="form_right">
       <%= f.password_field :password2 %>
@@ -32,7 +63,7 @@
   </div>
   <div class="form_container">
     <div class="form_left">
-      <%= t(:email) %>:  
+      <%= t(:email) %>*:  
     </div>  
     <div class="form_right">
       <%= f.text_field :email %>

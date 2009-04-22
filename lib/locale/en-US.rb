@@ -38,6 +38,7 @@ I18n.store_translations 'en-US',
 :password => "Password",
 :account => "Account",
 :register_as_a_kassi_user => "Register as a Kassi user",
+:registration_failed => "Registration failed due to following errors",
 
 #Concent
 :accept => "Accept",
@@ -492,6 +493,8 @@ I18n.store_translations 'en-US',
 :phone_number_is_too_long => "Phone number is too long (maximum is 25 characters)",
 :description_is_too_long => "Description is too long (maximum is 400 characters)",
 :user_data_could_not_be_saved_due_to_unknown_error => "User data could not be saved due to unknown error",
+:username_is_too_short => "Username is too short (minimum is 3 characters)",
+:username_is_too_long => "Username is too long (maximum is 20 characters)",
 
 #Feedback
 :feedback => "Feedback",

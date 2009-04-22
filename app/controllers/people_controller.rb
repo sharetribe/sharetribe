@@ -82,6 +82,9 @@ class PeopleController < ApplicationController
         render :action => "new" and return
       end  
       session[:person_id] = @person.id
+      params[:person][:given_name] = params[:person][:given_name].slice(0, 28)
+      params[:person][:family_name] = params[:person][:family_name].slice(0, 28)
+      @person.update_attributes(params[:person].slice(:given_name, :family_name), session[:cookie])
       @person.settings = Settings.create
       redirect_to(root_path) #TODO should redirect to the page where user was
     else
@@ -172,6 +175,8 @@ class PeopleController < ApplicationController
       end
     end
     person.form_username = params[:person][:username]
+    person.form_given_name = params[:person][:given_name]
+    person.form_family_name = params[:person][:family_name]
     person.form_password = params[:person][:password]
     person.form_password2 = params[:person][:password2]
     person.form_email = params[:person][:email]

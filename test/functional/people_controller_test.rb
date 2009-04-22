@@ -55,6 +55,8 @@ class PeopleControllerTest < ActionController::TestCase
     post "create", ({:person => {:username => username,
                  :password => "testi",
                  :password2 => "testi",
+                 :given_name => "testi",
+                 :family_name => "hemmo",
                  :email => "#{username}@example.com"}})
     assert_response :found, @response.body             
                  
@@ -62,6 +64,8 @@ class PeopleControllerTest < ActionController::TestCase
     post "create", ({:person => {:username => username,
                  :password => "testi",
                  :password2 => "testi",
+                 :given_name => "testi",
+                 :family_name => "hemmo",
                  :email => "#{username}@example.com"}})
     assert_response :found, @response.body
   end

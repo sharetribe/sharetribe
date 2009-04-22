@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 5
   
-  attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_password, :form_password2, :form_email
+  attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email
   
   attr_protected :is_admin
 
@@ -146,7 +146,7 @@ class Person < ActiveRecord::Base
     #pick id from the response (same id in kassi and COS DBs)
     params[:id] = response.body[/"id":"([^"]+)"/, 1]
     #create locally with less attributes
-    super(params.except(:username, :email))
+    super(params.except(:username, :email, :given_name, :family_name))
   end 
   
   def self.add_to_kassi_db(id)
@@ -205,6 +205,9 @@ class Person < ActiveRecord::Base
   end
   
   def given_name(cookie=nil)
+    if new_record?
+      return form_given_name ? form_given_name : ""
+    end
     person_hash = get_person_hash(cookie)
     return "Not found!" if person_hash.nil?
     return "" if person_hash["name"].nil?
@@ -216,6 +219,9 @@ class Person < ActiveRecord::Base
   end
   
   def family_name(cookie=nil)
+    if new_record?
+      return form_family_name ? form_family_name : ""
+    end
     person_hash = get_person_hash(cookie)
     return "Not found!" if person_hash.nil?
     return "" if person_hash["name"].nil?
@@ -407,12 +413,12 @@ class Person < ActiveRecord::Base
   
   def update_attributes(params, cookie)
     #Handle name part parameters also if they are in hash root level
-    remove_root_level_fields(params, "name", ["given_name", "family_name"])
-    remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"])      
+    Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
+    Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"])      
     PersonConnection.put_attributes(params, self.id, cookie)
   end
   
-  def remove_root_level_fields(params, field_type, fields)
+  def self.remove_root_level_fields(params, field_type, fields)
     fields.each do |field|
       if params[field] && (params[field_type].nil? || params[field_type][field].nil?)
         params.update({field_type => Hash.new}) if params[field_type].nil?

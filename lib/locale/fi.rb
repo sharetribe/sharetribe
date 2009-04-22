@@ -37,7 +37,8 @@ I18n.store_translations 'fi',
 :username => "Käyttäjätunnus",
 :password => "Salasana",
 :account => "Oma tili",
-:register_as_a_kassi_user => "Rekisteröidy Kassin käyttäjäksi", 
+:register_as_a_kassi_user => "Rekisteröidy Kassin käyttäjäksi",
+:registration_failed => "Rekisteröityminen epäonnistui seuraavien virheiden takia", 
 
 #Concent
 :accept => "Hyväksyn",
@@ -493,7 +494,9 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :locality_is_too_long => "Postitoimipaikka on liian pitkä (maksimi on 50 merkkiä)",
 :phone_number_is_too_long => "Puhelinnumero on liian pitkä (maksimi on 25 merkkiä)",
 :description_is_too_long => "Kuvaus on liian pitkä (maksimi on 400 merkkiä)",
-:user_data_could_not_be_saved_due_to_unknown_error => "Tietojen tallentaminen ei onnistu",     
+:user_data_could_not_be_saved_due_to_unknown_error => "Tietojen tallentaminen ei onnistu",
+:username_is_too_short => "Käyttäjätunnus on liian lyhyt (minimi on 3 merkkiä)",
+:username_is_too_long => "Käyttäjätunnus on liian pitkä (maksimi on 20 merkkiä)",
 
 #Feedback
 :feedback => "Palaute",
