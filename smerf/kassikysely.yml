@@ -460,541 +460,541 @@ smerfform:
           textbox_size: 30x3
           validation:
           
-    # contents:
-    #   code: 4
-    #   name: Sisältö
-    #   description: | Seuraavassa osiossa esitetään Kassin sisältöön liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
-    #   questions:
-    #     interesting_listings:
-    #       code: g4q1
-    #       type: singlechoice
-    #       sort_order: 1
-    #       question: | Kassissa on kiinnostavia ilmoituksia
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     interesting_favors:
-    #       code: g4q2
-    #       type: singlechoice
-    #       sort_order: 2
-    #       question: | Kassissa on tarjolla kiinnostavia palveluksia
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     useful_items:
-    #       code: g4q3
-    #       type: singlechoice
-    #       sort_order: 3
-    #       question: | Kassissa on lainattavana tarpeellisia tavaroita
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     other_notes_about_contents:
-    #       code: g4q4
-    #       type: textbox
-    #       sort_order: 4
-    #       question: | Muita huomioita Kassin sisältöön liittyen
-    #       help: | 
-    #       textbox_size: 30x3
-    #       validation:
-    # 
-    # user_experience:
-    #   code: 5
-    #   name: Käyttökokemus
-    #   description: | Seuraavassa osiossa esitetään Kassin hyödyllisyyteen liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
-    #   questions:
-    #     recommend:
-    #       code: g5q1
-    #       type: singlechoice
-    #       sort_order: 1
-    #       question: | Voisin suositella Kassia tuttavilleni
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     usefulness:
-    #       code: g5q2
-    #       type: singlechoice
-    #       sort_order: 2
-    #       question: | Kassista on minulle hyötyä
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     usefulness_in_future:
-    #       code: g5q3
-    #       type: singlechoice
-    #       sort_order: 3
-    #       question: | Uskon, että Kassista voisi olla minulle enemmän hyötyä tulevaisuudessa
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    # 
-    #     comments_on_usefulness:
-    #       code: g5q4
-    #       type: textbox
-    #       sort_order: 4
-    #       question: | Kassista voisi olla minulle enmmän hyötyä mikäli:
-    #       help: | 
-    #       textbox_size: 30x3
-    #       validation:
-    # 
-    # privacy:
-    #   code: 6
-    #   name: Yksityisyys
-    #   description: | Seuraavassa osiossa esitetään Kassin käytön yksityisyyteen, tietojen näkyvyyteen jne. liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
-    #   questions:
-    #     restricted_group:
-    #       code: g6q1
-    #       type: singlechoice
-    #       sort_order: 1
-    #       question: | Haluaisin Kassiin mahdollisuuden tarjota palveluksia tai lainata tavaroita vain jollekin tietylle rajatulle joukolle
-    #       help: | Valitse sopiva vaihtoehto
-    #       validation:
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    #           
-    #     to_what_restricted_group_and_why:
-    #       code: g6q2
-    #       type: textbox
-    #       sort_order: 2
-    #       question: | Jos haluaisin, niin mille ryhmälle/ryhmille ja miksi?
-    #       help: | 
-    #       textbox_size: 30x3
-    # 
-    #     restricted_to_friends:
-    #       code: g6q3
-    #       type: singlechoice
-    #       sort_order: 3
-    #       question: | Haluaisin Kassiin mahdollisuuden tarjota palveluksia tai lainata tavaroita vain ystävilleni
-    #       help: | Valitse sopiva vaihtoehto
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    #         
-    #     why_only_to_friends:
-    #       code: g6q4
-    #       type: textbox
-    #       sort_order: 4
-    #       question: | Jos haluaisin, niin miksi?
-    #       help: | 
-    #       textbox_size: 30x3
-    # 
-    #     restricted_contact_information:
-    #       code: g6q5
-    #       type: singlechoice
-    #       sort_order: 5
-    #       question: | Haluaisin Kassiin mahdollisuuden rajata yhteystietojeni näkymistä
-    #       help: | Valitse sopiva vaihtoehto
-    #       answers:
-    #         1:
-    #           code: 1
-    #           answer: | 1
-    #           sort_order: 1
-    #           default: N
-    #         2:
-    #           code: 2
-    #           answer: | 2
-    #           sort_order: 2
-    #           default: N
-    #         3:
-    #           code: 3
-    #           answer: | 3
-    #           sort_order: 3
-    #           default: N
-    #         4:
-    #           code: 4
-    #           answer: | 4
-    #           sort_order: 4
-    #           default: N
-    #         5:
-    #           code: 5
-    #           answer: | 5
-    #           sort_order: 5
-    #           default: N
-    #           
-    #     how_to_restrict_contact_information:
-    #       code: g6q6
-    #       type: textbox
-    #       sort_order: 6
-    #       question: | Jos haluaisin, niin millä tavoin?
-    #       help: |
-    #       textbox_size: 30x3
-    #       validation:
-    # 
+    contents:
+      code: 4
+      name: Sisältö
+      description: | Seuraavassa osiossa esitetään Kassin sisältöön liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
+      questions:
+        interesting_listings:
+          code: g4q1
+          type: singlechoice
+          sort_order: 1
+          question: | Kassissa on kiinnostavia ilmoituksia
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        interesting_favors:
+          code: g4q2
+          type: singlechoice
+          sort_order: 2
+          question: | Kassissa on tarjolla kiinnostavia palveluksia
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        useful_items:
+          code: g4q3
+          type: singlechoice
+          sort_order: 3
+          question: | Kassissa on lainattavana tarpeellisia tavaroita
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        other_notes_about_contents:
+          code: g4q4
+          type: textbox
+          sort_order: 4
+          question: | Muita huomioita Kassin sisältöön liittyen
+          help: | 
+          textbox_size: 30x3
+          validation:
+    
+    user_experience:
+      code: 5
+      name: Käyttökokemus
+      description: | Seuraavassa osiossa esitetään Kassin hyödyllisyyteen liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
+      questions:
+        recommend:
+          code: g5q1
+          type: singlechoice
+          sort_order: 1
+          question: | Voisin suositella Kassia tuttavilleni
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        usefulness:
+          code: g5q2
+          type: singlechoice
+          sort_order: 2
+          question: | Kassista on minulle hyötyä
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        usefulness_in_future:
+          code: g5q3
+          type: singlechoice
+          sort_order: 3
+          question: | Uskon, että Kassista voisi olla minulle enemmän hyötyä tulevaisuudessa
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        comments_on_usefulness:
+          code: g5q4
+          type: textbox
+          sort_order: 4
+          question: | Kassista voisi olla minulle enmmän hyötyä mikäli:
+          help: | 
+          textbox_size: 30x3
+          validation:
+    
+    privacy:
+      code: 6
+      name: Yksityisyys
+      description: | Seuraavassa osiossa esitetään Kassin käytön yksityisyyteen, tietojen näkyvyyteen jne. liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
+      questions:
+        restricted_group:
+          code: g6q1
+          type: singlechoice
+          sort_order: 1
+          question: | Haluaisin Kassiin mahdollisuuden tarjota palveluksia tai lainata tavaroita vain jollekin tietylle rajatulle joukolle
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+              
+        to_what_restricted_group_and_why:
+          code: g6q2
+          type: textbox
+          sort_order: 2
+          question: | Jos haluaisin, niin mille ryhmälle/ryhmille ja miksi?
+          help: | 
+          textbox_size: 30x3
+    
+        restricted_to_friends:
+          code: g6q3
+          type: singlechoice
+          sort_order: 3
+          question: | Haluaisin Kassiin mahdollisuuden tarjota palveluksia tai lainata tavaroita vain ystävilleni
+          help: | Valitse sopiva vaihtoehto
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+            
+        why_only_to_friends:
+          code: g6q4
+          type: textbox
+          sort_order: 4
+          question: | Jos haluaisin, niin miksi?
+          help: | 
+          textbox_size: 30x3
+
+        restricted_contact_information:
+          code: g6q5
+          type: singlechoice
+          sort_order: 5
+          question: | Haluaisin Kassiin mahdollisuuden rajata yhteystietojeni näkymistä
+          help: | Valitse sopiva vaihtoehto
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+
+        how_to_restrict_contact_information:
+          code: g6q6
+          type: textbox
+          sort_order: 6
+          question: | Jos haluaisin, niin millä tavoin?
+          help: |
+          textbox_size: 30x3
+          validation:
+
     other_users:
-       code: 7
-       name: Muut käyttäjät
-       description: | Seuraavassa osiossa esitetään Kassin muihin käyttäjiin liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
-       questions:
-         evaluating_reliability:
-           code: g7q1
-           type: singlechoice
-           sort_order: 1
-           question: | Kassista saa tietoa muiden käyttäjien luotettavuuden arviointiin
-           help: | Valitse sopiva vaihtoehto
-           validation:                
-           answers:
-             1:
-               code: 1
-               answer: | 1
-               sort_order: 1
-               default: N
-             2:
-               code: 2
-               answer: | 2
-               sort_order: 2
-               default: N
-             3:
-               code: 3
-               answer: | 3
-               sort_order: 3
-               default: N
-             4:
-               code: 4
-               answer: | 4
-               sort_order: 4
-               default: N
-             5:
-               code: 5
-               answer: | 5
-               sort_order: 5
-               default: N
+      code: 7
+      name: Muut käyttäjät
+      description: | Seuraavassa osiossa esitetään Kassin muihin käyttäjiin liittyviä väittämiä. Kerro mitä mieltä olet valitsemalla asteikolla 1-5, siten että: 1 = täysin eri mieltä, 2 = jokseenkin eri mieltä, 3 = ei samaa eikä eri mieltä, 4 = jokseenkin samaa mieltä, 5 = täysin samaa mieltä. 
+      questions:
+        evaluating_reliability:
+          code: g7q1
+          type: singlechoice
+          sort_order: 1
+          question: | Kassista saa tietoa muiden käyttäjien luotettavuuden arviointiin
+          help: | Valitse sopiva vaihtoehto
+          validation:                
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
+    
+        felt_reliability:
+          code: g7q2
+          type: singlechoice
+          sort_order: 2
+          question: | Kassin muut käyttäjät vaikuttavat luotettavilta
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
      
-         felt_reliability:
-           code: g7q2
-           type: singlechoice
-           sort_order: 2
-           question: | Kassin muut käyttäjät vaikuttavat luotettavilta
-           help: | Valitse sopiva vaihtoehto
-           validation:
-           answers:
-             1:
-               code: 1
-               answer: | 1
-               sort_order: 1
-               default: N
-             2:
-               code: 2
-               answer: | 2
-               sort_order: 2
-               default: N
-             3:
-               code: 3
-               answer: | 3
-               sort_order: 3
-               default: N
-             4:
-               code: 4
-               answer: | 4
-               sort_order: 4
-               default: N
-             5:
-               code: 5
-               answer: | 5
-               sort_order: 5
-               default: N
+        courage_to_act:
+          code: g7q3
+          type: singlechoice
+          sort_order: 3
+          question: | Uskaltaisin lainata tavaroitani tai vaihtaa palveluksia Kassin muiden käyttäjien kanssa
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
      
-         courage_to_act:
-           code: g7q3
-           type: singlechoice
-           sort_order: 3
-           question: | Uskaltaisin lainata tavaroitani tai vaihtaa palveluksia Kassin muiden käyttäjien kanssa
-           help: | Valitse sopiva vaihtoehto
-           validation:
-           answers:
-             1:
-               code: 1
-               answer: | 1
-               sort_order: 1
-               default: N
-             2:
-               code: 2
-               answer: | 2
-               sort_order: 2
-               default: N
-             3:
-               code: 3
-               answer: | 3
-               sort_order: 3
-               default: N
-             4:
-               code: 4
-               answer: | 4
-               sort_order: 4
-               default: N
-             5:
-               code: 5
-               answer: | 5
-               sort_order: 5
-               default: N
+        want_to_get_to_know:
+          code: g7q4
+          type: singlechoice
+          sort_order: 4
+          question: | Haluaisin tutustua Kassin käyttäjiin
+          help: | Valitse sopiva vaihtoehto
+          validation:
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
      
-         want_to_get_to_know:
-           code: g7q4
-           type: singlechoice
-           sort_order: 4
-           question: | Haluaisin tutustua Kassin käyttäjiin
-           help: | Valitse sopiva vaihtoehto
-           validation:
-           answers:
-             1:
-               code: 1
-               answer: | 1
-               sort_order: 1
-               default: N
-             2:
-               code: 2
-               answer: | 2
-               sort_order: 2
-               default: N
-             3:
-               code: 3
-               answer: | 3
-               sort_order: 3
-               default: N
-             4:
-               code: 4
-               answer: | 4
-               sort_order: 4
-               default: N
-             5:
-               code: 5
-               answer: | 5
-               sort_order: 5
-               default: N
-     
-         easy_to_get_to_know:
-           code: g7q5
-           type: singlechoice
-           sort_order: 5
-           question: | Kassin avulla on helppo tutustua uusiin ihmisiin
-           help: | Valitse sopiva vaihtoehto
-           answers:
-             1:
-               code: 1
-               answer: | 1
-               sort_order: 1
-               default: N
-             2:
-               code: 2
-               answer: | 2
-               sort_order: 2
-               default: N
-             3:
-               code: 3
-               answer: | 3
-               sort_order: 3
-               default: N
-             4:
-               code: 4
-               answer: | 4
-               sort_order: 4
-               default: N
-             5:
-               code: 5
-               answer: | 5
-               sort_order: 5
-               default: N
+        easy_to_get_to_know:
+          code: g7q5
+          type: singlechoice
+          sort_order: 5
+          question: | Kassin avulla on helppo tutustua uusiin ihmisiin
+          help: | Valitse sopiva vaihtoehto
+          answers:
+            1:
+              code: 1
+              answer: | 1
+              sort_order: 1
+              default: N
+            2:
+              code: 2
+              answer: | 2
+              sort_order: 2
+              default: N
+            3:
+              code: 3
+              answer: | 3
+              sort_order: 3
+              default: N
+            4:
+              code: 4
+              answer: | 4
+              sort_order: 4
+              default: N
+            5:
+              code: 5
+              answer: | 5
+              sort_order: 5
+              default: N
      
     reasons_not_to_use:
       code: 8
@@ -1009,72 +1009,72 @@ smerfform:
           help: | Valitse sopivat vaihtoehdot
           validation:
           answers:
-           too_few_users:
-             code: 1
-             answer: | Kassilla on liian vähän käyttäjiä
-             sort_order: 1
-             default: N
-           too_few_listings:
-             code: 2
-             answer: | Kassissa on liian vähän ilmoituksia
-             sort_order: 2
-             default: N
-           too_few_items_to_borrow:
-             code: 3
-             answer: | Kassissa on liian vähän lainattavia tavaroita
-             sort_order: 3
-             default: N
-           too_few_favors:
-             code: 4
-             answer: | Kassissa on liian vähän palveluksia tarjolla
-             sort_order: 4
-             default: N
-           not_fun:
-             code: 5
-             answer: | En koe Kassia hauskaksi
-             sort_order: 5
-             default: N
-           not_useful:
-             code: 6
-             answer: | En koe Kassia hyödylliseksi
-             sort_order: 6
-             default: N
-           hard_to_use:
-             code: 7
-             answer: | Kassia on vaikea käyttää
-             sort_order: 7
-             default: N
-           other_users_unreliable:
-             code: 8
-             answer: | Kassin muut käyttäjät vaikuttavat epäluotettavilta
-             sort_order: 8
-             default: N
-           other_users_too_strangers:
-             code: 9
-             answer: | Kassin muut käyttäjät ovat liian vieraita
-             sort_order: 9
-             default: N
-           not_interested:
-             code: 10
-             answer: | Kassi ei kiinnosta minua
-             sort_order: 10
-             default: N
-           i_use_kassi:
-             code: 11
-             answer: | Ei pidä paikkaansa! Käyn Kassissa päivittäin
-             sort_order: 11
-             default: N
-           something_else:
-             code: 12
-             answer: | Joku muu
-             sort_order: 12
-             default: N
-             
+            too_few_users:
+              code: 1
+              answer: | Kassilla on liian vähän käyttäjiä
+              sort_order: 1
+              default: N
+            too_few_listings:
+              code: 2
+              answer: | Kassissa on liian vähän ilmoituksia
+              sort_order: 2
+              default: N
+            too_few_items_to_borrow:
+              code: 3
+              answer: | Kassissa on liian vähän lainattavia tavaroita
+              sort_order: 3
+              default: N
+            too_few_favors:
+              code: 4
+              answer: | Kassissa on liian vähän palveluksia tarjolla
+              sort_order: 4
+              default: N
+            not_fun:
+              code: 5
+              answer: | En koe Kassia hauskaksi
+              sort_order: 5
+              default: N
+            not_useful:
+              code: 6
+              answer: | En koe Kassia hyödylliseksi
+              sort_order: 6
+              default: N
+            hard_to_use:
+              code: 7
+              answer: | Kassia on vaikea käyttää
+              sort_order: 7
+              default: N
+            other_users_unreliable:
+              code: 8
+              answer: | Kassin muut käyttäjät vaikuttavat epäluotettavilta
+              sort_order: 8
+              default: N
+            other_users_too_strangers:
+              code: 9
+              answer: | Kassin muut käyttäjät ovat liian vieraita
+              sort_order: 9
+              default: N
+            not_interested:
+              code: 10
+              answer: | Kassi ei kiinnosta minua
+              sort_order: 10
+              default: N
+            i_use_kassi:
+              code: 11
+              answer: | Ei pidä paikkaansa! Käyn Kassissa päivittäin
+              sort_order: 11
+              default: N
+            something_else:
+              code: 12
+              answer: | Joku muu
+              sort_order: 12
+              default: N
+    
         specify_something_else:
           code: g8q2
           type: textbox
           sort_order: 1
           question: | Mikä?
           help: | 
-           textbox_size: 30x3
- 
+          textbox_size: 30x3
+     
