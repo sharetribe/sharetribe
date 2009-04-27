@@ -2,7 +2,7 @@ require 'json'
 
 class Person < ActiveRecord::Base
   
-  PERSON_HASH_CACHE_EXPIRE_TIME = 5
+  PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email
   
