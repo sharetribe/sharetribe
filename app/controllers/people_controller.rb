@@ -76,13 +76,13 @@ class PeopleController < ApplicationController
     @person = Person.new
     if params[:person][:password].eql?(params[:person][:password2])
       begin
-        @person = Person.create(params[:person], session[:cookie])
+        id = Person.create(params[:person], session[:cookie])
       rescue ActiveResource::BadRequest => e
         handle_person_errors(@person, e)
         render :action => "new" and return
       end
       session[:temp_cookie] = @session.headers["Cookie"]
-      session[:temp_person_id] = @session.person_id
+      session[:temp_person_id] = id
       redirect_to consent_path #TODO should redirect to the page where user was
     else
       @person.errors.add(:password, "does not match")
