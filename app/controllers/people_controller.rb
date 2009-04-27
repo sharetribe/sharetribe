@@ -80,13 +80,10 @@ class PeopleController < ApplicationController
       rescue ActiveResource::BadRequest => e
         handle_person_errors(@person, e)
         render :action => "new" and return
-      end  
-      session[:person_id] = @person.id
-      params[:person][:given_name] = params[:person][:given_name].slice(0, 28)
-      params[:person][:family_name] = params[:person][:family_name].slice(0, 28)
-      @person.update_attributes(params[:person].slice(:given_name, :family_name), session[:cookie])
-      @person.settings = Settings.create
-      redirect_to(root_path) #TODO should redirect to the page where user was
+      end
+      session[:temp_cookie] = @session.headers["Cookie"]
+      session[:temp_person_id] = @session.person_id
+      redirect_to consent_path #TODO should redirect to the page where user was
     else
       @person.errors.add(:password, "does not match")
       handle_person_errors(@person)
