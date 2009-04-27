@@ -156,6 +156,7 @@ class Person < ActiveRecord::Base
     params[:family_name] = params[:family_name].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
     PersonConnection.put_attributes(params.except(:username, :email, :password, :password2), cos_id, cookie)
+    return cos_id
   end 
   
   def self.add_to_kassi_db(id)
