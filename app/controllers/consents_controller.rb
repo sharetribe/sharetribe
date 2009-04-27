@@ -20,6 +20,7 @@ class ConsentsController < ApplicationController
     
     def accept
       @current_user = Person.add_to_kassi_db(session[:temp_person_id])
+      @current_user.settings = Settings.create
       session[:cookie] = session[:temp_cookie]
       session[:person_id] = session[:temp_person_id]
       if session[:return_to]
