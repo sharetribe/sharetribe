@@ -1,21 +1,21 @@
 <% 
-  if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{listing.id.to_s}_thumb.png")
-    has_image = true
-  else
-    has_image = false
-  end  
+  has_image = File.exists?(RAILS_ROOT + "/public/images/listing_images/#{listing.id.to_s}_thumb.png")
+  
+  main_div_class = params[:qa] ? "listed_full_width_object" : "listed_object" 
+  center_div_class = params[:qa] ? "listed_listing_center_long" : "listed_listing_center"
+  center_narrow_div_class = params[:qa] ? "listed_listing_center_narrow_long" : "listed_listing_center_narrow" 
 %>
 
-<div class="listed_object">
+<div class="<%= main_div_class %>">
 
 <div class="listed_object_person_image">
   <%= small_avatar_thumb(listing.author) %>
 </div>
 
 <% if has_image %>  
-  <div class="listed_listing_center_narrow"> 
+  <div class="<%= center_narrow_div_class %>"> 
 <% else %>
-  <div class="listed_listing_center">
+  <div class="<%= center_div_class %>">
 <% end %>   
   <div class="listed_object_title">
     <% link_target = @person ? person_listing_path(@person, listing) : listing %>

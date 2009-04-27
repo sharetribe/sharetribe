@@ -1,9 +1,13 @@
+<% 
+  main_div_class = params[:qa] ? "listed_full_width_object" : "listed_object" 
+  center_div_class = params[:qa] ? "listed_item_owner_center_long" : "listed_item_owner_center" 
+%>
 <div id="friend_<%= person.id %>">
-<div class="listed_object">
+<div class="<%= main_div_class %>">
   <div class="listed_object_person_image">
     <%= small_avatar_thumb(person) %>
   </div>
-  <div class="listed_item_owner_center">
+  <div class="<%= center_div_class %>">
     <div class="listed_object_title">
       <%= link_to person.name(session[:cookie]), person %>
     </div>
