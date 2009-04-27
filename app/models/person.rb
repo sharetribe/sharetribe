@@ -98,6 +98,7 @@ class Person < ActiveRecord::Base
     def self.put_attributes(params, id, cookie)
       connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )   
       #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(id,cookie)
     end
     
     def self.update_avatar(image, id, cookie)
@@ -107,19 +108,25 @@ class Person < ActiveRecord::Base
     def self.add_as_friend(friend_id, id, cookie)
       connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
       #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
       #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
       #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
+      parent.cache_delete(friend_id,cookie)
     end
     
     def self.get_groups(id, cookie)
@@ -437,11 +444,13 @@ class Person < ActiveRecord::Base
     
     begin
       #person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
-      person_hash = PersonConnection.get_person(self.id, cookie)
+      person_hash = Person.cache_fetch(id,cookie)
+      #person_hash = PersonConnection.get_person(self.id, cookie)
     rescue ActiveResource::UnauthorizedAccess => e
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
       #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
+      cache_write(person_hash,id,cookie)
     rescue ActiveResource::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
@@ -510,4 +519,28 @@ class Person < ActiveRecord::Base
     person_hash["entry"].collect { |person| person["id"] }
   end
   
+  private
+  
+  # This method constructs a key to be used in caching.
+  # Important thing is that cache contains peoples profiles, but
+  # the contents stored may be different, depending on who's asking.
+  # There for the key contains person_id and a hash calculated from cookie.
+  # (Cookie is different for each asker.)
+  def self.cache_key(id,cookie)
+    "person_hash.#{id}_asked_by.#{cookie.hash}"
+  end
+  
+  #Methods to simplify the cache access
+  
+  def self.cache_fetch(id,cookie)
+    Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+  end
+  
+  def self.cache_write(person_hash,id,cookie)
+    Rails.cache.write(cache_key(id,cookie), person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
+  end
+    
+  def self.cache_delete(id,cookie)
+    Rails.cache.delete(cache_key(id,cookie))
+  end
 end
