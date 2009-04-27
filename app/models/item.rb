@@ -8,6 +8,7 @@ class Item < ActiveRecord::Base
   
   acts_as_ferret :fields => {
     :title => {},
+    :description => {}, 
     :title_sort => {
       :index => :untokenized
     }

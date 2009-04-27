@@ -120,11 +120,11 @@ I18n.store_translations 'en-US',
 :sell_description => "sell stuff",
 :buy_description => "buy stuff",
 :give_description => "give stuff",
-:borrow_items_description => "borrow stuff",
+:borrow_items_description => "borrow stuff (you can offer to lend stuff from your profile)",
 :lost_property_description => "find your lost items or let others know what you've found",
 :rides_description => "find or offer rides",
 :groups_description => "search for one or more people to do stuff with you (play badminton, study etc.)",
-:favors_description => "ask somebody to do you a favor or offer to do a favor to somebody",
+:favors_description => "ask somebody to do you a favor (you can offer favors from your profile)",
 :others_description => "all other listings",
 
 #Pagination

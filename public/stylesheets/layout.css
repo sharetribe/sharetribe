@@ -429,7 +429,7 @@ div.listed_object {
 }
 
 div.listed_full_width_object {
-	width: 931px;
+	width: 958px;
 	overflow: hidden;
 }
 
@@ -528,10 +528,22 @@ div.listed_listing_center {
 	width: 440px;
 }
 
+div.listed_listing_center_long {
+	padding: 10px;
+	float: left;
+	width: 670px;
+}
+
 div.listed_listing_center_narrow {
 	padding: 10px;
 	float: left;
 	width: 320px;	
+}
+
+div.listed_listing_center_narrow_long {
+	padding: 10px;
+	float: left;
+	width: 550px;
 }
 
 div.listed_listing_image {
@@ -809,6 +821,7 @@ input.add_item_form {
 	width: 356px;
 }
 
+
 /* Kassi events view */
 
 div.listed_kassi_event_left {
@@ -842,6 +855,7 @@ div.listed_request_button {
 	float: left;
 	padding: 5px;
 }
+
 
 /* Items and favors view */
 
@@ -877,6 +891,12 @@ div.listed_item_owner_center {
 	padding: 10px;
 	float: left;
 	width: 350px;
+}
+
+div.listed_item_owner_center_long {
+	padding: 10px;
+	float: left;
+	width: 585px;
 }
 
 div.listed_item_owner_right {
