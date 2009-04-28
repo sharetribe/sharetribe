@@ -28,7 +28,7 @@ echo "" >> config/environments/production.rb
 echo "config.action_controller.consider_all_requests_local = true" >> config/environments/production.rb
 echo "config.action_view.debug_rjs                         = true" >> config/environments/production.rb
 
-echo "BETA_VERSION = \"0.7.$REV\"" >> config/environments/production.rb
+echo "BETA_VERSION = \"0.8.$REV\"" >> config/environments/production.rb
 BUILD_DATE=`svn info file:///svn/kassi | \
  grep "^Last Changed Date" | \
  perl -pi -e "s/Last Changed Date: //" | perl -pi -e "s/\+.+$//"`
