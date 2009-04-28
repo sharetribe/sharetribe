@@ -2,7 +2,7 @@ require 'json'
 
 class Group < ActiveRecord::Base
   
-  attr_accessor :guid
+  attr_accessor :guid, :form_title, :form_description
   
   has_and_belongs_to_many :items
   
@@ -97,7 +97,9 @@ class Group < ActiveRecord::Base
   end
   
   def title(cookie=nil)
-    return "" if new_record?
+    if new_record?
+      return form_title ? form_title : ""
+    end
     group_hash = get_group_hash(cookie)
     return "Not found!" if group_hash.nil?
     return group_hash["group"]["title"]
@@ -108,7 +110,9 @@ class Group < ActiveRecord::Base
   end
   
   def description(cookie=nil)
-    return "" if new_record?
+    if new_record?
+      return form_description ? form_description : ""
+    end
     group_hash = get_group_hash(cookie)
     return "Not found!" if group_hash.nil?
     return group_hash["group"]["description"]

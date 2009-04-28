@@ -16,11 +16,9 @@
     <br /><br />
   </div>
   <div id="listing_image">
-    <% if @current_user && !@group.is_member?(@current_user, session[:cookie]) %>
-      <div class="reply_to_listing">
-        <%= link_to t(:join_group), join_person_group_path(@current_user, @group), :method => :post %>
-      </div>
-    <% end %>
+    <div class="reply_to_listing">
+      <%= get_join_or_leave_group_link(@group) %>
+    </div>
   </div>
   <div id="comments">
     <div class="browse_objects_header">

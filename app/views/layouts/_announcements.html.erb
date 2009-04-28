@@ -1,7 +1,11 @@
 <div id="announcement_div">
 <% unless flash[:notice].blank? %>
   <div class="announcement notification">
-    <%= t(flash[:notice]) %>
+    <% if flash[:notice].is_a?(Array) %>
+      <%= t(flash[:notice][0]) + " " + flash[:notice][1] %>
+    <% else %>  
+      <%= t(flash[:notice]) %>
+    <% end %>  
   </div>
 <% end %>
 
