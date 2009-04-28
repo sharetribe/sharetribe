@@ -69,21 +69,28 @@ class PeopleController < ApplicationController
     end
   end
 
+  # Creates a new person
   def create
+    # Make sure that the consent is accepted
+    redirect_to register_consent_path and return unless session[:consent_accepted]
+    
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
+    
+    # Try to create a new person in COS. 
     @person = Person.new
     if params[:person][:password].eql?(params[:person][:password2])
       begin
-        id = Person.create(params[:person], session[:cookie])
+        @person = Person.create(params[:person], session[:cookie])
       rescue ActiveResource::BadRequest => e
         handle_person_errors(@person, e)
         render :action => "new" and return
       end
-      session[:temp_cookie] = @session.headers["Cookie"]
-      session[:temp_person_id] = id
-      redirect_to consent_path #TODO should redirect to the page where user was
+      session[:consent_accepted] = nil
+      session[:person_id] = @person.id
+      @person.settings = Settings.create
+      redirect_to home_person_path(@person) #TODO should redirect to the page where user was
     else
       @person.errors.add(:password, "does not match")
       handle_person_errors(@person)
@@ -91,7 +98,10 @@ class PeopleController < ApplicationController
     end
   end  
   
+  # Displays register form
   def new
+    # Make sure that the consent is accepted
+    redirect_to register_consent_path and return unless session[:consent_accepted]
     @person = Person.new
   end
   

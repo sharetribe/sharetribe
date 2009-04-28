@@ -1,8 +1,6 @@
-<p>
-  <b>Kassin, kuten muidenkin OtaSizzle-palveluiden käytöstä kerätään tietoa tieteellistä tutkimusta varten, joten palvelun käyttö edellyttää alla olevan suostumuksen hyväksymistä.</b>
-</p>
-
-<br/>
+<div id="info_box">
+  Kassin, kuten muidenkin OtaSizzle-palveluiden käytöstä kerätään tietoa tieteellistä tutkimusta varten, joten palvelun käyttö edellyttää alla olevan suostumuksen hyväksymistä.
+</div>
 
 <h1>KIRJALLINEN SUOSTUMUS TUTKIMUKSEEN</h1>
 
@@ -12,7 +10,7 @@
   Hyväksymällä tämän suostumuksen vahvistan, että osallistun vapaaehtoisesti OtaSizzle-projektiin liittyvään tutkimukseen nimeltä Kassieksperimentti.
 </p>
 <p>
-  Olen lukenut ja ymmärtänyt oheisen tutkimusselosteen "<%= link_to "Tiedote osallistumisesta tieteelliseen tutkimukseen", :action => "show_research_information" %>"  ja vahvistan, että minulle on annettu riittävästi tietoja ja mahdollisuus esittää kysymyksiä tutkimuksesta (tai mikäli tiedot vaikuttaisivat tutkimukseen, minulle on luvattu kyseinen mahdollisuus kokeen jälkeen). 
+  Olen lukenut ja ymmärtänyt alla olevan tutkimusselosteen ja vahvistan, että minulle on annettu riittävästi tietoja ja mahdollisuus esittää kysymyksiä tutkimuksesta (tai mikäli tiedot vaikuttaisivat tutkimukseen, minulle on luvattu kyseinen mahdollisuus kokeen jälkeen). 
 </p>
 <p>
   Olen valmis seuraamaan tutkijoiden minulle antamia ohjeita ennen tutkimusta, sen aikana ja sen jälkeen. 
@@ -24,35 +22,64 @@
   Minulle on kerrottu, että minulla on oikeus keskeyttää tutkimukseen osallistuminen missä tahansa vaiheessa tarvitsematta kertoa syytä ja olla vastaamatta mihin tahansa kysymykseen mitä tutkimuksen aikana, sitä ennen, tai sen jälkeen minulle  esitetään.
 </p>
 <p>
-  Tutkimuksessa käytettäviä palveluita (Kassi yms.) saa käyttää vain niiden käyttöehtojen mukaisesti. Hyväksyn <%= link_to "käyttöehdot", :action => "show_agreement" %> ennen kuin käytän palveluita.
+  Tutkimuksessa käytettäviä palveluita (Kassi yms.) saa käyttää vain niiden käyttöehtojen mukaisesti. Hyväksyn alla olevat käyttöehdot ennen kuin käytän palveluita.
 </p>
+
+<ul>
+  <li>
+    <%= link_to_function "Tiedote osallistumisesta tieteelliseen tutkimukseen", "new Effect.toggle('research_info', 'blind')" %>
+    <br /><br />
+    <div id="research_info" class="info_box" style="display:none;">
+      <%= render :partial => "research_information_fi"%>
+    </div>
+  </li>
+  <li>
+    <%= link_to_function "Käyttöehdot", "new Effect.toggle('terms_fi', 'blind')" %>
+    <br /><br />
+    <div id="terms_fi" class="info_box" style="display:none;">
+      <%= render :partial => "terms_fi"%>
+    </div>
+  </li>
+</ul>
 
 </div>
 
 <div class="accept_or_reject_terms">
   <div class="left_float">
-    <% form_tag(:action => "accept") do %>
-      <%= submit_tag t(:accept) %>
+    <% form_tag(:action => @accept_action) do %>
+      <%= submit_tag "Hyväksyn suostumuksen" %>
       &nbsp; 
     <% end -%>
   </div>
   <div class="left_float">  
     <% form_tag(:action => "decline") do %>
-      <%= submit_tag t(:decline) %>
+      <%= submit_tag "En hyväksy suostumusta" %>
     <% end -%>
   </div>
 </div>
 
 <div class="terms">
 
+<br /><br /><br />
+
+<%= render :partial => "layouts/dashed_line"%>
+
 <p>
   Mikäli haluat tutkimuksesta lisää tietoa tai sinulla on muuta kysyttävää, voit ottaa yhteyttä:
 </p>
 <p>
-  Tutkimusapulainen Antti Virolainen, tutkimusapulainen Juho Makkonen, projektipäällikkö Olli Pitkänen tai professori Martti Mäntylä
+  Tutkimusapulainen Antti Virolainen (antti.virolainen (ät) tkk.fi)<br />
+  Tutkimusapulainen Juho Makkonen (juho.makkonen (ät) tkk.fi)<br />
+  Projektipäällikkö Olli Pitkänen (olli.pitkanen (ät) hiit.fi)<br /> 
+  Professori Martti Mäntylä (martti.mantyla (ät) hiit.fi)
 </p>
 <p>
-  Tietotekniikan tutkimuslaitos HIIT, Spekti Pilotti, Metsänneidonkuja 4, 02130  Espoo, Puh: (09) 4511, Email: antti.virolainen (ät) tkk.fi, juho.makkonen (ät) tkk.fi, olli.pitkanen (ät) hiit.fi, martti.mantyla (ät) hiit.fi
+  Tietotekniikan tutkimuslaitos HIIT<br />
+  Spektri Pilotti<br />
+  Metsänneidonkuja 4<br />
+  02130  Espoo<br />
+  <br />
+  Puh: (09) 4511
 </p>
 
 </div>

@@ -108,7 +108,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :items, :collection => { :search => :get }, :member => { :hide => :get, :map => :get, :show_on_map => :get }
   map.resource :search
   map.resources :transactions
-  map.resource :consent
+  map.resource :consent, :collection => { :register => :get, :accept => :post, :accept_and_register => :post }
   
   map.root :controller => "people", :action => "home"
   

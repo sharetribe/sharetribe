@@ -328,6 +328,10 @@ module ApplicationHelper
       t(:username_is_too_long)
     when "Email is invalid"
       t(:email_is_invalid)
+    when "Username has already been taken"
+      t(:username_has_already_been_taken)  
+    when "Email has already been taken"
+      t(:email_has_already_been_taken)  
     when "Password is invalid"
       t(:password_is_invalid)
     when "Password is too short"

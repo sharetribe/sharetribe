@@ -8,7 +8,7 @@
   	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a>
 
   	<%  if PRODUCTION_SERVER != "beta" %>
-  	| <a href="/cas_session/new">CAS-login(test)</a>
-  	| <a href="/people/new"><%= t(:register) %></a>
+  	  | <a href="/cas_session/new">CAS-login(test)</a>
+  	  | <%= link_to t(:register), register_consent_path %>
   	<%  end %>
 <% end %>

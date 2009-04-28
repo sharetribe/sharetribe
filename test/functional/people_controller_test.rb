@@ -29,7 +29,7 @@ class PeopleControllerTest < ActionController::TestCase
   end
 
   def test_register_form
-    get :new
+    get :new, {}, { :consent_accepted => "true" }
     assert_response :success
     assert_template "new"
     assert_select 'form#new_person'
@@ -52,22 +52,24 @@ class PeopleControllerTest < ActionController::TestCase
     # this is done twice to get two records in Kassi database
     # to detect collisions in primary keys
     username = generate_random_username
-    post "create", ({:person => {:username => username,
+    post "create", { :person => { :username => username,
                  :password => "testi",
                  :password2 => "testi",
                  :given_name => "testi",
                  :family_name => "hemmo",
-                 :email => "#{username}@example.com"}})
-    assert_response :found, @response.body             
+                 :email => "#{username}@example.com"}},
+                  { :consent_accepted => "true" }
+    assert_redirected_to home_person_path(assigns(:person))          
                  
     username = generate_random_username
-    post "create", ({:person => {:username => username,
+    post "create", {:person => {:username => username,
                  :password => "testi",
                  :password2 => "testi",
                  :given_name => "testi",
                  :family_name => "hemmo",
-                 :email => "#{username}@example.com"}})
-    assert_response :found, @response.body
+                 :email => "#{username}@example.com"}},
+                 { :consent_accepted => "true" }
+    assert_redirected_to home_person_path(assigns(:person))
   end
   
   def test_home
