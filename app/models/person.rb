@@ -134,8 +134,11 @@ class Person < ActiveRecord::Base
     end
     
     def self.join_group(id, group_id, cookie)
-      creating_headers = {"Cookie" => cookie}
-      response = connection.post("#{prefix}#{element_name}/#{id}/@groups", {:group_id => group_id}.to_json, creating_headers)
+      response = connection.post("#{prefix}#{element_name}/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
+    end
+    
+    def self.leave_group(id, group_id, cookie)
+      response = connection.delete("#{prefix}#{element_name}/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
     end
     
     #fixes utf8 letters
@@ -514,6 +517,10 @@ class Person < ActiveRecord::Base
   
   def join_group(group_id, cookie)
     PersonConnection.join_group(self.id, group_id, cookie)
+  end
+  
+  def leave_group(group_id, cookie)
+    PersonConnection.leave_group(self.id, group_id, cookie)
   end
   
   # Takes a person hash from COS and extracts ids from it

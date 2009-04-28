@@ -7,14 +7,12 @@
       <%= link_to h(group.title(session[:cookie])), group_path(group) %>
     </div>
     <div class="listed_object_date">
-      <%= text_with_line_breaks(group.description(session[:cookie])) %>
+      <%= truncate(h(group.description(session[:cookie])), 150, "...") %>
     </div>   
   </div>
   <div class="listed_item_owner_right">
-    <% if @current_user && !group.is_member?(@current_user, session[:cookie]) %>
-      <div class="listed_item_owner_right_link">
-        <%= link_to t(:join_group), join_person_group_path(@current_user, group), :method => :post %>
-      </div>
-    <% end %>
+    <div class="listed_item_owner_right_link">
+      <%= get_join_or_leave_group_link(group) %>
+    </div>
   </div>
 </div>

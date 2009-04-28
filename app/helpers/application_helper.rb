@@ -271,6 +271,23 @@ module ApplicationHelper
     return checkboxes.join("<br />")
   end
   
+  # Displays translated error messages for an object.
+  def display_errors(object, error_message)
+    output = ""
+    errors = translate_error_messages([object.errors.full_messages]) 
+    unless errors.empty? 
+      output += "
+        <div id='form_error_messages'>
+          <h2>#{t(error_message)}:</h2>
+          <ul>"  
+      errors.each do |error| 
+        output += "<li>#{error}</li>"
+      end 
+      output += "</ul></div>"
+    end
+    return output 
+  end
+  
   def translate_error_messages(error_message_groups)
     translated_errors = []
     error_message_groups.each do |error_messages|
@@ -303,6 +320,8 @@ module ApplicationHelper
       t(:good_thru_must_not_be_more_than_year)
     when "Password does not match"
       t(:passwords_dont_match)
+    when "Username can't be blank"
+      t(:username_is_required)  
     when "Username is too short"
       t(:username_is_too_short)
     when "Username is too long"
@@ -310,7 +329,17 @@ module ApplicationHelper
     when "Email is invalid"
       t(:email_is_invalid)
     when "Password is invalid"
-      t(:password_is_invalid)          
+      t(:password_is_invalid)
+    when "Password is too short"
+      t(:password_is_too_short)
+    when "Password is too long"
+      t(:password_is_too_long)
+    when "Title is too short (minimum is 2 characters)"
+      t(:group_title_is_too_short)
+    when "Title is too long (maximum is 70 characters)"
+      t(:group_title_is_too_long)    
+    when "Description is too long"
+      t(:group_description_is_too_long)                
     else
       message
     end  

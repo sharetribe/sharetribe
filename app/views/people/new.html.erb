@@ -4,17 +4,7 @@
 
 <div id="basic_content">
   
-  <% errors = translate_error_messages([@person.errors.full_messages]) %>
-  <% unless errors.empty? %>
-  <div id="form_error_messages">
-    <h2><%= t(:registration_failed) %>:</h2>
-    <ul>
-      <% errors.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+  <%= display_errors(@person, :registration_failed) %>
   
   <div class="form_container">
     <div class="form_right">

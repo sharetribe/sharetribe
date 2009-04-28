@@ -2,6 +2,8 @@
 
 <div id="basic_content">
 
+<%= display_errors(@group, :group_could_not_be_created) %>
+
 <% form_for @group do |f| -%>
   <div class="form_header">
     <%= t(:group_title) %>:
