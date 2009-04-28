@@ -5,10 +5,10 @@
   	<%= link_to t(:account), person_settings_path(@current_user) %> | 
   	<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
-  	<%= t(:not_logged_in) %> &nbsp;<a href="/session/new"><%= t(:login) %></a>
-
+  	<%= t(:not_logged_in) %> &nbsp;
+  	<%= link_to t(:login), new_session_path %>
   	<%  if PRODUCTION_SERVER != "beta" %>
   	  | <a href="/cas_session/new">CAS-login(test)</a>
-  	  | <%= link_to t(:register), register_consent_path %>
   	<%  end %>
+  	| <%= link_to t(:register), register_consent_path %> 
 <% end %>
