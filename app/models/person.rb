@@ -149,17 +149,24 @@ class Person < ActiveRecord::Base
     
   end
   
-  # Create a new person to Common Services. Person is saved to Kassi after he has accepted
-  # the consents.
+  # Create a new person to Common Services and Kassi.
   def self.create(params, cookie)
+    
+    # Try to create the person to COS
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
-    cos_id = response.body[/"id":"([^"]+)"/, 1]
+    
+    # Pick id from the response (same id in kassi and COS DBs) 
+    params[:id] = response.body[/"id":"([^"]+)"/, 1]
+    
+    # Add name information for the person to COS 
     params[:given_name] = params[:given_name].slice(0, 28)
     params[:family_name] = params[:family_name].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2), cos_id, cookie)
-    return cos_id
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2), params[:id], cookie)
+    
+    # Create locally with less attributes 
+    super(params.except(:username, :email, :name))
   end 
   
   def self.add_to_kassi_db(id)

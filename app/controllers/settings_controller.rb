@@ -5,6 +5,7 @@ class SettingsController < ApplicationController
   def show
     save_navi_state(['own','settings'])
     @person = Person.find(params[:person_id])
+    @person.settings = Settings.create unless @person.settings
   end
   
   def change_email
