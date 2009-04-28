@@ -3,7 +3,7 @@ require 'json'
 class Person < ActiveRecord::Base
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
-  
+  USER_CONSENT_VERSION = "KASSI_FI1.0"
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email
   
   attr_protected :is_admin
@@ -96,8 +96,8 @@ class Person < ActiveRecord::Base
     end
     
     def self.put_attributes(params, id, cookie)
-      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )   
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
+      # information changes, clear cache
       parent.cache_delete(id,cookie)
     end
     
@@ -107,25 +107,22 @@ class Person < ActiveRecord::Base
     
     def self.add_as_friend(friend_id, id, cookie)
       connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      # information changes, clear cache
       parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      # information changes, clear cache
       parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
       connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
+      # information changes, clear cache
       parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
     end
     
@@ -154,6 +151,7 @@ class Person < ActiveRecord::Base
     
     # Try to create the person to COS
     person_hash = {:person => params.slice(:username, :password, :email) }
+    person_hash[:person].merge!({:consent => USER_CONSENT_VERSION})    
     response = PersonConnection.create_person(person_hash, cookie)
     
     # Pick id from the response (same id in kassi and COS DBs) 
