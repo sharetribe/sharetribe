@@ -39,6 +39,8 @@ I18n.store_translations 'en-US',
 :account => "Account",
 :register_as_a_kassi_user => "Register as a Kassi user",
 :registration_failed => "Registration failed due to following errors",
+:not_yet_otasizzle_account => "No OtaSizzle account yet?",
+:register_new_account => "Register a new account.",
 
 #Concent
 :accept => "Accept",

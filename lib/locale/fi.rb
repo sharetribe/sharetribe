@@ -38,7 +38,9 @@ I18n.store_translations 'fi',
 :password => "Salasana",
 :account => "Oma tili",
 :register_as_a_kassi_user => "Rekisteröidy Kassin käyttäjäksi",
-:registration_failed => "Rekisteröityminen epäonnistui seuraavien virheiden takia", 
+:registration_failed => "Rekisteröityminen epäonnistui seuraavien virheiden takia",
+:not_yet_otasizzle_account => "Eikö sinulla ole vielä OtaSizzle-tunnusta?",
+:register_new_account => "Rekisteröi uusi tunnus tästä.",
 
 #Concent
 :accept => "Hyväksyn",
