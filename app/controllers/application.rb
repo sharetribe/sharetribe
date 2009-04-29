@@ -122,6 +122,10 @@ class ApplicationController < ActionController::Base
       case params[:object_type]
       when "Item"
         @object = Item.find(params[:object_id])
+      when "Listing"
+        @object = Listing.find(params[:object_id])
+      when "Favor"
+        @object = Favor.find(params[:object_id])   
       end
     end
     @groups = @object.groups if @object
