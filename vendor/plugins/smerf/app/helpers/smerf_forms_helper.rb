@@ -132,7 +132,6 @@ module SmerfFormsHelper
   #   smerfInstruction
   # 
   def smerf_group_question(question, level = 1)
-    puts question.code
     contents = ""
     # Format question header 
     contents += content_tag(:div, content_tag(:p, question.header), 
@@ -149,25 +148,19 @@ module SmerfFormsHelper
       content_tag(:p, "#{image_tag("smerf_help.gif", :alt => "Help")} #{question.help}"), 
       :class => "smerfInstruction") if (!question.help.blank?)    
    
-   puts "seuraavaksi type tsekkaus"
     # Check the type and format appropriatly
     case question.type
     when 'multiplechoice'
       contents += get_multiplechoice(question, level)
-      puts "multi"
     when 'textbox'
       contents += get_textbox(question)
-      puts "textbox"
     when 'textfield'
       contents += get_textfield(question)
     when 'singlechoice'
       contents += get_singlechoice(question, level)
-      puts "single"
     when 'selectionbox'
       contents += get_selectionbox(question, level)
     else  
-      puts question.code
-      puts question.type
       raise("Unknown question type for question: #{question.question}")
     end
     # Draw a line to indicate the end of the question if level 1, 
