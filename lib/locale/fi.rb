@@ -659,6 +659,11 @@ Sateenvarjo hukattu TKK:n päärakennukselle.<br>
 esimerkkitapausta. :)",
 
 #Terms
-:terms_title => "Käyttöehdot"
+:terms_title => "Käyttöehdot",
+
+#Smerf
+:smerf_saved_succesfully => "Vastaukset tallennettu onnistuneesti",
+:smerf_no_response_nothing_saved => "Ei vastauksia, mitään ei tallennettu",
+:smerf_updated_succesfully => "Vastaukset päivitetty onnistuneesti"
 
 

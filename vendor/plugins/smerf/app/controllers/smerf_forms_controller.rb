@@ -66,12 +66,12 @@ class SmerfFormsController < ApplicationController
         # Create the record
         PeopleSmerfForm.create_records(
         @smerfform.id, self.smerf_user_id, @responses)
-        flash[:notice] = "#{@smerfform.name} saved successfully"
+        flash[:notice] = :smerf_saved_succesfully
         # Show the form again, allowing the user to edit responses
         render(:action => "edit")
       end
     else
-      flash[:notice] = "No responses found in #{@smerfform.name}, nothing saved"
+      flash[:notice] = :smerf_no_response_nothing_saved
     end
   end
 
@@ -93,12 +93,12 @@ class SmerfFormsController < ApplicationController
       if (@errors.empty?())
         PeopleSmerfForm.update_records(
         @smerfform.id, self.smerf_user_id, @responses)
-        flash[:notice] = "#{@smerfform.name} updated successfully"
+        flash[:notice] = :smerf_updated_succesfully
       end
       # Show the form again, allowing the user to edit responses
       render(:action => "edit")
     else
-      flash[:notice] = "No responses found in #{@smerfform.name}, nothing saved"
+      flash[:notice] = :smerf_no_response_nothing_saved
     end
   end
 

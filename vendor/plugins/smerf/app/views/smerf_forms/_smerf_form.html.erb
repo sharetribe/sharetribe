@@ -1,5 +1,5 @@
   <!-- Handle notice messages -->
-  <%= get_notice_messages() %>
+  <!-- <%= get_notice_messages() %> -->
   <!-- Handle error messages -->       
   <%= get_error_messages(@errors) %>
   <!-- Specify page title -->
@@ -21,7 +21,7 @@
   <!-- Add save button -->
   <div class="submit">
     <p>
-    <%= submit_tag 'Press to Save your answers', :disable_with => "Saving&hellip;" %>
+    <%= submit_tag 'Tallenna vastaukset', :disable_with => "Tallennetaan&hellip;" %>
     </p>                        
   </div> 
   <%= hidden_field_tag("smerf_form_id", @smerfform.id) %>
