@@ -51,7 +51,7 @@ smerfform:
               default: N
             40-45:
               code: 6
-              answer: | 23-30
+              answer: | 40-45
               sort_order: 6
               default: N
             45-50:
@@ -1005,7 +1005,7 @@ smerfform:
           code: g8q1
           type: multiplechoice
           sort_order: 1
-          question: | Kassista saa tietoa muiden käyttäjien luotettavuuden arviointiin
+          question: | En käytä Kassia koska...
           help: | Valitse sopivat vaihtoehdot
           validation:
           answers:
