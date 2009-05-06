@@ -14,6 +14,8 @@ class SessionsController < ApplicationController
       #render :action => :new and return
     end
     
+    self.smerf_user_id = @session.person_id
+    
     if @session.person_id  # if not app-only-session and person found in cos
       unless  @current_user = Person.find_by_id(@session.person_id)
         # The user has succesfully logged in, but is not found in Kassi DB
@@ -29,8 +31,6 @@ class SessionsController < ApplicationController
     
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
-  
-    self.smerf_user_id = @session.person_id
       
     flash[:notice] = :login_successful
     if session[:return_to]

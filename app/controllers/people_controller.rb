@@ -89,6 +89,10 @@ class PeopleController < ApplicationController
       end
       session[:consent_accepted] = nil
       session[:person_id] = @person.id
+      
+      #will set smerf user id
+      self.smerf_user_id = @person.id
+      
       @person.settings = Settings.create
       redirect_to home_person_path(@person) #TODO should redirect to the page where user was
     else
