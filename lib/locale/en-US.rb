@@ -613,4 +613,9 @@ Searching for someone to play badminton with<br>
 :help_examples_categories_other => "Because we have tried to take all use cases into consideration, this category has naturally no example cases. :)",
 
 #Terms
-:terms_title => "Terms of Use"
+:terms_title => "Terms of Use",
+
+#Smerf
+:smerf_saved_succesfully => "Response saved succesfully",
+:smerf_no_response_nothing_saved => "No response found, nothing saved",
+:smerf_updated_succesfully => "Response updated succesfully"
