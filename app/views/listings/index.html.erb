@@ -1,3 +1,9 @@
+<%if (@current_user.nil?)%>
+<div id="info_box">
+  <%= t(:get_started) %>
+</div>
+<%end%>
+
 <div class="browse_objects_header">
 <div class="browse_objects_title">
   <%= t(@title) %> <span class="page_entries_info">(<%= page_entries_info @listings %>)</span>
