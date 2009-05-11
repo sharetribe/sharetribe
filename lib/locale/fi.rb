@@ -199,6 +199,14 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :no_realizer => "Ei tekijää",
 :listing_closed => "Ilmoitus suljettu",
 :cant_reply_to_own_listing => "Omaan ilmoitukseen ei voi vastata",
+:get_started => "<h2>Kassi - palveluksia ja lainatavaroita, tutuille ja tuntemattomille!</h2><br>
+
+<b>Kassituksen aloittaminen:</b><br>
+<ol>
+<li> <a href='http://kassi.sizl.org/consent/register'>Tee tunnukset Kassiin.</a>
+<li> Listaa omaan profiiliisi <a href='http://kassi.sizl.org/items'>tavarat</a>, joita voisit lainata ja <a href='http://kassi.sizl.org/favors'>palvelukset</a>, joita voisit tehdä toisille.
+<li> Tarvitessasi palvelusta voit jättää <a href='http://kassi.sizl.org/listings/new'>ilmoituksen</a> tai etsiä, olisiko apu jo tarjolla Kassissa!
+</ol>",
 
 #Listing statuses
 :open => "Avoinna",
