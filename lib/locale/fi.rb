@@ -484,7 +484,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :change_password => "Vaihda salasanaa",
 :email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",
 :send_email_notifications => "Lähetä sähköpostimuistutus",
-:email_when_new_message => "uusista viesteistä",
+:email_when_new_message => "uusista postilaatikkooni saapuvista viesteistä",
 :email_when_new_comment => "uusista kommenteista omiin ilmoituksiin",
 :settings_updated_successfully => "Asetukset päivitetty",  
 
