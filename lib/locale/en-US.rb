@@ -547,22 +547,6 @@ I18n.store_translations 'en-US',
 :updated => "updated",
 :kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle</a> services.",
 
-#About
-:about_title => "About Kassi",
-:about_title_what_is_kassi => "What is Kassi?",
-:about_text_what_is_kassi => "Kassi is a service that enables the exchange of various favors through listings posted by users. 
-There are five categories: Marketplace, Favors, Group search, Carpools, Lost&found and Other. You can browse the listings without 
-registering to the service, but if you want to answer to a listing or see the user profiles you have to create an user account.
-
-Kassi is one of the Otasizzle services. If you have created an user account in Sizl.org or in any other Otasizzle service, 
-those credentials will be valid also for Kassi. However, every Kassi user has a personal Kassi profile. The information of the 
-users Kassi profile will not be visible in other Otasizzle services. ",
-:about_title_why_is_kassi => "What is the purpose of Kassi?",
-:about_text_why_is_kassi => "The aim of Kassi is to make the exchange of daily favors easier in Otaniemi area. Kassi is part of 
-Otasizzle, a project of HUT and HIIT. The purpose of the project is to study the development of social web services.",
-:about_title_who_is_kassi_for => "Who is a potential user of Kassi?",
-:about_text_who_is_kassi_for => "Because Kassi takes advantage of its users being located on the same area, it is originally designed 
-for those who live or spend time regularly in Otaniemi. However, anyone can register as a user of Kassi in spite of where they live or work.",
 
 #Help
 :help_title => "Kassi Help",
