@@ -1,1 +1,85 @@
-<p>The english translation of the consent is not finished yet. Please use the <%= link_to "finnish version", :action => "show", :params => {:locale => "fi"} %> or send feedback using the box at the bottom of the page.</p>
+<div id="info_box">
+Kassi, as well as other OtaSizzle services, is part of a research project. For that project, information of the use of the Kassi will be collected so the consent below has to be given.
+</div>
+
+<h1>WRITTEN CONSENT FOR RESEARCH STUDY</h1>
+
+<div class="terms">
+
+<p>
+  By giving my consent I confirm my voluntary participation in a study entitled Kassieksperimentti, belonging to the OtaSizzle project.
+</p>
+<p>
+I have read and understood the appended research description (link to research description), entitled “Information for Participants in Scientific Research”, and confirm that I have received sufficient information on the study and have been given the opportunity to ask questions about the study (and if the information affects the test I have been assured I will have this opportunity after the study).
+</p>
+<p>
+ I am willing to follow the instructions provided by the researchers before, during and after the study.
+</p>
+<p>
+  I consent to my personal data being processed in the ways described in the research description.
+</p>
+<p>
+ I am aware of the fact that I have the right to cancel my participation in the test at any time without providing a reason, and to refuse to answer any questions asked before, during or after the study.
+</p>
+<p>
+ The services in the study (Kassi, etc.) may only be used in accordance with their terms of use. I accept the terms of use before I use the services.
+</p>
+
+<ul>
+  <li>
+    <%= link_to_function "Information for Participants in a Scientific Research", "new Effect.toggle('research_info', 'blind')" %>
+    <br /><br />
+    <div id="research_info" class="info_box" style="display:none;">
+      <%= render :partial => "research_information_en"%>
+    </div>
+  </li>
+  <li>
+    <%= link_to_function "Terms of use", "new Effect.toggle('terms_fi', 'blind')" %>
+    <br /><br />
+    <div id="terms_fi" class="info_box" style="display:none;">
+      <%= render :partial => "terms_en"%>
+    </div>
+  </li>
+</ul>
+
+</div>
+
+<div class="accept_or_reject_terms">
+  <div class="left_float">
+    <% form_tag(:action => @accept_action) do %>
+      <%= submit_tag "I agree" %>
+      &nbsp; 
+    <% end -%>
+  </div>
+  <div class="left_float">  
+    <% form_tag(:action => "decline") do %>
+      <%= submit_tag "I do not agree" %>
+    <% end -%>
+  </div>
+</div>
+
+<div class="terms">
+
+<br /><br /><br />
+
+<%= render :partial => "layouts/dashed_line"%>
+
+<p>
+  For more information on the study or in case of any questions, please contact:
+</p>
+<p>
+  Research Assistant Antti Virolainen (antti.virolainen (at) tkk.fi)<br />
+  Research Assistant Juho Makkonen (juho.makkonen (at) tkk.fi)<br />
+  Project Manager Olli Pitkänen (olli.pitkanen (at) hiit.fi)<br /> 
+  Professor Martti Mäntylä (martti.mantyla (at) hiit.fi)
+</p>
+<p>
+  Helsinki Institute for Information Technology, HIIT<br />
+  Spektri Pilotti<br />
+  Metsänneidonkuja 4<br />
+  02130  Espoo<br />
+  <br />
+  Tel.: +358 (0)9 4511
+</p>
+
+</div>

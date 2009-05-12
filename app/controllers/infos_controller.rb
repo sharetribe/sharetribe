@@ -15,8 +15,11 @@ class InfosController < ApplicationController
   def terms
     save_navi_state(['info','terms','',''])
     @not_first_time = true
-    #TODO english version of terms
-    render :template => "consents/_terms_fi"
+    if session[:locale] == "en-US"
+      render :template => "consents/_terms_en"
+    else
+      render :template => "consents/_terms_fi"
+    end
   end
 
 end
