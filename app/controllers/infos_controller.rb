@@ -6,10 +6,20 @@ class InfosController < ApplicationController
   
   def about
     save_navi_state(['info','about','',''])
+    if session[:locale] == "en-US"
+      render :template => "infos/_about_en"
+    else
+      render :template => "infos/_about_fi"
+    end
   end
 
   def help
     save_navi_state(['info','help','',''])
+    if session[:locale] == "en-US"
+      render :template => "infos/_help_en"
+    else
+      render :template => "infos/_help_fi"
+    end
   end
 
   def terms

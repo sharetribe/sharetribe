@@ -549,34 +549,6 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :updated => "päivitetty",
 :kassi_is_one_of_otasizzle_services => "Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista.",
 
-#About
-:about_title => "Tietoa Kassista",
-:about_title_what_is_kassi => "Mikä on Kassi?",
-:about_text_what_is_kassi => "<p>Kassi on palvelu, jonka tarkoituksena on helpottaa tavaroiden lainaamista, ostoa ja myyntiä, palvelusten vaihtoa, 
-kimppakyytien organisointia ja muita sen käyttäjien päivittäisiä askareita.
-Kassin käyttäjät voivat tarjota profiilissaan muille lainatavaroita ja palveluksia ja tehdä hakuja muiden profiileihin.</p>
-
-<p>
-Jos haluttua tavaraa tai palvelusta ei löydy, voi jättää palveluun ilmoituksen. 
-Ilmoitukset on jaettu seitsemään kategoriaan, joita ovat kauppapaikka, palvelukset, tavaralainat, porukkahaku, kimppakyydit, löytötavarat ja muut.  
-Tavaroita, palveluksia ja ilmoituksia voi selata rekisteröitymättä, mutta ilmoituksiin vastaaminen ja käyttäjien profiilien tarkastelu vaatii 
-rekisteröitymisen.</p>",
-:about_title_why_is_kassi => "Miksi Kassi on olemassa?",
-:about_text_why_is_kassi => "
-<p>
-Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle-projektin</a> palveluista. Projektin tarkoituksena on tutkia sosiaalisten
-internetpalveluiden kehittämistä ja käyttöä sekä helpottaa niiden avulla ihmisten arkielämää. 
-</p>
-<p>
-Kassin käyttäjätunnukset toimivat myös projektin
-muissa palveluissa, ja myös profiilitiedot ja kaverilistat ovat kaikkien palveluiden käytössä. Ne tiedot, jotka liittyvät vain Kassiin 
-(esimerkiksi tarjotut lainaesineet), eivät näy muualla kuin Kassissa.
-</p>
-",
-:about_title_who_is_kassi_for => "Kenelle Kassi on tarkoitettu?",
-:about_text_who_is_kassi_for => "Kassi on palvelun paikallisuutta hyödyntävästä luonteesta johtuen suunnattu alussa ensisijaisesti kaikille 
-pääkaupunkiseudun alueella asuville ja oleskeleville henkilöille, mutta kuka tahansa voi rekisteröityä palvelun käyttäjäksi.",
-
 #Help
 :help_title => "Apua Kassin käyttöön",
 :help_title_concepts => "Käsitteitä",
