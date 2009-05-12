@@ -548,62 +548,6 @@ I18n.store_translations 'en-US',
 :kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzle</a> services.",
 
 
-#Help
-:help_title => "Kassi Help",
-:help_title_concepts => "Concepts in Kassi",
-:help_title_concept_listing =>"Listing",
-:help_text_concept_listing =>"",
-:help_title_concept_category =>"Category",
-:help_text_concept_category =>"",
-:help_title_concept_profile =>"Profile",
-:help_text_concept_profile =>"",
-:help_title_concept_inbox =>"Inbox",
-:help_text_concept_inbox =>"",
-:help_title_concept_favor =>"Favor",
-:help_text_concept_favor =>"",
-:help_title_concept_item =>"Item",
-:help_text_concept_item =>"",
-:help_title_concept_Kassi_event =>"Kassi event",
-:help_text_concept_Kassi_event =>"",
-:help_title_concept_comment =>"Comment",
-:help_text_concept_comment =>"",
-:help_title_concept_thank_you =>"Thanking for borrowing something or a favor",
-:help_text_concept_thank_you =>"",
-:help_title_concept_closure =>"Closing a listing", 
-:help_text_concept_closure =>"",
-
-:help_title_categories => "Categories",
-:help_title_examples => "Examples:",
-:help_title_categories_market_place => "Market Place",
-:help_text_categories_market_place => "Marketplace is meant for buying, selling and giving away items.",
-:help_examples_categories_market_place => "Sofa for sale<br>
-Giving away little cats",
-:help_title_categories_borrow_items => "Borrow Items",
-:help_text_categories_borrow_items => "Here you can ask other users to lend thing for you.",
-:help_examples_categories_borrow_items => "Borrow another guitar for the Guitar Hero",
-:help_title_categories_favors => "Favors",
-:help_text_categories_favors => "Here you can find listings, in which help for various tasks is needed.",
-:help_examples_categories_favors => "Walking the dog<br>
-Help with computer problems<br>
-Activities that need more than one person (e.g. folding the sheets)
-",
-:help_title_categories_groups => "Groups",
-:help_text_categories_groups => " In group search you can search for more than one person at a time. 
-This category can be used both for leisure and more useful tasks. Listings in this category usually don’t offer or ask for any payment.",
-:help_examples_categories_groups => "Searching for company to watch a movie<br>
-Workers for community effort<br>
-Searching for someone to play badminton with<br>
-",
-:help_title_categories_rides => "Rides",
-:help_text_categories_rides => "This category is meant for searching and offering car rides, saving money and nature!",
-:help_examples_categories_rides => "You're driving to Turku tomorrow, and you could give somebody else a ride there too",
-:help_title_categories_lost_property => "Lost Property",
-:help_text_categories_lost_property => "Items lost in Otaniemi find their owners here.",
-:help_examples_categories_property => "",
-:help_title_categories_other => "Others",
-:help_text_categories_other => "Listings, that don’t fit to any category mentioned above can be posted here.",
-:help_examples_categories_other => "Because we have tried to take all use cases into consideration, this category has naturally no example cases. :)",
-
 #Terms
 :terms_title => "Terms of Use",
 
