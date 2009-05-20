@@ -94,6 +94,15 @@ class Group < ActiveRecord::Base
       end
     end
     Group.create(group_ids_not_in_kassi, nil)
+    
+    # Do the checking also other way round. Remove any groups from Kassi DB that have been removed from COS
+    # This needs to be changed when there are non public groups.
+    kassi_group_ids.each do |id|
+      unless cos_group_ids.include?(id)
+        Group.find(id).destroy
+      end
+    end
+    
   end
   
   def title(cookie=nil)
