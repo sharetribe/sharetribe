@@ -57,7 +57,12 @@ class GroupsController < ApplicationController
     @person = Person.find(params[:person_id])
     @group = Group.find(params[:id])
     @person.leave_group(@group.id, session[:cookie])
-    flash[:notice] = [ :you_have_left_group, @group.title(session[:cookie]) ]
+    group_title = @group.title(session[:cookie])
+    if group_title == "Not found!"
+      #This happens when the last user leaves a group and the group dies
+      group_title = ""
+    end
+    flash[:notice] = [ :you_have_left_group,  group_title ]
     redirect_to groups_path
   end
   
