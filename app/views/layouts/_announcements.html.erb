@@ -1,23 +1,19 @@
 <div id="announcement_div">
-<% unless flash[:notice].blank? %>
-  <div class="announcement notification">
-    <% if flash[:notice].is_a?(Array) %>
-      <%= t(flash[:notice][0]) + " " + flash[:notice][1] %>
-    <% else %>  
-      <%= t(flash[:notice]) %>
-    <% end %>  
-  </div>
-<% end %>
-
-<% unless flash[:warning].blank? %>
-  <div class="announcement warning">
-    <%= t(flash[:warning]) %>
-  </div>
-<% end %>
-
-<% unless flash[:error].blank? %>
-  <div class="announcement error">
-    <%= t(flash[:error]) %>
-  </div>
-<% end %>
+  <% [:notice, :warning, :error].each do |announcement| %>
+    <% unless flash[announcement].blank? %>
+      <div class="announcement <%= announcement.to_s %>">
+        <% if flash[announcement].is_a?(Array) %>
+          <% if flash[announcement].size == 2 %>
+            <%= t(flash[announcement][0]) + " " + flash[announcement][1] %>
+          <% elsif flash[announcement].size == 3 %>
+            <%= t(flash[announcement][0]) + " " +  link_to(flash[announcement][1], flash[announcement][2]) %>
+          <% else %>
+            <%= t(flash[announcement][0]) + ": " + flash[announcement][1] + ". " + link_to(t(flash[announcement][2]), flash[announcement][3]) %>
+          <% end %>  
+        <% else %>  
+          <%= t(flash[announcement]) %>
+        <% end %>
+      </div>
+    <% end %>    
+  <% end %>
 </div>

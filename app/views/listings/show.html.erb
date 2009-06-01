@@ -24,6 +24,9 @@
       </div>
       <div id="listing_author_box_titles">
         <div class="listing_author_box_item">
+          <%= t(:category) %>:
+        </div>
+        <div class="listing_author_box_item">
           <%= t(:author) %>:
         </div>
         <div class="listing_author_box_item">
@@ -39,6 +42,9 @@
 				<%end%>
       </div>
       <div id="listing_author_box_texts">
+        <div class="listing_author_box_item">
+          <%= link_to(t(@listing.category), listing_category_path(@listing.category)) %>
+        </div>
         <div class="listing_author_box_item">
           <%= link_to(@listing.author.name(session[:cookie]), @listing.author) %>
         </div>

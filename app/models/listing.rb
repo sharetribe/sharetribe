@@ -185,8 +185,8 @@ class Listing < ActiveRecord::Base
   
   # Save group visibility data to db
   def save_group_visibilities(group_ids)
+    groups.clear
     if group_ids
-      groups.clear
       selected_groups = Group.find(group_ids)
       selected_groups.each do |group|
         groups << group
