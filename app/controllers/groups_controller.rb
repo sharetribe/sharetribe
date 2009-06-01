@@ -62,7 +62,7 @@ class GroupsController < ApplicationController
       #This happens when the last user leaves a group and the group dies
       group_title = ""
     end
-    flash[:notice] = [ :you_have_left_group,  group_title ]
+    flash[:notice] = [ :you_have_left_group, @group.title(session[:cookie]), group_path(@group) ]
     redirect_to groups_path
   end
   

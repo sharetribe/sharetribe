@@ -24,6 +24,10 @@ class ListingsController < ApplicationController
 
   def show
     @listing = Listing.find(params[:id])
+    unless is_visible?(@listing)
+      flash[:error] = :no_permission_to_view_this_content
+      redirect_to listings_path
+    end  
     if @current_user && @listing.author.id == @current_user.id
       @listing.comments.each do |comment|
         comment.update_attribute(:is_read, 1)
@@ -185,6 +189,14 @@ class ListingsController < ApplicationController
     end
     flash[:notice] = :listing_closed    
     redirect_to person_listings_path(@current_user)
+  end
+  
+  private
+  
+  def is_visible?(listing)
+    conditions = get_visibility_conditions("listing")
+    conditions.slice!(0..3)
+    Listing.find(:all, :conditions => conditions).include?(listing)
   end
 
 end

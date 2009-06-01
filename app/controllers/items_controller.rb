@@ -132,7 +132,7 @@ class ItemsController < ApplicationController
         flash[:error] = :operation_not_permitted
       else
         @item.disable
-        flash[:notice] = :item_removed
+        flash[:notice] = [ :removed_item, h(@item.title), :undo, undo_destroy_person_item_path(@current_user, @item) ]
         page["profile_items"].replace_html :partial => "people/profile_item", 
                                            :collection => @current_user.available_items(@conditions),
                                            :as => :item, 
@@ -140,6 +140,15 @@ class ItemsController < ApplicationController
       end
       page["announcement_div"].replace_html :partial => 'layouts/announcements'          
     end
+  end
+  
+  def undo_destroy
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    @item = Item.find(params[:id])
+    @item.enable
+    flash[:notice] = [:cancelled_deletion_of_item, h(@item.title)]
+    redirect_to @person
   end
   
   def search

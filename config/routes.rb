@@ -75,7 +75,8 @@ ActionController::Routing::Routes.draw do |map|
                                           :mark_as_borrowed => :post,
                                           :view_description => :get,
                                           :hide_description => :get,
-                                          :cancel_update => :get
+                                          :cancel_update => :get,
+                                          :undo_destroy => :get 
                                         },
                              :collection => { 
                                               :cancel_create => :get
@@ -86,7 +87,8 @@ ActionController::Routing::Routes.draw do |map|
                                            :mark_as_done => :post,
                                            :view_description => :get,
                                            :hide_description => :get,
-                                           :cancel_update => :get   
+                                           :cancel_update => :get,
+                                           :undo_destroy => :get    
                                          },
                               :collection => { :cancel_create => :get }
     person.resource :purse

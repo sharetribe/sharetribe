@@ -52,11 +52,11 @@ class ApplicationController < ActionController::Base
         person_type = "author_id"
       when "item"
         person_type = "owner_id"
-      when "favor"  
+      when "favor"
         person_type = "owner_id"
-      end  
+      end
       conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{@current_user.id}'"
-      friend_ids = @current_user.get_friend_ids(session[:cookie]) 
+      friend_ids = @current_user.get_friend_ids(session[:cookie])
       if friend_ids.size > 0
         conditions += " OR (visibility IN ('friends', 'f_c', 'f_g', 'f_c_g') 
         AND #{person_type} IN (" + friend_ids.collect { |id| "'#{id}'" }.join(",") + "))"

@@ -130,7 +130,7 @@ class FavorsController < ApplicationController
         flash[:error] = :operation_not_permitted
       else
         @favor.disable
-        flash[:notice] = :favor_removed
+        flash[:notice] = [ :removed_favor, h(@favor.title), :undo, undo_destroy_person_favor_path(@current_user, @favor) ]
         page["profile_favors"].replace_html :partial => "people/profile_favor", 
                                            :collection => @current_user.available_favors(@conditions),
                                            :as => :favor, 
@@ -138,6 +138,15 @@ class FavorsController < ApplicationController
       end
       page["announcement_div"].replace_html :partial => 'layouts/announcements'          
     end
+  end
+  
+  def undo_destroy
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    @favor = Favor.find(params[:id])
+    @favor.enable
+    flash[:notice] = [:cancelled_deletion_of_favor, h(@favor.title)]
+    redirect_to @person
   end
   
   def search

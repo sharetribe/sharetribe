@@ -4,7 +4,7 @@
  * Grey (unselected item in top navi and hover): #72776c;
  * Lighter grey (hovered uselected item in top navi): #9aa092;
  * Lightest grey (listing author box, new message): #e0e6d8;
- * Light green (left links, category box, notification box) => #c0e783;
+ * Light green (left links, category box, notice box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
  * Orange (warning) => #fea04c;
  * Red (error) => #fe5c58;
@@ -56,7 +56,7 @@ div.announcement {
 	margin-bottom: 20px;
 }
 
-div.notification {
+div.notice {
 	background: #c0e783;
 }
 
