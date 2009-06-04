@@ -201,14 +201,23 @@ class Listing < ActiveRecord::Base
   def post_to_newsgroups
     logger.info "Starting newsgroup post"
     date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
-    message_string = "
+    message_string = <<END_OF_MESSAGE
       From: Testi <testi@testi.com>
       Newsgroups: otax.test
-      Subject: Test message
+      Subject: test message
       Date: #{date}
 
       #{content}
-    "
+END_OF_MESSAGE
+    
+    # message_string = "
+    #   From: Testi <testi@testi.com>
+    #   Newsgroups: otax.test
+    #   Subject: Test message
+    #   Date: #{date}
+    # 
+    #   #{content}
+    # "
     logger.info "Message: " + message_string
     if ENV["RAILS_ENV"] == "production"
       Net::NNTP.start('news.tky.fi', 119) do |nntp|
