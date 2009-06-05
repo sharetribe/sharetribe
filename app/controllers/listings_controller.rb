@@ -72,7 +72,8 @@ class ListingsController < ApplicationController
     @listing.language = language
     if @listing.save
       @listing.save_group_visibilities(params[:groups])
-      @listing.post_to_newsgroups
+      @listing.newsgroup = params[:newsgroup]
+      @listing.post_to_newsgroups(request.protocol + request.host + listing_path(@listing))
       flash[:notice] = :listing_added
       redirect_to listing_path(@listing)
     else

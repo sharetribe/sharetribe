@@ -5,46 +5,58 @@ require 'date'
 class Listing < ActiveRecord::Base
 
   after_save :write_image_to_file
-  
+
   after_destroy :delete_image_file
-  
+
   has_many :conversations
-  
+
   has_many :comments, :class_name => "ListingComment"
-  
+
   belongs_to :author, :class_name => "Person"
-  
+
   has_many :person_read_listings
   has_many :readers, :through => :person_read_listings, :source => :person
-  
+
   has_many :person_interesting_listings
   has_many :interested_people, :through => :person_interesting_listings, :source => :person
-  
+
   has_many :kassi_events, :as => :eventable
-  
+
   has_and_belongs_to_many :groups
-  
+
   serialize :language, Array
-  
-  attr_accessor :language_fi, :language_en, :language_swe
-  
+
+  attr_accessor :language_fi, :language_en, :language_swe, :newsgroup
+
   acts_as_ferret :fields => {
     :title => {},
     :content => {},
     :id_sort => {:index => :untokenized}
   }
-  
+
   #Options for status
   VALID_STATUS = ["open", "in_progress", "closed"]
-  
+
   # Allowed language codes
   VALID_LANGUAGES = ["fi", "swe", "en-US"]
-  
+
   # Possible visibility types
   POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
-  
+
   # Main categories.
   MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
+  
+  # Newsgroups corresponding to categories
+  # 
+  # Default groups can be created by adding :default => "name_of_group" 
+  NEWSGROUPS = {
+    "sell" => { :groups => ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan", "tori.liput"] },
+    "buy" => { :groups => ["tori.ostetaan", "tori.atk.ostetaan", "tori.opinnot.ostetaan", "tori.liput"] },
+    "give" => { :groups => ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan", "tori.liput", "tori.sekalaista"] },
+    "lost" => { :groups => ["tori.kadonnut"] },
+    "rides" => { :groups => ["tori.kyydit"] },
+    "others" => { :groups => ["tori.sekalaista"] }
+  }
 
   # Gets subcategories for a category.
   def self.get_sub_categories(main_category)
@@ -57,7 +69,7 @@ class Listing < ActiveRecord::Base
       nil 
     end  
   end
-  
+
   # Gets all categories that are valid for a single listing.
   # Categories that have subcategories are not valid.
   def self.get_valid_categories
@@ -77,7 +89,7 @@ class Listing < ActiveRecord::Base
   # Image sizes
   IMG_SIZE = '"300x240>"'
   THUMB_SIZE = '"100x100>"'
-  
+
   # Image directories
   if ENV["RAILS_ENV"] == "test"
     URL_STUB = DIRECTORY = "tmp/test_images"
@@ -85,20 +97,20 @@ class Listing < ActiveRecord::Base
     URL_STUB = "/images/listing_images"
     DIRECTORY = File.join("public", "images", "listing_images")
   end
-  
+
   validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language
 
   validates_inclusion_of :status, :in => VALID_STATUS
   validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
   validates_inclusion_of :category, :in => get_valid_categories
   validates_inclusion_of :good_thru, :allow_nil => true, 
-                         :in => DateTime.now..DateTime.now + 1.year, :message => "must not be more than one year"
-  
+  :in => DateTime.now..DateTime.now + 1.year, :message => "must not be more than one year"
+
   validates_length_of :title, :within => 2..50
   validates_length_of :value_other, :allow_nil => true, :allow_blank => true, :maximum => 50
-  
+
   validates_numericality_of :times_viewed, :value_cc, :only_integer => true, :allow_nil => true
-  
+
   validate :given_language_is_one_of_valid_languages, :file_data_is_valid
 
   # Makes sure that the all the languages given are valid.
@@ -109,7 +121,7 @@ class Listing < ActiveRecord::Base
       end
     end  
   end
-  
+
   # Validates image if image data is given. Listing is also valid 
   # without image, so no file data equals valid file data.
   def file_data_is_valid
@@ -126,26 +138,26 @@ class Listing < ActiveRecord::Base
     end
     return true
   end
-  
+
   # Overrides the to_param method to implement clean URLs
   def to_param
     "#{id}_#{title.gsub(/\W/, '_').downcase}"
   end
-  
+
   # Puts image file data in an instance variable.
   def image_file=(file_data)
     @file_data = file_data
   end
-  
+
   # Returns image filename.
   def filename
     File.join(DIRECTORY, self.id.to_s + ".png")
   end
-  
+
   def thumb_filename
     File.join(DIRECTORY, self.id.to_s + "_thumb.png")
   end
-  
+
   # Converts image to right size and writes it to a PNG file.
   # Filename is [LISTING_ID].png
   def write_image_to_file
@@ -169,7 +181,7 @@ class Listing < ActiveRecord::Base
       return true
     end
   end
-  
+
   # Deletes image file if listing is destroyed.
   def delete_image_file
     File.delete(filename) if File.exists?(filename)
@@ -178,7 +190,7 @@ class Listing < ActiveRecord::Base
   def id_sort
     id
   end  
-  
+
   def open?
     if status.eql?("closed") || good_thru < Date.today
       return false
@@ -186,7 +198,7 @@ class Listing < ActiveRecord::Base
       return true
     end    
   end
-  
+
   # Save group visibility data to db
   def save_group_visibilities(group_ids)
     groups.clear
@@ -197,31 +209,29 @@ class Listing < ActiveRecord::Base
       end
     end
   end
-  
-  def post_to_newsgroups
-    logger.info "Starting newsgroup post"
-    date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
-    message_string = <<END_OF_MESSAGE
-      From: Testi <testi@testi.com>
-      Newsgroups: otax.test
-      Subject: test message
-      Date: #{date}
 
-      #{content}
+  # Post the contents of the listing to a news.tky.fi group 
+  def post_to_newsgroups(url)
+    return if !newsgroup || newsgroup.eql?("do_not_post")
+    date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
+    msgstr = <<END_OF_MESSAGE
+From: #{author.full_name} <kassi@sizl.org>
+Newsgroups: #{newsgroup}
+Subject: #{title}
+Date: #{date}
+
+#{content}
+
+***
+
+This message was send using Kassi. To reply to this message, go to #{url}
+
 END_OF_MESSAGE
-    
-    # message_string = "
-    #   From: Testi <testi@testi.com>
-    #   Newsgroups: otax.test
-    #   Subject: Test message
-    #   Date: #{date}
-    # 
-    #   #{content}
-    # "
-    logger.info "Message: " + message_string
+
+    logger.info "Message: " + msgstr
     if ENV["RAILS_ENV"] == "production"
       Net::NNTP.start('news.tky.fi', 119) do |nntp|
-        nntp.post message_string
+        nntp.post msgstr
       end
     end  
   end
