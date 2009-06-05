@@ -367,6 +367,23 @@ div.links_panel {
 	border: 1px solid #000;
 }
 
+/*div.links_panel a {
+	width: 8.5em;
+	display: block;
+	float: left;
+	padding: 5px 0;
+	margin: 0px 8px 0 0;
+	text-align: center;
+	font-size: 105%;
+	text-decoration: none;
+	color: #ffffff;
+}
+
+div.links_panel a:hover {
+	background: #72776c;
+}*/
+
+
 div.visibility_checkboxes {
 	margin: 5px;
 }

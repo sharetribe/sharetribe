@@ -226,6 +226,8 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :language => "Ilmoituksen kieli",
 :good_thru => "Voimassa",
 :good_thru_format => "asti (muodossa VVVV-KK-PP)",
+:post_to_newsgroup => "Lähetä uutisryhmään",
+:do_not_post => "älä lähetä mihinkään uutisryhmään",
 :add_listing_submit => "Lisää ilmoitus",
 :edit_listing_submit => "Muokkaa ilmoitusta",
 

@@ -38,7 +38,7 @@
       <%= t(:title) %>*:
     </div>  
     <div class="form_right">
-      <%= f.text_field :title, :size => 70 %>
+      <%= f.text_field :title, :size => 69 %>
     </div>
   </div>
   <div class="form_container">    
@@ -46,7 +46,7 @@
       <%= t(:content) %>*:
     </div>
     <div class="form_right">
-      <%= f.text_area :content, :size => "67x5" %>
+      <%= f.text_area :content, :size => "70x5" %>
     </div>
   </div>
   <div class="form_container">    
@@ -99,15 +99,12 @@
     <div class="form_right">
       <%= f.file_field :image_file %>
     </div>
-    <%= f.hidden_field :author_id, :value => @current_user.id %>
-    <%= f.hidden_field :status, :value => "open" %>
-    <% if params[:subcategory]%>
-      <%= f.hidden_field :category, :value => params[:subcategory] %>
-    <% else %>
-      <%= f.hidden_field :category, :value => params[:category] %>
-    <% end %>  
   </div>
   <%= render :partial => "layouts/visibility_form", :locals => { :form_type => "listing", :object => @listing } %>
+  <%= render :partial => "listings/newsgroup_radio_buttons" %>
+  <%= f.hidden_field :author_id, :value => @current_user.id %>
+  <%= f.hidden_field :status, :value => "open" %>
+  <%= f.hidden_field :category, :value => params[:subcategory] || params[:category] %>
   <div class="form_container">  
     <div class="form_right">
       <%= submit_tag t(:add_listing_submit), :onclick => "this.disabled=true,this.form.submit();" %>  

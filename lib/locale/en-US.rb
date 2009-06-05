@@ -224,6 +224,8 @@ I18n.store_translations 'en-US',
 :language => "Listing language",
 :good_thru => "Good thru",
 :good_thru_format => "(YYYY-MM-DD)",
+:post_to_newsgroup => "Post to newsgroup",
+:do_not_post => "do not post to any newsgroup", 
 :add_listing_submit => "Submit listing",
 :edit_listing_submit => "Edit listing",
 
