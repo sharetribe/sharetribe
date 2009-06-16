@@ -83,7 +83,7 @@ class PeopleController < ApplicationController
     if params[:person][:password].eql?(params[:person][:password2])
       begin
         @person = Person.create(params[:person], session[:cookie])
-      rescue ActiveResource::BadRequest => e
+      rescue RestClient::RequestFailed => e
         handle_person_errors(@person, e)
         render :action => "new" and return
       end
@@ -151,7 +151,7 @@ class PeopleController < ApplicationController
       person.update_attributes(params[:person], session[:cookie])
       flash[:notice] = :person_updated_successfully
       flash[:error] = nil
-    rescue ActiveResource::BadRequest => e
+    rescue RestClient::RequestFailed => e
       flash[:error] = translate_error_message(e.response.body.to_s)
       flash[:notice] = nil
       return false

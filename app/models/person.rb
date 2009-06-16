@@ -76,80 +76,92 @@ class Person < ActiveRecord::Base
     self.collection_name = "people"
     
     def self.create_person(params, cookie)
-      creating_headers = {"Cookie" => cookie}
-      response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
+      JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
+      # creating_headers = {"Cookie" => cookie}
+      #  response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
     end
     
     def self.get_person(id, cookie)
-      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie}))
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie}))
       
       # return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
     def self.search(query, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}?search=" + query, {"Cookie" => cookie} ))
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{query}", {:cookies => cookie}))
+      #return fix_alphabets(connection.get("#{prefix}#{element_name}?search=" + query, {"Cookie" => cookie} ))
     end
     
     def self.get_friends(id, cookie)
-      response = JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@friends", {:cookies => cookie}))
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie}))
       #puts "FRIENDS HAUN TULOS: #{response.inspect}"
-      return response
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
     end
     
     def self.get_pending_friend_requests(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@pending_friend_requests", {"Cookie" => cookie }))
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
+      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@pending_friend_requests", {"Cookie" => cookie }))
     end
     
     def self.put_attributes(params, id, cookie)
-      connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
+      JSON.parse(RestClient.put("#{COS_URL}/#{element_name}/#{id}/@self", {:person => params}, {:cookies => cookie}))
+      #connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
       # information changes, clear cache
       parent.cache_delete(id,cookie)
     end
     
     def self.update_avatar(image, id, cookie)
-      connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
+      RestClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", {:file => image}, {:cookies => cookie})
+      #connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
     end
     
     def self.add_as_friend(friend_id, id, cookie)
-      connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
+      RestClient.post("#{COS_URL}/#{element_name}/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
+      #connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
       # information changes, clear cache
       parent.cache_delete(id,cookie)
       parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
-      connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
+      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@friends/#{friend_id}", {:cookies => cookie})   
+      #connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
       # information changes, clear cache
       parent.cache_delete(id,cookie)
       parent.cache_delete(friend_id,cookie)
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
-      connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
+      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
+      
+      #connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
       # information changes, clear cache
       parent.cache_delete(id,cookie)
       parent.cache_delete(friend_id,cookie)
     end
     
     def self.get_groups(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@groups", {:cookies => cookie}))
+      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
     end
     
     def self.join_group(id, group_id, cookie)
-      response = connection.post("#{prefix}#{element_name}/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
+      JSON.parse(RestClient.post("#{COS_URL}/#{element_name}/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
+      #response = connection.post("#{prefix}#{element_name}/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
     end
     
     def self.leave_group(id, group_id, cookie)
-      response = connection.delete("#{prefix}#{element_name}/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
+      JSON.parse(RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@groups/#{group_id}", {:cookies => cookie}))
+      
+      #response = connection.delete("#{prefix}#{element_name}/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
     end
     
     #fixes utf8 letters
-    def self.fix_alphabets(json_hash)
-      #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
-      #puts json_hash.inspect
-      JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
-    end
+    # def self.fix_alphabets(json_hash)
+    #   #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
+    #   #puts json_hash.inspect
+    #   JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
+    # end
     
   end
   
@@ -161,8 +173,9 @@ class Person < ActiveRecord::Base
     person_hash[:person].merge!({:consent => USER_CONSENT_VERSION})    
     response = PersonConnection.create_person(person_hash, cookie)
     
-    # Pick id from the response (same id in kassi and COS DBs) 
-    params[:id] = response.body[/"id":"([^"]+)"/, 1]
+    # Pick id from the response (same id in kassi and COS DBs)
+    params[:id] = response["id"]
+    #params[:id] = response[/"id":"([^"]+)"/, 1]
     
     # Add name information for the person to COS 
     params[:given_name] = params[:given_name].slice(0, 28)
@@ -198,7 +211,7 @@ class Person < ActiveRecord::Base
     cookie = Session.kassiCookie
     begin
       person_hash = PersonConnection.search(query, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
     end  
@@ -396,7 +409,7 @@ class Person < ActiveRecord::Base
     
     begin
       friend_hash = PersonConnection.get_friends(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
     end
@@ -408,7 +421,7 @@ class Person < ActiveRecord::Base
     
     begin
       request_hash = PersonConnection.get_pending_friend_requests(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
     end
@@ -432,7 +445,7 @@ class Person < ActiveRecord::Base
     
     begin
       group_hash = PersonConnection.get_groups(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
     end
@@ -468,12 +481,12 @@ class Person < ActiveRecord::Base
       #person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
       person_hash = Person.cache_fetch(id,cookie)
       #person_hash = PersonConnection.get_person(self.id, cookie)
-    rescue ActiveResource::UnauthorizedAccess => e
+    rescue RestClient::Unauthorized => e
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
       #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
       Person.cache_write(person_hash,id,cookie)
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
     end

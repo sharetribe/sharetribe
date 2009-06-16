@@ -28,10 +28,10 @@ class GroupsController < ApplicationController
     begin
       @group = Group.create(params[:group], session[:cookie])
       flash[:notice] = :group_created_successfully
-    rescue ActiveResource::BadRequest => e
+    rescue RestClient::RequestFailed => e
       handle_group_errors(@group, e)
       render :action => :new and return
-    rescue ActiveResource::UnauthorizedAccess => e
+    rescue RestClient::Unauthorized => e
       handle_group_errors(@group, e)
       render :action => :new and return  
     end

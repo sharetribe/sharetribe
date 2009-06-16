@@ -16,7 +16,7 @@ class AvatarsController < ApplicationController
     #   @person.update_avatar(params[:avatar][:image_file], session[:cookie])
     #   flash[:notice] = :avatar_upload_successful
     #   redirect_to @person
-    # rescue ActiveResource::BadRequest => e
+    # rescue RestClient::RequestFailed => e
     #   flash[:error] = e.response.body
     #   render :action => :edit
     # end  
