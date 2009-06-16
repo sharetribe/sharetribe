@@ -33,7 +33,8 @@ class Group < ActiveRecord::Base
     end
     
     def self.get_members(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@members", {"Cookie" => cookie }))
+      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@members", {:cookies => cookie}))
+      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@members", {"Cookie" => cookie }))
     end
     
     def self.create_group(params, cookie)
@@ -48,6 +49,7 @@ class Group < ActiveRecord::Base
     #fixes utf8 letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
+      #puts "GROUPS HAUN JSON: #{json_hash}"
       JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
     end
     

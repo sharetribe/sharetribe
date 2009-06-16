@@ -81,7 +81,9 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_person(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
+      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie}))
+      
+      # return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
     def self.search(query, cookie)
@@ -90,7 +92,7 @@ class Person < ActiveRecord::Base
     
     def self.get_friends(id, cookie)
       response = JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@friends", {:cookies => cookie}))
-      puts "FRIENDS HAUN TULOS: #{response.inspect}"
+      #puts "FRIENDS HAUN TULOS: #{response.inspect}"
       return response
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
     end
@@ -145,7 +147,7 @@ class Person < ActiveRecord::Base
     #fixes utf8 letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
-      puts json_hash.inspect
+      #puts json_hash.inspect
       JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
     end
     
