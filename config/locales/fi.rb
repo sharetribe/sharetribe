@@ -1,5 +1,6 @@
 #I18n.store_translations 'fi',
-{
+{:fi =>
+  {
 #Register
 :new_user => "Luo uusi käyttäjä",
 :username => "Käyttäjänimi",
@@ -563,4 +564,5 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :smerf_no_response_nothing_saved => "Ei vastauksia, mitään ei tallennettu",
 :smerf_updated_succesfully => "Vastaukset päivitetty onnistuneesti"
 
+  }
 }

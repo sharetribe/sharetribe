@@ -58,6 +58,7 @@ class FavorsController < ApplicationController
     @form_path = favors_path
     @cancel_path = cancel_create_person_favors_path(@current_user)
     @method = :post
+    render :partial => "new"
   end
   
   def create
@@ -92,7 +93,7 @@ class FavorsController < ApplicationController
     @form_path = favor_path(@favor)
     @cancel_path = cancel_update_person_favor_path(@favor.owner, @favor)
     @method = :put
-    render :action => :new
+    render :partial => "new"
   end
   
   def update

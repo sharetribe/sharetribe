@@ -6,7 +6,7 @@ class InfosController < ApplicationController
   
   def about
     save_navi_state(['info','about','',''])
-    if session[:locale] == "en-US"
+    if session[:locale] == "en"
       render :template => "infos/_about_en"
     else
       render :template => "infos/_about_fi"
@@ -15,7 +15,7 @@ class InfosController < ApplicationController
 
   def help
     save_navi_state(['info','help','',''])
-    if session[:locale] == "en-US"
+    if session[:locale] == "en"
       render :template => "infos/_help_en"
     else
       render :template => "infos/_help_fi"
@@ -25,7 +25,7 @@ class InfosController < ApplicationController
   def terms
     save_navi_state(['info','terms','',''])
     @not_first_time = true
-    if session[:locale] == "en-US"
+    if session[:locale] == "en"
       render :template => "consents/_terms_en"
     else
       render :template => "consents/_terms_fi"

@@ -48,7 +48,7 @@ class ConsentsController < ApplicationController
     private
     
     def display_consent
-      if session[:locale] == "en-US"
+      if session[:locale] == "en"
         render :template => "consents/consent_en"
       else
         render :template => "consents/consent_fi"
