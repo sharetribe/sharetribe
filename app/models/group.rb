@@ -10,58 +10,17 @@ class Group < ActiveRecord::Base
   
   has_and_belongs_to_many :favors, :join_table => "groups_favors"
   
-  class GroupConnection < ActiveResource::Base
-    # This is an inner class to handle remote connection to COS database where the actual information
-    # of group model is stored. This is subclass of ActiveResource so it includes some automatic
-    # functionality to access REST interface.
-    #
-    # In practice we use here connection.post/get/put/delete and the URL and Parameters as described
-    # in COS documentation at #{COS_URL}
-
-    self.site = COS_URL
-    self.format = :json 
-    self.timeout = COS_TIMEOUT
-    self.element_name = "groups"
-    self.collection_name = "groups"
-    
-    def self.get_public_groups(cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/@public", {"Cookie" => cookie }))
-    end
-    
-    def self.get_group(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}", {"Cookie" => cookie }))
-    end
-    
-    def self.get_members(id, cookie)
-      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@members", {:cookies => cookie}))
-      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@members", {"Cookie" => cookie }))
-    end
-    
-    def self.create_group(params, cookie)
-      creating_headers = {"Cookie" => cookie}
-      response = connection.post("#{prefix}#{element_name}", params.to_json, creating_headers)
-    end
-    
-    def self.put_attributes(params, id, cookie)
-      connection.put("#{prefix}#{element_name}/#{id}/@self",{:group => params}.to_json, {"Cookie" => cookie} )   
-    end
-    
-    #fixes utf8 letters
-    def self.fix_alphabets(json_hash)
-      #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
-      #puts "GROUPS HAUN JSON: #{json_hash}"
-      JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
-    end
-    
-  end
+  
+  @@element_name = "groups" # in COS
+  
 
   def self.create(params, cookie)
     if (cookie)
       # create to Common Services
-      response = GroupConnection.create_group(params, cookie)
+      response = create_group(params, cookie)
       #pick id from the response (same id in kassi and COS DBs)
-      params[:id] = response.body[/"id":"([^"]+)"/, 1]
-      puts "Iidee: " + response.body + "loppuu tähän" + params[:id]
+      params[:id] = response["group"]["id"]
+
       #create locally with less attributes
       super(params.except(:title, :description, :type))
     else
@@ -88,7 +47,7 @@ class Group < ActiveRecord::Base
   def self.add_new_public_groups_to_kassi_db(cookie=nil)
     cookie = Session.kassiCookie if cookie.nil?
     group_ids_not_in_kassi = []
-    cos_group_ids = Group.get_group_ids(GroupConnection.get_public_groups(cookie))
+    cos_group_ids = Group.get_group_ids(get_public_groups(cookie))
     kassi_group_ids = Group.find(:all, :select => "id").collect(&:id)
     cos_group_ids.each do |id|
       unless kassi_group_ids.include?(id)
@@ -111,8 +70,11 @@ class Group < ActiveRecord::Base
     if new_record?
       return form_title ? form_title : ""
     end
-    group_hash = get_group_hash(cookie)
-    return "Not found!" if group_hash.nil?
+    begin
+      group_hash = get_group_hash(cookie)
+    rescue RestClient::ResourceNotFound
+      return ""
+    end
     return group_hash["group"]["title"]
   end
   
@@ -124,8 +86,11 @@ class Group < ActiveRecord::Base
     if new_record?
       return form_description ? form_description : ""
     end
-    group_hash = get_group_hash(cookie)
-    return "Not found!" if group_hash.nil?
+    begin
+      group_hash = get_group_hash(cookie)
+    rescue RestClient::ResourceNotFound
+      return "group not found!"
+    end
     return group_hash["group"]["description"]
   end
   
@@ -146,7 +111,7 @@ class Group < ActiveRecord::Base
   end
   
   def update_attributes(params, cookie)
-    GroupConnection.put_attributes(params, self.id, cookie)
+    put_attributes(params, self.id, cookie)
   end
 
   # Returns a hash from COS containing attributes of a group
@@ -154,11 +119,11 @@ class Group < ActiveRecord::Base
     cookie = Session.kassiCookie if cookie.nil?
     
     begin
-      group_hash = GroupConnection.get_group(self.id, cookie)
-    rescue ActiveResource::UnauthorizedAccess => e
+      group_hash = Group.get_group(self.id, cookie)
+    rescue RestClient::Unauthorized => e
       cookie = Session.updateKassiCookie
-      group_hash = GroupConnection.get_group(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+      group_hash = Group.get_group(self.id, cookie)
+    rescue RestClient::ResourceNotFound => e
       #Could not find group with that id in COS Database!
       return nil
     end
@@ -170,8 +135,8 @@ class Group < ActiveRecord::Base
   def get_members(cookie)
     
     begin
-      member_hash = GroupConnection.get_members(self.id, cookie)
-    rescue ActiveResource::ResourceNotFound => e
+      member_hash = Group.get_members(self.id, cookie)
+    rescue RestClient::ResourceNotFound => e
       #Could not find group with that id in COS Database!
       return nil
     end
@@ -187,6 +152,32 @@ class Group < ActiveRecord::Base
   # into an array.
   def self.get_group_ids(group_hash)
     group_hash["entry"].collect { |group| group["group"]["id"] }
+  end
+  
+  private
+  
+  # Class-Methods for COS access
+  # In practice we use here connection.post/get/put/delete and the URL and Parameters as described
+  # in COS documentation at #{COS_URL}
+
+  def self.get_public_groups(cookie)
+    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie}))
+  end
+  
+  def self.get_group(id, cookie)
+    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
+  end
+  
+  def self.get_members(id, cookie)
+    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
+  end
+  
+  def self.create_group(params, cookie)
+    JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
+  end
+  
+  def self.put_attributes(params, id, cookie)
+    JSON.parse(RestClient.put("#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
   end
 
 end

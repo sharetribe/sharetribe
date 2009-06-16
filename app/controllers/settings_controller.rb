@@ -12,7 +12,7 @@ class SettingsController < ApplicationController
     @person = Person.find(params[:person_id])
     begin
       @person.update_attributes(params[:person], session[:cookie])
-    rescue ActiveResource::BadRequest => e
+    rescue RestClient::RequestFailed => e
       if e.response.body.include?("taken")
         flash[:error] = :email_has_already_been_taken
       else
@@ -32,7 +32,7 @@ class SettingsController < ApplicationController
     end
     begin
       @person.update_attributes(params[:person].except("password2"), session[:cookie])
-    rescue ActiveResource::BadRequest => e
+    rescue RestClient::RequestFailed => e
       flash[:error] = :password_is_invalid
       redirect_to person_settings_path(@person) and return
     end

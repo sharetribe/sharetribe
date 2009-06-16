@@ -53,7 +53,7 @@ class FriendsController < ApplicationController
       @current_user.add_as_friend(friend.id, session[:cookie])
       flash[:notice] = :friend_requested
       return true
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       flash[:error] = :friend_request_failed
       return false
     end
@@ -64,7 +64,7 @@ class FriendsController < ApplicationController
       @current_user.remove_from_friends(friend.id, session[:cookie])
       flash[:notice] = :friend_removed
       return true
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       flash[:error] = :removing_friend_failed
       return false
     end

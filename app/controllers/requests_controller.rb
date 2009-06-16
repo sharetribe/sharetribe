@@ -32,7 +32,7 @@ class RequestsController < ApplicationController
     begin
       @current_user.remove_pending_friend_request(params[:id], session[:cookie])
       flash[:notice] = :friend_request_rejected
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       flash[:error] = :rejecting_friend_request_failed
     end
     redirect_to :back
@@ -57,7 +57,7 @@ class RequestsController < ApplicationController
       @current_user.add_as_friend(friend.id, session[:cookie])
       flash[:notice] = :friend_request_accepted
       return true
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       flash[:error] = :accepting_friend_request_failed
       return false
     end
@@ -67,7 +67,7 @@ class RequestsController < ApplicationController
     begin
       @current_user.remove_pending_friend_request(friend.id, session[:cookie])
       flash[:notice] = :friend_request_canceled
-    rescue ActiveResource::ResourceNotFound => e
+    rescue RestClient::ResourceNotFound => e
       flash[:error] = :canceling_friend_request_failed
     end
   end

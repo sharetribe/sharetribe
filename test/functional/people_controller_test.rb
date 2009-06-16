@@ -51,6 +51,7 @@ class PeopleControllerTest < ActionController::TestCase
   def test_create_users
     # this is done twice to get two records in Kassi database
     # to detect collisions in primary keys
+    
     username = generate_random_username
     post "create", { :person => { :username => username,
                  :password => "testi",
