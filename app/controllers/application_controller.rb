@@ -145,16 +145,7 @@ class ApplicationController < ActionController::Base
   # Sets locale file used.
   def set_locale
     locale = params[:locale] || session[:locale] || 'fi'
-    I18n.locale = locale
-
-    # begin 
-    #   I18n.backend.send(:init_translations) 
-    # rescue Exception => err 
-    #   logger.error err 
-    #   flash[:notice] = "#{I18n.locale} translation not available"  
-    #   I18n.locale = I18n.default_locale 
-    # end
-    
+    I18n.locale = locale   
     session[:locale] = params[:locale] || session[:locale]
   end
   

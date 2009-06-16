@@ -41,7 +41,8 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "ruby-prof"
-
+  #config.gem "rest-client"
+  
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named
@@ -91,9 +92,9 @@ Rails::Initializer.run do |config|
    #COS_URL is different in production env
    
 
-   COS_URL = "http://maps.cs.hut.fi/cos"
+   #COS_URL = "http://maps.cs.hut.fi/cos"
    #COS_URL = "http://localhost:3001"
-   #COS_URL = "http://cos.alpha.sizl.org"
+   COS_URL = "http://cos.alpha.sizl.org"
    
    COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
   #For example there will be no confirmation when adding profile avatar picture
