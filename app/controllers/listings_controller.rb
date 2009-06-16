@@ -67,7 +67,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(params[:listing])
     language = []
     language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
-    language << "en-US" if (params[:listing][:language_en].to_s.eql?('1'))
+    language << "en" if (params[:listing][:language_en].to_s.eql?('1'))
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     if @listing.save
@@ -113,7 +113,7 @@ class ListingsController < ApplicationController
     @listing = Listing.find(params[:id])
     language = []
     language << "fi" if (params[:listing][:language_fi].to_s.eql?('1'))
-    language << "en-US" if (params[:listing][:language_en].to_s.eql?('1'))
+    language << "en" if (params[:listing][:language_en].to_s.eql?('1'))
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     get_visibility(:listing)

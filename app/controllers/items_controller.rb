@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
     @form_path = items_path
     @cancel_path = cancel_create_person_items_path(@current_user)
     @method = :post
+    render :partial => "new"
   end
   
   def create
@@ -94,7 +95,7 @@ class ItemsController < ApplicationController
     @form_path = item_path(@item)
     @cancel_path = cancel_update_person_item_path(@item.owner, @item)
     @method = :put
-    render :action => :new
+    render :partial => "new"
   end
   
   def update

@@ -38,7 +38,7 @@ class Listing < ActiveRecord::Base
   VALID_STATUS = ["open", "in_progress", "closed"]
 
   # Allowed language codes
-  VALID_LANGUAGES = ["fi", "swe", "en-US"]
+  VALID_LANGUAGES = ["fi", "swe", "en"]
 
   # Possible visibility types
   POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
