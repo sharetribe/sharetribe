@@ -1,4 +1,5 @@
 require 'json'
+require 'rest_client'
 
 class Person < ActiveRecord::Base
   
@@ -88,7 +89,10 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_friends(id, cookie)
-      return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
+      response = JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@friends", {:cookies => cookie}))
+      puts "FRIENDS HAUN TULOS: #{response.inspect}"
+      return response
+      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
     end
     
     def self.get_pending_friend_requests(id, cookie)
@@ -141,6 +145,7 @@ class Person < ActiveRecord::Base
     #fixes utf8 letters
     def self.fix_alphabets(json_hash)
       #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
+      puts json_hash.inspect
       JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
     end
     
