@@ -6,8 +6,11 @@ class GroupsController < ApplicationController
   def index
     @title = "groups_title"
     save_navi_state(['groups_title', 'browse_groups'])
-    Group.add_new_public_groups_to_kassi_db(session[:cookie])
-    @groups = Group.paginate(:page => params[:page], :per_page => per_page)
+    public_group_ids = Group.get_public_group_ids(session[:cookie])
+    # add groups to Kassi db if there are new (made in other services)
+    Group.add_new_groups_to_kassi_db(public_group_ids)
+    
+    @groups = Group.paginate( public_group_ids ,{:page => params[:page], :per_page => per_page})
   end
   
   # Show a single group

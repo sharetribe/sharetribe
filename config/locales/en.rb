@@ -411,7 +411,6 @@
 :with => "",
 :show_original_listing => "Show original listing",
 :message_could_not_be_sent => "Message could not be sent",
-:message_content => "Message content",
 :reply_to_listing => "Reply to listing",
 :send_message_to_user => "Send message to user",
 :only_listing_author_sees_message => "Only listing author can see the message",

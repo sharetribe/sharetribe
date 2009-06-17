@@ -42,36 +42,30 @@ class Group < ActiveRecord::Base
     #self.id may already be correct in this point so use ||=
     self.id ||= self.guid
   end
-  
-  # Gets all groups from COS and adds to Kassi db all that are not already there.
-  def self.add_new_public_groups_to_kassi_db(cookie=nil)
-    cookie = Session.kassiCookie if cookie.nil?
+    
+  # Adds groups from given ID array to db, skipping possible duplicates
+  def self.add_new_groups_to_kassi_db(id_array)
     group_ids_not_in_kassi = []
-    cos_group_ids = Group.get_group_ids(get_public_groups(cookie))
     kassi_group_ids = Group.find(:all, :select => "id").collect(&:id)
-    cos_group_ids.each do |id|
+    id_array.each do |id|
       unless kassi_group_ids.include?(id)
         group_ids_not_in_kassi << { :id => id }
       end
     end
     Group.create(group_ids_not_in_kassi, nil)
-    
-    # Do the checking also other way round. Remove any groups from Kassi DB that have been removed from COS
-    # This needs to be changed when there are non public groups.
-    kassi_group_ids.each do |id|
-      unless cos_group_ids.include?(id)
-        Group.find(id).destroy
-      end
-    end
-    
   end
   
   def title(cookie=nil)
     if new_record?
       return form_title ? form_title : ""
     end
+    
+    # if group is not found, usually it is good to return "" because this usually happens
+    # only when current user was the last one to leave a group
+    
     begin
       group_hash = get_group_hash(cookie)
+      return "" if group_hash.nil?
     rescue RestClient::ResourceNotFound
       return ""
     end
@@ -152,6 +146,10 @@ class Group < ActiveRecord::Base
   # into an array.
   def self.get_group_ids(group_hash)
     group_hash["entry"].collect { |group| group["group"]["id"] }
+  end
+  
+  def self.get_public_group_ids(cookie)
+    Group.get_group_ids(get_public_groups(cookie))
   end
   
   private

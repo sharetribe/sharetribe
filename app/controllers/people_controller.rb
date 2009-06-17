@@ -40,7 +40,6 @@ class PeopleController < ApplicationController
     @item = Item.new
     @favors = @person.available_favors(get_visibility_conditions("item"))
     @favor = Favor.new
-    Group.add_new_public_groups_to_kassi_db(session[:cookie])
     @groups = @person.groups(session[:cookie])
     if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])

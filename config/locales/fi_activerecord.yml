@@ -1,0 +1,10 @@
+# Here are the translations for activerecord classes and attributes
+
+fi:
+  activerecord:
+    models:
+      conversation: viesti
+    attributes:
+      conversation:
+        messages: "Viestin sisältö"
+        title: "Otsikko"

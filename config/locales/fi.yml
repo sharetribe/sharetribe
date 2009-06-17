@@ -116,17 +116,17 @@ fi:
     errors:
       template:
         header:
-          one:    "1 virhe esti tämän {{model}} mallinteen tallentamisen"
-          other:  "{{count}} virhettä esti tämän {{model}} mallinteen tallentamisen"
+          one:    "1 virhe esti tallentamisen"
+          other:  "{{count}} virhettä estivät tallentamisen"
         body: "Seuraavat kentät aiheuttivat ongelmia:"
       messages:
         inclusion: "ei löydy listauksesta"
         exclusion: "on jo varattu"
-        invalid: "on kelvoton"
+        invalid: "ei kelpaa"
         confirmation: "ei vastaa varmennusta"
         accepted: "täytyy olla hyväksytty"
-        empty: "ei voi olla tyhjä"
-        blank: "ei voi olla sisällötön"
+        empty: "on pakollinen tieto"
+        blank: "on pakollinen tieto"
         too_long: "on liian pitkä (maksimi on {{count}} merkkiä)"
         too_short: "on liian lyhyt (minimi on {{count}} merkkiä)"
         wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
