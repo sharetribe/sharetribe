@@ -49,7 +49,7 @@ class ConversationsController < ApplicationController
 
   # Shows one conversation 
   def show
-    person_conversations = fetch_conversations(session[:links_panel_navi] || "received", :all)
+    @person_conversations = fetch_conversations(session[:links_panel_navi] || "received", :all)
     @conversation = Conversation.find(params[:id])
     person_conversation = PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id)
     if person_conversation.is_read == 0
@@ -57,9 +57,9 @@ class ConversationsController < ApplicationController
       @new_arrived_items_count -= 1
       person_conversation.update_attribute(:is_read, 1)
     end
-    index = person_conversations.index(person_conversation)
-    @previous_conversation = (index == person_conversations.size - 1) ? @conversation : person_conversations[index + 1].conversation
-    @next_conversation = (index == 0) ? @conversation : person_conversations[index - 1].conversation
+    index = @person_conversations.index(person_conversation)
+    @previous_conversation = (index == @person_conversations.size - 1) ? @conversation : @person_conversations[index + 1].conversation
+    @next_conversation = (index == 0) ? @conversation : @person_conversations[index - 1].conversation
     @listing = @conversation.listing if @conversation.listing
   end
 

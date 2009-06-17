@@ -12,22 +12,22 @@ module PeopleHelper
     navi_items.each do |name, link|
       if name.to_s.eql?(session[:links_panel_navi])
         if name.eql?(:kassi_events)
-          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@kassi_events) + ")</span>"
+          links << link_to(t(name) + " <span class='page_entries_info'>(" + page_entries_info(@kassi_events) + ")</span>", link, :class => "links_panel links_panel_selected")
         elsif name.eql?(:listings)
-          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@listings) + ")</span>"
+          links << link_to(t(name) + " <span class='page_entries_info'>(" + page_entries_info(@listings) + ")</span>", link, :class => "links_panel links_panel_selected")
         elsif name.eql?(:contacts)
-          links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@contacts) + ")</span>"
+          links << link_to(t(name) + " <span class='page_entries_info'>(" + page_entries_info(@contacts) + ")</span>", link, :class => "links_panel links_panel_selected")
         elsif name.eql?(:friends)
           friend_amount = render :partial => "friends/friend_amount" 
-          links << t(name) + "<span id='friend_amount'>" + friend_amount + "</span>"      
+          links << link_to(t(name) + "<span id='friend_amount'>" + friend_amount + "</span>", link, :class => "links_panel links_panel_selected")      
         else
-          links << t(name)
+          links << link_to(t(name), link, :class => "links_panel links_panel_selected")
         end  
       else
-        links << link_to(t(name), link)
+        links << link_to(t(name), link, :class => "links_panel")
       end    
     end
-    links.join(" | ")
+    links.join("")
   end
 
   def get_kassi_event_relation(kassi_event)

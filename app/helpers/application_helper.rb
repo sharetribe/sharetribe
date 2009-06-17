@@ -130,7 +130,7 @@ module ApplicationHelper
     params[:page] = 1 if params[:page]
     link_values.each do |value|
       if per_page_value.eql?(value)
-        links << t(value)
+        links << link_to(t(value), "#", :class => "links_panel links_panel_selected")
       else
         case type
         when "category"
@@ -174,10 +174,10 @@ module ApplicationHelper
         when "group_members"
           path = group_path(params.merge({:per_page => value}))                      
         end
-        links << link_to(t(value), path)  
+        links << link_to(t(value), path, :class => "links_panel")  
       end    
     end
-    links.join(" | ")  
+    links.join("") 
   end
   
   # Changes line breaks to <br>-tags and transforms URLs to links

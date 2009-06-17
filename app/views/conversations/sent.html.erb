@@ -1,15 +1,5 @@
 <%= render :partial => "inbox_header" %>
 
-<div class="links_panel">
-  <div class="left_float">
-    <%= link_to t(:received_messages), person_inbox_index_path(@current_user) %> | 
-    <%= t(:sent_messages) %> <span class="page_entries_info">(<%= page_entries_info @person_conversations %>)</span>
-  </div>
-  <div class="right_float">
-    <%= will_paginate @person_conversations, :prev_label => t(:previous), :next_label => t(:next) %>
-  </div>
-</div>
-
 <div id="conversations">
   <% if @person_conversations && !@person_conversations.empty? %>
     <%= render :partial => "conversations/sent_conversation", 

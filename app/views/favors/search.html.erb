@@ -37,10 +37,14 @@
 <div class="solid_line">
 </div>
 <div id="browse_objects_footer_left">
-  <%= t(:show_favors_on_page) %>:
+  <div class="links_panel_text">
+    <%= t(:show_favors_on_page) %>:
+  </div>  
+</div>
+<div id="browse_objects_footer_left">
   <%= create_footer_pagination_links(["10", "30", "50", "all"], "search_favors") %>
 </div>
-<div class="pagination_padding">
+<div class="pagination_more_padding">
   <%= will_paginate @favors, :prev_label => t(:previous), :next_label => t(:next) %>
 </div>
 <% else %>
