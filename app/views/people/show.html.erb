@@ -8,7 +8,12 @@
   </div>
   <div class="right_float">
     <% unless @person.id == @current_user.id %>
-      <%= link_to t(:send_message_to_user), send_message_person_path(@person) %> |
+      <%= link_to t(:send_message_to_user), :controller => :conversations, 
+                                            :action => :new, 
+                                            :person_id => @current_user, 
+                                            :receiver => @person, 
+                                            :return_to => request.request_uri %>
+      |
       <span id="<%= @person.id %>_friendstatus">
         <%= render :partial => "people/friend_status_link", :locals => { :person => @person } %>
       </span>

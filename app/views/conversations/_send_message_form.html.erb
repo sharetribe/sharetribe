@@ -1,0 +1,12 @@
+<% form_for @conversation, :url => person_inbox_index_path(@current_user) do |f| %>
+  <%= f.error_messages %>
+  <%= 
+    render :partial => "get_fields_for_#{@target_object ? @target_object.class.to_s.downcase : 'message'}", 
+           :locals => { :target_object => @target_object, :f => f }
+  %>
+  <%= hidden_field_tag "conversation[conversation_participants][]", @current_user.id %>
+  <%= hidden_field_tag "target_object", params[:target_object] %>
+  <%= hidden_field_tag "target_object_type", params[:target_object_type] %>
+  <%= hidden_field_tag "return_to", params[:return_to] %>
+  <%= render :partial => "message_content_form", :locals => { :message_content_label => "message_content"} %> 
+<% end %>

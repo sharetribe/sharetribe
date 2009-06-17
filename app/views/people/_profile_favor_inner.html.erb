@@ -9,7 +9,12 @@
     <%= link_to_remote t(:edit), :url => edit_person_favor_path(@person, favor), :update => "favor_" + favor.id.to_s, :method => :get %> | 
     <%= link_to_remote t(:remove), :url => favor_path(favor), :method => :delete %>
   <% else %>
-    <%= link_to t(:ask_for_this_favor), ask_for_person_favor_path(@person, favor) %> | 
+    <%= link_to t(:ask_for_this_favor), :controller => :conversations, 
+                                        :action => :new, 
+                                        :person_id => @current_user, 
+                                        :target_object => favor, 
+                                        :target_object_type => "favor", 
+                                        :return_to => request.request_uri %> | 
     <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(@person, favor) %>
   <% end %>
   </div>  

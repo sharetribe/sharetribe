@@ -74,18 +74,6 @@ class ItemsControllerTest < ActionController::TestCase
     assert_equal "muutettu_vasara", assigns(:item).title
   end
   
-  def test_borrow
-    item = items(:two)
-    submit_with_person :borrow, {
-      :person_id => people(:two).id,
-      :id => item.id
-    }, nil, nil, :get
-    assert_response :success
-    assert_template 'borrow'
-    assert_not_nil assigns(:person)
-    assert_not_nil assigns(:item)
-  end
-  
   def test_thank_for
     submit_with_person :thank_for, { 
       :person_id => people(:one),

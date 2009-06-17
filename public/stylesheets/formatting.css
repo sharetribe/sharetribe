@@ -193,3 +193,11 @@ form.handle_feedback_form {
 	
 }
 
+input.message {
+	width: 665px;
+}
+
+textarea.message {
+	width: 660px;
+	height: 200px;
+}

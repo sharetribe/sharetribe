@@ -91,7 +91,7 @@ class ActiveSupport::TestCase
     current_user, session = get_test_person_and_session("kassi_testperson1")
     case (method)
     when :post
-      parameters[parameter_type].merge!({person_type => current_user.id })
+      parameters[parameter_type].merge!({person_type => current_user.id }) if person_type
       post action, parameters, {:person_id => current_user.id, :cookie => session.cookie}
     when :put
       parameters[parameter_type].merge!({person_type => current_user.id }) if person_type 

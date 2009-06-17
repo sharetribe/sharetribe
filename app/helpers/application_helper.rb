@@ -151,9 +151,9 @@ module ApplicationHelper
           path = search_path(params.merge({:per_page => value})) 
         when "kassi_events"
           path = person_kassi_events_path(params.merge({:per_page => value}))
-        when "inbox"
+        when "received"
           path = person_inbox_index_path(params.merge({:per_page => value}))
-        when "sent_messages"
+        when "sent"
           path = sent_person_inbox_path(params.merge({:per_page => value}))   
         when "kassi_users"
           path = people_path(params.merge({:per_page => value}))

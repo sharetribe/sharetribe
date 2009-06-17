@@ -112,18 +112,7 @@ class ListingsControllerTest < ActionController::TestCase
   #   post :mark_as_interesting, :id => listings(:valid_listing).id
   #   assert_response :success
   #   assert_equal [ listings(:valid_listing) ], @test_person1.interesting_listings
-  # end  
-  
-  def test_reply
-    listing = listings(:third_valid_listing)
-    submit_with_person :reply, {
-      :id => listing.id
-    }, nil, nil, :get
-    assert_response :success
-    assert_template 'reply'
-    assert_not_nil assigns(:listing)
-    assert_not_nil assigns(:message)
-  end
+  # end
   
   def test_show_close
     submit_with_person :close, { 

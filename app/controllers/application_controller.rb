@@ -26,12 +26,12 @@ class ApplicationController < ActionController::Base
     session[:navi2] = navi_items[1] || session[:navi2]
     session[:navi3] = navi_items[2] || session[:navi3]
     session[:navi4] = navi_items[3] || session[:navi4]
-    session[:profile_navi] = navi_items[4] || session[:profile_navi]
+    session[:links_panel_navi] = navi_items[4] || session[:links_panel_navi]
   end
 
   # Sets navigation state to "nothing selected".
   def clear_navi_state
-    session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = session[:navi_profile] = nil
+    session[:navi1] = session[:navi2] = session[:navi3] = session[:navi4] = session[:links_panel_navi] = nil
   end
   
   # Fetch listings based on conditions
@@ -198,21 +198,6 @@ class ApplicationController < ActionController::Base
   # Feedback form is present in every view.
   def set_up_feedback_form
     @feedback = Feedback.new
-  end
-  
-  # Saves all collection ids to a session so that they can
-  # be remembered when browsing the collection one by one.
-  def save_message_collection_to_session(collection)
-    session[:ids] = []
-    session[:dates] = {}                             
-    collection.each do |person_conversation|
-      session[:ids] << person_conversation.id
-      if session[:is_sent_mail]
-        session[:dates][person_conversation.id] = person_conversation.last_sent_at
-      else  
-        session[:dates][person_conversation.id] = person_conversation.last_received_at
-      end  
-    end
   end
   
   # Creates a new Kassi event based on event type.

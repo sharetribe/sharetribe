@@ -47,7 +47,9 @@
 <%= render :partial => "messages/message", 
            :collection => @conversation.messages,
            :spacer_template => "layouts/dashed_line" %>
+
+<div class="solid_line"></div> <br />
   
 <div id="send_message_to_existing_conversation">
-  <%= render :partial => "messages/send_reply" %>
+  <%= render :partial => "reply_form" %>
 </div>  

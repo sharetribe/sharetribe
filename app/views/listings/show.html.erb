@@ -89,7 +89,12 @@
         </div>
       <% else %>
         <div class="reply_to_listing">
-          <%= link_to t(:reply), reply_listing_path(@listing) %>
+          <%= link_to t(:reply), :controller => :conversations, 
+                                 :action => :new, 
+                                 :person_id => @current_user, 
+                                 :target_object => @listing, 
+                                 :target_object_type => "listing", 
+                                 :return_to => request.request_uri %>
         </div>
       <% end %> 
     <% end %> 
