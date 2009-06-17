@@ -433,8 +433,15 @@ class Person < ActiveRecord::Base
   
   # Returns all the groups that this user is a member in 
   # as an array of Group objects
+  # if some of the groups are not already in kassi database, add them
   def groups(cookie)
-    Group.find(get_group_ids(cookie))
+    group_ids = get_group_ids(cookie)
+    begin
+      return Group.find(group_ids)
+    rescue ActiveRecord::RecordNotFound
+      Group.add_new_groups_to_kassi_db(group_ids)
+      return Group.find(group_ids)
+    end
   end
   
   # Returns ids of OtaSizzle groups of this person
