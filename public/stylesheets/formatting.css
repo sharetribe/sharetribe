@@ -42,13 +42,9 @@ a {
 }
 
 a:hover {
-	color: #6fb107;
-	text-decoration: underline;  
-}
-
-a:active { 
-	color: #7ac307;
-	text-decoration: underline;
+	background: #c0e783;
+	/*color: #6fb107; */
+	color: #000000;
 }
 
 a.listing {

@@ -6,14 +6,6 @@
   </div>
   <div class="right_float">
     <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>
-    <div class="pagination">
-      <% if is_current_user?(@person) %>
-        <%= link_to t(:add_new_own_listing), new_listing_path %> 
-        <% if @listings.total_pages > 1 %>
-          |&nbsp;
-        <% end %>  
-      <% end %>
-    </div>
   </div>  
 </div>
 
@@ -22,8 +14,12 @@
   <% if @listings.total_pages > 1 || params[:per_page] != "10"  %>
   <div class="links_panel">
     <div class="left_float">
-      <%= t(:show_listings_on_page) %>:
-      <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
+      <div class="links_panel_text">
+        <%= t(:show_listings_on_page) %>:
+      </div>
+    </div>
+    <div class="left_float">   
+      <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>  
     </div>
     <div class="right_float">
       <%= will_paginate @listings, :prev_label => t(:previous), :next_label => t(:next) %>

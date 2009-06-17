@@ -26,5 +26,21 @@ module ConversationsHelper
       conversation.messages[count]
     end
   end
+  
+  # Renders links for inbox navi
+  def get_inbox_navi_items(person_id)
+    navi_items = ActiveSupport::OrderedHash.new
+    navi_items["received"] = person_inbox_index_path(@current_user)
+    navi_items["sent"] = sent_person_inbox_path(@current_user)
+    links = []
+    navi_items.each do |name, link|
+      if name.to_s.eql?(session[:links_panel_navi])
+        links << link_to(t("#{name}_messages") + " <span class='page_entries_info'>(" + page_entries_info(@person_conversations) + ")</span>", link, :class => "links_panel links_panel_selected") 
+      else
+        links << link_to(t("#{name}_messages"), link, :class => "links_panel")
+      end    
+    end
+    links.join("")
+  end
 
 end

@@ -138,6 +138,7 @@ class Group < ActiveRecord::Base
     return member_hash
   end
   
+  # Is the person in question a member of this group?
   def is_member?(person, cookie)
     get_member_ids(cookie).include?(person.id) 
   end

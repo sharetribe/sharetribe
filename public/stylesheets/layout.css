@@ -69,12 +69,32 @@ div.error {
 }
 
 #form_error_messages {
-	padding: 5px;
+	border: 1px solid #ff0000;
+	background: #f9aeae;
+	color: #ff0000;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+div#form_error_messages h2 {
+	color: #ff0000;
 }
 
 div.fieldWithErrors {
 	float: left;
 	border: 3px solid #f66;
+}
+
+div.errorExplanation {
+	border: 1px solid #ff0000;
+	background: #f9aeae;
+	color: #ff0000;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+div.errorExplanation h2 {
+	color: #ff0000;
 }
 
 /* General layout */
@@ -135,7 +155,8 @@ div.fieldWithErrors {
 
 #top_links_left a:hover, #top_links_right a:hover {
 	font-size: 13px;
-	color: #f4f6d0;
+	color: #000000;
+	background: #f4f6d0;
 }
 
 #top_navi {
@@ -362,26 +383,49 @@ div.arrow_right {
 div.links_panel {
 	background: #e0e6d8;
 	margin-top: 10px;
-	padding: 7px 8px;
+	padding-left: 0px;
 	overflow: hidden;
 	border: 1px solid #000;
 }
 
-/*div.links_panel a {
-	width: 8.5em;
+div.links_panel_text {
+	padding: 5px 8px 6px 8px;
+}
+
+a.links_panel {
+	color: #000000;
 	display: block;
 	float: left;
-	padding: 5px 0;
-	margin: 0px 8px 0 0;
+	padding: 5px 10px 6px 10px;
 	text-align: center;
-	font-size: 105%;
 	text-decoration: none;
+}
+
+a.links_panel_selected {
+	background: #72776c;
 	color: #ffffff;
 }
 
-div.links_panel a:hover {
-	background: #72776c;
-}*/
+a:hover.links_panel {
+	background: #b8bfaf;
+}
+
+a:hover.links_panel_selected {
+	background: #9aa092;
+}
+
+a.links_panel_narrow {
+	color: #000000;
+	display: block;
+	float: left;
+	padding: 5px 7px 6px 7px;
+	text-align: center;
+	text-decoration: none;
+}
+
+a:hover.links_panel_narrow {
+	background: #b8bfaf;
+}
 
 
 div.visibility_checkboxes {
@@ -393,6 +437,7 @@ div.visibility_checkboxes {
 div.pagination {
 	margin-top: 0px;
 	float: right;
+	padding: 5px 8px 6px 8px;
 }
 
 div.form_container {
@@ -491,7 +536,11 @@ div.listed_object_right_line_content {
 }
 
 div.pagination_padding {
-	padding-top: 6px;
+	padding-top: 1px;
+}
+
+div.pagination_more_padding {
+	padding-top: 4px;
 }
 
 
@@ -723,9 +772,10 @@ div.category a span {
 	margin: 10px;
 }
 
-div.profile_left_link {
-	margin-top: 2px;
-	margin-bottom: 2px;
+div.profile_left_link a {
+	border-bottom: 1px dashed #000;
+	padding: 7px;
+	display: block;
 }
 
 #profile_right {
@@ -1193,5 +1243,6 @@ div.terms {
 
 #footer_text a:hover {
 	font-size: 13px;
-	color: #f4f6d0;
+	color: #000000;
+	background: #f4f6d0;;
 }

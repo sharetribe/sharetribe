@@ -4,20 +4,11 @@
 
 <div class="links_panel">
   <div class="left_float">
-    <%= get_profile_navi_items(@person.id) %>
+    <div class="links_panel_tabs">
+      <%= get_profile_navi_items(@person.id) %>
+    </div>
   </div>
   <div class="right_float">
-    <% unless @person.id == @current_user.id %>
-      <%= link_to t(:send_message_to_user), :controller => :conversations, 
-                                            :action => :new, 
-                                            :person_id => @current_user, 
-                                            :receiver => @person, 
-                                            :return_to => request.request_uri %>
-      |
-      <span id="<%= @person.id %>_friendstatus">
-        <%= render :partial => "people/friend_status_link", :locals => { :person => @person } %>
-      </span>
-    <% end %>  
   </div>  
 </div>
 
@@ -28,11 +19,22 @@
   </div>
   
   <% if is_current_user?(@person) %>
-  <div class="profile_left_link">
-    <%= link_to t(:edit_profile_picture), edit_person_avatar_path(@person) %>
-  </div>  
-  <div class="dashed_line"></div>
-  <br />
+    <div class="profile_left_link">
+      <%= link_to t(:edit_profile_picture), edit_person_avatar_path(@person) %>
+    </div>
+  <% else %>
+    <div class="profile_left_link">
+      <%= link_to t(:send_message_to_user), :controller => :conversations, 
+                                            :action => :new, 
+                                            :person_id => @current_user, 
+                                            :receiver => @person, 
+                                            :return_to => request.request_uri %>
+    </div>
+    <div class="profile_left_link">
+      <span id="<%= @person.id %>_friendstatus">
+        <%= render :partial => "people/friend_status_link", :locals => { :person => @person } %>
+      </span>
+    </div>
   <% end %>
 
 </div>  

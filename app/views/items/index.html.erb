@@ -2,10 +2,11 @@
 
 <div class="links_panel">
   <div class="left_float">
-    <% @letters.each do |letter| %>
-  	 <b><%= link_to letter, "##{letter}" %></b>
-  	 <%= " | " unless letter.equal?(@letters[-1]) %>
-    <% end %>
+    <div class="links_panel_tabs">
+      <% @letters.each do |letter| %>
+  	    <b><%= link_to letter, "##{letter}", :class => "links_panel_narrow" %></b>
+      <% end %>
+    </div>  
   </div>
 </div>
 

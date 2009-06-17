@@ -98,7 +98,7 @@ class Listing < ActiveRecord::Base
     DIRECTORY = File.join("public", "images", "listing_images")
   end
 
-  validates_presence_of :author_id, :category, :title, :content, :good_thru, :status, :language
+  validates_presence_of :author_id, :category, :content, :good_thru, :status, :language
 
   validates_inclusion_of :status, :in => VALID_STATUS
   validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
@@ -215,16 +215,18 @@ class Listing < ActiveRecord::Base
     return if !newsgroup || newsgroup.eql?("do_not_post")
     date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
     msgstr = <<END_OF_MESSAGE
-From: #{author.full_name} <kassi@sizl.org>
-Newsgroups: #{newsgroup}
+From: #{author.full_name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
+Sender: Kassi
+Newsgroups: otax.test
 Subject: #{title}
 Date: #{date}
+Charset: ISO-8859-1
 
 #{content}
 
 ***
 
-This message was send using Kassi. To reply to this message, go to #{url}
+This message was sent using Kassi. To reply to this message, go to #{url}
 
 END_OF_MESSAGE
 
