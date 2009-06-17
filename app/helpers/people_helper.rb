@@ -10,7 +10,7 @@ module PeopleHelper
     navi_items[:listings] = person_listings_path(person_id)
     links = [] 
     navi_items.each do |name, link|
-      if name.to_s.eql?(session[:profile_navi])
+      if name.to_s.eql?(session[:links_panel_navi])
         if name.eql?(:kassi_events)
           links << t(name) + " <span class='page_entries_info'>(" + page_entries_info(@kassi_events) + ")</span>"
         elsif name.eql?(:listings)

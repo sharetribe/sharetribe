@@ -4,7 +4,7 @@ class FriendsController < ApplicationController
   
   def index
     @person = Person.find(params[:person_id])
-    session[:profile_navi] = 'friends'
+    session[:links_panel_navi] = 'friends'
     save_navi_state(['own', 'friends']) if current_user?(@person)
     @friend_view = true
     # @friends = get_friends(@person)

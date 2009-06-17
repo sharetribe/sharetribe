@@ -74,18 +74,6 @@ class FavorsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], :favor_updated
     assert_equal "thaihieronta", assigns(:favor).title
   end
-
-  def test_ask_for
-    favor = favors(:two)
-    submit_with_person :ask_for, {
-      :person_id => people(:two).id,
-      :id => favor.id
-    }, nil, nil, :get
-    assert_response :success
-    assert_template 'ask_for'
-    assert_not_nil assigns(:person)
-    assert_not_nil assigns(:favor)
-  end
   
   def test_thank_for
     submit_with_person :thank_for, { 

@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
       @person = Person.find(params[:person_id])
       @title = :listings_partitive_plural
       conditions = ["author_id = ?" + get_visibility_conditions("listing"), @person.id.to_s ]
-      session[:profile_navi] = 'listings'
+      session[:links_panel_navi] = 'listings'
       save_navi_state(['own', 'own_listings']) if current_user?(@person)
       fetch_listings(conditions, "status DESC, id DESC")
       render :template => "listings/own"
@@ -161,12 +161,6 @@ class ListingsController < ApplicationController
   def mark_as_not_interesting
     PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]).destroy
     redirect_to listing_path(Listing.find(params[:id]))
-  end
-  
-  def reply
-    @listing = Listing.find(params[:id])
-    return unless must_not_be_current_user(@listing.author, :cant_reply_to_own_listing)
-    @message = Message.new
   end
   
   def close

@@ -23,7 +23,12 @@
   <div class="listed_item_owner_right">
     <% unless is_current_user?(favor.owner) %>
       <div class="listed_item_owner_right_link">
-        <%= link_to t(:ask_for_favor), ask_for_person_favor_path(favor.owner, favor) %>
+        <%= link_to t(:ask_for_favor), :controller => :conversations, 
+                                       :action => :new, 
+                                       :person_id => @current_user, 
+                                       :target_object => favor, 
+                                       :target_object_type => "favor", 
+                                       :return_to => request.request_uri %>
       </div>  
       <div class="listed_item_owner_right_link">
         <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(favor.owner, favor) %>

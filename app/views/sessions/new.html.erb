@@ -11,7 +11,7 @@
     <%= t(:username) %>:
   </div>  
   <div class="form_right">
-    <%= text_field_tag :username, params[:username] %>
+    <%= text_field_tag :username %>
   </div>
 </div>  
 <div class="form_container">    
@@ -19,7 +19,7 @@
     <%= t(:password) %>:
   </div>
   <div class="form_right">  
-    <%= password_field_tag :password, params[:password] %>
+    <%= password_field_tag :password %>
   </div>
 </div>
 <div class="form_container">  
@@ -29,8 +29,6 @@
 </div>
 
 <% end -%>
-
-<p><%= t(:not_yet_otasizzle_account) %> <%= link_to t(:register_new_account), register_consent_path  %></p>
 
 </div>
 

@@ -1,67 +1,102 @@
 class ConversationsController < ApplicationController
+  helper :all
 
   before_filter :logged_in
 
   # Shows inbox
   def index
-    @pagination_type = "inbox"
-    fetch_messages
+    fetch_conversations("received")
   end
 
   # Shows sent-mail_box
   def sent
-    @pagination_type = "sent_messages"
-    fetch_messages(true)
+    fetch_conversations("sent")
+  end
+  
+  # Display a form for a new message to a new conversation
+  def new
+    unless get_target_object_and_validate
+      flash[:error] = :cant_send_message_to_self
+      redirect_to params[:return_to] and return
+    end  
+    @conversation = Conversation.new
+    @conversation.messages.build
+    @conversation.participants.build
+  end
+  
+  # Create a new conversation and send a message to it
+  def create
+    @conversation = Conversation.new(params[:conversation])
+    if @conversation.save
+      flash[:notice] = :message_sent
+      redirect_to params[:return_to]
+    else
+      get_target_object_and_validate
+      render :action => :new
+    end  
+  end
+  
+  # Send a message to an existing conversation
+  def update
+    @conversation = Conversation.find(params[:id])
+    if @conversation.update_attributes(params[:conversation])
+      flash[:notice] = :message_sent
+    else
+      flash[:error] = :message_could_not_be_sent
+    end
+    redirect_to person_inbox_path(@current_user, @conversation)
   end  
 
   # Shows one conversation 
   def show
+    person_conversations = fetch_conversations(session[:links_panel_navi] || "received", :all)
     @conversation = Conversation.find(params[:id])
     person_conversation = PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id)
     if person_conversation.is_read == 0
       @inbox_new_count -= 1
+      @new_arrived_items_count -= 1
       person_conversation.update_attribute(:is_read, 1)
     end
-    session[:ids].sort! {
-      |b,a| session[:dates][a] <=> session[:dates][b]
-    }
-    if session[:is_sent_mail]
-      next_id = session[:ids].reject {|id| session[:dates][id] <= person_conversation.last_sent_at }.last
-      previous_id = session[:ids].reject {|id| session[:dates][id] >= person_conversation.last_sent_at }.first
-    else 
-      next_id = session[:ids].reject {|id| session[:dates][id] <= person_conversation.last_received_at }.last
-      previous_id = session[:ids].reject {|id| session[:dates][id] >= person_conversation.last_received_at }.first
-    end    
-    @next_conversation = next_id ? PersonConversation.find(next_id).conversation : @conversation
-    @previous_conversation = previous_id ? PersonConversation.find(previous_id).conversation : @conversation
+    index = person_conversations.index(person_conversation)
+    @previous_conversation = (index == person_conversations.size - 1) ? @conversation : person_conversations[index + 1].conversation
+    @next_conversation = (index == 0) ? @conversation : person_conversations[index - 1].conversation
     @listing = @conversation.listing if @conversation.listing
-    @message = Message.new
   end
 
   private
-
-  # Gets all messages for inbox or sent-mail-box.
-  def fetch_messages(is_sent_mail = false)
-    save_navi_state(['own','inbox','',''])
-    order = is_sent_mail ? "last_sent_at DESC" : "last_received_at DESC"
-    person_conversations = []
-    result = PersonConversation.find(:all,
-                                     :conditions => ["person_id = ?", @current_user.id],
-                                     :order => order)
-    result.each do |person_conversation|
-      conversation_ok = false
-      person_conversation.conversation.messages.each do |message|
-        if is_sent_mail
-          conversation_ok = true if message.sender == @current_user
-        else  
-          conversation_ok = true unless message.sender == @current_user
-        end          
-      end
-      person_conversations << person_conversation if conversation_ok  
-    end                                 
-    session[:is_sent_mail] = is_sent_mail
-    save_message_collection_to_session(person_conversations)
-    @person_conversations = person_conversations.paginate :page => params[:page], :per_page => per_page
+  
+  # Sets target object and title based on parameters given. Also validate that
+  # the user is not sending a message to self.
+  def get_target_object_and_validate
+    is_valid = true
+    case params[:target_object_type]
+    when "listing"
+      @target_object = Listing.find(params[:target_object])
+      @title = t(:reply_to_listing) + ' "' + CGI.escapeHTML(@target_object.title) + '"'
+      is_valid = false if current_user?(@target_object.author)
+    when "favor"
+      @target_object = Favor.find(params[:target_object])
+      @title = t(:ask_for_favor) + " " + @target_object.title.downcase + " " + t(:from_user) + " " + @target_object.owner.name(session[:cookie])
+      is_valid = false if current_user?(@target_object.owner)
+    else
+      @receiver = Person.find(params[:receiver])
+      @title = t(:send_message_to_user) + " " + @receiver.name(session[:cookie])
+      is_valid = false if current_user?(@receiver)
+    end
+    return is_valid
   end
-
+  
+  # Returns all conversations based on conversation type (can be "sent" or "received")
+  def fetch_conversations(conversation_type, per_page_number = nil)
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    save_navi_state(['own', 'inbox', '', '', conversation_type])
+    @pagination_type = conversation_type
+    @person_conversations = PersonConversation.paginate(:all, 
+                                                        :page => params[:page], 
+                                                        :per_page => per_page_number || per_page, 
+                                                        :conditions => ["person_id LIKE ? AND last_#{conversation_type}_at IS NOT NULL", @current_user.id],
+                                                        :order => "last_#{conversation_type}_at DESC")
+  end
+  
 end

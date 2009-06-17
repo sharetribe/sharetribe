@@ -162,12 +162,6 @@ class FavorsController < ApplicationController
     end
   end
   
-  def ask_for
-    @person = Person.find(params[:person_id])
-    @favor = Favor.find(params[:id])
-    return unless must_not_be_current_user(@favor.owner, :cant_ask_for_own_favor)
-  end
-  
   def thank_for
     @favor = Favor.find(params[:id])
     return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)

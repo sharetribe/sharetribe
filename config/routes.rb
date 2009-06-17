@@ -55,8 +55,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :listings, 
                 :member => { 
                              :mark_as_interesting => :post, 
-                             :mark_as_not_interesting => :delete, 
-                             :reply => :get 
+                             :mark_as_not_interesting => :delete
                            },
                 :collection => { :search => :get } do |listing|
     listing.resource :image
@@ -64,25 +63,22 @@ ActionController::Routing::Routes.draw do |map|
     listing.resources :categories, :path_prefix => '/listings'
   end  
   map.resources :people, 
-                :member => { :home => :get, :send_message => :get, :cancel_edit => :get }, 
+                :member => { :home => :get, :cancel_edit => :get }, 
                 :collection => { :search => :get } do |person|
-    person.resources :inbox, :controller => :conversations, :collection => { :sent => :get } do |inbox|
-      inbox.resources :messages, :path_prefix => '/people/:id/inbox'
-    end
+    person.resources :inbox, :controller => :conversations, :collection => { :sent => :get }
     person.resources :items, :member => { 
-                                          :borrow => :get,
                                           :thank_for => :get,
                                           :mark_as_borrowed => :post,
                                           :view_description => :get,
                                           :hide_description => :get,
                                           :cancel_update => :get,
-                                          :undo_destroy => :get 
+                                          :undo_destroy => :get,
+                                          :borrow => :get
                                         },
                              :collection => { 
                                               :cancel_create => :get
                                             }
-    person.resources :favors, :member => { 
-                                           :ask_for => :get,
+    person.resources :favors, :member => {
                                            :thank_for => :get,
                                            :mark_as_done => :post,
                                            :view_description => :get,

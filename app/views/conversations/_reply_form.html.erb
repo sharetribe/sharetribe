@@ -1,0 +1,4 @@
+<% form_for @conversation, :url => person_inbox_path(@current_user, @conversation), :method => :put do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "message_content_form", :locals => { :message_content_label => "reply_to_message_chain"} %>  
+<% end %>

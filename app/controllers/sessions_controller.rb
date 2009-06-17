@@ -6,12 +6,6 @@ class SessionsController < ApplicationController
     rescue ActiveResource::UnauthorizedAccess => e
       flash[:error] = :login_failed
       redirect_to new_session_path and return
-      # TODO make this work with the render (below), to enable rembering of username,
-      # when password was wrong
-      # the problem now is that the url changes to /session, which is bad
-      # if the the user changes the language for example..
-      
-      #render :action => :new and return
     end
     
     self.smerf_user_id = @session.person_id
