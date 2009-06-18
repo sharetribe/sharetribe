@@ -39,7 +39,7 @@ class Conversation < ActiveRecord::Base
     if RAILS_ENV == "production"
       recipients(last_message.sender).each do |recipient|
         if recipient.settings.email_when_new_comment == 1
-          url = "#{request_protocol}#{request_host}#{person_inbox_path(recipient, this)}"
+          url = "#{request_protocol}#{request_host}#{person_inbox_path(recipient, self)}"
           UserMailer.deliver_notification_of_new_message(recipient, last_message, url)
         end  
       end
