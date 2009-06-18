@@ -52,6 +52,9 @@ class FriendsController < ApplicationController
     begin
       @current_user.add_as_friend(friend.id, session[:cookie])
       flash[:notice] = :friend_requested
+      if RAILS_ENV != "development" && friend.settings.email_when_new_friend_request == 1
+        UserMailer.deliver_notification_of_new_friend_request(@current_user, friend, request)
+      end
       return true
     rescue RestClient::ResourceNotFound => e
       flash[:error] = :friend_request_failed

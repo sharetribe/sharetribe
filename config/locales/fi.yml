@@ -117,7 +117,7 @@ fi:
       template:
         header:
           one:    "1 virhe esti tallentamisen"
-          other:  "{{count}} virhettä estivät tallentamisen"
+          other:  "{{count}} virhettä esti tallentamisen"
         body: "Seuraavat kentät aiheuttivat ongelmia:"
       messages:
         inclusion: "ei löydy listauksesta"

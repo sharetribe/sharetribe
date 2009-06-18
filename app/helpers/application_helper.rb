@@ -72,6 +72,10 @@ module ApplicationHelper
     when 'people'
       navi_items[:browse_people] = people_path
       navi_items[:search_people] = search_people_path
+      if @current_user
+        navi_items[:friends] = person_friends_path(@current_user)
+        navi_items[:contacts] = person_contacts_path(@current_user)
+      end  
     when 'groups_title'
       navi_items[:browse_groups] = groups_path
       #navi_items[:search_groups] = search_groups_path
@@ -187,7 +191,7 @@ module ApplicationHelper
     h(text).gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
   
-  def small_avatar_thumb(person)
+  def small_avatar_thumb(person)    
     link_to (image_tag COS_URL + "/people/" + person.id + "/@avatar/small_thumbnail", 
               :alt => person.name(session[:cookie]), :width => 50, :height => 50), person  
   end

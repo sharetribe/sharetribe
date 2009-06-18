@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Kassi beta</title>
+  <title>Kassi &ndash; <%= t(:slogan) %></title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link rel="icon" href="/images/kassi_logo_smaller-trans.png" type="image/png" />
@@ -34,8 +34,8 @@
             <%= render :partial => "layouts/login" %>
           </div>
         </div>
-        <div id="logo">
-          <%= link_to image_tag("/images/kassi_logo_beta.png", :border => 0, :alt => "Kassi"), root_path %> 
+        <div id="logo" class="no_hover">
+          <%= link_to image_tag("/images/kassi_logo_beta.png", :alt => "Kassi", :class => "no_hover"), root_path %> 
         </div>
         <div id="top_navi">
           <div id="search_and_navi_container">
