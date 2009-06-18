@@ -102,7 +102,7 @@ Rails::Initializer.run do |config|
    BETA_VERSION = "local"
    BUILT_AT = Time.now
    
-   KASSI_MAIL_FROM_ADRESS = "kassi@sizl.org"
+   KASSI_MAIL_FROM_ADDRESS = "kassi@sizl.org"
    PRODUCTION_SERVER = "local"
    
 

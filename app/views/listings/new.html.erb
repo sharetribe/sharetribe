@@ -7,27 +7,16 @@
   
   <% if @listing %>
   
-  <% errors = translate_error_messages([@listing.errors.full_messages]) %>
-  <% unless errors.empty? %>
-  <div id="form_error_messages">
-    <h2><%= t(:listing_cannot_be_created) %></h2>
-    <ul>
-      <% errors.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>  
-  
   <div class="small_margin">
   
   <% error_class_language = "" %>
   <% @listing.errors.full_messages.each do |message| %>
-    <% if message.include? "Language" %>
+    <% if (message.include? "Language") || (message.include? "kieli") %>
       <% error_class_language = "fieldWithErrors" %>
     <% end %> 
   <% end %>
   <% form_for @listing, :html => {:multipart => true} do |f| %>
+  <%= f.error_messages %>
   <div class="form_container">
     <div class="form_right">
       <%= t(:fields_marked_with_star_are_mandatory) %>
@@ -38,7 +27,8 @@
       <%= t(:title) %>*:
     </div>  
     <div class="form_right">
-      <%= f.text_field :title, :size => 69 %>
+      <% title = (params[:listing] && params[:listing][:title]) ? params[:listing][:title] : (t(params[:subcategory] || params[:category]) + ": ") %>
+      <%= f.text_field :title, :size => 69, :value => title %>
     </div>
   </div>
   <div class="form_container">    

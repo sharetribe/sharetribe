@@ -200,13 +200,14 @@
 :no_realizer => "No realizer",
 :listing_closed => "Listing closed",
 :cant_reply_to_own_listing => "Can't reply to own listing",
-:get_started => "<h2>Kassi - favors and items to borrow, for friends and strangers!</h2><br>
+:slogan => "favors and items to borrow, for friends and strangers!",
+:get_started => "<h2>Kassi - favors and items to borrow, for friends and strangers!</h2><br />
 
-<b>How to begin Kassing?</b><br>
+<b>How to begin Kassing?</b><br />
 <ol>
-<li> <a href='http://kassi.sizl.org/consent/register'>Register to Kassi.</a>
-<li> List your <a href='http://kassi.sizl.org/items'>items</a> that you could lend to others and <a href='http://kassi.sizl.org/favors'>favors</a> you could do.
-<li> In need of favor you can post <a href='http://kassi.sizl.org/listings/new'>a listing</a> or otherwise search Kassi for help!
+<li> <a href='http://kassi.sizl.org/consent/register'>Register to Kassi.</a></li>
+<li> List your <a href='http://kassi.sizl.org/items'>items</a> that you could lend to others and <a href='http://kassi.sizl.org/favors'>favors</a> you could do.</li>
+<li> In need of favor you can post <a href='http://kassi.sizl.org/listings/new'>a listing</a> or otherwise search Kassi for help!</li>
 </ol>",
 
 #Listing statuses
@@ -356,7 +357,7 @@
 :show_requests_on_page => "Show requests on page",
 :accept_request => "Accept request",
 :reject_request => "Reject request",
-:friend_request_accepted => "Friend request accepted",
+:friend_request_accepted => "Accepted friend request from user",
 :friend_request_rejected => "Friend request rejected",
 :friend_request_canceled => "Friend request canceled",
 :accepting_friend_request_failed => "Accepting friend request failed",
@@ -491,6 +492,7 @@
 :send_email_notifications => "Send email notifications",
 :email_when_new_message => "of new inbox messages",
 :email_when_new_comment => "of new comments to own listings",
+:email_when_new_friend_request => "of friend requests",
 :settings_updated_successfully => "Settings updated",
 
 #Error messages

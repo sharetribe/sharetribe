@@ -268,10 +268,6 @@ class Person < ActiveRecord::Base
     return person_hash["name"]["family_name"]
   end
   
-  def full_name
-    given_name + " " + family_name
-  end
-  
   def set_family_name(name, cookie)
     update_attributes({:name => {:family_name => name } }, cookie)
   end

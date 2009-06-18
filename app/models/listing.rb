@@ -218,7 +218,7 @@ class Listing < ActiveRecord::Base
 # Tämä on varsinainen viestistring
 
 #     msgstr = <<END_OF_MESSAGE
-# From: #{author.full_name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
+# From: #{author.name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
 # Sender: Kassi
 # Newsgroups: #{newsgroup}
 # Subject: #{title}

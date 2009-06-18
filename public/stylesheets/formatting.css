@@ -47,6 +47,10 @@ a:hover {
 	color: #000000;
 }
 
+div.no_hover a:hover {
+	background: transparent none;
+}
+
 a.listing {
 	color: #609a08;
 }

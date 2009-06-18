@@ -4,7 +4,16 @@ fi:
   activerecord:
     models:
       conversation: viesti
+      listing: ilmoitus
     attributes:
       conversation:
         messages: "Viestin sisältö"
         title: "Otsikko"
+      listing:
+        title: "Ilmoituksen otsikko" 
+        content: "Ilmoituksen sisältö"
+        language: "Ilmoituksen kieli"
+        image_file: "Kuvatiedosto"  
+        good_thru: "Ilmoituksen viimeinen voimassaolopäivämäärä"
+      group:
+        title: "Ryhmän nimi"  

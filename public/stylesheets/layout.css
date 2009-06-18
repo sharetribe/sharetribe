@@ -505,6 +505,10 @@ div.listed_object_person_image {
 	width: 50px;
 }
 
+div.listed_object_person_image a:hover {
+	background: transparent none;
+}
+
 div.listed_object_title {
 	font-size: 16px;
 	font-weight: bold;
@@ -620,6 +624,10 @@ div.listed_listing_image {
 	padding: 10px;
 	float: left;
 	width: 100px;
+}
+
+div.listed_listing_image a:hover {
+	background: transparent none;
 }
 
 div.listed_listing_right_titles {

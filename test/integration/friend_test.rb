@@ -27,6 +27,12 @@ class PeopleTest < ActionController::IntegrationTest
     assert_response :success
     assert_equal :friend_requested, flash[:notice]
     
+    # Check that person 2 has received an email notification
+    mail = UserMailer.create_notification_of_new_friend_request(people(:one), people(:two))
+    assert_equal(KASSI_MAIL_FROM_ADDRESS, mail.from.first)
+    assert_equal(people(:one).name + ' on lisännyt sinut kaveriksi Kassissa."', mail.subject)
+    assert_equal(people(:two).email, mail.to.first)
+    
     # Log out
     delete "/session"
     assert_response :found
@@ -51,7 +57,7 @@ class PeopleTest < ActionController::IntegrationTest
     # Accept friend request from person 1
     post "/people/#{people(:two).id}/requests/#{assigns(:requesters).first.id}/accept"
     assert_response :success
-    assert_equal :friend_request_accepted, flash[:notice]
+    assert_equal [:friend_request_accepted, people(:one).name, person_path(people(:one))], flash[:notice]
     
     # There should be no more requests
     get "/people/#{people(:two).id}/requests"
@@ -138,7 +144,7 @@ class PeopleTest < ActionController::IntegrationTest
     # Accept friend request from person 1 using the buttons in 
     # request view and check that there are no more requests
     post "/people/#{people(:two).id}/requests/#{assigns(:requesters).first.id}/accept_redirect", {}, { :referer => person_requests_path(people(:two)) }
-    assert_equal :friend_request_accepted, flash[:notice]
+    assert_equal [:friend_request_accepted, people(:one).name, person_path(people(:one))], flash[:notice]
     assert_redirected_to person_requests_path(people(:two))
     follow_redirect!
     assert_template 'index'

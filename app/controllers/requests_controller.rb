@@ -55,7 +55,7 @@ class RequestsController < ApplicationController
   def accept_friend_request(friend)
     begin
       @current_user.add_as_friend(friend.id, session[:cookie])
-      flash[:notice] = :friend_request_accepted
+      flash[:notice] = [ :friend_request_accepted, friend.name, person_path(friend) ]
       return true
     rescue RestClient::ResourceNotFound => e
       flash[:error] = :accepting_friend_request_failed
