@@ -1,6 +1,6 @@
 class Conversation < ActiveRecord::Base
 
-  after_save :update_read_statuses, :save_person_conversations, :send_email_to_participants
+  after_save :update_read_statuses, :save_person_conversations
 
   belongs_to :listing
 
@@ -35,12 +35,11 @@ class Conversation < ActiveRecord::Base
   end 
   
   # Send email notification to message receivers and returns the receivers
-  def send_email_to_participants
+  def send_email_to_participants(request)
     if RAILS_ENV == "production"
       recipients(last_message.sender).each do |recipient|
         if recipient.settings.email_when_new_comment == 1
-          url = "#{request_protocol}#{request_host}#{person_inbox_path(recipient, self)}"
-          UserMailer.deliver_notification_of_new_message(recipient, last_message, url)
+          UserMailer.deliver_notification_of_new_message(recipient, last_message, request)
         end  
       end
     end
