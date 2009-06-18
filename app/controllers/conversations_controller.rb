@@ -5,11 +5,15 @@ class ConversationsController < ApplicationController
 
   # Shows inbox
   def index
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     fetch_conversations("received")
   end
 
   # Shows sent-mail_box
   def sent
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     fetch_conversations("sent")
   end
   
@@ -49,6 +53,8 @@ class ConversationsController < ApplicationController
 
   # Shows one conversation 
   def show
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     @person_conversations = fetch_conversations(session[:links_panel_navi] || "received", :all)
     @conversation = Conversation.find(params[:id])
     person_conversation = PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id)
@@ -88,8 +94,6 @@ class ConversationsController < ApplicationController
   
   # Returns all conversations based on conversation type (can be "sent" or "received")
   def fetch_conversations(conversation_type, per_page_number = nil)
-    @person = Person.find(params[:person_id])
-    return unless must_be_current_user(@person)
     save_navi_state(['own', 'inbox', '', '', conversation_type])
     @pagination_type = conversation_type
     @person_conversations = PersonConversation.paginate(:all, 

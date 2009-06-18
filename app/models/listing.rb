@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'nntp'
-require 'date'
+require 'rchardet'
 
 class Listing < ActiveRecord::Base
 
@@ -214,28 +214,60 @@ class Listing < ActiveRecord::Base
   def post_to_newsgroups(url)
     return if !newsgroup || newsgroup.eql?("do_not_post")
     date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
-    msgstr = <<END_OF_MESSAGE
-From: #{author.full_name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
-Sender: Kassi
-Newsgroups: otax.test
-Subject: #{title}
-Date: #{date}
-Charset: ISO-8859-1
 
-#{content}
+# Tämä on varsinainen viestistring
 
-***
+#     msgstr = <<END_OF_MESSAGE
+# From: #{author.full_name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
+# Sender: Kassi
+# Newsgroups: #{newsgroup}
+# Subject: #{title}
+# Date: #{date}
+# 
+# #{content}
+# 
+# ***
+# 
+# This message was sent using Kassi. To reply to this message, go to #{url}
+# 
+# END_OF_MESSAGE
 
-This message was sent using Kassi. To reply to this message, go to #{url}
 
-END_OF_MESSAGE
 
-    logger.info "Message: " + msgstr
-    if ENV["RAILS_ENV"] == "production"
-      Net::NNTP.start('news.tky.fi', 119) do |nntp|
-        nntp.post msgstr
-      end
-    end  
+# Tätä viestistringiä voi käyttää testipostailuihin, niin ei turhaan mene Kassin maine lokaan. :)
+
+#     test_msgstr = <<END_OF_MESSAGE
+# From: testi@not.real.invalid>
+# Newsgroups: otax.test
+# Subject: #{title}
+# Date: #{date}
+# 
+# #{content}
+# 
+# ***
+# 
+# END_OF_MESSAGE
+
+    
+    # Testiprinttailuja
+    
+    # logger.info "Message: " + test_msgstr.gsub(/ä/, 'a').gsub(/ö/, 'o')
+    # cd = CharDet.detect(test_msgstr)
+    # logger.info "Encoding: " + cd['encoding']
+    # 
+    # logger.info Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
+    # 
+    # logger.info "Converted:" + Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
+ 
+    
+    # Tällä postataan viesti nyysseihin
+    
+    # if ENV["RAILS_ENV"] == "production"
+      # Net::NNTP.start('news.tky.fi', 119) do |nntp|
+      #   nntp.post test_msgstr
+      #   nntp.post Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
+      # end
+    # end  
   end
 
 end
