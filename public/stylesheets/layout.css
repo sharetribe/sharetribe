@@ -57,7 +57,9 @@ div.announcement {
 }
 
 div.notice {
-	background: #c0e783;
+	border: 1px solid #257107;
+	background: #dbf5b1;
+	color: #257107;
 }
 
 div.warning {
@@ -65,7 +67,9 @@ div.warning {
 }
 
 div.error {
-	background: #fe5c58;
+	border: 1px solid #ff0000;
+	background: #f9aeae;
+	color: #ff0000;
 }
 
 #form_error_messages {
@@ -700,20 +704,15 @@ div.listing_author_box_item {
 
 .reply_to_listing {
 	width: 296px;
-	height: 40px;
-	border: 2px solid #64a006;
-	background: #dbf5b1;
-	margin-bottom: 10px;
+	border-top: 1px dashed #000;
 }
 
 .reply_to_listing a {
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: bold;
-	text-decoration: none;
+	border-bottom: 1px dashed #000;
+	padding: 7px;
 	display: block;
-	height: 20px;
-	background: #c0e783;
-	padding: 10px;
 }
 
 .reply_to_listing a:hover {

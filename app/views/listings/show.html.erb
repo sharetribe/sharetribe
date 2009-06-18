@@ -83,26 +83,23 @@
 
   <div id="listing_image">
     <% if @listing.open? %>
+      <div class="reply_to_listing">
       <% if @current_user && is_current_user?(@listing.author) %>
-        <div class="reply_to_listing">
-          <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
-        </div>
+        <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
       <% else %>
-        <div class="reply_to_listing">
-          <%= link_to t(:reply), :controller => :conversations, 
-                                 :action => :new, 
-                                 :person_id => @current_user, 
-                                 :target_object => @listing, 
-                                 :target_object_type => "listing", 
-                                 :return_to => request.request_uri %>
-        </div>
+        <%= link_to t(:reply), :controller => :conversations, 
+                               :action => :new, 
+                               :person_id => @current_user, 
+                               :target_object => @listing, 
+                               :target_object_type => "listing", 
+                               :return_to => request.request_uri %>
       <% end %> 
     <% end %> 
     <% if @current_user && is_current_user?(@listing.author) %>
-      <div class="reply_to_listing">
-			  <%= link_to t(:edit_listing), edit_listing_path(@listing) %>
-      </div>
-    <% end %>  
+			<%= link_to t(:edit_listing), edit_listing_path(@listing) %>
+    <% end %>
+    </div>
+    <br />  
     <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
       <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />
     <% end %>
@@ -124,8 +121,7 @@
     </div>
   <% end %>
   
-  <br /><br />
-  
+  <br />
   
   <% if @current_user && @listing.open? %>
     <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
@@ -135,7 +131,9 @@
       <%= f.hidden_field :author_id, :value => @current_user.id %>
       <br />
       <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
-    <% end %>  
+    <% end %>
+  <% else %>
+      <b><%= t(:you_have_to_log_in_to_comment_listing) %>. &nbsp;<%= link_to t(:log_in_here), new_session_path %><b>
   <% end %>
   
   </div>
