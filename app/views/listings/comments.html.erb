@@ -15,7 +15,11 @@
   <div class="solid_line">
   </div>  
   <div id="browse_objects_footer_left">
-    <%= t(:show_comments_on_page) %>:
+    <div class="links_panel_text">
+      <%= t(:show_comments_on_page) %>:
+    </div>  
+  </div>
+  <div id="browse_objects_footer_left">
     <%= create_footer_pagination_links(["10", "30", "50", "all"], "comments") %>
   </div>
   <div class="pagination_padding">

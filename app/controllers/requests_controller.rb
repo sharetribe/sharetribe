@@ -1,8 +1,11 @@
 class RequestsController < ApplicationController
   
+  before_filter :logged_in
+  
   def index
-    save_navi_state(['own', 'requests'])
     @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    save_navi_state(['own', 'requests'])
     ids = Array.new
     @person.get_friend_requests(session[:cookie])["entry"].each do |person|
       ids << person["id"]

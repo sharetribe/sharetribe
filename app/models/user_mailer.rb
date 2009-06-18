@@ -21,7 +21,7 @@ class UserMailer < ActionMailer::Base
   end
   
   def notification_of_new_friend_request(requester, requested, http_request=nil)
-    subject_string = requester.name + ' on lisännyt sinut kaveriksi Kassissa."'
+    subject_string = requester.name + ' on lisännyt sinut kaveriksi Kassissa'
     url = http_request ? "#{http_request.protocol}#{http_request.host}#{person_requests_path(requested.id)}" : "test_url"
     settings_url = http_request ? "#{http_request.protocol}#{http_request.host}#{person_settings_path(requested.id)}" : "test_url"
     recipients requested.email
