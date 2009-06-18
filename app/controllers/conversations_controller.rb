@@ -57,7 +57,8 @@ class ConversationsController < ApplicationController
   def show
     @person = Person.find(params[:person_id])
     return unless must_be_current_user(@person)
-    @person_conversations = fetch_conversations(session[:links_panel_navi] || "received", :all)
+    session[:links_panel_navi] = "received" unless ["received", "sent"].include?(session[:links_panel_navi])
+    @person_conversations = fetch_conversations(session[:links_panel_navi], :all)
     @conversation = Conversation.find(params[:id])
     person_conversation = PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id)
     if person_conversation.is_read == 0
