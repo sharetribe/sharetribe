@@ -31,6 +31,8 @@ class ConversationsController < ApplicationController
   # Create a new conversation and send a message to it
   def create
     @conversation = Conversation.new(params[:conversation])
+    @conversation.request_protocol = request.protocol
+    @conversation.request_host = request.host
     if @conversation.save
       flash[:notice] = :message_sent
       redirect_to params[:return_to]
