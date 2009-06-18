@@ -146,11 +146,6 @@ class ListingsController < ApplicationController
     render :template => "listings/index"
   end
   
-  def comments
-    save_navi_state(['own', 'comments_to_own_listings'])
-    @comments = ListingComment.find_by_sql("SELECT listing_comments.id, listing_comments.is_read, listing_comments.created_at, listing_comments.content, listing_comments.listing_id, listings.title, listing_comments.author_id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' ORDER BY listing_comments.created_at desc").paginate :page => params[:page], :per_page => per_page.to_i
-  end
-
   def mark_as_interesting
     unless PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]) 
       @current_user.person_interesting_listings.create(:listing_id => params[:id])
@@ -161,6 +156,11 @@ class ListingsController < ApplicationController
   def mark_as_not_interesting
     PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, params[:id]).destroy
     redirect_to listing_path(Listing.find(params[:id]))
+  end
+  
+  def comments
+    save_navi_state(['own', 'comments_to_own_listings'])
+    @comments = ListingComment.find_by_sql("SELECT listing_comments.id, listing_comments.is_read, listing_comments.created_at, listing_comments.content, listing_comments.listing_id, listings.title, listing_comments.author_id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' ORDER BY listing_comments.created_at desc").paginate :page => params[:page], :per_page => per_page.to_i
   end
   
   def close

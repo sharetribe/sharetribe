@@ -45,6 +45,7 @@ class ConversationsController < ApplicationController
   def update
     @conversation = Conversation.find(params[:id])
     if @conversation.update_attributes(params[:conversation])
+      @conversation.send_email_to_participants(request)
       flash[:notice] = :message_sent
     else
       flash[:error] = :message_could_not_be_sent
