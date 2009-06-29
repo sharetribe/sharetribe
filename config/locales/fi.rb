@@ -211,6 +211,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 <li> Listaa omaan profiiliisi <a href='http://kassi.sizl.org/items'>tavarat</a>, joita voisit lainata ja <a href='http://kassi.sizl.org/favors'>palvelukset</a>, joita voisit tehdä toisille.</li>
 <li> Tarvitessasi palvelusta voit jättää <a href='http://kassi.sizl.org/listings/new'>ilmoituksen</a> tai etsiä, olisiko apu jo tarjolla Kassissa!</li>
 </ol>",
+:get_started_alpha => "Tähän tulee tuotantoversiossa kivat aloitusohjeet. :)",
 
 #Listing statuses
 :open => "Avoinna",

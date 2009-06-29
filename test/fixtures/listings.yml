@@ -17,6 +17,7 @@ valid_listing:
   visibility: "everybody"
 
 another_valid_listing:
+  id: 2
   author_id: dMF4WsJ7Kr3BN6ab9B7ckF
   category: "others"
   title: "Myydään alastomia oravoita"
@@ -32,6 +33,7 @@ another_valid_listing:
   visibility: "everybody"
 
 third_valid_listing:
+  id: 3
   author_id: df0LOkLS4r3yF-aby-BSxS
   category: "borrow_items"
   title: "toinen otsikko"

@@ -18,7 +18,7 @@ mongrel_rails cluster::configure -e production -p 8000 -N 5 -c $KASSI_PATH -a 12
 chmod a+x alpha-finish.sh
 chgrp -R adm .
 chmod -R 2770 . 
-umask 007
+umask 002
 
 ./alpha-finish.sh
 

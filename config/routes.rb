@@ -57,7 +57,7 @@ ActionController::Routing::Routes.draw do |map|
                              :mark_as_interesting => :post, 
                              :mark_as_not_interesting => :delete
                            },
-                :collection => { :search => :get } do |listing|
+                :collection => { :search => :get, :random => :get } do |listing|
     listing.resource :image
     listing.resources :comments, :controller => :listing_comments 
     listing.resources :categories, :path_prefix => '/listings'

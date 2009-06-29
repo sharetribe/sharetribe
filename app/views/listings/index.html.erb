@@ -1,6 +1,10 @@
 <%if (@current_user.nil?)%>
 <div id="info_box">
-  <%= t(:get_started) %>
+  <%  if PRODUCTION_SERVER == "beta" %>
+    <%= t(:get_started) %>
+  <% else %>
+    <%= t(:get_started_alpha) %>
+  <% end %>
 </div>
 <%end%>
 
