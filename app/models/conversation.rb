@@ -4,10 +4,10 @@ class Conversation < ActiveRecord::Base
 
   belongs_to :listing
 
-  has_many :person_conversations
+  has_many :person_conversations, :dependent => :destroy 
   has_many :participants, :through => :person_conversations, :source => :person
   
-  has_many :messages
+  has_many :messages, :dependent => :destroy 
   
   attr_accessor :request_protocol, :request_host
   

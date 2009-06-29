@@ -11,9 +11,9 @@ class Person < ActiveRecord::Base
 
   has_many :feedbacks
 
-  has_many :listings
+  has_many :listings, :dependent => :destroy 
   
-  has_many :items, :foreign_key => "owner_id"
+  has_many :items, :foreign_key => "owner_id", :dependent => :destroy 
 
   # Can't be used because conditions parameter can't be passed from controller
   # has_many :available_items, 
@@ -26,7 +26,8 @@ class Person < ActiveRecord::Base
            :class_name => "Item",
            :foreign_key => "owner_id",
            :conditions => "status = 'disabled'",
-           :order => "title"
+           :order => "title",
+           :dependent => :destroy 
   
   # Can't be used because conditions parameter can't be passed from controller                  
   # has_many :available_favors, 
@@ -39,16 +40,17 @@ class Person < ActiveRecord::Base
            :class_name => "Favor",
            :foreign_key => "owner_id", 
            :conditions => "status = 'disabled'",
-           :order => "title"
+           :order => "title",
+           :dependent => :destroy 
   
-  has_many :favors
+  has_many :favors, :dependent => :destroy 
 
-  has_many :person_interesting_listings
+  has_many :person_interesting_listings, :dependent => :destroy 
   has_many :interesting_listings, 
            :through => :person_interesting_listings, 
            :source => :listing
            
-  has_many :person_conversations
+  has_many :person_conversations, :dependent => :destroy 
   has_many :conversations, 
            :through => :person_conversations, 
            :source => :conversation
@@ -57,9 +59,10 @@ class Person < ActiveRecord::Base
   
   has_many :received_comments, 
            :class_name => "PersonComment", 
-           :foreign_key => "target_person_id"
+           :foreign_key => "target_person_id",
+           :dependent => :destroy 
            
-  has_one :settings         
+  has_one :settings, :dependent => :destroy          
 
   class PersonConnection < ActiveResource::Base
     # This is an inner class to handle remote connection to COS database where the actual information

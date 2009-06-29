@@ -10,14 +10,14 @@ class Listing < ActiveRecord::Base
 
   has_many :conversations
 
-  has_many :comments, :class_name => "ListingComment"
+  has_many :comments, :class_name => "ListingComment", :dependent => :destroy 
 
   belongs_to :author, :class_name => "Person"
 
-  has_many :person_read_listings
+  has_many :person_read_listings, :dependent => :destroy 
   has_many :readers, :through => :person_read_listings, :source => :person
 
-  has_many :person_interesting_listings
+  has_many :person_interesting_listings, :dependent => :destroy 
   has_many :interested_people, :through => :person_interesting_listings, :source => :person
 
   has_many :kassi_events, :as => :eventable
