@@ -20,6 +20,12 @@ class ItemTest < ActiveSupport::TestCase
     assert_item_valid(:title, "vasara", false)
   end
   
+  def test_amount_bigger_than_zero
+    assert_item_valid(:amount, "15", true)
+    assert_item_valid(:amount, "dsfsdf", false)
+    assert_item_valid(:amount, "-2", false)
+  end
+  
   def test_owner_association
     assert_equal items(:one).owner, people(:one)  
   end

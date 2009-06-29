@@ -16,6 +16,14 @@
       <%= f.text_area :description, :class => "add_item_form" %>
     </div>
   </div>
+  <div class="profile_add_item_form_container">
+    <div class="profile_add_item_form_left">
+      <%= t(:item_amount) %>:
+    </div>  
+    <div class="profile_add_item_form_right">
+      <%= f.text_field :amount, :class => "add_item_form" %>
+    </div>
+  </div>
   <%= render :partial => "layouts/visibility_form", :locals => { :form_type => "item", :object => @item } %>
   <div class="profile_add_item_form_container">
     <div class="profile_add_item_form_right">

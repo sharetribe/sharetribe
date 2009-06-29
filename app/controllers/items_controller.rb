@@ -110,6 +110,7 @@ class ItemsController < ApplicationController
         @item.title = params[:item][:title]
         @item.description = params[:item][:description]
         @item.visibility = params[:item][:visibility]
+        @item.amount = params[:item][:amount]
         if @current_user.save_item(@item)
           @item.save_group_visibilities(params[:groups])
           flash[:notice] = :item_updated

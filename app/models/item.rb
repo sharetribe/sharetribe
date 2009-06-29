@@ -24,6 +24,7 @@ class Item < ActiveRecord::Base
   validates_length_of :title, :within => 2..70
   validates_length_of :description, :allow_nil => true, :allow_blank => true, :maximum => 400, :message => "is too long"    
   validates_numericality_of :payment, :only_integer => true, :greater_than_or_equal_to => 0, :allow_nil => true, :allow_blank => true
+  validates_numericality_of :amount, :greater_than_or_equal_to => 1
   validates_inclusion_of :status, :in => VALID_STATUSES
   validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
   

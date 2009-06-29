@@ -7,11 +7,16 @@
       <%= link_to item.owner.name(session[:cookie]), item.owner %>
     </div>
     <div class="item_description">
-      <% if item.description && !item.description.eql?("") %>
-        <%= text_with_line_breaks(item.description) %>
-      <% else %>
-        <%=  t(:no_description) %>
-      <% end %>
+      <div class="item_description_field_item">
+        <b><%= t(:item_amount) %></b>: <%= item.amount.to_s %>
+      </div>
+      <div class="item_description_field_item">
+        <% if item.description && !item.description.eql?("") %>
+          <%= text_with_line_breaks(item.description) %>
+        <% else %>
+          <%=  t(:no_description) %>
+        <% end %>
+      </div>
     </div>     
   </div>
   <div class="listed_item_owner_right">
