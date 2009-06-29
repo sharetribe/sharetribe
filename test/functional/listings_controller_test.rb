@@ -153,6 +153,20 @@ class ListingsControllerTest < ActionController::TestCase
     assert_equal assigns(:comments).size, 1
   end
   
+  def test_random_listing
+    get :random
+    assert_response :found, @response.body
+    #assert_template 'show'
+    id = @response.headers["Location"][/listings\/(\d+)_/, 1]
+    shown_listing = Listing.find(id)
+    assert_redirected_to( shown_listing)
+      
+    assert shown_listing.open?, "random listing shower picked a closed listing!"
+    
+    # check that did not open a listing that should not be seen by everyone.
+    assert_equal("everybody", shown_listing.visibility)
+  end
+  
   private
   
   def search(query, result_count, only_open, category = "")
@@ -171,4 +185,5 @@ class ListingsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], :listing_updated
     assert_template 'show'
   end
+  
 end

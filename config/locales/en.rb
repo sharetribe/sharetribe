@@ -209,6 +209,7 @@
 <li> List your <a href='http://kassi.sizl.org/items'>items</a> that you could lend to others and <a href='http://kassi.sizl.org/favors'>favors</a> you could do.</li>
 <li> In need of favor you can post <a href='http://kassi.sizl.org/listings/new'>a listing</a> or otherwise search Kassi for help!</li>
 </ol>",
+:get_started_alpha => "Here will be nice instructions in production Kassi :)",
 
 #Listing statuses
 :open => "Open",

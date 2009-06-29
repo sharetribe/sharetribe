@@ -187,6 +187,16 @@ class ListingsController < ApplicationController
     redirect_to person_listings_path(@current_user)
   end
   
+  #shows a random listing (that is visible to all)
+  def random
+    conditions = "status = 'open' AND good_thru >= '" + Date.today.to_s + "'"
+    conditions += get_visibility_conditions("listing")
+        
+    open_listings_ids = Listing.all(:select => "id, title", :conditions => conditions)
+    random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)]
+    redirect_to listing_path(random_id)
+  end
+  
   private
   
   def is_visible?(listing)
