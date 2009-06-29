@@ -117,7 +117,7 @@
 :lost => "Lost",
 :found => "Found",
 :rides => "Rides",
-:groups => "Group search",
+:groups => "Group activities",
 :others => "Others",
 
 #Category descriptions
