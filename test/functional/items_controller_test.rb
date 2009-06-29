@@ -64,7 +64,8 @@ class ItemsControllerTest < ActionController::TestCase
     submit_with_person :update, { 
       :item => { 
         :title => "muutettu_vasara",
-        :visibility => "everybody"  
+        :visibility => "everybody",
+        :amount => "2"  
       },
       :id => items(:one).id,
       :person_id => @test_person1.id

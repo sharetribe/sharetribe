@@ -326,6 +326,9 @@
 :item_title_with_same_name_already_exists => "You can't add two items with the same title",
 :description => "Description",
 :cancelled_deletion_of_item => "Cancelled deletion of item:", 
+:item_amount => "Amount",
+:item_amount_is_not_numeric => "Amount of items is not a number",
+:item_amount_is_too_small => "Amount of items must be at least 1", 
 
 #Profile favors
 :favors_i_can_do => "Favors I can do",

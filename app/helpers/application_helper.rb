@@ -217,6 +217,10 @@ module ApplicationHelper
       :favor_title_with_same_name_already_exists  
     when "Description is too long"    
       :description_is_too_long 
+    when "Amount ei ole numero"
+      :item_amount_is_not_numeric
+    when "Amount täytyy olla suurempi tai yhtä suuri kuin1"
+      :item_amount_is_too_small  
     else
       message
     end  
@@ -347,7 +351,7 @@ module ApplicationHelper
     when "Title is too long (maximum is 70 characters)"
       t(:group_title_is_too_long)    
     when "Description is too long"
-      t(:group_description_is_too_long)                
+      t(:group_description_is_too_long)        
     else
       message
     end  

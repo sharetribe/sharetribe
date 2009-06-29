@@ -321,7 +321,10 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :item_could_not_be_added => "Tavaraa ei voitu lisätä",
 :item_title_with_same_name_already_exists => "Et voi lisätä kahta samannimistä tavaraa",
 :description => "Kuvaus",
-:cancelled_deletion_of_item => "Tavaran poisto peruutettu:", 
+:cancelled_deletion_of_item => "Tavaran poisto peruutettu:",
+:item_amount => "Lukumäärä", 
+:item_amount_is_not_numeric => "Tavaroiden lukumäärä ei ole numero",
+:item_amount_is_too_small => "Tavaroiden lukumäärän on oltava vähintään 1",
 
 #Profile favors
 :add_new_favor => "Lisää palvelus",

@@ -986,6 +986,14 @@ div.listed_item_owner_right_link {
 	margin-bottom: 5px;
 }
 
+div.item_description_field {
+	padding: 10px;
+}
+
+div.item_description_field_item {
+	margin-bottom: 10px;
+}
+
 /* Message views  */
 
 #send_message_to_existing_conversation {
