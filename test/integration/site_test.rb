@@ -4,7 +4,13 @@ require 'test_helper'
 class SiteTest < ActionController::IntegrationTest
   def test_listingspage
     get "/listings"
-    assert_response :success, @response.body
+    assert_response :success, "Failed loading listings page"
+    assert_select 'title', /Kassi/
+  end
+  
+  def test_groups_page
+    get '/groups'
+    assert_response :success, "Failed loading groups page"
     assert_select 'title', /Kassi/
   end
 

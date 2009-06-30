@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
 
   has_many :feedbacks
 
-  has_many :listings, :dependent => :destroy 
+  has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
   
   has_many :items, :foreign_key => "owner_id", :dependent => :destroy 
 
@@ -43,7 +43,7 @@ class Person < ActiveRecord::Base
            :order => "title",
            :dependent => :destroy 
   
-  has_many :favors, :dependent => :destroy 
+  has_many :favors, :foreign_key => "owner_id", :dependent => :destroy 
 
   has_many :person_interesting_listings, :dependent => :destroy 
   has_many :interesting_listings, 

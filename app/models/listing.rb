@@ -12,7 +12,7 @@ class Listing < ActiveRecord::Base
 
   has_many :comments, :class_name => "ListingComment", :dependent => :destroy 
 
-  belongs_to :author, :class_name => "Person"
+  belongs_to :author, :class_name => "Person", :foreign_key => "author_id" 
 
   has_many :person_read_listings, :dependent => :destroy 
   has_many :readers, :through => :person_read_listings, :source => :person

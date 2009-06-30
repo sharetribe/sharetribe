@@ -149,7 +149,8 @@ class Group < ActiveRecord::Base
     group_hash["entry"].collect { |group| group["group"]["id"] }
   end
   
-  def self.get_public_group_ids(cookie)
+  def self.get_public_group_ids(cookie=nil)
+    cookie = Session.kassiCookie if cookie.nil?
     Group.get_group_ids(get_public_groups(cookie))
   end
   
