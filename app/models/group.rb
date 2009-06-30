@@ -2,6 +2,8 @@ require 'json'
 
 class Group < ActiveRecord::Base
   
+  GROUP_HASH_CACHE_EXPIRE_TIME = 4.hours
+  
   attr_accessor :guid, :form_title, :form_description
   
   has_and_belongs_to_many :items
@@ -113,10 +115,12 @@ class Group < ActiveRecord::Base
     cookie = Session.kassiCookie if cookie.nil?
     
     begin
-      group_hash = Group.get_group(self.id, cookie)
+      group_hash = Rails.cache.fetch(id, :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME) {Group.get_group(self.id, cookie)}
+      #group_hash = Group.get_group(self.id, cookie)
     rescue RestClient::Unauthorized => e
       cookie = Session.updateKassiCookie
       group_hash = Group.get_group(self.id, cookie)
+      Rails.cache.write(id, group_hash, :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME)
     rescue RestClient::ResourceNotFound => e
       #Could not find group with that id in COS Database!
       return nil
