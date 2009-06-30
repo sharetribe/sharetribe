@@ -32,6 +32,16 @@ class BrowsingTest < ActionController::PerformanceTest
     delete "/session"
   end
   
+  # def test_login_and_create_group_and_leave_it
+  #   post "/session", { :username => "kassi_testperson1", :password => "testi"}
+  #   post "/groups", {:group_title => "test_group44", :group_description => "A group just for a quick test."}
+  #   
+  #   # test not finished, should pick the group id, not trivial...
+  #   #http://localhost:3000/people/bU8aHSBEKr3AhYaaWPEYjL/groups/cToI7CzxWr3PaKaaWPEYjL/leave
+  #   
+  #   delete "/session"
+  # end
+  
   #TODO following tests
   #view own profile
   #registration
