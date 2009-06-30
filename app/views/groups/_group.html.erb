@@ -7,7 +7,7 @@
       <%= link_to h(group.title(session[:cookie])), group_path(group) %>
     </div>
     <div class="listed_object_date">
-      <%= truncate(h(group.description(session[:cookie])), 150, "...") %>
+      <%= truncate(h(group.description(session[:cookie])), :length => 150, :omission => "...") %>
     </div>   
   </div>
   <div class="listed_item_owner_right">

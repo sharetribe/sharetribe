@@ -27,6 +27,11 @@ class BrowsingTest < ActionController::PerformanceTest
     get '/groups'
   end
   
+  def test_log_in_and_out
+    post "/session", { :username => "kassi_testperson1", :password => "testi"}
+    delete "/session"
+  end
+  
   #TODO following tests
   #view own profile
   #registration

@@ -26,7 +26,7 @@
         <%= t(:group_members) %> <span class="page_entries_info">(<%= page_entries_info @members %>)
       </div>
       <div class="pagination_padding">
-        <%= will_paginate @members, :prev_label => t(:previous), :next_label => t(:next) %>
+        <%= will_paginate @members, :previous_label => t(:previous), :next_label => t(:next) %>
       </div>
     </div>
 
@@ -42,7 +42,7 @@
         <%= create_footer_pagination_links(["10", "30", "50", "all"], "group_members") %>
       </div>
       <div class="pagination_more_padding">
-        <%= will_paginate @members, :prev_label => t(:previous), :next_label => t(:next) %>
+        <%= will_paginate @members, :previous_label => t(:previous), :next_label => t(:next) %>
       </div>
       <% else %>
         <p><%= t(:no_members) %></p>
