@@ -237,30 +237,29 @@ END_OF_MESSAGE
 
 # Tätä viestistringiä voi käyttää testipostailuihin, niin ei turhaan mene Kassin maine lokaan. :)
 
-logger.info Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
-
-    test_msgstr = <<END_OF_MESSAGE
-From: test@not.real.invalid>
-Newsgroups: otax.test
-Subject: #{title}
-Date: #{date}
-
-#{content}
-
-äÄöÖåÅ-test
-
-***
-
-END_OF_MESSAGE
+# logger.info Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
+# 
+#     test_msgstr = <<END_OF_MESSAGE
+# From: test@not.real.invalid>
+# Newsgroups: otax.test
+# Subject: #{title}
+# Date: #{date}
+# 
+# #{content}
+# 
+# äÄöÖåÅ-test
+# 
+# ***
+# 
+# END_OF_MESSAGE
  
     
     # Do the actual newsgroup post
     
-    if ENV["RAILS_ENV"] == "production"
+    if PRODUCTION_SERVER == "beta"
       Net::NNTP.start('news.tky.fi', 119) do |nntp|
-        test_msgstr = Iconv.iconv("ISO-8859-15", "UTF-8", test_msgstr)[0]
-        #nntp.post test_msgstr
-        puts test_msgstr
+        msgstr = Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
+        nntp.post msgstr       
       end
     end  
   end
