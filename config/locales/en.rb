@@ -231,6 +231,7 @@
 :do_not_post => "do not post to any newsgroup", 
 :add_listing_submit => "Submit listing",
 :edit_listing_submit => "Edit listing",
+:news_group_visibility_info => "You can send to a newsgroup only messages that are visible to everybody.",
 
 #Items view
 :search_items_title => "Search items",
