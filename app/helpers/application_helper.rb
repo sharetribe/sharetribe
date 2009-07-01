@@ -237,6 +237,42 @@ module ApplicationHelper
     return false  
   end
   
+  # Sets the visibility value to be saved in db based 
+  # on the visibility parameter and checkbox values
+  def set_visibility_in_params(object_type)
+    if params[object_type][:visibility].eql?("other")
+      if params[:friends]
+        if params[:contacts]
+          if params[:groups]
+            params[object_type][:visibility] = "f_c_g"
+          else  
+            params[object_type][:visibility] = "f_c"
+          end  
+        else
+          if params[:groups]
+            params[object_type][:visibility] = "f_g"
+          else
+            params[object_type][:visibility] = "friends"
+          end  
+        end  
+      else
+        if params[:contacts]
+          if params[:groups]
+            params[object_type][:visibility] = "c_g"
+          else
+            params[object_type][:visibility] = "contacts"
+          end    
+        else
+          if params[:groups]
+            params[object_type][:visibility] = "groups"
+          else  
+            params[object_type][:visibility] = "none"
+          end  
+        end  
+      end
+    end
+  end
+  
   # Returns checkboxes for item, favor and listing visibility settings
   def get_visibility_checkboxes(visibility = nil, groups = nil)
     checkboxes = []

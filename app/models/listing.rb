@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'nntp'
-require 'rchardet'
 
 class Listing < ActiveRecord::Base
 
@@ -215,59 +214,55 @@ class Listing < ActiveRecord::Base
     return if !newsgroup || newsgroup.eql?("do_not_post")
     date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
 
-# Tämä on varsinainen viestistring
+# This is the actual message string
 
-#     msgstr = <<END_OF_MESSAGE
-# From: #{author.name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
-# Sender: Kassi
-# Newsgroups: #{newsgroup}
-# Subject: #{title}
-# Date: #{date}
-# 
-# #{content}
-# 
-# ***
-# 
-# This message was sent using Kassi. To reply to this message, go to #{url}
-# 
-# END_OF_MESSAGE
+    msgstr = <<END_OF_MESSAGE
+From: #{author.name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
+Sender: Kassi
+Newsgroups: #{newsgroup}
+Subject: #{title}
+Date: #{date}
+
+#{content}
+
+***
+
+Tämä viesti on lähetetty Kassi-palvelusta. Voit vastata viestiin osoitteessa #{url}
+
+This message was sent using Kassi. To reply to this message, go to #{url}
+
+END_OF_MESSAGE
 
 
 
 # Tätä viestistringiä voi käyttää testipostailuihin, niin ei turhaan mene Kassin maine lokaan. :)
 
-#     test_msgstr = <<END_OF_MESSAGE
-# From: testi@not.real.invalid>
-# Newsgroups: otax.test
-# Subject: #{title}
-# Date: #{date}
-# 
-# #{content}
-# 
-# ***
-# 
-# END_OF_MESSAGE
+logger.info Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
 
-    
-    # Testiprinttailuja
-    
-    # logger.info "Message: " + test_msgstr.gsub(/ä/, 'a').gsub(/ö/, 'o')
-    # cd = CharDet.detect(test_msgstr)
-    # logger.info "Encoding: " + cd['encoding']
-    # 
-    # logger.info Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
-    # 
-    # logger.info "Converted:" + Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
+    test_msgstr = <<END_OF_MESSAGE
+From: test@not.real.invalid>
+Newsgroups: otax.test
+Subject: #{title}
+Date: #{date}
+
+#{content}
+
+äÄöÖåÅ-test
+
+***
+
+END_OF_MESSAGE
  
     
-    # Tällä postataan viesti nyysseihin
+    # Do the actual newsgroup post
     
-    # if ENV["RAILS_ENV"] == "production"
-      # Net::NNTP.start('news.tky.fi', 119) do |nntp|
-      #   nntp.post test_msgstr
-      #   nntp.post Iconv.new("ISO-8859-1",cd['encoding']).iconv(test_msgstr)
-      # end
-    # end  
+    if ENV["RAILS_ENV"] == "production"
+      Net::NNTP.start('news.tky.fi', 119) do |nntp|
+        test_msgstr = Iconv.iconv("ISO-8859-15", "UTF-8", test_msgstr)[0]
+        #nntp.post test_msgstr
+        puts test_msgstr
+      end
+    end  
   end
 
 end

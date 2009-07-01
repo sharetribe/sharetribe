@@ -5,9 +5,25 @@
     [ t(:visible_to_certain_groups), "other" ]
   ]
   if ["everybody", "kassi_users"].include?(object.visibility)
-    selected = object.visibility
+    @visibility = object.visibility
   else
-    selected = "other"
+    @visibility = "other"
+    
+    # check if visibility information in params, probably staying in new-template
+    # Then need to fetch correct visibility and groups from params.
+    # When editing existing model, these variables are found out in 
+    # visibility_form_checkboxes method in AppContr
+    
+    if params[form_type] && params[form_type][:visibility]
+      set_visibility_in_params(form_type)
+      @object_visibility = params[form_type][:visibility]
+      begin
+        @groups = Group.find(params[:groups])
+      rescue #fails if a group has been deleted 
+        @groups = nil
+      end
+    end
+       
   end
   form_type_url = object.id ? "#{form_type}_#{object.id.to_s}_visibility_checkboxes" : form_type + "_visibility_checkboxes"        
 %>
@@ -19,13 +35,17 @@
   <div class="form_right">
     <% object_details = object.id ? "&object_id=" + object.id.to_s + "&object_type=" + object.class.to_s : "" %>
     <% with = "'visibility='+value+'&object_visibility=" + object.visibility.to_s + object_details + "'" %>
-    <%= select(form_type, "visibility", visibility_types, { :selected => selected }, 
+    <%= select(form_type, "visibility", visibility_types, { :selected => @visibility }, 
                {:onchange => "#{remote_function(:url => { :action => "visibility_form_checkboxes" },
                                                 :with => with,
                                                 :update => form_type_url) }" }) %>
-    <br />
+    <div id="news_group_visibility_info">
+      <script>document.getElementById('news_group_visibility_info').style.display = 'none';</script>
+      <p><%= t(:news_group_visibility_info) %></p>
+    </div>
+    
     <div id="<%= form_type_url %>">
       <%= render :partial => "layouts/visibility_form_checkboxes" %>
-    </div>                                            
+    </div>                  
   </div>
 </div>

@@ -233,6 +233,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :do_not_post => "älä lähetä mihinkään uutisryhmään",
 :add_listing_submit => "Lisää ilmoitus",
 :edit_listing_submit => "Muokkaa ilmoitusta",
+:news_group_visibility_info => "Voit lähettää uutisryhmään vain kaikille näkyviä ilmoituksia.",
 
 #Items view
 :search_items_title => "Etsi tavaroita",

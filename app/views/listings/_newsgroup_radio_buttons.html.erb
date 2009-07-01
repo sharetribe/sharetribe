@@ -1,14 +1,23 @@
 <% if newsgroups = Listing::NEWSGROUPS[params[:subcategory] || params[:category]] %>
   <% no_post = "do_not_post" %>
-  <% default = newsgroups[:default] || no_post %>
+  <% default = params[:newsgroup] || newsgroups[:default] || no_post %>
   <div class="form_container">  
     <div class="form_left">
       <%= t(:post_to_newsgroup) %>:
     </div>  
     <div class="form_right">
-      <%= radio_button_tag "newsgroup", no_post, no_post.eql?(default) %><%= " " + t(no_post) %><br />
+      <%= radio_button_tag "newsgroup", no_post, no_post.eql?(default), :onChange => 
+      "document.getElementById('listing_visibility').disabled=false;
+      document.getElementById('news_group_visibility_info').style.display = 'none'" %>
+      <%= " " + t(no_post) %><br />
       <% newsgroups[:groups].each do |group| %>
-        <%= radio_button_tag "newsgroup", group, group.eql?(default) %><%= " " + group %><br />
+        <%= radio_button_tag "newsgroup", group, group.eql?(default), :onChange => 
+        "visibilityDropdown = document.getElementById('listing_visibility');
+         visibilityDropdown.selectedIndex = 0; 
+         visibilityDropdown.disabled = true;
+         visibilityDropdown.onchange();
+         document.getElementById('news_group_visibility_info').style.display = '';" %>
+         <%= " " + group %><br />
       <% end %>
     </div>
   </div>
