@@ -157,7 +157,7 @@ class ListingsControllerTest < ActionController::TestCase
     get :random
     assert_response :found, @response.body
     #assert_template 'show'
-    id = @response.headers["Location"][/listings\/(\d+)_/, 1]
+    id = @response.headers["Location"][/listings\/(\d+)-/, 1]
     shown_listing = Listing.find(id)
     assert_redirected_to( shown_listing)
       

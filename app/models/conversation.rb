@@ -16,7 +16,7 @@ class Conversation < ActiveRecord::Base
 
   # Includes the title of the conversation in the url
   def to_param
-    "#{id}_#{title.to_s.gsub(/\W/, '_').downcase}"
+    "#{id}-#{title.to_s.gsub(/\W/, '_').downcase}"
   end
   
   # Creates a new message in the conversation
