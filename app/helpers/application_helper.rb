@@ -20,6 +20,10 @@ module ApplicationHelper
     return translated_array  
   end
   
+  def escape_for_url(str)
+     URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
+  end
+  
   # Returns a hash containing link names and urls for top navigation.
   def get_top_navi_items
     navi_items = ActiveSupport::OrderedHash.new  
@@ -394,6 +398,7 @@ module ApplicationHelper
   end
   
 end
+
 
 # Overrides 'page_entries_info' method of will paginate plugin so that the messages
 # it provides can be translated.
