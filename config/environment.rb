@@ -41,8 +41,13 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "ruby-prof"
-  config.gem "rchardet"
+  config.gem "rubycas-client"
+  config.gem "nntp"
+  
+  #These below are needed too, but their existence is not detected correctly so commented out.
   #config.gem "rest-client"
+  #config.gem "google-geocode"
+  
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

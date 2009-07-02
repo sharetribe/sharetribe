@@ -7,8 +7,10 @@ rm -rf log
 ln -s /var/datat/kassi/shared/log log
 ln -s /var/datat/kassi/shared/ferret_index index
 rm -rf tmp/pids/
+rm -rf tmp/performance/
 cd tmp
 ln -s /var/datat/kassi/shared/pids pids
+ln -s /var/datat/kassi/shared/performance performance
 cd ..
 rm -rf public/images/listing_images/
 cd public/images/
