@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
     @items = Item.find(:all, :conditions => ["title = ? AND status <> 'disabled'" + get_visibility_conditions("item"), @title])
     render :update do |page|
       if @items.size > 0
-        page["item_" + @title.downcase].replace_html :partial => "item_title_link_and_owners"
+        page[item_div_title(@title)].replace_html :partial => "item_title_link_and_owners"
       else
         flash[:error] = :no_item_with_such_title
         page["announcement_div"].replace_html :partial => 'layouts/announcements'
@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
   def hide
     @title = URI.unescape(params[:id])
     render :update do |page|
-      page["item_" + @title.downcase].replace_html :partial => "item_title_link", :locals => { :item_title => @title }
+      page[item_div_title(@title)].replace_html :partial => "item_title_link", :locals => { :item_title => @title }
     end
   end
   

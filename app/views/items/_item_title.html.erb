@@ -1,5 +1,5 @@
 <div class="item_title">
-  <div id="<%= "item_" + item_title.downcase %>">
+  <div id="<%= item_div_title(item_title) %>">
     <%= render :partial => "item_title_link", :locals => { :item_title => item_title } %>
   </div>  
 </div>

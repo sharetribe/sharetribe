@@ -24,6 +24,10 @@ module ApplicationHelper
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
   end
   
+  def remove_html_unfriendly_chars(str)
+    str.gsub(/["']/, "")
+  end
+  
   # Returns a hash containing link names and urls for top navigation.
   def get_top_navi_items
     navi_items = ActiveSupport::OrderedHash.new  
