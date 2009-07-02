@@ -38,7 +38,7 @@ class FavorsController < ApplicationController
     @favors = Favor.find(:all, :conditions => ["title = ? AND status <> 'disabled'" + get_visibility_conditions("favor"), @title])
     render :update do |page|
       if @favors.size > 0
-        page["favor_" + @title.downcase].replace_html :partial => "favor_title_link_and_owners"
+        page[favor_div_title(@title)].replace_html :partial => "favor_title_link_and_owners"
       else
         flash[:error] = :no_favor_with_such_title
         page["announcement_div"].replace_html :partial => 'layouts/announcements'
@@ -49,7 +49,7 @@ class FavorsController < ApplicationController
   def hide
     @title = URI.unescape(params[:id])
     render :update do |page|
-      page["favor_" + @title.downcase].replace_html :partial => "favor_title_link", :locals => { :favor_title => @title }
+      page[favor_div_title(@title)].replace_html :partial => "favor_title_link", :locals => { :favor_title => @title }
     end
   end
   
