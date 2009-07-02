@@ -2,6 +2,7 @@ require 'json'
 require 'rest_client'
 
 class Person < ActiveRecord::Base
+ 
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
@@ -91,7 +92,8 @@ class Person < ActiveRecord::Base
     end
     
     def self.search(query, cookie)
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{query}", {:cookies => cookie}))
+      escaped_query = URI.escape(query, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # Should use escape_for_url method in ApplicationHelper
+      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{escaped_query}", {:cookies => cookie}))
       #return fix_alphabets(connection.get("#{prefix}#{element_name}?search=" + query, {"Cookie" => cookie} ))
     end
     

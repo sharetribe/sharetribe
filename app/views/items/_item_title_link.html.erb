@@ -1,4 +1,4 @@
-<% escaped_title =  URI.escape(item_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
+<% escaped_title = escape_for_url(item_title.downcase) %>
 <b>
   <%= link_to_remote h(item_title.capitalize), :url => item_path(escaped_title), :method => :get %>
 </b>
