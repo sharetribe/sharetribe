@@ -38,6 +38,11 @@
   </div>
 </div>
 
+<% if @conversation.type.eql?("Reservation") %>
+  <%= render :partial => "reservations/reservation_details" %>
+  <br />
+  <div class="solid_line"></div>
+<% end %>
 
 <%= render :partial => "messages/message", 
            :collection => @conversation.messages,

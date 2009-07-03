@@ -7,7 +7,7 @@
  * Light green (left links, category box, notice box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
  * Orange (warning) => #fea04c;
- * Red (error) => #fe5c58;
+ * Light red (error background) => #f9aeae;
  *
  */
 
@@ -1034,6 +1034,34 @@ div.listed_message_right {
 
 div.unread_conversation {
 	background: #dbf5b1;
+}
+
+
+/* Reservatíons view */
+
+div.reservation_items {
+	margin-top: 10px;
+	width: 675px;
+}
+
+div.reservation_items_no_margin {
+	width: 675px;
+}
+
+div.reservation_item {
+	padding: 5px;
+	overflow: hidden;
+	clear: both;
+}
+
+div.reservation_item_left {
+	width: 150px;
+	font-weight: bold;
+	float: left;
+}
+
+div.reservation_item_right {
+	float: left;
 }
 
 

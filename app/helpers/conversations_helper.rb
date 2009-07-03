@@ -42,5 +42,37 @@ module ConversationsHelper
     end
     links.join("")
   end
+  
+  # Returns a status message for a reservation
+  def get_reservation_status(reservation)
+    owner = get_item_owner(reservation)
+    case reservation.status
+    when "pending_owner"
+      is_current_user?(owner) ? "awaiting_acceptance_from_you" : "awaiting_acceptance_from_other_party"
+    when "pending_reserver"
+      is_current_user?(owner) ? "awaiting_acceptance_from_other_party" : "awaiting_acceptance_from_you"
+    else
+      "reservation_" + reservation.status
+    end  
+  end
+  
+  # Returns the owner of reserved items
+  def get_item_owner(reservation)
+    reservation.items.first.owner
+  end
+  
+  def get_amount_value(item, reservation)
+    amount = nil
+    reservation.item_reservations.each do |item_reservation|
+      if item_reservation.item.id == item.id
+        amount = item_reservation.amount
+      end  
+    end
+    if amount
+      amount
+    else
+      params[:conversation] ? params[:conversation][:reserved_items][item.id.to_s] : 1
+    end
+  end
 
 end

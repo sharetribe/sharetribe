@@ -1,0 +1,80 @@
+<fieldset>
+  <legend>
+    <%= t(:reservation_details) %>:
+  </legend>
+  <div class="form_extra_padding">
+    <span class="green_text">
+      <%= t(get_reservation_status(@conversation)) %>
+    </span>
+  </div>
+  <br />      
+  <div class="form_extra_padding">
+    <div class="reservation_items_no_margin">
+      <div class="reservation_item">
+        <div class="reservation_item_left">
+          <%= t(:pick_up_time) %>:
+        </div>
+        <div class="reservation_item_right">
+          <%= @conversation.pick_up_time.to_formatted_s(:basic_date_format_minutes) %>
+        </div>  
+      </div>
+      <div class="reservation_item">
+        <div class="reservation_item_left">
+          <%= t(:return_time) %>:
+        </div>
+        <div class="reservation_item_right">
+          <%= @conversation.return_time.to_formatted_s(:basic_date_format_minutes) %>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <div class="form_extra_padding">
+    <div class="reservation_items">   
+    <h4><%= t(:items_to_be_borrowed) %></h4>
+    <div class="reservation_items">
+      <% @conversation.items.each do |item| %>
+        <div class="reservation_item">
+          <div class="reservation_item_left">
+            <%= h(item.title) %>
+          </div>
+          <div class="reservation_item_right">
+            <%= t(:item_amount) + ": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + get_amount_value(item, @conversation).to_s %>
+          </div>  
+        </div>
+      <% end %>
+    </div>
+    </div>        
+  </div>
+  <% if get_reservation_status(@conversation).eql?("awaiting_acceptance_from_you") %>
+  <div class="form_extra_padding">
+    <div class="reservation_items">
+      <div class="reservation_item">
+        <div class="reservation_item_right">
+          <% form_for @conversation, :url => person_inbox_path(@current_user, @conversation), :method => :put do |f| %>
+            <%= hidden_field_tag "conversation[message_attributes][content]", t(:borrow_request_accepted) %>
+            <%= hidden_field_tag "conversation[message_attributes][sender_id]", @current_user.id.to_s %>
+            <%= hidden_field_tag "conversation[status]", "accepted" %>
+            <%= submit_tag t(:accept_reservation_request), :onclick => "this.disabled=true,this.form.submit();" %>
+          <% end %>
+        </div>
+        <div class="reservation_item_right">
+          &nbsp;&nbsp;&nbsp;
+        </div>  
+        <div class="reservation_item_right">
+          <% form_for @conversation, :url => person_inbox_path(@current_user, @conversation), :method => :put do |f| %>
+            <%= hidden_field_tag "conversation[message_attributes][content]", t(:borrow_request_rejected) %>
+            <%= hidden_field_tag "conversation[message_attributes][sender_id]", @current_user.id.to_s %>
+            <%= hidden_field_tag "conversation[status]", "rejected" %>
+            <%= submit_tag t(:reject_reservation_request), :onclick => "this.disabled=true,this.form.submit();" %>
+            &nbsp;&nbsp;&nbsp;
+          <% end %>
+        </div>
+        <div class="reservation_item_right">    
+            <%= link_to t(:edit_reservation_details), edit_person_inbox_path(@current_user, @conversation) %>
+        </div>  
+      </div>
+    </div>
+  </div>  
+  <% end %>
+</fieldset>
+

@@ -1,7 +1,7 @@
 <div class="form_container">
   <% fields_for "conversation[message_attributes]", Message.new do |message_form| -%>
   <div class="form_header">
-    <%= Conversation.human_attribute_name("messages")  %>:
+    <%= t(message_content_label) %>:
   </div>
   <div class="form_field">
     <%= message_form.text_area :content, :class => "message", :value => params[:conversation] ? params[:conversation][:message_attributes][:content] : "" %>

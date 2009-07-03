@@ -164,8 +164,14 @@ class ItemsController < ApplicationController
   
   def borrow
     @person = Person.find(params[:person_id])
-    @item = Item.find(params[:id])
-    return unless must_not_be_current_user(@item.owner, :cant_borrow_from_self)
+    return unless must_not_be_current_user(@person, :cant_borrow_from_self)
+    @items = []
+    if params[:id]
+      @items << Item.find(params[:id])
+    else
+      @items = Item.find(params[:items], :order => "title")
+    end   
+    @conversation = Conversation.new
   end
   
   def thank_for

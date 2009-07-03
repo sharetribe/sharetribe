@@ -6,6 +6,9 @@ class Item < ActiveRecord::Base
   
   has_and_belongs_to_many :groups
   
+  has_many :item_reservations
+  has_many :reservations, :through => :item_reservations, :source => :reservation
+  
   acts_as_ferret :fields => {
     :title => {},
     :description => {}, 

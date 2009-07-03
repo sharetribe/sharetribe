@@ -1,0 +1,61 @@
+<fieldset>
+  <legend>
+    <%= t(:reservation_details) %>:
+  </legend>
+  <div class="form_extra_padding">
+    <div class="reservation_items_no_margin">
+      <div class="reservation_item">
+        <div class="reservation_item_left">
+          <%= t(:pick_up_time) %>:
+        </div>
+        <div class="reservation_item_right">
+          <%= datetime_select "conversation", "pick_up_time" %>
+        </div>  
+      </div>
+      <div class="reservation_item">
+        <div class="reservation_item_left">
+          <%= t(:return_time) %>:
+        </div>
+        <div class="reservation_item_right">
+          <%= datetime_select "conversation", "return_time" %>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <div class="form_extra_padding">
+    <div class="reservation_items">   
+    <h4><%= t(:items_to_be_borrowed) %></h4>
+    <div class="reservation_items">
+      <% prefix = @person_conversations ? "existing_" : "" %>
+      <% @items.each do |item| %>
+        <div class="reservation_item">
+          <div class="reservation_item_left">
+            <%= h(item.title) %>
+          </div>
+          <div class="reservation_item_right">
+            <% if item.amount > 1 %>
+              <%= t(:item_amount)%>: &nbsp;&nbsp;&nbsp;
+              <%= text_field_tag "conversation[#{prefix}reserved_items][#{item.id}]", get_amount_value(item, @conversation), :size => 3 %> 
+              &nbsp;(max: <%= item.amount.to_s %>)
+            <% else %>
+              <%= t(:item_amount) + ": &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + item.amount.to_s %>
+              <%= hidden_field_tag "conversation[#{prefix}reserved_items][#{item.id}]", 1 %> 
+            <% end %>
+          </div>  
+        </div>
+      <% end %>
+    </div>
+    </div>          
+  </div>
+  <% if @person_conversations %> 
+  <div class="form_extra_padding">
+    <div class="reservation_items">
+      <div class="reservation_item">
+        <div class="reservation_item_right">
+          <%= submit_tag t(:edit_reservation_request), :onclick => "this.disabled=true,this.form.submit();" %>
+        </div>  
+      </div>
+    </div>
+  </div>
+  <% end %>
+</fieldset>

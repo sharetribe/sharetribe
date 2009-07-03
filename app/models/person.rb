@@ -369,7 +369,7 @@ class Person < ActiveRecord::Base
   
   # Returns a query that gets the selected attributes for contacts
   def contact_query(select)
-    "SELECT #{select} 
+    "SELECT DISTINCT #{select} 
     FROM 
       people, kassi_events_people 
     WHERE

@@ -65,7 +65,12 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :people, 
                 :member => { :home => :get, :cancel_edit => :get }, 
                 :collection => { :search => :get } do |person|
-    person.resources :inbox, :controller => :conversations, :collection => { :sent => :get }
+    person.resources :inbox, :controller => :conversations,
+                             :collection => { 
+                               :sent => :get,
+                               :received_borrow_requests => :get,
+                               :sent_borrow_requests => :get   
+                              }
     person.resources :items, :member => { 
                                           :thank_for => :get,
                                           :mark_as_borrowed => :post,
@@ -76,7 +81,8 @@ ActionController::Routing::Routes.draw do |map|
                                           :borrow => :get
                                         },
                              :collection => { 
-                                              :cancel_create => :get
+                                              :cancel_create => :get,
+                                              :borrow => :get
                                             }
     person.resources :favors, :member => {
                                            :thank_for => :get,
