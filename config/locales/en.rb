@@ -195,6 +195,8 @@
 :listing_updated => "Listing edited",
 :no_listings => "No listings",
 :comment_listing => "Comment listing",
+:you_have_to_log_in_to_comment_listing => "You have to log in to comment a listing",
+:log_in_here => "Log in here",
 :until_begin => "Until",
 :until_end => "",
 :own_listing => "Own listing",

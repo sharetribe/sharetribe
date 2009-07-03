@@ -35,12 +35,13 @@ class PeopleController < ApplicationController
   
   # Shows profile page of a person.
   def show
+    @event_id = "show_profile_page_#{random_UUID}"
     @person = Person.find(params[:id])
     @items = @person.available_items(get_visibility_conditions("item"))
     @item = Item.new
     @favors = @person.available_favors(get_visibility_conditions("item"))
     @favor = Favor.new
-    @groups = @person.groups(session[:cookie])
+    @groups = @person.groups(session[:cookie], @event_id)
     if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
       save_navi_state(['own', 'profile', '', '', 'information'])
     else
