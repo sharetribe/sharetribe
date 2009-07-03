@@ -69,7 +69,17 @@
   <div class="profile_info">
     <div id="profile_items">
       <% if @items.size > 0 %>
-        <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+        <% if is_current_user?(@person) %>
+          <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+        <% else %>  
+          <% form_tag(borrow_person_items_path(@person, :receiver => @person.id, :return_to => request.request_uri), :method => "get") do %>
+            <%= hidden_field_tag :receiver, @person.id.to_s %>
+            <%= hidden_field_tag :return_to, request.request_uri %>
+            <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
+            <br />
+            <%= submit_tag t(:borrow_selected) %>
+          <% end %>
+        <% end %>    
       <% else %>
         <div class="profile_info_field"><%= t(:no_items)%></div>
       <% end %>

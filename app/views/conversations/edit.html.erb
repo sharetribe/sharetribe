@@ -1,0 +1,16 @@
+<%= render :partial => "inbox_header" %>
+
+<% form_for @conversation, :url => person_inbox_path(@current_user, @conversation), :method => :put do |f| %>
+  <% if @conversation.errors.size > 0 %>
+    <br />
+    <%= f.error_messages %>
+  <% end %>
+  <%= hidden_field_tag "conversation[message_attributes][content]", t(:borrow_request_edited) %>
+  <%= hidden_field_tag "conversation[message_attributes][sender_id]", @current_user.id.to_s %>
+  <% if @conversation.status.eql?("pending_owner")  %>
+    <%= hidden_field_tag "conversation[status]", "pending_reserver" %>
+  <% else %>
+    <%= hidden_field_tag "conversation[status]", "pending_owner" %>
+  <% end %>  
+  <%= render :partial => "reservations/edit_reservation_details" %>
+<% end %>

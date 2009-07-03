@@ -52,12 +52,8 @@ module ApplicationHelper
     case navi_type
     when 'own'
       navi_items[:home] = home_person_path(@current_user)
-      navi_items[:inbox] = person_inbox_index_path(@current_user)
       navi_items[:profile] = person_path(@current_user)
-      navi_items[:friends] = person_friends_path(@current_user)
-      navi_items[:contacts] = person_contacts_path(@current_user)
-      navi_items[:kassi_events] = person_kassi_events_path(@current_user)
-      navi_items[:own_listings] = person_listings_path(@current_user)
+      navi_items[:inbox] = person_inbox_index_path(@current_user)
       navi_items[:requests] = person_requests_path(@current_user)
       navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)
       navi_items[:settings] = person_settings_path(@current_user)

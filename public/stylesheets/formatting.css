@@ -201,3 +201,13 @@ textarea.message {
 	width: 660px;
 	height: 200px;
 }
+
+table.reservation_details {
+	border-spacing: 15px 5px;
+}
+
+span.green_text {
+	font-weight: bold;
+	font-size: 14px;
+	color: #257107;
+}

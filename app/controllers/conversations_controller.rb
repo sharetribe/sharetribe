@@ -30,15 +30,39 @@ class ConversationsController < ApplicationController
   
   # Create a new conversation and send a message to it
   def create
-    @conversation = Conversation.new(params[:conversation])
+    if params[:conversation][:type]
+      @conversation = Reservation.new(params[:conversation])
+    else
+      logger.info params[:conversation].inspect  
+      @conversation = Conversation.new(params[:conversation])
+    end  
     if @conversation.save
       @conversation.send_email_to_participants(request)
       flash[:notice] = :message_sent
       redirect_to params[:return_to]
     else
       get_target_object_and_validate
-      render :action => :new
+      if params[:conversation][:type]
+        @items = Item.find(params[:conversation][:reserved_items].keys, :order => "title")
+        @person = Person.find(params[:receiver])
+        render :template => "items/borrow"
+      else
+        render :action => :new
+      end  
     end  
+  end
+  
+  # Displays edit form. Used only with reservations.
+  def edit
+    @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    @conversation = Conversation.find(params[:id])
+    unless @conversation.is_allowed_to_edit?(@current_user)
+      redirect_to person_inbox_path(@current_user, @conversation) and return
+    end
+    session[:links_panel_navi] = "received" unless ["received", "sent"].include?(session[:links_panel_navi])
+    @person_conversations = fetch_conversations(session[:links_panel_navi], :all)  
+    @items = @conversation.items
   end
   
   # Send a message to an existing conversation
@@ -46,11 +70,25 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     if @conversation.update_attributes(params[:conversation])
       @conversation.send_email_to_participants(request)
-      flash[:notice] = :message_sent
+      if @conversation.type.eql?("Reservation")
+        if ["accepted", "rejected"].include?(params[:conversation][:status])
+          flash[:notice] = "borrow_request_" + params[:conversation][:status]
+        else  
+          flash[:notice] = :borrow_request_edited
+        end
+      else
+        flash[:notice] = :message_sent
+      end  
+      redirect_to person_inbox_path(@current_user, @conversation)
     else
-      flash[:error] = :message_could_not_be_sent
+      if @conversation.type.eql?("Reservation") && params[:conversation][:status]
+        flash[:error] = @conversation.errors.full_messages.first
+        redirect_to edit_person_inbox_path(@current_user, @conversation)
+      else  
+        flash[:error] = :message_could_not_be_sent
+        redirect_to person_inbox_path(@current_user, @conversation)
+      end  
     end
-    redirect_to person_inbox_path(@current_user, @conversation)
   end  
 
   # Shows one conversation 
@@ -71,11 +109,11 @@ class ConversationsController < ApplicationController
     @next_conversation = (index == 0) ? @conversation : @person_conversations[index - 1].conversation
     @listing = @conversation.listing if @conversation.listing
   end
-
+  
   private
   
   # Sets target object and title based on parameters given. Also validate that
-  # the user is not sending a message to self.
+  # the user is not sending a message to him/herself.
   def get_target_object_and_validate
     is_valid = true
     case params[:target_object_type]
