@@ -1,3 +1,5 @@
+require 'rest_client'
+
 class SessionsController < ApplicationController
   def create
     begin
@@ -48,5 +50,15 @@ class SessionsController < ApplicationController
     # there is no navi. Should store the navi state or do something else...
     # clear_navi_state
     @session =  Session.new
+  end
+  
+  def forgot_password
+    begin
+      RestClient.post("#{COS_URL}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassiCookie})
+      flash[:notice] = :password_recovery_sent
+    rescue RestClient::ResourceNotFound => e 
+      flash[:error] = :email_not_found
+    end
+    redirect_to new_session_path
   end
 end

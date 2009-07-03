@@ -4,6 +4,9 @@
 
 <%= error_messages_for :session %>
 
+
+<!-- The login form-->
+
 <% form_tag(:action => "create") do -%>
 
 <div class="form_container">
@@ -22,6 +25,7 @@
     <%= password_field_tag :password %>
   </div>
 </div>
+
 <div class="form_container">  
   <div class="form_right">
     <%= submit_tag t(:login) %>   
@@ -29,6 +33,21 @@
 </div>
 
 <% end -%>
+
+<!-- Forgot your password?-link -->
+
+
+<div class="form_container">  
+  <div class="form_right">
+     <%= link_to_function t(:forgot_password), "new Effect.toggle('forgot_password', 'blind')" %>
+
+  </div>
+</div>
+<div id="forgot_password"  style="display:none;">
+  <%= render :partial => "forgot_password"%>
+</div>
+
+
 
 </div>
 

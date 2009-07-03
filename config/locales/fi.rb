@@ -44,6 +44,11 @@
 :registration_failed => "Rekisteröityminen epäonnistui seuraavien virheiden takia",
 :not_yet_otasizzle_account => "Eikö sinulla ole vielä OtaSizzle-tunnusta?",
 :register_new_account => "Rekisteröi uusi tunnus tästä.",
+:forgot_password => "Salasana unohtunt?",
+:password_recovery_instructions => "Anna sähköpostiosoitteesi, jota käytät OtaSizzle-profiilissasi, niin saat ohjeet salasanan vaihtamisesta.",
+:send => "Lähetä",
+:password_recovery_sent => "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi.",
+:email_not_found => "Sähköpostiosoitetta ei löytynyt",
 
 #Concent
 :accept => "Hyväksyn",

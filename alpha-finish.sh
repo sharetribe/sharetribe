@@ -40,9 +40,8 @@ echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
 # Install required gems if needed (currently not allowed to sudo this)
 #sudo rake gems:install
 
-# COMMENTED TESTS OUT FOR NOW BECAUSE OF SOME LOOPING BUG
-#rake db:migrate
-#rake test
+rake db:migrate
+rake test
 rake db:migrate RAILS_ENV=production
 #script/server -d -e production -p 8000
 mongrel_rails cluster::start

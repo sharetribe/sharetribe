@@ -44,6 +44,11 @@
 :registration_failed => "Registration failed due to following errors",
 :not_yet_otasizzle_account => "No OtaSizzle account yet?",
 :register_new_account => "Register a new account.",
+:forgot_password => "Forgot password?",
+:password_recovery_instructions => "Give the email address that you have in your profile and you'll get instructions to reset your password.",
+:send => "Send",
+:password_recovery_sent => "Instructions to change your password are sent to your email.",
+:email_not_found => "Email was not found",
 
 #Concent
 :accept => "Accept",
