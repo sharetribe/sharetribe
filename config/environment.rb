@@ -43,6 +43,7 @@ Rails::Initializer.run do |config|
   config.gem "ruby-prof"
   config.gem "rubycas-client"
   config.gem "nntp"
+  config.gem "uuidtools"
   
   #These below are needed too, but their existence is not detected correctly so commented out.
   #config.gem "rest-client"

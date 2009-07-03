@@ -148,8 +148,10 @@ class Person < ActiveRecord::Base
       parent.cache_delete(friend_id,cookie)
     end
     
-    def self.get_groups(id, cookie)
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@groups", {:cookies => cookie}))
+    def self.get_groups(id, cookie, event_id=nil)
+      request_url = "#{COS_URL}/#{element_name}/#{id}/@groups"
+      request_url += "?event_id=#{event_id}" if event_id
+      JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
     end
     
@@ -435,8 +437,8 @@ class Person < ActiveRecord::Base
   # Returns all the groups that this user is a member in 
   # as an array of Group objects
   # if some of the groups are not already in kassi database, add them
-  def groups(cookie)
-    group_ids = get_group_ids(cookie)
+  def groups(cookie, event_id=nil)
+    group_ids = get_group_ids(cookie, event_id)
     begin
       return Group.find(group_ids)
     rescue ActiveRecord::RecordNotFound
@@ -446,15 +448,15 @@ class Person < ActiveRecord::Base
   end
   
   # Returns ids of OtaSizzle groups of this person
-  def get_group_ids(cookie)
-    Group.get_group_ids(get_groups(cookie))
+  def get_group_ids(cookie, event_id=nil)
+    Group.get_group_ids(get_groups(cookie, event_id))
   end
   
   # Returns a hash from COS containing groups of this person
-  def get_groups(cookie)
+  def get_groups(cookie, event_id=nil)
     
     begin
-      group_hash = PersonConnection.get_groups(self.id, cookie)
+      group_hash = PersonConnection.get_groups(self.id, cookie, event_id)
     rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil

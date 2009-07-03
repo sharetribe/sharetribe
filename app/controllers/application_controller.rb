@@ -1,6 +1,8 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
 
+require 'uuidtools'
+
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include Smerf
@@ -217,6 +219,10 @@ class ApplicationController < ActionController::Base
       return false
     end
     return true
+  end
+  
+  def random_UUID
+    UUIDTools::UUID.timestamp_create().to_s
   end
   
 end
