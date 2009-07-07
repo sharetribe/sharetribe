@@ -283,7 +283,9 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :borrow_request_accepted => "Lainauspyyntö hyväksytty",
 :borrow_request_rejected => "Lainauspyyntö hylätty",
 :edit_reservation_request => "Ehdota muutoksia",
-:borrow_request_edited => "Lainapyyntöä muokattu",    
+:borrow_request_edited => "Lainapyyntöä muokattu",
+:hi_i_would_like_to_borrow_these_items => "Hei! Voisitko lainata minulle yllä mainitut tavarat?",
+:view_other_items_from_this_user => "Näytä tämän käyttäjän muut tavarat",     
 
 #Favors view
 :search_favors_title => "Etsi palveluksia",

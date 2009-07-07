@@ -280,7 +280,9 @@
 :borrow_request_accepted => "Borrow request accepted",
 :borrow_request_rejected => "Borrow request rejected",
 :edit_reservation_request => "Suggest changes",
-:borrow_request_edited => "Borrow_request_edited",  
+:borrow_request_edited => "Borrow_request_edited",
+:hi_i_would_like_to_borrow_these_items => "Hi! Could you please lend me the items mentioned above?",
+:view_other_items_from_this_user => "View other items from this user",  
 
 #Favors view
 :search_favors_title => "Search favors",
