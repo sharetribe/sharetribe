@@ -61,12 +61,14 @@ module ConversationsHelper
     reservation.items.first.owner
   end
   
-  def get_amount_value(item, reservation)
+  def get_amount_value(item, conversation)
     amount = nil
-    reservation.item_reservations.each do |item_reservation|
-      if item_reservation.item.id == item.id
-        amount = item_reservation.amount
-      end  
+    if conversation.type.eql?("Reservation")
+      conversation.item_reservations.each do |item_reservation|
+        if item_reservation.item.id == item.id
+          amount = item_reservation.amount
+        end  
+      end
     end
     if amount
       amount
