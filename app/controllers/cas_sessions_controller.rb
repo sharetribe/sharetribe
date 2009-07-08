@@ -8,20 +8,18 @@ class CasSessionsController < ApplicationController
   def create
 
     service_uri = COS_URL
-    # 4 lines commented out, until PT is used
-    # proxy_granting_ticket = session[:cas_pgt]
-    #     logger.info proxy_granting_ticket
-    #     pt_ticket = CASClient::Frameworks::Rails::Filter.client.request_proxy_ticket(proxy_granting_ticket, service_uri).ticket
-    #     logger.info pt_ticket
+    #logger.info "SESSION INCLUDES: " + session.inspect
+    proxy_granting_ticket = session[:cas_pgt]
+    #logger.info "PGT: " + proxy_granting_ticket.inspect
+    pt_ticket = CASClient::Frameworks::Rails::Filter.client.request_proxy_ticket(proxy_granting_ticket, service_uri).ticket
+    #logger.info "PT_TICKET: " + pt_ticket.inspect
 
 #    @session = Session.create({ :username => params[:username], 
 #                               :password => params[:password] })
     @session = CasSession.create({ :username => session[:cas_user],
-                                :password => "pt_ticket" })     # should be pt_ticket without ""
+                                :password => pt_ticket })
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
-
-#    debugger 
 
     if session[:person_id]  # if not app-only-session and person found in cos
       unless  @current_user = Person.find_by_id(session[:person_id])

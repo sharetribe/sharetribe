@@ -53,7 +53,6 @@ class CasSession < ActiveResource::Base
     params = {}
     params[:username] = @username if @username
     params[:pt] = @password if @password
-    puts @password
     params.update({:app_name => @@app_name, :app_password => @@app_password})
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s

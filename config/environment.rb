@@ -19,10 +19,10 @@ cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
 cas_logger.level = Logger::DEBUG
 
 CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "http://alpha.sizl.org:8180/cas",
-    :logger => cas_logger
- #   :proxy_retrieval_url => "https://kassi:3444/cas_proxy_callback/retrieve_pgt",
- #   :proxy_callback_url => "https://kassi:3444/cas_proxy_callback/receive_pgt"
+    :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
+    :logger => cas_logger,
+    :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
+    :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt"
 )
 
 Rails::Initializer.run do |config|
@@ -92,27 +92,24 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-   
-   #environment variables
-   PURSE_LIMIT = -10
-   
-   #COS_URL is different in production env
-   
-   #COS_URL = "http://maps.cs.hut.fi/cos"
-   #COS_URL = "http://localhost:3001"
-   COS_URL = "http://cos.alpha.sizl.org"
-   
-   COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
+  
+  #environment variables
+  PURSE_LIMIT = -10
+  
+  #COS_URL is different in production env
+  
+  #COS_URL = "http://maps.cs.hut.fi/cos"
+  COS_URL = "http://localhost:3001"
+  #COS_URL = "http://cos.alpha.sizl.org"
+  
+  COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
   #For example there will be no confirmation when adding profile avatar picture
 
-   COS_TIMEOUT = 15
-   BETA_VERSION = "local"
-   BUILT_AT = Time.now
+  COS_TIMEOUT = 15
+  BETA_VERSION = "local"
+  BUILT_AT = Time.now
    
-   KASSI_MAIL_FROM_ADDRESS = "kassi@sizl.org"
-   PRODUCTION_SERVER = "local"
-   
+  KASSI_MAIL_FROM_ADDRESS = "kassi@sizl.org"
+  PRODUCTION_SERVER = "local"
 
 end
-
-
