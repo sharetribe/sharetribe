@@ -92,7 +92,7 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
-  
+
   #environment variables
   PURSE_LIMIT = -10
   
@@ -100,9 +100,10 @@ Rails::Initializer.run do |config|
   
   #COS_URL = "http://maps.cs.hut.fi/cos"
   #COS_URL = "http://localhost:3001"
-  COS_URL = "https://cos.alpha.sizl.org"
+  COS_URL = "http://cos.alpha.sizl.org"
   
   COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
+
   #For example there will be no confirmation when adding profile avatar picture
 
   COS_TIMEOUT = 15
