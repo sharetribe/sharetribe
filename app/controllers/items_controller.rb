@@ -187,7 +187,7 @@ class ItemsController < ApplicationController
     return unless must_not_be_current_user(@item.owner, :cant_thank_self_for_item)
     create_kassi_event
     flash[:notice] = :thanks_for_item_sent
-    @person = Person.find(params[:person_id])    
+    @person = Person.find(params[:person_id])
     redirect_to @person
   end
   

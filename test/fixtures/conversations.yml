@@ -9,3 +9,11 @@ two:
   id: 2
   title: MyString
   listing_id: 1
+
+three:
+  id: 3
+  title: Reservation
+  type: "Reservation"
+  pick_up_time: <%= DateTime.now %>
+  return_time: <%= DateTime.now + 2.hours %>
+  status: pending_reserver
