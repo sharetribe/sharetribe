@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  item_id: 1
-  reservation_id: 1
+  item: two
+  reservation_id: 3
   amount: 1
 
 two:
-  item_id: 1
-  reservation_id: 1
-  amount: 1
+  item: difficult
+  reservation_id: 3
+  amount: 2

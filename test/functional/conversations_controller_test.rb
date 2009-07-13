@@ -7,7 +7,7 @@ class ConversationsControllerTest < ActionController::TestCase
     @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
   end
   
-  def show_inbox
+  def test_show_inbox
     submit_with_person :index, {
       :person_id => people(:one).id
     }, nil, nil, :get
@@ -17,27 +17,43 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal 0, assigns(:person_conversations).size
   end
   
-  def show_sent_mail
-    submit_with_person :index, {
+  def test_show_sent_mail
+    submit_with_person :sent, {
       :person_id => people(:one).id
     }, nil, nil, :get
     assert_response :success
     assert_template 'sent'
     assert_not_nil assigns(:person_conversations)
-    assert_equal assigns(:person_conversations).first, conversations(:one)
+    assert_equal 0, assigns(:person_conversations).size
   end
   
-  def show_conversation
-    submit_with_person :show, {
-      :person_id => people(:one).id,
-      :id => conversations(:one).id
-    }, nil, nil, :get
-    assert_response :success
-    assert_template 'show'
-    assert_not_nil assigns(:conversation)
-    assert_not_nil assigns(:message)
-    assert_equal assings(:listing), listings(:valid_listing)
-  end
+  # Doesn't work: session variable is not handled properly
+  # def test_show_conversation
+  #   puts conversations(:one).person_conversations.inspect
+  #   submit_with_person :show, {
+  #     :person_id => people(:one).id,
+  #     :id => conversations(:one).id
+  #   }, nil, nil, :get
+  #   assert_response :success
+  #   assert_template 'show'
+  #   assert_not_nil assigns(:conversation)
+  #   assert_not_nil assigns(:message)
+  #   assert_equal assings(:listing), listings(:valid_listing)
+  # end
+  
+  # Doesn't work: session variable is not handled properly
+  # def test_edit_conversation
+  #   puts conversations(:one).person_conversations.inspect
+  #   submit_with_person :edit, {
+  #     :person_id => people(:one).id,
+  #     :id => conversations(:one).id
+  #   }, nil, nil, :get
+  #   assert_response :success
+  #   assert_template 'show'
+  #   assert_not_nil assigns(:conversation)
+  #   assert_not_nil assigns(:message)
+  #   assert_equal assings(:listing), listings(:valid_listing)
+  # end
   
   def test_show_new_free_message_form
     submit_with_person :new, {
@@ -120,6 +136,23 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_redirected_to return_path
   end
   
+  def test_post_to_existing_conversation
+    submit_with_person :update, { 
+      :conversation => {
+        :message_attributes => { :content => "testing", :sender_id => people(:one).id }
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:one).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :message_sent
+    conversation = assigns(:conversation)
+    assert_equal 3, conversation.messages.size
+    assert_equal "testing", conversation.last_message.content
+    assert_equal conversation.last_message.sender, people(:one)
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
   def test_create_invalid_conversation
     return_path = people_path
     submit_with_person :create, { 
@@ -135,5 +168,121 @@ class ConversationsControllerTest < ActionController::TestCase
     assert assigns(:conversation).errors.on(:messages)
     assert_template "new"
   end
+  
+  def test_create_new_reservation
+    return_path = people_path
+    submit_with_person :create, {
+      :conversation => {
+        :conversation_participants => [people(:one).id, people(:two).id],
+        :title => "Reservation",
+        :message_attributes => { :content => "I want to reserve these", :sender_id => people(:one).id },
+        :reserved_items => get_reserved_items(2),
+        :type => "Reservation",
+        :pick_up_time => DateTime.now,
+        :return_time => DateTime.now + 2.hours,
+        :status => "pending_owner",  
+      },
+      :receiver => people(:two).id,
+      :return_to => return_path,
+      :person_id => people(:one).id
+    }, :conversation, nil
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :message_sent
+    conversation = assigns(:conversation)
+    assert ! conversation.new_record?
+    assert ! conversation.last_message.new_record?
+    assert_equal conversation.last_message.sender, people(:one)
+    assert_equal conversation.title, "Reservation"
+    assert_equal conversation.type, "Reservation"
+    assert_equal conversation.participants, [ people(:two), people(:one) ]
+    assert_equal conversation.items, people(:two).items
+    assert_equal 2, conversation.item_reservations.first.amount
+    assert_redirected_to return_path
+  end
+  
+  def test_create_invalid_reservation
+    return_path = people_path
+    submit_with_person :create, {
+      :conversation => {
+        :conversation_participants => [people(:one).id, people(:two).id],
+        :message_attributes => { :sender_id => people(:one).id },
+        :title => "Reservation",
+        :reserved_items => get_reserved_items(5),
+        :type => "Reservation",
+        :pick_up_time => DateTime.now + 2.hours,
+        :return_time => DateTime.now,
+        :status => "pending_owner",  
+      },
+      :receiver => people(:two).id,
+      :return_to => return_path,
+      :person_id => people(:one).id
+    }, :conversation, nil
+    assert_response :success, @response.body
+    assert assigns(:conversation).errors.on(:messages)
+    assert assigns(:conversation).errors.on(:return_time)
+    assert_equal 0, assigns(:conversation).items.size
+    assert_template "borrow"
+  end
+  
+  
+  
+  def test_change_reservation
+    submit_with_person :update, { 
+      :conversation => {
+        :reserved_items => get_reserved_items(1),
+        :pick_up_time => DateTime.now + 5.hours,
+        :return_time => DateTime.now + 6.hours,
+        :status => "pending_owner", 
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:three).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :borrow_request_edited
+    conversation = assigns(:conversation)
+    assert_equal "pending_owner", conversation.status
+    assert_equal 1, conversation.item_reservations.first.amount
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
+  def test_accept_reservation
+    submit_with_person :update, { 
+      :conversation => {
+        :status => "accepted", 
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:three).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], "borrow_request_accepted"
+    conversation = assigns(:conversation)
+    assert_equal "accepted", conversation.status
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
+  def test_reject_reservation
+    submit_with_person :update, { 
+      :conversation => {
+        :status => "rejected", 
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:three).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], "borrow_request_rejected"
+    conversation = assigns(:conversation)
+    assert_equal "rejected", conversation.status
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
+  private
+  
+  def get_reserved_items(amount)
+    reserved_items = {}
+    people(:two).items.each do |item|
+      reserved_items[item.id.to_s] = amount
+    end
+    return reserved_items
+  end  
   
 end

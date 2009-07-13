@@ -75,6 +75,46 @@ class ItemsControllerTest < ActionController::TestCase
     assert_equal "muutettu_vasara", assigns(:item).title
   end
   
+  def test_show_borrow_view
+    submit_with_person :borrow, { 
+      :person_id => people(:two),
+      :id => items(:two).id,
+      :receiver => people(:two).id,
+      :return_to => items_path
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'borrow'
+    assert_not_nil assigns(:conversation)
+    assert_equal people(:two), assigns(:person)
+    assert_equal 1, assigns(:items).size
+  end
+  
+  def test_show_borrow_view_multiple_items
+    submit_with_person :borrow, { 
+      :person_id => people(:two),
+      :items => people(:two).items,
+      :receiver => people(:two).id,
+      :return_to => items_path
+    }, nil, nil, :get
+    assert_response :success
+    assert_template 'borrow'
+    assert_not_nil assigns(:conversation)
+    assert_equal people(:two), assigns(:person)
+    assert_equal 2, assigns(:items).size
+  end
+  
+  # def test_show_borrow_view_with_multiple_items
+  #   submit_with_person :borrow, { 
+  #     :person_id => people(:one),
+  #     :id => items(:two).id
+  #   }, nil, nil, :get
+  #   assert_response :success
+  #   assert_template 'thank_for'  
+  #   assert_not_nil assigns(:item)
+  #   assert_not_nil assigns(:person)
+  #   assert_not_nil assigns(:kassi_event)
+  # end
+  
   def test_thank_for
     submit_with_person :thank_for, { 
       :person_id => people(:one),
