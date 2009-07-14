@@ -117,11 +117,11 @@
 :sell => "Sell",
 :buy => "Buy",
 :give => "Give",
-:borrow_items => "Borrow items",
+:borrow_items => "Items to borrow",
 :lost_property => "Lost property",
 :lost => "Lost",
 :found => "Found",
-:rides => "Rides",
+:rides => "Car pools",
 :groups => "Group activities",
 :others => "Others",
 
