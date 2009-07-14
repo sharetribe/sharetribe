@@ -20,6 +20,9 @@
   
   <% if is_current_user?(@person) %>
     <div class="profile_left_link">
+      <%= link_to_remote t(:edit_profile_information), :url => edit_person_path(@person), :method => :get %>
+    </div>
+    <div class="profile_left_link">
       <%= link_to t(:edit_profile_picture), edit_person_avatar_path(@person) %>
     </div>
   <% else %>
@@ -35,9 +38,12 @@
         <%= render :partial => "people/friend_status_link", :locals => { :person => @person } %>
       </span>
     </div>
-    <br />
   <% end %>
-
+  <div class="profile_left_link">
+    <p>
+      <i><%= t(:joined_kassi) + " " + @person.created_at.to_formatted_s(:basic_date_format_minutes) %></i>
+    </p>
+  </div>
 </div>  
 
 <div id="profile_right">  

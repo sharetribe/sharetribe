@@ -100,7 +100,8 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_search_listings
-    search("tsikko", 0, true)
+    search("", 0, false)
+    search("tsikko", 1, true)
     search("*", 2, true)
     search("*", 3, false)
     search("otsikko", 1, true)

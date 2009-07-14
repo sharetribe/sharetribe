@@ -3,7 +3,7 @@ class SearchesController < ApplicationController
   def show
     save_navi_state(['', '', '', ''])
     if params[:qa]
-      query = params[:qa]
+      query = (params[:qa].length > 0) ? "*" + params[:qa] + "*" : ""
       begin
         sl = Ferret::Search::SortField.new(:id_sort, :reverse => true)
         conditions = ["status = 'open' AND good_thru >= ?" + get_visibility_conditions("listing"), Date.today.to_s]

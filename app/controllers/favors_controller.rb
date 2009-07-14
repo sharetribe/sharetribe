@@ -153,13 +153,21 @@ class FavorsController < ApplicationController
   def search
     save_navi_state(['favors', 'search_favors'])
     if params[:q]
-      query = params[:q]
+      query = (params[:q].length > 0) ? "*" + params[:q] + "*" : ""
       begin
         s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
         favors = Favor.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("favor")})
         @favors = favors.paginate :page => params[:page], :per_page => per_page
       end
     end
+  end
+  
+  # Search used for auto completion
+  def search_by_title
+    @favors = Favor.find(:all, 
+                         :conditions => ["title LIKE ?", "%#{params[:search]}%"], 
+                         :select => "DISTINCT title",
+                         :order => 'title ASC')
   end
   
   def thank_for

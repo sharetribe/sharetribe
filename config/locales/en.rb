@@ -337,6 +337,7 @@
 :person_updated_successfully => "Update successful",
 :add_as_friend => "Add as friend",
 :edit_profile_picture => "Edit profile picture",
+:edit_profile_information => "Edit profile information", 
 
 #Avatar upload
 :upload_avatar => "Edit avatar image",
@@ -459,6 +460,7 @@
 :no_unread_messages => "no unread messages",
 :no_messages => "No messages",
 :cant_send_message_to_self => "You can't send a message to yourself",
+:message_content => "Message content",
 
 #Kassi events view
 :kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: thank each other for items or services or mark each other as listing realizers.",
@@ -477,14 +479,14 @@
 :favor_realizer => "Favor realizer",
 :no_kassi_events => "No Kassi-events",
 :kassi_events_partitive => "kassi-events",
-:thank_for_item => "Send message",
+:thank_for_item => "Send thanks",
 :thank_for_borrowing => "",
 :thank_for_borrowing_item => "Thank for borrowing item",
-:thanks_for_item_sent => "Message sent",
-:thank_for_favor => "Send message",
+:thanks_for_item_sent => "Thanks sent",
+:thank_for_favor => "Send thanks",
 :thank_for_doing => "",
 :thank_for_doing_favor => "Thank for doing favor",
-:thanks_for_favor_sent => "Message sent",
+:thanks_for_favor_sent => "Thanks sent",
 :show_kassi_events_on_page => "Show Kassi-events on page",
 :comment_for_lender => "Comment for lender",
 :comment_for_favor_realizer => "Comment for realizer",

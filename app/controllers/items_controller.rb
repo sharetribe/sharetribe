@@ -149,17 +149,25 @@ class ItemsController < ApplicationController
     return unless must_be_current_user(@person)
     @item = Item.find(params[:id])
     @item.enable
-    flash[:notice] = [:cancelled_deletion_of_item, h(@item.title)]
+    flash[:notice] = [:cancelled_deletion_of_item, @item.title]
     redirect_to @person
   end
   
   def search
     save_navi_state(['items', 'search_items'])
     if params[:q]
-      query = params[:q]
+      query = (params[:q].length > 0) ? "*" + params[:q] + "*" : ""
       items = search_items(query)
       @items = items.paginate :page => params[:page], :per_page => per_page
     end
+  end
+  
+  # Search used for auto completion
+  def search_by_title
+    @items = Item.find(:all, 
+                       :conditions => ["title LIKE ?", "%#{params[:search]}%"], 
+                       :select => "DISTINCT title",
+                       :order => 'title ASC')
   end
   
   def borrow

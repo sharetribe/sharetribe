@@ -48,7 +48,7 @@ class ListingsController < ApplicationController
           conditions = ["category = ?" + get_visibility_conditions("listing"), params[:category][:category]]
         end    
       end
-      query = params[:q]
+      query = (params[:q].length > 0) ? "*" + params[:q] + "*" : ""
       begin
         s = Ferret::Search::SortField.new(:id_sort, :reverse => true)
         listings = Listing.find_by_contents(query, {:sort => s}, {:conditions => conditions})
