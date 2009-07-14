@@ -11,7 +11,9 @@
         <%= t(:item_lender) %>: 
       </div>
       <div class="form_right">
-        <%= @person.name(session[:cookie]) %>
+        <div class="small_padding">
+          <%= @person.name(session[:cookie]) %>
+        </div>  
       </div>
     </div>
     <div class="form_container">

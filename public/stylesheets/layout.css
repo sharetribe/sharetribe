@@ -22,6 +22,10 @@ div.small_margin {
 	margin-left: 5px;
 }
 
+div.small_padding {
+	padding: 3px;
+}
+
 div.left_float {
 	float: left;
 }
@@ -783,6 +787,13 @@ div.category a span {
 div.profile_left_link a {
 	border-bottom: 1px dashed #000;
 	padding: 7px;
+	display: block;
+}
+
+div.profile_left_link p {
+	border-bottom: 1px dashed #000;
+	padding: 7px;
+	margin: 0px;
 	display: block;
 }
 
