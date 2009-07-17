@@ -178,8 +178,8 @@ class ConversationsControllerTest < ActionController::TestCase
         :message_attributes => { :content => "I want to reserve these", :sender_id => people(:one).id },
         :reserved_items => get_reserved_items(2),
         :type => "Reservation",
-        :pick_up_time => DateTime.now,
-        :return_time => DateTime.now + 2.hours,
+        :pick_up_time => Time.now,
+        :return_time => Time.now + 2.hours,
         :status => "pending_owner",  
       },
       :receiver => people(:two).id,
@@ -223,8 +223,6 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal 0, assigns(:conversation).items.size
     assert_template "borrow"
   end
-  
-  
   
   def test_change_reservation
     submit_with_person :update, { 

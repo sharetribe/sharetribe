@@ -41,7 +41,7 @@
 <% if @conversation.type.eql?("Reservation") %>
   <%= render :partial => "reservations/reservation_details" %>
   <br />
-  <div class="solid_line"></div>
+  <h4><%= t(:discussion_of_borrow_request) %></h4>
 <% end %>
 
 <%= render :partial => "messages/message", 
@@ -49,7 +49,9 @@
            :spacer_template => "layouts/dashed_line" %>
 
 <div class="solid_line"></div> <br />
-  
+
+<% unless @conversation.type.eql?("Reservation") %>  
 <div id="send_message_to_existing_conversation">
   <%= render :partial => "reply_form" %>
 </div>  
+<% end %>

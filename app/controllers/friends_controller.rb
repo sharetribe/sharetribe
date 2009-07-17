@@ -5,7 +5,7 @@ class FriendsController < ApplicationController
   def index
     @person = Person.find(params[:person_id])
     session[:links_panel_navi] = 'friends'
-    save_navi_state(['own', 'friends']) if current_user?(@person)
+    save_navi_state(['own', 'profile']) if current_user?(@person)
     @friend_view = true
     # @friends = get_friends(@person)
     @friends = @person.friends(session[:cookie]).paginate :page => params[:page], :per_page => per_page

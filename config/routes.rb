@@ -109,7 +109,9 @@ ActionController::Routing::Routes.draw do |map|
     person.resources :groups, :member => { :join => :post, :leave => :delete }              
   end
   map.resources :favors, :collection => { :search => :get, :search_by_title => :get }, :member => { :hide => :get }  
-  map.resources :items, :collection => { :search => :get, :search_by_title => :get }, :member => { :hide => :get, :map => :get, :show_on_map => :get }
+  map.resources :items, 
+                :collection => { :search => :get, :search_by_title => :get }, 
+                :member => { :hide => :get, :map => :get, :show_on_map => :get, :check_availability => :get }
   map.resource :search
   map.resources :transactions
   map.resource :consent, :collection => { :register => :get, :accept => :post, :accept_and_register => :post }

@@ -4,7 +4,10 @@
   <h1><%= t(:borrow) + " " + h(@items.first.title).downcase + " " + t(:from_user) + " " + @person.name %></h1>
 <% end %>
 
-<p><%= link_to t(:view_other_items_from_this_user), person_path(@person) + "#items" %>
+<p>
+  <%= link_to t(:view_other_items_from_this_user), person_path(@person) + "#items" %> | 
+  <%= link_to t(:view_this_users_kassi_events), person_kassi_events_path(@person) %>
+</p>  
 
 <% item_string = @items.collect { |item| h(item.title) }.join(", ") %>  
 
@@ -23,23 +26,6 @@
 
   <%= render :partial => "reservations/edit_reservation_details" %>
 
-  <div id="basic_content">
-    <div class="form_container">
-    <% fields_for "conversation[message_attributes]", Message.new do |message_form| -%>
-      <div class="form_header">
-        <%= t(:free_message) %>:
-      </div>
-      <div class="form_field">
-        <%= message_form.text_area :content, :class => "message", :value => params[:conversation] ? params[:conversation][:message_attributes][:content] : t(:hi_i_would_like_to_borrow_these_items) %>
-      </div>
-      <%= message_form.hidden_field :sender_id, :value => @current_user.id %>
-    <% end %>
-    </div>
-    <div class="form_container">
-      <div class="form_right">
-        <%= submit_tag t(:make_reservation_request), :onclick => "this.disabled=true,this.form.submit();" %>
-      </div>
-    </div>
-  </div>
+
 
 <% end %>
