@@ -397,6 +397,11 @@ module ApplicationHelper
     end  
   end
   
+  # Takes a collection of any objects and creates an array for javascript from them
+  def to_js_array(collection)
+    "'#{collection.collect { |object| object.id.to_s }.sort { |a,b| a <=> b }.join("','")}'"
+  end
+  
 end
 
 
