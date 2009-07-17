@@ -82,8 +82,9 @@
             <%= hidden_field_tag :receiver, @person.id.to_s %>
             <%= hidden_field_tag :return_to, request.request_uri %>
             <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
-            <br />
-            <%= submit_tag t(:borrow_selected) %>
+            <div class="small_padding">
+              <%= submit_tag t(:borrow_selected) %>
+            </div>  
           <% end %>
         <% end %>    
       <% else %>

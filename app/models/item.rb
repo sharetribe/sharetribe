@@ -69,4 +69,68 @@ class Item < ActiveRecord::Base
     end
   end
   
+  # Returns the amount of items that are free on the given time period
+  def get_availability(pick_up_time, return_time, reservation_id=nil)
+    
+    # Get all item reservations of this item that occur on the given time frame
+    # and are not rejected.
+    # If editing a reservation, that reservation is excluded with reservation_condition.
+    # If no such reservations can be found, return the total item amount.
+    reservation_condition = reservation_id ? "AND c.id <> '#{reservation_id}'" : ""
+    time_conditions = "((c.pick_up_time > '#{pick_up_time}' AND c.pick_up_time < '#{return_time}')
+                      OR (c.pick_up_time < '#{pick_up_time}' AND c.return_time > '#{return_time}')
+                      OR (c.return_time > '#{pick_up_time}' AND c.return_time < '#{return_time}'))"
+    reservation_query = "
+      SELECT DISTINCT ir.id, ir.amount, ir.item_id, ir.reservation_id
+      FROM conversations AS c, item_reservations AS ir
+      WHERE c.id = ir.reservation_id
+      AND c.status <> 'Rejected'
+      AND ir.item_id = '#{id.to_s}'
+      AND #{time_conditions}
+      #{reservation_condition}
+      "
+    item_reservations = ItemReservation.find_by_sql(reservation_query)
+    return amount unless item_reservations.size > 0
+    
+    # If overlapping reservations are found, we need to divide the given timeframe into intervals.
+    # By these we mean the pick up times and return times of found reservations that occur on the
+    # given timeframe. We put all these dates in an array and order it. The first item of the array
+    # is the pick up time of the given time frame and the last item is the return time of the given
+    # time frame.
+    intervals = []
+    ranges = []   
+    intervals << pick_up_time << return_time
+    intervals = item_reservations.inject(intervals) { 
+      |array, ir| array << ir.reservation.pick_up_time << ir.reservation.return_time 
+    }.reject { 
+      |t| (t < pick_up_time) || (t > return_time) 
+    }.uniq.sort { 
+      |a,b| a <=> b 
+    }
+    
+    # Get date ranges between all dates in the interval array and put them in a new array.
+    for i in 0..(intervals.size - 2) do
+      range = intervals[i]..intervals[i+1]
+      ranges << range
+    end
+    
+    # For each range, check if any found reservation occurs in it, and if true,
+    # add the amount of that ir to the reserved item amount of that range. Finally, return the
+    # amount of the range with most reserved items.
+    biggest_reservation_amount = ranges.inject(0) do |amount, range|
+      range_amount = 0
+      item_reservations.each do |ir|
+        if (range.include?(ir.reservation.pick_up_time) || range.include?(ir.reservation.return_time) || 
+          (range.first > ir.reservation.pick_up_time && range.last < ir.reservation.return_time))
+          range_amount += ir.amount 
+        end  
+      end
+      amount >= range_amount ? amount : range_amount  
+    end      
+    
+    # Return total amount - amount of the range with most reserved items,
+    # e.g. the amount of free items on given time frame.
+    amount - biggest_reservation_amount    
+  end
+  
 end

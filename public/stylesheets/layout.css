@@ -1055,6 +1055,10 @@ div.reservation_items {
 	width: 675px;
 }
 
+div.reservation_items_buttons {
+	width: 675px;
+}
+
 div.reservation_items_no_margin {
 	width: 675px;
 }
@@ -1073,6 +1077,23 @@ div.reservation_item_left {
 
 div.reservation_item_right {
 	float: left;
+}
+
+div.reservation_item_rightest {
+	padding: 2px 5px;
+	float: right;
+}
+
+div.reservation_item_rightest_green {
+	border: 1px solid #257107;
+	background: #c0e783;
+	color: #257107;
+}
+
+div.reservation_item_rightest_red {
+	border: 1px solid #ff0000;
+	background: #f9aeae;
+	color: #ff0000;
 }
 
 

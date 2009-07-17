@@ -27,7 +27,7 @@
       if item.status.eql?("disabled")
         title = t(:borrowed_item) + ": " + h(item.title) + " (" + t(:item_removed) + ")"
       else  
-        title = t(:borrowed_item) + ": " + link_to(h(item.title), person_path(item.owner) + "#item_" + item.id.to_s)
+        title = t(:borrowed_item) + ": " + h(item.title)
       end  
     else
       if item.status.eql?("disabled") 
@@ -46,7 +46,7 @@
       if favor.status.eql?("disabled")
         title = t(:received_favor) + ": " + h(favor.title) + " (" + t(:favor_removed) + ")"
       else  
-        title = t(:received_favor) + ": " + link_to(h(favor.title), person_path(favor.owner) + "#favor_" + favor.id.to_s)
+        title = t(:received_favor) + ": " + h(favor.title)
       end  
     else
       if favor.status.eql?("disabled")

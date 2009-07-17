@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
       @title = :listings_partitive_plural
       conditions = ["author_id = ?" + get_visibility_conditions("listing"), @person.id.to_s ]
       session[:links_panel_navi] = 'listings'
-      save_navi_state(['own', 'own_listings']) if current_user?(@person)
+      save_navi_state(['own', 'profile']) if current_user?(@person)
       fetch_listings(conditions, "status DESC, id DESC")
       render :template => "listings/own"
     else

@@ -68,6 +68,11 @@ class ConversationsController < ApplicationController
   
   # Send a message to an existing conversation
   def update
+    if params[:accepted]
+      params[:conversation][:status] = "accepted"
+    elsif params[:rejected]
+      params[:conversation][:status] = "rejected" 
+    end  
     @conversation = Conversation.find(params[:id])
     if @conversation.update_attributes(params[:conversation])
       @conversation.send_email_to_participants(request)
@@ -82,7 +87,8 @@ class ConversationsController < ApplicationController
       end  
       redirect_to person_inbox_path(@current_user, @conversation)
     else
-      if @conversation.type.eql?("Reservation") && params[:conversation][:status]
+      if (@conversation.type.eql?("Reservation") && params[:conversation][:status] && 
+        !["accepted", "rejected"].include?(params[:conversation][:status]))
         flash[:error] = @conversation.errors.full_messages.first
         redirect_to edit_person_inbox_path(@current_user, @conversation)
       else  

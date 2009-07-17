@@ -302,6 +302,39 @@ class ItemsController < ApplicationController
     render :action => :map 
   end
   
+  # Checks if the given amount of this item is available
+  # on the given time period
+  def availability
+    @item = Item.find(params[:item])
+    pick_up_time =  DateTime.parse(params[:picking_up_time])
+    return_time = DateTime.parse(params[:returning_time])
+    available_amount = @item.get_availability(pick_up_time, return_time)
+    enough_available = (available_amount >= params[:amount].to_i)
+    render :partial => "availability", 
+           :locals => { :available_amount => available_amount, :enough_available => enough_available }
+  end
+  
+  # Checks how many pieces of each item there are available
+  # on the given time period
+  def availability_of_all_items
+    @items = Item.find(params[:items])
+    pick_up_time =  DateTime.parse(params[:picking_up_time])
+    return_time = DateTime.parse(params[:returning_time])
+    logger.info "Items: " + @items.inspect
+    logger.info "Amounts: " + params[:amounts].inspect
+    render :update do |page|
+      @items.each do |item|
+        available_amount = item.get_availability(pick_up_time, return_time)
+        enough_available = (available_amount >= params[:amounts][@items.index(item)].to_i)
+        if item
+          page["reservation_item_#{item.id.to_s}"].replace_html :partial => "availability",
+                                                                :locals => { :available_amount => available_amount, 
+                                                                             :enough_available => enough_available }
+        end
+      end  
+    end  
+  end
+  
   private
   
   def search_items(query)
