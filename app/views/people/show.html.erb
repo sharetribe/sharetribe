@@ -78,12 +78,13 @@
         <% if is_current_user?(@person) %>
           <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
         <% else %>  
-          <% form_tag(borrow_person_items_path(@person, :receiver => @person.id, :return_to => request.request_uri), :method => "get") do %>
+          <% form_tag(borrow_person_items_path(@person, :receiver => @person.id, :return_to => request.request_uri), 
+             :method => "get", :name => "select_borrowed_items_form") do %>
             <%= hidden_field_tag :receiver, @person.id.to_s %>
             <%= hidden_field_tag :return_to, request.request_uri %>
             <%= render :partial => "people/profile_item", :collection => @items, :as => :item, :spacer_template => "layouts/dashed_line" %>
             <div class="small_padding">
-              <%= submit_tag t(:borrow_selected) %>
+              <%= submit_tag t(:borrow_selected), :id => "borrow_selected_button", :disabled => :true %>
             </div>  
           <% end %>
         <% end %>    
