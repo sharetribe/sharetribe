@@ -2,9 +2,9 @@ require 'test_helper'
 
 class SearchesControllerTest < ActionController::TestCase
 
-  def test_search_items
+  def test_search_all
     search("sdfsdfjiji", 0, 0, 0, 0)
-    search("*", 2, 2, 2, 1)
+    search("*", 2, 2, 2, 0)
   end
   
   private

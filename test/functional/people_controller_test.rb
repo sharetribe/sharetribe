@@ -143,10 +143,8 @@ class PeopleControllerTest < ActionController::TestCase
   
   def test_search_people
     search("dsfds", 0)
-    search("*", 1)
-    #puts assigns(:people).inspect
-    #search("Teppo", 1)
-    #search("*epp*", 1)
+    search("Teppo", 1)
+    search("epp", 1)
   end
   
   private
@@ -159,7 +157,9 @@ class PeopleControllerTest < ActionController::TestCase
   end
   
   def search(query, result_count)
-    get :search, :q => query
+    submit_with_person :search, {
+      :q => query
+    }, nil, nil, :get
     assert_response :success
     assert_equal result_count, assigns(:people).size
     assert_template 'search'
