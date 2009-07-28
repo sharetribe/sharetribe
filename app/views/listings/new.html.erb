@@ -77,7 +77,7 @@
       <% if @listing.good_thru %>
         <%= f.text_field :good_thru, :size => "20" %>
       <% else %>
-        <%= f.text_field :good_thru, :size => "20", :value => Date.today + 1.month %>
+        <%= f.text_field :good_thru, :size => "20", :value => Date.today + 4.month %>
       <% end %>   
       &nbsp;<%= t(:good_thru_format) %> 
     </div>
