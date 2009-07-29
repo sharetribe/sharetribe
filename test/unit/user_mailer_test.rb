@@ -8,6 +8,7 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.create_notification_of_new_message(recipient, message)
     assert_equal(KASSI_MAIL_FROM_ADDRESS, mail.from.first)
     assert_equal(message.sender.name + " on lähettänyt sinulle viestin Kassissa", mail.subject)
+    assert mail.to, "Could not get email address for recipient #{recipient.name}"
     assert_equal(recipient.email, mail.to.first)
   end
   
@@ -16,6 +17,7 @@ class UserMailerTest < ActionMailer::TestCase
     mail = UserMailer.create_notification_of_new_comment(comment)
     assert_equal(KASSI_MAIL_FROM_ADDRESS, mail.from.first)
     assert_equal(comment.author.name + ' on kommentoinut ilmoitustasi "' + comment.listing.title + '"', mail.subject)
+    assert mail.to, "Could not get email address for recipient."
     assert_equal(comment.listing.author.email, mail.to.first)
   end
   

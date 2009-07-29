@@ -19,9 +19,9 @@ class Group < ActiveRecord::Base
   def self.create(params, cookie)
     if (cookie)
       # create to Common Services
-      response = create_group(params, cookie)
+      response = create_group({:group => params}, cookie)
       #pick id from the response (same id in kassi and COS DBs)
-      params[:id] = response["group"]["id"]
+      params[:id] = response["entry"]["id"]
 
       #create locally with less attributes
       super(params.except(:title, :description, :type))
@@ -71,7 +71,7 @@ class Group < ActiveRecord::Base
     rescue RestClient::ResourceNotFound
       return ""
     end
-    return group_hash["group"]["title"]
+    return group_hash["title"]
   end
   
   def set_title(title, cookie)
@@ -87,7 +87,7 @@ class Group < ActiveRecord::Base
     rescue RestClient::ResourceNotFound
       return "group not found!"
     end
-    return group_hash["group"]["description"]
+    return group_hash["description"]
   end
   
   def set_description(description, cookie)
@@ -126,18 +126,18 @@ class Group < ActiveRecord::Base
       return nil
     end
     
-    return group_hash
+    return group_hash["entry"]
   end
   
   # Retrieves members of this group from COS
   def get_members(cookie)
     
-    begin
+    # begin
       member_hash = Group.get_members(self.id, cookie)
-    rescue RestClient::ResourceNotFound => e
-      #Could not find group with that id in COS Database!
-      return nil
-    end
+    # rescue RestClient::ResourceNotFound => e
+    #   #Could not find group with that id in COS Database!
+    #   return nil
+    # end
     
     return member_hash
   end
@@ -150,7 +150,7 @@ class Group < ActiveRecord::Base
   # Takes a group hash from COS and extracts ids from it
   # into an array.
   def self.get_group_ids(group_hash)
-    group_hash["entry"].collect { |group| group["group"]["id"] }
+    group_hash["entry"].collect { |group| group["id"] }
   end
   
   def self.get_public_group_ids(cookie=nil)
@@ -177,7 +177,12 @@ class Group < ActiveRecord::Base
   end
   
   def self.create_group(params, cookie)
-    JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
+    #begin 
+      resp = JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
+    # rescue Exception => e
+    #   puts resp.inspect
+    #   puts e.response
+    # end
   end
   
   def self.put_attributes(params, id, cookie)

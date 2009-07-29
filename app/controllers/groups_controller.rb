@@ -15,8 +15,16 @@ class GroupsController < ApplicationController
   
   # Show a single group
   def show
-    @group = Group.find(params[:id])
-    @members = @group.members(session[:cookie]).paginate :page => params[:page], :per_page => per_page
+    begin
+      @group = Group.find(params[:id])
+      @members = @group.members(session[:cookie]).paginate :page => params[:page], :per_page => per_page
+    rescue RestClient::ResourceNotFound => e
+      flash[:error] = :group_not_found
+      redirect_to groups_path
+    rescue ActiveRecord::RecordNotFound => e
+      flash[:error] = :group_not_found
+      redirect_to groups_path
+    end
   end
 
   # Show a form for a new group
@@ -29,7 +37,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new
     begin
-      @group = Group.create(params[:group], session[:cookie])
+      @group = Group.create(params["group"], session[:cookie])
       flash[:notice] = :group_created_successfully
     rescue RestClient::RequestFailed => e
       handle_group_errors(@group, e)

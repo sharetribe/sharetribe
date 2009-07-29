@@ -455,12 +455,14 @@ class Person < ActiveRecord::Base
   # Returns a hash from COS containing groups of this person
   def get_groups(cookie, event_id=nil)
     
-    begin
+    # rescue is commented out to spot the error cases more clearly
+    
+    # begin
       group_hash = PersonConnection.get_groups(self.id, cookie, event_id)
-    rescue RestClient::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
-      return nil
-    end
+    # rescue RestClient::ResourceNotFound => e
+    #   #Could not find person with that id in COS Database!
+    #   return nil
+    # end
     
     return group_hash
   end
@@ -503,7 +505,7 @@ class Person < ActiveRecord::Base
       return nil
     end
     
-    return person_hash
+    return person_hash["entry"]
   end
   
   def friend_status(cookie = nil)
@@ -567,6 +569,7 @@ class Person < ActiveRecord::Base
   # Takes a person hash from COS and extracts ids from it
   # into an array.
   def self.get_person_ids(person_hash)
+    return nil if person_hash.nil?
     person_hash["entry"].collect { |person| person["id"] }
   end
   
