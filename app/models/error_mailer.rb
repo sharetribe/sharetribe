@@ -6,7 +6,7 @@ class ErrorMailer < ActionMailer::Base
   #@headers["Content-Type"] = "text/html"
 
   # Setting the content-type like this does:
-  content_type "text/html"
+    content_type "text/html"
 
   # @recipients   = 'gnomet@gmail.com'
   # @from     = 'Error Mailer <error @ domain.tld>'
@@ -22,8 +22,8 @@ class ErrorMailer < ActionMailer::Base
     from        'Error Mailer <KassiErrors@sizl.org>'
     subject     "[Error] exception in #{env['REQUEST_URI']}"
     sent_on    sent_on
-    body        :exception => exception, :trace => trace, :session => session, :params => params, :env => env
-    # body       {:user => user, :url => "http://example.com/login"} 
+    #body        :exception => exception, :trace => trace, :session => session, :params => params, :env => env
+    
  end
 
 end
