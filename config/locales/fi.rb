@@ -514,6 +514,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :leave_group => "Poistu ryhmästä",
 :group_could_not_be_created => "Ryhmää ei voitu luoda seuraavien virheiden takia",     
 :no_members => "Ei jäseniä", 
+:group_not_found => "Haettua ryhmää ei löytynyt.",
 
 #Purses view
 :purse => "Kukkaro",

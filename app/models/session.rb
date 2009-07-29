@@ -1,4 +1,5 @@
 require 'json'
+require 'rest_client'
 
 class Session < ActiveResource::Base
 
@@ -49,14 +50,16 @@ class Session < ActiveResource::Base
   
   def create
     @headers = {}
-    params = {}
-    params[:username] = @username if @username
-    params[:password] = @password if @password
-    params.update({:app_name => @@app_name, :app_password => @@app_password})
+    params = {:session => {}}
+    params[:session][:username] = @username if @username
+    params[:session][:password] = @password if @password
+    params[:session][:app_name] = @@app_name
+    params[:session][:app_password] = @@app_password
+    
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
-    @person_id = json["user_id"] 
+    @person_id = json["entry"]["user_id"] 
   end
   
   def check
@@ -89,7 +92,7 @@ class Session < ActiveResource::Base
   def set_person_id
     info = self.check
     return nil if info.nil?
-    @person_id =  info["user_id"]
+    @person_id =  info["entry"]["user_id"]
     return @person_id
   end
 end
