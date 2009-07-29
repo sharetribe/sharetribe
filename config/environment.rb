@@ -102,6 +102,12 @@ Rails::Initializer.run do |config|
   #COS_URL = "http://localhost:3001"
   COS_URL = "http://cos.alpha.sizl.org"
   
+  if COS_URL =~ /sizl.org/
+    SSL_COS_URL = COS_URL.sub("http", "https")
+  else
+     SSL_COS_URL = COS_URL
+  end
+  
   COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
 
   #For example there will be no confirmation when adding profile avatar picture

@@ -7,7 +7,7 @@ class Session < ActiveResource::Base
   attr_reader   :headers
   attr_reader   :person_id
  
-  self.site = COS_URL
+  self.site = SSL_COS_URL
   self.format = :json 
   self.timeout = COS_TIMEOUT
   @@app_password = "Xk4z5iZ"
@@ -54,7 +54,7 @@ class Session < ActiveResource::Base
     params[:session][:password] = @password if @password
     params[:session][:app_name] = @@app_name
     params[:session][:app_password] = @@app_password
-    
+        
     resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
