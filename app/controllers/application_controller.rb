@@ -239,7 +239,7 @@ class ApplicationController < ActionController::Base
           clean_backtrace(exception), 
           @session.instance_variable_get("@data"), 
           @params, 
-          @request.env)
+          @request)#.env)
       end
     rescue => e
       logger.error(e)

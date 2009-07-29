@@ -20,9 +20,9 @@ class ErrorMailer < ActionMailer::Base
   
     recipients  'gnomet@gmail.com'
     from        'Error Mailer <KassiErrors@sizl.org>'
-    subject     "[Error] exception in #{env['REQUEST_URI']}"
+    subject     "[Error] exception in some request" #  #{env['REQUEST_URI']}"
     sent_on    sent_on
-    #body        :exception => exception, :trace => trace, :session => session, :params => params, :env => env
+    body        :exception => exception, :trace => trace, :session => session, :params => params, :env => env
     
  end
 
