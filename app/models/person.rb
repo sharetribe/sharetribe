@@ -412,24 +412,28 @@ class Person < ActiveRecord::Base
   # Retrieves friends of this person from COS
   def get_friends(cookie)
     
-    begin
+      # rescue is commented out to spot the error cases more clearly
+    
+    # begin
       friend_hash = PersonConnection.get_friends(self.id, cookie)
-    rescue RestClient::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
-      return nil
-    end
+    # rescue RestClient::ResourceNotFound => e
+    #   #Could not find person with that id in COS Database!
+    #   return nil
+    # end
     
     return friend_hash
   end
   
   def get_friend_requests(cookie)
     
-    begin
+      # rescue is commented out to spot the error cases more clearly
+    
+    # begin
       request_hash = PersonConnection.get_pending_friend_requests(self.id, cookie)
-    rescue RestClient::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
-      return nil
-    end
+    # rescue RestClient::ResourceNotFound => e
+    #    #Could not find person with that id in COS Database!
+    #    return nil
+    #  end
     
     return request_hash
   end

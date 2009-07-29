@@ -132,6 +132,8 @@ class Group < ActiveRecord::Base
   # Retrieves members of this group from COS
   def get_members(cookie)
     
+      # rescue is commented out to spot the error cases more clearly
+      
     # begin
       member_hash = Group.get_members(self.id, cookie)
     # rescue RestClient::ResourceNotFound => e
