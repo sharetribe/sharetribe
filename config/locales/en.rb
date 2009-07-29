@@ -39,7 +39,7 @@
 :logging_in => "Login",
 :username => "Username",
 :password => "Password",
-:account => "Account",
+:account => "Settings",
 :register_as_a_kassi_user => "Register as a Kassi user",
 :registration_failed => "Registration failed due to following errors",
 :not_yet_otasizzle_account => "No OtaSizzle account yet?",
@@ -468,10 +468,12 @@
 :message_content => "Message content",
 
 #Kassi events view
-:kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: thank each other for items or services or mark each other as listing realizers.",
+:kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: borrow items from each other, thank each other for favors or mark each other as listing realizers.",
 :closed_listing => "Closed listing",
 :borrowed_item => "Borrowed item",
-:lent_item => "Lent item", 
+:borrowed_item => "Borrowed items",
+:lent_item => "Lent item",
+:lent_item => "Lent items", 
 :done_favor => "Given favor",
 :received_favor => "Received favor",  
 :event_created => "Event created",
@@ -495,6 +497,7 @@
 :show_kassi_events_on_page => "Show Kassi-events on page",
 :comment_for_lender => "Comment for lender",
 :comment_for_favor_realizer => "Comment for realizer",
+:show_related_kassi_event => "Show related kassi event",
 
 # Groups view
 :groups_title => "Groups",

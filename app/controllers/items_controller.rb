@@ -320,8 +320,6 @@ class ItemsController < ApplicationController
     @items = Item.find(params[:items])
     pick_up_time =  DateTime.parse(params[:picking_up_time])
     return_time = DateTime.parse(params[:returning_time])
-    logger.info "Items: " + @items.inspect
-    logger.info "Amounts: " + params[:amounts].inspect
     render :update do |page|
       @items.each do |item|
         available_amount = item.get_availability(pick_up_time, return_time)

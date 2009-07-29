@@ -71,13 +71,15 @@ class Item < ActiveRecord::Base
   
   # Returns the amount of items that are free on the given time period
   def get_availability(pick_up_time, return_time, reservation_id=nil)
+    pick_up_time = pick_up_time.utc
+    return_time = return_time.utc
     
     # Get all item reservations of this item that occur on the given time frame
     # and are not rejected.
     # If editing a reservation, that reservation is excluded with reservation_condition.
     # If no such reservations can be found, return the total item amount.
     reservation_condition = reservation_id ? "AND c.id <> '#{reservation_id}'" : ""
-    time_conditions = "((c.pick_up_time > '#{pick_up_time}' AND c.pick_up_time < '#{return_time}')
+    time_conditions = "((c.pick_up_time > '#{pick_up_time.to_s}' AND c.pick_up_time < '#{return_time}')
                       OR (c.pick_up_time < '#{pick_up_time}' AND c.return_time > '#{return_time}')
                       OR (c.return_time > '#{pick_up_time}' AND c.return_time < '#{return_time}'))"
     reservation_query = "

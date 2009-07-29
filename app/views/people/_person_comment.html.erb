@@ -15,7 +15,7 @@
       <%= text_with_line_breaks(comment.text_content) %>
     </div>  
     <div class="listed_comment_paragraph">
-      <i><%= get_kassi_event_relation(comment.kassi_event) %></i>
+      <i><%= link_to(t(:show_related_kassi_event), person_kassi_event_path(@person, comment.kassi_event)) %></i>
     </div>  
   </div>     
 </div>  
