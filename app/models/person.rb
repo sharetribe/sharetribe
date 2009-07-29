@@ -577,6 +577,24 @@ class Person < ActiveRecord::Base
     person_hash["entry"].collect { |person| person["id"] }
   end
   
+  # A query to get the Kassi events if they are only displayed after
+  # the return time of the reservation related to the event has passed.
+  # NOTE: not currently used, since behaviore described above is not needed
+  def get_kassi_events
+    query = "
+      SELECT DISTINCT kassi_events.id, kassi_events.realizer_id, kassi_events.receiver_id, 
+                      kassi_events.eventable_id, kassi_events.eventable_type, kassi_events.created_at 
+      FROM kassi_events, conversations, kassi_events_people
+      WHERE kassi_events.id = kassi_events_people.kassi_event_id
+      AND kassi_events_people.person_id = '#{id}'
+      AND (kassi_events.eventable_type <> 'Reservation'
+      OR (kassi_events.eventable_id = conversations.id
+          AND conversations.return_time < '#{DateTime.now.utc}'))
+      ORDER BY id DESC
+    "
+    KassiEvent.find_by_sql(query)
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

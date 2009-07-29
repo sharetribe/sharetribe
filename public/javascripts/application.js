@@ -10,13 +10,13 @@ window.onload = function () {
 
 // Returns a string that represents a value of a datetime_select
 // for the given attribute in a form that is related to the given model 
-function getDatetimeFromDatetimeSelect(model, attribute) {
+function getDatetimeFromDatetimeSelect(model, attribute, gmt_offset) {
 	day = $(model + '_' + attribute + '_3i').value;
 	month = $(model + '_' + attribute + '_2i').value;
 	year = $(model + '_' + attribute + '_1i').value;
 	hour = $(model + '_' + attribute + '_4i').value;
 	minute = $(model + '_' + attribute + '_5i').value;
-	date = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':00' 
+	date = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':00 ' + gmt_offset
 	return date;
 }
 

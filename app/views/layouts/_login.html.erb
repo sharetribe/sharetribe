@@ -1,11 +1,8 @@
 <%if !@current_user.nil?%>
-  	<%= t(:logged_in) %>
-		<%= link_to @current_user.name_or_username(session[:cookie]), @current_user %>.
-  	&nbsp;&nbsp;
+		<%= link_to @current_user.name_or_username(session[:cookie]), @current_user %> |
   	<%= link_to t(:account), person_settings_path(@current_user) %> | 
   	<%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
-  	<%= t(:not_logged_in) %> &nbsp;
   	<%= link_to t(:login), new_session_path %>
   	<%  if PRODUCTION_SERVER != "beta" %>
   	  | <a href="/cas_session/new">CAS-login(test)</a>

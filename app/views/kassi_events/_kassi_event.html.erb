@@ -23,18 +23,10 @@
     category = listing.category
   when "Item"
     item = kassi_event.eventable
-    if @person.id == kassi_event.receiver.id
-      if item.status.eql?("disabled")
-        title = t(:borrowed_item) + ": " + h(item.title) + " (" + t(:item_removed) + ")"
-      else  
-        title = t(:borrowed_item) + ": " + h(item.title)
-      end  
+    if @person.id == kassi_event.receiver.id 
+      title = t(:borrowed_item) + ": " + h(item.title.downcase)
     else
-      if item.status.eql?("disabled") 
-        title = t(:lent_item) + ": " + h(item.title) + " (" + t(:item_removed) + ")"
-      else  
-        title = t(:lent_item) + ": " + link_to(h(item.title), person_path(item.owner) + "#item_" + item.id.to_s)
-      end  
+      title = t(:lent_item) + ": " + h(item.title.downcase)
     end
     right_title1 = t(:item_borrower) + ": "
     receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
@@ -43,22 +35,27 @@
   when "Favor"
     favor = kassi_event.eventable
     if @person.id == kassi_event.receiver.id
-      if favor.status.eql?("disabled")
-        title = t(:received_favor) + ": " + h(favor.title) + " (" + t(:favor_removed) + ")"
-      else  
-        title = t(:received_favor) + ": " + h(favor.title)
-      end  
+      title = t(:received_favor) + ": " + h(favor.title.downcase) 
     else
-      if favor.status.eql?("disabled")
-        title = t(:done_favor) + ": " + h(favor.title) + " (" + t(:favor_removed) + ")"
-      else   
-        title = t(:done_favor) + ": " + link_to(h(favor.title), person_path(favor.owner) + "#favor_" + favor.id.to_s)
-      end  
+      title = t(:done_favor) + ": " + h(favor.title.downcase)
     end
     right_title1 = t(:favor_receiver) + ": "
     receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
     right_title2 = t(:favor_realizer) + ": "
     realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+  when "Reservation"
+    reservation = kassi_event.eventable
+    reservation_items = reservation.items.collect { |item| item.title.downcase }.join(", ")
+    if @person.id == kassi_event.receiver.id
+      title = reservation.items.size > 1 ? t(:borrowed_items) : t(:borrowed_item)
+    else
+      title = reservation.items.size > 1 ? t(:lent_items) : t(:lent_item)
+    end
+    title += ": " + h(reservation_items)
+    right_title1 = t(:item_borrower) + ": "
+    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    right_title2 = t(:item_lender) + ": "
+    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)  
   end      
 %>
 

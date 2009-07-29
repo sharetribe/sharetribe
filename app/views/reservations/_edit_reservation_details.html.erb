@@ -1,5 +1,6 @@
-<% returning_time = "getDatetimeFromDatetimeSelect('conversation', 'return_time')" %>
-<% picking_up_time = "getDatetimeFromDatetimeSelect('conversation', 'pick_up_time')" %>
+<% gmt_offset = "+0#{Time.now.gmt_offset / 1.hour}00" %>
+<% returning_time = "getDatetimeFromDatetimeSelect('conversation', 'return_time', '#{gmt_offset}')" %>
+<% picking_up_time = "getDatetimeFromDatetimeSelect('conversation', 'pick_up_time', '#{gmt_offset}')" %>
 <% items = @items.collect { |item| "items[]=#{item.id.to_s}" }.join("&") %>
 <% item_amounts = "getItemAmountsFromTextfields(new Array(#{to_js_array(@items)}))" %>
 <% logger.info "Item amounts: " + item_amounts %>

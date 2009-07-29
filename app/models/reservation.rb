@@ -3,6 +3,8 @@ class Reservation < Conversation
   has_many :item_reservations
   has_many :items, :through => :item_reservations, :source => :item
   
+  has_one :kassi_event, :as => :eventable
+  
   after_update :save_item_reservations
   
   VALID_STATUS = ["pending_owner", "pending_reserver", "accepted", "rejected"]
@@ -24,7 +26,7 @@ class Reservation < Conversation
   def no_other_reservations_on_this_time_period
     item_reservations.each do |ir|
       item = ir.item
-      amount_available = item.get_availability(pick_up_time, return_time, id)
+      amount_available = item.get_availability(pick_up_time.to_datetime, return_time.to_datetime, id)
       if ir.amount > amount_available
         if amount_available > 0
           errors.add_to_base("Only #{amount_available.to_s} pieces of item #{item.title} available on given time period")
@@ -34,70 +36,6 @@ class Reservation < Conversation
       end
     end    
   end
-  
-  # Makes sure that there is enough items to borrow
-  # for the requested time period.
-  # def no_other_reservations_on_this_time_period
-  #   # logger.info "Query: " + query  
-  #   # logger.info "Reservations: " + reservations.inspect
-  #   # logger.info "Reservations size " + reservations.size.to_s
-  #   # logger.info "Intervals: " + intervals.inspect
-  #   # logger.info "Range: " + range.to_s
-  #   
-  #   item_ids = item_reservations.collect { |ir| "'#{ir.item_id.to_s}'" }.join(",")
-  #   temp_items = item_reservations.collect { |ir| ir.item }
-  #   time_conditions = "((c.pick_up_time > '#{pick_up_time}' AND c.pick_up_time < '#{return_time}')
-  #                     OR (c.pick_up_time < '#{pick_up_time}' AND c.return_time > '#{return_time}')
-  #                     OR (c.return_time > '#{pick_up_time}' AND c.return_time < '#{return_time}'))"
-  #   reservation_query = "
-  #     SELECT DISTINCT c.id, c.pick_up_time, c.return_time 
-  #     FROM conversations AS c, item_reservations AS ir
-  #     WHERE c.id = ir.reservation_id
-  #     AND ir.item_id IN (#{item_ids})
-  #     AND #{time_conditions}
-  #     "
-  #   reservations = Reservation.find_by_sql(reservation_query)
-  #   intervals = []    
-  #   intervals << pick_up_time << return_time
-  #   intervals = reservations.inject(intervals) { |array, r| array << r.pick_up_time << r.return_time }.reject { |t| (t < pick_up_time) || (t > return_time) }.uniq.sort { |a,b| a <=> b }
-  #   amounts = {}
-  #   ranges = []
-  #   for i in 0..(intervals.size - 2) do
-  #     range = intervals[i]..intervals[i+1]
-  #     ranges << range
-  #     reservations.each do |reservation|
-  #       if range.include?(reservation.pick_up_time) || range.include?(reservation.return_time)
-  #         reservation.item_reservations.each do |ir|
-  #           if temp_items.include?(ir.item)
-  #             if amounts[ir.item.id] && amounts[ir.item.id][range.to_s]
-  #               amounts[ir.item.id][range.to_s] += ir.amount
-  #             else
-  #               amounts[ir.item.id] = {}
-  #               amounts[ir.item.id][range.to_s] = ir.amount
-  #             end
-  #           end  
-  #         end 
-  #       end    
-  #     end
-  #   end
-  #   logger.info "Intervals: " + intervals.inspect
-  #   logger.info "Amounts: " + amounts.inspect
-  #   logger.info "Temp items: " + temp_items.inspect
-  #   logger.info "Ranges: " + ranges.inspect
-  #   temp_items.each do |item|
-  #     logger.info amounts[item.id]
-  #     ranges.each do |range|
-  #       if amounts[item.id] && amounts[item.id][range.to_s]
-  #         logger.info "On interval " + range.to_s + " " + (amounts[item.id][range.to_s].to_s || "0") + " items out of " + item.amount.to_s + " are reserved."
-  #         if amounts[item.id][range.to_s] > item.amount
-  #           logger.info amounts[item.id][range.to_s].to_s + " is bigger than " + item.amount.to_s 
-  #         else
-  #           logger.info amounts[item.id][range.to_s].to_s + " is smaller than " + item.amount.to_s 
-  #         end    
-  #       end 
-  #     end
-  #   end  
-  # end
   
   # Saves the data from reserved items to the database
   def reserved_items=(reserved_items)
@@ -120,6 +58,11 @@ class Reservation < Conversation
   # Returns the owner of the reserved items
   def item_owner
     items.first.owner
+  end
+  
+  # Returns the person who has made the reservation.
+  def item_requester
+    participants.reject { |p| p.id == item_owner.id }.first
   end
   
   # Returns true if the given person is allowed to edit
