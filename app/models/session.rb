@@ -1,5 +1,4 @@
 require 'json'
-require 'rest_client'
 
 class Session < ActiveResource::Base
 
