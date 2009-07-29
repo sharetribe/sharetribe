@@ -225,4 +225,24 @@ class ApplicationController < ActionController::Base
     UUIDTools::UUID.timestamp_create().to_s
   end
   
+  protected  
+
+  def log_error(exception) 
+    super(exception)
+
+    begin
+      if RAILS_ENV == "production"
+        ErrorMailer.deliver_snapshot(
+          exception, 
+          clean_backtrace(exception), 
+          @session.instance_variable_get("@data"), 
+          @params, 
+          @request.env)
+      end
+    rescue => e
+      logger.error(e)
+    end
+  end
+  
+  
 end
