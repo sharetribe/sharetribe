@@ -7,7 +7,7 @@ class CasSession < ActiveResource::Base
   attr_reader   :headers
   attr_reader   :person_id
  
-  self.site = COS_URL
+  self.site = SSL_COS_URL
   self.format = :json 
   self.timeout = COS_TIMEOUT
   self.element_name = "session"
@@ -55,9 +55,11 @@ class CasSession < ActiveResource::Base
     params[:session][:proxy_ticket] = @password if @password
     params[:session][:app_name] = @@app_name
     params[:session][:app_password] = @@app_password
-    
-    resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
-
+    begin
+      resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+    rescue Exception => e
+      puts "ERROR ON: #{e.response.body}"
+    end
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
     @person_id = json["entry"]["user_id"] 
