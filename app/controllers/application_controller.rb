@@ -230,8 +230,10 @@ class ApplicationController < ActionController::Base
   def log_error(exception) 
     super(exception)
 
+    logger.info { "HANDLING ERROR" }
     begin
       if RAILS_ENV == "production"
+         logger.info { "SENDING MAIL!" }
         ErrorMailer.deliver_snapshot(
           exception, 
           clean_backtrace(exception), 
