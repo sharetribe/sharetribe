@@ -1,6 +1,14 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
+  
+  include SslRequirement
+  
+  # Force HTTPS for login information submit in production environment
+  if RAILS_ENV == "production"
+    ssl_required :new, :create
+  end
+  
   def create
     begin
       @session = Session.create({ :username => params[:username], 
