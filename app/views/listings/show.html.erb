@@ -1,3 +1,5 @@
+<% cache @listing do %>
+
 <div id="title_with_border">
   <div id="title_div">
     <h1 class="no_border">
@@ -70,7 +72,7 @@
 
   
     <% if @current_user && @listing.author != @current_user %>
-    <!--    
+    <!--  If enabling these, remember to change the fragment caching where this part is included!  
       <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
         <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
       <% else %>
@@ -80,6 +82,8 @@
     <% end %>
   
   </div>
+  
+<% end #end cache %> 
 
   <div id="listing_image">
     <% if @listing.open? %>

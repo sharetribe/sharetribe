@@ -58,7 +58,8 @@ class CasSession < ActiveResource::Base
     begin
       resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     rescue Exception => e
-      logger.info "ERROR ON CAS_SESSION: #{e.response.body}"
+      Rails.logger.error "ERROR ON CAS_SESSION: #{e.response.body} -- username was: #{@username} proxy_ticket was: #{@password}"
+      
     end
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
