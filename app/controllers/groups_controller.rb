@@ -35,6 +35,8 @@ class GroupsController < ApplicationController
 
   # Create a new group
   def create
+     #should expire groups page cache
+    
     @group = Group.new
     begin
       @group = Group.create(params["group"], session[:cookie])

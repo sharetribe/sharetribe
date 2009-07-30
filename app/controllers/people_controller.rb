@@ -63,6 +63,8 @@ class PeopleController < ApplicationController
 
   # Creates a new person
   def create
+    # should expire cache for people listing
+    
     # Make sure that the consent is accepted
     redirect_to register_consent_path and return unless session[:consent_accepted]
     
@@ -110,6 +112,8 @@ class PeopleController < ApplicationController
   end
   
   def update
+    # should expire cache for people listing
+    
     @person = Person.find(params[:id])
     @successful = update_person(@person)
     render :update do |page|
