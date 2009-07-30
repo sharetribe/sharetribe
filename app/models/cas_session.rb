@@ -58,7 +58,7 @@ class CasSession < ActiveResource::Base
     begin
       resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     rescue Exception => e
-      puts "ERROR ON: #{e.response.body}"
+      logger.info "ERROR ON CAS_SESSION: #{e.response.body}"
     end
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)

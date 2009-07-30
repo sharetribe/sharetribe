@@ -2,12 +2,12 @@ require 'rest_client'
 
 class SessionsController < ApplicationController
   
-  include SslRequirement
+  #include SslRequirement
   
   # Force HTTPS for login information submit in production environment
-  if RAILS_ENV == "production"
-    ssl_required :new, :create
-  end
+  # if RAILS_ENV == "production"
+  #   ssl_required :new, :create
+  # end
   
   def create
     begin
@@ -54,6 +54,7 @@ class SessionsController < ApplicationController
   end
   
   def new
+    logger.info request.headers["HTTP_REFERER"]
     # TODO: this clearence of navi state causes problems, when returning somewhere
     # there is no navi. Should store the navi state or do something else...
     # clear_navi_state
