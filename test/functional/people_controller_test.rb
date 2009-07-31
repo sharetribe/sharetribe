@@ -44,7 +44,8 @@ class PeopleControllerTest < ActionController::TestCase
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:item)
     assert_not_nil assigns(:favor)
-    assert_equal assigns(:items), [ items(:one) ]
+    #assert_equal assigns(:items), [ items(:one) ]
+    assert(assigns(:items).include?(items(:one)), "The owned item is not shown.")
     assert_equal assigns(:favors), [ favors(:one) ]
   end
   
@@ -161,7 +162,7 @@ class PeopleControllerTest < ActionController::TestCase
       :q => query
     }, nil, nil, :get
     assert_response :success
-    assert_equal result_count, assigns(:people).size
+    assert_equal result_count, assigns(:people).size, "unexpected search result with #{query}"
     assert_template 'search'
   end
   

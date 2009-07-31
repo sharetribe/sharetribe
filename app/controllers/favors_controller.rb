@@ -220,9 +220,9 @@ class FavorsController < ApplicationController
   
   def index_cache_path
     if @current_user
-      "Favors_list/#{favors_last_changed}/#{@current_user.id}"
+      "favors_list/#{session[:locale]}/#{favors_last_changed}/#{@current_user.id}"
     else
-       "Favors_list/#{favors_last_changed}/non-registered"
+      "favors_list/#{session[:locale]}/#{favors_last_changed}/non-registered"
     end
   end
   

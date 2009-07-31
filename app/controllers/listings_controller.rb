@@ -2,9 +2,10 @@ class ListingsController < ApplicationController
 
   before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
 
- # caches_action :index, :layout => false
- # caches_action :show, :layout => false, :if => Proc.new { ! @current_user }
- 
+  caches_action :index, :cache_path => :index_cache_path.to_proc
+  # use sweeper to decet changes that require cache expiration. 
+  # Some non-changing methods are excluded. not sure if it helps anything for performance?
+  cache_sweeper :listing_sweeper, :except => [:show, :index, :new, :search]
 
   def index
     if params[:person_id]
@@ -202,6 +203,14 @@ class ListingsController < ApplicationController
   end
   
   private
+  
+  def index_cache_path
+    if @current_user
+      "listings_list/#{session[:locale]}/#{listings_last_changed}/#{@current_user.id}"
+    else
+       "listings_list/#{session[:locale]}/#{listings_last_changed}/non-registered"
+    end
+  end
   
   def is_visible?(listing)
     conditions = get_visibility_conditions("listing")
