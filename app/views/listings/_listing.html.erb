@@ -38,7 +38,7 @@
       <br />
       <%= link_to t(:edit), edit_listing_path(listing) %>   
       <% if listing.open? %>
-        | <%= link_to t(:close), close_person_listing_path(@current_user, listing) %>
+        | <%= link_to t(:close), close_person_listing_path(@current_user, listing, :return_to => request.request_uri) %>
       <% end %>  
     <% else %>
       <%= t(:listing_created_by) %> 

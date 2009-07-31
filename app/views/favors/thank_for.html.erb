@@ -1,19 +1,43 @@
 <h1><%= t(:thank_for_doing_favor) %> "<%= @favor.title %>" <%= t(:thank_for_doing) %></h1>
 
-<div id="basic_content">
-  <% form_for @kassi_event, :url => mark_as_done_person_favor_path(@person, @favor) do |f| %>
-    <%= f.hidden_field :eventable_id, :value => @favor.id %>
-    <%= f.hidden_field :eventable_type, :value => "Favor" %>
-    <%= f.hidden_field :receiver_id, :value => @current_user.id %>
-    <%= f.hidden_field :realizer_id, :value => @person.id %>
+<% form_for @kassi_event, :url => mark_as_done_person_favor_path(@person, @favor) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :eventable_id, :value => @favor.id %>
+  <%= f.hidden_field :eventable_type, :value => "Favor" %>
+  <%= hidden_field_tag "kassi_event[participant_attributes][#{@current_user.id}]", "requester" %>
+  <%= hidden_field_tag "kassi_event[participant_attributes][#{@person.id}]", "provider" %>
+  <%= hidden_field_tag "return_to", params[:return_to] %>
+  <fieldset>
+    <legend>
+      <%= t(:give_feedback_to_favor_offerer) %>
+    </legend>
+    <div class="form_extra_padding">
     <div class="form_container">
       <div class="form_left">
         <%= t(:favor_realizer) %>:
       </div>
       <div class="form_right">
         <div class="small_padding">
-          <%= link_to @person.name(session[:cookie]), @person %>
+          <b><%= link_to @person.name(session[:cookie]), @person %></b>
         </div>  
+      </div>
+    </div>
+    <% fields_for "kassi_event[comment_attributes]", PersonComment.new do |comment_form| -%>
+      <%= comment_form.hidden_field :author_id, :value => @current_user.id %>
+      <%= comment_form.hidden_field :target_person_id, :value => @person.id %>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:rate_favor_realizer) %>: 
+      </div>
+      <div class="form_right">
+        <%= radio_button_tag "kassi_event[comment_attributes][grade]", 0, false %>
+        1 (<%= t(:less_than_expected) %>)
+        &nbsp;&nbsp;&nbsp;
+        <%= radio_button_tag "kassi_event[comment_attributes][grade]", 0.5, true %>
+        2 (<%= t(:as_expected) %>)
+         &nbsp;&nbsp;&nbsp;
+        <%= radio_button_tag "kassi_event[comment_attributes][grade]", 1, false %>
+        3 (<%= t(:exceeded_expectations) %>)
       </div>
     </div>
     <div class="form_container">
@@ -21,11 +45,13 @@
         <%= t(:comment_for_favor_realizer) %>: 
       </div>
       <div class="form_right">
-        <%= f.text_area :comment, :size => "48x5" %>
+        <%= comment_form.text_area :text_content, :size => "65x8" %>
       </div>
     </div>
+    <% end %>
     <div class="form_container">
       <%= submit_tag t(:thank_for_favor), :onclick => "this.disabled=true,this.form.submit();" %>
     </div>
-  <% end %>
-</div>
+    </div>
+  </fieldset> 
+<% end %>

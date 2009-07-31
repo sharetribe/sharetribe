@@ -263,5 +263,37 @@ END_OF_MESSAGE
       end
     end  
   end
+  
+  # Returns the role of the author of the listing
+  # in a kassi event.
+  def author_role
+    if ["borrow_items", "lost", "favors"].include?(category)
+      "requester"
+    elsif "found".eql?(category)
+      "provider"
+    elsif "buy".eql?(category)
+      "buyer"
+    elsif "sell".eql?(category)
+      "seller"      
+    else
+      "none"
+    end    
+  end
+  
+  # Returns the role of the person who has performed what
+  # was requested in the listing.
+  def realizer_role
+    if ["borrow_items", "lost", "favors"].include?(category)
+      "provider"
+    elsif "found".eql?(category)
+      "requester"
+    elsif "buy".eql?(category)
+      "seller"
+    elsif "sell".eql?(category)
+      "buyer"      
+    else
+      "none"
+    end
+  end
 
 end

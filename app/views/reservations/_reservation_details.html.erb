@@ -74,10 +74,8 @@
         <% if get_reservation_status(@conversation).eql?("awaiting_acceptance_from_you") %>
           <%= hidden_field :kassi_event, :eventable_id, :value => @conversation.id %>
           <%= hidden_field :kassi_event, :eventable_type, :value => "Reservation" %>
-          <%= hidden_field :kassi_event, :realizer_id, :value => @conversation.item_owner.id %>
-          <%= hidden_field :kassi_event, :receiver_id, :value => @conversation.item_requester.id %>
-          <%= hidden_field_tag "kassi_event[people_attributes][]", @conversation.item_owner.id %>
-          <%= hidden_field_tag "kassi_event[people_attributes][]", @conversation.item_requester.id %>
+          <%= hidden_field_tag "kassi_event[participant_attributes][#{@conversation.item_owner.id}]", "provider" %>
+          <%= hidden_field_tag "kassi_event[participant_attributes][#{@conversation.item_requester.id}]", "requester" %>
         <div class="reservation_item_right">
           <%= submit_tag t(:accept_reservation_request), :name => "accepted" %>
         </div>

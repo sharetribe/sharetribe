@@ -178,7 +178,8 @@ class ListingsController < ApplicationController
     end
     @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
       |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
-    }  
+    }
+    @kassi_event.person_comments.build  
   end
   
   def mark_as_closed
@@ -186,10 +187,19 @@ class ListingsController < ApplicationController
     return unless must_be_current_user(@listing.author)
     @listing.update_attribute(:status, "closed")
     if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
-      create_kassi_event(@listing.category)
+      @kassi_event = KassiEvent.new(params[:kassi_event])
+      if @kassi_event.save
+        flash[:notice] = :listing_closed
+      else
+        puts @kassi.event.errors.full_messages.inspect
+        @person = @listing.author
+        @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
+          |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
+        }
+        render :action => :close and return
+      end
     end
-    flash[:notice] = :listing_closed    
-    redirect_to person_listings_path(@current_user)
+    redirect_to params[:return_to]
   end
   
   #shows a random listing (that is visible to all)
@@ -200,6 +210,15 @@ class ListingsController < ApplicationController
     open_listings_ids = Listing.all(:select => "id, title", :conditions => conditions)
     random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)]
     redirect_to listing_path(random_id)
+  end
+  
+  # Displays a form for feedback for listing realizer when closing the form
+  def realizer_feedback_form
+    if params[:realizer] && params[:realizer] != ""
+      @realizer = Person.find(params[:realizer])
+      @listing = Listing.find(params[:listing])  
+    end
+    render :partial => "realizer_feedback_form"
   end
   
   private

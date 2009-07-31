@@ -181,16 +181,21 @@ class FavorsController < ApplicationController
     return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
     @person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
-    @kassi_event.realizer_id = @person.id  
+    @kassi_event.realizer_id = @person.id
+    @kassi_event.person_comments.build
   end
   
   def mark_as_done
-    @favor = Favor.find(params[:kassi_event][:eventable_id])
+    @person = Person.find(params[:person_id])
+    @favor = Favor.find(params[:id])
     return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
-    create_kassi_event
-    flash[:notice] = :thanks_for_favor_sent
-    @person = Person.find(params[:person_id])    
-    redirect_to @person
+    @kassi_event = KassiEvent.create(params[:kassi_event])
+    if @kassi_event.save
+      flash[:notice] = :thanks_for_favor_sent
+      redirect_to params[:return_to]
+    else
+      render :action => :thank_for
+    end
   end
   
   def view_description

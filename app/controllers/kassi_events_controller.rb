@@ -21,4 +21,11 @@ class KassiEventsController < ApplicationController
     render :action => :index
   end
   
+  # Used to add new comments to an existing Kassi event
+  def update
+    KassiEvent.find(params[:id]).update_attributes(params[:kassi_event])
+    flash[:notice] = :feedback_sent
+    redirect_to person_kassi_events_path(Person.find(params[:person_id]))
+  end
+  
 end

@@ -129,20 +129,36 @@ class ListingsControllerTest < ActionController::TestCase
   end
   
   def test_mark_as_closed
+    return_to = listings_path 
     listing = listings(:valid_listing)
     submit_with_person :mark_as_closed, {
       :person_id => people(:one),
       :id => listing.id,
       :kassi_event => {
-        :realizer_id => people(:two),
+        :realizer_id => people(:two).id,
         :eventable_id => listing.id,
         :eventable_type => "Listing",
-        :comment => "Kommentti"
-      }  
+        :comment_attributes => {
+          :text_content => "Kommentti",
+          :grade => 1,
+          :author_id => people(:one).id,
+          :target_person_id => people(:two).id
+        },
+        :participant_attributes => {
+          people(:one).id => "requester",
+          people(:two).id => "provider"
+        }
+      },
+      :return_to => return_to
     }, :kassi_event, :receiver_id, :post
-    assert_redirected_to person_listings_path(people(:one))
-    assert ! assigns(:kassi_event).new_record?
-    assert_equal "Kommentti", assigns(:kassi_event).person_comments.first.text_content
+    assert_redirected_to return_to
+    assert_equal flash[:notice], :listing_closed
+    kassi_event = assigns(:kassi_event)
+    assert ! kassi_event.new_record?
+    assert_equal "Kommentti", kassi_event.person_comments.first.text_content
+    assert_equal 1, kassi_event.person_comments.first.grade
+    assert_equal people(:one), kassi_event.requester
+    assert_equal people(:two), kassi_event.provider
   end
   
   def test_show_comments_to_own_listings

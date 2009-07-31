@@ -28,7 +28,7 @@
                                      :return_to => favors_path %>
     </div>
     <div class="listed_item_owner_right_link">    
-      <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(favor.owner, favor) %>
+      <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(favor.owner, favor, :return_to => items_path) %>
     </div>  
     <% end %>  
   </div>

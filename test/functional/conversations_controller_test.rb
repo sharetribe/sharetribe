@@ -248,6 +248,15 @@ class ConversationsControllerTest < ActionController::TestCase
       :conversation => {
         :status => "accepted", 
       },
+      :kassi_event => {
+        :eventable_id => conversations(:three).id,
+        :eventable_type => "Reservation",
+        :participant_attributes => {
+          people(:one).id => "provider",
+          people(:two).id => "requester"
+        }
+      },
+      :accepted => "accepted",
       :person_id => people(:one).id,
       :id => conversations(:three).id
     }, :conversation, nil, :put
@@ -255,6 +264,10 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], "borrow_request_accepted"
     conversation = assigns(:conversation)
     assert_equal "accepted", conversation.status
+    kassi_event = assigns(:kassi_event)
+    assert ! kassi_event.new_record?
+    assert_equal people(:two), kassi_event.requester
+    assert_equal people(:one), kassi_event.provider
     assert_redirected_to person_inbox_path(people(:one), conversation)
   end
   

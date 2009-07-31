@@ -68,9 +68,9 @@ class ApplicationController < ActionController::Base
         conditions += " OR (visibility IN ('friends', 'f_c', 'f_g', 'f_c_g') 
         AND #{person_type} IN (" + friend_ids.collect { |id| "'#{id}'" }.join(",") + "))"
       end
-      if Person.count_by_sql(@current_user.contact_query("COUNT(id)")) > 0
+      if Person.count_by_sql(@current_user.contact_query("COUNT(people.id)")) > 0
         conditions += " OR (visibility IN ('contacts', 'f_c', 'c_g', 'f_c_g') 
-        AND #{person_type} IN (#{@current_user.contact_query('id')}))"
+        AND #{person_type} IN (#{@current_user.contact_query('people.id')}))"
       end
       if @current_user.groups(session[:cookie]).size > 0
         group_ids = @current_user.get_group_ids(session[:cookie]).collect { |id| "'#{id}'" }.join(",")

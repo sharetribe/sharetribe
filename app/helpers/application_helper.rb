@@ -57,12 +57,13 @@ module ApplicationHelper
       navi_items[:requests] = person_requests_path(@current_user)
       navi_items[:comments_to_own_listings] = comments_person_listings_path(@current_user)
       navi_items[:settings] = person_settings_path(@current_user)
-      #navi_items[:interesting_listings] = interesting_person_listings_path(@current_user)
-      #navi_items[:purse] = person_purse_path(@current_user)
     when 'listings'
       navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = search_listings_path
       navi_items[:add_listing] = new_listing_path
+      if @current_user
+        navi_items[:own_listings] = person_listings_path(@current_user)
+      end  
     when 'items'
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path

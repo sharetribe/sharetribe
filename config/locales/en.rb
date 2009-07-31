@@ -205,6 +205,8 @@
 :edit_listing => "Edit Listing",
 :listing_realizer => "Realizer",
 :no_realizer => "No realizer",
+:rate_realizer => "Rate realizer's actions",
+:comment_for_listing_realizer => "Comment for realizer", 
 :listing_closed => "Listing closed",
 :cant_reply_to_own_listing => "Can't reply to own listing",
 :slogan => "favors and items to borrow, for friends and strangers!",
@@ -217,6 +219,10 @@
 <li> In need of favor you can post <a href='http://kassi.sizl.org/listings/new'>a listing</a> or otherwise search Kassi for help!</li>
 </ol>",
 :get_started_alpha => "Here will be nice instructions in production Kassi :)",
+:less_than_expected => "less than expected",
+:as_expected => "as expected",
+:exceeded_expectations => "exceeded expectations",
+:has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized?",
 
 #Listing statuses
 :open => "Open",
@@ -300,6 +306,7 @@
 :add_favor => "Add new favor",
 :cant_ask_for_own_favor => "You can't ask yourself for a favor",
 :cant_thank_self_for_favor => "You can't thank yourself for a favor",
+:rate_favor_realizer => "Rate favor realizer's performance", 
 
 #People view
 :kassi_users => "Kassi users",
@@ -391,6 +398,7 @@
 :favor_removed => "favor removed",
 :item_removed_at => "item removed at",
 :favor_removed_at => "favor removed at",
+:feedback_from_kassi_events => "Feedback from Kassi events", 
 
 #Request view
 :requests => "Requests",
@@ -498,6 +506,13 @@
 :comment_for_lender => "Comment for lender",
 :comment_for_favor_realizer => "Comment for realizer",
 :show_related_kassi_event => "Show related kassi event",
+:feedback_from_kassi_event_from_user => "Feedback of Kassi event from user",
+:assessment_of_actions => "Assessment of actions",
+:give_feedback_to_favor_offerer => "Give feedback to the person who did the favor",
+:give_feedback_to_user => "Give feedback to user",
+:send_feedback_from_kassi_event => "Send feedback",
+:feedback_sent => "Feedback sent",      
+   
 
 # Groups view
 :groups_title => "Groups",

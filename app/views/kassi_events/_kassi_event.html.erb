@@ -1,61 +1,62 @@
 <% 
+  other_party = kassi_event.get_other_party(@person)
   case (kassi_event.eventable_type)
   when "Listing"
     listing = kassi_event.eventable
     title = t(:closed_listing) + ": " + link_to(h(listing.title), listing_path(listing))
     if listing.category.eql?("borrow_items")
       right_title1 = t(:item_borrower) + ": "
-      receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+      requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
       right_title2 = t(:item_lender) + ": "
-      realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+      provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
     elsif listing.category.eql?("favors")
       right_title1 = t(:favor_receiver) + ": "
-      receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+      requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
       right_title2 = t(:favor_realizer) + ": "
-      realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+      provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
     else
       right_title1 = t(:listing_author) + ": "
-      receiver = link_to(listing.author.name(session[:cookie]), listing.author)
-      another_participant = kassi_event.people.reject { |p| p.id == listing.author.id }.first
+      requester = link_to(listing.author.name(session[:cookie]), listing.author)
+      another_participant = kassi_event.participants.reject { |p| p.id == listing.author.id }.first
       right_title2 = t(:listing_replier) + ": "
-      realizer = link_to(another_participant.name(session[:cookie]), another_participant)
+      provider = link_to(another_participant.name(session[:cookie]), another_participant)
     end
     category = listing.category
   when "Item"
     item = kassi_event.eventable
-    if @person.id == kassi_event.receiver.id 
+    if @person.id == kassi_event.requester.id 
       title = t(:borrowed_item) + ": " + h(item.title.downcase)
     else
       title = t(:lent_item) + ": " + h(item.title.downcase)
     end
     right_title1 = t(:item_borrower) + ": "
-    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
     right_title2 = t(:item_lender) + ": "
-    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)   
+    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)   
   when "Favor"
     favor = kassi_event.eventable
-    if @person.id == kassi_event.receiver.id
+    if @person.id == kassi_event.requester.id
       title = t(:received_favor) + ": " + h(favor.title.downcase) 
     else
       title = t(:done_favor) + ": " + h(favor.title.downcase)
     end
     right_title1 = t(:favor_receiver) + ": "
-    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
     right_title2 = t(:favor_realizer) + ": "
-    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)
+    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
   when "Reservation"
     reservation = kassi_event.eventable
     reservation_items = reservation.items.collect { |item| item.title.downcase }.join(", ")
-    if @person.id == kassi_event.receiver.id
+    if @person.id == kassi_event.requester.id
       title = reservation.items.size > 1 ? t(:borrowed_items) : t(:borrowed_item)
     else
       title = reservation.items.size > 1 ? t(:lent_items) : t(:lent_item)
     end
     title += ": " + h(reservation_items)
     right_title1 = t(:item_borrower) + ": "
-    receiver = link_to(kassi_event.receiver.name(session[:cookie]), kassi_event.receiver)
+    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
     right_title2 = t(:item_lender) + ": "
-    realizer = link_to(kassi_event.realizer.name(session[:cookie]), kassi_event.realizer)  
+    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)  
   end      
 %>
 
@@ -84,7 +85,7 @@
         <%= right_title1 %>
       </div>  
       <div class="listed_object_right_line_content">
-        <%= receiver %>
+        <%= requester %>
       </div>
     </div>
     <div class="listed_object_right_line">  
@@ -92,8 +93,47 @@
         <%= right_title2 %>
       </div>  
       <div class="listed_object_right_line_content">
-        <%= realizer %>
+        <%= provider %>
       </div>
     </div> 
   </div>
+  <div class="feedback_from_kassi_event">
+    <% if comment = kassi_event.get_person_comment_from_other_party(@person) %>
+      <div class="kassi_event_comment_person_image">
+        <%= small_avatar_thumb(comment.author) %>
+      </div>
+      <div class="kassi_event_comment_content">
+        <div class="kassi_event_comment_content_line">
+          <b><%= t(:feedback_from_kassi_event_from_user) + " " + link_to(comment.author.name, comment.author) %>:</b>
+        </div>
+        <div class="kassi_event_comment_content_line">
+          <% if comment.grade %>
+          <div class="kassi_event_comment_rating <%= comment.grade_label %>">
+            <div class="kassi_event_comment_rating_big_text">  
+              <%= comment.grade_value %>
+            </div>
+            <div class="kassi_event_comment_content_line_rating">  
+              <%= t(comment.grade_label) %>
+            </div>
+          </div>
+          <% end %>
+          <% if comment.text_content && !comment.text_content.eql?("") %>
+            <i>"<%= text_with_line_breaks(comment.text_content) %>"</i>
+          <% end %>
+        </div>  
+      </div>
+    <% elsif is_current_user?(other_party) %>
+      <%= render :partial => "feedback_form", :locals => { :kassi_event => kassi_event } %>
+    <% else %>
+      <div class="kassi_event_comment_content">
+        <b><%= t(:user_has_not_given_feedback_on_this_kassi_event, :name => other_party.name) %></b>
+      </div>  
+    <% end %>
+    <% if is_current_user?(@person) && !kassi_event.has_been_commented_by?(@current_user) %>
+      <div class="kassi_event_comment_give_feedback_link">
+        <%= link_to t(:give_feedback_to_user) + " #{other_party.name}", person_kassi_event_path(other_party, kassi_event) %>
+      </div>
+    <% end %>      
+  </div>
 </div>
+<br />

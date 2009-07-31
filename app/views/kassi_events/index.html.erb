@@ -18,7 +18,11 @@
   <% if @kassi_events.total_pages > 1 || params[:per_page] %>
   <div class="links_panel">
     <div class="left_float">
-      <%= t(:show_kassi_events_on_page) %>:
+      <div class="links_panel_text">
+        <%= t(:show_kassi_events_on_page) %>:
+      </div>
+    </div>
+    <div class="left_float">  
       <%= create_footer_pagination_links(["10", "30", "50", "all"], @pagination_type) %>
     </div>
     <div class="right_float">

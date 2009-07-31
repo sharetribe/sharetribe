@@ -1,0 +1,40 @@
+<% form_for kassi_event, :url => person_kassi_event_path(@person, kassi_event), :method => :put do |f| %>
+  <%= f.error_messages %>
+  <% fields_for "kassi_event[comment_attributes]", PersonComment.new do |comment_form| -%>
+    <%= comment_form.hidden_field :author_id, :value => @current_user.id %>
+    <%= comment_form.hidden_field :target_person_id, :value => @person.id %>
+  <fieldset>
+  <legend>
+    <%= t(:give_feedback_to_user) +" #{@person.name}" %>
+  </legend>
+  <div class="form_extra_padding">
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:assessment_of_actions) %>: 
+    </div>
+    <div class="form_right">
+      <%= radio_button_tag "kassi_event[comment_attributes][grade]", 0, false %>
+      1 (<%= t(:less_than_expected) %>)
+      &nbsp;&nbsp;&nbsp;
+      <%= radio_button_tag "kassi_event[comment_attributes][grade]", 0.5, true %>
+      2 (<%= t(:as_expected) %>)
+       &nbsp;&nbsp;&nbsp;
+      <%= radio_button_tag "kassi_event[comment_attributes][grade]", 1, false %>
+      3 (<%= t(:exceeded_expectations) %>)
+    </div>
+  </div>
+  <div class="form_container">
+    <div class="form_left">
+      <%= t(:comment_for_favor_realizer) %>: 
+    </div>
+    <div class="form_right">
+      <%= comment_form.text_area :text_content, :size => "65x8" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="form_container">
+    <%= submit_tag t(:send_feedback_from_kassi_event), :onclick => "this.disabled=true,this.form.submit();" %>
+  </div>
+  </div>
+  </fieldset>
+<% end %>
