@@ -4,7 +4,7 @@
     <div class="left_float">
       <b>
         <%= link_to_remote h(@title.capitalize), :url => hide_favor_path(escaped_title), :method => :get %> - 
-        <%= pluralize @favors.size, t(:owner), t(:owner_partitive) %>
+        <%= pluralize @favors.size, t(:offerer), t(:offerer_partitive) %>
       </b>
     </div>   
   </div>  
