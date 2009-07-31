@@ -188,23 +188,6 @@ class ItemsController < ApplicationController
     @conversation = Conversation.new
   end
   
-  def thank_for
-    @item = Item.find(params[:id])
-    return unless must_not_be_current_user(@item.owner, :cant_thank_self_for_item)
-    @person = Person.find(params[:person_id])
-    @kassi_event = KassiEvent.new
-    @kassi_event.realizer_id = @person.id
-  end
-  
-  def mark_as_borrowed
-    @item = Item.find(params[:kassi_event][:eventable_id])
-    return unless must_not_be_current_user(@item.owner, :cant_thank_self_for_item)
-    create_kassi_event
-    flash[:notice] = :thanks_for_item_sent
-    @person = Person.find(params[:person_id])
-    redirect_to @person
-  end
-  
   def view_description
     set_description_visibility(true)
   end

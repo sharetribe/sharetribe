@@ -1,4 +1,9 @@
-<b><%= link_to_remote h(favor.title.capitalize), :url => hide_description_person_favor_path(@person, favor), :method => :get %></b><br />
+<b>
+  <%= link_to_remote h(favor.title.capitalize), 
+                     :url => hide_description_person_favor_path(@person, favor), 
+                     :method => :get %>
+</b>
+<br />
 <p>
   <% if favor.description && !favor.description.eql?("") %>
     <%= text_with_line_breaks(favor.description) %>

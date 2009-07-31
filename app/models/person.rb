@@ -3,7 +3,6 @@ require 'rest_client'
 
 class Person < ActiveRecord::Base
  
-  
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email
@@ -14,14 +13,7 @@ class Person < ActiveRecord::Base
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
   
-  has_many :items, :foreign_key => "owner_id", :dependent => :destroy 
-
-  # Can't be used because conditions parameter can't be passed from controller
-  # has_many :available_items, 
-  #          :class_name => "Item",
-  #          :foreign_key => "owner_id", 
-  #          :conditions => "status <> 'disabled'",
-  #          :order => "title"
+  has_many :items, :foreign_key => "owner_id", :dependent => :destroy
            
   has_many :disabled_items, 
            :class_name => "Item",
@@ -29,13 +21,6 @@ class Person < ActiveRecord::Base
            :conditions => "status = 'disabled'",
            :order => "title",
            :dependent => :destroy 
-  
-  # Can't be used because conditions parameter can't be passed from controller                  
-  # has_many :available_favors, 
-  #          :class_name => "Favor",
-  #          :foreign_key => "owner_id", 
-  #          :conditions => "status <> 'disabled'",
-  #          :order => "title"
   
   has_many :disabled_favors, 
            :class_name => "Favor",
@@ -56,12 +41,16 @@ class Person < ActiveRecord::Base
            :through => :person_conversations, 
            :source => :conversation
   
-  has_and_belongs_to_many :kassi_events
-  
   has_many :received_comments, 
            :class_name => "PersonComment", 
            :foreign_key => "target_person_id",
-           :dependent => :destroy 
+           :dependent => :destroy,
+           :order => "id DESC" 
+           
+  has_many :kassi_event_participations, :dependent => :destroy
+  has_many :kassi_events, 
+           :through => :kassi_event_participations, 
+           :source => :kassi_event
            
   has_one :settings, :dependent => :destroy          
 
@@ -366,19 +355,19 @@ class Person < ActiveRecord::Base
   
   # Returns contacts of this person as an array of Person objects 
   def contacts
-    Person.find_by_sql(contact_query("id, created_at"))
+    Person.find_by_sql(contact_query("people.id, people.created_at"))
   end
   
   # Returns a query that gets the selected attributes for contacts
   def contact_query(select)
     "SELECT DISTINCT #{select} 
     FROM 
-      people, kassi_events_people 
+      people, kassi_event_participations
     WHERE
-      id = person_id AND
+      people.id = person_id AND
       person_id <> '#{id}' AND 
       kassi_event_id IN (
-        SELECT kassi_event_id FROM kassi_events_people WHERE person_id = '#{id}'
+        SELECT kassi_event_id FROM kassi_event_participations WHERE person_id = '#{id}'
       )"
   end
   

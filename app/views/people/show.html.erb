@@ -138,7 +138,8 @@
 
 <% if (@person.received_comments.size > 0) %>
   <div id="comments">
-    <h4><%= t(:comments) %> (<%= @person.received_comments.size.to_s %>) </h4>
+    <br />
+    <h4><%= t(:feedback_from_kassi_events) %> (<%= @person.received_comments.size.to_s %>) </h4>
     <%= render :partial => "people/person_comment", 
                :collection => @person.received_comments, 
                :as => :comment, 

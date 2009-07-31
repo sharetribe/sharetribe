@@ -15,7 +15,7 @@
                                         :target_object => favor, 
                                         :target_object_type => "favor", 
                                         :return_to => request.request_uri %> | 
-    <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(@person, favor) %>
+    <%= link_to t(:i_have_received_this_favor), thank_for_person_favor_path(@person, favor, :return_to => request.request_uri) %>
   <% end %>
   </div>  
 </div>

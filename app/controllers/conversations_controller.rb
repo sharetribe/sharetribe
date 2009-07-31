@@ -71,13 +71,17 @@ class ConversationsController < ApplicationController
     if params[:accepted]
       params[:conversation][:status] = "accepted"
     elsif params[:rejected]
-      params[:conversation][:status] = "rejected" 
+      params[:conversation][:status] = "rejected"
+      if "Hyväksytty.".eql?(params[:conversation][:message_attributes][:content])
+        params[:conversation][:message_attributes][:content] = "Hylätty."
+      elsif "Accepted.".eql?(params[:conversation][:message_attributes][:content])
+        params[:conversation][:message_attributes][:content] = "Rejected."
+      end  
     end
     @conversation = Conversation.find(params[:id])
     if @conversation.update_attributes(params[:conversation])
       if params[:accepted]
-        logger.info "Params: " + params.inspect
-        KassiEvent.create(params[:kassi_event])
+        @kassi_event = KassiEvent.create(params[:kassi_event])
       end  
       @conversation.send_email_to_participants(request)
       if @conversation.type.eql?("Reservation")

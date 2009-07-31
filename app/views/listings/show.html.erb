@@ -89,7 +89,7 @@
     <% if @listing.open? %>
       <div class="reply_to_listing">
       <% if @current_user && is_current_user?(@listing.author) %>
-        <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing) %>
+        <%= link_to t(:close_listing), close_person_listing_path(@current_user, @listing, :return_to => request.request_uri) %>
       <% else %>
         <%= link_to t(:reply), :controller => :conversations, 
                                :action => :new, 
