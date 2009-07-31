@@ -228,6 +228,27 @@ class ApplicationController < ActionController::Base
     UUIDTools::UUID.timestamp_create().to_s
   end
   
+  
+  # CACHE HELPERS
+  
+  def favors_last_changed 
+    Rails.cache.fetch("favors_last_changed") {Time.now.to_i}
+  end
+
+  def update_favors_last_changed 
+    Rails.cache.write("favors_last_changed", Time.now.to_i)
+  end
+  
+  # def people_last_changed 
+  #     Rails.cache.fetch(favors_last_changed, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+  #     
+  #   end
+  
+  # * items_last_changed (Time.now.to_i)
+  # * listings_last_changed (Time.now.to_i)
+  # * people_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
+  # * groups_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
+  
   protected  
 
   def log_error(exception) 

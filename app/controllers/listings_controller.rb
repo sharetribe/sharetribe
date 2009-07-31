@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
 
  # caches_action :index, :layout => false
- #caches_action :show, :layout => false, :if => Proc.new { ! @current_user }
+ # caches_action :show, :layout => false, :if => Proc.new { ! @current_user }
  
 
   def index

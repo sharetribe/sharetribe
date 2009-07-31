@@ -2,6 +2,12 @@ class FavorsController < ApplicationController
   
   before_filter :logged_in, :except  => [ :index, :show, :hide, :search ]
   
+  caches_action :index, :cache_path => :index_cache_path.to_proc
+  # use sweeper to decet changes that require cache expiration. 
+  # Some non-changing methods are excluded. not sure if it helps anything for performance?
+  cache_sweeper :favor_sweeper, :except => [:show, :index, :new, :search]
+  
+  
   def index
     save_navi_state(['favors','browse_favors','',''])
     #TODO cache
@@ -211,6 +217,14 @@ class FavorsController < ApplicationController
   end
   
   private
+  
+  def index_cache_path
+    if @current_user
+      "Favors_list/#{favors_last_changed}/#{@current_user.id}"
+    else
+       "Favors_list/#{favors_last_changed}/non-registered"
+    end
+  end
   
   def set_description_visibility(visible)
     partial = visible ? "favors/title_and_description" : "favors/title_no_description"
