@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 
   before_filter :logged_in, :except  => [ :index, :search ]
+  before_filter :clear_caches, :only => [:create, :join, :leave]
 
   # Show the group view
   def index
@@ -80,6 +81,10 @@ class GroupsController < ApplicationController
   end
   
   private
+  
+  def clear_caches
+     update_caches_dependent_on_groups(@current_user)
+  end
   
   def handle_group_errors(group, exception=nil)
     if exception

@@ -3,6 +3,7 @@ require 'test_helper'
 class PeopleTest < ActionController::IntegrationTest
     
   fixtures :people
+  fixtures :items
 
   # Tests friend functionality
   def test_add_and_remove_friend
@@ -48,6 +49,11 @@ class PeopleTest < ActionController::IntegrationTest
     assert_template 'index'
     assert_equal 0, assigns(:friends).size
     
+    # The item of person 1 should not yet be visible (because it is for friends only)
+    get "/items"
+    assert_response :success, @response.body
+    assert( ! @response.body.match(items(:friends_only).title), "Friends-only item should not be visible")
+    
     # There should be one new request from person 1
     get "/people/#{people(:two).id}/requests"
     assert_response :success
@@ -66,6 +72,11 @@ class PeopleTest < ActionController::IntegrationTest
     assert_template 'index'
     assert_equal 0, assigns(:requesters).size
     
+    # The item of person 1 should now be visible (because it is for friends only)
+    get "/items"
+    assert_response :success, @response.body
+    assert(@response.body.match(items(:friends_only).title), "Friends-only item should be visible")
+    
     # Person 1 should now be visible in the friend view
     get "/people/#{people(:two).id}/friends"
     assert_response :success
@@ -83,6 +94,11 @@ class PeopleTest < ActionController::IntegrationTest
     assert_response :success
     assert_template 'index'
     assert_equal 0, assigns(:friends).size
+    
+    # The item of person 1 should not be visible anymore (because it is for friends only)
+    get "/items"
+    assert_response :success, @response.body
+    assert( ! @response.body.match(items(:friends_only).title), "Friends-only item should not be visible")
     
     # Request person 1 as a friend
     post "/people/#{people(:one).id}/friends"

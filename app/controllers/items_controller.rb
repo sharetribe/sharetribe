@@ -5,6 +5,12 @@ class ItemsController < ApplicationController
   
   before_filter :logged_in, :except => [ :index, :show, :hide, :search ]
   
+  # temporarily off, cos breaks the tests.. :)
+  # caches_action :index, :cache_path => :index_cache_path.to_proc
+  # use sweeper to decet changes that require cache expiration. 
+  # Some non-changing methods are excluded. not sure if it helps anything for performance?
+  cache_sweeper :item_sweeper, :except => [:show, :index, :new, :search]
+  
   def index
     save_navi_state(['items','browse_items','',''])
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
@@ -334,6 +340,14 @@ class ItemsController < ApplicationController
   end
   
   private
+  
+  def index_cache_path
+    if @current_user
+      "items_list/#{session[:locale]}/#{items_last_changed}/#{@current_user.id}"
+    else
+       "items_list/#{session[:locale]}/#{items_last_changed}/non-registered"
+    end
+  end
   
   def search_items(query)
     s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
