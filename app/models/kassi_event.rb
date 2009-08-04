@@ -6,6 +6,7 @@ class KassiEvent < ActiveRecord::Base
   
   has_many :kassi_event_participations, :dependent => :destroy
   has_many :participants, :through => :kassi_event_participations, :source => :person
+  has_and_belongs_to_many :people
   
   def comment_attributes=(attributes)
     person_comments.build(attributes)
