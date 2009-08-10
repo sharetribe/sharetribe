@@ -1,0 +1,12 @@
+<%= @feedback.author ? @feedback.author.name : "Kirjautumaton käyttäjä" %> on lähettänyt <%= BETA_VERSION %>-Kassissa seuraavan palautteen:
+
+***
+
+<%= @feedback.content %>
+
+***
+
+Voit katsoa kaikki palautteet osoitteessa <%= @url %>
+
+Terveisin,
+Kassin palautteenkäsittelijäropotti

@@ -29,6 +29,16 @@ class UserMailer < ActionMailer::Base
     subject    subject_string
     body       :requester => requester, :url => url, :settings_url => settings_url
   end
+  
+  def notification_of_new_feedback(feedback, http_request=nil)
+    subject_string = "Uutta palautetta #{BETA_VERSION}-Kassista käyttäjältä #{feedback.author.try(:name)}"
+    url = http_request ? "#{http_request.protocol}#{http_request.host}#{admin_feedbacks_path}" : "test_url"
+    recipients ["antti.virolainen@tkk.fi","juho.makkonen@tkk.fi"]
+    from       KASSI_MAIL_FROM_ADDRESS
+    subject    subject_string
+    body       :url => url, :feedback => feedback
+  end
+  
 
 end
 
