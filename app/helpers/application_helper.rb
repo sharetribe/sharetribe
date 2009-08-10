@@ -197,8 +197,9 @@ module ApplicationHelper
   end
   
   def small_avatar_thumb(person)    
-    link_to (image_tag COS_URL + "/people/" + person.id + "/@avatar/small_thumbnail", 
-              :alt => person.name(session[:cookie]), :width => 50, :height => 50), person  
+    link_to (image_tag COS_URL + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
+              #, :alt => person.name(session[:cookie]), :width => 50, :height => 50), person  
+              # The alt text is removed 'cos it's prosessing caused some timeouts..
   end
   
   def large_avatar_thumb(person)
