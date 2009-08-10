@@ -22,7 +22,8 @@ CASClient::Frameworks::Rails::Filter.configure(
     :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
     :logger => cas_logger,
     :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
-    :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt"
+    :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
+    :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
 )
 
 Rails::Initializer.run do |config|
