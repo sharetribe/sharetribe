@@ -1,5 +1,6 @@
 require 'json'
 require 'rest_client'
+require 'httpclient'
 
 class Person < ActiveRecord::Base
  
@@ -105,7 +106,9 @@ class Person < ActiveRecord::Base
     end
     
     def self.update_avatar(image, id, cookie)
-      RestClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", {:file => image}, {:cookies => cookie})
+      HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image})
+      
+      #RestClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", {:file => image}, {:cookies => cookie})
       #connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
     end
     
@@ -172,7 +175,9 @@ class Person < ActiveRecord::Base
     response = PersonConnection.create_person(person_hash, cookie)
     
     # Pick id from the response (same id in kassi and COS DBs)
-    params[:id] = response["id"]
+    puts response.inspect
+    params[:id] = response["entry"]["id"]
+    puts params[:id]
     #params[:id] = response[/"id":"([^"]+)"/, 1]
     
     # Add name information for the person to COS 

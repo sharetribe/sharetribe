@@ -45,7 +45,10 @@ Rails::Initializer.run do |config|
   config.gem "rubycas-client"
   config.gem "nntp"
   config.gem "uuidtools"
-  
+  config.gem "ferret"
+  config.gem "json"
+  config.gem "httpclient"
+
   #These below are needed too, but their existence is not detected correctly so commented out.
   #config.gem "rest-client"
   #config.gem "google-geocode"
