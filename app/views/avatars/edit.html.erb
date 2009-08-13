@@ -12,12 +12,43 @@
   </div>  
 </div>
 
+<% form_tag({ :action => "update" }, :method => "put") do %>
+
+  <fieldset>
+    <legend>
+      <%= t(:upload_avatar) %>
+    </legend>
+    <div class="form_extra_padding">
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:image_file) %>:
+      </div>
+      <div class="form_right">
+                            
+        <!--input name="file" id="avatar_file" type="file"-->
+        <%= file_field_tag "image_file",  :size => 30, :id => "avatar_file" %>
+      </div>
+    </div>  
+    <div class="form_container">
+      <div class="form_right">
+        <%= submit_tag t(:add_avatar_submit), :onclick => "this.disabled=true,this.form.submit();" %>  
+      </div>
+    </div>
+  </fieldset>
+ 
+<% end %>
+
+-- OLD FORM BELOW --
+
 <script type="text/javascript">
   function handleResponse() {
     location = "<%= @return_url %>"
   }
 </script>
+
 <form  target="upload_frame" action="<%= COS_URL_PROXIED %>/people/<%= @person.id %>/@avatar" method="post" enctype="multipart/form-data" name="avatar_form" id="avatar_form">
+
+
   <fieldset>
     <legend>
       <%= t(:upload_avatar) %>

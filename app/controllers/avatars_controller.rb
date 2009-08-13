@@ -22,6 +22,19 @@ class AvatarsController < ApplicationController
     # end  
   end
   
+  def update
+     @person = Person.find(params[:person_id])
+    begin
+      puts "PARAMETRINA TULI: #{params.inspect}"
+      @person.update_avatar(params[:image_file], session[:cookie])
+      flash[:notice] = :avatar_upload_successful
+      redirect_to @person
+    rescue RestClient::RequestFailed => e
+      flash[:error] = e.response.body
+      render :action => :edit
+    end
+  end
+  
   def upload_successful
     flash[:notice] = :avatar_upload_successful
     redirect_to person_path(params[:person_id])
