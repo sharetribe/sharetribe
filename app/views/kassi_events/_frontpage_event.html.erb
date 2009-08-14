@@ -1,0 +1,5 @@
+<div class="home_kassi_event">
+  <h4 class="home_event_title"><%= get_title(kassi_event) %></h4>
+  <%= kassi_event.participants.collect { |p| link_to(p.name, p) }.join(", ") %> 
+  <%= kassi_event.created_at.to_formatted_s(:basic_date_format_minutes) %>
+</div >  

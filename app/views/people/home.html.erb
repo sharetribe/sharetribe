@@ -1,57 +1,175 @@
-<div class="home_header">
-  <div class="left_float">
-    <%= t(:newest_listings) %>
+<% unless @current_user %>
+  <div id="home_ad_box">
+    <div id="home_ad_box_top_corners"></div>
+    
+    <div id="home_ad_box_content">
+      <div id="home_ad_box_left">
+        <div class="home_ad_box_inner_box bottom_margin">
+          <div class="home_ad_box_inner_box_top_corners"></div>
+          <div class="home_ad_box_inner_box_content">
+            <div class="home_ad_box_inner_box_content_left">
+              <h2 class="home">Hae tavaraa <br />tai palvelusta</h2>
+            </div>
+            <div class="home_ad_box_inner_box_content_right">
+              <p>
+                Joku Kassin käyttäjistä saattaa jo tarjota
+                tavaraa tai palvelusta, jota kaipaat. Kirjoita 
+                toiveesi hakukenttään ja ota selvää!
+              </p>  
+            </div>    
+          </div>
+          <div class="home_ad_box_inner_box_content">
+            <% form_tag({ :controller => "search", :action => "index" }, :method => "get") do %>  
+            <br />
+            <div class="left_float">
+              <%= text_field_tag "qa", params[:qa], :class => :home_text %>
+              &nbsp;&nbsp;
+            </div>
+            <div class="left_float">  
+              <%= submit_tag t(:search), :class => "home_button home_button_narrow" %>
+            </div>
+            <% end %>    
+          </div>
+          <div class="home_ad_box_inner_box_bottom_corners"></div>
+        </div>
+        <div class="home_ad_box_inner_box bottom_margin">
+          <div class="home_ad_box_inner_box_top_corners"></div>
+          <div class="home_ad_box_inner_box_content">
+            <div class="home_ad_box_inner_box_content_left">
+              <h2 class="home_small_margin">Ilmoita Kassissa</h2>
+            </div>
+            <div class="home_ad_box_inner_box_content_right">
+              <p>
+                Etkö löytänyt etsimääsi? Jätä ilmoitus kassiin!
+              </p>  
+            </div>    
+          </div>
+          <div class="home_ad_box_inner_box_content">
+            <% form_tag({ :controller => "listings", :action => "new" }, :method => "get") do %>
+            <div class="left_float">  
+              <%= submit_tag t(:add_new_listing), :class => "home_button home_button_wide" %>
+            </div>
+            <% end %>    
+          </div>
+          <div class="home_ad_box_inner_box_bottom_corners"></div>
+        </div>
+        <div class="home_ad_box_inner_box">
+          <div class="home_ad_box_inner_box_top_corners"></div>
+          <div class="home_ad_box_inner_box_content">
+            <div class="home_ad_box_inner_box_content_left">
+              <h2 class="home">Osallistu!</h2>
+              <% form_tag({ :controller => "listings", :action => "new" }, :method => "get") do %>
+              <div class="left_float">  
+                <%= submit_tag t(:add_your_items_and_favors), :class => "home_button home_button_thick" %>
+              </div>
+              <% end %>
+            </div>
+            <div class="home_ad_box_inner_box_content_right">
+              <p>
+                Kassi toimii sitä paremmin, mitä useampi tarjoaa sen kautta tietoa lainatavaroistaan ja muille
+                tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!
+              </p>  
+            </div>    
+          </div>
+          <div class="home_ad_box_inner_box_bottom_corners"></div>
+        </div>  
+      </div> 
+      <div id="home_ad_box_right">
+        <h1 class="home">Tavaroita ja palveluksia<br /> - tutuille ja tuntemattomille!</h1>
+        <p class="home">
+          Tarvitsetko poran lainaksi? Kaipaatko muuttoapua? Haluaisitko päästä kimppakyydillä festareille? Oletko vailla sohvaa? Tahdotko eroon vanhoista oppikirjoista? Oletko kokoamassa sählyjoukkuetta? Kassi voi auttaa!
+        </p>
+        <p class="home">
+          Kassi on palvelu, joka helpottaa tavaroiden ja palvelusten vaihtoa. Profiilissasi voit listata muiden käyttöön tarjoamasi lainatavaroita sekä palveluksia, joita voisit tehdä muille. Palvelus- ja tavaralistoista saat selville, mitä Kassissa on tarjolla. Jos et löydä etsimääsi, voit jättää siitä ilmoituksen, johon muut voivat vastata. Ilmoituksilla voit myös ostaa ja myydä, etsiä kimppakyytejä tai kadonneita tavaroita sekä koota porukkaa vaikka lukupiiriin.
+        </p>
+        <p class="home">
+          Myös yhdistykset voivat käyttää Kassia toiminnassaan monin tavoin, esimerkiksi hyödyntämällä Kassin varaustoiminnallisuutta tai ilmoittamalla Kassissa talkoista ja muista tapahtumista.
+        </p>
+        <% form_tag({ :controller => "people", :action => "new" }, :method => "get") do %>  
+          <%= submit_tag t(:join_kassi), :class => "home_button home_button_join" %>
+        <% end %>
+      </div>  
+    </div>
+    <div id="home_ad_box_bottom_corners"></div>      
   </div>
-  <div class="right_float">
-    <%= link_to t(:browse_all_listings), listings_path %> | <%= link_to t(:add_new_listing), new_listing_path %>
-  </div>    
-</div>
-
-<% if @listings.size > 0 %>
-  <%= render :partial => "listings/listing", 
-             :collection => @listings, 
-             :as => :listing, 
-             :spacer_template => "layouts/dashed_line" %>
-<% else %>             
-  <p><%= t(:no_listings) %></p>    
-<% end %>
+  
 <br />
-
-<div class="home_header">
-  <div class="left_float">
-    <%= t(:newest_messages) %> <%= "(" + pluralize(@inbox_new_count, t(:new), t(:new_partitive)) + ")" if @inbox_new_count > 0 %>
-  </div>
-  <div class="right_float">
-    <%= link_to t(:go_to_inbox), person_inbox_index_path(@current_user) %>
-  </div>
-</div>    
-
-<% if @person_conversations.size > 0 %>
-  <% collection = (@person_conversations.size > 2) ? @person_conversations.values_at(0,1) : @person_conversations %>
-  <%= render :partial => "conversations/conversation", 
-             :collection => collection, 
-             :as => :conversation,
-             :spacer_template => "layouts/dashed_line" %>
-<% else %>             
-  <p><%= t(:no_messages) %></p>    
 <% end %>
 
-<br />
-
-<div class="home_header">
-  <div class="left_float">
-    <%= t(:newest_comments_to_own_listings) %> <%= "(" + pluralize(@comments_new_count, t(:new), t(:new_partitive)) + ")" if @comments_new_count > 0 %>
+<div id="home_content" class="home_content">
+  <div id="home_content_left">
+    <h3 class="home_event_box_title"><%= t(:new_in_kassi) %></h3>
+    <div class="solid_line"></div> 
+    <div id="content_items">
+      <%= render :partial => "content_item", 
+                 :collection => @content_items, 
+                 :as => :content_item,
+                 :spacer_template => "layouts/dashed_line" %>
+    </div>
+    <div class="solid_line"></div>  
+    <br />
+    <div id="more_content_items_link">
+      <%= render :partial => "more_content_items_link", :locals => { :content_items_per_page => @content_items_per_page } %>
+    </div>
   </div>
-  <div class="right_float">
-    <%= link_to t(:show_all), comments_person_listings_path(@current_user) %>
+  <div id="home_content_right">
+    <% if @current_user && ((@current_user.items.size < 1 && @current_user.favors.size < 1) || @new_arrived_items_count > 0) %>
+    <div class="home_content_right_box">
+      <div class="home_content_right_box_top"></div>
+      <div class="home_content_right_box_content">
+        <h3 class="home_event_box_title"><%= t(:notifications) %></h3>
+        <div class="solid_line_white"></div>
+        <ul>
+          <% if @requests_count > 0 %>
+            <li>
+              <%= link_to(pluralize(@requests_count, t(:new_request), t(:new_requests)), person_requests_path(@current_user))%>
+            </li>
+          <% end %>
+          <% if @comments_new_count > 0 %>
+            <li>
+              <%= link_to(pluralize(@comments_new_count, t(:new_comment), t(:new_comments)), comments_person_listings_path(@current_user))%>
+            </li>
+          <% end %>
+          <% if @current_user.uncommented_kassi_event_count > 0 %>
+            <li>
+              <%= link_to(pluralize(@current_user.uncommented_kassi_event_count, t(:new_kassi_event), t(:new_kassi_events)), 
+                  person_kassi_events_path(@current_user)) %>
+            </li>
+          <% end %>
+          <% if @inbox_new_count > 0 %>
+            <li>
+              <%= link_to(pluralize(@inbox_new_count, t(:new_message), t(:new_messages)), person_inbox_index_path(@current_user))%>
+            </li>
+          <% end %>
+          <% if @current_user.items.size < 1 && @current_user.favors.size < 1 %>
+            <li>
+              <%= t(:you_have_not_yet_added_any_items_or_favors) %>. <%= link_to t(:add_new_items_and_favors), @current_user %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="home_content_right_box_bottom"></div>
+    </div>
+    <br />
+    <% end %>
+    <div class="home_content_right_box">
+      <div class="home_content_right_box_top"></div>
+      <div class="home_content_right_box_content">
+        <h3 class="home_event_box_title"><%= t(:newest_kassi_events) %></h3>
+        <div class="solid_line_white"></div>
+        <div id="kassi_events">
+          <%= render :partial => "kassi_events/frontpage_event",
+                     :as => :kassi_event,
+                     :collection => @kassi_events, 
+                     :spacer_template => "layouts/dashed_line_white" %>
+        </div>
+        <div class="solid_line_white"></div>  
+        <br />
+        <div id="more_kassi_events_link" class="home_bottom_link">
+          <%= render :partial => "more_kassi_events_link", :locals => { :events_per_page => @events_per_page } %>
+        </div>  
+      </div>
+      <div class="home_content_right_box_bottom"></div>
+    </div>    
   </div>
-</div>    
-
-<% if @comments && @comments.size > 0 %>
-  <%= render :partial => "home_comment", 
-             :collection => @comments, 
-             :as => :comment,
-             :spacer_template => "layouts/dashed_line" %>
-<% else %>             
-  <p><%= t(:no_comments) %></p>    
-<% end %>
+</div>  

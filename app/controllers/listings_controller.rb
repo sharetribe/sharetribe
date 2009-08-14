@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+    save_navi_state(['listings', 'browse_listings', 'all_categories']) unless session[:navi2] && !session[:navi2].eql?("")
     @listing = Listing.find(params[:id])
     unless is_visible?(@listing)
       flash[:error] = :no_permission_to_view_this_content

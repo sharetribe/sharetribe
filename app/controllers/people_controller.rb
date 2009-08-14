@@ -12,25 +12,38 @@ class PeopleController < ApplicationController
   end
   
   def home
-    if @current_user
-      if params[:id] && !params[:id].eql?(@current_user.id)
-        redirect_to listings_path
-      else
-        clear_navi_state
-        save_navi_state(['own', 'home'])
-        @listings = Listing.find(:all, 
-                                 :limit => 2, 
-                                 :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'" + get_visibility_conditions("listing"),
-                                 :order => "id DESC")                         
-        @person_conversations = PersonConversation.find(:all, 
-                                                        :limit => 2,
-                                                        :conditions => ["person_id LIKE ? AND last_received_at IS NOT NULL", @current_user.id],
-                                                        :order => "last_received_at DESC")
-        @comments = ListingComment.find_by_sql("SELECT listing_comments.id, listing_comments.is_read, listing_comments.created_at, listing_comments.content, listing_comments.listing_id, listings.title, listing_comments.author_id FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = '" + @current_user.id + "' AND listing_comments.author_id <> '" + @current_user.id + "' ORDER BY listing_comments.created_at desc LIMIT 2")                                            
-      end  
-    else
-      redirect_to listings_path
-    end    
+    save_navi_state(['home', ''])
+    @events_per_page = 5
+    @content_items_per_page = 5
+    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
+    get_newest_content_items(@content_items_per_page)
+  end
+  
+  def more_kassi_events
+    @events_per_page = params[:events_per_page].to_i + 5
+    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
+    render :update do |page|
+      page["kassi_events"].replace_html :partial => "kassi_events/frontpage_event",
+                                        :as => :kassi_event,
+                                        :collection => @kassi_events, 
+                                        :spacer_template => "layouts/dashed_line_white"
+      page["more_kassi_events_link"].replace_html :partial => "more_kassi_events_link", 
+                                                  :locals => { :events_per_page => @events_per_page }                                  
+    end
+  end
+  
+  def more_content_items
+    @content_items_per_page = params[:content_items_per_page].to_i + 5
+    logger.info "Content items per page: " + @content_items_per_page.to_s
+    @content_items = get_newest_content_items(@content_items_per_page)
+    render :update do |page|
+      page["content_items"].replace_html :partial => "content_item",
+                                        :as => :content_item,
+                                        :collection => @content_items, 
+                                        :spacer_template => "layouts/dashed_line"
+      page["more_content_items_link"].replace_html :partial => "more_content_items_link", 
+                                                   :locals => { :content_items_per_page => @content_items_per_page }                                  
+    end
   end
   
   # Shows profile page of a person.
@@ -187,6 +200,26 @@ class PeopleController < ApplicationController
     person.form_password = params[:person][:password]
     person.form_password2 = params[:person][:password2]
     person.form_email = params[:person][:email]
+  end
+  
+  private
+  
+  def get_newest_content_items(limit)
+    favors = Favor.find(:all, 
+                        :conditions => "status <> 'disabled'" + get_visibility_conditions("favor"),
+                        :limit => limit,
+                        :order => "id DESC")
+    items =  Item.find(:all, 
+                       :conditions => "status <> 'disabled'" + get_visibility_conditions("item"),
+                       :limit => limit, 
+                       :order => "id DESC")    
+    listings = Listing.find(:all, 
+                            :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'" + get_visibility_conditions("listing"),
+                            :limit => limit, 
+                            :order => "id DESC")
+    @content_items = favors.concat(items).concat(listings).sort {
+      |a, b| b.created_at <=> a.created_at
+    }                              
   end
   
 end

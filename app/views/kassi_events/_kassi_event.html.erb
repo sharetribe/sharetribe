@@ -46,7 +46,7 @@
     provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
   when "Reservation"
     reservation = kassi_event.eventable
-    reservation_items = reservation.items.collect { |item| item.title.downcase }.join(", ")
+    reservation_items = reservation.items.collect { |item| h(item.title.downcase) }.join(", ")
     if @person.id == kassi_event.requester.id
       title = reservation.items.size > 1 ? t(:borrowed_items) : t(:borrowed_item)
     else
@@ -60,7 +60,7 @@
   end      
 %>
 
-<div class="listed_object">
+<div class="listed_object <%= 'unread_conversation' if (is_current_user?(@person) && !kassi_event.commented_by?(@current_user)) %>">
   <div class="listed_kassi_event_left">
     <div class="listed_kassi_event_title">
       <%= title %>
@@ -136,4 +136,3 @@
     <% end %>      
   </div>
 </div>
-<br />

@@ -64,7 +64,7 @@ ActionController::Routing::Routes.draw do |map|
   end  
   map.resources :people, 
                 :member => { :home => :get, :cancel_edit => :get }, 
-                :collection => { :search => :get } do |person|
+                :collection => { :search => :get, :more_kassi_events => :get, :more_content_items => :get } do |person|
     person.resources :inbox, :controller => :conversations,
                              :collection => { 
                                :sent => :get,

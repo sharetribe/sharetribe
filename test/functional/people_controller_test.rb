@@ -76,17 +76,17 @@ class PeopleControllerTest < ActionController::TestCase
   
   def test_home
     get :home
-    assert_response :found
-    assert_redirected_to listings_path
+    assert_response :success
+    assert_equal 8, assigns(:content_items).size
+    assert_equal 0, assigns(:kassi_events).size
     
     @test_person, @session = get_test_person_and_session
     get :home, {}, {:person_id => @test_person.id, :cookie => @session.cookie}
     #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
     assert_response :success
     assert_template "home"
-    assert_equal 2, assigns(:listings).size
-    assert_not_nil assigns(:person_conversations)
-    assert_not_nil assigns(:comments)
+    assert_equal 9, assigns(:content_items).size
+    assert_equal 0, assigns(:kassi_events).size
     @session.destroy
   end
   

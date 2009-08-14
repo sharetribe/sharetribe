@@ -4,8 +4,6 @@
     <% name_string = t(name) %>
     <% if name.to_s.eql?("own")  && @new_arrived_items_count > 0 %>
       <% name_string += " (" + @new_arrived_items_count.to_s + ")" %>
-    <% elsif name.to_s.eql?("admin")  && @new_feedback_item_amount > 0 %>
-      <% name_string += " (" + @new_feedback_item_amount.to_s + ")" %>
     <% end %>
     <% if (name.to_s.eql?(session[:navi1])) %>
       <li class="selected"><%= link_to name_string, url %></li>
