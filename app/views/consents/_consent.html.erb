@@ -1,7 +1,3 @@
-<div id="info_box">
-  Kassin, kuten muidenkin OtaSizzle-palveluiden käytöstä kerätään tietoa tieteellistä tutkimusta varten, joten palvelun käyttö edellyttää alla olevan suostumuksen hyväksymistä.
-</div>
-
 <h1>KIRJALLINEN SUOSTUMUS TUTKIMUKSEEN</h1>
 
 <div class="terms">
@@ -29,40 +25,18 @@
   <li>
     <%= link_to_function "Tiedote osallistumisesta tieteelliseen tutkimukseen", "new Effect.toggle('research_info', 'blind')" %>
     <br /><br />
-    <div id="research_info" class="info_box" style="display:none;">
-      <%= render :partial => "research_information_fi"%>
+    <div id="research_info" class="consent_inner" style="display:none;">
+      <%= render :partial => "consents/research_information"%>
     </div>
   </li>
   <li>
-    <%= link_to_function "Käyttöehdot", "new Effect.toggle('terms_fi', 'blind')" %>
+    <%= link_to_function "Käyttöehdot", "new Effect.toggle('terms', 'blind')" %>
     <br /><br />
-    <div id="terms_fi" class="info_box" style="display:none;">
-      <%= render :partial => "terms_fi"%>
+    <div id="terms" class="consent_inner" style="display:none;">
+      <%= render :partial => "consents/terms"%>
     </div>
   </li>
 </ul>
-
-</div>
-
-<div class="accept_or_reject_terms">
-  <div class="left_float">
-    <% form_tag(:action => @accept_action) do %>
-      <%= submit_tag "Hyväksyn suostumuksen" %>
-      &nbsp; 
-    <% end -%>
-  </div>
-  <div class="left_float">  
-    <% form_tag(:action => "decline") do %>
-      <%= submit_tag "En hyväksy suostumusta" %>
-    <% end -%>
-  </div>
-</div>
-
-<div class="terms">
-
-<br /><br /><br />
-
-<%= render :partial => "layouts/dashed_line"%>
 
 <p>
   Mikäli haluat tutkimuksesta lisää tietoa tai sinulla on muuta kysyttävää, voit ottaa yhteyttä:

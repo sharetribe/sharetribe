@@ -78,32 +78,28 @@ class PeopleController < ApplicationController
   def create
     # should expire cache for people listing
     
-    # Make sure that the consent is accepted
-    redirect_to register_consent_path and return unless session[:consent_accepted]
-    
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
     
     # Try to create a new person in COS. 
     @person = Person.new
-    if params[:person][:password].eql?(params[:person][:password2])
+    if params[:person][:password].eql?(params[:person][:password2]) &&
+       params[:person][:consent]
       begin
         @person = Person.create(params[:person], session[:cookie])
       rescue RestClient::RequestFailed => e
         handle_person_errors(@person, e)
         render :action => "new" and return
       end
-      session[:consent_accepted] = nil
       session[:person_id] = @person.id
-      
-      #will set smerf user id
-      self.smerf_user_id = @person.id
-      
+      self.smerf_user_id = @person.id   
       @person.settings = Settings.create
+      flash[:notice] = :registration_succeeded
       redirect_to home_person_path(@person) #TODO should redirect to the page where user was
     else
-      @person.errors.add(:password, "does not match")
+      @person.errors.add(:password, "does not match") unless params[:person][:password].eql?(params[:person][:password2])
+      @person.errors.add(:consent, "must_be_accepted") unless params[:person][:consent]
       handle_person_errors(@person)
       render :action => "new" and return
     end
@@ -111,8 +107,7 @@ class PeopleController < ApplicationController
   
   # Displays register form
   def new
-    # Make sure that the consent is accepted
-    redirect_to register_consent_path and return unless session[:consent_accepted]
+    clear_navi_state
     @person = Person.new
   end
   
@@ -181,6 +176,8 @@ class PeopleController < ApplicationController
       return :locality_is_too_long    
     elsif message.include?("Phone number is too long")
       return :phone_number_is_too_long 
+    elsif message.include?("Description is too long")
+      return :about_me_is_too_long
     else
       return message
       #return :user_data_could_not_be_saved_due_to_unknown_error 

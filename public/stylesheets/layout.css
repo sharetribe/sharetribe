@@ -6,7 +6,8 @@
  * Lightest grey (listing author box, new message): #e0e6d8;
  * Light green (left links, category box, notice box) => #c0e783;
  * Lighter green (hovered left links, hovered category box) => #dbf5b1;
- * Orange (warning) => #fea04c;
+ * Orange (warning border and text, active button) => #cc6a02;
+ * Light orange (warning background, text field focus) => #f8e0b7;
  * Light red (error background) => #f9aeae;
  *
  */
@@ -83,7 +84,9 @@ div.notice {
 }
 
 div.warning {
-	background: #fea04c;
+	border: 1px solid #cc6a02;
+	background: #f8e0b7;
+	color: #cc6a02;
 }
 
 div.error {
@@ -575,6 +578,56 @@ div.pagination_more_padding {
 
 
 /* Page-specific content part layouting */
+
+/* Login view */
+
+#login_box {
+	margin: 0 auto;
+	text-align: left;
+	width: 381px;
+	background: #c5c79a;
+}
+
+div#login_box a, div#login_box a:visited {
+	color: #636439;
+	text-decoration: none;
+	padding: 3px;
+}
+
+div#login_box a:hover {
+	background: #636439;
+	color: #fff;
+}
+
+div.login_form_br {
+	height: 10px;
+}
+
+div.login_padding {
+	padding: 3px 10px;
+}
+
+div.consent_checkbox {
+	overflow: hidden;
+	font-weight: bold;
+}
+
+div.consent {
+	background: #f4f6d0;
+	color: #000;
+	padding: 10px;
+}
+
+div.consent_inner {
+	background: #dadd9f;
+	color: #000;
+	padding: 10px;
+}
+
+
+div.consent_label {
+	padding: 5px 7px;
+}
 
 /* Browse listings view */
 

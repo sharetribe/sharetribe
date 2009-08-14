@@ -98,7 +98,8 @@ class PeopleControllerTest < ActionController::TestCase
         :street_address => "Osoite",
         :postal_code => "00000",
         :locality => "Postitoimipaikka",
-        :phone_number => "0700-715517" 
+        :phone_number => "0700-715517",
+        :description => "Testi"
       },
       :id => @test_person1.id
     }, :person, nil, :put
@@ -110,6 +111,7 @@ class PeopleControllerTest < ActionController::TestCase
     assert_equal @test_person1.postal_code(@cookie), "00000"
     assert_equal @test_person1.locality(@cookie), "Postitoimipaikka"
     assert_equal @test_person1.phone_number(@cookie), "0700-715517"
+    assert_equal @test_person1.description(@cookie), "Testi"
   end
   
   def test_invalid_given_name
@@ -134,6 +136,10 @@ class PeopleControllerTest < ActionController::TestCase
   
   def test_invalid_phone_number  
     update_with_invalid_data(:phone_number, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :phone_number_is_too_long)
+  end
+  
+  def test_invalid_phone_number  
+    update_with_invalid_data(:description, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :about_me_is_too_long)
   end
   
   def test_search_people_view
