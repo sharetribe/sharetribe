@@ -1,0 +1,50 @@
+<% object_type = content_item.class.to_s %>
+<% person = object_type.eql?("Listing") ? content_item.author : content_item.owner %>
+<div class="home_listed_object">
+  <div class="listed_object_person_image">
+    <div id="person_image_div">
+      <%= small_avatar_thumb(person) %>
+    </div>  
+  </div>
+  <div class="home_listed_object_center">
+    <div class="home_listed_object_title">
+      <%= t(content_item.class.to_s.downcase + "_home_title") %>: 
+      <% if object_type.eql?("Listing") %>
+        <%= link_to h(content_item.title), listing_path(content_item) %>
+      <% else %>  
+        <%= h(content_item.title) %>
+      <% end %>   
+    </div>
+    <div class="home_listed_object_content">  
+      <%= link_to person.name, person %> <%= content_item.created_at.to_formatted_s(:basic_date_format_minutes) %>
+      <% if object_type.eql?("Listing") %>
+        <%= t(:in_category) + "" + link_to(t(content_item.category).downcase, listing_category_path(content_item.category)) %> 
+        <% if content_item.comments.size > 0 %> 
+          | <%= link_to pluralize(content_item.comments.size, t(:comment), t(:comments_partitive)), listing_path(content_item) + "#comments" %>
+        <% end %>
+      <% elsif object_type.eql?("Item") %>
+        | <%= link_to_function t(:show_info), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
+        | <%= link_to t(:borrow) + " " + content_item.title.downcase, 
+              borrow_person_item_path(content_item.owner, content_item, :receiver => content_item.owner.id, 
+                                                                        :return_to => root_path) %>
+      <% else %>
+        | <%= link_to_function t(:show_info), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
+        | <%= link_to t(:ask_for_favor), :controller => :conversations, 
+                                         :action => :new, 
+                                         :person_id => @current_user, 
+                                         :target_object => content_item, 
+                                         :target_object_type => "favor", 
+                                         :return_to => root_path %>
+      <% end %>
+      <div id='<%= "info_#{object_type.downcase}_#{content_item.id.to_s}" %>' class="content_item_description" style="display:none;">
+        <% unless object_type.eql?("Listing") %>
+          <% if content_item.description && !content_item.description.eql?("") %>
+            <%= content_item.description %>
+          <% else %>
+            <%= t(:no_description) %>
+          <% end %>  
+        <% end %>
+      </div>  
+    </div>   
+  </div>
+</div>

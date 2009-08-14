@@ -66,4 +66,11 @@ class KassiEvent < ActiveRecord::Base
     return nil  
   end
   
+  # Returns true if the given person has commented
+  # this Kassi event.
+  def commented_by?(person)
+    person_comments.each { |c| return true if c.author.id == person.id }
+    return false
+  end
+  
 end

@@ -50,6 +50,22 @@ div.dashed_line {
 	height: 0;
 }
 
+div.solid_line_white {
+	border-top: 1px solid #fff;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 0;
+}
+
+div.dashed_line_white {
+	border-top: 1px dashed #fff;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 0;
+}
+
 
 /* Error messages */
 
@@ -511,7 +527,8 @@ div.listed_object_person_image {
 }
 
 div.listed_object_person_image a:hover {
-	background: transparent none;
+	color: #f4f6d0;
+	background: #f4f6d0;
 }
 
 div.listed_object_title {
@@ -929,7 +946,7 @@ div.listed_kassi_event_title a {
 
 div.feedback_from_kassi_event {
 	width: 711px;
-	padding: 10px;
+	padding: 10px 10px 15px 10px;
 	overflow: hidden;
 }
 
@@ -1224,6 +1241,175 @@ div.home_header {
 	width: 715px;
 	overflow: hidden;
 }
+
+div#home_ad_box {
+	width: 960px;
+	background: #dadd9f;
+}
+
+div#home_ad_box_content {
+	padding: 0 25px;
+	overflow: hidden;
+}
+
+div#home_ad_box_left {
+	width: 457px;
+	margin-right: 50px;
+	float: left;
+}
+
+div#home_ad_box_right {
+	width: 400px;
+	float: left;
+	padding-top: 10px;
+}
+
+div.home_ad_box_inner_box {
+	width: 457px;
+	background: #c5c79a;
+}
+
+div.bottom_margin {
+	margin-bottom: 15px;
+}
+
+div.home_ad_box_inner_box p {
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+div.home_ad_box_inner_box_top_corners {
+	background: #dadd9f url(../images/home_inner_box_top.png) no-repeat top left;
+	height: 17px;
+}
+
+div.home_ad_box_inner_box_bottom_corners {
+	background: #dadd9f url(../images/home_inner_box_bottom.png) no-repeat top left;
+	height: 15px;
+}
+
+div.home_ad_box_inner_box_content {
+	overflow: hidden;
+	padding: 0 25px;
+	clear: both;
+}
+
+div.home_ad_box_inner_box_content_left {
+	width: 195px;
+	float: left;
+}
+
+div.home_ad_box_inner_box_content_right {
+	width: 210px;
+	float: left;
+}
+
+div#home_ad_box_top_corners {
+	background: #dadd9f url(../images/home_intro_box_top.png) no-repeat top left;
+	height: 26px;
+}
+
+div#home_ad_box_bottom_corners {
+	background: #dadd9f url(../images/home_intro_box_bottom.png) no-repeat top left;
+	height: 33px;
+}
+
+div#home_content {
+	width: 960px;
+	clear: both;
+	overflow: hidden;
+}
+
+div.home_content a, div.home_content a:visited {
+	color: #636439;
+	text-decoration: none;
+	padding: 3px;
+}
+
+div.home_content a:hover {
+	background: #636439;
+	color: #fff;
+}
+
+div#home_content_left {
+	width: 557px;
+	margin-right: 20px;
+	float: left;
+}
+
+div#home_content_right {
+	width: 381px;
+	float: left;
+}
+
+div.home_content_right_box {
+	width: 381px;
+	background: #c5c79a;
+}
+
+div.home_content_right_box_top {
+	background: #c5c79a url(../images/event_box_top.png) no-repeat top left;
+	height: 17px;
+}
+
+div.home_content_right_box_content {
+	padding: 0 20px;
+}
+
+div.home_content_right_box_content ul {
+	margin: 0;
+	padding: 10px 0 0 20px;
+}
+
+div.home_content_right_box_content li {
+	padding: 0 0 5px 0;
+}
+
+
+div.home_content_right_box_bottom {
+	background: #c5c79a url(../images/event_box_bottom.png) no-repeat top left;
+	height: 17px;
+}
+
+div.home_kassi_event {
+	padding: 10px 5px;
+}
+
+div.home_listed_object {
+	width: 547px;
+	margin: 5px;
+	overflow: hidden;
+}
+
+div.home_listed_object_center {
+	padding: 10px;
+	float: left;
+	width: 440px;
+}
+
+div.home_listed_object_title {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 13px;
+	width: 440px;
+}
+
+div.home_listed_object_title, div.home_listed_object_title a{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+div#person_image_div a:hover {
+	color: #f4f6d0;
+	background: #f4f6d0;
+}
+
+div.content_item_description {
+	padding: 10px 5px;
+}
+
+
 
 
 /* Contacts */

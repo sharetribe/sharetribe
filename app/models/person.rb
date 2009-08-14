@@ -589,6 +589,23 @@ class Person < ActiveRecord::Base
     KassiEvent.find_by_sql(query)
   end
   
+  # Returns true if the person has admin rights in Kassi.
+  def is_admin?
+    is_admin == 1
+  end
+  
+  # Returns the number of kassi events of this person that
+  # he has not yet commented on.
+  def uncommented_kassi_event_count
+    query1 = "
+      SELECT COUNT(ke.id) - (SELECT COUNT(*) FROM person_comments WHERE author_id = '#{id}')
+      FROM kassi_events AS ke, kassi_event_participations AS kep
+      WHERE kep.person_id = '#{id}'
+      AND kep.kassi_event_id = ke.id
+    "
+    KassiEvent.count_by_sql(query1)
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

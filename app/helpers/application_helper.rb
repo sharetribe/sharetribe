@@ -30,17 +30,15 @@ module ApplicationHelper
   
   # Returns a hash containing link names and urls for top navigation.
   def get_top_navi_items
-    navi_items = ActiveSupport::OrderedHash.new  
-    navi_items[:listings ] = listing_category_path("all_categories")
-    navi_items[:items ] = items_path
-    navi_items[:favors ] = favors_path
-    navi_items[:people ] = people_path
+    navi_items = ActiveSupport::OrderedHash.new
+    navi_items[:home] = root_path
+    navi_items[:listings] = listing_category_path("all_categories")
+    navi_items[:items] = items_path
+    navi_items[:favors] = favors_path
+    navi_items[:people] = people_path
     navi_items[:groups_title] = groups_path
     if @current_user
-      navi_items[:own] = home_person_path(@current_user)
-      if @current_user.is_admin == 1
-        navi_items[:admin] = admin_feedbacks_path
-      end  
+      navi_items[:own] = person_path(@current_user)
     end
     return navi_items
   end
@@ -51,7 +49,6 @@ module ApplicationHelper
     session[:left_navi] = true
     case navi_type
     when 'own'
-      navi_items[:home] = home_person_path(@current_user)
       navi_items[:profile] = person_path(@current_user)
       navi_items[:inbox] = person_inbox_index_path(@current_user)
       navi_items[:requests] = person_requests_path(@current_user)
@@ -61,9 +58,7 @@ module ApplicationHelper
       navi_items[:browse_listings] = listing_category_path("all_categories")
       navi_items[:search_listings] = search_listings_path
       navi_items[:add_listing] = new_listing_path
-      if @current_user
-        navi_items[:own_listings] = person_listings_path(@current_user)
-      end  
+      navi_items[:own_listings] = person_listings_path(@current_user) if @current_user
     when 'items'
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path
