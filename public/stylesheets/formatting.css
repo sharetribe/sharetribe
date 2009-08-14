@@ -168,6 +168,11 @@ input.update_profile {
 	width: 274px;
 }
 
+textarea.update_profile_text_area {
+	width: 442px;
+	height: 100px;
+}
+
 input.update_postal_code {
 	width: 40px;
 }
@@ -245,16 +250,23 @@ span.green_text {
 	color: #257107;
 }
 
-input.home_text {
+input.home_text, input.login_text {
 	font-weight: bold;
 	height: 15px;
-	width: 250px;
 	background-color: #fbf5ec;
 	border: 2px solid #636439;
 	padding: 5px;
 }
+
+input.home_text {
+	width: 250px;
+}
 	
-input.home_text:focus {
+input.login_text {
+	width: 300px;
+}
+	
+input.home_text:focus, input.login_text:focus {
 	background: #f8e0b7;
   color: #000;
 }
@@ -301,6 +313,12 @@ input.home_button_join {
 	width: 250px;
 	height: 45px;
 	font-size: 1.5em;
+}
+
+input.checkbox {
+	width: 15px;
+	height: 15px;
+	border: 2px solid #636439;
 }
 
 input[type="submit"] {

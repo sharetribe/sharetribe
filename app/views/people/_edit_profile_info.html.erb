@@ -68,6 +68,14 @@
     <%= f.text_field :phone_number, :class => "update_profile" %>
   </div>
 </div>
+<div class="profile_info_field">  
+  <div class="profile_update_form_left">
+    <%= t(:about_me) %>:
+  </div>
+  <div class="profile_update_form_right">
+    <%= f.text_area :description, :class => "update_profile_text_area" %>
+  </div>
+</div>
 <div class="profile_update_form_buttons">
   <%= submit_tag t(:save) %> &nbsp;
   <%= submit_to_remote 'cancel_button', t(:cancel), :url => cancel_edit_person_path(@person), :method => :get %>

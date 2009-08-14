@@ -1,53 +1,36 @@
-<h1><%= t(:logging_in) %></h1>
-
-<div id="basic_content">
-
-<%= error_messages_for :session %>
-
-
-<!-- The login form-->
-
-<% form_tag(:action => "create") do -%>
-
-<div class="form_container">
-  <div class="form_left">
-    <%= t(:username) %>:
-  </div>  
-  <div class="form_right">
-    <%= text_field_tag :username %>
+<div id="login_box">
+  <div class="home_content_right_box_top"></div>
+  <div class="home_content_right_box_content">
+    <h3 class="home_event_box_title"><%= t(:logging_in) %></h3>
+    <div class="solid_line_white"></div>
+    <% form_tag(:action => "create") do -%>
+      <div class="login_form_br"></div>
+      <div class="login_padding">
+        <b><%= t(:username) %>:</b><br />
+      </div>
+      <div class="login_padding">
+        <%= text_field_tag :username, nil, :class => :login_text %><br />
+      </div>
+      <div class="login_padding">  
+        <b><%= t(:password) %>:</b><br />
+      </div>
+      <div class="login_padding">
+        <%= password_field_tag :password, nil, :class => :login_text  %><br />
+      </div>
+      <div class="login_form_br"></div>
+      <div class="login_padding">  
+        <%= submit_tag t(:login), :class => "home_button home_button_narrow" %> 
+      </div>      
+    <% end -%>
+    <div class="login_form_br"></div>
+    <div class="login_padding"> 
+      <%= link_to t(:create_new_account), new_person_path %> | <%= link_to_function t(:forgot_password), 
+          "new Effect.toggle('forgot_password', 'blind')" %>
+    </div>
+    <div id="forgot_password"  style="display:none;">
+      <%= render :partial => "forgot_password"%>
+    </div>
   </div>
-</div>  
-<div class="form_container">    
-  <div class="form_left">
-    <%= t(:password) %>:
-  </div>
-  <div class="form_right">  
-    <%= password_field_tag :password %>
-  </div>
-</div>
-
-<div class="form_container">  
-  <div class="form_right">
-    <%= submit_tag t(:login) %>   
-  </div>
-</div>
-
-<% end -%>
-
-<!-- Forgot your password?-link -->
-
-
-<div class="form_container">  
-  <div class="form_right">
-     <%= link_to_function t(:forgot_password), "new Effect.toggle('forgot_password', 'blind')" %>
-
-  </div>
-</div>
-<div id="forgot_password"  style="display:none;">
-  <%= render :partial => "forgot_password"%>
-</div>
-
-
-
+  <div class="home_content_right_box_bottom"></div>
 </div>
 

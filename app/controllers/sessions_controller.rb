@@ -43,13 +43,12 @@ class SessionsController < ApplicationController
     session[:cookie] = nil
     session[:person_id] = nil
     flash[:notice] = :logout_successful
+    clear_navi_state
     redirect_to(root_path)
   end
   
   def new
-    # TODO: this clearence of navi state causes problems, when returning somewhere
-    # there is no navi. Should store the navi state or do something else...
-    # clear_navi_state
+    clear_navi_state
     @session =  Session.new
   end
   

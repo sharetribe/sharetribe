@@ -7,6 +7,9 @@
 :password => "Password",
 :confirm_password => "Password confirmation",
 :email => "Email address",
+:i_accept_the_consent => "I give my",
+:consent => "consent to the research study",
+:registration_succeeded => "Registration succeeded! Welcome to Kassi!", 
 
 #General
 :all => "All",
@@ -37,6 +40,7 @@
 :register => "Register",
 :logout => "Logout",
 :logging_in => "Login",
+:create_new_account => "Create new account",
 :username => "Username",
 :password => "Password",
 :account => "Settings",
@@ -44,7 +48,7 @@
 :registration_failed => "Registration failed due to following errors",
 :not_yet_otasizzle_account => "No OtaSizzle account yet?",
 :register_new_account => "Register a new account.",
-:forgot_password => "Forgot password?",
+:forgot_password => "I forgot my password",
 :password_recovery_instructions => "Give the email address that you have in your profile and you'll get instructions to reset your password.",
 :send => "Send",
 :password_recovery_sent => "Instructions to change your password are sent to your email.",
@@ -372,6 +376,7 @@
 :add_as_friend => "Add as friend",
 :edit_profile_picture => "Edit profile picture",
 :edit_profile_information => "Edit profile information", 
+:about_me => "About me",
 
 #Avatar upload
 :upload_avatar => "Edit avatar image",
@@ -608,6 +613,7 @@
 :locality_is_too_long => "City is too long (maximum is 50 characters)",
 :phone_number_is_too_long => "Phone number is too long (maximum is 25 characters)",
 :description_is_too_long => "Description is too long (maximum is 400 characters)",
+:about_me_is_too_long => "Description is too long (maximum is 255 characters)",
 :user_data_could_not_be_saved_due_to_unknown_error => "User data could not be saved due to unknown error",
 :username_is_required => "Username is required",
 :username_is_too_short => "Username is too short (minimum is 3 characters)",

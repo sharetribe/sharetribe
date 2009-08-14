@@ -6,7 +6,7 @@ class Person < ActiveRecord::Base
  
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
-  attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email
+  attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
   
   attr_protected :is_admin
 
@@ -356,6 +356,17 @@ class Person < ActiveRecord::Base
     if new_record?
       return form_password2 ? form_password2 : ""
     end
+  end
+  
+  def description(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Person not found!" if person_hash.nil?
+    
+    return person_hash["description"]
+  end
+  
+  def set_description(description, cookie)
+    update_attributes({:description => description}, cookie)
   end
   
   # Returns contacts of this person as an array of Person objects 
