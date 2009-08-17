@@ -40,7 +40,7 @@ echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
 
 
 # Install required gems if needed (currently not allowed to sudo this)
-#sudo rake gems:install
+sudo rake gems:install
 
 rake db:migrate
 rake test

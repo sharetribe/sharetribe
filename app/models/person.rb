@@ -106,7 +106,12 @@ class Person < ActiveRecord::Base
     end
     
     def self.update_avatar(image, id, cookie)
-      HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image})
+      response = HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
+      if response.status != 200
+        # TODO raise better execption and pick the actual error message
+        raise Exception.new(response.body)
+      end
+      
       
       #RestClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", {:file => image}, {:cookies => cookie})
       #connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
