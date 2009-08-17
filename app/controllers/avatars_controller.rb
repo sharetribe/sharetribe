@@ -25,12 +25,20 @@ class AvatarsController < ApplicationController
   def update
      @person = Person.find(params[:person_id])
     begin
-      puts "PARAMETRINA TULI: #{params.inspect}"
-      @person.update_avatar(params[:image_file], session[:cookie])
+      path = params[:file].path
+      original_filename =  params[:file].original_filename
+      new_path = path.gsub(/\/[^\/]+\Z/, "/#{original_filename}")
+      #puts "UUDEN FILEN polku on: #{new_path}"
+      
+      #rename the file to get a suffix and content type accepted by COS
+      File.rename(path, new_path)
+      
+      @person.update_avatar(File.new(new_path), session[:cookie])
       flash[:notice] = :avatar_upload_successful
       redirect_to @person
-    rescue RestClient::RequestFailed => e
-      flash[:error] = e.response.body
+    rescue Exception => e
+      puts e.inspect
+      flash[:error] = e.message.to_s
       render :action => :edit
     end
   end

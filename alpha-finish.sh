@@ -37,8 +37,8 @@ BUILD_DATE=`svn info file:///svn/kassi | \
 echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
 
 
-# Install required gems if needed (currently not allowed to sudo this)
-#sudo rake gems:install
+# Install required gems if needed
+sudo rake gems:install
 
 rake db:migrate
 rake test
