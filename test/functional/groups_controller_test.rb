@@ -12,12 +12,13 @@ class GroupsControllerTest < ActionController::TestCase
   end
   
   def test_create_and_leave_group
-    post :create, {:group => {:title => "Group for testing Kassi9", :type => "open" #,
+    post :create, {:group => {:title => "Group for testing Kassi11", :type => "open" #,
          #:description => "This group is done in the automatic tests of Kassi and 
         #                  should be removed immediately afterwards."
                           }},
          {:person_id => @test_person.id, :cookie => @session.cookie}
-    assert_response :found, @response.body
+    #puts @response.body 
+    assert_response :found, "\n Redirect did not happen as expected after group creation. Probably creation failed for some reason. Could be that the name was already taken."
     assert_not_nil assigns(:group)
     id = assigns(:group).id
 
