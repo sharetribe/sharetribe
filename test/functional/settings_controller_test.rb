@@ -43,9 +43,11 @@ class SettingsControllerTest < ActionController::TestCase
   end
 
   def test_change_password_too_long
-    change_password("testitestitestitestitestitestitestitestitestitesti", "testitestitestitestitestitestitestitestitestitesti", :password_is_invalid, false)
+    change_password("testitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitesti",
+                    "testitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitestitesti",
+                     :password_is_invalid, false)
   end
-  
+
   def test_update
     submit_with_person :update, { 
       :settings => { 
@@ -81,9 +83,9 @@ class SettingsControllerTest < ActionController::TestCase
     }, :person, nil, :put
     assert_response :found, @response.body
     if should_succeed
-      assert_equal flash[:notice], message
+      assert_equal  message, flash[:notice]
     else  
-      assert_equal flash[:error], message
+      assert_equal  message, flash[:error]
     end
   end
   
