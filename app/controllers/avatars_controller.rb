@@ -36,7 +36,6 @@ class AvatarsController < ApplicationController
       flash[:notice] = :avatar_upload_successful
       redirect_to @person
     rescue Exception => e
-      puts e.inspect
       flash[:error] = e.message.to_s
       render :action => :edit
     end

@@ -177,9 +177,7 @@ class Person < ActiveRecord::Base
     response = PersonConnection.create_person(person_hash, cookie)
     
     # Pick id from the response (same id in kassi and COS DBs)
-    puts response.inspect
     params[:id] = response["entry"]["id"]
-    puts params[:id]
     #params[:id] = response[/"id":"([^"]+)"/, 1]
     
     # Add name information for the person to COS 

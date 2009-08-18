@@ -59,8 +59,10 @@ class PeopleControllerTest < ActionController::TestCase
                  :password2 => "testi",
                  :given_name => "testi",
                  :family_name => "hemmo",
-                 :email => "#{username}@example.com"}},
-                  { :consent_accepted => "true" }
+                 :email => "#{username}@example.com",
+                 :consent => "true"}}
+    assert assigns(:person)
+    assert_response :found, "Not redirected after user creation as expected."
     assert_redirected_to home_person_path(assigns(:person))          
                  
     username = generate_random_username
@@ -69,8 +71,8 @@ class PeopleControllerTest < ActionController::TestCase
                  :password2 => "testi",
                  :given_name => "testi",
                  :family_name => "hemmo",
-                 :email => "#{username}@example.com"}},
-                 { :consent_accepted => "true" }
+                 :email => "#{username}@example.com",
+                 :consent => "true" }}
     assert_redirected_to home_person_path(assigns(:person))
   end
   
