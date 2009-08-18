@@ -28,7 +28,6 @@ class AvatarsController < ApplicationController
       path = params[:file].path
       original_filename =  params[:file].original_filename
       new_path = path.gsub(/\/[^\/]+\Z/, "/#{original_filename}")
-      #puts "UUDEN FILEN polku on: #{new_path}"
       
       #rename the file to get a suffix and content type accepted by COS
       File.rename(path, new_path)

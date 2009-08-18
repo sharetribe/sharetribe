@@ -419,6 +419,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :image_file => "Kuvatiedosto",
 :add_avatar_submit => "Tallenna kuva",
 :avatar_upload_successful => "Profiilikuvan lataus onnistui",
+"Please use image file with a filename suffix" => "Tiedostossa tulee olla kuvatiedostopääte (esim .jpg)",
 
 #Profile comments
 :feedback_from_kassi_events => "Palautetta kassitapahtumista", 

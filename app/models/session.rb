@@ -72,6 +72,8 @@ class Session < ActiveResource::Base
       return nil
     rescue ActiveResource::UnauthorizedAccess => e
       return nil
+    rescue ActiveResource::ServerError => e
+      return nil
     end
   end
    

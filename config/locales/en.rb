@@ -383,6 +383,8 @@
 :image_file => "Image file",
 :add_avatar_submit => "Save image",
 :avatar_upload_successful => "Avatar upload successful",
+"Please use image file with a filename suffix" => "Please use image file with a filename suffix",
+
 
 #Profile items
 :items_i_can_lend => "Items I can lend",
