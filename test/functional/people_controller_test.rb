@@ -137,11 +137,7 @@ class PeopleControllerTest < ActionController::TestCase
   def test_invalid_phone_number  
     update_with_invalid_data(:phone_number, "TeppoTeppoTeppoTeppoTeppoTeppoTeppo", :phone_number_is_too_long)
   end
-  
-  def test_invalid_phone_number  
-    update_with_invalid_data(:description, "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", :about_me_is_too_long)
-  end
-  
+    
   def test_search_people_view
     get :search
     assert_response :success
