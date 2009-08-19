@@ -1,4 +1,4 @@
-<%= hidden_field_tag "conversation[conversation_participants][]", target_object.owner.id %>
+<%= hidden_field_tag "conversation[conversation_participants][#{target_object.owner.id}]", 0 %>
 <%= f.hidden_field :title, :value => t(:i_want_to_ask_for_this_favor) + ": " + target_object.title %>
 <div class="form_header">
   <%= t(:title) %>:

@@ -2,6 +2,8 @@ require 'json'
 
 class Group < ActiveRecord::Base
   
+  include ErrorsHelper
+  
   GROUP_HASH_CACHE_EXPIRE_TIME = 4.hours
   
   attr_accessor :guid, :form_title, :form_description

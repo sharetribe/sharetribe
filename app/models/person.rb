@@ -3,6 +3,8 @@ require 'rest_client'
 require 'httpclient'
 
 class Person < ActiveRecord::Base
+  
+  include ErrorsHelper
  
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
@@ -178,7 +180,6 @@ class Person < ActiveRecord::Base
     
     # Pick id from the response (same id in kassi and COS DBs)
     params[:id] = response["entry"]["id"]
-    #params[:id] = response[/"id":"([^"]+)"/, 1]
     
     # Add name information for the person to COS 
     params[:given_name] = params[:given_name].slice(0, 28)

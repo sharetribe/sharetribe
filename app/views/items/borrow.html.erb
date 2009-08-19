@@ -19,8 +19,8 @@
   <%= hidden_field_tag  "conversation[title]", t(:i_want_to_borrow_this_item) + ": " + truncate(item_string, :omission => "...", :length => 80) %>
   <%= hidden_field_tag "conversation[type]", "Reservation" %>
   <%= hidden_field_tag "conversation[status]", "pending_owner" %>
-  <%= hidden_field_tag "conversation[conversation_participants][]", @person.id %>
-  <%= hidden_field_tag "conversation[conversation_participants][]", @current_user.id %>
+  <%= hidden_field_tag "conversation[conversation_participants][#{@person.id}]", 0 %>
+  <%= hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", 1 %>
   <%= hidden_field_tag "receiver", params[:receiver] %>
   <%= hidden_field_tag "return_to", params[:return_to] %>
 

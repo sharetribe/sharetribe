@@ -89,7 +89,8 @@ class PeopleController < ApplicationController
       begin
         @person = Person.create(params[:person], session[:cookie])
       rescue RestClient::RequestFailed => e
-        handle_person_errors(@person, e)
+        @person.add_errors_from(e)
+        preserve_create_form_values(@person)
         render :action => "new" and return
       end
       session[:person_id] = @person.id
@@ -99,8 +100,8 @@ class PeopleController < ApplicationController
       redirect_to home_person_path(@person) #TODO should redirect to the page where user was
     else
       @person.errors.add(:password, "does not match") unless params[:person][:password].eql?(params[:person][:password2])
-      @person.errors.add(:consent, "must_be_accepted") unless params[:person][:consent]
-      handle_person_errors(@person)
+      @person.errors.add(:consent, @person.errors.generate_message(:consent, :not_accepted)) unless params[:person][:consent]
+      preserve_create_form_values(@person)
       render :action => "new" and return
     end
   end  
@@ -180,23 +181,7 @@ class PeopleController < ApplicationController
       return :about_me_is_too_long
     else
       return message
-      #return :user_data_could_not_be_saved_due_to_unknown_error 
     end  
-  end
-  
-  def handle_person_errors(person, exception=nil)
-    if exception
-      error_array = exception.response.body[2..-3].split('","').each do |error|
-        error = error.split(" ", 2)
-        person.errors.add(error[0].downcase, error[1]) 
-      end
-    end
-    person.form_username = params[:person][:username]
-    person.form_given_name = params[:person][:given_name]
-    person.form_family_name = params[:person][:family_name]
-    person.form_password = params[:person][:password]
-    person.form_password2 = params[:person][:password2]
-    person.form_email = params[:person][:email]
   end
   
   private
@@ -217,6 +202,15 @@ class PeopleController < ApplicationController
     @content_items = favors.concat(items).concat(listings).sort {
       |a, b| b.created_at <=> a.created_at
     }                              
+  end
+  
+  def preserve_create_form_values(person)
+    person.form_username = params[:person][:username]
+    person.form_given_name = params[:person][:given_name]
+    person.form_family_name = params[:person][:family_name]
+    person.form_password = params[:person][:password]
+    person.form_password2 = params[:person][:password2]
+    person.form_email = params[:person][:email]
   end
   
 end

@@ -103,7 +103,7 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
   validates_inclusion_of :category, :in => get_valid_categories
   validates_inclusion_of :good_thru, :allow_nil => true, 
-  :in => DateTime.now..DateTime.now + 1.year, :message => "must not be more than one year"
+  :in => DateTime.now..DateTime.now + 1.year
 
   validates_length_of :title, :within => 2..50
   validates_length_of :value_other, :allow_nil => true, :allow_blank => true, :maximum => 50
@@ -128,10 +128,10 @@ class Listing < ActiveRecord::Base
       if @file_data.size.zero?
         return true
       elsif @file_data.content_type !~ /^image/
-        errors.add(:image_file, "is not a recognized format")
+        errors.add(:image_file, errors.generate_message(:image_file, :format))
         return false
       elsif @file_data.size > 5.megabyte
-        errors.add(:image_file, "can't be bigger than 5 megabytes")
+        errors.add(:image_file, errors.generate_message(:image_file, :size))
         return false    
       end
     end
@@ -172,12 +172,6 @@ class Listing < ActiveRecord::Base
       thumb = system("#{'convert'} '#{source}' -resize #{THUMB_SIZE} '#{thumb_filename}'")
       # Delete temp file.
       File.delete(source) if File.exists?(source)
-      # Conversion must succeed, else it's an error.
-      unless img and thumb
-        errors.add_to_base("File upload failed.  Try a different image?")
-        return false
-      end
-      return true
     end
   end
 

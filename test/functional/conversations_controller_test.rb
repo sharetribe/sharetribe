@@ -92,7 +92,7 @@ class ConversationsControllerTest < ActionController::TestCase
     return_path = listings_path
     submit_with_person :create, { 
       :conversation => {
-        :conversation_participants => [people(:one).id, people(:two).id],
+        :conversation_participants => [[people(:one).id, 1], [people(:two).id, 0]],
         :title => "RE: " + listing.title,
         :listing_id => listing.id,
         :message_attributes => { :content => "test content", :sender_id => people(:one).id }
@@ -109,7 +109,9 @@ class ConversationsControllerTest < ActionController::TestCase
     assert ! conversation.last_message.new_record?
     assert_equal conversation.last_message.sender, people(:one)
     assert_equal conversation.title, "RE: " + listing.title
-    assert_equal conversation.participants, [ people(:two), people(:one) ]
+    assert_equal conversation.participants, [ people(:one), people(:two) ]
+    assert_equal 1, conversation.person_conversations.find_by_person_id(people(:one).id).is_read
+    assert_equal 0, conversation.person_conversations.find_by_person_id(people(:two).id).is_read
     assert_equal conversation.listing, listing
     assert_redirected_to return_path
   end
@@ -118,7 +120,7 @@ class ConversationsControllerTest < ActionController::TestCase
     return_path = people_path
     submit_with_person :create, { 
       :conversation => {
-        :conversation_participants => [people(:one).id, people(:two).id],
+        :conversation_participants => [[people(:one).id, 1], [people(:two).id, 0]],
         :title => "Tsuibaduiba",
         :message_attributes => { :content => "test content", :sender_id => people(:one).id }
       },
@@ -132,7 +134,9 @@ class ConversationsControllerTest < ActionController::TestCase
     assert ! conversation.last_message.new_record?
     assert_equal conversation.last_message.sender, people(:one)
     assert_equal conversation.title, "Tsuibaduiba"
-    assert_equal conversation.participants, [ people(:two), people(:one) ]
+    assert_equal conversation.participants, [ people(:one), people(:two) ]
+    assert_equal 1, conversation.person_conversations.find_by_person_id(people(:one).id).is_read
+    assert_equal 0, conversation.person_conversations.find_by_person_id(people(:two).id).is_read
     assert_redirected_to return_path
   end
   
@@ -173,7 +177,7 @@ class ConversationsControllerTest < ActionController::TestCase
     return_path = people_path
     submit_with_person :create, {
       :conversation => {
-        :conversation_participants => [people(:one).id, people(:two).id],
+        :conversation_participants => [[people(:one).id, 1], [people(:two).id, 0]],
         :title => "Reservation",
         :message_attributes => { :content => "I want to reserve these", :sender_id => people(:one).id },
         :reserved_items => get_reserved_items(2),
@@ -194,7 +198,9 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal conversation.last_message.sender, people(:one)
     assert_equal conversation.title, "Reservation"
     assert_equal conversation.type, "Reservation"
-    assert_equal conversation.participants, [ people(:two), people(:one) ]
+    assert_equal conversation.participants, [ people(:one), people(:two) ]
+    assert_equal 1, conversation.person_conversations.find_by_person_id(people(:one).id).is_read
+    assert_equal 0, conversation.person_conversations.find_by_person_id(people(:two).id).is_read
     assert_equal conversation.items, people(:two).items
     assert_equal 2, conversation.item_reservations.first.amount
     assert_redirected_to return_path

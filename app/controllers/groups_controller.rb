@@ -43,11 +43,15 @@ class GroupsController < ApplicationController
       @group = Group.create(params["group"], session[:cookie])
       flash[:notice] = :group_created_successfully
     rescue RestClient::RequestFailed => e
-      handle_group_errors(@group, e)
+      @group.add_errors_from(e)
+      @group.form_title = params[:group][:title]
+      @group.form_description = params[:group][:description]
       render :action => :new and return
     rescue RestClient::Unauthorized => e
-      handle_group_errors(@group, e)
-      render :action => :new and return  
+      @group.add_errors_from(e)
+      @group.form_title = params[:group][:title]
+      @group.form_description = params[:group][:description]
+      render :action => :new and return 
     end
     redirect_to groups_path
   end
@@ -84,17 +88,6 @@ class GroupsController < ApplicationController
   
   def clear_caches
      update_caches_dependent_on_groups(@current_user)
-  end
-  
-  def handle_group_errors(group, exception=nil)
-    if exception
-      error_array = exception.response.body[2..-3].split('","').each do |error|
-        error = error.split(" ", 2)
-        group.errors.add(error[0].downcase, error[1]) 
-      end
-    end
-    group.form_title = params[:group][:title]
-    group.form_description = params[:group][:description]
   end
   
 end

@@ -139,3 +139,16 @@ fi:
         less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
         odd: "täytyy olla pariton"
         even: "täytyy olla parillinen"
+      models:
+        person:
+          attributes:
+            consent:  
+              not_accepted: "täytyy hyväksyä"
+        listing:
+          attributes:
+            good_thru:
+              blank: "syöttäminen on pakollista"
+              inclusion: "täytyy olla välillä nykyheti - yksi vuosi"
+            image_file:
+              format: "on oltava .gif, .jpg tai .png -muodossa"
+              size: "koon on oltava alle 5 megabittiä"

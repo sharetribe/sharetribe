@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            consent:  
+              not_accepted: "must be given"
+        listing:
+          attributes:
+            good_thru:
+              inclusion: "must be between current time and one year"
+            image_file:
+              format: "must be in .gif, .jpg or .png format"
+              size: "must be less than 5 megabytes in size"

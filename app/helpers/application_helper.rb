@@ -319,7 +319,7 @@ module ApplicationHelper
   # Displays translated error messages for an object.
   def display_errors(object, error_message)
     output = ""
-    errors = translate_error_messages([object.errors.full_messages]) 
+    errors = translate_error_messages(object.errors.full_messages) 
     unless errors.empty? 
       output += "
         <div id='form_error_messages'>
@@ -373,6 +373,8 @@ module ApplicationHelper
       t(:username_is_too_long)
     when "Email is invalid"
       t(:email_is_invalid)
+    when "Email can't be blank"
+      t(:email_can_not_be_blank)  
     when "Username has already been taken"
       t(:username_has_already_been_taken)  
     when "Email has already been taken"
@@ -383,9 +385,9 @@ module ApplicationHelper
       t(:password_is_too_short)
     when "Password is too long"
       t(:password_is_too_long)
-    when "Title is too short (minimum is 2 characters)"
+    when "Ryhmän nimi is too short (minimum is 2 characters)"
       t(:group_title_is_too_short)
-    when "Title is too long (maximum is 70 characters)"
+    when "Ryhmän nimi is too long (maximum is 70 characters)"
       t(:group_title_is_too_long)    
     when "Description is too long"
       t(:group_description_is_too_long)        
