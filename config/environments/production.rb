@@ -23,6 +23,10 @@ config.cache_store = :mem_cache_store
 COS_URL = "http://cos.alpha.sizl.org"
 COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
 
+SSL_COS_URL = COS_URL.sub("http", "https")
+
+
+
 PRODUCTION_SERVER = "alpha"
 
 config.action_mailer.raise_delivery_errors = true
