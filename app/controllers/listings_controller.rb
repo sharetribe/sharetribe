@@ -24,7 +24,7 @@ class ListingsController < ApplicationController
       conditions = "status = 'open' AND good_thru >= '" + Date.today.to_s + "'"
       conditions += get_visibility_conditions("listing")
       fetch_listings(conditions)
-    end    
+    end
   end
 
   def show

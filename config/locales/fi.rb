@@ -586,6 +586,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 #Settings view
 :email_updated_successfully => "Sähköpostiosoite tallennettu",
 :email_is_invalid => "Sähköpostiosoite ei kelpaa",
+:email_can_not_be_blank => "Sähköpostiosoite on pakollinen tieto",
 :password_updated_successfully => "Salasana vaihdettu",
 :password_is_invalid => "Salasana ei kelpaa",
 :passwords_dont_match => "Salasanat eivät täsmää",

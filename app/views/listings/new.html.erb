@@ -36,7 +36,7 @@
       <%= t(:content) %>*:
     </div>
     <div class="form_right">
-      <%= f.text_area :content, :size => "70x5" %>
+      <%= f.text_area :content, :size => "69x5" %>
     </div>
   </div>
   <div class="form_container">    
@@ -77,7 +77,7 @@
       <% if @listing.good_thru %>
         <%= f.text_field :good_thru, :size => "20" %>
       <% else %>
-        <%= f.text_field :good_thru, :size => "20", :value => Date.today + 4.month %>
+        <%= f.text_field :good_thru, :size => "20", :value => params[:listing] ? params[:listing][:good_thru] : Date.today + 4.month %>
       <% end %>   
       &nbsp;<%= t(:good_thru_format) %> 
     </div>

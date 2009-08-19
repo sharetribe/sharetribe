@@ -6,65 +6,47 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="/stylesheets/formatting.css?1231833706" media="screen" rel="stylesheet" type="text/css" />
   <link href="/stylesheets/layout.css?1231833706" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/stylesheets/epoch_styles.css?1220874214" media="screen" rel="stylesheet" type="text/css" />
-
-<style type="text/css">
-	h1 { font-size: 18px; color: #49a814; line-height: 1.5em; margin-left: 200px; border-bottom: none; padding-bottom: 20px;}
-	p {margin-left: 200px; color: #6cc71b;}
-</style>
   
-  <script src="/javascripts/prototype.js?1220874214" type="text/javascript"></script>
-
-<script src="/javascripts/effects.js?1220874214" type="text/javascript"></script>
-<script src="/javascripts/dragdrop.js?1220874214" type="text/javascript"></script>
-<script src="/javascripts/controls.js?1220874214" type="text/javascript"></script>
-<script src="/javascripts/application.js?1220874214" type="text/javascript"></script>
-  
-    <script src="/javascripts/epoch_classes.js?1220874214" type="text/javascript"></script>
-    
+  <style type="text/css">
+    #main {
+  	  background: #f4f6d0;
+    }
+  </style>
 
 </head>
 
 <body>
   <div id="wrapper">
     <div id="main">
-      <div id="centering">
-        <div id="top_links">
-        </div>
-        <div id="logo_and_top_navi">
-          <div id="logo">
-            <a href="/"><img alt="Kassi" border="0" src="/images/kassi_logo_smaller-trans.png?1220874214" /></a> 
-          </div>
-
-          <div id="search_and_navi_container">
-          </div>
-        </div>
-
-      	<div id="contents_full">
-      	  <h1>Olemme pahoillamme, jotakin meni vikaan!</h1>
-      	  
-      	  <p>Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit.
-      	     Palvelimella on esiintynyt satunnaisia katkoksia häiritsevän usein viime aikoina. Yritämme selvittää ongelman
-      	     syyn ja korjata sen mahdollisimman pian.</p>
-      	  <p>Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni.
-      	     Kerro erityisesti, jos sivun uudelleenlataus ei auttanut ongelmaan.</p>
-      	  
-					<h1>We're sorry but something went wrong!</h1>
-					
-					<p>Reloading/refreshing the page often helps you to get on the page that you were trying to reach. There has been some
-					  problems on the server lately and we are currently trying to locate and fix those as soon as possible.</p>
-					<p>You can help us find find the problem, by writing in the box below a short description of the problem. 
-					  This is especially helpful if the reload doesn't get you away from this error page. </p>
-					
+      <br /><br /><br />
+      <div id="login_box">
+        <div class="home_content_right_box_top"></div>
+        <div class="home_content_right_box_content">
+      	  <h1>Sivun lataus ei onnistunut!</h1>
+      	  <p>
+      	    Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit.
+      	    Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian.
+      	  </p>
+      	  <p>
+      	    Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni.
+      	  </p>
+					<h1>Page loading failed!</h1>
+					<p>
+					  Reloading/refreshing the page often helps you to get on the page that you were trying to reach. We try to locate 
+					  and fix the problem that caused the error as soon as possible.
+				  </p>
+					<p>
+					  You can help us find find the problem by writing a short description of the problem in the box below.
+					</p>
 					<br />
           <p>
-            <a href="/"> Takaisin etusivulle - Back to Kassi Front page </a>
-          </p>  
-                  
+            <a href="/"> Takaisin Kassin etusivulle - Back to Kassi Front page </a>
+          </p>       
         </div>
-        
+        <div class="home_content_right_box_bottom"></div>
+      </div>    
+      <div id ="centering">  
         <div id="feedback">
-          <div id="feedback_spacer">&nbsp;</div>
           <div id="feedback_form">
           <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="6e1c1399c83ef146b054fa11222046e522add966" /></div>
             <b>Virheen kuvaus - Error description</b><br /><br />
@@ -84,21 +66,7 @@
     </div>
 
     <div id="push"></div>
-  </div>   
-  <div id="footer">
-    <div id="footer_text">
-      <div id="footer_text_left">
-        <a href="/info/about">Tietoa</a> |
-        <a href="/info/help">Ohjeet</a> |
-        <a href="/info/terms">Käyttöehdot</a> |
-        <a href="http://kassi.sizl.org/forum">Foorumi</a>
-
-      </div>
-      <div id="footer_text_right">
-        Kassi on yksi <a href='http://mide.tkk.fi/en/OtaSizzle'>OtaSizzlen</a> palveluista.
-      </div>
-    </div>
-  </div>  
+  </div>
 </body>
 
 </html>

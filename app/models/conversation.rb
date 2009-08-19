@@ -26,10 +26,9 @@ class Conversation < ActiveRecord::Base
   
   # Sets the participants of the conversation
   def conversation_participants=(conversation_participants)
-    Person.find(conversation_participants).each do |participant|
-      is_read = (participant.id == messages.first.sender.id) ? 1 : 0
-      person_conversations.build(:person_id => participant.id,
-                                 :is_read => is_read,
+    conversation_participants.each do |participant, is_sender|
+      person_conversations.build(:person_id => participant,
+                                 :is_read => is_sender,
                                  :last_sent_at => created_at)
     end
   end 

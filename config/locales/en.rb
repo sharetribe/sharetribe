@@ -508,7 +508,7 @@
 :kassi_events_info => "Kassi-event is created every time users interact with each other through Kassi: borrow items from each other, thank each other for favors or mark each other as listing realizers.",
 :closed_listing => "Closed listing",
 :borrowed_item => "Borrowed item",
-:borrowed_item => "Borrowed items",
+:borrowed_items => "Borrowed items",
 :lent_item => "Lent item",
 :lent_items => "Lent items", 
 :done_favor => "Given favor",
@@ -539,8 +539,9 @@
 :assessment_of_actions => "Assessment of actions",
 :give_feedback_to_favor_offerer => "Give feedback to the person who did the favor",
 :give_feedback_to_user => "Give feedback to user",
+:user_has_not_given_feedback_on_this_kassi_event => "User {{name}} has not given feedback from this event",
 :send_feedback_from_kassi_event => "Send feedback",
-:feedback_sent => "Feedback sent",      
+:feedback_sent => "Feedback sent",
    
 #Kassi events category titles
 :buy_title => "Sold",
@@ -583,6 +584,7 @@
 #Settings view
 :email_updated_successfully => "Email address saved",
 :email_is_invalid => "Email address is invalid",
+:email_can_not_be_blank => "Email can't be blank",
 :password_updated_successfully => "Password changed",
 :password_is_invalid => "Password is invalid",
 :passwords_dont_match => "Passwords don't match",

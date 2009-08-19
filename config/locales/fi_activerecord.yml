@@ -13,7 +13,11 @@ fi:
         title: "Ilmoituksen otsikko" 
         content: "Ilmoituksen sisältö"
         language: "Ilmoituksen kieli"
-        image_file: "Kuvatiedosto"  
-        good_thru: "Ilmoituksen viimeinen voimassaolopäivämäärä"
+        image_file: "Kuvatiedoston"  
+        good_thru: "Ilmoituksen viimeisen voimassaolopäivämäärän"
       group:
-        title: "Ryhmän nimi"  
+        title: "Ryhmän nimi"
+      person:
+        consent: "Tutkimussuostumus"
+            
+          
