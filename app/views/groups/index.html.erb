@@ -1,4 +1,5 @@
-<% cache(:key => ["groups_page", Group.count, page_entries_info(@groups) ].join(":"), :expires_in => 2.hours) do %>
+<% #TODO fix the cache, now wrong links for different people %>
+<% # cache(:key => ["groups_page", Group.count, page_entries_info(@groups) ].join(":"), :expires_in => 2.hours) do %>
   <div class="browse_objects_header">
     <div class="browse_objects_title">
       <%= t(@title) %> <span class="page_entries_info">(<%= page_entries_info @groups %>)</span>
@@ -27,4 +28,4 @@
   <% else %>
     <p><%= t(:no_groups) %></p>
   <% end %>
-<% end %>
+<% # end %>

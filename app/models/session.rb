@@ -90,7 +90,7 @@ class Session < ActiveResource::Base
   
   def set_person_id
     info = self.check
-    return nil if info.nil?
+    return nil if (info.nil? || info["entry"].nil?)
     @person_id =  info["entry"]["user_id"]
     return @person_id
   end
