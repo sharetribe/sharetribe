@@ -2,7 +2,8 @@ class ListingsController < ApplicationController
 
   before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
 
-  caches_action :index, :cache_path => :index_cache_path.to_proc
+   # temporarily off, cos breaks the tests.. :)
+  # caches_action :index, :cache_path => :index_cache_path.to_proc
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :listing_sweeper, :except => [:show, :index, :new, :search]

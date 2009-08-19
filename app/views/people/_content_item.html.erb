@@ -12,7 +12,7 @@
       <% if object_type.eql?("Listing") %>
         <%= link_to h(content_item.title), listing_path(content_item) %>
       <% else %>  
-        <%= h(content_item.title) %>
+        <%= link_to_function h(content_item.title), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
       <% end %>   
     </div>
     <div class="home_listed_object_content">  
