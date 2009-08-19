@@ -7,8 +7,10 @@ fi:
       listing: ilmoitus
     attributes:
       conversation:
-        messages: "Viestin sisältö"
+        messages: ""
         title: "Otsikko"
+        return_time: "Palautusajan"
+        items: ""
       listing:
         title: "Ilmoituksen otsikko" 
         content: "Ilmoituksen sisältö"

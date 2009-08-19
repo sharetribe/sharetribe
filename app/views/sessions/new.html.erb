@@ -9,7 +9,7 @@
         <b><%= t(:username) %>:</b><br />
       </div>
       <div class="login_padding">
-        <%= text_field_tag :username, nil, :class => :login_text %><br />
+        <%= text_field_tag :username, nil, :class => :login_text, :value => session[:form_username] %><br />
       </div>
       <div class="login_padding">  
         <b><%= t(:password) %>:</b><br />

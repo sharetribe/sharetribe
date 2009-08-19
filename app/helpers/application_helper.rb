@@ -206,11 +206,11 @@ module ApplicationHelper
     case message
     when "Title is required"
       :title_is_required
-    when "Title on liian lyhyt (minimi on 2 merkkiä)."
+    when "Title on liian lyhyt (minimi on 2 merkkiä)"
       :title_is_too_short
     when "Title is too short (minimum is 2 characters)"
       :title_is_too_short  
-    when "Title on liian pitkä (maksimi on 70 merkkiä)."
+    when "Title on liian pitkä (maksimi on 70 merkkiä)"
       :title_is_too_long
     when "Title item_with_proposed_title_already_exists"
       :item_title_with_same_name_already_exists

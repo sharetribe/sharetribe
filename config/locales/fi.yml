@@ -144,6 +144,15 @@ fi:
           attributes:
             consent:  
               not_accepted: "täytyy hyväksyä"
+        conversation:
+          attributes:
+            return_time:
+              too_early: "pitää olla myöhäisempi kuin noutoajan"
+            items:
+              too_few_available: "Vain {{count}} kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
+              none_available: "Ei yhtään kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
+            messages:
+              invalid: "Tyhjää viestiä ei voi lähettää"            
         listing:
           attributes:
             good_thru:

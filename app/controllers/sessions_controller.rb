@@ -3,6 +3,7 @@ require 'rest_client'
 class SessionsController < ApplicationController
   
   def create
+    session[:form_username] = params[:username]
     begin
       @session = Session.create({ :username => params[:username], 
                                   :password => params[:password] })
@@ -10,6 +11,7 @@ class SessionsController < ApplicationController
       flash[:error] = :login_failed
       redirect_to new_session_path and return
     end
+    session[:form_username] = nil
     
     self.smerf_user_id = @session.person_id
     

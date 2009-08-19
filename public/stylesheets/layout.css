@@ -112,6 +112,10 @@ div.fieldWithErrors {
 	border: 3px solid #f66;
 }
 
+div.fieldWithErrorsNoFloat {
+	border: 3px solid #f66;
+}
+
 div.errorExplanation {
 	border: 1px solid #ff0000;
 	background: #f9aeae;
