@@ -24,6 +24,7 @@ p { margin: 0 }
 <tr><td>Method</td><td><%= @request.request_method %></td></tr>
 <tr><td>SSL</td><td><%= @request.server_port.to_i == 443 ? "true" : "false" %></td></tr>
 <tr><td>Agent</td><td><%= @request.env['HTTP_USER_AGENT'] %></td></tr>
+<tr><td>IP address</td><td><%= @request.remote_ip %></td></tr>
 
 <% if @current_user -%>
 <tr><td>User id</td><td><%= @current_user.id %></td></tr>
