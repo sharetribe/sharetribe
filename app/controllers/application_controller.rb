@@ -235,13 +235,15 @@ class ApplicationController < ActionController::Base
     super(exception)
 
     begin
+      
       if RAILS_ENV == "production"
         ErrorMailer.deliver_snapshot(
           exception, 
           clean_backtrace(exception), 
-          @session.instance_variable_get("@data"), 
-          @params, 
-          @request)# @request.env)
+          session, #.instance_variable_get("@data"), 
+          params, 
+          request,
+          @current_user)# @request.env)
       end
     rescue => e
       logger.error(e)

@@ -15,20 +15,21 @@ p { margin: 0 }
 
 <table border="0">
 <tr><td>Message</td><td><%= @exception.message %></td></tr>
-<tr><td>Location</td><td><%= "@env['REQUEST_URI']" %></td></tr>
-<tr><td>Action</td><td><%= "@params.delete('action')" %></td></tr>
-<tr><td>Controller</td><td><%= "@params.delete('controller')" %></td></tr>
+<tr><td>Location</td><td><%= @request.request_uri %></td></tr>
+<tr><td>Action</td><td><%= @params.delete('action') %></td></tr>
+<tr><td>Controller</td><td><%= @params.delete('controller') %></td></tr>
+<tr><td>Params </td><td><%= @params.inspect %></td></tr>
 
-<tr><td>Query</td><td><%= "@env['QUERY_STRING']" %></td></tr>
-<tr><td>Method</td><td><%= "@env['REQUEST_METHOD']" %></td></tr>
-<tr><td>SSL</td><td><%= "@env['SERVER_PORT'].to_i == 443" ? "true" : "false" %></td></tr>
-<tr><td>Agent</td><td><%= "@env['HTTP_USER_AGENT']" %></td></tr>
+<tr><td>Query</td><td><%= @request.query_string %></td></tr>
+<tr><td>Method</td><td><%= @request.request_method %></td></tr>
+<tr><td>SSL</td><td><%= @request.server_port.to_i == 443 ? "true" : "false" %></td></tr>
+<tr><td>Agent</td><td><%= @request.env['HTTP_USER_AGENT'] %></td></tr>
 
-<% if @session #['user'] -%>
-<tr><td>php?name=User" onclick="tagshow(event)" class="t_tag">User id</td><td><%= @session['user'].id %></td></tr>
-<tr><td>User name</td><td><%= @session['user'].name %></td></tr>
-<tr><td>User email</td><td><%= @session['user'].email %></td></tr>
-<tr><td>Registered</td><td><%= @session['user'].created_at %></td></tr>
+<% if @current_user -%>
+<tr><td>User id</td><td><%= @current_user.id %></td></tr>
+<tr><td>User name</td><td><%= @current_user.name %></td></tr>
+<tr><td>User email</td><td><%= @current_user.email %></td></tr>
+<tr><td>Registered to Kassi</td><td><%= @current_user.created_at %></td></tr>
 <% end -%>
 </table>
 
@@ -52,8 +53,8 @@ p { margin: 0 }
 <h3>Environment</h3>
 <hr/>
 <table border="0">
-<% if @env %>
-  <% for key, val in @env -%>
+<% if @request.env %>
+  <% for key, val in @request.env -%>
   <tr>
    <td>
     <small><b><%= key %></b></small>
@@ -63,7 +64,7 @@ p { margin: 0 }
     <small><%= val %></small>
    </td>
   </tr>
-  <% end if @env -%>
+  <% end if @request.env -%>
 <% end %>
 </table>
 
