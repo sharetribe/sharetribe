@@ -18,7 +18,7 @@ class Reservation < Conversation
   # Makes sure that pick up time is earlier than return time
   def pick_up_time_is_earlier_than_return_time
     if pick_up_time >= return_time
-      errors.add(:return_time, "must be after pick up time")
+      errors.add(:return_time, errors.generate_message(:return_time, :too_early))
     end  
   end
   
@@ -29,9 +29,9 @@ class Reservation < Conversation
       amount_available = item.get_availability(pick_up_time.to_datetime, return_time.to_datetime, id)
       if ir.amount > amount_available
         if amount_available > 0
-          errors.add_to_base("Only #{amount_available.to_s} pieces of item #{item.title} available on given time period")
+          errors.add(:items, errors.generate_message(:items, :too_few_available, { :item_title => item.title, :count => amount_available.to_s }))
         else
-          errors.add_to_base("No pieces of item #{item.title} available on given time period")
+          errors.add(:items, errors.generate_message(:items, :none_available, { :item_title => item.title }))
         end    
       end
     end    
