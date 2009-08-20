@@ -22,22 +22,23 @@
       <div id="login_box">
         <div class="home_content_right_box_top"></div>
         <div class="home_content_right_box_content">
-      	  <h1>Sivua ei löydy!</h1>
+      	  <h1>Page can not be found!</h1>
       	  <p>
-      	    Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?
+      	    The page you requested can not be found. Are you sure you spelled the address correctly?
       	  </p>
       	  <p>
-      	    Jos osoite on mielestäsi oikein ja sillä pitäisi saada näkyviin sisältöä, kerro meille alla olevalla lomakkeella,
-      	    mikä osoite on kyseessä ja mitä siinä pitäisi näkyä.
+      	    If you believe that the address is correct and it should be working, please help us locate the error by letting us know
+      	    what address caused the error and what should be seen on the page with the form below.
       	  </p>
+      	  <br />
           <p>
-            <a href="/"> Takaisin Kassin etusivulle</a>
+            <a href="/"> Back to Kassi Front page </a>
           </p>
           <br />
           <div class="small_padding">
           <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="6e1c1399c83ef146b054fa11222046e522add966" /></div>
             <div class="login_padding">
-              <b>Virheen kuvaus</b>
+              <b>Error description</b>
             </div>  
             <div class="login_padding">
               <textarea cols="40" id="feedback_content" name="feedback[content]" rows="5" class="error_page"></textarea> 
@@ -46,7 +47,7 @@
             <input id="feedback_url" name="feedback[url]" type="hidden" value="/error_notice_received.html" />
             <div class="login_form_br"></div>
             <div class="login_padding">
-              <input name="commit" onclick="this.form.submit();" type="submit" value="Lähetä virheilmoitus" class="home_button" />
+              <input name="commit" onclick="this.form.submit();" type="submit" value="Send error report" class="home_button" />
             </div>
           </form>   
           </div>   
