@@ -22,14 +22,6 @@
       <div id="login_box">
         <div class="home_content_right_box_top"></div>
         <div class="home_content_right_box_content">
-      	  <h1>Sivun lataus ei onnistunut!</h1>
-      	  <p>
-      	    Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit.
-      	    Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian.
-      	  </p>
-      	  <p>
-      	    Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni.
-      	  </p>
 					<h1>Page loading failed!</h1>
 					<p>
 					  Reloading/refreshing the page often helps you to get on the page that you were trying to reach. We try to locate 
@@ -40,7 +32,7 @@
 					</p>
 					<br />
           <p>
-            <a href="/"> Takaisin Kassin etusivulle - Back to Kassi Front page </a>
+            <a href="/"> Back to Kassi Front page </a>
           </p>
           <br />
           <div class="small_padding">
@@ -63,7 +55,6 @@
         <div class="home_content_right_box_bottom"></div>
       </div>
     </div>
-
     <div id="push"></div>
   </div>
 </body>

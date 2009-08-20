@@ -265,8 +265,17 @@ input.home_text {
 input.login_text {
 	width: 300px;
 }
+
+textarea.error_page {
+	font-weight: bold;
+	width: 300px;
+	height: 100px;
+	background-color: #fbf5ec;
+	border: 2px solid #636439;
+	padding: 5px;
+}
 	
-input.home_text:focus, input.login_text:focus {
+input.home_text:focus, input.login_text:focus, textarea.error_page:focus {
 	background: #f8e0b7;
   color: #000;
 }
