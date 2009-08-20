@@ -237,13 +237,17 @@ class ApplicationController < ActionController::Base
     begin
       
       if RAILS_ENV == "production"
+        sent_on = Time.now
         ErrorMailer.deliver_snapshot(
           exception, 
           clean_backtrace(exception), 
           session, #.instance_variable_get("@data"), 
           params, 
           request,
-          @current_user)# @request.env)
+          @current_user,
+          sent_on)
+          
+        logger.info { "Error mail sent with time stamp: #{sent_on}" }
       end
     rescue => e
       logger.error(e)
