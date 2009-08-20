@@ -78,8 +78,15 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_person(id, cookie)
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie}))
+      begin
+        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
+      rescue RestClient::RequestTimeout => e
+        # In case of timeout, try once again
+        logger.error { "Rest-client reported a timeout #{e.message}. Trying again..." }
+        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
+      end
       
+      return JSON.parse(response)
       # return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
