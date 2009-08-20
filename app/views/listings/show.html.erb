@@ -69,18 +69,6 @@
     </div>
   
     <br />
-
-  
-    <% if @current_user && @listing.author != @current_user %>
-    <!--  If enabling these, remember to change the fragment caching where this part is included!  
-      <% if PersonInterestingListing.find_by_person_id_and_listing_id(@current_user.id, @listing.id) %>
-        <%= link_to t(:mark_as_not_interesting), mark_as_not_interesting_listing_path(@listing), :method => :delete %>
-      <% else %>
-        <%= link_to t(:mark_as_interesting), mark_as_interesting_listing_path(@listing), :method => :post %>
-      <% end %>
-    -->  
-    <% end %>
-  
   </div>
   
 <% end #end cache %> 
