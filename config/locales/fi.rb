@@ -9,7 +9,12 @@
 :email => "Sähköpostiosoite",
 :i_accept_the_consent => "Hyväksyn",
 :consent => "tutkimussuostumuksen", 
-:registration_succeeded => "Rekisteröityminen onnistui! Tervetuloa Kassin käyttäjäksi!", 
+:registration_succeeded => "Rekisteröityminen onnistui! Tervetuloa Kassin käyttäjäksi!",
+:welcome_to_kassi => "Tervetuloa Kassin käyttäjäksi!",
+:consent_info => "Jotta pääset käyttämään Kassia, sinun tulee vielä hyväksyä tutkimussuostumus ja siihen liittyvät palvelun käyttöehdot.",
+:accept_consent => "Hyväksy suostumus",
+:show_consent => "Näytä tutkimussuostumus",
+:consent_accepted => "Olet nyt kirjautuneena Kassiin. Tervetuloa!",  
 
 #General
 :all => "Kaikki",

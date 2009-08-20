@@ -16,12 +16,14 @@ class PeopleController < ApplicationController
     @events_per_page = 5
     @content_items_per_page = 5
     @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
+    @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
     get_newest_content_items(@content_items_per_page)
   end
   
   def more_kassi_events
     @events_per_page = params[:events_per_page].to_i + 5
     @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
+    @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
     render :update do |page|
       page["kassi_events"].replace_html :partial => "kassi_events/frontpage_event",
                                         :as => :kassi_event,

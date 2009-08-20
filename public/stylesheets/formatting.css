@@ -310,6 +310,13 @@ input.home_button_wide {
 	font-size: 1.2em;
 }
 
+input.home_button_wider {
+	margin-top: 10px;
+	width: 250px;
+	height: 35px;
+	font-size: 1.2em;
+}
+
 input.home_button_thick {
 	margin-top: 10px;
 	width: 170px;
