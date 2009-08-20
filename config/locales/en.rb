@@ -9,7 +9,12 @@
 :email => "Email address",
 :i_accept_the_consent => "I give my",
 :consent => "consent to the research study",
-:registration_succeeded => "Registration succeeded! Welcome to Kassi!", 
+:registration_succeeded => "Registration succeeded! Welcome to Kassi!",
+:welcome_to_kassi => "Welcome to Kassi!",
+:consent_info => "To log in Kassi, you must first accept the consent for research study and the Kassi terms of use.",
+:accept_consent => "Accept the consent",
+:show_consent => "Show the consent",
+:consent_accepted => "You are now logged in Kassi. Welcome!", 
 
 #General
 :all => "All",
