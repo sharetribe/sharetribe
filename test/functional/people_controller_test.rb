@@ -63,7 +63,7 @@ class PeopleControllerTest < ActionController::TestCase
                  :consent => "true"}}
     assert assigns(:person)
     assert_response :found, "Not redirected after user creation as expected."
-    assert_redirected_to home_person_path(assigns(:person))          
+    assert_redirected_to root_path         
                  
     username = generate_random_username
     post "create", {:person => {:username => username,
@@ -73,7 +73,7 @@ class PeopleControllerTest < ActionController::TestCase
                  :family_name => "hemmo",
                  :email => "#{username}@example.com",
                  :consent => "true" }}
-    assert_redirected_to home_person_path(assigns(:person))
+    assert_redirected_to root_path
   end
   
   def test_home
