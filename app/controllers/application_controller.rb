@@ -123,7 +123,7 @@ class ApplicationController < ActionController::Base
   # Sets locale file used.
   def set_locale
     locale = params[:locale] || session[:locale] || 'fi'
-    I18n.locale = locale   
+    I18n.locale = locale
     session[:locale] = params[:locale] || session[:locale]
   end
   

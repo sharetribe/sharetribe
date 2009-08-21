@@ -8,13 +8,11 @@
           <div class="home_ad_box_inner_box_top_corners"></div>
           <div class="home_ad_box_inner_box_content">
             <div class="home_ad_box_inner_box_content_left">
-              <h2 class="home">Hae tavaraa <br />tai palvelusta</h2>
+              <h2 class="home"><%= t(:search_item_or_favor) %></h2>
             </div>
             <div class="home_ad_box_inner_box_content_right">
               <p>
-                Joku Kassin käyttäjistä saattaa jo tarjota
-                tavaraa tai palvelusta, jota kaipaat. Kirjoita 
-                toiveesi hakukenttään ja ota selvää!
+                <%= t(:search_item_or_favor_description) %>
               </p>  
             </div>    
           </div>
@@ -36,11 +34,11 @@
           <div class="home_ad_box_inner_box_top_corners"></div>
           <div class="home_ad_box_inner_box_content">
             <div class="home_ad_box_inner_box_content_left">
-              <h2 class="home_small_margin">Ilmoita Kassissa</h2>
+              <h2 class="home_small_margin"><%= t(:post_a_listing) %></h2>
             </div>
             <div class="home_ad_box_inner_box_content_right">
               <p>
-                Etkö löytänyt etsimääsi? Jätä ilmoitus Kassiin!
+                <%= t(:post_a_listing_description) %>
               </p>  
             </div>    
           </div>
@@ -57,7 +55,7 @@
           <div class="home_ad_box_inner_box_top_corners"></div>
           <div class="home_ad_box_inner_box_content">
             <div class="home_ad_box_inner_box_content_left">
-              <h2 class="home">Osallistu!</h2>
+              <h2 class="home"><%= t(:participate) %></h2>
               <% form_tag({ :controller => "listings", :action => "new" }, :method => "get") do %>
               <div class="left_float">  
                 <%= submit_tag t(:add_your_items_and_favors), :class => "home_button home_button_thick" %>
@@ -66,8 +64,7 @@
             </div>
             <div class="home_ad_box_inner_box_content_right">
               <p>
-                Kassi toimii sitä paremmin, mitä useampi tarjoaa sen kautta tietoa lainatavaroistaan ja muille
-                tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!
+                <%= t(:participate_description) %>
               </p>  
             </div>    
           </div>
@@ -75,16 +72,7 @@
         </div>  
       </div> 
       <div id="home_ad_box_right">
-        <h1 class="home">Tavaroita ja palveluksia<br /> - tutuille ja tuntemattomille!</h1>
-        <p class="home">
-          Tarvitsetko poran lainaksi? Kaipaatko muuttoapua? Haluaisitko päästä kimppakyydillä festareille? Oletko vailla sohvaa? Tahdotko eroon vanhoista oppikirjoista? Oletko kokoamassa sählyjoukkuetta? Kassi voi auttaa!
-        </p>
-        <p class="home">
-          Kassi on palvelu, joka helpottaa tavaroiden ja palvelusten vaihtoa. Profiilissasi voit listata muiden käyttöön tarjoamasi lainatavaroita sekä palveluksia, joita voisit tehdä muille. Palvelus- ja tavaralistoista saat selville, mitä Kassissa on tarjolla. Jos et löydä etsimääsi, voit jättää siitä ilmoituksen, johon muut voivat vastata. Ilmoituksilla voit myös ostaa ja myydä, etsiä kimppakyytejä tai kadonneita tavaroita sekä koota porukkaa vaikka lukupiiriin.
-        </p>
-        <p class="home">
-          Myös yhdistykset voivat käyttää Kassia toiminnassaan monin tavoin, esimerkiksi hyödyntämällä Kassin varaustoiminnallisuutta tai ilmoittamalla Kassissa talkoista ja muista tapahtumista.
-        </p>
+        <%= render :partial => "home_introduction_text" %>
         <% form_tag({ :controller => "people", :action => "new" }, :method => "get") do %>  
           <%= submit_tag t(:join_kassi), :class => "home_button home_button_join" %>
         <% end %>
