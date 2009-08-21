@@ -31,14 +31,18 @@ class AvatarsController < ApplicationController
       
       #rename the file to get a suffix and content type accepted by COS
       File.rename(path, new_path)
+      file_to_post = File.new(new_path)
       
-      @person.update_avatar(File.new(new_path), session[:cookie])
+      @person.update_avatar(file_to_post, session[:cookie])
+      
       flash[:notice] = :avatar_upload_successful
       redirect_to @person
     rescue Exception => e
       flash[:error] = e.message.to_s
+      File.delete(path) if File.new(path).exists?
       render :action => :edit
     end
+    File.delete(new_path) if file_to_post || file_to_post.exists?
   end
   
   def upload_successful
