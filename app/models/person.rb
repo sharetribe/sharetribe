@@ -82,7 +82,7 @@ class Person < ActiveRecord::Base
         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
       rescue RestClient::RequestTimeout => e
         # In case of timeout, try once again
-        logger.error { "Rest-client reported a timeout #{e.message}. Trying again..." }
+        Rails.logger.error { "Rest-client reported a timeout #{e.message}. Trying again..." }
         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
       end
       
