@@ -123,7 +123,7 @@
         </div>  
       </div>
     <% elsif is_current_user?(other_party) %>
-      <%= render :partial => "feedback_form", :locals => { :kassi_event => kassi_event } %>
+      <%= render :partial => "feedback_form", :locals => { :kassi_event => kassi_event, :comment_label => :comment_to_user } %>
     <% else %>
       <div class="kassi_event_comment_content">
         <b><%= t(:user_has_not_given_feedback_on_this_kassi_event, :name => other_party.name) %></b>

@@ -153,11 +153,9 @@
         </div>
         <div class="solid_line_white"></div>  
         <br />
-        <% if @more_kassi_events_available %>
-          <div id="more_kassi_events_link" class="home_bottom_link">
-            <%= render :partial => "more_kassi_events_link", :locals => { :events_per_page => @events_per_page } %>
-          </div>
-        <% end %>    
+        <div id="more_kassi_events_link" class="home_bottom_link">
+          <%= render :partial => "more_kassi_events_link", :locals => { :events_per_page => @events_per_page } %>
+        </div>  
       </div>
       <div class="home_content_right_box_bottom"></div>
     </div>    

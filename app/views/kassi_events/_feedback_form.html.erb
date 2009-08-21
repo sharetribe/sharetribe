@@ -25,7 +25,7 @@
   </div>
   <div class="form_container">
     <div class="form_left">
-      <%= t(:comment_for_favor_realizer) %>: 
+      <%= comment_label ? t(comment_label) : t(:comment_for_favor_realizer) %>: 
     </div>
     <div class="form_right">
       <%= comment_form.text_area :text_content, :size => "65x8" %>

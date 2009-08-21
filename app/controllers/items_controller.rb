@@ -334,7 +334,7 @@ class ItemsController < ApplicationController
   
   def search_items(query)
     s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
-    Item.find_by_contents(query, {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("item")})
+    Item.find_by_contents("*"+query+"*", {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("item")})
   end
   
   def set_description_visibility(visible)

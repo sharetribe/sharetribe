@@ -99,7 +99,12 @@ class PeopleController < ApplicationController
       self.smerf_user_id = @person.id   
       @person.settings = Settings.create
       flash[:notice] = :registration_succeeded
-      redirect_to home_person_path(@person) #TODO should redirect to the page where user was
+      if session[:return_to]
+        redirect_to session[:return_to]
+        session[:return_to] = nil
+      else
+        redirect_to root_path
+      end
     else
       @person.errors.add(:password, "does not match") unless params[:person][:password].eql?(params[:person][:password2])
       @person.errors.add(:consent, @person.errors.generate_message(:consent, :not_accepted)) unless params[:person][:consent]
