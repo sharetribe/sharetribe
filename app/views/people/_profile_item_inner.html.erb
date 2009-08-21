@@ -9,8 +9,7 @@
     <%= link_to_remote t(:edit), :url => edit_person_item_path(@person, item), :update => "item_" + item.id.to_s, :method => :get %> | 
     <%= link_to_remote t(:remove), :url => item_path(item), :method => :delete %>
   <% else %>
-    <%= link_to t(:borrow_this_item), borrow_person_item_path(@person, item, :receiver => @person.id, :return_to => request.request_uri) %> | 
-    <%= link_to t(:i_have_borrowed_this_item), thank_for_person_item_path(@person, item) %>
+    <%= link_to t(:borrow_this_item), borrow_person_item_path(@person, item, :receiver => @person.id, :return_to => request.request_uri) %>
   <% end %>
   </div>  
 </div>

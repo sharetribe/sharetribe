@@ -23,7 +23,12 @@ class KassiEventsController < ApplicationController
   
   # Used to add new comments to an existing Kassi event
   def update
-    KassiEvent.find(params[:id]).update_attributes(params[:kassi_event])
+    @kassi_event = KassiEvent.find(params[:id])
+    @kassi_event.update_attributes(params[:kassi_event])
+    other_party = @kassi_event.get_other_party(@current_user)
+    if RAILS_ENV != "development" && other_party.email_when_new_listing_from_friend == 1
+      UserMailer.deliver_notification_of_new_comment_to_kassi_event(other_party, @kassi_event, request)
+    end  
     flash[:notice] = :feedback_sent
     redirect_to person_kassi_events_path(Person.find(params[:person_id]))
   end
