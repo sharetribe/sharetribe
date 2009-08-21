@@ -145,6 +145,8 @@
 :groups_description => "search for one or more people to do stuff with you (play badminton, study etc.)",
 :favors_description => "ask somebody to do you a favor (you can offer favors from your profile)",
 :others_description => "all other listings",
+:lost_description => "find your lost items",
+:found_description => "let others know what you've found", 
 
 #Pagination
 :next => "Next &raquo;",
