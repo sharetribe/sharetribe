@@ -41,7 +41,8 @@ echo "BUILT_AT = \"$BUILD_DATE\"" >> config/environments/production.rb
 sudo rake gems:install
 
 rake db:migrate
-rake test
+# no tests because using Cruise Control
+#rake test
 rake db:migrate RAILS_ENV=production
 #script/server -d -e production -p 8000
 mongrel_rails cluster::start
