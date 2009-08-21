@@ -193,6 +193,9 @@ class FavorsController < ApplicationController
     @kassi_event = KassiEvent.create(params[:kassi_event])
     if @kassi_event.save
       flash[:notice] = :thanks_for_favor_sent
+      if RAILS_ENV != "development" && @person.settings.email_when_new_kassi_event == 1
+        UserMailer.deliver_notification_of_new_kassi_event(@person, @kassi_event, request)
+      end
       redirect_to params[:return_to]
     else
       render :action => :thank_for

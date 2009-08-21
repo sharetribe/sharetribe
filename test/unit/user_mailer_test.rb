@@ -16,7 +16,7 @@ class UserMailerTest < ActionMailer::TestCase
     comment = listing_comments(:third_comment)
     mail = UserMailer.create_notification_of_new_comment(comment)
     assert_equal(KASSI_MAIL_FROM_ADDRESS, mail.from.first)
-    assert_equal(comment.author.name + ' on kommentoinut ilmoitustasi "' + comment.listing.title + '"', mail.subject)
+    assert_equal(comment.author.name + ' on kommentoinut ilmoitustasi', mail.subject)
     assert mail.to, "Could not get email address for recipient."
     assert_equal(comment.listing.author.email, mail.to.first)
   end

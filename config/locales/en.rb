@@ -186,6 +186,12 @@
 :add_new_items_and_favors => "Add new items and favors",
 :notifications => "Notifications",
 :newest_kassi_events => "Newest kassi events",
+:search_item_or_favor => "Search for favors<br />or items to borrow",
+:search_item_or_favor_description => "A Kassi user might already offer an item or a favor you are looking for. Type your need in the search field and find out!",
+:post_a_listing => "Post a Listing",
+:post_a_listing_description => "Didn't find what you were looking for? Post a listing to Kassi!",
+:participate => "Participate!",
+:participate_description => "The more people are offering information about their items to borrow and favors they could do, the better Kassi is for everyone. List your assets in your profile and join Kassi community!",
 
 #Listings view
 :operation_not_permitted => "Operation not permitted",
@@ -601,6 +607,9 @@
 :email_when_new_message => "of new inbox messages",
 :email_when_new_comment => "of new comments to own listings",
 :email_when_new_friend_request => "of friend requests",
+:email_when_new_kassi_event => "of new kassi events",
+:email_when_new_comment_to_kassi_event => "of new feedback from my kassi events",
+:email_when_new_listing_from_friend => "of my friends' listings",
 :settings_updated_successfully => "Settings updated",
 
 #Error messages

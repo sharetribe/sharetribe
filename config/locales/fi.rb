@@ -188,7 +188,16 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :you_have_not_yet_added_any_items_or_favors => "Et ole vielä lisännyt yhtään tavaraa tai palvelusta profiiliisi",
 :add_new_items_and_favors => "Lisää uusia tavaroita ja palveluksia",
 :notifications => "Tiedotteet",
-:newest_kassi_events => "Uusimmat kassitapahtumat",  
+:newest_kassi_events => "Uusimmat kassitapahtumat",
+:search_item_or_favor => "Hae tavaraa <br />tai palvelusta",
+:search_item_or_favor_description => "Joku Kassin käyttäjistä tarjoaa ehkä jo tavaraa tai palvelusta, jota kaipaat. Kirjoita toiveesi hakukenttään ja ota selvää!",
+:post_a_listing => "Ilmoita Kassissa",
+:post_a_listing_description => "Etkö löytänyt etsimääsi? Jätä ilmoitus Kassiin!",
+:participate => "Osallistu!",
+:participate_description => "Kassi toimii sitä paremmin, mitä useampi tarjoaa sen kautta tietoa lainatavaroistaan ja muille
+tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
+
+     
 
 #Listings view
 :listing => "ilmoitus",
@@ -599,10 +608,13 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :change_email => "Vaihda sähköpostiosoitetta",
 :change_password => "Vaihda salasanaa",
 :email_has_already_been_taken => "Sähköpostiosoite on jo käytössä",
-:send_email_notifications => "Lähetä sähköpostimuistutus",
+:send_email_notifications => "Lähetä sähköpostitiedote",
 :email_when_new_message => "uusista postilaatikkooni saapuvista viesteistä",
 :email_when_new_comment => "uusista kommenteista omiin ilmoituksiin",
-:email_when_new_friend_request => "kaverikutsuista", 
+:email_when_new_friend_request => "kaverikutsuista",
+:email_when_new_kassi_event => "uusista kassitapahtumista",
+:email_when_new_comment_to_kassi_event => "saaduista palautteista omiin kassitapahtumiin",
+:email_when_new_listing_from_friend => "kaverien ilmoituksista",    
 :settings_updated_successfully => "Asetukset päivitetty",  
 
 #Error messages
