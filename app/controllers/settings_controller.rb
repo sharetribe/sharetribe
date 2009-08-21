@@ -3,13 +3,15 @@ class SettingsController < ApplicationController
   before_filter :logged_in
   
   def show
-    save_navi_state(['own','settings'])
     @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
+    save_navi_state(['own','settings'])
     @person.settings = Settings.create unless @person.settings
   end
   
   def change_email
     @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     begin
       @person.update_attributes(params[:person], session[:cookie])
     rescue RestClient::RequestFailed => e
@@ -26,6 +28,7 @@ class SettingsController < ApplicationController
   
   def change_password
     @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     unless params[:person][:password].eql?(params[:person][:password2])
       flash[:error] = :passwords_dont_match
       redirect_to person_settings_path(@person) and return  
@@ -42,6 +45,7 @@ class SettingsController < ApplicationController
   
   def update
     @person = Person.find(params[:person_id])
+    return unless must_be_current_user(@person)
     @person.settings.update_attributes(params[:settings])
     flash[:notice] = :settings_updated_successfully
     redirect_to person_settings_path(@person)

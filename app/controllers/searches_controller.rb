@@ -4,6 +4,7 @@ class SearchesController < ApplicationController
     save_navi_state(['', '', '', ''])
     if params[:qa]
       query = (params[:qa].length > 0) ? "*" + params[:qa] + "*" : ""
+      person_query = (params[:qa].length > 0) ? params[:qa] : ""
       begin
         sl = Ferret::Search::SortField.new(:id_sort, :reverse => true)
         conditions = ["status = 'open' AND good_thru >= ?" + get_visibility_conditions("listing"), Date.today.to_s]
@@ -21,7 +22,7 @@ class SearchesController < ApplicationController
         @favors = Favor.find_by_contents(query, {:limit => 2, :sort => sf}, {:conditions => conditions})
         
         ids = Array.new
-        Person.search(query)["entry"].each do |person|
+        Person.search(person_query)["entry"].each do |person|
           ids << person["id"]
         end
         @people = Person.find_kassi_users_by_ids(ids)
