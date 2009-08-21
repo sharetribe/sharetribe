@@ -85,10 +85,13 @@
                                :target_object => @listing, 
                                :target_object_type => "listing", 
                                :return_to => request.request_uri %>
-      <% end %> 
+      <% end %>
     <% end %> 
     <% if @current_user && is_current_user?(@listing.author) %>
-			<%= link_to t(:edit_listing), edit_listing_path(@listing) %>
+      <% unless @listing.open? %>
+        <div class="reply_to_listing">
+      <% end %>    
+			  <%= link_to t(:edit_listing), edit_listing_path(@listing) %>
     <% end %>
     </div>
     <br />  
@@ -104,13 +107,11 @@
   <% if (@listing.comments.size > 0) %>
     <br /><br />
     <a name="comments"></a>
-    <div id="comments">
       <h4><%= t(:comments) + " (" + @listing.comments.size.to_s + ")" %></h4>
       <%= render :partial => "listing_comments/listing_comment", 
                  :collection => @listing.comments, 
                  :as => :comment, 
                  :spacer_template => "layouts/dashed_line" %>
-    </div>
   <% end %>
   
   <br />
@@ -124,7 +125,7 @@
       <br />
       <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
     <% end %>
-  <% else %>
+  <% elsif @listing.open? %>
       <b><%= t(:you_have_to_log_in_to_comment_listing) %>. &nbsp;<%= link_to t(:log_in_here), new_session_path %></b>
   <% end %>
   

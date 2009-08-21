@@ -1,0 +1,6 @@
+<% other_party = @kassi_event.get_other_party(@recipient) %> 
+Käyttäjä <%= other_party.name %> on antanut sinulle palautetta kassitapahtumasta.
+
+Voit nähdä kassitapahtuman tiedot ja antaa palautetta käyttäjälle <%= other_party.name %> osoitteessa <%= @url %>
+
+<%= render :partial => "mail_signature" %>

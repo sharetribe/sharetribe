@@ -81,6 +81,13 @@ class ListingsController < ApplicationController
       @listing.save_group_visibilities(params[:groups])
       @listing.newsgroup = params[:newsgroup]
       @listing.post_to_newsgroups(request.protocol + request.host + listing_path(@listing))
+      if RAILS_ENV != "development"
+        @current_user.friends(session[:cookie]).each do |friend|
+          if friend.settings.email_when_new_listing_from_friend == 1
+            UserMailer.deliver_notification_of_new_listing_from_friend(@listing, friend, request)
+          end  
+        end  
+      end
       flash[:notice] = :listing_added
       redirect_to listing_path(@listing)
     else
@@ -191,6 +198,10 @@ class ListingsController < ApplicationController
     if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
       @kassi_event = KassiEvent.new(params[:kassi_event])
       if @kassi_event.save
+        realizer = Person.find(params[:kassi_event][:realizer_id])
+        if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
+          UserMailer.deliver_notification_of_new_kassi_event(realizer, @kassi_event, request)
+        end
         flash[:notice] = :listing_closed
       else
         puts @kassi.event.errors.full_messages.inspect
