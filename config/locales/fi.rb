@@ -612,9 +612,9 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :email_when_new_message => "uusista postilaatikkooni saapuvista viesteistä",
 :email_when_new_comment => "uusista kommenteista omiin ilmoituksiin",
 :email_when_new_friend_request => "kaverikutsuista",
-:email_when_new_kassi_event => "uusista kassitapahtumista",
+:email_when_new_kassi_event => "uusista kassitapahtumista joissa olen osallisena",
 :email_when_new_comment_to_kassi_event => "saaduista palautteista omiin kassitapahtumiin",
-:email_when_new_listing_from_friend => "kaverien ilmoituksista",    
+:email_when_new_listing_from_friend => "kaverien ilmoituksista",
 :settings_updated_successfully => "Asetukset päivitetty",  
 
 #Error messages

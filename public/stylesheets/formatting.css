@@ -12,7 +12,7 @@ html {
 }
 
 body, div, td, th, h2, h3, h4 { /* redundant rules for bad browsers  */ 
-  font-family: "lucida grande", arial, verdana, sans-serif;
+  font-family: "lucida grande", "lucida sans", arial, verdana, sans-serif;
 	font-size: 12px;
 	color: #333;
 }  

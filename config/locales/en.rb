@@ -609,7 +609,7 @@
 :email_when_new_message => "of new inbox messages",
 :email_when_new_comment => "of new comments to own listings",
 :email_when_new_friend_request => "of friend requests",
-:email_when_new_kassi_event => "of new kassi events",
+:email_when_new_kassi_event => "of new kassi events in which I'm a participant",
 :email_when_new_comment_to_kassi_event => "of new feedback from my kassi events",
 :email_when_new_listing_from_friend => "of my friends' listings",
 :settings_updated_successfully => "Settings updated",
