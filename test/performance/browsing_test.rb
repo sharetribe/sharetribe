@@ -7,6 +7,10 @@ class BrowsingTest < ActionController::PerformanceTest
     get '/'
   end
   
+  def test_listings_page
+    get '/listings/categories/all_categories'
+  end
+  
   def test_people_page
     get '/people'
   end

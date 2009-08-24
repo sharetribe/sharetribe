@@ -54,7 +54,7 @@
           <% if @listing.open? %>
             <%= t(:open) + " " + t(:until_begin).downcase + " " + @listing.good_thru.to_formatted_s(:basic_date_format) + " " + t(:until_end) %>
           <% else %>
-            <%= t(:closed) %>
+            <b><%= t(:closed) %></b>
           <% end %>  
         </div>
         <div class="listing_author_box_item">
