@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
   
   before_filter :logged_in, :except => [ :index, :show, :hide, :search ]
   
-  # temporarily off, cos breaks the tests.. :)
-  #caches_action :index, :cache_path => :index_cache_path.to_proc, :if => Proc.new { |c| @current_user.nil? } 
+  # Cache action only for non-logged-in users, because they all see the same list
+  caches_action :index, :cache_path => :index_cache_path.to_proc, :if => Proc.new { |c|  !c.session[:person_id] } 
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :item_sweeper, :except => [:show, :index, :new, :search]

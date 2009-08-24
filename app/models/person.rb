@@ -471,20 +471,7 @@ class Person < ActiveRecord::Base
   
   # Returns a hash from COS containing groups of this person
   def get_groups(cookie, event_id=nil)
-    
-    # rescue is commented out to spot the error cases more clearly
-    
-    # begin
-    
-      group_hash = Rails.cache.fetch(Person.groups_cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_groups(self.id, cookie, event_id)}
-      
-      
-      
-    # rescue RestClient::ResourceNotFound => e
-    #   #Could not find person with that id in COS Database!
-    #   return nil
-    # end
-    
+    group_hash = Rails.cache.fetch(Person.groups_cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_groups(self.id, cookie, event_id)}
     return group_hash
   end
   
