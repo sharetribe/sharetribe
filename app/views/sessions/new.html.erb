@@ -23,6 +23,7 @@
       </div>      
     <% end -%>
     <div class="login_form_br"></div>
+    <%= set_focus_to_id 'username' %>
     <div class="login_padding"> 
       <%= link_to t(:create_new_account), new_person_path %> | <%= link_to_function t(:forgot_password), 
           "new Effect.toggle('forgot_password', 'blind')" %>
