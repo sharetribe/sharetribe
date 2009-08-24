@@ -148,7 +148,10 @@ class Group < ActiveRecord::Base
   
   # Is the person in question a member of this group?
   def is_member?(person, cookie)
-    get_member_ids(cookie).include?(person.id) 
+    # old way:
+    #get_member_ids(cookie).include?(person.id) 
+    # new and hopefully faster way
+    person.get_group_ids(cookie).include?(self.id)
   end
   
   # Takes a group hash from COS and extracts ids from it

@@ -38,6 +38,9 @@ class GroupsController < ApplicationController
   def create
      #should expire groups page cache
     
+    # expire the cache of the grouplist of this user
+    Rails.cache.delete(Person.groups_cache_key(@current_user.id, session[:cookie]))
+    
     @group = Group.new
     begin
       @group = Group.create(params["group"], session[:cookie])

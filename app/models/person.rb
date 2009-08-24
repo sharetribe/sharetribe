@@ -475,7 +475,11 @@ class Person < ActiveRecord::Base
     # rescue is commented out to spot the error cases more clearly
     
     # begin
-      group_hash = PersonConnection.get_groups(self.id, cookie, event_id)
+    
+      group_hash = Rails.cache.fetch(Person.groups_cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_groups(self.id, cookie, event_id)}
+      
+      
+      
     # rescue RestClient::ResourceNotFound => e
     #   #Could not find person with that id in COS Database!
     #   return nil
@@ -577,10 +581,12 @@ class Person < ActiveRecord::Base
   
   def join_group(group_id, cookie)
     PersonConnection.join_group(self.id, group_id, cookie)
+    Rails.cache.delete(Person.groups_cache_key(id,cookie))
   end
   
   def leave_group(group_id, cookie)
     PersonConnection.leave_group(self.id, group_id, cookie)
+    Rails.cache.delete(Person.groups_cache_key(id,cookie))
   end
   
   # Takes a person hash from COS and extracts ids from it
@@ -635,6 +641,11 @@ class Person < ActiveRecord::Base
   def self.cache_key(id,cookie)
     "person_hash.#{id}_asked_by.#{cookie.hash}"
   end
+  
+  def self.groups_cache_key(id,cookie)
+    "person_groups_hash.#{id}_asked_by.#{cookie.hash}"
+  end
+  
   
   #Methods to simplify the cache access
   
