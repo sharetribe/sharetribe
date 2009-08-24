@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   
   before_filter :logged_in
+  after_filter :clear_caches, :excpet => [:index, :reject]
   
   def index
     @person = Person.find(params[:person_id])
@@ -54,6 +55,10 @@ class RequestsController < ApplicationController
   end
 
   private
+  
+  def clear_caches
+     update_caches_dependent_on_friendship(@current_user, @friend)
+  end
   
   def accept_friend_request(friend)
     begin

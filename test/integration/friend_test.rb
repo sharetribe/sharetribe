@@ -60,7 +60,7 @@ class PeopleTest < ActionController::IntegrationTest
     assert_template 'index'
     assert_equal 1, assigns(:requesters).size
     assert_equal people(:one), assigns(:requesters).first
-
+    
     # Accept friend request from person 1
     post "/people/#{people(:two).id}/requests/#{assigns(:requesters).first.id}/accept"
     assert_response :success
@@ -71,6 +71,8 @@ class PeopleTest < ActionController::IntegrationTest
     assert_response :success
     assert_template 'index'
     assert_equal 0, assigns(:requesters).size
+    
+    #CacheHelper.update_items_last_changed
     
     # The item of person 1 should now be visible (because it is for friends only)
     get "/items"
@@ -84,16 +86,22 @@ class PeopleTest < ActionController::IntegrationTest
     assert_equal 1, assigns(:friends).size
     assert_equal people(:one), assigns(:friends).first
     
+    #puts "1"
+    
     # Remove person 1 from friends
     delete "/people/#{people(:two).id}/friends/#{assigns(:friends).first.id}"
     assert_response :success
     assert_equal :friend_removed, flash[:notice]
+    
     
     # There should be no friends in the friend view
     get "/people/#{people(:two).id}/friends"
     assert_response :success
     assert_template 'index'
     assert_equal 0, assigns(:friends).size
+    
+    #puts "2"
+    #CacheHelper.update_items_last_changed
     
     # The item of person 1 should not be visible anymore (because it is for friends only)
     get "/items"

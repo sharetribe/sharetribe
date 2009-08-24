@@ -6,7 +6,10 @@ class ItemsController < ApplicationController
   before_filter :logged_in, :except => [ :index, :show, :hide, :search ]
   
   # Cache action only for non-logged-in users, because they all see the same list
-  caches_action :index, :cache_path => :index_cache_path.to_proc, :if => Proc.new { |c|  !c.session[:person_id] } 
+  
+  #caches_action :index, :cache_path => :index_cache_path.to_proc#, :if => Proc.new { |c|  !c.session[:person_id] } 
+  
+  caches_action :index, :cache_path => Proc.new { |c| "items_list/#{c.session[:locale]}/#{CacheHelper.items_last_changed}/#{c.session[:person_id]}"}
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :item_sweeper, :except => [:show, :index, :new, :search]
@@ -324,13 +327,18 @@ class ItemsController < ApplicationController
   
   private
   
-  def index_cache_path
-    if @current_user
-      "items_list/#{session[:locale]}/#{items_last_changed}/#{@current_user.id}"
-    else
-       "items_list/#{session[:locale]}/#{items_last_changed}/non-registered"
-    end
-  end
+  # def self.items_last_changed 
+  #   Rails.cache.fetch("items_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
+  # end
+  
+  # def index_cache_path
+  #   puts "CURRE USER IS: #{session[:user_id]}"
+  #   if session[:user_id]
+  #     "items_list/#{session[:locale]}/#{items_last_changed}/#{session[:user_id]}"
+  #   else
+  #      "items_list/#{session[:locale]}/#{items_last_changed}/non-registered"
+  #   end
+  # end
   
   def search_items(query)
     s = Ferret::Search::SortField.new(:title_sort, :reverse => false)

@@ -19,12 +19,20 @@ module CacheHelper
     Rails.cache.write("favors_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
   end
   
-  def items_last_changed 
+  def self.items_last_changed 
     Rails.cache.fetch("items_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
 
-  def update_items_last_changed 
-    Rails.cache.write("items_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+  def self.update_items_last_changed 
+    #puts "NOW UPDATING ITEMS LAST CHANGED #{Time.now.to_i}"
+    new_value = Time.now.to_i
+    
+    # ensure that we update the value to something that it was not already (many updates on same second)
+    if (Rails.cache.read("items_last_changed") == new_value)
+      # puts "Increasing the cache key, to really update it, this should be very rare outside tests"
+      new_value += 1
+    end    
+    Rails.cache.write("items_last_changed", new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
   end
   
   def listings_last_changed 
@@ -36,20 +44,22 @@ module CacheHelper
   end
   
   def update_caches_dependent_on_friendship(person1, person2)
-    [person1, person2].each do |person|
-           I18n.available_locales.each do |locale|
-             puts "items_list/#{locale.to_s}/#{items_last_changed}/#{person.id}"
-             # Rails.cache.delete("items_list/#{locale.to_s}/#{items_last_changed}/#{person.id}")
-             # expire_action :controller => :items, :action => :index, :cache_path => "items_list/#{locale.to_s}/#{items_last_changed}/#{person.id}"
-           end
-         end
+    # [person1, person2].each do |person|
+    #   unless person.nil?
+    #     I18n.available_locales.each do |locale|
+    #       puts "items_list/#{locale.to_s}/#{CacheHelper.items_last_changed}/#{person.id}"
+    #       Rails.cache.delete("items_list/#{locale.to_s}/#{CacheHelper.items_last_changed}/#{person.id}")
+    #       # expire_action :controller => :items, :action => :index, :cache_path => "items_list/#{locale.to_s}/#{items_last_changed}/#{person.id}"
+    #     end
+    #   end
+    # end
     
-     # SHOULD USE SOMETHING LIKE ABOVE
-      # this one below clears all the caches, so it slows the system down unnecessarily.
+    # TODO SHOULD USE SOMETHING LIKE ABOVE
+    # this one below clears all the caches, so it slows the system down unnecessarily.
     
-      update_favors_last_changed
-      update_items_last_changed
-      update_listings_last_changed
+    update_favors_last_changed
+    CacheHelper.update_items_last_changed
+    update_listings_last_changed
   end
   
   def update_caches_dependent_on_groups(person)
@@ -61,7 +71,7 @@ module CacheHelper
     # this one below clears all the caches, so it slows the system down unnecessarily.
     
      update_favors_last_changed
-     update_items_last_changed
+     CacheHelper.update_items_last_changed
      update_listings_last_changed
   end
   
