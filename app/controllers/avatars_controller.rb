@@ -29,17 +29,25 @@ class AvatarsController < ApplicationController
       original_filename =  params[:file].original_filename
       new_path = path.gsub(/\/[^\/]+\Z/, "/#{original_filename}")
       
+      puts "path #{path} original_filename #{original_filename} new_path #{new_path}"
+      
       #rename the file to get a suffix and content type accepted by COS
       File.rename(path, new_path)
+      
       file_to_post = File.new(new_path)
       
+      puts "FILE TO POST #{file_to_post.path}"
       @person.update_avatar(file_to_post, session[:cookie])
       
       flash[:notice] = :avatar_upload_successful
       redirect_to @person
     rescue Exception => e
       flash[:error] = e.message.to_s
-      File.delete(path) if File.new(path).exists?
+      begin
+        File.delete(path)
+      rescue
+        #don't care if fails
+      end
       render :action => :edit
     end
     File.delete(new_path) if file_to_post || file_to_post.exists?
