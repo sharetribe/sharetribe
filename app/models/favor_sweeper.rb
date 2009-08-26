@@ -19,6 +19,6 @@ class FavorSweeper < ActionController::Caching::Sweeper
   private 
   def expire_cache_for(record)
     #currently expires only the cached list of favors 
-    update_favors_last_changed
+    CacheHelper.update_favors_last_changed
   end 
 end 

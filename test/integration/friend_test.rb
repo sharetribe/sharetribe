@@ -72,8 +72,6 @@ class PeopleTest < ActionController::IntegrationTest
     assert_template 'index'
     assert_equal 0, assigns(:requesters).size
     
-    #CacheHelper.update_items_last_changed
-    
     # The item of person 1 should now be visible (because it is for friends only)
     get "/items"
     assert_response :success, @response.body
@@ -85,9 +83,7 @@ class PeopleTest < ActionController::IntegrationTest
     assert_template 'index'
     assert_equal 1, assigns(:friends).size
     assert_equal people(:one), assigns(:friends).first
-    
-    #puts "1"
-    
+      
     # Remove person 1 from friends
     delete "/people/#{people(:two).id}/friends/#{assigns(:friends).first.id}"
     assert_response :success
@@ -99,9 +95,6 @@ class PeopleTest < ActionController::IntegrationTest
     assert_response :success
     assert_template 'index'
     assert_equal 0, assigns(:friends).size
-    
-    #puts "2"
-    #CacheHelper.update_items_last_changed
     
     # The item of person 1 should not be visible anymore (because it is for friends only)
     get "/items"
