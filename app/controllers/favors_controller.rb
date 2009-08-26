@@ -2,8 +2,7 @@ class FavorsController < ApplicationController
   
   before_filter :logged_in, :except  => [ :index, :show, :hide, :search ]
   
-   # temporarily off, cos breaks the tests.. :)
-  # caches_action :index, :cache_path => :index_cache_path.to_proc
+   caches_action :index, :cache_path => Proc.new { |c| "favors_list/#{c.session[:locale]}/#{CacheHelper.favors_last_changed}/#{c.session[:person_id]}"}  
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :favor_sweeper, :except => [:show, :index, :new, :search]
@@ -226,14 +225,6 @@ class FavorsController < ApplicationController
   end
   
   private
-  
-  def index_cache_path
-    if @current_user
-      "favors_list/#{session[:locale]}/#{favors_last_changed}/#{@current_user.id}"
-    else
-      "favors_list/#{session[:locale]}/#{favors_last_changed}/non-registered"
-    end
-  end
   
   def set_description_visibility(visible)
     partial = visible ? "favors/title_and_description" : "favors/title_no_description"

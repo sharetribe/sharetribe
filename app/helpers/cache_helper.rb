@@ -11,12 +11,12 @@ module CacheHelper
   COS_DATA_CACHE_EXPIRE_TIME = 2.hours
 
   
-  def favors_last_changed 
+  def self.favors_last_changed 
     Rails.cache.fetch("favors_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
 
-  def update_favors_last_changed 
-    Rails.cache.write("favors_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+  def self.update_favors_last_changed 
+    update_time_based_cache_key("favors_last_changed")
   end
   
   def self.items_last_changed 
@@ -24,21 +24,13 @@ module CacheHelper
   end
 
   def self.update_items_last_changed 
-    #puts "NOW UPDATING ITEMS LAST CHANGED #{Time.now.to_i}"
-    new_value = Time.now.to_i
-    
-    # ensure that we update the value to something that it was not already (many updates on same second)
-    if (Rails.cache.read("items_last_changed") == new_value)
-      # puts "Increasing the cache key, to really update it, this should be very rare outside tests"
-      new_value += 1
-    end    
-    Rails.cache.write("items_last_changed", new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+    update_time_based_cache_key("items_last_changed")
   end
   
   def listings_last_changed 
     Rails.cache.fetch("listings_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
-
+  
   def update_listings_last_changed 
     Rails.cache.write("listings_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
   end
@@ -57,7 +49,7 @@ module CacheHelper
     # TODO SHOULD USE SOMETHING LIKE ABOVE
     # this one below clears all the caches, so it slows the system down unnecessarily.
     
-    update_favors_last_changed
+    CacheHelper.update_favors_last_changed
     CacheHelper.update_items_last_changed
     update_listings_last_changed
   end
@@ -70,13 +62,25 @@ module CacheHelper
     # SHOULD USE SOMETHING LIKE ABOVE
     # this one below clears all the caches, so it slows the system down unnecessarily.
     
-     update_favors_last_changed
+     CacheHelper.update_favors_last_changed
      CacheHelper.update_items_last_changed
      update_listings_last_changed
   end
   
   
+  
   # * people_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
   # * groups_last_changed (Time.now.to_i) tästä ei voi olla varmaa tietoa, joten oltava myös expire-aika
   
+  private
+  
+  def self.update_time_based_cache_key(key)
+     new_value = Time.now.to_i
+      # ensure that we update the value to something that it was not already (many updates on same second)
+      if (Rails.cache.read(key) == new_value)
+        # puts "Increasing the cache key, to really update it, this should be very rare outside tests"
+        new_value += 1
+      end    
+      Rails.cache.write(key, new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+  end
 end

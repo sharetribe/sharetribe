@@ -327,19 +327,6 @@ class ItemsController < ApplicationController
   
   private
   
-  # def self.items_last_changed 
-  #   Rails.cache.fetch("items_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
-  # end
-  
-  # def index_cache_path
-  #   puts "CURRE USER IS: #{session[:user_id]}"
-  #   if session[:user_id]
-  #     "items_list/#{session[:locale]}/#{items_last_changed}/#{session[:user_id]}"
-  #   else
-  #      "items_list/#{session[:locale]}/#{items_last_changed}/non-registered"
-  #   end
-  # end
-  
   def search_items(query)
     s = Ferret::Search::SortField.new(:title_sort, :reverse => false)
     Item.find_by_contents("*"+query+"*", {:sort => s}, {:conditions => "status <> 'disabled'" + get_visibility_conditions("item")})
