@@ -14,7 +14,7 @@ svn export --force svn+ssh://alpha.sizl.org/svn/kassi/trunk $KASSI_PATH
 
 cd $KASSI_PATH
 
-mongrel_rails cluster::configure -e production -p 8000 -N 5 -c $KASSI_PATH -a 127.0.0.1
+mongrel_rails cluster::configure -e production -p 8000 -N 7 -c $KASSI_PATH -a 127.0.0.1
 chmod a+x beta-finish.sh
 chgrp -R adm .
 chmod -R 2770 .
