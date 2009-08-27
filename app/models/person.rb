@@ -125,7 +125,7 @@ class Person < ActiveRecord::Base
     end
     
     def self.update_avatar(image, id, cookie)
-      response = HTTPClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
+      response = HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
       #puts "RESPONSE #{JSON.parse(response.body.content)["messages"]} ja #{response.inspect}"
       if response.status != 200
         raise Exception.new(JSON.parse(response.body.content)["messages"])
