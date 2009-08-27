@@ -1,5 +1,9 @@
 class CategoriesController < ApplicationController
 
+  caches_action :show, :cache_path => Proc.new { |c| "category_list/#{c.params[:id]}/#{c.session[:locale]}/#{CacheHelper.listings_last_changed}/#{c.session[:person_id]}"}
+  
+  cache_sweeper :listing_sweeper
+
   def show
     save_navi_state(['listings', 'browse_listings', params[:id], ''])
     sub_categories = Listing.get_sub_categories(params[:id].to_s)
