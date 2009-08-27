@@ -82,7 +82,7 @@ class Person < ActiveRecord::Base
         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
       rescue RestClient::RequestTimeout => e
         # In case of timeout, try once again
-        Rails.logger.error { "Rest-client reported a timeout #{e.message}. Trying again..." }
+        Rails.logger.error { "Rest-client reported a timeout in get_person #{e.message}. Trying again..." }
         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
       end
       
@@ -97,7 +97,17 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_friends(id, cookie)
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie}))
+      #JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie}))
+      
+      begin
+        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
+      rescue RestClient::RequestTimeout => e
+        # In case of timeout, try once again
+        Rails.logger.error { "Rest-client reported a timeout in get_firends #{e.message}. Trying again..." }
+        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
+      end
+      
+      return JSON.parse(response)
       #puts "FRIENDS HAUN TULOS: #{response.inspect}"
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
     end
@@ -155,7 +165,18 @@ class Person < ActiveRecord::Base
     def self.get_groups(id, cookie, event_id=nil)
       request_url = "#{COS_URL}/#{element_name}/#{id}/@groups"
       request_url += "?event_id=#{event_id}" if event_id
-      JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
+      #JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
+      
+      begin
+        response = RestClient.get(request_url, {:cookies => cookie})
+      rescue RestClient::RequestTimeout => e
+        # In case of timeout, try once again
+        Rails.logger.error { "Rest-client reported a timeout in get_groups #{e.message}. Trying again..." }
+        response = RestClient.get(request_url, {:cookies => cookie})
+      end
+      
+      return JSON.parse(response)
+      
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
     end
     
