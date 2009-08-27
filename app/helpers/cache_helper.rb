@@ -27,11 +27,11 @@ module CacheHelper
     update_time_based_cache_key("items_last_changed")
   end
   
-  def listings_last_changed 
+  def self.listings_last_changed 
     Rails.cache.fetch("listings_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
   
-  def update_listings_last_changed 
+  def self.update_listings_last_changed 
     Rails.cache.write("listings_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
   end
   
@@ -51,7 +51,7 @@ module CacheHelper
     
     CacheHelper.update_favors_last_changed
     CacheHelper.update_items_last_changed
-    update_listings_last_changed
+    CacheHelper.update_listings_last_changed
   end
   
   def update_caches_dependent_on_groups(person)
@@ -64,7 +64,7 @@ module CacheHelper
     
      CacheHelper.update_favors_last_changed
      CacheHelper.update_items_last_changed
-     update_listings_last_changed
+     CacheHelper.update_listings_last_changed
   end
   
   

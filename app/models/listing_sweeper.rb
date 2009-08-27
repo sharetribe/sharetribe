@@ -19,6 +19,6 @@ class ListingSweeper < ActionController::Caching::Sweeper
   private 
   def expire_cache_for(record)
     #currently expires only the cached list of listings 
-    update_listings_last_changed
+    CacheHelper.update_listings_last_changed
   end 
 end 
