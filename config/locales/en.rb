@@ -194,6 +194,7 @@
 :post_a_listing_description => "Didn't find what you were looking for? Post a listing to Kassi!",
 :participate => "Participate!",
 :participate_description => "The more people are offering information about their items to borrow and favors they could do, the better Kassi is for everyone. List your assets in your profile and join Kassi community!",
+:alpha_test_site_text => "THIS IS ONLY A TEST SITE FOR KASSI, PLEASE GO TO: <a href='http://kassi.sizl.org'>kassi.sizl.org</a>!",
 
 #Listings view
 :operation_not_permitted => "Operation not permitted",

@@ -2,7 +2,7 @@ class FavorsController < ApplicationController
   
   before_filter :logged_in, :except  => [ :index, :show, :hide, :search ]
   
-   caches_action :index, :cache_path => Proc.new { |c| "favors_list/#{c.session[:locale]}/#{CacheHelper.favors_last_changed}/#{c.session[:person_id]}"}  
+   caches_action :index, :if => :no_flash_messages?.to_proc, :cache_path => Proc.new { |c| "favors_list/#{c.session[:locale]}/#{CacheHelper.favors_last_changed}/#{c.session[:person_id]}"}  
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :favor_sweeper, :except => [:show, :index, :new, :search]

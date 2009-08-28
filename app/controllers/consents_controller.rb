@@ -22,4 +22,8 @@ class ConsentsController < ApplicationController
       end
     end
     
+    def register
+      redirect_to root_path
+    end
+    
 end

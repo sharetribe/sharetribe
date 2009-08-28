@@ -2,8 +2,13 @@ class PeopleController < ApplicationController
 
   before_filter :logged_in, :only  => [ :show, :edit, :update ]
 
-  caches_action :home, :cache_path => Proc.new { |c| 
-    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}//#{c.session[:person_id]}"
+  caches_action :home, :if => :no_flash_messages?.to_proc, :cache_path => Proc.new { |c| #c.count_new_arrived_items ; puts "POXPOX #{@inbox_new_count.nil?}";
+    #{}"front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{CacheHelper.notifications_last_changed_for(c.session[:person_id])}/#{c.session[:person_id]}"
+    
+    #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
+    # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
+    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_count_for:#{c.session[:person_id]}")}/#{c.session[:person_id]}}"
+    
   }
     
 
@@ -52,7 +57,7 @@ class PeopleController < ApplicationController
                                                    :locals => { :content_items_per_page => @content_items_per_page }                                  
     end
   end
-  
+    
   # Shows profile page of a person.
   def show
     @event_id = "show_profile_page_#{random_UUID}"

@@ -54,6 +54,11 @@
         <% else %>
           <div id="contents_full">
         <% end %>
+        <% if (PRODUCTION_SERVER == "alpha") %>
+          <div class="announcement error">
+            <%= t(:alpha_test_site_text) %>
+          </div>
+        <% end %>
         <%= render :partial => "layouts/announcements"%>
         <%= yield %>
         <br /><br />
@@ -99,8 +104,8 @@
     </div>
   </div>  
   
-  <% if (PRODUCTION_SERVER == "beta") # <!-- The google analytics script--> %>
-    
+  <% if (PRODUCTION_SERVER == "beta")%>
+     <!-- The google analytics script-->
     <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
     document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
