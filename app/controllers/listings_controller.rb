@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
 
   before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
-
+  
   def index
     if params[:person_id]
       @pagination_type = "person_listings" 

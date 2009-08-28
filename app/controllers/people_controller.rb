@@ -2,13 +2,18 @@ class PeopleController < ApplicationController
 
   before_filter :logged_in, :only  => [ :show, :edit, :update ]
 
+  caches_action :home, :cache_path => Proc.new { |c| 
+    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}//#{c.session[:person_id]}"
+  }
+    
+
   def index
     @title = "kassi_users"
     save_navi_state(['people', 'browse_people'])
     # @people = Person.find(:all).sort { 
     #   |a,b| a.name(session[:cookie]) <=> b.name(session[:cookie])
     # }.paginate :page => params[:page], :per_page => per_page
-    @people = Person.paginate(:page => params[:page], :per_page => per_page)
+    @people = Person.paginate(:page => params[:page], :per_page => per_page, :order => "created_at DESC")
   end
   
   def home

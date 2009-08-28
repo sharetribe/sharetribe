@@ -1,12 +1,3 @@
-<%if (@current_user.nil?)%>
-<div id="info_box">
-  <%  if PRODUCTION_SERVER == "beta" %>
-    <%= t(:get_started) %>
-  <% else %>
-    <%= t(:get_started_alpha) %>
-  <% end %>
-</div>
-<%end%>
 
 <div class="browse_objects_header">
 <div class="browse_objects_title">

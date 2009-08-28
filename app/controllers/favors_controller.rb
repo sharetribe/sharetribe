@@ -7,7 +7,6 @@ class FavorsController < ApplicationController
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :favor_sweeper, :except => [:show, :index, :new, :search]
   
-  
   def index
     save_navi_state(['favors','browse_favors','',''])
     #TODO cache

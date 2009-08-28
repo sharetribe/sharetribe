@@ -2,7 +2,7 @@ class ConversationsController < ApplicationController
   helper :all
 
   before_filter :logged_in
-
+  
   # Shows inbox
   def index
     @person = Person.find(params[:person_id])
