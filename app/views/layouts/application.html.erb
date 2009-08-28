@@ -54,7 +54,7 @@
         <% else %>
           <div id="contents_full">
         <% end %>
-        <% if (PRODUCTION_SERVER == "alpha") %>
+        <% if (PRODUCTION_SERVER == "alpha" && !@current_user) %>
           <div class="announcement error">
             <%= t(:alpha_test_site_text) %>
           </div>
