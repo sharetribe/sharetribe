@@ -196,6 +196,7 @@ Pelkkä * hakee kaikki ilmoitukset.",
 :participate => "Osallistu!",
 :participate_description => "Kassi toimii sitä paremmin, mitä useampi tarjoaa sen kautta tietoa lainatavaroistaan ja muille
 tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
+:alpha_test_site_text => "TÄMÄ ON VAIN KASSIN TESTISIVU. MENE OSOITTEESEEN: <a href='http://kassi.sizl.org'>kassi.sizl.org</a>!",
 
      
 

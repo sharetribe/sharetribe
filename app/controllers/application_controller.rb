@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include CacheHelper
   
+  NEW_ARRIVED_ITEMS_CACHE_TIME = 20.seconds
+  
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '26c58c750ac36e1713e76184b3b8e162'
@@ -23,6 +25,11 @@ class ApplicationController < ActionController::Base
   before_filter :fetch_logged_in_user
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
+  
+  # used to check if to cache or not
+  def no_flash_messages?
+    flash.nil?
+  end
   
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -155,19 +162,50 @@ class ApplicationController < ActionController::Base
   
   def count_new_arrived_items
     if @current_user
-      conditions = ["person_id = ? AND is_read = 0", @current_user.id]
-      @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
-      @comments_new_count = ListingComment.count_by_sql(["SELECT COUNT(listing_comments.id) FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id])
-      ids = Array.new
-      @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
-        ids << person["id"]
+      @new_arrived_items_count, @inbox_new_count,@comments_new_count, @requests_count, @new_feedback_item_amount = Rails.cache.read("new_arrived_items_count_for:#{@current_user.id}")
+      if @new_arrived_items_count.nil?
+        conditions = ["person_id = ? AND is_read = 0", @current_user.id]
+        @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
+        @comments_new_count = ListingComment.count_by_sql(["SELECT COUNT(listing_comments.id) FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id])
+        ids = Array.new
+        @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
+          ids << person["id"]
+        end
+        @requests_count = Person.find_kassi_users_by_ids(ids).size
+        @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
+        if is_admin?
+          @new_feedback_item_amount = Feedback.count(:all, :conditions => "is_handled = '0'")
+        end  
+        
+        Rails.cache.write("new_arrived_items_count_for:#{@current_user.id}", [@new_arrived_items_count, @inbox_new_count,@comments_new_count, @requests_count, @new_feedback_item_amount], :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME)
       end
-      @requests_count = Person.find_kassi_users_by_ids(ids).size
-      @new_arrived_items_count = @inbox_new_count + @comments_new_count + @requests_count
-      if is_admin?
-        @new_feedback_item_amount = Feedback.count(:all, :conditions => "is_handled = '0'")
-      end  
-    end  
+    end
+
+    #below a little too complicated but probably working cache approach
+    # 
+    # if @current_user
+    #   
+    #   conditions = ["person_id = ? AND is_read = 0", @current_user.id]
+    #   @inbox_new_count = Rails.cache.fetch("inbox_count_for:#{@current_user.id}", :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME) {PersonConversation.count(:all, :conditions => conditions)}
+    #   
+    #   @comments_new_count = Rails.cache.fetch("comments_new_count_for:#{@current_user.id}", :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME) {ListingComment.count_by_sql(["SELECT COUNT(listing_comments.id) FROM listing_comments, listings WHERE listing_comments.listing_id = listings.id AND listings.author_id = ? AND listing_comments.author_id <> ? AND is_read = 0", @current_user.id, @current_user.id])}
+    #   ids = Array.new
+    #   
+    #   @requests_count = Rails.cache.read("requests_count_for#{@current_user.id}")
+    #   if @requests_count.nil?
+    #     @current_user.get_friend_requests(session[:cookie])["entry"].each do |person|
+    #       ids << person["id"]
+    #     end
+    #     @requests_count = Person.find_kassi_users_by_ids(ids).size
+    #      Rails.cache.write("requests_count_for:#{@current_user.id}", @requests_count, :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME)
+    #   end
+    #   
+    #   @new_arrived_items_count = Rails.cache.fetch("new_arrived_items_count_for:#{@current_user.id}", :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME) {@inbox_new_count + @comments_new_count + @requests_count}
+    #   if is_admin?
+    #     @new_feedback_item_amount = Rails.cache.fetch("new_feedback_count_for:#{@current_user.id}", :expires_in => NEW_ARRIVED_ITEMS_CACHE_TIME) {Feedback.count(:all, :conditions => "is_handled = '0'")}
+    #   end
+    #    
+    # end  
   end
 
   # Feedback form is present in every view.

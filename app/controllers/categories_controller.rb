@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  caches_action :show, :cache_path => Proc.new { |c| "category_list/#{c.params[:id]}/#{c.session[:locale]}/#{CacheHelper.listings_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
+  caches_action :show, :if => :no_flash_messages?.to_proc, :cache_path => Proc.new { |c| "category_list/#{c.params[:id]}/#{c.session[:locale]}/#{CacheHelper.listings_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
   
   cache_sweeper :listing_sweeper
 
