@@ -32,9 +32,21 @@ module CacheHelper
   end
   
   def self.update_listings_last_changed 
-    Rails.cache.write("listings_last_changed", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+    update_time_based_cache_key("listings_last_changed")
   end
   
+  def self.frontpage_last_changed 
+    Rails.cache.fetch("frontpage_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
+  end
+  
+  def self.update_kassi_events_last_changed 
+    update_time_based_cache_key("kassi_events_last_changed")
+    
+  end
+  
+  ### NOTE: If you add cache cache update that doesn't affect front page, change update_time_based_cache_key method accordincly
+  ### so that front_page cache doesn't get expired unnecessarily
+   
   def update_caches_dependent_on_friendship(person1, person2)
     # [person1, person2].each do |person|
     #   unless person.nil?
@@ -82,5 +94,9 @@ module CacheHelper
         new_value += 1
       end    
       Rails.cache.write(key, new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+      
+      # Because currently every update in cache control affects frontpage, update that value too
+      Rails.cache.write("frontpage_last_changed", new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+    
   end
 end

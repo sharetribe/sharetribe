@@ -13,7 +13,7 @@
 <% else %>
   	<%= link_to t(:login), new_session_path %>
   	<%  if PRODUCTION_SERVER != "beta" %>
-  	  | <a href="/cas_session/new">CAS-login(test)</a>
+  	  | <a href="/cas_session/new">CAS-login</a>
   	<%  end %>
   	| <%= link_to t(:register), new_person_path %> 
 <% end %>

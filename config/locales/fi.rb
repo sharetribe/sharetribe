@@ -252,15 +252,6 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :listing_closed => "Ilmoitus suljettu",
 :cant_reply_to_own_listing => "Omaan ilmoitukseen ei voi vastata",
 :slogan => "palveluksia ja lainatavaroita, tutuille ja tuntemattomille!",
-:get_started => "<h2>Kassi - palveluksia ja lainatavaroita, tutuille ja tuntemattomille!</h2><br />
-
-<b>Kassituksen aloittaminen:</b><br />
-<ol>
-<li> <a href='http://kassi.sizl.org/consent/register'>Tee tunnukset Kassiin.</a></li>
-<li> Listaa omaan profiiliisi <a href='http://kassi.sizl.org/items'>tavarat</a>, joita voisit lainata ja <a href='http://kassi.sizl.org/favors'>palvelukset</a>, joita voisit tehdä toisille.</li>
-<li> Tarvitessasi palvelusta voit jättää <a href='http://kassi.sizl.org/listings/new'>ilmoituksen</a> tai etsiä, olisiko apu jo tarjolla Kassissa!</li>
-</ol>",
-:get_started_alpha => "Tähän tulee tuotantoversiossa kivat aloitusohjeet. :)",
 :less_than_expected => "ei vastannut odotuksia",
 :as_expected => "vastasi odotuksia",
 :exceeded_expectations => "ylitti odotukset",

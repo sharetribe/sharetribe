@@ -24,7 +24,6 @@ class ApplicationController < ActionController::Base
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
   
-
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
     session[:navi1] = navi_items[0] || session[:navi1]

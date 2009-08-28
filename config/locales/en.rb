@@ -249,15 +249,6 @@
 :listing_closed => "Listing closed",
 :cant_reply_to_own_listing => "Can't reply to own listing",
 :slogan => "favors and items to borrow, for friends and strangers!",
-:get_started => "<h2>Kassi - favors and items to borrow, for friends and strangers!</h2><br />
-
-<b>How to begin Kassing?</b><br />
-<ol>
-<li> <a href='http://kassi.sizl.org/consent/register'>Register to Kassi.</a></li>
-<li> List your <a href='http://kassi.sizl.org/items'>items</a> that you could lend to others and <a href='http://kassi.sizl.org/favors'>favors</a> you could do.</li>
-<li> In need of favor you can post <a href='http://kassi.sizl.org/listings/new'>a listing</a> or otherwise search Kassi for help!</li>
-</ol>",
-:get_started_alpha => "Here will be nice instructions in production Kassi :)",
 :less_than_expected => "less than expected",
 :as_expected => "as expected",
 :exceeded_expectations => "exceeded expectations",
