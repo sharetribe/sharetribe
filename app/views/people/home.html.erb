@@ -1,4 +1,5 @@
-<% unless @current_user %>
+<% unless @current_user || params[:nosplash]%>
+
   <div id="home_ad_box">
     <div id="home_ad_box_top_corners"></div>
     

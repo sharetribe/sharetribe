@@ -216,7 +216,9 @@ class ListingsController < ApplicationController
         
     open_listings_ids = Listing.all(:select => "id, title", :conditions => conditions)
     random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)]
-    redirect_to listing_path(random_id)
+    #redirect_to listing_path(random_id)
+    @listing = Listing.find_by_id(random_id)
+    render :action => :show
   end
   
   # Displays a form for feedback for listing realizer when closing the form
