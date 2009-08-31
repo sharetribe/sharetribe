@@ -15,7 +15,7 @@ module CacheHelper
     Rails.cache.fetch("favors_last_changed", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
 
-  def self.update_favors_last_changed 
+  def self.update_favors_last_changed
     update_time_based_cache_key("favors_last_changed")
   end
   
@@ -104,6 +104,7 @@ module CacheHelper
       Rails.cache.write(key, new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
       
       # Because currently every update in cache control affects frontpage, update that value too
+      #puts  "Clearing the front page cache, because: #{key}, NEW VALUE IS #{new_value}"
       Rails.cache.write("frontpage_last_changed", new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
     
   end
