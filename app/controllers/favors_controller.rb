@@ -2,14 +2,20 @@ class FavorsController < ApplicationController
   
   before_filter :logged_in, :except  => [ :index, :show, :hide, :search ]
   
-   caches_action :index, :if => :no_flash_messages?.to_proc, :cache_path => Proc.new { |c| "favors_list/#{c.session[:locale]}/#{CacheHelper.favors_last_changed}/#{c.session[:person_id]}"}  
+  before_filter :update_navi, :only => [ :index] #needed for cached actions
+  caches_action :index, :layout => false, :cache_path => Proc.new { |c| "favors_list/#{c.session[:locale]}/#{CacheHelper.favors_last_changed}/#{c.session[:person_id]}"}  
   # use sweeper to decet changes that require cache expiration. 
   # Some non-changing methods are excluded. not sure if it helps anything for performance?
   cache_sweeper :favor_sweeper, :except => [:show, :index, :new, :search]
   
+  def update_navi
+    case params[:action]    
+      when "index" then save_navi_state(['favors','browse_favors','',''])
+    end
+  end
+  
   def index
-    save_navi_state(['favors','browse_favors','',''])
-    #TODO cache
+    #save_navi_state(['favors','browse_favors','','']) #done in filter now
     @letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZÅÄÖ#".split("")
     @favor_titles = Favor.find(:all, 
                                :conditions => "status <> 'disabled'" + get_visibility_conditions("favor"), 

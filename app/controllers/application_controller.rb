@@ -26,10 +26,11 @@ class ApplicationController < ActionController::Base
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
   
+  # did not work
   # used to check if to cache or not
-  def no_flash_messages?
-    flash.nil?
-  end
+  # def self.no_flash_messages?
+  #   ergedgrergerroria pukkaa
+  # end
   
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)

@@ -172,16 +172,16 @@ class ListingsControllerTest < ActionController::TestCase
   
   def test_random_listing
     get :random
-    assert_response :found, @response.body
+    assert_response :success, @response.body
     #assert_template 'show'
-    id = @response.headers["Location"][/listings\/(\d+)-/, 1]
-    shown_listing = Listing.find(id)
-    assert_redirected_to( shown_listing)
+    #id = @response.headers["Location"][/listings\/(\d+)-/, 1]
+    #shown_listing = Listing.find(id)
+    #assert_redirected_to( shown_listing)
       
-    assert shown_listing.open?, "random listing shower picked a closed listing!"
+    assert assigns(:listing).open?, "random listing shower picked a closed listing!"
     
     # check that did not open a listing that should not be seen by everyone.
-    assert_equal("everybody", shown_listing.visibility)
+    assert_equal("everybody", assigns(:listing).visibility)
   end
   
   private

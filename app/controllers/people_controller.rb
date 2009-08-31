@@ -1,16 +1,23 @@
 class PeopleController < ApplicationController
 
   before_filter :logged_in, :only  => [ :show, :edit, :update ]
-
-  caches_action :home, :if => :no_flash_messages?.to_proc, :cache_path => Proc.new { |c| #c.count_new_arrived_items ; puts "POXPOX #{@inbox_new_count.nil?}";
+  
+  before_filter :update_navi, :only => [ :home] #needed for cached actions
+  caches_action :home, :layout => false, :cache_path => Proc.new { |c| #c.count_new_arrived_items ; puts "POXPOX #{@inbox_new_count.nil?}";
     #{}"front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{CacheHelper.notifications_last_changed_for(c.session[:person_id])}/#{c.session[:person_id]}"
     
     #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
     # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
+    #puts "FLASHTEST: #{c.flash}"
     "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_count_for:#{c.session[:person_id]}")}/#{c.session[:person_id]}}"
     
   }
-    
+  
+  def update_navi
+    case params[:action]    
+      when "home" then  save_navi_state(['home', '']) 
+    end
+  end
 
   def index
     @title = "kassi_users"
@@ -22,7 +29,7 @@ class PeopleController < ApplicationController
   end
   
   def home
-    save_navi_state(['home', ''])
+    #save_navi_state(['home', ''])#moved to filter
     @events_per_page = 5
     @content_items_per_page = 5
     @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
