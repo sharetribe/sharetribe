@@ -72,9 +72,8 @@ class Person < ActiveRecord::Base
     self.collection_name = "people"
     
     def self.create_person(params, cookie)
-      JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
-      # creating_headers = {"Cookie" => cookie}
-      #  response = connection.post("#{prefix}#{element_name}", params.to_json ,creating_headers)
+      CacheHelper.update_people_last_changed
+      return JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
     end
     
     def self.get_person(id, cookie)
@@ -92,8 +91,7 @@ class Person < ActiveRecord::Base
     
     def self.search(query, cookie)
       escaped_query = URI.escape(query, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # Should use escape_for_url method in ApplicationHelper
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{escaped_query}", {:cookies => cookie}))
-      #return fix_alphabets(connection.get("#{prefix}#{element_name}?search=" + query, {"Cookie" => cookie} ))
+      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{escaped_query}", {:cookies => cookie}))
     end
     
     def self.get_friends(id, cookie)
@@ -108,58 +106,48 @@ class Person < ActiveRecord::Base
       end
       
       return JSON.parse(response)
-      #puts "FRIENDS HAUN TULOS: #{response.inspect}"
-      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@friends", {"Cookie" => cookie }))
     end
     
     def self.get_pending_friend_requests(id, cookie)
-      JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
-      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@pending_friend_requests", {"Cookie" => cookie }))
+      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
     end
     
     def self.put_attributes(params, id, cookie)
-      JSON.parse(RestClient.put("#{COS_URL}/#{element_name}/#{id}/@self", {:person => params}, {:cookies => cookie}))
-      #connection.put("#{prefix}#{element_name}/#{id}/@self",{:person => params}.to_json, {"Cookie" => cookie} )
       # information changes, clear cache
       parent.cache_delete(id,cookie)
+      CacheHelper.update_people_last_changed
+      return JSON.parse(RestClient.put("#{COS_URL}/#{element_name}/#{id}/@self", {:person => params}, {:cookies => cookie})) 
     end
     
     def self.update_avatar(image, id, cookie)
       response = HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
-      #puts "RESPONSE #{JSON.parse(response.body.content)["messages"]} ja #{response.inspect}"
       if response.status != 200
         raise Exception.new(JSON.parse(response.body.content)["messages"])
       end
-      #RestClient.put("#{COS_URL}/#{element_name}/#{id}/@avatar", {:file => image}, {:cookies => cookie})
-      #connection.put("#{prefix}#{element_name}/#{id}/@avatar", {:file => image}, {"Cookie" => cookie} )
     end
     
     def self.add_as_friend(friend_id, id, cookie)
-      RestClient.post("#{COS_URL}/#{element_name}/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
-      #connection.post("#{prefix}#{element_name}/#{id}/@friends", {:friend_id => friend_id}.to_json, {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
+      CacheHelper.update_people_last_changed
+      return RestClient.post("#{COS_URL}/#{element_name}/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
-      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@friends/#{friend_id}", {:cookies => cookie})   
-      #connection.delete("#{prefix}#{element_name}/#{id}/@friends/#{friend_id}", {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
+      CacheHelper.update_people_last_changed
+      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@friends/#{friend_id}", {:cookies => cookie})   
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
-      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
-      
-      #connection.delete("#{prefix}#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {"Cookie" => cookie} )
-      #Rails.cache.delete("person_hash.#{id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(id,cookie)
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
+      CacheHelper.update_people_last_changed
+      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
     end
     
     def self.get_groups(id, cookie, event_id=nil)

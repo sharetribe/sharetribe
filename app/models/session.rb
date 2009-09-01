@@ -72,6 +72,11 @@ class Session < ActiveResource::Base
       return nil
     rescue ActiveResource::UnauthorizedAccess => e
       return nil
+    rescue ActiveResource::TimeoutError => e
+      #try again
+      return connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
+      # if this seems to still keep happening, could add here another rescue and return nil
+      # no now rescue to get error mails if this still happens
     end
   end
    

@@ -41,16 +41,24 @@ module CacheHelper
   
   def self.update_kassi_events_last_changed 
     update_time_based_cache_key("kassi_events_last_changed")
-    
   end
   
   def self.notifications_last_changed_for(id)
-    Rails.cache.fetch("nofications_last_changed/for#{id}", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
+    Rails.cache.fetch("notifications_last_changed/for#{id}", :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
   end
   
   def self.update_notifications_last_changed_for(id)
-      Rails.cache.write("nofications_last_changed/for#{id}", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
+    Rails.cache.write("notifications_last_changed/for#{id}", Time.now.to_i, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
   end
+  
+  def self.people_last_changed
+    Rails.cache.fetch("people_last_changed", :expires_in => COS_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
+  end
+  
+  def self.update_people_last_changed
+    Rails.cache.write("people_last_changed", Time.now.to_i, :expires_in => COS_DATA_CACHE_EXPIRE_TIME)
+  end
+  
   
   ### NOTE: If you add cache cache update that doesn't affect front page, change update_time_based_cache_key method accordincly
   ### so that front_page cache doesn't get expired unnecessarily
