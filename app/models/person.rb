@@ -5,6 +5,7 @@ require 'httpclient'
 class Person < ActiveRecord::Base
   
   include ErrorsHelper
+  
  
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
@@ -64,6 +65,7 @@ class Person < ActiveRecord::Base
     #
     # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
     # in COS documentation at #{COS_URL}
+     
 
     self.site = COS_URL
     self.format = :json 
@@ -77,15 +79,17 @@ class Person < ActiveRecord::Base
     end
     
     def self.get_person(id, cookie)
-      begin
-        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
-      rescue RestClient::RequestTimeout => e
-        # In case of timeout, try once again
-        Rails.logger.error { "Rest-client reported a timeout in get_person #{e.message}. Trying again..." }
-        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
-      end
       
-      return JSON.parse(response)
+      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
+      # begin
+      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
+      #       rescue RestClient::RequestTimeout => e
+      #         # In case of timeout, try once again
+      #         Rails.logger.error { "Rest-client reported a timeout in get_person #{e.message}. Trying again..." }
+      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
+      #       end
+      #       
+      #       return JSON.parse(response)
       # return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
     end
     
@@ -96,20 +100,22 @@ class Person < ActiveRecord::Base
     
     def self.get_friends(id, cookie)
       #JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie}))
+      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
       
-      begin
-        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
-      rescue RestClient::RequestTimeout => e
-        # In case of timeout, try once again
-        Rails.logger.error { "Rest-client reported a timeout in get_firends #{e.message}. Trying again..." }
-        response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
-      end
-      
-      return JSON.parse(response)
+      # begin
+      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
+      #       rescue RestClient::RequestTimeout => e
+      #         # In case of timeout, try once again
+      #         Rails.logger.error { "Rest-client reported a timeout in get_firends #{e.message}. Trying again..." }
+      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
+      #       end
+      #       
+      #       return JSON.parse(response)
     end
     
     def self.get_pending_friend_requests(id, cookie)
-      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
+      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie})
+      #return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
     end
     
     def self.put_attributes(params, id, cookie)
@@ -155,25 +161,29 @@ class Person < ActiveRecord::Base
       request_url += "?event_id=#{event_id}" if event_id
       #JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
       
-      begin
-        response = RestClient.get(request_url, {:cookies => cookie})
-      rescue RestClient::RequestTimeout => e
-        # In case of timeout, try once again
-        Rails.logger.error { "Rest-client reported a timeout in get_groups #{e.message}. Trying again..." }
-        response = RestClient.get(request_url, {:cookies => cookie})
-      end
+      return RestHelper.request_with_try_again(:get, request_url, {:cookies => cookie})
       
-      return JSON.parse(response)
+      # begin
+      #         response = RestClient.get(request_url, {:cookies => cookie})
+      #       rescue RestClient::RequestTimeout => e
+      #         # In case of timeout, try once again
+      #         Rails.logger.error { "Rest-client reported a timeout in get_groups #{e.message}. Trying again..." }
+      #         response = RestClient.get(request_url, {:cookies => cookie})
+      #       end
+      #       
+      #       return JSON.parse(response)
       
       #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
     end
     
     def self.join_group(id, group_id, cookie)
+      CacheHelper.update_groups_last_changed
       JSON.parse(RestClient.post("#{COS_URL}/#{element_name}/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
       #response = connection.post("#{prefix}#{element_name}/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
     end
     
     def self.leave_group(id, group_id, cookie)
+      CacheHelper.update_groups_last_changed
       JSON.parse(RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@groups/#{group_id}", {:cookies => cookie}))
       
       #response = connection.delete("#{prefix}#{element_name}/#{id}/@groups/#{group_id}", {"Cookie" => cookie})

@@ -54,8 +54,14 @@ class Session < ActiveResource::Base
     params[:session][:password] = @password if @password
     params[:session][:app_name] = @@app_name
     params[:session][:app_password] = @@app_password
-        
-    resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+    begin     
+      resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+    rescue ActiveResource::TimeoutError => e
+        #try again
+        resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+        # if this seems to still keep happening, could add here another rescue and do something
+        # no now rescue to get error mails if this still happens
+    end
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
     @person_id = json["entry"]["user_id"] 
