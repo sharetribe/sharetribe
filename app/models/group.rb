@@ -19,8 +19,10 @@ class Group < ActiveRecord::Base
   
 
   def self.create(params, cookie)
+
     if (cookie)
       # create to Common Services
+      CacheHelper.update_groups_last_changed
       response = create_group({:group => params}, cookie)
       #pick id from the response (same id in kassi and COS DBs)
       params[:id] = response["entry"]["id"]
@@ -109,6 +111,7 @@ class Group < ActiveRecord::Base
   end
   
   def update_attributes(params, cookie)
+    CacheHelper.update_groups_last_changed
     put_attributes(params, self.id, cookie)
   end
 
@@ -172,11 +175,13 @@ class Group < ActiveRecord::Base
   # in COS documentation at #{COS_URL}
 
   def self.get_public_groups(cookie)
-    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie}))
+    return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie})
+    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie}))
   end
   
   def self.get_group(id, cookie)
-    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
+     return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
+    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
   end
   
   def self.get_members(id, cookie)

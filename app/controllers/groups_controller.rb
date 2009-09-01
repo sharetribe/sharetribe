@@ -3,10 +3,19 @@ class GroupsController < ApplicationController
   before_filter :logged_in, :except  => [ :index, :search ]
   before_filter :clear_caches, :only => [:create, :join, :leave]
 
+  before_filter :update_navi, :only => [ :index] #needed for cached actions
+  caches_action :index, :layout => false, :cache_path => Proc.new { |c| "groups_list/#{c.session[:locale]}/#{CacheHelper.groups_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
+  
+  def update_navi
+    case params[:action]    
+      when "index" then  save_navi_state(['groups_title', 'browse_groups'])      
+    end
+  end
+  
   # Show the group view
   def index
     @title = "groups_title"
-    save_navi_state(['groups_title', 'browse_groups'])
+    #save_navi_state(['groups_title', 'browse_groups']) #moved to filter
     public_group_ids = Group.get_public_group_ids(session[:cookie])
     # add groups to Kassi db if there are new (made in other services)
     Group.add_new_groups_to_kassi_db(public_group_ids)

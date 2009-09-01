@@ -8,7 +8,7 @@ module CacheHelper
   KASSI_DATA_CACHE_EXPIRE_TIME = 4.hours
   
   # used for things that are stored in COS db and can be changed without notice
-  COS_DATA_CACHE_EXPIRE_TIME = 2.hours
+  COS_DATA_CACHE_EXPIRE_TIME = 1.hours
 
   
   def self.favors_last_changed 
@@ -57,6 +57,14 @@ module CacheHelper
   
   def self.update_people_last_changed
     Rails.cache.write("people_last_changed", Time.now.to_i, :expires_in => COS_DATA_CACHE_EXPIRE_TIME)
+  end
+  
+  def self.groups_last_changed
+    Rails.cache.fetch("groups_last_changed", :expires_in => COS_DATA_CACHE_EXPIRE_TIME) {Time.now.to_i}
+  end
+  
+  def self.update_groups_last_changed
+    Rails.cache.write("groups_last_changed", Time.now.to_i, :expires_in => COS_DATA_CACHE_EXPIRE_TIME)
   end
   
   
