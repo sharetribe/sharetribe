@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
 
   before_filter :logged_in, :only  => [ :show, :edit, :update ]
   
-  before_filter :update_navi, :only => [ :home] #needed for cached actions
+  before_filter :update_navi, :only => [ :home, :index] #needed for cached actions
   caches_action :home, :layout => false, :cache_path => Proc.new { |c| #c.count_new_arrived_items ; puts "POXPOX #{@inbox_new_count.nil?}";
     #{}"front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{CacheHelper.notifications_last_changed_for(c.session[:person_id])}/#{c.session[:person_id]}"
     
@@ -12,16 +12,20 @@ class PeopleController < ApplicationController
     "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_count_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
     
   }
+  caches_action :index, :layout => false, :cache_path => Proc.new { |c| "people_list/#{c.session[:locale]}/#{CacheHelper.people_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
+  #cache_sweeper :person_sweeper, :only => [:create, :edit, :update, :index]
   
   def update_navi
     case params[:action]    
-      when "home" then  save_navi_state(['home', '']) 
+      when "home" then   save_navi_state(['home', '']) 
+      when "index" then  save_navi_state(['people', 'browse_people'])
+        
     end
   end
 
   def index
     @title = "kassi_users"
-    save_navi_state(['people', 'browse_people'])
+    #save_navi_state(['people', 'browse_people']) #moved to filter
     # @people = Person.find(:all).sort { 
     #   |a,b| a.name(session[:cookie]) <=> b.name(session[:cookie])
     # }.paginate :page => params[:page], :per_page => per_page

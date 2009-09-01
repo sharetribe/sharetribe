@@ -116,7 +116,7 @@ Rails::Initializer.run do |config|
 
   #For example there will be no confirmation when adding profile avatar picture
 
-  COS_TIMEOUT = 15
+  COS_TIMEOUT = 10 # Used only by active resource (session, etc.)
   BETA_VERSION = "local"
   BUILT_AT = Time.now
    
