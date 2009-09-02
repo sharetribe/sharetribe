@@ -1,14 +1,11 @@
 # Filters added to this controller apply to all controllers in the application.
 # Likewise, all the methods added will be available for all controllers.
-
-require 'uuidtools'
-
-
 class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   include Smerf
   include ApplicationHelper
   include CacheHelper
+  include EventIdHelper
   
   NEW_ARRIVED_ITEMS_CACHE_TIME = 20.seconds
   
@@ -25,6 +22,12 @@ class ApplicationController < ActionController::Base
   before_filter :fetch_logged_in_user
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
+  before_filter :generate_event_id
+  
+  
+  # This is wrong :) (ref. http://m.onkey.org/2007/10/17/how-to-access-session-cookies-params-request-in-model)
+  around_filter :make_session_available_in_model
+  
   
   # did not work
   # used to check if to cache or not
@@ -261,8 +264,11 @@ class ApplicationController < ActionController::Base
     return true
   end
   
-  def random_UUID
-    UUIDTools::UUID.timestamp_create().to_s
+  # this generates the event_id that will be used in 
+  # requests to cos during this kassi-page view only
+  def generate_event_id
+    session[:event_id] = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
+    #puts "EVENT_ID IS NOW #{session[:event_id]}"
   end
   
   protected  
@@ -290,5 +296,21 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  
+  def make_session_available_in_model
+    klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
+    #methods = ["session"]
+
+    
+    session_var = instance_variable_get(:"@_session") 
+
+    klasses.each do |klass|
+      klass.send(:define_method, "session", proc { session_var })
+    end
+   
+    yield  
+    
+    klasses.each do |klass|
+      klass.send :remove_method, "session"
+    end
+  end  
 end

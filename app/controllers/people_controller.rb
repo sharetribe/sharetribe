@@ -71,7 +71,7 @@ class PeopleController < ApplicationController
     
   # Shows profile page of a person.
   def show
-    @event_id = "show_profile_page_#{random_UUID}"
+    #@event_id = "show_profile_page_#{random_UUID}"
     @person = Person.find(params[:id])
     @items = @person.available_items(get_visibility_conditions("item"))
     @item = Item.new

@@ -4,7 +4,7 @@ class Group < ActiveRecord::Base
   
   include ErrorsHelper
   
-  GROUP_HASH_CACHE_EXPIRE_TIME = 4.hours
+  GROUP_HASH_CACHE_EXPIRE_TIME = 20.minutes
   
   attr_accessor :guid, :form_title, :form_description
   
@@ -120,12 +120,12 @@ class Group < ActiveRecord::Base
     cookie = Session.kassiCookie if cookie.nil?
     
     begin
-      group_hash = Rails.cache.fetch(id, :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME) {Group.get_group(self.id, cookie)}
+      group_hash = Rails.cache.fetch("group_hash/#{id}", :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME) {Group.get_group(self.id, cookie)}
       #group_hash = Group.get_group(self.id, cookie)
     rescue RestClient::Unauthorized => e
       cookie = Session.updateKassiCookie
       group_hash = Group.get_group(self.id, cookie)
-      Rails.cache.write(id, group_hash, :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME)
+      Rails.cache.write("group_hash/#{id}", group_hash, :expires_in => GROUP_HASH_CACHE_EXPIRE_TIME)
     rescue RestClient::ResourceNotFound => e
       #Could not find group with that id in COS Database!
       return nil
@@ -180,7 +180,7 @@ class Group < ActiveRecord::Base
   end
   
   def self.get_group(id, cookie)
-     return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
+    return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
     #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
   end
   
@@ -189,12 +189,7 @@ class Group < ActiveRecord::Base
   end
   
   def self.create_group(params, cookie)
-    #begin 
       resp = JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
-    # rescue Exception => e
-    #   puts resp.inspect
-    #   puts e.response
-    # end
   end
   
   def self.put_attributes(params, id, cookie)
