@@ -40,6 +40,9 @@ function getItemAmountsFromTextfields(item_ids) {
 // Called in the onchange of each checkbox.
 function disableBorrowSelectedButton () {
 	selected = false;
+	if (document.select_borrowed_items_form.items_.checked) {
+		selected = true;
+	}
 	for (var i=0; i < document.select_borrowed_items_form.items_.length; i++) {
 		if (document.select_borrowed_items_form.items_[i].checked) {
 			selected = true;

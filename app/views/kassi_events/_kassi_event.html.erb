@@ -107,16 +107,7 @@
           <b><%= t(:feedback_from_kassi_event_from_user) + " " + link_to(comment.author.name, comment.author) %>:</b>
         </div>
         <div class="kassi_event_comment_content_line">
-          <% if comment.grade %>
-          <div class="kassi_event_comment_rating <%= comment.grade_label %>">
-            <div class="kassi_event_comment_rating_big_text">  
-              <%= comment.grade_value %>
-            </div>
-            <div class="kassi_event_comment_content_line_rating">  
-              <%= t(comment.grade_label) %>
-            </div>
-          </div>
-          <% end %>
+          <%= render :partial => "kassi_events/kassi_event_rating", :locals => { :comment => comment } %>  
           <% if comment.text_content && !comment.text_content.eql?("") %>
             <i>"<%= text_with_line_breaks(comment.text_content) %>"</i>
           <% end %>

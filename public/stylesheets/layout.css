@@ -1246,7 +1246,13 @@ div.listed_comment_center {
 }
 
 div.listed_comment_right {
-	width: 450px;
+	width: 350px;
+	float: left;
+	padding: 10px;
+}
+
+div.listed_comment_rightest {
+	width: 80px;
 	float: left;
 	padding: 10px;
 }

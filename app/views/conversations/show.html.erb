@@ -23,7 +23,6 @@
       <%= link_to t(:show_original_listing), listing_path(@conversation.listing) if @conversation.listing %>
       <% if @conversation.listing && @conversation.listing.status.eql?("open") && is_current_user?(@conversation.listing.author) %>
         <% receiver = @conversation.participants.reject { |p| p.id == @current_user.id }.first %>
-        | <%= link_to t(:close_listing), close_person_listing_path(@current_user, @conversation.listing) + "?rid=" + receiver.id %>
       <% end %>  
     </div>    
   </div>
