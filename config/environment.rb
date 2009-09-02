@@ -44,7 +44,7 @@ Rails::Initializer.run do |config|
   config.gem "ruby-prof"
   config.gem "rubycas-client"
   config.gem "nntp"
-  config.gem "uuidtools"
+  #config.gem "uuidtools" # no need anymore
   config.gem "ferret"
   config.gem "json"
   config.gem "httpclient"

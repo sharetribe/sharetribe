@@ -75,11 +75,12 @@ class Person < ActiveRecord::Base
     
     def self.create_person(params, cookie)
       CacheHelper.update_people_last_changed
-      return JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
+      return RestHelper.request_with_try_again(:post, "#{COS_URL}/#{element_name}", params, {:cookies => cookie})
+      #return JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
     end
     
     def self.get_person(id, cookie)
-      
+      #puts "SESSIONISTA #{session[:event_id]}"
       return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
       # begin
       #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
