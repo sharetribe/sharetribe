@@ -8,7 +8,7 @@
     </div>
     <div class="listed_comment_paragraph">
       <%= comment.created_at.to_formatted_s(:basic_date_format_minutes) %>
-    </div>    
+    </div> 
   </div>
   <div class="listed_comment_right">
     <div class="listed_comment_paragraph">
@@ -17,5 +17,8 @@
     <div class="listed_comment_paragraph">
       <i><%= link_to(t(:show_related_kassi_event), person_kassi_event_path(@person, comment.kassi_event)) %></i>
     </div>  
-  </div>     
+  </div>
+  <div class="listed_comment_rightest">
+    <%= render :partial => "kassi_events/kassi_event_rating", :locals => { :comment => comment } %>   
+  </div>       
 </div>  

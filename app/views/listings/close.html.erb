@@ -18,9 +18,11 @@
         <div class="form_right">
           <%= 
             select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)},
-                   {:onchange => "#{remote_function(:url => { :action => "realizer_feedback_form" },
-                                                    :with => "'realizer='+value+'&listing=#{@listing.id.to_s}'",
-                                                    :update => "realizer_feedback_form") }" }) 
+                   {:onchange => "
+                      $('close_button').disabled = true;
+                      #{remote_function(:url => { :action => "realizer_feedback_form" },
+                                        :with => "'realizer='+value+'&listing=#{@listing.id.to_s}'",
+                                        :update => "realizer_feedback_form") }" }) 
           %>
         </div>
       </div>
@@ -28,7 +30,7 @@
         <br />
       </div>
       <div class="form_container">
-        <%= submit_tag t(:close_listing), :onclick => "this.disabled=true,this.form.submit();" %>
+        <%= submit_tag t(:close_listing), :onclick => "this.disabled=true,this.form.submit();", :id => "close_button" %>
       </div>
     </div>
   </fieldset> 

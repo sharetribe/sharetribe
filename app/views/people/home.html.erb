@@ -102,7 +102,7 @@
     </div>
   </div>
   <div id="home_content_right">
-    <% if @current_user && ((@current_user.items.size < 1 && @current_user.favors.size < 1) || @new_arrived_items_count > 0) %>
+    <% if @current_user && ((@current_user.items.size < 1 && @current_user.favors.size < 1) || @new_arrived_items_count > 0 || @current_user.uncommented_kassi_event_count > 0) %>
     <div class="home_content_right_box">
       <div class="home_content_right_box_top"></div>
       <div class="home_content_right_box_content">
@@ -124,7 +124,7 @@
               <%= link_to(pluralize(@current_user.uncommented_kassi_event_count, t(:new_kassi_event), t(:new_kassi_events)), 
                   person_kassi_events_path(@current_user)) %>
             </li>
-          <% end %>
+          <% end %>  
           <% if @inbox_new_count > 0 %>
             <li>
               <%= link_to(pluralize(@inbox_new_count, t(:new_message), t(:new_messages)), person_inbox_index_path(@current_user))%>

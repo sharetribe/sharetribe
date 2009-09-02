@@ -1,3 +1,6 @@
+<script>
+  $('close_button').disabled = false;
+</script>
 <% if @realizer %>
 <%= hidden_field_tag "kassi_event[participant_attributes][#{@realizer.id}]", @listing.realizer_role %>
 <% fields_for "kassi_event[comment_attributes]", PersonComment.new do |comment_form| -%>
