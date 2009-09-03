@@ -32,7 +32,7 @@ sed -i "s/PRODUCTION_SERVER = \"alpha\"/PRODUCTION_SERVER = \"beta\"/" config/en
  #ensure new line at the end of file
 echo "" >> config/environments/production.rb
  
-echo "BETA_VERSION = \"0.9.$REV\"" >> config/environments/production.rb
+echo "BETA_VERSION = \"1.0.$REV\"" >> config/environments/production.rb
 BUILD_DATE=`svn info svn+ssh://alpha.sizl.org/svn/kassi | \
  grep "^Last Changed Date" | \
  perl -pi -e "s/Last Changed Date: //" | perl -pi -e "s/\+.+$//"`

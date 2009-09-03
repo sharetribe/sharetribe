@@ -9,7 +9,7 @@ class ErrorMailer < ActionMailer::Base
     subject     "[Error] exception on #{PRODUCTION_SERVER} in #{request.request_uri}"
     sent_on    sent_on
     body        :exception => exception, :trace => trace,
-                :session => session, :params => params, 
+                :session => session, :params => params.except(:password, :password2), 
                 :request => request, :current_user => current_user
     
   end
