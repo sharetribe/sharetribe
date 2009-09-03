@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   
   
   # This is wrong :) (ref. http://m.onkey.org/2007/10/17/how-to-access-session-cookies-params-request-in-model)
-  around_filter :make_session_available_in_model
+  # around_filter :make_session_available_in_model
   
   
   # did not work
@@ -267,8 +267,16 @@ class ApplicationController < ActionController::Base
   # this generates the event_id that will be used in 
   # requests to cos during this kassi-page view only
   def generate_event_id
-    session[:event_id] = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
+    RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
+    #puts "EVENT_ID IS NOW #{RestHelper.event_id}"
+    
+    # The event id is generated here and stored for the duration of this request.
+    # The option above stores it to thread which should work fine on mongrel
+    # The option below needs session to be available in models (around_filter :make_session_available_in_model)
+    
+    #session[:event_id] = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
     #puts "EVENT_ID IS NOW #{session[:event_id]}"
+    
   end
   
   protected  
@@ -296,21 +304,22 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def make_session_available_in_model
-    klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
-    #methods = ["session"]
-
-    
-    session_var = instance_variable_get(:"@_session") 
-
-    klasses.each do |klass|
-      klass.send(:define_method, "session", proc { session_var })
-    end
-   
-    yield  
-    
-    klasses.each do |klass|
-      klass.send :remove_method, "session"
-    end
-  end  
+  # def make_session_available_in_model
+  #   klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
+  #   #methods = ["session"]
+  # 
+  #   
+  #   session_var = instance_variable_get(:"@_session") 
+  # 
+  #   klasses.each do |klass|
+  #     klass.send(:define_method, "session", proc { session_var })
+  #   end
+  #  
+  #   yield  
+  #   
+  #   klasses.each do |klass|
+  #     klass.send :remove_method, "session"
+  #   end
+  # end  
+  
 end

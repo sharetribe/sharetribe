@@ -56,7 +56,8 @@ class SessionsController < ApplicationController
   
   def forgot_password
     begin
-      RestClient.post("#{COS_URL}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassiCookie})
+      RestHelper.make_request(:post, "#{COS_URL}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassiCookie})
+      # RestClient.post("#{COS_URL}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassiCookie})
       flash[:notice] = :password_recovery_sent
     rescue RestClient::ResourceNotFound => e 
       flash[:error] = :email_not_found

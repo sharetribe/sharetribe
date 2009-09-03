@@ -52,7 +52,7 @@ class PeopleControllerTest < ActionController::TestCase
   def test_create_users
     # this is done twice to get two records in Kassi database
     # to detect collisions in primary keys
-     
+      
     username = generate_random_username
     post "create", { :person => { :username => username,
                  :password => "testi",
@@ -146,7 +146,7 @@ class PeopleControllerTest < ActionController::TestCase
     assert_template 'search'
   end
   
-  def test_search_people
+  def test_search_people 
     search("dsfds", 0)
     search("Teppo", 1)
     search("epp", 1)

@@ -175,25 +175,28 @@ class Group < ActiveRecord::Base
   # in COS documentation at #{COS_URL}
 
   def self.get_public_groups(cookie)
-    return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie})
+    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie})
     #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie}))
   end
   
   def self.get_group(id, cookie)
-    return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
+    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
     #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
   end
   
   def self.get_members(id, cookie)
-    JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
+    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
+    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie})
   end
   
   def self.create_group(params, cookie)
-      resp = JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
+      #resp = JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
+      return RestHelper.make_request(:post, "#{COS_URL}/#{@@element_name}", params, {:cookies => cookie})
   end
   
   def self.put_attributes(params, id, cookie)
-    JSON.parse(RestClient.put("#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
+    return RestHelper.make_request(:put, "#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie})
+    #JSON.parse(RestClient.put("#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
   end
 
 end

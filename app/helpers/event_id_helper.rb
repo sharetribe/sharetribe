@@ -25,7 +25,11 @@ module EventIdHelper
       "update" => "update_group",
       "join" => "joining_group_#(params[:id])",
       "leave"  => "leave_group_#(params[:id])",
-    }   
+    },
+    "sessions" => {
+      "forgot_password" => "forgot_password",
+      
+    }
   }
   
   def self.generate_event_id(params)
@@ -44,6 +48,10 @@ module EventIdHelper
       end
     else
       event_string = "unlabeled_event"
+      if (params[:controller] && params[:action])
+        event_string = "#{params[:controller]}::#{params[:action]}"
+        
+      end
     end
     return event_string
   end

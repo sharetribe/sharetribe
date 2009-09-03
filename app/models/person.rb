@@ -6,6 +6,7 @@ class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
+  
  
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
@@ -58,7 +59,7 @@ class Person < ActiveRecord::Base
            
   has_one :settings, :dependent => :destroy          
 
-  class PersonConnection < ActiveResource::Base
+  class PersonConnection < ActiveRecord::Base
     # This is an inner class to handle remote connection to COS database where the actual information
     # of person model is stored. This is subclass of ActiveResource so it includes some automatic
     # functionality to access REST interface.
@@ -66,68 +67,46 @@ class Person < ActiveRecord::Base
     # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
     # in COS documentation at #{COS_URL}
      
-
-    self.site = COS_URL
-    self.format = :json 
-    self.timeout = COS_TIMEOUT
-    self.element_name = "people"
-    self.collection_name = "people"
+    include RestHelper
     
     def self.create_person(params, cookie)
       CacheHelper.update_people_last_changed
-      return RestHelper.request_with_try_again(:post, "#{COS_URL}/#{element_name}", params, {:cookies => cookie})
-      #return JSON.parse(RestClient.post("#{COS_URL}/#{element_name}", params, {:cookies => cookie}))
+      return RestHelper.make_request(:post, "#{COS_URL}/people", params, {:cookies => cookie})
+      #return JSON.parse(RestClient.post("#{COS_URL}/people", params, {:cookies => cookie}))
     end
     
     def self.get_person(id, cookie)
-      #puts "SESSIONISTA #{session[:event_id]}"
-      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
-      # begin
-      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
-      #       rescue RestClient::RequestTimeout => e
-      #         # In case of timeout, try once again
-      #         Rails.logger.error { "Rest-client reported a timeout in get_person #{e.message}. Trying again..." }
-      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@self", {:cookies => cookie})
-      #       end
-      #       
-      #       return JSON.parse(response)
-      # return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@self", {"Cookie" => cookie }))
+      #puts "THREADISTA  #{RestHelper.event_id}"
+      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@self", {:cookies => cookie})
+
     end
     
     def self.search(query, cookie)
       escaped_query = URI.escape(query, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # Should use escape_for_url method in ApplicationHelper
-      return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}?search=#{escaped_query}", {:cookies => cookie}))
+      return RestHelper.make_request(:get,"#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie})
+      # return JSON.parse(RestClient.get("#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie}))
     end
     
     def self.get_friends(id, cookie)
-      #JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie}))
-      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
-      
-      # begin
-      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
-      #       rescue RestClient::RequestTimeout => e
-      #         # In case of timeout, try once again
-      #         Rails.logger.error { "Rest-client reported a timeout in get_firends #{e.message}. Trying again..." }
-      #         response = RestClient.get("#{COS_URL}/#{element_name}/#{id}/@friends", {:cookies => cookie})
-      #       end
-      #       
-      #       return JSON.parse(response)
+      #JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@friends", {:cookies => cookie}))
+      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@friends", {:cookies => cookie})
     end
     
     def self.get_pending_friend_requests(id, cookie)
-      return RestHelper.request_with_try_again(:get, "#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie})
-      #return JSON.parse(RestClient.get("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests", {:cookies => cookie}))
+      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@pending_friend_requests", {:cookies => cookie})
+      #return JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@pending_friend_requests", {:cookies => cookie}))
     end
     
     def self.put_attributes(params, id, cookie)
       # information changes, clear cache
       parent.cache_delete(id,cookie)
       CacheHelper.update_people_last_changed
-      return JSON.parse(RestClient.put("#{COS_URL}/#{element_name}/#{id}/@self", {:person => params}, {:cookies => cookie})) 
+      return RestHelper.make_request(:put, "#{COS_URL}/people/#{id}/@self", {:person => params}, {:cookies => cookie})
+      #JSON.parse(RestClient.put("#{COS_URL}/people/#{id}/@self", {:person => params}, {:cookies => cookie})) 
     end
     
     def self.update_avatar(image, id, cookie)
-      response = HTTPClient.post("#{COS_URL}/#{element_name}/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
+      response = HTTPClient.post("#{COS_URL}/people/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
       if response.status != 200
         raise Exception.new(JSON.parse(response.body.content)["messages"])
       end
@@ -138,7 +117,8 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      return RestClient.post("#{COS_URL}/#{element_name}/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
+      return RestHelper.make_request(:post, "#{COS_URL}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
+      #return RestClient.post("#{COS_URL}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
@@ -146,7 +126,8 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@friends/#{friend_id}", {:cookies => cookie})   
+      #RestClient.delete("#{COS_URL}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie}) 
+      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie})
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
@@ -154,40 +135,31 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
+      # RestClient.delete("#{COS_URL}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
+      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
     end
     
     def self.get_groups(id, cookie, event_id=nil)
-      request_url = "#{COS_URL}/#{element_name}/#{id}/@groups"
+      request_url = "#{COS_URL}/people/#{id}/@groups"
       request_url += "?event_id=#{event_id}" if event_id
       #JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
       
-      return RestHelper.request_with_try_again(:get, request_url, {:cookies => cookie})
-      
-      # begin
-      #         response = RestClient.get(request_url, {:cookies => cookie})
-      #       rescue RestClient::RequestTimeout => e
-      #         # In case of timeout, try once again
-      #         Rails.logger.error { "Rest-client reported a timeout in get_groups #{e.message}. Trying again..." }
-      #         response = RestClient.get(request_url, {:cookies => cookie})
-      #       end
-      #       
-      #       return JSON.parse(response)
-      
-      #return fix_alphabets(connection.get("#{prefix}#{element_name}/#{id}/@groups", {"Cookie" => cookie }))
+      return RestHelper.make_request(:get, request_url, {:cookies => cookie})
+    
     end
     
     def self.join_group(id, group_id, cookie)
       CacheHelper.update_groups_last_changed
-      JSON.parse(RestClient.post("#{COS_URL}/#{element_name}/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
-      #response = connection.post("#{prefix}#{element_name}/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
+      #JSON.parse(RestClient.post("#{COS_URL}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
+      return RestHelper.make_request(:post, "#{COS_URL}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie} )
+      #response = connection.post("#{prefix}people/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
     end
     
     def self.leave_group(id, group_id, cookie)
       CacheHelper.update_groups_last_changed
-      JSON.parse(RestClient.delete("#{COS_URL}/#{element_name}/#{id}/@groups/#{group_id}", {:cookies => cookie}))
-      
-      #response = connection.delete("#{prefix}#{element_name}/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
+      #JSON.parse(RestClient.delete("#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie}))
+      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
+      #response = connection.delete("#{prefix}people/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
     end
     
     #fixes utf8 letters
@@ -260,6 +232,7 @@ class Person < ActiveRecord::Base
   end
   
   def name_or_username(cookie=nil)
+    #puts "SESSIONISTA PERSON_ID #{self.session[:person_id]}"
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     
