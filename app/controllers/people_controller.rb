@@ -9,7 +9,7 @@ class PeopleController < ApplicationController
     #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
     # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
     #puts "FLASHTEST: #{c.flash}"
-    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_count_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
+    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
     
   }
   caches_action :index, :layout => false, :cache_path => Proc.new { |c| "people_list/#{c.session[:locale]}/#{CacheHelper.people_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
