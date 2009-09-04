@@ -1,99 +1,29 @@
-<% 
-  other_party = kassi_event.get_other_party(@person)
-  case (kassi_event.eventable_type)
-  when "Listing"
-    listing = kassi_event.eventable
-    title = t(:closed_listing) + ": " + link_to(h(listing.title), listing_path(listing))
-    if listing.category.eql?("borrow_items")
-      right_title1 = t(:item_borrower) + ": "
-      requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
-      right_title2 = t(:item_lender) + ": "
-      provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
-    elsif listing.category.eql?("favors")
-      right_title1 = t(:favor_receiver) + ": "
-      requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
-      right_title2 = t(:favor_realizer) + ": "
-      provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
-    else
-      right_title1 = t(:listing_author) + ": "
-      requester = link_to(listing.author.name(session[:cookie]), listing.author)
-      another_participant = kassi_event.participants.reject { |p| p.id == listing.author.id }.first
-      right_title2 = t(:listing_replier) + ": "
-      provider = link_to(another_participant.name(session[:cookie]), another_participant)
-    end
-    category = listing.category
-  when "Item"
-    item = kassi_event.eventable
-    if @person.id == kassi_event.requester.id 
-      title = t(:borrowed_item) + ": " + h(item.title.downcase)
-    else
-      title = t(:lent_item) + ": " + h(item.title.downcase)
-    end
-    right_title1 = t(:item_borrower) + ": "
-    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
-    right_title2 = t(:item_lender) + ": "
-    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)   
-  when "Favor"
-    favor = kassi_event.eventable
-    if @person.id == kassi_event.requester.id
-      title = t(:received_favor) + ": " + h(favor.title.downcase) 
-    else
-      title = t(:done_favor) + ": " + h(favor.title.downcase)
-    end
-    right_title1 = t(:favor_receiver) + ": "
-    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
-    right_title2 = t(:favor_realizer) + ": "
-    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)
-  when "Reservation"
-    reservation = kassi_event.eventable
-    reservation_items = reservation.items.collect { |item| h(item.title.downcase) }.join(", ")
-    if @person.id == kassi_event.requester.id
-      title = reservation.items.size > 1 ? t(:borrowed_items) : t(:borrowed_item)
-    else
-      title = reservation.items.size > 1 ? t(:lent_items) : t(:lent_item)
-    end
-    title += ": " + h(reservation_items)
-    right_title1 = t(:item_borrower) + ": "
-    requester = link_to(kassi_event.requester.name(session[:cookie]), kassi_event.requester)
-    right_title2 = t(:item_lender) + ": "
-    provider = link_to(kassi_event.provider.name(session[:cookie]), kassi_event.provider)  
-  end      
-%>
+<% other_party = kassi_event.get_other_party(@person) %>
 
 <div class="listed_object <%= 'unread_conversation' if (is_current_user?(@person) && !kassi_event.commented_by?(@current_user)) %>">
   <div class="listed_kassi_event_left">
     <div class="listed_kassi_event_title">
-      <%= title %>
+      <%= get_kassi_event_label_hash(kassi_event)[:title] %>
     </div>
     <div class="listed_object_author">
       <%= t(:event_created) + " " + kassi_event.created_at.to_formatted_s(:basic_date_format_minutes) %> 
     </div>
   </div>
   <div class="listed_object_right">
-    <% if category %>
-    <div class="listed_object_right_line">  
-      <div class="listed_object_right_line_title">
-        <%= t(:listing_category) %>:
-      </div>  
-      <div class="listed_object_right_line_content">
-        <%= link_to(t(category), listing_category_path(category)) %>
-      </div>
-    </div>
-    <% end %>
     <div class="listed_object_right_line">
       <div class="listed_object_right_line_title">
-        <%= right_title1 %>
+        <%= get_kassi_event_label_hash(kassi_event)[:requester][0] %>: 
       </div>  
       <div class="listed_object_right_line_content">
-        <%= requester %>
+        <%= get_kassi_event_label_hash(kassi_event)[:requester][1] %>
       </div>
     </div>
     <div class="listed_object_right_line">  
       <div class="listed_object_right_line_title">
-        <%= right_title2 %>
+        <%= get_kassi_event_label_hash(kassi_event)[:provider][0] %>: 
       </div>  
       <div class="listed_object_right_line_content">
-        <%= provider %>
+        <%= get_kassi_event_label_hash(kassi_event)[:provider][1] %>
       </div>
     </div> 
   </div>

@@ -130,9 +130,21 @@
 :lost_property => "Lost property",
 :lost => "Lost",
 :found => "Found",
-:rides => "Car pools",
+:rides => "Car pooling",
 :groups => "Group activities",
 :others => "Others",
+
+# Title categories
+:title_sell => "In sale: ",
+:title_buy => "Buying: ",
+:title_give => "Giving: ",
+:title_borrow_items => "Borrowing: ",
+:title_lost => "Lost: ",
+:title_found => "Found: ",
+:title_rides => "Car pooling: ",
+:title_groups => "Group activity: ",
+:title_favors => "Asking for favor: ",
+:title_others => "",
 
 #Category descriptions
 :marketplace_description => "buy, sell or give stuff",
@@ -172,7 +184,7 @@
 :more_content_items => "Show more", 
 :new_in_kassi => "Newest content", 
 :in_category => "in",
-:listing_home_title => "Listing",
+:listing_home_title => "",
 :favor_home_title => "Offered favor", 
 :item_home_title => "Item to borrow",
 :show_info => "Show info",
@@ -548,6 +560,16 @@
 :user_has_not_given_feedback_on_this_kassi_event => "User {{name}} has not given feedback from this event",
 :send_feedback_from_kassi_event => "Send feedback",
 :feedback_sent => "Feedback sent",
+:found_provider_label => "Finder",
+:found_requester_label => "Listing author",
+:lost_provider_label => "Finder",
+:lost_requester_label => "Listing author",
+:borrow_items_provider_label => "Lender",
+:borrow_items_requester_label => "Borrower",
+:favors_provider_label => "Favor realizer",
+:favors_requester_label => "Favor receiver",
+:buyer_label => "Myyjä",
+:seller_label => "Ostaja",
    
 #Kassi events category titles
 :buy_title => "Sold",
@@ -559,7 +581,7 @@
 :found_title => "Found a lost item",
 :rides_title => "Ride",
 :groups_title => "Group activity",
-:others_title => "Other event",
+:others_title => "Other listing-related event",
 
 # Groups view
 :groups_title => "Groups",

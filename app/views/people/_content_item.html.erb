@@ -8,9 +8,9 @@
   </div>
   <div class="home_listed_object_center">
     <div class="home_listed_object_title">
-      <%= t(content_item.class.to_s.downcase + "_home_title") %>: 
+      <%= t(content_item.class.to_s.downcase + "_home_title") %> 
       <% if object_type.eql?("Listing") %>
-        <%= link_to h(content_item.title), listing_path(content_item) %>
+        <%= link_to t("title_#{content_item.category}") + h(content_item.title), listing_path(content_item) %>
       <% else %>  
         <%= link_to_function h(content_item.title), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
       <% end %>   
@@ -18,18 +18,15 @@
     <div class="home_listed_object_content">  
       <%= link_to person.name, person %> <%= content_item.created_at.to_formatted_s(:basic_date_format_minutes) %> &nbsp;
       <% if object_type.eql?("Listing") %>
-        | &nbsp;<%= t(:category).capitalize + ": " + link_to(t(content_item.category).downcase, listing_category_path(content_item.category)) %> 
         <% if content_item.comments.size > 0 %> 
         <br /><br />
           <%= link_to pluralize(content_item.comments.size, t(:comment), t(:comments_partitive)), listing_path(content_item) + "#comments" %>
         <% end %>
       <% elsif object_type.eql?("Item") %>
-        | <%= link_to_function t(:show_info), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
         | <%= link_to t(:borrow) + " " + content_item.title.downcase, 
               borrow_person_item_path(content_item.owner, content_item, :receiver => content_item.owner.id, 
                                                                         :return_to => root_path) %>
       <% else %>
-        | <%= link_to_function t(:show_info), "new Effect.toggle('info_#{object_type.downcase}_#{content_item.id.to_s}', 'blind')" %>
         | <%= link_to t(:ask_for_favor), :controller => :conversations, 
                                          :action => :new, 
                                          :person_id => @current_user, 
