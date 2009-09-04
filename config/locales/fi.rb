@@ -270,6 +270,7 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :as_expected => "vastasi odotuksia",
 :exceeded_expectations => "ylitti odotukset",
 :has_somebody_done_the_thing_mentioned_in_the_listing => "Toteuttiko joku ilmoituksessa mainitun pyynnön?",
+:share_on_facebook => "Jaa Facebookissa",
 
 #Listing statuses
 :open => "Avoinna",
