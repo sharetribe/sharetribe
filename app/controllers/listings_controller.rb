@@ -211,6 +211,7 @@ class ListingsController < ApplicationController
   
   #shows a random listing (that is visible to all)
   def random
+    save_navi_state(['listings', 'browse_listings', "all_categories", ''])
     conditions = "status = 'open' AND good_thru >= '" + Date.today.to_s + "'"
     conditions += get_visibility_conditions("listing")
         
