@@ -79,13 +79,19 @@
                                :return_to => request.request_uri %>
       <% end %>
     <% end %> 
+    
     <% if @current_user && is_current_user?(@listing.author) %>
       <% unless @listing.open? %>
         <div class="reply_to_listing">
       <% end %>    
 			  <%= link_to t(:edit_listing), edit_listing_path(@listing) %>
     <% end %>
+    
     </div>
+    <div class="additional_listing_links">
+      <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><style> html .fb_share_link { padding:2px 0 0 20px; height:16px; background:url(http://b.static.ak.fbcdn.net/rsrc.php/zAB5S/hash/4273uaqa.gif) no-repeat top left; }</style><a href="http://www.facebook.com/share.php?u=<%= "#{request.protocol}#{request.host}#{listing_path(@listing)}" %>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%= t(:share_on_facebook) %></a>
+    </div>
+    
     <br />  
     <% if File.exists?(RAILS_ROOT + "/public/images/listing_images/#{@listing.id.to_s}.png") %>
       <img src="/images/listing_images/<%= @listing.id.to_s %>.png" />

@@ -266,6 +266,7 @@
 :as_expected => "as expected",
 :exceeded_expectations => "exceeded expectations",
 :has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized?",
+:share_on_facebook => "Share on Facebook",
 
 #Listing statuses
 :open => "Open",
