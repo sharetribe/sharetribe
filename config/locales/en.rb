@@ -552,7 +552,7 @@
 :comment_for_lender => "Comment to lender",
 :comment_for_favor_realizer => "Comment to realizer",
 :comment_to_user => "Comment to user", 
-:show_related_kassi_event => "Show related kassi event",
+:comment_is_related_to_kassi_event => "Comment is related to kassi event",
 :feedback_from_kassi_event_from_user => "Feedback of Kassi event from user",
 :assessment_of_actions => "Assessment of actions",
 :give_feedback_to_favor_offerer => "Give feedback to the person who did the favor",
