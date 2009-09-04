@@ -18,7 +18,11 @@
   <% if @contacts.total_pages > 1 || params[:per_page] %>
   <div class="links_panel">
     <div class="left_float">
-      <%= t("show_#{@title}_on_page") %>:
+      <div class="links_panel_text">
+        <%= t("show_#{@title}_on_page") %>:
+      </div>
+    </div>  
+    <div class="left_float"> 
       <%= create_footer_pagination_links(["10", "30", "50", "all"], @title) %>
     </div>
     <div class="right_float">

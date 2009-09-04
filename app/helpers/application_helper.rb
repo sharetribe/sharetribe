@@ -34,7 +34,7 @@ module ApplicationHelper
     navi_items[:home] = root_path
     navi_items[:listings] = listing_category_path("all_categories")
     navi_items[:items] = items_path
-    navi_items[:favors] = favors_path
+    navi_items[:favors_top] = favors_path
     navi_items[:people] = people_path
     navi_items[:groups_title] = groups_path
     if @current_user
@@ -64,7 +64,7 @@ module ApplicationHelper
       navi_items[:search_items] = search_items_path
       navi_items[:add_item] = person_path(@current_user) + "#items" if @current_user
       navi_items[:request_item] = new_listing_path(:category => "borrow_items")
-    when 'favors'
+    when 'favors_top'
       navi_items[:browse_favors] = favors_path
       navi_items[:search_favors] = search_favors_path
       navi_items[:add_favor] = person_path(@current_user) + "#favors" if @current_user

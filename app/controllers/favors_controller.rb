@@ -10,7 +10,7 @@ class FavorsController < ApplicationController
   
   def update_navi
     case params[:action]    
-      when "index" then save_navi_state(['favors','browse_favors','',''])
+      when "index" then save_navi_state(['favors_top','browse_favors','',''])
     end
   end
   

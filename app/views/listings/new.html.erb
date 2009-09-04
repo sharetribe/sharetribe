@@ -27,8 +27,7 @@
       <%= t(:title) %>*:
     </div>  
     <div class="form_right">
-      <% title = (params[:listing] && params[:listing][:title]) ? params[:listing][:title] : (t(params[:subcategory] || params[:category]) + ": ") %>
-      <%= f.text_field :title, :size => 69, :value => title %>
+      <%= params[:subcategory] ? t("title_#{params[:subcategory]}") : t("title_#{params[:category]}") %><%= f.text_field :title, :size => 35 %>
     </div>
   </div>
   <div class="form_container">    

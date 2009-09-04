@@ -2,6 +2,7 @@
 <div id="title_with_border">
   <div id="title_div">
     <h1 class="no_border">
+      <%= t(@listing.category) %>: 
       <% if (@listing.title.length > 35 && !@listing.title.include?(" "))%>
         <%= @listing.title.slice!(0..35) + "..." %>
       <% else %>
@@ -25,9 +26,6 @@
       </div>
       <div id="listing_author_box_titles">
         <div class="listing_author_box_item">
-          <%= t(:category) %>:
-        </div>
-        <div class="listing_author_box_item">
           <%= t(:author) %>:
         </div>
         <div class="listing_author_box_item">
@@ -43,9 +41,6 @@
 				<%end%>
       </div>
       <div id="listing_author_box_texts">
-        <div class="listing_author_box_item">
-          <%= link_to(t(@listing.category), listing_category_path(@listing.category)) %>
-        </div>
         <div class="listing_author_box_item">
           <%= link_to(@listing.author.name(session[:cookie]), @listing.author) %>
         </div>
