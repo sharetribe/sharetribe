@@ -266,7 +266,12 @@
 :as_expected => "as expected",
 :exceeded_expectations => "exceeded expectations",
 :has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized?",
+:follow_listing => "Follow this listing",
+:unfollow_listing => "Stop following this listing",
+:began_to_follow_listing => "You are now following this listing. You will get notified by email of any comments or updates to the listing.",
+:stopped_to_follow_listing => "You are no more following this listing.",
 :share_on_facebook => "Share on Facebook",
+:get_email_notifications_of_new_comments => "Notify me of new comments to this listing by email",
 
 #Listing statuses
 :open => "Open",

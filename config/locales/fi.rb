@@ -270,7 +270,12 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :as_expected => "vastasi odotuksia",
 :exceeded_expectations => "ylitti odotukset",
 :has_somebody_done_the_thing_mentioned_in_the_listing => "Toteuttiko joku ilmoituksessa mainitun pyynnön?",
+:follow_listing => "Seuraa ilmoitusta",
+:unfollow_listing => "Lopeta ilmoituksen seuraaminen",
+:began_to_follow_listing => "Ilmoitus otettu seurantaan. Saat sähköpostitse tiedon uusista kommenteista ja muutoksista tähän ilmoitukseen.",
+:stopped_to_follow_listing => "Ilmoituksen seuraaminen lopetettu",
 :share_on_facebook => "Jaa Facebookissa",
+:get_email_notifications_of_new_comments => "Lähetä minulle sähköpostia uusista kommenteista",
 
 #Listing statuses
 :open => "Avoinna",

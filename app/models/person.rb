@@ -6,8 +6,6 @@ class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
-  
- 
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
@@ -57,7 +55,9 @@ class Person < ActiveRecord::Base
            :through => :kassi_event_participations, 
            :source => :kassi_event
            
-  has_one :settings, :dependent => :destroy          
+  has_one :settings, :dependent => :destroy
+  
+  has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"        
 
   class PersonConnection < ActiveRecord::Base
     # This is an inner class to handle remote connection to COS database where the actual information
@@ -610,6 +610,33 @@ class Person < ActiveRecord::Base
       AND kep.kassi_event_id = ke.id
     "
     KassiEvent.count_by_sql(query1)
+  end
+  
+  # Starts following a listing
+  def follow(listing)
+    followed_listings << listing
+  end
+  
+  # Unfollows a listing
+  def unfollow(listing)
+    followed_listings.delete(listing)
+  end
+  
+  # Checks if this user is following the given listing
+  def is_following?(listing)
+    followed_listings.include?(listing)
+  end
+  
+  # Updates the user following status based on the given status
+  # for the given listing
+  def update_follow_status(listing, status)
+    unless id == listing.author.id
+      if status
+        follow(listing) unless is_following?(listing)
+      else
+        unfollow(listing) if is_following?(listing)
+      end
+    end
   end
   
   private

@@ -22,6 +22,8 @@ class Listing < ActiveRecord::Base
   has_many :kassi_events, :as => :eventable
 
   has_and_belongs_to_many :groups
+  
+  has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
 
   serialize :language, Array
 
@@ -207,6 +209,11 @@ class Listing < ActiveRecord::Base
   def post_to_newsgroups(url)
     return if !newsgroup || newsgroup.eql?("do_not_post")
     date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
+    if ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan"].include?(newsgroup)
+      subject = category.eql?("sell") ? "M:" + title : "A:" + title 
+    else
+      subject = title
+    end  
 
 # This is the actual message string
 
@@ -214,7 +221,7 @@ class Listing < ActiveRecord::Base
 From: #{author.name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
 Sender: Kassi
 Newsgroups: #{newsgroup}
-Subject: #{title}
+Subject: #{subject}
 Date: #{date}
 
 #{content}
@@ -246,7 +253,6 @@ END_OF_MESSAGE
 # ***
 # 
 # END_OF_MESSAGE
- 
     
     # Do the actual newsgroup post
     
@@ -287,6 +293,17 @@ END_OF_MESSAGE
       "buyer"      
     else
       "none"
+    end
+  end
+  
+  # Send notifications to the users following this listing
+  # when the listing is updated (update=true) or a
+  # new comment to the listing is created.
+  def notify_followers(request, update)
+    if RAILS_ENV != "development"
+      followers.each do |follower|
+        update ? deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request) : notification_of_new_update_to_listing(self, follower, request)
+      end
     end
   end
 

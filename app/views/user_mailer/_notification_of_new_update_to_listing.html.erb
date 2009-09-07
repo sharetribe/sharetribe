@@ -1,0 +1,11 @@
+<%= @comment.author.name %> on kommentoinut seuraamaasi ilmoitusta "<%= @comment.listing.title %>".
+
+***
+
+<%= @comment.content %>
+
+***
+
+Voit lukea ilmoituksen kommentit ja vastata niihin osoitteessa <%= @url %>
+
+<%= render :partial => "mail_signature" %>

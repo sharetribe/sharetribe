@@ -7,4 +7,12 @@ class ListingComment < ActiveRecord::Base
   validates_presence_of :author_id, :listing_id, :content
   validates_numericality_of :listing_id, :only_integer => true
   
+  after_save :update_follow_status
+  
+  attr_accessor :author_follow_status
+  
+  def update_follow_status
+    author.update_follow_status(listing, author_follow_status)
+  end
+  
 end
