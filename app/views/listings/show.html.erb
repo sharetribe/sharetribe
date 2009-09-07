@@ -132,9 +132,11 @@
       <%= f.text_area :content, :size => "48x5" %>
       <br />
       <%= f.hidden_field :author_id, :value => @current_user.id %>
-      <br />
-      <%= check_box_tag "listing_comment[author_follow_status]", "true", :checked => true %> <%= t(:get_email_notifications_of_new_comments) %>
-      <br />
+      <% unless is_current_user?(@listing.author) %>
+        <br />
+        <%= check_box_tag "listing_comment[author_follow_status]", "true", :checked => true %> <%= t(:get_email_notifications_of_new_comments) %>
+        <br />
+      <% end %>  
       <br />
       <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
     <% end %>
