@@ -78,6 +78,15 @@
                                :target_object_type => "listing", 
                                :return_to => request.request_uri %>
       <% end %>
+      <% if @current_user && !is_current_user?(@listing.author) %>
+        <div id="follow_link">
+          <% if @current_user.is_following?(@listing) %>
+            <%= render :partial => 'unfollow_link' %>
+          <% else %>
+            <%= render :partial => 'follow_link' %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %> 
     
     <% if @current_user && is_current_user?(@listing.author) %>
@@ -123,6 +132,9 @@
       <%= f.text_area :content, :size => "48x5" %>
       <br />
       <%= f.hidden_field :author_id, :value => @current_user.id %>
+      <br />
+      <%= check_box_tag "listing_comment[author_follow_status]", "true", :checked => true %> <%= t(:get_email_notifications_of_new_comments) %>
+      <br />
       <br />
       <%= submit_tag t(:send_comment), :onclick => "this.disabled=true,this.form.submit();" %>
     <% end %>

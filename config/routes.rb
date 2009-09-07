@@ -55,7 +55,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :listings, 
                 :member => { 
                              :mark_as_interesting => :post, 
-                             :mark_as_not_interesting => :delete
+                             :mark_as_not_interesting => :delete,
+                             :follow => :post,
+                             :unfollow => :post,  
                            },
                 :collection => { :search => :get, :random => :get } do |listing|
     listing.resource :image

@@ -10,6 +10,7 @@ class UserMailer < ActionMailer::Base
     body       :recipient => recipient, :message => message, :url => url, :settings_url => settings_url
   end
   
+  # Used to send a notification to the listing author
   def notification_of_new_comment(comment, request=nil)
     subject_string = comment.author.name + " on kommentoinut ilmoitustasi"
     url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
@@ -18,6 +19,28 @@ class UserMailer < ActionMailer::Base
     from       KASSI_MAIL_FROM_ADDRESS
     subject    subject_string
     body       :comment => comment, :url => url, :settings_url => settings_url
+  end
+  
+  # Used to send a notification to people who have commented the listing and are not listing authors
+  def notification_of_new_comment_to_followed_listing(comment, receiver, request=nil)
+    subject_string = comment.author.name + " on kommentoinut ilmoitusta jota seuraat"
+    url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
+    settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(receiver.id)}" : "test_url"
+    recipients receiver.email
+    from       KASSI_MAIL_FROM_ADDRESS
+    subject    subject_string
+    body       :comment => comment, :url => url, :settings_url => settings_url
+  end
+  
+  # Used to send a notification to people who have commented the listing and are not listing authors
+  def notification_of_new_update_to_listing(listing, receiver, request=nil)
+    subject_string = "Seuraamasi ilmoitus on päivittynyt"
+    url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}" : "test_url"
+    settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(receiver.id)}" : "test_url"
+    recipients receiver.email
+    from       KASSI_MAIL_FROM_ADDRESS
+    subject    subject_string
+    body       :listing => listing, :url => url, :settings_url => settings_url
   end
   
   def notification_of_new_friend_request(requester, requested, http_request=nil)

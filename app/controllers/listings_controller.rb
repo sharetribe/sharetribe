@@ -125,9 +125,9 @@ class ListingsController < ApplicationController
     language << "swe" if (params[:listing][:language_swe].to_s.eql?('1'))
     @listing.language = language
     get_visibility(:listing)
-    @listing.update_attributes(params[:listing])
-    if @listing.save
+    if @listing.update_attributes(params[:listing])
       @listing.save_group_visibilities(params[:groups])
+      @listing.notify_followers(request, true)
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
     else
@@ -229,6 +229,28 @@ class ListingsController < ApplicationController
       @listing = Listing.find(params[:listing])  
     end
     render :partial => "realizer_feedback_form"
+  end
+  
+  # Current user starts to follow this listing
+  def follow
+    @listing = Listing.find(params[:id])
+    @current_user.follow(@listing)
+    flash[:notice] = :began_to_follow_listing
+    render :update do |page|
+      page["follow_link"].replace_html :partial => 'unfollow_link'
+      page["announcement_div"].replace_html :partial => 'layouts/announcements'
+    end  
+  end
+  
+  # Current user stops following this listing
+  def unfollow
+    @listing = Listing.find(params[:id])
+    @current_user.unfollow(@listing)
+    flash[:notice] = :stopped_to_follow_listing
+    render :update do |page|
+      page["follow_link"].replace_html :partial => 'follow_link'
+      page["announcement_div"].replace_html :partial => 'layouts/announcements'
+    end
   end
   
   private

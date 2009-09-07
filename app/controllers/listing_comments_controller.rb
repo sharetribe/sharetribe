@@ -11,6 +11,7 @@ class ListingCommentsController < ApplicationController
       if RAILS_ENV != "development" && !current_user?(@listing.author) && @listing.author.settings.email_when_new_comment == 1
         UserMailer.deliver_notification_of_new_comment(@comment, request)
       end
+      @listing.notify_followers(request, false)
       flash[:notice] = "comment_added"  
       respond_to do |format|
         format.html { redirect_to @listing }
