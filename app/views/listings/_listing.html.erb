@@ -19,15 +19,19 @@
 <% end %>   
   <div class="listed_object_title">
     <% link_target = @person ? person_listing_path(@person, listing) : listing %>
+    <% link_text = listing.title %>
     <% if has_image && listing.title.length > 25 && !listing.title.include?(" ") %>
-      <%= link_to(listing.title.slice!(0..22) + "...", link_target, :class => "listing") %>
+      <% link_text =  listing.title.slice!(0..22) + "..." %>
     <% else %>  
       <% if (listing.title.length > 32 && !listing.title.include?(" "))%>
-        <%= link_to(listing.title.slice!(0..32) + "...", link_target, :class => "listing") %>
-      <% else %>  
-        <%= link_to(listing.title, link_target, :class => "listing") %>
+        <% link_text =  listing.title.slice!(0..32) + "..." %>   
       <% end %>
-    <% end %>  
+    <% end %>
+    <% if ["all_categories", "marketplace", "lost_property"].include?(@title) %>
+      <%# include category name, when browsing top level categories %>
+      <% link_text = t(listing.category) + ": " + link_text %>
+    <% end %>
+    <%= link_to(link_text, link_target, :class => "listing") %>
   </div>
   <div class="listed_object_author">
     <% if is_current_user?(listing.author) %>
