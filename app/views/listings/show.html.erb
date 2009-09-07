@@ -90,6 +90,9 @@
     </div>
     <div class="additional_listing_links">
       <script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script><style> html .fb_share_link { padding:2px 0 0 20px; height:16px; background:url(http://b.static.ak.fbcdn.net/rsrc.php/zAB5S/hash/4273uaqa.gif) no-repeat top left; }</style><a href="http://www.facebook.com/share.php?u=<%= "#{request.protocol}#{request.host}#{listing_path(@listing)}" %>" onclick="return fbs_click()" target="_blank" class="fb_share_link"><%= t(:share_on_facebook) %></a>
+      <meta name="title" content="<%= t(@listing.category) %>: <%= h(@listing.title) %>"  />
+      <meta name="description" content="<%= h(@listing.content) %>" />
+      
     </div>
     
     <br />  

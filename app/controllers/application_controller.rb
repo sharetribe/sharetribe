@@ -268,7 +268,7 @@ class ApplicationController < ActionController::Base
           exception, 
           clean_backtrace(exception), 
           session, #.instance_variable_get("@data"), 
-          params, 
+          params.except(:password, :password2), 
           request,
           @current_user,
           sent_on)
