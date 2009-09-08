@@ -180,13 +180,13 @@ class Group < ActiveRecord::Base
   end
   
   def self.get_group(id, cookie)
-    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie})
+    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public/#{id}", {:cookies => cookie})
     #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
   end
   
   def self.get_members(id, cookie)
     #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
-    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie})
+    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public/#{id}/@members", {:cookies => cookie})
   end
   
   def self.create_group(params, cookie)
@@ -195,7 +195,7 @@ class Group < ActiveRecord::Base
   end
   
   def self.put_attributes(params, id, cookie)
-    return RestHelper.make_request(:put, "#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie})
+    return RestHelper.make_request(:put, "#{COS_URL}/#{@@element_name}/@public/#{id}", {:group => params}, {:cookies => cookie})
     #JSON.parse(RestClient.put("#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
   end
 
