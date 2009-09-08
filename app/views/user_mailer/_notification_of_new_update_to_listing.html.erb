@@ -1,11 +1,5 @@
-<%= @comment.author.name %> on kommentoinut seuraamaasi ilmoitusta "<%= t("title_#{@comment.listing.category}") %><%= @comment.listing.title %>".
+Seuraamasi ilmoitus <%= @listing.title %> on päivittynyt.
 
-***
+Voit nähdä ilmoituksen ja vastata siihen tai kommentoida sitä osoitteessa <%= @url %>
 
-<%= @comment.content %>
 
-***
-
-Voit lukea ilmoituksen kommentit ja vastata niihin osoitteessa <%= @url %>
-
-<%= render :partial => "mail_signature" %>
