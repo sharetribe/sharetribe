@@ -1,4 +1,4 @@
-<%= @comment.author.name %> on kommentoinut seuraamaasi ilmoitusta "<%= @comment.listing.title %>".
+<%= @comment.author.name %> on kommentoinut seuraamaasi ilmoitusta "<%= t("title_#{@comment.listing.category}") %><%= @comment.listing.title %>".
 
 ***
 

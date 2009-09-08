@@ -302,7 +302,7 @@ END_OF_MESSAGE
   def notify_followers(request, update)
     if RAILS_ENV != "development"
       followers.each do |follower|
-        update ? deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request) : notification_of_new_update_to_listing(self, follower, request)
+        update ? deliver_notification_of_new_update_to_listing(self, follower, request) : deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request) 
       end
     end
   end
