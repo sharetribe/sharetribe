@@ -156,7 +156,7 @@ class ApplicationController < ActionController::Base
   def is_admin
     return true if @current_user && @current_user.is_admin == 1
     flash[:warning] = :only_admin_users_are_allowed_to_do_this
-    redirect_to :back
+    redirect_to root_path 
   end
   
   def is_admin?
