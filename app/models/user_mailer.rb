@@ -35,7 +35,7 @@ class UserMailer < ActionMailer::Base
   # Used to send a notification to people who have commented the listing and are not listing authors
   def notification_of_new_update_to_listing(listing, receiver, request=nil)
     subject_string = "Seuraamasi ilmoitus on päivittynyt"
-    url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}" : "test_url"
+    url = request ? "#{request.protocol}#{request.host}#{listing_path(listing.id)}" : "test_url"
     settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(receiver.id)}" : "test_url"
     recipients receiver.email
     from       KASSI_MAIL_FROM_ADDRESS
