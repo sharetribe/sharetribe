@@ -94,7 +94,14 @@ class PeopleController < ApplicationController
       @people = Person.find_kassi_users_by_ids(ids).paginate :page => params[:page], :per_page => per_page
     end
   end
-
+  
+  # Search used for auto completion
+  def search_by_name
+    @people = get_all_people_array
+    @matching = @people.reject {|p| p[0] !~ /#{params[:search]}/i}
+    render :inline => "<%= content_tag(:ul, @matching.map { |person| content_tag(:li, h(person[0])) }) %>"
+  end
+  
   # Creates a new person
   def create
     # should expire cache for people listing

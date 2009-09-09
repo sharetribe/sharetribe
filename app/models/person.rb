@@ -7,7 +7,7 @@ class Person < ActiveRecord::Base
   include ErrorsHelper
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
-  PERSON_NAME_CACHE_EXPIRE_TIME = 2.hours
+  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
   
