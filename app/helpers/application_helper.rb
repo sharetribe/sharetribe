@@ -416,8 +416,8 @@ module ApplicationHelper
   end
   
   def get_all_people_array
-    #Rails.cache.fetch("people_name_and_username_list/#{CacheHelper.people_last_changed}") {get_all_people_array_without_cache}
-    get_all_people_array_without_cache
+    Rails.cache.fetch("people_name_and_username_list/#{CacheHelper.people_last_changed}") {get_all_people_array_without_cache}
+    #get_all_people_array_without_cache
   end
   
   def get_all_people_array_without_cache

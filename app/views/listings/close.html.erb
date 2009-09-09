@@ -16,7 +16,7 @@
           <%= t(:listing_realizer) %>: 
         </div>
         <div class="form_right">
-          <%= t(:select_from_list) %>
+          <%# = t(:select_from_list) %>
           <%= 
             select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)},
                    {:onchange => "
@@ -27,8 +27,8 @@
           %>
           <br />
           <br />
-          <%= t(:or_start_writing_the_name) %>
-           <%= text_field_with_auto_complete :person, 
+          <%# = t(:or_start_writing_the_name) %>
+           <%# = text_field_with_auto_complete :person, 
                                               :name, 
                                               { :class => "search_person_form", :value => "" }, 
                                               { 
