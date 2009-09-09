@@ -182,6 +182,8 @@ class ListingsController < ApplicationController
     @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
       |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
     }
+    @people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
+    
     @kassi_event.person_comments.build  
   end
   

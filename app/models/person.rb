@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
   PERSON_NAME_CACHE_EXPIRE_TIME = 2.hours
-  
+    
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
   
   attr_protected :is_admin
@@ -224,6 +224,11 @@ class Person < ActiveRecord::Base
   end
   
   def username(cookie=nil)
+    # No expire time, because username doesn't change (at least not yet)
+    Rails.cache.fetch("person_username/#{self.id}") {username_from_person_hash(cookie)}  
+  end
+  
+  def username_from_person_hash(cookie=nil)
     if new_record?
       return form_username ? form_username : ""
     end
