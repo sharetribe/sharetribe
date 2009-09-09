@@ -100,8 +100,12 @@ class GroupsController < ApplicationController
   def join
     @person = Person.find(params[:person_id])
     @group = Group.find(params[:id])
-    @person.join_group(@group.id, session[:cookie])
-    flash[:notice] = [ :you_have_joined_to_group, @group.title(session[:cookie]) ]
+    begin
+      @person.join_group(@group.id, session[:cookie])
+      flash[:notice] = [ :you_have_joined_to_group, @group.title(session[:cookie]) ]
+    rescue RestClient::RequestFailed => e
+      flash[:error] = message_from_error(e)
+    end
     redirect_to group_path(params[:id])
   end
   

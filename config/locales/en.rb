@@ -703,7 +703,11 @@
 #Smerf
 :smerf_saved_succesfully => "Response saved succesfully",
 :smerf_no_response_nothing_saved => "No response found, nothing saved",
-:smerf_updated_succesfully => "Response updated succesfully"
+:smerf_updated_succesfully => "Response updated succesfully",
+
+#Errors
+:"Error in error message translation"  => "Unknown error",
+:"You are already a member of this group"  => "You are already a member of this group",
 
   }
 }

@@ -344,6 +344,9 @@ module ApplicationHelper
   end
   
   def translate_error_message(message)
+    
+    # This could be transfered to translation files in format :"Username can't be blank" => 
+    
     case message
     when "Title on pakollinen tieto."
       t(:title_is_required)
@@ -394,6 +397,22 @@ module ApplicationHelper
     else
       message
     end  
+  end
+  
+  def message_from_error(error)
+    return "" if error.nil?
+    begin
+      if error.class.parent == RestClient
+        error_json = JSON.parse(error.response.body.to_s)
+        # select the first from the errors
+        error_string = error_json["messages"][0]
+      else
+        error_string = error.message
+      end
+    rescue Exception => e
+      return "Error in error message translation"
+    end
+    return error_string
   end
   
   # Takes a collection of any objects and creates an array for javascript from them

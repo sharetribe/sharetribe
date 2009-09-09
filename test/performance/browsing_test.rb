@@ -7,6 +7,10 @@ class BrowsingTest < ActionController::PerformanceTest
     get '/'
   end
   
+  def test_homepage_no_cache
+    get '/?nocache=1'
+  end
+  
   def test_listings_page
     get '/listings/categories/all_categories'
   end
@@ -35,6 +39,8 @@ class BrowsingTest < ActionController::PerformanceTest
     post "/session", { :username => "kassi_testperson1", :password => "testi"}
     delete "/session"
   end
+  
+
   
   # def test_login_and_create_group_and_leave_it
   #   post "/session", { :username => "kassi_testperson1", :password => "testi"}

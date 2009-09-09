@@ -108,7 +108,7 @@ ActionController::Routing::Routes.draw do |map|
                      :collection => { :interesting => :get, :comments => :get }
     person.resource :avatar, :member => { :upload_successful => :get}
     person.resources :requests, :member => { :accept => :post, :accept_redirect => :post, :reject => :post, :cancel => :post }
-    person.resources :groups, :member => { :join => :post, :leave => :delete }              
+    person.resources :groups, :member => { :join => [:post, :get], :leave => [:delete, :get] }              
   end
   map.resources :favors, :collection => { :search => :get, :search_by_title => :get }, :member => { :hide => :get }  
   map.resources :items, 

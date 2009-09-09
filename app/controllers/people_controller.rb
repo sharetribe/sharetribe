@@ -3,15 +3,13 @@ class PeopleController < ApplicationController
   before_filter :logged_in, :only  => [ :show, :edit, :update ]
   
   before_filter :update_navi, :only => [ :home, :index] #needed for cached actions
-  caches_action :home, :layout => false, :cache_path => Proc.new { |c| #c.count_new_arrived_items ; puts "POXPOX #{@inbox_new_count.nil?}";
-    #{}"front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{CacheHelper.notifications_last_changed_for(c.session[:person_id])}/#{c.session[:person_id]}"
-    
-    #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
-    # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
-    #puts "FLASHTEST: #{c.flash}"
-    "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
-    
-  }
+  caches_action :home, :layout => false, 
+                :if => Proc.new { |c| !c.params[:nocache]}, 
+                :cache_path => Proc.new { |c| 
+                  #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
+                  # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
+                  "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
+                }
   caches_action :index, :layout => false, :cache_path => Proc.new { |c| "people_list/#{c.session[:locale]}/#{CacheHelper.people_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
   #cache_sweeper :person_sweeper, :only => [:create, :edit, :update, :index]
   
