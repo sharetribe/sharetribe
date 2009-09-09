@@ -87,7 +87,7 @@
 :own => "Own",
 :listings => "Listings",
 :items => "Items",
-:favors => "Favors",
+:favors_top => "Favors",
 :people => "Users",
 
 #Left navigation
@@ -132,6 +132,7 @@
 :found => "Found",
 :rides => "Car pooling",
 :groups => "Group activities",
+:favors => "Favor requests",
 :others => "Others",
 
 # Title categories
