@@ -112,7 +112,7 @@ class Group < ActiveRecord::Base
   
   def update_attributes(params, cookie)
     CacheHelper.update_groups_last_changed
-    put_attributes(params, self.id, cookie)
+    Group.put_attributes(params, self.id, cookie)
   end
 
   # Returns a hash from COS containing attributes of a group
@@ -166,6 +166,12 @@ class Group < ActiveRecord::Base
   def self.get_public_group_ids(cookie=nil)
     cookie = Session.kassiCookie if cookie.nil?
     Group.get_group_ids(get_public_groups(cookie))
+  end
+  
+  # Currently returns always false so the edit link will
+  # always be hidden.
+  def is_admin?(person)
+    false
   end
   
   private

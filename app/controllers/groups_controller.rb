@@ -54,6 +54,7 @@ class GroupsController < ApplicationController
     begin
       @group = Group.create(params["group"], session[:cookie])
       flash[:notice] = :group_created_successfully
+      redirect_to group_path(@group) and return
     rescue RestClient::RequestFailed => e
       @group.add_errors_from(e)
       @group.form_title = params[:group][:title]
@@ -65,7 +66,29 @@ class GroupsController < ApplicationController
       @group.form_description = params[:group][:description]
       render :action => :new and return 
     end
-    redirect_to groups_path
+  end
+  
+  def edit
+    @group = Group.find(params[:id])
+  end
+  
+  def update
+    @group = Group.find(params[:id])
+    begin 
+      @group.update_attributes(params[:group], session[:cookie])
+      flash[:notice] = :group_info_updated
+      redirect_to group_path(@group)
+    rescue RestClient::RequestFailed => e
+      @group.add_errors_from(e)
+      @group.form_title = params[:group][:title]
+      @group.form_description = params[:group][:description]
+      render :action => :edit and return
+    rescue RestClient::Unauthorized => e
+      @group.add_errors_from(e)
+      @group.form_title = params[:group][:title]
+      @group.form_description = params[:group][:description]
+      render :action => :edit and return
+    end
   end
   
   # Search groups

@@ -162,7 +162,7 @@ class FavorsController < ApplicationController
   end
   
   def search
-    save_navi_state(['favors', 'search_favors'])
+    save_navi_state(['favors_top', 'search_favors'])
     if params[:q]
       query = (params[:q].length > 0) ? "*" + params[:q] + "*" : ""
       begin
