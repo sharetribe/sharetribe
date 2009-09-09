@@ -501,7 +501,7 @@ class Person < ActiveRecord::Base
       cookie = Session.updateKassiCookie
       person_hash = PersonConnection.get_person(self.id, cookie)
       #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
-      cache_write(person_hash,id,cookie)
+      Person.cache_write(person_hash,id,cookie)
     rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in COS Database!
       return nil
