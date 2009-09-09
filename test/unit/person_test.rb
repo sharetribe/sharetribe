@@ -27,7 +27,7 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal("kassi_testperson1", @test_person.username(@cookie) )
   end
   
-  def test_name
+  def test_name 
     @test_person.set_given_name("Totti", @cookie)
     @test_person.set_family_name("Testaaja", @cookie)
     assert_equal("Totti Testaaja", @test_person.name(@cookie) )

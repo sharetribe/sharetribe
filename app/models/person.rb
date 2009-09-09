@@ -7,6 +7,7 @@ class Person < ActiveRecord::Base
   include ErrorsHelper
   
   PERSON_HASH_CACHE_EXPIRE_TIME = 15
+  PERSON_NAME_CACHE_EXPIRE_TIME = 2.hours
   
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
   
@@ -232,7 +233,12 @@ class Person < ActiveRecord::Base
   end
   
   def name_or_username(cookie=nil)
-    #puts "SESSIONISTA PERSON_ID #{self.session[:person_id]}"
+    # First check the person name cache (which is common to al users)
+    # If not found use the person_hash cache (which is separate for each asker)
+    Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
+  end
+      
+  def name_or_username_from_person_hash(cookie=nil)
     person_hash = get_person_hash(cookie)
     return "Person not found!" if person_hash.nil?
     
@@ -472,7 +478,13 @@ class Person < ActiveRecord::Base
   def update_attributes(params, cookie)
     #Handle name part parameters also if they are in hash root level
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
-    Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"])      
+    Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
+
+    if params["name"] || params[:name]
+      # If name is going to be changed, expire name cache
+      Rails.cache.delete("person_name/#{self.id}")
+    end
+         
     PersonConnection.put_attributes(params, self.id, cookie)
   end
   
