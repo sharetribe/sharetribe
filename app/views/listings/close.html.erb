@@ -16,6 +16,7 @@
           <%= t(:listing_realizer) %>: 
         </div>
         <div class="form_right">
+          <%= t(:select_from_list) %>
           <%= 
             select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)},
                    {:onchange => "
@@ -24,6 +25,18 @@
                                         :with => "'realizer='+value+'&listing=#{@listing.id.to_s}'",
                                         :update => "realizer_feedback_form") }" }) 
           %>
+          <br />
+          <br />
+          <%= t(:or_start_writing_the_name) %>
+           <%= text_field_with_auto_complete :person, 
+                                              :name, 
+                                              { :class => "search_person_form", :value => "" }, 
+                                              { 
+                                                :url => search_by_name_people_path(:js), 
+                                                :method => :get, 
+                                                :with => "'search=' + element.value" 
+                                              }
+                                               %>
         </div>
       </div>
       <div id="realizer_feedback_form">
