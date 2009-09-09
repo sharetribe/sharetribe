@@ -610,6 +610,11 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :group_could_not_be_created => "Ryhmää ei voitu luoda seuraavien virheiden takia",     
 :no_members => "Ei jäseniä", 
 :group_not_found => "Haettua ryhmää ei löytynyt.",
+:edit_group => "Muokkaa ryhmää",
+:edit_group_mode => "Muokkaa ryhmää",
+:edit_group_button => "Tee muutokset",
+:group_info_updated => "Ryhmän tiedot päivitetty",
+:group_could_not_be_edited => "Ryhmän muokkaus epäonnistui seuraavien virheiden takia",
 
 #Purses view
 :purse => "Kukkaro",

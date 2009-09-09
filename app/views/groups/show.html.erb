@@ -29,7 +29,11 @@
     <div id="listing_image">
       <div class="reply_to_listing">
         <%= get_join_or_leave_group_link(@group) %>
+        <% if @current_user && @group.is_admin?(@current_user) %>
+          <%= link_to t(:edit_group), edit_group_path(@group) %>
+        <% end %>
       </div>
+      <br />
     </div>
     <div id="comments">
       <div class="browse_objects_header">
