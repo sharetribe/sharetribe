@@ -179,10 +179,12 @@ class ListingsController < ApplicationController
     if params[:rid]
       @kassi_event.realizer_id = params[:rid]
     end
-    @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
-      |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
-    }
-    @people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
+    all_people = get_all_people_array
+    # @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
+    #       |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
+    #     }
+    #     @people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
+    @people = all_people.reject{|p| p[1] == @current_user.id}
     
     @kassi_event.person_comments.build  
   end
@@ -190,9 +192,27 @@ class ListingsController < ApplicationController
   def mark_as_closed
     @listing = Listing.find(params[:id])
     return unless must_be_current_user(@listing.author)
-    @listing.update_attribute(:status, "closed")
+    
+    
+    # if params[:person] && params[:person][:name] && ! params[:person][:name].blank?
+    #   # There is a user name submitted from the form
+    #  # puts "NAME ON: #{params[:person][:name]}"
+    #   people_array = get_all_people_array
+    #   #puts people_array
+    #   realizer_id_array = people_array.select { |p| p[0] == params[:person][:name] }
+    #   
+    #   #puts "OSUMAT #{realizer_id_array}"
+    #   if realizer_id_array.length > 1
+    #     flash[:error] = :given_name_matched_more_than_one
+    #     redirect_to :action => :close and return
+    #   end
+    #   params[:kassi_event][:realizer_id] = realizer_id_array[0][1]
+    #   puts "ARVO ON NYT: #{params[:kassi_event][:realizer_id]}"
+    # end
+    
     if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
       @kassi_event = KassiEvent.new(params[:kassi_event])
+      puts "KASSI EVENT #{@kassi_event.inspect}"
       if @kassi_event.save
         realizer = Person.find(params[:kassi_event][:realizer_id])
         if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
@@ -200,14 +220,13 @@ class ListingsController < ApplicationController
         end
         flash[:notice] = :listing_closed
       else
-        puts @kassi.event.errors.full_messages.inspect
+        #puts @kassi.event.errors.full_messages.inspect
         @person = @listing.author
-        @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
-          |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
-        }
+        @people = get_all_people_array
         render :action => :close and return
       end
     end
+    @listing.close!
     redirect_to params[:return_to]
   end
   

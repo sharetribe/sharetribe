@@ -193,6 +193,11 @@ class Listing < ActiveRecord::Base
       return true
     end    
   end
+  
+  def close!
+    update_attribute(:status, "closed")
+    CacheHelper.update_listings_last_changed
+  end
 
   # Save group visibility data to db
   def save_group_visibilities(group_ids)

@@ -269,6 +269,7 @@
 :has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized?",
 :select_from_list => "Select from the list",
 :or_start_writing_the_name => "Or start writing the name",
+:given_name_matched_more_than_one => "Submited name matched more than one person.",
 :follow_listing => "Follow this listing",
 :unfollow_listing => "Stop following this listing",
 :began_to_follow_listing => "You are now following this listing. You will get notified by email of any comments or updates to the listing.",
