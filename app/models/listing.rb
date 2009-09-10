@@ -304,14 +304,16 @@ END_OF_MESSAGE
   # Send notifications to the users following this listing
   # when the listing is updated (update=true) or a
   # new comment to the listing is created.
-  def notify_followers(request, update)
+  def notify_followers(request, current_user, update)
     if RAILS_ENV != "development"
       followers.each do |follower|
-        if update
-          UserMailer.deliver_notification_of_new_update_to_listing(self, follower, request)
-        else
-          UserMailer.deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request)
-        end  
+        unless follower.id == current_user.id
+          if update
+            UserMailer.deliver_notification_of_new_update_to_listing(self, follower, request)
+          else
+            UserMailer.deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request)
+          end
+        end
       end
     end
   end

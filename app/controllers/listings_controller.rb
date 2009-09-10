@@ -127,7 +127,7 @@ class ListingsController < ApplicationController
     get_visibility(:listing)
     if @listing.update_attributes(params[:listing])
       @listing.save_group_visibilities(params[:groups])
-      @listing.notify_followers(request, true)
+      @listing.notify_followers(request, @current_user, true)
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
     else
