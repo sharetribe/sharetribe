@@ -168,12 +168,6 @@ class Group < ActiveRecord::Base
     Group.get_group_ids(get_public_groups(cookie))
   end
   
-  # Currently returns always false so the edit link will
-  # always be hidden.
-  def is_admin?(person)
-    false
-  end
-  
   private
   
   # Class-Methods for COS access
