@@ -163,6 +163,11 @@ class Person < ActiveRecord::Base
       #response = connection.delete("#{prefix}people/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
     end
     
+    def self.get_group_admin_status(id, group_id, cookie)
+      logger.info "Url: #{COS_URL}/people/#{id}/@groups/#{group_id}"
+      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
+    end
+    
     #fixes utf8 letters
     # def self.fix_alphabets(json_hash)
     #   #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
@@ -654,6 +659,13 @@ class Person < ActiveRecord::Base
         unfollow(listing) if is_following?(listing)
       end
     end
+  end
+  
+  # Returns true if this person is an admin of the
+  # given group
+  def is_admin_of?(group, cookie)
+    return false unless group.is_member?(self, cookie)
+    PersonConnection.get_group_admin_status(id, group.id, cookie)["entry"]["admin_role"]
   end
   
   private
