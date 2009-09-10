@@ -618,6 +618,8 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :edit_group_button => "Tee muutokset",
 :group_info_updated => "Ryhmän tiedot päivitetty",
 :group_could_not_be_edited => "Ryhmän muokkaus epäonnistui seuraavien virheiden takia",
+:own_groups => "Omat ryhmät",
+:show_groups_on_page => "Näytä tuloksia sivulla", 
 
 #Purses view
 :purse => "Kukkaro",

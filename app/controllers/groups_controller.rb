@@ -94,6 +94,9 @@ class GroupsController < ApplicationController
   # Search groups
   def search
     save_navi_state(['groups_title', 'search_groups'])
+    if params[:q]
+      @groups = Group.paginate(Group.search(params[:q], session[:cookie]) ,{:page => params[:page], :per_page => per_page})
+    end  
   end
   
   # Add person to a group

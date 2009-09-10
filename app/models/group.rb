@@ -168,6 +168,11 @@ class Group < ActiveRecord::Base
     Group.get_group_ids(get_public_groups(cookie))
   end
   
+  def self.search(query, cookie=nil)
+    cookie = Session.kassiCookie if cookie.nil?
+    Group.get_group_ids(RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public?query=#{query}", {:cookies => cookie}))
+  end
+  
   private
   
   # Class-Methods for COS access
