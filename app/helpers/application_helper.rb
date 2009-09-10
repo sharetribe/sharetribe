@@ -78,8 +78,9 @@ module ApplicationHelper
       end  
     when 'groups_title'
       navi_items[:browse_groups] = groups_path
-      #navi_items[:search_groups] = search_groups_path
+      navi_items[:search_groups] = search_groups_path
       navi_items[:new_group] = new_group_path
+      navi_items[:own_groups] = person_path(@current_user) + "#groups" if @current_user
     when 'info'
       navi_items[:about] = about_info_path
       navi_items[:help] = help_info_path
@@ -176,7 +177,9 @@ module ApplicationHelper
         when "groups_title"
           path = groups_path(params.merge({:per_page => value}))
         when "group_members"
-          path = group_path(params.merge({:per_page => value}))                      
+          path = group_path(params.merge({:per_page => value}))
+        when "search_groups"
+          path = search_groups_path(params.merge({:per_page => value}))                     
         end
         links << link_to(t(value), path, :class => "links_panel")  
       end    

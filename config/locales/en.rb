@@ -610,6 +610,7 @@
 :group_could_not_be_created => "Group could not be created due to following errors",   
 :no_members => "No members", 
 :group_not_found => "Could not find the specified group",
+:own_groups => "Own groups",
 
 #Purses view
 :purse_title => "Purse",
