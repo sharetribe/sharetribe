@@ -166,7 +166,8 @@ class ApplicationController < ActionController::Base
   
   def count_new_arrived_items
     if @current_user
-      @new_arrived_items_count, @inbox_new_count, @comments_new_count, @requests_count, @uncommented_kassi_events_count, @new_feedback_item_amount = Rails.cache.read("new_arrived_items_for:#{@current_user.id}")
+      # reading the cache is not in use untill we get proper expiration
+      #@new_arrived_items_count, @inbox_new_count, @comments_new_count, @requests_count, @uncommented_kassi_events_count, @new_feedback_item_amount = Rails.cache.read("new_arrived_items_for:#{@current_user.id}")
       if @new_arrived_items_count.nil?
         conditions = ["person_id = ? AND is_read = 0", @current_user.id]
         @inbox_new_count = PersonConversation.count(:all, :conditions => conditions)
