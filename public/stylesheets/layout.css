@@ -145,6 +145,7 @@ div.errorExplanation h2 {
 	background: #f4f6d0 url(../images/background_gradient2.png) repeat-x top left;
 	height: 100%;
 	width: 100%;
+	min-width: 1000px;
 	margin: 0;
 }
 
