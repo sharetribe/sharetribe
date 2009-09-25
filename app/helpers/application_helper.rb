@@ -33,7 +33,7 @@ module ApplicationHelper
     navi_items = ActiveSupport::OrderedHash.new
     navi_items[:home] = root_path
     navi_items[:listings] = listing_category_path("all_categories")
-    navi_items[:items] = items_path
+    navi_items[:items_tab] = items_path
     navi_items[:favors_top] = favors_path
     navi_items[:people] = people_path
     navi_items[:groups_title] = groups_path
@@ -59,7 +59,7 @@ module ApplicationHelper
       navi_items[:search_listings] = search_listings_path
       navi_items[:add_listing] = new_listing_path
       navi_items[:own_listings] = person_listings_path(@current_user) if @current_user
-    when 'items'
+    when 'items_tab'
       navi_items[:browse_items] = items_path
       navi_items[:search_items] = search_items_path
       navi_items[:add_item] = person_path(@current_user) + "#items" if @current_user

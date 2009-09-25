@@ -77,7 +77,10 @@ class ListingsController < ApplicationController
       @listing.post_to_newsgroups(request.protocol + request.host + listing_path(@listing))
       if RAILS_ENV != "development"
         @current_user.friends(session[:cookie]).each do |friend|
-          if friend.settings.email_when_new_listing_from_friend == 1
+          # Send mail to a friend only if he/she is allowed to see the listing and has
+          # allowed mail notifications of new listings from friends.
+          count = Listing.count(:all, :conditions => ["id = ?" + get_visibility_conditions("listing", friend), @listing.id])
+          if friend.settings.email_when_new_listing_from_friend == 1 && count == 1
             UserMailer.deliver_notification_of_new_listing_from_friend(@listing, friend, request)
           end  
         end  
