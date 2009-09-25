@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   
   def update_navi
     case params[:action]    
-      when "index" then save_navi_state(['items','browse_items','',''])
+      when "index" then save_navi_state(['items_tab','browse_items','',''])
     end
   end
   
@@ -168,7 +168,7 @@ class ItemsController < ApplicationController
   end
   
   def search
-    save_navi_state(['items', 'search_items'])
+    save_navi_state(['items_tab', 'search_items'])
     if params[:q]
       query = (params[:q].length > 0) ? "*" + params[:q] + "*" : ""
       items = search_items(query)

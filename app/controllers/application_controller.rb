@@ -59,9 +59,9 @@ class ApplicationController < ActionController::Base
   end
 
   # Returns visibility conditions for object_type (item, favor or listing)
-  def get_visibility_conditions(object_type)
+  def get_visibility_conditions(object_type, person=@current_user)
     conditions = " AND (visibility = 'everybody'"
-    if @current_user
+    if person
       case object_type
       when "listing"
         person_type = "author_id"
@@ -70,18 +70,18 @@ class ApplicationController < ActionController::Base
       when "favor"
         person_type = "owner_id"
       end
-      conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{@current_user.id}'"
-      friend_ids = @current_user.get_friend_ids(session[:cookie])
+      conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{person.id}'"
+      friend_ids = person.get_friend_ids(session[:cookie])
       if friend_ids.size > 0
         conditions += " OR (visibility IN ('friends', 'f_c', 'f_g', 'f_c_g') 
         AND #{person_type} IN (" + friend_ids.collect { |id| "'#{id}'" }.join(",") + "))"
       end
-      if Person.count_by_sql(@current_user.contact_query("COUNT(people.id)")) > 0
+      if Person.count_by_sql(person.contact_query("COUNT(people.id)")) > 0
         conditions += " OR (visibility IN ('contacts', 'f_c', 'c_g', 'f_c_g') 
-        AND #{person_type} IN (#{@current_user.contact_query('people.id')}))"
+        AND #{person_type} IN (#{person.contact_query('people.id')}))"
       end
-      if @current_user.groups(session[:cookie]).size > 0
-        group_ids = @current_user.get_group_ids(session[:cookie]).collect { |id| "'#{id}'" }.join(",")
+      if person.groups(session[:cookie]).size > 0
+        group_ids = person.get_group_ids(session[:cookie]).collect { |id| "'#{id}'" }.join(",")
         conditions += " OR (visibility IN ('groups', 'f_g', 'c_g', 'f_c_g')
         AND id IN (
           SELECT #{object_type}s.id 
