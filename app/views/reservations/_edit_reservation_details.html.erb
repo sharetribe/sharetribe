@@ -3,7 +3,6 @@
 <% picking_up_time = "getDatetimeFromDatetimeSelect('conversation', 'pick_up_time', '#{gmt_offset}')" %>
 <% items = @items.collect { |item| "items[]=#{item.id.to_s}" }.join("&") %>
 <% item_amounts = "getItemAmountsFromTextfields(new Array(#{to_js_array(@items)}))" %>
-<% logger.info "Item amounts: " + item_amounts %>
 <% error_class = @conversation.errors.invalid?(:items) ? "fieldWithErrorsNoFloat" : "" %>
 
 <fieldset>

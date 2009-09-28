@@ -37,7 +37,7 @@
       <div id='<%= "info_#{object_type.downcase}_#{content_item.id.to_s}" %>' class="content_item_description" style="display:none;">
         <% unless object_type.eql?("Listing") %>
           <% if content_item.description && !content_item.description.eql?("") %>
-            <%= content_item.description %>
+            <%= text_with_line_breaks(content_item.description) %>
           <% else %>
             <%= t(:no_description) %>
           <% end %>  
