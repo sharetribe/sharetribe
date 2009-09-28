@@ -55,7 +55,6 @@ class PeopleController < ApplicationController
   
   def more_content_items
     @content_items_per_page = params[:content_items_per_page].to_i + 5
-    logger.info "Content items per page: " + @content_items_per_page.to_s
     @content_items = get_newest_content_items(@content_items_per_page)
     render :update do |page|
       page["content_items"].replace_html :partial => "content_item",

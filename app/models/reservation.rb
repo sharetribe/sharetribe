@@ -46,7 +46,6 @@ class Reservation < Conversation
   
   # Updates reserved items
   def existing_reserved_items=(reserved_items)
-    logger.info "Item reservations1: " + item_reservations.inspect
     item_reservations.each do |ir|
       amount = reserved_items[ir.item_id.to_s]
       if amount 

@@ -133,7 +133,6 @@ class FavorsController < ApplicationController
   end
   
   def destroy
-    logger.info "this is controller"
     @favor = Favor.find(params[:id])
     @person = @favor.owner
     @conditions = get_visibility_conditions("favor")    

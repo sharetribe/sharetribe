@@ -26,8 +26,14 @@ class ListingsController < ApplicationController
     save_navi_state(['listings', 'browse_listings', 'all_categories']) unless session[:navi2] && !session[:navi2].eql?("")
     @listing = Listing.find(params[:id])
     unless is_visible?(@listing)
-      flash[:error] = :no_permission_to_view_this_content
-      redirect_to listings_path
+      if  @current_user
+        flash[:error] = :no_permission_to_view_this_content
+        redirect_to listings_path
+      else  
+        session[:return_to] = request.request_uri
+        flash[:warning] = :you_must_login_to_do_this
+        redirect_to new_session_path and return false
+      end  
     end  
     if @current_user && @listing.author.id == @current_user.id
       @listing.comments.each do |comment|
@@ -215,7 +221,6 @@ class ListingsController < ApplicationController
     
     if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
       @kassi_event = KassiEvent.new(params[:kassi_event])
-      puts "KASSI EVENT #{@kassi_event.inspect}"
       if @kassi_event.save
         realizer = Person.find(params[:kassi_event][:realizer_id])
         if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1

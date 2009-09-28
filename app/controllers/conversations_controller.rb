@@ -31,10 +31,8 @@ class ConversationsController < ApplicationController
   # Create a new conversation and send a message to it
   def create
     if params[:conversation][:type]
-      logger.info params.inspect
       @conversation = Reservation.new(params[:conversation])
     else
-      logger.info params[:conversation].inspect  
       @conversation = Conversation.new(params[:conversation])
     end  
     if @conversation.save

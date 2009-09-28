@@ -118,7 +118,7 @@ class ItemsController < ApplicationController
     get_visibility(:item)
     render :update do |page|
       if !is_current_user?(@item.owner)
-        flash[:error] = :operation_not_permitted
+        flash.now[:error] = :operation_not_permitted
         page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
       else
         @item.title = params[:item][:title]
@@ -127,11 +127,10 @@ class ItemsController < ApplicationController
         @item.amount = params[:item][:amount]
         if @current_user.save_item(@item)
           @item.save_group_visibilities(params[:groups])
-          flash[:notice] = :item_updated
-          flash[:error] = nil
+          flash.now[:notice] = :item_updated
           page["item_" + @item.id.to_s].replace_html :partial => 'people/profile_item_inner', :locals => {:item => @item}
         else
-          flash[:error] = translate_announcement_error_message(@item.errors.full_messages.first)
+          flash.now[:error] = translate_announcement_error_message(@item.errors.full_messages.first)
         end  
       end
       page["announcement_div"].replace_html :partial => 'layouts/announcements'
@@ -139,7 +138,6 @@ class ItemsController < ApplicationController
   end
   
   def destroy
-    logger.info "this is controller"
     @item = Item.find(params[:id])
     @person = @item.owner
     @conditions = get_visibility_conditions("item")    
@@ -163,7 +161,7 @@ class ItemsController < ApplicationController
     return unless must_be_current_user(@person)
     @item = Item.find(params[:id])
     @item.enable
-    flash[:notice] = [:cancelled_deletion_of_item, @item.title]
+    flash.now[:notice] = [:cancelled_deletion_of_item, @item.title]
     redirect_to @person
   end
   
@@ -227,7 +225,7 @@ class ItemsController < ApplicationController
     begin
       loc = gg.locate @item.owner.unstructured_address
     rescue
-      flash[:error] = :item_owner_has_not_provided_location
+      flash.now[:error] = :item_owner_has_not_provided_location
       return
     end  
     @map = GMap.new("map_div")
@@ -257,13 +255,13 @@ class ItemsController < ApplicationController
       zoom = 12
     else
       if !@items.first.owner.street_address || @items.first.owner.street_address == ""
-        flash[:error] = :item_owner_has_not_provided_location
+        flash.now[:error] = :item_owner_has_not_provided_location
         render :action => :map and return
       end  
       begin
         central_loc = gg.locate @items.first.owner.unstructured_address
       rescue
-        flash[:error] = :item_owner_has_not_provided_location
+        flash.now[:error] = :item_owner_has_not_provided_location
         render :action => :map and return
       end    
       zoom = 15
@@ -278,7 +276,7 @@ class ItemsController < ApplicationController
     at_least_one_is_valid = false;
     @items.each do |item|
       if !item.owner.street_address || item.owner.street_address == ""
-        flash[:warning] = :all_item_owners_have_not_provided_their_info
+        flash.now[:warning] = :all_item_owners_have_not_provided_their_info
         next
       end
       begin
@@ -287,13 +285,13 @@ class ItemsController < ApplicationController
         @map.overlay_init(GMarker.new([loc.latitude, loc.longitude], :title => item.owner.name, :info_window => info_text))
         at_least_one_is_valid = true;
       rescue
-        flash[:warning] = :all_item_owners_have_not_provided_their_info
+        flash.now[:warning] = :all_item_owners_have_not_provided_their_info
       end  
     end
     unless at_least_one_is_valid 
       @map = nil
-      flash[:error] = :item_owners_have_not_provided_their_location
-      flash[:warning] = nil
+      flash.now[:error] = :item_owners_have_not_provided_their_location
+      flash.now[:warning] = nil
     end   
      
     render :action => :map 
