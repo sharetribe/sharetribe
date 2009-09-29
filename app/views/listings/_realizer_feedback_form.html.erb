@@ -1,35 +1,68 @@
-<script>
-  $('close_button').disabled = false;
-</script>
-<% if @realizer %>
-<%= hidden_field_tag "kassi_event[participant_attributes][#{@realizer.id}]", @listing.realizer_role %>
-<% fields_for "kassi_event[comment_attributes]", PersonComment.new do |comment_form| -%>
-  <%= comment_form.hidden_field :author_id, :value => @current_user.id %>
-  <%= comment_form.hidden_field :target_person_id, :value => @realizer.id %>  
-  <div class="form_container">
-    <div class="form_left">
-      <%= t(:rate_realizer) %>: 
-    </div>
-    <div class="form_right">
-      <%= comment_form.radio_button :grade, 0 %>
-      1 (<%= t(:less_than_expected) %>)
-      &nbsp;&nbsp;&nbsp;
-      <%= comment_form.radio_button :grade, 0.5, { :checked => true}  %>
-      2 (<%= t(:as_expected) %>)
-      &nbsp;&nbsp;&nbsp;
-      <%= comment_form.radio_button :grade, 1 %>
-      3 (<%= t(:exceeded_expectations) %>)
-    </div>
-  </div>  
-  <div class="form_container">
-    <div class="form_left">
-      <%= t(:comment_for_listing_realizer) %>: 
-    </div>
-    <div class="form_right">
-      <%= comment_form.text_area :text_content, :size => "65x8" %>
-    </div>
+<div class="form_container">
+
+  <div class="form_left">
+    <%= t(:listing_realizer) %>: 
   </div>
-<% end %>
-<% else %>
-  <br />
-<% end %>
+  <div class="form_right">
+    <%# = t(:select_from_list) %>
+    <%# = 
+      select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)},
+             {:onchange => "
+                $('close_button').disabled = true;
+                #{remote_function(:url => { :action => "realizer_feedback_form" },
+                                  :with => "'realizer='+value+'&listing=#{@listing.id.to_s}'",
+                                  :update => "realizer_feedback_form") }" }) 
+    %>
+
+    <%= label_tag("person_name", t(:name_or_username)) %>
+     <%= text_field_with_auto_complete :person, 
+                                        :name, 
+                                        { :class => "search_person_form", :value => (params[:person] ? params[:person][:name] : "") }, 
+                                        { 
+                                          :url => search_by_name_people_path(:js), 
+                                          :method => :get, 
+                                          :with => "'search=' + element.value" 
+                                        }
+                                         %>
+  </div>
+  <%#= hidden_field_tag "kassi_event[participant_attributes][#{@realizer.id}]", @listing.realizer_role %>
+  <% fields_for "kassi_event[comment_attributes]", PersonComment.new do |comment_form| -%>
+    <%#= comment_form.hidden_field :target_person_id, :value => @realizer.id %>  
+  
+  <div class="form_container">
+      <div class="form_left">
+        <%= t(:rate_realizer) %>: 
+      </div>
+      <div class="form_right" style="text-align:left;">
+        <%= comment_form.radio_button :grade, 0, { :checked => ( params[:kassi_event] && params[:kassi_event][:comment_attributes][:grade] == "0"),
+           :onChange => "$('kassi_event_comment_attributes_text_content').disabled = false;"} %>
+        <%= label_tag(:kassi_event_comment_attributes_grade_0, "1 ( #{t(:less_than_expected)} )") %>
+        <br />
+        <%= comment_form.radio_button :grade, 0.5, { :checked => (!params[:kassi_event] || params[:kassi_event] && params[:kassi_event][:comment_attributes][:grade] == "0.5"),
+           :onChange => "$('kassi_event_comment_attributes_text_content').disabled = false;"}  %>
+        <%= label_tag(:kassi_event_comment_attributes_grade_05, "2 (#{t(:as_expected)})") %>
+       <br />
+        <%= comment_form.radio_button :grade, 1, { :checked => ( params[:kassi_event] && params[:kassi_event][:comment_attributes][:grade] == "1"),
+          :onChange => "$('kassi_event_comment_attributes_text_content').disabled = false;"} %>
+        <%= label_tag(:kassi_event_comment_attributes_grade_1, "3 (#{t(:exceeded_expectations)})") %>
+        <br />
+        <br />
+         <%= comment_form.radio_button :grade, "later", { :checked => ( params[:kassi_event] && params[:kassi_event][:comment_attributes][:grade] == "later"),
+            :onChange => "$('kassi_event_comment_attributes_text_content').disabled = true;"}%>
+          <%= label_tag(:kassi_event_comment_attributes_grade_later, t(:give_feed_back_later)) %>
+      </div>
+    </div>
+    <div class="form_container">
+      <div class="form_left">
+        <%= t(:comment_for_listing_realizer) %>: 
+      </div>
+      <div class="form_right">
+        <%= comment_form.text_area :text_content, {:value =>  ( params[:kassi_event] ? params[:kassi_event][:comment_attributes][:text_content] : "") , :size => "65x8"} %>
+        <% if  params[:kassi_event] && params[:kassi_event][:comment_attributes][:grade] == "later" %>
+          <script> document.getElementById('kassi_event_comment_attributes_text_content').disabled = true;</script>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+
+</div>

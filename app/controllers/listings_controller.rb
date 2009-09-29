@@ -183,57 +183,99 @@ class ListingsController < ApplicationController
   def close
     @listing = Listing.find(params[:id])
     return unless must_be_current_user(@listing.author)
-    @person = Person.find(params[:person_id])
+    #@person = Person.find(params[:person_id])
     @kassi_event = KassiEvent.new
     if params[:rid]
       @kassi_event.realizer_id = params[:rid]
     end
-    all_people = get_all_people_array
+    @people = get_all_people_array  #ensures that people list is in cache for the auto-complete to work fast
+    
+    
     # @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
     #       |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
     #     }
     #     @people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
-    @people = all_people.reject{|p| p[1] == @current_user.id}
+    #@people = all_people.reject{|p| p[1] == @current_user.id}
     
-    @kassi_event.person_comments.build  
+    @kassi_event.person_comments.build  #required for the form_for the comment inside the form_for event
   end
   
   def mark_as_closed
     @listing = Listing.find(params[:id])
     return unless must_be_current_user(@listing.author)
     
-    
-    # if params[:person] && params[:person][:name] && ! params[:person][:name].blank?
-    #   # There is a user name submitted from the form
-    #  # puts "NAME ON: #{params[:person][:name]}"
-    #   people_array = get_all_people_array
-    #   #puts people_array
-    #   realizer_id_array = people_array.select { |p| p[0] == params[:person][:name] }
-    #   
-    #   #puts "OSUMAT #{realizer_id_array}"
-    #   if realizer_id_array.length > 1
-    #     flash[:error] = :given_name_matched_more_than_one
-    #     redirect_to :action => :close and return
-    #   end
-    #   params[:kassi_event][:realizer_id] = realizer_id_array[0][1]
-    #   puts "ARVO ON NYT: #{params[:kassi_event][:realizer_id]}"
-    # end
-    
-    if params[:kassi_event][:realizer_id] && params[:kassi_event][:realizer_id] != ""
-      @kassi_event = KassiEvent.new(params[:kassi_event])
-      if @kassi_event.save
-        realizer = Person.find(params[:kassi_event][:realizer_id])
-        if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
-          UserMailer.deliver_notification_of_new_kassi_event(realizer, @kassi_event, request)
+    if params[:realized] == "true"
+      if params[:person] && params[:person][:name] && ! params[:person][:name].blank?
+        # There is a user name submitted from the form
+
+        # First we compare with the array used for auto-completion
+        people_array = get_all_people_array
+        realizer_id_array = people_array.select { |p| p[0] == params[:person][:name] }
+        
+        if realizer_id_array.length < 1
+          # search from ASI
+          hits = Person.search(params[:person][:name])
+          if hits["entry"]
+            hits["entry"].each do |person|
+              # Filter non-kassi users from hits
+              if Person.find_by_id(person["id"])
+                realizer_id_array.push([nil,person["id"]])
+              end
+            end
+          end
         end
-        flash[:notice] = :listing_closed
+        
+        if realizer_id_array.length < 1
+          flash.now[:error] = :no_match_with_given_name
+          @person = @listing.author
+          @kassi_event = KassiEvent.new
+          @people = get_all_people_array
+          render :action => :close and return
+        
+        elsif realizer_id_array.length > 1
+          flash.now[:error] = :given_name_matched_more_than_one
+          @person = @listing.author
+          @kassi_event = KassiEvent.new
+          @people = get_all_people_array
+          render :action => :close and return
+        end
+        
+        realizer_id = realizer_id_array[0][1]
+        
+        if realizer_id == @current_user.id
+          flash.now[:error] = :cant_mark_yourself_as_realizer
+          @person = @listing.author
+          @kassi_event = KassiEvent.new
+          @people = get_all_people_array
+          render :action => :close and return
+        end
+        
+        params[:kassi_event][:participant_attributes][realizer_id] = @listing.realizer_role
+        params[:kassi_event][:comment_attributes].merge!({:author_id => @current_user.id, :target_person_id => realizer_id})
+        
+        @kassi_event = KassiEvent.new(params[:kassi_event])
+        
+        if @kassi_event.save
+          realizer = Person.find(realizer_id)
+          if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
+            UserMailer.deliver_notification_of_new_kassi_event(realizer, @kassi_event, request)
+          end
+          flash[:notice] = :listing_closed
+        else
+          puts @kassi_event.person_comments[0].errors.full_messages.inspect         
+          @person = @listing.author
+          @people = get_all_people_array
+          render :action => :close and return
+        end
       else
-        #puts @kassi.event.errors.full_messages.inspect
+        flash.now[:error] = :realizer_name_missing
         @person = @listing.author
+        @kassi_event = KassiEvent.new
         @people = get_all_people_array
         render :action => :close and return
       end
     end
+    
     @listing.close!
     redirect_to params[:return_to]
   end
@@ -252,13 +294,13 @@ class ListingsController < ApplicationController
   end
   
   # Displays a form for feedback for listing realizer when closing the form
-  def realizer_feedback_form
-    if params[:realizer] && params[:realizer] != ""
-      @realizer = Person.find(params[:realizer])
-      @listing = Listing.find(params[:listing])  
-    end
-    render :partial => "realizer_feedback_form"
-  end
+  # def realizer_feedback_form
+  #   if params[:realizer] && params[:realizer] != ""
+  #     @realizer = Person.find(params[:realizer])
+  #     @listing = Listing.find(params[:listing])  
+  #   end
+  #   render :partial => "realizer_feedback_form"
+  # end
   
   # Current user starts to follow this listing
   def follow

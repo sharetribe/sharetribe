@@ -9,7 +9,7 @@ class KassiEvent < ActiveRecord::Base
   has_and_belongs_to_many :people
   
   def comment_attributes=(attributes)
-    person_comments.build(attributes)
+    person_comments.build(attributes) unless attributes["grade"] == "later"
   end
   
   def participant_attributes=(attributes)
