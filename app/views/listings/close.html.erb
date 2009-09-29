@@ -1,5 +1,19 @@
 <h1><%= t(:close_listing) %> "<%= @listing.title %>"</h1>
 
+ <script>
+ function showFeedback() {
+   document.getElementById('feedback').style.display = 'block';
+   document.getElementById('close_listing').style.display = 'block';
+ }
+ 
+ function hideFeedback() {
+   document.getElementById('feedback').style.display = 'none';
+   document.getElementById('close_listing').style.display = 'block';
+ }
+ 
+ 
+ </script>
+
 <% form_for @kassi_event, :url => mark_as_closed_person_listing_path(@current_user, @listing) do |f| %>
   <%= f.error_messages %>
   <%= f.hidden_field :eventable_id, :value => @listing.id %>
@@ -10,41 +24,28 @@
     <legend>
       <%= t(:has_somebody_done_the_thing_mentioned_in_the_listing) %>
     </legend>
+        
     <div class="form_extra_padding">
       <div class="form_container">
-        <div class="form_left">
-          <%= t(:listing_realizer) %>: 
-        </div>
-        <div class="form_right">
-          <%# = t(:select_from_list) %>
-          <%= 
-            select("kassi_event", "realizer_id", @people, {:include_blank => t(:no_realizer)},
-                   {:onchange => "
-                      $('close_button').disabled = true;
-                      #{remote_function(:url => { :action => "realizer_feedback_form" },
-                                        :with => "'realizer='+value+'&listing=#{@listing.id.to_s}'",
-                                        :update => "realizer_feedback_form") }" }) 
-          %>
-          <br />
-          <br />
-          <%# = t(:or_start_writing_the_name) %>
-           <%# = text_field_with_auto_complete :person, 
-                                              :name, 
-                                              { :class => "search_person_form", :value => "" }, 
-                                              { 
-                                                :url => search_by_name_people_path(:js), 
-                                                :method => :get, 
-                                                :with => "'search=' + element.value" 
-                                              }
-                                               %>
+        <%= radio_button_tag(:realized, "true", params[:realized], :onchange =>"showFeedback();") %> 
+        <%= label_tag(:realized_true, t(:yes)) %> 
+        <%= radio_button_tag(:realized, "false", false, :onchange =>"hideFeedback();") %>  
+        <%= label_tag(:realized_false, t(:no)) %> 
+        <br /><br /><br />
+      </div>
+
+        <div id="feedback"  style="display:<%= params[:realized] ? "block" : "none" %>;">
+          
+          <%= render :partial => "realizer_feedback_form" %>
+          
+          
         </div>
       </div>
-      <div id="realizer_feedback_form">
-        <br />
-      </div>
-      <div class="form_container">
+          
+      <div class="form_container" id="close_listing" style="display:<%= params[:realized] ? "block" : "none" %>;">
         <%= submit_tag t(:close_listing), :onclick => "this.disabled=true,this.form.submit();", :id => "close_button" %>
       </div>
+     
     </div>
   </fieldset> 
 <% end %>

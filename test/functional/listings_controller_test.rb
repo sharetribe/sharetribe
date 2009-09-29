@@ -123,7 +123,7 @@ class ListingsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'close'  
     assert_not_nil assigns(:listing)
-    assert_not_nil assigns(:person)
+    #assert_not_nil assigns(:person) # not needed anymore
     assert_not_nil assigns(:kassi_event)
     assert_not_nil assigns(:people)
   end
@@ -134,31 +134,104 @@ class ListingsControllerTest < ActionController::TestCase
     submit_with_person :mark_as_closed, {
       :person_id => people(:one),
       :id => listing.id,
+      :realized => "true",
       :kassi_event => {
-        :realizer_id => people(:two).id,
         :eventable_id => listing.id,
         :eventable_type => "Listing",
         :comment_attributes => {
           :text_content => "Kommentti",
           :grade => 1,
-          :author_id => people(:one).id,
-          :target_person_id => people(:two).id
+          # :author_id => people(:one).id,
         },
         :participant_attributes => {
           people(:one).id => "requester",
-          people(:two).id => "provider"
         }
-      },
+      }, 
+      :person => {:name => "kassi_testperson2 (kassi_testperson2)"},
       :return_to => return_to
     }, :kassi_event, :receiver_id, :post
+    
+    assert_equal  :listing_closed, flash[:notice]
+    assert_nil flash[:error]
     assert_redirected_to return_to
-    assert_equal flash[:notice], :listing_closed
+    assert_not_nil assigns(:kassi_event)
     kassi_event = assigns(:kassi_event)
     assert ! kassi_event.new_record?
     assert_equal "Kommentti", kassi_event.person_comments.first.text_content
     assert_equal 1, kassi_event.person_comments.first.grade
     assert_equal people(:one), kassi_event.requester
-    assert_equal people(:two), kassi_event.provider
+    assert_equal people(:two), kassi_event.buyer
+    assert ! Listing.find(listing.id).open?, "Listing is still open after succesful close"
+  end
+     
+  def test_close_listing_with_bad_name_parameters
+    return_to = listings_path 
+    listing = listings(:valid_listing)
+    names_and_errors = [ {:name => "kassi_testperson1", :error => :cant_mark_yourself_as_realizer},
+                         {:name => "yehruit34gnveu8g", :error => :no_match_with_given_name},
+                         {:name => "", :error => :realizer_name_missing},
+                         
+                         #This is commented out because ASI only finds one person with "kassi", although there are 2
+                         #{:name => "kassi", :error => :given_name_matched_more_than_one},
+                       ]
+    names_and_errors.each do |name_and_error|
+      submit_with_person :mark_as_closed, {
+         :person_id => people(:one),
+         :id => listing.id,
+         :realized => "true",
+         :kassi_event => {
+           :eventable_id => listing.id,
+           :eventable_type => "Listing",
+           :comment_attributes => {
+             :text_content => "Kommentti",
+             :grade => 1,
+           },
+           :participant_attributes => {
+             people(:one).id => "requester",
+           }
+         }, 
+         :person => {:name => name_and_error[:name]},
+         :return_to => return_to
+       }, :kassi_event, :receiver_id, :post
+    
+       assert_equal name_and_error[:error], flash[:error]
+      assert Listing.find(listing.id).open?, "Listing was closed, but it should not!"
+    end
+  end
+  
+  def test_mark_as_closed_but_give_feedback_later
+    return_to = listings_path 
+    listing = listings(:valid_listing)
+    submit_with_person :mark_as_closed, {
+      :person_id => people(:one),
+      :id => listing.id,
+      :realized => "true",
+      :kassi_event => {
+        :eventable_id => listing.id,
+        :eventable_type => "Listing",
+        :comment_attributes => {
+          #:text_content => "Kommentti",
+          :grade => "later",
+          # :author_id => people(:one).id,
+        },
+        :participant_attributes => {
+          people(:one).id => "requester",
+        }
+      }, 
+      :person => {:name => "kassi_testperson2 (kassi_testperson2)"},
+      :return_to => return_to
+    }, :kassi_event, :receiver_id, :post
+    
+    
+    assert_nil flash[:error]
+    assert_equal  :listing_closed, flash[:notice]
+    assert_redirected_to return_to
+    assert_not_nil assigns(:kassi_event)
+    kassi_event = assigns(:kassi_event)
+    assert ! kassi_event.new_record?
+    assert_equal people(:one), kassi_event.requester
+    assert_equal people(:two), kassi_event.buyer
+    assert ! Listing.find(listing.id).open?, "Listing is still open after succesful close"
   end
   
   def test_show_comments_to_own_listings
