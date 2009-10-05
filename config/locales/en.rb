@@ -87,6 +87,7 @@
 :own => "Own",
 :listings => "Listings",
 :items => "Items",
+:items_tab => "Items", 
 :favors_top => "Favors",
 :people => "Users",
 
@@ -617,7 +618,13 @@
 :group_could_not_be_created => "Group could not be created due to following errors",   
 :no_members => "No members", 
 :group_not_found => "Could not find the specified group",
+:edit_group => "Edit group",
+:edit_group_mode => "Edit group",
+:edit_group_button => "Make changes",
+:group_info_updated => "Group info updated",
+:group_could_not_be_edited => "Update failed due to following errors",
 :own_groups => "Own groups",
+:show_groups_on_page => "Show groups on page",
 :you_must_be_admin_of_this_group_to_do_this => "You must be group admin to do this",
 
 #Purses view
