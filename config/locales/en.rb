@@ -618,6 +618,7 @@
 :no_members => "No members", 
 :group_not_found => "Could not find the specified group",
 :own_groups => "Own groups",
+:you_must_be_admin_of_this_group_to_do_this => "You must be group admin to do this",
 
 #Purses view
 :purse_title => "Purse",

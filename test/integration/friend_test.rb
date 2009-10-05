@@ -3,7 +3,7 @@ require 'test_helper'
 class PeopleTest < ActionController::IntegrationTest
     
   fixtures :people
-  fixtures :items
+  fixtures :items 
 
   # Tests friend functionality
   def test_add_and_remove_friend

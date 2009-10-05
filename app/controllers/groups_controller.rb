@@ -25,6 +25,7 @@ class GroupsController < ApplicationController
   
   # Show a single group
   def show
+    save_navi_state(['groups_title', 'browse_groups'])
     begin
       @group = Group.find(params[:id])
       @members = @group.members(session[:cookie]).paginate :page => params[:page], :per_page => per_page
@@ -70,10 +71,18 @@ class GroupsController < ApplicationController
   
   def edit
     @group = Group.find(params[:id])
+    unless @current_user && @current_user.is_admin_of?(@group, session[:cookie])
+      flash[:error] = :you_must_be_admin_of_this_group_to_do_this
+      redirect_to group_path(@group)
+    end  
   end
   
   def update
     @group = Group.find(params[:id])
+    unless @current_user && @current_user.is_admin_of?(@group, session[:cookie])
+      flash[:error] = :you_must_be_admin_of_this_group_to_do_this
+      redirect_to group_path(@group) and return
+    end
     begin 
       @group.update_attributes(params[:group], session[:cookie])
       flash[:notice] = :group_info_updated
