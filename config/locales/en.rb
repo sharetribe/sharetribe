@@ -266,7 +266,7 @@
 :less_than_expected => "less than expected",
 :as_expected => "as expected",
 :exceeded_expectations => "exceeded expectations",
-:has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized?",
+:has_somebody_done_the_thing_mentioned_in_the_listing => "Did the request made in the listing get realized by a Kassi user?",
 :select_from_list => "Select from the list",
 :or_start_writing_the_name => "Or start writing the name",
 :yes => "yes",

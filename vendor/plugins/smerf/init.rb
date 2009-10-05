@@ -1,5 +1,10 @@
 # Include hook code here
 
+# This plugin should be reloaded in development mode.
+if RAILS_ENV == "development"
+ActiveSupport::Dependencies.load_once_paths.reject!{|x| x =~ /^#{Regexp.escape(File.dirname(__FILE__))}/}
+end
+
 model_path = ''
 # Setup additional application directory paths
 %w(controllers helpers models views).each do |code_dir|
