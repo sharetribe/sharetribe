@@ -112,6 +112,7 @@ class Group < ActiveRecord::Base
   
   def update_attributes(params, cookie)
     CacheHelper.update_groups_last_changed
+    Rails.cache.delete("group_hash/#{id}")
     Group.put_attributes(params, self.id, cookie)
   end
 
