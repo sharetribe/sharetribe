@@ -86,11 +86,31 @@ class ListingsControllerTest < ActionController::TestCase
     get :show, 
         { :id => listings(:valid_listing).id }, 
         { :person_id => @test_person1.id, 
-          :cookie => @cookie, 
-          :ids => [listings(:valid_listing).id, listings(:another_valid_listing).id] }
+          :cookie => @cookie }
     assert_response :success
     assert_template 'show'
     assert_equal listings(:valid_listing), assigns(:listing)
+  end
+  
+  def test_show_edit_form
+    get :edit, 
+        { :id => listings(:valid_listing).id }, 
+        { :person_id => @test_person1.id, 
+          :cookie => @cookie }
+    assert_response :success
+    assert_template 'edit'
+    assert_equal listings(:valid_listing), assigns(:listing)
+  end
+  
+  def test_edit_listing
+    submit_with_person :update, { 
+      :listing => { :title => "new_title", :content => "new_content", :good_thru => DateTime.now+(2), :language => ["fi", "swe"] },
+      :id => listings(:valid_listing),
+      :person_id => people(:one)
+    }, :listing, :author_id, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :listing_updated
+    assert_redirected_to listing_path(assigns(:listing))
   end
   
   def test_search_listings_view
@@ -264,16 +284,5 @@ class ListingsControllerTest < ActionController::TestCase
     assert_response :success
     assert_equal result_count, assigns(:listings).size
   end  
-  
-  def test_edit_listing
-    submit_with_person :update, { 
-      :listing => { :title => "new_title", :content => "new_content", :good_thru => DateTime.now+(2), :language => ["fi", "swe"] },
-      :id => listings(:valid_listing),
-      :person_id => people(:one)
-    }, :listing, :author_id, :put
-    assert_response :found, @response.body
-    assert_equal flash[:notice], :listing_updated
-    assert_template 'show'
-  end
   
 end

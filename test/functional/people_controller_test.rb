@@ -36,17 +36,16 @@ class PeopleControllerTest < ActionController::TestCase
   end
   
   def test_render_profile_page
-    submit_with_person :show, {
-      :id => people(:one).id
-    }, nil, nil, :get
+    get :show, { :id => @test_person2.id }, {:person_id => @test_person2.id, :cookie => @session2.cookie}
     assert_response :success
     assert_template "show"
     assert_not_nil assigns(:person)
     assert_not_nil assigns(:item)
     assert_not_nil assigns(:favor)
     #assert_equal assigns(:items), [ items(:one) ]
-    assert(assigns(:items).include?(items(:one)), "The owned item is not shown.")
-    assert_equal assigns(:favors), [ favors(:one) ]
+    assert(assigns(:items).include?(items(:two)), "The owned item is not shown.")
+    assert_equal [ favors(:difficult), favors(:two) ], assigns(:favors)
+    assert_equal [ groups(:two) ], assigns(:groups) 
   end
   
   def test_create_users

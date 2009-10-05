@@ -1,6 +1,7 @@
 class UserMailer < ActionMailer::Base
 
   def notification_of_new_message(recipient, message, request=nil)
+    logger.info "Recipient: #{recipient.name}  Email: #{recipient.email}" 
     subject_string = message.sender.name + ' on lähettänyt sinulle viestin Kassissa'
     url = request ? "#{request.protocol}#{request.host}#{person_inbox_path(recipient, message.conversation)}" : "test_url"
     settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(recipient.id)}" : "test_url"
