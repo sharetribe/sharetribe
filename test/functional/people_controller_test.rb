@@ -78,7 +78,7 @@ class PeopleControllerTest < ActionController::TestCase
   def test_home
     get :home
     assert_response :success
-    assert_equal 8, assigns(:content_items).size
+    assert_equal 9, assigns(:content_items).size
     assert_equal 0, assigns(:kassi_events).size
     
     @test_person, @session = get_test_person_and_session
@@ -86,7 +86,8 @@ class PeopleControllerTest < ActionController::TestCase
     #TODO should be different cases for allowed home view and unauthorized attempt, see people_controller#home
     assert_response :success
     assert_template "home"
-    assert_equal 9, assigns(:content_items).size
+    #puts "CONTENT: #{assigns(:content_items).inspect}"
+    assert_equal 10, assigns(:content_items).size
     assert_equal 0, assigns(:kassi_events).size
     @session.destroy
   end

@@ -4,7 +4,7 @@ valid_listing:
   id: 1
   author_id: dMF4WsJ7Kr3BN6ab9B7ckF
   category: "sell"
-  title: "otsikko"
+  title: "kakkia"
   content: "jotain tekstii"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 34
@@ -37,7 +37,7 @@ third_valid_listing:
   author_id: df0LOkLS4r3yF-aby-BSxS
   category: "borrow_items"
   title: "toinen otsikko"
-  content: ""
+  content: "mikäs täällä jyyrää?"
   good_thru: <%=DateTime.now+(2)%>
   times_viewed: 22
   status: "closed"
@@ -45,5 +45,20 @@ third_valid_listing:
     - en
     - swe
   value_cc: 13
+  value_other: "rahaa"
+  visibility: "everybody"
+
+fourth_valid_listing:
+  id: 4
+  author_id: df0LOkLS4r3yF-aby-BSxS
+  category: "sell"
+  title: "myyrään"
+  content: "lalalalalaa"
+  good_thru: <%=DateTime.now+(2)%>
+  times_viewed: 4
+  status: "open"
+  language:
+    - fi
+  value_cc: 11
   value_other: "rahaa"
   visibility: "everybody"

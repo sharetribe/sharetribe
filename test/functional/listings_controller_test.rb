@@ -121,12 +121,12 @@ class ListingsControllerTest < ActionController::TestCase
   
   def test_search_listings
     search("", 0, false)
-    search("tsikko", 1, true)
-    search("*", 2, true)
-    search("*", 3, false)
-    search("otsikko", 1, true)
-    search("*tsikk*", 2, false)
-    search("*", 1, false, "sell")
+    search("myyrään", 1, true)
+    search("yyrään", 1, true)
+    search("*", 3, true)
+    search("*", 4, false)
+    search("*yyr*", 2, false)
+    search("*", 2, false, "sell")
   end
   
   # def test_mark_as_interesting_and_mark_as_not_interesting
@@ -145,14 +145,14 @@ class ListingsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:listing)
     #assert_not_nil assigns(:person) # not needed anymore
     assert_not_nil assigns(:kassi_event)
-    assert_not_nil assigns(:people)
+    #assert_not_nil assigns(:people)
   end
   
   def test_mark_as_closed
     return_to = listings_path 
-    listing = listings(:valid_listing)
+    listing = listings(:fourth_valid_listing)
     submit_with_person :mark_as_closed, {
-      :person_id => people(:one),
+      :person_id => people(:two),
       :id => listing.id,
       :realized => "true",
       :kassi_event => {
@@ -161,26 +161,25 @@ class ListingsControllerTest < ActionController::TestCase
         :comment_attributes => {
           :text_content => "Kommentti",
           :grade => 1,
-          # :author_id => people(:one).id,
         },
         :participant_attributes => {
-          people(:one).id => "requester",
+          people(:two).id => "requester",
         }
       }, 
-      :person => {:name => "kassi_testperson2 (kassi_testperson2)"},
+      :person => {:name => "kassi_testperson1"},
       :return_to => return_to
-    }, :kassi_event, :receiver_id, :post
+    }, :kassi_event, :receiver_id, :post, "kassi_testperson2"
     
-    assert_equal  :listing_closed, flash[:notice]
     assert_nil flash[:error]
+    assert_equal  :listing_closed, flash[:notice]
     assert_redirected_to return_to
     assert_not_nil assigns(:kassi_event)
     kassi_event = assigns(:kassi_event)
     assert ! kassi_event.new_record?
     assert_equal "Kommentti", kassi_event.person_comments.first.text_content
     assert_equal 1, kassi_event.person_comments.first.grade
-    assert_equal people(:one), kassi_event.requester
-    assert_equal people(:two), kassi_event.buyer
+    assert_equal people(:two), kassi_event.requester
+    assert_equal people(:one), kassi_event.buyer
     assert ! Listing.find(listing.id).open?, "Listing is still open after succesful close"
   end
      
@@ -221,9 +220,9 @@ class ListingsControllerTest < ActionController::TestCase
   
   def test_mark_as_closed_but_give_feedback_later
     return_to = listings_path 
-    listing = listings(:valid_listing)
+    listing = listings(:fourth_valid_listing)
     submit_with_person :mark_as_closed, {
-      :person_id => people(:one),
+      :person_id => people(:two),
       :id => listing.id,
       :realized => "true",
       :kassi_event => {
@@ -235,12 +234,12 @@ class ListingsControllerTest < ActionController::TestCase
           # :author_id => people(:one).id,
         },
         :participant_attributes => {
-          people(:one).id => "requester",
+          people(:two).id => "requester",
         }
       }, 
-      :person => {:name => "kassi_testperson2 (kassi_testperson2)"},
+      :person => {:name => "kassi_testperson1"},
       :return_to => return_to
-    }, :kassi_event, :receiver_id, :post
+    }, :kassi_event, :receiver_id, :post, "kassi_testperson2"
     
     
     assert_nil flash[:error]
@@ -249,8 +248,8 @@ class ListingsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:kassi_event)
     kassi_event = assigns(:kassi_event)
     assert ! kassi_event.new_record?
-    assert_equal people(:one), kassi_event.requester
-    assert_equal people(:two), kassi_event.buyer
+    assert_equal people(:two), kassi_event.requester
+    assert_equal people(:one), kassi_event.buyer
     assert ! Listing.find(listing.id).open?, "Listing is still open after succesful close"
   end
   
@@ -283,6 +282,7 @@ class ListingsControllerTest < ActionController::TestCase
     get :search, :q => query, :only_open => only_open, :category => { :category => category }
     assert_response :success
     assert_equal result_count, assigns(:listings).size
+
   end  
   
 end

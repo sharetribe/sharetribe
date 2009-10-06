@@ -96,9 +96,17 @@ class PeopleController < ApplicationController
   
   # Search used for auto completion
   def search_by_name
-    @people = get_all_people_array
-    @matching = @people.reject {|p| p[0] !~ /#{params[:search]}/i}
-    render :inline => "<%= content_tag(:ul, @matching.map { |person| content_tag(:li, h(person[0])) }) %>"
+    results = Person.search(params[:search])
+    return if results.nil?
+    #puts "RESLUTADO: #{results.inspect}"
+    @suggestions = Array.new
+    results["entry"].each do |person|
+      @suggestions << ["#{person["name"]["unstructured"]} (#{person["username"]})", person["id"]]   
+    end
+    #puts "SUGGES: #{@suggestions.inspect}"  
+    #@people = get_all_people_array
+    #@matching = @people.reject {|p| p[0] !~ /#{params[:search]}/i}
+    render :inline => "<%= content_tag(:ul, @suggestions.map { |person| content_tag(:li, h(person[0])) }) %>"
   end
   
   # Creates a new person
