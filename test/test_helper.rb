@@ -87,8 +87,8 @@ class ActiveSupport::TestCase
     assert_equal flash[:warning], :you_must_login_to_do_this
   end
   
-  def submit_with_person(action, parameters = nil, parameter_type = :listing, person_type = :author_id, method = :post)
-    current_user, session = get_test_person_and_session("kassi_testperson1")
+  def submit_with_person(action, parameters = nil, parameter_type = :listing, person_type = :author_id, method = :post, username = "kassi_testperson1")
+    current_user, session = get_test_person_and_session(username)
     case (method)
     when :post
       parameters[parameter_type].merge!({person_type => current_user.id }) if person_type

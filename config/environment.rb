@@ -114,6 +114,10 @@ Rails::Initializer.run do |config|
   
   COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
 
+  RESSI_URL = "http://localhost:9000"
+  RESSI_TIMEOUT = 5
+  RESSI_UPLOAD_HOUR = 3
+
   #For example there will be no confirmation when adding profile avatar picture
 
   COS_TIMEOUT = 10 # Used only by active resource (session, etc.)

@@ -188,7 +188,7 @@ class ListingsController < ApplicationController
     if params[:rid]
       @kassi_event.realizer_id = params[:rid]
     end
-    @people = get_all_people_array  #ensures that people list is in cache for the auto-complete to work fast
+    #@people = get_all_people_array  #ensures that people list is in cache for the auto-complete to work fast
     
     
     # @people = Person.find(:all, :conditions => ["id <> ?", @current_user.id]).collect { 
@@ -208,35 +208,30 @@ class ListingsController < ApplicationController
       if params[:person] && params[:person][:name] && ! params[:person][:name].blank?
         # There is a user name submitted from the form
 
-        # First we compare with the array used for auto-completion
-        people_array = get_all_people_array
-        realizer_id_array = people_array.select { |p| p[0] == params[:person][:name] }
+        realizer_id_array = Array.new
         
-        if realizer_id_array.length < 1
-          # search from ASI
-          hits = Person.search(params[:person][:name])
-          if hits["entry"]
-            hits["entry"].each do |person|
-              # Filter non-kassi users from hits
-              if Person.find_by_id(person["id"])
-                realizer_id_array.push([nil,person["id"]])
-              end
+        # search from ASI
+        hits = Person.search(params[:person][:name])
+        if hits["entry"]
+          hits["entry"].each do |person|
+            # Filter non-kassi users from hits
+            if Person.find_by_id(person["id"])
+              realizer_id_array.push([nil,person["id"]])
             end
           end
         end
+        
         
         if realizer_id_array.length < 1
           flash.now[:error] = :no_match_with_given_name
           @person = @listing.author
           @kassi_event = KassiEvent.new
-          @people = get_all_people_array
           render :action => :close and return
         
         elsif realizer_id_array.length > 1
           flash.now[:error] = :given_name_matched_more_than_one
           @person = @listing.author
           @kassi_event = KassiEvent.new
-          @people = get_all_people_array
           render :action => :close and return
         end
         
@@ -246,32 +241,36 @@ class ListingsController < ApplicationController
           flash.now[:error] = :cant_mark_yourself_as_realizer
           @person = @listing.author
           @kassi_event = KassiEvent.new
-          @people = get_all_people_array
           render :action => :close and return
         end
         
+        #puts "REALIZER ID: #{realizer_id}"
+        
         params[:kassi_event][:participant_attributes][realizer_id] = @listing.realizer_role
         params[:kassi_event][:comment_attributes].merge!({:author_id => @current_user.id, :target_person_id => realizer_id})
+        
+        #puts "PARTICIPAATIOT: #{params[:kassi_event][:participant_attributes].inspect}"
         
         @kassi_event = KassiEvent.new(params[:kassi_event])
         
         if @kassi_event.save
           realizer = Person.find(realizer_id)
           if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
+            # puts "REALIZER ON: #{realizer.name}"
+            #             puts "EVENTTI: #{@kassi_event.inspect}"
+            #             puts "other party: #{@kassi_event.get_other_party(realizer)}"
             UserMailer.deliver_notification_of_new_kassi_event(realizer, @kassi_event, request)
           end
           flash[:notice] = :listing_closed
         else
           puts @kassi_event.person_comments[0].errors.full_messages.inspect         
           @person = @listing.author
-          @people = get_all_people_array
           render :action => :close and return
         end
       else
         flash.now[:error] = :realizer_name_missing
         @person = @listing.author
         @kassi_event = KassiEvent.new
-        @people = get_all_people_array
         render :action => :close and return
       end
     end

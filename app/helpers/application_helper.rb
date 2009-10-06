@@ -418,20 +418,20 @@ module ApplicationHelper
     return error_string
   end
   
-  def get_all_people_array
-    Rails.cache.fetch("people_name_and_username_list/#{CacheHelper.people_last_changed}") {get_all_people_array_without_cache}
-    #get_all_people_array_without_cache
-  end
-  
-  def get_all_people_array_without_cache
-    people = Person.find(:all).collect { 
-      |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
-    }
-    
-    people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
-    
-    return people
-  end
+  # def get_all_people_array
+  #   Rails.cache.fetch("people_name_and_username_list/#{CacheHelper.people_last_changed}") {get_all_people_array_without_cache}
+  #   #get_all_people_array_without_cache
+  # end
+  # 
+  # def get_all_people_array_without_cache
+  #   people = Person.find(:all).collect { 
+  #     |p| [ p.name(session[:cookie]) + " (" + p.username(session[:cookie]) + ")", p.id ] 
+  #   }
+  #   
+  #   people.sort! {|a,b| a[0].downcase <=> b[0].downcase}
+  #   
+  #   return people
+  # end
   
   # Takes a collection of any objects and creates an array for javascript from them
   def to_js_array(collection)
