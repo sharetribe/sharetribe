@@ -114,3 +114,102 @@ class ActiveSupport::TestCase
   end
       
 end
+
+# This module wraps convenience methods used to
+# make integration tests clearer.
+# module IntegrationTestHelpers
+#   
+#   def login(username, password)
+#     post "/session", { :username => username, :password => password}
+#     assert_response :found
+#   end
+#   
+#   def logout
+#     delete "/session"
+#     assert_response :found
+#   end
+#   
+#   def request_friend(friend)
+#     post "/people/#{friend.id}/friends"
+#     assert_response :success
+#     assert_equal :friend_requested, flash[:notice]
+#   end
+#   
+#   def remove_friend(person, friend)
+#     delete "/people/#{person.id}/friends/#{friend.id}"
+#     assert_response :success
+#     assert_equal :friend_removed, flash[:notice]
+#   end
+#   
+#   def join_group
+#     
+#   end
+#   
+#   def leave_group
+#     
+#   end
+#   
+#   # Creates a new listing, a new item and a new favor
+#   # with the given visibility, and returns their
+#   # ids in a hash.
+#   def create_content_items(visibility)
+#     content_items = {}
+#     
+#     post "/listings", { get_listing_params(visibility) }
+#     assert ! assigns(:listing).new_record?
+#     content_items[:listing] = assigns(:listing)
+#     
+#     
+#     
+#   end
+#   
+#   # Tries to view the created content items, asserts
+#   # the viewing result given as a parameter
+#   def view_content_items(content_items, is_visible)
+#     get listing_path(content_items[:listing])
+#     if is_visible
+#     
+#     else
+#       if session[:id]
+#         
+#       else
+#         assert_redirected_to new_session_path
+#       end  
+#     end
+#     
+#     get item_path(content_items[:item].title)
+#     if is_visible
+#     
+#     else
+#       
+#     end
+#     
+#     get favor_path(content_items[:favor].title)
+#     if is_visible
+#     
+#     else
+#       
+#     end    
+#   end
+#   
+#   private
+#   
+#   def get_listing_params(visibility)
+#     { 
+#       :listing => {
+#         :category => "sell",
+#         :title => "Test title",
+#         :content => "Test content.",
+#         :good_thru => DateTime.now+(2),
+#         :times_viewed => 32,
+#         :status => "open",
+#         :language_fi => 1
+#       }
+#     }
+#   end
+#   
+#   def get_item_params(visibility_params)
+#     
+#   end
+#   
+# end  

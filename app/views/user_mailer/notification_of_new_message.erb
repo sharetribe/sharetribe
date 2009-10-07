@@ -8,8 +8,6 @@
 
 Viesti on lähetetty viestiketjuun "<%= @message.conversation.title %>". Voit vastata viestiin osoitteessa <%= @url %>
 
-Terveisin,
-Kassitiimi
+Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä.
 
--- 
-Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen? Tarkista asetuksesi osoitteessa <%= @settings_url %>
+<%= render :partial => "mail_signature" %>
