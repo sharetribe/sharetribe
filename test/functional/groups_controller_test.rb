@@ -87,12 +87,13 @@ class GroupsControllerTest < ActionController::TestCase
     put :update, {
       :group => {
         :title => "kassi_testgroup1", 
-        :description => "sdfs"
+        :description => "test"
       },
       :id => groups(:one).id
     }, 
     { :person_id => @test_person.id, :cookie => @session.cookie }
     assert_equal :group_info_updated, flash[:notice]
+    assert_equal "kassi_testgroup1", groups(:one).title
   end
   
   def test_try_to_create_invalid_group
@@ -122,9 +123,9 @@ class GroupsControllerTest < ActionController::TestCase
   def test_try_to_update_group_when_not_admin
     put :update, {
       :group => {
-        :title => "kassi_testgroup1",
+        :title => "sdf",
         :description => "sdfs"
-      },
+      }, 
       :id => groups(:two).id
     }, 
     { :person_id => @test_person.id, :cookie => @session.cookie }

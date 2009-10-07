@@ -26,7 +26,7 @@ class ListingsController < ApplicationController
     save_navi_state(['listings', 'browse_listings', 'all_categories']) unless session[:navi2] && !session[:navi2].eql?("")
     @listing = Listing.find(params[:id])
     unless is_visible?(@listing)
-      if  @current_user
+      if @current_user
         flash[:error] = :no_permission_to_view_this_content
         redirect_to listings_path
       else  
