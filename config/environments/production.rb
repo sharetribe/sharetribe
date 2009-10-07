@@ -26,6 +26,7 @@ COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
 SSL_COS_URL = COS_URL.sub("http", "https")
 
 RESSI_URL = "http://cos.alpha.sizl.org/ressi"
+LOG_TO_RESSI = true
 
 PRODUCTION_SERVER = "alpha"
 

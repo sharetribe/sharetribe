@@ -24,16 +24,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_up_feedback_form
   before_filter :generate_event_id
   
+  before_filter :log if LOG_TO_RESSI
   
-  # This is wrong :) (ref. http://m.onkey.org/2007/10/17/how-to-access-session-cookies-params-request-in-model)
-  # around_filter :make_session_available_in_model
-  
-  
-  # did not work
-  # used to check if to cache or not
-  # def self.no_flash_messages?
-  #   ergedgrergerroria pukkaa
-  # end
   
   # Change current navigation state based on array containing new navi items.
   def save_navi_state(navi_items)
@@ -281,22 +273,29 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  # def make_session_available_in_model
-  #   klasses = [ActiveRecord::Base, ActiveRecord::Base.class]
-  #   #methods = ["session"]
-  # 
-  #   
-  #   session_var = instance_variable_get(:"@_session") 
-  # 
-  #   klasses.each do |klass|
-  #     klass.send(:define_method, "session", proc { session_var })
-  #   end
-  #  
-  #   yield  
-  #   
-  #   klasses.each do |klass|
-  #     klass.send :remove_method, "session"
-  #   end
-  # end  
+  def log
+    #puts "NOW LOGGING"
+    #puts "ONGELMA? #{ filter_parameters(params.inspect}"
+    CachedRessiEvent.create do |e|
+      e.user_id           = @current_user ? @current_user.id : nil
+      e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
+      e.session_id        = request.session_options ? request.session_options[:id] : nil
+      e.ip_address        = request.remote_ip
+      e.action            = controller_class_name + "\#" + action_name
+      begin
+        e.parameters      = filter_parameters(params).to_json
+      rescue JSON::GeneratorError => error
+        #e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
+        #puts e.parameters
+      end
+      
+      
+      e.return_value      = @_response.status
+      e.semantic_event_id = RestHelper.event_id
+      e.headers           = request.headers.reject do |*a|
+        a[0].starts_with?("rack") or a[0].starts_with?("action_controller")
+      end.to_json
+    end
+  end
   
 end
