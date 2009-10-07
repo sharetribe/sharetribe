@@ -117,7 +117,7 @@ Rails::Initializer.run do |config|
   RESSI_URL = "http://localhost:9000"
   RESSI_TIMEOUT = 5
   RESSI_UPLOAD_HOUR = 1
-  LOG_TO_RESSI = true
+  LOG_TO_RESSI = false
 
   #For example there will be no confirmation when adding profile avatar picture
 

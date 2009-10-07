@@ -22,6 +22,7 @@ cd ..
 sed -i "s/cos\.alpha\.sizl/cos\.sizl/" config/environments/production.rb
 sed -i "s/kassi\.alpha\.sizl/kassi\.sizl/" config/environments/production.rb
 sed -i "s/PRODUCTION_SERVER = \"alpha\"/PRODUCTION_SERVER = \"beta\"/" config/environments/production.rb
+sed -i "s/LOG_TO_RESSI = false/LOG_TO_RESSI = true/" config/environments/production.rb
 
  REV=$((`svn info svn+ssh://alpha.sizl.org/svn/kassi | \
  grep "^Last Changed Rev" | \
