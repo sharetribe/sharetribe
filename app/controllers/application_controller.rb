@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_up_feedback_form
   before_filter :generate_event_id
   
+  # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log if LOG_TO_RESSI
   
   
@@ -283,9 +284,10 @@ class ApplicationController < ActionController::Base
       e.ip_address        = request.remote_ip
       e.action            = controller_class_name + "\#" + action_name
       begin
-        e.parameters      = filter_parameters(params).to_json
+        #TODO enable parameters logging
+        e.parameters      = ["Parameters not yet logged"].to_json  # filter_parameters(params).to_json
       rescue JSON::GeneratorError => error
-        #e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
+        e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
         #puts e.parameters
       end
       
