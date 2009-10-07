@@ -53,7 +53,7 @@ class ListingsControllerTest < ActionController::TestCase
     assert_not_nil flash[:notice]
     assert Listing.find(id)
     assert File.exists?("tmp/test_images/" + id.to_s + ".png")
-     
+    
     # Delete just created listing
     test_person2, session2 = get_test_person_and_session #new session for same user 
     delete :destroy, {:id => id}, {:cookie => session2.cookie}
