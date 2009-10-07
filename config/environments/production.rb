@@ -26,7 +26,9 @@ COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
 SSL_COS_URL = COS_URL.sub("http", "https")
 
 RESSI_URL = "http://cos.alpha.sizl.org/ressi"
-LOG_TO_RESSI = true
+#This is default to false, and changed to true in beta-build.sh
+LOG_TO_RESSI = false
+
 
 PRODUCTION_SERVER = "alpha"
 
