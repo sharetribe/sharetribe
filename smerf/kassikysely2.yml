@@ -278,7 +278,7 @@ smerfform:
           code: g2q8
           type: textfield
           sort_order: 8
-          question: | Kuinka monta Kassi-tapahtumaa sinulla on ollut?
+          question: | Kuinka monta kassitapahtumaa sinulla on ollut?
           help: | 
           textfield_size: 10
 
@@ -286,14 +286,14 @@ smerfform:
           code: g2q9
           type: textbox
           sort_order: 9
-          question: | Jos sinulla on ollut Kassi-tapahtumia, niin mikä on kokemuksesi näistä?
+          question: | Jos sinulla on ollut kassitapahtumia, niin mikä on kokemuksesi näistä?
           textbox_size: 30x3
               
         feedback:
           code: g2q10
           type: textbox
           sort_order: 10
-          question: | Jos sinulla on ollut Kassi-tapahtumia, niin oletko saanut/antanut niistä palautetta? Oletko kokenut palautemekanismin hyödylliseksi? Miksi olet/et ole?
+          question: | Jos sinulla on ollut kassitapahtumia, niin oletko saanut/antanut niistä palautetta? Oletko kokenut palautemekanismin hyödylliseksi? Miksi olet/et ole?
           textbox_size: 30x3
           
         restricted_use1:
@@ -784,7 +784,7 @@ smerfform:
           code: g3q15
           type: singlechoice
           sort_order: 15
-          question: | Jos Kassissa olisi mahdollisuus lisätä avainsana-tägejä, merkkaisin niitä omiin ilmoituksiin/lainatavoihin
+          question: | Jos Kassissa olisi mahdollisuus lisätä avainsana-tägejä, merkkaisin niitä omiin ilmoituksiin/lainatavaroihin
           answers:
             1:
               code: 1
