@@ -3,7 +3,7 @@ smerfform:
   name: Kassikysely
   welcome: | 
     <b>Tervetuloa</b><br>
-    Alla olevalla kyselyllä pyrimme tutkimaan Kassin käyttöä. Kyselyyn vastaamiseen menee n. 5-10 minuuttia. <br /> 
+    Alla olevalla kyselyllä tutkimme Kassin käyttöä. Kyselyyn vastaamiseen menee n. 5-10 minuuttia. <br /> 
     Vastanneiden kesken arvotaan 3 elokuvalippua. 
 
   thank_you: | 
@@ -176,7 +176,7 @@ smerfform:
           code: g2q1
           type: textfield
           sort_order: 1
-          question: | Kuinka monta kertaa olet käyttänyt Kassia?
+          question: | Kuinka monta kertaa olet käyttänyt Kassia? (noin arvio riittää)
           help: | 
           textfield_size: 10   
             
@@ -304,12 +304,12 @@ smerfform:
           answers:
             no:
               code: 1
-              answer: | Kyllä
+              answer: | Ei
               sort_order: 1
               default: N   
             yes:
               code: 2
-              answer: | Ei
+              answer: | Kyllä
               sort_order: 2
               default: N
               subquestions:
@@ -317,48 +317,30 @@ smerfform:
                   code: g2q11a2s1
                   type: singlechoice
                   sort_order: 1
-                  question: | Käytätkö Kassia enemmän vain ystäviesi tai jonkin ryhmän kanssa, kuin muuten?
+                  question: | Onko tämä lisännyt käyttöäsi?
                   answers:
                     no:
                       code: 1
-                      answer: | Kyllä
+                      answer: | Ei
                       sort_order: 1
-                      default: N
+                      default: N   
                     yes:
                       code: 2
-                      answer: | Ei
-                      sort_order: 2
-                      default: N 
-                      
-                restricted_use_sub2:
-                  code: g2q11a2s2
-                  type: singlechoice
-                  sort_order: 2
-                  question: | Käytätkö Kassia vähemmän vain ystäviesi tai jonkin ryhmän kanssa, kuin muuten?
-                  answers:
-                    no:
-                      code: 1
                       answer: | Kyllä
-                      sort_order: 1
-                      default: N
-                    yes:
-                      code: 2
-                      answer: | Ei
                       sort_order: 2
-                      default: N 
+                      default: N
 
-           
-        restricted_use2:
+                restricted_use2:
+                  code: g2q11a2s2
+                  type: textbox
+                  sort_order: 12
+                  question: | Kerro lyhyesti tästä käytöstä.
+                  textbox_size: 30x3
+
+        categories:
           code: g2q12
           type: textbox
           sort_order: 12
-          question: | Mikäli olet käyttänyt Kassia rajatusti ystävien tai jonkin ryhmän kanssa, niin kerro lyhyesti tästä käytöstä.
-          textbox_size: 30x3
-
-        categories:
-          code: g2q13
-          type: textbox
-          sort_order: 13
           question: | Jos voisit halutessasi lisätä Kassiin ilmoituskategorioita, mitä ne olisivat?
           textbox_size: 30x3          
           
