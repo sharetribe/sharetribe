@@ -83,7 +83,7 @@ class Person < ActiveRecord::Base
     end
     
     def self.search(query, cookie)
-      escaped_query = URI.escape(query, Regexp.new("[^-_!~*()a-zA-Z\\d]")) # Should use escape_for_url method in ApplicationHelper
+      escaped_query = ApplicationHelper.escape_for_url(query)
       return RestHelper.make_request(:get,"#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie})
       # return JSON.parse(RestClient.get("#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie}))
     end

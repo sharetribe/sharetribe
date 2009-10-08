@@ -170,8 +170,9 @@ class Group < ActiveRecord::Base
   end
   
   def self.search(query, cookie=nil)
+    escaped_query = ApplicationHelper.escape_for_url(query)
     cookie = Session.kassiCookie if cookie.nil?
-    Group.get_group_ids(RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public?query=#{query}", {:cookies => cookie}))
+    Group.get_group_ids(RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public?query=#{escaped_query}", {:cookies => cookie}))
   end
   
   private

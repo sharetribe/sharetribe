@@ -1,4 +1,4 @@
-<% escaped_title = escape_for_url(item_title.downcase) %>
+<% escaped_title = ApplicationHelper.escape_for_url(item_title.downcase) %>
 <b>
   <%= link_to_remote h(item_title.capitalize), :url => item_path(escaped_title), :method => :get %>
 </b>
