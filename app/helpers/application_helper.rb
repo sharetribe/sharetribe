@@ -20,7 +20,7 @@ module ApplicationHelper
     return translated_array  
   end
   
-  def escape_for_url(str)
+  def self.escape_for_url(str)
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
   end
   
