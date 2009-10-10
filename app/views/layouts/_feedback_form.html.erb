@@ -1,0 +1,17 @@
+<div id="feedback">
+  <div id="feedback_spacer">&nbsp;</div>
+  <div id="feedback_form">
+  <% form_for :feedback, :url => admin_feedbacks_path do |f| %>
+    <b><%= t(:leave_feedback) %></b><br /><br />
+    <%= f.text_area :content, :size => "60x5" %>
+    <br /><br />
+    <% if @current_user %>
+      <%= f.hidden_field :author_id, :value => @current_user.id %>
+    <% else %>
+      <%= f.hidden_field :author_id, :value => "Anonymous" %>
+    <% end %>
+    <%= f.hidden_field :url, :value => request.request_uri %>  
+    <%= submit_tag t(:send_feedback), :onclick => "this.disabled=true,this.form.submit();" %>
+  <% end %>
+  </div>
+</div>
