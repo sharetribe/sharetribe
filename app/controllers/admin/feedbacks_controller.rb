@@ -11,15 +11,16 @@ class Admin::FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = Feedback.new(params[:feedback])
-    if @feedback.save
-      flash[:notice] = :feedback_saved
-      if RAILS_ENV != "development" 
-        UserMailer.deliver_notification_of_new_feedback(@feedback, request)
-      end
-    else
-      flash[:error] = :feedback_not_saved
-    end
+    # Commented because of spam
+    # @feedback = Feedback.new(params[:feedback])
+    # if @feedback.save
+    #   flash[:notice] = :feedback_saved
+    #   if RAILS_ENV != "development" 
+    #     UserMailer.deliver_notification_of_new_feedback(@feedback, request)
+    #   end
+    # else
+    #   flash[:error] = :feedback_not_saved
+    # end
     redirect_to params[:feedback][:url]    
   end
   

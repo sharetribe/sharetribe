@@ -19,23 +19,25 @@ class Admin::FeedbacksControllerTest < ActionController::TestCase
     assert_equal 1, assigns(:new_feedback_item_amount)
   end
 
-  def test_add_feedback
-    submit_with_person :create, { :feedback => {
-      :content => "Testisisältö",
-      :url => "/listings"
-    }}, :feedback
-    assert_response :found, @response.body
-    assert ! assigns(:feedback).new_record?
-    assert_not_nil flash[:notice]
-  end
-  
-  def test_add_invalid_feedback
-    post :create, :feedback => {
-      :url => listings_path
-    }
-    assert assigns(:feedback).errors.on(:author_id)
-    assert assigns(:feedback).errors.on(:content)
-  end
+  # COMMENTED OUT DUE TO SPAM
+  # 
+  # def test_add_feedback
+  #   submit_with_person :create, { :feedback => {
+  #     :content => "Testisisältö",
+  #     :url => "/listings"
+  #   }}, :feedback
+  #   assert_response :found, @response.body
+  #   assert ! assigns(:feedback).new_record?
+  #   assert_not_nil flash[:notice]
+  # end
+  # 
+  # def test_add_invalid_feedback
+  #   post :create, :feedback => {
+  #     :url => listings_path
+  #   }
+  #   assert assigns(:feedback).errors.on(:author_id)
+  #   assert assigns(:feedback).errors.on(:content)
+  # end
   
   def test_handle_feedback
     @request.env['HTTP_REFERER'] = admin_feedbacks_path
