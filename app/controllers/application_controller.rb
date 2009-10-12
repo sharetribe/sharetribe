@@ -275,8 +275,13 @@ class ApplicationController < ActionController::Base
   end
   
   def log
-    #puts "NOW LOGGING"
-    #puts "ONGELMA? #{ filter_parameters(params.inspect}"
+    # puts "NOW LOGGING"
+    # puts "ONGELMA? #{ params.inspect}"
+    # p = params.clone
+    # p["listing"].delete("image_file") if (p["listing"] && p["listing"]["image_file"])
+    # puts "ONGELMA2 #{ p.inspect}"
+    # puts "ONGELMA3 #{ filter_parameters(p)}"
+    #  puts "ONGELMA4 #{ params.inspect}"
     CachedRessiEvent.create do |e|
       e.user_id           = @current_user ? @current_user.id : nil
       e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
@@ -284,8 +289,12 @@ class ApplicationController < ActionController::Base
       e.ip_address        = request.remote_ip
       e.action            = controller_class_name + "\#" + action_name
       begin
-        #TODO enable parameters logging
-        e.parameters      = ["Parameters not yet logged"].to_json  # filter_parameters(params).to_json
+        if (params["listing"] && params["listing"]["image_file"])
+          # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
+          e.parameters    = params.inspect.gsub('=>', ':')
+        else  #normal case
+          e.parameters    = filter_parameters(params).to_json
+        end  
       rescue JSON::GeneratorError => error
         e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
         #puts e.parameters

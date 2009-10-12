@@ -20,6 +20,8 @@ cd ..
 
 #change production environment to use production COS
 sed -i "s/cos\.alpha\.sizl/cos\.sizl/" config/environments/production.rb
+# Actually the production Ressi is at alpha so change that line back... :D
+sed -i "s/RESSI_URL = \"http:\/\/cos\.sizl\.org/ressi\"/RESSI_URL = \"http:\/\/cos\.alpha\.sizl\.org/ressi\"/" config/environments/production.rb
 sed -i "s/kassi\.alpha\.sizl/kassi\.sizl/" config/environments/production.rb
 sed -i "s/PRODUCTION_SERVER = \"alpha\"/PRODUCTION_SERVER = \"beta\"/" config/environments/production.rb
 sed -i "s/LOG_TO_RESSI = false/LOG_TO_RESSI = true/" config/environments/production.rb
