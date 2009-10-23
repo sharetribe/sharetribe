@@ -159,9 +159,10 @@ class Group < ActiveRecord::Base
   end
   
   # Takes a group hash from COS and extracts ids from it
-  # into an array.
+  # into an array. NOTE: currently only open groups
+  # are handled.
   def self.get_group_ids(group_hash)
-    group_hash["entry"].collect { |group| group["id"] }
+    group_hash["entry"].collect { |group| group["id"] if group["group_type"].eql?("open") }.compact
   end
   
   def self.get_public_group_ids(cookie=nil)
