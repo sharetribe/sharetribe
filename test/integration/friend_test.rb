@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PeopleTest < ActionController::IntegrationTest
+class FriendTest < ActionController::IntegrationTest
     
   fixtures :people
   fixtures :items 
