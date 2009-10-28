@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
   def home
     #save_navi_state(['home', ''])#moved to filter
     @events_per_page = 5
-    @content_items_per_page = 5
+    @content_items_per_page = 15
     @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
     @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
     get_newest_content_items(@content_items_per_page)
@@ -54,7 +54,7 @@ class PeopleController < ApplicationController
   end
   
   def more_content_items
-    @content_items_per_page = params[:content_items_per_page].to_i + 5
+    @content_items_per_page = params[:content_items_per_page].to_i + 10
     @content_items = get_newest_content_items(@content_items_per_page)
     render :update do |page|
       page["content_items"].replace_html :partial => "content_item",
@@ -241,7 +241,7 @@ class PeopleController < ApplicationController
                             :order => "id DESC")
     @content_items = favors.concat(items).concat(listings).sort {
       |a, b| b.created_at <=> a.created_at
-    }                              
+    }[0..(limit-1)]                              
   end
   
   def preserve_create_form_values(person)
