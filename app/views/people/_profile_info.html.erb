@@ -20,6 +20,6 @@
 <div class="dashed_line"></div>
 <div class="profile_info_field">    
   <b><%= t(:about_me)%>:</b>
-  <%= @person.description %>
+  <%= text_with_line_breaks(@person.description) %>
 </div>
 <% end %>
