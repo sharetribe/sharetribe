@@ -26,7 +26,10 @@ class SearchesController < ApplicationController
           ids << person["id"]
         end
         @people = Person.find_kassi_users_by_ids(ids)
-        @people_amount = @people.size
+        @person_amount = @people.size
+        
+        @groups = Group.find(Group.search(person_query, session[:cookie]))
+        @group_amount = @groups.size
       end
     end
   end
