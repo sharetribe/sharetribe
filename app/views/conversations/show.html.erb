@@ -41,6 +41,10 @@
   <%= render :partial => "reservations/reservation_details" %>
   <br />
   <h4><%= t(:discussion_of_borrow_request) %></h4>
+<% elsif @conversation.type.eql?("FavorRequest") %>
+  <%= render :partial => "favor_requests/favor_request_details" %>
+  <br />
+  <h4><%= t(:discussion_of_favor_request) %></h4>
 <% end %>
 
 <%= render :partial => "messages/message", 
@@ -49,7 +53,7 @@
 
 <div class="solid_line"></div> <br />
 
-<% unless @conversation.type.eql?("Reservation") %>  
+<% unless ["FavorRequest", "Reservation"].include?(@conversation.type) %>  
 <div id="send_message_to_existing_conversation">
   <%= render :partial => "reply_form" %>
 </div>  

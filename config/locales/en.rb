@@ -134,6 +134,11 @@
 :rides => "Car pooling",
 :groups => "Group activities",
 :favors => "Favor requests",
+:housing => "Housing",
+:for_rent => "For rent",
+:looking_for_apartment => "Looking for apartment", 
+:roommates => "Roommates",  
+:temporary_accommodation => "Temporary accommodation",
 :others => "Others",
 
 # Title categories
@@ -146,7 +151,27 @@
 :title_rides => "Car pooling: ",
 :title_groups => "Group activity: ",
 :title_favors => "Asking for favor: ",
+:title_for_rent => "For rent: ",
+:title_looking_for_apartment => "Looking for apartment: ", 
+:title_roommates => "Roommate(s) wanted: ",
+:title_temporary_accommodation => "Temporary accommodation needed: ",
 :title_others => "",
+
+#Kassi events category titles
+:buy_title => "Sold",
+:sell_title => "Sold",
+:give_title => "Given away",
+:borrow_items_title => "Lent an item",
+:favors_title => "Done favor",
+:lost_title => "Found a lost item",
+:found_title => "Found a lost item",
+:rides_title => "Ride",
+:groups_title => "Group activity",
+:for_rent_title => "Rented",
+:looking_for_apartment_title => "Found an apartment", 
+:roommates_title => "Found roommate(s)",
+:temporary_accommodation_title => "Found temporary accommodation",
+:others_title => "Other listing-related event",
 
 #Category descriptions
 :marketplace_description => "buy, sell or give stuff",
@@ -160,7 +185,12 @@
 :favors_description => "ask somebody to do you a favor (you can offer favors from your profile)",
 :others_description => "all other listings",
 :lost_description => "find your lost items",
-:found_description => "let others know what you've found", 
+:found_description => "let others know what you've found",
+:housing_description => "rent your flat, find an apartment or look for roommates",
+:for_rent_description => "rent your flat",
+:looking_for_apartment_description => "look for apartment", 
+:roommates_description => "look for roommates",
+:temporary_accommodation_description => "look for temporary accommodation (eg. before finding the actual place for living)",
 
 #Pagination
 :next => "Next &raquo;",
@@ -209,6 +239,8 @@
 :participate => "Participate!",
 :participate_description => "The more people are offering information about their items to borrow and favors they could do, the better Kassi is for everyone. List your assets in your profile and join Kassi community!",
 :alpha_test_site_text => "THIS IS ONLY A TEST SITE FOR KASSI, PLEASE GO TO: <a href='http://kassi.sizl.org'>kassi.sizl.org</a>!",
+:newest_news => "News",
+:show_all_news_items => "Show all",
 
 #Listings view
 :operation_not_permitted => "Operation not permitted",
@@ -367,7 +399,16 @@
 :add_favor => "Add new favor",
 :cant_ask_for_own_favor => "You can't ask yourself for a favor",
 :cant_thank_self_for_favor => "You can't thank yourself for a favor",
-:rate_favor_realizer => "Rate favor realizer's performance", 
+:rate_favor_realizer => "Rate favor realizer's performance",
+:favor => "Favor",
+:ask_for => "Ask for favor",
+:view_other_offered_favors_from_this_user => "Show other favors this user is offering",
+:favor_request_details => "Favor request details",
+:hi_i_would_like_to_ask_for_this_favor => "Hi! Could you do me this favor?",
+:make_favor_request => "Make favor request",
+:discussion_of_favor_request => "Discussion of favor request",
+:favor_request_accepted => "Favor request accepted",
+:favor_request_rejected => "Favor request rejected", 
 
 #People view
 :kassi_users => "Kassi users",
@@ -588,18 +629,6 @@
 :favors_requester_label => "Favor receiver",
 :buyer_label => "Myyjä",
 :seller_label => "Ostaja",
-   
-#Kassi events category titles
-:buy_title => "Sold",
-:sell_title => "Sold",
-:give_title => "Given away",
-:borrow_items_title => "Lent an item",
-:favors_title => "Done favor",
-:lost_title => "Found a lost item",
-:found_title => "Found a lost item",
-:rides_title => "Ride",
-:groups_title => "Group activity",
-:others_title => "Other listing-related event",
 
 # Groups view
 :groups_title => "Groups",

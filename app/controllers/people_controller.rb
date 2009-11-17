@@ -34,9 +34,10 @@ class PeopleController < ApplicationController
     #save_navi_state(['home', ''])#moved to filter
     @events_per_page = 5
     @content_items_per_page = 15
-    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
+    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :conditions => "pending = 0", :order => "id DESC")
     @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
     get_newest_content_items(@content_items_per_page)
+    @rss = RssHandler.get_kassi_feed
   end
   
   def more_kassi_events

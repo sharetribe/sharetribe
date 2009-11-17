@@ -45,7 +45,7 @@ class Listing < ActiveRecord::Base
   POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
 
   # Main categories.
-  MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "others"]
+  MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "housing", "others"]
   
   # Newsgroups corresponding to categories
   # 
@@ -56,6 +56,10 @@ class Listing < ActiveRecord::Base
     "give" => { :groups => ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan", "tori.liput", "tori.sekalaista"] },
     "lost" => { :groups => ["tori.kadonnut"] },
     "rides" => { :groups => ["tori.kyydit"] },
+    "for_rent" => { :groups => ["tori.asunnot"] },
+    "looking_for_apartment" => { :groups => ["tori.asunnot"] },
+    "roommates" => { :groups => ["tori.asunnot"] },
+    "temporary_accommodation" => { :groups => ["tori.asunnot"] },
     "others" => { :groups => ["tori.sekalaista"] }
   }
 
@@ -65,7 +69,9 @@ class Listing < ActiveRecord::Base
     when "marketplace"
       ['sell', 'buy', 'give']
     when "lost_property"
-      ['lost', 'found']  
+      ['lost', 'found'] 
+    when "housing"
+      ['for_rent', 'looking_for_apartment', 'roommates', 'temporary_accommodation']   
     else
       nil 
     end  
@@ -279,7 +285,7 @@ END_OF_MESSAGE
     elsif "buy".eql?(category)
       "buyer"
     elsif "sell".eql?(category)
-      "seller"      
+      "seller"     
     else
       "none"
     end    

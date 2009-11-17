@@ -30,8 +30,10 @@ class ConversationsController < ApplicationController
   
   # Create a new conversation and send a message to it
   def create
-    if params[:conversation][:type]
+    if params[:conversation][:type].eql?("Reservation")
       @conversation = Reservation.new(params[:conversation])
+    elsif params[:conversation][:type].eql?("FavorRequest")
+      @conversation = FavorRequest.new(params[:conversation])
     else
       @conversation = Conversation.new(params[:conversation])
     end  
@@ -41,10 +43,14 @@ class ConversationsController < ApplicationController
       redirect_to params[:return_to]
     else
       get_target_object_and_validate
-      if params[:conversation][:type]
+      if params[:conversation][:type].eql?("Reservation")
         @items = Item.find(params[:conversation][:reserved_items].keys, :order => "title")
         @person = Person.find(params[:receiver])
         render :template => "items/borrow"
+      elsif params[:conversation][:type].eql?("FavorRequest")
+        @favor = Favor.find(params[:conversation][:favor_id])
+        @person = Person.find(params[:receiver])
+        render :template => "favors/ask_for"
       else
         render :action => :new
       end  
@@ -68,6 +74,7 @@ class ConversationsController < ApplicationController
   def update
     if params[:accepted]
       params[:conversation][:status] = "accepted"
+      params[:kassi_event][:pending] = 1
     elsif params[:rejected]
       params[:conversation][:status] = "rejected"
       if "Hyväksytty.".eql?(params[:conversation][:message_attributes][:content])
@@ -88,6 +95,8 @@ class ConversationsController < ApplicationController
         else  
           flash[:notice] = :borrow_request_edited
         end
+      elsif @conversation.type.eql?("FavorRequest")
+        flash[:notice] = "favor_request_" + params[:conversation][:status]
       else
         flash[:notice] = :message_sent
       end  

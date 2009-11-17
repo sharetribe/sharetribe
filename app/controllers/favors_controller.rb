@@ -180,29 +180,11 @@ class FavorsController < ApplicationController
                          :order => 'title ASC')
   end
   
-  def thank_for
-    @favor = Favor.find(params[:id])
-    return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
+  def ask_for
     @person = Person.find(params[:person_id])
-    @kassi_event = KassiEvent.new
-    @kassi_event.realizer_id = @person.id
-    @kassi_event.person_comments.build
-  end
-  
-  def mark_as_done
-    @person = Person.find(params[:person_id])
+    return unless must_not_be_current_user(@person, :cant_borrow_from_self)
     @favor = Favor.find(params[:id])
-    return unless must_not_be_current_user(@favor.owner, :cant_thank_self_for_favor)
-    @kassi_event = KassiEvent.create(params[:kassi_event])
-    if @kassi_event.save
-      flash[:notice] = :thanks_for_favor_sent
-      if RAILS_ENV != "development" && @person.settings.email_when_new_kassi_event == 1
-        UserMailer.deliver_notification_of_new_kassi_event(@person, @kassi_event, request)
-      end
-      redirect_to params[:return_to]
-    else
-      render :action => :thank_for
-    end
+    @conversation = Conversation.new
   end
   
   def view_description

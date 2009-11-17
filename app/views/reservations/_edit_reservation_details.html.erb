@@ -15,7 +15,6 @@
         <div class="reservation_item_left">
           <%= t(:pick_up_time) %>:
         </div>
-        <% availability_url = "reservation_item_plim"%>
         <div class="reservation_item_right">
           <% with_all = "'#{items}&returning_time='+#{returning_time}+'&picking_up_time='+#{picking_up_time}+'&'+#{item_amounts}" %>
           <%= datetime_select "conversation", "pick_up_time", {},

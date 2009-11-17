@@ -5,6 +5,8 @@ class Favor < ActiveRecord::Base
   
   has_and_belongs_to_many :groups, :join_table => "groups_favors"
   
+  has_one :favor_request
+  
   acts_as_ferret :fields => {
     :title => {},
     :description => {},

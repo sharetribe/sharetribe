@@ -45,7 +45,7 @@ module ConversationsHelper
   
   # Returns a status message for a reservation
   def get_reservation_status(reservation)
-    owner = get_item_owner(reservation)
+    owner = reservation.item_owner
     case reservation.status
     when "pending_owner"
       is_current_user?(owner) ? "awaiting_acceptance_from_you" : "awaiting_acceptance_from_other_party"
@@ -56,9 +56,14 @@ module ConversationsHelper
     end  
   end
   
-  # Returns the owner of reserved items
-  def get_item_owner(reservation)
-    reservation.items.first.owner
+  # Returns a status message for a favor request
+  def get_favor_request_status(favor_request)
+    case favor_request.status
+    when "pending"
+      is_current_user?(favor_request.favor_offerer) ? "awaiting_acceptance_from_you" : "awaiting_acceptance_from_other_party"
+    else
+      "favor_request_" + favor_request.status
+    end  
   end
   
   def get_amount_value(item, conversation)

@@ -11,11 +11,15 @@ module KassiEventsHelper
       hash[:title] = t(:done_favor) + ": " + h(kassi_event.eventable.title.downcase)
       hash[:requester] = [t(:favor_receiver), link_to(kassi_event.requester.name, kassi_event.requester)]
       hash[:provider] = [t(:favor_realizer), link_to(kassi_event.provider.name, kassi_event.provider)]
+    elsif kassi_event.eventable_type.eql?("FavorRequest")
+      hash[:title] = t(:done_favor) + ": " + h(kassi_event.eventable.favor.title.downcase)
+      hash[:requester] = [t(:favor_receiver), link_to(kassi_event.requester.name, kassi_event.requester)]
+      hash[:provider] = [t(:favor_realizer), link_to(kassi_event.provider.name, kassi_event.provider)]
     elsif kassi_event.eventable_type.eql?("Reservation")
       reservation_items = kassi_event.eventable.items.collect { |item| h(item.title.downcase) }
       hash[:title] = (reservation_items.size > 1 ? t(:lent_items) : t(:lent_item)) + ": " + reservation_items.join(", ")
       hash[:requester] = [t(:item_borrower), link_to(kassi_event.requester.name, kassi_event.requester)]
-      hash[:provider] = [t(:item_lender), link_to(kassi_event.provider.name, kassi_event.provider)]
+      hash[:provider] = [t(:item_lender), link_to(kassi_event.provider.name, kassi_event.provider)]      
     else
       hash[:title] = t("#{kassi_event.eventable.category}_title") + ': ' + kassi_event.eventable.title
       if kassi_event.requester

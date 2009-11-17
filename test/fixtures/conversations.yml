@@ -17,3 +17,9 @@ three:
   pick_up_time: <%= DateTime.now %>
   return_time: <%= DateTime.now + 2.hours %>
   status: pending_reserver
+  
+four:
+  id: 4
+  title: Favor request
+  type: "FavorRequest"
+  status: pending

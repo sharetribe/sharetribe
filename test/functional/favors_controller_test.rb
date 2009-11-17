@@ -75,50 +75,6 @@ class FavorsControllerTest < ActionController::TestCase
     assert_equal "thaihieronta", assigns(:favor).title
   end
   
-  def test_thank_for
-    submit_with_person :thank_for, { 
-      :person_id => people(:one),
-      :id => favors(:two).id
-    }, nil, nil, :get
-    assert_response :success
-    assert_template 'thank_for'  
-    assert_not_nil assigns(:favor)
-    assert_not_nil assigns(:person)
-    assert_not_nil assigns(:kassi_event)
-  end
-  
-  def test_mark_as_done
-    return_to = people_path 
-    favor = favors(:two)
-    submit_with_person :mark_as_done, { 
-      :person_id => people(:two),
-      :id => favor.id,
-      :kassi_event => {
-        :eventable_id => favor.id,
-        :eventable_type => "Favor",
-        :comment_attributes => {
-          :text_content => "Kommentti",
-          :grade => 0.5,
-          :author_id => people(:one).id,
-          :target_person_id => people(:two).id
-        },
-        :participant_attributes => {
-          people(:one).id => "requester",
-          people(:two).id => "provider"
-        }
-      },
-      :return_to => return_to 
-    }, :kassi_event, :receiver_id, :post
-    assert_redirected_to return_to
-    assert_equal flash[:notice], :thanks_for_favor_sent
-    kassi_event = assigns(:kassi_event)
-    assert ! kassi_event.new_record?
-    assert_equal "Kommentti", kassi_event.person_comments.first.text_content
-    assert_equal 0.5, kassi_event.person_comments.first.grade
-    assert_equal people(:one), kassi_event.requester
-    assert_equal people(:two), kassi_event.provider
-  end
-  
   def test_search_favors
     search("dsfds", 0)
     search("*", 3)
