@@ -54,6 +54,10 @@ class Person < ActiveRecord::Base
   has_many :kassi_event_participations, :dependent => :destroy
   has_many :kassi_events, 
            :through => :kassi_event_participations, 
+           :source => :kassi_event,
+           :conditions => "pending = 0"
+  has_many :own_kassi_events, 
+           :through => :kassi_event_participations, 
            :source => :kassi_event
            
   has_one :settings, :dependent => :destroy
@@ -387,7 +391,7 @@ class Person < ActiveRecord::Base
     update_attributes({:description => description}, cookie)
   end
   
-  # Returns contacts of this person as an array of Person objects 
+  # Returns contacts of this person as an array of Person objects
   def contacts
     Person.find_by_sql(contact_query("people.id, people.created_at"))
   end

@@ -7,9 +7,10 @@ class KassiEventsController < ApplicationController
     session[:links_panel_navi] = 'kassi_events'
     save_navi_state(['own', 'profile']) if current_user?(@person)
     @pagination_type = "kassi_events"
-    @kassi_events = @person.kassi_events.paginate :page => params[:page], 
-                                                  :per_page => per_page,
-                                                  :order => "id DESC"
+    @kassi_events = current_user?(@person) ? @person.own_kassi_events : @person.kassi_events
+    @kassi_events = @kassi_events.paginate :page => params[:page], 
+                                           :per_page => per_page,
+                                           :order => "id DESC"
   end
   
   def show
@@ -23,6 +24,7 @@ class KassiEventsController < ApplicationController
   
   # Used to add new comments to an existing Kassi event
   def update
+    logger.info "Doing stuff here"
     @kassi_event = KassiEvent.find(params[:id])
     params[:kassi_event][:pending] = 0
     @kassi_event.update_attributes(params[:kassi_event])
