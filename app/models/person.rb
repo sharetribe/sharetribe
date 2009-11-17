@@ -609,6 +609,7 @@ class Person < ActiveRecord::Base
       FROM kassi_events, conversations, kassi_events_people
       WHERE kassi_events.id = kassi_events_people.kassi_event_id
       AND kassi_events_people.person_id = '#{id}'
+      AND kassi_events.pending = 0
       AND (kassi_events.eventable_type <> 'Reservation'
       OR (kassi_events.eventable_id = conversations.id
           AND conversations.return_time < '#{DateTime.now.utc}'))

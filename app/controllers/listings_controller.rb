@@ -244,12 +244,9 @@ class ListingsController < ApplicationController
           render :action => :close and return
         end
         
-        #puts "REALIZER ID: #{realizer_id}"
-        
         params[:kassi_event][:participant_attributes][realizer_id] = @listing.realizer_role
         params[:kassi_event][:comment_attributes].merge!({:author_id => @current_user.id, :target_person_id => realizer_id})
-        
-        #puts "PARTICIPAATIOT: #{params[:kassi_event][:participant_attributes].inspect}"
+        params[:kassi_event][:pending] = 0
         
         @kassi_event = KassiEvent.new(params[:kassi_event])
         

@@ -292,6 +292,99 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_redirected_to person_inbox_path(people(:one), conversation)
   end
   
+  def test_create_new_favor_request
+    return_path = people_path
+    submit_with_person :create, {
+      :conversation => {
+        :conversation_participants => [[people(:one).id, 1], [people(:two).id, 0]],
+        :title => "Favor request",
+        :message_attributes => { :content => "I want to ask for this favor", :sender_id => people(:one).id },
+        :favor_id => favors(:two).id,
+        :type => "FavorRequest",
+        :status => "pending",  
+      },
+      :receiver => people(:two).id,
+      :return_to => return_path,
+      :person_id => people(:one).id
+    }, :conversation, nil
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :message_sent
+    conversation = assigns(:conversation)
+    assert ! conversation.new_record?
+    assert ! conversation.last_message.new_record?
+    assert_equal conversation.last_message.sender, people(:one)
+    assert_equal conversation.title, "Favor request"
+    assert_equal conversation.type, "FavorRequest"
+    assert_equal conversation.participants, [ people(:one), people(:two) ]
+    assert_equal 1, conversation.person_conversations.find_by_person_id(people(:one).id).is_read
+    assert_equal 0, conversation.person_conversations.find_by_person_id(people(:two).id).is_read
+    assert_equal conversation.favor, favors(:two)
+    assert_redirected_to return_path
+  end
+  
+  def test_create_invalid_favor_request
+    return_path = people_path
+    submit_with_person :create, {
+      :conversation => {
+        :conversation_participants => [people(:one).id, people(:two).id],
+        :message_attributes => { :sender_id => people(:one).id },
+        :favor_id => favors(:two).id, 
+        :title => "Favor request",
+        :type => "FavorRequest",
+        :status => "pending",  
+      },
+      :receiver => people(:two).id,
+      :return_to => return_path,
+      :person_id => people(:one).id
+    }, :conversation, nil
+    assert_response :success, @response.body
+    assert assigns(:conversation).errors.on(:messages)
+    assert_template "ask_for"
+  end
+  
+  def test_accept_favor_request
+    submit_with_person :update, { 
+      :conversation => {
+        :status => "accepted", 
+      },
+      :kassi_event => {
+        :eventable_id => conversations(:four).id,
+        :eventable_type => "FavorRequest",
+        :participant_attributes => {
+          people(:one).id => "provider",
+          people(:two).id => "requester"
+        }
+      },
+      :accepted => "accepted",
+      :person_id => people(:one).id,
+      :id => conversations(:four).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], "favor_request_accepted"
+    conversation = assigns(:conversation)
+    assert_equal "accepted", conversation.status
+    kassi_event = assigns(:kassi_event)
+    assert ! kassi_event.new_record?
+    assert_equal people(:two), kassi_event.requester
+    assert_equal people(:one), kassi_event.provider
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
+  def test_reject_favor_request
+    submit_with_person :update, { 
+      :conversation => {
+        :status => "rejected", 
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:four).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], "favor_request_rejected"
+    conversation = assigns(:conversation)
+    assert_equal "rejected", conversation.status
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
   private
   
   def get_reserved_items(amount)

@@ -1,5 +1,9 @@
-<div class="listed_object">
-  <div class="listed_item_owner_center">
+<% 
+  main_div_class = params[:qa] ? "listed_full_width_object" : "listed_object" 
+  center_div_class = params[:qa] ? "listed_item_owner_center_long" : "listed_item_owner_center" 
+%>
+<div class="<%= main_div_class %>">
+  <div class="<%= center_div_class %>">
     <div class="listed_object_title">
       <%= link_to h(group.title(session[:cookie])), group_path(group) %>
     </div>

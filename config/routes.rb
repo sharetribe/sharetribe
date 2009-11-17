@@ -87,6 +87,7 @@ ActionController::Routing::Routes.draw do |map|
                                               :borrow => :get
                                             }
     person.resources :favors, :member => {
+                                           :ask_for => :get,
                                            :thank_for => :get,
                                            :mark_as_done => :post,
                                            :view_description => :get,

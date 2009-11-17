@@ -24,6 +24,7 @@ class KassiEventsController < ApplicationController
   # Used to add new comments to an existing Kassi event
   def update
     @kassi_event = KassiEvent.find(params[:id])
+    params[:kassi_event][:pending] = 0
     @kassi_event.update_attributes(params[:kassi_event])
     other_party = @kassi_event.get_other_party(@current_user)
     if RAILS_ENV != "development" && other_party.settings.email_when_new_comment_to_kassi_event == 1

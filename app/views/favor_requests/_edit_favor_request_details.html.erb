@@ -1,0 +1,38 @@
+<fieldset>
+  <legend>
+    <%= t(:favor_request_details) %>:
+  </legend>
+  <div class="form_extra_padding">
+    <div class="form_container">
+      <div class="form_right">
+        <b><%= t(:title) %>: </b> &nbsp; <%= t(:i_want_to_ask_for_this_favor) + ": " + @favor.title %> 
+      </div>
+    </div>
+  </div>
+  <div class="form_extra_padding">
+    <div class="reservation_items">
+      <div class="solid_line"></div>
+    </div>
+    <br />
+    <div class="form_container">
+    <% fields_for "conversation[message_attributes]", Message.new do |message_form| -%>
+      <div class="form_header">
+        <%= t(:free_message) %>:
+      </div>
+      <div class="form_field">
+        <%= message_form.text_area :content, :class => "message", :value => params[:conversation] ? params[:conversation][:message_attributes][:content] : t(:hi_i_would_like_to_ask_for_this_favor) %>
+      </div>
+      <%= message_form.hidden_field :sender_id, :value => @current_user.id %>
+    <% end %>
+    </div>
+    <div class="form_container">
+      <div class="form_right">
+        <% if @person_conversations %> 
+          <%= submit_tag t(:edit_reservation_request), :onclick => "this.disabled=true,this.form.submit();" %>
+        <% else %>  
+          <%= submit_tag t(:make_favor_request), :onclick => "this.disabled=true,this.form.submit();" %>
+        <% end %>  
+      </div>
+    </div>
+  </div>
+</fieldset>
