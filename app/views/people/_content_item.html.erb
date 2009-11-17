@@ -27,12 +27,8 @@
               borrow_person_item_path(content_item.owner, content_item, :receiver => content_item.owner.id, 
                                                                         :return_to => root_path) %>
       <% else %>
-        | <%= link_to t(:ask_for_favor), :controller => :conversations, 
-                                         :action => :new, 
-                                         :person_id => @current_user, 
-                                         :target_object => content_item, 
-                                         :target_object_type => "favor", 
-                                         :return_to => root_path %>
+        | <%= link_to t(:ask_for_favor), ask_for_person_favor_path(content_item.owner, content_item, :receiver => content_item.owner.id, 
+                                                                                     :return_to => request.request_uri) %>
       <% end %>
       <div id='<%= "info_#{object_type.downcase}_#{content_item.id.to_s}" %>' class="content_item_description" style="display:none;">
         <% unless object_type.eql?("Listing") %>
