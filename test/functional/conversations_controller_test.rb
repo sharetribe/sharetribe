@@ -139,7 +139,7 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal 0, conversation.person_conversations.find_by_person_id(people(:two).id).is_read
     assert_redirected_to return_path
   end
-  
+   
   def test_post_to_existing_conversation
     submit_with_person :update, { 
       :conversation => {
@@ -149,7 +149,8 @@ class ConversationsControllerTest < ActionController::TestCase
       :id => conversations(:one).id
     }, :conversation, nil, :put
     assert_response :found, @response.body
-    assert_equal flash[:notice], :message_sent
+    puts "Error: " + flash[:error] if flash[:error]
+    assert_equal :message_sent, flash[:notice]
     conversation = assigns(:conversation)
     assert_equal 3, conversation.messages.size
     assert_equal "testing", conversation.last_message.content
@@ -382,6 +383,23 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_equal flash[:notice], "favor_request_rejected"
     conversation = assigns(:conversation)
     assert_equal "rejected", conversation.status
+    assert_redirected_to person_inbox_path(people(:one), conversation)
+  end
+  
+  def test_send_new_message_to_favor_request
+    submit_with_person :update, { 
+      :conversation => {
+        :message_attributes => {  
+          :content => "message",
+          :sender_id => people(:one).id,  
+        }
+      },
+      :person_id => people(:one).id,
+      :id => conversations(:four).id
+    }, :conversation, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :message_sent
+    conversation = assigns(:conversation)
     assert_redirected_to person_inbox_path(people(:one), conversation)
   end
   

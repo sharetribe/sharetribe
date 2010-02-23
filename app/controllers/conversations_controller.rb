@@ -96,10 +96,11 @@ class ConversationsController < ApplicationController
           flash[:notice] = :borrow_request_edited
         end
       elsif @conversation.type.eql?("FavorRequest")
-        flash[:notice] = "favor_request_" + params[:conversation][:status]
-      else
-        flash[:notice] = :message_sent
-      end  
+        if ["accepted", "rejected"].include?(params[:conversation][:status])
+          flash[:notice] = "favor_request_" + params[:conversation][:status]
+        end
+      end
+      flash[:notice] ||= :message_sent    
       redirect_to person_inbox_path(@current_user, @conversation)
     else
       if (@conversation.type.eql?("Reservation") && params[:conversation][:status] && 

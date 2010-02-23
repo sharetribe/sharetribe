@@ -73,12 +73,7 @@
       <%= t(:good_thru) %>*:
     </div>
     <div class="form_right">
-      <% if @listing.good_thru %>
-        <%= f.text_field :good_thru, :size => "20" %>
-      <% else %>
-        <%= f.text_field :good_thru, :size => "20", :value => params[:listing] ? params[:listing][:good_thru] : Date.today + 4.month %>
-      <% end %>   
-      &nbsp;<%= t(:good_thru_format) %> 
+      <%= f.date_select :good_thru %>
     </div>
   </div>
   <div class="form_container">  

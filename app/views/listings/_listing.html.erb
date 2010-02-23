@@ -27,7 +27,7 @@
         <% link_text =  listing.title.slice!(0..32) + "..." %>   
       <% end %>
     <% end %>
-    <% if ["all_categories", "marketplace", "lost_property"].include?(@title) || @pagination_type.eql?("person_listings") %>
+    <% if ["all_categories", "marketplace", "lost_property"].include?(@title) || @pagination_type.eql?("person_listings") || params[:q] || params[:qa] %>
       <%# include category name, when browsing top level categories %>
       <% link_text = t("title_#{listing.category}") + link_text %>
     <% end %>

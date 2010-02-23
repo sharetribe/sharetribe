@@ -142,7 +142,7 @@
 :others => "Others",
 
 # Title categories
-:title_sell => "In sale: ",
+:title_sell => "On sale: ",
 :title_buy => "Buying: ",
 :title_give => "Giving: ",
 :title_borrow_items => "Borrowing: ",
