@@ -156,7 +156,7 @@ class FavorsController < ApplicationController
     return unless must_be_current_user(@person)
     @favor = Favor.find(params[:id])
     @favor.enable
-    flash[:notice] = [:cancelled_deletion_of_favor, h(@favor.title)]
+    flash[:notice] = [:cancelled_deletion_of_favor, @favor.title]
     redirect_to @person
   end
   

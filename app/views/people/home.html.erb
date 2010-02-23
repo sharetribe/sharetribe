@@ -146,7 +146,7 @@
       <div class="home_content_right_box_content">
         <h3 class="home_event_box_title"><%= t(:newest_news) %></h3>
         <div class="solid_line_white"></div>
-        <div id="kassi_events">
+        <div id="news">
           <%= render :partial => "news_items/news_item",
                      :as => :news_item,
                      :collection => @rss.items[0..2], 

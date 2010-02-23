@@ -1,6 +1,6 @@
 class ListingsController < ApplicationController
 
-  before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close ]
+  before_filter :logged_in, :only  => [ :new, :create, :destroy, :mark_as_interesting, :mark_as_not_interesting, :reply, :close, :commentsap ]
   
   def index
     if params[:person_id]
@@ -67,6 +67,7 @@ class ListingsController < ApplicationController
   def new
     save_navi_state(['listings', 'add_listing', ''])
     @listing = Listing.new
+    @listing.good_thru = Date.today + 4.month
   end  
 
   def create

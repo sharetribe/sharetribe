@@ -43,11 +43,11 @@ class GroupsControllerTest < ActionController::TestCase
     get :edit, { :id => groups(:two).id }, {:person_id => @test_person.id, :cookie => @cookie}
     assert_redirected_to group_path(groups(:two))
   end
-  
+   
   def test_create_and_leave_group
     post :create, {
       :group => {
-        :title => "Group for testing Kassi12", 
+        :title => "Group for testing Kassi123", 
         :type => "open",
         :description => "This group is done in the automatic tests of Kassi and 
                          should be removed immediately afterwards."
@@ -61,7 +61,6 @@ class GroupsControllerTest < ActionController::TestCase
     #check that it exists
     get :show, {:id => id}, {:person_id => @test_person.id, :cookie => @session.cookie}
     assert_response :success, @response.body
-    
     
     # leave group and check that is deleted (as the last person leaves)
     delete :leave, {:id => id, :person_id => @test_person.id}, {:person_id => @test_person.id, :cookie => @session.cookie}
