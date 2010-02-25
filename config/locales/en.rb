@@ -142,7 +142,7 @@
 :others => "Others",
 
 # Title categories
-:title_sell => "On sale: ",
+:title_sell => "For sale: ",
 :title_buy => "Buying: ",
 :title_give => "Giving: ",
 :title_borrow_items => "Borrowing: ",
@@ -740,7 +740,7 @@
 :about => "About",
 :help => "Help",
 :terms => "Terms",
-:forum => "Forum",
+:forum => "Feedback forum",
 :beta_version => "Beta-version",
 :updated => "updated",
 :kassi_is_one_of_otasizzle_services => "Kassi is one of <a href='http://sizl.org'>OtaSizzle</a> services.",
