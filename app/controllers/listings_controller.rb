@@ -108,6 +108,7 @@ class ListingsController < ApplicationController
 
   def edit
     @listing = Listing.find(params[:id])
+    @listing.good_thru = Date.today + 1.month if @listing.good_thru < Date.today
     @object_visibility = @listing.visibility
     return unless must_be_current_user(@listing.author)  
     
