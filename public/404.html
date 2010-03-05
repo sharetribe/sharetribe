@@ -37,16 +37,19 @@
       	    If you believe that the address is correct and it should be working, please help us locate the error by letting us know
       	    what address caused the error and what should be seen on the page with the form below.
       	  </p>
-      	  <br />
           
-          <p>
-      	    <b>HUOM: Tässä ollut palautelomake on poistettu käytöstä spämmin takia. Palautetta ja bugiraportteja voi lähettää vasemman laidan Feedback-linkin kautta.
-      	    </b> 
-      	  </p>
-      	  <p>
-      	    <b>NOTE: Feedback form below is removed due to spam. Please use left side feedback tab for bug reporting.</b>
-      	  </p>
           <br />
+
+            <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="FRxyTGUXFXVaqVMYDQq30+A5SoGm3dVpF7413Zhv17Q=" /></div> 
+              <textarea cols="50" id="feedback_content" name="feedback[content]" rows="5"></textarea> 
+              <br /><br />
+
+              <input id="feedback_url" name="feedback[url]" type="hidden" value="/" />  
+              <input name="commit" onclick="this.disabled=true,this.form.submit();" type="submit" value="Lähetä palaute ylläpidolle" /> 
+            </form> 
+              
+          <br />    
+
           <p>
             <a href="/"> Takaisin Kassin etusivulle - Back to Kassi Front page </a>
           </p>  
