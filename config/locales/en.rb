@@ -25,6 +25,7 @@
 :remove => "Remove",
 :save => "Save",
 :undo => "undo", 
+:or => "or",
 
 #Languages
 :fi => "Finnish",
@@ -731,6 +732,7 @@
 :feedback_url => "Url",
 :feedback_content => "Content",
 :mark_as_handled => "Mark as handled",
+:go_to_feedback_forum => "go to feedback forum",
 
 #Admin
 :admin => "Admin",

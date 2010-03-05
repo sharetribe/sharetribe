@@ -25,6 +25,7 @@
 :remove => "Poista",
 :save => "Tallenna",
 :undo => "peruuta",
+:or => "tai",
 
 #Visibility
 :visibility => "Näkyvyys",
@@ -731,7 +732,8 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :feedback_sent_at => "Lähetysaika",
 :feedback_url => "Sivu jolta lähetetty",
 :feedback_content => "Palautteen sisältö",
-:mark_as_handled => "Merkitse käsitellyksi",    
+:mark_as_handled => "Merkitse käsitellyksi",
+:go_to_feedback_forum => "näytä palautefoorumi",     
 
 #Admin
 :admin => "Ylläpito",

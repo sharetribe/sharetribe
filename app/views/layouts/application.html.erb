@@ -65,8 +65,27 @@
         
         </div>
         
-        <!-- Feedback form was here-->
-        <br />&nbsp;<br />
+        <div id="feedback">
+          <div id="feedback_spacer">&nbsp;</div>
+          <div id="feedback_form">
+          <% form_for :feedback, :url => admin_feedbacks_path do |f| %>
+            <div class="feedback_form_left_align">
+              <b><%= t(:leave_feedback) %></b><br /><br />
+            </div>  
+            <%= f.text_area :content, :size => "60x5" %>
+            <br /><br />
+            <% if @current_user %>
+              <%= f.hidden_field :author_id, :value => @current_user.id %>
+            <% else %>
+              <%= f.hidden_field :author_id, :value => "Anonymous" %>
+            <% end %>
+            <%= f.hidden_field :url, :value => request.request_uri %>
+            <div class="feedback_form_left_align">  
+              <%= submit_tag t(:send_feedback), :onclick => "this.disabled=true,this.form.submit();" %> <%= t(:or) %> <%= link_to t(:go_to_feedback_forum), "http://kassi.uservoice.com" %>
+            </div>  
+          <% end %>
+          </div>
+        </div>
         
       </div>
     </div>

@@ -1521,6 +1521,11 @@ div.content_item_description {
 	padding-top: 50px;
 }
 
+.feedback_form_left_align {
+	text-align: left;
+	margin-left: 305px;
+}
+
 div.feedback_item {
 	margin: 3px;
 	border: 1px solid #000;
