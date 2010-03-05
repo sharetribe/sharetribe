@@ -16,10 +16,10 @@
   <div class="form_field">
     <%= f.text_area :description, :size => "90x5" %>
   </div>
+  <%= f.hidden_field :type, :value => "open" %>  
   <div class="form_field">
     <%= submit_tag t(:create_group), :onclick => "this.disabled=true,this.form.submit();" %>
   </div>
-  <%= f.hidden_field :type, :value => "open" %>  
 <% end %>
 
 </div>
