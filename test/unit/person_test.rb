@@ -35,7 +35,7 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal("Testaaja", @test_person.family_name(@cookie))
     @test_person.update_attributes({'given_name' => "Rotta2"}, @cookie)
     assert_equal("Rotta2", @test_person.given_name(@cookie))
-    @test_person.update_attributes({'family_name' => "Riuska", 'given_name' => 'Ripa'}, @cookie)
+    @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"}, @cookie)
     assert_equal("Ripa Riuska", @test_person.name(@cookie) )
   end
   
@@ -52,8 +52,8 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal("SMT 49", @test_person.street_address(@cookie))
     @test_person.update_attributes({'street_address' => "salainen"},@cookie)
     assert_equal("salainen", @test_person.street_address(@cookie))
-    # @test_person.set_address("Jämeräntaival 13 Y 85", @cookie)
-    # assert_equal("Jämeräntaival 13 Y 85", @test_person.address(@cookie), "Scandinavic letters Fail!")
+    @test_person.set_street_address("Jämeräntaival 13 Y 85", @cookie)
+    assert_equal("Jämeräntaival 13 Y 85", @test_person.street_address(@cookie), "Scandinavic letters Fail!")
   end
   
   def test_phone_number

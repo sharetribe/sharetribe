@@ -278,7 +278,7 @@ class Person < ActiveRecord::Base
   end
   
   def set_given_name(name, cookie)
-    update_attributes({:name => {:given_name => name, } }, cookie)
+    update_attributes({:name => {:given_name => name } }, cookie)
   end
   
   def family_name(cookie=nil)

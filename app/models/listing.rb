@@ -60,6 +60,9 @@ class Listing < ActiveRecord::Base
     "looking_for_apartment" => { :groups => ["tori.asunnot"] },
     "roommates" => { :groups => ["tori.asunnot"] },
     "temporary_accommodation" => { :groups => ["tori.asunnot"] },
+    "borrow_items" => { :groups => ["tori.sekalaista"] },
+    "favors" => { :groups => ["tori.sekalaista"] },
+    "groups" => { :groups => ["tori.sekalaista"] },
     "others" => { :groups => ["tori.sekalaista"] }
   }
 

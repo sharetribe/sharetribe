@@ -198,8 +198,9 @@ class Group < ActiveRecord::Base
   end
   
   def self.create_group(params, cookie)
-      #resp = JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}))
-      return RestHelper.make_request(:post, "#{COS_URL}/#{@@element_name}", params, {:cookies => cookie})
+    logger.info "Params: " + params.inspect
+    #return JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}).body)
+    return RestHelper.make_request(:post, "#{COS_URL}/#{@@element_name}", params, {:cookies => cookie})
   end
   
   def self.put_attributes(params, id, cookie)
