@@ -48,6 +48,15 @@ Rails::Initializer.run do |config|
   config.gem "ferret"
   config.gem "json"
   config.gem "httpclient"
+  #config.gem "rest-client"
+  config.gem(
+    'rest-client',
+    :lib     => 'restclient',
+    :version => '1.4.1'
+  )
+
+  
+  
 
   #These below are needed too, but their existence is not detected correctly so commented out.
   #config.gem "rest-client"
