@@ -27,8 +27,9 @@ cd ..
 #ensure new line at the end of file
 echo "" >> config/environments/production.rb
 
-echo "config.action_controller.consider_all_requests_local = true" >> config/environments/production.rb
-echo "config.action_view.debug_rjs                         = true" >> config/environments/production.rb
+# Commenting these will show error pages in alpha instead of stack trace
+# echo "config.action_controller.consider_all_requests_local = true" >> config/environments/production.rb
+# echo "config.action_view.debug_rjs                         = true" >> config/environments/production.rb
 
 echo "BETA_VERSION = \"1.0.$REV\"" >> config/environments/production.rb
 BUILD_DATE=`svn info file:///svn/kassi | \
