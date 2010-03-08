@@ -32,13 +32,14 @@ class CachedRessiEvent < ActiveRecord::Base
     event = RessiEvent.create({
                               :user_id =>        user_id,
                               :application_id => application_id,
-                              :session_id => session_id,
+                              :session_id =>     session_id,
                               :ip_address =>     ip_address,
                               :action =>         action,
                               :parameters =>     parameters,
                               :return_value =>   return_value,
                               :headers =>        headers,
-                              :semantic_event_id => semantic_event_id
+                              :semantic_event_id => semantic_event_id,
+                              :created_at =>     created_at
                             })
   end
 end
