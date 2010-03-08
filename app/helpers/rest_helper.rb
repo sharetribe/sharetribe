@@ -37,7 +37,7 @@ module RestHelper
       response = call(method, url, params, headers)
     end
     
-    return JSON.parse(response)
+    return JSON.parse(response.body)
   end
   
   private 
