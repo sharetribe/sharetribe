@@ -47,7 +47,7 @@ class GroupsControllerTest < ActionController::TestCase
   def test_create_and_leave_group
     post :create, {
       :group => {
-        :title => "Group for testing Kassi1234567", 
+        :title => "Group for testing Kassi12345678", 
         :type => "open",
         :description => "This group is done in the automatic tests of Kassi and 
                          should be removed immediately afterwards."

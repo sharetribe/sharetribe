@@ -137,9 +137,9 @@
 :favors => "Favor requests",
 :housing => "Housing",
 :for_rent => "For rent",
-:looking_for_apartment => "Looking for apartment", 
+:looking_for_apartment => "Looking for", 
 :roommates => "Roommates",  
-:temporary_accommodation => "Temporary accommodation",
+:temporary_accommodation => "Temporary",
 :others => "Others",
 
 # Title categories
