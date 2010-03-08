@@ -39,14 +39,20 @@
 					  You can help us find find the problem by writing a short description of the problem in the box below.
 					</p>
           <br />
-
-            <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="FRxyTGUXFXVaqVMYDQq30+A5SoGm3dVpF7413Zhv17Q=" /></div> 
-              <textarea cols="50" id="feedback_content" name="feedback[content]" rows="5"></textarea> 
-              <br /><br />
-
-              <input id="feedback_url" name="feedback[url]" type="hidden" value="/" />  
-              <input name="commit" onclick="this.disabled=true,this.form.submit();" type="submit" value="Lähetä palaute ylläpidolle" /> 
-            </form> 
+          <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="6e1c1399c83ef146b054fa11222046e522add966" /></div>
+            <div class="login_padding">
+              <b>Virheen kuvaus - error description</b>
+            </div>  
+            <div class="login_padding">
+              <textarea cols="40" id="feedback_content" name="feedback[content]" rows="5" class="error_page"></textarea> 
+            </div>
+						<input id="feedback_author_id" name="feedback[author_id]" type="hidden" value="virheilmoitus500" />
+            <input id="feedback_url" name="feedback[url]" type="hidden" value="/error_notice_received.html" />  
+            <div class="login_form_br"></div>
+            <div class="login_padding">
+              <input name="commit" onclick="this.form.submit();" type="submit" value="Lähetä - Send" class="home_button" />
+            </div>
+          </form>
               
           <br />
           
