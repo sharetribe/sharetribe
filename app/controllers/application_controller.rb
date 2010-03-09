@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include CacheHelper
   include EventIdHelper
+  include VisibilityHelper
   
   NEW_ARRIVED_ITEMS_CACHE_TIME = 20.seconds
   
@@ -49,49 +50,6 @@ class ApplicationController < ActionController::Base
                                  :order => order,
                                  :select => 'id, created_at, author_id, title, status, times_viewed, category, good_thru, visibility', 
                                  :conditions => conditions)                                                                       
-  end
-
-  # Returns visibility conditions for object_type (item, favor or listing)
-  def get_visibility_conditions(object_type, person=@current_user)
-    conditions = " AND (visibility = 'everybody'"
-    if person
-      case object_type
-      when "listing"
-        person_type = "author_id"
-      when "item"
-        person_type = "owner_id"
-      when "favor"
-        person_type = "owner_id"
-      end
-      conditions += " OR visibility = 'kassi_users' OR #{person_type} = '#{person.id}'"
-      friend_ids = person.get_friend_ids(session[:cookie])
-      if friend_ids.size > 0
-        conditions += " OR (visibility IN ('friends', 'f_c', 'f_g', 'f_c_g') 
-        AND #{person_type} IN (" + friend_ids.collect { |id| "'#{id}'" }.join(",") + "))"
-      end
-      if Person.count_by_sql(person.contact_query("COUNT(people.id)")) > 0
-        conditions += " OR (visibility IN ('contacts', 'f_c', 'c_g', 'f_c_g') 
-        AND #{person_type} IN (#{person.contact_query('people.id')}))"
-      end
-      if person.groups(session[:cookie]).size > 0
-        group_ids = person.get_group_ids(session[:cookie]).collect { |id| "'#{id}'" }.join(",")
-        conditions += " OR (visibility IN ('groups', 'f_g', 'c_g', 'f_c_g')
-        AND id IN (
-          SELECT #{object_type}s.id 
-          FROM groups_#{object_type}s, #{object_type}s
-          WHERE groups_#{object_type}s.group_id IN (#{group_ids})
-          AND groups_#{object_type}s.#{object_type}_id = #{object_type}s.id
-        ))"
-      end
-    end
-    conditions += ")"
-  end
-  
-  # Returns the visibility value to be saved in db based 
-  # on the visibility parameter and checkbox values
-  def get_visibility(object_type)
-    # Use the method in ApplicationHelper
-    set_visibility_in_params(object_type)
   end
   
   # Renders friend and group checkboxes for visibility
