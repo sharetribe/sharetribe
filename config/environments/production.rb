@@ -41,3 +41,7 @@ ActionMailer::Base.sendmail_settings = {
 ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
 ActionMailer::Base.default_charset = "utf-8"
 
+# Tell workling plugin that it should use starling gem for creating workers 
+config.after_initialize do
+  Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
+end

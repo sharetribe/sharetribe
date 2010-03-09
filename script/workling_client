@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'daemons'
+
+workling = File.join(File.dirname(__FILE__), '..', 'vendor', 'plugins', 'workling', 'script', 'listen.rb')
+options = {
+  :app_name   => "workling",
+  :ARGV       => ARGV,
+  :dir_mode   => :normal,
+  :dir        => File.join(File.dirname(__FILE__), '..', 'log'),
+  :log_output => true,
+  :multiple   => false,
+  :backtrace  => true,
+  :monitor    => true
+}
+
+Daemons.run(workling, options)

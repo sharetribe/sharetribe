@@ -22,4 +22,7 @@ LOG_TO_RESSI = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-
+# Tell workling plugin that it should use starling gem for creating workers 
+config.after_initialize do
+  Workling::Remote.dispatcher = Workling::Remote::Runners::StarlingRunner.new
+end
