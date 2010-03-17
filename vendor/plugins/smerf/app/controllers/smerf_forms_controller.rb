@@ -68,7 +68,8 @@ class SmerfFormsController < ApplicationController
         @smerfform.id, self.smerf_user_id, @responses)
         flash[:notice] = :smerf_saved_succesfully
         # Show the form again, allowing the user to edit responses
-        render(:action => "edit")
+        # render(:action => "edit")
+        redirect_to root_path 
       end
     else
       flash[:notice] = :smerf_no_response_nothing_saved
@@ -94,9 +95,11 @@ class SmerfFormsController < ApplicationController
         PeopleSmerfForm.update_records(
         @smerfform.id, self.smerf_user_id, @responses)
         flash[:notice] = :smerf_updated_succesfully
+        redirect_to root_path 
+      else
+        # Show the form again, allowing the user to edit responses
+        render(:action => "edit")
       end
-      # Show the form again, allowing the user to edit responses
-      render(:action => "edit")
     else
       flash[:notice] = :smerf_no_response_nothing_saved
     end
