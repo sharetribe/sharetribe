@@ -4,7 +4,7 @@ class ErrorMailer < ActionMailer::Base
 
     content_type "text/html"
   
-    recipients  'juho.makkonen@tkk.fi'
+    recipients  'juho.makkonen@tkk.fi, antti.virolainen@tkk.fi'
     from        'Error Mailer <KassiErrors@sizl.org>'
     subject     "[Error] exception on #{PRODUCTION_SERVER} in #{request.request_uri}"
     sent_on    sent_on
