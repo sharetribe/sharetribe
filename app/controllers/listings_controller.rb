@@ -88,7 +88,7 @@ class ListingsController < ApplicationController
           # allowed mail notifications of new listings from friends.
           count = Listing.count(:all, :conditions => ["id = ?" + get_visibility_conditions("listing", friend), @listing.id])
           if friend.settings.email_when_new_listing_from_friend == 1 && count == 1
-            UserMailer.deliver_notification_of_new_listing_from_friend(@listing, friend, request)
+            UserMailer.deliver_notification_of_new_listing_from_friend(@listing, friend, request.host.to_s, request.protocol.to_s)
           end  
         end  
       end
