@@ -28,5 +28,8 @@ config.after_initialize do
 end
 
 # Enable sending mail from localhost
-ActionMailer::Base.smtp_settings = { :address => 'smtp.hut.fi', #if needed change to own smtp server :port => 25, :domain => 'cos.alpha.sizl.org' 
+ActionMailer::Base.smtp_settings = {
+  :address => 'smtp.hut.fi', #if needed change to own smtp server
+  :port => 25,
+  :domain => 'cos.alpha.sizl.org'
 }

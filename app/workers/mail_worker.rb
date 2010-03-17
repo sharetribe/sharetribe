@@ -5,7 +5,7 @@ class MailWorker < Workling::Base
   def send_mail_to_friends_about_listing(options)
     listing = Listing.find(options[:listing_id])
     cookie = options[:cookie]
-    if RAILS_ENV != "development"
+    # if RAILS_ENV != "development"
       # Send mail to a friend only if he/she is allowed to see the listing and has
       # allowed mail notifications of new listings from friends.
       listing.author.friends(cookie).each do |friend|
@@ -15,7 +15,7 @@ class MailWorker < Workling::Base
           UserMailer.deliver_notification_of_new_listing_from_friend(listing, friend, options[:protocol], options[:host])
         end  
       end
-    end
+    # end
   end
 
 end
