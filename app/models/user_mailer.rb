@@ -76,8 +76,8 @@ class UserMailer < ActionMailer::Base
   
   def notification_of_new_listing_from_friend(listing, friend, protocol, host)
     subject_string = listing.author.name + " on lähettänyt Kassiin uuden ilmoituksen"
-    url = http_request ? "#{protocol}#{host}#{listing_path(listing)}" : "test_url"
-    settings_url = http_request ? "#{protocol}#{host}#{person_settings_path(friend.id)}" : "test_url"
+    url = protocol ? "#{protocol}#{host}#{listing_path(listing)}" : "test_url"
+    settings_url = protocol ? "#{protocol}#{host}#{person_settings_path(friend.id)}" : "test_url"
     recipients friend.email
     from       KASSI_MAIL_FROM_ADDRESS
     subject    subject_string
