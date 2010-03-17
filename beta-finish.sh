@@ -57,5 +57,5 @@ sudo /etc/init.d/apache2 restart
 
 # restart workling daemon so possible changes are updated
 cd /var/datat/kassi/current 
-sudo script/workling_client stop
-sudo script/workling_client start
+script/workling_client stop
+script/workling_client start
