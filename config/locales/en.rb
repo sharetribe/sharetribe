@@ -755,6 +755,7 @@
 :smerf_saved_succesfully => "Response saved succesfully",
 :smerf_no_response_nothing_saved => "No response found, nothing saved",
 :smerf_updated_succesfully => "Response updated succesfully",
+:do_the_kassi_survey => "Do the Kassi survey!",
 
 #Errors
 :"Error in error message translation"  => "Unknown error",

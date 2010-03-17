@@ -755,6 +755,7 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :smerf_saved_succesfully => "Vastaukset tallennettu onnistuneesti",
 :smerf_no_response_nothing_saved => "Ei vastauksia, mitään ei tallennettu",
 :smerf_updated_succesfully => "Vastaukset päivitetty onnistuneesti",
+:do_the_kassi_survey => "Vastaa kassikyselyyn!",
 
 #Errors
 :"Error in error message translation"  => "Tuntematon virhe",
