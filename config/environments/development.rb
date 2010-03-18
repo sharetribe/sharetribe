@@ -16,7 +16,6 @@ config.action_controller.perform_caching             = true
 # Memcached also in dev-mode to see real results and to get expirity times working
 config.cache_store = :mem_cache_store
 
-
 LOG_TO_RESSI = false
 
 # Don't care if the mailer can't send
