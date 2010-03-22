@@ -46,12 +46,6 @@ rake db:migrate
 #rake test
 rake db:migrate RAILS_ENV=production
 
-# restart starling and workling before starting the server
-cd /var/datat/kassi/current
-starling -d -P tmp/pids/starling.pid -q log/
-script/workling_client stop
-RAILS_ENV=production ./script/workling_client start
-
 #script/server -d -e production -p 8000
 mongrel_rails cluster::start
 cd ..
