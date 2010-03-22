@@ -99,7 +99,8 @@ ActionController::Routing::Routes.draw do |map|
     person.resource :purse
     person.resource :settings, :collection => { 
                                                 :change_email => :put, 
-                                                :change_password => :put 
+                                                :change_password => :put,
+                                                :change_language => :put 
                                               }
     person.resources :friends
     person.resources :contacts

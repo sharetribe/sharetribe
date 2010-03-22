@@ -52,6 +52,34 @@
       </div>  
     </fieldset>
   <% end %>
+  <% form_for @person, :url => change_language_person_settings_path(@person), :method => :put do |f| %>
+    <fieldset>  
+      <legend>
+        <%= t(:change_language) %>:
+      </legend>
+      <div class="form_extra_padding">
+      <div class="form_container">
+        <div class="form_left">
+          <%= t(:person_language) %>:
+        </div>
+        <div class="form_right">
+          <%= radio_button_tag :person_locale, "fi", @current_user.locale.eql?("fi") %>
+          &nbsp;
+          Suomi
+          &nbsp;&nbsp;&nbsp;
+          <%= radio_button_tag :person_locale, "en", @current_user.locale.eql?("en") %>
+          &nbsp;
+          Englanti
+        </div>
+      </div>
+      <div class="form_container">
+        <div class="form_right">
+          <%= submit_tag t(:save), :onclick => "this.disabled=true,this.form.submit();" %>
+        </div>
+      </div>
+      </div>  
+    </fieldset>
+  <% end %>
   <% form_for @person.settings, :url => person_settings_path(@person), :method => :put do |f| %>
     <fieldset>  
       <legend>

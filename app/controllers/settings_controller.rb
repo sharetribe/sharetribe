@@ -43,6 +43,13 @@ class SettingsController < ApplicationController
     redirect_to person_settings_path(@person)
   end
   
+  def change_language
+    @person = Person.find(params[:person_id])
+    @person.update_attribute(:locale, params[:person_locale])
+    flash[:notice] = :language_updated_successfully
+    redirect_to person_settings_path(@person)
+  end
+  
   def update
     @person = Person.find(params[:person_id])
     return unless must_be_current_user(@person)
