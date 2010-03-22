@@ -89,4 +89,15 @@ class SettingsControllerTest < ActionController::TestCase
     end
   end
   
+  def test_change_language
+    assert_equal "fi", @test_person1.locale
+    submit_with_person :change_language, { 
+      :locale => "en",
+      :person_id => @test_person1.id
+    }, :person, nil, :put
+    assert_response :found, @response.body
+    assert_equal flash[:notice], :language_updated_successfully
+    assert_equal "en", @test_person1.locale
+  end
+  
 end

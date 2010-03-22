@@ -117,6 +117,7 @@ class PeopleController < ApplicationController
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
+    params[:person][:locale] = session[:locale] || 'fi'
     
     # Try to create a new person in COS. 
     @person = Person.new

@@ -19,8 +19,8 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password
 
-  before_filter :set_locale
   before_filter :fetch_logged_in_user
+  before_filter :set_locale
   before_filter :count_new_arrived_items
   before_filter :set_up_feedback_form
   before_filter :generate_event_id
@@ -81,9 +81,15 @@ class ApplicationController < ActionController::Base
 
   # Sets locale file used.
   def set_locale
-    locale = params[:locale] || session[:locale] || 'fi'
+    if @current_user
+      locale = @current_user.locale
+      session[:locale] = @current_user.locale
+      @current_user.update_attribute(:locale, params[:locale]) if params[:locale]
+    else  
+      locale = params[:locale] || session[:locale] || 'fi'
+      session[:locale] = params[:locale] || session[:locale]
+    end  
     I18n.locale = locale
-    session[:locale] = params[:locale] || session[:locale]
   end
   
   def fetch_logged_in_user

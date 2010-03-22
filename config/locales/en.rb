@@ -684,6 +684,9 @@
 :email_when_new_comment_to_kassi_event => "of new feedback from my kassi events",
 :email_when_new_listing_from_friend => "of my friends' listings",
 :settings_updated_successfully => "Settings updated",
+:change_language => "Change language",
+:person_language => "Language",
+:language_updated_successfully => "Language updated successfully", 
 
 #Error messages
 :title_is_required => "Title is required",

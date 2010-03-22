@@ -195,7 +195,7 @@ class Person < ActiveRecord::Base
     params[:given_name] = params[:given_name].slice(0, 28)
     params[:family_name] = params[:family_name].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2), params[:id], cookie)
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale), params[:id], cookie)
     
     # Create locally with less attributes 
     super(params.except(:username, :email, :name))
