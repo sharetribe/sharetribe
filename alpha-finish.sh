@@ -2,6 +2,7 @@
 # The last part of the Kassi build script. This is in a separate file so that the newest version from the repository
 # is always run. 
 
+KASSI_PATH=/var/datat/kassi/releases/manual
 
 rm -rf log
 ln -s /var/datat/kassi/shared/log log
