@@ -33,7 +33,7 @@
         <%= label_tag(:realized_false, t(:no)) %> 
         <br /><br /><br />
       </div>
-
+      <div class="form_container">
         <div id="feedback"  style="display:<%= params[:realized] ? "block" : "none" %>;">
           
           <%= render :partial => "realizer_feedback_form" %>

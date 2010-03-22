@@ -82,16 +82,6 @@ class ListingsController < ApplicationController
       @listing.save_group_visibilities(params[:groups])
       @listing.newsgroup = params[:newsgroup]
       @listing.post_to_newsgroups(request.protocol + request.host + listing_path(@listing))
-      # if RAILS_ENV != "development"
-        # @current_user.friends(session[:cookie]).each do |friend|
-        #   # Send mail to a friend only if he/she is allowed to see the listing and has
-        #   # allowed mail notifications of new listings from friends.
-        #   count = Listing.count(:all, :conditions => ["id = ?" + get_visibility_conditions("listing", friend), @listing.id])
-        #   if friend.settings.email_when_new_listing_from_friend == 1 && count == 1
-        #     UserMailer.deliver_notification_of_new_listing_from_friend(@listing, friend, request.protocol.to_s, request.host.to_s)
-        #   end  
-        # end  
-      # end
       MailWorker.async_send_mail_to_friends_about_listing(:listing_id => @listing.id,
                                                           :cookie => session[:cookie],
                                                           :protocol => request.protocol.to_s,
@@ -142,7 +132,9 @@ class ListingsController < ApplicationController
     get_visibility(:listing)
     if @listing.update_attributes(params[:listing])
       @listing.save_group_visibilities(params[:groups])
-      @listing.notify_followers(request, @current_user, true)
+      MailWorker.async_send_mail_about_update_of_listing(:listing_id => @listing.id,
+                                                         :protocol => request.protocol.to_s,
+                                                         :host => request.host.to_s)
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
     else

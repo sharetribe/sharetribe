@@ -313,15 +313,13 @@ END_OF_MESSAGE
   # Send notifications to the users following this listing
   # when the listing is updated (update=true) or a
   # new comment to the listing is created.
-  def notify_followers(request, current_user, update)
-    if RAILS_ENV != "development"
-      followers.each do |follower|
-        unless follower.id == current_user.id
-          if update
-            UserMailer.deliver_notification_of_new_update_to_listing(self, follower, request)
-          else
-            UserMailer.deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, request)
-          end
+  def notify_followers(protocol, host, current_user, update)
+    followers.each do |follower|
+      unless follower.id == current_user.id
+        if update
+          UserMailer.deliver_notification_of_new_update_to_listing(self, follower, protocol, host)
+        else
+          UserMailer.deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, protocol, host)
         end
       end
     end
