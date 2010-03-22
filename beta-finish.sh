@@ -49,13 +49,15 @@ rake db:migrate
 # no tests on beta to make the downtime shorter
 #rake test
 rake db:migrate RAILS_ENV=production
+
+# restart starling and workling before starting the server
+starling -d -P tmp/pids/starling.pid -q log/
+script/workling_client stop
+RAILS_ENV=production ./script/workling_client start
+
 #script/server -d -e production -p 8000
+mongrel_rails cluster::configure -e production -p 8000 -N 5 -c $KASSI_PATH -a 127.0.0.1
 mongrel_rails cluster::start
 cd ..
 cd ..
 sudo /etc/init.d/apache2 restart
-
-# restart workling daemon so possible changes are updated
-# cd /var/datat/kassi/current 
-# script/workling_client stop
-# script/workling_client start
