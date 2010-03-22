@@ -50,7 +50,7 @@ rake db:migrate RAILS_ENV=production
 # restart starling and workling before starting the server
 starling -d -P tmp/pids/starling.pid -q log/
 script/workling_client stop
-script/workling_client start RAILS_ENV=production
+RAILS_ENV=production ./script/workling_client start
 
 #script/server -d -e production -p 8000
 mongrel_rails cluster::configure -e production -p 8000 -N 5 -c $KASSI_PATH -a 127.0.0.1
