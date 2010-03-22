@@ -8,10 +8,9 @@ class ListingCommentsController < ApplicationController
     @comment = ListingComment.new(params[:listing_comment])
     @comment.is_read = (@comment.author.id == @listing.author.id) ? 1 : 0
     if @comment.save
-      if RAILS_ENV != "development" && !current_user?(@listing.author) && @listing.author.settings.email_when_new_comment == 1
-        UserMailer.deliver_notification_of_new_comment(@comment, request)
-      end
-      @listing.notify_followers(request, @current_user, false)
+      MailWorker.async_send_mail_about_comment_to_listing(:comment_id => @comment.id,
+                                                          :protocol => request.protocol.to_s,
+                                                          :host => request.host.to_s)
       flash[:notice] = "comment_added"  
       respond_to do |format|
         format.html { redirect_to @listing }

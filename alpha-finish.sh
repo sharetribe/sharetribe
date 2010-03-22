@@ -45,16 +45,21 @@ rake db:migrate
 # no tests because using Cruise Control
 #rake test
 rake db:migrate RAILS_ENV=production
+
+# restart starling and workling before starting the server
+cd /var/datat/kassi/current
+starling -d -P tmp/pids/starling.pid -q log/ 
+script/workling_client stop
+script/workling_client start
+cd ..
+
 #script/server -d -e production -p 8000
 mongrel_rails cluster::start
 cd ..
 cd ..
 sudo /etc/init.d/apache2 restart
 
-# restart workling daemon so possible changes are updated
-# cd /var/datat/kassi/current 
-# script/workling_client stop
-# script/workling_client start
+
 
 
 

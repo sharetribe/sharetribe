@@ -12,10 +12,10 @@ class UserMailer < ActionMailer::Base
   end
   
   # Used to send a notification to the listing author
-  def notification_of_new_comment(comment, request=nil)
+  def notification_of_new_comment(comment, protocol=nil, host=nil)
     subject_string = comment.author.name + " on kommentoinut ilmoitustasi"
-    url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
-    settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(comment.listing.author.id)}" : "test_url"
+    url = protocol ? "#{protocol}#{host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
+    settings_url = protocol ? "#{protocol}#{host}#{person_settings_path(comment.listing.author.id)}" : "test_url"
     recipients comment.listing.author.email
     from       KASSI_MAIL_FROM_ADDRESS
     subject    subject_string
@@ -23,10 +23,10 @@ class UserMailer < ActionMailer::Base
   end
   
   # Used to send a notification to people who have commented the listing and are not listing authors
-  def notification_of_new_comment_to_followed_listing(comment, receiver, request=nil)
+  def notification_of_new_comment_to_followed_listing(comment, receiver, protocol=nil, host=nil)
     subject_string = comment.author.name + " on kommentoinut ilmoitusta jota seuraat"
-    url = request ? "#{request.protocol}#{request.host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
-    settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(receiver.id)}" : "test_url"
+    url = protocol ? "#{protocol}#{host}#{listing_path(comment.listing.id)}##{comment.id}" : "test_url"
+    settings_url = request ? "#{protocol}#{host}#{person_settings_path(receiver.id)}" : "test_url"
     recipients receiver.email
     from       KASSI_MAIL_FROM_ADDRESS
     subject    subject_string
@@ -34,10 +34,10 @@ class UserMailer < ActionMailer::Base
   end
   
   # Used to send a notification to people who have commented the listing and are not listing authors
-  def notification_of_new_update_to_listing(listing, receiver, request=nil)
+  def notification_of_new_update_to_listing(listing, receiver, protocol=nil, host=nil)
     subject_string = "Seuraamasi ilmoitus on päivittynyt"
-    url = request ? "#{request.protocol}#{request.host}#{listing_path(listing.id)}" : "test_url"
-    settings_url = request ? "#{request.protocol}#{request.host}#{person_settings_path(receiver.id)}" : "test_url"
+    url = protocol ? "#{protocol}#{host}#{listing_path(listing.id)}" : "test_url"
+    settings_url = protocol ? "#{protocol}#{host}#{person_settings_path(receiver.id)}" : "test_url"
     recipients receiver.email
     from       KASSI_MAIL_FROM_ADDRESS
     subject    subject_string
@@ -74,7 +74,7 @@ class UserMailer < ActionMailer::Base
     body       :recipient => recipient, :kassi_event => kassi_event, :url => url, :settings_url => settings_url
   end
   
-  def notification_of_new_listing_from_friend(listing, friend, protocol, host)
+  def notification_of_new_listing_from_friend(listing, friend, protocol=nil, host=nil)
     subject_string = listing.author.name + " on lähettänyt Kassiin uuden ilmoituksen"
     url = protocol ? "#{protocol}#{host}#{listing_path(listing)}" : "test_url"
     settings_url = protocol ? "#{protocol}#{host}#{person_settings_path(friend.id)}" : "test_url"
