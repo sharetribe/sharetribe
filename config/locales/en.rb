@@ -724,6 +724,7 @@
 :leave_feedback => "Give feedback to Kassi administrators",
 :feedback_saved => "Feedback registered",
 :feedback_not_saved => "Feedback could not be registered",
+:feedback_considered_spam => "Feedback not saved, due its formatting. Try again or use the feedback forum.",
 :send_feedback => "Send feedback to administrators",
 :feedbacks => "Feedback items",
 :feedbacks_partitive => "feedback items",
@@ -758,7 +759,7 @@
 :smerf_saved_succesfully => "Response saved succesfully",
 :smerf_no_response_nothing_saved => "No response found, nothing saved",
 :smerf_updated_succesfully => "Response updated succesfully",
-:do_the_kassi_survey => "Do the Kassi survey!",
+
 
 #Errors
 :"Error in error message translation"  => "Unknown error",

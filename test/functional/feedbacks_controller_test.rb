@@ -18,26 +18,37 @@ class Admin::FeedbacksControllerTest < ActionController::TestCase
     assert_equal 2, assigns(:feedbacks).size
     assert_equal 1, assigns(:new_feedback_item_amount)
   end
-
-  # COMMENTED OUT DUE TO SPAM
-  # 
-  # def test_add_feedback
-  #   submit_with_person :create, { :feedback => {
-  #     :content => "Testisisältö",
-  #     :url => "/listings"
-  #   }}, :feedback
-  #   assert_response :found, @response.body
-  #   assert ! assigns(:feedback).new_record?
-  #   assert_not_nil flash[:notice]
-  # end
-  # 
-  # def test_add_invalid_feedback
-  #   post :create, :feedback => {
-  #     :url => listings_path
-  #   }
-  #   assert assigns(:feedback).errors.on(:author_id)
-  #   assert assigns(:feedback).errors.on(:content)
-  # end
+  
+  def test_add_feedback
+    submit_with_person :create, { :feedback => {
+      :content => "Testisisältö",
+      :url => "/listings"
+    }}, :feedback
+    assert_response :found, @response.body
+    assert ! assigns(:feedback).new_record?
+    assert_not_nil flash[:notice]
+  end
+  
+  def test_add_invalid_feedback
+    post :create, :feedback => {
+      :url => listings_path
+    }
+    assert assigns(:feedback).errors.on(:author_id)
+    assert assigns(:feedback).errors.on(:content)
+  end
+  
+  def test_spam_feedback
+    post :create, :feedback => {
+      :url => listings_path,
+      :content => "CVeGt  <a href=\"http://uputuxsnvsma.com/\">uputuxsnvsma</a>, [url=http://gsagyagrqqok.com/]gsagyagrqqok[/url], [link=http://igvysiydxsyy.com/]igvysiydxsyy[/link], http://zppdjmneyhmn.com/"
+    }
+    assert_response :found, @response.body
+    assert assigns(:feedback).new_record?
+    assert_nil flash[:notice]
+    assert_not_nil flash[:error]
+    
+  end
+  
   
   def test_handle_feedback
     @request.env['HTTP_REFERER'] = admin_feedbacks_path
