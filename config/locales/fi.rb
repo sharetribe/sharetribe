@@ -725,6 +725,7 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :leave_feedback => "Jätä palautetta Kassin ylläpidolle",
 :feedback_saved => "Palaute tallennettu",
 :feedback_not_saved => "Palautetta ei voitu tallentaa",
+:feedback_considered_spam => "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia.",
 :send_feedback => "Lähetä palaute ylläpidolle",
 :feedbacks => "Palauteviestit",
 :feedbacks_partitive => "palauteviestiä",
@@ -758,7 +759,7 @@ tarjoamistaan palveluksista. Listaa omasi ja liity Kassin yhteisöön!",
 :smerf_saved_succesfully => "Vastaukset tallennettu onnistuneesti",
 :smerf_no_response_nothing_saved => "Ei vastauksia, mitään ei tallennettu",
 :smerf_updated_succesfully => "Vastaukset päivitetty onnistuneesti",
-:do_the_kassi_survey => "Vastaa kassikyselyyn!",
+
 
 #Errors
 :"Error in error message translation"  => "Tuntematon virhe",

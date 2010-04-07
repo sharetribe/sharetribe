@@ -12,7 +12,12 @@ class Admin::FeedbacksController < ApplicationController
 
   def create
     @feedback = Feedback.new(params[:feedback])
-    if @feedback.save
+    
+    # Detect most usual spam messages
+    if (@feedback.content && @feedback.content.include?("[url="))
+      flash[:error] = :feedback_considered_spam
+      
+    elsif @feedback.save
       flash[:notice] = :feedback_saved
       if RAILS_ENV != "development" 
         UserMailer.deliver_notification_of_new_feedback(@feedback, request)
@@ -20,6 +25,7 @@ class Admin::FeedbacksController < ApplicationController
     else
       flash[:error] = :feedback_not_saved
     end
+    
     redirect_to params[:feedback][:url]    
   end
   

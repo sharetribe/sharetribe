@@ -147,11 +147,6 @@
         <h3 class="home_event_box_title"><%= t(:newest_news) %></h3>
         <div class="solid_line_white"></div>
         <div id="news">
-          <div class="home_kassi_event">
-            <h4 class="home_event_title"><%= link_to t(:do_the_kassi_survey), "smerf_forms/kassikysely3" %></h4>
-            &nbsp;17.3.2010 14:00
-          </div >
-          <div class="dashed_line_white"></div>
           <%= render :partial => "news_items/news_item",
                      :as => :news_item,
                      :collection => @rss.items[0..2], 
