@@ -9,11 +9,7 @@ class RssHandler
   # from articles tagged "kassi"
   def self.get_kassi_feed
     begin
-       return RSS::Parser.parse(open(KASSI_FEED_URL).read, false)
-       
-       #experimental cache for rss
-       #return Rails.cache.fetch("kassi_news_rss", :expires_in => 1.hours) {RSS::Parser.parse(open(KASSI_FEED_URL).read, false)}
-       
+       return Rails.cache.fetch("kassi_news_rss", :expires_in => 24.hours) {RSS::Parser.parse(open(KASSI_FEED_URL).read, false)} 
     rescue Timeout::Error => e
       return nil
     end
