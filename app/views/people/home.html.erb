@@ -149,7 +149,7 @@
         <div id="news">
           <%= render :partial => "news_items/news_item",
                      :as => :news_item,
-                     :collection => @rss.items[0..2], 
+                     :collection => (@rss.nil? ? [] : @rss.items[0..2]), 
                      :spacer_template => "layouts/dashed_line_white" %>
         </div>
         <div class="solid_line_white"></div>  
