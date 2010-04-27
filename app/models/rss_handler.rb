@@ -8,7 +8,15 @@ class RssHandler
   # Return the RSS fetched from the OtaSizzle blog
   # from articles tagged "kassi"
   def self.get_kassi_feed
-    RSS::Parser.parse(open(KASSI_FEED_URL).read, false)
+    begin
+       return RSS::Parser.parse(open(KASSI_FEED_URL).read, false)
+       
+       #experimental cache for rss
+       #return Rails.cache.fetch("kassi_news_rss", :expires_in => 1.hours) {RSS::Parser.parse(open(KASSI_FEED_URL).read, false)}
+       
+    rescue Timeout::Error => e
+      return nil
+    end
   end
   
   # Return the URL for OtaSizzle blog articles tagged "kassi"
