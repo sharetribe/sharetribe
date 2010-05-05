@@ -1,0 +1,6 @@
+<% other_party = @kassi_event.get_other_party(@recipient) %> 
+<%= t(:has_nominated_you_as_realizer, :author => other_party.name, :listing => @kassi_event.eventable.title ) %>
+
+<%= t(:show_event_and_give_feedback, :other_party => other_party.name, :url => @url)%>
+
+<%= render :partial => "mail_signature" %>

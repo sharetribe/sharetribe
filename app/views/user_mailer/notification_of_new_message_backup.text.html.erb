@@ -1,11 +1,13 @@
 <%= t(:has_sent_you_message_in_kassi, :sender => @message.sender.name) %>
 
-***
+<div style="margin: 15px 0; padding: 10px; background-color: #e0e6d8;">
 
 <%= @message.content %>
 
-***
+</div>
 
 <%= t(:you_can_reply_to_message_in) %> <%= link_to @url, @url + "?ref=email" %>
+
+<br /><br />
 
 <%= t(:do_not_reply_to_this_email) %>

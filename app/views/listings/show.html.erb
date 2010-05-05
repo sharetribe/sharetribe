@@ -129,7 +129,7 @@
   <% if @current_user && @listing.open? %>
     <% form_for :listing_comment, :url => listing_comments_path(@listing) do |f| %>
       <b><%= t(:comment_listing) %> </b><br /><br />
-      <%= f.text_area :content, :size => "48x5" %>
+      <%= f.text_area :content, :size => "80x6" %>
       <br />
       <%= f.hidden_field :author_id, :value => @current_user.id %>
       <% unless is_current_user?(@listing.author) %>

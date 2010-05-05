@@ -35,7 +35,7 @@ class Conversation < ActiveRecord::Base
   
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(request)
-    if RAILS_ENV == "production"
+    unless RAILS_ENV == "test"
       recipients(last_message.sender).each do |recipient|
         if recipient.settings.email_when_new_comment == 1
           UserMailer.deliver_notification_of_new_message(recipient, last_message, request)

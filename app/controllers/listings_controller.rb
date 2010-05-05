@@ -84,7 +84,6 @@ class ListingsController < ApplicationController
       @listing.post_to_newsgroups(request.protocol + request.host + listing_path(@listing))
       MailWorker.async_send_mail_to_friends_about_listing(:listing_id => @listing.id,
                                                           :cookie => session[:cookie],
-                                                          :protocol => request.protocol.to_s,
                                                           :host => request.host.to_s)
       flash[:notice] = :listing_added
       redirect_to listing_path(@listing)
@@ -133,7 +132,6 @@ class ListingsController < ApplicationController
     if @listing.update_attributes(params[:listing])
       @listing.save_group_visibilities(params[:groups])
       MailWorker.async_send_mail_about_update_of_listing(:listing_id => @listing.id,
-                                                         :protocol => request.protocol.to_s,
                                                          :host => request.host.to_s)
       flash[:notice] = :listing_updated
       redirect_to listing_path(@listing)
@@ -250,7 +248,7 @@ class ListingsController < ApplicationController
         
         if @kassi_event.save
           realizer = Person.find(realizer_id)
-          if RAILS_ENV != "development" && realizer.settings.email_when_new_kassi_event == 1
+          if realizer.settings.email_when_new_kassi_event == 1
             # puts "REALIZER ON: #{realizer.name}"
             #             puts "EVENTTI: #{@kassi_event.inspect}"
             #             puts "other party: #{@kassi_event.get_other_party(realizer)}"

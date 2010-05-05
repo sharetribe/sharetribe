@@ -27,5 +27,10 @@ module ListingsHelper
       nil          
     end  
   end
+  
+  # Returns the title of the listing with the translated category
+  def get_title_with_category(listing)
+    "#{t("title_#{listing.category}")} #{listing.title}"
+  end
 
 end
