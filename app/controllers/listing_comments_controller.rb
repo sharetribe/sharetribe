@@ -9,7 +9,6 @@ class ListingCommentsController < ApplicationController
     @comment.is_read = (@comment.author.id == @listing.author.id) ? 1 : 0
     if @comment.save
       MailWorker.async_send_mail_about_comment_to_listing(:comment_id => @comment.id,
-                                                          :protocol => request.protocol.to_s,
                                                           :host => request.host.to_s)
       flash[:notice] = "comment_added"  
       respond_to do |format|

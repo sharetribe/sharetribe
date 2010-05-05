@@ -29,7 +29,7 @@ class KassiEventsController < ApplicationController
     params[:kassi_event][:pending] = 0
     @kassi_event.update_attributes(params[:kassi_event])
     other_party = @kassi_event.get_other_party(@current_user)
-    if RAILS_ENV != "development" && other_party.settings.email_when_new_comment_to_kassi_event == 1
+    if other_party.settings.email_when_new_comment_to_kassi_event == 1
       UserMailer.deliver_notification_of_new_comment_to_kassi_event(other_party, @kassi_event, request)
     end  
     flash[:notice] = :feedback_sent

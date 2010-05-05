@@ -20,7 +20,7 @@ class ConversationTest < ActiveSupport::TestCase
   end
   
   def test_message_association
-    assert_equal [ messages(:valid_message), messages(:two) ], conversations(:one).messages   
+    assert_equal [ messages(:two), messages(:valid_message) ], conversations(:one).messages   
   end
   
   def test_participant_association

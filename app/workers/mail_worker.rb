@@ -12,7 +12,7 @@ class MailWorker < Workling::Base
     listing.author.friends(cookie).each do |friend|
       count = Listing.count(:all, :conditions => ["id = ?" + get_visibility_conditions("listing", friend, cookie), options[:listing_id]])
       if friend.settings.email_when_new_listing_from_friend == 1 && count == 1
-        UserMailer.deliver_notification_of_new_listing_from_friend(listing, friend, options[:protocol], options[:host])
+        UserMailer.deliver_notification_of_new_listing_from_friend(listing, friend, options[:host])
       end  
     end
   end
@@ -20,14 +20,14 @@ class MailWorker < Workling::Base
   def send_mail_about_comment_to_listing(options)
     comment = ListingComment.find(options[:comment_id])
     if comment.author.id != comment.listing.author.id && comment.listing.author.settings.email_when_new_comment == 1
-      UserMailer.deliver_notification_of_new_comment(comment, options[:protocol], options[:host])
+      UserMailer.deliver_notification_of_new_comment(comment, options[:host])
     end
-    comment.listing.notify_followers(options[:protocol], options[:host], comment.author, false)
+    comment.listing.notify_followers(options[:host], comment.author, false)
   end
   
   def send_mail_about_update_of_listing(options)
     listing = Listing.find(options[:listing_id])
-    listing.notify_followers(options[:protocol], options[:host], listing.author, true)
+    listing.notify_followers(options[:host], listing.author, true)
   end
 
 end

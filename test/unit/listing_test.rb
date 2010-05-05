@@ -115,7 +115,7 @@ class ListingTest < ActiveSupport::TestCase
   end
 
   def test_comments_association
-    assert_equal [ listing_comments(:another_comment), listing_comments(:third_comment) ], 
+    assert_equal [ listing_comments(:third_comment), listing_comments(:another_comment) ], 
     listings(:valid_listing).comments    
   end
 

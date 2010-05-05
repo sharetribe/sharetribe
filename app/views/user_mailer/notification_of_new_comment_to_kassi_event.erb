@@ -1,0 +1,7 @@
+<% other_party = @kassi_event.get_other_party(@recipient) %> 
+
+<%= t(:you_have_received_feedback_about_kassi_event, :other_party => other_party.name) %>
+
+<%= t(:view_and_give_feedback, :other_party => other_party.name) %> <%= @url + "?ref=email" %>
+
+<%= render :partial => "mail_signature" %>

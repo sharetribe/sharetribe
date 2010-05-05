@@ -738,6 +738,31 @@
 :mark_as_handled => "Mark as handled",
 :go_to_feedback_forum => "go to feedback forum",
 
+#Mail notifications
+:new_message_in_kassi => "{{sender}} has sent you a new message",
+:has_sent_you_message_in_kassi => "{{sender}} has sent you the following message in Kassi:",
+:you_can_reply_to_message_in => "You can reply to the message by going to",
+:do_not_reply_to_this_email => "Note: do not reply directly to this email. Use the reply link above instead.",
+:your_listing_has_been_commented => "{{commenter}} has written a new comment on your listing '{{listing}}':",  
+:read_your_listing_comments_and_reply => "You can read the comments to your listing and reply to them in",
+:listing_you_follow_has_been_commented => "{{commenter}} has commented on the listing '{{listing}}' that you follow",
+:read_listing_comments_and_reply => "You can read the comments to the listing and reply to them in",
+:listing_you_follow_has_been_updated => "Listing you follow has been updated",
+:show_listing_and_comment_or_reply => "View the changes at", 
+:you_have_received_feedback_about_kassi_event => "{{other_party}} has given you feedback about a kassi event.", 
+:view_and_give_feedback => "You can view the event and give feedback to {{other_party}} in", 
+:someone_added_you_as_friend => "{{friend}} has added you as a friend in Kassi.",
+:accept_or_reject_friend_request_at => "You can accept or reject the friend request in",
+:has_nominated_you_as_realizer => "{{author}} has marked you as a realizer of the listing {{listing}}.",  
+:show_event_and_give_feedback => "You can view the kassi event and give feedback to {{other_party}} in {{url}}",
+:listing_from_a_friend => "{{friend}} has posted a new listing to Kassi: {{listing}}.",  
+:show_listing_and_comment_or_reply => "You can view the listing and reply to it in {{url}}",
+
+:thanks => "Thanks,",
+:kassi_team => "The Kassi Team",
+:want_to_control_emails => "Want to control which emails you receive from Kassi?",
+:check_your_settings => "Check your settings", 
+
 #Admin
 :admin => "Admin",
 :only_admin_users_are_allowed_to_do_this => "Only admin users are allowed to do this",

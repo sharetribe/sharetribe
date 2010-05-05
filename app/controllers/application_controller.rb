@@ -82,9 +82,9 @@ class ApplicationController < ActionController::Base
   # Sets locale file used.
   def set_locale
     if @current_user
+      @current_user.update_attribute(:locale, params[:locale]) if params[:locale]
       locale = @current_user.locale
       session[:locale] = @current_user.locale
-      @current_user.update_attribute(:locale, params[:locale]) if params[:locale]
     else  
       locale = params[:locale] || session[:locale] || 'fi'
       session[:locale] = params[:locale] || session[:locale]
