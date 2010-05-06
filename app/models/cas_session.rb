@@ -11,8 +11,8 @@ class CasSession < ActiveResource::Base
   self.format = :json 
   self.timeout = COS_TIMEOUT
   self.element_name = "session"
-  @@app_password = "Xk4z5iZ"
-  @@app_name = "kassi"
+  @@app_password = APP_CONFIG.asi_app_password
+  @@app_name = APP_CONFIG.asi_app_name
   @@cookie = nil
   
   def self.destroy(cookie)

@@ -55,9 +55,6 @@ Rails::Initializer.run do |config|
     :version => '1.4.1'
   )
 
-  
-  
-
   #These below are needed too, but their existence is not detected correctly so commented out.
   #config.gem "rest-client"
   #config.gem "google-geocode"
@@ -86,12 +83,25 @@ Rails::Initializer.run do |config|
 
   # Your secret key for verifying cookie session data integrity.
   # If you change this key, all old sessions will become invalid!
-  # Make sure the secret is at least 30 characters and all random, 
+  # Make sure the secret is at least 30 characters and all random,
   # no regular words or you'll be exposed to dictionary attacks.
+  secret_file = File.join(RAILS_ROOT, "config/session_secret")
+  if File.exist?(secret_file)
+    secret = File.read(secret_file)
+  else
+    secret = ActiveSupport::SecureRandom.hex(64)
+    File.open(secret_file, 'w') { |f| f.write(secret) }
+  end
   config.action_controller.session = {
     :session_key => '_kassi_session',
-    :secret      => '7ed9ea4fe15db6071aed42f1666fef83e9247981b7ea8efb251ab1d37c32e5cd8e6b3221cd1254f0baaa3d32d0ea0daaad187e8b663ae38b8e25ee1cdb231b81'
+    :secret      => secret
   }
+
+
+
+
+
+
 
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
@@ -107,13 +117,14 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 
   #environment variables
-  PURSE_LIMIT = -10
+  
+  BUILT_AT = Time.now # this may be kept here when other constants moved to config.yml?
   
   #COS_URL is different in production env
   
   #COS_URL = "http://maps.cs.hut.fi/cos"
   #COS_URL = "http://localhost:3001"
-  COS_URL = "http://cos.alpha.sizl.org"
+  COS_URL = "http://cos.alpha.sizl.org"  
   
   if COS_URL =~ /sizl.org/
     SSL_COS_URL = COS_URL.sub("http", "https")
@@ -132,7 +143,7 @@ Rails::Initializer.run do |config|
 
   COS_TIMEOUT = 10 # Used only by active resource (session, etc.)
   BETA_VERSION = "local"
-  BUILT_AT = Time.now
+  
    
   KASSI_MAIL_FROM_ADDRESS = "\"Kassi\" <noreply-kassi@sizl.org>"
   PRODUCTION_SERVER = "local"

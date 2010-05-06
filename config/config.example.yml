@@ -1,0 +1,42 @@
+development: &non_production_settings
+  asi_url: "http://cos.alpha.sizl.org"
+  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
+  asi_url_proxied: "http://cos.alpha.sizl.org"  #this won't work completely in develpment mode
+  asi_timeout: 10
+
+  asi_app_name: kassi
+  asi_app_password: secret
+  
+  ressi_url: "http://localhost:9000"
+  ressi_timeout: 5
+  ressi_upload_hour: 1
+  log_to_ressi: false
+  
+  kassi_mail_from_address: "noreply-kassi@sizl.org"
+  
+  #probably not needed:
+  beta_version: "local"
+  production_server: "local"
+  
+test:
+  <<: *non_production_settings
+
+production:
+  asi_url: "http://cos.sizl.org"
+  ssl_asi_url: "https://cos.sizl.org"  # Can be same as asi_url if no https in use
+  asi_url_proxied: "http://kassi.alpha.sizl.org/cos"
+  asi_timeout: 10
+  
+  asi_app_name: kassi
+  asi_app_password: secret
+  
+  ressi_url: "http://cos.alpha.sizl.org/ressi"
+  ressi_timeout: 5
+  ressi_upload_hour: 1
+  log_to_ressi: false
+  
+  kassi_mail_from_address: "noreply-kassi@sizl.org"
+  
+  #probably not needed:
+  beta_version: "local"
+  production_server: "alpha"
