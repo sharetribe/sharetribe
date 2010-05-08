@@ -50,7 +50,6 @@ class FriendTest < ActionController::IntegrationTest
     
     # Check that person 2 has received an email notification
     mail = UserMailer.create_notification_of_new_friend_request(people(:one), people(:two))
-    #assert_equal(KASSI_MAIL_FROM_ADDRESS, mail.from.first)
     assert_equal(people(:one).name + ' on lisännyt sinut kaveriksi Kassissa', mail.subject)
     assert mail.to, "Could not get email address for recipient #{people(:two).name}"
     assert_equal(people(:two).email, mail.to.first)

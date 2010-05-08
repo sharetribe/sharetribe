@@ -4,8 +4,8 @@ class ErrorMailer < ActionMailer::Base
 
     content_type "text/html"
   
-    recipients  'juho.makkonen@tkk.fi, antti.virolainen@tkk.fi'
-    from        'Error Mailer <KassiErrors@sizl.org>'
+    recipients  APP_CONFIG.error_mailer_recipients
+    from        APP_CONFIG.error_mailer_from_address
     subject     "[Error] exception on #{PRODUCTION_SERVER} in #{request.request_uri}"
     sent_on    sent_on
     body        :exception => exception, :trace => trace,

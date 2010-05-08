@@ -12,7 +12,12 @@ development: &non_production_settings
   ressi_upload_hour: 1
   log_to_ressi: false
   
-  kassi_mail_from_address: "noreply-kassi@sizl.org"
+  kassi_mail_from_address: "noreply-kassi@example.com"
+  
+  error_mailer_recipients: 'admins@example.com'
+  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
+  
+  feedback_mailer_recipients:  'admins@example.com'
   
   #probably not needed:
   beta_version: "local"
@@ -35,7 +40,12 @@ production:
   ressi_upload_hour: 1
   log_to_ressi: false
   
-  kassi_mail_from_address: "noreply-kassi@sizl.org"
+  kassi_mail_from_address: "noreply-kassi@example.com"
+  
+  error_mailer_recipients: 'admins@example.com'
+  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
+  
+  feedback_mailer_recipients:  'admins@example.com'
   
   #probably not needed:
   beta_version: "local"
