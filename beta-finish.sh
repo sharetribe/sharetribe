@@ -18,6 +18,11 @@ cd public/images/
 ln -s /var/datat/kassi/shared/listing_images/ listing_images
 cd ..
 cd ..
+cd config
+ln -s /var/datat/kassi/shared/system/database.yml database.yml
+ln -s /var/datat/kassi/shared/system/config.yml config.yml
+ln -s /var/datat/kassi/shared/system/session_secret session_secret
+cd ..
 
 #change production environment to use production COS
 sed -i "s/cos\.alpha\.sizl/cos\.sizl/" config/environments/production.rb

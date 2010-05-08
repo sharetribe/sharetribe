@@ -144,8 +144,6 @@ Rails::Initializer.run do |config|
   COS_TIMEOUT = 10 # Used only by active resource (session, etc.)
   BETA_VERSION = "local"
   
-   
-  KASSI_MAIL_FROM_ADDRESS = "\"Kassi\" <noreply-kassi@sizl.org>"
   PRODUCTION_SERVER = "local"
 
 end

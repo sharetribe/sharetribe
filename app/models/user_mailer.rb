@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
     url = request ? "http://#{request.host}#{person_inbox_path(recipient, message.conversation)}" : "test_url"
     settings_url = request ? "http://#{request.host}#{person_settings_path(recipient.id)}" : "test_url"
     recipients recipient.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :recipient => recipient, :message => message, :url => url, :settings_url => settings_url
   end
@@ -22,7 +22,7 @@ class UserMailer < ActionMailer::Base
     url = host ? "http://#{host}#{listing_path(comment.listing.id)}" : "test_url"
     settings_url = host ? "http://#{host}#{person_settings_path(comment.listing.author.id)}" : "test_url"
     recipients comment.listing.author.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :comment => comment, :url => url, :settings_url => settings_url, :listing_title => get_title_with_category(comment.listing)
   end
@@ -34,7 +34,7 @@ class UserMailer < ActionMailer::Base
     url = host ? "http://#{host}#{listing_path(comment.listing.id)}" : "test_url"
     settings_url = host ? "http://#{host}#{person_settings_path(recipient.id)}" : "test_url"
     recipients recipient.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :comment => comment, :url => url, :settings_url => settings_url, :listing_title => get_title_with_category(comment.listing)
   end
@@ -46,7 +46,7 @@ class UserMailer < ActionMailer::Base
     url = host ? "http://#{host}#{listing_path(listing.id)}" : "test_url"
     settings_url = host ? "http://#{host}#{person_settings_path(recipient.id)}" : "test_url"
     recipients recipient.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :listing => listing, :url => url, :settings_url => settings_url, :recipient => recipient, :listing_title => get_title_with_category(listing)
   end
@@ -57,7 +57,7 @@ class UserMailer < ActionMailer::Base
     url = http_request ? "http://#{http_request.host}#{person_requests_path(requested.id)}" : "test_url"
     settings_url = http_request ? "http://#{http_request.host}#{person_settings_path(requested.id)}" : "test_url"
     recipients requested.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :requester => requester, :url => url, :settings_url => settings_url 
   end
@@ -68,7 +68,7 @@ class UserMailer < ActionMailer::Base
     url = http_request ? "http://#{http_request.host}#{person_kassi_event_path(recipient, kassi_event)}" : "test_url"
     settings_url = http_request ? "http://#{http_request.host}#{person_settings_path(recipient.id)}" : "test_url"
     recipients recipient.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :recipient => recipient, :kassi_event => kassi_event, :url => url, :settings_url => settings_url
   end
@@ -79,7 +79,7 @@ class UserMailer < ActionMailer::Base
     url = http_request ? "http://#{http_request.host}#{person_kassi_event_path(recipient, kassi_event)}" : "test_url"
     settings_url = http_request ? "http://#{http_request.host}#{person_settings_path(recipient.id)}" : "test_url"
     recipients recipient.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :recipient => recipient, :kassi_event => kassi_event, :url => url, :settings_url => settings_url
   end
@@ -90,7 +90,7 @@ class UserMailer < ActionMailer::Base
     url = host ? "http://#{host}#{listing_path(listing)}" : "test_url"
     settings_url = host ? "http://#{host}#{person_settings_path(friend.id)}" : "test_url"
     recipients friend.email
-    from       KASSI_MAIL_FROM_ADDRESS
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :listing => listing, :url => url, :settings_url => settings_url, :listing_title => get_title_with_category(listing)
   end
@@ -98,8 +98,8 @@ class UserMailer < ActionMailer::Base
   def notification_of_new_feedback(feedback, http_request=nil)
     subject_string = "Uutta palautetta #{PRODUCTION_SERVER}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     url = http_request ? "http://#{http_request.host}#{admin_feedbacks_path}" : "test_url"
-    recipients ["antti.virolainen@tkk.fi","juho.makkonen@tkk.fi"]
-    from       KASSI_MAIL_FROM_ADDRESS
+    recipients APP_CONFIG.feedback_mailer_recipients
+    from       APP_CONFIG.kassi_mail_from_address
     subject    subject_string
     body       :url => url, :feedback => feedback
   end
