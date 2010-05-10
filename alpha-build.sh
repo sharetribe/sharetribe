@@ -10,7 +10,13 @@ KASSI_PATH=/var/datat/kassi/releases/manual
 sudo mongrel_rails cluster::stop -C $KASSI_PATH/config/mongrel_cluster.yml
 cd /
 rm -rf $KASSI_PATH
-svn export --force file:///svn/kassi/trunk $KASSI_PATH
+
+# old line to get from local repo
+#svn export --force file:///svn/kassi/trunk $KASSI_PATH
+
+#new line to get from github
+svn export --force http://svn.github.com/sizzlelab/kassi.git $KASSI_PATH
+
 
 cd $KASSI_PATH
 
