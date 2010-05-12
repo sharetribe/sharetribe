@@ -22,6 +22,7 @@ cd config
 ln -s /var/datat/kassi/shared/system/database.yml database.yml
 ln -s /var/datat/kassi/shared/system/config.yml config.yml
 ln -s /var/datat/kassi/shared/system/session_secret session_secret
+ln -s /var/datat/kassi/shared/system/gmaps_api_key.yml gmaps_api_key.yml
 cd ..
 
  REV=$((`svn info file:///svn/kassi | \
