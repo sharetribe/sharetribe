@@ -253,7 +253,7 @@ class ApplicationController < ActionController::Base
       e.ip_address        = request.remote_ip
       e.action            = controller_class_name + "\#" + action_name
       begin
-        if (params["listing"] && params["listing"]["image_file"])
+        if (params["file"] || (params["listing"] && params["listing"]["image_file"]))
           # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
           e.parameters    = params.inspect.gsub('=>', ':')
         else  #normal case
