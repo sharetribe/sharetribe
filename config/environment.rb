@@ -19,7 +19,9 @@ cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
 cas_logger.level = Logger::DEBUG
 
 CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
+    
+    #:cas_base_url => "https://cos.alpha.sizl.org:8443/cas",   # url for sizl-CAS login page
+    :cas_base_url => "https://cos.alpha.sizl.org:8443/cas/shib/kassi/login", # url for Shibboleth-CAS login
     :logger => cas_logger,
     :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
     :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
