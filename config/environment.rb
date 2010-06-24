@@ -21,7 +21,11 @@ cas_logger.level = Logger::DEBUG
 CASClient::Frameworks::Rails::Filter.configure(
     
     #:cas_base_url => "https://cos.alpha.sizl.org:8443/cas",   # url for sizl-CAS login page
-    :cas_base_url => "https://cos.alpha.sizl.org:8443/cas/shib/kassi/login", # url for Shibboleth-CAS login
+    :cas_base_url => "https://zeus.cs.hut.fi/cs/shib/kassi", # url for Shibboleth-CAS login
+    :service_validate_url  => "https://zeus.cs.hut.fi/cs/shib/9999/serviceValidate",
+    :validate_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxyValidate",
+    :proxy_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxy",
+    
     :logger => cas_logger,
     :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
     :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",

@@ -56,7 +56,9 @@ class CasSession < ActiveResource::Base
     params[:session][:app_name] = @@app_name
     params[:session][:app_password] = @@app_password
     begin
+      Rails.logger.info "Sending session create with params: #{params.to_json}"
       resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+      Rails.logger.info "VASTAUS tuli: #{resp.body}"
     rescue Exception => e
       Rails.logger.error "ERROR ON CAS_SESSION: #{e.response.body} -- username was: #{@username} proxy_ticket was: #{@password}"
       
