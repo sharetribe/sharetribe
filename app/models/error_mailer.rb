@@ -6,7 +6,7 @@ class ErrorMailer < ActionMailer::Base
   
     recipients  APP_CONFIG.error_mailer_recipients
     from        APP_CONFIG.error_mailer_from_address
-    subject     "[Error] exception on #{PRODUCTION_SERVER} in #{request.request_uri}"
+    subject     "[Error] exception on #{APP_CONFIG.production_server} in #{request.request_uri}"
     sent_on    sent_on
     body        :exception => exception, :trace => trace,
                 :session => session, :params => params, 

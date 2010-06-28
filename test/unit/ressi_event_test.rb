@@ -3,8 +3,8 @@ require 'test_helper'
 class RessiEventTest < ActiveSupport::TestCase
 
   def test_create
-    # These tests require that the Ressi server is running at RESSI_URL
-    if RESSI_URL && LOG_TO_RESSI
+    # These tests require that the Ressi server is running at APP_CONFIG.ressi_url
+    if APP_CONFIG.ressi_url && APP_CONFIG.log_to_ressi
       begin
 
         test_event = RessiEvent.new({
@@ -21,7 +21,7 @@ class RessiEventTest < ActiveSupport::TestCase
         assert test_event.save
         assert_not_nil(test_event)
       rescue Errno::ECONNREFUSED => e
-        puts "No connection to RESSI at #{RESSI_URL}"
+        puts "No connection to RESSI at #{APP_CONFIG.ressi_url}"
       end
 
     end

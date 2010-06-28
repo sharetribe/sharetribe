@@ -173,39 +173,39 @@ class Group < ActiveRecord::Base
   def self.search(query, cookie=nil)
     escaped_query = ApplicationHelper.escape_for_url(query)
     cookie = Session.kassiCookie if cookie.nil?
-    Group.get_group_ids(RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public?query=#{escaped_query}", {:cookies => cookie}))
+    Group.get_group_ids(RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/#{@@element_name}/@public?query=#{escaped_query}", {:cookies => cookie}))
   end
   
   private
   
   # Class-Methods for COS access
   # In practice we use here connection.post/get/put/delete and the URL and Parameters as described
-  # in COS documentation at #{COS_URL}
+  # in COS documentation at #{APP_CONFIG.asi_url}
 
   def self.get_public_groups(cookie)
-    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie})
-    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/@public", {:cookies => cookie}))
+    return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/#{@@element_name}/@public", {:cookies => cookie})
+    #JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/#{@@element_name}/@public", {:cookies => cookie}))
   end
   
   def self.get_group(id, cookie)
-    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public/#{id}", {:cookies => cookie})
-    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}", {:cookies => cookie}))
+    return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/#{@@element_name}/@public/#{id}", {:cookies => cookie})
+    #JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/#{@@element_name}/#{id}", {:cookies => cookie}))
   end
   
   def self.get_members(id, cookie)
-    #JSON.parse(RestClient.get("#{COS_URL}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
-    return RestHelper.make_request(:get, "#{COS_URL}/#{@@element_name}/@public/#{id}/@members", {:cookies => cookie})
+    #JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/#{@@element_name}/#{id}/@members", {:cookies => cookie}))
+    return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/#{@@element_name}/@public/#{id}/@members", {:cookies => cookie})
   end
   
   def self.create_group(params, cookie)
     logger.info "Params: " + params.inspect
-    #return JSON.parse(RestClient.post("#{COS_URL}/#{@@element_name}", params, {:cookies => cookie}).body)
-    return RestHelper.make_request(:post, "#{COS_URL}/#{@@element_name}", params, {:cookies => cookie})
+    #return JSON.parse(RestClient.post("#{APP_CONFIG.asi_url}/#{@@element_name}", params, {:cookies => cookie}).body)
+    return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/#{@@element_name}", params, {:cookies => cookie})
   end
   
   def self.put_attributes(params, id, cookie)
-    return RestHelper.make_request(:put, "#{COS_URL}/#{@@element_name}/@public/#{id}", {:group => params}, {:cookies => cookie})
-    #JSON.parse(RestClient.put("#{COS_URL}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
+    return RestHelper.make_request(:put, "#{APP_CONFIG.asi_url}/#{@@element_name}/@public/#{id}", {:group => params}, {:cookies => cookie})
+    #JSON.parse(RestClient.put("#{APP_CONFIG.asi_url}/#{@@element_name}/#{id}/@self", {:group => params}, {:cookies => cookie}))
   end
 
 end

@@ -7,9 +7,9 @@ class Session < ActiveResource::Base
   attr_reader   :headers
   attr_reader   :person_id
  
-  self.site = SSL_COS_URL
+  self.site = APP_CONFIG.ssl_asi_url
   self.format = :json 
-  self.timeout = COS_TIMEOUT
+  self.timeout = APP_CONFIG.asi_timeout
   @@app_password = APP_CONFIG.asi_app_password
   @@app_name = APP_CONFIG.asi_app_name
   @@cookie = nil

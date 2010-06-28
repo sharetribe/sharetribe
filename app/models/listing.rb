@@ -248,29 +248,10 @@ This message was sent using Kassi. To reply to this message, go to #{url}
 
 END_OF_MESSAGE
 
-
-
-# Tätä viestistringiä voi käyttää testipostailuihin, niin ei turhaan mene Kassin maine lokaan. :)
-
-# logger.info Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
-# 
-#     test_msgstr = <<END_OF_MESSAGE
-# From: test@not.real.invalid>
-# Newsgroups: otax.test
-# Subject: #{title}
-# Date: #{date}
-# 
-# #{content}
-# 
-# äÄöÖåÅ-test
-# 
-# ***
-# 
-# END_OF_MESSAGE
     
     # Do the actual newsgroup post
     
-    if PRODUCTION_SERVER == "beta"
+    if APP_CONFIG.production_server == "beta"
       Net::NNTP.start('news.tky.fi', 119) do |nntp|
         msgstr = Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
         nntp.post msgstr       

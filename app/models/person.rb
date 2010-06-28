@@ -70,48 +70,48 @@ class Person < ActiveRecord::Base
     # functionality to access REST interface.
     #
     # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
-    # in COS documentation at #{COS_URL}
+    # in COS documentation at #{APP_CONFIG.asi_url}
      
     include RestHelper
     
     def self.create_person(params, cookie)
       CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:post, "#{COS_URL}/people", params, {:cookies => cookie})
-      #return JSON.parse(RestClient.post("#{COS_URL}/people", params, {:cookies => cookie}))
+      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people", params, {:cookies => cookie})
+      #return JSON.parse(RestClient.post("#{APP_CONFIG.asi_url}/people", params, {:cookies => cookie}))
     end
     
     def self.get_person(id, cookie)
       #puts "THREADISTA  #{RestHelper.event_id}"
-      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@self", {:cookies => cookie})
+      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@self", {:cookies => cookie})
 
     end
     
     def self.search(query, cookie)
       escaped_query = ApplicationHelper.escape_for_url(query)
-      return RestHelper.make_request(:get,"#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie})
-      # return JSON.parse(RestClient.get("#{COS_URL}/people?search=#{escaped_query}", {:cookies => cookie}))
+      return RestHelper.make_request(:get,"#{APP_CONFIG.asi_url}/people?search=#{escaped_query}", {:cookies => cookie})
+      # return JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people?search=#{escaped_query}", {:cookies => cookie}))
     end
     
     def self.get_friends(id, cookie)
-      #JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@friends", {:cookies => cookie}))
-      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@friends", {:cookies => cookie})
+      #JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:cookies => cookie}))
+      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:cookies => cookie})
     end
     
     def self.get_pending_friend_requests(id, cookie)
-      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@pending_friend_requests", {:cookies => cookie})
-      #return JSON.parse(RestClient.get("#{COS_URL}/people/#{id}/@pending_friend_requests", {:cookies => cookie}))
+      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests", {:cookies => cookie})
+      #return JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests", {:cookies => cookie}))
     end
     
     def self.put_attributes(params, id, cookie)
       # information changes, clear cache
       parent.cache_delete(id,cookie)
       CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:put, "#{COS_URL}/people/#{id}/@self", {:person => params}, {:cookies => cookie})
-      #JSON.parse(RestClient.put("#{COS_URL}/people/#{id}/@self", {:person => params}, {:cookies => cookie})) 
+      return RestHelper.make_request(:put, "#{APP_CONFIG.asi_url}/people/#{id}/@self", {:person => params}, {:cookies => cookie})
+      #JSON.parse(RestClient.put("#{APP_CONFIG.asi_url}/people/#{id}/@self", {:person => params}, {:cookies => cookie})) 
     end
     
     def self.update_avatar(image, id, cookie)
-      response = HTTPClient.post("#{COS_URL}/people/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
+      response = HTTPClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
       if response.status != 200
         raise Exception.new(JSON.parse(response.body.content)["messages"])
       end
@@ -122,8 +122,8 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:post, "#{COS_URL}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
-      #return RestClient.post("#{COS_URL}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
+      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
+      #return RestClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
     end
     
     def self.remove_from_friends(friend_id, id, cookie)
@@ -131,8 +131,8 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      #RestClient.delete("#{COS_URL}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie}) 
-      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie})
+      #RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie}) 
+      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie})
     end
     
     def self.remove_pending_friend_request(friend_id, id, cookie)
@@ -140,12 +140,12 @@ class Person < ActiveRecord::Base
       #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
       parent.cache_delete(friend_id,cookie)
       CacheHelper.update_people_last_changed
-      # RestClient.delete("#{COS_URL}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
-      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
+      # RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
+      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
     end
     
     def self.get_groups(id, cookie, event_id=nil)
-      request_url = "#{COS_URL}/people/#{id}/@groups"
+      request_url = "#{APP_CONFIG.asi_url}/people/#{id}/@groups"
       request_url += "?event_id=#{event_id}" if event_id
       #JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
       
@@ -155,21 +155,21 @@ class Person < ActiveRecord::Base
     
     def self.join_group(id, group_id, cookie)
       CacheHelper.update_groups_last_changed
-      #JSON.parse(RestClient.post("#{COS_URL}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
-      return RestHelper.make_request(:post, "#{COS_URL}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie} )
+      #JSON.parse(RestClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
+      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie} )
       #response = connection.post("#{prefix}people/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
     end
     
     def self.leave_group(id, group_id, cookie)
       CacheHelper.update_groups_last_changed
-      #JSON.parse(RestClient.delete("#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie}))
-      return RestHelper.make_request(:delete, "#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
+      #JSON.parse(RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie}))
+      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
       #response = connection.delete("#{prefix}people/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
     end
     
     def self.get_group_admin_status(id, group_id, cookie)
-      logger.info "Url: #{COS_URL}/people/#{id}/@groups/#{group_id}"
-      return RestHelper.make_request(:get, "#{COS_URL}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
+      logger.info "Url: #{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}"
+      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
     end
     
     #fixes utf8 letters
