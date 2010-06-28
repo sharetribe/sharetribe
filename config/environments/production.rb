@@ -18,19 +18,6 @@ config.cache_store = :mem_cache_store
 # Enable serving of images, stylesheets, and javascripts from an asset server
 # config.action_controller.asset_host                  = "http://assets.example.com"
 
-# Environment variables specific for production version
-# these are specified here for alpha, but changed to fit for beta in beta-finish.sh
-COS_URL = "http://cos.alpha.sizl.org"
-COS_URL_PROXIED = "http://kassi.alpha.sizl.org/cos"
-
-SSL_COS_URL = COS_URL.sub("http", "https")
-
-RESSI_URL = "http://cos.alpha.sizl.org/ressi"
-#This is default to false, and changed to true in beta-build.sh
-LOG_TO_RESSI = false
-
-
-PRODUCTION_SERVER = "alpha"
 
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :sendmail

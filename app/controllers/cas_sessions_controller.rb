@@ -7,7 +7,7 @@ class CasSessionsController < ApplicationController
 
   def create
 
-    service_uri = COS_URL
+    service_uri = APP_CONFIG.asi_url
     #logger.info "SESSION INCLUDES: " + session.inspect
     proxy_granting_ticket = session[:cas_pgt]
     #logger.info "PGT: " + proxy_granting_ticket.inspect

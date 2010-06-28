@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   before_filter :generate_event_id
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
-  before_filter :log if LOG_TO_RESSI
+  before_filter :log if APP_CONFIG.log_to_ressi
   
   
   # Change current navigation state based on array containing new navi items.

@@ -10,21 +10,8 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-require 'casclient'
-require 'casclient/frameworks/rails/filter'
-#require 'casclient/frameworks/rails/cas_proxy_callback_controller'
 
-# enable detailed CAS logging for easier troubleshooting
-cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
-cas_logger.level = Logger::DEBUG
 
-CASClient::Frameworks::Rails::Filter.configure(
-    :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
-    :logger => cas_logger,
-    :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
-    :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
-    :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
-)
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -42,7 +29,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
   config.gem "ruby-prof"
-  config.gem "rubycas-client"
+  #config.gem "rubycas-client" #removed here to allow easier running without CAS
   config.gem "nntp"
   #config.gem "uuidtools" # no need anymore
   config.gem "ferret"
@@ -99,10 +86,6 @@ Rails::Initializer.run do |config|
 
 
 
-
-
-
-
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
@@ -120,30 +103,27 @@ Rails::Initializer.run do |config|
   
   BUILT_AT = Time.now # this may be kept here when other constants moved to config.yml?
   
-  #COS_URL is different in production env
-  
-  #COS_URL = "http://maps.cs.hut.fi/cos"
-  #COS_URL = "http://localhost:3001"
-  COS_URL = "http://cos.alpha.sizl.org"  
-  
-  if COS_URL =~ /sizl.org/
-    SSL_COS_URL = COS_URL.sub("http", "https")
-  else
-     SSL_COS_URL = COS_URL
-  end
-  
-  COS_URL_PROXIED = COS_URL #this won't work completely in develpment mode
+  # MOST ENVIRONMENT VARIABLES ARE NOW MOVED TO CONFIG.YML
 
-  RESSI_URL = "http://localhost:9000"
-  RESSI_TIMEOUT = 5
-  RESSI_UPLOAD_HOUR = 1
-  #LOG_TO_RESSI = false
-
-  #For example there will be no confirmation when adding profile avatar picture
-
-  COS_TIMEOUT = 10 # Used only by active resource (session, etc.)
   BETA_VERSION = "local"
   
-  PRODUCTION_SERVER = "local"
 
+end
+
+if APP_CONFIG.use_CAS
+  require 'casclient'
+  require 'casclient/frameworks/rails/filter'
+  #require 'casclient/frameworks/rails/cas_proxy_callback_controller'
+
+  # enable detailed CAS logging for easier troubleshooting
+  cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
+  cas_logger.level = Logger::DEBUG
+
+  CASClient::Frameworks::Rails::Filter.configure(
+      :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
+      :logger => cas_logger,
+      :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
+      :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
+      :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
+  )
 end

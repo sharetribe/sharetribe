@@ -12,7 +12,7 @@
   <%= link_to t(:logout), session_path, :method => :delete %>
 <% else %>
   	<%= link_to t(:login), new_session_path %>
-  	<%  if PRODUCTION_SERVER != "beta" %>
+  	<%  if APP_CONFIG.use_CAS %>
   	  | <a href="/cas_session/new">CAS-login</a>
   	<%  end %>
   	| <%= link_to t(:register), new_person_path %> 

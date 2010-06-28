@@ -23,7 +23,7 @@ class CachedRessiEventTest < ActiveSupport::TestCase
     assert event.save
   end
  
-  if LOG_TO_RESSI
+  if APP_CONFIG.log_to_ressi
     test "upload" do
       begin
         event = CachedRessiEvent.new(@@OPTIONS)
@@ -33,9 +33,9 @@ class CachedRessiEventTest < ActiveSupport::TestCase
           event.upload
         #end
       rescue Errno::ECONNREFUSED => e
-        puts "No connection to RESSI at #{RESSI_URL}"
+        puts "No connection to RESSI at #{APP_CONFIG.ressi_url}"
       rescue Exception => e
-        assert false,  "Ressi timed out at #{RESSI_URL}, #{e.message}"
+        assert false,  "Ressi timed out at #{APP_CONFIG.ressi_url}, #{e.message}"
       end
     end
   end
