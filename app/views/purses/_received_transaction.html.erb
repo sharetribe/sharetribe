@@ -1,5 +1,0 @@
-<%=t(:payment_sender)%>
-<%=Person.find_by_id(received_transaction.sender_id).name(session[:cookie]) %>
-<br>
-<%=t(:amount)%>
-<%=received_transaction.amount%>

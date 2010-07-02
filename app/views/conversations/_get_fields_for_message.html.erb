@@ -1,8 +1,0 @@
-<%= hidden_field_tag "conversation[conversation_participants][#{@receiver.id}]", 0 %>
-<%= hidden_field_tag "receiver", params[:receiver] %>
-<div class="form_header">
-  <%=  Conversation.human_attribute_name("title") %>:
-</div>
-<div class="form_field">  
-  <%= f.text_field :title, :class => "message" %>
-</div>

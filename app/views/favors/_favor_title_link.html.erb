@@ -1,4 +1,0 @@
-<% escaped_title =  URI.escape(favor_title.downcase, Regexp.new("[^-_!~*()a-zA-Z\\d]")) %>
-<b>
-  <%= link_to_remote h(favor_title.capitalize), :url => favor_path(escaped_title), :method => :get %>
-</b>

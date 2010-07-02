@@ -1,2 +1,0 @@
-<%= check_box_tag("items[]", item.id.to_s, false, :onchange => "disableBorrowSelectedButton()") unless is_current_user?(item.owner) %>
-<b><%= link_to_remote h(item.title.capitalize), :url => view_description_person_item_path(@person, item), :method => :get %></b><br />
