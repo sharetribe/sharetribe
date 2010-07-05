@@ -1,6 +1,11 @@
 == Kassi
 
-Kassi is a community resource exchange service built with Ruby on Rails.
+Kassi is a community resource exchange service built with Ruby on Rails. 
+It relies on Aalto Social Interface (http://github.com/sizzlelab/asi) on its 
+user management and few other things, so it can't be run alone.
+
+For serious use you need to install your own ASI or get access to an existing one, 
+but for testing you can use the default test account on OtaSizzle's test server.
 
 == Mit License
 
