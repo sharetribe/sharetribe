@@ -1,11 +1,12 @@
 production:
-  asi_url: "http://cos.sizl.org"
-  ssl_asi_url: "https://cos.sizl.org"  # Can be same as asi_url if no https in use
-  asi_url_proxied: "http://kassi.alpha.sizl.org/cos"
+  asi_url: "http://cos.alpha.sizl.org"
+  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
   asi_timeout: 10
   
-  asi_app_name: kassi
-  asi_app_password: secret
+  # These are the credentials used to log on to ASI server. The defaults will work for
+  # OtaSizzle's test server, an can be used for testing Kassi.
+  asi_app_name: kassi_testing
+  asi_app_password: kassi_tester
   
   # Ressi is Researcher's Interface for logged data
   # If log_to_ressi is false, other ressi settings can be ignored.
@@ -38,11 +39,13 @@ production:
 development: &non_production_settings
   asi_url: "http://cos.alpha.sizl.org"
   ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
-  asi_url_proxied: "http://cos.alpha.sizl.org"  #this won't work completely in develpment mode
   asi_timeout: 10
 
-  asi_app_name: kassi
-  asi_app_password: secret
+
+  # These are the credentials used to log on to ASI server. The defaults will work for
+  # OtaSizzle's test server, an can be used for testing Kassi.
+  asi_app_name: kassi_testing
+  asi_app_password: kassi_tester
   
   ressi_url: "http://localhost:9000"
   ressi_timeout: 5
