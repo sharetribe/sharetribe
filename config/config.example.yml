@@ -1,0 +1,72 @@
+production:
+  asi_url: "http://cos.alpha.sizl.org"
+  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
+  asi_timeout: 10
+  
+  # These are the credentials used to log on to ASI server. The defaults will work for
+  # OtaSizzle's test server, an can be used for testing Kassi.
+  asi_app_name: kassi_testing
+  asi_app_password: kassi_tester
+  
+  # Ressi is Researcher's Interface for logged data
+  # If log_to_ressi is false, other ressi settings can be ignored.
+  log_to_ressi: false
+  ressi_url: "http://cos.alpha.sizl.org/ressi"
+  ressi_timeout: 5
+  ressi_upload_hour: 1
+  
+  
+  kassi_mail_from_address: "noreply-kassi@example.com"
+  
+  error_mailer_recipients: 'admins@example.com'
+  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
+  
+  feedback_mailer_recipients:  'admins@example.com'
+  
+  # CAS is a centralized authentication system, it is completely optional
+  use_CAS: false
+  
+  #probably not needed:
+  beta_version: "local"
+  production_server: "alpha"
+  
+  
+# The settings for development and test environment below can be ignored 
+# unless you are going to develop or modify Kassi
+# - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+development: &non_production_settings
+  asi_url: "http://cos.alpha.sizl.org"
+  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
+  asi_timeout: 10
+
+
+  # These are the credentials used to log on to ASI server. The defaults will work for
+  # OtaSizzle's test server, an can be used for testing Kassi.
+  asi_app_name: kassi_testing
+  asi_app_password: kassi_tester
+  
+  ressi_url: "http://localhost:9000"
+  ressi_timeout: 5
+  ressi_upload_hour: 1
+  log_to_ressi: false
+  
+  
+  kassi_mail_from_address: "noreply-kassi@example.com"
+  
+  error_mailer_recipients: 'admins@example.com'
+  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
+  
+  feedback_mailer_recipients:  'admins@example.com'
+  
+  # CAS is a centralized authentication system, it is completely optional
+  use_CAS: false
+  
+  #probably not needed:
+  beta_version: "local"
+  production_server: "local"
+  
+test:
+  <<: *non_production_settings
+
