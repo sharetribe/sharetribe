@@ -1,0 +1,21 @@
+!!! 5
+!!! xml
+%html{html_attrs}
+  %head
+    %title Kassi
+    = stylesheet_link_tag 'compiled/style.css'
+
+  %body
+    #navi.container_24
+      #logo.grid_5
+        #logo_image.grid_2.alpha
+          Kassi
+        #logo_text.grid_3_alpha  
+      #search.grid_9
+        Search
+      #right.grid_10
+        Right
+    
+    #main.container_24  
+      #left.grid_5
+        =yield

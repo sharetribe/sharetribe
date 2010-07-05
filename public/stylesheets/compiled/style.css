@@ -1,0 +1,18 @@
+@import url('../reset.css');
+@import url('../text.css');
+@import url('../960_24_col.css');
+body {
+  background: #f7f5e6 url("/images/background_gradient.png") repeat-x; }
+
+#navi {
+  height: 92px; }
+
+#main {
+  margin-top: 20px; }
+
+#logo {
+  margin-top: 5px;
+  color: #f7f5e6;
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000; }
