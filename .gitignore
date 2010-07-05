@@ -7,10 +7,13 @@ config/config.yml
 config/session_secret
 config/deploy.rb
 config/gmaps_api_key.yml
-log/*.log
+log/
 tmp/**/*
 doc/api
 doc/app
 public/images/listing_images
 index/
 db/development_structure.sql
+old_databases.sql
+.bundle
+.sass_cache/
