@@ -1,4 +1,4 @@
- # Kassi
+# Kassi
 
 Kassi is a community resource exchange service built with Ruby on Rails. 
 
@@ -13,14 +13,14 @@ user management and few other things, so it can't be run alone.
 For serious use you need to install your own ASI or get access to an existing one, 
 but for testing you can use the default test account on OtaSizzle's test server.
 
- ## Mit License
+## Mit License
 
 Kassi is open source under MIT license. See LICENSE file for details.
 
- ## Installation
+## Installation
 
 See github wiki for Kassi project for installation instructions: http://wiki.github.com/sizzlelab/Kassi/
 
- ## Known issues
+## Known issues
  
 See http://github.com/sizzlelab/kassi/issues and please report any issues you find
