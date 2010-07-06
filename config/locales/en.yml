@@ -2,4 +2,25 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  
+  #General
+  mobile_version: "Mobile version"
+  info_about_service: "About Kassi"
+  
+  #Login
+  login: "Login"
+  sign_up: "Sign up"
+  
+  #Top navi
+  home: "Home"
+  items: "Items"
+  favors: "Favors"
+  community: "Community"
+  
+  #Home
+  recent_events: "Recent events"
+  more_events: "More events..."
+  request_something: "Request something"
+  offer_something: "Offer something"
+  
+  #Listings
