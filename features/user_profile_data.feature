@@ -7,10 +7,8 @@ Feature: User profile data
     Given a logged in user
     When I set my first name to Will and last name to Johnson
     Then I should see "Will Johnson" on my profile page
-    
   
   
   
   
-
   
