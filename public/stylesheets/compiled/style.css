@@ -1,18 +1,156 @@
 @import url('../reset.css');
 @import url('../text.css');
 @import url('../960_24_col.css');
+/* Colors */
+/* Used to fix form padding problem in FF */
+input[type="submit"]::-moz-focus-inner {
+  border: 0; }
+
+input[type="submit"]:focus {
+  background: #d97c39 url("/images/icons/magnifier_white.png") 15px 5px no-repeat; }
+
+/* Used to define rounded corners */
+.align_right {
+  text-align: right; }
+
+.float_right {
+  float: right; }
+
+input[type="submit"] {
+  cursor: pointer; }
+
 body {
   background: #f7f5e6 url("/images/background_gradient.png") repeat-x; }
 
-#navi {
-  height: 92px; }
+form, input {
+  margin: 0;
+  display: block;
+  position: relative;
+  float: left; }
+
+#header {
+  height: 56px; }
 
 #main {
   margin-top: 20px; }
 
 #logo {
-  margin-top: 5px;
-  color: #f7f5e6;
-  font-size: 30px;
+  margin-top: 8px; }
+
+#logo_image {
+  height: 48px; }
+  #logo_image a {
+    color: #f7f5e6;
+    font-size: 28px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: none; }
+
+#search {
+  margin-top: 14px; }
+  #search input.search_field {
+    background: #f7f5e6;
+    width: 212px;
+    height: 20px;
+    padding: 5px 7px;
+    border: 0; }
+  #search input.search_button {
+    background: #d45207 url("/images/icons/magnifier_white.png") 12px 6px no-repeat;
+    width: 44px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    color: transparent; }
+    #search input.search_button:active {
+      background-color: #b05a09; }
+    #search input.search_button:hover {
+      background-color: #d97c39; }
+
+#top_navi select {
+  cursor: pointer;
+  margin-top: 11px;
+  background: #f7f5e6; }
+
+.select {
+  margin-top: 11px;
+  position: absolute;
+  width: 67px;
+  /* With the padding included, the width is 190 pixels: the actual width of the image. */
+  height: 19px;
+  padding: 1px 24px 0 8px;
+  background: url("/images/forms/select_language2.png") no-repeat;
+  overflow: hidden;
+  font-size: 11px; }
+
+.top_navi_link {
+  margin-top: 11px; }
+  .top_navi_link a {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none; }
+    .top_navi_link a:hover {
+      color: #d97c39; }
+
+.tab_unselected a {
+  width: 110px;
+  height: 26px;
+  padding-top: 10px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
   font-weight: bold;
-  text-shadow: 1px 1px 1px #000; }
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-topleft: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -webkit-border-top-left-radius: 7px; }
+  .tab_unselected a:hover {
+    color: white;
+    background: #d45207; }
+.tab_unselected a {
+  color: #f7f5e6;
+  background: #63381a; }
+
+.tab_selected a {
+  width: 110px;
+  height: 26px;
+  padding-top: 10px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-topleft: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -webkit-border-top-left-radius: 7px; }
+  .tab_selected a:hover {
+    color: white;
+    background: #d45207; }
+.tab_selected a {
+  color: #464646;
+  background: #f7f5e6; }
+
+.login_tab a {
+  font-size: 11px;
+  width: 90px;
+  height: 23px;
+  padding-top: 4px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  font-weight: bold;
+  background: #d45207;
+  color: white;
+  margin-left: 10px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-bottom-right-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px; }
+  .login_tab a:hover {
+    background: #d97c39; }

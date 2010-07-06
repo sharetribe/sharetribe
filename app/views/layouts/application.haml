@@ -4,18 +4,47 @@
   %head
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
+    = javascript_include_tag 'form_styles'
 
   %body
-    #navi.container_24
+  
+    #header.container_24
       #logo.grid_5
-        #logo_image.grid_2.alpha
-          Kassi
-        #logo_text.grid_3_alpha  
+        #logo_image.grid_3.alpha
+          = link_to Kassi, root_path
+        #logo_text.grid_2.omega
       #search.grid_9
-        Search
+        - form_tag({ :controller => "listings", :action => "new" }, :method => "get") do
+          - one_line do              
+            = text_field_tag("q", params[:q], :class => "search_field")
+            = submit_tag(nil, :class => "search_button")
       #right.grid_10
-        Right
-    
+        .login_tab.float_right
+          = link_to t(:sign_up), "#"
+        .login_tab.float_right
+          = link_to t(:login), "#"
+      .clear
+      
+    #top_navi.container_24
+      .top_navi_link.grid_3
+        = link_to t(:mobile_version), "#"
+      .top_navi_form.grid_3
+        - form_tag({ :controller => "listings", :action => "new" }, :method => "get") do
+          = select "Language", "Language", ["Finnish", "English"], {}, :class => 'styled'
+      .tabs.grid_12.prefix_3
+        .tab_selected.grid_3.alpha
+          = link_to t(:home), "#"
+        .tab_unselected.grid_3
+          = link_to t(:items), "#"
+        .tab_unselected.grid_3
+          = link_to t(:favors), "#"
+        .tab_unselected.grid_3.omega
+          = link_to t(:community), "#"
+        .clear
+      .top_navi_link.align_right.grid_3
+        = link_to t(:info_about_service), "#"
+      .clear
+      
     #main.container_24  
       #left.grid_5
-        =yield
+        = yield
