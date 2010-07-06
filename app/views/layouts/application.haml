@@ -9,11 +9,11 @@
   %body
   
     #header.container_24
-      #logo.grid_5
+      #logo.grid_6
         #logo_image.grid_3.alpha
           = link_to Kassi, root_path
-        #logo_text.grid_2.omega
-      #search.grid_9
+        #logo_text.grid_3.omega
+      #search.grid_8
         - form_tag({ :controller => "listings", :action => "new" }, :method => "get") do
           - one_line do              
             = text_field_tag("q", params[:q], :class => "search_field")
@@ -46,5 +46,4 @@
       .clear
       
     #main.container_24  
-      #left.grid_5
-        = yield
+      = yield
