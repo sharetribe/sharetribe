@@ -2,15 +2,53 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 
+/* Colors */
 $bg_color: #f7f5e6;
 $text_color: #464646;
+$orange: #d45207;
+$dark_orange: #b05a09;
+$light_orange: #d97c39;
+$dark_brown: #63381a;
+
+/* Used to fix form padding problem in FF */
+input[type="submit"]::-moz-focus-inner {border:0;}
+input[type="submit"]:focus {background: $light_orange url("/images/icons/magnifier_white.png") 15px 5px no-repeat;}
+
+/* Used to define rounded corners */
+@mixin rounded($side, $radius: 10px) {
+  border-#{$side}-left-radius: $radius;
+	border-#{$side}-right-radius: $radius;
+  -moz-border-radius-#{$side}right: $radius;
+	-moz-border-radius-#{$side}left: $radius;
+  -webkit-border-#{$side}-right-radius: $radius;
+	-webkit-border-#{$side}-left-radius: $radius;
+}
+
+.align_right {
+	text-align: right;
+}
+
+.float_right {
+	float: right;
+}
+
+input[type="submit"] {
+	cursor: pointer;
+}
 
 body {
 	background: $bg_color url("/images/background_gradient.png") repeat-x;
 }
 
-#navi {
-	height: 92px;
+form, input {
+	margin: 0;
+	display: block;
+	position: relative;
+	float: left;
+}
+
+#header {
+	height: 56px;
 }
 
 #main {
@@ -18,9 +56,120 @@ body {
 }
 
 #logo {
-	margin-top: 5px;
-	color: $bg_color;
-	font-size: 30px;
-	font-weight: bold;
-	text-shadow: 1px 1px 1px #000;
+	margin-top: 8px;
+}
+
+#logo_image {
+	height: 48px;
+	a {
+		color: $bg_color;
+		font-size: 28px;
+		font-weight: bold;
+		text-shadow: 1px 1px 1px #000;
+		text-decoration: none;
+	}	
+}
+
+#search {
+	margin-top: 14px;
+	input.search_field {
+		background: $bg_color;
+		width: 212px;
+		height: 20px;
+		padding: 5px 7px;
+		border: 0;
+	}
+	input.search_button {
+		background: $orange url("/images/icons/magnifier_white.png") 12px 6px no-repeat;
+		width: 44px;
+		height: 30px;
+		padding: 0;
+		border: 0;
+		color: transparent;
+		&:active { background-color: $dark_orange; }
+		&:hover { background-color: $light_orange; }
+	}
+}
+
+#top_navi {
+	select {
+		cursor: pointer;
+		margin-top: 11px;
+		background: $bg_color;
+	}
+}
+
+.select {
+	margin-top: 11px;
+	position: absolute;
+	width: 67px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
+	height: 19px;
+	padding: 1px 24px 0 8px;
+	background: url("/images/forms/select_language2.png") no-repeat;
+	overflow: hidden;
+	font-size: 11px;
+}
+
+.top_navi_link {
+	margin-top:11px;
+	a {
+		color: white;
+		font-weight: bold;
+		&:hover { color: $light_orange; }
+		font-size: 12px;
+		text-decoration: none;
+	}
+}
+
+@mixin tab {
+	a {
+		width: 110px;
+		height: 26px;
+		padding-top: 10px;
+		text-align: center;
+		display: block;
+		text-decoration: none;
+		font-weight: bold;
+		@include rounded(top, 7px);
+		&:hover {
+			color: white;
+			background: $orange;
+		}
+	}
+}
+
+.tab_unselected {
+	@include tab;
+	a {
+		color: $bg_color;
+		background: $dark_brown;
+	}	
+}
+
+.tab_selected {
+	@include tab;
+	a {
+		color: $text_color;
+		background: $bg_color;
+	}	
+}
+
+.login_tab {
+	a {
+		font-size: 11px;
+		width: 90px;
+		height: 23px;
+		padding-top: 4px;
+		text-align: center;
+		display: block;
+		text-decoration: none;
+		font-weight: bold;
+		background: $orange;
+		color: white;
+		margin-left: 10px;
+		@include rounded(bottom, 7px);
+		&:hover {
+			background: $light_orange;
+		}
+	}
 }
