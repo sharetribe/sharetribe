@@ -2,6 +2,9 @@ require 'json'
 
 class CasSession < ActiveResource::Base
 
+  # a separate exception class to raise detected redirections
+  class RedirectionException < RuntimeError; end
+
   attr_accessor :username
   attr_writer   :password
   attr_reader   :headers
@@ -55,14 +58,19 @@ class CasSession < ActiveResource::Base
     params[:session][:proxy_ticket] = @password if @password
     params[:session][:app_name] = @@app_name
     params[:session][:app_password] = @@app_password
-    begin
-      Rails.logger.info "Sending session create with params: #{params.to_json}"
-      resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
-      Rails.logger.info "VASTAUS tuli: #{resp.body}"
-    rescue Exception => e
-      Rails.logger.error "ERROR ON CAS_SESSION: #{e.response.body} -- username was: #{@username} proxy_ticket was: #{@password}"
-      
+    # begin
+    Rails.logger.info "Sending session create with params: #{params.to_json}"
+    resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
+    Rails.logger.info "VASTAUS tuli: #{resp.body} -- #{resp.class}"
+    if resp.class == Net::HTTPSeeOther
+      # ASI is redirecting to account linking page
+      Rails.logger.info { JSON.parse(resp.body)["entry"]["uri"] }
+      raise RedirectionException.new(JSON.parse(resp.body)["entry"]["uri"])
     end
+    # rescue Exception => e
+    #   Rails.logger.error "ERROR ON CAS_SESSION: #{e.response.body} -- username was: #{@username} proxy_ticket was: #{@password}"
+    #       
+    # end
     @headers["Cookie"] = resp.get_fields("set-cookie").to_s
     json = JSON.parse(resp.body)
     @person_id = json["entry"]["user_id"] 
