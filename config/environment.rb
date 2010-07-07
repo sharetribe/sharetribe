@@ -25,11 +25,12 @@ CASClient::Frameworks::Rails::Filter.configure(
     :service_validate_url  => "https://zeus.cs.hut.fi/cs/shib/9999/serviceValidate",
     :validate_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxyValidate",
     :proxy_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxy",
-    
+
     :logger => cas_logger,
     :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
     :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
     :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
+    #:authenticate_on_every_request => false # This is turned to false temporarily because session_store problems and to check effect on performance
 )
 
 Rails::Initializer.run do |config|
@@ -112,7 +113,11 @@ Rails::Initializer.run do |config|
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
-  # config.action_controller.session_store = :active_record_store
+  config.action_controller.session_store = :active_record_store
+  # config.action_controller.session_store = :mem_cache_store
+  # config.cache_store = :mem_cache_store, 'localhost', '127.0.0.1:11211', {:namespace => 'kassi'}
+
+
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
