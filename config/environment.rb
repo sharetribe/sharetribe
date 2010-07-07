@@ -10,28 +10,8 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
-require 'casclient'
-require 'casclient/frameworks/rails/filter'
-#require 'casclient/frameworks/rails/cas_proxy_callback_controller'
 
-# enable detailed CAS logging for easier troubleshooting
-cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
-cas_logger.level = Logger::DEBUG
 
-CASClient::Frameworks::Rails::Filter.configure(
-    
-    #:cas_base_url => "https://cos.alpha.sizl.org:8443/cas",   # url for sizl-CAS login page
-    :cas_base_url => "https://zeus.cs.hut.fi/cs/shib/kassi", # url for Shibboleth-CAS login
-    :service_validate_url  => "https://zeus.cs.hut.fi/cs/shib/9999/serviceValidate",
-    :validate_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxyValidate",
-    :proxy_url => "https://zeus.cs.hut.fi/cs/shib/9999/proxy",
-
-    :logger => cas_logger,
-    :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
-    :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
-    :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
-    #:authenticate_on_every_request => false # This is turned to false temporarily because session_store problems and to check effect on performance
-)
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -157,4 +137,28 @@ Rails::Initializer.run do |config|
   
   PRODUCTION_SERVER = "local"
 
+end
+
+if APP_CONFIG.use_CAS
+  require 'casclient'
+  require 'casclient/frameworks/rails/filter'
+  #require 'casclient/frameworks/rails/cas_proxy_callback_controller'
+
+  # enable detailed CAS logging for easier troubleshooting
+  cas_logger = CASClient::Logger.new(RAILS_ROOT+'/log/cas.log')
+  cas_logger.level = Logger::DEBUG
+
+  CASClient::Frameworks::Rails::Filter.configure(
+  
+      #:cas_base_url => "https://cos.alpha.sizl.org:8443/cas",   # url for sizl-CAS login page
+      :cas_base_url => APP_CONFIG.cas_base_url, # url for Shibboleth-CAS login
+      :service_validate_url  => APP_CONFIG.cas_service_validate_url,
+      :validate_url => APP_CONFIG.cas_validate_url,
+      :proxy_url => APP_CONFIG.cas_proxy_url,
+      :logger => APP_CONFIG.cas_logger,
+      :proxy_retrieval_url => APP_CONFIG.cas_proxy_retrieval_url,
+      :proxy_callback_url => APP_CONFIG.cas_proxy_callback_url,
+      :authenticate_on_every_request => APP_CONFIG.cas_authenticate_on_every_request # This is added to avoid the sitution where the pticket has expired after 2h
+      #:authenticate_on_every_request => false # This is turned to false temporarily because session_store problems and to check effect on performance
+  )
 end
