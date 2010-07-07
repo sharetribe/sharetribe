@@ -1,0 +1,33 @@
+# SQLite version 3.x
+#   gem install sqlite3-ruby (not necessary on OS X Leopard)
+development:
+    adapter: mysql
+    database: kassi_development
+    encoding: utf8
+    username: kassi
+    password: secret
+    host: localhost
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test: &test
+    adapter: mysql
+    database: kassi_test
+    encoding: utf8
+    username: kassi
+    password: secret
+    host: localhost
+
+production:
+    adapter: mysql
+    database: kassi_production
+    encoding: utf8
+    username: kassi
+    password: secret
+    host: localhost
+#    socket: /var/run/mysqld/mysqld.sock
+
+
+cucumber:
+  <<: *test
