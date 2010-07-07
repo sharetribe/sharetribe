@@ -89,7 +89,11 @@ Rails::Initializer.run do |config|
   # Use the database for sessions instead of the cookie-based default,
   # which shouldn't be used to store highly confidential information
   # (create the session table with "rake db:sessions:create")
-  # config.action_controller.session_store = :active_record_store
+  config.action_controller.session_store = :active_record_store
+  # config.action_controller.session_store = :mem_cache_store
+  # config.cache_store = :mem_cache_store, 'localhost', '127.0.0.1:11211', {:namespace => 'kassi'}
+
+
 
   # Use SQL instead of Active Record's schema dumper when creating the test database.
   # This is necessary if your schema can't be completely dumped by the schema dumper,
@@ -120,10 +124,13 @@ if APP_CONFIG.use_CAS
   cas_logger.level = Logger::DEBUG
 
   CASClient::Frameworks::Rails::Filter.configure(
-      :cas_base_url => "https://cos.alpha.sizl.org:8443/cas",
-      :logger => cas_logger,
-      :proxy_retrieval_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/retrieve_pgt",
-      :proxy_callback_url => "https://cos.alpha.sizl.org/cb/cas_proxy_callback/receive_pgt",
-      :authenticate_on_every_request => true # This is added to avoid the sitution where the pticket has expired after 2h
+      :cas_base_url => APP_CONFIG.cas_base_url, # url for Shibboleth-CAS login
+      :service_validate_url  => APP_CONFIG.cas_service_validate_url,
+      :validate_url => APP_CONFIG.cas_validate_url,
+      :proxy_url => APP_CONFIG.cas_proxy_url,
+      :logger => APP_CONFIG.cas_logger,
+      :proxy_retrieval_url => APP_CONFIG.cas_proxy_retrieval_url,
+      :proxy_callback_url => APP_CONFIG.cas_proxy_callback_url,
+      :authenticate_on_every_request => APP_CONFIG.cas_authenticate_on_every_request # This is added to avoid the sitution where the pticket has expired after 2h
   )
 end
