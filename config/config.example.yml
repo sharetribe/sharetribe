@@ -25,6 +25,14 @@ production:
   
   # CAS is a centralized authentication system, it is completely optional
   use_CAS: false
+  cas_base_url: fill_according_to_used_CAS_server
+  cas_service_validate_url: fill_according_to_used_CAS_server
+  cas_validate_url: fill_according_to_used_CAS_server
+  cas_proxy_url: fill_according_to_used_CAS_server
+  cas_logger: cas_logger,
+  cas_proxy_retrieval_url:fill_according_to_used_CAS_server
+  cas_proxy_callback_url: fill_according_to_used_CAS_server
+  cas_authenticate_on_every_request: false
   
   #probably not needed:
   beta_version: "local"
@@ -61,7 +69,16 @@ development: &non_production_settings
   feedback_mailer_recipients:  'admins@example.com'
   
   # CAS is a centralized authentication system, it is completely optional
+  # If you don't know that you need it, you can ignore all the settings below
   use_CAS: false
+  cas_base_url: fill_according_to_used_CAS_server
+  cas_service_validate_url: fill_according_to_used_CAS_server
+  cas_validate_url: fill_according_to_used_CAS_server
+  cas_proxy_url: fill_according_to_used_CAS_server
+  cas_logger: cas_logger,
+  cas_proxy_retrieval_url:fill_according_to_used_CAS_server
+  cas_proxy_callback_url: fill_according_to_used_CAS_server
+  cas_authenticate_on_every_request: false
   
   #probably not needed:
   beta_version: "local"
