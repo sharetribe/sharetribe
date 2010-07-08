@@ -39,3 +39,4 @@ gem 'cucumber'
 gem 'rspec-rails'
 gem 'spork'
 gem 'launchy'    # So you can do Then show me the page # Let's see if we need this really
+gem 'rest-client'
