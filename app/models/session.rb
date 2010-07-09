@@ -4,6 +4,8 @@ class Session < ActiveResource::Base
 
   attr_accessor :username
   attr_writer   :password
+  attr_accessor :app_name
+  attr_writer   :app_password
   attr_reader   :headers
   attr_reader   :person_id
  
@@ -44,6 +46,8 @@ class Session < ActiveResource::Base
   def initialize(params={})
     self.username = params[:username]
     self.password = params[:password]
+    self.app_name = params[:app_name]
+    self.app_password = params[:app_password]
     super(params)
   end
   
@@ -52,8 +56,8 @@ class Session < ActiveResource::Base
     params = {:session => {}}
     params[:session][:username] = @username if @username
     params[:session][:password] = @password if @password
-    params[:session][:app_name] = @@app_name
-    params[:session][:app_password] = @@app_password
+    params[:session][:app_name] = @app_name || @@app_name
+    params[:session][:app_password] = @app_password || @@app_password
     begin
       resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
     rescue ActiveResource::TimeoutError => e
