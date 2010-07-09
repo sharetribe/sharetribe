@@ -51,11 +51,13 @@ var Custom = {
 				span[a].id = "select" + inputs[a].name;
 				span[a].appendChild(textnode);
 				inputs[a].parentNode.insertBefore(span[a], inputs[a]);
+				/*
 				if(!inputs[a].getAttribute("disabled")) {
 					inputs[a].onchange = Custom.choose;
 				} else {
 					inputs[a].previousSibling.className = inputs[a].previousSibling.className += " disabled";
 				}
+				*/
 			}
 		}
 		document.onmouseup = Custom.clear;

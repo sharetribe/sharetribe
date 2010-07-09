@@ -5,6 +5,8 @@
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'form_styles'
+    = javascript_include_tag 'jquery'
+    = javascript_include_tag 'rails'
 
   %body
   
@@ -14,7 +16,7 @@
           = link_to Kassi, root_path
         #logo_text.grid_3.omega
       #search.grid_8
-        - form_tag({ :controller => "listings", :action => "new" }, :method => "get") do
+        = form_tag({ :url => listings_path }, :method => "get") do
           - one_line do              
             = text_field_tag("q", params[:q], :class => "search_field")
             = submit_tag(nil, :class => "search_button")
@@ -29,8 +31,8 @@
       .top_navi_link.grid_3
         = link_to t(:mobile_version), "#"
       .top_navi_form.grid_3
-        - form_tag({ :controller => "listings", :action => "new" }, :method => "get") do
-          = select "Language", "Language", ["Finnish", "English"], {}, :class => 'styled'
+        = form_tag(params.delete("locale"), :method => "get") do
+          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :class => 'styled', :onchange => 'this.form.submit()'
       .tabs.grid_12.prefix_3
         .tab_selected.grid_3.alpha
           = link_to t(:home), root_path
