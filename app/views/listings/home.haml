@@ -8,8 +8,37 @@
         = link_to t(:more_events), "#"
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
-#request_something_button.grid_5.prefix_2.suffix_2
-  = link_to t(:request_something), "#"
-  
-#offer_something_button.grid_5.prefix_2.suffix_2
-  = link_to t(:offer_something), "#"
+#recent_listings.grid_18
+
+  #request_something_button.grid_5.prefix_2.suffix_2.alpha
+    = link_to t(:request_something), new_listing_path(:type => "request")
+  #offer_something_button.grid_5.prefix_2.suffix_2.omega
+    = link_to t(:offer_something), new_listing_path(:type => "offer")
+  .clear
+
+  #request_button_description.grid_7.prefix_1.suffix_1.alpha
+    .button_description_fix
+      #{link_to t(:buy).capitalize, "#"}, 
+      #{link_to t(:rent), "#"}, 
+      #{link_to t(:borrow), "#"}, 
+      #{link_to t(:ask_for_favor), "#"}
+      #{t(:or)}
+      #{link_to t(:ride_partitive), "a ride"}
+  #offer_button_description.grid_7.prefix_1.suffix_1.omega
+    .button_description_fix
+      #{link_to t(:offer_favors).capitalize, "#"}
+      #{t(:or)}
+      #{link_to t(:items_partitive), "#"} 
+      #{link_to t(:to_borrow), "#"}
+      #{t(:or)}
+      #{link_to t(:to_sell), "#"}
+  .clear
+ 
+  #recent_requests.grid_9.alpha
+    .recent_listings
+      %h3= t(:recent_requests)
+      = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
+  #recent_offers.grid_9.omega
+    .recent_listings
+      %h3.brown= t(:recent_offers)
+      = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"

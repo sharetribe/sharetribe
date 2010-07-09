@@ -33,7 +33,7 @@
           = select "Language", "Language", ["Finnish", "English"], {}, :class => 'styled'
       .tabs.grid_12.prefix_3
         .tab_selected.grid_3.alpha
-          = link_to t(:home), "#"
+          = link_to t(:home), root_path
         .tab_unselected.grid_3
           = link_to t(:items), "#"
         .tab_unselected.grid_3
@@ -42,7 +42,8 @@
           = link_to t(:community), "#"
         .clear
       .top_navi_link.align_right.grid_3
-        = link_to t(:info_about_service), "#"
+        .navi_link_margin_right
+          = link_to t(:info_about_service), "#"
       .clear
       
     #main.container_24  

@@ -1,0 +1,15 @@
+.recent_listing
+  .float_left
+    %a{:href => "#"}
+      %img{:src => "/images/icons/item_large.png"}
+  .recent_listing_text.float_left
+    %h5= link_to listing, "#"
+    %p “Tarvitsisin gorillapuvun ensi viikolla pidettäviä naamiaissitsejä varten. Voin...”
+    .float_left
+      = link_to t(:please_comment), "#"
+      &nbsp;|&nbsp;
+      = link_to t(:please_offer), "#"
+    .float_right
+      %span
+        = link_to "Juho", "#"
+        2 days ago
