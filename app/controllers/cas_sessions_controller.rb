@@ -70,11 +70,9 @@ class CasSessionsController < ApplicationController
     # This is actually used only as a return target after account linking in Asi
     # After the account linking is made we need to initate the session by trying to open CAS session again.
     if params["account_linked"]
-      #redirect_to  :action => :new
-      flash[:notice] = :linking_accounts_probably_succeed
-      redirect_to root_path 
+      redirect_to :action => :new 
     else
-      flash[:error] = :linking_accounts_failed
+      flash[:error] = :login_failed
       redirect_to root_path
     end
   end
