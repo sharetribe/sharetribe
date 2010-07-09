@@ -8,9 +8,10 @@ $text_color: #464646;
 $form_bg: #d1c9b4;
 $orange: #d45207;
 $medium_brown: #765d3a;
-$dark_orange: darken($orange, 10%);
+$dark_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
-$dark_brown: darken($medium_brown, 12%);;
+$dark_brown: darken($medium_brown, 12%);
+$light_grey: lighten($text_color, 20%);
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -31,6 +32,14 @@ input[type="submit"]:focus {background: $light_orange url("/images/icons/magnifi
 	-moz-border-radius-#{$side}left: $radius;
   -webkit-border-#{$side}-right-radius: $radius;
 	-webkit-border-#{$side}-left-radius: $radius;
+}
+
+@mixin spacer($color: $medium_brown, $type: solid) {
+	border-top: 1px $type $color;
+	width: 100%;
+	margin: 10px 0;
+	padding: 0;
+	height: 0;
 }
 
 .align_right {
@@ -55,12 +64,40 @@ input[type="submit"] {
 
 body {
 	background: $bg_color url("/images/background_gradient.png") repeat-x;
+	color: $text_color;
+}
+
+@mixin colored_title($color: $orange) {
+	color: $color;
+	width: 340px;
+	display: block;
+	border-bottom: 6px solid $color;
+	margin-bottom: 10px;
+}
+
+h3 {
+	@include colored_title;
+}
+
+h3.brown {
+	@include colored_title($medium_brown);
 }
 
 h4 {
 	color: $medium_brown;
 	text-align: center;
-	margin-bottom: 10px;
+	margin: 5px 0 15px 0;
+}
+
+h5 {
+	margin: 0;
+	a {
+		color: $text_color;
+		&:hover { 
+			color: $light_grey;
+			text-decoration: underline; 
+		}
+	}	
 }
 
 a {
@@ -101,10 +138,11 @@ form, input {
 }
 
 #search {
-	margin-top: 14px;
+	margin: 14px 0 0 0;
 	input.search_field {
+		margin-left: 5px;
 		background: $bg_color;
-		width: 173px;
+		width: 172px;
 		height: 20px;
 		padding: 5px 7px;
 		border: 0;
@@ -159,10 +197,6 @@ form, input {
 		display: block;
 		font-weight: bold;
 		@include half_rounded(top);
-		&:hover {
-			color: white;
-			background: $orange;
-		}
 	}
 }
 
@@ -171,6 +205,10 @@ form, input {
 	a {
 		color: $bg_color;
 		background: $dark_brown;
+		&:hover {
+			color: white;
+			background: $orange;
+		}
 	}	
 }
 
@@ -199,11 +237,23 @@ form, input {
 	}
 }
 
+
+/* Home page */
+
 .recent_events {
 	background: $form_bg;
-	font-size: 11px; 
-	color: $text_color;
+	font-size: 11px;
 	width: 219px;
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	span {
+		color: $light_grey;
+		font-style: italic;
+		font-size: 10px;
+		float: right;
+	}	
 }
 
 .staple {
@@ -229,7 +279,7 @@ form, input {
 	margin-left: 10px;
 }
 
-.staple_margin_right {
+.staple_margin_right, .navi_link_margin_right {
 	margin-right: 10px;
 }
 
@@ -238,11 +288,7 @@ form, input {
 }
 
 .event_spacer {
-	border-top: 1px dashed $medium_brown;
-	width: 100%;
-	margin: 10px 0;
-	padding: 0;
-	height: 0;
+	@include spacer($medium_brown, dashed);
 }
 
 .more_events_link {
@@ -270,4 +316,157 @@ form, input {
 
 #offer_something_button {
 	@include home_button($medium_brown);
+}
+
+@mixin button_description($color: $orange) {
+	a {
+		color: $color;
+		&:hover { color: darken($color, 15%); }
+		&:active { color: lighten($color, 10%); }
+	}	
+	font-size: 11px;
+	text-align: center;
+	margin-top: 5px;
+}
+
+/* Aligns button descriptions to buttons */
+.button_description_fix {
+	width: 260px;
+}
+
+#request_button_description {
+	@include button_description;
+}
+
+#offer_button_description {
+	@include button_description($medium_brown);
+}
+
+.recent_listings {
+	padding: 20px 0 0 0;
+	width: 340px;
+}
+
+.request_spacer {
+	@include spacer($orange);
+}
+
+.offer_spacer {
+	@include spacer;
+}
+
+.recent_listing {
+	overflow: hidden;
+}
+
+.recent_listing_text {
+	font-size: 11px;
+	width: 253px;
+	margin-left: 10px;
+	p {
+		margin: 5px 0 4px 0;
+	}
+	span {
+		a {
+			font-weight: normal;
+		}	
+		color: $light_grey;
+		font-style: italic;
+		font-size: 10px;
+		float: right;
+	}
+}
+
+
+/* New listing page */
+
+#new_listing_form_tabs {
+	margin-left: 25px;
+	overflow: hidden;
+}
+
+@mixin new_listing_form_tab {
+	float: left;
+	margin-right: 10px;
+	a {
+		padding-top: 11px;
+		width: 190px;
+		height: 30px;
+		text-align: center;
+		display: block;
+		font-size: 15px;
+		font-weight: bold;
+		@include half_rounded(top);
+	}
+}
+
+.new_listing_form_tab_selected {
+	@include new_listing_form_tab;
+	a {
+		color: $text_color;
+		background: $form_bg;
+	}
+}
+
+.new_listing_form_tab_unselected {
+	@include new_listing_form_tab;
+	a {
+		color: white;
+		background: $medium_brown;
+		&:hover {
+			color: white;
+			background: $orange;
+		}
+	}	
+}
+
+#new_listing_form {
+	background: $form_bg;
+	@include rounded;
+	padding: 20px 25px;
+}
+
+#listing_type_select_icons {
+	overflow: hidden;
+	height: 100px;
+}
+
+@mixin listing_type_select_icon {
+	float: left;
+	width: 283px;
+	height: 50px;
+	font-size: 16px;
+	a {
+		text-align: center;
+		display: block;
+		padding: 15px;
+		@include rounded;
+	}
+}
+
+.listing_type_select_icon_selected {
+	margin-right: 14px;
+	@include listing_type_select_icon;
+	a {
+		color: $orange;
+		background: $bg_color;
+		border: 3px solid $orange;
+	}	
+}
+
+.listing_type_select_icon_unselected {
+	@include listing_type_select_icon;
+	a {
+		color: $light_grey;
+		background: lighten($text_color, 60%);
+		border: 3px solid $light_grey;
+		&:hover {
+			color: $light_orange;
+			border-color: $light_orange;
+		}
+	}	
+}
+
+.listing_form_field_container {
+	overflow: hidden;
 }
