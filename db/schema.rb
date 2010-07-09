@@ -173,8 +173,7 @@ ActiveRecord::Schema.define(:version => 20100707105549) do
     t.integer  "conversation_id"
   end
 
-  create_table "people", :id => false, :force => true, :primary_key => :id do |t|
-    t.string :id, :limit => 22, :null => false
+  create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",   :default => 0
