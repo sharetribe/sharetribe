@@ -60,6 +60,7 @@ Kassi::Application.routes.draw do |map|
     resources :listings
   end
   
+  match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'listings#home'
   root :to => 'listings#home'
   
