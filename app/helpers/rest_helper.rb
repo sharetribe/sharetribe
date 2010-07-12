@@ -37,6 +37,9 @@ module RestHelper
       response = call(method, url, params, headers)
     end
     
+    # TODO Should react here also on the case of the expired session
+    # When the repsonse would be not authorizedm forbidden or something..
+    
     unless return_full_response
       return JSON.parse(response.body)
     else
