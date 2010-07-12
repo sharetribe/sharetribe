@@ -15,11 +15,7 @@ class Session
   # Creates a session and logs it in to Aalto Social Interface (ASI)
   def self.create(params={})
     session = Session.new(params)
-    # begin 
     session.login
-    # rescue RestClient::Request::Unauthorized
-    #   return nil
-    # end
     return session
   end
   
@@ -59,15 +55,6 @@ class Session
     Session.destroy(@headers["Cookie"])
   end
   
-  #Use only for session containing a user (NO app-only session)
-  def self.get_by_cookie(cookie)
-    new_session = Session.new
-    new_session.cookie = cookie
-
-    return nil unless new_session.set_person_id()   
-    return new_session
-  end
-  
   #a general app-only session cookie that maintains an open session to ASI for Kassi
   def self.kassiCookie
     if @@kassi_cookie.nil?
@@ -99,10 +86,4 @@ class Session
     @headers["Cookie"] = cookie
   end
   
-  def set_person_id
-    info = self.check
-    return nil if (info.nil? || info["entry"].nil?)
-    @person_id =  info["entry"]["user_id"]
-    return @person_id
-  end
 end
