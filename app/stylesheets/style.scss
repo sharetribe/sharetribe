@@ -1,6 +1,7 @@
 @import url('../reset.css');
 @import url('../text.css');
 @import url('../960_24_col.css');
+@import url('../uniform.default.css');
 
 /* Colors */
 $bg_color: #f7f5e6;
@@ -120,7 +121,7 @@ form, input {
 }
 
 #main {
-	margin-top: 30px;
+	margin-top: 20px;
 }
 
 #logo {
@@ -161,21 +162,9 @@ form, input {
 
 #top_navi {
 	select {
-		cursor: pointer;
-		margin-top: 11px;
 		background: $bg_color;
+		font-size: 11px;
 	}
-}
-
-.select {
-	margin-top: 11px;
-	position: absolute;
-	width: 67px; /* With the padding included, the width is 190 pixels: the actual width of the image. */
-	height: 19px;
-	padding: 1px 24px 0 8px;
-	background: url("/images/forms/select_language2.png") no-repeat;
-	overflow: hidden;
-	font-size: 11px;
 }
 
 .top_navi_link {
