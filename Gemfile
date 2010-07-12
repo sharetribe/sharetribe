@@ -31,12 +31,15 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 gem 'mysql', '2.8.1'
 gem 'haml'
-gem "rspec-rails", ">= 2.0.0.beta.13"
-gem 'capybara'
 gem 'database_cleaner'
-gem 'cucumber-rails'
-gem 'cucumber'
-gem 'rspec-rails'
-gem 'spork'
-gem 'launchy'    # So you can do Then show me the page # Let's see if we need this really
+#gem 'spork'
+#gem 'launchy'    # So you can do Then show me the page # Let's see if we need this really
 gem 'rest-client'
+gem 'httpclient' # Used by avatar upload
+
+group :test do
+  gem "rspec-rails", ">= 2.0.0.beta.13"
+  gem 'capybara'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+end
