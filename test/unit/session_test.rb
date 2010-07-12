@@ -29,24 +29,28 @@ class SessionTest < ActiveSupport::TestCase
   #   resp = s.destroy
   # end
   
-  def test_multiple_sessions
-    s1 = Session.create( {:username => "kassi_testperson1", :password => "testi"})
-    s2 = Session.create( {:username => "kassi_testperson2", :password => "testi"})
-    resp1 = s1.check
-    resp2 = s2.check
-    assert_not_nil(resp1["entry"]["user_id"])
-    assert_not_nil(resp2["entry"]["user_id"])
-    assert_not_equal(resp1["entry"]["user_id"], resp2["entry"]["user_id"])
-    s1.destroy
-    s2.destroy
-  end
   
-  def test_getting_session_by_cookie
-    @test_person, @session = get_test_person_and_session
-       
-    cookie = @session.cookie
-    other_session = Session.get_by_cookie(cookie)
-    assert_equal(@session.person_id, other_session.person_id)
-    @session.destroy
-  end
+  # PROBABLY THIS COULD BE REMOVED TOO..
+  # def test_multiple_sessions
+  #   s1 = Session.create( {:username => "kassi_testperson1", :password => "testi"})
+  #   s2 = Session.create( {:username => "kassi_testperson2", :password => "testi"})
+  #   resp1 = s1.check
+  #   resp2 = s2.check
+  #   assert_not_nil(resp1["entry"]["user_id"])
+  #   assert_not_nil(resp2["entry"]["user_id"])
+  #   assert_not_equal(resp1["entry"]["user_id"], resp2["entry"]["user_id"])
+  #   s1.destroy
+  #   s2.destroy
+  # end
+
+  #  NO more getting session by cookie
+  #
+  # def test_getting_session_by_cookie
+  #   @test_person, @session = get_test_person_and_session
+  #      
+  #   cookie = @session.cookie
+  #   other_session = Session.get_by_cookie(cookie)
+  #   assert_equal(@session.person_id, other_session.person_id)
+  #   @session.destroy
+  # end
 end
