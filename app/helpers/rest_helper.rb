@@ -26,7 +26,7 @@ module RestHelper
     make_request(:put, url, params, headers)
   end
 
-  def self.make_request(method, url, params=nil, headers=nil)
+  def self.make_request(method, url, params=nil, headers=nil, return_full_response=false)
     raise ArgumentError.new("Unrecognized method #{method} for rest call") unless ([:get, :post, :delete, :put].include?(method))
     
     begin
@@ -37,7 +37,14 @@ module RestHelper
       response = call(method, url, params, headers)
     end
     
-    return JSON.parse(response.body)
+    # TODO Should react here also on the case of the expired session
+    # When the repsonse would be not authorizedm forbidden or something..
+    
+    unless return_full_response
+      return JSON.parse(response.body)
+    else
+      return [JSON.parse(response.body), response]
+    end
   end
   
   private 

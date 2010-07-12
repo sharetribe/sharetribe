@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   layout 'application'
   
   before_filter :set_locale
+  before_filter :fetch_logged_in_user
   
   helper_method :root
   
@@ -13,7 +14,7 @@ class ApplicationController < ActionController::Base
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
   end
-
+  
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
@@ -23,5 +24,19 @@ class ApplicationController < ActionController::Base
   def root
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
   end  
-  
+
+  def fetch_logged_in_user
+    if session[:person_id]
+      @current_user = Person.find_by_id(session[:person_id])
+      
+      unless session[:cookie]
+        # If there is no ASI-cookie for this session, log out completely
+        @current_user = session[:person_id] = session[:cookie] = nil
+      end
+      
+      # Here used to be a check for session validity that was done on every page load
+      # Now it is removed. So there is no certainty that the session is valid.
+      
+    end
+  end
 end

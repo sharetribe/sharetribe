@@ -56,7 +56,7 @@ class ActiveSupport::TestCase
       #try to find in kassi database
       test_person = Person.find(session.person_id)
 
-    rescue ActiveResource::UnauthorizedAccess => e
+    rescue RestClient::Request::Unauthorized => e
       #if not found, create completely new
       session = Session.create
       test_person = Person.create({ :username => username, 
@@ -64,7 +64,6 @@ class ActiveSupport::TestCase
                       :email => "#{username}@example.com"},
                        session.headers["Cookie"])
                        
-          puts test_person
     rescue ActiveRecord::RecordNotFound  => e
       test_person = Person.add_to_kassi_db(session.person_id)
     end

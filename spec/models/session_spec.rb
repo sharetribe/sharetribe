@@ -30,8 +30,8 @@ describe Session do
     begin
       s = Session.create( {:username => "kassi_testperson1", :password => "wrongpass"})
       s.should_not be_valid
-    rescue ActiveResource::UnauthorizedAccess => e
-      e.class.should == ActiveResource::UnauthorizedAccess
+    rescue Exception => e
+      e.class.should == RestClient::Request::Unauthorized
     end
   end
   
@@ -39,8 +39,8 @@ describe Session do
     begin
       s = Session.create({:app_name => "wrongname", :app_password => "wrong"})
       s.should_not be_valid
-    rescue ActiveResource::UnauthorizedAccess => e
-      e.class.should == ActiveResource::UnauthorizedAccess
+    rescue Exception => e
+      e.class.should == RestClient::Request::Unauthorized
     end
   end
   
@@ -59,7 +59,7 @@ describe Session do
     s = Session.create
     cookie = s.cookie
     resp = s.destroy
-    resp.class.should == Net::HTTPOK
+    resp[1].code.should == 200
 
     #test that the cookie is no more valid  
     #do another session

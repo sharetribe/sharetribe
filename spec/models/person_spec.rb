@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Person do
-  pending "add some examples to (or delete) #{__FILE__}"
   
   before(:each) do
     # here some people could be initialized
