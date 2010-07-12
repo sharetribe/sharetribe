@@ -1,6 +1,6 @@
 require 'json'
 
-class Session < ActiveResource::Base
+class Session
 
   attr_accessor :username
   attr_writer   :password
@@ -9,26 +9,18 @@ class Session < ActiveResource::Base
   attr_reader   :headers
   attr_reader   :person_id
   
-  self.site = APP_CONFIG.ssl_asi_url #POISTA
-  # self.format = :json 
-  # self.timeout = APP_CONFIG.asi_timeout
-  @@cookie = nil
-  
+  @@kassi_cookie = nil # a cookie stored for a general App-only session for Kassi
   @@session_uri = "#{APP_CONFIG.ssl_asi_url}/session"
   
-  # Creates a session by logging in to Aalto Social Interface (ASI)
-  def create
-    @headers = {}
-    params = {:session => {}}
-    params[:session][:username] = @username if @username
-    params[:session][:password] = @password if @password
-    params[:session][:app_name] = @app_name || APP_CONFIG.asi_app_name
-    params[:session][:app_password] = @app_password || APP_CONFIG.asi_app_password
-    
-    resp = RestHelper.make_request(:post, @@session_uri, params , nil, true)
-
-    @headers["Cookie"] = resp[1].headers[:set_cookie].to_s
-    @person_id = resp[0]["entry"]["user_id"] 
+  # Creates a session and logs it in to Aalto Social Interface (ASI)
+  def self.create(params={})
+    session = Session.new(params)
+    # begin 
+    session.login
+    # rescue RestClient::Request::Unauthorized
+    #   return nil
+    # end
+    return session
   end
   
   def initialize(params={})
@@ -36,14 +28,31 @@ class Session < ActiveResource::Base
     self.password = params[:password]
     self.app_name = params[:app_name]
     self.app_password = params[:app_password]
-    super(params)
+  end
+  
+  #Logs in to Aalto Social Interface (ASI)
+  def login(params={})
+    @headers = {}
+    params = {:session => {}}
+    
+    # if both username and password given as parameters or instance variables
+    if ((@username && @password) || (params[:username] && params[:password]))
+      params[:session][:username] = params[:username] || @username
+      params[:session][:password] = params[:password] || @password
+    end
+    params[:session][:app_name] = @app_name || APP_CONFIG.asi_app_name
+    params[:session][:app_password] = @app_password || APP_CONFIG.asi_app_password
+
+    resp = RestHelper.make_request(:post, @@session_uri, params , nil, true)
+
+    @headers["Cookie"] = resp[1].headers[:set_cookie].to_s
+    @person_id = resp[0]["entry"]["user_id"]
   end
   
   # A class method for destroying a session based on cookie
   def self.destroy(cookie)
     deleting_headers = {"Cookie" => cookie}
     resp = RestHelper.make_request(:delete, @@session_uri, deleting_headers, nil, true)
-    
   end
   
   def destroy
@@ -61,15 +70,15 @@ class Session < ActiveResource::Base
   
   #a general app-only session cookie that maintains an open session to ASI for Kassi
   def self.kassiCookie
-    if @@cookie.nil?
-      @@cookie = Session.create.cookie
+    if @@kassi_cookie.nil?
+      @@kassi_cookie = Session.create.cookie
     end
-    return @@cookie
+    return @@kassi_cookie
   end
   
   #this method can be called, if kassiCookie is not valid anymore
   def self.updateKassiCookie
-    @@cookie = Session.create.cookie
+    @@kassi_cookie = Session.create.cookie
   end
   
   # Posts a GET request to ASI for this session
@@ -80,8 +89,6 @@ class Session < ActiveResource::Base
       return nil
     end
   end
-    
-
   
   def cookie
     @headers["Cookie"]
