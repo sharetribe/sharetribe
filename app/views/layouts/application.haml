@@ -6,7 +6,7 @@
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery'
     = javascript_include_tag 'jquery.uniform.min.js'
-    = javascript_include_tag 'custom.js'
+    = javascript_include_tag 'kassi.js'
     = javascript_include_tag 'rails'
         
     %script
@@ -25,31 +25,33 @@
             = submit_tag(nil, :class => "search_button")
       #right.grid_10
         .login_tab.float_right
-          = link_to t(:sign_up), "#"
+          = link_to t('header.sign_up'), "#"
         .login_tab.float_right
-          = link_to t(:login), "#"
+          = link_to t('header.login'), "#"
       .clear
       
     #top_navi.container_24
       .top_navi_link.grid_3
-        = link_to t(:mobile_version), "#"
+        = link_to t('header.mobile_version'), "#"
       .top_navi_form.grid_3
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
           = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()'
-      .tabs.grid_12.prefix_3
+      .tabs.grid_15.prefix_1
         .tab_selected.grid_3.alpha
-          = link_to t(:home), root
+          = link_to t('header.home'), root
         .tab_unselected.grid_3
-          = link_to t(:items), "#"
+          = link_to t('header.items'), "#"
         .tab_unselected.grid_3
-          = link_to t(:favors), "#"
+          = link_to t('header.favors'), "#"
+        .tab_unselected.grid_3
+          = link_to t('header.rideshare'), "#"  
         .tab_unselected.grid_3.omega
-          = link_to t(:community), "#"
+          = link_to t('header.community'), "#"
         .clear
-      .top_navi_link.align_right.grid_3
+      .top_navi_link.align_right.grid_2
         .navi_link_margin_right
-          = link_to t(:info_about_service), "#"
+          = link_to t('header.about'), "#"
       .clear
       
     #main.container_24  

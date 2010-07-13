@@ -1,7 +1,7 @@
 @import url('../reset.css');
 @import url('../text.css');
 @import url('../960_24_col.css');
-@import url('../uniform.default.css');
+@import url('../uniform.kassi.css');
 
 /* Colors */
 $bg_color: #f7f5e6;
@@ -121,7 +121,7 @@ form, input {
 }
 
 #main {
-	margin-top: 20px;
+	margin-top: 30px;
 }
 
 #logo {
@@ -417,43 +417,67 @@ form, input {
 
 #listing_type_select_icons {
 	overflow: hidden;
-	height: 100px;
+	height: 200px;
 }
 
 @mixin listing_type_select_icon {
 	float: left;
-	width: 283px;
-	height: 50px;
-	font-size: 16px;
+	width: 173px;
+	font-size: 14px;
+	margin: 5px 10px;
 	a {
 		text-align: center;
 		display: block;
-		padding: 15px;
+		padding: 71px 15px 15px 15px;
 		@include rounded;
 	}
 }
 
-.listing_type_select_icon_selected {
-	margin-right: 14px;
+@mixin listing_type_select_icon_selected($image_position) {
 	@include listing_type_select_icon;
 	a {
+		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 48px $image_position no-repeat;
 		color: $orange;
-		background: $bg_color;
 		border: 3px solid $orange;
 	}	
 }
 
-.listing_type_select_icon_unselected {
+@mixin listing_type_select_icon_unselected($image_position) {
 	@include listing_type_select_icon;
 	a {
 		color: $light_grey;
-		background: lighten($text_color, 60%);
+		background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 48px ($image_position) no-repeat;
 		border: 3px solid $light_grey;
 		&:hover {
 			color: $light_orange;
 			border-color: $light_orange;
+			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 48px ($image_position + 100px) no-repeat;
 		}
 	}	
+}
+
+.listing_type_select_icon_selected_item {
+	@include listing_type_select_icon_selected(-285px);
+}
+
+.listing_type_select_icon_unselected_item {
+	@include listing_type_select_icon_unselected(-485px);
+}
+
+.listing_type_select_icon_selected_favor {
+	@include listing_type_select_icon_selected(-585px);
+}
+
+.listing_type_select_icon_unselected_favor {
+	@include listing_type_select_icon_unselected(-785px);
+}
+
+.listing_type_select_icon_selected_rideshare {
+	@include listing_type_select_icon_selected(15px);
+}
+
+.listing_type_select_icon_unselected_rideshare {
+	@include listing_type_select_icon_unselected(-185px);
 }
 
 .listing_form_field_container {

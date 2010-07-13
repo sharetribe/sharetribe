@@ -1,40 +1,42 @@
 fi:
-  
-  #General
-  mobile_version: "Mobiiliversio"
-  info_about_service: "Tietoa Kassista"
-  or: "tai"
-  
-  #Login
-  login: "Kirjaudu"
-  sign_up: "Luo tunnus"
-  
-  #Top navi
-  home: "Etusivu"
-  items: "Tavarat"
-  favors: "Palvelukset"
-  community: "Yhteisö"
-  
-  #Home
-  recent_events: "Uusimmat tapahtumat"
-  more_events: "Lisää tapahtumia..."
-  request_something: "Pyydä jotain"
-  offer_something: "Tarjoa jotain"
-  recent_requests: "Uusimmat pyynnöt"
-  recent_offers: "Uusimmat tarjoukset"
-  buy: "osta"
-  sell: "myy"
-  rent: "vuokraa"
-  borrow: "lainaa"
-  ask_for_favor: "pyydä palvelusta"
-  ride_partitive: "kyytiä"
-  offer_favors: "tarjoa palvelusta"
-  items_partitive: "tavaraa"
-  to_borrow: "lainaan"
-  to_buy: "myyntiin"
-  please_comment: "Kommentoi"
-  please_offer: "Tarjoa"
-  
-  #New listing
-  item: "Tavara"
-  favor: "Palvelus"
+  header:
+    mobile_version: "Mobiiliversio"
+    about: "Tietoa"
+    home: "Etusivu"
+    items: "Tavarat"
+    favors: "Palvelukset"
+    rideshare: "Kyydit"
+    community: "Yhteisö"
+    login: "Kirjaudu"
+    sign_up: "Luo tunnus"
+  homepage:
+    index:
+      recent_events: "Uusimmat tapahtumat"
+      more_events: "Lisää tapahtumia..."
+      request_something: "Pyydä jotain"
+      offer_something: "Tarjoa jotain"
+      recent_requests: "Uusimmat pyynnöt"
+      recent_offers: "Uusimmat tarjoukset"
+      or: "tai"
+      buy: "osta"
+      sell: "myy"
+      rent: "vuokraa"
+      borrow: "lainaa"
+      ask_for_favor: "pyydä palvelusta"
+      ride_partitive: "kyytiä"
+      offer_favors: "tarjoa palvelusta"
+      items_partitive: "tavaraa"
+      to_borrow: "lainaan"
+      to_buy: "myyntiin"
+      please_comment: "Kommentoi"
+      please_offer: "Tarjoa"
+    recent_listing:
+      please_comment: "Kommentoi"
+      please_offer: "Tarjoa"
+  listings:
+    new:
+      request_something: "Pyydä jotain"
+      offer_something: "Tarjoa jotain"
+      item: "Tavara"
+      favor: "Palvelus"
+      rideshare: "Kyyti"

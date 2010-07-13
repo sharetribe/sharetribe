@@ -1,44 +1,41 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  
-  #General
-  mobile_version: "Mobile version"
-  info_about_service: "About Kassi"
-  or: "or"
-  
-  #Login
-  login: "Login"
-  sign_up: "Sign up"
-  
-  #Top navi
-  home: "Home"
-  items: "Items"
-  favors: "Favors"
-  community: "Community"
-  
-  #Home
-  recent_events: "Recent events"
-  more_events: "More events..."
-  request_something: "Request something"
-  offer_something: "Offer something"
-  recent_requests: "Recent requests"
-  recent_offers: "Recent offers"
-  buy: "buy"
-  sell: "sell"
-  rent: "rent"
-  borrow: "borrow"
-  ask_for_favor: "ask for a favor"
-  ride_partitive: "a ride"
-  offer_favors: "offer favors"
-  items_partitive: "items"
-  to_borrow: "to borrow"
-  to_buy: "to sell"
-  please_comment: "Comment"
-  please_offer: "Offer"
-  
-  #New listing
-  item: "Item"
-  favor: "Favor"
+  header:
+    mobile_version: "Mobile version"
+    about: "About"
+    home: "Home"
+    items: "Items"
+    favors: "Favors"
+    rideshare: "Rideshare"
+    community: "Community"
+    login: "Login"
+    sign_up: "Sign up"
+  homepage:
+    index:
+      recent_events: "Recent events"
+      more_events: "More events..."
+      request_something: "Request something"
+      offer_something: "Offer something"
+      recent_requests: "Recent requests"
+      recent_offers: "Recent offers"
+      or: "or"
+      buy: "buy"
+      sell: "sell"
+      rent: "rent"
+      borrow: "borrow"
+      ask_for_favor: "ask for a favor"
+      ride_partitive: "a ride"
+      offer_favors: "offer favors"
+      items_partitive: "items"
+      to_borrow: "to borrow"
+      to_buy: "to sell"
+    recent_listing:
+      please_comment: "Comment"
+      please_offer: "Offer"
+  listings:
+    new:
+      request_something: "Request something"
+      offer_something: "Offer something"
+      item: "Item"
+      favor: "Favor"
+      rideshare: "Rideshare"
   

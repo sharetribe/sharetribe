@@ -1,7 +1,7 @@
 @import url('../reset.css');
 @import url('../text.css');
 @import url('../960_24_col.css');
-@import url('../uniform.default.css');
+@import url('../uniform.kassi.css');
 /* Colors */
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {
@@ -77,7 +77,7 @@ form, input {
   height: 56px; }
 
 #main {
-  margin-top: 20px; }
+  margin-top: 30px; }
 
 #logo {
   margin-top: 8px; }
@@ -383,45 +383,121 @@ form, input {
 
 #listing_type_select_icons {
   overflow: hidden;
-  height: 100px; }
+  height: 200px; }
 
-.listing_type_select_icon_selected {
-  margin-right: 14px;
+.listing_type_select_icon_selected_item {
   float: left;
-  width: 283px;
-  height: 50px;
-  font-size: 16px; }
-  .listing_type_select_icon_selected a {
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_selected_item a {
     text-align: center;
     display: block;
-    padding: 15px;
+    padding: 71px 15px 15px 15px;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px; }
-  .listing_type_select_icon_selected a {
+  .listing_type_select_icon_selected_item a {
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px -285px no-repeat;
     color: #d45207;
-    background: #f7f5e6;
     border: 3px solid #d45207; }
 
-.listing_type_select_icon_unselected {
+.listing_type_select_icon_unselected_item {
   float: left;
-  width: 283px;
-  height: 50px;
-  font-size: 16px; }
-  .listing_type_select_icon_unselected a {
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_unselected_item a {
     text-align: center;
     display: block;
-    padding: 15px;
+    padding: 71px 15px 15px 15px;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px; }
-  .listing_type_select_icon_unselected a {
+  .listing_type_select_icon_unselected_item a {
     color: #797979;
-    background: #dfdfdf;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -485px no-repeat;
     border: 3px solid #797979; }
-    .listing_type_select_icon_unselected a:hover {
+    .listing_type_select_icon_unselected_item a:hover {
       color: #f8792f;
-      border-color: #f8792f; }
+      border-color: #f8792f;
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -385px no-repeat; }
+
+.listing_type_select_icon_selected_favor {
+  float: left;
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_selected_favor a {
+    text-align: center;
+    display: block;
+    padding: 71px 15px 15px 15px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+  .listing_type_select_icon_selected_favor a {
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px -585px no-repeat;
+    color: #d45207;
+    border: 3px solid #d45207; }
+
+.listing_type_select_icon_unselected_favor {
+  float: left;
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_unselected_favor a {
+    text-align: center;
+    display: block;
+    padding: 71px 15px 15px 15px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+  .listing_type_select_icon_unselected_favor a {
+    color: #797979;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -785px no-repeat;
+    border: 3px solid #797979; }
+    .listing_type_select_icon_unselected_favor a:hover {
+      color: #f8792f;
+      border-color: #f8792f;
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -685px no-repeat; }
+
+.listing_type_select_icon_selected_rideshare {
+  float: left;
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_selected_rideshare a {
+    text-align: center;
+    display: block;
+    padding: 71px 15px 15px 15px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+  .listing_type_select_icon_selected_rideshare a {
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px 15px no-repeat;
+    color: #d45207;
+    border: 3px solid #d45207; }
+
+.listing_type_select_icon_unselected_rideshare {
+  float: left;
+  width: 173px;
+  font-size: 14px;
+  margin: 5px 10px; }
+  .listing_type_select_icon_unselected_rideshare a {
+    text-align: center;
+    display: block;
+    padding: 71px 15px 15px 15px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+  .listing_type_select_icon_unselected_rideshare a {
+    color: #797979;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -185px no-repeat;
+    border: 3px solid #797979; }
+    .listing_type_select_icon_unselected_rideshare a:hover {
+      color: #f8792f;
+      border-color: #f8792f;
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -85px no-repeat; }
 
 .listing_form_field_container {
   overflow: hidden; }
