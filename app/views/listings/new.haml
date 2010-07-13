@@ -1,14 +1,16 @@
 .grid_16.prefix_4.suffix_4
   #new_listing_form_tabs
     .new_listing_form_tab_selected
-      = link_to t(:request_something), new_listing_path
+      = link_to t('.request_something'), new_listing_path
     .new_listing_form_tab_unselected
-      = link_to t(:offer_something), new_listing_path
+      = link_to t('.offer_something'), new_listing_path
 
 .grid_16.prefix_4.suffix_4
   #new_listing_form
     #listing_type_select_icons
-      .listing_type_select_icon_selected
-        = link_to t(:item), "#"
-      .listing_type_select_icon_unselected
-        = link_to t(:favor), "#"  
+      .listing_type_select_icon_selected_item
+        = link_to t('.item'), "#"
+      .listing_type_select_icon_unselected_favor
+        = link_to t('.favor'), "#"  
+      .listing_type_select_icon_unselected_rideshare
+        = link_to t('.rideshare'), "#"  
