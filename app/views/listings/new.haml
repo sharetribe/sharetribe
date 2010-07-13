@@ -1,3 +1,6 @@
+%script{:type => "text/javascript"}
+  $(document).ready(function() { $('input.text_field:first').focus(); });
+
 .grid_16.prefix_4.suffix_4
   #new_listing_form_tabs
     .new_listing_form_tab_selected
@@ -14,3 +17,20 @@
         = link_to t('.favor'), "#"  
       .listing_type_select_icon_unselected_rideshare
         = link_to t('.rideshare'), "#"  
+  
+    #item_form.new_listing_form_main  
+      = form_tag({ :url => listings_path, :id => "listing_form" }, :method => "get") do
+        .new_listing_form_field_container
+          %label{:for => "name"}
+            = t('.item_you_need')
+          = text_field_tag("name", params[:q], :class => "text_field")
+        .new_listing_form_field_container
+          %label{:for => "name"}
+            = t('.detailed_description')
+          = text_area_tag("name", params[:q])
+        .new_listing_form_field_container
+          %label{:for => "name"}
+            = t('.tags')
+          = text_field_tag("name", params[:q], :class => "text_field")  
+        .new_listing_form_field_container
+          = submit_tag(t('.save_request'), :class => "send_button")
