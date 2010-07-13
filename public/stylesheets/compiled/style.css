@@ -372,22 +372,22 @@ form, input {
     background: #765d3a; }
     .new_listing_form_tab_unselected a:hover {
       color: white;
-      background: #d45207; }
+      background: #9f7d4e; }
 
 #new_listing_form {
   background: #d1c9b4;
   border-radius: 7px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
-  padding: 20px 25px; }
+  padding: 20px 15px;
+  overflow: hidden; }
 
 #listing_type_select_icons {
-  overflow: hidden;
-  height: 200px; }
+  overflow: hidden; }
 
 .listing_type_select_icon_selected_item {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_selected_item a {
@@ -398,13 +398,13 @@ form, input {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_selected_item a {
-    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px -285px no-repeat;
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 51px -285px no-repeat;
     color: #d45207;
     border: 3px solid #d45207; }
 
 .listing_type_select_icon_unselected_item {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_unselected_item a {
@@ -416,16 +416,16 @@ form, input {
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_unselected_item a {
     color: #797979;
-    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -485px no-repeat;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -485px no-repeat;
     border: 3px solid #797979; }
     .listing_type_select_icon_unselected_item a:hover {
       color: #f8792f;
       border-color: #f8792f;
-      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -385px no-repeat; }
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -385px no-repeat; }
 
 .listing_type_select_icon_selected_favor {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_selected_favor a {
@@ -436,13 +436,13 @@ form, input {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_selected_favor a {
-    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px -585px no-repeat;
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 51px -585px no-repeat;
     color: #d45207;
     border: 3px solid #d45207; }
 
 .listing_type_select_icon_unselected_favor {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_unselected_favor a {
@@ -454,16 +454,16 @@ form, input {
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_unselected_favor a {
     color: #797979;
-    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -785px no-repeat;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -785px no-repeat;
     border: 3px solid #797979; }
     .listing_type_select_icon_unselected_favor a:hover {
       color: #f8792f;
       border-color: #f8792f;
-      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -685px no-repeat; }
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -685px no-repeat; }
 
 .listing_type_select_icon_selected_rideshare {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_selected_rideshare a {
@@ -474,13 +474,13 @@ form, input {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_selected_rideshare a {
-    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 48px 15px no-repeat;
+    background: #f7f5e6 url("/images/icons/new_listing_type_select_icons.png") 51px 15px no-repeat;
     color: #d45207;
     border: 3px solid #d45207; }
 
 .listing_type_select_icon_unselected_rideshare {
   float: left;
-  width: 173px;
+  width: 180px;
   font-size: 14px;
   margin: 5px 10px; }
   .listing_type_select_icon_unselected_rideshare a {
@@ -492,12 +492,64 @@ form, input {
     -webkit-border-radius: 7px; }
   .listing_type_select_icon_unselected_rideshare a {
     color: #797979;
-    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -185px no-repeat;
+    background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -185px no-repeat;
     border: 3px solid #797979; }
     .listing_type_select_icon_unselected_rideshare a:hover {
       color: #f8792f;
       border-color: #f8792f;
-      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 48px -85px no-repeat; }
+      background: #dfdfdf url("/images/icons/new_listing_type_select_icons.png") 51px -85px no-repeat; }
 
-.listing_form_field_container {
-  overflow: hidden; }
+.new_listing_form_main {
+  margin: 20px 12px; }
+  .new_listing_form_main label {
+    padding: 5px 3px;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    float: left;
+    width: 160px; }
+  .new_listing_form_main input.text_field {
+    font-weight: bold;
+    color: #797979;
+    background: #f7f5e6;
+    width: 385px;
+    border: 0;
+    font-size: 14px;
+    height: 25px;
+    padding: 5px 9px; }
+  .new_listing_form_main textarea {
+    font-weight: bold;
+    color: #797979;
+    background: #f7f5e6;
+    width: 385px;
+    border: 0;
+    font-size: 12px;
+    height: 100px;
+    padding: 9px 9px; }
+  .new_listing_form_main input.send_button {
+    margin-top: 10px;
+    margin-left: 166px;
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white; }
+    .new_listing_form_main input.send_button:active {
+      background-color: #712c04; }
+    .new_listing_form_main input.send_button:hover {
+      background-color: #9f7d4e; }
+
+.new_listing_form_field_container {
+  overflow: hidden;
+  margin-bottom: 20px; }
+
+.new_listing_form_left {
+  float: left;
+  width: 150px; }
+
+.new_listing_form_center {
+  float: left;
+  width: 300px; }
