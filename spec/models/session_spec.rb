@@ -27,21 +27,15 @@ describe Session do
   end
   
   it "should raise an error if created with false user credentials" do
-    begin
+    lambda {
       s = Session.create( {:username => "kassi_testperson1", :password => "wrongpass"})
-      s.should_not be_valid
-    rescue Exception => e
-      e.class.should == RestClient::Request::Unauthorized
-    end
+    }.should raise_error(RestClient::Request::Unauthorized )
   end
   
   it "should raise an error if created with false application credentials" do
-    begin
+    lambda {
       s = Session.create({:app_name => "wrongname", :app_password => "wrong"})
-      s.should_not be_valid
-    rescue Exception => e
-      e.class.should == RestClient::Request::Unauthorized
-    end
+    }.should raise_error(RestClient::Request::Unauthorized)
   end
   
   it "should keep session open and make further calls to ASI possible" do
