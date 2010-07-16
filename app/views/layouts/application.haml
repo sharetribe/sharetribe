@@ -5,12 +5,14 @@
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery'
-    = javascript_include_tag 'jquery.uniform.min.js'
-    = javascript_include_tag 'kassi.js'
+    = javascript_include_tag 'jquery.uniform.min'
+    = javascript_include_tag 'jquery.lightbox_me'
+    = javascript_include_tag 'kassi'
     = javascript_include_tag 'rails'
         
     %script
-      $(function(){ $("select").uniform(); });
+      $(function(){ $("select.language_select").uniform(); });
+      
   %body
   
     #header.container_24
@@ -36,7 +38,7 @@
       .top_navi_form.grid_3
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
-          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()'
+          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
       .tabs.grid_15.prefix_1
         .tab_selected.grid_3.alpha
           = link_to t('header.home'), root

@@ -57,6 +57,9 @@ h5 {
     h5 a:hover {
       color: #797979;
       text-decoration: underline; }
+    h5 a:active {
+      color: black;
+      text-decoration: underline; }
 
 a {
   text-decoration: none;
@@ -99,6 +102,8 @@ form, input {
     height: 20px;
     padding: 5px 7px;
     border: 0; }
+    #search input.search_field:focus {
+      background: white; }
   #search input.search_button {
     background: #d45207 url("/images/icons/magnifier_white.png") 12px 6px no-repeat;
     width: 44px;
@@ -107,8 +112,10 @@ form, input {
     border: 0;
     color: transparent; }
     #search input.search_button:active {
-      background-color: #712c04; }
+      background-color: #a33f05; }
     #search input.search_button:hover {
+      background-color: #f8792f; }
+    #search input.search_button:focus {
       background-color: #f8792f; }
 
 #top_navi select {
@@ -143,6 +150,12 @@ form, input {
   .tab_unselected a:hover {
     color: white;
     background: #d45207; }
+  .tab_unselected a:focus {
+    color: white;
+    background: #d45207; }
+  .tab_unselected a:active {
+    color: white;
+    background: #f8792f; }
 
 .tab_selected a {
   width: 110px;
@@ -180,6 +193,10 @@ form, input {
   -webkit-border-bottom-left-radius: 7px; }
   .login_tab a:hover {
     background: #f8792f; }
+  .login_tab a:focus {
+    background: #f8792f; }
+  .login_tab a:active {
+    background: #a33f05; }
 
 /* Home page */
 .recent_events {
@@ -265,7 +282,7 @@ form, input {
 
 /* Aligns button descriptions to buttons */
 .button_description_fix {
-  width: 260px; }
+  width: 270px; }
 
 #request_button_description {
   font-size: 11px;
@@ -371,8 +388,11 @@ form, input {
     color: white;
     background: #765d3a; }
     .new_listing_form_tab_unselected a:hover {
-      color: white;
       background: #9f7d4e; }
+    .new_listing_form_tab_unselected a:focus {
+      background: #9f7d4e; }
+    .new_listing_form_tab_unselected a:active {
+      background: #4d3d26; }
 
 #new_listing_form {
   background: #d1c9b4;
@@ -502,12 +522,18 @@ form, input {
 .new_listing_form_main {
   margin: 20px 12px; }
   .new_listing_form_main label {
-    padding: 5px 3px;
+    padding: 8px 3px 0 3px;
+    margin: 0;
     font-size: 14px;
     font-weight: bold;
     display: block;
     float: left;
-    width: 160px; }
+    width: 160px;
+    line-height: 100%; }
+  .new_listing_form_main span.smaller {
+    font-size: 11px; }
+  .new_listing_form_main span.bigger {
+    font-size: 14px; }
   .new_listing_form_main input.text_field {
     font-weight: bold;
     color: #797979;
@@ -515,8 +541,10 @@ form, input {
     width: 385px;
     border: 0;
     font-size: 14px;
-    height: 25px;
+    height: 26px;
     padding: 5px 9px; }
+    .new_listing_form_main input.text_field:focus {
+      background: white; }
   .new_listing_form_main textarea {
     font-weight: bold;
     color: #797979;
@@ -526,6 +554,8 @@ form, input {
     font-size: 12px;
     height: 100px;
     padding: 9px 9px; }
+    .new_listing_form_main textarea:focus {
+      background: white; }
   .new_listing_form_main input.send_button {
     margin-top: 10px;
     margin-left: 166px;
@@ -538,8 +568,10 @@ form, input {
     border: 0;
     color: white; }
     .new_listing_form_main input.send_button:active {
-      background-color: #712c04; }
+      background-color: #4d3d26; }
     .new_listing_form_main input.send_button:hover {
+      background-color: #9f7d4e; }
+    .new_listing_form_main input.send_button:focus {
       background-color: #9f7d4e; }
 
 .new_listing_form_field_container {
@@ -553,3 +585,27 @@ form, input {
 .new_listing_form_center {
   float: left;
   width: 300px; }
+
+.hidden {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 300px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+
+.close_link {
+  float: right;
+  width: 18px;
+  height: 18px; }
+  .close_link a {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: block; }
+
+.hidden_content {
+  clear: both;
+  padding: 15px 20px 0 20px; }
