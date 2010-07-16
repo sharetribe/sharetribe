@@ -9,7 +9,8 @@ $text_color: #464646;
 $form_bg: #d1c9b4;
 $orange: #d45207;
 $medium_brown: #765d3a;
-$dark_orange: darken($orange, 20%);
+$dark_orange: darken($orange, 10%);
+$darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
@@ -99,6 +100,10 @@ h5 {
 			color: $light_grey;
 			text-decoration: underline; 
 		}
+		&:active { 
+			color: black;
+			text-decoration: underline;  
+		}
 	}	
 }
 
@@ -107,7 +112,7 @@ a {
 	color: $orange;
 	font-weight: bold;
 	&:active { color: $light_orange; }
-	&:hover { color: $dark_orange; }
+	&:hover { color: $darker_orange; }
 }
 
 form, input {
@@ -148,6 +153,7 @@ form, input {
 		height: 20px;
 		padding: 5px 7px;
 		border: 0;
+		&:focus { background: white; }
 	}
 	input.search_button {
 		background: $orange url("/images/icons/magnifier_white.png") 12px 6px no-repeat;
@@ -158,6 +164,7 @@ form, input {
 		color: transparent;
 		&:active { background-color: $dark_orange; }
 		&:hover { background-color: $light_orange; }
+		&:focus { background-color: $light_orange; }
 	}
 }
 
@@ -199,6 +206,14 @@ form, input {
 			color: white;
 			background: $orange;
 		}
+		&:focus {
+			color: white;
+			background: $orange;
+		}
+		&:active { 
+			color: white;
+			background: $light_orange; 
+		}
 	}	
 }
 
@@ -224,6 +239,8 @@ form, input {
 		margin-left: 10px;
 		@include half_rounded(bottom);
 		&:hover { background: $light_orange; }
+		&:focus { background: $light_orange; }
+		&:active { background: $dark_orange; }
 	}
 }
 
@@ -321,7 +338,7 @@ form, input {
 
 /* Aligns button descriptions to buttons */
 .button_description_fix {
-	width: 260px;
+	width: 270px;
 }
 
 #request_button_description {
@@ -403,10 +420,9 @@ form, input {
 	a {
 		color: white;
 		background: $medium_brown;
-		&:hover {
-			color: white;
-			background: $light_brown;
-		}
+		&:hover { background: $light_brown; }
+		&:focus { background: $light_brown; }
+		&:active { background: $dark_brown; }
 	}	
 }
 
@@ -487,22 +503,31 @@ form, input {
 	background: $bg_color;
 	width: 385px;
 	border: 0;
+	&:focus { background: white; }
 }
 
 .new_listing_form_main {
 	margin: 20px 12px;
 	label {
-		padding: 5px 3px;
+		padding: 8px 3px 0 3px;
+		margin: 0;
 		font-size: 14px;
 		font-weight: bold;
 		display: block;
 		float: left;
 		width: 160px;
-	}	
+		line-height: 100%;
+	}
+	span.smaller {
+		font-size: 11px;
+	}
+	span.bigger {
+		font-size: 14px;
+	}
 	input.text_field {
 		@include new_listing_form_field;
 		font-size: 14px;
-		height: 25px;
+		height: 26px;
 		padding: 5px 9px;
 	}
 	textarea {
@@ -522,8 +547,9 @@ form, input {
 		padding: 0;
 		border: 0;
 		color: white;
-		&:active { background-color: $dark_orange; }
+		&:active { background-color: $dark_brown; }
 		&:hover { background-color: $light_brown; }
+		&:focus { background-color: $light_brown; }
 	}
 }
 
@@ -540,4 +566,30 @@ form, input {
 .new_listing_form_center {
 	float: left;
 	width: 300px;
+}
+
+.hidden {
+	@include rounded;
+	width: 300px;
+	padding: 10px 10px 15px 10px;
+	background: $bg_color;
+	display: none;
+	overflow: hidden;
+}
+
+.close_link {
+	float: right;
+	width: 18px;
+	height: 18px;
+	a {
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+		display: block;
+	}	
+}
+
+.hidden_content {
+	clear:both;
+	padding: 15px 20px 0 20px;
 }

@@ -16,7 +16,9 @@ http://pixelmatrixdesign.com/uniform/themer.html
 /* Global Declaration */
 
 div.selector, 
-div.selector span, 
+div.selector span,
+div.selector2, 
+div.selector2 span, 
 div.checker span, 
 div.radio span, 
 div.uploader, 
@@ -25,11 +27,13 @@ div.uploader span.action {
   background-repeat: no-repeat;
 }
 
-.selector, 
+.selector,
+.selector2, 
 .radio, 
 .checker, 
 .uploader, 
-.selector *, 
+.selector *,
+.selector2 *, 
 .radio *, 
 .checker *, 
 .uploader *{
@@ -101,6 +105,70 @@ div.selector.disabled span,
 div.selector.disabled:active span,
 div.selector.disabled.active span {
   background-position: right -84px;
+}
+
+/* Select2 */
+
+div.selector2 {
+  background-position: -483px -720px;
+  line-height: 36px;
+	height: 36px;
+}
+
+div.selector2 span {
+  background-position: right -540px;
+  height: 36px;
+	line-height: 36px;
+}
+
+div.selector2 select {
+  /* change these to adjust positioning of select element */
+  top: 0px;
+	left: 0px;
+}
+
+div.selector2:active, 
+div.selector2.active {
+	background-position: -483px -756px;
+}
+
+div.selector2:active span, 
+div.selector2.active span {
+	background-position: right -576px;
+}
+
+div.selector2.focus, div.selector2.hover, div.selector2:hover {
+	background-position: -483px -792px;
+}
+
+div.selector2.focus span, div.selector2.hover span, div.selector2:hover span {
+	background-position: right -612px;
+}
+
+div.selector2.focus:active,
+div.selector2.focus.active,
+div.selector2:hover:active,
+div.selector2.active:hover {
+	background-position: -483px -828px;
+}
+
+div.selector2.focus:active span,
+div.selector2:hover:active span,
+div.selector2.active:hover span,
+div.selector2.focus.active span {
+	background-position: right -648px;
+}
+
+div.selector2.disabled,
+div.selector2.disabled:active,
+div.selector2.disabled.active {
+	background-position: -483px -864px;
+}
+
+div.selector2.disabled span,
+div.selector2.disabled:active span,
+div.selector2.disabled.active span {
+  background-position: right -684px;
 }
 
 /* Checkbox */
@@ -241,53 +309,53 @@ div.radio.disabled.active span.checked {
 /* Uploader */
 
 div.uploader {
-  background-position: 0px NaNpx;
-  height: NaNpx;
+  background-position: 0px -252px;
+  height: 36px;
 }
 
 div.uploader span.action {
-  background-position: right NaNpx;
-  height: NaNpx;
-  line-height: NaNpx;
+  background-position: right -396px;
+  height: 36px;
+  line-height: 36px;
 }
 
 div.uploader span.filename {
-  height: NaNpx;
+  height: 36px;
   /* change this line to adjust positioning of filename area */
-  margin: 2px 0px 2px 2px;
-  line-height: NaNpx;
+	margin: 0;
+  line-height: 36px;
 }
 
 div.uploader.focus,
 div.uploader.hover,
 div.uploader:hover {
-  background-position: 0px NaNpx;
+  background-position: 0px -324px;
 }
 
 div.uploader.focus span.action,
 div.uploader.hover span.action,
 div.uploader:hover span.action {
-  background-position: right NaNpx;
+  background-position: right -432px;
 }
 
 div.uploader.active span.action,
 div.uploader:active span.action {
-  background-position: right NaNpx;
+  background-position: right -468px;
 }
 
 div.uploader.focus.active span.action,
 div.uploader:focus.active span.action,
 div.uploader.focus:active span.action,
 div.uploader:focus:active span.action {
-  background-position: right NaNpx;
+  background-position: right -504px;
 }
 
 div.uploader.disabled {
-  background-position: 0px NaNpx;
+  background-position: 0px -288px;
 }
 
 div.uploader.disabled span.action {
-  background-position: right NaNpx;
+  background-position: right -360px;
 }
 
 /* PRESENTATION */
@@ -302,7 +370,7 @@ div.selector {
 div.selector select {
   width: 119px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 10px;
+  font-size: 11px;
   border: solid 1px #fff;
 }
 
@@ -320,6 +388,38 @@ div.selector.disabled span {
   color: #bbb;
 }
 
+/* Select2 */
+div.selector2 {
+	margin-right: 8px;
+	float: left;
+  width: 128px;
+  font-size: 14px;
+	font-weight: bold;
+}
+
+div.selector2 select {
+  width: 128px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+	font-weight: bold;
+  border: solid 1px #fff;
+}
+
+div.selector2 span {
+  padding: 0;
+}
+
+div.selector2 span {
+  color: #797979;
+  width: 116px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+div.selector2.disabled span {
+  color: #bbb;
+}
+
+
 /* Checker */
 div.checker {
   margin-right: 10px;
@@ -332,36 +432,36 @@ div.radio {
 
 /* Uploader */
 div.uploader {
-  width: 190px;
-  margin-bottom: 20px;
-  cursor: pointer;
+  width: 403px;
 }
 
 div.uploader span.action {
-  width: 85px;
+  width: 128px;
+	font-size: 14;
+	font-weight: bold;
   text-align: center;
-  text-shadow: #fff 0px 1px 0px;
-  background-color: #fff;
+  color: #fff;
+  background-color: $medium_brown;
 }
 
 div.uploader span.filename {
-  color: #777;
-  width: 82px;
-  border-right: solid 1px #bbb;
-  font-size: 90%;
+  color: #797979;
+  width: 255px;
+  font-size: 14px;
+	font-weight: bold;
 }
 
 div.uploader input {
-  width: 190px;
+  width: 403px;
 }
 
 div.uploader.disabled span.action {
-  color: #aaa;
+  color: #797979;
 }
 
 div.uploader.disabled span.filename {
   border-color: #ddd;
-  color: #aaa;
+  color: #797979;
 }
 /*
 
@@ -394,7 +494,35 @@ div.selector span {
 div.selector select {
 	position: absolute;
 	opacity: 0;
-  height: 25px;
+  height: 21px;
+  border: none;
+  background: none;
+}
+
+.selector select:focus, .radio input:focus, .checker input:focus, uploader input:focus {
+  outline: 0;
+}
+
+/* Select2 */
+
+div.selector2 {
+	position: relative;
+	overflow: hidden;
+}
+
+div.selector2 span {
+	padding-left: 10px;
+	display: block;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div.selector2 select {
+	position: absolute;
+	opacity: 0;
+  height: 36px;
   border: none;
   background: none;
 }
@@ -449,9 +577,8 @@ div.uploader {
 div.uploader span.action {
   float: left;
   display: inline;
-  padding: 2px 0px;
+  padding: 0px 0px;
   overflow: hidden;
-  cursor: pointer;
 }
 
 div.uploader span.filename {
@@ -470,6 +597,6 @@ div.uploader input {
   right: 0;
   bottom: 0;
   float: right;
-  height: 25px;
+  height: 36px;
   border: none;
 }
