@@ -521,15 +521,21 @@ form, input {
 
 .new_listing_form_main {
   margin: 20px 12px; }
-  .new_listing_form_main label {
+  .new_listing_form_main label.input {
     padding: 8px 3px 0 3px;
     margin: 0;
     font-size: 14px;
     font-weight: bold;
     display: block;
     float: left;
-    width: 160px;
-    line-height: 100%; }
+    width: 164px;
+    line-height: 110%; }
+  .new_listing_form_main label.checkbox {
+    float: left;
+    width: 90px;
+    padding-top: 4px;
+    font-size: 12px;
+    font-weight: bold; }
   .new_listing_form_main span.smaller {
     font-size: 11px; }
   .new_listing_form_main span.bigger {
@@ -538,7 +544,7 @@ form, input {
     font-weight: bold;
     color: #797979;
     background: #f7f5e6;
-    width: 385px;
+    width: 380px;
     border: 0;
     font-size: 14px;
     height: 26px;
@@ -549,7 +555,7 @@ form, input {
     font-weight: bold;
     color: #797979;
     background: #f7f5e6;
-    width: 385px;
+    width: 380px;
     border: 0;
     font-size: 12px;
     height: 100px;
@@ -609,3 +615,12 @@ form, input {
 .hidden_content {
   clear: both;
   padding: 15px 20px 0 20px; }
+
+div.checkbox_container {
+  width: 380px;
+  overflow: hidden;
+  line-height: 200%; }
+
+div.checkbox_float {
+  width: 35px;
+  float: left; }

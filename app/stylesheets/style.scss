@@ -15,6 +15,7 @@ $light_orange: lighten($orange, 15%);
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
+$bg_color_dark: darken($bg_color, 10%);
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -501,22 +502,29 @@ form, input {
 	font-weight: bold;
 	color: $light_grey;
 	background: $bg_color;
-	width: 385px;
+	width: 380px;
 	border: 0;
 	&:focus { background: white; }
 }
 
 .new_listing_form_main {
 	margin: 20px 12px;
-	label {
+	label.input {
 		padding: 8px 3px 0 3px;
 		margin: 0;
 		font-size: 14px;
 		font-weight: bold;
 		display: block;
 		float: left;
-		width: 160px;
-		line-height: 100%;
+		width: 164px;
+		line-height: 110%;
+	}
+	label.checkbox {
+		float: left;
+		width: 90px;
+		padding-top: 4px;
+		font-size: 12px;
+		font-weight: bold;
 	}
 	span.smaller {
 		font-size: 11px;
@@ -592,4 +600,15 @@ form, input {
 .hidden_content {
 	clear:both;
 	padding: 15px 20px 0 20px;
+}
+
+div.checkbox_container {
+	width: 380px;
+	overflow: hidden;
+	line-height: 200%;
+}
+
+div.checkbox_float {
+	width: 35px;
+	float: left;
 }

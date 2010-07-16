@@ -174,70 +174,71 @@ div.selector2.disabled.active span {
 /* Checkbox */
 
 div.checker {
-  width: NaNpx;
-  height: NaNpx;
+  width: 24px;
+  height: 22px;
 }
 
 div.checker input {
-  width: NaNpx;
-  height: NaNpx;
+  width: 24px;
+  height: 22px;
 }
 
 div.checker span {
-  background-position: NaNpx -210px;
-  height: NaNpx;
-  width: NaNpx;
+  background-position: 0px -222px;
+  width: 24px;	
+	height: 22px;
 }
 
 div.checker:active span, 
 div.checker.active span {
-	background-position: NaNpx -210px;
+	background-position: -36px -222px;
 }
 
 div.checker.focus span,
 div.checker:hover span {
-	background-position: NaNpx -210px;
+	background-position: -72px -222px;
 }
 
 div.checker.focus:active span,
 div.checker:active:hover span,
 div.checker.active:hover span,
 div.checker.focus.active span {
-	background-position: NaNpx -210px;
+	background-position: -108px -222px;
 }
 
 div.checker span.checked {
-	background-position: NaNpx -210px;
+	background-position: -144px -222px;
 }
 
 div.checker:active span.checked, 
 div.checker.active span.checked {
-	background-position: NaNpx -210px;
+	background-position: -180px -222px;
 }
 
 div.checker.focus span.checked,
 div.checker:hover span.checked {
-	background-position: NaNpx -210px;
+	background-position: -216px -222px;
 }
 
 div.checker.focus:active span.checked,
 div.checker:hover:active span.checked,
 div.checker.active:hover span.checked,
 div.checker.active.focus span.checked {
-	background-position: NaNpx -210px;
+	background-position: -252px -222px;
 }
 
 div.checker.disabled span,
 div.checker.disabled:active span,
 div.checker.disabled.active span {
-	background-position: NaNpx -210px;
+	background-position: -288px -222px;
 }
 
 div.checker.disabled span.checked,
 div.checker.disabled:active span.checked,
 div.checker.disabled.active span.checked {
-	background-position: NaNpx -210px;
+	background-position: -324px -222px;
 }
+
 
 /* Radio */
 
@@ -392,13 +393,13 @@ div.selector.disabled span {
 div.selector2 {
 	margin-right: 8px;
 	float: left;
-  width: 128px;
+  width: 127px;
   font-size: 14px;
 	font-weight: bold;
 }
 
 div.selector2 select {
-  width: 128px;
+  width: 127px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
 	font-weight: bold;
@@ -411,7 +412,7 @@ div.selector2 span {
 
 div.selector2 span {
   color: #797979;
-  width: 116px;
+  width: 115px;
   text-shadow: 0 1px 0 #fff;
 }
 
@@ -422,7 +423,7 @@ div.selector2.disabled span {
 
 /* Checker */
 div.checker {
-  margin-right: 10px;
+  margin-top: 4px;
 }
 
 /* Radio */
@@ -432,11 +433,11 @@ div.radio {
 
 /* Uploader */
 div.uploader {
-  width: 403px;
+  width: 397px;
 }
 
 div.uploader span.action {
-  width: 128px;
+  width: 127px;
 	font-size: 14;
 	font-weight: bold;
   text-align: center;
@@ -446,13 +447,13 @@ div.uploader span.action {
 
 div.uploader span.filename {
   color: #797979;
-  width: 255px;
+  width: 250px;
   font-size: 14px;
 	font-weight: bold;
 }
 
 div.uploader input {
-  width: 403px;
+  width: 396px;
 }
 
 div.uploader.disabled span.action {
