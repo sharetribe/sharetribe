@@ -71,12 +71,14 @@
         .new_listing_form_field_container
           %label{:for => "name", :class => "input"}
             = t('.valid_until') + ":"
-          = date_select :listing, :create, {}, :class => "listing_date_select"
+          = date_select :listing, :create, {:start_year => Time.now.year, :end_year => Time.now.year + 1}, :class => "listing_date_select"
         .new_listing_form_field_container
           = submit_tag(t('.save_request'), :class => "send_button")
 
 
 #help_tags.hidden
+  .hidden_title
+    = t('.tags')
   .close_link
     = link_to "X", "#", :id => "close_x", :class => "close"
   .hidden_content

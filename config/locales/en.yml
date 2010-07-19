@@ -54,4 +54,16 @@ en:
       select_file: "Select file"
       no_file_selected: "No file selected"
       valid_until: "Valid until"
+  sessions:
+    new:
+      login_to_kassi: "Log in to Kassi"
+      username: "Username"
+      password: "Password"
+      login: "Login"
+      create_new_account: "Create a new account"
+      i_forgot_my_password: "I forgot my password"
+    password_forgotten:
+      email: "Email"
+      password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
+      request_new_password: "Request new password"
   
