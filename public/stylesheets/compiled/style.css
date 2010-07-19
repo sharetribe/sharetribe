@@ -116,7 +116,7 @@ form, input {
   #search input.search_field {
     margin-left: 5px;
     background: #f7f5e6;
-    width: 172px;
+    width: 211px;
     height: 20px;
     padding: 5px 7px;
     border: 0; }
@@ -150,6 +150,8 @@ form, input {
       color: #f8792f; }
     .top_navi_link a:focus {
       color: #f8792f; }
+    .top_navi_link a:active {
+      color: #d45207; }
 
 .tab_unselected a {
   width: 110px;
@@ -693,3 +695,82 @@ div.checkbox_float {
 
 #password_forgotten {
   display: none; }
+
+#logged_in_icons {
+  margin: 17px 0 0 11px;
+  color: white;
+  overflow: hidden; }
+
+.logged_in_icon_inbox {
+  width: 27px;
+  height: 20px;
+  float: left;
+  margin-right: 9px; }
+  .logged_in_icon_inbox a {
+    color: transparent;
+    display: block;
+    background: transparent url("/images/icons/header_icons.png") 0px 0px no-repeat; }
+    .logged_in_icon_inbox a:hover {
+      background: transparent url("/images/icons/header_icons.png") 0px -20px no-repeat; }
+    .logged_in_icon_inbox a:active {
+      background: transparent url("/images/icons/header_icons.png") 0px -20px no-repeat; }
+
+.logged_in_icon_requests {
+  width: 27px;
+  height: 20px;
+  float: left;
+  margin-right: 8px; }
+  .logged_in_icon_requests a {
+    color: transparent;
+    display: block;
+    background: transparent url("/images/icons/header_icons.png") 0px -40px no-repeat; }
+    .logged_in_icon_requests a:hover {
+      background: transparent url("/images/icons/header_icons.png") 0px -60px no-repeat; }
+    .logged_in_icon_requests a:active {
+      background: transparent url("/images/icons/header_icons.png") 0px -60px no-repeat; }
+
+.logged_in_icon_notifications {
+  width: 27px;
+  height: 20px;
+  float: left;
+  margin-right: 3px; }
+  .logged_in_icon_notifications a {
+    color: transparent;
+    display: block;
+    background: transparent url("/images/icons/header_icons.png") 0px -80px no-repeat; }
+    .logged_in_icon_notifications a:hover {
+      background: transparent url("/images/icons/header_icons.png") 0px -100px no-repeat; }
+    .logged_in_icon_notifications a:active {
+      background: transparent url("/images/icons/header_icons.png") 0px -100px no-repeat; }
+
+.logged_in_icon_settings {
+  width: 27px;
+  height: 20px;
+  float: left;
+  margin-right: 8px; }
+  .logged_in_icon_settings a {
+    color: transparent;
+    display: block;
+    background: transparent url("/images/icons/header_icons.png") 0px -120px no-repeat; }
+    .logged_in_icon_settings a:hover {
+      background: transparent url("/images/icons/header_icons.png") 0px -140px no-repeat; }
+    .logged_in_icon_settings a:active {
+      background: transparent url("/images/icons/header_icons.png") 0px -140px no-repeat; }
+
+#logged_in_links {
+  text-align: right;
+  margin-top: 19px;
+  color: white;
+  font-size: 13px; }
+  #logged_in_links a {
+    font-size: 13px;
+    font-weight: bold;
+    color: white; }
+    #logged_in_links a:hover {
+      color: #f8792f; }
+    #logged_in_links a:focus {
+      color: #f8792f; }
+    #logged_in_links a:active {
+      color: #d45207; }
+  #logged_in_links a.left {
+    margin-right: 15px; }

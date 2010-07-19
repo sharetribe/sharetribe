@@ -9,6 +9,9 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     I18n.locale = params[:locale]
+    
+    # A hack to get the path where the user is 
+    # redirected after the locale is changed
     new_path = request.fullpath
     new_path.slice!("/#{params[:locale]}")
     new_path.slice!(0,1) if new_path =~ /^\//
