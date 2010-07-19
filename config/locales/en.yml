@@ -1,4 +1,10 @@
 en:
+  layouts:
+    logged_in:
+      login: "Login"
+      sign_up: "Sign up"
+      logout: "Logout"
+      hi: "Hi"
   header:
     mobile_version: "Mobile version"
     about: "About"
@@ -7,8 +13,6 @@ en:
     favors: "Favors"
     rideshare: "Rideshare"
     community: "Community"
-    login: "Login"
-    sign_up: "Sign up"
   homepage:
     index:
       recent_events: "Recent events"

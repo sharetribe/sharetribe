@@ -1,6 +1,12 @@
 # Translations specific for Kassi
 
 fi:
+  layouts:
+    logged_in:
+      login: "Kirjaudu"
+      sign_up: "Luo tunnus"
+      logout: "Ulos"
+      hi: "Hei"
   header:
     mobile_version: "Mobiiliversio"
     about: "Tietoa"
@@ -9,8 +15,6 @@ fi:
     favors: "Palvelukset"
     rideshare: "Kyydit"
     community: "Yhteisö"
-    login: "Kirjaudu"
-    sign_up: "Luo tunnus"
   homepage:
     index:
       recent_events: "Uusimmat tapahtumat"

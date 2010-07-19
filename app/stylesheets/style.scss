@@ -175,7 +175,7 @@ form, input {
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
-		width: 172px;
+		width: 211px;
 		height: 20px;
 		padding: 5px 7px;
 		border: 0;
@@ -208,6 +208,7 @@ form, input {
 		font-weight: bold;
 		&:hover { color: $light_orange; }
 		&:focus { color: $light_orange; }
+		&:active { color: $orange; }
 		font-size: 11px;
 	}
 }
@@ -685,4 +686,62 @@ div.checkbox_float {
 
 #password_forgotten {
 	display: none;
+}
+
+#logged_in_icons {
+	margin: 17px 0 0 11px;
+	color: white;
+	overflow: hidden;
+}
+
+@mixin logged_in_icon($image_position, $margin_right: 8px) {
+	width: 27px;
+	height: 20px;
+	float: left;
+	margin-right: $margin_right;
+	a {
+		color: transparent;
+		display: block;
+		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
+		&:hover {
+			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
+		}
+		&:active {
+			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
+		}	
+	}
+}
+
+.logged_in_icon_inbox {
+	@include logged_in_icon(0px, 9px);
+}
+
+.logged_in_icon_requests {
+	@include logged_in_icon(-40px);
+}
+
+.logged_in_icon_notifications {
+	@include logged_in_icon(-80px, 3px);
+}
+
+.logged_in_icon_settings {
+	@include logged_in_icon(-120px);
+}
+
+#logged_in_links {
+	text-align: right;
+	margin-top: 19px;
+	color: white;
+	font-size: 13px;
+	a {
+		font-size: 13px;
+		font-weight: bold;
+		color: white;
+		&:hover { color: $light_orange; }
+		&:focus { color: $light_orange; }
+		&:active { color: $orange; }
+	}
+	a.left {
+		margin-right: 15px;
+	}	
 }

@@ -56,13 +56,14 @@ Kassi::Application.routes.draw do |map|
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   
+  # Adds locale to every url right after the root path
   scope "(/:locale)" do
     resources :listings
     resources :session
     resources :consent
   end
   
-  #match "/login" => "sessions#new"
+  # Some non-RESTful mappings
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"

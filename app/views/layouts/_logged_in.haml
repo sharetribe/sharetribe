@@ -1,0 +1,21 @@
+- if logged_in?
+  .grid_4.prefix_2.alpha
+    #logged_in_icons
+      .logged_in_icon_inbox
+        = link_to "#", "#"
+      .logged_in_icon_requests
+        = link_to "#", "#"
+      .logged_in_icon_notifications
+        = link_to "#", "#"
+      .logged_in_icon_settings
+        = link_to "#", "#"  
+  #logged_in_links.grid_4.omega
+    %span
+      = t('.hi')
+    = link_to "Juho", "#", :class => "left"
+    = link_to t('.logout'), logout_path
+- else
+  .login_tab.float_right
+    = link_to t('.sign_up'), "#"
+  .login_tab.float_right
+    = link_to t('.login'), login_path

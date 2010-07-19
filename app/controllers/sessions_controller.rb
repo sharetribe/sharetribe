@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
                                   :password => params[:password] })
     rescue RestClient::Unauthorized => e
       flash[:error] = :login_failed
-      redirect_to new_session_path and return
+      redirect_to login_path and return
     end
     session[:form_username] = nil
     
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
       redirect_to session[:return_to]
       session[:return_to] = nil
     else
-      redirect_to root_path
+      redirect_to root
     end
   end
   
@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     session[:cookie] = nil
     session[:person_id] = nil
     flash[:notice] = :logout_successful
-    redirect_to root_path
+    redirect_to root
   end
   
   def new
