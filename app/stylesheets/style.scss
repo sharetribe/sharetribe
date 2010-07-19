@@ -19,7 +19,6 @@ $bg_color_dark: darken($bg_color, 10%);
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
-input[type="submit"]:focus {background: $light_orange url("/images/icons/magnifier_white.png") 15px 5px no-repeat;}
 
 /* Used for divs with rounded corners */
 @mixin rounded($radius: 7px) {
@@ -46,6 +45,13 @@ input[type="submit"]:focus {background: $light_orange url("/images/icons/magnifi
 	height: 0;
 }
 
+/* Basic form */
+@mixin form {
+	background: $form_bg;
+	@include rounded;
+	overflow: hidden;
+}
+
 .align_right {
 	text-align: right;
 }
@@ -62,8 +68,27 @@ input[type="submit"]:focus {background: $light_orange url("/images/icons/magnifi
 	float: right;
 }
 
+.form_field_container {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
 input[type="submit"] {
 	cursor: pointer;
+}
+
+input.send_button {
+	font-size: 14px;
+	font-weight: bold;
+	background: $medium_brown;
+	width: 200px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	color: white;
+	&:active { background-color: $dark_brown; }
+	&:hover { background-color: $light_brown; }
+	&:focus { background-color: $light_brown; }
 }
 
 body {
@@ -165,7 +190,7 @@ form, input {
 		color: transparent;
 		&:active { background-color: $dark_orange; }
 		&:hover { background-color: $light_orange; }
-		&:focus { background-color: $light_orange; }
+		&:focus { background: $light_orange url("/images/icons/magnifier_white.png") 12px 6px no-repeat; }
 	}
 }
 
@@ -182,6 +207,7 @@ form, input {
 		color: white;
 		font-weight: bold;
 		&:hover { color: $light_orange; }
+		&:focus { color: $light_orange; }
 		font-size: 11px;
 	}
 }
@@ -428,10 +454,8 @@ form, input {
 }
 
 #new_listing_form {
-	background: $form_bg;
-	@include rounded;
+	@include form;
 	padding: 20px 15px;
-	overflow: hidden;
 }
 
 #listing_type_select_icons {
@@ -467,6 +491,11 @@ form, input {
 		background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 51px ($image_position) no-repeat;
 		border: 3px solid $light_grey;
 		&:hover {
+			color: $light_orange;
+			border-color: $light_orange;
+			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 51px ($image_position + 100px) no-repeat;
+		}
+		&:focus {
 			color: $light_orange;
 			border-color: $light_orange;
 			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 51px ($image_position + 100px) no-repeat;
@@ -538,26 +567,14 @@ form, input {
 		height: 26px;
 		padding: 5px 9px;
 	}
+	input.send_button {
+		margin: 10px 0 0 170px;
+	}
 	textarea {
 		@include new_listing_form_field;
 		font-size: 12px;
 		height: 100px;
 		padding: 9px 9px;
-	}
-	input.send_button {
-		margin-top: 10px;
-		margin-left: 166px;
-		font-size: 14px;
-		font-weight: bold;
-		background: $medium_brown;
-		width: 200px;
-		height: 40px;
-		padding: 0;
-		border: 0;
-		color: white;
-		&:active { background-color: $dark_brown; }
-		&:hover { background-color: $light_brown; }
-		&:focus { background-color: $light_brown; }
 	}
 }
 
@@ -585,6 +602,14 @@ form, input {
 	overflow: hidden;
 }
 
+.hidden_title {
+	float: left;
+	width: 200px;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 0 0 20px;
+}
+
 .close_link {
 	float: right;
 	width: 18px;
@@ -599,7 +624,7 @@ form, input {
 
 .hidden_content {
 	clear:both;
-	padding: 15px 20px 0 20px;
+	padding: 12px 20px 0 20px;
 }
 
 div.checkbox_container {
@@ -611,4 +636,53 @@ div.checkbox_container {
 div.checkbox_float {
 	width: 35px;
 	float: left;
+}
+
+#login_form {
+	@include form;
+	padding: 20px 25px 25px 25px;
+	line-height: 25px;
+	h2 {
+		font-weight: bold;
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+	input.text_field {
+		font-weight: bold;
+		color: $light_grey;
+		background: $bg_color;
+		width: 300px;
+		font-size: 14px;
+		height: 26px;
+		padding: 5px 9px;
+		margin-left: 10px;
+		border: 0;
+		&:focus { background: white; }
+	}
+	input.send_button {
+		margin: 15px 0 0 10px;
+	}
+	label {
+		margin: 10px;
+		width: 340px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	.links {
+		margin: 10px 0 0 10px;
+	}
+	.text {
+		margin: 0 10px 10px 10px;
+		line-height: 16px;
+	}
+	span {
+		margin: 5px;
+		color: $orange;
+		font-weight: bold;
+		font-size: 16px;
+	}
+}
+
+#password_forgotten {
+	display: none;
 }

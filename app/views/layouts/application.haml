@@ -29,7 +29,7 @@
         .login_tab.float_right
           = link_to t('header.sign_up'), "#"
         .login_tab.float_right
-          = link_to t('header.login'), "#"
+          = link_to t('header.login'), login_path
       .clear
       
     #top_navi.container_24
@@ -58,3 +58,12 @@
       
     #main.container_24  
       = yield
+      
+    #spacer.container_24  
+      %br/
+      &nbsp;
+      %br/
+      &nbsp;
+      %br/
+      %br/
+      

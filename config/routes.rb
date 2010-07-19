@@ -58,8 +58,11 @@ Kassi::Application.routes.draw do |map|
   
   scope "(/:locale)" do
     resources :listings
+    resources :sessions
   end
   
+  #match "/login" => "sessions#new"
+  match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
   root :to => 'homepage#index'

@@ -58,6 +58,18 @@ fi:
       select_file: "Valitse tiedosto"
       no_file_selected: "Ei tiedostoa valittuna"
       valid_until: "Voimassaoloaika"
+  sessions:
+    new:
+      login_to_kassi: "Kirjaudu sisään Kassiin"
+      username: "Käyttäjätunnus"
+      password: "Salasana"
+      login: "Kirjaudu sisään"
+      create_new_account: "Luo uusi tunnus"
+      i_forgot_my_password: "Salasana unohtunut"
+    password_forgotten:
+      email: "Sähköposti"
+      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
+      request_new_password: "Pyydä uusi salasana"    
 
 # Default finnish translations for Ruby on Rails 
 # by Marko Seppä (marko.seppa@gmail.com)
