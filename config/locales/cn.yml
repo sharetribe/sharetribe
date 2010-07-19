@@ -1,0 +1,24 @@
+en:
+  activerecord:
+    errors:
+      models:
+        person:
+          attributes:
+            consent:  
+              not_accepted: "must be given"
+        conversation:
+          attributes:
+            messages:
+              invalid: "Empty message can not be sent"
+            return_time:
+              too_early: "must be after pick up time"
+            items:
+              too_few_available: "Only {{count}} pieces of {{item_title}} free on given time period"
+              none_available: "No pieces of item {{item_title}} free on given time"      
+        listing:
+          attributes:
+            good_thru:
+              inclusion: "must be between current time and one year"
+            image_file:
+              format: "must be in .gif, .jpg or .png format"
+              size: "must be less than 5 megabytes in size"
