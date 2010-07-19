@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :fetch_logged_in_user
   
-  helper_method :root
+  helper_method :root, :logged_in?
   
   def set_locale
     I18n.locale = params[:locale]
@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     @return_to = new_path
   end
   
+  # Adds locale to all links
   def default_url_options(options={})
     logger.debug "default_url_options is passed options: #{options.inspect}\n"
     { :locale => I18n.locale }
@@ -39,4 +40,9 @@ class ApplicationController < ActionController::Base
       
     end
   end
+  
+  def logged_in?
+    ! @current_user.nil?
+  end
+  
 end
