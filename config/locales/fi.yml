@@ -62,6 +62,8 @@ fi:
       select_file: "Valitse tiedosto"
       no_file_selected: "Ei tiedostoa valittuna"
       valid_until: "Voimassaoloaika"
+    show:
+      request: "Pyyntö"
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100707105549) do
+ActiveRecord::Schema.define(:version => 20100721124444) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -163,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20100707105549) do
     t.datetime "last_modified"
     t.string   "visibility",              :default => "everybody"
     t.boolean  "close_notification_sent", :default => false
+    t.string   "listing_type"
   end
 
   create_table "messages", :force => true do |t|
