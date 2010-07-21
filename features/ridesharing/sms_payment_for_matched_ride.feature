@@ -9,7 +9,7 @@ Feature: SMS compensation for ride match
   Scenario: Ride match was made and the passenger pays with SMS
     Given I got an SMS "Simo is driving from taik to tkk at 13:00. You can call him at 0501234567. To pay some gas money to Simo, reply 'SEND Xe' where X is the amount (max.90e)"
     And I took the ride and want to pay
-    And My account has remaining at least 10,50 credits
+    And My phone account can be billed for at least 10,50e
     When I send SMS "SEND 10e"
-    Then Simo's account should change +10e
-    And My account should change -10,50e
+    Then Simo should get 10e # How this is done is yet unclear. One option is operator site credits, or then some Kassi account could be credited.
+    And My phone bill should be charged for 10,50e
