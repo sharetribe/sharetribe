@@ -53,4 +53,12 @@ describe Person do
     it "should update avatar image to ASI"
   end
   
+  describe "#create_listing" do
+    it "creates a new listing with the submitted attributes" do
+      listing = @test_person.create_listing :title => "Test"
+      listing.title.should == "Test"
+      @test_person.listings.should == [listing]
+    end
+  end
+  
 end

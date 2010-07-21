@@ -171,26 +171,26 @@ form, input {
 }
 
 #search {
-	margin: 14px 0 0 0;
+	margin: 15px 0 0 0;
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
 		width: 211px;
-		height: 20px;
+		height: 18px;
 		padding: 5px 7px;
 		border: 0;
 		&:focus { background: white; }
 	}
 	input.search_button {
-		background: $orange url("/images/icons/magnifier_white.png") 12px 6px no-repeat;
-		width: 44px;
-		height: 30px;
+		background: $orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat;
+		width: 41px;
+		height: 28px;
 		padding: 0;
 		border: 0;
 		color: transparent;
 		&:active { background-color: $dark_orange; }
 		&:hover { background-color: $light_orange; }
-		&:focus { background: $light_orange url("/images/icons/magnifier_white.png") 12px 6px no-repeat; }
+		&:focus { background: $light_orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat; }
 	}
 }
 

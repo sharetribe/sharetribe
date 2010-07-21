@@ -13,9 +13,10 @@ class Person < ActiveRecord::Base
   
   attr_protected :is_admin
 
+  has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+
   # has_many :feedbacks
   # 
-  #   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
   #   
   #   has_many :items, :foreign_key => "owner_id", :dependent => :destroy
   #            
@@ -669,6 +670,10 @@ class Person < ActiveRecord::Base
   def is_admin_of?(group, cookie)
     return false unless group.is_member?(self, cookie)
     PersonConnection.get_group_admin_status(id, group.id, cookie)["entry"]["admin_role"]
+  end
+  
+  def create_listing(params)
+    listings.create params
   end
   
   private

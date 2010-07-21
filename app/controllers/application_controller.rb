@@ -48,4 +48,11 @@ class ApplicationController < ActionController::Base
     ! @current_user.nil?
   end
   
+  # Saves current path so that the user can be
+  # redirected back to that path when needed,
+  # for example after creating a new listing.
+  def save_current_path
+    session[:return_to] = request.fullpath
+  end
+  
 end
