@@ -265,6 +265,9 @@ form, input {
     overflow: hidden;
     width: 927px; }
 
+.field_with_errors {
+  float: left; }
+
 /* Home page */
 .recent_events {
   background: #d1c9b4;
