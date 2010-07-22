@@ -10,6 +10,14 @@ Feature: User creates a new request
     And I fill in "listing_title" with "My request"
     And I press "Save request"
     Then I should see "Request: My request" within "h1"
+    And I should see "Request created successfully" within "#notifications"
+    
+  Scenario: Trying to create a new request without being logged in
+    Given I am not logged in
+    And I am on the home page
+    When I follow "Request something"
+    Then I should see "Request created successfully" within "#notifications"
+    And I should see a warning notification that says "You need to log in to request something"
 
   Scenario: Creating a new favor request successfully
     Given I am at the home page

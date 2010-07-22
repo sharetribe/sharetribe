@@ -98,7 +98,7 @@ form, input {
   height: 56px; }
 
 #main {
-  margin-top: 30px; }
+  margin-top: 25px; }
 
 #logo {
   margin-top: 8px; }
@@ -219,6 +219,51 @@ form, input {
     background: #f8792f; }
   .login_tab a:active {
     background: #a33f05; }
+
+#top_spacer {
+  height: 5px; }
+
+.notification_text {
+  width: 850px;
+  float: left;
+  padding: 5px 0 5px 55px; }
+
+.close_notification_link {
+  width: 15px;
+  float: right; }
+
+#notifications {
+  margin-top: 20px; }
+  #notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .warning {
+    margin: 0 5px;
+    color: #514721;
+    border: 2px solid #ffd324;
+    background: #fff6bf url("/images/icons/notification_icons.png") 5px -80px no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
 
 /* Home page */
 .recent_events {

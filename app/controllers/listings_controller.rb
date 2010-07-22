@@ -14,7 +14,8 @@ class ListingsController < ApplicationController
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
       render :action => :new
-    else  
+    else
+      flash[:notice] = "#{@listing.listing_type}_created_successfully"
       redirect_to @listing
     end
   end

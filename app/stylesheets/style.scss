@@ -153,7 +153,7 @@ form, input {
 }
 
 #main {
-	margin-top: 30px;
+	margin-top: 25px;
 }
 
 #logo {
@@ -272,6 +272,45 @@ form, input {
 	}
 }
 
+#top_spacer {
+	height: 5px;
+}
+
+@mixin notification($text, $border, $bg, $bg_position: 0) {
+	margin: 0 5px;
+	color: $text;
+	border: 2px solid $border;
+	background: $bg url("/images/icons/notification_icons.png") 5px $bg_position no-repeat;
+	font-weight: bold;
+	font-size: 14px;
+	padding: 5px 5px;
+	overflow: hidden;
+	width: 927px;
+}
+
+.notification_text {
+	width: 850px;
+	float: left;
+	padding: 5px 0 5px 55px;
+}
+
+.close_notification_link {
+	width: 15px;
+	float: right;
+}
+
+#notifications {
+	margin-top: 20px;
+	.notice {
+		@include notification(#264409, #c6d880, #e6efc2);
+	}
+	.error {
+		@include notification(#8a1f11, #fbc2c4, #fbe3e4, -40px);
+	}
+	.warning {
+		@include notification(#514721, #ffd324, #fff6bf, -80px);
+	}	
+}
 
 /* Home page */
 
