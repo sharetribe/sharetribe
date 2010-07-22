@@ -52,11 +52,16 @@
         .navi_link_margin_right
           = link_to t('header.about'), "#"
       .clear
+    
+    #top_spacer
+      &nbsp;
       
-    #main.container_24  
+    = render :partial => "layouts/notifications"
+          
+    #main.container_24
       = yield
       
-    #spacer.container_24  
+    #bottom_spacer.container_24  
       %br/
       &nbsp;
       %br/

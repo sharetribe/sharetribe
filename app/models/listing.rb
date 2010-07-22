@@ -10,4 +10,9 @@ class Listing < ActiveRecord::Base
   validates_length_of :title, :in => 1..100, :allow_nil => false
   validates_inclusion_of :listing_type, :in => VALID_TYPES
   
+  # Overrides the to_param method to implement clean URLs
+  def to_param
+    "#{id}-#{title.gsub(/\W/, '_').downcase}"
+  end
+  
 end  
