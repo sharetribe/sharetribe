@@ -1,6 +1,8 @@
 class ListingsController < ApplicationController
-    
-  before_filter :save_current_path, :except => [ :new, :create ]  
+
+  before_filter :only => [ :new, :create ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
+  end
   
   def show
     @listing = Listing.find(params[:id])
