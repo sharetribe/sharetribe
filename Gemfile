@@ -29,6 +29,7 @@ gem 'rails', '3.0.0.beta4'
 # end
 
 
+gem "mongrel"
 gem 'mysql', '2.8.1'
 gem 'haml'
 gem 'database_cleaner'
