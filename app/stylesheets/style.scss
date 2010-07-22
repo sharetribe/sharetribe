@@ -608,8 +608,8 @@ form, input {
 	input.text_field {
 		@include new_listing_form_field;
 		font-size: 14px;
-		height: 26px;
-		padding: 5px 9px;
+		height: 18px;
+		padding: 9px 9px;
 	}
 	input.send_button {
 		margin: 10px 0 0 170px;
