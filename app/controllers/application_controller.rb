@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
     
     # A hack to get the path where the user is 
     # redirected after the locale is changed
-    new_path = request.fullpath
+    new_path = request.fullpath.clone
     new_path.slice!("/#{params[:locale]}")
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
@@ -44,13 +44,21 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # A before filter for views that only users that are logged in can access
+  def ensure_logged_in(warning_message)
+    return if logged_in?
+    logger.info "Request path: " + request.fullpath
+    session[:return_to] = request.fullpath
+    flash[:warning] = warning_message
+    redirect_to new_session_path and return
+  end
+  
   def logged_in?
     ! @current_user.nil?
   end
   
   # Saves current path so that the user can be
-  # redirected back to that path when needed,
-  # for example after creating a new listing.
+  # redirected back to that path when needed.
   def save_current_path
     session[:return_to] = request.fullpath
   end

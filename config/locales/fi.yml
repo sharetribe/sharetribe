@@ -9,13 +9,13 @@ fi:
       hi: "Hei"
     notifications:
       request_created_successfully: "Pyyntö tallennettu"
+      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön."
   header:
     mobile_version: "Mobiiliversio"
     about: "Tietoa"
     home: "Etusivu"
-    items: "Tavarat"
-    favors: "Palvelukset"
-    rideshare: "Kyydit"
+    requests: "Pyynnöt"
+    offers: "Tarjoukset"
     community: "Yhteisö"
   homepage:
     index:
@@ -48,6 +48,7 @@ fi:
       item: "Tavara"
       favor: "Palvelus"
       rideshare: "Kimppakyyti"
+      housing: "Asuminen"
       offer_type: "Tarjoustapa"
       lend: "Lainaan"
       sell: "Myyn"
