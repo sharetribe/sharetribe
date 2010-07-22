@@ -30,6 +30,7 @@ Feature: Driver offers a ride
       Then user "Erkki" should get an SMS "Simo is driving from taik to tkk at 13:00. You can call him at 0501234567. To pay some gas money to Simo, reply 'SEND Xe' where X is the amount (max.90e)"
         
     
+    # THIS SCENARIO IS PROBABLY NOT IMPLEMENTED. INSTEAD PHONE NUMBER IS ALWAYS SHARED WHEN OFFERING RIDES.
     Scenario: Matching potential passenger is found (phone number not public)
       Given I have offered a shared ride from "taik" to "tkk" at "13:00"
       And my phone number is not in my public profile
