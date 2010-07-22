@@ -5,7 +5,6 @@ config/*.sphinx.conf
 config/database.yml
 config/config.yml
 config/session_secret
-config/deploy.rb
 config/gmaps_api_key.yml
 log/
 tmp/**/*
