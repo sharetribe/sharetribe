@@ -16,8 +16,8 @@ Feature: User creates a new request
     Given I am not logged in
     And I am on the home page
     When I follow "Request something"
-    Then I should see "Request created successfully" within "#notifications"
-    And I should see a warning notification that says "You need to log in to request something"
+    Then I should see "You must log in to Kassi to create a new request." within "#notifications"
+    And I should see "You must log in to Kassi to create a new request" within "h2"
 
   Scenario: Creating a new favor request successfully
     Given I am at the home page

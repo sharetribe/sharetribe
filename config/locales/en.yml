@@ -7,13 +7,13 @@ en:
       hi: "Hi"
     notifications:
       request_created_successfully: "Request created successfully"
+      you_must_log_in_to_create_new_request: "You must log in to Kassi to create a new request."
   header:
     mobile_version: "Mobile version"
     about: "About"
     home: "Home"
-    items: "Items"
-    favors: "Favors"
-    rideshare: "Rideshare"
+    requests: "Requests"
+    offers: "Offers"
     community: "Community"
   homepage:
     index:
@@ -44,6 +44,7 @@ en:
       item: "Item"
       favor: "Favor"
       rideshare: "Rideshare"
+      housing: "Housing"
       offer_type: "Offer type"
       lend: "Lend"
       sell: "Sell"
