@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
     begin
       @session = Session.create({ :username => params[:username], 
                                   :password => params[:password] })
+                                                          
     rescue RestClient::Unauthorized => e
       flash[:error] = :login_failed
       redirect_to login_path and return
     end
+
     session[:form_username] = nil
-    
-    #self.smerf_user_id = @session.person_id
     
     if @session.person_id  # if not app-only-session and person found in cos
       unless  @current_user = Person.find_by_id(@session.person_id)
@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
   end
   
   def new
-    @session =  Session.new
+    #@session =  Session.new #I think this is not needed
   end
   
   def forgot_password
