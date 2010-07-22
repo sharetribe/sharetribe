@@ -36,15 +36,13 @@
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
           = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
-      .tabs.grid_15.prefix_1
+      .tabs.grid_12.prefix_4
         .tab_selected.grid_3.alpha
           = link_to t('header.home'), root
         .tab_unselected.grid_3
-          = link_to t('header.items'), "#"
+          = link_to t('header.requests'), "#"
         .tab_unselected.grid_3
-          = link_to t('header.favors'), "#"
-        .tab_unselected.grid_3
-          = link_to t('header.rideshare'), "#"  
+          = link_to t('header.offers'), "#"
         .tab_unselected.grid_3.omega
           = link_to t('header.community'), "#"
         .clear
