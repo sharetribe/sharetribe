@@ -7,11 +7,16 @@
     = javascript_include_tag 'jquery'
     = javascript_include_tag 'jquery.uniform.min'
     = javascript_include_tag 'jquery.lightbox_me'
-    = javascript_include_tag 'kassi'
+    = javascript_include_tag 'jquery.empty_value'
     = javascript_include_tag 'rails'
+    = javascript_include_tag 'kassi'
         
     %script
       $(function(){ $("select.language_select").uniform(); });
+    
+    %script
+      $(document).ready(function() { $('input.search_field').empty_value('#{t('header.search_kassi')}', true, 'default_text'); });
+      
       
   %body
   
@@ -36,7 +41,7 @@
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
           = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
-      .tabs.grid_12.prefix_4
+      .tabs.grid_12.prefix_3
         .tab_selected.grid_3.alpha
           = link_to t('header.home'), root
         .tab_unselected.grid_3
@@ -46,7 +51,7 @@
         .tab_unselected.grid_3.omega
           = link_to t('header.community'), "#"
         .clear
-      .top_navi_link.align_right.grid_2
+      .top_navi_link.align_right.grid_3
         .navi_link_margin_right
           = link_to t('header.about'), "#"
       .clear
