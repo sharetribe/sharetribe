@@ -9,4 +9,4 @@
           - else  
             = t(".#{flash[announcement]}")
         .close_notification_link  
-          = link_to "X", "#", :onclick => "$('#notifications').slideUp('fast');"
+          = link_to "X", "#", :id => "close_notification_link"

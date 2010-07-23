@@ -4,19 +4,10 @@
   %head
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery'
-    = javascript_include_tag 'jquery.uniform.min'
-    = javascript_include_tag 'jquery.lightbox_me'
-    = javascript_include_tag 'jquery.empty_value'
-    = javascript_include_tag 'rails'
-    = javascript_include_tag 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.empty_value', 'rails', 'kassi'
         
-    %script
-      $(function(){ $("select.language_select").uniform(); });
-    
-    %script
-      $(document).ready(function() { $('input.search_field').empty_value('#{t('header.search_kassi')}', true, 'default_text'); });
-      
+    %script{:type => "text/javascript"}
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });
       
   %body
   

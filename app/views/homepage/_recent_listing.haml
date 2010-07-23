@@ -1,8 +1,7 @@
 .recent_listing
-  .float_left
-    %a{:href => "#"}
-      %img{:src => "/images/icons/item_large.png"}
-  .recent_listing_text.float_left
+  .listing_image
+    = link_to "#", "#", :title => listing
+  .recent_listing_text
     %h5= link_to listing, "#"
     %p “Tarvitsisin gorillapuvun ensi viikolla pidettäviä naamiaissitsejä varten. Voin...”
     .float_left

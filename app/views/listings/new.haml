@@ -1,6 +1,5 @@
-%script{:type => "text/javascript"}
-  $(document).ready(function() { $('input.text_field:first').focus(); });
-  $(function(){ $("select.listing_date_select, input:checkbox, input:file").uniform({selectClass: 'selector2', fileDefaultText: '#{t('listings.new.no_file_selected')}', fileBtnText: '#{t('listings.new.select_file')}'}); });
+- content_for :javascript do
+  initialize_new_listing_form('#{t('listings.new.no_file_selected')}', '#{t('listings.new.select_file')}');
 
 .grid_16.prefix_4.suffix_4
   #new_listing_form_tabs
@@ -25,11 +24,67 @@
         .new_listing_form_field_container
           %label{:class => "input"}
             = t('.item_you_need') + ":"
-          = form.text_field(:title, :class => "text_field")
+          = form.text_field(:title, :class => "text_field", :maxlength => "100")
         .new_listing_form_field_container
           = form.hidden_field(:listing_type, :value => params[:type])
           = form.submit t('.save_request'), :class => "send_button"
-  
+    
+    #item_form.new_listing_form_main  
+      = form_for @listing do
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.offer_type') + ":"
+            %br/
+            %span{:class => "smaller"}  
+              = link_to t('.what_is_this'), "#", :tabindex => "-1", :id => "offer_type_link"
+          .checkbox_container  
+            .checkbox_float
+              = check_box_tag "test1", "true", :checked => "checked"
+            %label{:class => "checkbox"}
+              = t('.sell')
+            .checkbox_float
+              = check_box_tag "test2", "true", :checked => "checked"
+            %label{:class => "checkbox"}
+              = t('.lend')
+            .checkbox_float
+              = check_box_tag "test3", "true", :checked => "checked"
+            %label{:class => "checkbox"}
+              = t('.give_away')   
+            .checkbox_float
+              = check_box_tag "test3", "true", :checked => "checked"
+            %label{:class => "checkbox"}
+              = t('.trade')
+            .checkbox_float
+              = check_box_tag "test3", "true", :checked => "checked"
+            %label{:class => "checkbox"}
+              = t('.rent')        
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.item_you_need') + ":"
+          = text_field_tag("name", params[:q], :class => "text_field")
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.detailed_description') + ":"
+          = text_area_tag("name", params[:q])
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.tags')
+            %span{:class => "smaller"}
+              = t('.comma_separate') + ":"
+            %span{:class => "smaller"}  
+              = link_to t('.what_is_this'), "#", :tabindex => "-1", :id => "help_tags_link"
+          = text_field_tag("name", params[:q], :class => "text_field")
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.image') + ":"
+          = file_field_tag("name", :class => "file_field")    
+        .new_listing_form_field_container
+          %label{:for => "name", :class => "input"}
+            = t('.valid_until') + ":"
+          = date_select :listing, :create, {:start_year => Time.now.year, :end_year => Time.now.year + 1}, :class => "listing_date_select"
+        .new_listing_form_field_container
+          = submit_tag(t('.save_request'), :class => "send_button")
+          
 #help_tags.hidden
   .hidden_title
     = t('.tags')
