@@ -36,9 +36,11 @@
  
   #recent_requests.grid_9.alpha
     .recent_listings
-      %h3= t('.recent_requests')
+      %h3{:class => "orange"}
+        = link_to t('.recent_requests'), "#"
       = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
   #recent_offers.grid_9.omega
     .recent_listings
-      %h3.brown= t('.recent_offers')
+      %h3{:class => "brown"}
+        = link_to t('.recent_offers'), "#"
       = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"

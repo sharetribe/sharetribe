@@ -4,7 +4,7 @@ class HomepageController < ApplicationController
   
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
-    @requests = ["Kyyti HKI-Turku", "Mikroaaltouuni", "ATK-apu"]
+    @requests = ["Kyyti HKI-Turku", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore", "ATK-apu"]
     @offers = ["Kyyti HKI-Turku", "Mikroaaltouuni", "ATK-apu"]
   end
   

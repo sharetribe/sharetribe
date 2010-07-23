@@ -5,16 +5,23 @@ en:
       sign_up: "Sign up"
       logout: "Logout"
       hi: "Hi"
+      messages: "Messages"
+      requests: "Friend requests"
+      notifications: "Notifications"
+      settings: "Settings"
     notifications:
       request_created_successfully: "Request created successfully"
       you_must_log_in_to_create_new_request: "You must log in to Kassi to create a new request."
+      login_successful: "Welcome to Kassi, "
+      logout_successful: "You have now been logged out of Kassi. Welcome again!"
   header:
     mobile_version: "Mobile version"
-    about: "About"
+    about: "About Kassi"
     home: "Home"
     requests: "Requests"
     offers: "Offers"
     community: "Community"
+    search_kassi: "Search Kassi"
   homepage:
     index:
       recent_events: "Recent events"
