@@ -16,6 +16,8 @@ $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
 $bg_color_dark: darken($bg_color, 10%);
+$listing_button_grey: #5c5c5c;
+$listing_button_light_grey: #b8b19f;
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -175,11 +177,15 @@ form, input {
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
-		width: 211px;
+		width: 175px;
 		height: 18px;
-		padding: 5px 7px;
+		padding: 5px 8px;
 		border: 0;
 		&:focus { background: white; }
+	}
+	input.default_text {
+		background: $bg_color;
+		color: #898989;
 	}
 	input.search_button {
 		background: $orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat;
@@ -228,20 +234,11 @@ form, input {
 .tab_unselected {
 	@include tab;
 	a {
-		color: $bg_color;
+		color: white;
 		background: $dark_brown;
-		&:hover {
-			color: white;
-			background: $orange;
-		}
-		&:focus {
-			color: white;
-			background: $orange;
-		}
-		&:active { 
-			color: white;
-			background: $light_orange; 
-		}
+		&:hover { background: $orange }
+		&:focus { background: $orange; }
+		&:active { background: $light_orange; }
 	}	
 }
 
@@ -295,8 +292,11 @@ form, input {
 }
 
 .close_notification_link {
-	width: 15px;
+	padding-top: 2px;
+	width: 20px;
 	float: right;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 #notifications {
@@ -508,21 +508,21 @@ form, input {
 
 @mixin listing_type_select_icon {
 	float: left;
-	width: 130px;
-	font-size: 14px;
-	margin: 5px 10px;
+	width: 135px;
+	font-size: 13px;
+	margin: 5px 7px;
 	a {
 		text-align: center;
 		display: block;
-		padding: 71px 15px 15px 15px;
-		@include rounded;
+		padding: 66px 15px 10px 15px;
+		@include rounded(12px);
 	}
 }
 
 @mixin listing_type_select_icon_selected($image_position) {
 	@include listing_type_select_icon;
 	a {
-		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 27px $image_position no-repeat;
+		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 28px $image_position no-repeat;
 		color: $orange;
 		border: 3px solid $orange;
 	}	
@@ -531,52 +531,52 @@ form, input {
 @mixin listing_type_select_icon_unselected($image_position) {
 	@include listing_type_select_icon;
 	a {
-		color: $light_grey;
-		background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position) no-repeat;
-		border: 3px solid $light_grey;
+		color: $listing_button_grey;
+		background: $listing_button_light_grey url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position) no-repeat;
+		border: 3px solid $listing_button_grey;	
 		&:hover {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 		&:focus {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 	}	
 }
 
 .listing_type_select_icon_selected_item {
-	@include listing_type_select_icon_selected(-285px);
+	@include listing_type_select_icon_selected(-290px);
 }
 
 .listing_type_select_icon_unselected_item {
-	@include listing_type_select_icon_unselected(-485px);
+	@include listing_type_select_icon_unselected(-490px);
 }
 
 .listing_type_select_icon_selected_favor {
-	@include listing_type_select_icon_selected(-585px);
+	@include listing_type_select_icon_selected(-590px);
 }
 
 .listing_type_select_icon_unselected_favor {
-	@include listing_type_select_icon_unselected(-785px);
+	@include listing_type_select_icon_unselected(-790px);
 }
 
 .listing_type_select_icon_selected_rideshare {
-	@include listing_type_select_icon_selected(15px);
+	@include listing_type_select_icon_selected(10px);
 }
 
 .listing_type_select_icon_unselected_rideshare {
-	@include listing_type_select_icon_unselected(-185px);
+	@include listing_type_select_icon_unselected(-190px);
 }
 
 .listing_type_select_icon_selected_housing {
-	@include listing_type_select_icon_selected(-885px);
+	@include listing_type_select_icon_selected(-890px);
 }
 
 .listing_type_select_icon_unselected_housing {
-	@include listing_type_select_icon_unselected(-1085px);
+	@include listing_type_select_icon_unselected(-1090px);
 }
 
 @mixin new_listing_form_field {
@@ -620,7 +620,7 @@ form, input {
 		padding: 9px 9px;
 	}
 	input.send_button {
-		margin: 10px 0 0 170px;
+		margin: 10px 0 0 169px;
 	}
 	textarea {
 		@include new_listing_form_field;

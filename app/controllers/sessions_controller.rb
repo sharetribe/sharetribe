@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
     session[:cookie] = @session.headers["Cookie"]
     session[:person_id] = @session.person_id
       
-    flash[:notice] = :login_successful
+    flash[:notice] = [:login_successful, "Juho!", "#"]
     if session[:return_to]
       redirect_to session[:return_to]
       session[:return_to] = nil
