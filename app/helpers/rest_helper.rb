@@ -50,7 +50,6 @@ module RestHelper
   private 
   
   def self.call(method, url, params=nil, headers=nil)
-    #puts "Event ID: #{event_id}"
     response = case method    
       when :get, :delete
         if (event_id)
@@ -60,17 +59,14 @@ module RestHelper
             addition = "?event_id=#{event_id}"
           end
           url += addition
-          #puts "URL AFTER ADDITION #{url}"
         end
         RestClient.try(method, url, params)
       when :post, :put
         if (event_id)
           params.merge!(:event_id => event_id)
-          #puts "PARAMS AFTER MERGE #{params.inspect}"
         end
         RestClient.try(method, url, params, headers) 
     end
-    
     return response
   end
 end
