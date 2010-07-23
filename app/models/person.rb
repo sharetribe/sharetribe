@@ -248,7 +248,10 @@ class Person < ActiveRecord::Base
   def name_or_username(cookie=nil)
     # First check the person name cache (which is common to al users)
     # If not found use the person_hash cache (which is separate for each asker)
-    Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
+    
+    #Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
+    # THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA
+    name_or_username_from_person_hash(cookie) # get without name cache
   end
       
   def name_or_username_from_person_hash(cookie=nil)
