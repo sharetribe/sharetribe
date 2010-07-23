@@ -4,7 +4,7 @@
   %head
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.empty_value', 'rails', 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.empty_value', 'jquery.validate.min', 'rails', 'kassi'
         
     %script{:type => "text/javascript"}
       $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });

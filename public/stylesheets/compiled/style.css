@@ -688,6 +688,10 @@ form, input {
     padding-top: 4px;
     font-size: 12px;
     font-weight: bold; }
+  .new_listing_form_main label.error {
+    float: left;
+    padding: 5px 0 0 175px;
+    color: red; }
   .new_listing_form_main span.smaller {
     font-size: 11px; }
   .new_listing_form_main span.bigger {
@@ -759,6 +763,11 @@ form, input {
 .hidden_content {
   clear: both;
   padding: 12px 20px 0 20px; }
+
+div.listing_input_container {
+  width: 380px;
+  overflow: hidden;
+  line-height: 200%; }
 
 div.checkbox_container {
   width: 380px;
