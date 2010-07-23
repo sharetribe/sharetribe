@@ -16,6 +16,8 @@ $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
 $bg_color_dark: darken($bg_color, 10%);
+$listing_button_grey: #5c5c5c;
+$listing_button_light_grey: #b8b19f;
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -102,14 +104,21 @@ body {
 	display: block;
 	border-bottom: 6px solid $color;
 	margin-bottom: 10px;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
-h3 {
+h3.orange {
 	@include colored_title;
 }
 
 h3.brown {
 	@include colored_title($medium_brown);
+	a {
+		color: $medium_brown;
+		&:hover { color: $dark_brown;};
+		&:focus { color: $dark_brown;};
+	}	
 }
 
 h4 {
@@ -175,11 +184,15 @@ form, input {
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
-		width: 211px;
+		width: 175px;
 		height: 18px;
-		padding: 5px 7px;
+		padding: 5px 8px;
 		border: 0;
 		&:focus { background: white; }
+	}
+	input.default_text {
+		background: $bg_color;
+		color: #898989;
 	}
 	input.search_button {
 		background: $orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat;
@@ -228,20 +241,11 @@ form, input {
 .tab_unselected {
 	@include tab;
 	a {
-		color: $bg_color;
+		color: white;
 		background: $dark_brown;
-		&:hover {
-			color: white;
-			background: $orange;
-		}
-		&:focus {
-			color: white;
-			background: $orange;
-		}
-		&:active { 
-			color: white;
-			background: $light_orange; 
-		}
+		&:hover { background: $orange }
+		&:focus { background: $orange; }
+		&:active { background: $light_orange; }
 	}	
 }
 
@@ -295,8 +299,11 @@ form, input {
 }
 
 .close_notification_link {
-	width: 15px;
+	padding-top: 2px;
+	width: 20px;
 	float: right;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 #notifications {
@@ -437,9 +444,24 @@ form, input {
 	overflow: hidden;
 }
 
+.listing_image {
+	float: left;
+	width: 85px;
+	height: 85px;
+	a {
+		height: 85px;
+		display: block;
+		color: transparent;
+		background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px -185px no-repeat;
+		&:hover { background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px 15px no-repeat; }
+		&:focus { background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px 15px no-repeat; }
+	}	
+}
+
 .recent_listing_text {
+	float: left;
 	font-size: 11px;
-	width: 253px;
+	width: 244px;
 	margin-left: 10px;
 	p {
 		margin: 5px 0 4px 0;
@@ -508,21 +530,21 @@ form, input {
 
 @mixin listing_type_select_icon {
 	float: left;
-	width: 130px;
-	font-size: 14px;
-	margin: 5px 10px;
+	width: 135px;
+	font-size: 13px;
+	margin: 5px 7px;
 	a {
 		text-align: center;
 		display: block;
-		padding: 71px 15px 15px 15px;
-		@include rounded;
+		padding: 66px 15px 10px 15px;
+		@include rounded(12px);
 	}
 }
 
 @mixin listing_type_select_icon_selected($image_position) {
 	@include listing_type_select_icon;
 	a {
-		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 27px $image_position no-repeat;
+		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 28px $image_position no-repeat;
 		color: $orange;
 		border: 3px solid $orange;
 	}	
@@ -531,52 +553,52 @@ form, input {
 @mixin listing_type_select_icon_unselected($image_position) {
 	@include listing_type_select_icon;
 	a {
-		color: $light_grey;
-		background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position) no-repeat;
-		border: 3px solid $light_grey;
+		color: $listing_button_grey;
+		background: $listing_button_light_grey url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position) no-repeat;
+		border: 3px solid $listing_button_grey;	
 		&:hover {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 		&:focus {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($text_color, 60%) url("/images/icons/new_listing_type_select_icons.png") 27px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 	}	
 }
 
 .listing_type_select_icon_selected_item {
-	@include listing_type_select_icon_selected(-285px);
+	@include listing_type_select_icon_selected(-290px);
 }
 
 .listing_type_select_icon_unselected_item {
-	@include listing_type_select_icon_unselected(-485px);
+	@include listing_type_select_icon_unselected(-490px);
 }
 
 .listing_type_select_icon_selected_favor {
-	@include listing_type_select_icon_selected(-585px);
+	@include listing_type_select_icon_selected(-590px);
 }
 
 .listing_type_select_icon_unselected_favor {
-	@include listing_type_select_icon_unselected(-785px);
+	@include listing_type_select_icon_unselected(-790px);
 }
 
 .listing_type_select_icon_selected_rideshare {
-	@include listing_type_select_icon_selected(15px);
+	@include listing_type_select_icon_selected(10px);
 }
 
 .listing_type_select_icon_unselected_rideshare {
-	@include listing_type_select_icon_unselected(-185px);
+	@include listing_type_select_icon_unselected(-190px);
 }
 
 .listing_type_select_icon_selected_housing {
-	@include listing_type_select_icon_selected(-885px);
+	@include listing_type_select_icon_selected(-890px);
 }
 
 .listing_type_select_icon_unselected_housing {
-	@include listing_type_select_icon_unselected(-1085px);
+	@include listing_type_select_icon_unselected(-1090px);
 }
 
 @mixin new_listing_form_field {
@@ -607,6 +629,11 @@ form, input {
 		font-size: 12px;
 		font-weight: bold;
 	}
+	label.error {
+		float: left;
+		padding: 5px 0 0 175px;
+		color: red;
+	}
 	span.smaller {
 		font-size: 11px;
 	}
@@ -620,7 +647,7 @@ form, input {
 		padding: 9px 9px;
 	}
 	input.send_button {
-		margin: 10px 0 0 170px;
+		margin: 10px 0 0 169px;
 	}
 	textarea {
 		@include new_listing_form_field;
@@ -677,6 +704,12 @@ form, input {
 .hidden_content {
 	clear:both;
 	padding: 12px 20px 0 20px;
+}
+
+div.listing_input_container {
+	width: 380px;
+	overflow: hidden;
+	line-height: 200%;
 }
 
 div.checkbox_container {
@@ -754,12 +787,9 @@ div.checkbox_float {
 		color: transparent;
 		display: block;
 		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
-		&:hover {
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
-		}
-		&:active {
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
-		}	
+		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
+		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
+		&:active { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }	
 	}
 }
 
