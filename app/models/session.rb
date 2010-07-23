@@ -6,7 +6,7 @@ class Session
   attr_writer   :password
   attr_accessor :app_name
   attr_writer   :app_password
-  attr_reader   :headers
+  attr_accessor :cookie
   attr_reader   :person_id
   
   @@kassi_cookie = nil # a cookie stored for a general App-only session for Kassi
@@ -28,7 +28,6 @@ class Session
   
   #Logs in to Aalto Social Interface (ASI)
   def login(params={})
-    @headers = {}
     params = {:session => {}}
     
     # if both username and password given as parameters or instance variables
@@ -41,18 +40,18 @@ class Session
 
     resp = RestHelper.make_request(:post, @@session_uri, params , nil, true)
 
-    @headers["Cookie"] = resp[1].headers[:set_cookie].to_s
+    #@headers["Cookie"] = resp[1].headers[:set_cookie].to_s
+    @cookie = resp[1].cookies
     @person_id = resp[0]["entry"]["user_id"]
   end
   
   # A class method for destroying a session based on cookie
   def self.destroy(cookie)
-    deleting_headers = {"Cookie" => cookie}
-    resp = RestHelper.make_request(:delete, @@session_uri, deleting_headers, nil, true)
+    resp = RestHelper.make_request(:delete, @@session_uri, {:cookies => cookie}, nil, true)
   end
   
   def destroy
-    Session.destroy(@headers["Cookie"])
+    Session.destroy(@cookie)
   end
   
   #a general app-only session cookie that maintains an open session to ASI for Kassi
@@ -71,19 +70,10 @@ class Session
   # Posts a GET request to ASI for this session
   def check
     begin
-      return RestHelper.get(@@session_uri, @headers)
+      return RestHelper.get(@@session_uri,{:cookies => @cookie})
     rescue RestClient::ResourceNotFound => e
       return nil
     end
-  end
-  
-  def cookie
-    @headers["Cookie"]
-  end
-  
-  def cookie=(cookie)
-    @headers ||= {}
-    @headers["Cookie"] = cookie
   end
   
 end
