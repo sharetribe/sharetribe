@@ -17,7 +17,7 @@ Feature: User creates a new request
     And I am on the home page
     When I follow "Request something"
     Then I should see "You must log in to Kassi to create a new request." within "#notifications"
-    And I should see "You must log in to Kassi to create a new request" within "h2"
+    And I should see "Log in to Kassi" within "h2"
 
   Scenario: Creating a new favor request successfully
     Given I am at the home page
