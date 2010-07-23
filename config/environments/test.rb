@@ -33,4 +33,8 @@ Kassi::Application.configure do
   # All tests will be in english
   config.i18n.default_locale = :en
   
+  # Use chrome for testing javascript
+  require "selenium-webdriver"
+  Selenium::WebDriver.for :chrome
+  
 end

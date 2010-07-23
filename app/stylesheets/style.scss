@@ -629,6 +629,11 @@ form, input {
 		font-size: 12px;
 		font-weight: bold;
 	}
+	label.error {
+		float: left;
+		padding: 5px 0 0 175px;
+		color: red;
+	}
 	span.smaller {
 		font-size: 11px;
 	}
@@ -699,6 +704,12 @@ form, input {
 .hidden_content {
 	clear:both;
 	padding: 12px 20px 0 20px;
+}
+
+div.listing_input_container {
+	width: 380px;
+	overflow: hidden;
+	line-height: 200%;
 }
 
 div.checkbox_container {
