@@ -695,6 +695,7 @@ class Person < ActiveRecord::Base
   #Methods to simplify the cache access
   
   def self.cache_fetch(id,cookie)
+    #PersonConnection.get_person(id, cookie)  # A line to skip the cache temporarily
     Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
   end
   
