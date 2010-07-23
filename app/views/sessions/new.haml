@@ -1,5 +1,5 @@
-%script{:type => "text/javascript"}
-  $(document).ready(function() { $('input.text_field:first').focus(); });
+- content_for :javascript do
+  initialize_login_form();
 
 .grid_10.prefix_7.suffix_7
   #login_form
@@ -21,6 +21,6 @@
           = link_to t('.create_new_account'), "#"
           %span
             |
-          = link_to t('.i_forgot_my_password'), "#", :onclick => "$('#password_forgotten').slideToggle('slow');"
+          = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link"
       #password_forgotten
         = render :partial => "password_forgotten"

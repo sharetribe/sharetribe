@@ -5,7 +5,7 @@
         = t('.offer_type') + ":"
         %br/
         %span{:class => "smaller"}  
-          = link_to t('.what_is_this'), "#", :tabindex => "-1", :onclick => "$('#help_tags').lightbox_me({centered: true});"
+          = link_to t('.what_is_this'), "#", :tabindex => "-1", :id => "offer_type_link"
       .checkbox_container  
         .checkbox_float
           = check_box_tag "test1", "true", :checked => "checked"
@@ -41,7 +41,7 @@
         %span{:class => "smaller"}
           = t('.comma_separate') + ":"
         %span{:class => "smaller"}  
-          = link_to t('.what_is_this'), "#", :tabindex => "-1", :onclick => "$('#help_tags').lightbox_me({centered: true});"
+          = link_to t('.what_is_this'), "#", :tabindex => "-1", :id => "help_tags_link"
       = text_field_tag("name", params[:q], :class => "text_field")
     .new_listing_form_field_container
       %label{:for => "name", :class => "input"}

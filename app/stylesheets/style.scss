@@ -104,14 +104,21 @@ body {
 	display: block;
 	border-bottom: 6px solid $color;
 	margin-bottom: 10px;
+	word-wrap: break-word;
+	overflow: hidden;
 }
 
-h3 {
+h3.orange {
 	@include colored_title;
 }
 
 h3.brown {
 	@include colored_title($medium_brown);
+	a {
+		color: $medium_brown;
+		&:hover { color: $dark_brown;};
+		&:focus { color: $dark_brown;};
+	}	
 }
 
 h4 {
@@ -437,9 +444,24 @@ form, input {
 	overflow: hidden;
 }
 
+.listing_image {
+	float: left;
+	width: 85px;
+	height: 85px;
+	a {
+		height: 85px;
+		display: block;
+		color: transparent;
+		background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px -185px no-repeat;
+		&:hover { background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px 15px no-repeat; }
+		&:focus { background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px 15px no-repeat; }
+	}	
+}
+
 .recent_listing_text {
+	float: left;
 	font-size: 11px;
-	width: 253px;
+	width: 244px;
 	margin-left: 10px;
 	p {
 		margin: 5px 0 4px 0;
@@ -754,12 +776,9 @@ div.checkbox_float {
 		color: transparent;
 		display: block;
 		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
-		&:hover {
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
-		}
-		&:active {
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat;
-		}	
+		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
+		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
+		&:active { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }	
 	}
 }
 
