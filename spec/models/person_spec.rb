@@ -61,4 +61,13 @@ describe Person do
     end
   end
   
+  describe "#name" do
+    it "returns the name of the user" do
+      @test_person.name.should_not be_blank
+      @test_person.name.should == "Ripa Riuska"
+      # TODO: THIS SHOULD BE CHANGED, STUBBED OR STH to not hardcode the "ripa" here and not depend on what's in ASI DB
+      
+    end
+  end
+  
 end
