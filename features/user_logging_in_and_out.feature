@@ -3,20 +3,23 @@ Feature: User logging in and out
   As a user
   I want to be able to enter username and password and log in to Kassi and also log out
 
+  @passing
   Scenario: logging in successfully
     Given I am not logged in
     When I enter correct credentials
     Then I should be logged in
   
   Scenario: trying to log in with false credentials
-    Given context
-    When event
-    Then outcome
     
   Scenario: logging out
-    Given context
-    When event
-    Then outcome
+  
+  @passing @bad
+  Scenario: Seeing my name or username on header after login
+    Given I am logged in
+    When I am on the home page
+    Then I should see "Ripa"
+  # TODO: THIS SHOULD BE CHANGED, STUBBED OR STH to not hardcode the "ripa" here and not depend on what's in ASI DB
+  
   
   
   
