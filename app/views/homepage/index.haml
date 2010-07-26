@@ -11,9 +11,9 @@
 #recent_listings.grid_18
 
   #request_something_button.grid_5.prefix_2.suffix_2.alpha
-    = link_to t('.request_something'), new_listing_path(:type => "request")
+    = link_to t('.request_something'), new_request_path(:type => "request")
   #offer_something_button.grid_5.prefix_2.suffix_2.omega
-    = link_to t('.offer_something'), new_listing_path(:type => "offer")
+    = link_to t('.offer_something'), new_request_path(:type => "offer")
   .clear
 
   #request_button_description.grid_7.prefix_1.suffix_1.alpha
