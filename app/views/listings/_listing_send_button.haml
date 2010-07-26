@@ -1,0 +1,4 @@
+.new_listing_form_field_container.item.favor.rideshare.housing
+  = form.hidden_field(:listing_type, :value => params[:type])
+  = form.hidden_field(:category, :value => "item")
+  = form.submit t(".save_#{params[:type]}"), :class => "send_button item favor rideshare housing"

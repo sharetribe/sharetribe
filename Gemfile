@@ -34,7 +34,6 @@ gem 'mysql', '2.8.1'
 gem 'haml'
 gem 'database_cleaner'
 #gem 'spork'
-#gem 'launchy'    # So you can do Then show me the page # Let's see if we need this really
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 
@@ -43,4 +42,5 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber'
+  gem 'launchy'
 end

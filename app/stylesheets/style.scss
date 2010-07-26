@@ -524,6 +524,11 @@ form, input {
 	padding: 20px 15px;
 }
 
+#favor_form, #rideshare_form, #housing_form {
+	display: none;
+}
+
+
 #listing_type_select_icons {
 	overflow: hidden;
 }
@@ -601,6 +606,10 @@ form, input {
 	@include listing_type_select_icon_unselected(-1090px);
 }
 
+.hidden {
+	display: none;
+}
+
 @mixin new_listing_form_field {
 	font-weight: bold;
 	color: $light_grey;
@@ -617,7 +626,6 @@ form, input {
 		margin: 0;
 		font-size: 14px;
 		font-weight: bold;
-		display: block;
 		float: left;
 		width: 164px;
 		line-height: 110%;
@@ -672,7 +680,7 @@ form, input {
 	width: 300px;
 }
 
-.hidden {
+.hidden_description {
 	@include rounded;
 	width: 300px;
 	padding: 10px 10px 15px 10px;

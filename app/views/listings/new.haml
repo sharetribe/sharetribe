@@ -12,29 +12,22 @@
   #new_listing_form
     #listing_type_select_icons
       .listing_type_select_icon_selected_item
-        = link_to t('.item'), "#"
+        = link_to t('.item'), "#", :id => "item_link"
       .listing_type_select_icon_unselected_favor
-        = link_to t('.favor'), "#"  
+        = link_to t('.favor'), "#", :id => "favor_link"  
       .listing_type_select_icon_unselected_rideshare
-        = link_to t('.rideshare'), "#"  
+        = link_to t('.rideshare'), "#", :id => "rideshare_link"   
       .listing_type_select_icon_unselected_housing
-        = link_to t('.housing'), "#"    
+        = link_to t('.housing'), "#", :id => "housing_link"     
     
     #item_form.new_listing_form_main  
       = form_for @listing do |form|
-        .new_listing_form_field_container
-          %label{:class => "input"}
-            = t(".item_you_#{params[:type]}") + ":"
-          = form.text_field(:title, :class => "text_field")
-        .new_listing_form_field_container
-          %label{:class => "input"}
-            = t('.detailed_description') + ":"
-          = form.text_area(:description, :maxlength => "5000")  
-        .new_listing_form_field_container
-          = form.hidden_field(:listing_type, :value => params[:type])
-          = form.submit t(".save_#{params[:type]}"), :class => "send_button"    
+        = render :partial => "listing_title", :locals => { :form => form }
+        = render :partial => "listing_origin", :locals => { :form => form }
+        = render :partial => "listing_description", :locals => { :form => form }
+        = render :partial => "listing_send_button", :locals => { :form => form }        
 
-#help_tags.hidden
+#help_tags.hidden_description
   .hidden_title
     = t('.tags')
   .close_link

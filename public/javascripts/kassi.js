@@ -14,9 +14,13 @@ function initialize_login_form() {
 
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
+	$('#favor_link').click(function() { switch_category("favor"); });
+	$('#item_link').click(function() { switch_category("item"); });
+	$('#rideshare_link').click(function() { switch_category("rideshare"); });
+	$('#housing_link').click(function() { switch_category("housing"); });
 	$('input.text_field:first').focus();
 	$("select.listing_date_select, input:checkbox, input:file").uniform({
-		selectClass: 'selector2', 
+		selectClass: 'selector2',
 		fileDefaultText: fileDefaultText, 
 		fileBtnText: fileBtnText
 	});
@@ -59,38 +63,42 @@ function translate_validation_messages_to_finnish() {
 }
 
 function set_textarea_maxlength() {
- 
-  // ignore these keys
   var ignore = [8,9,13,33,34,35,36,37,38,39,40,46];
- 
-  // use keypress instead of keydown as that's the only
-  // place keystrokes could be canceled in Opera
   var eventName = 'keypress';
- 
-  // handle textareas with maxlength attribute
   $('textarea[maxlength]')
- 
-    // this is where the magic happens
     .live(eventName, function(event) {
       var self = $(this),
           maxlength = self.attr('maxlength'),
           code = $.data(this, 'keycode');
- 
-      // check if maxlength has a value.
-      // The value must be greater than 0
       if (maxlength && maxlength > 0) {
- 
-        // continue with this keystroke if maxlength
-        // not reached or one of the ignored keys were pressed.
         return ( self.val().length < maxlength
                  || $.inArray(code, ignore) !== -1 );
  
       }
     })
- 
-    // store keyCode from keydown event for later use
     .live('keydown', function(event) {
       $.data(this, 'keycode', event.keyCode || event.which);
     });
- 
+}
+
+// Displays the right form for new listing based on the
+// given listing category
+function switch_category(category) {
+	var selected = "listing_type_select_icon_selected_";
+	var unselected = "listing_type_select_icon_unselected_";
+	$('#listing_category').val(category);
+	$('#new_listing div.' + category + ',#new_listing input.' + category + ',#new_listing label.' + category).removeClass('hidden');
+	$('#new_listing div:not(.' + category + '), #new_listing input:not(.' + category + '),#new_listing label:not(.' + category + ')').addClass('hidden');
+	$('div.' + unselected + category).addClass(selected + category).removeClass(unselected + category);
+	for (var i=0; i<categories().length; i++) {
+		if (categories()[i] != category) {
+			$('div.' + selected + categories()[i]).removeClass(selected + categories()[i]).addClass(unselected + categories()[i]);
+		}
+	}
+	$('input.text_field:first').focus();
+}
+
+// Return listing categories
+function categories() {
+	return ["item", "favor", "rideshare", "housing"];
 }

@@ -7,7 +7,8 @@ describe Listing do
       :title => "Test",
       :description => "0" * 4000,
       :author_id => 1,
-      :listing_type => "request"
+      :listing_type => "request",
+      :category => "item"
     )
   end  
   
@@ -40,11 +41,27 @@ describe Listing do
     @listing.should_not be_valid
   end
   
-  it "is only valid if listing type is 'request' or 'offer'" do
+  it "is only valid if listing type is one of the valid types" do
     @listing.listing_type = "test"
     @listing.should_not be_valid
-    @listing.listing_type = "offer"
-    @listing.should be_valid
+    Listing::VALID_TYPES.each do |type| 
+      @listing.listing_type = type
+      @listing.should be_valid
+    end  
   end
+  
+  it "is not valid without category" do
+    @listing.category = nil
+    @listing.should_not be_valid
+  end 
+  
+  it "is only valid if category is one of the valid categories" do
+    @listing.category = "test"
+    @listing.should_not be_valid
+    Listing::VALID_CATEGORIES.each do |category| 
+      @listing.category = category
+      @listing.should be_valid
+    end  
+  end 
   
 end 
