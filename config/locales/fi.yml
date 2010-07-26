@@ -68,6 +68,7 @@ fi:
       tags: "Avainsanat"
       comma_separate: "(erota pilkulla)"
       save_request: "Tallenna pyyntö"
+      save_offer: "Tallenna tarjous"
       image: "Kuva"
       what_is_this: "Mitä tämä tarkoittaa?"
       select_file: "Valitse tiedosto"
@@ -75,6 +76,7 @@ fi:
       valid_until: "Voimassaoloaika"
     show:
       request: "Pyyntö"
+      offer: "Tarjous"
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"
