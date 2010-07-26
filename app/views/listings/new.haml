@@ -19,16 +19,21 @@
         = link_to t('.rideshare'), "#"  
       .listing_type_select_icon_unselected_housing
         = link_to t('.housing'), "#"    
+    
     #item_form.new_listing_form_main  
-      = form_for @listing do |form|    
+      = form_for @listing do |form|
         .new_listing_form_field_container
           %label{:class => "input"}
             = t('.item_you_need') + ":"
-          = form.text_field(:title, :class => "text_field", :maxlength => "100")
+          = form.text_field(:title, :class => "text_field")
+        .new_listing_form_field_container
+          %label{:class => "input"}
+            = t('.detailed_description') + ":"
+          = form.text_area(:description, :maxlength => "5000")  
         .new_listing_form_field_container
           = form.hidden_field(:listing_type, :value => params[:type])
-          = form.submit t('.save_request'), :class => "send_button"
-          
+          = form.submit t('.save_request'), :class => "send_button"    
+
 #help_tags.hidden
   .hidden_title
     = t('.tags')
