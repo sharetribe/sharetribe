@@ -61,7 +61,7 @@ describe Person do
     end
   end
   
-  describe "#name" do
+  describe "#name and other name getters" do
     before(:each) do
       @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"}, @cookie)
     end
@@ -69,9 +69,38 @@ describe Person do
     it "returns the name of the user" do
       @test_person.name.should_not be_blank
       @test_person.name.should == "Ripa Riuska"
-      # TODO: THIS SHOULD BE CHANGED, STUBBED OR STH to not hardcode the "ripa" here and not depend on what's in ASI DB
-      
+    end
+    
+    it "returns the given or the last name of the user" do
+      @test_person.given_name(@cookie).should == "Ripa"
+      @test_person.family_name(@cookie).should == "Riuska"
     end
   end
   
+  describe "email functions" do
+    before(:each) do
+      @test_person.set_email("testing_one@example.com", @cookie)
+    end
+    
+    it "should return the email correctly" do
+      @test_person.email(@cookie).should == "testing_one@example.com"
+    end
+    
+    it "should change email" do
+      @test_person.set_email("testing_two@example.com", @cookie)
+      @test_person.email(@cookie).should == "testing_two@example.com"
+    end
+  end
+  
+  describe "#add_to_kassi_db" do
+
+    it "should add a person to kassi db" do
+      p = Person.add_to_kassi_db("testingID")
+      p.should_not be_nil
+      p.class.should == Person
+      Person.find_by_id("testingID").should_not be_nil
+      p.destroy
+    end
+    
+  end
 end
