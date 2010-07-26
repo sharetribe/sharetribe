@@ -24,6 +24,13 @@ describe Person do
     return [test_person, session]
   end
   
+  def generate_random_username(length = 12)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    random_username = "aa_kassitest"
+    1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
+    return random_username
+  end
+  
   
   before(:all) do
     #These will be created only once for the whole example group
@@ -31,26 +38,57 @@ describe Person do
     @cookie = @session.cookie
   end
   
-  before(:each) do
-    # here some people could be initialized
+  after(:all) do
+    # For some reason this logging out at the end causes some examples to fail
+    #@session.destroy
+  end
+  
+  it "should be valid" do
+    @test_person.should_not be_nil
+    @test_person.should be_valid
+  end
+  
+  it "should have an id other than 0" do
+    @test_person.id.should_not == 0
+    # "Test_person.id is 0, possible reason is INT type for id in test DB."
   end
   
   describe "#create" do
     it "should create a person in ASI and Kassi DB" do
-      pending "add some code to test Person.create"
+      username = generate_random_username
+      p = Person.create({:username => username, 
+        :password => "testi", 
+        :email => "#{username}@example.com",
+        "given_name" => "Tero",
+        "family_name" => "Turari"}, Session.kassi_cookie)
+      Person.find(p.id).should_not be_nil
+      p.username.should == username
     end
     
     it "should not store anything to Kassi DB if ASI request failed" do
-      pending "add some code to test Person.create"
+      username = generate_random_username
+      lambda {
+        lambda {
+          p = Person.create({:username => username, 
+            :password => "testi", 
+            :email => "invalid-email",
+            "given_name" => "Tero",
+            "family_name" => "Turari"}, Session.kassi_cookie)
+        }.should raise_error(RestClient::Conflict)
+        p.should be_nil
+      }.should_not change{Person.count}
     end
   end
 
   describe "#update_attributes" do
-    it "should update attributes to ASI"
-  end
-  
-  describe "#update_avatar" do
-    it "should update avatar image to ASI"
+    it "should update attributes to ASI" do
+      @test_person.update_attributes({'given_name' => "Totti", 
+        'family_name' => "Tester", 
+        'street_address' => "salainen",
+        'phone_number' => "050-55555555"}, @cookie)
+      @test_person.street_address.should == "salainen"
+      @test_person.phone_number.should == "050-55555555"
+    end
   end
   
   describe "#create_listing" do
@@ -61,7 +99,7 @@ describe Person do
     end
   end
   
-  describe "#name and other name getters" do
+  describe "name getters" do
     before(:each) do
       @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"}, @cookie)
     end
