@@ -55,15 +55,15 @@ class Session
   end
   
   #a general app-only session cookie that maintains an open session to ASI for Kassi
-  def self.kassiCookie
+  def self.kassi_cookie
     if @@kassi_cookie.nil?
       @@kassi_cookie = Session.create.cookie
     end
     return @@kassi_cookie
   end
   
-  #this method can be called, if kassiCookie is not valid anymore
-  def self.updateKassiCookie
+  #this method can be called, if kassi_cookie is not valid anymore
+  def self.update_kassi_cookie
     @@kassi_cookie = Session.create.cookie
   end
   

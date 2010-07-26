@@ -6,8 +6,8 @@ class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
-  PERSON_HASH_CACHE_EXPIRE_TIME = 15
-  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours
+  PERSON_HASH_CACHE_EXPIRE_TIME = 0#15
+  #PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
   
@@ -170,13 +170,6 @@ class Person < ActiveRecord::Base
       return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
     end
     
-    #fixes utf8 letters
-    # def self.fix_alphabets(json_hash)
-    #   #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
-    #   #puts json_hash.inspect
-    #   JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
-    # end
-    
   end
   
   # Create a new person to Common Services and Kassi.
@@ -190,13 +183,13 @@ class Person < ActiveRecord::Base
     params[:id] = response["entry"]["id"]
     
     # Add name information for the person to COS 
-    params[:given_name] = params[:given_name].slice(0, 28)
-    params[:family_name] = params[:family_name].slice(0, 28)
+    params["given_name"] = params["given_name"].slice(0, 28)
+    params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
     PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale), params[:id], cookie)
     
     # Create locally with less attributes 
-    super(params.except(:username, :email, :name))
+    super(params.except(:username, :email, "name"))
   end 
   
   def self.add_to_kassi_db(id)
@@ -221,7 +214,7 @@ class Person < ActiveRecord::Base
   end
   
   def self.search(query)
-    cookie = Session.kassiCookie
+    cookie = Session.kassi_cookie
     begin
       person_hash = PersonConnection.search(query, cookie)
     rescue RestClient::ResourceNotFound => e
@@ -519,14 +512,14 @@ class Person < ActiveRecord::Base
   end
   
   def get_person_hash(cookie=nil)
-    cookie = Session.kassiCookie if cookie.nil?
+    cookie = Session.kassi_cookie if cookie.nil?
     
     begin
       #person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
       person_hash = Person.cache_fetch(id,cookie)
       #person_hash = PersonConnection.get_person(self.id, cookie)
     rescue RestClient::Unauthorized => e
-      cookie = Session.updateKassiCookie
+      cookie = Session.update_kassi_cookie
       person_hash = PersonConnection.get_person(self.id, cookie)
       #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
       Person.cache_write(person_hash,id,cookie)
