@@ -28,7 +28,7 @@ describe Person do
   before(:all) do
     #These will be created only once for the whole example group
     @test_person, @session = get_test_person_and_session
-    
+    @cookie = @session.cookie
   end
   
   before(:each) do
@@ -62,6 +62,10 @@ describe Person do
   end
   
   describe "#name" do
+    before(:each) do
+      @test_person.update_attributes({'given_name' => "Ripa", 'family_name' => "Riuska"}, @cookie)
+    end
+    
     it "returns the name of the user" do
       @test_person.name.should_not be_blank
       @test_person.name.should == "Ripa Riuska"
