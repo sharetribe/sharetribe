@@ -113,13 +113,7 @@ module CacheHelper
   def self.update_time_based_cache_key(key)
         
      new_value = Time.now.to_f
-     
-    ## NOW USING .to_f so risk of getting same number is no more reasonable, so commented this check away 
-      # ensure that we update the value to something that it was not already (many updates on same second)
-      # if (Rails.cache.read(key) == new_value)
-      #   # puts "Increasing the cache key, to really update it, this should be very rare outside tests"
-      #   new_value += 1
-      # end    
+       
       Rails.cache.write(key, new_value, :expires_in => KASSI_DATA_CACHE_EXPIRE_TIME)
       
       # Because currently every update in cache control affects frontpage, update that value too
