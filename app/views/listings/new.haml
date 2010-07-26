@@ -3,10 +3,10 @@
 
 .grid_16.prefix_4.suffix_4
   #new_listing_form_tabs
-    .new_listing_form_tab_selected
-      = link_to t('.request_something'), new_listing_path
-    .new_listing_form_tab_unselected
-      = link_to t('.offer_something'), new_listing_path
+    %div{:class => get_new_listing_tab_class("request")} 
+      = link_to t('.request_something'), new_request_path(:type => "request")
+    %div{:class => get_new_listing_tab_class("offer")} 
+      = link_to t('.offer_something'), new_request_path(:type => "offer")
 
 .grid_16.prefix_4.suffix_4
   #new_listing_form
@@ -24,7 +24,7 @@
       = form_for @listing do |form|
         .new_listing_form_field_container
           %label{:class => "input"}
-            = t('.item_you_need') + ":"
+            = t(".item_you_#{params[:type]}") + ":"
           = form.text_field(:title, :class => "text_field")
         .new_listing_form_field_container
           %label{:class => "input"}

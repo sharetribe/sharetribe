@@ -64,6 +64,7 @@ Kassi::Application.routes.draw do |map|
   end
   
   # Some non-RESTful mappings
+  match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
