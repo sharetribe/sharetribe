@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20100721124444) do
     t.string   "visibility",              :default => "everybody"
     t.boolean  "close_notification_sent", :default => false
     t.string   "listing_type"
+    t.text     "description"
   end
 
   create_table "messages", :force => true do |t|

@@ -8,6 +8,7 @@ class Listing < ActiveRecord::Base
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :listing_type, :in => VALID_TYPES
   
   # Overrides the to_param method to implement clean URLs

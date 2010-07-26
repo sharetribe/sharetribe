@@ -5,6 +5,7 @@ describe Listing do
   before(:each) do
     @listing = Listing.new(
       :title => "Test",
+      :description => "0" * 4000,
       :author_id => 1,
       :listing_type => "request"
     )
@@ -16,6 +17,16 @@ describe Listing do
   
   it "is not valid without a title" do
     @listing.title = nil 
+    @listing.should_not be_valid
+  end
+  
+  it "is valid without a description" do
+    @listing.description = nil 
+    @listing.should be_valid
+  end
+  
+  it "is not valid if description is longer than 5000 characters" do
+    @listing.description = "0" * 5001
     @listing.should_not be_valid
   end
   
@@ -36,4 +47,4 @@ describe Listing do
     @listing.should be_valid
   end
   
-end
+end 

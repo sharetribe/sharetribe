@@ -27,6 +27,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 		}
 	});
 	translate_validation_messages(locale);
+	set_textarea_maxlength();
 }
 
 function translate_validation_messages(locale) {
@@ -55,4 +56,41 @@ function translate_validation_messages_to_finnish() {
 		max: $.validator.format("Arvo voi olla enintään {0}."),
 		min: $.validator.format("Arvon täytyy olla vähintään {0}.")
 	});
+}
+
+function set_textarea_maxlength() {
+ 
+  // ignore these keys
+  var ignore = [8,9,13,33,34,35,36,37,38,39,40,46];
+ 
+  // use keypress instead of keydown as that's the only
+  // place keystrokes could be canceled in Opera
+  var eventName = 'keypress';
+ 
+  // handle textareas with maxlength attribute
+  $('textarea[maxlength]')
+ 
+    // this is where the magic happens
+    .live(eventName, function(event) {
+      var self = $(this),
+          maxlength = self.attr('maxlength'),
+          code = $.data(this, 'keycode');
+ 
+      // check if maxlength has a value.
+      // The value must be greater than 0
+      if (maxlength && maxlength > 0) {
+ 
+        // continue with this keystroke if maxlength
+        // not reached or one of the ignored keys were pressed.
+        return ( self.val().length < maxlength
+                 || $.inArray(code, ignore) !== -1 );
+ 
+      }
+    })
+ 
+    // store keyCode from keydown event for later use
+    .live('keydown', function(event) {
+      $.data(this, 'keycode', event.keyCode || event.which);
+    });
+ 
 }
