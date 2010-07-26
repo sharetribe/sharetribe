@@ -62,18 +62,21 @@ fi:
       give_away: "Annan pois"
       trade: "Vaihdan"
       rent: "Vuokraan"
-      item_you_request: "Tavara jonka tarvitset"
-      item_you_offer: "Tavara jonka tarjoat"
-      detailed_description: "Tarkempi kuvaus"
       tags: "Avainsanat"
       comma_separate: "(erota pilkulla)"
-      save_request: "Tallenna pyyntö"
-      save_offer: "Tallenna tarjous"
       image: "Kuva"
       what_is_this: "Mitä tämä tarkoittaa?"
       select_file: "Valitse tiedosto"
       no_file_selected: "Ei tiedostoa valittuna"
       valid_until: "Voimassaoloaika"
+    listing_title:
+      item_you_request: "Tavara jonka tarvitset"
+      item_you_offer: "Tavara jonka tarjoat"
+    listing_description:
+      detailed_description: "Tarkempi kuvaus"
+    listing_send_button:
+      save_request: "Tallenna pyyntö"
+      save_offer: "Tallenna tarjous"  
     show:
       request: "Pyyntö"
       offer: "Tarjous"

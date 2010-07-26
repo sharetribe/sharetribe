@@ -500,6 +500,9 @@ form, input {
   overflow: hidden;
   padding: 20px 15px; }
 
+#favor_form, #rideshare_form, #housing_form {
+  display: none; }
+
 #listing_type_select_icons {
   overflow: hidden; }
 
@@ -671,6 +674,9 @@ form, input {
       border-color: #f8792f;
       background: #e3e1da url("/images/icons/new_listing_type_select_icons.png") 28px -990px no-repeat; }
 
+.hidden {
+  display: none; }
+
 .new_listing_form_main {
   margin: 20px 12px; }
   .new_listing_form_main label.input {
@@ -678,7 +684,6 @@ form, input {
     margin: 0;
     font-size: 14px;
     font-weight: bold;
-    display: block;
     float: left;
     width: 164px;
     line-height: 110%; }
@@ -733,7 +738,7 @@ form, input {
   float: left;
   width: 300px; }
 
-.hidden {
+.hidden_description {
   border-radius: 7px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;

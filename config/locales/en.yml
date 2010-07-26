@@ -59,21 +59,38 @@ en:
       give_away: "Give away"
       trade: "Trade"
       rent: "Rent"
-      item_you_request: "Item you need"
-      item_you_offer: "Item you offer"
-      detailed_description: "Detailed description"
       tags: "Tags"
       comma_separate: "(comma separate)"
-      save_request: "Save request"
-      save_offer: "Save offer"
       image: "Image"
       what_is_this: "What's this?"
       select_file: "Select file"
       no_file_selected: "No file selected"
       valid_until: "Valid until"
+    listing_title:
+      item_you_request: "Item you need"
+      item_you_offer: "Item you offer"
+      favor_you_request: "Favor you need"
+      favor_you_offer: "Favor you offer"
+      housing_you_request: "Housing you need"
+      housing_you_offer: "Housing you offer"
+    listing_description:
+      detailed_description: "Detailed description"
+    listing_send_button:
+      save_request: "Save request"
+      save_offer: "Save offer"
+    listing_origin:
+      origin: "Origin"
     show:
       request: "Request"
       offer: "Offer"
+      item_request: "Item request"
+      favor_request: "Favor request"
+      rideshare_request: "Rideshare request"
+      housing_request: "Housing request"
+      item_offer: "Item offer"
+      favor_offer: "Favor offer"
+      rideshare_offer: "Rideshare offer"
+      housing_offer: "Housing request"
   sessions:
     new:
       login_to_kassi: "Log in to Kassi"
