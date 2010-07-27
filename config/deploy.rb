@@ -78,6 +78,11 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"    
   end
   
+  desc "Run the bundle install on the server"
+  task :bundle_install do
+    run "cd #{release_path} && bundle install"
+  end
+  
   # [ :stop, :start, :restart ].each do |t|
   #   task t, :roles => :app do
   #     mongrel.send(t)
@@ -108,8 +113,9 @@ namespace :deploy do
   end  
 end
 
-before "deploy:migrate", "db:backup"
+#before "deploy:migrate", "db:backup"
 after 'deploy:update_code', 'deploy:symlink_listing_images'
+#after 'deploy:update_code', 'deploy:bundle_install'
 after %w(deploy deploy:migrations deploy:cold), "deploy:finalize"
 
 
