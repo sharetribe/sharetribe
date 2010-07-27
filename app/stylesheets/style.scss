@@ -88,7 +88,10 @@ input.send_button {
 	padding: 0;
 	border: 0;
 	color: white;
-	&:active { background-color: $dark_brown; }
+	&:active { 
+		background-color: $dark_brown;
+		padding-top: 1px; 
+	}
 	&:hover { background-color: $light_brown; }
 	&:focus { background-color: $light_brown; }
 }
@@ -195,15 +198,15 @@ form, input {
 		color: #898989;
 	}
 	input.search_button {
-		background: $orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat;
+		background: $orange url("/images/icons/header_icons.png") 8px -176px no-repeat;
 		width: 41px;
 		height: 28px;
 		padding: 0;
 		border: 0;
 		color: transparent;
-		&:active { background-color: $dark_orange; }
+		&:active { background: $dark_orange url("/images/icons/header_icons.png") 8px -175px no-repeat; }
 		&:hover { background-color: $light_orange; }
-		&:focus { background: $light_orange url("/images/icons/magnifier_white.png") 12px 5px no-repeat; }
+		&:focus { background: $light_orange url("/images/icons/header_icons.png") 8px -176px no-repeat; }
 	}
 }
 
@@ -391,7 +394,10 @@ form, input {
 		background: $background;
 		@include rounded;
 		&:hover { background: lighten($background, 15%); }
-		&:active { background: darken($background, 10%); }
+		&:active { 
+			background: darken($background, 10%);
+			padding: 11px 0 9px 0; 
+		}
 	}
 }
 
@@ -570,6 +576,12 @@ form, input {
 			color: $light_orange;
 			border-color: $light_orange;
 			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
+		}
+		&:active {
+			color: $light_orange;
+			border-color: $light_orange;
+			padding: 67px 15px 9px 15px;
+			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 101px) no-repeat;
 		}
 	}	
 }
@@ -797,7 +809,10 @@ div.checkbox_float {
 		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
 		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
 		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
-		&:active { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }	
+		&:active {
+			margin-top: 1px;
+			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; 
+		}	
 	}
 }
 
@@ -810,7 +825,7 @@ div.checkbox_float {
 }
 
 .logged_in_icon_notifications {
-	@include logged_in_icon(-80px, 3px);
+	@include logged_in_icon(-80px, 2px);
 }
 
 .logged_in_icon_settings {
