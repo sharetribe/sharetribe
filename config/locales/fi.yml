@@ -16,6 +16,7 @@ fi:
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön."
       login_successful: "Tervetuloa Kassiin, "
       logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
+      login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
   header:
     mobile_version: "Mobiiliversio"
     about: "Tietoa Kassista"
@@ -72,6 +73,10 @@ fi:
     listing_title:
       item_you_request: "Tavara jonka tarvitset"
       item_you_offer: "Tavara jonka tarjoat"
+      favor_you_request: "Palvelus jonka tarvitset"
+      favor_you_offer: "Palvelus jonka tarjoat"
+      housing_you_request: "Mitä tarvitset"
+      housing_you_offer: "Mitä tarjoat"
     listing_description:
       detailed_description: "Tarkempi kuvaus"
     listing_send_button:
@@ -80,6 +85,14 @@ fi:
     show:
       request: "Pyyntö"
       offer: "Tarjous"
+      item_request: "Tavarapyyntö"
+      favor_request: "Palveluspyyntö"
+      rideshare_request: "Kyytitarve"
+      housing_request: "Asuntotarve"
+      item_offer: "Tavaratarjous"
+      favor_offer: "Palvelustarjous"
+      rideshare_offer: "Kyytitarjous"
+      housing_offer: "Asuntotarjous"
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"
