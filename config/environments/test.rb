@@ -29,10 +29,7 @@ Kassi::Application.configure do
   # This is necessary if your schema can't be completely dumped by the schema dumper,
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
-  
-  # All tests will be in english
-  config.i18n.default_locale = :en
-  
+    
   # Use chrome for testing javascript
   if ENV["USE_CHROME"]
     require "selenium-webdriver"

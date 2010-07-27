@@ -8,6 +8,9 @@ production:
   asi_app_name: kassi_testing
   asi_app_password: kassi_tester
   
+  # The default locale (language)
+  default_locale: en
+  
   # Ressi is Researcher's Interface for logged data
   # If log_to_ressi is false, other ressi settings can be ignored.
   log_to_ressi: false
@@ -47,10 +50,16 @@ development: &non_production_settings
   asi_app_name: kassi_testing
   asi_app_password: kassi_tester
   
+  # The default locale (language)
+  default_locale: en
+  
+  # Ressi is Researcher's Interface for logged data
+  # If log_to_ressi is false, other ressi settings can be ignored.
+  log_to_ressi: false
   ressi_url: "http://localhost:9000"
   ressi_timeout: 5
   ressi_upload_hour: 1
-  log_to_ressi: false
+  
   
   
   kassi_mail_from_address: "noreply-kassi@example.com"
@@ -69,4 +78,7 @@ development: &non_production_settings
   
 test:
   <<: *non_production_settings
+  #The locale should be "en" for test environment
+  default_locale: en
+  
 
