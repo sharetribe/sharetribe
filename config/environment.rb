@@ -35,6 +35,7 @@ Rails::Initializer.run do |config|
   config.gem "ferret"
   config.gem "json"
   config.gem "httpclient"
+  config.gem "newrelic_rpm"
   #config.gem "rest-client"
   config.gem(
     'rest-client',
