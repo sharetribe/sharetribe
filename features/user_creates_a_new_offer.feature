@@ -10,5 +10,5 @@ Feature: User creates a new offer
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
     And I press "Save offer"
-    Then I should see "Offer: My offer" within "h1"
+    Then I should see "Item offer: My offer" within "h1"
     And I should see "Offer created successfully" within "#notifications"
