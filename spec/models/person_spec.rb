@@ -113,6 +113,19 @@ describe Person do
       @test_person.given_name(@cookie).should == "Ripa"
       @test_person.family_name(@cookie).should == "Riuska"
     end
+    
+    describe "#given_name" do
+      
+      it "should return the given name" do
+        @test_person.given_name.should == "Ripa"
+      end
+      
+      it "should return username if given name is blank" do
+        @test_person.update_attributes({'given_name' => "", 'family_name' => ""}, @cookie)
+        @test_person.given_name.should == @test_person.username
+      end
+      
+    end
   end
   
   describe "email functions" do
