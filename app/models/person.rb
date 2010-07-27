@@ -11,7 +11,8 @@ class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
-  PERSON_HASH_CACHE_EXPIRE_TIME = 0#15  #ALSO THIS CACHE TEMPORARILY OFF TO TEST PERFORMANCE WIHTOUT IT
+  # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
+  #PERSON_HASH_CACHE_EXPIRE_TIME = 0#15  #ALSO THIS CACHE TEMPORARILY OFF TO TEST PERFORMANCE WIHTOUT IT
   #PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username,
@@ -424,8 +425,9 @@ class Person < ActiveRecord::Base
   # Methods to simplify the cache access
   
   def self.cache_fetch(id,cookie)
-    #PersonConnection.get_person(id, cookie)  # A line to skip the cache temporarily
-    Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+    # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
+    PersonConnection.get_person(id, cookie)  # A line to skip the cache temporarily
+    #Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
   end
   
   def self.cache_write(person_hash,id,cookie)
