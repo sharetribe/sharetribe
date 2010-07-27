@@ -2,12 +2,23 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+# These needed to load the config.yml
+require 'yaml'
+require 'ostruct'
+
+
 # If you have a Gemfile, require the gems listed there, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+
+
 module Kassi
   class Application < Rails::Application
+    
+    # Read the config from the config.yml # THIS SHOULD BE DONE IN load_config.yml, but for some reason APP_CONFIG is not usable here
+    APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -28,7 +39,7 @@ module Kassi
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :fi
+    config.i18n.default_locale = APP_CONFIG.default_locale.to_sym
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
     # config.generators do |g|
