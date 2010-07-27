@@ -37,10 +37,13 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 
+
+
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber'
   gem 'launchy'
+  gem 'newrelic_rpm', :require => false
 end
