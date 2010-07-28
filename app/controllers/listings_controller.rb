@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
 
+  respond_to :html, :js
+
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
   end
@@ -10,11 +12,15 @@ class ListingsController < ApplicationController
   
   def new
     @listing = Listing.new
+    @listing.listing_type = params[:type]
+    @listing.category = params[:category] || "item"
+    respond_with(@listing)
   end
   
   def create
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
+      logger.info "Errors: #{@listing.errors.full_messages.inspect}"
       render :action => :new
     else
       flash[:notice] = "#{@listing.listing_type}_created_successfully"
@@ -22,10 +28,14 @@ class ListingsController < ApplicationController
     end
   end
 
-  def items
-  end
-
-  def favors
+  def switch_form_type
+    @listing = Listing.new
+    @listing_type = params[:type]
+    @category = params[:category]
+    respond_to do |format|
+      format.html { render :action => :new }
+      format.js 
+    end
   end
 
 end

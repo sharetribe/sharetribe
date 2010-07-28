@@ -14,23 +14,48 @@ function initialize_login_form() {
 
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
-	$('#favor_link').click(function() { switch_category("favor"); });
-	$('#item_link').click(function() { switch_category("item"); });
-	$('#rideshare_link').click(function() { switch_category("rideshare"); });
-	$('#housing_link').click(function() { switch_category("housing"); });
+	$('#share_type_link').click(function() { $('#share_type').lightbox_me({centered: true}); });
+	// $('#favor_link').click(function() { switch_category("favor"); });
+	// $('#item_link').click(function() { switch_category("item"); });
+	// $('#rideshare_link').click(function() { switch_category("rideshare"); });
+	// $('#housing_link').click(function() { switch_category("housing"); });
+	// $('.one_checkbox_container:not(.item)').addClass('hidden');
 	$('input.text_field:first').focus();
 	$("select.listing_date_select, input:checkbox, input:file").uniform({
 		selectClass: 'selector2',
 		fileDefaultText: fileDefaultText, 
 		fileBtnText: fileBtnText
 	});
+	var checkbox_message = "" 
+	if (locale == "fi") {
+		checkbox_message = 'Sinun pitää valita ainakin yksi ylläolevista.'
+	} else {
+		checkbox_message = 'You must check at least one of the boxes above.';
+	}
+	translate_validation_messages(locale);
 	$("#new_listing").validate({
+		errorPlacement: function(error, element) {
+			console.log("Test");
+			console.log(typeof error);
+			console.log(element);
+			console.log(element.context.className);
+			if (element.attr("id") == "listing_share_type_") {
+				error.appendTo(element.parent().parent().parent().parent().parent().parent());
+			} else {
+				error.insertAfter(element);
+			}
+		},
 		debug: false,
 		rules: {
-			"listing[title]": {required: true, minlength: 2}
+			"listing[title]": {required: true, minlength: 2},
+			"listing[share_type][]": {required: true, minlength: 1}
+		},
+		messages: {
+			"listing[share_type][]": {
+				required: checkbox_message
+			}
 		}
 	});
-	translate_validation_messages(locale);
 	set_textarea_maxlength();
 }
 
@@ -87,8 +112,16 @@ function switch_category(category) {
 	var selected = "listing_type_select_icon_selected_";
 	var unselected = "listing_type_select_icon_unselected_";
 	$('#listing_category').val(category);
-	$('#new_listing div.' + category + ',#new_listing input.' + category + ',#new_listing label.' + category).removeClass('hidden');
-	$('#new_listing div:not(.' + category + '), #new_listing input:not(.' + category + '),#new_listing label:not(.' + category + ')').addClass('hidden');
+	$('.one_checkbox_container:not(.' + category + ')').addClass('hidden');
+	$('.one_checkbox_container.' + category).removeClass('hidden');
+	$('.new_listing_form_field_container:not(.' + category + ')').addClass('hidden');
+	$('.one_checkbox_container:not(.' + category + ') :input[type=checkbox]').attr('disabled', true);
+	console.log('Disabled1:');
+	$(':disabled').each(function(n){
+	    id = n.id ? "ID: "+n.id : ""
+	    console.log("%d: %s.%s %s",n,n.tagName,n.className,id)
+	});
+	$('.new_listing_form_field_container.' + category).removeClass('hidden');
 	$('div.' + unselected + category).addClass(selected + category).removeClass(unselected + category);
 	for (var i=0; i<categories().length; i++) {
 		if (categories()[i] != category) {

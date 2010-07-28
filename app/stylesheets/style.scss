@@ -650,9 +650,15 @@ form, input {
 		font-weight: bold;
 	}
 	label.error {
+		font-size: 13px;
+		font-weight: bold;
+		width: 380px;
+		clear: both;
 		float: left;
-		padding: 5px 0 0 175px;
-		color: red;
+		margin: 5px 0 0 170px;
+		padding: 15px 10px 5px 10px;
+		background: red url("/images/error_arrow.png") no-repeat top left;
+		color: white;
 	}
 	span.smaller {
 		font-size: 11px;

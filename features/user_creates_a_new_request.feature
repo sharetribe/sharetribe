@@ -9,6 +9,7 @@ Feature: User creates a new request
     When I follow "Request something"
     And I fill in "listing_title" with "My request"
     And I fill in "listing_description" with "My description"
+    And I check "buy"
     And I press "Save request"
     Then I should see "Item request: My request" within "h1"
     And I should see "Request created successfully" within "#notifications"

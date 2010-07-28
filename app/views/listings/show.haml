@@ -1,3 +1,5 @@
 %h1
   #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+%br/
+#{@listing.share_type.each { |t| type.to_s + ", " }}
   

@@ -1,4 +1,6 @@
 en:
+  common:
+    what_is_this: "What's this?"
   layouts:
     logged_in:
       login: "Login"
@@ -47,14 +49,13 @@ en:
       please_comment: "Comment"
       please_offer: "Offer"
   listings:
-    new:
+    listing_form_content:
       request_something: "Request something"
       offer_something: "Offer something"
       item: "Item"
       favor: "Favor"
       rideshare: "Rideshare"
       housing: "Housing"
-      offer_type: "Offer type"
       lend: "Lend"
       sell: "Sell"
       give_away: "Give away"
@@ -63,10 +64,21 @@ en:
       tags: "Tags"
       comma_separate: "(comma separate)"
       image: "Image"
-      what_is_this: "What's this?"
       select_file: "Select file"
       no_file_selected: "No file selected"
-      valid_until: "Valid until"
+      valid_until: "Valid until"  
+    listing_share_type:
+      offer_type: "Offer type"
+      request_type: "Request type"
+      sell: "Sell"
+      lend: "Lend"
+      rent_out: "Rent out"
+      trade: "Trade"
+      give_away: "Give away"
+      temporary_accommodation: "Temporary"
+      buy: "Buy"
+      borrow: "Borrow"
+      rent: "Rent"
     listing_title:
       item_you_request: "Item you need"
       item_you_offer: "Item you offer"
@@ -92,6 +104,9 @@ en:
       favor_offer: "Favor offer"
       rideshare_offer: "Rideshare offer"
       housing_offer: "Housing offer"
+    help_texts:
+      help_tags_title: "Tags"  
+      share_type_title: "Type of the offer or request"
   sessions:
     new:
       login_to_kassi: "Log in to Kassi"

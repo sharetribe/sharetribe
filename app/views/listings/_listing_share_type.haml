@@ -1,0 +1,16 @@
+.new_listing_form_field_container
+  %label{:for => "name", :class => "input"}
+    = t(".#{@listing.listing_type}_type") + ":"
+    %br/
+    %span{:class => "smaller"}  
+      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "share_type_link"
+  .checkbox_container 
+    - Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |share_type|
+      .one_checkbox_container
+        .checkbox_float
+          - if share_type.eql?(Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].first)
+            = check_box_tag "listing[share_type][]", share_type, :checked => "checked"
+          - else
+            = check_box_tag "listing[share_type][]", share_type
+        %label{:class => "checkbox"}
+          = t(".#{share_type}")

@@ -1,0 +1,28 @@
+.grid_16.prefix_4.suffix_4
+  #new_listing_form_tabs
+    %div{:class => get_new_listing_tab_class("request")} 
+      = link_to t('.request_something'), new_listing_path(:type => "request", :category => @listing.category)
+    %div{:class => get_new_listing_tab_class("offer")} 
+      = link_to t('.offer_something'), new_listing_path(:type => "offer", :category => @listing.category)
+
+.grid_16.prefix_4.suffix_4
+
+  #new_listing_form
+    #listing_type_select_icons
+      - Listing::VALID_CATEGORIES.each do |category|
+        %div{:class => get_type_select_icon_class(category)} 
+          = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category)
+  
+    #item_form.new_listing_form_main  
+      = form_for @listing do |form|
+        - if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
+          = render :partial => "listing_share_type"
+        - unless @listing.category.eql?("rideshare")
+          = render :partial => "listing_title", :locals => { :form => form }
+        - if @listing.category.eql?("rideshare")
+          = render :partial => "listing_origin", :locals => { :form => form }
+        = render :partial => "listing_description", :locals => { :form => form }
+        = render :partial => "listing_send_button", :locals => { :form => form }
+
+- ["share_type", "help_tags"].each do |field|
+  = render :partial => "help_texts", :locals => { :field => field }

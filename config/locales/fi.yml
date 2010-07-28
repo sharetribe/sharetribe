@@ -1,6 +1,8 @@
 # Translations specific for Kassi
 
 fi:
+  common:
+    what_is_this: "Mitä tämä tarkoittaa?"
   layouts:
     logged_in:
       login: "Kirjaudu"
@@ -50,26 +52,32 @@ fi:
       please_comment: "Kommentoi"
       please_offer: "Tarjoa"
   listings:
-    new:
+    listing_form_content:
       request_something: "Pyydä jotain"
-      offer_something: "Tarjoa jotain"
+      offer_something: "Tarjoa jotain"  
       item: "Tavara"
       favor: "Palvelus"
       rideshare: "Kimppakyyti"
       housing: "Asuminen"
       offer_type: "Tarjoustapa"
-      lend: "Lainaan"
-      sell: "Myyn"
-      give_away: "Annan pois"
-      trade: "Vaihdan"
-      rent: "Vuokraan"
       tags: "Avainsanat"
       comma_separate: "(erota pilkulla)"
       image: "Kuva"
-      what_is_this: "Mitä tämä tarkoittaa?"
       select_file: "Valitse tiedosto"
       no_file_selected: "Ei tiedostoa valittuna"
       valid_until: "Voimassaoloaika"
+    listing_share_type:
+      offer_type: "Tarjoustyyppi"
+      request_type: "Pyyntötyyppi"
+      sell: "Myy"
+      lend: "Lainaa"
+      rent_out: "Vuokraa"
+      trade: "Vaihda"
+      give_away: "Anna"
+      temporary_accommodation: "Tilapäismajoitus"
+      buy: "Osta"
+      borrow: "Lainaa"
+      rent: "Vuokraa"
     listing_title:
       item_you_request: "Tavara jonka tarvitset"
       item_you_offer: "Tavara jonka tarjoat"
@@ -93,6 +101,9 @@ fi:
       favor_offer: "Palvelustarjous"
       rideshare_offer: "Kyytitarjous"
       housing_offer: "Asuntotarjous"
+    help_texts:
+      help_tags_title: "Avaisanat"
+      share_type_title: "Tarjous- tai pyyntötapa"  
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"
