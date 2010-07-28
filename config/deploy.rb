@@ -47,6 +47,7 @@ namespace :deploy do
     run "rm -rf #{release_path}/tmp/performance"
     run "ln -fs #{shared_path}/listing_images/ #{release_path}/public/images/listing_images"
     run "ln -fs #{shared_path}/performance/ #{release_path}/tmp/performance"
+    run "ln -fs #{shared_path}/ferret_index/ #{release_path}/index"
     run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/system/session_secret #{release_path}/config/session_secret"
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
