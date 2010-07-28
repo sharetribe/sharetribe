@@ -55,7 +55,7 @@ namespace :deploy do
   end
   
   task :after_symlink do
-    run "date +%d.%m.%Y > #{release_path}/app/views/layouts/_build_date.html.erb"
+    run "date '+%d.%m.%Y %k:%M' > #{release_path}/app/views/layouts/_build_date.html.erb"
   end
   
   desc "Run the bundle install on the server"
