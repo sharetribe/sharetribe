@@ -1,5 +1,4 @@
-.new_listing_form_field_container.item.favor.housing
-  - Listing::VALID_CATEGORIES.each do |category|
-    %label{:class => "input #{category unless category.eql?('rideshare')} #{'hidden' unless category.eql?('item')}"}
-      = t(".#{category}_you_#{params[:type]}") + ":"
-  = form.text_field(:title, :class => "text_field item favor housing")
+.new_listing_form_field_container
+  %label{:class => "input"}
+    = t(".#{@listing.category}_you_#{@listing.listing_type}") + ":"
+  = form.text_field(:title, :class => "text_field")

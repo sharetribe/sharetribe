@@ -8,7 +8,8 @@ describe Listing do
       :description => "0" * 4000,
       :author_id => 1,
       :listing_type => "request",
-      :category => "item"
+      :category => "item",
+      :share_type => ["buy", "borrow"]
     )
   end  
   
@@ -46,6 +47,7 @@ describe Listing do
     @listing.should_not be_valid
     Listing::VALID_TYPES.each do |type| 
       @listing.listing_type = type
+      @listing.share_type = Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
       @listing.should be_valid
     end  
   end
@@ -60,8 +62,61 @@ describe Listing do
     @listing.should_not be_valid
     Listing::VALID_CATEGORIES.each do |category| 
       @listing.category = category
+      @listing.share_type = Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
       @listing.should be_valid
     end  
-  end 
+  end
+  
+  it "is only valid if the transaction type corresponds with the category" do
+    @listing.share_type = nil
+    @listing.should_not be_valid
+    Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
+    Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
+    [
+      ["request", "item", ["test"]],
+      ["request", "item", ["buy", "test"]],
+      ["request", "item", ["sell"]],
+      ["request", "item", ["buy", "sell"]],
+      ["request", "favor", ["buy", "borrow"]],
+      ["request", "rideshare", ["sell"]],
+      ["request", "housing", ["test"]],
+      ["request", "housing", ["buy", "test"]],
+      ["request", "housing", ["borrow"]],
+      ["request", "housing", ["sell"]],
+      ["request", "housing", ["buy", "sell"]],
+      ["offer", "item", ["test"]],
+      ["offer", "item", ["sell", "test"]],
+      ["offer", "item", ["buy"]],
+      ["offer", "item", ["buy", "sell"]],
+      ["offer", "housing", ["test"]],
+      ["offer", "housing", ["sell", "test"]],
+      ["offer", "housing", ["lend"]],
+      ["offer", "housing", ["lend", "sell"]]
+    ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
+  end
+  
+  private
+  
+  def listing_is_valid_with_correct_share_type(listing_type, category)
+    @listing.listing_type = listing_type
+    @listing.category = category
+    @listing.share_type = []
+    if Listing::VALID_SHARE_TYPES[listing_type][category]
+      Listing::VALID_SHARE_TYPES[listing_type][category].each_with_index do |share_type, index|
+        @listing.share_type[index] = share_type
+        @listing.should be_valid
+      end
+    end  
+  end
+  
+  def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_types)
+    @listing.listing_type = listing_type
+    @listing.category = category
+    @listing.share_type = []
+    share_types.each_with_index do |type, index|
+      @listing.share_type[index] = type
+    end
+    @listing.should_not be_valid
+  end
   
 end 

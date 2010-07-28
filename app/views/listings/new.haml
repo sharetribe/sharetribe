@@ -1,36 +1,5 @@
 - content_for :javascript do
   initialize_new_listing_form('#{t('listings.new.no_file_selected')}', '#{t('listings.new.select_file')}', '#{I18n.locale}');
 
-.grid_16.prefix_4.suffix_4
-  #new_listing_form_tabs
-    %div{:class => get_new_listing_tab_class("request")} 
-      = link_to t('.request_something'), new_request_path(:type => "request")
-    %div{:class => get_new_listing_tab_class("offer")} 
-      = link_to t('.offer_something'), new_request_path(:type => "offer")
-
-.grid_16.prefix_4.suffix_4
-  #new_listing_form
-    #listing_type_select_icons
-      .listing_type_select_icon_selected_item
-        = link_to t('.item'), "#", :id => "item_link"
-      .listing_type_select_icon_unselected_favor
-        = link_to t('.favor'), "#", :id => "favor_link"  
-      .listing_type_select_icon_unselected_rideshare
-        = link_to t('.rideshare'), "#", :id => "rideshare_link"   
-      .listing_type_select_icon_unselected_housing
-        = link_to t('.housing'), "#", :id => "housing_link"     
-    
-    #item_form.new_listing_form_main  
-      = form_for @listing do |form|
-        = render :partial => "listing_title", :locals => { :form => form }
-        = render :partial => "listing_origin", :locals => { :form => form }
-        = render :partial => "listing_description", :locals => { :form => form }
-        = render :partial => "listing_send_button", :locals => { :form => form }        
-
-#help_tags.hidden_description
-  .hidden_title
-    = t('.tags')
-  .close_link
-    = link_to "X", "#", :id => "close_x", :class => "close"
-  .hidden_content
-    = render :partial => "help_tags"
+#listing_form_wrapper
+  = render :partial => "listing_form_content"       

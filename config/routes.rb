@@ -58,7 +58,11 @@ Kassi::Application.routes.draw do |map|
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-    resources :listings
+    resources :listings do
+      collection do
+        get :switch_form_type
+      end  
+    end
     resources :session
     resources :consent
   end
