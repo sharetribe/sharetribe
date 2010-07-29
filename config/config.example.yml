@@ -1,29 +1,47 @@
-production:
-  asi_url: "http://cos.alpha.sizl.org"
-  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
-  asi_timeout: 10
+default: &default_settings
   
-  # These are the credentials used to log on to ASI server. The defaults will work for
+  #This is the url of the ASI server you want to use
+  asi_url: "http://cos.alpha.sizl.org"
+  # The following url will be used when handling passwords
+  # So if the ASI server supports https, you can specify a https uls
+  # This can be same as asi_url if no https is available
+  ssl_asi_url: "https://cos.alpha.sizl.org"
+
+  # These are the credentials used to log on to ASI server. 
+  # The defaults will work for
   # OtaSizzle's test server, an can be used for testing Kassi.
   asi_app_name: kassi_testing
   asi_app_password: kassi_tester
-  
+
+  # The default locale (language) of the user interface
+  default_locale: en
+
   # Ressi is Researcher's Interface for logged data
+  # If you don't need it just leave it to false
   # If log_to_ressi is false, other ressi settings can be ignored.
   log_to_ressi: false
   ressi_url: "http://cos.alpha.sizl.org/ressi"
   ressi_timeout: 5
   ressi_upload_hour: 1
-  
-  
+
+  # This will be the from field in the mails sent from Kassi
   kassi_mail_from_address: "noreply-kassi@example.com"
   
+  # The address where the notifications of feedbacks from Kassi UI are sent
+  feedback_mailer_recipients:  'admins@example.com'
+
+  # If you want to get mail notification of errors that happen in Kassi
+  # you can specify it here. Otherwise leave to be false.
+  use_error_mailer: false
   error_mailer_recipients: 'admins@example.com'
   error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
-  
-  feedback_mailer_recipients:  'admins@example.com'
-  
+
+  # New relic is a software used for performance testing
+  # Leave to false unless you need it
+  use_newrelic: false
+
   # CAS is a centralized authentication system, it is completely optional
+  # If not needed leave to false
   use_CAS: false
   cas_base_url: fill_according_to_used_CAS_server
   cas_service_validate_url: fill_according_to_used_CAS_server
@@ -34,56 +52,32 @@ production:
   cas_proxy_callback_url: fill_according_to_used_CAS_server
   cas_authenticate_on_every_request: false
   
-  #probably not needed:
-  beta_version: "local"
-  production_server: "alpha"
+  
+  # If you have multiple servers, you can set this value to separate
+  # for example the error and feedback mails coming from those
+  server_name: local
+  # If the current server is meant only for test usage, you can set this
+  # to true to display a waring notice on the site
+  test_site_warning: false
   
   
-# The settings for development and test environment below can be ignored 
-# unless you are going to develop or modify Kassi
-# - - - - - - - - - - - - - - - - - - - - - - - -
+  # Below it is possible to specify different settings for different
+  # environments. If you are not developing or testing Kassi, you 
+  # don't need to change those
+  # ----------------------------------------------------------------
 
 
-development: &non_production_settings
-  asi_url: "http://cos.alpha.sizl.org"
-  ssl_asi_url: "https://cos.alpha.sizl.org"  # Can be same as asi_url if no https in use
-  asi_timeout: 10
+production:
+  <<: *default_settings
 
 
-  # These are the credentials used to log on to ASI server. The defaults will work for
-  # OtaSizzle's test server, an can be used for testing Kassi.
-  asi_app_name: kassi_testing
-  asi_app_password: kassi_tester
-  
-  ressi_url: "http://localhost:9000"
-  ressi_timeout: 5
-  ressi_upload_hour: 1
-  log_to_ressi: false
-  
-  
-  kassi_mail_from_address: "noreply-kassi@example.com"
-  
-  error_mailer_recipients: 'admins@example.com'
-  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
-  
-  feedback_mailer_recipients:  'admins@example.com'
-  
-  # CAS is a centralized authentication system, it is completely optional
-  # If you don't know that you need it, you can ignore all the settings below
-  use_CAS: false
-  cas_base_url: fill_according_to_used_CAS_server
-  cas_service_validate_url: fill_according_to_used_CAS_server
-  cas_validate_url: fill_according_to_used_CAS_server
-  cas_proxy_url: fill_according_to_used_CAS_server
-  cas_logger: cas_logger,
-  cas_proxy_retrieval_url:fill_according_to_used_CAS_server
-  cas_proxy_callback_url: fill_according_to_used_CAS_server
-  cas_authenticate_on_every_request: false
-  
-  #probably not needed:
-  beta_version: "local"
-  production_server: "local"
+development:
+  <<: *default_settings
   
 test:
-  <<: *non_production_settings
+  <<: *default_settings
+  # The locale should be "en" for test environment
+  # even if you change it for others
+  default_locale: en
+  
 
