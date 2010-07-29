@@ -2,24 +2,28 @@ Feature: Driver offers a ride
   In order to help others and/or get some gas money with a car ride I'm going to do anyway
   As a driver planning a car ride soon
   I want to publish my planned route and schedule so that others can ask me to pick them up
-
+  
+    @pending
     Scenario: Offering ridesharing by SMS
       Given I'm planning to drive somewhere
       When I send SMS "tkk taik 14:00" to Kassi
       Then An offer for shared ride from "tkk" to "taik" starting at "14:00" should be added to Kassi
-      
+    
+    @pending
     Scenario: Offering ridesharing starting right now by SMS
       Given I'm planning to drive somewhere
       And I want to start about now
       When I send SMS "tkk taik" to Kassi
       Then An offer for shared ride from "tkk" to "taik" starting at current time should be added to Kassi
   
+    @pending
     Scenario: Offering ridesharing from current location by SMS
       Given I'm planning to drive somewhere
       And my phone location can be requested by Kassi
       When I send SMS "hse 9:30" to Kassi
       Then An offer for shared ride from my current location to "hse" starting at "9:30" should be added to Kassi
   
+    @pending
     Scenario: Matching potential passenger is found (phone number)
       Given I have offered a shared ride from "taik" to "tkk" at "13:00"
       And my phone number is in my public profile
@@ -31,6 +35,7 @@ Feature: Driver offers a ride
         
     
     # THIS SCENARIO IS PROBABLY NOT IMPLEMENTED. INSTEAD PHONE NUMBER IS ALWAYS SHARED WHEN OFFERING RIDES.
+    @pending
     Scenario: Matching potential passenger is found (phone number not public)
       Given I have offered a shared ride from "taik" to "tkk" at "13:00"
       And my phone number is not in my public profile
