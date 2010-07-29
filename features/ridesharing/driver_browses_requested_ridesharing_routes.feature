@@ -3,6 +3,7 @@ Feature: Driver browses requested car pooling routes
   As a driver planning a car ride soon
   I want to browse ridesharing requests to see if someone needs to travel the same way
 
+  @pending
   Scenario: Browsing all requests
     Given there are ridesharing requests in Kassi
     When I click the "rideshare" tab
