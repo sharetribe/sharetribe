@@ -8,9 +8,5 @@
     - Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |share_type|
       .one_checkbox_container
         .checkbox_float
-          - if share_type.eql?(Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].first)
-            = check_box_tag "listing[share_type][]", share_type, :checked => "checked"
-          - else
-            = check_box_tag "listing[share_type][]", share_type
-        %label{:class => "checkbox"}
-          = t(".#{share_type}")
+          = check_box_tag "listing[share_type][]", share_type, (checked = true if @listing.default_share_type?(share_type)), :id => share_type
+        = label_tag share_type, t(".#{share_type}"), :class => "checkbox"

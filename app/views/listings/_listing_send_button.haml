@@ -1,4 +1,4 @@
 .new_listing_form_field_container
   = form.hidden_field(:listing_type, :value => @listing.listing_type)
-  = form.hidden_field(:category, :value => "item")
-  = form.submit t(".save_#{@listing.listing_type}"), :class => "send_button item favor rideshare housing"
+  = form.hidden_field(:category, :value => @listing.category)
+  = form.submit t(".save_#{@listing.listing_type}"), :class => "send_button"

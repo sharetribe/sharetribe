@@ -15,6 +15,7 @@
   
     #item_form.new_listing_form_main  
       = form_for @listing do |form|
+        =# @listing.errors.full_messages if @listing.errors
         - if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
           = render :partial => "listing_share_type"
         - unless @listing.category.eql?("rideshare")
