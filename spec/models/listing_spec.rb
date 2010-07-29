@@ -4,12 +4,13 @@ describe Listing do
   
   before(:each) do
     @listing = Listing.new(
-      :title => "Test",
-      :description => "0" * 4000,
+      :title => "Sledgehammer",
+      :description => "Test" * 1000,
       :author_id => 1,
       :listing_type => "request",
       :category => "item",
-      :share_type => ["buy", "borrow"]
+      :share_type => ["buy", "borrow"],
+      :tag_list => "tools, hammers"
     )
   end  
   
