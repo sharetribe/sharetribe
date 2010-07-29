@@ -3,6 +3,9 @@
 fi:
   common:
     what_is_this: "Mitä tämä tarkoittaa?"
+  error_messages:
+    listings:
+      share_type: "Sinun pitää valita ainakin yksi ylläolevista."  
   layouts:
     logged_in:
       login: "Kirjaudu"
@@ -86,6 +89,10 @@ fi:
       favor_you_offer: "Palvelus jonka tarjoat"
       housing_you_request: "Mitä tarvitset"
       housing_you_offer: "Mitä tarjoat"
+    listing_origin:
+      origin: "Lähtöpaikka"
+    listing_destination:  
+      destination: "Määränpää"
     listing_description:
       detailed_description: "Tarkempi kuvaus"
     listing_send_button:
@@ -104,7 +111,7 @@ fi:
       housing_offer: "Asuntotarjous"
     help_texts:
       help_tags_title: "Avaisanat"
-      share_type_title: "Tarjous- tai pyyntötapa"  
+      share_type_title: "Tarjous- tai pyyntötyyppi"  
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"

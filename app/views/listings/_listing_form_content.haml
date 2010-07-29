@@ -22,6 +22,7 @@
           = render :partial => "listing_title", :locals => { :form => form }
         - if @listing.category.eql?("rideshare")
           = render :partial => "listing_origin", :locals => { :form => form }
+          = render :partial => "listing_destination", :locals => { :form => form }
         = render :partial => "listing_description", :locals => { :form => form }
         = render :partial => "listing_send_button", :locals => { :form => form }
 
