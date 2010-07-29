@@ -64,8 +64,6 @@ en:
       give_away: "Give away"
       trade: "Trade"
       rent: "Rent"
-      tags: "Tags"
-      comma_separate: "(comma separate)"
       image: "Image"
       select_file: "Select file"
       no_file_selected: "No file selected"
@@ -92,7 +90,10 @@ en:
     listing_origin:
       origin: "Origin"
     listing_destination:
-      destination: "Destination"      
+      destination: "Destination"
+    listing_tag_list:
+      tags: "Tags"
+      comma_separate: "(comma separate)"      
     listing_description:
       detailed_description: "Detailed description"
     listing_send_button:

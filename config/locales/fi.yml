@@ -64,7 +64,6 @@ fi:
       rideshare: "Kimppakyyti"
       housing: "Asuminen"
       offer_type: "Tarjoustapa"
-      tags: "Avainsanat"
       comma_separate: "(erota pilkulla)"
       image: "Kuva"
       select_file: "Valitse tiedosto"
@@ -93,6 +92,9 @@ fi:
       origin: "Lähtöpaikka"
     listing_destination:  
       destination: "Määränpää"
+    listing_tag_list:
+      tags: "Avainsanat"
+      comma_separate: "(erota pilkulla)"  
     listing_description:
       detailed_description: "Tarkempi kuvaus"
     listing_send_button:

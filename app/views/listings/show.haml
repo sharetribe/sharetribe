@@ -4,4 +4,8 @@
 
 .share_types
   = @listing.share_type.join(", ") if @listing.share_type
+  %br/
+  %br/
   
+.tags  
+  = @listing.tag_list.sort.join(", ")

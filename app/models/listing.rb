@@ -2,6 +2,8 @@ class Listing < ActiveRecord::Base
   
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
   
+  acts_as_taggable
+  
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
