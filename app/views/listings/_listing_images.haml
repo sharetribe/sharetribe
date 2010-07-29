@@ -1,0 +1,6 @@
+= form.fields_for :listing_images do |builder|
+  - if builder.object.new_record?
+    .new_listing_form_field_container
+      = builder.label :image, t('.image') + ":", :class => "input"
+      = builder.file_field(:image, :class => "file_field")
+

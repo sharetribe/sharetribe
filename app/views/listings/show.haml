@@ -9,3 +9,7 @@
   
 .tags  
   = @listing.tag_list.sort.join(", ")
+  
+.image
+  - @listing.listing_images.each do |listing_image|
+    = image_tag listing_image.image.url(:medium)

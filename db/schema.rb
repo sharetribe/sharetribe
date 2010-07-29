@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100729124210) do
+ActiveRecord::Schema.define(:version => 20100729142416) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -145,6 +145,16 @@ ActiveRecord::Schema.define(:version => 20100729124210) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "listing_images", :force => true do |t|
+    t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "listings", :force => true do |t|

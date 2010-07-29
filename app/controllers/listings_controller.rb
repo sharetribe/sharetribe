@@ -14,13 +14,13 @@ class ListingsController < ApplicationController
     @listing = Listing.new
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
+    1.times {@listing.listing_images.build}
     respond_with(@listing)
   end
   
   def create
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
-      logger.info "Errors: #{@listing.errors.full_messages.inspect}"
       render :action => :new
     else
       flash[:notice] = "#{@listing.listing_type}_created_successfully"

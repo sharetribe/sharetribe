@@ -4,6 +4,9 @@ class Listing < ActiveRecord::Base
   
   acts_as_taggable
   
+  has_many :listing_images, :dependent => :destroy
+  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].nil? }
+  
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
