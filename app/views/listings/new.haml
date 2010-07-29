@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_new_listing_form('#{t('listings.new.no_file_selected')}', '#{t('listings.new.select_file')}', '#{I18n.locale}');
+  initialize_new_listing_form('#{t('listings.new.no_file_selected')}', '#{t('listings.new.select_file')}', '#{I18n.locale}', '#{t('error_messages.listings.share_type')}');
 
 #listing_form_wrapper
   = render :partial => "listing_form_content"       

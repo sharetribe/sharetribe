@@ -1,4 +1,3 @@
-=# .new_listing_form_field_container.rideshare
-=#  %label{:class => "input rideshare hidden"}
-=#    = t(".origin") + ":"
-=#  = form.text_field(:origin, :class => "text_field rideshare hidden")
+.new_listing_form_field_container
+  = form.label :origin, t(".origin") + ":", :class => "input"
+  = form.text_field(:origin, :class => "text_field", :maxlength => "48")

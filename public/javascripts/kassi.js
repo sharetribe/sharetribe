@@ -12,7 +12,7 @@ function initialize_login_form() {
   $('input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#share_type_link').click(function() { $('#share_type').lightbox_me({centered: true}); });
 	$('input.text_field:first').focus();
@@ -21,12 +21,6 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 		fileDefaultText: fileDefaultText, 
 		fileBtnText: fileBtnText
 	});
-	var checkbox_message = "" 
-	if (locale == "fi") {
-		checkbox_message = 'Sinun pitää valita ainakin yksi ylläolevista.'
-	} else {
-		checkbox_message = 'You must check at least one of the boxes above.';
-	}
 	translate_validation_messages(locale);
 	$("#new_listing").validate({
 		errorPlacement: function(error, element) {
@@ -39,6 +33,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 		debug: false,
 		rules: {
 			"listing[title]": {required: true, minlength: 2},
+			"listing[origin]": {required: true, minlength: 2},
+			"listing[destination]": {required: true, minlength: 2},
 			"listing[share_type][]": {required: true, minlength: 1}
 		},
 		messages: {

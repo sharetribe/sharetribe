@@ -26,6 +26,17 @@ Feature: User creates a new request
     Then I should see "Favor request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
     
+  Scenario: Creating a new rideshare request successfully
+    Given I am logged in
+    And I am on the home page
+    When I follow "Request something"
+    And I follow "Rideshare"
+    And I fill in "listing_origin" with "Otaniemi"
+    And I fill in "listing_destination" with "Turku"
+    And I press "Save request"
+    Then I should see "Rideshare request: Otaniemi - Turku" within "h1"
+    And I should see "Request created successfully" within "#notifications" 
+    
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page

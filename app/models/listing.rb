@@ -21,12 +21,25 @@ class Listing < ActiveRecord::Base
   
   serialize :share_type, Array
   
+  before_validation :set_rideshare_title
+  
   validates_presence_of :author_id
-  validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_length_of :title, :in => 2..100, :allow_nil => false
+  validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :listing_type, :in => VALID_TYPES
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   validate :given_share_type_is_one_of_valid_share_types
+  
+  def rideshare?
+    category.eql?("rideshare")
+  end
+  
+  def set_rideshare_title
+    if rideshare?
+      self.title = "#{origin} - #{destination}" 
+    end  
+  end
   
   def default_share_type?(share_type)
     share_type.eql?(Listing::VALID_SHARE_TYPES[listing_type][category].first)

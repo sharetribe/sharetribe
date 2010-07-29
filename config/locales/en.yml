@@ -1,6 +1,9 @@
 en:
   common:
     what_is_this: "What's this?"
+  error_messages:
+    listings:
+      share_type: "You must check at least one of the boxes above."  
   layouts:
     logged_in:
       login: "Login"
@@ -86,13 +89,15 @@ en:
       favor_you_offer: "Favor you offer"
       housing_you_request: "Housing you need"
       housing_you_offer: "Housing you offer"
+    listing_origin:
+      origin: "Origin"
+    listing_destination:
+      destination: "Destination"      
     listing_description:
       detailed_description: "Detailed description"
     listing_send_button:
       save_request: "Save request"
       save_offer: "Save offer"
-    listing_origin:
-      origin: "Origin"
     show:
       request: "Request"
       offer: "Offer"
