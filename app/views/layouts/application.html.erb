@@ -54,7 +54,7 @@
         <% else %>
           <div id="contents_full">
         <% end %>
-        <% if (APP_CONFIG.production_server == "alpha" && !@current_user) %>
+        <% if (APP_CONFIG.test_site_warning && !@current_user) %>
           <div class="announcement error">
             <%= t(:alpha_test_site_text) %>
           </div>
@@ -110,7 +110,7 @@
     </div>
   </div>  
   
-  <% if (APP_CONFIG.production_server == "beta")%>
+  <% if (APP_CONFIG.use_uservoice)%>
     <!-- The UserVoice script -->
     <script type="text/javascript">
       var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
@@ -130,6 +130,8 @@
       lang: 'en'
     })
     </script>
+  <% end %>
+  <% if (APP_CONFIG.use_google_analytis)%>
   
      <!-- The google analytics script-->
     <script type="text/javascript">

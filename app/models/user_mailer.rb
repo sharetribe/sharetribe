@@ -96,7 +96,7 @@ class UserMailer < ActionMailer::Base
   end
   
   def notification_of_new_feedback(feedback, http_request=nil)
-    subject_string = "Uutta palautetta #{APP_CONFIG.production_server}-Kassista käyttäjältä #{feedback.author.try(:name)}"
+    subject_string = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     url = http_request ? "http://#{http_request.host}#{admin_feedbacks_path}" : "test_url"
     recipients APP_CONFIG.feedback_mailer_recipients
     from       APP_CONFIG.kassi_mail_from_address
