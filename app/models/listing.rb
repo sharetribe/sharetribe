@@ -28,6 +28,10 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   validate :given_share_type_is_one_of_valid_share_types
   
+  def default_share_type?(share_type)
+    share_type.eql?(Listing::VALID_SHARE_TYPES[listing_type][category].first)
+  end
+  
   def self.unique_share_types
     share_types = []
     VALID_TYPES.each do |type|

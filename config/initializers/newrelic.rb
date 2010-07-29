@@ -1,1 +1,1 @@
-require 'newrelic_rpm'
+#require 'newrelic_rpm'

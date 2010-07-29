@@ -15,11 +15,6 @@ function initialize_login_form() {
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#share_type_link').click(function() { $('#share_type').lightbox_me({centered: true}); });
-	// $('#favor_link').click(function() { switch_category("favor"); });
-	// $('#item_link').click(function() { switch_category("item"); });
-	// $('#rideshare_link').click(function() { switch_category("rideshare"); });
-	// $('#housing_link').click(function() { switch_category("housing"); });
-	// $('.one_checkbox_container:not(.item)').addClass('hidden');
 	$('input.text_field:first').focus();
 	$("select.listing_date_select, input:checkbox, input:file").uniform({
 		selectClass: 'selector2',
@@ -35,11 +30,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale) {
 	translate_validation_messages(locale);
 	$("#new_listing").validate({
 		errorPlacement: function(error, element) {
-			console.log("Test");
-			console.log(typeof error);
-			console.log(element);
-			console.log(element.context.className);
-			if (element.attr("id") == "listing_share_type_") {
+			if (element.attr("name") == "listing[share_type][]") {
 				error.appendTo(element.parent().parent().parent().parent().parent().parent());
 			} else {
 				error.insertAfter(element);
