@@ -14,7 +14,7 @@
           = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category)
   
     #item_form.new_listing_form_main  
-      = form_for @listing do |form|
+      = form_for @listing, :html => {:multipart => true} do |form|
         =# @listing.errors.full_messages if @listing.errors
         - if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
           = render :partial => "listing_share_type"
@@ -25,6 +25,7 @@
           = render :partial => "listing_destination", :locals => { :form => form }  
         = render :partial => "listing_description", :locals => { :form => form }
         = render :partial => "listing_tag_list", :locals => { :form => form }
+        = render :partial => "listing_images", :locals => { :form => form }
         = render :partial => "listing_send_button", :locals => { :form => form }
 
 - ["share_type", "help_tags"].each do |field|

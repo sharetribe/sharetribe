@@ -64,9 +64,6 @@ en:
       give_away: "Give away"
       trade: "Trade"
       rent: "Rent"
-      image: "Image"
-      select_file: "Select file"
-      no_file_selected: "No file selected"
       valid_until: "Valid until"  
     listing_share_type:
       offer_type: "Offer type"
@@ -96,6 +93,10 @@ en:
       comma_separate: "(comma separate)"      
     listing_description:
       detailed_description: "Detailed description"
+    listing_images:
+      image: "Image"
+      select_file: "Select file"
+      no_file_selected: "No file selected"  
     listing_send_button:
       save_request: "Save request"
       save_offer: "Save offer"

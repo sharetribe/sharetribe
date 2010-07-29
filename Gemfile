@@ -37,6 +37,7 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
+gem 'paperclip'
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"
