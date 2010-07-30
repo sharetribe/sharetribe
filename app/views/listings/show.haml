@@ -12,4 +12,4 @@
   
 .image
   - @listing.listing_images.each do |listing_image|
-    = image_tag listing_image.image.url(:medium)
+    = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title

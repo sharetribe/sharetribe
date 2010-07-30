@@ -25,3 +25,16 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 end
+
+def uploaded_file(filename, content_type)
+  t = Tempfile.new(filename)
+  t.binmode
+  path = "#{fixture_path}/#{filename}"
+  FileUtils.copy_file(path, t.path)
+  (class << t; self; end).class_eval do
+    alias local_path path
+    define_method(:original_filename) {filename}
+    define_method(:content_type) {content_type}
+  end
+  return t
+end
