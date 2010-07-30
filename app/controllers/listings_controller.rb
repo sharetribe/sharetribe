@@ -23,7 +23,7 @@ class ListingsController < ApplicationController
     if @listing.new_record?
       render :action => :new
     else
-      flash[:notice] = "#{@listing.listing_type}_created_successfully"
+      flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, new_listing_path(:type => @listing.listing_type)]
       redirect_to @listing
     end
   end

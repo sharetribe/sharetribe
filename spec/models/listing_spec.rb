@@ -106,10 +106,6 @@ describe Listing do
     ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
   end
   
-  it "is valid when a valid image is added" do
-    
-  end  
-  
   context "with category 'rideshare'" do
     
     before(:each) do
