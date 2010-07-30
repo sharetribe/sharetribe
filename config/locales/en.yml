@@ -128,4 +128,15 @@ en:
       email: "Email"
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
       request_new_password: "Request new password"
-  
+  timestamps:
+    seconds_ago: "seconds ago"
+    minute_ago:  "minute ago"
+    minutes_ago: "minutes ago"
+    hour_ago:    "hour ago"
+    hours_ago:   "hours ago"
+    day_ago:     "day ago"
+    days_ago:    "days ago"
+    month_ago:   "month ago"
+    months_ago:  "months ago"
+    year_ago:    "year ago"
+    years_ago:   "years ago"

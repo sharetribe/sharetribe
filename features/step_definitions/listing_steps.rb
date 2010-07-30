@@ -9,6 +9,7 @@ Given /^a new (item|favor|rideshare|housing) (offer|request) with title "([^"]*)
     puts @listing.errors
     @listing.should be_valid
   end
+  @listing.save
 end
 
 Then /^I should see image with alt text "([^\"]*)"$/ do | alt_text |

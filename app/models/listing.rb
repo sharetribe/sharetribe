@@ -1,5 +1,8 @@
 class Listing < ActiveRecord::Base
   
+  scope :requests, where(:listing_type => 'request')
+  scope :offers, where(:listing_type => 'offer')
+  
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
   
   acts_as_taggable

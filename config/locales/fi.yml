@@ -128,14 +128,26 @@ fi:
     password_forgotten:
       email: "Sähköposti"
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
-      request_new_password: "Pyydä uusi salasana"    
+      request_new_password: "Pyydä uusi salasana"  
+  timestamps:
+    seconds_ago: "sekuntia sitten"
+    minute_ago:  "minuutti sitten"
+    minutes_ago: "minuuttia sitten"
+    hour_ago:    "tunti sitten"
+    hours_ago:   "tuntia sitten"
+    day_ago:     "päivä sitten"
+    days_ago:    "päivää sitten"
+    month_ago:   "kuukausi sitten"
+    months_ago:  "kuukautta sitten"
+    year_ago:    "vuosi sitten"
+    years_ago:   "vuotta sitten"    
 
 # Default finnish translations for Ruby on Rails 
 # by Marko Seppä (marko.seppa@gmail.com)
 
   date:
     formats:
-      default: "%e. %Bta %Y"
+      default: "%e.%m.%Y" #was originally "%e. %Bta %Y", but changed to same as short 'cos it's better default for Kassi
       long: "%A%e. %Bta %Y"
       short: "%e.%m.%Y"
  
