@@ -220,18 +220,23 @@ class ApplicationController < ActionController::Base
 
     begin
       
-      if RAILS_ENV == "production"
-        sent_on = Time.now
-        ErrorMailer.deliver_snapshot(
-          exception, 
-          clean_backtrace(exception), 
-          session, #.instance_variable_get("@data"), 
-          params.except(:password, :password2), 
-          request,
-          @current_user,
-          sent_on)
+      if APP_CONFIG.use_error_mailer
+        # No mail about bots trying to find php-pages
+        unless (exception.message =~ /No route matches/ && exception.message =~ /php/)
+          sent_on = Time.now
+          ErrorMailer.deliver_snapshot(
+            exception, 
+            clean_backtrace(exception), 
+            session, #.instance_variable_get("@data"), 
+            params.except(:password, :password2), 
+            request,
+            @current_user,
+            sent_on)
           
-        logger.info { "Error mail sent with time stamp: #{sent_on}" }
+          logger.info { "Error mail sent with time stamp: #{sent_on}" }
+        else
+          logger.info { "Error happened, but no error mail sent, because seems like a php-request. #{exception.message}" }
+        end
       end
     rescue => e
       logger.error(e)
