@@ -80,7 +80,7 @@ namespace :deploy do
   
   desc "Run the bundle install on the server"
   task :bundle_install do
-    run "cd #{release_path} && bundle install"
+    run "cd #{current_path} && bundle install"
   end
   
   # [ :stop, :start, :restart ].each do |t|
