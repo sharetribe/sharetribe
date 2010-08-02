@@ -5,7 +5,7 @@
     - else
       =  link_to "#", "#", :title => listing
   .recent_listing_text
-    %h5= link_to listing.title, "#"
+    %h5= link_to listing.title, listing_path(listing)
     %p= listing.description
     .float_left
       = link_to t('.please_comment'), "#"
