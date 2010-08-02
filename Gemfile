@@ -45,5 +45,5 @@ group :test do
   gem 'cucumber-rails'
   gem 'cucumber'
   gem 'launchy'
-  #gem 'newrelic_rpm', :require => false
+  gem 'newrelic_rpm', :require => false
 end
