@@ -103,6 +103,6 @@ end
 
 #before "deploy:migrate", "db:backup"
 after 'deploy:update_code', 'deploy:symlink_shared_items'
-after %w(deploy deploy:migrations deploy:cold deploy:start deploy:restart), "deploy:finalize"
+after %w(deploy:migrations deploy:cold deploy:start deploy:restart), "deploy:finalize"
 
 
