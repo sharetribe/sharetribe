@@ -1,14 +1,17 @@
 .recent_listing
   .listing_image
-    = link_to "#", "#", :title => listing
+    - unless listing.listing_images.first.nil?
+      = image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title
+    - else
+      =  link_to "#", "#", :title => listing
   .recent_listing_text
-    %h5= link_to listing, "#"
-    %p “Tarvitsisin gorillapuvun ensi viikolla pidettäviä naamiaissitsejä varten. Voin...”
+    %h5= link_to listing.title, listing_path(listing)
+    %p= listing.description
     .float_left
       = link_to t('.please_comment'), "#"
       &nbsp;|&nbsp;
       = link_to t('.please_offer'), "#"
     .float_right
       %span
-        = link_to "Juho", "#"
-        2 days ago
+        = link_to listing.author.given_name, "#"
+        = time_ago(listing.created_at)
