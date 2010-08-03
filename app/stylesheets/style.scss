@@ -623,17 +623,17 @@ form, input {
 }
 
 @mixin new_listing_form_field {
-	font-weight: bold;
-	color: $light_grey;
+	color: $text_color;
 	background: $bg_color;
 	width: 380px;
 	border: 0;
 	&:focus { background: white; }
 }
 
-.new_listing_form_main {
+#new_listing_form_main {
 	margin: 20px 12px;
 	label.input {
+		font-weight: bold;
 		padding: 8px 3px 0 3px;
 		margin: 0;
 		font-size: 14px;
@@ -648,6 +648,15 @@ form, input {
 		padding-top: 4px;
 		font-size: 12px;
 		font-weight: bold;
+	}
+	label.radiobutton {
+		float: left;
+		padding-top: 9px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	label.disabled_grey {
+		color: $light_grey;
 	}
 	label.error {
 		font-size: 13px;
@@ -665,6 +674,13 @@ form, input {
 	}
 	span.bigger {
 		font-size: 14px;
+	}
+	input.title_text_field {
+		@include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		font-weight: bold;
 	}
 	input.text_field {
 		@include new_listing_form_field;
@@ -744,6 +760,37 @@ div.checkbox_container {
 	line-height: 200%;
 }
 
+div.date_select_container {
+	padding-top: 5px;
+	margin-left: 170px;
+	width: 500px;
+	overflow: hidden;
+}
+
+div.date_select_time_container {
+	margin: 10px 0 0 167px;
+}
+
+@mixin datetime_select_label {
+	float: left;
+  font-size: 13px;
+	font-weight: bold;
+	position: relative;
+	overflow: hidden;
+	line-height: 35px;
+	height: 35px;
+}
+
+div.datetime_select_time_label {
+	@include datetime_select_label;
+	padding: 0 18px 0 3px;
+}
+
+div.datetime_select_colon_label {
+	@include datetime_select_label;
+	margin-right: 5px;
+}
+
 div.checkbox_float {
 	width: 35px;
 	float: left;
@@ -760,7 +807,7 @@ div.checkbox_float {
 	}
 	input.text_field {
 		font-weight: bold;
-		color: $light_grey;
+		color: $text_color;
 		background: $bg_color;
 		width: 300px;
 		font-size: 14px;

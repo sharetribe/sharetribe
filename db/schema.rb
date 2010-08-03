@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100729142416) do
+ActiveRecord::Schema.define(:version => 20100730132825) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20100729142416) do
     t.string   "share_type"
     t.string   "origin"
     t.string   "destination"
+    t.datetime "valid_until"
   end
 
   create_table "messages", :force => true do |t|

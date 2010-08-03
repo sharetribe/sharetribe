@@ -1,9 +1,9 @@
 .new_listing_form_field_container
-  %label{:for => "name", :class => "input"}
+  %label{:class => "input"}
     = t(".#{@listing.listing_type}_type") + ":"
     %br/
     %span{:class => "smaller"}  
-      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "share_type_link"
+      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_share_type_link"
   .checkbox_container 
     - Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |share_type|
       .one_checkbox_container

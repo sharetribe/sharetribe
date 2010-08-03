@@ -700,9 +700,10 @@ form, input {
 .hidden {
   display: none; }
 
-.new_listing_form_main {
+#new_listing_form_main {
   margin: 20px 12px; }
-  .new_listing_form_main label.input {
+  #new_listing_form_main label.input {
+    font-weight: bold;
     padding: 8px 3px 0 3px;
     margin: 0;
     font-size: 14px;
@@ -710,13 +711,20 @@ form, input {
     float: left;
     width: 164px;
     line-height: 110%; }
-  .new_listing_form_main label.checkbox {
+  #new_listing_form_main label.checkbox {
     float: left;
     width: 90px;
     padding-top: 4px;
     font-size: 12px;
     font-weight: bold; }
-  .new_listing_form_main label.error {
+  #new_listing_form_main label.radiobutton {
+    float: left;
+    padding-top: 9px;
+    font-size: 12px;
+    font-weight: bold; }
+  #new_listing_form_main label.disabled_grey {
+    color: #797979; }
+  #new_listing_form_main label.error {
     font-size: 13px;
     font-weight: bold;
     width: 378px;
@@ -726,33 +734,42 @@ form, input {
     padding: 14px 10px 5px 10px;
     background: red url("/images/error_arrow.png") no-repeat top left;
     color: white; }
-  .new_listing_form_main span.smaller {
+  #new_listing_form_main span.smaller {
     font-size: 11px; }
-  .new_listing_form_main span.bigger {
+  #new_listing_form_main span.bigger {
     font-size: 14px; }
-  .new_listing_form_main input.text_field {
-    font-weight: bold;
-    color: #797979;
+  #new_listing_form_main input.title_text_field {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    font-weight: bold; }
+    #new_listing_form_main input.title_text_field:focus {
+      background: white; }
+  #new_listing_form_main input.text_field {
+    color: #464646;
     background: #f7f5e6;
     width: 380px;
     border: 0;
     font-size: 14px;
     height: 18px;
     padding: 9px 9px; }
-    .new_listing_form_main input.text_field:focus {
+    #new_listing_form_main input.text_field:focus {
       background: white; }
-  .new_listing_form_main input.send_button {
+  #new_listing_form_main input.send_button {
     margin: 10px 0 0 169px; }
-  .new_listing_form_main textarea {
-    font-weight: bold;
-    color: #797979;
+  #new_listing_form_main textarea {
+    color: #464646;
     background: #f7f5e6;
     width: 380px;
     border: 0;
     font-size: 12px;
     height: 100px;
     padding: 9px 9px; }
-    .new_listing_form_main textarea:focus {
+    #new_listing_form_main textarea:focus {
       background: white; }
 
 .new_listing_form_field_container {
@@ -808,6 +825,35 @@ div.checkbox_container {
   overflow: hidden;
   line-height: 200%; }
 
+div.date_select_container {
+  padding-top: 5px;
+  margin-left: 170px;
+  width: 500px;
+  overflow: hidden; }
+
+div.date_select_time_container {
+  margin: 10px 0 0 167px; }
+
+div.datetime_select_time_label {
+  float: left;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  line-height: 35px;
+  height: 35px;
+  padding: 0 18px 0 3px; }
+
+div.datetime_select_colon_label {
+  float: left;
+  font-size: 13px;
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+  line-height: 35px;
+  height: 35px;
+  margin-right: 5px; }
+
 div.checkbox_float {
   width: 35px;
   float: left; }
@@ -826,7 +872,7 @@ div.checkbox_float {
     margin-bottom: 15px; }
   #login_form input.text_field {
     font-weight: bold;
-    color: #797979;
+    color: #464646;
     background: #f7f5e6;
     width: 300px;
     font-size: 14px;

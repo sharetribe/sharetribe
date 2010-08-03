@@ -26,7 +26,7 @@ class Listing < ActiveRecord::Base
   
   serialize :share_type, Array
   
-  before_validation :set_rideshare_title
+  before_validation :set_rideshare_title, :set_valid_until_time
   
   before_save :downcase_tags
   
@@ -36,7 +36,9 @@ class Listing < ActiveRecord::Base
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :listing_type, :in => VALID_TYPES
   validates_inclusion_of :category, :in => VALID_CATEGORIES
+  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
   validate :given_share_type_is_one_of_valid_share_types
+  validate :valid_until_is_not_nil
   
   def downcase_tags
     tag_list.each { |t| t.downcase! }
@@ -50,6 +52,12 @@ class Listing < ActiveRecord::Base
   def set_rideshare_title
     if rideshare?
       self.title = "#{origin} - #{destination}" 
+    end  
+  end
+  
+  def set_valid_until_time
+    if valid_until
+      self.valid_until = valid_until.utc + 23.hours + 59.minutes + 59.seconds unless category.eql?("rideshare")
     end  
   end
   
@@ -84,6 +92,12 @@ class Listing < ActiveRecord::Base
           errors.add(:share_type, "is not included in the list")
         end   
       end
+    end  
+  end
+  
+  def valid_until_is_not_nil
+    if (rideshare? || listing_type.eql?("request")) && !valid_until
+      errors.add(:valid_until, "cannot be empty")
     end  
   end
   

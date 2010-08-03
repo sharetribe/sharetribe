@@ -10,7 +10,8 @@ describe Listing do
       :listing_type => "request",
       :category => "item",
       :share_type => ["buy", "borrow"],
-      :tag_list => "tools, hammers"
+      :tag_list => "tools, hammers",
+      :valid_until => DateTime.now + 3.months
     )
   end  
   
@@ -105,6 +106,36 @@ describe Listing do
       ["offer", "housing", ["lend", "sell"]]
     ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
   end
+
+  it "should not be valid when there is no valid until" do
+    @listing.valid_until = nil
+    @listing.should_not be_valid
+  end
+  
+  it "should not be valid when valid until date is before current date" do
+    @listing.valid_until = DateTime.now - 1.day - 1.minute
+    @listing.should_not be_valid
+  end
+
+  it "should not be valid when valid until is more than one year after current time" do
+    @listing.valid_until = DateTime.now + 1.year + 1.hour
+    @listing.should_not be_valid
+  end
+  
+  context "with listing type 'offer'" do
+  
+    before(:each) do
+      @listing.listing_type = "offer"
+      @listing.share_type = ["sell", "lend"]
+    end
+    
+    it "should be valid when there is no valid until" do
+      @listing.valid_until = nil
+      @listing.should be_valid
+
+    end 
+  
+  end
   
   context "with category 'rideshare'" do
     
@@ -158,6 +189,17 @@ describe Listing do
       @listing.title = "test"
       @listing.should be_valid
       @listing.title.should == "Otaniemi - Turku"
+    end
+    
+    it "should not be valid when valid until is less than current time" do
+      @listing.valid_until = DateTime.now - 1.hour
+      @listing.should_not be_valid
+    end
+    
+    it "should not be valid when there is no valid until" do
+      @listing.listing_type = "offer"
+      @listing.valid_until = nil
+      @listing.should_not be_valid
     end
   
   end
