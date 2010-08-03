@@ -71,7 +71,7 @@ fi:
       comma_separate: "(erota pilkulla)"
     listing_share_type:
       offer_type: "Tarjoustapa"
-      request_type: "Pyyntötyyppi"
+      request_type: "Pyyntötapa"
       sell: "Myy"
       lend: "Lainaa"
       rent_out: "Vuokraa"
@@ -150,6 +150,33 @@ fi:
     months_ago:  "kuukautta sitten"
     year_ago:    "vuosi sitten"
     years_ago:   "vuotta sitten"    
+
+# Active record errors
+  activerecord:
+    models:
+      conversation: viesti
+      listing: ilmoitus
+    attributes:
+      conversation:
+        messages: ""
+        title: "Otsikko"
+        return_time: "Palautusajan"
+        items: ""
+      listing:
+        title: "Ilmoituksen otsikko" 
+        description: "Ilmoituksen kuvaus"
+        listing_images_image: ""  
+        valid_until: "Ilmoituksen viimeinen voimassaolopäivämäärä"
+        listing_images: ""
+        listing_images_image_content_type: ""
+        share_type: "Ilmoitustapa"
+      listing_image:
+        image: "kuva"
+      group:
+        title: "Ryhmän nimi"
+      person:
+        consent: "Tutkimussuostumus"
+
 
 # Default finnish translations for Ruby on Rails 
 # by Marko Seppä (marko.seppa@gmail.com)
@@ -264,52 +291,51 @@ fi:
       minute: "Minuutti"
       second: "Sekuntia"
   
-  activerecord:
-    errors:
-      template:
-        header:
-          one:    "1 virhe esti tallentamisen"
-          other:  "{{count}} virhettä esti tallentamisen"
-        body: "Seuraavat kentät aiheuttivat ongelmia:"
-      messages:
-        inclusion: "ei löydy listauksesta"
-        exclusion: "on jo varattu"
-        invalid: "ei kelpaa"
-        confirmation: "ei vastaa varmennusta"
-        accepted: "täytyy olla hyväksytty"
-        empty: "on pakollinen tieto"
-        blank: "on pakollinen tieto"
-        too_long: "on liian pitkä (maksimi on {{count}} merkkiä)"
-        too_short: "on liian lyhyt (minimi on {{count}} merkkiä)"
-        wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
-        taken: "on jo käytössä"
-        not_a_number: "ei ole numero"
-        greater_than: "täytyy olla suurempi kuin {{count}}"
-        greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin{{count}}"
-        equal_to: "täytyy olla yhtä suuri kuin {{count}}"
-        less_than: "täytyy olla pienempi kuin {{count}}"
-        less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
-        odd: "täytyy olla pariton"
-        even: "täytyy olla parillinen"
-      models:
-        person:
-          attributes:
-            consent:  
-              not_accepted: "täytyy hyväksyä"
-        conversation:
-          attributes:
-            return_time:
-              too_early: "pitää olla myöhäisempi kuin noutoajan"
-            items:
-              too_few_available: "Vain {{count}} kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
-              none_available: "Ei yhtään kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
-            messages:
-              invalid: "Tyhjää viestiä ei voi lähettää"            
-        listing:
-          attributes:
-            good_thru:
-              blank: "syöttäminen on pakollista"
-              inclusion: "täytyy olla välillä nykyheti - yksi vuosi"
-            image_file:
-              format: "on oltava .gif, .jpg tai .png -muodossa"
-              size: "koon on oltava alle 5 megabittiä"
+  errors:
+    template:
+      header:
+        one:    "1 virhe esti tallentamisen"
+        other:  "{{count}} virhettä esti tallentamisen"
+      body: "Seuraavat kentät aiheuttivat ongelmia:"
+    messages:
+      inclusion: "ei löydy listauksesta"
+      exclusion: "on jo varattu"
+      invalid: "ei kelpaa"
+      confirmation: "ei vastaa varmennusta"
+      accepted: "täytyy olla hyväksytty"
+      empty: "on pakollinen tieto"
+      blank: "on pakollinen tieto"
+      too_long: "on liian pitkä (maksimi on {{count}} merkkiä)"
+      too_short: "on liian lyhyt (minimi on {{count}} merkkiä)"
+      wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
+      taken: "on jo käytössä"
+      not_a_number: "ei ole numero"
+      greater_than: "täytyy olla suurempi kuin {{count}}"
+      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin{{count}}"
+      equal_to: "täytyy olla yhtä suuri kuin {{count}}"
+      less_than: "täytyy olla pienempi kuin {{count}}"
+      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
+      odd: "täytyy olla pariton"
+      even: "täytyy olla parillinen"
+    models:
+      person:
+        attributes:
+          consent:  
+            not_accepted: "täytyy hyväksyä"
+      conversation:
+        attributes:
+          return_time:
+            too_early: "pitää olla myöhäisempi kuin noutoajan"
+          items:
+            too_few_available: "Vain {{count}} kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
+            none_available: "Ei yhtään kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
+          messages:
+            invalid: "Tyhjää viestiä ei voi lähettää"            
+      listing:
+        attributes:
+          valid_until:
+            blank: "syöttäminen on pakollista"
+            inclusion: "täytyy olla välillä nykyheti - yksi vuosi"
+          image_file:
+            format: "on oltava .gif, .jpg tai .png -muodossa"
+            size: "koon on oltava alle 5 megabittiä"

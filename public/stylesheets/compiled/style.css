@@ -282,6 +282,12 @@ form, input {
 .field_with_errors {
   float: left; }
 
+.errorExplanation {
+  background: red;
+  color: white;
+  padding: 10px 20px;
+  margin-bottom: 20px; }
+
 /* Home page */
 .recent_events {
   background: #d1c9b4;

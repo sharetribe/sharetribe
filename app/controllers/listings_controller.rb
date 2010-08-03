@@ -14,13 +14,14 @@ class ListingsController < ApplicationController
     @listing = Listing.new
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
-    1.times {@listing.listing_images.build}
+    1.times { @listing.listing_images.build }
     respond_with(@listing)
   end
   
   def create
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
+      1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
     else
       flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, new_listing_path(:type => @listing.listing_type)]
