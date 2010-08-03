@@ -3,7 +3,9 @@ en:
     what_is_this: "What's this?"
   error_messages:
     listings:
-      share_type: "You must check at least one of the boxes above."  
+      share_type: "You must check at least one of the boxes above." 
+      valid_until: "This date must be between current time and one year from now."
+      departure_time: "Departure time must be between current time and one year from now." 
   layouts:
     logged_in:
       login: "Login"
@@ -66,7 +68,6 @@ en:
       give_away: "Give away"
       trade: "Trade"
       rent: "Rent"
-      valid_until: "Valid until"  
     listing_share_type:
       offer_type: "Offer type"
       request_type: "Request type"
@@ -98,7 +99,14 @@ en:
     listing_images:
       image: "Image"
       select_file: "Select file"
-      no_file_selected: "No file selected"  
+      no_file_selected: "No file selected"
+    listing_valid_until:
+      valid_until: "Valid until"
+    listing_valid_until_radio_buttons:
+      for_the_time_being: "For the time being"  
+    listing_departure_time:  
+      departure_time: "Departure time"
+      at: "At"  
     listing_send_button:
       save_request: "Save request"
       save_offer: "Save offer"
@@ -115,7 +123,8 @@ en:
       housing_offer: "Housing offer"
     help_texts:
       help_tags_title: "Tags"  
-      share_type_title: "Type of the offer or request"
+      help_share_type_title: "Type of the offer or request"
+      help_valid_until_title: "Valid until date"
   sessions:
     new:
       login_to_kassi: "Log in to Kassi"

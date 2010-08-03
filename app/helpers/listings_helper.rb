@@ -22,4 +22,11 @@ module ListingsHelper
     classes  
   end
   
+  # Removes extra characters from datetime_select field
+  def clear_datetime_select(&block)
+    time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('.at')}:</div>"
+    colon = "</div><div class='date_select_time_container'><div class='datetime_select_colon_label'>:</div>"
+    haml_concat capture_haml(&block).gsub(":", "#{colon}").gsub("&mdash;", "#{time}").gsub("\n", '')
+  end
+  
 end

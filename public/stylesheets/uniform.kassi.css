@@ -111,14 +111,14 @@ div.selector.disabled.active span {
 
 div.selector2 {
   background-position: -483px -720px;
-  line-height: 36px;
-	height: 36px;
+  line-height: 35px;
+	height: 35px;
 }
 
 div.selector2 span {
   background-position: right -540px;
-  height: 36px;
-	line-height: 36px;
+  height: 35px;
+	line-height: 35px;
 }
 
 div.selector2 select {
@@ -162,7 +162,7 @@ div.selector2.focus.active span {
 div.selector2.disabled,
 div.selector2.disabled:active,
 div.selector2.disabled.active {
-	background-position: -483px -864px;
+	background-position: -483px -900px;
 }
 
 div.selector2.disabled span,
@@ -243,68 +243,68 @@ div.checker.disabled.active span.checked {
 /* Radio */
 
 div.radio {
-  width: NaNpx;
-  height: NaNpx;
+  width: 34px;
+  height: 36px;
 }
 
 div.radio input {
-  width: NaNpx;
-  height: NaNpx;
+  width: 34px;
+  height: 36px;
 }
 
 div.radio span {
-  height: NaNpx;
-  width: NaNpx;
-  background-position: NaNpx NaNpx;
+	width: 34px;
+  height: 36px;
+  background-position: 0px -902px;
 }
 
 div.radio:active span, 
 div.radio.active span {
-	background-position: NaNpx NaNpx;
+	background-position: -36px -902px;
 }
 
 div.radio.focus span, 
 div.radio:hover span {
-	background-position: NaNpx NaNpx;
+	background-position: -72px -902px;
 }
 
 div.radio.focus:active span,
 div.radio:active:hover span,
 div.radio.active:hover span,
 div.radio.active.focus span {
-	background-position: NaNpx NaNpx;
+	background-position: -108px -902px;
 }
 
 div.radio span.checked {
-	background-position: NaNpx NaNpx;
+	background-position: -144px -902px;
 }
 
 div.radio:active span.checked,
 div.radio.active span.checked {
-	background-position: NaNpx NaNpx;
+	background-position: -180px -902px;
 }
 
 div.radio.focus span.checked, div.radio:hover span.checked {
-	background-position: NaNpx NaNpx;
+	background-position: -216px -902px;
 }
 
 div.radio.focus:active span.checked, 
 div.radio:hover:active span.checked,
 div.radio.focus.active span.checked,
 div.radio.active:hover span.checked {
-	background-position: NaNpx NaNpx;
+	background-position: -252px -902px;
 }
 
 div.radio.disabled span,
 div.radio.disabled:active span,
 div.radio.disabled.active span {
-	background-position: NaNpx NaNpx;
+	background-position: -288px -902px;
 }
 
 div.radio.disabled span.checked,
 div.radio.disabled:active span.checked,
 div.radio.disabled.active span.checked {
-	background-position: NaNpx NaNpx;
+	background-position: -324px -902px;
 }
 
 /* Uploader */
@@ -391,28 +391,28 @@ div.selector.disabled span {
 
 /* Select2 */
 div.selector2 {
-	margin-right: 8px;
+	margin-right: 6px;
 	float: left;
-  width: 127px;
-  font-size: 14px;
+  width: 118px;
+  font-size: 12px;
 	font-weight: bold;
 }
 
 div.selector2 select {
-  width: 127px;
+  width: 118px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 	font-weight: bold;
   border: solid 1px #fff;
 }
 
 div.selector2 span {
-  padding: 0;
+  padding-top: 1px;
 }
 
 div.selector2 span {
-  color: #797979;
-  width: 115px;
+  color: #464646;
+  width: 106px;
   text-shadow: 0 1px 0 #fff;
 }
 
@@ -428,7 +428,7 @@ div.checker {
 
 /* Radio */
 div.radio {
-  margin-right: 10px;
+	margin-right: 0px;
 }
 
 /* Uploader */
@@ -438,7 +438,7 @@ div.uploader {
 
 div.uploader span.action {
   width: 127px;
-	font-size: 14;
+	font-size: 12px;
 	font-weight: bold;
   text-align: center;
   color: #fff;
@@ -446,10 +446,10 @@ div.uploader span.action {
 }
 
 div.uploader span.filename {
-  color: #797979;
+  color: #464646;
   width: 250px;
-  font-size: 14px;
-	font-weight: bold;
+  font-size: 13px;
+	padding-top:; 1px;
 }
 
 div.uploader input {
@@ -457,12 +457,12 @@ div.uploader input {
 }
 
 div.uploader.disabled span.action {
-  color: #797979;
+  color: #464646;
 }
 
 div.uploader.disabled span.filename {
   border-color: #ddd;
-  color: #797979;
+  color: #464646;
 }
 /*
 
@@ -512,7 +512,7 @@ div.selector2 {
 }
 
 div.selector2 span {
-	padding-left: 10px;
+	padding-left: 8px;
 	display: block;
 	float: left;
 	overflow: hidden;
@@ -523,7 +523,7 @@ div.selector2 span {
 div.selector2 select {
 	position: absolute;
 	opacity: 0;
-  height: 36px;
+  height: 35px;
   border: none;
   background: none;
 }
