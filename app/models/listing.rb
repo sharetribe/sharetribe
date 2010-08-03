@@ -8,7 +8,7 @@ class Listing < ActiveRecord::Base
   acts_as_taggable
   
   has_many :listing_images, :dependent => :destroy
-  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].nil? }
+  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
@@ -85,14 +85,14 @@ class Listing < ActiveRecord::Base
   def given_share_type_is_one_of_valid_share_types
     if ["favor", "rideshare"].include?(category)
       if share_type
-        errors.add(:share_type, "is not used for this category")
+        errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil))
       end
     elsif !share_type
-      errors.add(:share_type, "must be selected") 
+      errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
     elsif listing_type && category && share_type && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
       share_type.each do |test_type|
         unless VALID_SHARE_TYPES[listing_type][category].include?(test_type)
-          errors.add(:share_type, "is not included in the list")
+          errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
         end   
       end
     end  
