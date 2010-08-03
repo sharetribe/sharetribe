@@ -1,6 +1,6 @@
 Given /^a new (item|favor|rideshare|housing) (offer|request) with title "([^"]*)"(?: and with share type "([^"]*)")?$/ do |category, type, title, share_type|
   @listing = Listing.new(:listing_type => type, :category => category, 
-                         :title => title, :author_id => "dMF4WsJ7Kr3BN6ab9B7ckF")
+                         :title => title, :author_id => "dMF4WsJ7Kr3BN6ab9B7ckF", :valid_until => DateTime.now + 1.month)
                          # author_id of kassi_testperson1
 
   @listing.share_type = [share_type] if share_type
