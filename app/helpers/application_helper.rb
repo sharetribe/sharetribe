@@ -43,4 +43,14 @@ module ApplicationHelper
     link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), "#"
   end
   
+  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
+    opts = {
+      :totalPages => total_pages,
+      :url        => url,
+      :loaderMsg  => loader_message
+    }
+    
+    javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
+  end
+  
 end
