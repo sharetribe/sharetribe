@@ -41,11 +41,13 @@
       %h3{:class => "orange"}
         = link_to t('.recent_requests'), "#"
       = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
-      = will_paginate(@requests)
-      = pageless(@requests.total_pages, '#recent_requests', root_path, "Loading more requests") 
+      -#= will_paginate(@requests)
+      -# pageless(@requests.total_pages, '#recent_requests', root_path, "Loading more requests") 
   #recent_offers.grid_9.omega
     .recent_listings
       %h3{:class => "brown"}
         = link_to t('.recent_offers'), "#"
       = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
- 
+      -#= will_paginate(@offers)
+      -# pageless(@offers.total_pages, '#recent_offers', root_path, "Loading more offers")
+  = pageless(@requests.total_pages, '#recent_listings', root_path, "Loading more content", true) 

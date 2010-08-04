@@ -42,13 +42,26 @@ module ApplicationHelper
   def small_avatar_thumb(person)    
     link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), "#"
   end
-  
-  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
+
+  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
+
     opts = {
       :totalPages => total_pages,
       :url        => url,
-      :loaderMsg  => loader_message
+      :loaderMsg  => loader_message,
+      :div1         => "#recent_requests",
+      :div2         => "#recent_offers",
+      :split_string => "<!--SPLIT_req-off-->"
     }
+    
+    #if two_div_update
+      # opts.merge( {
+      #   :div1         => "#recent_requests",
+      #   :div2         => "#recent_offers",
+      #   :split_string => "<!--SPLIT_req-off-->"
+      # })
+    #end
+    
     
     javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
   end

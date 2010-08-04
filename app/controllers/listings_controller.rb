@@ -38,19 +38,5 @@ class ListingsController < ApplicationController
       format.js 
     end
   end
-  
-  # Returns html for additional content for listing lists
-  # Called as AJAX requests
-  def more_listings
-    if request.xhr?
- 
-      #@requests = Listing.requests.order("created_at desc").paginate(:per_page => 2, :page => params[:page])
-      @offers = Listing.offers.order("created_at desc").paginate(:per_page => 2, :page => params[:page])
-
-      
-      render :partial => "homepage/additional_listings", :locals => {:type => :request, :listings => @offers}
-      
-    end
-  end
 
 end
