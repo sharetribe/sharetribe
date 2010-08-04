@@ -1,6 +1,16 @@
 en:
   common:
     what_is_this: "What's this?"
+    share_types:
+      sell: "selling"
+      lend: "lending"
+      rent_out: "renting out"
+      trade: "trading"
+      give_away: "giving"
+      temporary_accommodation: "temporary accommodation"
+      buy: "buying"
+      borrow: "borrowing"
+      rent: "renting"
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
@@ -121,6 +131,20 @@ en:
       favor_offer: "Favor offer"
       rideshare_offer: "Rideshare offer"
       housing_offer: "Housing offer"
+      offer_author: "Offered by"
+      request_author: "Requested by"
+      offer_created: "Offer created"
+      request_created: "Request created"
+      share_types: "Share types"
+      tags: "Tags"
+      link_label_for_item_offer: "Request item"
+      link_label_for_favor_offer: "Request favor"
+      link_label_for_rideshare_offer: "Request ride"
+      link_label_for_housing_offer: "Request housing"
+      link_label_for_item_request: "Offer your item"
+      link_label_for_favor_request: "Offer your help"
+      link_label_for_rideshare_request: "Offer a ride"
+      link_label_for_housing_request: "Offer housing"
     help_texts:
       help_tags_title: "Tags"  
       help_share_type_title: "Type of the offer or request"

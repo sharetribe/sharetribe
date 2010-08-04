@@ -3,6 +3,16 @@
 fi:
   common:
     what_is_this: "Mitä tämä tarkoittaa?"
+    share_types:
+      sell: "myydään"
+      lend: "lainataan"
+      rent_out: "vuokrataan"
+      trade: "vaihdetaan"
+      give_away: "annetaan"
+      temporary_accommodation: "tilapäismajoitus"
+      buy: "ostetaan"
+      borrow: "lainataan"
+      rent: "vuokrataan"
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
@@ -122,6 +132,20 @@ fi:
       favor_offer: "Palvelustarjous"
       rideshare_offer: "Kyytitarjous"
       housing_offer: "Asuntotarjous"
+      offer_author: "Tarjoaja"
+      request_author: "Pyytäjä"
+      offer_created: "Tarjous lisätty"
+      request_created: "Pyyntö lisätty"
+      share_types: "Tarjoustapa"
+      tags: "Avainsanat"
+      link_label_for_item_offer: "Pyydä tavaraa"
+      link_label_for_favor_offer: "Pyydä palvelusta"
+      link_label_for_rideshare_offer: "Pyydä kyytiä"
+      link_label_for_housing_offer: "Pyydä asuntoa"
+      link_label_for_item_request: "Tarjoa tavaraasi"
+      link_label_for_favor_request: "Tarjoa apuasi"
+      link_label_for_rideshare_request: "Tarjoa kyytiä"
+      link_label_for_housing_request: "Tarjoa asuntoa"
     help_texts:
       help_tags_title: "Avaisanat"
       help_share_type_title: "Tarjous- tai pyyntötapa"
@@ -190,13 +214,13 @@ fi:
     day_names: [Sunnuntai, Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Lauantai]
     abbr_day_names: [Su, Ma, Ti, Ke, To, Pe, La]
     month_names: [~, Tammikuu, Helmikuu, Maaliskuu, Huhtikuu, Toukokuu, Kesäkuu, Heinäkuu, Elokuu, Syyskuu, Lokakuu, Marraskuu, Joulukuu]
-    abbr_month_names: [~, Tammi, Helmi, Maalis, Huhti, Touko, Kesä, Heinä, Elo, Syys, Loka, Marras, Joulu]
+    abbr_month_names: [~, tammikuuta, helmikuuta, maaliskuuta, huhtikuuta, toukokuuta, kesäkuuta, heinäkuuta, elokuuta, syyskuuta, lokakuuta, marraskuuta, joulukuuta]
     order: [:day, :month, :year]
 
   time:
     formats:
       default: "%a, %e. %b %Y %H:%M:%S %z"
-      short: "%e. %b %H:%M"
+      short: "%e. %b %Y klo %H:%M"
       long: "%B %d, %Y %H:%M"
     am: "aamupäivä"
     pm: "iltapäivä"
