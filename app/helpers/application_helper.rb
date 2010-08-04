@@ -33,4 +33,14 @@ module ApplicationHelper
     return time
   end
   
+  # Changes line breaks to <br>-tags and transforms URLs to links
+  def text_with_line_breaks(&block)
+    pattern = /[\.)]*$/
+    haml_concat capture_haml(&block).gsub(/https?:\/\/\S+/) { |link_url| link_to(link_url.gsub(pattern,""), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
+  end
+  
+  def small_avatar_thumb(person)    
+    link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), "#"
+  end
+  
 end

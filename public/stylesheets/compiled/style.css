@@ -50,6 +50,9 @@ body {
   background: #f7f5e6 url("/images/background_gradient.png") repeat-x;
   color: #464646; }
 
+h1 {
+  margin: 0 0 10px 0; }
+
 h3.orange {
   color: #d45207;
   width: 340px;
@@ -740,8 +743,6 @@ form, input {
     padding: 14px 10px 5px 10px;
     background: red url("/images/error_arrow.png") no-repeat top left;
     color: white; }
-  #new_listing_form_main span.smaller {
-    font-size: 11px; }
   #new_listing_form_main span.bigger {
     font-size: 14px; }
   #new_listing_form_main input.title_text_field {
@@ -777,6 +778,9 @@ form, input {
     padding: 9px 9px; }
     #new_listing_form_main textarea:focus {
       background: white; }
+
+span.smaller {
+  font-size: 11px; }
 
 .new_listing_form_field_container {
   overflow: hidden;
@@ -999,3 +1003,65 @@ div.checkbox_float {
       color: #d45207; }
   #logged_in_links a.left {
     margin-right: 15px; }
+
+/* Single listing view */
+#share_types_and_tags {
+  padding: 10px 0;
+  border-top: 1px solid #464646;
+  border-bottom: 1px solid #464646; }
+
+#listing_author {
+  padding: 15px 0;
+  overflow: hidden; }
+
+#listing_author_description {
+  float: left;
+  margin-left: 10px;
+  padding-top: 5px; }
+
+#request_listing_link {
+  margin-left: 10px;
+  width: 210px; }
+  #request_listing_link a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #request_listing_link a:hover {
+      background: #f8792f; }
+    #request_listing_link a:active {
+      background: #a33f05;
+      padding: 11px 0 9px 0; }
+  #request_listing_link img {
+    vertical-align: -25%;
+    margin-right: 7px;
+    display: inline; }
+
+.request_listing_link_label {
+  display: inline; }
+
+#listing_category_big_icon_item {
+  width: 300px;
+  height: 300px;
+  background: #b8b19f url("/images/icons/big_category_icons.png") 0 0 no-repeat; }
+
+#listing_category_big_icon_favor {
+  width: 300px;
+  height: 300px;
+  background: #b8b19f url("/images/icons/big_category_icons.png") 0 -300px no-repeat; }
+
+#listing_category_big_icon_rideshare {
+  width: 300px;
+  height: 300px;
+  background: #b8b19f url("/images/icons/big_category_icons.png") 0 -600px no-repeat; }
+
+#listing_category_big_icon_housing {
+  width: 300px;
+  height: 300px;
+  background: #b8b19f url("/images/icons/big_category_icons.png") 0 -900px no-repeat; }

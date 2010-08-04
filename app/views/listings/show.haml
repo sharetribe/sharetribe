@@ -1,15 +1,43 @@
-%h1
-  #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
-%br/
+.grid_8
+  .image
+    - if @listing.listing_images.empty?
+      %div{:id => "listing_category_big_icon_#{@listing.category}"}
+    - @listing.listing_images.each do |listing_image|
+      = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
 
-.share_types
-  = @listing.share_type.join(", ") if @listing.share_type
-  %br/
-  %br/
+.grid_10
+  %h1
+    #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+  %p
+    - text_with_line_breaks do
+      = @listing.description
+
+  #share_types_and_tags
+    %strong
+      = t(".tags") + ":"
+    - @listing.tag_list.collect do |tag| 
+      = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+    - if @listing.share_type
+      %br/
+      %strong
+        = t(".share_types") + ":"
+      - @listing.share_type.collect do |st| 
+        = link_to(t("common.share_types.#{st}"), "#")  + ((st.eql?(@listing.share_type.last)) ? "" : ", ")
   
-.tags  
-  = @listing.tag_list.sort.join(", ")
-  
-.image
-  - @listing.listing_images.each do |listing_image|
-    = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
+  #listing_author
+    .float_left
+      = small_avatar_thumb(@listing.author)
+    #listing_author_description
+      %strong
+        = t(".#{@listing.listing_type}_author") + ":"
+        = link_to @listing.author.name, "#"
+      %br/
+      %span{:class => "smaller"}
+        = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
+    
+.grid_6
+  #request_listing_link
+    %a{:href => "#"}
+      = image_tag "/images/icons/request_icon.png"
+      .request_listing_link_label
+        = t(".link_label_for_#{@listing.category}_#{@listing.listing_type}")
