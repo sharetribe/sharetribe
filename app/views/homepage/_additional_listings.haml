@@ -1,6 +1,5 @@
-- if type == :request
-  = render :partial => "request_spacer"
-  = render :partial => "recent_listing", :collection => listings, :as => :listing, :spacer_template => "request_spacer"
-- else
-  = render :partial => "offer_spacer"
-  = render :partial => "recent_listing", :collection => listings, :as => :listing, :spacer_template => "offer_spacer"
+= render :partial => "request_spacer"
+= render :partial => "recent_listing", :collection => requests, :as => :listing, :spacer_template => "request_spacer"
+<!--SPLIT_req-off-->
+= render :partial => "offer_spacer"
+= render :partial => "recent_listing", :collection => offers, :as => :listing, :spacer_template => "offer_spacer"
