@@ -66,8 +66,8 @@
   
   $.pageless.loaderHtml = function(){
     return $.pageless.settings.loaderHtml || '\
-<div id="pageless-loader" style="display:none;text-align:center;width:100%;">\
-  <div class="msg" style="color:#e9e9e9;font-size:2em"></div>\
+<div id="pageless-loader" class="grid_9" style="display:none;text-align:center;width:100%;">\
+  <div class="msg" style="color:#bbbbbb;font-size:2em"></div>\
   <img src="' + $.pageless.settings.loaderImage + '" title="load" alt="loading more results" style="margin: 10px auto" />\
 </div>';
   };
