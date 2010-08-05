@@ -48,4 +48,4 @@
         = link_to t('.recent_offers'), "#"
       = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
       = will_paginate(@offers)
-  = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('homepage.recent_listing.loading_more_content'), true) 
+  = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
