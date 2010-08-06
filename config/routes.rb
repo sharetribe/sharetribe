@@ -61,6 +61,7 @@ Kassi::Application.routes.draw do |map|
     resources :listings do
       collection do
         get :switch_form_type
+        get :more_listings
       end  
     end
     resources :session

@@ -1,4 +1,5 @@
 require 'rest_client'
+require "benchmark"
 
 module RestHelper
 
@@ -50,23 +51,29 @@ module RestHelper
   private 
   
   def self.call(method, url, params=nil, headers=nil)
-    response = case method    
-      when :get, :delete
-        if (event_id)
-          if url.match(/\?/)
-            addition = "&event_id=#{event_id}"
-          else
-            addition = "?event_id=#{event_id}"
+    
+    response = nil
+    time = Benchmark.realtime do
+      response = case method    
+        when :get, :delete
+          if (event_id)
+            if url.match(/\?/)
+              addition = "&event_id=#{event_id}"
+            else
+              addition = "?event_id=#{event_id}"
+            end
+            url += addition
           end
-          url += addition
-        end
-        RestClient.try(method, url, params)
-      when :post, :put
-        if (event_id)
-          params.merge!(:event_id => event_id)
-        end
-        RestClient.try(method, url, params, headers) 
+          RestClient.try(method, url, params)
+        when :post, :put
+          if (event_id)
+            params.merge!(:event_id => event_id)
+          end
+          RestClient.try(method, url, params, headers) 
+      end
     end
+    Rails.logger.debug "ASI Call: #{method} #{url} Time elapsed #{(time*1000).round}ms"
     return response
+    
   end
 end

@@ -1,12 +1,12 @@
 .recent_listing
   .listing_image
-    - unless listing.listing_images.first.nil?
-      = image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title
+    - unless listing.listing_images.empty?
+      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing) 
     - else
-      =  link_to "#", "#", :title => listing
+      =  link_to "#", listing_path(listing) , :title => listing.title
   .recent_listing_text
-    %h5= link_to listing.title, listing_path(listing)
-    %p= listing.description
+    %h5= link_to (t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}", listing_path(listing))
+    %p= (listing.description.blank? ? t(".no_description") : truncate(listing.description, :length => 95, :omission => "..."))
     .float_left
       = link_to t('.please_comment'), "#"
       &nbsp;|&nbsp;
