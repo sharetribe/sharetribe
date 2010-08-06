@@ -407,7 +407,6 @@ form, input {
 		&:hover { background: lighten($background, 15%); }
 		&:active { 
 			background: darken($background, 10%);
-			padding: 11px 0 9px 0; 
 		}
 	}
 }

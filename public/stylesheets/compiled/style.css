@@ -355,8 +355,7 @@ form, input {
   #request_something_button a:hover {
     background: #f8792f; }
   #request_something_button a:active {
-    background: #a33f05;
-    padding: 11px 0 9px 0; }
+    background: #a33f05; }
 
 #offer_something_button a {
   display: block;
@@ -372,8 +371,7 @@ form, input {
   #offer_something_button a:hover {
     background: #a98553; }
   #offer_something_button a:active {
-    background: #544229;
-    padding: 11px 0 9px 0; }
+    background: #544229; }
 
 /* Aligns button descriptions to buttons */
 .button_description_fix {
@@ -1036,8 +1034,7 @@ div.checkbox_float {
     #request_listing_link a:hover {
       background: #f8792f; }
     #request_listing_link a:active {
-      background: #a33f05;
-      padding: 11px 0 9px 0; }
+      background: #a33f05; }
   #request_listing_link img {
     vertical-align: -25%;
     margin-right: 7px;
