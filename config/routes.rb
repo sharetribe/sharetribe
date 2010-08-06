@@ -64,7 +64,7 @@ Kassi::Application.routes.draw do |map|
         get :more_listings
       end  
     end
-    resources :session
+    resources :sessions
     resources :consent
   end
   
