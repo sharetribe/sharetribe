@@ -12,9 +12,9 @@ $.validator.
 	addMethod("min_date", 
 		function(value, element, is_rideshare) {
 			if (is_rideshare == "true") {
-				return new Date(get_datetime_from_datetime_select()) > new Date();
+				return get_datetime_from_datetime_select() > new Date();
 			} else {
-				return new Date(get_date_from_date_select()) > new Date();
+				return get_date_from_date_select() > new Date();
 			}
 	 	}
 	);
@@ -23,11 +23,13 @@ $.validator.
 	addMethod("max_date", 
 		function(value, element, is_rideshare) {
 			var current_time = new Date();
-			maximum_date = new Date((current_time.getFullYear() + 1) + '-' + current_time.getMonth() + '-' + current_time.getDate());
+			maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),23,59,59);
 			if (is_rideshare == "true") {
-				return new Date(get_datetime_from_datetime_select()) < maximum_date;
+				// alert ("Datetime select: " + get_datetime_from_datetime_select() + "\n Max date: " + maximum_date);
+				//alert ("Max date: " + maximum_date);
+				return get_datetime_from_datetime_select() < maximum_date;
 			} else {
-				return new Date(get_date_from_date_select()) < maximum_date;
+				return get_date_from_date_select() < maximum_date;
 			}
 	 	}
 	);	
@@ -165,16 +167,16 @@ function get_date_from_date_select() {
 	year = $('#listing_valid_until_1i').val();
 	month = $('#listing_valid_until_2i').val();
 	day = $('#listing_valid_until_3i').val();
-	date = year + '-' + month + '-' + day;
+	date = new Date(year,month-1,day,"23","59","58");
 	return date;
 }
 
-function get_datetime_from_datetime_select(gmt_offset) {
+function get_datetime_from_datetime_select() {
 	year = $('#listing_valid_until_1i').val();
 	month = $('#listing_valid_until_2i').val();
 	day = $('#listing_valid_until_3i').val();
- 	hour= $('#listing_valid_until_4i').val();
-	minute = $('#listing_valid_until_5i').val();
-	date = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':00 '
+ 	hours= $('#listing_valid_until_4i').val();
+	minutes = $('#listing_valid_until_5i').val();
+	date = new Date(year,month-1,day,hours,minutes);
 	return date;
 }
