@@ -39,6 +39,7 @@ gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
+gem 'newrelic_rpm', :require => false
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"
@@ -46,6 +47,5 @@ group :test do
   gem 'cucumber-rails'
   gem 'cucumber'
   gem 'launchy'
-  gem 'newrelic_rpm', :require => false
   gem 'ruby-prof'
 end

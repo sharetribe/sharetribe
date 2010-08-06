@@ -78,32 +78,31 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"    
   end
   
+
+
   desc "Run the bundle install on the server"
-  task :bundle_install do
-    run "cd #{current_path} && bundle install"
+  task :bundle do
+    run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install #{shared_path}/gems/cache --without test"
   end
-  
-  # [ :stop, :start, :restart ].each do |t|
-  #   task t, :roles => :app do
-  #     mongrel.send(t)
-  #   end
-  # end
   
   desc "Modified restart task to work with mongrel cluster" 
   task :restart, :roles => :app do 
     # run "cd #{deploy_to}/current && mongrel_rails cluster::restart -C 
     # #{shared_path}/system/mongrel_cluster.yml" 
+    deploy.stop
+    deploy.start
   end 
   desc "Modified start task to work with mongrel cluster" 
   task :start, :roles => :app do 
     # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
     #     #{shared_path}/system/mongrel_cluster.yml" 
-     run "cd #{deploy_to}/current && rails server -p 3500 -e production"
+     run "cd #{deploy_to}/current && rails server -p 3500 -e production -d"
   end 
   desc "Modified stop task to work with mongrel cluster" 
   task :stop, :roles => :app do 
     # run "cd #{deploy_to}/current && mongrel_rails cluster::stop -C 
     # #{shared_path}/system/mongrel_cluster.yml" 
+    run "cd #{current_path} && mongrel_rails stop -p tmp/pids/server.pid" rescue nil
   end
   
   task :finalize do
@@ -113,9 +112,11 @@ namespace :deploy do
   end  
 end
 
-#before "deploy:migrate", "db:backup"
-after 'deploy:update_code', 'deploy:symlink_listing_images'
-#after 'deploy:update_code', 'deploy:bundle_install'
-after %w(deploy deploy:migrations deploy:cold), "deploy:finalize"
+after %w(deploy deploy:migrations deploy:cold deploy:start deploy:restart) do
+  deploy.finalize
+end
 
-
+after "deploy:update_code" do
+  deploy.symlink_listing_images
+  deploy.bundle
+end
