@@ -3,15 +3,16 @@
     - unless listing.listing_images.empty?
       = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing) 
     - else
-      =  link_to "#", listing_path(listing) , :title => listing.title
+      %div{:class => "listing_image_#{listing.category}"}
+        =  link_to "#", listing_path(listing) , :title => listing.title
   .recent_listing_text
-    %h5= link_to (t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}", listing_path(listing))
-    %p= (listing.description.blank? ? t(".no_description") : truncate(listing.description, :length => 95, :omission => "..."))
+    %h5= link_to listing.title, listing
+    %p{:class => "description"}= (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 90, :omission => "..."))
     .float_left
-      = link_to t('.please_comment'), "#"
+      = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), "#"
       &nbsp;|&nbsp;
-      = link_to t('.please_offer'), "#"
-    .float_right
-      %span
-        = link_to listing.author.given_name, "#"
-        = time_ago(listing.created_at)
+      = link_to t('.please_comment'), "#"
+    /.float_right
+    /%span
+    =# link_to listing.author.given_name, "#"
+    =# time_ago(listing.created_at)

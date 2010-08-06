@@ -66,7 +66,6 @@ en:
     recent_listing:
       please_comment: "Comment"
       please_offer: "Offer"
-      no_description: "No description"
   listings:
     listing_form_content:
       request_something: "Request something"
@@ -139,14 +138,16 @@ en:
       request_created: "Request created"
       share_types: "Share types"
       tags: "Tags"
+      no_description: "No description"
+    link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
       link_label_for_rideshare_offer: "Request ride"
-      link_label_for_housing_offer: "Request housing"
+      link_label_for_housing_offer: "Reply"
       link_label_for_item_request: "Offer your item"
       link_label_for_favor_request: "Offer your help"
       link_label_for_rideshare_request: "Offer a ride"
-      link_label_for_housing_request: "Offer housing"
+      link_label_for_housing_request: "Reply"
     help_texts:
       help_tags_title: "Tags"  
       help_share_type_title: "Type of the offer or request"
