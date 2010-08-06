@@ -50,7 +50,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
-	$('input.text_field:first').focus();
+	$('input.title_text_field:first').focus();
 	$("select.listing_date_select, input:checkbox, input:file, input:radio").uniform({
 		selectClass: 'selector2',
 		fileDefaultText: fileDefaultText, 

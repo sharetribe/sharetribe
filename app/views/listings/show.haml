@@ -10,7 +10,7 @@
     #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
   %p
     - text_with_line_breaks do
-      = @listing.description
+      = @listing.description.blank? ? t(".no_description") : @listing.description
 
   #share_types_and_tags
     %strong
@@ -40,4 +40,4 @@
     %a{:href => "#"}
       = image_tag "/images/icons/request_icon.png"
       .request_listing_link_label
-        = t(".link_label_for_#{@listing.category}_#{@listing.listing_type}")
+        = t("listings.link_labels.link_label_for_#{@listing.category}_#{@listing.listing_type}")

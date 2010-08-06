@@ -70,7 +70,6 @@ fi:
     recent_listing:
       please_comment: "Kommentoi"
       please_offer: "Tarjoa"
-      no_description: "Ei kuvausta"
   listings:
     listing_form_content:
       request_something: "Pyydä jotain"
@@ -140,14 +139,16 @@ fi:
       request_created: "Pyyntö lisätty"
       share_types: "Tarjoustapa"
       tags: "Avainsanat"
+      no_description: "Ei kuvausta"
+    link_labels:  
       link_label_for_item_offer: "Pyydä tavaraa"
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_rideshare_offer: "Pyydä kyytiä"
-      link_label_for_housing_offer: "Pyydä asuntoa"
+      link_label_for_housing_offer: "Vastaa"
       link_label_for_item_request: "Tarjoa tavaraasi"
       link_label_for_favor_request: "Tarjoa apuasi"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
-      link_label_for_housing_request: "Tarjoa asuntoa"
+      link_label_for_housing_request: "Vastaa"
     help_texts:
       help_tags_title: "Avaisanat"
       help_share_type_title: "Tarjous- tai pyyntötapa"
