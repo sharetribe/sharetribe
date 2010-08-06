@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.beta4'
+gem 'rails', '3.0.0.rc'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -38,7 +38,7 @@ gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
-gem 'will_paginate'
+gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"
@@ -47,4 +47,5 @@ group :test do
   gem 'cucumber'
   gem 'launchy'
   gem 'newrelic_rpm', :require => false
+  gem 'ruby-prof'
 end
