@@ -72,7 +72,7 @@ module RestHelper
           RestClient.try(method, url, params, headers) 
       end
     end
-    Rails.logger.debug "ASI Call: #{method} #{url} Time elapsed #{(time*1000).round}ms"
+    Rails.logger.debug "ASI Call: (#{(time*1000).round}ms) #{method} #{url}"
     return response
     
   end
