@@ -485,11 +485,11 @@ p.description {
 }
 
 .listing_image_favor {
-	@include listing_image(-185px);
+	@include listing_image(-785px);
 }
 
 .listing_image_rideshare {
-	@include listing_image(-785px);
+	@include listing_image(-185px);
 }
 
 .listing_image_housing {
