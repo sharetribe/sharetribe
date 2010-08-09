@@ -5,9 +5,7 @@
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.empty_value', 'jquery.validate.min', 'jquery.pageless', 'rails', 'kassi'
-        
-    :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });
+    = csrf_meta_tag
       
   %body
   
@@ -62,4 +60,6 @@
       &nbsp;
       %br/
       %br/
-      
+
+    :javascript
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });
