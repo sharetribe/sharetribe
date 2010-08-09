@@ -1,6 +1,6 @@
-Given /^I am logged in$/ do
+Given /^I am logged in(?: with "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("username", :with => "kassi_testperson1")
+  fill_in("username", :with => (person ? person :"kassi_testperson1"))
   fill_in("password", :with => "testi")
   click_button("Login")
 end

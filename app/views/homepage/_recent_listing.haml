@@ -9,8 +9,9 @@
     %h5= link_to listing.title, listing
     %p{:class => "description"}= (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 90, :omission => "..."))
     .float_left
-      = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), "#"
-      &nbsp;|&nbsp;
+      - unless is_current_user?(listing.author)
+        = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), "#"
+        &nbsp;|&nbsp;
       = link_to t('.please_comment'), "#"
     /.float_right
     /%span

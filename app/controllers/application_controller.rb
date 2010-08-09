@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
   
-  helper_method :root, :logged_in?
+  helper_method :root, :logged_in?, :is_current_user?
   
   def set_locale
     I18n.locale = params[:locale]
@@ -57,6 +57,10 @@ class ApplicationController < ActionController::Base
   
   def logged_in?
     ! @current_user.nil?
+  end
+  
+  def is_current_user?(person)
+    @current_user ? @current_user.id.eql?(person.id) : false
   end
   
   # Saves current path so that the user can be
