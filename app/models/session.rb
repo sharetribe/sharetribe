@@ -72,6 +72,12 @@ class Session
     return @@kassi_cookie
   end
   
+  # Used for tests
+  def self.set_kassi_cookie(new_cookie)
+    @@kassi_cookie = new_cookie
+    Rails.cache.write(KASSI_COOKIE_CACHE_KEY, @@kassi_cookie)
+  end
+  
   # Posts a GET request to ASI for this session
   def check
     begin

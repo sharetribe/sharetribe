@@ -5,14 +5,14 @@ describe RestHelper do
   context "Session is no more valid" do
     context "Kassi-cookie is invalid" do
       it "should create new Kassi-cookie and repeat the request" do
-        #puts Session.kassi_cookie
         @test_person, @session = get_test_person_and_session
         
         # Generate a cookie and make it look like it would have been the Kassi-cookie stored in cache
         #cookie = Session.kassi_cookie
         cookie = {"_trunk_session" => "NotAVeryValidCookie_JustForTesting"}
-        Rails.cache.write(Session::KASSI_COOKIE_CACHE_KEY, cookie)
+        Session.set_kassi_cookie(cookie)
         Session.kassi_cookie.should == cookie
+        
         response = RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{@test_person.id}/@self", {:cookies => cookie})
         
         #The Kassi-cookie should now been noted as invalid and renewed
