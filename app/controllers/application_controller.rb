@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :fetch_logged_in_user
   
+  rescue_from RestClient::Unauthorized, :with => :session_unauthorized
+  
   helper_method :root, :logged_in?
   
   def set_locale
@@ -35,7 +37,7 @@ class ApplicationController < ActionController::Base
       
       unless session[:cookie]
         # If there is no ASI-cookie for this session, log out completely
-        @current_user = session[:person_id] = session[:cookie] = nil
+        clear_user_session
       end
       
       # Here used to be a check for session validity that was done on every page load
@@ -61,6 +63,19 @@ class ApplicationController < ActionController::Base
   # redirected back to that path when needed.
   def save_current_path
     session[:return_to] = request.fullpath
+  end
+  
+  private
+
+  def session_unauthorized
+    # For some reason, ASI session is no longer valid => log the user out
+    clear_user_session
+    flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
+    redirect_to root_path and return
+  end
+  
+  def clear_user_session
+    @current_user = session[:person_id] = session[:cookie] = nil
   end
   
 end
