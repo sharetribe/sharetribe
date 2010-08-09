@@ -13,7 +13,7 @@ class Person < ActiveRecord::Base
   
   # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
   PERSON_HASH_CACHE_EXPIRE_TIME = 0#15  #ALSO THIS CACHE TEMPORARILY OFF TO TEST PERFORMANCE WIHTOUT IT
-  #PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
+  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
@@ -149,7 +149,7 @@ class Person < ActiveRecord::Base
     # First check the person name cache (which is common to all users)
     # If not found use the person_hash cache (which is separate for each asker)
     
-    #Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
+    Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
     # FIXME: THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA SERVER
     name_or_username_from_person_hash(cookie) # get without name cache
   end
@@ -184,7 +184,8 @@ class Person < ActiveRecord::Base
       return form_given_name ? form_given_name : ""
     end
     # We rather return the username than blank if no given name is set
-    return given_name_or_username(cookie)
+    #return Rails.cache.fetch("given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_or_username(cookie)}
+    given_name_or_username(cookie) 
   end
   
   def set_given_name(name, cookie)
@@ -359,10 +360,6 @@ class Person < ActiveRecord::Base
     
     begin
       person_hash = Person.cache_fetch(id,cookie)
-    rescue RestClient::Unauthorized => e
-      cookie = Session.update_kassi_cookie
-      person_hash = PersonConnection.get_person(self.id, cookie)
-      Person.cache_write(person_hash,id,cookie)
     rescue RestClient::ResourceNotFound => e
       #Could not find person with that id in ASI Database!
       return nil

@@ -8,6 +8,10 @@ class BrowsingTest < ActionController::PerformanceTest
     get '/'
   end
   
+  def test_new_request_page
+    get "en/listings/new/request"
+    
+  end
   # def test_homepage_no_cache
   #   get '/?nocache=1'
   # end

@@ -11,6 +11,7 @@ class Session
   
   @@kassi_cookie = nil # a cookie stored for a general App-only session for Kassi
   @@session_uri = "#{APP_CONFIG.ssl_asi_url}/session"
+  KASSI_COOKIE_CACHE_KEY = "kassi_cookie"
   
   # Creates a session and logs it in to Aalto Social Interface (ASI)
   def self.create(params={})
@@ -55,16 +56,20 @@ class Session
   end
   
   #a general app-only session cookie that maintains an open session to ASI for Kassi
+  #Stored in cache to have the same cookie available between pageloads
   def self.kassi_cookie
     if @@kassi_cookie.nil?
-      @@kassi_cookie = Session.create.cookie
+      @@kassi_cookie = Rails.cache.fetch(KASSI_COOKIE_CACHE_KEY) {update_kassi_cookie}
     end
     return @@kassi_cookie
   end
   
   #this method can be called, if kassi_cookie is not valid anymore
   def self.update_kassi_cookie
+    Rails.logger.debug "Updating Kassi-cookie from ASI"
     @@kassi_cookie = Session.create.cookie
+    Rails.cache.write(KASSI_COOKIE_CACHE_KEY, @@kassi_cookie)
+    return @@kassi_cookie
   end
   
   # Posts a GET request to ASI for this session

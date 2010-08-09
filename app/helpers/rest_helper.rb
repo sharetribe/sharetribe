@@ -28,18 +28,44 @@ module RestHelper
   end
 
   def self.make_request(method, url, params=nil, headers=nil, return_full_response=false)
+    
+    cookie_used_for_call = nil #this is used if getting unauthorized response
+    if method.to_sym == :post || method.to_sym == :put
+      cookie_used_for_call = headers[:cookies] if headers
+    else # with get and delete the headers are the third param here (params)
+       cookie_used_for_call = params[:cookies] if params
+    end
+    
     raise ArgumentError.new("Unrecognized method #{method} for rest call") unless ([:get, :post, :delete, :put].include?(method))
     
     begin
       response = call(method, url, params, headers)
+    
     rescue RestClient::RequestTimeout => e
       # In case of timeout, try once again
       Rails.logger.error { "Rest-client reported a timeout when calling #{method} for #{url} with params #{params}. Trying again..." }
       response = call(method, url, params, headers)
-    end
     
-    # TODO Should react here also on the case of the expired session
-    # When the repsonse would be not authorizedm forbidden or something..
+    rescue RestClient::Unauthorized => u
+      Rails.logger.error { "Rest-client unauthorized when calling #{method} for #{url}."}
+
+      # if the call was made with Kassi-cookie, try renewing it      
+      if (cookie_used_for_call == Session.kassi_cookie)
+         Rails.logger.info "Renewing Kassi-cookie and trying again..."
+         new_cookie = Session.update_kassi_cookie
+         if method.to_sym == :get || method.to_sym == :delete
+           params.merge!({:cookies => new_cookie})
+         else
+           headers.merge!({:cookies => new_cookie})
+         end
+         response = call(method, url, params, headers)
+      else
+        # Logged in as user, but the session has expired or is otherwise unvalid
+        # this is handled in application_controller
+        Rails.logger.info "Expired cookie (unauthorized) was for user-session. Logging out and redirecting to root_path"
+        raise u
+      end
+    end
     
     unless return_full_response
       return JSON.parse(response.body)
