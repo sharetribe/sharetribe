@@ -2,28 +2,6 @@ require 'spec_helper'
 
 describe Person do
   
-  # This method could be moved to a separate helper
-  def get_test_person_and_session(username="kassi_testperson1")  
-    #frist try loggin in to ASI
-    begin
-      session = Session.create({:username => username, :password => "testi" })
-      #try to find in kassi database
-      test_person = Person.find(session.person_id)
-
-    rescue RestClient::Request::Unauthorized => e
-      #if not found, create completely new person
-      session = Session.create
-      test_person = Person.create({ :username => username, 
-                      :password => "testi", 
-                      :email => "#{username}@example.com"},
-                       session.headers["Cookie"])
-                       
-    rescue ActiveRecord::RecordNotFound  => e
-      test_person = Person.add_to_kassi_db(session.person_id)
-    end
-    return [test_person, session]
-  end
-  
   def generate_random_username(length = 12)
     chars = ("a".."z").to_a + ("0".."9").to_a
     random_username = "aa_kassitest"
