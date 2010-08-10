@@ -3,6 +3,18 @@ class ConversationsController < ApplicationController
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_send_a_message"
   end
+  
+  def received
+    @conversations = @current_user.messages_that_are("received")
+    logger.info "Conversations: " + @conversations.inspect
+    render :action => :index
+  end
+  
+  def sent
+    @conversations = @current_user.messages_that_are("sent")
+    logger.info "Conversations: " + @conversations.inspect
+    render :action => :index
+  end
 
   def new
     @listing = Listing.find(params[:id])

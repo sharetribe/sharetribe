@@ -2,7 +2,7 @@
   .grid_4.prefix_1.alpha
     #logged_in_icons
       .logged_in_icon_inbox
-        = link_to "#", "#", :title => t('.messages')
+        = link_to "#", received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')
       .logged_in_icon_requests
         = link_to "#", "#", :title => t('.requests')
       .logged_in_icon_notifications

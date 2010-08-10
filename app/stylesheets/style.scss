@@ -1027,3 +1027,61 @@ div.checkbox_float {
 #listing_category_big_icon_housing {
 	@include listing_category_big_icon(-900px);
 }
+
+#inbox_tabs {
+	margin-left: 10px;
+	overflow: hidden;
+}
+
+@mixin inbox_tab {
+	float: left;
+	margin-right: 5px;
+	a {
+		padding-top: 9px;
+		width: 140px;
+		height: 27px;
+		text-align: center;
+		display: block;
+		font-size: 13px;
+		font-weight: bold;
+		@include half_rounded(top);
+	}
+}
+
+.inbox_tab_selected {
+	@include inbox_tab;
+	a {
+		color: $text_color;
+		background: $form_bg;
+	}
+}
+
+.inbox_tab_unselected {
+	@include inbox_tab;
+	a {
+		color: white;
+		background: $medium_brown;
+		&:hover { background: $light_brown; }
+		&:focus { background: $light_brown; }
+		&:active { background: $dark_brown; }
+	}	
+}
+
+#inbox_tab_spacer {
+	width: 100%;
+	height: 10px;
+	background: $form_bg;;
+}
+
+#conversations {
+	h4 {
+		text-align: left;
+		font-size: 16px;
+		color: $text_color;
+		width: 100%;
+		border-bottom: 1px solid $text_color;
+		margin-bottom: 0;
+	}	
+	margin: 20px 20px;
+	border-bottom: 1px solid $text_color;
+}

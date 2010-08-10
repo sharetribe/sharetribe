@@ -1,0 +1,19 @@
+.grid_24
+  %h1= t(".messages")
+  
+.grid_24
+  #inbox_tabs
+    %div{:class => get_inbox_tab_class("received")} 
+      = link_to t('.received'), received_person_messages_path(:person_id => @current_user.id.to_s)
+    %div{:class => get_inbox_tab_class("sent")} 
+      = link_to t('.sent'), sent_person_messages_path(:person_id => @current_user.id.to_s)
+  #inbox_tab_spacer    
+  
+  #conversations
+    %h4= t(".#{action_name}")
+    - if @conversations && !@conversations.empty?
+      = @conversations.inspect
+      =# render :partial => "conversations/conversation", :collection => @participations, :spacer_template => "inbox_spacer"
+    - else
+      = t(:no_received_messages)
+  

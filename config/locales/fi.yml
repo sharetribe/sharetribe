@@ -177,6 +177,11 @@ fi:
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
       request_new_password: "Pyydä uusi salasana"
   conversations:
+    index:
+      messages: "Viestit"
+      received: "Saapuneet"
+      sent: "Lähetetyt"
+      
     new:
       send_a_new_message: "Lähetä viesti"
       message: "Viesti"

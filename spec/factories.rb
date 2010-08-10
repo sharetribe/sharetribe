@@ -30,4 +30,5 @@ Factory.define :participation do |p|
   p.association :conversation
   p.association :person
   p.is_read 0
+  p.last_sent_at DateTime.now
 end    

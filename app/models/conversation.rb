@@ -17,9 +17,10 @@ class Conversation < ActiveRecord::Base
   # Sets the participants of the conversation
   def conversation_participants=(conversation_participants)
     conversation_participants.each do |participant, is_sender|
+      last_at = is_sender.eql?("1") ? "last_sent_at" : "last_received_at"
       participations.build(:person_id => participant,
                            :is_read => is_sender,
-                           :last_sent_at => DateTime.now)
+                           last_at.to_sym => DateTime.now)
     end
   end
 
