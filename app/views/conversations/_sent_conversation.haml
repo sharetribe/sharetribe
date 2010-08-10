@@ -1,0 +1,18 @@
+- last_message = conversation.last_message(@current_user, false)
+- receiver = conversation.other_party(@current_user)
+
+.conversation{:class => (conversation.read?(@current_user) ? "" : "unread")}
+  .person_image
+    = small_avatar_thumb conversation.other_party(@current_user)
+  .conversation_left
+    %b
+      = link_to receiver.name, receiver
+      %br/
+      = l last_message.created_at, :format => :short
+  .conversation_center
+    %b
+      = link_to conversation.title, "#"
+      %br/
+      = link_to(truncate(last_message.content, :length => 50, :omission => "..."), "#")
+  .conversation_right
+    Right

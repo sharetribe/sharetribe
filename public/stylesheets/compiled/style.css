@@ -1122,7 +1122,7 @@ div.checkbox_float {
 
 .inbox_tab_selected {
   float: left;
-  margin-right: 5px; }
+  margin-right: 8px; }
   .inbox_tab_selected a {
     padding-top: 9px;
     width: 140px;
@@ -1143,7 +1143,7 @@ div.checkbox_float {
 
 .inbox_tab_unselected {
   float: left;
-  margin-right: 5px; }
+  margin-right: 8px; }
   .inbox_tab_unselected a {
     padding-top: 9px;
     width: 140px;
@@ -1183,3 +1183,41 @@ div.checkbox_float {
     width: 100%;
     border-bottom: 1px solid #464646;
     margin-bottom: 0; }
+  #conversations .unread {
+    background: #efd6ba; }
+
+#no_conversations {
+  margin: 15px;
+  font-size: 14px; }
+
+.conversation {
+  padding: 15px 10px;
+  overflow: hidden; }
+
+.conversation_left {
+  margin-left: 10px;
+  width: 200px;
+  float: left; }
+
+.conversation_center {
+  margin-left: 10px;
+  width: 400px;
+  float: left; }
+
+.conversation_right {
+  margin-left: 10px;
+  width: 200px;
+  float: left; }
+
+.person_image {
+  width: 50px;
+  height: 50px;
+  float: left; }
+
+.inbox_spacer {
+  border-top: 1px solid #464646;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  height: 0;
+  margin: 0; }

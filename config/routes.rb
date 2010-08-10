@@ -1,4 +1,12 @@
 Kassi::Application.routes.draw do |map|
+  get "people/show"
+
+  get "people/new"
+
+  get "people/create"
+
+  get "people/edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
