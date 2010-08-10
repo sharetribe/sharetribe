@@ -48,4 +48,5 @@ group :test do
   gem 'cucumber'
   gem 'launchy'
   gem 'ruby-prof'
+  gem 'factory_girl_rails'
 end

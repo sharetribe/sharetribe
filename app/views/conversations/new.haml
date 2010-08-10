@@ -1,0 +1,29 @@
+- content_for :javascript do
+  - default_message_text = t(".default_#{@listing.listing_type}_message_text")
+  initialize_send_message_form('#{default_message_text}');
+
+.grid_10.prefix_7.suffix_7
+  #new_message_form
+    %h2
+      = t(".#{@listing.category}_#{@listing.listing_type}_message_form_title")
+      = link_to(@listing.author.given_name, "#")
+    = form_for @conversation do |form|
+      = form.error_messages
+      .form_field_container
+        .title_label
+          = t(".title") + ":"
+        .title_content
+          = get_message_title(@listing)
+          = form.hidden_field :title, :value => get_message_title(@listing)
+      .form_field_container
+        = fields_for "conversation[message_attributes]", Message.new do |message_form|
+          = message_form.label :content, t('.message') + ":"
+          = message_form.text_area :content, :class => "text_area"
+          = message_form.hidden_field :sender_id, :value => @current_user.id
+      .form_field_container
+        = hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", 1
+        = hidden_field_tag "conversation[conversation_participants][#{@listing.author.id}]", 0
+        = form.hidden_field :listing_id, :value => @listing.id
+        = form.submit t(".send_#{@listing.listing_type}_message"), :class => "send_button"
+
+

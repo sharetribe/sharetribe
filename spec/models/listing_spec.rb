@@ -3,16 +3,7 @@ require 'spec_helper'
 describe Listing do
   
   before(:each) do
-    @listing = Listing.new(
-      :title => "Sledgehammer",
-      :description => "Test" * 1000,
-      :author_id => 1,
-      :listing_type => "request",
-      :category => "item",
-      :share_type => ["buy", "borrow"],
-      :tag_list => "tools, hammers",
-      :valid_until => DateTime.now + 3.months
-    )
+    @listing = Factory.build(:listing)
   end  
   
   it "is valid with valid attributes" do

@@ -885,7 +885,7 @@ div.checkbox_float {
   width: 35px;
   float: left; }
 
-#login_form {
+#login_form, #new_message_form {
   background: #d1c9b4;
   border-radius: 7px;
   -moz-border-radius: 7px;
@@ -893,11 +893,11 @@ div.checkbox_float {
   overflow: hidden;
   padding: 20px 25px 25px 25px;
   line-height: 25px; }
-  #login_form h2 {
+  #login_form h2, #new_message_form h2 {
     font-weight: bold;
     font-size: 16px;
     margin-bottom: 15px; }
-  #login_form input.text_field {
+  #login_form input.text_field, #new_message_form input.text_field {
     font-weight: bold;
     color: #464646;
     background: #f7f5e6;
@@ -907,25 +907,48 @@ div.checkbox_float {
     padding: 5px 9px;
     margin-left: 10px;
     border: 0; }
-    #login_form input.text_field:focus {
+    #login_form input.text_field:focus, #new_message_form input.text_field:focus {
       background: white; }
-  #login_form input.send_button {
+  #login_form input.send_button, #new_message_form input.send_button {
     margin: 15px 0 0 10px; }
-  #login_form label {
+  #login_form label, #new_message_form label {
     margin: 10px;
     width: 340px;
     font-size: 14px;
     font-weight: bold; }
-  #login_form .links {
+  #login_form .links, #new_message_form .links {
     margin: 10px 0 0 10px; }
-  #login_form .text {
+  #login_form .text, #new_message_form .text {
     margin: 0 10px 10px 10px;
     line-height: 16px; }
-  #login_form span {
+  #login_form span, #new_message_form span {
     margin: 5px;
     color: #d45207;
     font-weight: bold;
     font-size: 16px; }
+  #login_form textarea, #new_message_form textarea {
+    margin-left: 10px;
+    width: 300px;
+    color: #464646;
+    background: #f7f5e6;
+    font-size: 12px;
+    height: 50px;
+    padding: 9px 9px;
+    border: 0; }
+    #login_form textarea:focus, #new_message_form textarea:focus {
+      background: white; }
+  #login_form .default_textarea_text, #new_message_form .default_textarea_text {
+    background: #f7f5e6;
+    color: #939393; }
+  #login_form div.title_label, #new_message_form div.title_label {
+    margin-left: 10px;
+    width: 300px;
+    font-size: 14px;
+    font-weight: bold; }
+  #login_form div.title_content, #new_message_form div.title_content {
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 16px; }
 
 #password_forgotten {
   display: none; }

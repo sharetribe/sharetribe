@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
   # Saves current path so that the user can be
   # redirected back to that path when needed.
   def save_current_path
-    session[:return_to] = request.fullpath
+    session[:return_to_content] = request.fullpath
   end
   
   private

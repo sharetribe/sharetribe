@@ -108,6 +108,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		}
 	});
 	set_textarea_maxlength();
+	auto_resize_text_areas();
+}
+
+function initialize_send_message_form(default_text) {
+	auto_resize_text_areas();
+	$('textarea').empty_value(default_text, true, 'default_textarea_text');
+	$('textarea').focus();
 }
 
 function translate_validation_messages(locale) {
@@ -179,4 +186,21 @@ function get_datetime_from_datetime_select() {
 	minutes = $('#listing_valid_until_5i').val();
 	date = new Date(year,month-1,day,hours,minutes);
 	return date;
+}
+
+function auto_resize_text_areas() {
+	$('textarea').autoResize({
+	    // On resize:
+	    onResize : function() {
+	        $(this).css({opacity:0.8});
+	    },
+	    // After resize:
+	    animateCallback : function() {
+	        $(this).css({opacity:1});
+	    },
+	    // Quite slow animation:
+	    animateDuration : 300
+	    // More extra space:
+	});
+	$('textarea').keydown();
 }

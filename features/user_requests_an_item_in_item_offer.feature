@@ -8,9 +8,9 @@ Feature: User requests an item in item offer
     And I am logged in with "kassi_testperson2"
     And I am on the homepage
     When I follow "Request item"
-    And I fill in "message" with "I want to borrow this item"
-    And I press "Send request"
-    Then I should see "Offer created successfully" within "#notifications"
+    And I fill in "Message:" with "I want to borrow this item"
+    And I press "Send the request"
+    Then I should see "Item request sent successfully" within "#notifications"
     And I should be on the home page
   
   

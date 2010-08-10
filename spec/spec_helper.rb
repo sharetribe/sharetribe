@@ -8,6 +8,8 @@ require 'rspec/rails'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
+KASSI_TESTPERSON2_ID = "df0LOkLS4r3yF-aby-BSxS"
+
 RSpec.configure do |config|
   # == Mock Framework
   #
