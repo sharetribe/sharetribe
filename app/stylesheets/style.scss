@@ -830,7 +830,7 @@ div.checkbox_float {
 	float: left;
 }
 
-#login_form {
+#login_form, #new_message_form {
 	@include form;
 	padding: 20px 25px 25px 25px;
 	line-height: 25px;
@@ -872,6 +872,32 @@ div.checkbox_float {
 		color: $orange;
 		font-weight: bold;
 		font-size: 16px;
+	}
+	textarea {
+		margin-left: 10px;
+		width: 300px;
+		color: $text_color;
+		background: $bg_color;
+		font-size: 12px;
+		height: 50px;
+		padding: 9px 9px;
+		border: 0;
+		&:focus { background: white; }
+	}
+	.default_textarea_text {
+		background: $bg_color;
+		color: lighten($text_color, 30%);
+	}
+	div.title_label {
+		margin-left: 10px;
+		width: 300px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+	div.title_content {
+		margin-left: 10px;
+		font-size: 14px;
+		line-height: 16px;
 	}
 }
 

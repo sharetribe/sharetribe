@@ -22,6 +22,9 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  
+  has_many :participations, :dependent => :destroy 
+  has_many :conversations, :through => :participations
 
   # has_many :feedbacks
   # 
@@ -49,10 +52,7 @@ class Person < ActiveRecord::Base
   #            :through => :person_interesting_listings, 
   #            :source => :listing
   #            
-  #   has_many :person_conversations, :dependent => :destroy 
-  #   has_many :conversations, 
-  #            :through => :person_conversations, 
-  #            :source => :conversation
+
   #   
   #   has_many :received_comments, 
   #            :class_name => "PersonComment", 

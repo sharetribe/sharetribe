@@ -34,11 +34,20 @@ fi:
       create_new_request: "Pyydä jotain muuta"
       create_new_offer: "Tarjoa jotain muuta"
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön."
+      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
       login_successful: "Tervetuloa Kassiin, "
       logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       error_with_session: "Virhe istunnon käsittelyssä."
       login_again: "Kirjaudu uudestaan."
+      item_request_message_sent: "Tavaratarjous lähetetty"
+      favor_request_message_sent: "Palvelustarjous lähetetty"
+      rideshare_request_message_sent: "Kyytitarjous lähetetty"
+      housing_request_message_sent: "Vastaus lähetetty"
+      item_offer_message_sent: "Tavarapyyntö lähetetty"
+      favor_offer_message_sent: "Palveluspyyntö lähetetty"
+      rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
+      housing_offer_message_sent: "Vastaus lähetetty"
   header:
     mobile_version: "Mobiiliversio"
     about: "Tietoa Kassista"
@@ -166,7 +175,26 @@ fi:
     password_forgotten:
       email: "Sähköposti"
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
-      request_new_password: "Pyydä uusi salasana"  
+      request_new_password: "Pyydä uusi salasana"
+  conversations:
+    new:
+      send_a_new_message: "Lähetä viesti"
+      message: "Viesti"
+      send_request_message: "Lähetä tarjous"
+      send_offer_message: "Lähetä pyyntö"
+      title: "Otsikko"
+      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
+      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
+      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
+      housing_request_message_form_title: "Vastaa käyttäjälle"
+      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
+      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
+      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
+      housing_offer_message_form_title: "Vastaa käyttäjälle"
+      request_message_title: "Tarjous: %{title}"
+      offer_message_title: "Pyyntö: %{title}"
+      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
+      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
@@ -284,34 +312,34 @@ fi:
       half_a_minute: "puoli minuuttia"
       less_than_x_seconds:
         one:   "aiemmin kuin sekunti"
-        other: "aiemmin kuin {{count}} sekuntia"
+        other: "aiemmin kuin %{count} sekuntia"
       x_seconds:
         one:   "sekunti"
-        other: "{{count}} sekuntia"
+        other: "%{count} sekuntia"
       less_than_x_minutes:
         one:   "aiemmin kuin minuutti"
-        other: "aiemmin kuin {{count}} minuuttia"
+        other: "aiemmin kuin %{count} minuuttia"
       x_minutes:
         one:   "minuutti"
-        other: "{{count}} minuuttia"
+        other: "%{count} minuuttia"
       about_x_hours:
         one:   "noin tunti"
-        other: "noin {{count}} tuntia"
+        other: "noin %{count} tuntia"
       x_days:
         one:   "päivä"
-        other: "{{count}} päivää"
+        other: "%{count} päivää"
       about_x_months:
         one:   "noin kuukausi"
-        other: "noin {{count}} kuukautta"
+        other: "noin %{count} kuukautta"
       x_months:
         one:   "kuukausi"
-        other: "{{count}} kuukautta"
+        other: "%{count} kuukautta"
       about_x_years:
         one:   "vuosi"
-        other: "noin {{count}} vuotta"
+        other: "noin %{count} vuotta"
       over_x_years:
         one:   "yli vuosi"
-        other: "yli {{count}} vuotta"
+        other: "yli %{count} vuotta"
     prompts:
       year:   "Vuosi"
       month:  "Kuukausi"
@@ -324,7 +352,7 @@ fi:
     template:
       header:
         one:    "1 virhe esti tallentamisen"
-        other:  "{{count}} virhettä esti tallentamisen"
+        other:  "%{count} virhettä esti tallentamisen"
       body: "Seuraavat kentät aiheuttivat ongelmia:"
     messages:
       inclusion: "ei löydy listauksesta"
@@ -334,16 +362,16 @@ fi:
       accepted: "täytyy olla hyväksytty"
       empty: "on pakollinen tieto"
       blank: "on pakollinen tieto"
-      too_long: "on liian pitkä (maksimi on {{count}} merkkiä)"
-      too_short: "on liian lyhyt (minimi on {{count}} merkkiä)"
-      wrong_length: "on väärän pituinen (täytyy olla täsmälleen {{count}} merkkiä)"
+      too_long: "on liian pitkä (maksimi on %{count} merkkiä)"
+      too_short: "on liian lyhyt (minimi on %{count} merkkiä)"
+      wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
       taken: "on jo käytössä"
       not_a_number: "ei ole numero"
-      greater_than: "täytyy olla suurempi kuin {{count}}"
-      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin{{count}}"
-      equal_to: "täytyy olla yhtä suuri kuin {{count}}"
-      less_than: "täytyy olla pienempi kuin {{count}}"
-      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin {{count}}"
+      greater_than: "täytyy olla suurempi kuin %{count}"
+      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin%{count}"
+      equal_to: "täytyy olla yhtä suuri kuin %{count}"
+      less_than: "täytyy olla pienempi kuin %{count}"
+      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin %{count}"
       odd: "täytyy olla pariton"
       even: "täytyy olla parillinen"
     models:
@@ -356,8 +384,8 @@ fi:
           return_time:
             too_early: "pitää olla myöhäisempi kuin noutoajan"
           items:
-            too_few_available: "Vain {{count}} kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
-            none_available: "Ei yhtään kappaletta tavaraa {{item_title}} vapaana halutulla aikavälillä"
+            too_few_available: "Vain %{count} kappaletta tavaraa %{item_title} vapaana halutulla aikavälillä"
+            none_available: "Ei yhtään kappaletta tavaraa %{item_title} vapaana halutulla aikavälillä"
           messages:
             invalid: "Tyhjää viestiä ei voi lähettää"            
       listing:
