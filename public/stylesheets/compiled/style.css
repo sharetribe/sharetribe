@@ -750,16 +750,6 @@ p.description {
     font-weight: bold; }
   #new_listing_form_main label.disabled_grey {
     color: #797979; }
-  #new_listing_form_main label.error {
-    font-size: 13px;
-    font-weight: bold;
-    width: 378px;
-    clear: both;
-    float: left;
-    margin: 5px 0 0 170px;
-    padding: 14px 10px 5px 10px;
-    background: red url("/images/error_arrow.png") no-repeat top left;
-    color: white; }
   #new_listing_form_main span.bigger {
     font-size: 14px; }
   #new_listing_form_main input.title_text_field {
@@ -773,6 +763,16 @@ p.description {
     font-weight: bold; }
     #new_listing_form_main input.title_text_field:focus {
       background: white; }
+  #new_listing_form_main label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 378px; }
   #new_listing_form_main input.text_field {
     color: #464646;
     background: #f7f5e6;
@@ -949,6 +949,17 @@ div.checkbox_float {
     margin-left: 10px;
     font-size: 14px;
     line-height: 16px; }
+  #login_form label.error, #new_message_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 298px;
+    margin-left: 10px; }
 
 #password_forgotten {
   display: none; }

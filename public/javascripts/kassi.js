@@ -35,8 +35,8 @@ $.validator.
 	);	
 
 // Initialize code that is needed for every view
-function initialize_defaults(default_text) { 
-	$('input.search_field').empty_value(default_text, true, 'default_text');
+function initialize_defaults(default_text) {
+	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
 }
@@ -113,8 +113,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 
 function initialize_send_message_form(default_text) {
 	auto_resize_text_areas();
-	$('textarea').empty_value(default_text, true, 'default_textarea_text');
+	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
+	$("#new_conversation").validate({
+		rules: {
+			"conversation[message_attributes][content]": {required: true, minlength: 1}
+		}
+	});	
 }
 
 function translate_validation_messages(locale) {

@@ -55,6 +55,17 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 	overflow: hidden;
 }
 
+@mixin form_error_field {
+	font-size: 13px;
+	font-weight: bold;
+	clear: both;
+	float: left;
+	margin: 5px 0 0 170px;
+	padding: 14px 10px 5px 10px;
+	background: red url("/images/error_arrow.png") no-repeat top left;
+	color: white;
+}
+
 .align_right {
 	text-align: right;
 }
@@ -691,17 +702,6 @@ p.description {
 	label.disabled_grey {
 		color: $light_grey;
 	}
-	label.error {
-		font-size: 13px;
-		font-weight: bold;
-		width: 378px;
-		clear: both;
-		float: left;
-		margin: 5px 0 0 170px;
-		padding: 14px 10px 5px 10px;
-		background: red url("/images/error_arrow.png") no-repeat top left;
-		color: white;
-	}
 	span.bigger {
 		font-size: 14px;
 	}
@@ -711,6 +711,10 @@ p.description {
 		height: 18px;
 		padding: 9px 9px;
 		font-weight: bold;
+	}
+	label.error {
+		@include form_error_field;
+		width: 378px;
 	}
 	input.text_field {
 		@include new_listing_form_field;
@@ -898,6 +902,11 @@ div.checkbox_float {
 		margin-left: 10px;
 		font-size: 14px;
 		line-height: 16px;
+	}
+	label.error {
+		@include form_error_field;
+		width: 298px;
+		margin-left: 10px;
 	}
 }
 
