@@ -9,11 +9,11 @@
       = link_to t('.sent'), sent_person_messages_path(:person_id => @current_user.id.to_s)
   #inbox_tab_spacer    
   
-  #conversations
-    %h4= t(".#{action_name}")
-    - if @conversations && !@conversations.empty?
-      = @conversations.inspect
-      =# render :partial => "conversations/conversation", :collection => @participations, :spacer_template => "inbox_spacer"
-    - else
-      = t(:no_received_messages)
+  - if @conversations && !@conversations.empty?
+    #conversations
+      %h4= pluralize(@conversations.size, t(".message_partitive"), t(".messages_partitive"))
+      = render :partial => "conversations/#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
+  - else
+    #no_conversations
+      = t(".no_#{action_name}_messages")
   

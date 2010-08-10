@@ -181,7 +181,10 @@ fi:
       messages: "Viestit"
       received: "Saapuneet"
       sent: "Lähetetyt"
-      
+      message_partitive: "viesti"
+      messages_partitive: "viestiä"
+      no_received_messages: "Ei lähetettyjä viestejä"
+      no_sent_messages: "Ei vastaanotettuja viestejä"    
     new:
       send_a_new_message: "Lähetä viesti"
       message: "Viesti"

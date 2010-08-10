@@ -19,6 +19,7 @@ $bg_color_dark: darken($bg_color, 10%);
 $listing_button_grey: #5c5c5c;
 $listing_button_light_grey: #b8b19f;
 $dark_green: #223f05;
+$unread_message: #efd6ba;
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -1035,7 +1036,7 @@ div.checkbox_float {
 
 @mixin inbox_tab {
 	float: left;
-	margin-right: 5px;
+	margin-right: 8px;
 	a {
 		padding-top: 9px;
 		width: 140px;
@@ -1084,4 +1085,46 @@ div.checkbox_float {
 	}	
 	margin: 20px 20px;
 	border-bottom: 1px solid $text_color;
+	.unread {
+		background: $unread_message;
+	}
+}
+
+#no_conversations {
+	margin: 15px;
+	font-size: 14px;
+}
+
+.conversation {
+	padding: 15px 10px;
+	overflow: hidden;
+}
+
+.conversation_left {
+	margin-left: 10px;
+	width: 200px;
+	float: left;
+}
+
+.conversation_center {
+	margin-left: 10px;
+	width: 400px;
+	float: left;
+}
+
+.conversation_right {
+	margin-left: 10px;
+	width: 200px;
+	float: left;
+}
+
+.person_image {
+	width: 50px;
+	height: 50px;
+	float: left;
+}
+
+.inbox_spacer {
+	@include spacer($text_color);
+	margin: 0;
 }
