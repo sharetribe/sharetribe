@@ -63,12 +63,21 @@ Kassi::Application.routes.draw do |map|
         get :more_listings
       end
     end
+    resources :people do
+      resources :messages, :controller => :conversations do 
+        collection do
+          get :received
+          get :sent
+        end
+      end    
+    end  
     resources :sessions
     resources :consent
     resources :conversations
   end
   
   # Some non-RESTful mappings
+  match "/:locale/people/:person_id/conversations" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete

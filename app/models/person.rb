@@ -25,6 +25,11 @@ class Person < ActiveRecord::Base
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
+  
+  # Returns conversations for the "received" and "sent" actions
+  def messages_that_are(action)
+    conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
+  end
 
   # has_many :feedbacks
   # 

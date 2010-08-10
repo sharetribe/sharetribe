@@ -176,6 +176,8 @@ en:
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
       request_new_password: "Request new password"
   conversations:
+    index:
+      messages: "Messages"
     new:
       send_a_new_message: "Send a new message"
       message: "Message"

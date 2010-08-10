@@ -1115,3 +1115,71 @@ div.checkbox_float {
   width: 300px;
   height: 300px;
   background: #b8b19f url("/images/icons/big_category_icons.png") 0 -900px no-repeat; }
+
+#inbox_tabs {
+  margin-left: 10px;
+  overflow: hidden; }
+
+.inbox_tab_selected {
+  float: left;
+  margin-right: 5px; }
+  .inbox_tab_selected a {
+    padding-top: 9px;
+    width: 140px;
+    height: 27px;
+    text-align: center;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-top-left-radius: 7px; }
+  .inbox_tab_selected a {
+    color: #464646;
+    background: #d1c9b4; }
+
+.inbox_tab_unselected {
+  float: left;
+  margin-right: 5px; }
+  .inbox_tab_unselected a {
+    padding-top: 9px;
+    width: 140px;
+    height: 27px;
+    text-align: center;
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    -moz-border-radius-topright: 7px;
+    -moz-border-radius-topleft: 7px;
+    -webkit-border-top-right-radius: 7px;
+    -webkit-border-top-left-radius: 7px; }
+  .inbox_tab_unselected a {
+    color: white;
+    background: #765d3a; }
+    .inbox_tab_unselected a:hover {
+      background: #9f7d4e; }
+    .inbox_tab_unselected a:focus {
+      background: #9f7d4e; }
+    .inbox_tab_unselected a:active {
+      background: #4d3d26; }
+
+#inbox_tab_spacer {
+  width: 100%;
+  height: 10px;
+  background: #d1c9b4; }
+
+#conversations {
+  margin: 20px 20px;
+  border-bottom: 1px solid #464646; }
+  #conversations h4 {
+    text-align: left;
+    font-size: 16px;
+    color: #464646;
+    width: 100%;
+    border-bottom: 1px solid #464646;
+    margin-bottom: 0; }
