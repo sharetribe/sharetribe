@@ -11,7 +11,7 @@
   
   - if @conversations && !@conversations.empty?
     #conversations
-      %h4= pluralize(@conversations.size, t(".message_partitive"), t(".messages_partitive"))
+      %h2= pluralize(@conversations.size, t(".message_partitive"), t(".messages_partitive"))
       = render :partial => "conversations/#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
   - else
     #no_conversations

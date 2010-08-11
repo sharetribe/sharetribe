@@ -1169,14 +1169,14 @@ div.checkbox_float {
       background: #4d3d26; }
 
 #inbox_tab_spacer {
-  width: 100%;
+  width: 940px;
   height: 10px;
   background: #d1c9b4; }
 
 #conversations {
-  margin: 20px 20px;
+  margin: 20px 30px 20px 20px;
   border-bottom: 1px solid #464646; }
-  #conversations h4 {
+  #conversations h2 {
     text-align: left;
     font-size: 16px;
     color: #464646;
@@ -1193,16 +1193,38 @@ div.checkbox_float {
 .conversation {
   padding: 15px 10px;
   overflow: hidden; }
+  .conversation a {
+    color: #464646; }
+    .conversation a:hover {
+      color: #797979;
+      text-decoration: underline; }
+    .conversation a:active {
+      color: black;
+      text-decoration: underline; }
 
 .conversation_left {
   margin-left: 10px;
   width: 200px;
-  float: left; }
+  float: left;
+  margin-top: 9px;
+  line-height: 14px; }
+  .conversation_left span {
+    font-size: 11px; }
 
 .conversation_center {
   margin-left: 10px;
   width: 400px;
-  float: left; }
+  float: left;
+  line-height: 19px; }
+  .conversation_center a {
+    color: #464646; }
+  .conversation_center h3 {
+    font-size: 16px;
+    margin: 5px 0 0 0; }
+  .conversation_center span {
+    font-size: 12px; }
+    .conversation_center span a {
+      font-weight: normal; }
 
 .conversation_right {
   margin-left: 10px;

@@ -199,8 +199,14 @@ fi:
       favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
       rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
       housing_offer_message_form_title: "Vastaa käyttäjälle"
-      request_message_title: "Tarjous: %{title}"
-      offer_message_title: "Pyyntö: %{title}"
+      item_request_message_title: "Tavaratarjous: %{title}"
+      favor_request_message_title: "Palvelustarjous: %{title}"
+      rideshare_request_message_title: "Kyytitarjous: %{title}"
+      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
+      item_offer_message_title: "Tavarapyyntö: %{title}"
+      favor_offer_message_title: "Palveluspyyntö: %{title}"
+      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
+      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
       default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
   timestamps:
@@ -223,7 +229,7 @@ fi:
       listing: ilmoitus
     attributes:
       conversation:
-        messages: ""
+        messages: "Viesti"
         title: "Otsikko"
         return_time: "Palautusajan"
         items: ""
