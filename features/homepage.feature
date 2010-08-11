@@ -4,14 +4,24 @@ Feature: Homepage
   I want see latest offers, requests and transactions on the home page
   
   Scenario: Latest offers on the homepage
-    Given a new item offer with title "car spare parts" and with share type "sell"
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
     When I am on the homepage
     Then I should see "car spare parts"
+    And I should see "Request item"
   
   Scenario: Latest requests on the homepage
-    Given a new favor request with title "massage"
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is favor request with title "massage" from "kassi_testperson2"
+    And I am logged in as "kassi_testperson1"
     When I am on the homepage
     Then I should see "massage"
+    And I should not see "offer item"
   
   @pending
   Scenario: Latest transcations on the homepage

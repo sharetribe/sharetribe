@@ -23,12 +23,12 @@ end
 Factory.define :message do |m|
   m.content "Test"
   m.association :conversation
-  m.sender { |sender| sender.association(:person, :id => KASSI_TESTPERSON2_ID) }
+  m.sender { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
 end
 
 Factory.define :participation do |p|
   p.association :conversation
   p.association :person
-  p.is_read 0
+  p.is_read false
   p.last_sent_at DateTime.now
 end    

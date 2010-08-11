@@ -111,10 +111,11 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	auto_resize_text_areas();
 }
 
-function initialize_send_message_form(default_text) {
+function initialize_send_message_form(default_text, locale) {
 	auto_resize_text_areas();
 	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
+	translate_validation_messages(locale);
 	$("#new_conversation").validate({
 		rules: {
 			"conversation[message_attributes][content]": {required: true, minlength: 1}

@@ -1,11 +1,11 @@
-Given /^a new (item|favor|rideshare|housing) (offer|request) with title "([^"]*)"(?: and with share type "([^"]*)")?$/ do |category, type, title, share_type|
-  @listing = Factory.build(:listing, :listing_type => type, :category => category, :title => title, :share_type => (share_type ? share_type.split(",") : nil))
-  unless @listing.valid?
-    puts "Listing is not valid! Erros:"
-    puts @listing.errors
-    @listing.should be_valid
-  end
-  @listing.save
+Given /^there is (item|favor|rideshare|housing) (offer|request) with title "([^"]*)" from "([^"]*)"(?: and with share type "([^"]*)")?$/ do |category, type, title, author, share_type|
+  @listing = Listing.create(:listing_type => type, 
+                             :category => category, 
+                             :title => title,
+                             :share_type => (share_type ? share_type.split(",") : nil),
+                             :author_id => @people[author].id,
+                             :valid_until => 3.months.from_now
+                            )
 end
 
 Then /^I should see image with alt text "([^\"]*)"$/ do | alt_text |

@@ -1,13 +1,9 @@
-Given /^a new message "([^"]*)" from "([^"]*)" about (item|favor|rideshare|housing) (offer|request)$/ do |message, sender, category, listing_type|
-  visit login_path(:locale => :en)
-  fill_in("username", :with => sender)
-  fill_in("password", :with => "testi")
-  click_button("Login")
-  #click_link(t("link_label_for_#{category}_#{listing_type}"))
-  click_link("Offer your help")
-  fill_in("Message:", :with => "message")
-  #click_button(t("conversations.new.send_#{listing_type}_message"))
-  click_button("Send the offer")
-  click_link("Logout")
+Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
+  title = I18n.t("conversations.new.#{@listing.category}_#{@listing.listing_type}_message_title", :title => @listing.title)
+  @conversation = Conversation.create(:listing_id => @listing.id, 
+                                      :title => title, 
+                                      :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
+                                      :message_attributes => { :content => message, :sender_id => @people[sender].id }
+                                      )                                   
 end
 
