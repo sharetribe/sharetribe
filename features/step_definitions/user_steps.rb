@@ -1,4 +1,4 @@
-Given /^I am logged in(?: with "([^"]*)")?$/ do |person|
+Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("username", :with => (person ? person : "kassi_testperson1"))
   fill_in("password", :with => "testi")
@@ -23,4 +23,9 @@ end
 
 Then /^I should be logged in$/ do
   @session.check["entry"]["user_id"].should_not be_blank
+end
+
+Given /^there are following users:$/ do |person_table|
+  @people = {}
+  person_table.hashes.each { |hash| @people[hash['person']] = get_test_person_and_session(hash['person'])[0] }
 end

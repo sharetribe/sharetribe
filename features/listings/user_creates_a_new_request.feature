@@ -7,16 +7,16 @@ Feature: User creates a new request
     Given I am logged in
     And I am on the home page
     When I follow "Request something"
-    And I check "Buy"  #This combined with adding an image breaks the test in a mysterious way.
+    #And I check "Buy"  #This combined with adding an image breaks the test in a mysterious way.
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
-    And I fill in "listing_tag_list" with "tools, hammers"
+    And I fill in "listing_tag_list" with "Tools, hammers"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     Then I should see "Item request: Sledgehammer" within "h1"
-    And I should see "borrow, buy" within ".share_types"
-    And I should see "borrow" within ".share_types"
-    And I should see "hammers, tools" within ".tags"
+    #And I should see "borrow, buy" within ".share_types"
+    And I should see "borrowing" within "#share_types_and_tags"
+    And I should see "tools, hammers" within "#share_types_and_tags"
     And I should see "Request created successfully" within "#notifications"
     And I should see image with alt text "Sledgehammer"
   

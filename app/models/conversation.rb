@@ -27,7 +27,7 @@ class Conversation < ActiveRecord::Base
   def last_message(user, received = true, count = -1)
     if messages[count].sender.eql?(user) == received
       count -= 1
-      last_received_message(user, received, count)
+      last_message(user, received, count)
     else
       messages[count]
     end

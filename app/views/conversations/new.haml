@@ -1,6 +1,6 @@
 - content_for :javascript do
   - default_message_text = t(".default_#{@listing.listing_type}_message_text")
-  initialize_send_message_form('#{default_message_text}');
+  initialize_send_message_form('#{default_message_text}', '#{I18n.locale}');
 
 .grid_10.prefix_7.suffix_7
   #new_message_form
