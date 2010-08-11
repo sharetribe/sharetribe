@@ -124,6 +124,20 @@ body {
 	overflow: hidden;
 }
 
+@mixin grey_link {
+	a {
+		color: $text_color;
+		&:hover { 
+			color: $light_grey;
+			text-decoration: underline; 
+		}
+		&:active { 
+			color: black;
+			text-decoration: underline;  
+		}
+	}
+}
+
 h1 {
 	margin: 0 0 10px 0;
 }
@@ -149,17 +163,7 @@ h4 {
 
 h5 {
 	margin: 0;
-	a {
-		color: $text_color;
-		&:hover { 
-			color: $light_grey;
-			text-decoration: underline; 
-		}
-		&:active { 
-			color: black;
-			text-decoration: underline;  
-		}
-	}	
+	@include grey_link;
 }
 
 a {
@@ -1069,13 +1073,13 @@ div.checkbox_float {
 }
 
 #inbox_tab_spacer {
-	width: 100%;
+	width: 940px;
 	height: 10px;
 	background: $form_bg;;
 }
 
 #conversations {
-	h4 {
+	h2 {
 		text-align: left;
 		font-size: 16px;
 		color: $text_color;
@@ -1083,7 +1087,7 @@ div.checkbox_float {
 		border-bottom: 1px solid $text_color;
 		margin-bottom: 0;
 	}	
-	margin: 20px 20px;
+	margin: 20px 30px 20px 20px;
 	border-bottom: 1px solid $text_color;
 	.unread {
 		background: $unread_message;
@@ -1098,18 +1102,38 @@ div.checkbox_float {
 .conversation {
 	padding: 15px 10px;
 	overflow: hidden;
+	@include grey_link;
 }
 
 .conversation_left {
 	margin-left: 10px;
 	width: 200px;
 	float: left;
+	margin-top: 9px;
+	line-height: 14px;
+	span {
+		font-size: 11px;
+	}
 }
 
 .conversation_center {
 	margin-left: 10px;
 	width: 400px;
 	float: left;
+	line-height: 19px;
+	a {
+		color: $text_color;
+	}	
+	h3 {
+		font-size: 16px;
+		margin: 5px 0 0 0;
+	}	
+	span {
+		a {
+			font-weight: normal;
+		}	
+		font-size: 12px;
+	}
 }
 
 .conversation_right {

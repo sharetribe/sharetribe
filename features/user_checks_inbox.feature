@@ -9,7 +9,7 @@ Feature: User checks inbox
     And I am logged in
     When I follow "Messages"
     Then I should see "Messages" within "h1"
-    And I should see "Favor offer: Massage" within "h4"
+    And I should see "Favor offer: Massage" within "h3"
   
   
   
