@@ -1152,3 +1152,13 @@ div.checkbox_float {
 	@include spacer($text_color);
 	margin: 0;
 }
+
+#conversation {
+	h2 {
+		text-align: left;
+		font-size: 16px;
+		color: $text_color;
+		margin-bottom: 0;
+	}
+	margin: 20px 30px 20px 20px;
+}	

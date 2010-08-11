@@ -1243,3 +1243,11 @@ div.checkbox_float {
   padding: 0;
   height: 0;
   margin: 0; }
+
+#conversation {
+  margin: 20px 30px 20px 20px; }
+  #conversation h2 {
+    text-align: left;
+    font-size: 16px;
+    color: #464646;
+    margin-bottom: 0; }

@@ -46,6 +46,10 @@ en:
       favor_offer_message_sent: "Favor request sent successfully"
       rideshare_offer_message_sent: "Ride request sent successfully"
       housing_offer_message_sent: "Message sent successfully"
+    conversations:
+      messages: "Messages"
+      received: "Received"
+      sent: "Sent"  
   header:
     mobile_version: "Mobile version"
     about: "About Kassi"
@@ -177,9 +181,6 @@ en:
       request_new_password: "Request new password"
   conversations:
     index:
-      messages: "Messages"
-      received: "Received"
-      sent: "Sent"
       message_partitive: "message"
       messages_partitive: "messages"
       no_received_messages: "No received messages"
@@ -209,7 +210,10 @@ en:
       rideshare_offer_message_title: "Rideshare request: %{title}"
       housing_offer_message_title: "Reply to your listing %{title}"
       default_request_message_text: "Explain what you are offering and under what conditions."
-      default_offer_message_text: "Explain what you need."    
+      default_offer_message_text: "Explain what you need."
+    show:
+      offer_sent_by: Offer sent by
+      request_sent_by: Request sent by        
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

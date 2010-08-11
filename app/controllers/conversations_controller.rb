@@ -15,6 +15,10 @@ class ConversationsController < ApplicationController
     logger.info "Conversations: " + @conversations.inspect
     render :action => :index
   end
+  
+  def show
+    @conversation = Conversation.find(params[:id])
+  end
 
   def new
     @listing = Listing.find(params[:id])
@@ -23,6 +27,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build
+    render :action => :new, :layout => "application"
   end
   
   def create

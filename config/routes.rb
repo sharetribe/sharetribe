@@ -85,6 +85,7 @@ Kassi::Application.routes.draw do |map|
   end
   
   # Some non-RESTful mappings
+  match "/:locale/people/:person_id/conversations/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/conversations" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
