@@ -11,23 +11,12 @@ gem 'rails', '3.0.0.rc'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug'
 
 # Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri', '1.4.1'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-# Bundle gems for certain environments:
-# gem 'rspec', :group => :test
-# group :test do
-#   gem 'webrat'
-# end
-
 
 gem "mongrel"
 gem 'mysql', '2.8.1'
@@ -40,6 +29,7 @@ gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'newrelic_rpm', :require => false
+gem 'memcache-client', ">= 1.8.5"
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"
