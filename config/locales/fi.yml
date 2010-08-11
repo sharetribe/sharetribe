@@ -48,6 +48,10 @@ fi:
       favor_offer_message_sent: "Palveluspyyntö lähetetty"
       rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
       housing_offer_message_sent: "Vastaus lähetetty"
+    conversations:
+      messages: "Viestit"
+      received: "Saapuneet"
+      sent: "Lähetetyt"  
   header:
     mobile_version: "Mobiiliversio"
     about: "Tietoa Kassista"
@@ -178,9 +182,6 @@ fi:
       request_new_password: "Pyydä uusi salasana"
   conversations:
     index:
-      messages: "Viestit"
-      received: "Saapuneet"
-      sent: "Lähetetyt"
       message_partitive: "viesti"
       messages_partitive: "viestiä"
       no_received_messages: "Ei lähetettyjä viestejä"
@@ -209,6 +210,9 @@ fi:
       housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
       default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
+    show:
+      offer_sent_by: Tarjouksen lähetti
+      request_sent_by: Pyynnön lähetti  
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"

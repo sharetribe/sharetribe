@@ -51,7 +51,7 @@
     = render :partial => "layouts/notifications"
           
     #main.container_24
-      = yield
+      = content_for?(:content) ? yield(:content) : yield
       
     #bottom_spacer.container_24  
       %br/

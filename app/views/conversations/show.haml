@@ -1,0 +1,9 @@
+#conversation
+  %h2= @conversation.title
+  = t(".#{@conversation.listing.listing_type}_sent_by")
+  = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
+  
+  #messages
+    = render :partial => "message", :collection => @conversation.messages
+    
+  #reply_form  

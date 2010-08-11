@@ -7,6 +7,6 @@
     %br/
     %span= l last_message.created_at, :format => :short
   .conversation_center
-    %h3= link_to conversation.title, "#"
-    %span= link_to(truncate(last_message.content, :length => 70, :omission => "..."), "#")
+    %h3= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
+    %span= link_to(truncate(last_message.content, :length => 70, :omission => "..."), single_conversation_path(:conversation_type => action_name, :id => conversation.id))
   .conversation_right
