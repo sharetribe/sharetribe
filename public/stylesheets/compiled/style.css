@@ -1251,3 +1251,35 @@ div.checkbox_float {
     font-size: 16px;
     color: #464646;
     margin-bottom: 0; }
+
+#messages {
+  margin-top: 20px;
+  overflow: hidden; }
+
+.message {
+  margin-bottom: 20px; }
+
+.message_arrow {
+  background: #f7f5e6 url("/images/message_arrow.png") 0 35px no-repeat;
+  width: 13px;
+  height: 100px;
+  float: left;
+  margin-left: 15px; }
+
+.message_main {
+  width: 400px;
+  float: left; }
+
+.message_sender {
+  width: 400px;
+  height: 25px; }
+  .message_sender span {
+    font-size: 11px; }
+
+.message_content {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  background: #d1c9b4;
+  width: 400px;
+  padding: 16px 20px; }

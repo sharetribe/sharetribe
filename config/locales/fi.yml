@@ -211,8 +211,8 @@ fi:
       default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
     show:
-      offer_sent_by: Tarjouksen lähetti
-      request_sent_by: Pyynnön lähetti  
+      offer_sent_by: "Tarjouksen lähetti"
+      request_sent_by: "Pyynnön lähetti" 
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
@@ -271,7 +271,7 @@ fi:
   time:
     formats:
       default: "%a, %e. %b %Y %H:%M:%S %z"
-      short: "%e. %b %Y klo %H:%M"
+      short: "%e. %b kello %H:%M"
       long: "%B %d, %Y %H:%M"
     am: "aamupäivä"
     pm: "iltapäivä"
