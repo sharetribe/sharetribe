@@ -1,2 +1,12 @@
-= small_avatar_thumb(message.sender)
-= message.content
+.message
+  .person_image
+    = small_avatar_thumb(message.sender)
+  .message_arrow
+    &nbsp;
+  .message_main
+    .message_sender
+      = link_to message.sender.name, message.sender
+      %span
+        = l(message.created_at, :format => :short) + ":"
+    .message_content  
+      = message.content
