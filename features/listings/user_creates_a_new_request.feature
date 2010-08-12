@@ -3,6 +3,7 @@ Feature: User creates a new request
   As a person who does not have the required item, skill, or transport
   I want to be able to request an item, a favor, or transport I need from other users
   
+  @javascript
   Scenario: Creating a new item request successfully
     Given I am logged in
     And I am on the home page
@@ -20,6 +21,7 @@ Feature: User creates a new request
     And I should see "Request created successfully" within "#notifications"
     And I should see image with alt text "Sledgehammer"
   
+  @javascript
   Scenario: Creating a new favor request successfully
     Given I am logged in
     And I am on the home page
@@ -31,7 +33,8 @@ Feature: User creates a new request
     And I press "Save request"
     Then I should see "Favor request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
-    
+  
+  @javascript  
   Scenario: Creating a new rideshare request successfully
     Given I am logged in
     And I am on the home page
@@ -43,7 +46,8 @@ Feature: User creates a new request
     And I press "Save request"
     Then I should see "Rideshare request: Otaniemi - Turku" within "h1"
     And I should see "Request created successfully" within "#notifications" 
-    
+  
+  @javascript  
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
@@ -66,3 +70,18 @@ Feature: User creates a new request
     And I should see "You must check at least one of the boxes above." within ".error"
     And I should see "This date must be between current time and one year from now." within ".error"
     #And I should see "Please enter a value with a valid extension." within ".error" # Works in UI but not here, reason unknown
+  
+  @pending
+  Scenario: Creating a new request with javascript disabled
+    Given context
+    When event
+    Then outcome
+  
+  @pending
+  Scenario: Creating a new request with insufficient information with javascript disabled
+    Given context
+    When event
+    Then outcome  
+  
+  
+    

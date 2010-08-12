@@ -1,7 +1,5 @@
 class ListingsController < ApplicationController
 
-  respond_to :html, :js
-
   before_filter :save_current_path, :only => :show
 
   before_filter :only => [ :new, :create ] do |controller|
@@ -17,7 +15,10 @@ class ListingsController < ApplicationController
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
     1.times { @listing.listing_images.build }
-    respond_with(@listing)
+    respond_to do |format|
+      format.html
+      format.js {render :layout => false}
+    end
   end
   
   def create
@@ -26,7 +27,8 @@ class ListingsController < ApplicationController
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
     else
-      flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, new_listing_path(:type => @listing.listing_type)]
+      path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
+      flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
       redirect_to @listing
     end
   end

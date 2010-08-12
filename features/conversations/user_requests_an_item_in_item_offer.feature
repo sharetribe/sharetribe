@@ -44,7 +44,8 @@ Feature: User requests an item in item offer
     When I follow "Request item"
     And I press "Send the request"
     Then I should see "This field is required." within ".error"
-    
+  
+  @javascript  
   Scenario: Requesting an item from the home page without logging in
     Given there are following users:
       | person | 

@@ -42,7 +42,7 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     And I follow "Favor offer: Massage"
-    Then I should see "Favor offer: Massage" within "h2"  
+    Then I should see "Favor offer: Massage" within "h2"
   
   
     

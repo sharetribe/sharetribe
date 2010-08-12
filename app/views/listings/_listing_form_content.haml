@@ -1,13 +1,15 @@
-- content_for :javascript do
-  - valid_until_msg = @listing.rideshare? ? t('error_messages.listings.departure_time') : t('error_messages.listings.valid_until')
+- valid_until_msg = @listing.rideshare? ? t('error_messages.listings.departure_time') : t('error_messages.listings.valid_until')
+:javascript
+  $(document).ready(function() {
   initialize_new_listing_form('#{t('listings.listing_images.no_file_selected')}', '#{t('listings.listing_images.select_file')}', '#{I18n.locale}', '#{t('error_messages.listings.share_type')}', '#{valid_until_msg}', '#{@listing.rideshare?}', '#{@listing.listing_type == "offer" ? "true" : "false"}');
+  });
 
 .grid_16.prefix_4.suffix_4
   #new_listing_form_tabs
     %div{:class => get_new_listing_tab_class("request")} 
-      = link_to t('.request_something'), new_listing_path(:type => "request", :category => @listing.category)
+      = link_to t('.request_something'), new_listing_path(:type => "request", :category => @listing.category), :remote => :true
     %div{:class => get_new_listing_tab_class("offer")} 
-      = link_to t('.offer_something'), new_listing_path(:type => "offer", :category => @listing.category)
+      = link_to t('.offer_something'), new_listing_path(:type => "offer", :category => @listing.category), :remote => :true
 
 .grid_16.prefix_4.suffix_4
 
@@ -15,7 +17,7 @@
     #listing_type_select_icons
       - Listing::VALID_CATEGORIES.each do |category|
         %div{:class => get_type_select_icon_class(category)} 
-          = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category)
+          = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category), :remote => :true
   
     #new_listing_form_main  
       = form_for @listing, :html => {:multipart => true} do |form|

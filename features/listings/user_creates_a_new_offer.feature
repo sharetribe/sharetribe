@@ -3,6 +3,7 @@ Feature: User creates a new offer
   As a person who has an item, is able to do a favor, or owns a transport
   I want to be able to offer that item, favor, or transport to the other users
   
+  @javascript
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page

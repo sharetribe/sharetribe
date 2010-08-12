@@ -4,8 +4,11 @@
   %head
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'rails', 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.spinner.js', 'rails', 'kassi'
     = csrf_meta_tag
+    
+    :javascript
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });
       
   %body
   
@@ -60,6 +63,3 @@
       &nbsp;
       %br/
       %br/
-
-    :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });

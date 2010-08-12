@@ -1169,13 +1169,14 @@ div.checkbox_float {
 }
 
 .message {
+	overflow: hidden;
 	margin-bottom: 20px;
 }
 
 .message_arrow {
 	background: $bg_color url("/images/message_arrow.png") 0 35px no-repeat;
 	width: 13px;
-	height: 100px;
+	height: 55px;
 	float: left;
 	margin-left: 15px;
 }
@@ -1193,9 +1194,36 @@ div.checkbox_float {
 	}	
 }
 
-.message_content {
+.message_content_div {
 	@include rounded;
 	background: $form_bg;
 	width: 400px;
 	padding: 16px 20px;	
+}
+
+#reply_form {
+	margin-top: 5px;
+	label {
+		margin-left: 77px;
+		font-weight: bold;
+	}
+	textarea {
+		margin-left: 77px;
+		width: 419px;
+		color: $text_color;
+		background: white;
+		font-size: 12px;
+		height: 70px;
+		padding: 9px 9px;
+		border: 2px solid $medium_brown;
+	}
+	input.send_button {
+		margin-left: 76px;
+		width: 150px;
+		font-size: 13px;
+	}
+}
+
+.message_form_field_container {
+	margin-bottom: 5px;
 }

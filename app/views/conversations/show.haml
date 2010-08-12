@@ -5,5 +5,16 @@
   
   #messages
     = render :partial => "message", :collection => @conversation.messages
+  
+  #conversation_notice
     
-  #reply_form  
+  #reply_form
+    = form_for Message.new, :remote => true do |f|
+      .message_form_field_container
+        = f.label :content, "Write a reply:"
+      .message_form_field_container  
+        = f.text_area :content
+      .message_form_field_container
+        = f.hidden_field :conversation_id, :value => @conversation.id.to_s
+        = f.hidden_field :sender_id, :value => @current_user.id
+        = f.submit "Send reply", :class => "send_button"
