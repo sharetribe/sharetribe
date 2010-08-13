@@ -33,6 +33,11 @@ module ApplicationHelper
     return time
   end
   
+  # used to escape strings to URL friendly format
+  def self.escape_for_url(str)
+     URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
+  end
+  
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(&block)
     pattern = /[\.)]*$/
@@ -49,18 +54,16 @@ module ApplicationHelper
       :totalPages => total_pages,
       :url        => url,
       :loaderMsg  => loader_message,
-      :div1         => "#recent_requests",
-      :div2         => "#recent_offers",
-      :split_string => "<!--SPLIT_req-off-->"
+      :div1       => target_id
     }
     
-    #if two_div_update
-      # opts.merge( {
-      #   :div1         => "#recent_requests",
-      #   :div2         => "#recent_offers",
-      #   :split_string => "<!--SPLIT_req-off-->"
-      # })
-    #end
+    if two_div_update
+      opts.merge!( {
+        :div1         => "#recent_requests",
+        :div2         => "#recent_offers",
+        :split_string => "<!--SPLIT_req-off-->"
+      })
+    end
     
     
     javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")

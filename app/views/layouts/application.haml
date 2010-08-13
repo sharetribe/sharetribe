@@ -18,10 +18,10 @@
           = link_to Kassi, root
         #logo_text.grid_3.omega
       #search.grid_8
-        = form_tag({ :url => listings_path }, :method => "get") do
+        = form_tag({ :action => :show, :controller => :search }, :method => "get") do
           - one_line do              
             = text_field_tag("q", params[:q], :class => "search_field")
-            = submit_tag(" ", :class => "search_button")
+            = submit_tag("search", :class => "search_button")
       #right.grid_10
         = render :partial => "layouts/logged_in"
       .clear

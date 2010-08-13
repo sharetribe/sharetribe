@@ -54,12 +54,11 @@
     //split_string:  "<!--SPLIT_req-off-->",
     //loader:       "#recent_requests"
 		scrape: function(data) { 
-		  arr = data.split($.pageless.settings.split_string);
-		  //alert(arr.length);
-		  if (arr.length == 1) {
-		    return arr[0];
+		  if (typeof($.pageless.div2) !== 'undefined') { // means that we have 2 div update
+  		  arr = data.split($.pageless.settings.split_string);
+  		  return arr;
 		  } else {
-		    return arr;
+		    return data;
 		  }
 		} 
   };
@@ -94,6 +93,8 @@
   $.fn.pageless = function(settings) {
     $.pageless.init(settings);
     $.pageless.el = $(this);
+    $.pageless.div1 = $(this).find(settings.div1)
+    
     if (settings.div1 && settings.div2 && settings.split_string ) {
       $.pageless.div1 = $(this).find(settings.div1)
       $.pageless.div2 = $(this).find(settings.div2)
@@ -155,10 +156,14 @@
       // finally ajax query
       $.get($.pageless.settings.url, $.pageless.settings.params, function(data){
 				var data = $.pageless.settings.scrape(data);
-				$.pageless.div1.append(data[0])
-				$.pageless.div2.append(data[1])
-				// TODO: Make less hard coded :)
-				//if ($.pageless.loader) { $.pageless.loader.before(data) } else { $.pageless.el.append(data) }
+			  if (typeof($.pageless.div2) !== 'undefined') { // means that we have 2 div update
+				  $.pageless.div1.append(data[0]);
+				  $.pageless.div2.append(data[1]);
+			  } else {
+			    //$.pageless.div1.append(data);
+			    if ($.pageless.loader) { $.pageless.loader.before(data) } else { $.pageless.el.append(data) }
+			  }
+
         
         $.pageless.loading(false);
         // if there is a complete callback we call it
