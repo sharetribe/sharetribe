@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_reply_form('#{I18n.locale}');
+
 #conversation
   %h2= @conversation.title
   = t(".#{@conversation.listing.listing_type}_sent_by")

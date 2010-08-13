@@ -1260,12 +1260,25 @@ div.checkbox_float {
   overflow: hidden;
   margin-bottom: 20px; }
 
-.message_arrow {
-  background: #f7f5e6 url("/images/message_arrow.png") 0 35px no-repeat;
+.person_image_message {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-top: 3px; }
+
+.message_arrow_left {
+  background: #f7f5e6 url("/images/message_arrows.png") 0 35px no-repeat;
   width: 13px;
   height: 55px;
   float: left;
   margin-left: 15px; }
+
+.message_arrow_right {
+  background: #f7f5e6 url("/images/message_arrows.png") 0 -25px no-repeat;
+  width: 13px;
+  height: 55px;
+  float: left;
+  margin-right: 15px; }
 
 .message_main {
   width: 400px;
@@ -1282,8 +1295,13 @@ div.checkbox_float {
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   background: #d1c9b4;
-  width: 400px;
-  padding: 16px 20px; }
+  width: 360px;
+  padding: 16px 20px;
+  overflow: hidden; }
+
+.message_content_spacer {
+  width: 77px;
+  float: left; }
 
 #reply_form {
   margin-top: 5px; }
@@ -1292,7 +1310,7 @@ div.checkbox_float {
     font-weight: bold; }
   #reply_form textarea {
     margin-left: 77px;
-    width: 419px;
+    width: 377px;
     color: #464646;
     background: white;
     font-size: 12px;
@@ -1301,8 +1319,36 @@ div.checkbox_float {
     border: 2px solid #765d3a; }
   #reply_form input.send_button {
     margin-left: 76px;
-    width: 150px;
+    width: 175px;
     font-size: 13px; }
+  #reply_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 378px;
+    margin: 0 400px 10px 77px;
+    background: red url("/images/error_arrow2.png") no-repeat top left; }
 
 .message_form_field_container {
   margin-bottom: 5px; }
+
+.conversation_notice {
+  /* margin: 10px 77px 10px 0; */
+  margin: 0 5px;
+  color: #264409;
+  border: 2px solid #c6d880;
+  background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 5px;
+  overflow: hidden;
+  width: 927px;
+  /* margin-left: 77px; */
+  margin: 10px 77px 10px 77px;
+  width: 340px;
+  padding: 10px 0 10px 55px; }

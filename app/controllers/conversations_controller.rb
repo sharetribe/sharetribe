@@ -5,25 +5,25 @@ class ConversationsController < ApplicationController
   end
   
   def received
-    @conversations = @current_user.messages_that_are("received")
-    logger.info "Conversations: " + @conversations.inspect
+    @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
+    @conversation_count = @current_user.messages_that_are("received").count
     render :action => :index
   end
   
   def sent
-    @conversations = @current_user.messages_that_are("sent")
-    logger.info "Conversations: " + @conversations.inspect
+    @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
+    @conversation_count = @current_user.messages_that_are("sent").count
     render :action => :index
   end
   
   def show
     @conversation = Conversation.find(params[:id])
+    @current_user.read(@conversation) unless @conversation.read?(@current_user)
   end
 
   def new
     @listing = Listing.find(params[:id])
-    logger.info "Listing: #{@listing}"
-    redirect_to session[:return_to_content] and return if is_current_user?(@listing.author)
+    redirect_to session[:return_to_content] and return if current_user?(@listing.author)
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build

@@ -24,6 +24,7 @@ class Conversation < ActiveRecord::Base
     end
   end
   
+  # Returns last received or sent message
   def last_message(user, received = true, count = -1)
     if messages[count].sender.eql?(user) == received
       count -= 1
@@ -40,5 +41,9 @@ class Conversation < ActiveRecord::Base
   def read?(person)
     participations.where(["person_id LIKE ?", person.id]).first.is_read
   end
-
+  
+  def read(person)
+    participations.where(["person_id LIKE ?", person.id]).first.update_attribute(:is_read, true)
+  end
+  
 end

@@ -1173,12 +1173,27 @@ div.checkbox_float {
 	margin-bottom: 20px;
 }
 
-.message_arrow {
-	background: $bg_color url("/images/message_arrow.png") 0 35px no-repeat;
+.person_image_message {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-top: 3px;
+}
+
+.message_arrow_left {
+	background: $bg_color url("/images/message_arrows.png") 0 35px no-repeat;
 	width: 13px;
 	height: 55px;
 	float: left;
 	margin-left: 15px;
+}
+
+.message_arrow_right {
+	background: $bg_color url("/images/message_arrows.png") 0 -25px no-repeat;
+	width: 13px;
+	height: 55px;
+	float: left;
+	margin-right: 15px;
 }
 
 .message_main {
@@ -1197,8 +1212,14 @@ div.checkbox_float {
 .message_content_div {
 	@include rounded;
 	background: $form_bg;
-	width: 400px;
-	padding: 16px 20px;	
+	width: 360px;
+	padding: 16px 20px;
+	overflow: hidden;
+}
+
+.message_content_spacer {
+	width: 77px;
+	float: left;
 }
 
 #reply_form {
@@ -1209,7 +1230,7 @@ div.checkbox_float {
 	}
 	textarea {
 		margin-left: 77px;
-		width: 419px;
+		width: 377px;
 		color: $text_color;
 		background: white;
 		font-size: 12px;
@@ -1219,11 +1240,26 @@ div.checkbox_float {
 	}
 	input.send_button {
 		margin-left: 76px;
-		width: 150px;
+		width: 175px;
 		font-size: 13px;
+	}
+	label.error {
+		@include form_error_field;
+		width: 378px;
+		margin: 0 400px 10px 77px;
+		background: red url("/images/error_arrow2.png") no-repeat top left;
 	}
 }
 
 .message_form_field_container {
 	margin-bottom: 5px;
+}
+
+.conversation_notice {
+	/* margin: 10px 77px 10px 0; */
+	@include notification(#264409, #c6d880, #e6efc2);
+	/* margin-left: 77px; */
+	margin: 10px 77px 10px 77px;
+	width: 340px;
+	padding: 10px 0 10px 55px;
 }

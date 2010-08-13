@@ -36,7 +36,7 @@
         = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
     
 .grid_6
-  - unless is_current_user?(@listing.author)
+  - unless current_user?(@listing.author)
     #request_listing_link
       %a{:href => reply_to_listing_path(:id => @listing.id.to_s)}
         = image_tag "/images/icons/request_icon.png"

@@ -1,7 +1,7 @@
 - last_message = conversation.last_message(@current_user, false)
 - receiver = conversation.other_party(@current_user)
 
-.conversation{:class => (conversation.read?(@current_user) ? "" : "unread")}
+.conversation
   .person_image
     = small_avatar_thumb conversation.other_party(@current_user)
   .conversation_left
