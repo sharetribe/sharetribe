@@ -423,6 +423,9 @@ class Person < ActiveRecord::Base
     listings.create params
   end
   
+  def read(conversation)
+    conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
+  end
   
   # Methods to simplify the cache access
   

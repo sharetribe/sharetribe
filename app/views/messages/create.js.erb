@@ -1,8 +1,8 @@
 /* Insert a notice between the last comment and the comment form */
-$("#conversation_notice").html('<div class="flash notice">Test</div>');
+$("#conversation_notice").html('<div class="conversation_notice"><%= t("layouts.notifications.#{flash[:message_notice]}") %></div');
  
 /* Add the new comment to the bottom of the comments list */
-$("#messages").append("Test");
+$("#messages").append("<%= escape_javascript(render(:partial => 'conversations/message', :collection => [@message])) %>");
  
 /* Reset the comment form */
 $("#new_message")[0].reset();

@@ -3,7 +3,6 @@ Feature: User creates a new request
   As a person who does not have the required item, skill, or transport
   I want to be able to request an item, a favor, or transport I need from other users
   
-  @javascript
   Scenario: Creating a new item request successfully
     Given I am logged in
     And I am on the home page
@@ -27,10 +26,12 @@ Feature: User creates a new request
     And I am on the home page
     When I follow "Request something"
     And I follow "Favor"
+    And show me the page
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
     And I press "Save request"
+    Then show me the page
     Then I should see "Favor request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
   
@@ -40,6 +41,7 @@ Feature: User creates a new request
     And I am on the home page
     When I follow "Request something"
     And I follow "Rideshare"
+    And show me the page
     And I fill in "listing_origin" with "Otaniemi"
     And I fill in "listing_destination" with "Turku"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"

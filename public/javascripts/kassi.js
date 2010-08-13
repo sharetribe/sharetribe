@@ -123,6 +123,17 @@ function initialize_send_message_form(default_text, locale) {
 	});	
 }
 
+function initialize_reply_form(locale) {
+	auto_resize_text_areas();
+	$('textarea').focus();
+	translate_validation_messages(locale);
+	$("#new_message").validate({
+		rules: {
+			"message[content]": {required: true, minlength: 1}
+		}
+	});	
+}
+
 function translate_validation_messages(locale) {
 	if (locale == "fi") {
 		translate_validation_messages_to_finnish();
