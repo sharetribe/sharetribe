@@ -91,6 +91,7 @@ Kassi::Application.routes.draw do |map|
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
+  match "/:locale/search" => "search#show"
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"

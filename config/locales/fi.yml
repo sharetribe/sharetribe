@@ -82,13 +82,11 @@ fi:
       items_partitive: "tavaraa"
       to_borrow: "lainaan"
       to_buy: "myyntiin"
-      please_comment: "Kommentoi"
-      please_offer: "Tarjoa"
       loading_more_content: "Ladataan lisää"
     recent_listing:
-      please_comment: "Kommentoi"
       please_offer: "Tarjoa"
   listings:
+    please_comment: "Kommentoi"
     listing_form_content:
       request_something: "Pyydä jotain"
       offer_something: "Tarjoa jotain"  
@@ -96,8 +94,6 @@ fi:
       favor: "Palvelus"
       rideshare: "Kimppakyyti"
       housing: "Asuminen"
-      offer_type: "Tarjoustapa"
-      comma_separate: "(erota pilkulla)"
     listing_share_type:
       offer_type: "Tarjoustapa"
       request_type: "Pyyntötapa"
@@ -170,7 +166,10 @@ fi:
     help_texts:
       help_tags_title: "Avaisanat"
       help_share_type_title: "Tarjous- tai pyyntötapa"
-      help_valid_until_title: "Viimeinen voimassaolopäivä"  
+      help_valid_until_title: "Viimeinen voimassaolopäivä"
+  search:
+    show:
+      loading_more_search_results: "Ladataan lisää hakutuloksia"
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"

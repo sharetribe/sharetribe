@@ -1,3 +1,5 @@
+# Translations specific for Kassi
+
 en:
   common:
     what_is_this: "What's this?"
@@ -82,9 +84,9 @@ en:
       to_buy: "to sell"
       loading_more_content: "Loading more content"
     recent_listing:
-      please_comment: "Comment"
       please_offer: "Offer"
   listings:
+    please_comment: "Comment"
     listing_form_content:
       request_something: "Request something"
       offer_something: "Offer something"
@@ -92,11 +94,6 @@ en:
       favor: "Favor"
       rideshare: "Rideshare"
       housing: "Housing"
-      lend: "Lend"
-      sell: "Sell"
-      give_away: "Give away"
-      trade: "Trade"
-      rent: "Rent"
     listing_share_type:
       offer_type: "Offer type"
       request_type: "Request type"
@@ -170,6 +167,9 @@ en:
       help_tags_title: "Tags"  
       help_share_type_title: "Type of the offer or request"
       help_valid_until_title: "Valid until date"
+  search:
+    show:
+      loading_more_search_results: "Loading more search results"
   sessions:
     new:
       login_to_kassi: "Log in to Kassi"
@@ -202,8 +202,6 @@ en:
       favor_offer_message_form_title: "Ask a favor from"
       rideshare_offer_message_form_title: "Ask for a ride from"
       housing_offer_message_form_title: "Reply to"
-      request_message_title: "Offer: %{title}"
-      offer_message_title: "Request: %{title}"
       item_request_message_title: "Item offer: %{title}"
       favor_request_message_title: "Favor offer: %{title}"
       rideshare_request_message_title: "Rideshare offer: %{title}"

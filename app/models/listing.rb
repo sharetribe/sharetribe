@@ -5,7 +5,14 @@ class Listing < ActiveRecord::Base
   
   belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
   
-  acts_as_taggable
+  acts_as_taggable_on :tags
+  
+  # TODO: these should help to use search with tags, but not yet working
+  # has_many :taggings, :as => :taggable, :dependent => :destroy, :include => :tag, :class_name => "ActsAsTaggableOn::Tagging",
+  #             :conditions => "taggings.taggable_type = 'Listing'"
+  # #for context-dependent tags:
+  # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
+  #           :conditions => "taggings.context = 'tags'"
   
   has_many :listing_images, :dependent => :destroy
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
@@ -44,6 +51,29 @@ class Listing < ActiveRecord::Base
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
   validate :given_share_type_is_one_of_valid_share_types
   validate :valid_until_is_not_nil
+  
+  # Index for sphinx search
+  define_index do
+    # fields
+    indexes title
+    indexes description
+    # TODO: these should help to use search with tags, but not yet working
+    #indexes tags.name, :as => :tags
+    #indexes tags(:name), :as => :tags
+    
+    # attributes
+    has created_at, updated_at
+    # TODO: these should help to use search with tags, but not yet working
+    #has tags(:id), :as => :tag_ids, :facet => true
+    
+    set_property :enable_star => true
+    set_property :delta => true
+    set_property :field_weights => {
+      :title => 10,
+      :tags    => 8,
+      :description => 3
+    }
+  end
   
   def downcase_tags
     tag_list.each { |t| t.downcase! }

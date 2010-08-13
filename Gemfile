@@ -30,6 +30,7 @@ gem 'paperclip'
 gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
 gem 'newrelic_rpm', :require => false
 gem 'memcache-client', ">= 1.8.5"
+gem 'thinking-sphinx', '2.0.0.rc1', :require => 'thinking_sphinx'
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.13"

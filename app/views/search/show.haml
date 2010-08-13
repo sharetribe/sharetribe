@@ -1,0 +1,8 @@
+.grid_6
+  search settings pane here
+
+#search_results.grid_18
+  %h4= t('.search results')
+  = render :partial => "listed_listing", :collection => @listings, :as => :listing, :spacer_template => "result_spacer"
+  = will_paginate(@listings)
+  = pageless(@listings.total_pages, '#search_results', "search?q=#{@query}", t('.loading_more_search_results')) 
