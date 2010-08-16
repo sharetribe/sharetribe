@@ -36,4 +36,6 @@ Kassi::Application.configure do
     Selenium::WebDriver.for :chrome
   end
   
+  Capybara.default_wait_time = 10
+  
 end
