@@ -1,5 +1,5 @@
 - last_message = conversation.last_message(@current_user)
-.conversation{:class => (conversation.read?(@current_user) ? "" : "unread")}
+.conversation{:class => (conversation.read_by?(@current_user) ? "" : "unread")}
   .person_image
     = small_avatar_thumb conversation.other_party(@current_user)
   .conversation_left

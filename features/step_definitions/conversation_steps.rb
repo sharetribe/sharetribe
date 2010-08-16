@@ -7,3 +7,13 @@ Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |mes
                                       )                                   
 end
 
+Given /^there is a reply "([^"]*)" to that message by "([^"]*)"$/ do |content, sender|
+  @message = Message.create(:conversation_id => @conversation.id, 
+                            :sender_id => @people[sender].id, 
+                            :content => content
+                           )                                   
+end
+
+When /^I try to go to inbox of "([^"]*)"$/ do |person|
+  visit received_person_messages_path(:locale => :en, :person_id => @people[person].id)
+end

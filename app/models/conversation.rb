@@ -26,24 +26,15 @@ class Conversation < ActiveRecord::Base
   
   # Returns last received or sent message
   def last_message(user, received = true, count = -1)
-    if messages[count].sender.eql?(user) == received
-      count -= 1
-      last_message(user, received, count)
-    else
-      messages[count]
-    end
+    (messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
   end
   
   def other_party(person)
     participants.reject { |p| p.id == person.id }.first
   end  
 
-  def read?(person)
+  def read_by?(person)
     participations.where(["person_id LIKE ?", person.id]).first.is_read
   end
-  
-  def read(person)
-    participations.where(["person_id LIKE ?", person.id]).first.update_attribute(:is_read, true)
-  end
-  
+
 end

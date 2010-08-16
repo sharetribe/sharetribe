@@ -4,6 +4,10 @@ class ConversationsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_send_a_message"
   end
   
+  before_filter :only => [ :show, :received, :sent ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+  end
+  
   def received
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
     @conversation_count = @current_user.messages_that_are("received").count
@@ -18,7 +22,7 @@ class ConversationsController < ApplicationController
   
   def show
     @conversation = Conversation.find(params[:id])
-    @current_user.read(@conversation) unless @conversation.read?(@current_user)
+    @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
   end
 
   def new
