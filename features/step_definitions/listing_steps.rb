@@ -10,7 +10,7 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
-  @listing = Listing.create(:listing_type => type, 
+  @listing = Listing.create!(:listing_type => type, 
                              :category => "rideshare", 
                              :origin => origin,
                              :destination => destination,
