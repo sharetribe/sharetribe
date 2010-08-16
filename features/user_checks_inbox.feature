@@ -54,9 +54,9 @@ Feature: User checks inbox
     And there is a message "Reply to massage" from "kassi_testperson2" about that listing
     And there is a message "Another test" from "kassi_testperson3" about that listing
     And there is a reply "Ok" to that message by "kassi_testperson1"
-    And there is housing offer with title "Apartment" from "kassi_testperson2"
+    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
     And there is a message "Test1" from "kassi_testperson3" about that listing
-    And there is item offer with title "Hammer" from "kassi_testperson2"
+    And there is item offer with title "Hammer" from "kassi_testperson2" and with share type "lend"
     And there is a message "Test2" from "kassi_testperson1" about that listing
     And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson2"
     And there is a message "Test3" from "kassi_testperson1" about that listing
@@ -81,9 +81,9 @@ Feature: User checks inbox
     And there is a message "Reply to massage" from "kassi_testperson2" about that listing
     And there is a message "Another test" from "kassi_testperson3" about that listing
     And there is a reply "Ok" to that message by "kassi_testperson1"
-    And there is housing offer with title "Apartment" from "kassi_testperson2"
+    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
     And there is a message "Test1" from "kassi_testperson3" about that listing
-    And there is item offer with title "Hammer" from "kassi_testperson2"
+    And there is item offer with title "Hammer" from "kassi_testperson2" and with share type "lend"
     And there is a message "Test2" from "kassi_testperson1" about that listing
     And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson2"
     And there is a message "Test3" from "kassi_testperson1" about that listing
