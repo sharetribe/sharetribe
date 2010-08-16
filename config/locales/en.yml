@@ -33,6 +33,7 @@ en:
       create_new_offer: "Offer something else"
       you_must_log_in_to_create_new_request: "You must log in to Kassi to create a new request."
       you_must_log_in_to_send_a_message: "You must log in to Kassi to send a message to another user."
+      you_must_log_in_to_view_your_inbox: "You must log in to Kassi to view your inbox."
       login_successful: "Welcome to Kassi, "
       logout_successful: "You have now been logged out of Kassi. Welcome again!"
       login_failed: "Login failed. Please enter correct credentials."
@@ -47,6 +48,7 @@ en:
       rideshare_offer_message_sent: "Ride request sent successfully"
       housing_offer_message_sent: "Message sent successfully"
       reply_sent: "Reply sent successfully"
+      reply_cannot_be_empty: "You can't send an empty message"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -213,8 +215,10 @@ en:
       default_request_message_text: "Explain what you are offering and under what conditions."
       default_offer_message_text: "Explain what you need."
     show:
-      offer_sent_by: Offer sent by
-      request_sent_by: Request sent by        
+      offer_sent_by: Request sent by
+      request_sent_by: Offer sent by
+      in_response_to_request: "in response to request"
+      in_response_to_offer: "about offer"        
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

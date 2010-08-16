@@ -26,13 +26,12 @@ Feature: User creates a new request
     And I am on the home page
     When I follow "Request something"
     And I follow "Favor"
-    And show me the page
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     Then show me the page
-    Then I should see "Favor request: Massage" within "h1"
+    And I should see "Favor request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
   
   @javascript  
@@ -72,18 +71,3 @@ Feature: User creates a new request
     And I should see "You must check at least one of the boxes above." within ".error"
     And I should see "This date must be between current time and one year from now." within ".error"
     #And I should see "Please enter a value with a valid extension." within ".error" # Works in UI but not here, reason unknown
-  
-  @pending
-  Scenario: Creating a new request with javascript disabled
-    Given context
-    When event
-    Then outcome
-  
-  @pending
-  Scenario: Creating a new request with insufficient information with javascript disabled
-    Given context
-    When event
-    Then outcome  
-  
-  
-    

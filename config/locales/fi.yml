@@ -35,6 +35,7 @@ fi:
       create_new_offer: "Tarjoa jotain muuta"
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön."
       you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
+      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       login_successful: "Tervetuloa Kassiin, "
       logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
@@ -49,6 +50,7 @@ fi:
       rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
       housing_offer_message_sent: "Vastaus lähetetty"
       reply_sent: "Vastaus lähetetty"
+      reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -212,8 +214,10 @@ fi:
       default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
     show:
-      offer_sent_by: "Tarjouksen lähetti"
-      request_sent_by: "Pyynnön lähetti" 
+      offer_sent_by: "Pyynnön lähetti"
+      request_sent_by: "Tarjouksen lähetti"
+      in_response_to_request: "vastauksena pyyntöön"
+      in_response_to_offer: "tarjouksesta" 
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
@@ -367,6 +371,11 @@ fi:
       minute: "Minuutti"
       second: "Sekuntia"
   
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "sisältö ei voi olla tyhjä."
+        
   errors:
     template:
       header:
@@ -374,6 +383,7 @@ fi:
         other:  "%{count} virhettä esti tallentamisen"
       body: "Seuraavat kentät aiheuttivat ongelmia:"
     messages:
+      record_invalid: "sisältö ei voi olla tyhjä."
       inclusion: "ei löydy listauksesta"
       exclusion: "on jo varattu"
       invalid: "ei kelpaa"
