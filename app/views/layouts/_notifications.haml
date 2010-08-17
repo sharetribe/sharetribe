@@ -1,3 +1,6 @@
+:javascript
+  $(document).ready(function() { $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); }); });
+
 #notifications.container_24
   - [:notice, :warning, :error].each do |announcement|
     - if flash[announcement]  

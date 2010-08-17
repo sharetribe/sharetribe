@@ -77,6 +77,11 @@ Kassi::Application.routes.draw do |map|
           get :received
           get :sent
         end
+        member do
+          put :accept
+          put :reject
+          put :cancel
+        end  
       end    
     end  
     resources :conversations

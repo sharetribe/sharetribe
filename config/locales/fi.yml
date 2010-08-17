@@ -13,6 +13,7 @@ fi:
       buy: "ostetaan"
       borrow: "lainataan"
       rent: "vuokrataan"
+    cancel: "Peruuta"   
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
@@ -51,6 +52,10 @@ fi:
       housing_offer_message_sent: "Vastaus lähetetty"
       reply_sent: "Vastaus lähetetty"
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
+      request_accepted: "Pyyntö hyväksytty"
+      request_rejected: "Pyyntö hylätty"
+      offer_accepted: "Tarjous hyväksytty"
+      offer_rejected: "Tarjous hylätty"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -186,9 +191,9 @@ fi:
     index:
       message_partitive: "viesti"
       messages_partitive: "viestiä"
-      no_received_messages: "Ei lähetettyjä viestejä"
-      no_sent_messages: "Ei vastaanotettuja viestejä"
-      loading_more_messages: "Ladataan lisää viestejä"    
+      no_received_messages: "Ei vastaanotettuja viestejä"
+      no_sent_messages: "Ei lähetettyjä viestejä"
+      loading_more_messages: "Ladataan lisää viestejä" 
     new:
       send_a_new_message: "Lähetä viesti"
       message: "Viesti"
@@ -217,7 +222,19 @@ fi:
       offer_sent_by: "Pyynnön lähetti"
       request_sent_by: "Tarjouksen lähetti"
       in_response_to_request: "vastauksena pyyntöön"
-      in_response_to_offer: "tarjouksesta" 
+      in_response_to_offer: "tarjouksesta"
+    status:
+      request_accepted: "Pyyntö hyväksytty"
+      request_rejected: "Pyyntö hylätty"
+      offer_accepted: "Tarjous hyväksytty"
+      offer_rejected: "Tarjous hylätty"
+      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
+      give_feedback: "Anna palautetta"
+    status_link:  
+      accept_request: "Hyväksy pyyntö"
+      accept_offer: "Hyväksy tarjous"
+      reject_request: "Hylkää pyyntö"
+      reject_offer: "Hylkää tarjous" 
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"

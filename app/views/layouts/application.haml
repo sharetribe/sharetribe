@@ -50,8 +50,9 @@
     
     #top_spacer
       &nbsp;
-      
-    = render :partial => "layouts/notifications"
+    
+    #notification_container  
+      = render :partial => "layouts/notifications"
           
     #main.container_24
       = content_for?(:content) ? yield(:content) : yield

@@ -1,0 +1,20 @@
+- if conversation.status.eql?("pending")
+  - if current_user?(conversation.listing.author)
+    - ["accept", "reject"].each do |status|
+      = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
+  - else
+    .conversation_status_container
+      .conversation_status_label
+        = t(".waiting_confirmation_from_listing_author")
+- else
+  .conversation_status_container
+    .conversation_status_label{:class => conversation.status}
+      = t(".#{conversation.discussion_type}_#{conversation.status}")
+    - if conversation.status.eql?("accepted")
+      .conversation_status_label_links
+        = link_to t(".give_feedback"), "#"
+        &nbsp;|&nbsp;
+        = link_to t("common.cancel"), "#"    
+        
+
+      

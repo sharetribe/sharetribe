@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100813161213) do
+ActiveRecord::Schema.define(:version => 20100817115816) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20100813161213) do
     t.string   "reserver_name"
     t.datetime "pick_up_time"
     t.datetime "return_time"
-    t.string   "status"
+    t.string   "status",               :default => "pending"
     t.integer  "hidden_from_owner",    :default => 0
     t.integer  "hidden_from_reserver", :default => 0
     t.integer  "favor_id"

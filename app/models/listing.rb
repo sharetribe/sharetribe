@@ -100,20 +100,6 @@ class Listing < ActiveRecord::Base
     share_type.eql?(Listing::VALID_SHARE_TYPES[listing_type][category].first)
   end
   
-  def self.unique_share_types
-    share_types = []
-    VALID_TYPES.each do |type|
-      VALID_CATEGORIES.each do |category|
-        if VALID_SHARE_TYPES[t]
-          VALID_SHARE_TYPES[type][category].each do |share_type|
-            share_types << share_type
-          end
-        end  
-      end
-    end      
-    share_types.uniq!    
-  end
-  
   def given_share_type_is_one_of_valid_share_types
     if ["favor", "rideshare"].include?(category)
       if share_type

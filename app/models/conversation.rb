@@ -7,7 +7,10 @@ class Conversation < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   
+  VALID_STATUSES = ["pending", "accepted", "rejected"]
+  
   validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_inclusion_of :status, :in => VALID_STATUSES
   
   # Creates a new message to the conversation
   def message_attributes=(attributes)
@@ -35,6 +38,11 @@ class Conversation < ActiveRecord::Base
 
   def read_by?(person)
     participations.where(["person_id LIKE ?", person.id]).first.is_read
+  end
+  
+  # If listing is an offer, return request, otherwise return offer
+  def discussion_type
+    listing.listing_type.eql?("request") ? "offer" : "request"
   end
 
 end

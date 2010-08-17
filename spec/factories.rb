@@ -18,6 +18,7 @@ end
 Factory.define :conversation do |c|
   c.title "Item request: Sledgehammer"
   c.association :listing
+  c.status "pending"
 end
 
 Factory.define :message do |m|

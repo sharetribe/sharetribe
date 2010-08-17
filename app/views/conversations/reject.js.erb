@@ -1,0 +1,5 @@
+/* Display notice */
+$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
+
+/* Update conversation status label */
+$("#conversation_<%= @conversation.id.to_s %>_status").html("<%= escape_javascript(render(:partial => 'conversations/status', :locals => { :conversation => @conversation })) %>");

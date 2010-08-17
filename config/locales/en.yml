@@ -13,6 +13,7 @@ en:
       buy: "buying"
       borrow: "borrowing"
       rent: "renting"
+    cancel: "Cancel"   
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
@@ -51,6 +52,10 @@ en:
       housing_offer_message_sent: "Message sent successfully"
       reply_sent: "Reply sent successfully"
       reply_cannot_be_empty: "You can't send an empty message"
+      request_accepted: "Request accepted"
+      request_rejected: "Request rejected"
+      offer_accepted: "Offer accepted"
+      offer_rejected: "Offer rejected"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -217,7 +222,19 @@ en:
       offer_sent_by: Request sent by
       request_sent_by: Offer sent by
       in_response_to_request: "in response to request"
-      in_response_to_offer: "about offer"        
+      in_response_to_offer: "about offer"
+    status_link:  
+      accept_request: "Accept request"
+      accept_offer: "Accept offer"
+      reject_request: "Reject request"
+      reject_offer: "Reject offer"
+    status:
+      request_accepted: "Request accepted"
+      request_rejected: "Request rejected"
+      offer_accepted: "Offer accepted"
+      offer_rejected: "Offer rejected"
+      waiting_confirmation_from_listing_author: "Awaiting confirmation from listing author"
+      give_feedback: "Give feedback"             
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"
