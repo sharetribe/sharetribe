@@ -1193,29 +1193,37 @@ div.checkbox_float {
 .conversation {
   padding: 15px 10px;
   overflow: hidden; }
-  .conversation a {
-    color: #464646; }
-    .conversation a:hover {
-      color: #797979;
-      text-decoration: underline; }
-    .conversation a:active {
-      color: black;
-      text-decoration: underline; }
 
 .conversation_left {
   margin-left: 10px;
-  width: 200px;
+  width: 130px;
   float: left;
   margin-top: 9px;
   line-height: 14px; }
+  .conversation_left a {
+    color: #464646; }
+    .conversation_left a:hover {
+      color: #797979;
+      text-decoration: underline; }
+    .conversation_left a:active {
+      color: black;
+      text-decoration: underline; }
   .conversation_left span {
     font-size: 11px; }
 
 .conversation_center {
   margin-left: 10px;
-  width: 400px;
+  width: 310px;
   float: left;
   line-height: 19px; }
+  .conversation_center a {
+    color: #464646; }
+    .conversation_center a:hover {
+      color: #797979;
+      text-decoration: underline; }
+    .conversation_center a:active {
+      color: black;
+      text-decoration: underline; }
   .conversation_center a {
     color: #464646; }
   .conversation_center h3 {
@@ -1227,8 +1235,8 @@ div.checkbox_float {
       font-weight: normal; }
 
 .conversation_right {
-  margin-left: 10px;
-  width: 200px;
+  margin: 3px 0 0 10px;
+  width: 360px;
   float: left; }
 
 .person_image {
@@ -1244,16 +1252,87 @@ div.checkbox_float {
   height: 0;
   margin: 0; }
 
-#conversation {
-  margin: 20px 30px 20px 20px; }
-  #conversation h2 {
+#conversation_title {
+  margin: 20px 0 0 20px; }
+  #conversation_title h2 {
     text-align: left;
     font-size: 16px;
     color: #464646;
     margin-bottom: 0; }
 
+#conversation_status {
+  margin-top: 21px;
+  overflow: hidden; }
+
+.conversation_status_link {
+  float: left;
+  margin-right: 10px;
+  width: 170px; }
+  .conversation_status_link img {
+    vertical-align: -25%;
+    margin-right: 7px;
+    display: inline; }
+
+.accept a {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  color: white;
+  background: #d45207;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px; }
+  .accept a:hover {
+    background: #f8792f; }
+  .accept a:active {
+    background: #a33f05; }
+.accept a {
+  font-size: 13px; }
+
+.reject a {
+  display: block;
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px 0;
+  color: white;
+  background: #765d3a;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px; }
+  .reject a:hover {
+    background: #a98553; }
+  .reject a:active {
+    background: #544229; }
+.reject a {
+  font-size: 13px; }
+
+.conversation_status_container {
+  background: #ececdb;
+  padding: 3px 0;
+  margin-left: 35px;
+  width: 300px; }
+
+.conversation_status_label {
+  font-weight: bold;
+  width: 300px;
+  text-align: center; }
+
+.accepted {
+  color: #264409; }
+
+.rejected {
+  color: red; }
+
+.conversation_status_label_links {
+  text-align: center;
+  width: 300px; }
+
 #messages {
-  margin-top: 20px;
+  margin: 15px 20px 10px 20px;
+  clear: both;
   overflow: hidden; }
 
 .message {
@@ -1304,12 +1383,10 @@ div.checkbox_float {
   float: left; }
 
 #reply_form {
-  margin-top: 5px; }
+  margin-left: 97px; }
   #reply_form label {
-    margin-left: 77px;
     font-weight: bold; }
   #reply_form textarea {
-    margin-left: 77px;
     width: 377px;
     color: #464646;
     background: white;
@@ -1318,7 +1395,6 @@ div.checkbox_float {
     padding: 9px 9px;
     border: 2px solid #765d3a; }
   #reply_form input.send_button {
-    margin-left: 76px;
     width: 175px;
     font-size: 13px; }
   #reply_form label.error {
@@ -1331,14 +1407,13 @@ div.checkbox_float {
     background: red url("/images/error_arrow.png") no-repeat top left;
     color: white;
     width: 378px;
-    margin: 0 400px 10px 77px;
+    margin: 0 400px 10px 0;
     background: red url("/images/error_arrow2.png") no-repeat top left; }
 
 .message_form_field_container {
   margin-bottom: 5px; }
 
 .conversation_notice {
-  /* margin: 10px 77px 10px 0; */
   margin: 0 5px;
   color: #264409;
   border: 2px solid #c6d880;
@@ -1348,7 +1423,6 @@ div.checkbox_float {
   padding: 5px 5px;
   overflow: hidden;
   width: 927px;
-  /* margin-left: 77px; */
-  margin: 10px 77px 10px 77px;
+  margin: 10px 77px 10px 97px;
   width: 340px;
   padding: 10px 0 10px 55px; }

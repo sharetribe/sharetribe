@@ -26,11 +26,11 @@
   
   #listing_author
     .float_left
-      = small_avatar_thumb(@listing.author)
+      = link_to small_avatar_thumb(@listing.author), @listing.author
     #listing_author_description
       %strong
         = t(".#{@listing.listing_type}_author") + ":"
-        = link_to @listing.author.name, "#"
+        = link_to @listing.author.name, @listing.author
       %br/
       %span{:class => "smaller"}
         = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)

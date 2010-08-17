@@ -7,6 +7,7 @@
 $bg_color: #f7f5e6;
 $text_color: #464646;
 $form_bg: #d1c9b4;
+$light_green_bg: #ececdb;
 $orange: #d45207;
 $medium_brown: #765d3a;
 $dark_orange: darken($orange, 10%);
@@ -20,6 +21,15 @@ $listing_button_grey: #5c5c5c;
 $listing_button_light_grey: #b8b19f;
 $dark_green: #223f05;
 $unread_message: #efd6ba;
+$notice_text: #264409; 
+$notice_border: #c6d880; 
+$notice_bg: #e6efc2;
+$error_text: #8a1f11;
+$error_border: #fbc2c4;
+$error_bg: #fbe3e4;
+$warning_text: #514721;
+$warning_border: #ffd324;
+$warning_bg: #fff6bf;
 
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {border:0;}
@@ -333,13 +343,13 @@ form, input {
 #notifications {
 	margin-top: 20px;
 	.notice {
-		@include notification(#264409, #c6d880, #e6efc2);
+		@include notification($notice_text, $notice_border, $notice_bg);
 	}
 	.error {
-		@include notification(#8a1f11, #fbc2c4, #fbe3e4, -40px);
+		@include notification($error_text, $error_border, $error_bg, -40px);
 	}
 	.warning {
-		@include notification(#514721, #ffd324, #fff6bf, -80px);
+		@include notification($warning_text, $warning_border, $warning_bg, -80px);
 	}	
 }
 
@@ -1102,12 +1112,12 @@ div.checkbox_float {
 .conversation {
 	padding: 15px 10px;
 	overflow: hidden;
-	@include grey_link;
 }
 
 .conversation_left {
+	@include grey_link;
 	margin-left: 10px;
-	width: 200px;
+	width: 130px;
 	float: left;
 	margin-top: 9px;
 	line-height: 14px;
@@ -1117,8 +1127,9 @@ div.checkbox_float {
 }
 
 .conversation_center {
+	@include grey_link;
 	margin-left: 10px;
-	width: 400px;
+	width: 310px;
 	float: left;
 	line-height: 19px;
 	a {
@@ -1137,8 +1148,8 @@ div.checkbox_float {
 }
 
 .conversation_right {
-	margin-left: 10px;
-	width: 200px;
+	margin: 3px 0 0 10px;
+	width: 360px;
 	float: left;
 }
 
@@ -1153,18 +1164,71 @@ div.checkbox_float {
 	margin: 0;
 }
 
-#conversation {
+#conversation_title {
 	h2 {
 		text-align: left;
 		font-size: 16px;
 		color: $text_color;
 		margin-bottom: 0;
 	}
-	margin: 20px 30px 20px 20px;
+	margin: 20px 0 0 20px;
+}
+
+#conversation_status {
+	margin-top: 21px;
+	overflow: hidden;
+}
+
+.conversation_status_link {
+	float: left;
+	margin-right: 10px;
+	width: 170px;
+	img {
+		vertical-align: -25%;
+		margin-right: 7px;
+		display: inline;
+	}
+}
+
+.accept {
+	@include home_button($orange);
+	a { font-size: 13px; }
+}
+
+.reject {
+	@include home_button($medium_brown);
+	a { font-size: 13px; }
+}
+
+.conversation_status_container {
+	background: $light_green_bg;
+	padding: 3px 0;
+	margin-left: 35px;
+	width: 300px;
+}
+
+.conversation_status_label {
+	font-weight: bold;
+	width: 300px;
+	text-align: center;
+}
+
+.accepted {
+	color: $notice_text;
+}
+
+.rejected {
+	color: red;
+}
+
+.conversation_status_label_links {
+	text-align: center;
+	width: 300px;
 }
 
 #messages {
-	margin-top: 20px;
+	margin: 15px 20px 10px 20px;
+	clear: both;
 	overflow: hidden;
 }
 
@@ -1223,13 +1287,11 @@ div.checkbox_float {
 }
 
 #reply_form {
-	margin-top: 5px;
+	margin-left: 97px;
 	label {
-		margin-left: 77px;
 		font-weight: bold;
 	}
 	textarea {
-		margin-left: 77px;
 		width: 377px;
 		color: $text_color;
 		background: white;
@@ -1239,14 +1301,13 @@ div.checkbox_float {
 		border: 2px solid $medium_brown;
 	}
 	input.send_button {
-		margin-left: 76px;
 		width: 175px;
 		font-size: 13px;
 	}
 	label.error {
 		@include form_error_field;
 		width: 378px;
-		margin: 0 400px 10px 77px;
+		margin: 0 400px 10px 0;
 		background: red url("/images/error_arrow2.png") no-repeat top left;
 	}
 }
@@ -1256,10 +1317,8 @@ div.checkbox_float {
 }
 
 .conversation_notice {
-	/* margin: 10px 77px 10px 0; */
-	@include notification(#264409, #c6d880, #e6efc2);
-	/* margin-left: 77px; */
-	margin: 10px 77px 10px 77px;
+	@include notification($notice_text, $notice_border, $notice_bg);
+	margin: 10px 77px 10px 97px;
 	width: 340px;
 	padding: 10px 0 10px 55px;
 }

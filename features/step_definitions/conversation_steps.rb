@@ -1,7 +1,8 @@
 Given /^there is a message "([^"]*)" from "([^"]*)" about that listing$/ do |message, sender|
   title = I18n.t("conversations.new.#{@listing.category}_#{@listing.listing_type}_message_title", :title => @listing.title)
   @conversation = Conversation.create!(:listing_id => @listing.id, 
-                                      :title => title, 
+                                      :title => title,
+                                      :status => "pending", 
                                       :conversation_participants => { @listing.author.id => "false", @people[sender].id => "true"},
                                       :message_attributes => { :content => message, :sender_id => @people[sender].id }
                                       )                                   
@@ -16,4 +17,8 @@ end
 
 When /^I try to go to inbox of "([^"]*)"$/ do |person|
   visit received_person_messages_path(:locale => :en, :person_id => @people[person].id)
+end
+
+Then /^the status of the conversation should be "([^"]*)"$/ do |status|
+  @conversation.status.should == status 
 end

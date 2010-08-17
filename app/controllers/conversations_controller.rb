@@ -44,5 +44,34 @@ class ConversationsController < ApplicationController
       render :action => :new
     end  
   end
+  
+  def accept
+    @conversation = Conversation.find(params[:id])
+    @conversation.update_attribute(:status, :accepted)
+    respond_to do |format|
+      format.html { render :action => :show }
+      format.js { render :layout => false }
+    end
+  end
+  
+  def accept
+    change_status("accepted")
+  end
+  
+  def reject
+    change_status("rejected")
+  end
+  
+  private
+  
+  def change_status(status)
+    @conversation = Conversation.find(params[:id])
+    @conversation.update_attribute(:status, status)
+    flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
+    respond_to do |format|
+      format.html { render :action => :show }
+      format.js { render :layout => false }
+    end
+  end
 
 end

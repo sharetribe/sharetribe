@@ -12,7 +12,7 @@
   #logged_in_links.grid_5.omega
     %span
       = t('.hi')
-    = link_to @current_user.given_name, "#", :class => "left"
+    = link_to @current_user.given_name, @current_user, :class => "left"
     = link_to t('.logout'), logout_path
 - else
   .login_tab.float_right

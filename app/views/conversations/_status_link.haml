@@ -1,0 +1,2 @@
+.conversation_status_link{:class => status}
+  = link_to(image_tag("/images/icons/#{status}_icon.png") + t(".#{status}_#{conversation.discussion_type}"), "/people/#{@current_user.id}/messages/#{conversation.id.to_s}/#{status}", :remote => true, :method => :put) 
