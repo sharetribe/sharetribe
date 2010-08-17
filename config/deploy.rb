@@ -1,6 +1,5 @@
+require 'thinking_sphinx/deploy/capistrano'
 
-# THIS DEPLOY-FILE CONTAINS LOT OF COMMENTED STUFF BECAUSE THERE ARE SOME PROBLEMS
-# RUNNING MONGREL AS DAEMON WITH RAILS 3. CLEAN UP WHEN PROBLEMS SOLVED.
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
@@ -59,8 +58,9 @@ set :use_sudo, false
 
 namespace :deploy do
   
-  task :before_cold do
+  task :preparations do
     run "killall mongrel_rails" rescue nil
+    run "killall searchd" rescue nil
   end
   
   # task :before_start do
@@ -84,7 +84,7 @@ namespace :deploy do
   task :bundle do
     run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install #{shared_path}/gems/cache --without test"
   end
-  
+    
   desc "Modified restart task to work with mongrel cluster" 
   task :restart, :roles => :app do 
     # run "cd #{deploy_to}/current && mongrel_rails cluster::restart -C 
@@ -112,6 +112,10 @@ namespace :deploy do
   end  
 end
 
+before "cold" do
+  preparations
+end
+
 after %w(deploy deploy:migrations deploy:cold deploy:start deploy:restart) do
   deploy.finalize
 end
@@ -119,4 +123,12 @@ end
 after "deploy:update_code" do
   deploy.symlink_listing_images
   deploy.bundle
+  thinking_sphinx.rebuild
+end
+
+after "deploy:setup" do
+  thinking_sphinx.shared_sphinx_folder
+  thinking_sphinx.configure
+  thinking_sphinx.index
+  thinking_sphinx.start
 end
