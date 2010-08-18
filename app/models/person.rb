@@ -86,9 +86,13 @@ class Person < ActiveRecord::Base
     # Try to create the person to ASI
     person_hash = {:person => params.slice(:username, :password, :email) }
     response = PersonConnection.create_person(person_hash, cookie)
-    
+
     # Pick id from the response (same id in kassi and ASI DBs)
     params[:id] = response["entry"]["id"]
+    
+    # Because ASI now associates the used cookie to a session for the newly created user
+    # Change the KassiCookie to nil if it was used (because now it is no more an app-only cookie) 
+    Session.update_kassi_cookie   if  (cookie == Session.kassi_cookie)    
     
     # Add name information for the person to ASI 
     params["given_name"] = params["given_name"].slice(0, 28)

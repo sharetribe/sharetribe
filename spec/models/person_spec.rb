@@ -1,14 +1,6 @@
 require 'spec_helper'
 
-describe Person do
-  
-  def generate_random_username(length = 12)
-    chars = ("a".."z").to_a + ("0".."9").to_a
-    random_username = "aa_kassitest"
-    1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
-    return random_username
-  end
-  
+describe Person do  
   
   before(:all) do
     #These will be created only once for the whole example group
@@ -46,13 +38,14 @@ describe Person do
     it "should not store anything to Kassi DB if ASI request failed" do
       username = generate_random_username
       lambda {
+        p = nil
         lambda {
           p = Person.create({:username => username, 
             :password => "testi", 
             :email => "invalid-email",
             "given_name" => "Tero",
             "family_name" => "Turari"}, Session.kassi_cookie)
-        }.should raise_error(RestClient::Conflict)
+        }.should raise_error(RestClient::BadRequest)
         p.should be_nil
       }.should_not change{Person.count}
     end
