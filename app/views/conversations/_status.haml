@@ -10,11 +10,14 @@
   .conversation_status_container
     .conversation_status_label{:class => conversation.status}
       = t(".#{conversation.discussion_type}_#{conversation.status}")
+      - if conversation.status.eql?("accepted")
+        &nbsp;
+        = link_to t("common.cancel"), "#"
     - if conversation.status.eql?("accepted")
       .conversation_status_label_links
         = link_to t(".give_feedback"), "#"
         &nbsp;|&nbsp;
-        = link_to t("common.cancel"), "#"    
+        = link_to t(".skip_feedback"), "#"    
         
 
       
