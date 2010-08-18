@@ -67,7 +67,7 @@ namespace :deploy do
   #   mongrel.configure
   # end
   
-  task :symlink_listing_images do
+  task :symlinks_to_shared_path do
     run "rm -rf #{release_path}/public/images/listing_images"
     run "rm -rf #{release_path}/tmp/performance"
     run "ln -fs #{shared_path}/listing_images/ #{release_path}/public/images/listing_images"
@@ -75,7 +75,8 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/system/session_secret #{release_path}/config/session_secret"
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
-    run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"    
+    run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
+    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
   end
   
 
@@ -116,14 +117,15 @@ before "cold" do
   preparations
 end
 
-after %w(deploy deploy:migrations deploy:cold deploy:start deploy:restart) do
+after %w(deploy deploy:migrations deploy:cold deploy:start ) do
   deploy.finalize
 end
 
 after "deploy:update_code" do
-  deploy.symlink_listing_images
+  deploy.symlinks_to_shared_path
   deploy.bundle
   thinking_sphinx.rebuild
+  whenever.update_crontab
 end
 
 after "deploy:setup" do
@@ -132,3 +134,5 @@ after "deploy:setup" do
   thinking_sphinx.index
   thinking_sphinx.start
 end
+
+
