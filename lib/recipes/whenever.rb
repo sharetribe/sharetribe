@@ -1,7 +1,6 @@
 namespace :whenever do
-  [:update_crontab, :write_crontab].each do |t|
-    task t, :roles => :app do
-      run "cd #{current_path} && PATH=#{path} whenever --#{t.to_s.gsub("_","-")}"
-    end
+  desc "Update the crontab file"
+  task :update_crontab, :roles => :db do
+    run "cd #{release_path} && whenever --update-crontab #{application}"
   end
 end
