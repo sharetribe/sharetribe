@@ -26,4 +26,11 @@ module TestHelpers
     end
     return [test_person, session]
   end
+  
+  def generate_random_username(length = 12)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    random_username = "aa_kassitest"
+    1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
+    return random_username
+  end
 end
