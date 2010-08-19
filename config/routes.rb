@@ -1,4 +1,8 @@
 Kassi::Application.routes.draw do |map|
+  get "testimonials/new"
+
+  get "testimonials/create"
+
   get "people/show"
 
   get "people/new"
@@ -81,11 +85,11 @@ Kassi::Application.routes.draw do |map|
           put :accept
           put :reject
           put :cancel
-        end  
+        end
+        resources :messages
+        resources :feedback, :controller => :testimonials  
       end    
-    end  
-    resources :conversations
-    resources :messages
+    end
     resources :sessions
     resources :consent
   end

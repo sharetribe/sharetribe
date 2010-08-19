@@ -56,6 +56,10 @@ fi:
       request_rejected: "Pyyntö hylätty"
       offer_accepted: "Tarjous hyväksytty"
       offer_rejected: "Tarjous hylätty"
+      you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
+      you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
+      feedback_sent_to: "Palaute lähetetty käyttäjälle"
+      you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -231,11 +235,24 @@ fi:
       waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
       give_feedback: "Anna palautetta"
       skip_feedback: "Ohita palaute"
+      feedback_given: "Palaute annettu"
+      feedback_skipped: "Palaute ohitettu"
     status_link:  
       accept_request: "Hyväksy pyyntö"
       accept_offer: "Hyväksy tarjous"
       reject_request: "Hylkää pyyntö"
       reject_offer: "Hylkää tarjous" 
+  testimonials:
+    new:
+      give_feedback_to: "Anna palautetta käyttäjälle &{person}"
+      grade: "Arvio käyttäjän toiminnasta"
+      textual_feedback: "Perustelut"
+      less_than_expected: "Ei vastannut lainkaan odotuksia"
+      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
+      as_expected: "Vastasi odotuksia"
+      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
+      exceeded_expectations: "Ylitti täysin odotukset"
+      you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"

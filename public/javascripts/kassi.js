@@ -221,3 +221,76 @@ function auto_resize_text_areas() {
 	});
 	$('textarea').keydown();
 }
+
+function initialize_give_feedback_form(error_message) {
+	faceGrade.create('.feedback_grade_images');
+	$("#new_testimonial").validate({
+		errorPlacement: function(error, element) {
+			error.appendTo(element.parent().parent().parent());
+		},	
+		rules: {
+			"testimonial[grade]": {required: true}
+		}, 
+		messages: {
+			"testimonial[grade]": { required: error_message }
+		}
+	});
+}
+
+// Widget that turns radio buttons to Kaapo faces
+var faceGrade = {
+  create: function(selector) {
+    // loop over every element matching the selector
+    $(selector).each(function() {
+      var $list = $('<div></div>');
+      // loop over every radio button in each container
+			var id = 1;
+      $(this)
+        .find('input:radio')
+        .each(function(i) {
+          var grade = $.trim($(this).parent().text());
+          var $item = $('<a href="#"></a>')
+            .attr('title', grade)
+						.attr('id', '' + id + '')
+            .text(grade);
+					id++;
+          faceGrade.addHandlers($item);
+          $list.append($item);
+          
+          if($(this).is(':checked')) {
+            $item.addClass('grade');
+          }
+        });
+        // Hide the original radio buttons
+        $(this).append($list).find('label').hide();
+    });
+  },
+  addHandlers: function(item) {
+    $(item).click(function(e) {
+      // Handle Star click
+      var $star = $(this);
+      var $allLinks = $(this).parent();
+      
+      // Set the radio button value
+      $allLinks
+        .parent()
+        .find('input:radio[id=grade-' + $star.context.id + ']')
+        .attr('checked', true);
+        
+      // Set the grades
+      $allLinks.children().removeClass('grade');
+      $star.addClass('grade');
+      
+      // prevent default link click
+      e.preventDefault();
+          
+    }).hover(function() {
+      // Handle star mouse over
+      $(this).addClass('grade-over');
+    }, function() {
+      // Handle star mouse out
+      $(this).siblings().andSelf().removeClass('grade-over')
+    });    
+  }
+  
+}

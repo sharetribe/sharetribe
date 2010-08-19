@@ -25,6 +25,7 @@ class Person < ActiveRecord::Base
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
+  has_many :authored_testimonials, :class_name => "Testimonial"
   
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)

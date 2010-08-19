@@ -44,5 +44,14 @@ class Conversation < ActiveRecord::Base
   def discussion_type
     listing.listing_type.eql?("request") ? "offer" : "request"
   end
+  
+  def has_feedback?
+    participations.each { |p| return true if p.has_feedback? }
+    return false
+  end
+
+  def has_feedback_from?(person)
+    participations.find_by_person_id(person.id).has_feedback?
+  end
 
 end

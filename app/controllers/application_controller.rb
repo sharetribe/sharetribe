@@ -49,10 +49,19 @@ class ApplicationController < ActionController::Base
   # A before filter for views that only users that are logged in can access
   def ensure_logged_in(warning_message)
     return if logged_in?
-    logger.info "Request path: " + request.fullpath
     session[:return_to] = request.fullpath
     flash[:warning] = warning_message
     redirect_to new_session_path and return
+  end
+  
+  # A before filter for views that only authorized users can access
+  def ensure_authorized(error_message)
+    if logged_in?
+      @person = Person.find(params[:person_id])
+      return if current_user?(@person)
+      flash[:error] = error_message
+      redirect_to root and return
+    end  
   end
   
   def logged_in?

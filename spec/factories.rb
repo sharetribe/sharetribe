@@ -32,4 +32,11 @@ Factory.define :participation do |p|
   p.association :person
   p.is_read false
   p.last_sent_at DateTime.now
-end    
+end
+
+Factory.define :testimonial do |t|
+  t.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  t.association :participation
+  t.grade 0.5
+  t.text "Test text"
+end  
