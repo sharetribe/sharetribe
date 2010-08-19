@@ -8,4 +8,9 @@ class Participation < ActiveRecord::Base
     !testimonial.blank?
   end
   
+  # Returns true if there is 
+  def feedback_can_be_given?
+    !has_feedback? && !feedback_skipped?
+  end
+  
 end

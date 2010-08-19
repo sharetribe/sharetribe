@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100818102743) do
+ActiveRecord::Schema.define(:version => 20100819114104) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(:version => 20100818102743) do
     t.datetime "updated_at"
     t.datetime "last_sent_at"
     t.datetime "last_received_at"
+    t.boolean  "feedback_skipped", :default => false
   end
 
   create_table "people", :id => false, :force => true, :primary_key => :id do |t|

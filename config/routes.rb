@@ -87,7 +87,11 @@ Kassi::Application.routes.draw do |map|
           put :cancel
         end
         resources :messages
-        resources :feedback, :controller => :testimonials  
+        resources :feedback, :controller => :testimonials do
+          collection do
+            put :skip
+          end  
+        end    
       end    
     end
     resources :sessions
