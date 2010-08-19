@@ -88,6 +88,8 @@ fi:
       borrow: "lainaa"
       ask_for_favor: "pyydä palvelusta"
       ride_partitive: "kyytiä"
+      housing_partitive: "asuntoa"
+      look_for_apartment: "etsi asuntoa"
       offer_favors: "tarjoa palvelusta"
       items_partitive: "tavaraa"
       to_borrow: "lainaan"
@@ -245,7 +247,7 @@ fi:
       reject_offer: "Hylkää tarjous" 
   testimonials:
     new:
-      give_feedback_to: "Anna palautetta käyttäjälle &{person}"
+      give_feedback_to: "Anna palautetta käyttäjälle %{person}"
       grade: "Arvio käyttäjän toiminnasta"
       textual_feedback: "Perustelut"
       less_than_expected: "Ei vastannut lainkaan odotuksia"

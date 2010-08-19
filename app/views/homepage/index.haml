@@ -18,20 +18,23 @@
 
   #request_button_description.grid_7.prefix_1.suffix_1.alpha
     .button_description_fix
-      #{link_to t('.buy').capitalize, "#"}, 
-      #{link_to t('.rent'), "#"}, 
-      #{link_to t('.borrow'), "#"}, 
-      #{link_to t('.ask_for_favor'), "#"}
+      #{link_to t('.buy').capitalize, new_request_path(:type => "request", :category => "item", :share_type => "buy")}, 
+      #{link_to t('.rent'), new_request_path(:type => "request", :category => "item", :share_type => "rent")}, 
+      #{link_to t('.borrow'), new_request_path(:type => "request", :category => "item")},
+      #{link_to t('.look_for_apartment'), new_request_path(:type => "request", :category => "housing")}, 
+      #{link_to t('.ask_for_favor'), new_request_path(:type => "request", :category => "favor")}
       #{t('.or')}
-      #{link_to t('.ride_partitive'), "a ride"}
+      #{link_to t('.ride_partitive'), new_request_path(:type => "request", :category => "rideshare")}
   #offer_button_description.grid_7.prefix_1.suffix_1.omega
     .button_description_fix
-      #{link_to t('.offer_favors').capitalize, "#"}
+      #{link_to t('.offer_favors').capitalize, new_request_path(:type => "offer", :category => "favor")},
+      #{link_to t('.ride_partitive'), new_request_path(:type => "offer", :category => "rideshare")},
+      #{link_to t('.housing_partitive'), new_request_path(:type => "offer", :category => "housing")},  
       #{t('.or')}
-      #{link_to t('.items_partitive'), "#"} 
-      #{link_to t('.to_borrow'), "#"}
+      #{link_to t('.items_partitive'), new_request_path(:type => "offer", :category => "item")} 
+      #{link_to t('.to_borrow'), new_request_path(:type => "offer", :category => "item")}
       #{t('.or')}
-      #{link_to t('.to_buy'), "#"}
+      #{link_to t('.to_buy'), new_request_path(:type => "offer", :category => "item", :share_type => "sell")}
   .clear
  
   #recent_requests.grid_9.alpha

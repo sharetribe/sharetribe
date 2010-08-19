@@ -34,7 +34,7 @@
           = hidden_field_tag :redirect_uri, @return_to
           = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
       .tabs.grid_12.prefix_3
-        .tab_selected.grid_3.alpha
+        .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.home'), root
         .tab_unselected.grid_3
           = link_to t('header.requests'), "#"
