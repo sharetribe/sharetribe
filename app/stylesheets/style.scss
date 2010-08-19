@@ -584,6 +584,11 @@ p.description {
 	}	
 }
 
+#listing_required_fields_description {
+	padding: 15px 15px 0 15px;
+	font-weight: bold;
+}
+
 #new_listing_form {
 	@include form;
 	padding: 20px 15px;

@@ -521,6 +521,10 @@ p.description {
     .new_listing_form_tab_unselected a:active {
       background: #4d3d26; }
 
+#listing_required_fields_description {
+  padding: 15px 15px 0 15px;
+  font-weight: bold; }
+
 #new_listing_form {
   background: #d1c9b4;
   border-radius: 7px;
