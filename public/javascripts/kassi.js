@@ -223,6 +223,8 @@ function auto_resize_text_areas() {
 }
 
 function initialize_give_feedback_form(error_message) {
+	auto_resize_text_areas();
+	$('textarea').focus();
 	faceGrade.create('.feedback_grade_images');
 	$("#new_testimonial").validate({
 		errorPlacement: function(error, element) {
