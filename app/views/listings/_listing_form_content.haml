@@ -18,7 +18,10 @@
       - Listing::VALID_CATEGORIES.each do |category|
         %div{:class => get_type_select_icon_class(category)} 
           = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category), :remote => :true
-  
+    
+    #listing_required_fields_description
+      = t(".fields_that_are_mandatory")
+      
     #new_listing_form_main  
       = form_for @listing, :html => {:multipart => true} do |form|
         = form.error_messages

@@ -1,6 +1,6 @@
 .new_listing_form_field_container
   %label{:class => "input"}
-    = t(".#{@listing.listing_type}_type") + ":"
+    = t(".#{@listing.listing_type}_type") + "*:"
     %br/
     %span{:class => "smaller"}  
       = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_share_type_link"
