@@ -45,13 +45,17 @@ class Conversation < ActiveRecord::Base
     listing.listing_type.eql?("request") ? "offer" : "request"
   end
   
-  def has_feedback?
-    participations.each { |p| return true if p.has_feedback? }
-    return false
+  def can_be_cancelled?
+    participations.each { |p| return false unless p.feedback_can_be_given? }
+    return true
   end
 
   def has_feedback_from?(person)
     participations.find_by_person_id(person.id).has_feedback?
+  end
+  
+  def feedback_skipped_by?(person)
+    participations.find_by_person_id(person.id).feedback_skipped?
   end
 
 end
