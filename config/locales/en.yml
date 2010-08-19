@@ -56,6 +56,10 @@ en:
       request_rejected: "Request rejected"
       offer_accepted: "Offer accepted"
       offer_rejected: "Offer rejected"
+      you_are_not_authorized_to_view_this_content: "You are not authorized to view this content"
+      you_are_not_authorized_to_do_this: "You are not authorized to do this"
+      feedback_sent_to: "Feedback sent to"
+      you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -235,7 +239,20 @@ en:
       offer_rejected: "Offer rejected"
       waiting_confirmation_from_listing_author: "Awaiting confirmation from listing author"
       give_feedback: "Give feedback"
-      skip_feedback: "Skip feedback"             
+      skip_feedback: "Skip feedback"
+      feedback_given: "Feedback given"
+      feedback_skipped: "Feedback skipped"
+  testimonials:
+    new:
+      give_feedback_to: "Give feedback to %{person}"
+      grade: "Assessment of performance"
+      textual_feedback: "Textual feedback"
+      less_than_expected: "Worse than expected"
+      slightly_less_than_expected: "Slightly worse than expected"
+      as_expected: "As expected"
+      slightly_better_than_expected: "Slightly better than expected"
+      exceeded_expectations: "Much better than expected"
+      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"             
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

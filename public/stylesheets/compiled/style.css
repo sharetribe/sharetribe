@@ -1426,3 +1426,77 @@ div.checkbox_float {
   margin: 10px 77px 10px 97px;
   width: 340px;
   padding: 10px 0 10px 55px; }
+
+#new_testimonial_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  padding: 20px 25px 25px 25px;
+  line-height: 25px; }
+  #new_testimonial_form label.normal {
+    margin: 10px;
+    width: 340px;
+    font-size: 14px;
+    font-weight: bold; }
+  #new_testimonial_form label.radio {
+    font-size: 12px;
+    font-weight: bold;
+    width: 340px;
+    height: 30px;
+    overflow: hidden; }
+  #new_testimonial_form h2 {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px; }
+  #new_testimonial_form input.send_button {
+    margin: 15px 0 0 10px; }
+  #new_testimonial_form textarea {
+    margin-left: 10px;
+    width: 300px;
+    color: #464646;
+    background: #f7f5e6;
+    font-size: 12px;
+    height: 50px;
+    padding: 9px 9px;
+    border: 0; }
+    #new_testimonial_form textarea:focus {
+      background: white; }
+  #new_testimonial_form div.title_label {
+    margin-left: 10px;
+    width: 300px;
+    font-size: 14px;
+    font-weight: bold; }
+  #new_testimonial_form div.title_content {
+    margin-left: 10px;
+    font-size: 14px;
+    line-height: 16px; }
+  #new_testimonial_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 298px;
+    margin-left: 10px;
+    line-height: 18px;
+    padding-bottom: 10px; }
+
+.feedback_grade_images {
+  margin: 5px 10px; }
+  .feedback_grade_images a {
+    background: transparent url("/images/kaapo/basic_link.png") 0 -50px no-repeat;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin-right: 10px; }
+  .feedback_grade_images a.grade {
+    background-position: 0 0; }
+  .feedback_grade_images a.grade-over {
+    background-position: 0 -100px; }

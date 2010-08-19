@@ -4,9 +4,12 @@ class ConversationsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_send_a_message"
   end
   
-  before_filter :only => [ :show, :received, :sent ] do |controller|
+  before_filter :except => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
+  
+  before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   
   def received
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
@@ -27,7 +30,7 @@ class ConversationsController < ApplicationController
 
   def new
     @listing = Listing.find(params[:id])
-    redirect_to session[:return_to_content] and return if current_user?(@listing.author)
+    redirect_to (session[:return_to_content] || root) and return if current_user?(@listing.author)
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build
@@ -38,20 +41,11 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
       flash[:notice] = "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent"
-      redirect_to session[:return_to_content]
+      redirect_to (session[:return_to_content] || root)
     else
       @listing = Listing.find(params[:conversation][:listing_id])
       render :action => :new
     end  
-  end
-  
-  def accept
-    @conversation = Conversation.find(params[:id])
-    @conversation.update_attribute(:status, :accepted)
-    respond_to do |format|
-      format.html { render :action => :show }
-      format.js { render :layout => false }
-    end
   end
   
   def accept
@@ -63,6 +57,12 @@ class ConversationsController < ApplicationController
   end
   
   private
+  
+  # Saves current path so that the user can be
+  # redirected back to that path when needed.
+  def save_current_inbox_path
+    session[:return_to_inbox_content] = request.fullpath
+  end
   
   def change_status(status)
     @conversation = Conversation.find(params[:id])

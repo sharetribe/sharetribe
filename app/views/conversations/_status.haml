@@ -10,14 +10,17 @@
   .conversation_status_container
     .conversation_status_label{:class => conversation.status}
       = t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if conversation.status.eql?("accepted")
+      - if conversation.status.eql?("accepted") && !conversation.has_feedback?
         &nbsp;
         = link_to t("common.cancel"), "#"
     - if conversation.status.eql?("accepted")
       .conversation_status_label_links
-        = link_to t(".give_feedback"), "#"
-        &nbsp;|&nbsp;
-        = link_to t(".skip_feedback"), "#"    
+        - if conversation.has_feedback_from?(@current_user)
+          = t(".feedback_given")
+        - else
+          = link_to t(".give_feedback"), new_person_message_feedback_path(:person_id => @current_user.id, :message_id => conversation.id.to_s)
+          &nbsp;|&nbsp;
+          = link_to t(".skip_feedback"), "#"
         
 
       
