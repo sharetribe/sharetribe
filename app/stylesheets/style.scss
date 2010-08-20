@@ -854,7 +854,7 @@ div.checkbox_float {
 	float: left;
 }
 
-#login_form, #new_message_form {
+#login_form, #new_message_form, #signup_form {
 	@include form;
 	padding: 20px 25px 25px 25px;
 	line-height: 25px;
@@ -884,6 +884,13 @@ div.checkbox_float {
 		font-size: 14px;
 		font-weight: bold;
 	}
+	label.checkbox {
+		margin: 0;
+		padding-top: 5px;
+		width: 200px;
+		font-size: 12px;
+		font-weight: bold;
+	}
 	.links {
 		margin: 10px 0 0 10px;
 	}
@@ -891,11 +898,14 @@ div.checkbox_float {
 		margin: 0 10px 10px 10px;
 		line-height: 16px;
 	}
-	span {
+	span.big {
 		margin: 5px;
 		color: $orange;
 		font-weight: bold;
 		font-size: 16px;
+	}
+	span.small {
+		font-size: 11px;	
 	}
 	textarea {
 		margin-left: 10px;
@@ -1411,4 +1421,19 @@ div.checkbox_float {
 	}
 	a.grade { background-position: 0 0; }
 	a.grade-over { background-position: 0 -100px; }
+}
+
+.signup_checkbox_container {
+	margin-left: 10px;
+	overflow: hidden;
+}
+
+.signup_checkbox_input_container {
+	margin-right: 10px;
+	float: left;
+}
+
+.signup_checkbox_label_container {
+	margin-top: 4px;
+	float: left;
 }

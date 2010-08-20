@@ -1,0 +1,39 @@
+- content_for :javascript do
+  initialize_signup_form('#{I18n.locale}');
+
+.grid_10.prefix_7.suffix_7
+  #signup_form
+    %h2
+      = t('.sign_up')
+    = form_for @person do |form| 
+      = form.error_messages
+      .form_field_container
+        = form.label :username, t('.username')
+        %span{:class => "small"}= link_to(t('common.what_is_this'), "#")
+        = form.text_field :username, :class => :text_field, :maxlength => "20"
+      .form_field_container
+        = form.label :given_name, t('.given_name')
+        = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+      .form_field_container
+        = form.label :family_name, t('.family_name')
+        = form.text_field :family_name, :class => :text_field, :maxlength => "30"
+      .form_field_container
+        = form.label :email, t('.email')
+        = form.text_field :email, :class => :text_field       
+      .form_field_container  
+        = form.label :password, t('.password')
+        = form.password_field :password, :class => :text_field
+      .form_field_container  
+        = form.label :password2, t('.password_again')
+        = form.password_field :password2, :class => :text_field
+      .form_field_container
+        .signup_checkbox_container
+          .signup_checkbox_input_container
+            %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]", :checked => "checked"}
+          .signup_checkbox_label_container
+            = form.label :terms, t('.i_accept_the'), :class => "checkbox"
+            = link_to t(".terms"), "#" 
+      .form_field_container
+        = submit_tag(t('.create_new_account'), :class => "send_button")
+        
+        

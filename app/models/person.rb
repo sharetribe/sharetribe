@@ -473,4 +473,12 @@ class Person < ActiveRecord::Base
     end
   end
   
+  def self.username_available?(username)
+    false
+  end
+  
+  def self.email_available?(email)
+    false
+  end
+  
 end

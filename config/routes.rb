@@ -76,6 +76,10 @@ Kassi::Application.routes.draw do |map|
       end
     end
     resources :people do
+      collection do
+        get :check_username_availability
+        get :check_email_availability
+      end  
       resources :messages, :controller => :conversations do 
         collection do
           get :received
@@ -106,6 +110,7 @@ Kassi::Application.routes.draw do |map|
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
   match "/:locale/search" => "search#show"
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
+  match "/:locale/signup" => "people#new", :as => :sign_up
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'

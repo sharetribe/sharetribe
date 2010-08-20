@@ -13,12 +13,23 @@ en:
       buy: "buying"
       borrow: "borrowing"
       rent: "renting"
-    cancel: "Cancel"   
+    cancel: "Cancel"
+    fields_that_are_mandatory: "Fields marked with star (*) are mandatory."   
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
       valid_until: "This date must be between current time and one year from now."
-      departure_time: "Departure time must be between current time and one year from now." 
+      departure_time: "Departure time must be between current time and one year from now."
+    testimonials:
+      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"      
+  header:
+    mobile_version: "Mobile version"
+    about: "About Kassi"
+    home: "Home"
+    requests: "Requests"
+    offers: "Offers"
+    community: "Community"
+    search_kassi: "Search Kassi"    
   layouts:
     logged_in:
       login: "Login"
@@ -64,15 +75,58 @@ en:
     conversations:
       messages: "Messages"
       received: "Received"
-      sent: "Sent"  
-  header:
-    mobile_version: "Mobile version"
-    about: "About Kassi"
-    home: "Home"
-    requests: "Requests"
-    offers: "Offers"
-    community: "Community"
-    search_kassi: "Search Kassi"
+      sent: "Sent"
+  conversations:
+    index:
+      message_partitive: "message"
+      messages_partitive: "messages"
+      no_received_messages: "No received messages"
+      no_sent_messages: "No sent messages"
+      loading_more_messages: "Loading more messages"  
+    new:
+      send_a_new_message: "Send a new message"
+      message: "Message"
+      send_request_message: "Send the offer"
+      send_offer_message: "Send the request"
+      title: "Title"
+      item_request_message_form_title: "Offer an item to"
+      favor_request_message_form_title: "Offer a favor to"
+      rideshare_request_message_form_title: "Offer a ride to"
+      housing_request_message_form_title: "Reply to"
+      item_offer_message_form_title: "Request an item from"
+      favor_offer_message_form_title: "Ask a favor from"
+      rideshare_offer_message_form_title: "Ask for a ride from"
+      housing_offer_message_form_title: "Reply to"
+      item_request_message_title: "Item offer: %{title}"
+      favor_request_message_title: "Favor offer: %{title}"
+      rideshare_request_message_title: "Rideshare offer: %{title}"
+      housing_request_message_title: "Reply to your listing %{title}"
+      item_offer_message_title: "Item request: %{title}"
+      favor_offer_message_title: "Favor request: %{title}"
+      rideshare_offer_message_title: "Rideshare request: %{title}"
+      housing_offer_message_title: "Reply to your listing %{title}"
+      default_request_message_text: "Explain what you are offering and under what conditions."
+      default_offer_message_text: "Explain what you need."
+    show:
+      offer_sent_by: Request sent by
+      request_sent_by: Offer sent by
+      in_response_to_request: "in response to request"
+      in_response_to_offer: "about offer"
+    status_link:  
+      accept_request: "Accept request"
+      accept_offer: "Accept offer"
+      reject_request: "Reject request"
+      reject_offer: "Reject offer"
+    status:
+      request_accepted: "Request accepted"
+      request_rejected: "Request rejected"
+      offer_accepted: "Offer accepted"
+      offer_rejected: "Offer rejected"
+      waiting_confirmation_from_listing_author: "Awaiting confirmation from listing author"
+      give_feedback: "Give feedback"
+      skip_feedback: "Skip feedback"
+      feedback_given: "Feedback given"
+      feedback_skipped: "Feedback skipped"  
   homepage:
     index:
       recent_events: "Recent events"
@@ -106,7 +160,6 @@ en:
       favor: "Favor"
       rideshare: "Rideshare"
       housing: "Housing"
-      fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     listing_share_type:
       offer_type: "Offer type"
       request_type: "Request type"
@@ -195,57 +248,6 @@ en:
       email: "Email"
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
       request_new_password: "Request new password"
-  conversations:
-    index:
-      message_partitive: "message"
-      messages_partitive: "messages"
-      no_received_messages: "No received messages"
-      no_sent_messages: "No sent messages"
-      loading_more_messages: "Loading more messages"  
-    new:
-      send_a_new_message: "Send a new message"
-      message: "Message"
-      send_request_message: "Send the offer"
-      send_offer_message: "Send the request"
-      title: "Title"
-      item_request_message_form_title: "Offer an item to"
-      favor_request_message_form_title: "Offer a favor to"
-      rideshare_request_message_form_title: "Offer a ride to"
-      housing_request_message_form_title: "Reply to"
-      item_offer_message_form_title: "Request an item from"
-      favor_offer_message_form_title: "Ask a favor from"
-      rideshare_offer_message_form_title: "Ask for a ride from"
-      housing_offer_message_form_title: "Reply to"
-      item_request_message_title: "Item offer: %{title}"
-      favor_request_message_title: "Favor offer: %{title}"
-      rideshare_request_message_title: "Rideshare offer: %{title}"
-      housing_request_message_title: "Reply to your listing %{title}"
-      item_offer_message_title: "Item request: %{title}"
-      favor_offer_message_title: "Favor request: %{title}"
-      rideshare_offer_message_title: "Rideshare request: %{title}"
-      housing_offer_message_title: "Reply to your listing %{title}"
-      default_request_message_text: "Explain what you are offering and under what conditions."
-      default_offer_message_text: "Explain what you need."
-    show:
-      offer_sent_by: Request sent by
-      request_sent_by: Offer sent by
-      in_response_to_request: "in response to request"
-      in_response_to_offer: "about offer"
-    status_link:  
-      accept_request: "Accept request"
-      accept_offer: "Accept offer"
-      reject_request: "Reject request"
-      reject_offer: "Reject offer"
-    status:
-      request_accepted: "Request accepted"
-      request_rejected: "Request rejected"
-      offer_accepted: "Offer accepted"
-      offer_rejected: "Offer rejected"
-      waiting_confirmation_from_listing_author: "Awaiting confirmation from listing author"
-      give_feedback: "Give feedback"
-      skip_feedback: "Skip feedback"
-      feedback_given: "Feedback given"
-      feedback_skipped: "Feedback skipped"
   testimonials:
     new:
       give_feedback_to: "Give feedback to %{person}"
@@ -255,8 +257,7 @@ en:
       slightly_less_than_expected: "Slightly worse than expected"
       as_expected: "As expected"
       slightly_better_than_expected: "Slightly better than expected"
-      exceeded_expectations: "Much better than expected"
-      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"             
+      exceeded_expectations: "Much better than expected"         
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"
