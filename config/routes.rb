@@ -1,4 +1,6 @@
 Kassi::Application.routes.draw do |map|
+  get "comments/create"
+
   get "testimonials/new"
 
   get "testimonials/create"
@@ -74,6 +76,7 @@ Kassi::Application.routes.draw do |map|
       collection do
         get :more_listings
       end
+      resources :comments
     end
     resources :people do
       collection do

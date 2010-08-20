@@ -1252,6 +1252,11 @@ div.checkbox_float {
 	margin-bottom: 20px;
 }
 
+.comment {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
 .person_image_message {
 	width: 50px;
 	height: 50px;
@@ -1280,20 +1285,41 @@ div.checkbox_float {
 	float: left;
 }
 
-.message_sender {
-	width: 400px;
+.comment_main {
+	width: 540px;
+	float: left;
+}
+
+@mixin sender($width: 400px) {
+	width: $width;
 	height: 25px;
 	span {
 		font-size: 11px;
-	}	
+	}
+}
+
+.message_sender {
+	@include sender;	
+}
+
+.comment_sender {
+	@include sender(540px);
+}
+
+@mixin content_div($width: 360px) {
+	@include rounded;
+	background: $form_bg;
+	width: $width;
+	padding: 16px 20px;
+	overflow: hidden;
 }
 
 .message_content_div {
-	@include rounded;
-	background: $form_bg;
-	width: 360px;
-	padding: 16px 20px;
-	overflow: hidden;
+	@include content_div;
+}
+
+.comment_content_div {
+	@include content_div(500px);
 }
 
 .message_content_spacer {
@@ -1301,13 +1327,13 @@ div.checkbox_float {
 	float: left;
 }
 
-#reply_form {
-	margin-left: 97px;
+@mixin message_form($field_width: 377px, $left_margin: 97px) {
+	margin-left: $left_margin;
 	label {
 		font-weight: bold;
 	}
 	textarea {
-		width: 377px;
+		width: $field_width;
 		color: $text_color;
 		background: white;
 		font-size: 12px;
@@ -1321,21 +1347,37 @@ div.checkbox_float {
 	}
 	label.error {
 		@include form_error_field;
-		width: 378px;
+		width: ($field_width + 1);
 		margin: 0 400px 10px 0;
 		background: red url("/images/error_arrow2.png") no-repeat top left;
 	}
 }
 
+#reply_form {
+	@include message_form;
+} 
+
+#comment_form {
+	@include message_form(370px, 0);
+}	
+
 .message_form_field_container {
 	margin-bottom: 5px;
 }
 
-.conversation_notice {
+@mixin message_notice($width: 340px, $margin_left: 97px) {
 	@include notification($notice_text, $notice_border, $notice_bg);
-	margin: 10px 77px 10px 97px;
-	width: 340px;
+	margin: 10px 77px 10px $margin_left;
+	width: $width;
 	padding: 10px 0 10px 55px;
+}
+
+.conversation_notice {
+	@include message_notice;
+}
+
+.comment_notice {
+	@include message_notice(560px, 0);
 }
 
 @mixin feedback_grade_link($image_pos) {
@@ -1436,4 +1478,14 @@ div.checkbox_float {
 .signup_checkbox_label_container {
 	margin-top: 4px;
 	float: left;
+}
+
+#comments {
+	margin-top: 10px;
+	h2 {
+		padding: 0;
+		font-size: 18px;
+		width: 620px;
+		border-bottom: 2px solid $text_color;
+	}	
 }

@@ -72,6 +72,9 @@ fi:
       feedback_sent_to: "Palaute lähetetty käyttäjälle"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       feedback_skipped: "Palaute ohitettu"
+      you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
+      comment_sent: "Kommentti lähetetty"
+      comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -112,6 +115,8 @@ fi:
       request_sent_by: "Tarjouksen lähetti"
       in_response_to_request: "vastauksena pyyntöön"
       in_response_to_offer: "tarjouksesta"
+      write_a_reply: "Kirjoita vastaus:"
+      send_reply: "Lähetä viesti"
     status:
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
@@ -220,6 +225,9 @@ fi:
       share_types: "Tarjoustapa"
       tags: "Avainsanat"
       no_description: "Ei kuvausta"
+      comments: "Kommentit"
+      write_comment: "Kirjoita uusi kommentti"
+      send_comment: "Lähetä kommentti"
     link_labels:  
       link_label_for_item_offer: "Pyydä tavaraa"
       link_label_for_favor_offer: "Pyydä palvelusta"

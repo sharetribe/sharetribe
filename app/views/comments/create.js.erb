@@ -1,0 +1,11 @@
+/* Insert a notice between the last comment and the comment form */
+$("#comment_notice").html('<div class="comment_notice"><%= t("layouts.notifications.#{flash[:comment_notice]}") %></div');
+ 
+/* Add the new message to the bottom of the message list */
+$("#comments").append("<%= escape_javascript(render(:partial => 'listings/comment', :collection => [@comment])) %>");
+
+/* Update comment count */
+$("#comment_count").html("(<%= @comment_count %>)");
+ 
+/* Reset the message form */
+$("#new_comment")[0].reset();

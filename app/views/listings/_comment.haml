@@ -1,0 +1,13 @@
+.comment
+  .person_image_message
+    = small_avatar_thumb(comment.author)
+  .message_arrow_left
+    &nbsp;
+  .comment_main
+    .message_sender
+      = link_to comment.author.name, comment.author
+      %span
+        = l(comment.created_at, :format => :short) + ":"
+    .comment_content_div
+      - text_with_line_breaks do  
+        = comment.content

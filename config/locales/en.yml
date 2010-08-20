@@ -72,6 +72,9 @@ en:
       feedback_sent_to: "Feedback sent to"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       feedback_skipped: "Feedback skipped"
+      you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
+      comment_sent: "Comment sent"
+      comment_cannot_be_empty: "Comment cannot be empty"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -112,6 +115,8 @@ en:
       request_sent_by: Offer sent by
       in_response_to_request: "in response to request"
       in_response_to_offer: "about offer"
+      write_a_reply: "Write a reply:"
+      send_reply: "Send reply"
     status_link:  
       accept_request: "Accept request"
       accept_offer: "Accept offer"
@@ -220,6 +225,9 @@ en:
       share_types: "Share types"
       tags: "Tags"
       no_description: "No description"
+      comments: "Comments"
+      write_comment: "Write a new comment"
+      send_comment: "Send comment"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
@@ -233,6 +241,18 @@ en:
       help_tags_title: "Tags"  
       help_share_type_title: "Type of the offer or request"
       help_valid_until_title: "Valid until date"
+  people:
+    new:
+      sign_up: "Create a new account in Kassi"
+      username: "Username:"
+      given_name: "Given name:"
+      family_name: "Family name:"
+      email: "Email address:"
+      password: "Password:"
+      password_again: "Confirm password:"
+      create_new_account: "Create account"
+      i_accept_the: "I accept the"
+      terms: "terms"    
   search:
     show:
       loading_more_search_results: "Loading more search results"

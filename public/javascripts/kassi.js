@@ -134,6 +134,17 @@ function initialize_reply_form(locale) {
 	});	
 }
 
+function initialize_comment_form(locale) {
+	auto_resize_text_areas();
+	$('textarea').focus();
+	translate_validation_messages(locale);
+	$("#new_comment").validate({
+		rules: {
+			"comment[content]": {required: true, minlength: 1}
+		}
+	});	
+}
+
 function initialize_give_feedback_form(error_message) {
 	auto_resize_text_areas();
 	$('textarea').focus();
