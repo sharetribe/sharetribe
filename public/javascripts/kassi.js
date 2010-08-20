@@ -134,6 +134,46 @@ function initialize_reply_form(locale) {
 	});	
 }
 
+function initialize_give_feedback_form(error_message) {
+	auto_resize_text_areas();
+	$('textarea').focus();
+	faceGrade.create('.feedback_grade_images');
+	$("#new_testimonial").validate({
+		errorPlacement: function(error, element) {
+			error.appendTo(element.parent().parent().parent());
+		},	
+		rules: {
+			"testimonial[grade]": {required: true}
+		}, 
+		messages: {
+			"testimonial[grade]": { required: error_message }
+		}
+	});
+}
+
+function initialize_signup_form(locale) {
+	$("input[type=checkbox]").uniform();
+	translate_validation_messages(locale);
+	$("#new_person").validate({
+		errorPlacement: function(error, element) {
+			if (element.attr("name") == "person[terms]") {
+				error.appendTo(element.parent().parent().parent().parent().parent());
+			} else {
+				error.insertAfter(element);
+			}	
+		},
+		rules: {
+			"person[username]": {required: true, minlength: 3, maxlength: 20},
+			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
+			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
+			"person[terms]": "required",
+			"person[password]": { required: true, minlength: 4 },
+			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
+		}
+	});	
+}
+
 function translate_validation_messages(locale) {
 	if (locale == "fi") {
 		translate_validation_messages_to_finnish();
@@ -143,7 +183,7 @@ function translate_validation_messages(locale) {
 function translate_validation_messages_to_finnish() {
 	jQuery.extend(jQuery.validator.messages, {
 		required: "Tämä on pakollinen kenttä.",
-		remote: "Tässä kentässä on virhe.",
+		remote: "Antamasi sähköpostiosoite on jo käytössä.",
 		email: "Anna toimiva sähköpostiosoite.",
 		url: "Anna oikeanlainen URL-osoite.",
 		date: "Anna päivämäärä oikessa muodossa.",
@@ -222,23 +262,6 @@ function auto_resize_text_areas() {
 	$('textarea').keydown();
 }
 
-function initialize_give_feedback_form(error_message) {
-	auto_resize_text_areas();
-	$('textarea').focus();
-	faceGrade.create('.feedback_grade_images');
-	$("#new_testimonial").validate({
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parent().parent().parent());
-		},	
-		rules: {
-			"testimonial[grade]": {required: true}
-		}, 
-		messages: {
-			"testimonial[grade]": { required: error_message }
-		}
-	});
-}
-
 // Widget that turns radio buttons to Kaapo faces
 var faceGrade = {
   create: function(selector) {
@@ -293,6 +316,5 @@ var faceGrade = {
       // Handle star mouse out
       $(this).siblings().andSelf().removeClass('grade-over')
     });    
-  }
-  
+  } 
 }

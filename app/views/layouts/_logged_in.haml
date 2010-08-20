@@ -16,6 +16,6 @@
     = link_to t('.logout'), logout_path
 - else
   .login_tab.float_right
-    = link_to t('.sign_up'), "#"
+    = link_to t('.sign_up'), sign_up_path, :title => t('.sign_up')
   .login_tab.float_right
-    = link_to t('.login'), login_path
+    = link_to t('.login'), login_path, :title => t('.login')
