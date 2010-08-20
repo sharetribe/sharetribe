@@ -39,4 +39,10 @@ Factory.define :testimonial do |t|
   t.association :participation
   t.grade 0.5
   t.text "Test text"
-end  
+end
+
+Factory.define :comment do |c|
+  c.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  c.association :listing
+  c.content "Test text"
+end

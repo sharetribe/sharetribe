@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_comment_form('#{I18n.locale}');
+
 .grid_8
   .image
     - if @listing.listing_images.empty?
@@ -5,40 +8,62 @@
     - @listing.listing_images.each do |listing_image|
       = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
 
-.grid_10
-  %h1
-    #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
-  %p
-    - text_with_line_breaks do
-      = @listing.description.blank? ? t(".no_description") : @listing.description
+.grid_16
+  .grid_10.alpha
+    %h1
+      #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+    %p
+      - text_with_line_breaks do
+        = @listing.description.blank? ? t(".no_description") : @listing.description
 
-  #share_types_and_tags
-    %strong
-      = t(".tags") + ":"
-    - @listing.tag_list.collect do |tag| 
-      = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
-    - if @listing.share_type
-      %br/
+    #share_types_and_tags
       %strong
-        = t(".share_types") + ":"
-      - @listing.share_type.collect do |st| 
-        = link_to(t("common.share_types.#{st}"), "#")  + ((st.eql?(@listing.share_type.last)) ? "" : ", ")
+        = t(".tags") + ":"
+      - @listing.tag_list.collect do |tag| 
+        = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+      - if @listing.share_type
+        %br/
+        %strong
+          = t(".share_types") + ":"
+        - @listing.share_type.collect do |st| 
+          = link_to(t("common.share_types.#{st}"), "#")  + ((st.eql?(@listing.share_type.last)) ? "" : ", ")
+
+    #listing_author
+      .float_left
+        = link_to small_avatar_thumb(@listing.author), @listing.author
+      #listing_author_description
+        %strong
+          = t(".#{@listing.listing_type}_author") + ":"
+          = link_to @listing.author.name, @listing.author
+        %br/
+        %span{:class => "smaller"}
+          = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
+
+  .grid_6.omega
+    - unless current_user?(@listing.author)
+      #request_listing_link
+        %a{:href => reply_to_listing_path(:id => @listing.id.to_s)}
+          = image_tag "/images/icons/request_icon.png"
+          .request_listing_link_label
+            = t("listings.link_labels.link_label_for_#{@listing.category}_#{@listing.listing_type}")
+  .clear
   
-  #listing_author
-    .float_left
-      = link_to small_avatar_thumb(@listing.author), @listing.author
-    #listing_author_description
-      %strong
-        = t(".#{@listing.listing_type}_author") + ":"
-        = link_to @listing.author.name, @listing.author
-      %br/
-      %span{:class => "smaller"}
-        = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
+  #comment_notice
+  
+  #comments
+    %h2
+      = image_tag "/images/icons/comment_icon.png"
+      = t(".comments")
+      %span{:id => "comment_count"}= "(#{@listing.comments.count})"
+    = render :partial => "comment", :collection => @listing.comments
     
-.grid_6
-  - unless current_user?(@listing.author)
-    #request_listing_link
-      %a{:href => reply_to_listing_path(:id => @listing.id.to_s)}
-        = image_tag "/images/icons/request_icon.png"
-        .request_listing_link_label
-          = t("listings.link_labels.link_label_for_#{@listing.category}_#{@listing.listing_type}")
+  #comment_form
+    = form_for Comment.new, :url => listing_comments_path(:listing_id => @listing.id.to_s), :remote => true do |f|
+      .message_form_field_container
+        = f.label :content, t(".write_comment")
+      .message_form_field_container  
+        = f.text_area :content
+      .message_form_field_container
+        = f.hidden_field :listing_id, :value => @listing.id.to_s
+        = f.hidden_field :author_id, :value => @current_user.id
+        = f.submit t(".send_comment"), :class => "send_button"

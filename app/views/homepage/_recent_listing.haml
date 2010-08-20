@@ -12,7 +12,8 @@
       - unless current_user?(listing.author)
         = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
         &nbsp;|&nbsp;
-      = link_to t('listings.please_comment'), "#"
+      - comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""  
+      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"
     /.float_right
     /%span
     =# link_to listing.author.given_name, "#"

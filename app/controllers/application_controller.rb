@@ -10,7 +10,11 @@ class ApplicationController < ActionController::Base
   helper_method :root, :logged_in?, :current_user?
   
   def set_locale
-    I18n.locale = ["fi", "en"].include?(params[:locale]) ? params[:locale] : "fi"
+    if ENV['RAILS_ENV'] = 'test'
+      I18n.locale = params[:locale] 
+    else  
+      I18n.locale = ["fi", "en"].include?(params[:locale]) ? params[:locale] : "fi"
+    end  
     
     # A hack to get the path where the user is 
     # redirected after the locale is changed

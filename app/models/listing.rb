@@ -19,6 +19,8 @@ class Listing < ActiveRecord::Base
   
   has_many :conversations
   
+  has_many :comments
+  
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {

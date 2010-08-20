@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819114104) do
+ActiveRecord::Schema.define(:version => 20100820122449) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20100819114104) do
     t.string   "return_value"
     t.text     "headers"
     t.string   "semantic_event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "author_id"
+    t.integer  "listing_id"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
