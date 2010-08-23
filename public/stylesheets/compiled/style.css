@@ -422,6 +422,14 @@ p.description {
   padding: 0;
   height: 0; }
 
+.listing_spacer {
+  border-top: 1px solid #765d3a;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  height: 0;
+  width: 700px; }
+
 .recent_listing {
   overflow: hidden; }
 
@@ -476,7 +484,7 @@ p.description {
 .listed_listing_text {
   float: left;
   font-size: 11px;
-  width: 614px;
+  width: 604px;
   margin-left: 10px; }
   .listed_listing_text p {
     margin: 5px 0 4px 0; }
@@ -1091,10 +1099,10 @@ div.checkbox_float {
 /* Single listing view */
 #share_types_and_tags {
   padding: 10px 0;
-  border-top: 1px solid #464646;
-  border-bottom: 1px solid #464646; }
+  border-top: 1px solid #464646; }
 
 #listing_author {
+  border-top: 1px solid #464646;
   padding: 15px 0;
   overflow: hidden; }
 
@@ -1205,6 +1213,12 @@ div.checkbox_float {
   width: 940px;
   height: 10px;
   background: #d1c9b4; }
+
+#profile_tab_spacer {
+  width: 700px;
+  height: 10px;
+  background: #d1c9b4;
+  margin-bottom: 10px; }
 
 #conversations {
   margin: 20px 30px 20px 20px;
@@ -1649,7 +1663,7 @@ div.checkbox_float {
   text-align: left;
   font-size: 16px;
   color: #464646;
-  width: 100%;
+  width: 700px;
   border-bottom: 4px solid #464646;
   margin-bottom: 10px; }
 
@@ -1658,6 +1672,7 @@ div.checkbox_float {
   width: 218px;
   border-bottom: 1px solid #464646; }
   #search_settings a {
+    font-weight: normal;
     border-top: 1px solid #464646;
     display: block;
     width: 198px;

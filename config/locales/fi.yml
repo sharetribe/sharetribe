@@ -252,7 +252,12 @@ fi:
       password_again: "Salasana uudelleen:"
       create_new_account: "Luo tunnus"
       i_accept_the: "Hyväksyn"
-      terms: "käyttöehdot"    
+      terms: "käyttöehdot"
+    profile_listings:
+      offers: "Tarjoukset"
+      requests: "Pyynnöt"
+      loading_more_offers: "Ladataan lisää tarjouksia"
+      loading_more_requests: "Ladataan lisää pyyntöjä"      
   search:
     show:
       search: "Haku"

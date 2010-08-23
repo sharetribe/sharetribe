@@ -15,6 +15,6 @@
       %h2
         = t('.search_results')
         = "(#{@listings.total_entries})"
-      = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "result_spacer"
+      = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
       = will_paginate(@listings)
       = pageless(@listings.total_pages, '#search_results', "search?q=#{@query}", t('.loading_more_search_results'))

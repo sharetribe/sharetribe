@@ -15,18 +15,21 @@
     %p
       - text_with_line_breaks do
         = @listing.description.blank? ? t(".no_description") : @listing.description
-
-    #share_types_and_tags
-      %strong
-        = t(".tags") + ":"
-      - @listing.tag_list.collect do |tag| 
-        = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
-      - if @listing.share_type
-        %br/
-        %strong
-          = t(".share_types") + ":"
-        - @listing.share_type.collect do |st| 
-          = link_to(t("common.share_types.#{st}"), "#")  + ((st.eql?(@listing.share_type.last)) ? "" : ", ")
+    
+    - unless !@listing.share_type && @listing.tag_list.empty?    
+      #share_types_and_tags
+        - unless @listing.tag_list.empty?
+          %strong
+            = t(".tags") + ":"
+          - @listing.tag_list.collect do |tag| 
+            = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+        - if @listing.share_type && !@listing.tag_list.empty?
+          %br/
+        - if @listing.share_type
+          %strong
+            = t(".share_types") + ":"
+          - @listing.share_type.collect do |st| 
+            = link_to(t("common.share_types.#{st}"), "#")  + ((st.eql?(@listing.share_type.last)) ? "" : ", ")
 
     #listing_author
       .float_left

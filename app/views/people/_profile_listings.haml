@@ -1,0 +1,10 @@
+#inbox_tabs
+  %div{:class => get_profile_tab_class("offers")} 
+    = link_to t('.offers'), person_listings_path(:id => @current_user.id.to_s, :type => "offers")
+  %div{:class => get_profile_tab_class("requests")} 
+    = link_to t('.requests'), person_listings_path(:id => @current_user.id.to_s, :type => "requests")
+#profile_tab_spacer
+#listing_list
+  = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
+  = will_paginate(@listings)
+  = pageless(@listings.total_pages, '#listing_list', "#{@current_user.id}", t(".loading_more_#{params[:type] ? params[:type] : "offers"}"))
