@@ -1,8 +1,20 @@
-.grid_6
-  search settings pane here
+#search_page.grid_24
+  .grid_6.alpha
+    %h1= t(".search")
+    #search_settings
+      = link_to t(".all_results"), "#", :class => "selected"
+      = link_to t(".offers"), "#"
+      = link_to t(".requests"), "#"
 
-#search_results.grid_18
-  %h4= t('.search results')
-  = render :partial => "listed_listing", :collection => @listings, :as => :listing, :spacer_template => "result_spacer"
-  = will_paginate(@listings)
-  = pageless(@listings.total_pages, '#search_results', "search?q=#{@query}", t('.loading_more_search_results')) 
+  .grid_18.omega
+    #search_form
+      = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+        = text_field_tag("q", params[:q], :class => "text_field")
+        = submit_tag(t(".search_verb"), :class => "send_button")
+    #search_results
+      %h2
+        = t('.search_results')
+        = "(#{@listings.total_entries})"
+      = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "result_spacer"
+      = will_paginate(@listings)
+      = pageless(@listings.total_pages, '#search_results', "search?q=#{@query}", t('.loading_more_search_results'))

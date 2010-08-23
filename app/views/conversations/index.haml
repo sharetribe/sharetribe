@@ -1,6 +1,6 @@
 - if @conversations && !@conversations.empty?
   #conversations
-    %h2= pluralize(@conversation_count, t(".message_partitive"), t(".messages_partitive"))
+    %h2= pluralize(@conversations.total_entries, t(".message_partitive"), t(".messages_partitive"))
     = render :partial => "conversations/#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
     = will_paginate(@conversations)
     = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages')) 

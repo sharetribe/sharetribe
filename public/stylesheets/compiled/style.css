@@ -425,6 +425,9 @@ p.description {
 .recent_listing {
   overflow: hidden; }
 
+.listed_listing {
+  overflow: hidden; }
+
 .listing_image {
   width: 85px;
   height: 85px;
@@ -468,6 +471,22 @@ p.description {
     float: right;
     padding-top: 1px; }
     .recent_listing_text span a {
+      font-weight: normal; }
+
+.listed_listing_text {
+  float: left;
+  font-size: 11px;
+  width: 614px;
+  margin-left: 10px; }
+  .listed_listing_text p {
+    margin: 5px 0 4px 0; }
+  .listed_listing_text span {
+    color: #797979;
+    font-style: italic;
+    font-size: 10px;
+    float: right;
+    padding-top: 1px; }
+    .listed_listing_text span a {
       font-weight: normal; }
 
 /* New listing page */
@@ -1195,7 +1214,7 @@ div.checkbox_float {
     font-size: 16px;
     color: #464646;
     width: 100%;
-    border-bottom: 1px solid #464646;
+    border-bottom: 4px solid #464646;
     margin-bottom: 0; }
   #conversations .unread {
     background: #efd6ba; }
@@ -1599,3 +1618,63 @@ div.checkbox_float {
     font-size: 18px;
     width: 620px;
     border-bottom: 2px solid #464646; }
+
+#search_page h1 {
+  margin-bottom: 25px; }
+#search_page input.text_field {
+  float: left;
+  font-weight: bold;
+  color: #464646;
+  background: white;
+  width: 200px;
+  font-size: 13px;
+  height: 20px;
+  padding: 5px 9px;
+  border: 2px solid #765d3a;
+  margin-top: 3px; }
+  #search_page input.text_field:focus {
+    background: white; }
+#search_page input.send_button {
+  width: 100px;
+  height: 34px;
+  margin: 3px 0 0 10px;
+  float: left;
+  font-size: 13px; }
+
+#search_form {
+  overflow: hidden;
+  margin-bottom: 20px; }
+
+#search_results h2 {
+  text-align: left;
+  font-size: 16px;
+  color: #464646;
+  width: 100%;
+  border-bottom: 4px solid #464646;
+  margin-bottom: 10px; }
+
+#search_settings {
+  margin-top: 10px;
+  width: 218px;
+  border-bottom: 1px solid #464646; }
+  #search_settings a {
+    border-top: 1px solid #464646;
+    display: block;
+    width: 198px;
+    color: #d45207;
+    font-size: 13px;
+    padding: 5px 10px; }
+    #search_settings a:hover {
+      background: #fdd9c3; }
+    #search_settings a:active {
+      background: #fdd9c3; }
+  #search_settings a.selected {
+    color: white;
+    background: #d45207; }
+
+.left_panel_title {
+  background: #223f05;
+  width: 198px;
+  color: white;
+  font-size: 13px;
+  padding: 5px 10px; }

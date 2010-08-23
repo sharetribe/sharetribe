@@ -47,6 +47,10 @@ module ApplicationHelper
   def small_avatar_thumb(person)    
     link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
   end
+  
+  def large_avatar_thumb(person)
+    image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
+  end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
 

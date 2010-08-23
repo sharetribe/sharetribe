@@ -255,6 +255,12 @@ fi:
       terms: "käyttöehdot"    
   search:
     show:
+      search: "Haku"
+      search_verb: "Hae"
+      all_results: "Kaikista"
+      offers: "Tarjouksista"
+      requests: "Pyynnöistä"
+      search_results: "Hakutulokset"
       loading_more_search_results: "Ladataan lisää hakutuloksia"
   sessions:
     new:

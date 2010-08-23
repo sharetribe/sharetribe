@@ -13,13 +13,11 @@ class ConversationsController < ApplicationController
   
   def received
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
-    @conversation_count = @current_user.messages_that_are("received").count
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
   def sent
     @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
-    @conversation_count = @current_user.messages_that_are("sent").count
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
