@@ -490,6 +490,11 @@ p.description {
 	@include spacer;
 }
 
+.listing_spacer {
+	@include spacer;
+	width: 700px;
+}
+
 .recent_listing {
 	overflow: hidden;
 }
@@ -554,7 +559,7 @@ p.description {
 }
 
 .listed_listing_text {
-	@include listing_text(614px);
+	@include listing_text(604px);
 }
 
 
@@ -1021,10 +1026,10 @@ div.checkbox_float {
 #share_types_and_tags {
 	padding: 10px 0;
 	border-top: 1px solid $text_color;
-	border-bottom: 1px solid $text_color;
 }
 
 #listing_author {
+	border-top: 1px solid $text_color;
 	padding: 15px 0;
 	overflow: hidden;
 }
@@ -1112,10 +1117,19 @@ div.checkbox_float {
 	}	
 }
 
-#inbox_tab_spacer {
-	width: 940px;
+@mixin tab_spacer($width: 940px) {
+	width: $width;
 	height: 10px;
-	background: $form_bg;;
+	background: $form_bg;
+}
+
+#inbox_tab_spacer {
+	@include tab_spacer;
+}
+
+#profile_tab_spacer {
+	@include tab_spacer(700px);
+	margin-bottom: 10px;
 }
 
 #conversations {
@@ -1541,7 +1555,7 @@ div.checkbox_float {
 		text-align: left;
 		font-size: 16px;
 		color: $text_color;
-		width: 100%;
+		width: 700px;
 		border-bottom: 4px solid $text_color;
 		margin-bottom: 10px;
 	}
@@ -1551,6 +1565,7 @@ div.checkbox_float {
 	margin-top: 10px;
 	width: 218px;
 	a {
+		font-weight: normal;
 		border-top: 1px solid $text_color;
 		display: block;
 		width: 198px;

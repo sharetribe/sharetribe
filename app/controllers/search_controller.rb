@@ -20,7 +20,7 @@ class SearchController < ApplicationController
       # @person_amount = @people.size
       
       if request.xhr? # checks if AJAX request
-        render :partial => "additional_results" 
+        render :partial => "listings/additional_listings" 
       end
       
     end

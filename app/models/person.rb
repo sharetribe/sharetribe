@@ -22,6 +22,16 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :offers, 
+           :foreign_key => "author_id", 
+           :class_name => "Listing", 
+           :conditions => { :listing_type => "offer" },
+           :order => "id DESC"
+  has_many :requests, 
+           :foreign_key => "author_id", 
+           :class_name => "Listing", 
+           :conditions => { :listing_type => "request" },
+           :order => "id DESC"
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations

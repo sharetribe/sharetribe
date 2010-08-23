@@ -1,0 +1,2 @@
+= render :partial => "listings/listing_spacer" unless @listings.empty?
+= render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
