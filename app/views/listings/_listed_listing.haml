@@ -1,0 +1,22 @@
+- title = t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
+.listed_listing
+  .listing_image
+    - unless listing.listing_images.empty?
+      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => title
+    - else
+      %div{:class => "listing_image_#{listing.category}"}
+        =  link_to "#", listing_path(listing), :title => title
+  .listed_listing_text
+    %h5= link_to title, listing
+    %p{:class => "description"}
+      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 350, :omission => "..."))
+    .float_left
+      - unless current_user?(listing.author)
+        = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
+        &nbsp;|&nbsp;
+      - comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""  
+      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form" 
+    .float_right
+      %span
+        = link_to listing.author.given_name, "#"
+        = time_ago(listing.created_at)

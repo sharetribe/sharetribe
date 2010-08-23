@@ -13,6 +13,7 @@ $medium_brown: #765d3a;
 $dark_orange: darken($orange, 10%);
 $darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
+$lighter_orange: lighten($orange, 45%);
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
@@ -493,6 +494,10 @@ p.description {
 	overflow: hidden;
 }
 
+.listed_listing {
+	overflow: hidden;
+}
+
 .listing_image {
 	width: 85px;
 	height: 85px;
@@ -524,10 +529,10 @@ p.description {
 	@include listing_image(-1085px);
 }
 
-.recent_listing_text {
+@mixin listing_text($width: 244px) {
 	float: left;
 	font-size: 11px;
-	width: 244px;
+	width: $width;
 	margin-left: 10px;
 	p {
 		margin: 5px 0 4px 0;
@@ -542,6 +547,14 @@ p.description {
 		float: right;
 		padding-top: 1px
 	}
+}
+
+.recent_listing_text {
+	@include listing_text;
+}
+
+.listed_listing_text {
+	@include listing_text(614px);
 }
 
 
@@ -1111,7 +1124,7 @@ div.checkbox_float {
 		font-size: 16px;
 		color: $text_color;
 		width: 100%;
-		border-bottom: 1px solid $text_color;
+		border-bottom: 4px solid $text_color;
 		margin-bottom: 0;
 	}	
 	margin: 20px 30px 20px 20px;
@@ -1490,4 +1503,74 @@ div.checkbox_float {
 		width: 620px;
 		border-bottom: 2px solid $text_color;
 	}	
+}
+
+#search_page {
+	h1 {
+		margin-bottom: 25px;
+	}
+	input.text_field {
+		float: left;
+		font-weight: bold;
+		color: $text_color;
+		background: white;
+		width: 200px;
+		font-size: 13px;
+		height: 20px;
+		padding: 5px 9px;
+		border: 2px solid $medium_brown;
+		margin-top: 3px;
+		&:focus { background: white; }
+	}
+	input.send_button {
+		width: 100px;
+		height: 34px;
+		margin: 3px 0 0 10px;
+		float: left;
+		font-size: 13px;
+	}
+}
+
+#search_form {
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+#search_results {
+	h2 {
+		text-align: left;
+		font-size: 16px;
+		color: $text_color;
+		width: 100%;
+		border-bottom: 4px solid $text_color;
+		margin-bottom: 10px;
+	}
+}
+
+#search_settings {
+	margin-top: 10px;
+	width: 218px;
+	a {
+		border-top: 1px solid $text_color;
+		display: block;
+		width: 198px;
+		color: $orange;
+		font-size: 13px;
+		padding: 5px 10px;
+		&:hover { background: $lighter_orange; }
+		&:active { background: $lighter_orange; }
+	}
+	a.selected {
+		color: white;
+		background: $orange;
+	}
+	border-bottom: 1px solid $text_color;
+}
+
+.left_panel_title {
+	background: $dark_green;
+	width: 198px;
+	color: white;
+	font-size: 13px;
+	padding: 5px 10px;
 }
