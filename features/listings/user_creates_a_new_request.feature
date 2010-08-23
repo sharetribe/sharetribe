@@ -77,7 +77,7 @@ Feature: User creates a new request
     And I am on the home page
     When I follow "Request something"
     And I follow "Rideshare"
-    And I fill in "Test" within "Origin"
+    And I fill in "Origin" with "Test"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
     And I select "2011" from "listing_valid_until_1i"
