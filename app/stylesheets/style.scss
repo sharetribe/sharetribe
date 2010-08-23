@@ -173,6 +173,8 @@ h4 {
 
 h5 {
 	margin: 0;
+	padding: 0;
+	line-height: 17px;
 	@include grey_link;
 }
 
@@ -476,7 +478,7 @@ form, input {
 }
 
 p.description {
-	min-height: 37px;
+	min-height: 44px;
 }
 
 .request_spacer {

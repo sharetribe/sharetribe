@@ -83,7 +83,9 @@ h4 {
   margin: 5px 0 15px 0; }
 
 h5 {
-  margin: 0; }
+  margin: 0;
+  padding: 0;
+  line-height: 17px; }
   h5 a {
     color: #464646; }
     h5 a:hover {
@@ -404,7 +406,7 @@ form, input {
   width: 340px; }
 
 p.description {
-  min-height: 37px; }
+  min-height: 44px; }
 
 .request_spacer {
   border-top: 1px solid #d45207;
