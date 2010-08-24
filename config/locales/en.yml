@@ -252,11 +252,19 @@ en:
       password_again: "Confirm password:"
       create_new_account: "Create account"
       i_accept_the: "I accept the"
-      terms: "terms"    
+      terms: "terms"
+    profile_listings:
+      offers: "Offers"
+      requests: "Requests"
+      loading_more_offers: "Loading more offers"
+      loading_more_requests: "Ladataan more requests"      
   search:
     show:
       search: "Search"
       search_verb: "Search"
+      all_results: "All results"
+      offers: "Offers"
+      requests: "Requests"
       search_results: "Search results"
       loading_more_search_results: "Loading more search results"
   sessions:
