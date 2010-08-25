@@ -54,7 +54,7 @@
     //split_string:  "<!--SPLIT_req-off-->",
     //loader:       "#recent_requests"
 		scrape: function(data) { 
-		  if (typeof($.pageless.div2) !== 'undefined') { // means that we have 2 div update
+		  if (typeof($.pageless.div2) != 'undefined') { // means that we have 2 div update
   		  arr = data.split($.pageless.settings.split_string);
   		  return arr;
 		  } else {
@@ -82,7 +82,7 @@
     // but since we have javascript enabled we remove pagination links 
     if($.pageless.settings.pagination)
       $($.pageless.settings.pagination).remove();
-    
+
     // start the listener
     $.pageless.startListener();
   };

@@ -158,55 +158,76 @@ en:
       please_offer: "Offer"
   listings:
     please_comment: "Comment"
-    listing_form_content:
-      request_something: "Request something"
-      offer_something: "Offer something"
-      item: "Item"
-      favor: "Favor"
+    index:
+      requests: "Requests"
+      offers: "Offers"
+      category: "Category"      
+      all_categories: "All categories"
+      items: "Items"
+      favors: "Favors"
       rideshare: "Rideshare"
       housing: "Housing"
-    listing_share_type:
-      offer_type: "Offer type"
-      request_type: "Request type"
-      sell: "Sell"
-      lend: "Lend"
-      rent_out: "Rent out"
-      trade: "Trade"
-      give_away: "Give away"
-      temporary_accommodation: "Temporary"
-      buy: "Buy"
-      borrow: "Borrow"
-      rent: "Rent"
-    listing_title:
-      item_you_request: "Item you need"
-      item_you_offer: "Item you offer"
-      favor_you_request: "Favor you need"
-      favor_you_offer: "Favor you offer"
-      housing_you_request: "Housing you need"
-      housing_you_offer: "Housing you offer"
-    listing_origin:
-      origin: "Origin"
-    listing_destination:
-      destination: "Destination"
-    listing_tag_list:
-      tags: "Tags"
-      comma_separate: "(comma separate)"      
-    listing_description:
-      detailed_description: "Detailed description"
-    listing_images:
-      image: "Image"
-      select_file: "Select file"
-      no_file_selected: "No file selected"
-    listing_valid_until:
-      valid_until: "Valid until"
-    listing_valid_until_radio_buttons:
-      for_the_time_being: "For the time being"  
-    listing_departure_time:  
-      departure_time: "Departure time"
-      at: "At"  
-    listing_send_button:
-      save_request: "Save request"
-      save_offer: "Save offer"
+      list_view: "List view"
+      map_view: "Map view"
+      search_verb: "Search"
+    listed_listings:  
+      loading_more_requests: "Loading more requests"
+      loading_more_offers: "Loading more offers"
+    left_panel_link:
+      items: "Items"
+      favors: "Favors"
+      rideshares: "Rideshare"
+      housings: "Housing"  
+    form:
+      listing_form_content:
+        request_something: "Request something"
+        offer_something: "Offer something"
+        item: "Item"
+        favor: "Favor"
+        rideshare: "Rideshare"
+        housing: "Housing"
+      listing_share_type:
+        offer_type: "Offer type"
+        request_type: "Request type"
+        sell: "Sell"
+        lend: "Lend"
+        rent_out: "Rent out"
+        trade: "Trade"
+        give_away: "Give away"
+        temporary_accommodation: "Temporary"
+        buy: "Buy"
+        borrow: "Borrow"
+        rent: "Rent"
+      listing_title:
+        item_you_request: "Item you need"
+        item_you_offer: "Item you offer"
+        favor_you_request: "Favor you need"
+        favor_you_offer: "Favor you offer"
+        housing_you_request: "Housing you need"
+        housing_you_offer: "Housing you offer"
+      listing_origin:
+        origin: "Origin"
+      listing_destination:
+        destination: "Destination"
+      listing_tag_list:
+        tags: "Tags"
+        comma_separate: "(comma separate)"      
+      listing_description:
+        detailed_description: "Detailed description"
+      listing_images:
+        image: "Image"
+        select_file: "Select file"
+        no_file_selected: "No file selected"
+      listing_valid_until:
+        valid_until: "Valid until"
+      listing_valid_until_radio_buttons:
+        for_the_time_being: "For the time being"  
+      listing_departure_time:  
+        departure_time: "Departure time"
+        at: "At"  
+      listing_send_button:
+        save_request: "Save request"
+        save_offer: "Save offer"
     show:
       request: "Request"
       offer: "Offer"
@@ -257,7 +278,7 @@ en:
       offers: "Offers"
       requests: "Requests"
       loading_more_offers: "Loading more offers"
-      loading_more_requests: "Ladataan more requests"      
+      loading_more_requests: "Loading more requests"      
   search:
     show:
       search: "Search"

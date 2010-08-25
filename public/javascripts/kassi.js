@@ -185,6 +185,67 @@ function initialize_signup_form(locale) {
 	});	
 }
 
+function reload_browse_view(link, listing_type, locale) {
+	type = link.attr("name").split("_")[0];
+	title = link.attr("name").split("_")[1];
+	allLinks = link.parent().parent().find('a');
+	
+	// Handle selected items
+	if (title == "all") {
+		link.parent().find('a').removeClass("selected");
+		link.addClass("selected");
+	} else {
+		if (link.hasClass("selected")) {
+			link.removeClass("selected");
+		} else {
+			link.addClass("selected");
+			link.parent().find('a[name=' + type + '_all]').removeClass("selected");
+		}
+	}
+	var none_selected = true; 
+	link.parent().find('a').each(function() {
+		if ($(this).hasClass("selected")) {
+			none_selected = false;
+		}
+	});
+	if (none_selected) {
+		link.parent().find('a[name=' + type + '_all]').addClass("selected");
+	}
+	link.parent().find('a').each(function() {
+		if ($(this).hasClass("selected")) {
+			none_selected = false;
+		}
+	});
+	
+	// Make AJAX request based on selected items
+	var sections = new Array();
+	var sectionTypes = ["categories"]
+	for (var i = 0; i < sectionTypes.length; i++) {
+		sections[sectionTypes[i]] = new Array();
+	}
+	allLinks.each(function() {
+		link_type = $(this).attr("name").split("_")[0];
+		link_title = $(this).attr("name").split("_")[1];
+		if ($(this).hasClass("selected")) {
+			sections[link_type].push(link_title);
+		}
+	});
+	var request_path = '/' + locale + '/load'
+	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'] }, function(data) {
+		$('#search_results').html(data);
+		$('#search_results').pageless({"totalPages":3,"loaderMsg":"Testing","div1":"#search_results","url":"/fi/requests"});
+	});
+}
+
+function initialize_browse_view(listing_type, locale) {
+	$('#left_link_panel_browse').find('a').click(
+		function() { 
+			$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+			reload_browse_view($(this), listing_type, locale);
+		}
+	);
+}
+
 function translate_validation_messages(locale) {
 	if (locale == "fi") {
 		translate_validation_messages_to_finnish();
@@ -329,3 +390,4 @@ var faceGrade = {
     });    
   } 
 }
+

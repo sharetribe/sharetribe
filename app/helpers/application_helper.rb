@@ -69,6 +69,7 @@ module ApplicationHelper
       })
     end
     
+    logger.info "Opts: #{opts.to_json}"
     
     javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
   end

@@ -36,10 +36,10 @@
       .tabs.grid_12.prefix_3
         .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.home'), root
-        .tab_unselected.grid_3
-          = link_to t('header.requests'), "#"
-        .tab_unselected.grid_3
-          = link_to t('header.offers'), "#"
+        .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("requests")) ? "tab_selected" : "tab_unselected"}
+          = link_to t('header.requests'), browse_path(:listing_type => "requests")
+        .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("offers")) ? "tab_selected" : "tab_unselected"}
+          = link_to t('header.offers'), browse_path(:listing_type => "offers")
         .tab_unselected.grid_3.omega
           = link_to t('header.community'), "#"
         .clear
