@@ -29,4 +29,10 @@ module ListingsHelper
     haml_concat capture_haml(&block).gsub(":", "#{colon}").gsub("&mdash;", "#{time}").gsub("\n", '')
   end
   
+  # Class is selected if listing type is currently selected
+  def get_listing_tab_class(tab_name)
+    current_tab_name = params[:type] || "list_view"
+    "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
+  end
+  
 end

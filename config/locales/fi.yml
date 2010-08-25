@@ -158,55 +158,76 @@ fi:
       please_offer: "Tarjoa"
   listings:
     please_comment: "Kommentoi"
-    listing_form_content:
-      request_something: "Pyydä jotain"
-      offer_something: "Tarjoa jotain"  
-      item: "Tavara"
-      favor: "Palvelus"
-      rideshare: "Kimppakyyti"
+    index:
+      requests: "Pyynnöt"
+      offers: "Tarjoukset"
+      category: "Kategoria"
+      all_categories: "Kaikki kategoriat"
+      items: "Tavarat"
+      favors: "Palvelukset"
+      rideshare: "Kimppakyydit"
       housing: "Asuminen"
-    listing_share_type:
-      offer_type: "Tarjoustapa"
-      request_type: "Pyyntötapa"
-      sell: "Myy"
-      lend: "Lainaa"
-      rent_out: "Vuokraa"
-      trade: "Vaihda"
-      give_away: "Anna"
-      temporary_accommodation: "Tilapäismajoitus"
-      buy: "Osta"
-      borrow: "Lainaa"
-      rent: "Vuokraa"
-    listing_title:
-      item_you_request: "Tavara jonka tarvitset"
-      item_you_offer: "Tavara jonka tarjoat"
-      favor_you_request: "Palvelus jonka tarvitset"
-      favor_you_offer: "Palvelus jonka tarjoat"
-      housing_you_request: "Mitä tarvitset"
-      housing_you_offer: "Mitä tarjoat"
-    listing_origin:
-      origin: "Lähtöpaikka"
-    listing_destination:  
-      destination: "Määränpää"
-    listing_tag_list:
-      tags: "Avainsanat"
-      comma_separate: "(erota pilkulla)"  
-    listing_description:
-      detailed_description: "Tarkempi kuvaus"
-    listing_images:
-      image: "Kuva"
-      select_file: "Valitse tiedosto"
-      no_file_selected: "Ei tiedostoa valittuna"
-    listing_valid_until:
-      valid_until: "Voimassa"
-    listing_valid_until_radio_buttons:
-      for_the_time_being: "Toistaiseksi"  
-    listing_departure_time:  
-      departure_time: "Lähtöaika"  
-      at: "Kellonaika"    
-    listing_send_button:
-      save_request: "Tallenna pyyntö"
-      save_offer: "Tallenna tarjous"  
+      list_view: "Listanäkymä"
+      map_view: "Karttanäkymä"
+      search_verb: "Hae"
+    listed_listings:  
+      loading_more_requests: "Ladataan lisää pyyntöjä"
+      loading_more_offers: "Ladataan lisää tarjouksia"
+    left_panel_link:
+      items: "Tavarat"
+      favors: "Palvelukset"
+      rideshares: "Kimppakyydit"
+      housings: "Asunnot"  
+    form:
+      listing_form_content:
+        request_something: "Pyydä jotain"
+        offer_something: "Tarjoa jotain"  
+        item: "Tavara"
+        favor: "Palvelus"
+        rideshare: "Kimppakyyti"
+        housing: "Asuminen"
+      listing_share_type:
+        offer_type: "Tarjoustapa"
+        request_type: "Pyyntötapa"
+        sell: "Myy"
+        lend: "Lainaa"
+        rent_out: "Vuokraa"
+        trade: "Vaihda"
+        give_away: "Anna"
+        temporary_accommodation: "Tilapäismajoitus"
+        buy: "Osta"
+        borrow: "Lainaa"
+        rent: "Vuokraa"
+      listing_title:
+        item_you_request: "Tavara jonka tarvitset"
+        item_you_offer: "Tavara jonka tarjoat"
+        favor_you_request: "Palvelus jonka tarvitset"
+        favor_you_offer: "Palvelus jonka tarjoat"
+        housing_you_request: "Mitä tarvitset"
+        housing_you_offer: "Mitä tarjoat"
+      listing_origin:
+        origin: "Lähtöpaikka"
+      listing_destination:  
+        destination: "Määränpää"
+      listing_tag_list:
+        tags: "Avainsanat"
+        comma_separate: "(erota pilkulla)"  
+      listing_description:
+        detailed_description: "Tarkempi kuvaus"
+      listing_images:
+        image: "Kuva"
+        select_file: "Valitse tiedosto"
+        no_file_selected: "Ei tiedostoa valittuna"
+      listing_valid_until:
+        valid_until: "Voimassa"
+      listing_valid_until_radio_buttons:
+        for_the_time_being: "Toistaiseksi"  
+      listing_departure_time:  
+        departure_time: "Lähtöaika"  
+        at: "Kellonaika"    
+      listing_send_button:
+        save_request: "Tallenna pyyntö"
+        save_offer: "Tallenna tarjous"
     show:
       request: "Pyyntö"
       offer: "Tarjous"

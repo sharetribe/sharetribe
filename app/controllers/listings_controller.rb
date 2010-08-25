@@ -6,6 +6,19 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
   end
   
+  def index
+    redirect_to root and return unless ["requests", "offers"].include?(params[:listing_type])
+    @title = params[:listing_type]
+    @listings = Listing.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    render :partial => "listings/additional_listings" if request.xhr?
+  end
+  
+  def load
+    @title = params[:listing_type]
+    @listings = Listing.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    render :partial => "listings/listed_listings"
+  end
+  
   def show
     @listing = Listing.find(params[:id])
   end

@@ -21,6 +21,9 @@ class Listing < ActiveRecord::Base
   
   has_many :comments
   
+  scope :requests, :conditions => { :listing_type => 'request' }, :order => "id DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :order => "id DESC"
+  
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
@@ -127,6 +130,17 @@ class Listing < ActiveRecord::Base
   # Overrides the to_param method to implement clean URLs
   def to_param
     "#{id}-#{title.gsub(/\W/, '_').downcase}"
+  end
+  
+  def self.find_with(params)
+    conditions = []
+    conditions[0] = "listing_type = ?"
+    conditions[1] = params[:listing_type].chop
+    if params[:category] && !params[:category][0].eql?("all") 
+      conditions[0] += " AND category IN (?)"
+      conditions << params[:category]
+    end
+    where(conditions).order("id DESC")
   end
   
 end  

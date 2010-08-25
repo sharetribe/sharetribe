@@ -13,7 +13,7 @@ $medium_brown: #765d3a;
 $dark_orange: darken($orange, 10%);
 $darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
-$lighter_orange: lighten($orange, 45%);
+$lighter_orange: lighten($orange, 25%);
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
@@ -1561,31 +1561,68 @@ div.checkbox_float {
 	}
 }
 
-#search_settings {
+@mixin left_link_panel($image: "arrows2", $image_height: 24px) {
 	margin-top: 10px;
 	width: 218px;
 	a {
 		font-weight: normal;
-		border-top: 1px solid $text_color;
 		display: block;
 		width: 198px;
 		color: $orange;
+		font-size: 11px;
+		padding: 4px 10px 4px 10px;
+		&:hover { background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
+		&:focus { background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
+		&:active { 
+			background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-2 * $image_height) no-repeat; 
+			color: $text_color;
+		}
+		margin-bottom: 2px;
+	}
+	a.selected {
+		background: $bg_color url("/images/left_panel_" + $image + ".png") 0 0 no-repeat;
+		color: $text_color;
+	}
+}
+
+#left_link_panel_browse {
+	@include left_link_panel;
+}
+
+#left_link_panel_search {
+	@include left_link_panel("arrows", 28px);
+	a {
+		color: $orange;
 		font-size: 13px;
-		padding: 5px 10px;
-		&:hover { background: $lighter_orange; }
-		&:active { background: $lighter_orange; }
+		padding: 5px 10px 4px 10px;
 	}
 	a.selected {
 		color: white;
-		background: $orange;
 	}
-	border-bottom: 1px solid $text_color;
 }
 
 .left_panel_title {
-	background: $dark_green;
-	width: 198px;
-	color: white;
-	font-size: 13px;
-	padding: 5px 10px;
+	h3 {
+		color: $dark_green;
+		width: 218px;
+		font-size: 14px;
+		margin-bottom: 5px;
+		text-align: left;
+	}
+}
+
+.left_panel_section {
+	margin-bottom: 10px;
+}
+
+#browse_listings_tabs {
+	margin-left: 10px;
+	padding-top: 10px;
+	overflow: hidden;
+}
+
+#loader {
+	margin-top: 50px;
+	width: 100%;
+	text-align: center;
 }
