@@ -135,12 +135,22 @@ class Listing < ActiveRecord::Base
   def self.find_with(params)
     conditions = []
     conditions[0] = "listing_type = ?"
-    conditions[1] = params[:listing_type].chop
+    conditions[1] = params[:listing_type]
     if params[:category] && !params[:category][0].eql?("all") 
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]
     end
     where(conditions).order("id DESC")
+  end
+  
+  # Returns true if listing exists and valid_until is set
+  def temporary?
+    !new_record? && valid_until
+  end
+  
+  def update_fields(params)
+    update_attribute(:valid_until, nil) unless params[:valid_until]
+    update_attributes(params)
   end
   
 end  

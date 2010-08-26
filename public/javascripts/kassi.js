@@ -46,7 +46,7 @@ function initialize_login_form() {
   $('input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -69,7 +69,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		$.uniform.update("select.listing_date_select");
 	});
 	translate_validation_messages(locale);
-	$("#new_listing").validate({
+	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[share_type][]") {
 				error.appendTo(element.parent().parent().parent().parent().parent().parent());

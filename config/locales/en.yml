@@ -75,6 +75,8 @@ en:
       you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
       comment_sent: "Comment sent"
       comment_cannot_be_empty: "Comment cannot be empty"
+      request_updated_successfully: "Request updated successfully"
+      offer_updated_successfully: "Offer updated successfully"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -218,8 +220,9 @@ en:
         image: "Image"
         select_file: "Select file"
         no_file_selected: "No file selected"
+        remove_image: "Remove image"
       listing_valid_until:
-        valid_until: "Valid until"
+        valid_until: "Expiration date"
       listing_valid_until_radio_buttons:
         for_the_time_being: "For the time being"  
       listing_departure_time:  
@@ -249,6 +252,10 @@ en:
       comments: "Comments"
       write_comment: "Write a new comment:"
       send_comment: "Send comment"
+      edit_request: "Edit request"
+      edit_offer: "Edit offer"
+      close_request: "Close request"
+      close_offer: "Close offer"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
@@ -261,7 +268,10 @@ en:
     help_texts:
       help_tags_title: "Tags"  
       help_share_type_title: "Type of the offer or request"
-      help_valid_until_title: "Valid until date"
+      help_valid_until_title: "Expiration date"
+    edit:
+      edit_request: "Edit request"
+      edit_offer: "Edit offer"  
   people:
     new:
       sign_up: "Create a new account in Kassi"

@@ -1,0 +1,5 @@
+- valid_until_msg = @listing.rideshare? ? t('error_messages.listings.departure_time') : t('error_messages.listings.valid_until')
+:javascript
+  $(document).ready(function() {
+    initialize_new_listing_form('#{t('listings.form.listing_images.no_file_selected')}', '#{t('listings.form.listing_images.select_file')}', '#{I18n.locale}', '#{t('error_messages.listings.share_type')}', '#{valid_until_msg}', '#{@listing.rideshare?}', '#{@listing.listing_type == "offer" ? "true" : "false"}', '#{listing_id}');
+  });

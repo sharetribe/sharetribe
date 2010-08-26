@@ -7,7 +7,11 @@
       %div{:id => "listing_category_big_icon_#{@listing.category}"}
     - @listing.listing_images.each do |listing_image|
       = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
-
+  - if current_user?(@listing.author)    
+    #edit_links
+      = link_to t(".edit_#{@listing.listing_type}"), edit_listing_path(@listing), :class => "edit_listing"
+      = link_to t(".close_#{@listing.listing_type}"), "#", :class => "close_listing"
+    
 .grid_16
   .grid_10.alpha
     %h1

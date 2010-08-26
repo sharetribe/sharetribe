@@ -3,7 +3,7 @@
 
 #search_page.grid_24
   .grid_6.alpha
-    %h1= t(".#{@title}")
+    %h1= t(".#{@title}s")
     #left_link_panel_browse
       .left_panel_section
         .left_panel_title
@@ -24,4 +24,3 @@
     #profile_tab_spacer
     #search_results
       = render :partial => "listed_listings"
-      = pageless(@listings.total_pages, '#search_results', browse_path(:listing_type => @title, :category => params[:category]), t(".loading_more_#{@title}"))

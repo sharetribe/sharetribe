@@ -612,6 +612,9 @@ p.description {
 #new_listing_form {
 	@include form;
 	padding: 20px 15px;
+	h1 {
+		margin-left: 15px;
+	}	
 }
 
 #favor_form, #rideshare_form, #housing_form {
@@ -769,7 +772,10 @@ p.description {
 		@include new_listing_form_field;
 		font-size: 12px;
 		height: 100px;
-		padding: 9px 9px;
+		padding: 12px 10px 5px 15px;
+	}
+	img {
+		float: left;
 	}
 }
 
@@ -1023,6 +1029,33 @@ div.checkbox_float {
 }
 
 /* Single listing view */
+
+@mixin edit_listing_link($image_pos: 5px) {
+	width: 268px;
+	display: block;
+	height: 20px;
+	padding: 5px 0px 5px 32px;
+	background: $bg_color url("/images/icons/edit_listing_icons.png") 6px $image_pos no-repeat;
+	border-bottom: 1px solid $light_orange;
+	&:hover {
+		color: white;
+		background: $orange url("/images/icons/edit_listing_icons.png") 6px ($image_pos - 38px) no-repeat;
+	}
+}
+
+a.edit_listing {
+	@include edit_listing_link;
+}
+
+a.close_listing {
+	@include edit_listing_link(-71px);
+}
+
+.remove_image_link {
+	float: left;
+	padding: 30px 0 0 30px;
+}
+
 #share_types_and_tags {
 	padding: 10px 0;
 	border-top: 1px solid $text_color;
