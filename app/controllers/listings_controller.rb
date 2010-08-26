@@ -6,11 +6,14 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
   end
   
-  def index
-    redirect_to root and return unless ["requests", "offers"].include?(params[:listing_type])
-    @title = params[:listing_type]
-    @listings = Listing.find_with(params).paginate(:per_page => 15, :page => params[:page])
-    render :partial => "listings/additional_listings" if request.xhr?
+  def requests
+    params[:listing_type] = "request"
+    fetch
+  end
+  
+  def offers
+    params[:listing_type] = "offer"
+    fetch
   end
   
   def load
@@ -44,6 +47,29 @@ class ListingsController < ApplicationController
       flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
       redirect_to @listing
     end
+  end
+  
+  def edit
+    @listing = Listing.find(params[:id])
+    1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+  end
+  
+  def update
+    @listing = Listing.find(params[:id])
+    if @listing.update_fields(params[:listing])
+      flash[:notice] = "#{@listing.listing_type}_updated_successfully"
+      redirect_to @listing
+    else
+      render :action => :edit
+    end    
+  end
+  
+  private
+  
+  def fetch
+    @title = params[:listing_type]
+    @listings = Listing.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "listings/additional_listings") : (render :action => :index)
   end
 
 end

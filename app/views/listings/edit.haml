@@ -1,19 +1,11 @@
-= render :partial => "listings/form/listing_form_javascripts", :locals => { :listing_id => "false" }
-
-.grid_16.prefix_4.suffix_4
-  #new_listing_form_tabs
-    %div{:class => get_new_listing_tab_class("request")} 
-      = link_to t('.request_something'), new_listing_path(:type => "request", :category => @listing.category), :remote => :true
-    %div{:class => get_new_listing_tab_class("offer")} 
-      = link_to t('.offer_something'), new_listing_path(:type => "offer", :category => @listing.category), :remote => :true
+= render :partial => "listings/form/listing_form_javascripts", :locals => { :listing_id => @listing.id.to_s }
 
 .grid_16.prefix_4.suffix_4
 
   #new_listing_form
-    #listing_type_select_icons
-      - Listing::VALID_CATEGORIES.each do |category|
-        %div{:class => get_type_select_icon_class(category)} 
-          = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category), :remote => :true
+    %h1
+      = t(".edit_#{@listing.listing_type}")
+      = @listing.title
     
     #listing_required_fields_description
       = t("common.fields_that_are_mandatory")

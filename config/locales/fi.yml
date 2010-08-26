@@ -75,6 +75,8 @@ fi:
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
       comment_sent: "Kommentti lähetetty"
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
+      request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
+      offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -218,6 +220,7 @@ fi:
         image: "Kuva"
         select_file: "Valitse tiedosto"
         no_file_selected: "Ei tiedostoa valittuna"
+        remove_image: "Poista kuva"
       listing_valid_until:
         valid_until: "Voimassa"
       listing_valid_until_radio_buttons:
@@ -249,6 +252,10 @@ fi:
       comments: "Kommentit"
       write_comment: "Kirjoita uusi kommentti:"
       send_comment: "Lähetä kommentti"
+      edit_request: "Muokkaa pyyntöä"
+      edit_offer: "Muokkaa tarjousta"
+      close_request: "Sulje pyyntö"
+      close_offer: "Sulje tarjous"
     link_labels:  
       link_label_for_item_offer: "Pyydä tavaraa"
       link_label_for_favor_offer: "Pyydä palvelusta"
@@ -262,6 +269,9 @@ fi:
       help_tags_title: "Avaisanat"
       help_share_type_title: "Tarjous- tai pyyntötapa"
       help_valid_until_title: "Viimeinen voimassaolopäivä"
+    edit:
+      edit_request: "Muokkaa pyyntöä"
+      edit_offer: "Muokkaa tarjousta"  
   people:
     new:
       sign_up: "Luo uusi tunnus Kassiin"

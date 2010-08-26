@@ -1,7 +1,7 @@
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("Username:", :with => (person ? person : "kassi_testperson1"))
-  fill_in("Password:", :with => "testi")
+  fill_in("username", :with => (person ? person : "kassi_testperson1"))
+  fill_in("password", :with => "testi")
   click_button("Login")
 end
 

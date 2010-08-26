@@ -3,6 +3,8 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
   @listing = Listing.create!(:listing_type => type, 
                              :category => category, 
                              :title => title,
+                             :description => "test",
+                             :tag_list => "tools, test",
                              :share_type => (share_type ? share_type.split(",") : nil),
                              :author_id => (@people && @people[author] ? @people[author].id : Person.first.id),
                              :valid_until => 3.months.from_now

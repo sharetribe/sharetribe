@@ -1,4 +1,4 @@
-Kassi::Application.routes.draw do |map|
+  Kassi::Application.routes.draw do |map|
   get "comments/create"
 
   get "testimonials/new"
@@ -77,6 +77,7 @@ Kassi::Application.routes.draw do |map|
         get :more_listings
         get :browse
       end
+      resources :images, :controller => :listing_images
       resources :comments
     end
     resources :people do
@@ -108,7 +109,8 @@ Kassi::Application.routes.draw do |map|
   
   # Some non-RESTful mappings
   match "/:locale/load" => "listings#load", :as => :load
-  match "/:locale/:listing_type" => "listings#index", :as => :browse
+  match "/:locale/offers" => "listings#offers", :as => :offers
+  match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
