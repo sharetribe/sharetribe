@@ -106,6 +106,9 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "false");
 		}
 	});
 	set_textarea_maxlength();
@@ -117,9 +120,13 @@ function initialize_send_message_form(default_text, locale) {
 	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
 	translate_validation_messages(locale);
-	$("#new_conversation").validate({
+	var form_id = "#new_conversation"
+	$(form_id).validate({
 		rules: {
 			"conversation[message_attributes][content]": {required: true, minlength: 1}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "false");
 		}
 	});	
 }
@@ -128,9 +135,13 @@ function initialize_reply_form(locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	translate_validation_messages(locale);
-	$("#new_message").validate({
+	var form_id = "#new_message"
+	$(form_id).validate({
 		rules: {
 			"message[content]": {required: true, minlength: 1}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "true");
 		}
 	});	
 }
@@ -139,18 +150,24 @@ function initialize_comment_form(locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	translate_validation_messages(locale);
-	$("#new_comment").validate({
+	var form_id = "#new_comment"
+	$(form_id).validate({
 		rules: {
 			"comment[content]": {required: true, minlength: 1}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "true");
 		}
 	});	
 }
 
-function initialize_give_feedback_form(error_message) {
+function initialize_give_feedback_form(error_message, locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	faceGrade.create('.feedback_grade_images');
-	$("#new_testimonial").validate({
+	translate_validation_messages(locale);
+	var form_id = "#new_testimonial"
+	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo(element.parent().parent().parent());
 		},	
@@ -159,6 +176,9 @@ function initialize_give_feedback_form(error_message) {
 		}, 
 		messages: {
 			"testimonial[grade]": { required: error_message }
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "false");
 		}
 	});
 }
@@ -166,7 +186,8 @@ function initialize_give_feedback_form(error_message) {
 function initialize_signup_form(locale) {
 	$("input[type=checkbox]").uniform();
 	translate_validation_messages(locale);
-	$("#new_person").validate({
+	var form_id = "#new_person"
+	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
 				error.appendTo(element.parent().parent().parent().parent().parent());
@@ -182,6 +203,9 @@ function initialize_signup_form(locale) {
 			"person[terms]": "required",
 			"person[password]": { required: true, minlength: 4 },
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "false");
 		}
 	});	
 }
@@ -340,7 +364,7 @@ var faceGrade = {
   create: function(selector) {
     // loop over every element matching the selector
     $(selector).each(function() {
-      var $list = $('<div></div>');
+      var $list = $('<div class="grade_link_wrapper"></div>');
       // loop over every radio button in each container
 			var id = 1;
       $(this)
@@ -351,9 +375,12 @@ var faceGrade = {
             .attr('title', grade)
 						.attr('id', '' + id + '')
             .text(grade);
+					var $wrapper_div = $('<div></div>');
+					$wrapper_div.addClass('feedback_grade_image_' + id);	
 					id++;
           faceGrade.addHandlers($item);
-          $list.append($item);
+					$wrapper_div.append($item);
+          $list.append($wrapper_div);
           
           if($(this).is(':checked')) {
             $item.addClass('grade');
@@ -367,7 +394,7 @@ var faceGrade = {
     $(item).click(function(e) {
       // Handle Star click
       var $star = $(this);
-      var $allLinks = $(this).parent();
+      var $allLinks = $(this).parent().parent();
       
       // Set the radio button value
       $allLinks
@@ -376,7 +403,7 @@ var faceGrade = {
         .attr('checked', true);
         
       // Set the grades
-      $allLinks.children().removeClass('grade');
+      $allLinks.children().children().removeClass('grade');
       $star.addClass('grade');
       
       // prevent default link click
@@ -392,3 +419,13 @@ var faceGrade = {
   } 
 }
 
+function disable_and_submit(form_id, form, locale, ajax) {
+	disabled_value = (locale == "fi") ? "Odota hetki..." : "Please wait..."
+	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
+	$(form_id + ' input[type=submit]').val(disabled_value);
+	if (ajax == "true") {
+		$(form).ajaxSubmit();
+	} else {
+  	form.submit();
+	}	
+}

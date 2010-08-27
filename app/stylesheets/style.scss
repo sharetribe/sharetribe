@@ -1512,19 +1512,45 @@ a.close_listing {
 	}
 }
 
-.feedback_grade_images {
-	margin: 5px 10px;
-	a { 
-		background: transparent url("/images/kaapo/basic_link.png") 0 -50px no-repeat; 
+.grade_link_wrapper {
+	overflow: hidden;
+	margin-left: 10px;
+	padding-top: 3px;
+}
+
+@mixin feedback_grade_link($image_pos: 0) {
+	float: left;
+	a {
 		display: inline-block; 
 		height: 50px; 
 		width: 50px; 
 		text-indent: -999em; 
 		overflow: hidden;
 		margin-right: 10px;
+		background: transparent url("/images/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat;
 	}
-	a.grade { background-position: 0 0; }
-	a.grade-over { background-position: 0 -100px; }
+	a.grade { background-position: 0 ($image_pos); }
+	a.grade-over { background-position: 0 ($image_pos - 100px); }
+}
+
+.feedback_grade_image_5 {
+	@include feedback_grade_link;
+}
+
+.feedback_grade_image_4 {
+	@include feedback_grade_link(-150px);
+}
+
+.feedback_grade_image_3 {
+	@include feedback_grade_link(-300px);
+}
+
+.feedback_grade_image_2 {
+	@include feedback_grade_link(-450px);
+}
+
+.feedback_grade_image_1 {
+	@include feedback_grade_link(-600px);
 }
 
 .signup_checkbox_container {
