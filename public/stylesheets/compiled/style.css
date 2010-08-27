@@ -1628,20 +1628,85 @@ a.close_listing {
     line-height: 18px;
     padding-bottom: 10px; }
 
-.feedback_grade_images {
-  margin: 5px 10px; }
-  .feedback_grade_images a {
-    background: transparent url("/images/kaapo/basic_link.png") 0 -50px no-repeat;
+.grade_link_wrapper {
+  overflow: hidden;
+  margin-left: 10px;
+  padding-top: 3px; }
+
+.feedback_grade_image_5 {
+  float: left; }
+  .feedback_grade_image_5 a {
     display: inline-block;
     height: 50px;
     width: 50px;
     text-indent: -999em;
     overflow: hidden;
-    margin-right: 10px; }
-  .feedback_grade_images a.grade {
+    margin-right: 10px;
+    background: transparent url("/images/kaapo/basic_link.png") 0 -50px no-repeat; }
+  .feedback_grade_image_5 a.grade {
     background-position: 0 0; }
-  .feedback_grade_images a.grade-over {
+  .feedback_grade_image_5 a.grade-over {
     background-position: 0 -100px; }
+
+.feedback_grade_image_4 {
+  float: left; }
+  .feedback_grade_image_4 a {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin-right: 10px;
+    background: transparent url("/images/kaapo/basic_link.png") 0 -200px no-repeat; }
+  .feedback_grade_image_4 a.grade {
+    background-position: 0 -150px; }
+  .feedback_grade_image_4 a.grade-over {
+    background-position: 0 -250px; }
+
+.feedback_grade_image_3 {
+  float: left; }
+  .feedback_grade_image_3 a {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin-right: 10px;
+    background: transparent url("/images/kaapo/basic_link.png") 0 -350px no-repeat; }
+  .feedback_grade_image_3 a.grade {
+    background-position: 0 -300px; }
+  .feedback_grade_image_3 a.grade-over {
+    background-position: 0 -400px; }
+
+.feedback_grade_image_2 {
+  float: left; }
+  .feedback_grade_image_2 a {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin-right: 10px;
+    background: transparent url("/images/kaapo/basic_link.png") 0 -500px no-repeat; }
+  .feedback_grade_image_2 a.grade {
+    background-position: 0 -450px; }
+  .feedback_grade_image_2 a.grade-over {
+    background-position: 0 -550px; }
+
+.feedback_grade_image_1 {
+  float: left; }
+  .feedback_grade_image_1 a {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    text-indent: -999em;
+    overflow: hidden;
+    margin-right: 10px;
+    background: transparent url("/images/kaapo/basic_link.png") 0 -650px no-repeat; }
+  .feedback_grade_image_1 a.grade {
+    background-position: 0 -600px; }
+  .feedback_grade_image_1 a.grade-over {
+    background-position: 0 -700px; }
 
 .signup_checkbox_container {
   margin-left: 10px;
