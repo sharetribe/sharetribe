@@ -26,7 +26,7 @@ class PeopleController < ApplicationController
       render :action => "new" and return
     end
     session[:person_id] = @person.id
-    flash[:notice] = :registration_succeeded
+    flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
     redirect_to (session[:return_to] || root)
   end
 

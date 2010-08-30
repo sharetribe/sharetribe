@@ -95,7 +95,7 @@ class Person < ActiveRecord::Base
   def self.create(params, cookie)
     
     # Try to create the person to ASI
-    person_hash = {:person => params.slice(:username, :password, :email) }
+    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}) }
     response = PersonConnection.create_person(person_hash, cookie)
 
     # Pick id from the response (same id in kassi and ASI DBs)
@@ -109,10 +109,10 @@ class Person < ActiveRecord::Base
     params["given_name"] = params["given_name"].slice(0, 28)
     params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale), params[:id], cookie)
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id), params[:id], cookie)
     
     # Create locally with less attributes 
-    super(params.except(:username, :email, "name"))
+    super(params.except(:username, :email, "name", :terms))
   end 
   
   
@@ -367,6 +367,7 @@ class Person < ActiveRecord::Base
     if params["name"] || params[:name]
       # If name is going to be changed, expire name cache
       Rails.cache.delete("person_name/#{self.id}")
+      Rails.cache.delete("given_name/#{self.id}")
     end
     PersonConnection.put_attributes(params, self.id, cookie)
   end
@@ -484,11 +485,11 @@ class Person < ActiveRecord::Base
   end
   
   def self.username_available?(username)
-    false
+    true
   end
   
   def self.email_available?(email)
-    false
+    true
   end
   
 end
