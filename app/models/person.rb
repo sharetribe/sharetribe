@@ -204,8 +204,8 @@ class Person < ActiveRecord::Base
       return form_given_name ? form_given_name : ""
     end
     # We rather return the username than blank if no given name is set
-    #return Rails.cache.fetch("given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_or_username(cookie)}
-    given_name_or_username(cookie) 
+    return Rails.cache.fetch("given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_or_username(cookie)}
+    #given_name_or_username(cookie) 
   end
   
   def set_given_name(name, cookie)
