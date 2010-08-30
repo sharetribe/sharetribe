@@ -29,3 +29,16 @@ Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each { |hash| @people[hash['person']] = get_test_person_and_session(hash['person'])[0] }
 end
+
+
+# Filling in with random strings
+
+When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
+  case value
+    when "username" then value = generate_random_username
+    when "email"    then value = "#{generate_random_username}@example.com"
+  end
+  with_scope(selector) do
+    fill_in(field, :with => value)
+  end
+end
