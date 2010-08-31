@@ -48,7 +48,11 @@ class Session
   
   # A class method for destroying a session based on cookie
   def self.destroy(cookie)
-    resp = RestHelper.make_request(:delete, @@session_uri, {:cookies => cookie}, nil, true)
+    begin
+      resp = RestHelper.make_request(:delete, @@session_uri, {:cookies => cookie}, nil, true)
+    rescue RestClient::ResourceNotFound => e
+      # If resource is not found, the session is no more valid, so can be considered destroyed
+    end
   end
   
   def destroy
