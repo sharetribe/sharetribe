@@ -92,7 +92,12 @@ fi:
       you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa"
       you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
-      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."    
+      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
+    new_comment:
+      you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
+      has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
+      has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
+      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"      
   conversations:
     index:
       message_partitive: "viesti"

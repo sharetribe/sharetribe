@@ -7,7 +7,12 @@ class MessagesController < ApplicationController
   
   def create
     @message = Message.new(params[:message])
-    @message.save ? (flash[:message_notice] = "reply_sent") : (flash[:error] = "reply_cannot_be_empty")
+    if @message.save 
+      flash[:message_notice] = "reply_sent"
+      PersonMailer.new_message_notification(@message, request.host).deliver
+    else
+      flash[:error] = "reply_cannot_be_empty"
+    end  
     respond_to do |format|
       format.html { redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => params[:message][:conversation_id]) }
       format.js { render :layout => false }
