@@ -46,6 +46,7 @@ en:
       create_new_request: "Request something else"
       create_new_offer: "Offer something else"
       you_must_log_in_to_create_new_request: "You must log in to Kassi to create a new request."
+      you_must_log_in_to_create_new_offer: "You must log in to Kassi to create a new offer."
       you_must_log_in_to_send_a_message: "You must log in to Kassi to send a message to another user."
       you_must_log_in_to_view_your_inbox: "You must log in to Kassi to view your inbox."
       login_successful: "Welcome to Kassi, "
@@ -81,6 +82,17 @@ en:
       messages: "Messages"
       received: "Received"
       sent: "Sent"
+  emails:
+    common:
+      thanks: "Thanks,"
+      kassi_team: "The Kassi Team"
+      want_to_control_emails: "Want to control which emails you receive from Kassi?"
+      check_your_settings: "Check your settings"
+    new_message:
+      you_have_a_new_message: "You have a new message in Kassi"
+      has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in Kassi"
+      you_can_reply_to_message_in: "You can reply to the message in"
+      do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
   conversations:
     index:
       message_partitive: "message"

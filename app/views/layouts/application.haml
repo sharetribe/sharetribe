@@ -32,7 +32,7 @@
       .top_navi_form.grid_3
         = form_tag("/change_locale", :method => "get") do
           = hidden_field_tag :redirect_uri, @return_to
-          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
       .tabs.grid_12.prefix_3
         .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.home'), root

@@ -2,19 +2,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :set_locale
   before_filter :fetch_logged_in_user
+  before_filter :set_locale
   
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
   
   helper_method :root, :logged_in?, :current_user?
   
   def set_locale
+    locale = logged_in? ? @current_user.locale : params[:locale]
+      
     if ENV['RAILS_ENV'] = 'test'
-      I18n.locale = params[:locale] 
+      I18n.locale = locale
     else  
-      I18n.locale = ["fi", "en"].include?(params[:locale]) ? params[:locale] : "fi"
-    end  
+      I18n.locale = ["fi", "en"].include?(locale) ? locale : "fi"
+    end
     
     # A hack to get the path where the user is 
     # redirected after the locale is changed

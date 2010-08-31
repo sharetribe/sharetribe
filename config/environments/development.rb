@@ -15,5 +15,13 @@ Kassi::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  # Enable sending mail from localhost
+  ActionMailer::Base.smtp_settings = {
+    :address => 'smtp.hut.fi', #if needed change to own smtp server
+    :port => 25,
+    :domain => 'cos.alpha.sizl.org'
+  }
+  
 end

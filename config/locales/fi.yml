@@ -46,6 +46,7 @@ fi:
       create_new_request: "Pyydä jotain muuta"
       create_new_offer: "Tarjoa jotain muuta"
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön."
+      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen."
       you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       login_successful: "Tervetuloa Kassiin, "
@@ -81,6 +82,17 @@ fi:
       messages: "Viestit"
       received: "Saapuneet"
       sent: "Lähetetyt"
+  emails:      
+    common:
+      thanks: "Terveisin,"
+      kassi_team: "Kassitiimi"
+      want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
+      check_your_settings: "Tarkista asetuksesi"
+    new_message:
+      you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
+      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa"
+      you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
+      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."    
   conversations:
     index:
       message_partitive: "viesti"

@@ -1,0 +1,9 @@
+= t("emails.common.thanks")
+%br/
+= t("emails.common.kassi_team")
+
+%div{:style => "margin-top: 6px; border-bottom: 3px solid #d1c9b4; line-height:3px"}
+  &nbsp;
+%div{:style => "margin-top: 3px; font-size: 0.9em;"}
+  = t("emails.common.want_to_control_emails")
+  = link_to(t("emails.common.check_your_settings"), @settings_url + "?ref=email")
