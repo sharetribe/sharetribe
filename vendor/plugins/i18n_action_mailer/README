@@ -1,0 +1,28 @@
+I18nActionMailer
+================
+
+This plugin will allow ActionMailer to use the I18n library without affecting the controllers language.
+
+Rails currently saves the locale in a thread. When you want to send an email in a different language, this value is used.
+When the ActionMailer changes the locale, the controller will be affected. 
+
+This library lets 
+* the ActionMailer save it's own locale
+* provide translation and localisation functions for the mailer
+* override the ActionView translation methods to use the ActionMailer's locale
+
+Example
+=======
+
+  class Mailer < ActionMailer::Base
+  
+    def greet_user(user)
+      set_locale  user.locale
+      subject     t('mailer.greet_user.title')
+      recipients  user.email
+      body        :user => user
+    end
+  
+  end
+
+Copyright (c) 2009 Bert Goethals (@bertgoethals), released under the MIT license

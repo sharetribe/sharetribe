@@ -1,4 +1,8 @@
   Kassi::Application.routes.draw do |map|
+  get "settings/profile"
+
+  get "settings/notifications"
+
   get "comments/create"
 
   get "testimonials/new"
@@ -101,7 +105,13 @@
             put :skip
           end  
         end    
-      end    
+      end
+      resource :settings do
+        member do
+          get :profile
+          get :notifications
+        end
+      end      
     end
     resources :sessions
     resources :consent
