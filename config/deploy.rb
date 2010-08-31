@@ -117,7 +117,7 @@ before "cold" do
   preparations
 end
 
-after %w(deploy deploy:migrations deploy:cold deploy:start ) do
+after %w(deploy:migrations deploy:cold deploy:start ) do
   deploy.finalize
 end
 

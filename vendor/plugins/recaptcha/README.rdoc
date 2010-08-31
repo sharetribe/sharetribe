@@ -1,0 +1,101 @@
+= reCAPTCHA
+
+Author::    Jason L Perry (http://ambethia.com)
+Copyright:: Copyright (c) 2007 Jason L Perry
+License::   {MIT}[http://creativecommons.org/licenses/MIT/]
+Info::      http://ambethia.com/recaptcha
+Git::       http://github.com/ambethia/recaptcha/tree/master
+Bugs::      http://github.com/ambethia/recaptcha/issues
+
+This plugin adds helpers for the {reCAPTCHA API}[http://recaptcha.net]. In your views you can use
+the +recaptcha_tags+ method to embed the needed javascript, and you can validate in your controllers
+with +verify_recaptcha+.
+
+You'll want to add your public and private API keys in the environment variables +RECAPTCHA_PUBLIC_KEY+
+and +RECAPTCHA_PRIVATE_KEY+, respectively. You could also specify them in <tt>config/environment.rb</tt> if you
+are so inclined (see below). Exceptions will be raised if you call these methods and the keys can't be found.
+
+== Rails Installation
+
+reCAPTCHA for Rails can be installed as a gem:
+
+  config.gem "ambethia-recaptcha", :lib => "recaptcha/rails", :source => "http://gems.github.com"
+
+Or, as a standard rails plugin:
+
+  script/plugin install git://github.com/ambethia/recaptcha.git
+
+== Merb Installation
+
+reCAPTCHA can also be used in a Merb application when installed as a gem:
+
+  dependency "alm-recaptcha", ">=0.2.2.1", :require_as => "recaptcha/merb"
+
+Initial Merb compatability funded by ALM Labs.
+
+== Setting up your API Keys
+
+There are two ways to setup your reCAPTCHA API keys once you {obtain}[http://recaptcha.net/whyrecaptcha.html]
+a pair. You can pass in your keys as options at runtime, for example:
+
+  recaptcha_tags :public_key => '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy'
+
+and later,
+
+  verify_recaptcha :private_key => '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
+
+
+Or, preferably, you can keep your keys out of your code base by exporting the environment variables
+mentioned earlier. You might do this in the .profile/rc, or equivalent for the user running your
+application:
+
+  export RECAPTCHA_PUBLIC_KEY  = '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy'
+  export RECAPTCHA_PRIVATE_KEY = '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
+
+If that's not your thing, and dropping things into <tt>config/environment.rb</tt> is, you can just do:
+
+  ENV['RECAPTCHA_PUBLIC_KEY']  = '6Lc6BAAAAAAAAChqRbQZcn_yyyyyyyyyyyyyyyyy'
+  ENV['RECAPTCHA_PRIVATE_KEY'] = '6Lc6BAAAAAAAAKN3DRm6VA_xxxxxxxxxxxxxxxxx'
+
+== +recaptcha_tags+
+
+Some of the options available:
+
+<tt>:ssl</tt>::         Uses secure http for captcha widget (default +false+)
+<tt>:noscript</tt>::    Include <noscript> content (default +true+)
+<tt>:display</tt>::     Takes a hash containing the +theme+ and +tabindex+ options per the API. (default +nil+)
+<tt>:ajax</tt>::        Render the dynamic AJAX captcha per the API. (default +false+)
+<tt>:public_key</tt>::  Your public API key, takes precedence over the ENV variable (default +nil+)
+<tt>:error</tt>::       Override the error code returned from the reCAPTCHA API (default +nil+)
+
+You can also override the html attributes for the sizes of the generated +textarea+ and +iframe+
+elements, if CSS isn't your thing. Inspect the source of +recaptcha_tags+ to see these options.
+
+== +verify_recaptcha+
+
+This method returns +true+ or +false+ after processing the parameters from the reCAPTCHA widget. Why
+isn't this a model validation? Because that violates MVC. Use can use it like this, or how ever you
+like. Passing in the ActiveRecord object is optional, if you do--and the captcha fails to verify--an
+error will be added to the object for you to use.
+
+Some of the options available:
+
+<tt>:model</tt>::       Model to set errors
+<tt>:attribute</tt>::   Model attribute to receive errors (default :base)
+<tt>:message</tt>::     Custom error message
+<tt>:private_key</tt>:: Your private API key, takes precedence over the ENV variable (default +nil+).
+<tt>:timeout</tt>::     The number of seconds to wait for reCAPTCHA servers before give up. (default +3+)
+
+  respond_to do |format|
+    if verify_recaptcha(:model => @post, :message => "Oh! It's error with reCAPTCHA!") && @post.save
+      # ...
+    else
+      # ...
+    end
+  end
+
+== TODO
+* Remove Rails/ActionController dependencies
+* Framework agnostic
+* Add some helpers to use in before_filter and what not
+* Better documentation

@@ -55,6 +55,10 @@ module Kassi
     config.filter_parameters += [:password]
     
     config.time_zone = 'Helsinki'
+    #if APP_CONFIG.use_recaptcha
+      ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
+      ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
+    #end
 
   end
 end

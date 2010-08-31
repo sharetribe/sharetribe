@@ -16,22 +16,29 @@ class PeopleController < ApplicationController
   end
 
   def create
-    # Open a Session first only for Kassi to be able to create a user
-    @session = Session.create
-    session[:cookie] = @session.cookie
-    params[:person][:locale] = session[:locale] || 'fi'
     
-    # Try to create a new person in ASI.
-    @person = Person.new
-    begin
-      @person = Person.create(params[:person], session[:cookie])
-    rescue RestClient::RequestFailed => e
-      logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
-      render :action => "new" and return
+    if verify_recaptcha
+    
+      # Open a Session first only for Kassi to be able to create a user
+      @session = Session.create
+      session[:cookie] = @session.cookie
+      params[:person][:locale] = session[:locale] || 'fi'
+    
+      # Try to create a new person in ASI.
+      @person = Person.new
+      begin
+        @person = Person.create(params[:person], session[:cookie])
+      rescue RestClient::RequestFailed => e
+        logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
+        render :action => "new" and return
+      end
+      session[:person_id] = @person.id
+      flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
+      redirect_to (session[:return_to] || root)
+    else
+      flash[:error] = "ERROR WITH CAPTCHA"
+      render :action => 'new'
     end
-    session[:person_id] = @person.id
-    flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
-    redirect_to (session[:return_to] || root)
   end
   
   def update

@@ -27,6 +27,8 @@
         = form.label :password2, t('.password_again')
         = form.password_field :password2, :class => :text_field, :maxlength => "255"
       .form_field_container
+        = recaptcha_tags #:ajax => true
+      .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container
             %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]", :checked => "checked"}
