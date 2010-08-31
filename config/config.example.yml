@@ -16,6 +16,13 @@ default: &default_settings
   # The default locale (language) of the user interface
   default_locale: en
 
+  # reCAPTChA is used to avoid bots registering accounts
+  # You need to register your domain at https://www.google.com/recaptcha
+  # to get the keys
+  use_recaptcha: false
+  recaptcha_public_key: 'your_key_here'
+  recaptcha_private_key: 'your_key_here'
+
   # Ressi is Researcher's Interface for logged data
   # If you don't need it just leave it to false
   # If log_to_ressi is false, other ressi settings can be ignored.

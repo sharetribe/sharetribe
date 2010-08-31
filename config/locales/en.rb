@@ -15,6 +15,7 @@
 :accept_consent => "Accept the consent",
 :show_consent => "Show the consent",
 :consent_accepted => "You are now logged in Kassi. Welcome!", 
+:captcha_incorrect => "reCAPTCHA check failed. Please write the words in the image to the box below.",
 
 #General
 :all => "All",

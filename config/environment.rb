@@ -115,6 +115,11 @@ Rails::Initializer.run do |config|
 
 end
 
+if APP_CONFIG.use_recaptcha
+  ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
+  ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
+end
+
 if APP_CONFIG.use_CAS
   require 'casclient'
   require 'casclient/frameworks/rails/filter'

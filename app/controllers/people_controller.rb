@@ -112,13 +112,21 @@ class PeopleController < ApplicationController
   
   # Creates a new person
   def create
+    
+    # Check captcha first
+    @person = Person.new
+    if APP_CONFIG.use_recaptcha && !verify_recaptcha(:model => @person, :message => t(:captcha_incorrect))
+      preserve_create_form_values(@person)
+      render :action => "new" and return
+    end
+    
     # should expire cache for people listing
     
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.headers["Cookie"]
     params[:person][:locale] = session[:locale] || 'fi'
-    
+  
     # Try to create a new person in COS. 
     @person = Person.new
     if params[:person][:password].eql?(params[:person][:password2]) &&
@@ -146,6 +154,7 @@ class PeopleController < ApplicationController
       preserve_create_form_values(@person)
       render :action => "new" and return
     end
+
   end  
   
   # Displays register form

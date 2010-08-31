@@ -15,6 +15,7 @@
 :accept_consent => "Hyväksy suostumus",
 :show_consent => "Näytä tutkimussuostumus",
 :consent_accepted => "Olet nyt kirjautuneena Kassiin. Tervetuloa!",  
+:captcha_incorrect => "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään.",
 
 #General
 :all => "Kaikki",

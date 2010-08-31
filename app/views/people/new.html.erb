@@ -46,10 +46,12 @@
       <div class="login_padding">
         <%= f.text_field :email, :class => :login_text  %><br />
       </div>
-      <div class="login_padding">
-        <%# recaptcha_tags %><br />
-      </div>
-      <div class="login_form_br"></div>  
+      <div class="login_form_br"></div>
+      <% if APP_CONFIG.use_recaptcha%>
+        <div class="login_padding">
+          <%= recaptcha_tags %><br />
+        </div>
+      <% end %>
       <div class="login_form_br"></div>
       <div class="login_padding">
         <div class="consent_checkbox">
