@@ -172,6 +172,9 @@ form, input {
     .top_navi_link a:active {
       color: #d45207; }
 
+.locale_select_padding {
+  margin-left: 34px; }
+
 .tab_unselected a {
   width: 110px;
   height: 26px;
