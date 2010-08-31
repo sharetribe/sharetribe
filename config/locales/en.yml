@@ -93,6 +93,11 @@ en:
       has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in Kassi"
       you_can_reply_to_message_in: "You can reply to the message in"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
+    new_comment:
+      you_have_a_new_comment: "%{author} has commented your listing in Kassi"
+      has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
+      has_commented_your_offer_in_kassi: "%{author} has commented your offer %{listing}"
+      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"  
   conversations:
     index:
       message_partitive: "message"

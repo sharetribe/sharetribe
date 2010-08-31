@@ -1,0 +1,8 @@
+= t("emails.new_comment.has_commented_your_#{@comment.listing.listing_type}_in_kassi", :author => @comment.author.name, :listing => @comment.listing.title)
+
+%div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
+  - text_with_line_breaks do
+    = @comment.content
+
+= t("emails.new_comment.you_can_reply_to_comment_in")
+= link_to(@url, @url + "?ref=email")

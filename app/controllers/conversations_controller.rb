@@ -39,7 +39,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
       flash[:notice] = "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent"
-      PersonMailer.new_message_notification(@conversation.messages.last, request).deliver
+      PersonMailer.new_message_notification(@conversation.messages.last, request.host).deliver
       redirect_to (session[:return_to_content] || root)
     else
       @listing = Listing.find(params[:conversation][:listing_id])
