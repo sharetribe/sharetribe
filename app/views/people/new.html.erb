@@ -48,6 +48,9 @@
       </div>
       <div class="login_form_br"></div>
       <% if APP_CONFIG.use_recaptcha%>
+        <div class="login_padding">  
+          <b><%= t(:enter_captcha) %>*:</b><br />
+        </div>
         <div class="login_padding">
           <%= recaptcha_tags %><br />
         </div>
