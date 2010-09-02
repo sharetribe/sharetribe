@@ -15,7 +15,7 @@
     #header.container_24
       #logo.grid_6
         #logo_image.grid_3.alpha
-          = link_to image_tag("/images/kassi_logo2.png"), root, :title => "Kassi"
+          = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
         #logo_text.grid_3.omega
       #search.grid_8
         = form_tag({ :action => :show, :controller => :search }, :method => "get") do
@@ -27,13 +27,12 @@
       .clear
       
     #top_navi.container_24
-      .top_navi_link.grid_2.prefix_3
+      .top_navi_link.grid_3.prefix_3
         = link_to t('header.mobile_version'), "#"
-      .top_navi_form.grid_4
-        .locale_select_padding
-          = form_tag("/change_locale", :method => "get") do
-            = hidden_field_tag :redirect_uri, @return_to
-            = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+      .top_navi_form.grid_3
+        = form_tag("/change_locale", :method => "get") do
+          = hidden_field_tag :redirect_uri, @return_to
+          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'     
       .tabs.grid_12
         .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.home'), root

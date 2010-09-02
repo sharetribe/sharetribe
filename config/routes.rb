@@ -109,6 +109,8 @@
       resource :settings do
         member do
           get :profile
+          get :avatar
+          get :account
           get :notifications
         end
       end      
