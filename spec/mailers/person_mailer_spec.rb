@@ -25,6 +25,7 @@ describe Comment do
   
   it "should send email about new comment to own listing" do
     @comment = Factory(:comment)
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @session.cookie)
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
     assert !ActionMailer::Base.deliveries.empty?
 
