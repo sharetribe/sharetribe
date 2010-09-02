@@ -15,6 +15,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
+    Then show me the page
     Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
     
   
