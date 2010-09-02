@@ -51,7 +51,8 @@ Feature: User views profile page
     And there is housing offer with title "Housing" from "kassi_testperson2" and with share type "sell"
     And I am not logged in
     And I am on the home page
-    When I follow "profile"
+    When I follow "car spare parts"
+    And I follow "listing_author"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
