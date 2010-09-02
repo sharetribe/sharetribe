@@ -6,8 +6,8 @@ Feature: User updates profile information
   Scenario: Updating profile successfully
     Given there are following users:
       | person | 
-      | kassi_testperson1 |
-    And I am logged in as "kassi_testperson1"
+      | kassi_testperson2 |
+    And I am logged in as "kassi_testperson2"
     When I follow "Settings"
     And I fill in "Given name*:" with "Test"
     And I fill in "Family name*:" with "Dude"
@@ -24,8 +24,8 @@ Feature: User updates profile information
   Scenario: Trying to update profile with false information
     Given there are following users:
       | person | 
-      | kassi_testperson1 |
-    And I am logged in as "kassi_testperson1"
+      | kassi_testperson2 |
+    And I am logged in as "kassi_testperson2"
     When I follow "Settings"
     And I fill in "Given name*:" with "T"
     And I fill in "Family name*:" with ""
