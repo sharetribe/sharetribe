@@ -114,7 +114,7 @@ form, input {
   height: 56px; }
 
 #main {
-  margin-top: 25px; }
+  margin-top: 20px; }
 
 #logo {
   margin-top: 8px; }
@@ -828,6 +828,7 @@ p.description {
     background: #f7f5e6;
     width: 380px;
     border: 0;
+    width: 373px;
     font-size: 12px;
     height: 100px;
     padding: 12px 10px 5px 15px; }
@@ -1194,6 +1195,10 @@ a.close_listing {
   margin-left: 10px;
   overflow: hidden; }
 
+#settings_tabs {
+  margin-left: 20px;
+  overflow: hidden; }
+
 .inbox_tab_selected {
   float: left;
   margin-right: 8px; }
@@ -1246,6 +1251,12 @@ a.close_listing {
   width: 940px;
   height: 10px;
   background: #d1c9b4; }
+
+#settings_tab_spacer {
+  width: 940px;
+  height: 10px;
+  background: #d1c9b4;
+  width: 750px; }
 
 #profile_tab_spacer {
   width: 700px;
@@ -1834,3 +1845,68 @@ a.close_listing {
   margin-top: 50px;
   width: 100%;
   text-align: center; }
+
+#person_settings_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  padding: 20px 30px 30px 30px; }
+  #person_settings_form label.input {
+    font-weight: bold;
+    padding: 9px 3px 0 3px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    width: 137px;
+    line-height: 110%; }
+  #person_settings_form label.checkbox {
+    float: left;
+    width: 90px;
+    padding-top: 4px;
+    font-size: 12px;
+    font-weight: bold; }
+  #person_settings_form input.text_field {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    width: 300px; }
+    #person_settings_form input.text_field:focus {
+      background: white; }
+  #person_settings_form textarea {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    width: 293px;
+    font-size: 14px;
+    height: 100px;
+    padding: 12px 10px 5px 15px; }
+    #person_settings_form textarea:focus {
+      background: white; }
+  #person_settings_form input.send_button {
+    margin: 10px 0 0 143px; }
+  #person_settings_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 298px;
+    margin-left: 143px; }
+
+#settings_form_description {
+  margin: 0 0 20px 3px; }
+
+.inbox_container {
+  margin-left: 5px;
+  font-weight: bold; }

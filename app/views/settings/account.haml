@@ -1,0 +1,7 @@
+- content_for :javascript do
+  initialize_update_account_info_form('#{I18n.locale}','#{@person.id.to_s}');
+
+#person_settings_form
+  #settings_form_description
+    = t(".these_fields_are_shown_only_to_you")
+    

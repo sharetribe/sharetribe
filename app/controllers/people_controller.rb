@@ -1,5 +1,9 @@
 class PeopleController < ApplicationController
   
+  before_filter :only => :update do |controller|
+    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+  end
+  
   def show
     @person = Person.find(params[:id])
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
@@ -29,8 +33,15 @@ class PeopleController < ApplicationController
     flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
     redirect_to (session[:return_to] || root)
   end
-
-  def edit
+  
+  def update
+    begin
+      @person.update_attributes(params[:person], session[:cookie])
+      flash[:notice] = :person_updated_successfully
+    rescue RestClient::RequestFailed => e
+      flash[:error] = "update_error"
+    end
+    redirect_to :back
   end
   
   def check_username_availability

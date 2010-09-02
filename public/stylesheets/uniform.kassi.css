@@ -480,11 +480,11 @@ Not advised to edit stuff below this line
 
 div.selector {
 	position: relative;
-	padding-left: 10px;
 	overflow: hidden;
 }
 
 div.selector span {
+	padding-left: 7px;
 	display: block;
 	float: left;
 	overflow: hidden;

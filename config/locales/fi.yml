@@ -14,7 +14,7 @@ fi:
       borrow: "lainataan"
       rent: "vuokrataan"
     cancel: "Peruuta"
-    fields_that_are_mandatory: "Tähdellä (*) merkityt kentät ovat pakollisia."   
+    fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."   
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
@@ -78,10 +78,18 @@ fi:
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
+      person_updated_successfully: "Tiedot päivitetty"
+      update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
       sent: "Lähetetyt"
+    settings:
+      settings: "Asetukset"
+      profile: "Profiilitiedot"
+      avatar: "Profiilikuva"
+      account: "Tilin tiedot"
+      notifications: "Tiedotteet"
   emails:      
     common:
       thanks: "Terveisin,"
@@ -327,6 +335,18 @@ fi:
       email: "Sähköposti"
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
       request_new_password: "Pyydä uusi salasana"
+  settings:
+    profile:
+      these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille Kassin käyttäjille"
+      profile_page: "profiilisivullasi"
+      given_name: "Etunimi*:"
+      family_name: "Sukunimi*:"
+      street_address: "Katuosoite:"
+      postal_code: "Postinumero:"
+      city: "Kaupunki:"
+      phone_number: "Puhelinnumero:"
+      about_you: "Tietoa sinusta:"
+      save_information: "Tallenna tiedot"
   testimonials:
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"

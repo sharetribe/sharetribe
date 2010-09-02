@@ -199,7 +199,7 @@ form, input {
 }
 
 #main {
-	margin-top: 25px;
+	margin-top: 20px;
 }
 
 #logo {
@@ -774,6 +774,7 @@ p.description {
 	}
 	textarea {
 		@include new_listing_form_field;
+		width: 373px;
 		font-size: 12px;
 		height: 100px;
 		padding: 12px 10px 5px 15px;
@@ -1120,6 +1121,11 @@ a.close_listing {
 	overflow: hidden;
 }
 
+#settings_tabs {
+	margin-left: 20px;
+	overflow: hidden;
+}
+
 @mixin inbox_tab {
 	float: left;
 	margin-right: 8px;
@@ -1162,6 +1168,11 @@ a.close_listing {
 
 #inbox_tab_spacer {
 	@include tab_spacer;
+}
+
+#settings_tab_spacer {
+	@include tab_spacer;
+	width: 750px;
 }
 
 #profile_tab_spacer {
@@ -1689,3 +1700,57 @@ a.close_listing {
 	width: 100%;
 	text-align: center;
 }
+
+#person_settings_form {
+	@include form;
+	padding: 20px 30px 30px 30px;
+	label.input {
+		font-weight: bold;
+		padding: 9px 3px 0 3px;
+		margin: 0;
+		font-size: 14px;
+		font-weight: bold;
+		float: left;
+		width: 137px;
+		line-height: 110%;
+	}
+	label.checkbox {
+		float: left;
+		width: 90px;
+		padding-top: 4px;
+		font-size: 12px;
+		font-weight: bold;
+	}
+	input.text_field {
+		@include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		width: 300px;
+	}
+	textarea {
+		@include new_listing_form_field;
+		width: 293px;
+		font-size: 14px;
+		height: 100px;
+		padding: 12px 10px 5px 15px;
+	}
+	input.send_button {
+		margin: 10px 0 0 143px;
+	}
+	label.error {
+		@include form_error_field;
+		width: 298px;
+		margin-left: 143px;
+	}
+}
+
+#settings_form_description {
+	margin: 0 0 20px 3px;
+}
+
+.inbox_container {
+	margin-left: 5px;
+	font-weight: bold;
+}
+

@@ -78,10 +78,18 @@ en:
       comment_cannot_be_empty: "Comment cannot be empty"
       request_updated_successfully: "Request updated successfully"
       offer_updated_successfully: "Offer updated successfully"
+      person_updated_successfully: "Information updated"
+      update_error: "An error occurred when trying to update your information, please try again"
     conversations:
       messages: "Messages"
       received: "Received"
       sent: "Sent"
+    settings:
+      settings: "Settings"
+      profile: "Profile info"
+      avatar: "Profile picture"
+      account: "Account"
+      notifications: "Notifications"  
   emails:
     common:
       thanks: "Thanks,"
@@ -327,6 +335,18 @@ en:
       email: "Email"
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
       request_new_password: "Request new password"
+  settings:
+    profile:
+      these_fields_are_shown_in_your: "This information is visible to all Kassi users"
+      profile_page: "in your profile page"
+      given_name: "Given name*:"
+      family_name: "Family name*:"
+      street_address: "Street address:"
+      postal_code: "Postal code:"
+      city: "City:"
+      phone_number: "Phone number:"
+      about_you: "About you:"
+      save_information: "Save information"
   testimonials:
     new:
       give_feedback_to: "Give feedback to %{person}"

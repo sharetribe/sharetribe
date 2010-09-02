@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
   # A before filter for views that only authorized users can access
   def ensure_authorized(error_message)
     if logged_in?
-      @person = Person.find(params[:person_id])
+      @person = Person.find(params[:person_id] || params[:id])
       return if current_user?(@person)
       flash[:error] = error_message
       redirect_to root and return
