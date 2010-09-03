@@ -103,7 +103,7 @@ input[type="submit"] {
 	cursor: pointer;
 }
 
-input.send_button {
+@mixin send_button {
 	font-size: 14px;
 	font-weight: bold;
 	background: $medium_brown;
@@ -264,7 +264,7 @@ form, input {
 }
 
 .locale_select_padding {
-	margin-left: 34px;
+	margin-left: 5px;
 }
 
 @mixin tab {
@@ -770,6 +770,7 @@ p.description {
 		padding: 9px 9px;
 	}
 	input.send_button {
+		@include send_button;
 		margin: 10px 0 0 169px;
 	}
 	textarea {
@@ -907,6 +908,7 @@ div.checkbox_float {
 		&:focus { background: white; }
 	}
 	input.send_button {
+		@include send_button;
 		margin: 15px 0 0 10px;
 	}
 	label {
@@ -1419,6 +1421,7 @@ a.close_listing {
 		border: 2px solid $medium_brown;
 	}
 	input.send_button {
+		@include send_button;
 		width: 175px;
 		font-size: 13px;
 	}
@@ -1494,6 +1497,7 @@ a.close_listing {
 		margin-bottom: 15px;
 	}
 	input.send_button {
+		@include send_button;
 		margin: 15px 0 0 10px;
 	}
 	textarea {
@@ -1611,6 +1615,7 @@ a.close_listing {
 		&:focus { background: white; }
 	}
 	input.send_button {
+		@include send_button;
 		width: 100px;
 		height: 34px;
 		margin: 3px 0 0 10px;
@@ -1704,6 +1709,9 @@ a.close_listing {
 #person_settings_form {
 	@include form;
 	padding: 20px 30px 30px 30px;
+	h2 {
+		font-size: 16px;
+	}
 	label.input {
 		font-weight: bold;
 		padding: 9px 3px 0 3px;
@@ -1716,9 +1724,10 @@ a.close_listing {
 	}
 	label.checkbox {
 		float: left;
-		width: 90px;
-		padding-top: 4px;
-		font-size: 12px;
+		width: 590px;
+		padding-top: 7px;
+		margin-left: 3px;
+		font-size: 13px;
 		font-weight: bold;
 	}
 	input.text_field {
@@ -1736,7 +1745,12 @@ a.close_listing {
 		padding: 12px 10px 5px 15px;
 	}
 	input.send_button {
+		@include send_button;
 		margin: 10px 0 0 143px;
+	}
+	input.send_button_notifications {
+		@include send_button;
+		margin: 15px 0 0 0px;
 	}
 	label.error {
 		@include form_error_field;
@@ -1749,8 +1763,25 @@ a.close_listing {
 	margin: 0 0 20px 3px;
 }
 
+#settings_form_notifications_description {
+	margin: 0 0 0px 3px;
+	h2 {
+		margin-bottom: 10px;
+	}	
+}
+
+#settings_notification_checkboxes {
+	overflow: hidden;
+	margin-left: 10px;
+}
+
 .inbox_container {
 	margin-left: 5px;
 	font-weight: bold;
 }
 
+.settings_checkbox_container {
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 10px;
+}

@@ -337,6 +337,7 @@ en:
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password." 
       request_new_password: "Request new password"
   settings:
+    save_information: "Save information"
     profile:
       these_fields_are_shown_in_your: "This information is visible to all Kassi users"
       profile_page: "in your profile page"
@@ -347,7 +348,12 @@ en:
       city: "City:"
       phone_number: "Phone number:"
       about_you: "About you:"
-      save_information: "Save information"
+    avatar:  
+       update_profile_picture: "Update profile picture"
+    notifications:
+      i_want_to_get_email_notification_when: "I want to get an email notification when..."
+      email_about_new_messages: "...somebody sends me a message"
+      email_about_new_comments_to_own_listing: "...somebody comments my offer or request"  
   testimonials:
     new:
       give_feedback_to: "Give feedback to %{person}"

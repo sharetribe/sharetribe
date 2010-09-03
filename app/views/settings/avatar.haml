@@ -1,0 +1,6 @@
+- content_for :javascript do
+  initialize_update_avatar_form('#{I18n.locale}','#{@person.id.to_s}');
+
+#person_settings_form
+  #settings_form_notifications_description
+    %h2= t(".update_profile_picture")

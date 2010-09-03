@@ -29,23 +29,6 @@ input[type="submit"]::-moz-focus-inner {
 input[type="submit"] {
   cursor: pointer; }
 
-input.send_button {
-  font-size: 14px;
-  font-weight: bold;
-  background: #765d3a;
-  width: 200px;
-  height: 40px;
-  padding: 0;
-  border: 0;
-  color: white; }
-  input.send_button:active {
-    background-color: #4d3d26;
-    padding-top: 1px; }
-  input.send_button:hover {
-    background-color: #9f7d4e; }
-  input.send_button:focus {
-    background-color: #9f7d4e; }
-
 body {
   background: #f7f5e6 url("/images/background_gradient.png") repeat-x;
   color: #464646; }
@@ -173,7 +156,7 @@ form, input {
       color: #d45207; }
 
 .locale_select_padding {
-  margin-left: 34px; }
+  margin-left: 5px; }
 
 .tab_unselected a {
   width: 110px;
@@ -822,7 +805,22 @@ p.description {
     #new_listing_form_main input.text_field:focus {
       background: white; }
   #new_listing_form_main input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     margin: 10px 0 0 169px; }
+    #new_listing_form_main input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #new_listing_form_main input.send_button:hover {
+      background-color: #9f7d4e; }
+    #new_listing_form_main input.send_button:focus {
+      background-color: #9f7d4e; }
   #new_listing_form_main textarea {
     color: #464646;
     background: #f7f5e6;
@@ -951,7 +949,22 @@ div.checkbox_float {
     #login_form input.text_field:focus, #new_message_form input.text_field:focus, #signup_form input.text_field:focus {
       background: white; }
   #login_form input.send_button, #new_message_form input.send_button, #signup_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     margin: 15px 0 0 10px; }
+    #login_form input.send_button:active, #new_message_form input.send_button:active, #signup_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #login_form input.send_button:hover, #new_message_form input.send_button:hover, #signup_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #login_form input.send_button:focus, #new_message_form input.send_button:focus, #signup_form input.send_button:focus {
+      background-color: #9f7d4e; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
     width: 340px;
@@ -1509,8 +1522,23 @@ a.close_listing {
     padding: 9px 9px;
     border: 2px solid #765d3a; }
   #reply_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     width: 175px;
     font-size: 13px; }
+    #reply_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #reply_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #reply_form input.send_button:focus {
+      background-color: #9f7d4e; }
   #reply_form label.error {
     font-size: 13px;
     font-weight: bold;
@@ -1537,8 +1565,23 @@ a.close_listing {
     padding: 9px 9px;
     border: 2px solid #765d3a; }
   #comment_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     width: 175px;
     font-size: 13px; }
+    #comment_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #comment_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #comment_form input.send_button:focus {
+      background-color: #9f7d4e; }
   #comment_form label.error {
     font-size: 13px;
     font-weight: bold;
@@ -1607,7 +1650,22 @@ a.close_listing {
     font-size: 16px;
     margin-bottom: 15px; }
   #new_testimonial_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     margin: 15px 0 0 10px; }
+    #new_testimonial_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #new_testimonial_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #new_testimonial_form input.send_button:focus {
+      background-color: #9f7d4e; }
   #new_testimonial_form textarea {
     margin-left: 10px;
     width: 300px;
@@ -1758,11 +1816,26 @@ a.close_listing {
   #search_page input.text_field:focus {
     background: white; }
 #search_page input.send_button {
+  font-size: 14px;
+  font-weight: bold;
+  background: #765d3a;
+  width: 200px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  color: white;
   width: 100px;
   height: 34px;
   margin: 3px 0 0 10px;
   float: left;
   font-size: 13px; }
+  #search_page input.send_button:active {
+    background-color: #4d3d26;
+    padding-top: 1px; }
+  #search_page input.send_button:hover {
+    background-color: #9f7d4e; }
+  #search_page input.send_button:focus {
+    background-color: #9f7d4e; }
 
 #search_form {
   overflow: hidden;
@@ -1853,6 +1926,8 @@ a.close_listing {
   -webkit-border-radius: 7px;
   overflow: hidden;
   padding: 20px 30px 30px 30px; }
+  #person_settings_form h2 {
+    font-size: 16px; }
   #person_settings_form label.input {
     font-weight: bold;
     padding: 9px 3px 0 3px;
@@ -1864,9 +1939,10 @@ a.close_listing {
     line-height: 110%; }
   #person_settings_form label.checkbox {
     float: left;
-    width: 90px;
-    padding-top: 4px;
-    font-size: 12px;
+    width: 590px;
+    padding-top: 7px;
+    margin-left: 3px;
+    font-size: 13px;
     font-weight: bold; }
   #person_settings_form input.text_field {
     color: #464646;
@@ -1891,7 +1967,39 @@ a.close_listing {
     #person_settings_form textarea:focus {
       background: white; }
   #person_settings_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
     margin: 10px 0 0 143px; }
+    #person_settings_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #person_settings_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #person_settings_form input.send_button:focus {
+      background-color: #9f7d4e; }
+  #person_settings_form input.send_button_notifications {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    margin: 15px 0 0 0px; }
+    #person_settings_form input.send_button_notifications:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #person_settings_form input.send_button_notifications:hover {
+      background-color: #9f7d4e; }
+    #person_settings_form input.send_button_notifications:focus {
+      background-color: #9f7d4e; }
   #person_settings_form label.error {
     font-size: 13px;
     font-weight: bold;
@@ -1907,6 +2015,20 @@ a.close_listing {
 #settings_form_description {
   margin: 0 0 20px 3px; }
 
+#settings_form_notifications_description {
+  margin: 0 0 0px 3px; }
+  #settings_form_notifications_description h2 {
+    margin-bottom: 10px; }
+
+#settings_notification_checkboxes {
+  overflow: hidden;
+  margin-left: 10px; }
+
 .inbox_container {
   margin-left: 5px;
   font-weight: bold; }
+
+.settings_checkbox_container {
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 10px; }

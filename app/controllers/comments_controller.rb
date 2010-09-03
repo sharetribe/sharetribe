@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     if @comment.save
       flash.now[:comment_notice] = "comment_sent"
-      PersonMailer.new_comment_to_own_listing_notification(@comment, request.host).deliver unless current_user?(@comment.listing.author)
+      @comment.send_email_to_author(request.host)
     else
       flash[:error] = "comment_cannot_be_empty"
     end

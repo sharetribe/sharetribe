@@ -337,6 +337,7 @@ fi:
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
       request_new_password: "Pyydä uusi salasana"
   settings:
+    save_information: "Tallenna tiedot"  
     profile:
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille Kassin käyttäjille"
       profile_page: "profiilisivullasi"
@@ -347,7 +348,12 @@ fi:
       city: "Kaupunki:"
       phone_number: "Puhelinnumero:"
       about_you: "Tietoa sinusta:"
-      save_information: "Tallenna tiedot"
+    avatar:  
+       update_profile_picture: "Profiilikuvan päivitys"
+    notifications:
+      i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
+      email_about_new_messages: "...joku lähettää minulle viestin"
+      email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
   testimonials:
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
