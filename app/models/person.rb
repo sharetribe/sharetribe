@@ -37,6 +37,13 @@ class Person < ActiveRecord::Base
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial"
   
+  EMAIL_NOTIFICATION_TYPES = [
+    "email_about_new_messages",
+    "email_about_new_comments_to_own_listing"
+  ] 
+  
+  serialize :preferences
+  
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)
     conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
@@ -361,15 +368,19 @@ class Person < ActiveRecord::Base
   end
   
   def update_attributes(params, cookie)
-    #Handle name part parameters also if they are in hash root level
-    Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
-    Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
-    if params["name"] || params[:name]
-      # If name is going to be changed, expire name cache
-      Rails.cache.delete("person_name/#{self.id}")
-      Rails.cache.delete("given_name/#{self.id}")
+    if params[:preferences]
+      super(params)
+    else  
+      #Handle name part parameters also if they are in hash root level
+      Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
+      Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
+      if params["name"] || params[:name]
+        # If name is going to be changed, expire name cache
+        Rails.cache.delete("person_name/#{self.id}")
+        Rails.cache.delete("given_name/#{self.id}")
+      end
+      PersonConnection.put_attributes(params, self.id, cookie)
     end
-    PersonConnection.put_attributes(params, self.id, cookie)
   end
   
   def update_avatar(image, cookie)

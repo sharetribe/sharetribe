@@ -27,7 +27,11 @@ end
 
 Given /^there are following users:$/ do |person_table|
   @people = {}
-  person_table.hashes.each { |hash| @people[hash['person']] = get_test_person_and_session(hash['person'])[0] }
+  person_table.hashes.each do |hash|
+    @hash_person, @hash_session = get_test_person_and_session(hash['person'])
+    @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, @hash_session.cookie)
+    @people[hash['person']] = @hash_person
+  end
 end
 
 

@@ -27,21 +27,18 @@
       .clear
       
     #top_navi.container_24
-      .top_navi_link.grid_3.prefix_3
-        = link_to t('header.mobile_version'), "#"
-      .top_navi_form.grid_3
-        = form_tag("/change_locale", :method => "get") do
-          = hidden_field_tag :redirect_uri, @return_to
-          = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'     
-      .tabs.grid_12
+      .top_navi_form.grid_3.prefix_3
+        .locale_select_padding
+          = form_tag("/change_locale", :method => "get") do
+            = hidden_field_tag :redirect_uri, @return_to
+            = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+      .tabs.grid_9.prefix_6
         .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.home'), root
         .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.requests'), requests_path
-        .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
+        .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
           = link_to t('header.offers'), offers_path
-        .tab_unselected.grid_3.omega
-          = link_to t('header.community'), "#"
         .clear
       .top_navi_link.align_right.grid_3
         .navi_link_margin_right

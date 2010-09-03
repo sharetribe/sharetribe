@@ -57,5 +57,19 @@ class Conversation < ActiveRecord::Base
   def feedback_skipped_by?(person)
     participations.find_by_person_id(person.id).feedback_skipped?
   end
+  
+  # Send email notification to message receivers and returns the receivers
+  def send_email_to_participants(request)
+    recipients(messages.last.sender).each do |recipient|
+      if recipient.preferences["email_about_new_message"]
+        PersonMailer.new_message_notification(messages.last, request.host).deliver
+      end  
+    end
+  end
+  
+  # Returns all the participants except the message sender
+  def recipients(sender)
+    participants.reject { |p| p.id == sender.id }
+  end
 
 end
