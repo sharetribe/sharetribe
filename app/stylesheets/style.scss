@@ -1750,7 +1750,7 @@ a.close_listing {
 	}
 	input.send_button_notifications {
 		@include send_button;
-		margin: 15px 0 0 0px;
+		margin-top: 15px;
 	}
 	label.error {
 		@include form_error_field;
@@ -1784,4 +1784,17 @@ a.close_listing {
 	overflow: hidden;
 	width: 100%;
 	margin-bottom: 10px;
+}
+
+.loading_button {
+	margin-top: 15px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 200px;
+	height: 40px;
+	padding: 0;
+	border: 0;
+	color: white;
+	background-image: url("/images/small_loader.gif");
+	background-repeat: no-repeat;
 }
