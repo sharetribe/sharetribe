@@ -148,7 +148,6 @@ function initialize_reply_form(locale) {
 
 function initialize_comment_form(locale) {
 	auto_resize_text_areas();
-	$('textarea').focus();
 	translate_validation_messages(locale);
 	var form_id = "#new_comment"
 	$(form_id).validate({
@@ -453,7 +452,9 @@ var faceGrade = {
 }
 
 function disable_and_submit(form_id, form, locale, ajax) {
-	disabled_value = (locale == "fi") ? "Odota hetki..." : "Please wait..."
+	disabled_value = (locale == "fi") ? "Odota hetki..." : "Please wait...";
+	// $(form_id + ' input[type=submit]').removeClass('send_button_notifications');
+	// $(form_id + ' input[type=submit]').addClass('loading_button');
 	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
 	$(form_id + ' input[type=submit]').val(disabled_value);
 	if (ajax == "true") {

@@ -1992,7 +1992,7 @@ a.close_listing {
     padding: 0;
     border: 0;
     color: white;
-    margin: 15px 0 0 0px; }
+    margin-top: 15px; }
     #person_settings_form input.send_button_notifications:active {
       background-color: #4d3d26;
       padding-top: 1px; }
@@ -2032,3 +2032,15 @@ a.close_listing {
   overflow: hidden;
   width: 100%;
   margin-bottom: 10px; }
+
+.loading_button {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  width: 200px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  color: white;
+  background-image: url("/images/small_loader.gif");
+  background-repeat: no-repeat; }
