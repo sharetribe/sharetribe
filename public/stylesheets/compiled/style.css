@@ -1140,6 +1140,17 @@ a.close_listing {
     color: white;
     background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -109px no-repeat; }
 
+a.edit_profile {
+  width: 186px;
+  display: block;
+  height: 20px;
+  padding: 5px 0px 5px 32px;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
+  border-bottom: 1px solid #f8792f; }
+  a.edit_profile:hover {
+    color: white;
+    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat; }
+
 .remove_image_link {
   float: left;
   padding: 30px 0 0 30px; }

@@ -1037,8 +1037,8 @@ div.checkbox_float {
 
 /* Single listing view */
 
-@mixin edit_listing_link($image_pos: 5px) {
-	width: 268px;
+@mixin edit_listing_link($image_pos: 5px, $width: 268px) {
+	width: $width;
 	display: block;
 	height: 20px;
 	padding: 5px 0px 5px 32px;
@@ -1056,6 +1056,10 @@ a.edit_listing {
 
 a.close_listing {
 	@include edit_listing_link(-71px);
+}
+
+a.edit_profile {
+	@include edit_listing_link(5px, 186px);
 }
 
 .remove_image_link {
