@@ -316,7 +316,13 @@ fi:
       offers: "Tarjoukset"
       requests: "Pyynnöt"
       loading_more_offers: "Ladataan lisää tarjouksia"
-      loading_more_requests: "Ladataan lisää pyyntöjä"      
+      loading_more_requests: "Ladataan lisää pyyntöjä"
+    show:
+      address: "Osoite:"
+      phone_number: "Puhelinnumero:"
+      about_me: "Tietoa minusta:"  
+      show_full_description: "Näytä koko teksti"
+      hide_description: "Vähemmän tekstiä"      
   search:
     show:
       search: "Haku"

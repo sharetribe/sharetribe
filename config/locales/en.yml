@@ -314,7 +314,13 @@ en:
       offers: "Offers"
       requests: "Requests"
       loading_more_offers: "Loading more offers"
-      loading_more_requests: "Loading more requests"      
+      loading_more_requests: "Loading more requests"
+    show:
+      address: "Address:"
+      phone_number: "Phone number:"
+      about_me: "About me:"  
+      show_full_description: "Show more"
+      hide_description: "Show less"        
   search:
     show:
       search: "Search"

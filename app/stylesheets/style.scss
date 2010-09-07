@@ -1876,3 +1876,27 @@ a.close_listing {
 .settings_form_padding_password {
 	padding-top: 7px;
 }
+
+#profile_info {
+	margin-bottom: 30px;
+}
+
+.profile_info_row {
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+.profile_info_row_title {
+	width: 120px;
+	float: left;
+	font-weight: bold;
+}
+
+.profile_info_row_content {
+	width: 350px;
+	float: left;
+}
+
+#profile_description_full {
+	display: none;
+}
