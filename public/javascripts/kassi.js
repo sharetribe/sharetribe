@@ -242,6 +242,22 @@ function initialize_update_notification_settings_form(locale, person_id) {
 	});	
 }
 
+function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
+	$("input[type=file]").uniform({
+		fileDefaultText: fileDefaultText, 
+		fileBtnText: fileBtnText
+	});
+	var form_id = "#avatar_form";
+	$(form_id).validate({
+		rules: {
+			"file": { required: true, accept: "(jpe?g|gif|png)" } 
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "true");
+		}
+	});	
+}
+
 function reload_browse_view(link, listing_type, locale) {
 	type = link.attr("name").split("_")[0];
 	title = link.attr("name").split("_")[1];
