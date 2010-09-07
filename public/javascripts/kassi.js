@@ -42,7 +42,7 @@ function initialize_defaults(default_text) {
 }
 
 function initialize_login_form() {
-	$('#password_forgotten_link').click(function() { $('#password_forgotten').slideToggle('slow'); });
+	$('#password_forgotten_link').click(function() { $('#password_forgotten').slideToggle('fast'); });
   $('input.text_field:first').focus();
 }
 
@@ -254,6 +254,60 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "true");
+		}
+	});	
+}
+
+function initialize_update_account_info_form(locale, change_text, cancel_text, email_default, pw1_default, pw2_default) {
+	$('#account_email_link').toggle(
+		function() {
+			$('#account_email_content').hide();
+			$('#account_email_form').show();
+			$(this).text(cancel_text);
+			$('#person_email').watermark(email_default, {className: 'default_text'});
+			$('#person_email').focus();
+		},
+		function() {
+			$('#account_email_content').show();
+			$('#account_email_form').hide();
+			$(this).text(change_text);
+		}
+	);
+	$('#account_password_link').toggle(
+		function() {
+			$('#account_password_content').hide();
+			$('#account_password_form').show();
+			$(this).text(cancel_text);
+			$('#person_password').watermark(pw1_default, {className: 'default_text'});
+			$('#person_password2').watermark(pw2_default, {className: 'default_text'});
+			$('#person_password').focus();
+		},
+		function() {
+			$('#account_password_content').show();
+			$('#account_password_form').hide();
+			$(this).text(change_text);
+		}
+	);
+	translate_validation_messages(locale);
+	var email_form_id = "#email_form"
+	$(email_form_id).validate({
+		errorClass: "error_account",
+		rules: {
+			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(email_form_id, form, locale, "false");
+		}
+	});
+	var password_form_id = "#password_form"
+	$(password_form_id).validate({
+		errorClass: "error_account",
+		rules: {
+			"person[password]": { required: true, minlength: 4 },
+			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(password_form_id, form, locale, "false");
 		}
 	});	
 }

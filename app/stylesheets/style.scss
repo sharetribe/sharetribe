@@ -1738,6 +1738,14 @@ a.close_listing {
 		padding: 9px 9px;
 		width: 300px;
 	}
+	input.text_field_account {
+		@include new_listing_form_field;
+		font-size: 13px;
+		height: 14px;
+		padding: 7px 9px;
+		width: 250px;
+		margin-bottom: 7px;
+	}
 	textarea {
 		@include new_listing_form_field;
 		width: 293px;
@@ -1753,10 +1761,23 @@ a.close_listing {
 		@include send_button;
 		margin-top: 15px;
 	}
+	input.send_button_account {
+		@include send_button;
+		width: 150px;
+		height: 28px;
+		font-size: 13px;
+		font-weight: bold;
+		margin-top: 3px;
+	}
 	label.error {
 		@include form_error_field;
 		width: 298px;
 		margin-left: 143px;
+	}
+	label.error_account {
+		@include form_error_field;
+		width: 248px;
+		margin: 0 0 10px 0;
 	}
 }
 
@@ -1809,4 +1830,49 @@ a.close_listing {
 	color: white;
 	background-image: url("/images/small_loader.gif");
 	background-repeat: no-repeat;
+}
+
+.settings_account_row {
+	width: 640px;
+	overflow: hidden;
+	margin: 0 0 20px 5px;
+}
+
+.settings_account_bottom_row {
+	width: 640px;
+	overflow: hidden;
+	margin: 0 0 5px 5px;
+}
+
+.settings_account_row_title {
+	float: left;
+	width: 200px;
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 3px;
+}
+
+.settings_account_row_content {
+	float: left;
+	width: 370px;
+	font-size: 13px;
+	padding-top: 1px;
+}
+
+.settings_account_row_link {
+	width: 50px;
+	float: right;
+	padding-top: 5px;
+}
+
+#account_email_form, #account_password_form {
+	display: none;
+}
+
+.settings_form_padding {
+	padding-top: 4px;
+}
+
+.settings_form_padding_password {
+	padding-top: 7px;
 }

@@ -350,6 +350,17 @@ en:
       about_you: "About you:"
     avatar:  
        update_profile_picture: "Update profile picture"
+       add_avatar_submit: "Save picture"
+    account:
+      these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
+      email: "Email address:"
+      new_email: "New email address"
+      save: "Save"
+      change: "Change"
+      username: "Username:"
+      password: "Password:"
+      new_password: "New password"
+      confirm_new_password: "Confirm new password"
     notifications:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       email_about_new_messages: "...somebody sends me a message"
