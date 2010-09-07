@@ -383,8 +383,33 @@ class Person < ActiveRecord::Base
     end
   end
   
-  def update_avatar(image, cookie)
-    PersonConnection.update_avatar(image, self.id, cookie)
+  def update_avatar(file, cookie)
+    path = file.path
+    original_filename = file.original_filename
+    new_path = path.gsub(/\/[^\/]+\Z/, "/#{original_filename}")
+    
+    logger.info "path #{path} original_filename #{original_filename} new_path #{new_path}"
+    
+    #rename the file to get a suffix and content type accepted by COS
+    File.rename(path, new_path)
+    
+    file_to_post = File.new(new_path)
+    
+    logger.info "FILE TO POST #{file_to_post.path}"
+    success = true
+    begin 
+      PersonConnection.update_avatar(file_to_post, self.id, cookie)
+    rescue Exception => e
+      logger.info "ASI error: #{e.message.to_s}"
+      success = false
+      begin
+        File.delete(path)
+      rescue
+        #don't care if fails
+      end
+    end
+    File.delete(new_path) if file_to_post || file_to_post.exists?
+    return success
   end
   
   def get_person_hash(cookie=nil)

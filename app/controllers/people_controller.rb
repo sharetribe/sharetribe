@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   
-  before_filter :only => :update do |controller|
+  before_filter :only => [ :update, :update_avatar ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
@@ -42,6 +42,15 @@ class PeopleController < ApplicationController
       flash[:error] = "update_error"
     end
     redirect_to :back
+  end
+  
+  def update_avatar
+    if @person.update_avatar(params[:file], session[:cookie])
+      flash[:notice] = :avatar_upload_successful
+    else 
+      flash[:error] = :avatar_upload_failed
+    end
+    redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
   end
   
   def check_username_availability

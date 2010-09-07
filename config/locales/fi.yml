@@ -81,6 +81,8 @@ fi:
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
       person_updated_successfully: "Tiedot päivitetty"
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
+      avatar_upload_successful: "Profiilikuva päivitetty"
+      avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -349,7 +351,8 @@ fi:
       phone_number: "Puhelinnumero:"
       about_you: "Tietoa sinusta:"
     avatar:  
-       update_profile_picture: "Profiilikuvan päivitys"
+      update_profile_picture: "Profiilikuvan päivitys"
+      add_avatar_submit: "Tallenna kuva" 
     notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       email_about_new_messages: "...joku lähettää minulle viestin"

@@ -1920,6 +1920,7 @@ a.close_listing {
   text-align: center; }
 
 #person_settings_form {
+  overflow: hidden;
   background: #d1c9b4;
   border-radius: 7px;
   -moz-border-radius: 7px;
@@ -2011,6 +2012,15 @@ a.close_listing {
     color: white;
     width: 298px;
     margin-left: 143px; }
+
+#settings_avatar_form {
+  width: 420px;
+  float: left; }
+
+#settings_avatar_image {
+  width: 220px;
+  margin-top: 10px;
+  float: right; }
 
 #settings_form_description {
   margin: 0 0 20px 3px; }

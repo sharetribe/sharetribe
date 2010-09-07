@@ -1707,6 +1707,7 @@ a.close_listing {
 }
 
 #person_settings_form {
+	overflow: hidden;
 	@include form;
 	padding: 20px 30px 30px 30px;
 	h2 {
@@ -1757,6 +1758,17 @@ a.close_listing {
 		width: 298px;
 		margin-left: 143px;
 	}
+}
+
+#settings_avatar_form {
+	width: 420px;
+	float: left;
+}
+
+#settings_avatar_image {
+	width: 220px;
+	margin-top: 10px;
+	float: right;
 }
 
 #settings_form_description {

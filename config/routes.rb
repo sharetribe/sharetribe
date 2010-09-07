@@ -88,6 +88,9 @@
       collection do
         get :check_username_availability
         get :check_email_availability
+      end
+      member do 
+        put :update_avatar
       end  
       resources :messages, :controller => :conversations do 
         collection do
