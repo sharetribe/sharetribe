@@ -36,13 +36,30 @@ end
 
 
 # Filling in with random strings
-
 When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
+  @values = {}
   case value
-    when "username" then value = generate_random_username
-    when "email"    then value = "#{generate_random_username}@example.com"
+  when "username"
+    value = generate_random_username
+    @values["username"] = value
+  when "email"
+    value = "#{generate_random_username}@example.com"
+    @values["email"] = value
   end
   with_scope(selector) do
     fill_in(field, :with => value)
   end
 end
+
+Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|email) I gave$/ do |field, selector, value|
+  with_scope(selector) do
+    field = find_field(field)
+    field_value = (field.tag_name == 'textarea') ? field.text : field.value
+    if field_value.respond_to? :should
+      field_value.should =~ /#{@values[value]}/
+    else
+      assert_match(/#{@values[value]}/, field_value)
+    end
+  end
+end
+

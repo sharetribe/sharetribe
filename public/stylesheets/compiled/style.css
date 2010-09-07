@@ -1956,6 +1956,18 @@ a.close_listing {
     width: 300px; }
     #person_settings_form input.text_field:focus {
       background: white; }
+  #person_settings_form input.text_field_account {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    font-size: 13px;
+    height: 14px;
+    padding: 7px 9px;
+    width: 250px;
+    margin-bottom: 7px; }
+    #person_settings_form input.text_field_account:focus {
+      background: white; }
   #person_settings_form textarea {
     color: #464646;
     background: #f7f5e6;
@@ -2001,6 +2013,27 @@ a.close_listing {
       background-color: #9f7d4e; }
     #person_settings_form input.send_button_notifications:focus {
       background-color: #9f7d4e; }
+  #person_settings_form input.send_button_account {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    width: 150px;
+    height: 28px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 3px; }
+    #person_settings_form input.send_button_account:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #person_settings_form input.send_button_account:hover {
+      background-color: #9f7d4e; }
+    #person_settings_form input.send_button_account:focus {
+      background-color: #9f7d4e; }
   #person_settings_form label.error {
     font-size: 13px;
     font-weight: bold;
@@ -2012,6 +2045,17 @@ a.close_listing {
     color: white;
     width: 298px;
     margin-left: 143px; }
+  #person_settings_form label.error_account {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 248px;
+    margin: 0 0 10px 0; }
 
 #settings_avatar_form {
   width: 420px;
@@ -2054,3 +2098,40 @@ a.close_listing {
   color: white;
   background-image: url("/images/small_loader.gif");
   background-repeat: no-repeat; }
+
+.settings_account_row {
+  width: 640px;
+  overflow: hidden;
+  margin: 0 0 20px 5px; }
+
+.settings_account_bottom_row {
+  width: 640px;
+  overflow: hidden;
+  margin: 0 0 5px 5px; }
+
+.settings_account_row_title {
+  float: left;
+  width: 200px;
+  font-size: 14px;
+  font-weight: bold;
+  padding-top: 3px; }
+
+.settings_account_row_content {
+  float: left;
+  width: 370px;
+  font-size: 13px;
+  padding-top: 1px; }
+
+.settings_account_row_link {
+  width: 50px;
+  float: right;
+  padding-top: 5px; }
+
+#account_email_form, #account_password_form {
+  display: none; }
+
+.settings_form_padding {
+  padding-top: 4px; }
+
+.settings_form_padding_password {
+  padding-top: 7px; }

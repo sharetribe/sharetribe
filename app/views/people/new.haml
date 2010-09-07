@@ -19,13 +19,13 @@
         = form.text_field :family_name, :class => :text_field, :maxlength => "30"
       .form_field_container
         = form.label :email, t('.email')
-        = form.text_field :email, :class => :text_field       
+        = form.text_field :email, :class => :text_field, :maxlenght => "255"       
       .form_field_container  
         = form.label :password, t('.password')
-        = form.password_field :password, :class => :text_field
+        = form.password_field :password, :class => :text_field, :maxlength => "255"
       .form_field_container  
         = form.label :password2, t('.password_again')
-        = form.password_field :password2, :class => :text_field
+        = form.password_field :password2, :class => :text_field, :maxlength => "255"
       .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container

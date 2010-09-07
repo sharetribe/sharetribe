@@ -352,7 +352,17 @@ fi:
       about_you: "Tietoa sinusta:"
     avatar:  
       update_profile_picture: "Profiilikuvan päivitys"
-      add_avatar_submit: "Tallenna kuva" 
+      add_avatar_submit: "Tallenna kuva"
+    account:
+      these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
+      email: "Sähköpostiosoite:"
+      new_email: "Uusi sähköpostiosoite"
+      save_email: "Tallenna"
+      change: "Vaihda"
+      username: "Käyttäjätunnus:"
+      password: "Salasana:"
+      new_password: "Uusi salasana"
+      confirm_new_password: "Uusi salasana uudestaan"   
     notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       email_about_new_messages: "...joku lähettää minulle viestin"

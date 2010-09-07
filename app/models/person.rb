@@ -379,7 +379,7 @@ class Person < ActiveRecord::Base
         Rails.cache.delete("person_name/#{self.id}")
         Rails.cache.delete("given_name/#{self.id}")
       end
-      PersonConnection.put_attributes(params, self.id, cookie)
+      PersonConnection.put_attributes(params.except("password2"), self.id, cookie)
     end
   end
   
