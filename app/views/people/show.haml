@@ -3,6 +3,9 @@
 
 .grid_6
   = large_avatar_thumb(@person)
+  - if current_user?(@person)    
+    #edit_links
+      = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s), :class => "edit_profile"
   
 .grid_18
   .grid_12.alpha
@@ -25,13 +28,15 @@
           #profile_description_preview
             - text_with_line_breaks do
               = truncate(@person.description, :length => 200, :omission => "...")
-            %br/
-            = link_to t(".show_full_description"), "#", :id => "description_preview_link"  
-          #profile_description_full
-            - text_with_line_breaks do
-              = @person.description
-            %br/  
-            = link_to t(".hide_description"), "#", :id => "description_full_link"   
+            - if @person.description && @person.description.length > 200
+              %br/
+              = link_to t(".show_full_description"), "#", :id => "description_preview_link"
+          - if @person.description && @person.description.length > 200      
+            #profile_description_full
+              - text_with_line_breaks do
+                = @person.description
+              %br/  
+              = link_to t(".hide_description"), "#", :id => "description_full_link"
   .grid_6.omega
     
   .clear  
