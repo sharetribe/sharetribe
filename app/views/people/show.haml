@@ -1,7 +1,40 @@
+- content_for :javascript do
+  initialize_profile_view();
+
 .grid_6
   = large_avatar_thumb(@person)
   
 .grid_18
-  %h1= @person.name
+  .grid_12.alpha
+    %h1= @person.name
+    #profile_info
+      .profile_info_row
+        .profile_info_row_title
+          = t(".address")
+        .profile_info_row_content
+          = @person.unstructured_address
+      .profile_info_row    
+        .profile_info_row_title
+          = t(".phone_number")
+        .profile_info_row_content
+          = @person.phone_number 
+      .profile_info_row    
+        .profile_info_row_title
+          = t(".about_me")
+        .profile_info_row_content
+          #profile_description_preview
+            - text_with_line_breaks do
+              = truncate(@person.description, :length => 200, :omission => "...")
+            %br/
+            = link_to t(".show_full_description"), "#", :id => "description_preview_link"  
+          #profile_description_full
+            - text_with_line_breaks do
+              = @person.description
+            %br/  
+            = link_to t(".hide_description"), "#", :id => "description_full_link"   
+  .grid_6.omega
+    
+  .clear  
+    
   #listings
     = render :partial => "profile_listings"

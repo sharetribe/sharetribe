@@ -373,6 +373,17 @@ function initialize_browse_view(listing_type, locale) {
 	);
 }
 
+function initialize_profile_view() {
+	$('#description_preview_link').click(function() { 
+		$('#profile_description_preview').hide();
+		$('#profile_description_full').show(); 
+	});
+	$('#description_full_link').click(function() { 
+		$('#profile_description_preview').show();
+		$('#profile_description_full').hide(); 
+	});
+}
+
 function translate_validation_messages(locale) {
 	if (locale == "fi") {
 		translate_validation_messages_to_finnish();
