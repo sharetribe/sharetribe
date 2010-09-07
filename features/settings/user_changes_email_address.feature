@@ -13,7 +13,7 @@ Feature: User changes email address
     And I follow "Account"
     And I follow "account_email_link"
     And I fill in "person_email" with random email
-    And I press "Save"
+    And I press "email_submit"
     And I follow "account_email_link"
     Then I should see "Information updated" within "#notifications"
     And the "person_email" field should contain the email I gave
@@ -28,7 +28,7 @@ Feature: User changes email address
     And I follow "Account"
     And I follow "account_email_link"
     And I fill in "person_email" with "this is not email"
-    And I press "Save"
+    And I press "email_submit"
     Then I should not see "Information updated" within "#notifications"
     And I should see "Please enter a valid email address." within ".error_account"
   

@@ -22,7 +22,7 @@
       #account_email_form
         = form_for @person, :html => {:id => 'email_form'} do |form|
           = form.text_field :email, :class => "text_field_account", :maxlenght => "255"
-          = form.submit t(".save"), :class => "send_button_account"    
+          = form.submit t(".save"), :class => "send_button_account", :id => "email_submit"     
     .settings_account_row_link
       = link_to t(".change"), "#", :id => "account_email_link"
   .settings_account_bottom_row    
@@ -36,7 +36,7 @@
         = form_for @person, :html => {:id => 'password_form'} do |form|
           = form.password_field :password, :class => :text_field_account, :maxlength => "255"
           = form.password_field :password2, :class => :text_field_account, :maxlength => "255"
-          = form.submit t(".save"), :class => "send_button_account"    
+          = form.submit t(".save"), :class => "send_button_account", :id => "password_submit"    
     .settings_account_row_link
       = link_to t(".change"), "#", :id => "account_password_link"    
     
