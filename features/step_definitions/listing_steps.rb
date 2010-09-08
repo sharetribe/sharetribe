@@ -1,4 +1,3 @@
-
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?$/ do |category, type, title, author, share_type|
   @listing = Listing.create!(:listing_type => type, 
                              :category => category, 

@@ -84,6 +84,10 @@ en:
       only_listing_author_can_close_a_listing: "Only listing author can close a listing."
       request_closed: "Request closed"
       offer_closed: "Offer closed"
+      you_cannot_reply_to_a_closed_request: "You cannot reply to a closed request"
+      you_cannot_reply_to_a_closed_offer: "You cannot reply to a closed offer"
+      you_cannot_reply_to_your_own_request: "You cannot reply to your own request"
+      you_cannot_reply_to_your_own_offer: "You cannot reply to your own offer"
     conversations:
       messages: "Messages"
       received: "Received"

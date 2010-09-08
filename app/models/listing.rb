@@ -154,7 +154,7 @@ class Listing < ActiveRecord::Base
   end
   
   def closed?
-    status.eql?("closed") || valid_until < DateTime.now
+    !open? || (valid_until && valid_until < DateTime.now)
   end
   
 end  

@@ -4,7 +4,7 @@ Feature: User closes a listing
   I want to be able to close the listing
   
   @javascript
-  Scenario: User closes a listing successfully
+  Scenario: User closes and opens listing successfully
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -19,6 +19,14 @@ Feature: User closes a listing
     And I should not see "Close request" within "#edit_links"
     And I should see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
     And I should not see "Write a new comment:" within "#comment_form"
+    And I follow "Reopen request"
+    And I press "Save request"
+    And I should see "Request updated successfully" within "#notifications"
+    And I should not see "Reopen request" within "#edit_links"
+    And I should see "Edit request" within "#edit_links"
+    And I should see "Close request" within "#edit_links"
+    And I should not see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
+    And I should see "Write a new comment:" within "#comment_form"
   
   
     
