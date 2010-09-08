@@ -153,4 +153,8 @@ class Listing < ActiveRecord::Base
     update_attributes(params)
   end
   
+  def closed?
+    status.eql?("closed") || valid_until < DateTime.now
+  end
+  
 end  

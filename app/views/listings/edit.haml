@@ -26,6 +26,8 @@
         = render :partial => "listings/form/listing_images", :locals => { :form => form }
         - unless @listing.category.eql?("rideshare")
           = render :partial => "listings/form/listing_valid_until", :locals => { :form => form }
+        - if @listing.closed?
+          = form.hidden_field :status, :value => "open"
         = render :partial => "listings/form/listing_send_button", :locals => { :form => form }
 
 - ["help_share_type", "help_tags", "help_valid_until"].each do |field|

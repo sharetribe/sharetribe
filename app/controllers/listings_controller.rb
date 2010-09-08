@@ -6,6 +6,10 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
   end
   
+  before_filter :only => :close do |controller|
+    controller.ensure_authorized "only_listing_author_can_close_a_listing"
+  end
+  
   def requests
     params[:listing_type] = "request"
     fetch
@@ -62,6 +66,16 @@ class ListingsController < ApplicationController
     else
       render :action => :edit
     end    
+  end
+  
+  def close
+    @listing = Listing.find(params[:id])
+    @listing.update_attribute(:status, "closed")
+    flash.now[:notice] = "#{@listing.listing_type}_closed"
+    respond_to do |format|
+      format.html { redirect_to @listing }
+      format.js { render :layout => false }
+    end
   end
   
   private

@@ -81,6 +81,9 @@ en:
       offer_updated_successfully: "Offer updated successfully"
       person_updated_successfully: "Information updated"
       update_error: "An error occurred when trying to update your information, please try again"
+      only_listing_author_can_close_a_listing: "Only listing author can close a listing."
+      request_closed: "Request closed"
+      offer_closed: "Offer closed"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -276,12 +279,24 @@ en:
       tags: "Tags"
       no_description: "No description"
       comments: "Comments"
+    comment_form:
       write_comment: "Write a new comment:"
       send_comment: "Send comment"
+      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send a new comment because this request is closed."
+      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send a new comment because this offer is closed."
+      you_must: "You must"
+      log_in: "log in"
+      to_send_a_comment: "to send a new comment."
+    edit_links:
       edit_request: "Edit request"
       edit_offer: "Edit offer"
       close_request: "Close request"
       close_offer: "Close offer"
+      reopen_request: "Reopen request"
+      reopen_offer: "Reopen offer"
+    reply_link:
+      request_closed: "Request closed"
+      offer_closed: "Offer closed"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
@@ -320,7 +335,8 @@ en:
       phone_number: "Phone number:"
       about_me: "About me:"  
       show_full_description: "Show more"
-      hide_description: "Show less"        
+      hide_description: "Show less"
+      edit_profile_info: "Edit profile"            
   search:
     show:
       search: "Search"

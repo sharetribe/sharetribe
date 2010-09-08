@@ -2165,3 +2165,18 @@ a.edit_profile {
 
 #profile_description_full {
   display: none; }
+
+#listing_closed_status {
+  margin: 0 5px;
+  color: #8a1f11;
+  border: 2px solid #fbc2c4;
+  background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 5px;
+  overflow: hidden;
+  width: 927px;
+  width: 200px; }
+
+.listing_closed_status_text {
+  padding: 4px 0 6px 50px; }
