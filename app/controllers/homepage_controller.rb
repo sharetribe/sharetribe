@@ -4,8 +4,8 @@ class HomepageController < ApplicationController
 
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
-    @requests = Listing.requests.includes(:listing_images).paginate(:per_page => 10, :page => params[:page])
-    @offers = Listing.offers.includes(:listing_images).paginate(:per_page => 10, :page => params[:page])
+    @requests = Listing.requests.open.paginate(:per_page => 10, :page => params[:page])
+    @offers = Listing.offers.open.paginate(:per_page => 10, :page => params[:page])
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
