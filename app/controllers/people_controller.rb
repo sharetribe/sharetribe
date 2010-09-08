@@ -17,7 +17,10 @@ class PeopleController < ApplicationController
 
   def create
     
-    if verify_recaptcha
+      if APP_CONFIG.use_recaptcha && !verify_recaptcha
+        flash[:error] = "ERROR WITH CAPTCHA"
+        render :action => "new" and return
+      end
     
       # Open a Session first only for Kassi to be able to create a user
       @session = Session.create
@@ -35,10 +38,7 @@ class PeopleController < ApplicationController
       session[:person_id] = @person.id
       flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
       redirect_to (session[:return_to] || root)
-    else
-      flash[:error] = "ERROR WITH CAPTCHA"
-      render :action => 'new'
-    end
+
   end
   
   def update
