@@ -21,8 +21,10 @@ class Listing < ActiveRecord::Base
   
   has_many :comments
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :order => "id DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :order => "id DESC"
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "id DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "id DESC"
+  
+  scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
