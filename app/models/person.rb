@@ -367,7 +367,7 @@ class Person < ActiveRecord::Base
     return request_hash
   end
   
-  def update_attributes(params, cookie)
+  def update_attributes(params, cookie=nil)
     if params[:preferences]
       super(params)
     else  
