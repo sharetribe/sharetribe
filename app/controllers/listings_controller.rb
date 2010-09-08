@@ -70,7 +70,7 @@ class ListingsController < ApplicationController
   
   def close
     @listing = Listing.find(params[:id])
-    @listing.update_attribute(:status, "closed")
+    @listing.update_attribute(:open, false)
     flash.now[:notice] = "#{@listing.listing_type}_closed"
     respond_to do |format|
       format.html { redirect_to @listing }

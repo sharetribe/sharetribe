@@ -86,6 +86,10 @@ fi:
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       request_closed: "Pyyntö suljettu"
       offer_closed: "Tarjous suljettu"
+      you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
+      you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
+      you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
+      you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"

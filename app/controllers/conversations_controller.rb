@@ -10,6 +10,8 @@ class ConversationsController < ApplicationController
   end
   
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
+  before_filter :ensure_listing_is_open, :only => [ :new, :create ]
+  before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   
   def received
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
@@ -27,8 +29,6 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @listing = Listing.find(params[:id])
-    redirect_to (session[:return_to_content] || root) and return if current_user?(@listing.author)
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build
@@ -42,7 +42,6 @@ class ConversationsController < ApplicationController
       @conversation.send_email_to_participants(request) 
       redirect_to (session[:return_to_content] || root)
     else
-      @listing = Listing.find(params[:conversation][:listing_id])
       render :action => :new
     end  
   end
@@ -71,6 +70,21 @@ class ConversationsController < ApplicationController
       format.html { render :action => :show }
       format.js { render :layout => false }
     end
+  end
+  
+  def ensure_listing_is_open
+    @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
+    if @listing.closed?
+      flash[:error] = "you_cannot_reply_to_a_closed_#{@listing.listing_type}"
+      redirect_to (session[:return_to_content] || root)
+    end
+  end
+  
+  def ensure_listing_author_is_not_current_user
+    if current_user?(@listing.author)
+      flash[:error] = "you_cannot_reply_to_your_own_#{@listing.listing_type}"
+      redirect_to (session[:return_to_content] || root)
+    end  
   end
 
 end
