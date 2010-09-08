@@ -91,6 +91,11 @@
       end
       member do 
         put :update_avatar
+      end
+      resources :listings do
+        member do 
+          put :close
+        end  
       end  
       resources :messages, :controller => :conversations do 
         collection do

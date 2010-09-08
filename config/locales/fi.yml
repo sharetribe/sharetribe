@@ -83,6 +83,9 @@ fi:
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
       avatar_upload_successful: "Profiilikuva päivitetty"
       avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
+      only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
+      request_closed: "Pyyntö suljettu"
+      offer_closed: "Tarjous suljettu"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -278,12 +281,24 @@ fi:
       tags: "Avainsanat"
       no_description: "Ei kuvausta"
       comments: "Kommentit"
+    comment_form:
       write_comment: "Kirjoita uusi kommentti:"
       send_comment: "Lähetä kommentti"
+      you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
+      you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
+      you_must: "Sinun täytyy"
+      log_in: "kirjautua sisään"
+      to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
+    reply_link:
+      request_closed: "Pyyntö suljettu"
+      offer_closed: "Tarjous suljettu"
+    edit_links:
       edit_request: "Muokkaa pyyntöä"
       edit_offer: "Muokkaa tarjousta"
       close_request: "Sulje pyyntö"
       close_offer: "Sulje tarjous"
+      reopen_request: "Avaa pyyntö uudelleen"
+      reopen_offer: "Avaa tarjous uudelleen"
     link_labels:  
       link_label_for_item_offer: "Pyydä tavaraa"
       link_label_for_favor_offer: "Pyydä palvelusta"

@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params[:message])
     if @message.save 
-      flash[:message_notice] = "reply_sent"
+      flash.now[:message_notice] = "reply_sent"
       PersonMailer.new_message_notification(@message, request.host).deliver
     else
       flash[:error] = "reply_cannot_be_empty"

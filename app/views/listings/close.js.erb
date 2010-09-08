@@ -1,0 +1,11 @@
+/* Display notice */
+$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
+
+/* Update status link */
+$("#listing_reply_link").html("<%= escape_javascript(render(:partial => 'listings/reply_link')) %>");
+
+/* Update edit links */
+$("#edit_links").html("<%= escape_javascript(render(:partial => 'listings/edit_links')) %>");
+
+/* Update comment form */
+$("#comment_form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");

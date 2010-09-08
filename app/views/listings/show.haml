@@ -1,7 +1,7 @@
 - content_for :javascript do
   initialize_comment_form('#{I18n.locale}');
 
-.grid_8
+#listing_image_side.grid_8
   .image
     - if @listing.listing_images.empty?
       %div{:id => "listing_category_big_icon_#{@listing.category}"}
@@ -9,11 +9,10 @@
       = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
   - if current_user?(@listing.author)    
     #edit_links
-      = link_to t(".edit_#{@listing.listing_type}"), edit_listing_path(@listing), :class => "edit_listing"
-      = link_to t(".close_#{@listing.listing_type}"), "#", :class => "close_listing"
+      = render :partial => "edit_links"
     
-.grid_16
-  .grid_10.alpha
+#listing_content_side.grid_16
+  #listing_center.grid_10.alpha
     %h1
       #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
     %p
@@ -46,13 +45,10 @@
         %span{:class => "smaller"}
           = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
 
-  .grid_6.omega
-    - unless current_user?(@listing.author)
-      #request_listing_link
-        %a{:href => reply_to_listing_path(:id => @listing.id.to_s)}
-          = image_tag "/images/icons/request_icon.png"
-          .request_listing_link_label
-            = t("listings.link_labels.link_label_for_#{@listing.category}_#{@listing.listing_type}")
+  #listing_right_panel.grid_6.omega
+    #listing_reply_link
+      = render :partial => "reply_link"
+    
   .clear
   
   #comments
@@ -63,17 +59,6 @@
     = render :partial => "comment", :collection => @listing.comments
   
   #comment_notice  
-    
-  - if logged_in?
-    #comment_form
-      = form_for Comment.new, :url => listing_comments_path(:listing_id => @listing.id.to_s), :remote => true do |f|
-        .message_form_field_container
-          = f.label :content, t(".write_comment")
-        .message_form_field_container  
-          = f.text_area :content
-        .message_form_field_container
-          = f.hidden_field :listing_id, :value => @listing.id.to_s
-          = f.hidden_field :author_id, :value => @current_user.id
-          = f.submit t(".send_comment"), :class => "send_button"
-  - else
-    You must #{link_to("log in", login_path)} to send a new comment.
+  
+  #listing_comment_form
+    = render :partial => "comment_form"
