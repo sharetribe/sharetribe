@@ -4,10 +4,13 @@ class PeopleController < ApplicationController
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
+  helper_method :show_closed?
+  
   def show
     @person = Person.find(params[:id])
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
-    @listings = @listings.paginate(:per_page => 15, :page => params[:page])
+    @listings = show_closed? ? @listings : @listings.open 
+    @listings = @listings.order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end
 
@@ -70,6 +73,10 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.json { render :json => Person.email_available?(params[:person][:email]) }
     end
+  end
+  
+  def show_closed?
+    params[:closed] && params[:closed].eql?("true")
   end
 
 end

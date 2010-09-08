@@ -208,6 +208,9 @@ en:
     listed_listings:  
       loading_more_requests: "Loading more requests"
       loading_more_offers: "Loading more offers"
+    listed_listing:  
+      request_is_closed: "Request is closed"
+      offer_is_closed: "Offer is closed"
     left_panel_link:
       items: "Items"
       favors: "Favors"
@@ -299,8 +302,8 @@ en:
       reopen_request: "Reopen request"
       reopen_offer: "Reopen offer"
     reply_link:
-      request_closed: "Request closed"
-      offer_closed: "Offer closed"
+      request_closed: "Request is closed"
+      offer_closed: "Offer is closed"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
@@ -334,13 +337,15 @@ en:
       requests: "Requests"
       loading_more_offers: "Loading more offers"
       loading_more_requests: "Loading more requests"
+      show_also_closed: "Show also closed"
+      show_only_open: "Show only open"
     show:
       address: "Address:"
       phone_number: "Phone number:"
       about_me: "About me:"  
       show_full_description: "Show more"
       hide_description: "Show less"
-      edit_profile_info: "Edit profile"            
+      edit_profile_info: "Edit profile"          
   search:
     show:
       search: "Search"

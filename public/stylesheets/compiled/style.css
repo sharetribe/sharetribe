@@ -392,7 +392,7 @@ form, input {
   width: 340px; }
 
 p.description {
-  min-height: 44px; }
+  min-height: 46px; }
 
 .request_spacer {
   border-top: 1px solid #d45207;
@@ -456,8 +456,6 @@ p.description {
   font-size: 11px;
   width: 244px;
   margin-left: 10px; }
-  .recent_listing_text p {
-    margin: 5px 0 4px 0; }
   .recent_listing_text span {
     color: #797979;
     font-style: italic;
@@ -466,14 +464,15 @@ p.description {
     padding-top: 1px; }
     .recent_listing_text span a {
       font-weight: normal; }
+  .recent_listing_text p {
+    margin: 4px 0 4px 0;
+    min-height: 44px; }
 
 .listed_listing_text {
   float: left;
   font-size: 11px;
   width: 604px;
   margin-left: 10px; }
-  .listed_listing_text p {
-    margin: 5px 0 4px 0; }
   .listed_listing_text span {
     color: #797979;
     font-style: italic;
@@ -482,6 +481,11 @@ p.description {
     padding-top: 1px; }
     .listed_listing_text span a {
       font-weight: normal; }
+  .listed_listing_text p {
+    margin: 21px 0 2px 0;
+    min-height: 45px; }
+  .listed_listing_text h5 {
+    float: left; }
 
 /* New listing page */
 #new_listing_form_tabs {
@@ -2179,3 +2183,17 @@ a.edit_profile {
 
 .listing_closed_status_text {
   padding: 4px 0 6px 50px; }
+
+.listed_listing_closed_status {
+  float: right;
+  width: 100px;
+  color: #8a1f11;
+  background: #fbe3e4;
+  border: 2px solid #fbc2c4;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center; }
+
+#show_closed_link {
+  float: right;
+  padding: 10px 15px 0 0; }

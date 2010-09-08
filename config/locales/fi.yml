@@ -210,6 +210,9 @@ fi:
     listed_listings:  
       loading_more_requests: "Ladataan lisää pyyntöjä"
       loading_more_offers: "Ladataan lisää tarjouksia"
+    listed_listing:  
+      request_is_closed: "Pyyntö on suljettu"
+      offer_is_closed: "Tarjous on suljettu"
     left_panel_link:
       items: "Tavarat"
       favors: "Palvelukset"
@@ -294,8 +297,8 @@ fi:
       log_in: "kirjautua sisään"
       to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
     reply_link:
-      request_closed: "Pyyntö suljettu"
-      offer_closed: "Tarjous suljettu"
+      request_closed: "Pyyntö on suljettu"
+      offer_closed: "Tarjous on suljettu"
     edit_links:
       edit_request: "Muokkaa pyyntöä"
       edit_offer: "Muokkaa tarjousta"
@@ -336,13 +339,15 @@ fi:
       requests: "Pyynnöt"
       loading_more_offers: "Ladataan lisää tarjouksia"
       loading_more_requests: "Ladataan lisää pyyntöjä"
+      show_also_closed: "Näytä myös suljetut"
+      show_only_open: "Näytä vain avoimet"      
     show:
       address: "Osoite:"
       phone_number: "Puhelinnumero:"
       about_me: "Tietoa minusta:"  
       show_full_description: "Näytä koko teksti"
       hide_description: "Vähemmän tekstiä"
-      edit_profile_info: "Muokkaa tietojasi"      
+      edit_profile_info: "Muokkaa tietojasi"
   search:
     show:
       search: "Haku"
