@@ -8,8 +8,11 @@
         =  link_to "#", listing_path(listing), :title => title
   .listed_listing_text
     %h5= link_to (action_name.eql?("search") ? title : listing.title), listing
+    - if listing.closed?
+      .listed_listing_closed_status
+        = t(".#{listing.listing_type}_is_closed")
     %p{:class => "description"}
-      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 350, :omission => "..."))
+      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 320, :omission => "..."))
     .float_left
       - unless current_user?(listing.author)
         = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)

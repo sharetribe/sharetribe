@@ -13,7 +13,7 @@ Feature: User closes a listing
     When I follow "Hammer"
     And I follow "Close request"
     Then I should see "Request closed" within "#notifications"
-    And I should see "Request closed" within "#listing_closed_status"
+    And I should see "Request is closed" within "#listing_closed_status"
     And I should see "Reopen request" within "#edit_links"
     And I should not see "Edit request" within "#edit_links"
     And I should not see "Close request" within "#edit_links"

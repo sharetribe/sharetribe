@@ -483,7 +483,7 @@ form, input {
 }
 
 p.description {
-	min-height: 44px;
+	min-height: 46px;
 }
 
 .request_spacer {
@@ -543,9 +543,6 @@ p.description {
 	font-size: 11px;
 	width: $width;
 	margin-left: 10px;
-	p {
-		margin: 5px 0 4px 0;
-	}
 	span {
 		a {
 			font-weight: normal;
@@ -560,10 +557,21 @@ p.description {
 
 .recent_listing_text {
 	@include listing_text;
+	p {
+		margin: 4px 0 4px 0;
+		min-height: 44px;
+	}
 }
 
 .listed_listing_text {
 	@include listing_text(604px);
+	p {
+		margin: 21px 0 2px 0;
+		min-height: 45px;
+	}
+	h5 {
+		float: left;
+	}
 }
 
 
@@ -1911,4 +1919,20 @@ a.edit_profile {
 
 .listing_closed_status_text {
 	padding: 4px 0 6px 50px;
+}
+
+.listed_listing_closed_status {
+	float: right;
+	width: 100px;
+	color: $error_text;
+	background: $error_bg;
+	border: 2px solid $error_border;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+}
+
+#show_closed_link {
+	float: right;
+	padding: 10px 15px 0 0;
 }
