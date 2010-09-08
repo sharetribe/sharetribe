@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def set_locale
     locale = logged_in? ? @current_user.locale : params[:locale]
       
-    if ENV['RAILS_ENV'] = 'test'
+    if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
     else  
       I18n.locale = ["fi", "en"].include?(locale) ? locale : "fi"

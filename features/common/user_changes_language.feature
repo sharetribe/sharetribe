@@ -3,19 +3,19 @@ Feature: User changes language
   As a person who speaks that language
   I want to be able to change language
 
-  @pending
   @javascript
   Scenario: User changes language without logging in
     Given I am on the home page
-    When I select "Finnish" from "locale"
-    Then I should see "Tarjoa jotakin" within "offer_something_button"
+    When I follow "Offer something"
+    And I follow "Home" 
+    And I select "Finnish" from "locale"
+    Then I should see "Tarjoa jotain" within "#offer_something_button"
   
-  @pending
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
     When I select "Finnish" from "locale"
-    Then I should see "Tarjoa jotakin" within "offer_something_button"
+    Then I should see "Tarjoa jotain" within "#offer_something_button"
   
   
   
