@@ -195,7 +195,7 @@ function initialize_signup_form(locale) {
 			}	
 		},
 		rules: {
-			"person[username]": {required: true, minlength: 3, maxlength: 20},
+			"person[username]": {required: true, minlength: 3, maxlength: 20, remote: "/people/check_username_availability"},
 			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
 			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
@@ -203,6 +203,7 @@ function initialize_signup_form(locale) {
 			"person[password]": { required: true, minlength: 4 },
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
 		},
+		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "false");
 		}

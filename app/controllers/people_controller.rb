@@ -17,6 +17,7 @@ class PeopleController < ApplicationController
 
   def create
     
+      @person = Person.new
       if APP_CONFIG.use_recaptcha && !verify_recaptcha
         flash[:error] = "ERROR WITH CAPTCHA"
         render :action => "new" and return
@@ -28,7 +29,7 @@ class PeopleController < ApplicationController
       params[:person][:locale] = session[:locale] || 'fi'
     
       # Try to create a new person in ASI.
-      @person = Person.new
+      
       begin
         @person = Person.create(params[:person], session[:cookie])
       rescue RestClient::RequestFailed => e

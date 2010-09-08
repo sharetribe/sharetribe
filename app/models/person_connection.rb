@@ -85,4 +85,11 @@ class PersonConnection
      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
    end
    
+   def self.availability(options, cookie)
+     query_string = "/people/availability?"
+     query_string += "email=#{options[:email]}&" if options[:email]
+     query_string += "username=#{options[:username]}&" if options[:username]
+     return RestHelper.get("#{APP_CONFIG.asi_url}#{query_string}", {:cookies => cookie})
+   end
+   
  end

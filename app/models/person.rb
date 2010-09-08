@@ -158,6 +158,24 @@ class Person < ActiveRecord::Base
     return person_hash
   end
   
+  def self.username_available?(username, cookie=Session.kassi_cookie)
+    resp = PersonConnection.availability({:username => username}, cookie)
+    if resp["entry"] && resp["entry"][0]["username"] && resp["entry"][0]["username"] == "unavailable"
+      return false
+    else
+      return true
+    end
+  end
+
+  def self.email_available?(email, cookie=Session.kassi_cookie)
+    resp = PersonConnection.availability({:email => email}, cookie)
+    if resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable"
+      return false
+    else
+      return true
+    end
+  end
+  
   def username(cookie=nil)
     # No expire time, because username doesn't change (at least not yet)
     Rails.cache.fetch("person_username/#{self.id}") {username_from_person_hash(cookie)}  
@@ -518,14 +536,6 @@ class Person < ActiveRecord::Base
         params.delete(field)
       end
     end
-  end
-  
-  def self.username_available?(username)
-    true
-  end
-  
-  def self.email_available?(email)
-    true
   end
   
 end
