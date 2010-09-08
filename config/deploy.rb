@@ -63,10 +63,6 @@ namespace :deploy do
     run "killall searchd" rescue nil
   end
   
-  # task :before_start do
-  #   mongrel.configure
-  # end
-  
   task :symlinks_to_shared_path do
     run "rm -rf #{release_path}/public/images/listing_images"
     run "rm -rf #{release_path}/tmp/performance"
@@ -77,13 +73,12 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
+    run "ln -nfs #{shared_path}/vendor_bundle #{release_path}/vendor/bundle"
   end
-  
-
 
   desc "Run the bundle install on the server"
   task :bundle do
-    run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install #{shared_path}/gems/cache --without test"
+    run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install --deployment --without test"
   end
     
   desc "Modified restart task to work with mongrel cluster" 
