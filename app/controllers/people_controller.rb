@@ -21,8 +21,7 @@ class PeopleController < ApplicationController
   def create
     
       @person = Person.new
-      if APP_CONFIG.use_recaptcha && !verify_recaptcha
-        flash[:error] = "ERROR WITH CAPTCHA"
+      if APP_CONFIG.use_recaptcha && !verify_recaptcha(:model => @person, :message => t('people.new.captcha_incorrect'))
         render :action => "new" and return
       end
     

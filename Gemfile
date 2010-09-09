@@ -31,6 +31,7 @@ gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branc
 gem 'newrelic_rpm', :require => false
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', '2.0.0.rc1', :require => 'thinking_sphinx'
+gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
 # gem 'whenever', '0.4.1'
 
 group :test do
