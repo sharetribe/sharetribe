@@ -140,6 +140,7 @@
   match "/:locale/search" => "search#show"
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/signup" => "people#new", :as => :sign_up
+  match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'

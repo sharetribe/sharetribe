@@ -34,6 +34,31 @@ $.validator.
 	 	}
 	);	
 
+$.validator.
+  addMethod( "captcha", 
+  	function(value, element, param) {	  
+  	  challengeField = $("input#recaptcha_challenge_field").val();
+      responseField = $("input#recaptcha_response_field").val();
+
+      var resp = $.ajax({
+            type: "GET",
+            url: "signup/check_captcha",
+            data: "recaptcha_challenge_field=" + challengeField + "&amp;recaptcha_response_field=" + responseField,
+            async: false
+      }).responseText;
+
+      if (resp == "success")
+      {
+        return true;
+      }
+        else
+      {
+        Recaptcha.reload();
+        return false;
+      }
+    }
+  );
+
 // Initialize code that is needed for every view
 function initialize_defaults(default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -190,22 +215,28 @@ function initialize_signup_form(locale) {
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
 				error.appendTo(element.parent().parent().parent().parent().parent());
+			} else if (element.attr("name") == "recaptcha_response_field") {
+			  error.appendTo(element.parent().parent().parent().parent().parent().parent());
 			} else {
 				error.insertAfter(element);
 			}	
 		},
 		rules: {
-			"person[username]": {required: true, minlength: 3, maxlength: 20, remote: "/people/check_username_availability"},
-			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
-			"person[terms]": "required",
-			"person[password]": { required: true, minlength: 4 },
-			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
+      "person[username]": {required: true, minlength: 3, maxlength: 20, remote: "/people/check_username_availability"},
+      "person[given_name]": {required: true, minlength: 2, maxlength: 30},
+      "person[family_name]": {required: true, minlength: 2, maxlength: 30},
+      "person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
+      "person[terms]": "required",
+      "person[password]": { required: true, minlength: 4 },
+      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" },
+			"recaptcha_response_field": {required: true, captcha: true }
+		},
+		messages: {
+		  "recaptcha_response_field": {captcha: "Captcha was wrong. Please try again."}
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "false");
+      disable_and_submit(form_id, form, locale, "false");  
 		}
 	});	
 }
@@ -404,6 +435,7 @@ function translate_validation_messages_to_finnish() {
 		creditcard: "Anna oikeantyyppinen luottokortin numero.",
 		equalTo: "Antamasi arvot eivät täsmää.",
 		accept: "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF.",
+		captcha: "Captcha ei ollut oikein. Yritä uudestaan.",
 		maxlength: $.validator.format("Voit syöttää tähän kenttään maksimissaan {0} merkkiä."),
 		minlength: $.validator.format("Syötä tähän kenttään vähintään {0} merkkiä."),
 		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),

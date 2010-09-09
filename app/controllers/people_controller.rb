@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
   def create
     
       @person = Person.new
-      if APP_CONFIG.use_recaptcha && !verify_recaptcha(:model => @person, :message => t('people.new.captcha_incorrect'))
+      if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         render :action => "new" and return
       end
     
@@ -79,4 +79,28 @@ class PeopleController < ApplicationController
     params[:closed] && params[:closed].eql?("true")
   end
 
+  def check_captcha
+    if verify_recaptcha_unless_already_accepted
+      render :json => "success" and return
+    else
+      render :json => "failed" and return
+    end
+  end
+
+private
+
+  
+  def verify_recaptcha_unless_already_accepted(options={})
+    # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
+    if session[:last_accepted_captha] == params["recaptcha_challenge_field"] + params["recaptcha_response_field"]
+      return true
+    else
+      accepted = verify_recaptcha(options)
+      if accepted
+        session[:last_accepted_captha] = params["recaptcha_challenge_field"] + params["recaptcha_response_field"]
+      end
+      return accepted
+    end
+    
+  end
 end
