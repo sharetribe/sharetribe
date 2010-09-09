@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
   
   def load
     @title = params[:listing_type]
-    @listings = Listing.open.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.find_with(params).paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/listed_listings"
   end
   

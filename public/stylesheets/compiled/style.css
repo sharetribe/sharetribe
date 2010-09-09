@@ -2197,3 +2197,9 @@ a.edit_profile {
 #show_closed_link {
   float: right;
   padding: 10px 15px 0 0; }
+
+#no_listings_found {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold; }

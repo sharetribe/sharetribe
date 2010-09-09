@@ -1,4 +1,8 @@
-= render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
-= will_paginate(@listings)
-- path = params[:listing_type].eql?("request") ? requests_path : offers_path
-= pageless(@listings.total_pages, '#search_results', path, t(".loading_more_#{@title}s"))
+- if @listings.size > 0
+  = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
+  = will_paginate(@listings)
+  - path = params[:listing_type].eql?("request") ? requests_path : offers_path
+  = pageless(@listings.total_pages, '#search_results', path, t(".loading_more_#{@title}s"))
+- else
+  #no_listings_found
+    = t(".no_#{params[:listing_type]}s_with_the_conditions_you_gave")

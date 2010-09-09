@@ -125,17 +125,15 @@ class Listing < ActiveRecord::Base
     end  
   end
   
-  def self.unique_share_types
+  def self.unique_share_types(listing_type)
     share_types = []
-    VALID_TYPES.each do |type|
-      VALID_CATEGORIES.each do |category|
-        if VALID_SHARE_TYPES[type][category] 
-          VALID_SHARE_TYPES[type][category].each do |share_type|
-            share_types << share_type
-          end
-        end  
-      end
-    end      
+    VALID_CATEGORIES.each do |category|
+      if VALID_SHARE_TYPES[listing_type][category] 
+        VALID_SHARE_TYPES[listing_type][category].each do |share_type|
+          share_types << share_type
+        end
+      end  
+    end     
     share_types.uniq!.sort
   end
   
@@ -158,7 +156,11 @@ class Listing < ActiveRecord::Base
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]
     end
-    where(conditions).order("id DESC")
+    if params[:share_type] && !params[:share_type][0].eql?("all")
+      where(conditions).joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id).order("listings.id DESC")
+    else
+      where(conditions).order("id DESC")
+    end    
   end
   
   # Returns true if listing exists and valid_until is set
@@ -179,4 +181,4 @@ class Listing < ActiveRecord::Base
     !share_types.find_by_name(share_type).nil?
   end
   
-end  
+end
