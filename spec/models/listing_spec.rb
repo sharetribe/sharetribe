@@ -48,10 +48,9 @@ describe Listing do
   it "is only valid if listing type is one of the valid types" do
     @listing.listing_type = "test"
     @listing.should_not be_valid
-    Listing::VALID_TYPES.each do |type| 
+    Listing::VALID_TYPES.each do |type|
       @listing.listing_type = type
-      @listing.share_type = Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
-      @listing.should be_valid
+      valid_with_share_types
     end  
   end
   
@@ -63,15 +62,14 @@ describe Listing do
   it "is only valid if category is one of the valid categories" do
     @listing.category = "test"
     @listing.should_not be_valid
-    Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category| 
+    Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category|
       @listing.category = category
-      @listing.share_type = Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
-      @listing.should be_valid
+      valid_with_share_types
     end  
   end
   
-  it "is only valid if the transaction type corresponds with the category" do
-    @listing.share_type = nil
+  it "is only valid if the share type corresponds with the category" do
+    @listing.share_types.clear 
     @listing.should_not be_valid
     Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
     Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
@@ -117,13 +115,14 @@ describe Listing do
   
     before(:each) do
       @listing.listing_type = "offer"
-      @listing.share_type = ["sell", "lend"]
+      @listing.share_types.clear
+      ["sell", "lend"].each { |st| @listing.share_types.build(:name => st) }
     end
     
     it "should be valid when there is no valid until" do
       @listing.valid_until = nil
+      puts "Errors: #{@listing.errors.full_messages}" unless @listing.valid?
       @listing.should be_valid
-
     end 
   
   end
@@ -131,7 +130,7 @@ describe Listing do
   context "with category 'rideshare'" do
     
     before(:each) do
-      @listing.share_type = nil
+      @listing.share_types = []
       @listing.category = "rideshare"
       @listing.origin = "Otaniemi"
       @listing.destination = "Turku"
@@ -172,7 +171,7 @@ describe Listing do
     end
     
     it "is not valid with share type" do
-      @listing.share_type = ["buy"]
+      @listing.share_types.build(:name => "buy")
       @listing.should_not be_valid
     end  
     
@@ -197,24 +196,32 @@ describe Listing do
   
   private
   
-  def listing_is_valid_with_correct_share_type(listing_type, category)
-    @listing.listing_type = listing_type
-    @listing.category = category
-    @listing.share_type = []
-    if Listing::VALID_SHARE_TYPES[listing_type][category]
-      Listing::VALID_SHARE_TYPES[listing_type][category].each_with_index do |share_type, index|
-        @listing.share_type[index] = share_type
+  def set_share_type(listing)
+    
+  end
+  
+  def valid_with_share_types
+    @listing.share_types.clear
+    if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
+      Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |st|
+        @listing.share_types.build(:name => st)
         @listing.should be_valid
       end
     end  
   end
   
+  def listing_is_valid_with_correct_share_type(listing_type, category)
+    @listing.listing_type = listing_type
+    @listing.category = category
+    valid_with_share_types
+  end
+  
   def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_types)
     @listing.listing_type = listing_type
     @listing.category = category
-    @listing.share_type = []
-    share_types.each_with_index do |type, index|
-      @listing.share_type[index] = type
+    @listing.share_types.clear
+    share_types.each do |st|
+      @listing.share_types.build(:name => st)
     end
     @listing.should_not be_valid
   end
