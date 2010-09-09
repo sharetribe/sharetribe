@@ -350,35 +350,40 @@ function reload_browse_view(link, listing_type, locale) {
 	allLinks = link.parent().parent().find('a');
 	
 	// Handle selected items
-	if (title == "all") {
+	if (type == "sharetypes") {
+		if (title == "all") {
+			link.parent().find('a').removeClass("selected");
+			link.addClass("selected");
+		} else {
+			if (link.hasClass("selected")) {
+				link.removeClass("selected");
+			} else {
+				link.addClass("selected");
+				link.parent().find('a[name=' + type + '_all]').removeClass("selected");
+			}
+		}
+		var none_selected = true; 
+		link.parent().find('a').each(function() {
+			if ($(this).hasClass("selected")) {
+				none_selected = false;
+			}
+		});
+		if (none_selected) {
+			link.parent().find('a[name=' + type + '_all]').addClass("selected");
+		}
+		link.parent().find('a').each(function() {
+			if ($(this).hasClass("selected")) {
+				none_selected = false;
+			}
+		});
+	} else {
 		link.parent().find('a').removeClass("selected");
 		link.addClass("selected");
-	} else {
-		if (link.hasClass("selected")) {
-			link.removeClass("selected");
-		} else {
-			link.addClass("selected");
-			link.parent().find('a[name=' + type + '_all]').removeClass("selected");
-		}
 	}
-	var none_selected = true; 
-	link.parent().find('a').each(function() {
-		if ($(this).hasClass("selected")) {
-			none_selected = false;
-		}
-	});
-	if (none_selected) {
-		link.parent().find('a[name=' + type + '_all]').addClass("selected");
-	}
-	link.parent().find('a').each(function() {
-		if ($(this).hasClass("selected")) {
-			none_selected = false;
-		}
-	});
 	
 	// Make AJAX request based on selected items
 	var sections = new Array();
-	var sectionTypes = ["categories"]
+	var sectionTypes = ["categories","sharetypes"];
 	for (var i = 0; i < sectionTypes.length; i++) {
 		sections[sectionTypes[i]] = new Array();
 	}
@@ -390,7 +395,7 @@ function reload_browse_view(link, listing_type, locale) {
 		}
 	});
 	var request_path = '/' + locale + '/load'
-	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'] }, function(data) {
+	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
 		$('#search_results').html(data);
 		$('#search_results').pageless({"totalPages":3,"loaderMsg":"Testing","div1":"#search_results","url":"/fi/requests"});
 	});

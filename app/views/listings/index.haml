@@ -10,6 +10,12 @@
           %h3= t(".category")
         = link_to t(".all_categories"), "#", :class => "selected", :name => "categories_all"
         = render :partial => "left_panel_link", :collection => Listing::VALID_CATEGORIES, :as => :title, :locals => { :type => "categories" }
+      .left_panel_section
+        .left_panel_title
+          %h3= t(".#{params[:listing_type]}_type")
+        = link_to t(".all_#{params[:listing_type]}_types"), "#", :class => "selected", :name => "sharetypes_all"
+        = render :partial => "left_panel_link", :collection => Listing.unique_share_types(params[:listing_type]), :as => :title, :locals => { :type => "sharetypes" } 
+        
 
   .grid_18.omega
     #search_form

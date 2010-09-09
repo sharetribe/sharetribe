@@ -200,6 +200,10 @@ fi:
       offers: "Tarjoukset"
       category: "Kategoria"
       all_categories: "Kaikki kategoriat"
+      request_type: "Pyyntötapa"
+      offer_type: "Tarjoustapa"
+      all_request_types: "Kaikki pyyntötavat"
+      all_offer_types: "Kaikki tarjoustavat"
       items: "Tavarat"
       favors: "Palvelukset"
       rideshare: "Kimppakyydit"
@@ -210,6 +214,8 @@ fi:
     listed_listings:  
       loading_more_requests: "Ladataan lisää pyyntöjä"
       loading_more_offers: "Ladataan lisää tarjouksia"
+      no_requests_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään pyyntöä." 
+      no_offers_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään tarjousta."
     listed_listing:  
       request_is_closed: "Pyyntö on suljettu"
       offer_is_closed: "Tarjous on suljettu"
@@ -217,7 +223,16 @@ fi:
       items: "Tavarat"
       favors: "Palvelukset"
       rideshares: "Kimppakyydit"
-      housings: "Asunnot"  
+      housings: "Asunnot"
+      sells: "Myydään"
+      lends: "Lainataan"
+      rent_outs: "Vuokrataan"
+      trades: "Vaihdetaan"
+      give_aways: "Annetaan"
+      temporary_accommodations: "Tilapäismajoitus"
+      buys: "Ostetaan"
+      borrows: "Lainataan"
+      rents: "Vuokrataan"
     form:
       listing_form_content:
         request_something: "Pyydä jotain"
