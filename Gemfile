@@ -35,7 +35,7 @@ gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'r
 # gem 'whenever', '0.4.1'
 
 group :test do
-  gem "rspec-rails", ">= 2.0.0.beta.13"
+  gem "rspec-rails", ">= 2.0.0.beta.20"
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber'

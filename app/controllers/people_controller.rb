@@ -28,7 +28,7 @@ class PeopleController < ApplicationController
       # Open a Session first only for Kassi to be able to create a user
       @session = Session.create
       session[:cookie] = @session.cookie
-      params[:person][:locale] = session[:locale] || 'fi'
+      params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     
       # Try to create a new person in ASI.
       
@@ -92,12 +92,12 @@ private
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
-    if session[:last_accepted_captha] == params["recaptcha_challenge_field"] + params["recaptcha_response_field"]
+    if session[:last_accepted_captha] == "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
       return true
     else
       accepted = verify_recaptcha(options)
       if accepted
-        session[:last_accepted_captha] = params["recaptcha_challenge_field"] + params["recaptcha_response_field"]
+        session[:last_accepted_captha] = "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
       end
       return accepted
     end
