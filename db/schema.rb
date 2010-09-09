@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100908112841) do
+ActiveRecord::Schema.define(:version => 20100909114132) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -184,7 +184,6 @@ ActiveRecord::Schema.define(:version => 20100908112841) do
     t.boolean  "close_notification_sent", :default => false
     t.string   "listing_type"
     t.text     "description"
-    t.string   "share_type"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
@@ -280,6 +279,11 @@ ActiveRecord::Schema.define(:version => 20100908112841) do
     t.integer  "email_when_new_kassi_event",            :default => 1
     t.integer  "email_when_new_comment_to_kassi_event", :default => 1
     t.integer  "email_when_new_listing_from_friend",    :default => 1
+  end
+
+  create_table "share_types", :force => true do |t|
+    t.integer "listing_id"
+    t.string  "name"
   end
 
   create_table "smerf_forms", :force => true do |t|

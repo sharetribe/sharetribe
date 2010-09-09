@@ -72,7 +72,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "listing[share_type][]") {
+			if (element.attr("name") == "listing[share_type_attributes][]") {
 				error.appendTo(element.parent().parent().parent().parent().parent().parent());
 			} else if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
 				error.appendTo(element.parent().parent());
@@ -91,7 +91,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[title]": {required: true, minlength: 2},
 			"listing[origin]": {required: true, minlength: 2},
 			"listing[destination]": {required: true, minlength: 2},
-			"listing[share_type][]": {required: true, minlength: 1},
+			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
 			"listing[valid_until(4i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -100,7 +100,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[share_type][]": { required: checkbox_message },
+			"listing[share_type_attributes][]": { required: checkbox_message },
 			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
 			"listing[valid_until(2i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },

@@ -35,12 +35,11 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
-  
   def share_type_checkbox_checked?(share_type)
     if @listing.new_record?
       params[:share_type].eql?(share_type) || (@listing.default_share_type?(share_type) && !params[:share_type])
     else  
-      @listing.share_type.include?(share_type)
+      @listing.has_share_type?(share_type)
     end  
   end
   

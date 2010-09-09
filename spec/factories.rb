@@ -4,13 +4,17 @@ Factory.define :person do |p|
   p.locale "en"
 end  
 
+Factory.define :share_type do |s|
+  s.name "borrow"
+end  
+
 Factory.define :listing do |l|
   l.title "Sledgehammer"
   l.description("Test" * 1000)
   l.author { |author| author.association(:person) }
   l.listing_type "request"
   l.category "item"
-  l.share_type ["buy", "borrow"]
+  l.share_types { |st| [st.association(:share_type), st.association(:share_type, :name => "buy")] }
   l.tag_list("tools, hammers")
   l.valid_until DateTime.now + 3.months
 end

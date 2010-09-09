@@ -21,6 +21,8 @@ class Listing < ActiveRecord::Base
   
   has_many :comments
   
+  has_many :share_types
+  
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "id DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "id DESC"
   
@@ -42,8 +44,6 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
-  
-  serialize :share_type, Array
   
   before_validation :set_rideshare_title, :set_valid_until_time
   
@@ -82,9 +82,13 @@ class Listing < ActiveRecord::Base
     }
   end
   
+  def share_type_attributes=(attributes)
+    share_types.clear
+    attributes.each { |name| share_types.build(:name => name) } if attributes
+  end
+  
   def downcase_tags
     tag_list.each { |t| t.downcase! }
-    logger.info "Tag list: #{tag_list}"
   end
   
   def rideshare?
@@ -109,18 +113,30 @@ class Listing < ActiveRecord::Base
   
   def given_share_type_is_one_of_valid_share_types
     if ["favor", "rideshare"].include?(category)
-      if share_type
-        errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil))
-      end
-    elsif !share_type
-      errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
-    elsif listing_type && category && share_type && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
-      share_type.each do |test_type|
-        unless VALID_SHARE_TYPES[listing_type][category].include?(test_type)
-          errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
+      errors.add(:share_types, errors.generate_message(:share_types, :must_be_nil)) unless share_types.empty?
+    elsif share_types.empty?
+      errors.add(:share_types, errors.generate_message(:share_types, :blank)) 
+    elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
+      share_types.each do |test_type|
+        unless VALID_SHARE_TYPES[listing_type][category].include?(test_type.name)
+          errors.add(:share_types, errors.generate_message(:share_types, :inclusion))
         end   
       end
     end  
+  end
+  
+  def self.unique_share_types
+    share_types = []
+    VALID_TYPES.each do |type|
+      VALID_CATEGORIES.each do |category|
+        if VALID_SHARE_TYPES[type][category] 
+          VALID_SHARE_TYPES[type][category].each do |share_type|
+            share_types << share_type
+          end
+        end  
+      end
+    end      
+    share_types.uniq!.sort
   end
   
   def valid_until_is_not_nil
@@ -157,6 +173,10 @@ class Listing < ActiveRecord::Base
   
   def closed?
     !open? || (valid_until && valid_until < DateTime.now)
+  end
+  
+  def has_share_type?(share_type)
+    !share_types.find_by_name(share_type).nil?
   end
   
 end  
