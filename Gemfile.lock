@@ -140,17 +140,16 @@ GEM
     rest-client (1.6.0)
       mime-types (>= 1.16)
     riddle (1.0.12)
-    rspec (2.0.0.beta.19)
-      rspec-core (= 2.0.0.beta.19)
-      rspec-expectations (= 2.0.0.beta.19)
-      rspec-mocks (= 2.0.0.beta.19)
-    rspec-core (2.0.0.beta.19)
-    rspec-expectations (2.0.0.beta.19)
+    rspec (2.0.0.beta.20)
+      rspec-core (= 2.0.0.beta.20)
+      rspec-expectations (= 2.0.0.beta.20)
+      rspec-mocks (= 2.0.0.beta.20)
+    rspec-core (2.0.0.beta.20)
+    rspec-expectations (2.0.0.beta.20)
       diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.0.beta.19)
-    rspec-rails (2.0.0.beta.19)
-      rspec (= 2.0.0.beta.19)
-      webrat (>= 0.7.2.beta.1)
+    rspec-mocks (2.0.0.beta.20)
+    rspec-rails (2.0.0.beta.20)
+      rspec (= 2.0.0.beta.20)
     ruby-prof (0.8.2)
     rubyzip (0.9.4)
     selenium-webdriver (0.0.27)
@@ -166,10 +165,6 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.22)
-    webrat (0.7.2.beta.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
 
 PLATFORMS
   ruby
@@ -193,7 +188,7 @@ DEPENDENCIES
   rails (= 3.0.0.rc)
   recaptcha!
   rest-client (>= 1.6.0)
-  rspec-rails (>= 2.0.0.beta.13)
+  rspec-rails (>= 2.0.0.beta.20)
   ruby-prof
   thinking-sphinx (= 2.0.0.rc1)
   will_paginate!
