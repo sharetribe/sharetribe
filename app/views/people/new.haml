@@ -30,7 +30,7 @@
         .form_field_container
           = form.label :recaptcha, t('.enter_captcha')
           %span{:class => "small"}= link_to(t('common.what_is_this'), "#")
-          = recaptcha_tags #:ajax => true
+          = recaptcha_tags :ajax => true
       .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container
