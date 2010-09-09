@@ -81,6 +81,8 @@ en:
       offer_updated_successfully: "Offer updated successfully"
       person_updated_successfully: "Information updated"
       update_error: "An error occurred when trying to update your information, please try again"
+      avatar_upload_successful: "Avatar upload succesful"
+      avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
       only_listing_author_can_close_a_listing: "Only listing author can close a listing."
       request_closed: "Request closed"
       offer_closed: "Offer closed"
@@ -329,6 +331,8 @@ en:
       email: "Email address:"
       password: "Password:"
       password_again: "Confirm password:"
+      enter_captcha: "I'm a human:"
+      captcha_incorrect: "reCAPTCHA check failed. Please write the words in the image to the box below."
       create_new_account: "Create account"
       i_accept_the: "I accept the"
       terms: "terms"
@@ -380,8 +384,8 @@ en:
       phone_number: "Phone number:"
       about_you: "About you:"
     avatar:  
-       update_profile_picture: "Update profile picture"
-       add_avatar_submit: "Save picture"
+      update_profile_picture: "Update profile picture"
+      add_avatar_submit: "Save picture"
     account:
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
       email: "Email address:"

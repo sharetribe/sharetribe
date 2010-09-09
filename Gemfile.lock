@@ -5,6 +5,13 @@ GIT
   specs:
     will_paginate (3.0.pre2)
 
+GIT
+  remote: git://github.com/rfc2822/recaptcha.git
+  revision: 59e78ce
+  branch: rails3
+  specs:
+    recaptcha (0.2.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -184,6 +191,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip
   rails (= 3.0.0.rc)
+  recaptcha!
   rest-client (>= 1.6.0)
   rspec-rails (>= 2.0.0.beta.13)
   ruby-prof

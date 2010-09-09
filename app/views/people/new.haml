@@ -28,6 +28,8 @@
         = form.password_field :password2, :class => :text_field, :maxlength => "255"
       - if APP_CONFIG.use_recaptcha
         .form_field_container
+          = form.label :recaptcha, t('.enter_captcha')
+          %span{:class => "small"}= link_to(t('common.what_is_this'), "#")
           = recaptcha_tags #:ajax => true
       .form_field_container
         .signup_checkbox_container
