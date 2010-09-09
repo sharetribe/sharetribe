@@ -1,4 +1,4 @@
-Feature: Homepage
+Feature: User views homepage
   In order to see the latest activity in Kassi
   As a user
   I want see latest offers, requests and transactions on the home page
@@ -8,9 +8,12 @@ Feature: Homepage
       | person | 
       | kassi_testperson1 |
     And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
+    And there is item offer with title "bike" from "kassi_testperson1" and with share type "sell"
+    And that listing is closed
     When I am on the homepage
     Then I should see "car spare parts"
     And I should see "Request item"
+    And I should not see "bike"
   
   Scenario: Latest requests on the homepage
     Given there are following users:

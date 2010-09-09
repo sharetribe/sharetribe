@@ -20,6 +20,10 @@ Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]
                             )
 end
 
+Given /^that listing is closed$/ do
+  @listing.update_attribute(:open, false)
+end
+
 Then /^I should see image with alt text "([^\"]*)"$/ do | alt_text |
   find('img.listing_main_image')[:alt].should == alt_text
 end
