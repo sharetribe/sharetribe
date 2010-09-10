@@ -181,4 +181,8 @@ class Listing < ActiveRecord::Base
     !share_types.find_by_name(share_type).nil?
   end
   
+  def self.opposite_type(type)
+    type.eql?("offer") ? "request" : "offer"
+  end
+  
 end
