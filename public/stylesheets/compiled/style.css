@@ -863,6 +863,24 @@ span.smaller {
   background: #f7f5e6;
   display: none;
   overflow: hidden; }
+  .hidden_description h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
+
+.hidden_description_terms {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 500px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+  .hidden_description_terms h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
 
 .hidden_title {
   float: left;
@@ -2211,3 +2229,16 @@ a.edit_profile {
 #browse_view_spacer {
   width: 100%;
   height: 10px; }
+
+#captcha_container {
+  margin-left: 10px; }
+
+.consent {
+  background: white;
+  padding: 20px; }
+  .consent h4 {
+    font-weight: 12px;
+    color: #464646;
+    text-align: left;
+    margin: 0;
+    padding: 0; }

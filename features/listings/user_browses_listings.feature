@@ -130,7 +130,3 @@ Feature: User browses listings
     And I should not see "saw"
     And I should not see "axe"
     And I should not see "tool"
-    
-  
-  
-  

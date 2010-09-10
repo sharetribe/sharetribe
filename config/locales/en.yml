@@ -358,6 +358,8 @@ en:
       create_new_account: "Create account"
       i_accept_the: "I accept the"
       terms: "terms"
+      username_is_in_use: "The username you gave is already in use."
+      email_is_in_use: "The email you gave is already in use."
     profile_listings:
       offers: "Offers"
       requests: "Requests"
@@ -371,7 +373,10 @@ en:
       about_me: "About me:"  
       show_full_description: "Show more"
       hide_description: "Show less"
-      edit_profile_info: "Edit profile"          
+      edit_profile_info: "Edit profile"
+    help_texts:
+      help_captcha_title: "Are you human?"
+      terms_title: "Kassi terms of use"            
   search:
     show:
       search: "Search"

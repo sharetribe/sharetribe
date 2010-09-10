@@ -1,0 +1,7 @@
+%div{:id => field, :class => (field.eql?("terms") ? "hidden_description_terms" : "hidden_description")}
+  .hidden_title
+    = t(".#{field}_title")
+  .close_link
+    = link_to "X", "#", :id => "close_x", :class => "close"
+  .hidden_content
+    = render :partial => "people/help_texts/#{field}"
