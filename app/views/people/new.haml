@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form('#{I18n.locale}');
+  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.email_is_in_use")}');
 
 .grid_10.prefix_7.suffix_7
   #signup_form
@@ -9,7 +9,6 @@
       = form.error_messages
       .form_field_container
         = form.label :username, t('.username')
-        %span{:class => "small"}= link_to(t('common.what_is_this'), "#")
         = form.text_field :username, :class => :text_field, :maxlength => "20"
       .form_field_container
         = form.label :given_name, t('.given_name')
@@ -28,17 +27,21 @@
         = form.password_field :password2, :class => :text_field, :maxlength => "255"
       - if APP_CONFIG.use_recaptcha
         .form_field_container
-          = form.label :recaptcha, t('.enter_captcha')
-          %span{:class => "small"}= link_to(t('common.what_is_this'), "#")
-          = recaptcha_tags :ajax => true
+          = form.label :recaptcha, t('.enter_captcha') 
+          %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_captcha_link")
+          #captcha_container
+            = recaptcha_tags :ajax => true
       .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container
             %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]", :checked => "checked"}
           .signup_checkbox_label_container
             = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-            = link_to t(".terms"), "#" 
+            = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link" 
       .form_field_container
         = submit_tag(t('.create_new_account'), :class => "send_button")
+
+- ["help_captcha", "terms"].each do |field|
+  = render :partial => "help_texts", :locals => { :field => field }
         
         

@@ -207,7 +207,9 @@ function initialize_give_feedback_form(error_message, locale) {
 	});
 }
 
-function initialize_signup_form(locale) {
+function initialize_signup_form(locale, username_in_use_message, email_in_use_message) {
+	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
+	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
 	translate_validation_messages(locale);
 	var form_id = "#new_person"
@@ -216,7 +218,7 @@ function initialize_signup_form(locale) {
 			if (element.attr("name") == "person[terms]") {
 				error.appendTo(element.parent().parent().parent().parent().parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
-			  error.appendTo(element.parent().parent().parent().parent().parent().parent());
+			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
 			} else {
 				error.insertAfter(element);
 			}	
@@ -232,7 +234,9 @@ function initialize_signup_form(locale) {
 			"recaptcha_response_field": {required: true, captcha: true }
 		},
 		messages: {
-		  "recaptcha_response_field": {captcha: "Captcha was wrong. Please try again."}
+		  "recaptcha_response_field": { captcha: "Captcha was wrong. Please try again." },
+			"person[username]": { remote: username_in_use_message },
+			"person[email]": { remote: email_in_use_message },
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
@@ -430,7 +434,7 @@ function translate_validation_messages(locale) {
 function translate_validation_messages_to_finnish() {
 	jQuery.extend(jQuery.validator.messages, {
 		required: "Tämä on pakollinen kenttä.",
-		remote: "Antamasi sähköpostiosoite on jo käytössä.",
+		remote: "Kentän arvo on virheellinen.",
 		email: "Anna toimiva sähköpostiosoite.",
 		url: "Anna oikeanlainen URL-osoite.",
 		date: "Anna päivämäärä oikessa muodossa.",
