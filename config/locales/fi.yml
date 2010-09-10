@@ -211,11 +211,18 @@ fi:
       list_view: "Listanäkymä"
       map_view: "Karttanäkymä"
       search_verb: "Hae"
+      did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
+      request_something: "Jätä avoin pyyntö!"
+      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+      offer_something: "Laadi tarjous!"
     listed_listings:  
       loading_more_requests: "Ladataan lisää pyyntöjä"
       loading_more_offers: "Ladataan lisää tarjouksia"
       no_requests_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään pyyntöä." 
       no_offers_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään tarjousta."
+      offer_something: "Aseta jotain tarjolle!"
+      request_something: "Pyydä jotakin!"
+      search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
     listed_listing:  
       request_is_closed: "Pyyntö on suljettu"
       offer_is_closed: "Tarjous on suljettu"

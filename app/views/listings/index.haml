@@ -14,19 +14,23 @@
         .left_panel_title
           %h3= t(".#{params[:listing_type]}_type")
         = link_to t(".all_#{params[:listing_type]}_types"), "#", :class => "selected", :name => "sharetypes_all"
-        = render :partial => "left_panel_link", :collection => Listing.unique_share_types(params[:listing_type]), :as => :title, :locals => { :type => "sharetypes" } 
-        
+        = render :partial => "left_panel_link", :collection => Listing.unique_share_types(params[:listing_type]), :as => :title, :locals => { :type => "sharetypes" }
 
   .grid_18.omega
-    #search_form
-      = form_tag({ :action => :show, :controller => :search }, :method => "get") do
-        = text_field_tag("q", params[:q], :class => "text_field")
-        = submit_tag(t(".search_verb"), :class => "send_button")
-    #browse_listings_tabs
-      %div{:class => get_listing_tab_class("list_view")} 
-        = link_to t('.list_view'), "#"
-      %div{:class => get_listing_tab_class("map_view")} 
-        = link_to t('.map_view'), "#"
-    #profile_tab_spacer
+    .grid_10.alpha
+      #search_form
+        = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+          = text_field_tag("q", params[:q], :class => "text_field")
+          = submit_tag(t(".search_verb"), :class => "send_button")
+    .grid_8.omega
+      #new_listing_links
+        = t(".did_not_found_what_you_were_looking_for")
+        = link_to t(".request_something"), new_request_path(:type => "request")
+        %br/
+        = t(".you_have_something_others_do_not")
+        = link_to t(".offer_something"), new_request_path(:type => "offer")
+    .clear
+    #browse_view_spacer
+      &nbsp;
     #search_results
       = render :partial => "listed_listings"
