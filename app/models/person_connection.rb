@@ -38,6 +38,9 @@ class PersonConnection
    end
    
    def self.update_avatar(image, id, cookie)
+     # Transform cookie to a string with "=" for HTTPClient
+     cookie = "#{cookie.keys[0]}=#{cookie.values[0]}"
+     
      response = HTTPClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
      if response.status != 200
        raise Exception.new(JSON.parse(response.body.content)["messages"])
