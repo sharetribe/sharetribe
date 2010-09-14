@@ -22,8 +22,13 @@ class ListingsController < ApplicationController
   
   def load
     @title = params[:listing_type]
-    @listings = Listing.open.find_with(params).paginate(:per_page => 15, :page => params[:page])
-    render :partial => "listings/listed_listings"
+    @listings = Listing.open.find_with(params).paginate(:per_page => 5, :page => params[:page])
+    @request_path = request.fullpath
+    if request.xhr? && params[:page] && params[:page].to_i > 1
+      render :partial => "listings/additional_listings"
+    else
+      render :partial => "listings/listed_listings"
+    end
   end
   
   def show
@@ -82,7 +87,8 @@ class ListingsController < ApplicationController
   
   def fetch
     @title = params[:listing_type]
-    @listings = Listing.open.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.open.find_with(params).paginate(:per_page => 5, :page => params[:page])
+    @request_path = request.fullpath
     request.xhr? ? (render :partial => "listings/additional_listings") : (render :action => :index)
   end
 

@@ -19,7 +19,7 @@
 //    url: URL used to request more data
 //    div1: first div to append to if returned data contains two parts divided by splilt_string
 //    div2: second div to append to if returned data contains two parts divided by splilt_string
-//    split_string: a string to divie two parts of content in data
+//    split_string: a string to divide two parts of content in data
 // Callback Parameters:
 //		scrape: A function to modify the incoming data. (Doesn't do anything by default)
 //		complete: A function to call when a new page has been loaded (optional)
@@ -47,7 +47,8 @@
   $.pageless.settings = {
     currentPage:  1,
     pagination:   '.pagination',
-    url:          location.href,
+    //url:          location.href,
+    loaderMsg:    "TESTING_FROM_PAGELESS.JS",
     params:       {}, // params of the query you can pass auth_token here
     distance:     100, // page distance in px to the end when the ajax function is launch
     loaderImage:  "/images/load.gif",
@@ -92,6 +93,21 @@
   
   $.fn.pageless = function(settings) {
     $.pageless.init(settings);
+    //alert($.pageless.settings.url + " - " + $.pageless.settings.currentPage + " - " + $.pageless.settings.totalPages);
+    
+    
+    // Detect if url has changed, and reset the settings and listener
+    // If settings are changed by ajax, the old values seems to persist unless explicitly changed
+    
+    if ($.pageless.settings.url != settings["url"]) {
+      $.pageless.stopListener();
+      $.pageless.settings.url = settings["url"];
+      $.pageless.settings.currentPage = 1;
+      $.pageless.settings.totalPages = settings["totalPages"];
+      $.pageless.startListener();
+    }
+    //alert($.pageless.settings.url + " - " + $.pageless.settings.currentPage + " - " + $.pageless.settings.totalPages);
+    
     $.pageless.el = $(this);
     $.pageless.div1 = $(this).find(settings.div1)
     
