@@ -294,7 +294,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 	});	
 }
 
-function initialize_update_account_info_form(locale, change_text, cancel_text, email_default, pw1_default, pw2_default) {
+function initialize_update_account_info_form(locale, change_text, cancel_text, email_default, pw1_default, pw2_default, email_in_use_message) {
 	$('#account_email_link').toggle(
 		function() {
 			$('#account_email_content').hide();
@@ -330,6 +330,9 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 		errorClass: "error_account",
 		rules: {
 			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
+		},
+		messages: {
+			"person[email]": { remote: email_in_use_message },
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(email_form_id, form, locale, "false");
