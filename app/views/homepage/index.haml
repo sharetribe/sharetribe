@@ -40,13 +40,13 @@
   #recent_requests.grid_9.alpha
     .recent_listings
       %h3{:class => "orange"}
-        = link_to t('.recent_requests'), "#"
+        = link_to t('.recent_requests'), requests_path
       = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
       = will_paginate(@requests)
   #recent_offers.grid_9.omega
     .recent_listings
       %h3{:class => "brown"}
-        = link_to t('.recent_offers'), "#"
+        = link_to t('.recent_offers'), offers_path
       = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
       = will_paginate(@offers)
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 

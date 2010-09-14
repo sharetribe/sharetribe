@@ -36,11 +36,12 @@ en:
       sign_up: "Sign up"
       logout: "Logout"
       hi: "Hi"
-      messages: "Messages"
       requests: "Friend requests"
       notifications: "Notifications"
       settings: "Settings"
       go_to_your_profile_page: "Profile"
+    logged_in_messages_icon:
+      messages: "Messages"  
     notifications:
       request_created_successfully: "Request created successfully."
       offer_created_successfully: "Offer created successfully."

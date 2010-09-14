@@ -36,11 +36,12 @@ fi:
       sign_up: "Luo tunnus"
       logout: "Ulos"
       hi: "Hei"
-      messages: "Viestit"
       requests: "Kutsut"
       notifications: "Tiedotteet"
       settings: "Asetukset"
       go_to_your_profile_page: "Profiili"
+    logged_in_messages_icon:
+      messages: "Viestit"  
     notifications:
       request_created_successfully: "Pyyntö tallennettu."
       offer_created_successfully: "Tarjous tallennettu."

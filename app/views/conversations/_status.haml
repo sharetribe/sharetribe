@@ -10,9 +10,6 @@
   .conversation_status_container
     .conversation_status_label{:class => conversation.status}
       = t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if conversation.status.eql?("accepted") && conversation.can_be_cancelled?
-        &nbsp;
-        = link_to t("common.cancel"), "#"
     - if conversation.status.eql?("accepted")
       .conversation_status_label_links
         - if conversation.has_feedback_from?(@current_user)
