@@ -70,8 +70,16 @@ class PeopleController < ApplicationController
   end
   
   def check_email_availability
+    available = nil
+    if @current_user && (@current_user.email == params[:person][:email])
+      # Current user's own email should not be shown as unavailable
+      available = true
+    else
+      available = Person.email_available?(params[:person][:email])
+    end
+    
     respond_to do |format|
-      format.json { render :json => Person.email_available?(params[:person][:email]) }
+      format.json { render :json => available }
     end
   end
   
