@@ -398,14 +398,9 @@ function reload_browse_view(link, listing_type, locale) {
 			sections[link_type].push(link_title);
 		}
 	});
-	var request_path = '/' + locale + '/load?' + $.param({ listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] })
-	//alert(request_path)
-	$.get(request_path, function(data) {
+	var request_path = '/' + locale + '/load'
+	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
 		$('#search_results').html(data);
-		//$("#search_results").pageless.stopListener
-		//$("#search_results").pageless({"totalPages":10,"loaderMsg":"Testing22222","div1":"#search_results","url": request_path});
-		//$('#pageless_script').html('<script type="text/javascript">  $("#search_results").pageless({"url":"' + request_path +'","totalPages":' + 10 + ',"loaderMsg":"TESTING","div1":"#search_results"}); </script>');
-		
 	});
 }
 

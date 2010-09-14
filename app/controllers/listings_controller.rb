@@ -12,22 +12,28 @@ class ListingsController < ApplicationController
   
   def requests
     params[:listing_type] = "request"
-    fetch
+    @to_render = {:action => :index}
+    load
   end
   
   def offers
     params[:listing_type] = "offer"
-    fetch
+    @to_render = {:action => :index}
+    load
   end
   
+  # Used to load listings to be shown
+  # How the results are rendered depends on 
+  # the type of request and if @to_render is set
   def load
     @title = params[:listing_type]
-    @listings = Listing.open.find_with(params).paginate(:per_page => 5, :page => params[:page])
+    @to_render ||= {:partial => "listings/listed_listings"}
+    @listings = Listing.open.find_with(params).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
     else
-      render :partial => "listings/listed_listings"
+      render  @to_render
     end
   end
   
@@ -81,15 +87,6 @@ class ListingsController < ApplicationController
       format.html { redirect_to @listing }
       format.js { render :layout => false }
     end
-  end
-  
-  private
-  
-  def fetch
-    @title = params[:listing_type]
-    @listings = Listing.open.find_with(params).paginate(:per_page => 5, :page => params[:page])
-    @request_path = request.fullpath
-    request.xhr? ? (render :partial => "listings/additional_listings") : (render :action => :index)
   end
 
 end

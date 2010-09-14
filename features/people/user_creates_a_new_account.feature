@@ -30,7 +30,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "fix this field" within ".error"
+    Then I should see "The username you gave is already in use." within ".error"
   
   # Error message text should be better than fix this field
   @fixme
@@ -45,7 +45,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address" with "kassi_testperson2@example.com"
     And I press "Create account"
-    Then I should see "fix this field" within ".error"
+    Then I should see "The email you gave is already in use." within ".error"
   
   
   @pending
