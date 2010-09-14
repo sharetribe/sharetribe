@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
+gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,20 +22,22 @@ gem "mongrel"
 gem 'mysql', '2.8.1'
 gem 'haml'
 gem 'database_cleaner'
-#gem 'spork'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
-gem 'will_paginate', :git => 'git://github.com/mislav/will_paginate.git', :branch => 'rails3'
+gem "will_paginate", "~> 3.0.pre2"
 gem 'newrelic_rpm', :require => false
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx', '2.0.0.rc1', :require => 'thinking_sphinx'
+gem 'thinking-sphinx',
+  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
+  :branch  => 'rails3',
+  :require => 'thinking_sphinx'
 gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
 # gem 'whenever', '0.4.1'
 
 group :test do
-  gem "rspec-rails", ">= 2.0.0.beta.20"
+  gem "rspec-rails", ">= 2.0.0.beta.19"
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'cucumber'
