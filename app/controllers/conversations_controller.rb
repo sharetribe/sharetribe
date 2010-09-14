@@ -13,6 +13,10 @@ class ConversationsController < ApplicationController
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   
+  def index
+    redirect_to received_person_messages_path(:person_id => @current_user.id)
+  end
+  
   def received
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
@@ -38,7 +42,7 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      flash[:notice] = "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent"
+      flash[:notice] = @conversation.listing ? "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent" : "message_sent"
       @conversation.send_email_to_participants(request) 
       redirect_to (session[:return_to_content] || root)
     else
@@ -65,6 +69,7 @@ class ConversationsController < ApplicationController
   def change_status(status)
     @conversation = Conversation.find(params[:id])
     @conversation.update_attribute(:status, status)
+    @conversation.participations.find_by_person_id(@current_user.id).update_attribute(:is_read, true)
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
     respond_to do |format|
       format.html { render :action => :show }

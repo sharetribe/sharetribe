@@ -232,15 +232,15 @@ form, input {
 		color: #898989;
 	}
 	input.search_button {
-		background: $orange url("/images/icons/header_icons.png") 8px -176px no-repeat;
+		background: $orange url("/images/icons/header_icons.png") 8px -356px no-repeat;
 		width: 41px;
 		height: 28px;
 		padding: 0;
 		border: 0;
 		color: transparent;
-		&:active { background: $dark_orange url("/images/icons/header_icons.png") 8px -175px no-repeat; }
+		&:active { background: $dark_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; }
 		&:hover { background-color: $light_orange; }
-		&:focus { background: $light_orange url("/images/icons/header_icons.png") 8px -176px no-repeat; }
+		&:focus { background: $light_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; }
 	}
 }
 
@@ -999,7 +999,7 @@ div.checkbox_float {
 }
 
 #logged_in_icons {
-	margin: 17px 0 0 11px;
+	margin: 12px 0 0 11px;
 	color: white;
 	overflow: hidden;
 }
@@ -1008,17 +1008,51 @@ div.checkbox_float {
 	width: 27px;
 	height: 20px;
 	float: left;
-	margin-right: $margin_right;
+	margin: 7px 0 0 $margin_right;
 	a {
 		color: transparent;
 		display: block;
 		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
-		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
-		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; }
+		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
+		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
 		&:active {
 			margin-top: 1px;
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 20px) no-repeat; 
+			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; 
 		}	
+	}
+}
+
+.logged_in_icon_inbox_notifications {
+	cursor: pointer;
+	width: 27px;
+	height: 24px;
+	float: left;
+	margin: 3px 0 0 9px;
+	background: transparent url("/images/icons/header_icons.png") 0px 4px no-repeat;
+	&:hover { background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+	&:focus { background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+	&:active {
+		margin-top: 4px;
+		background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; 
+	}
+	.logged_in_icon_notification_text {
+		width: 9px;
+		height: 8px;
+		@include rounded(7px);
+		background: $orange;
+		margin-left: 15px;
+		padding: 1px 2px 5px 3px;
+		text-align: center;
+		color: white;
+		font-size: 8px;
+		font-weight: bold;
+		a {
+			color: white;
+			font-size: 8px;
+			font-weight: bold;
+			padding: 0;
+			margin: 0;
+		}
 	}
 }
 
@@ -1027,20 +1061,20 @@ div.checkbox_float {
 }
 
 .logged_in_icon_requests {
-	@include logged_in_icon(-40px);
+	@include logged_in_icon(-80px);
 }
 
 .logged_in_icon_notifications {
-	@include logged_in_icon(-80px, 2px);
+	@include logged_in_icon(-160px, 2px);
 }
 
 .logged_in_icon_settings {
-	@include logged_in_icon(-120px);
+	@include logged_in_icon(-240px);
 }
 
 #logged_in_links {
 	text-align: right;
-	margin-top: 19px;
+	margin-top: 21px;
 	color: white;
 	font-size: 13px;
 	a {
@@ -1217,6 +1251,7 @@ a.edit_profile {
 		margin-bottom: 0;
 	}	
 	margin: 20px 30px 20px 20px;
+	border-top: 1px solid $text_color;
 	border-bottom: 1px solid $text_color;
 	.unread {
 		background: $unread_message;
@@ -1322,7 +1357,7 @@ a.edit_profile {
 .conversation_status_container {
 	background: $light_green_bg;
 	padding: 3px 0;
-	margin-left: 35px;
+	margin-left: 27px;
 	width: 300px;
 }
 
