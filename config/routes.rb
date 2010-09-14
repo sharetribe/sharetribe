@@ -108,7 +108,7 @@
           put :cancel
         end
         resources :messages
-        resources :feedback, :controller => :testimonials do
+        resources :feedbacks, :controller => :testimonials do
           collection do
             put :skip
           end  
