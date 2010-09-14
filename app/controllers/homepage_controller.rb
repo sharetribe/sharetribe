@@ -4,8 +4,14 @@ class HomepageController < ApplicationController
 
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
-    @requests = Listing.requests.open.paginate(:per_page => 10, :page => params[:page])
-    @offers = Listing.offers.open.paginate(:per_page => 10, :page => params[:page])
+    listings_per_page = 15
+    
+    # If requesting a specific page on non-ajax request, we'll ignore that
+    # and show the normal front page starting from newest listing
+    params[:page] = 1 unless request.xhr?
+    
+    @requests = Listing.requests.open.paginate(:per_page => listings_per_page, :page => params[:page])
+    @offers = Listing.offers.open.paginate(:per_page => listings_per_page, :page => params[:page])
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
