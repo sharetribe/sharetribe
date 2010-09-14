@@ -1,8 +1,8 @@
 - if logged_in?
   .grid_4.prefix_1.alpha
     #logged_in_icons
-      .logged_in_icon_inbox
-        = link_to "#", received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')
+      #logged_in_messages_icon
+        = render :partial => "layouts/logged_in_messages_icon"
       .logged_in_icon_settings
         = link_to "#", person_settings_path(:person_id => @current_user.id), :title => t('.settings')  
   #logged_in_links.grid_5.omega

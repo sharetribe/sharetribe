@@ -36,6 +36,7 @@ class Person < ActiveRecord::Base
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial"
+  has_many :messages, :foreign_key => "sender_id"
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
