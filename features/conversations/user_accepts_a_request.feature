@@ -13,10 +13,12 @@ Feature: User accepts a request
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
+    And I should see "1" within "#logged_in_messages_icon"
     And I follow "Favor offer: Massage"
     And I follow "Accept offer"
     Then I should see "Offer accepted" within "#notifications"
     And I should see "Offer accepted" within ".conversation_status_label"
+    And I should not see "1" within "#logged_in_messages_icon"
   
   @javascript
   Scenario: User accepts a request from the received conversations page
@@ -28,7 +30,11 @@ Feature: User accepts a request
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
+    And I should see "1" within "#logged_in_messages_icon"
+    And I should see "Favor offer: Massage" within ".unread"
     And I follow "Accept offer"
     Then I should see "Offer accepted" within "#notifications"
-    And I should see "Offer accepted" within ".conversation_status_label"  
+    And I should see "Offer accepted" within ".conversation_status_label"
+    And I should not see "1" within "#logged_in_messages_icon"
+    And I should not see ".unread"
   

@@ -125,18 +125,18 @@ form, input {
     background: #f7f5e6;
     color: #898989; }
   #search input.search_button {
-    background: #d45207 url("/images/icons/header_icons.png") 8px -176px no-repeat;
+    background: #d45207 url("/images/icons/header_icons.png") 8px -356px no-repeat;
     width: 41px;
     height: 28px;
     padding: 0;
     border: 0;
     color: transparent; }
     #search input.search_button:active {
-      background: #a33f05 url("/images/icons/header_icons.png") 8px -175px no-repeat; }
+      background: #a33f05 url("/images/icons/header_icons.png") 8px -356px no-repeat; }
     #search input.search_button:hover {
       background-color: #f8792f; }
     #search input.search_button:focus {
-      background: #f8792f url("/images/icons/header_icons.png") 8px -176px no-repeat; }
+      background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat; }
 
 #top_navi select {
   background: #f7f5e6;
@@ -1049,81 +1049,115 @@ div.checkbox_float {
   display: none; }
 
 #logged_in_icons {
-  margin: 17px 0 0 11px;
+  margin: 12px 0 0 11px;
   color: white;
   overflow: hidden; }
+
+.logged_in_icon_inbox_notifications {
+  cursor: pointer;
+  width: 27px;
+  height: 24px;
+  float: left;
+  margin: 3px 0 0 9px;
+  background: transparent url("/images/icons/header_icons.png") 0px 4px no-repeat; }
+  .logged_in_icon_inbox_notifications:hover {
+    background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+  .logged_in_icon_inbox_notifications:focus {
+    background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+  .logged_in_icon_inbox_notifications:active {
+    margin-top: 4px;
+    background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+  .logged_in_icon_inbox_notifications .logged_in_icon_notification_text {
+    width: 9px;
+    height: 8px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background: #d45207;
+    margin-left: 15px;
+    padding: 1px 2px 5px 3px;
+    text-align: center;
+    color: white;
+    font-size: 8px;
+    font-weight: bold; }
+    .logged_in_icon_inbox_notifications .logged_in_icon_notification_text a {
+      color: white;
+      font-size: 8px;
+      font-weight: bold;
+      padding: 0;
+      margin: 0; }
 
 .logged_in_icon_inbox {
   width: 27px;
   height: 20px;
   float: left;
-  margin-right: 9px; }
+  margin: 7px 0 0 9px; }
   .logged_in_icon_inbox a {
     color: transparent;
     display: block;
     background: transparent url("/images/icons/header_icons.png") 0px 0px no-repeat; }
     .logged_in_icon_inbox a:hover {
-      background: transparent url("/images/icons/header_icons.png") 0px -20px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -40px no-repeat; }
     .logged_in_icon_inbox a:focus {
-      background: transparent url("/images/icons/header_icons.png") 0px -20px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -40px no-repeat; }
     .logged_in_icon_inbox a:active {
       margin-top: 1px;
-      background: transparent url("/images/icons/header_icons.png") 0px -20px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -40px no-repeat; }
 
 .logged_in_icon_requests {
   width: 27px;
   height: 20px;
   float: left;
-  margin-right: 8px; }
+  margin: 7px 0 0 8px; }
   .logged_in_icon_requests a {
     color: transparent;
     display: block;
-    background: transparent url("/images/icons/header_icons.png") 0px -40px no-repeat; }
+    background: transparent url("/images/icons/header_icons.png") 0px -80px no-repeat; }
     .logged_in_icon_requests a:hover {
-      background: transparent url("/images/icons/header_icons.png") 0px -60px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -120px no-repeat; }
     .logged_in_icon_requests a:focus {
-      background: transparent url("/images/icons/header_icons.png") 0px -60px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -120px no-repeat; }
     .logged_in_icon_requests a:active {
       margin-top: 1px;
-      background: transparent url("/images/icons/header_icons.png") 0px -60px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -120px no-repeat; }
 
 .logged_in_icon_notifications {
   width: 27px;
   height: 20px;
   float: left;
-  margin-right: 2px; }
+  margin: 7px 0 0 2px; }
   .logged_in_icon_notifications a {
     color: transparent;
     display: block;
-    background: transparent url("/images/icons/header_icons.png") 0px -80px no-repeat; }
+    background: transparent url("/images/icons/header_icons.png") 0px -160px no-repeat; }
     .logged_in_icon_notifications a:hover {
-      background: transparent url("/images/icons/header_icons.png") 0px -100px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -200px no-repeat; }
     .logged_in_icon_notifications a:focus {
-      background: transparent url("/images/icons/header_icons.png") 0px -100px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -200px no-repeat; }
     .logged_in_icon_notifications a:active {
       margin-top: 1px;
-      background: transparent url("/images/icons/header_icons.png") 0px -100px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -200px no-repeat; }
 
 .logged_in_icon_settings {
   width: 27px;
   height: 20px;
   float: left;
-  margin-right: 8px; }
+  margin: 7px 0 0 8px; }
   .logged_in_icon_settings a {
     color: transparent;
     display: block;
-    background: transparent url("/images/icons/header_icons.png") 0px -120px no-repeat; }
+    background: transparent url("/images/icons/header_icons.png") 0px -240px no-repeat; }
     .logged_in_icon_settings a:hover {
-      background: transparent url("/images/icons/header_icons.png") 0px -140px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -280px no-repeat; }
     .logged_in_icon_settings a:focus {
-      background: transparent url("/images/icons/header_icons.png") 0px -140px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -280px no-repeat; }
     .logged_in_icon_settings a:active {
       margin-top: 1px;
-      background: transparent url("/images/icons/header_icons.png") 0px -140px no-repeat; }
+      background: transparent url("/images/icons/header_icons.png") 0px -280px no-repeat; }
 
 #logged_in_links {
   text-align: right;
-  margin-top: 19px;
+  margin-top: 21px;
   color: white;
   font-size: 13px; }
   #logged_in_links a {
@@ -1312,6 +1346,7 @@ a.edit_profile {
 
 #conversations {
   margin: 20px 30px 20px 20px;
+  border-top: 1px solid #464646;
   border-bottom: 1px solid #464646; }
   #conversations h2 {
     text-align: left;
@@ -1449,7 +1484,7 @@ a.edit_profile {
 .conversation_status_container {
   background: #ececdb;
   padding: 3px 0;
-  margin-left: 35px;
+  margin-left: 27px;
   width: 300px; }
 
 .conversation_status_label {
