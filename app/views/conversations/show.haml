@@ -5,10 +5,11 @@
   .grid_9.alpha
     #conversation_title
       %h2= @conversation.title
-      = t(".#{@conversation.listing.listing_type}_sent_by")
-      = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
-      = t(".in_response_to_#{@conversation.listing.listing_type}")
-      = link_to @conversation.listing.title, @conversation.listing
+      - if @conversation.listing
+        = t(".#{@conversation.listing.listing_type}_sent_by")
+        = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
+        = t(".in_response_to_#{@conversation.listing.listing_type}")
+        = link_to @conversation.listing.title, @conversation.listing
   .grid_15.omega
     #conversation_status
       %div{:id => "conversation_#{@conversation.id.to_s}_status"}

@@ -42,7 +42,7 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      flash[:notice] = "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent"
+      flash[:notice] = @conversation.listing ? "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent" : "message_sent"
       @conversation.send_email_to_participants(request) 
       redirect_to (session[:return_to_content] || root)
     else
