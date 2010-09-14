@@ -47,13 +47,11 @@
   $.pageless.settings = {
     currentPage:  1,
     pagination:   '.pagination',
-    //url:          location.href,
-    loaderMsg:    "TESTING_FROM_PAGELESS.JS",
+    url:          location.href,
     params:       {}, // params of the query you can pass auth_token here
     distance:     100, // page distance in px to the end when the ajax function is launch
     loaderImage:  "/images/load.gif",
-    //split_string:  "<!--SPLIT_req-off-->",
-    //loader:       "#recent_requests"
+
 		scrape: function(data) { 
 		  if (typeof($.pageless.div2) != 'undefined') { // means that we have 2 div update
   		  arr = data.split($.pageless.settings.split_string);
@@ -93,12 +91,9 @@
   
   $.fn.pageless = function(settings) {
     $.pageless.init(settings);
-    //alert($.pageless.settings.url + " - " + $.pageless.settings.currentPage + " - " + $.pageless.settings.totalPages);
-    
     
     // Detect if url has changed, and reset the settings and listener
-    // If settings are changed by ajax, the old values seems to persist unless explicitly changed
-    
+    // If settings are changed by ajax, the old values seems to persist unless explicitly changed 
     if ($.pageless.settings.url != settings["url"]) {
       $.pageless.stopListener();
       $.pageless.settings.url = settings["url"];
@@ -106,7 +101,6 @@
       $.pageless.settings.totalPages = settings["totalPages"];
       $.pageless.startListener();
     }
-    //alert($.pageless.settings.url + " - " + $.pageless.settings.currentPage + " - " + $.pageless.settings.totalPages);
     
     $.pageless.el = $(this);
     $.pageless.div1 = $(this).find(settings.div1)
@@ -114,9 +108,6 @@
     if (settings.div1 && settings.div2 && settings.split_string ) {
       $.pageless.div1 = $(this).find(settings.div1)
       $.pageless.div2 = $(this).find(settings.div2)
-      // alert(settings.div2)
-      //      alert($.pageless.div1.name)
-      //      alert($.pageless.div2.parent)
     }
     
     // loader element
