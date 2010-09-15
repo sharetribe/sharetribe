@@ -75,6 +75,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
     cgi_multipart_eof_fix (2.5.0)
+    chronic (0.2.3)
+      hoe (>= 1.2.1)
     configuration (1.1.0)
     cucumber (0.8.5)
       builder (~> 2.1.2)
@@ -106,6 +108,9 @@ GEM
     git (1.2.5)
     haml (3.0.18)
     highline (1.6.1)
+    hoe (2.6.2)
+      rake (>= 0.8.7)
+      rubyforge (>= 2.0.4)
     httpclient (2.1.5.2)
     i18n (0.4.1)
     jeweler (1.4.0)
@@ -192,6 +197,8 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    whenever (0.5.0)
+      chronic (>= 0.2.3)
     will_paginate (3.0.pre)
     yard (0.5.4)
 
@@ -220,4 +227,5 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0.beta.19)
   ruby-prof
   thinking-sphinx!
+  whenever (~> 0.5.0)
   will_paginate (~> 3.0.pre2)
