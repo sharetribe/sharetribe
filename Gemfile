@@ -27,6 +27,7 @@ gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem "will_paginate", "~> 3.0.pre2"
+gem 'whenever', "~> 0.5.0"
 gem 'newrelic_rpm', :require => false
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx',
@@ -34,7 +35,7 @@ gem 'thinking-sphinx',
   :branch  => 'rails3',
   :require => 'thinking_sphinx'
 gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
-gem 'whenever', '~> 0.5.0'
+
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.19"
