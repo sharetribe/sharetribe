@@ -117,6 +117,17 @@ en:
       has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
       has_commented_your_offer_in_kassi: "%{author} has commented your offer %{listing}"
       you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"  
+    conversation_status_changed:
+      your_request_was_accepted: "Your request was accepted"
+      your_offer_was_accepted: "Your offer was accepted"
+      your_request_was_rejected: "Your request was rejected"
+      your_offer_was_rejected: "Your offer was rejected"
+      you_can_view_the_request_in: "You can view your request and the related conversation in"
+      you_can_view_the_offer_in: "You can view your offer and the related conversation in"
+      has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
+      has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
+      has_rejected_your_request: "%{accepter} has rejected your request considering offer %{listing}"
+      has_rejected_your_offer: "%{accepter} has rejected your offer considering request %{listing}"  
   conversations:
     index:
       message_partitive: "message"
@@ -427,7 +438,9 @@ en:
     notifications:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       email_about_new_messages: "...somebody sends me a message"
-      email_about_new_comments_to_own_listing: "...somebody comments my offer or request"  
+      email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
+      email_when_conversation_accepted: "...somebody accepts my offer or request"
+      email_when_conversation_rejected: "...somebody rejects my offer or request"  
   testimonials:
     new:
       give_feedback_to: "Give feedback to %{person}"

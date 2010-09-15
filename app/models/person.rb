@@ -40,7 +40,9 @@ class Person < ActiveRecord::Base
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
-    "email_about_new_comments_to_own_listing"
+    "email_about_new_comments_to_own_listing",
+    "email_when_conversation_accepted",
+    "email_when_conversation_rejected"
   ] 
   
   serialize :preferences
@@ -123,6 +125,11 @@ class Person < ActiveRecord::Base
     super(params.except(:username, :email, "name", :terms))
   end 
   
+  def set_default_preferences
+    self.preferences = {}
+    EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
+    save
+  end
   
   # Creates a record to local DB with given id
   # Should be used only with ids that exist also in ASI

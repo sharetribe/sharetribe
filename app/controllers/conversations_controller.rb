@@ -68,8 +68,7 @@ class ConversationsController < ApplicationController
   
   def change_status(status)
     @conversation = Conversation.find(params[:id])
-    @conversation.update_attribute(:status, status)
-    @conversation.participations.find_by_person_id(@current_user.id).update_attribute(:is_read, true)
+    @conversation.change_status(status, @current_user, request)
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
     respond_to do |format|
       format.html { render :action => :show }
