@@ -23,5 +23,15 @@ class PersonMailer < ActionMailer::Base
     mail(:to => recipient.email,
          :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
   end
+  
+  def conversation_status_changed(conversation, host=nil)
+    recipient = conversation.other_party(conversation.listing.author)
+    @url = host ? "http://#{host}/#{recipient.locale}#{person_message_path(:person_id => recipient.id, :id => conversation.id.to_s)}" : "test_url"
+    @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
+    @conversation = conversation
+    set_locale recipient.locale
+    mail(:to => recipient.email,
+         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
+  end
 
 end

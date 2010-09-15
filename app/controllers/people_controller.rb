@@ -34,6 +34,7 @@ class PeopleController < ApplicationController
 
     begin
       @person = Person.create(params[:person], session[:cookie])
+      @person.set_default_preferences
     rescue RestClient::RequestFailed => e
       logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
       render :action => "new" and return

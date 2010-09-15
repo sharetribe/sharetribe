@@ -20,7 +20,7 @@ Factory.define :listing do |l|
 end
 
 Factory.define :conversation do |c|
-  c.title "Item request: Sledgehammer"
+  c.title "Item offer: Sledgehammer"
   c.association :listing
   c.status "pending"
 end

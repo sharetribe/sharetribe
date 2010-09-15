@@ -1,0 +1,3 @@
+= t("emails.conversation_status_changed.has_#{@conversation.status}_your_#{Listing.opposite_type(@conversation.listing.listing_type)}", :accepter => @conversation.listing.author.name, :listing => @conversation.listing.title)
+
+= t("emails.conversation_status_changed.you_can_view_the_#{Listing.opposite_type(@conversation.listing.listing_type)}_in") + " " + @url + "?ref=email"

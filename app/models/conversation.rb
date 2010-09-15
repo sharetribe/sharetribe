@@ -79,5 +79,13 @@ class Conversation < ActiveRecord::Base
   def recipients(sender)
     participants.reject { |p| p.id == sender.id }
   end
+  
+  def change_status(new_status, current_user, request)
+    update_attribute(:status, new_status)
+    participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
+    if other_party(current_user).preferences["email_when_conversation_#{new_status}"]
+      PersonMailer.conversation_status_changed(self, request.host).deliver
+    end      
+  end
 
 end

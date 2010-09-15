@@ -116,7 +116,18 @@ fi:
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
       has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
-      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"      
+      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
+    conversation_status_changed:
+      your_request_was_accepted: "Pyyntösi hyväksyttiin"
+      your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
+      your_request_was_rejected: "Pyyntösi hylättiin"
+      your_offer_was_rejected: "Tarjouksesi hyväksyttiin"
+      you_can_view_the_request_in: "Voit nähdä pyyntösi ja siihen liittyvän keskustelun osoitteessa"
+      you_can_view_the_offer_in: "Voit nähdä tarjouksesi ja siihen liittyvän keskustelun osoitteessa"
+      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
+      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
+      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
+      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
   conversations:
     index:
       message_partitive: "viesti"
@@ -428,6 +439,8 @@ fi:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
+      email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
+      email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
   testimonials:
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
