@@ -1336,7 +1336,7 @@ a.edit_profile {
   width: 940px;
   height: 10px;
   background: #d1c9b4;
-  width: 750px; }
+  width: 740px; }
 
 #profile_tab_spacer {
   width: 700px;
@@ -2288,3 +2288,11 @@ div.container_24 {
 
 .js_enabled div.container_24 {
   display: block; }
+
+#infos_content {
+  margin: 10px 20px; }
+  #infos_content h3 {
+    font-size: 15px;
+    margin: 15px 5px 5px 0; }
+  #infos_content p {
+    margin-bottom: 9px; }

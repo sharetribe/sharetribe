@@ -1233,7 +1233,7 @@ a.edit_profile {
 
 #settings_tab_spacer {
 	@include tab_spacer;
-	width: 750px;
+	width: 740px;
 }
 
 #profile_tab_spacer {
@@ -2027,3 +2027,14 @@ a.edit_profile {
 
 div.container_24 { display: none; } 
 .js_enabled div.container_24 { display: block; }
+
+#infos_content {
+	margin: 10px 20px;
+	h3 {
+		font-size: 15px;
+		margin: 15px 5px 5px 0;
+	}
+	p {
+		margin-bottom: 9px;
+	}
+}

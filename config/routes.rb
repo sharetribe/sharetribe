@@ -1,21 +1,4 @@
   Kassi::Application.routes.draw do |map|
-  get "settings/profile"
-
-  get "settings/notifications"
-
-  get "comments/create"
-
-  get "testimonials/new"
-
-  get "testimonials/create"
-
-  get "people/show"
-
-  get "people/new"
-
-  get "people/create"
-
-  get "people/edit"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -123,6 +106,13 @@
         end
       end      
     end
+    resources :infos do
+      collection do
+        get :about
+        get :how_to_use
+        get :terms
+      end  
+    end
     resources :sessions
     resources :consent
   end
@@ -137,13 +127,14 @@
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request
-  match "/:locale/search" => "search#show"
+  match "/:locale/search" => "search#show", :as => :search
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/signup" => "people#new", :as => :sign_up
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
+  
   root :to => 'homepage#index'
   
 end
