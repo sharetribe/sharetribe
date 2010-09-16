@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hours do
-  command "cd #{File.expand_path('..', __FILE__)} && RAILS_ENV=production /usr/bin/env rake thinking_sphinx:reindex"
+  #command "cd #{File.expand_path('..', __FILE__)} && RAILS_ENV=production /usr/bin/env rake thinking_sphinx:reindex"
   # this would work with whenever 0.5.0
-  # rake"rake thinking_sphinx:reindex"
+  rake"rake thinking_sphinx:reindex"
 end

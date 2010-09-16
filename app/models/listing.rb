@@ -64,22 +64,23 @@ class Listing < ActiveRecord::Base
     # fields
     indexes title
     indexes description
-    # TODO: these should help to use search with tags, but not yet working
-    #indexes tags.name, :as => :tags
-    #indexes tags(:name), :as => :tags
+    indexes taggings.tag.name, :as => :tags
+    indexes comments.content, :as => :comments
     
     # attributes
     has created_at, updated_at
-    # TODO: these should help to use search with tags, but not yet working
+    # TODO: these should help to use search with tags, but not yet in use
     #has tags(:id), :as => :tag_ids, :facet => true
+    #has taggings.tag_id, :as => :tag_ids
     
     set_property :enable_star => true
     set_property :delta => true
     set_property :field_weights => {
-      :title => 10,
-      :tags    => 8,
-      :description => 3
-    }
+          :title       => 10,
+          :tags        => 8,
+          :description => 3,
+          :comments    => 1
+        }
   end
   
   def share_type_attributes=(attributes)
