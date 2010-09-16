@@ -12,52 +12,67 @@
       
   %body
   
-    #header.container_24
-      #logo.grid_6
-        #logo_image.grid_3.alpha
-          = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
-        #logo_text.grid_3.omega
-      #search.grid_8
-        = form_tag({ :action => :show, :controller => :search }, :method => "get") do
-          - one_line do              
-            = text_field_tag("q", params[:q], :class => "search_field")
-            = submit_tag("search", :class => "search_button")
-      #right.grid_10
-        = render :partial => "layouts/logged_in"
-      .clear
-      
-    #top_navi.container_24
-      .top_navi_form.grid_3.prefix_3
-        .locale_select_padding
-          = form_tag("/change_locale", :method => "get") do
-            = hidden_field_tag :redirect_uri, @return_to
-            = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
-      .tabs.grid_9.prefix_6
-        .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
-          = link_to t('header.home'), root
-        .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
-          = link_to t('header.requests'), requests_path
-        .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
-          = link_to t('header.offers'), offers_path
+    %noscript
+      .js_enabled
+        #no_javascript.container_24
+          .grid_12.prefix_6.suffix_6
+            %h2 Javascript ei ole päällä selaimessasi
+            %p
+              Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää palautetta sähköpostiosoitteeseen 
+              = link_to "kassi aet sizl.org", "#"
+            %h2 Javascript is disabled in your browser
+            %p
+              Unfortunately Kassi does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use Kassi without javascript, please send feedback to
+              = link_to "kassi aet sizl.org", "#"
+        
+    .wrapper
+    
+      #header.container_24
+        #logo.grid_6
+          #logo_image.grid_3.alpha
+            = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+          #logo_text.grid_3.omega
+        #search.grid_8
+          = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+            - one_line do              
+              = text_field_tag("q", params[:q], :class => "search_field")
+              = submit_tag("search", :class => "search_button")
+        #right.grid_10
+          = render :partial => "layouts/logged_in"
         .clear
-      .top_navi_link.align_right.grid_3
-        .navi_link_margin_right
-          = link_to t('header.about'), "#"
-      .clear
-    
-    #top_spacer
-      &nbsp;
-    
-    #notification_container  
-      = render :partial => "layouts/notifications"
-          
-    #main.container_24
-      = content_for?(:content) ? yield(:content) : yield
-      
-    #bottom_spacer.container_24  
-      %br/
-      &nbsp;
-      %br/
-      &nbsp;
-      %br/
-      %br/
+
+      #top_navi.container_24
+        .top_navi_form.grid_3.prefix_3
+          .locale_select_padding
+            = form_tag("/change_locale", :method => "get") do
+              = hidden_field_tag :redirect_uri, @return_to
+              = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+        .tabs.grid_9.prefix_6
+          .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
+            = link_to t('header.home'), root
+          .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
+            = link_to t('header.requests'), requests_path
+          .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
+            = link_to t('header.offers'), offers_path
+          .clear
+        .top_navi_link.align_right.grid_3
+          .navi_link_margin_right
+            = link_to t('header.about'), "#"
+        .clear
+
+      #top_spacer.container_24
+        &nbsp;
+
+      #notification_container.container_24  
+        = render :partial => "layouts/notifications"
+
+      #main.container_24
+        = content_for?(:content) ? yield(:content) : yield
+
+      #bottom_spacer.container_24  
+        %br/
+        &nbsp;
+        %br/
+        &nbsp;
+        %br/
+        %br/
