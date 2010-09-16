@@ -64,6 +64,8 @@ function initialize_defaults(default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
+	// Make sure that Kassi cannot be used if js is disabled
+	$('.wrapper').addClass('js_enabled');
 }
 
 function initialize_login_form() {

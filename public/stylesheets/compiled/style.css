@@ -2277,3 +2277,14 @@ a.edit_profile {
     text-align: left;
     margin: 0;
     padding: 0; }
+
+#no_javascript {
+  margin-top: 120px; }
+  #no_javascript h2 {
+    margin-bottom: 5px; }
+
+div.container_24 {
+  display: none; }
+
+.js_enabled div.container_24 {
+  display: block; }
