@@ -14,7 +14,7 @@ set :branch, "kassi2"
 set :deploy_via, :remote_cache
 
 set :deploy_to, "/var/datat/kassi2"
-set :port, 3500
+set :mongrel_port, "3500"
 
 if ENV['DEPLOY_ENV']
   set :server_name, ENV['DEPLOY_ENV']
@@ -29,7 +29,7 @@ if ENV['DEPLOY_ENV'] == "dbtest"
   set :deploy_to, "/var/datat/kassi2dbtest"
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
-  set :port, 3550
+  set :mongrel_port, "3550"
 end
 
 # mongrel_cluster_size = {
@@ -102,7 +102,7 @@ namespace :deploy do
     # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
     #     #{shared_path}/system/mongrel_cluster.yml" 
     
-     run "cd #{deploy_to}/current && rails server -p #{port} -e production -d"
+     run "cd #{deploy_to}/current && rails server -p #{mongrel_port} -e production -d"
   end 
   desc "Modified stop task to work with mongrel cluster" 
   task :stop, :roles => :app do 
