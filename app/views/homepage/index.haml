@@ -1,11 +1,9 @@
 #recent_event_box.grid_6
   .recent_events
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    %h4= t('.recent_events')
-    .event_padding
-      = render :partial => "recent_event", :collection => ["Event 1", "Event 2", "Event 3"], :as => :event, :spacer_template => "event_spacer"
-      .more_events_link
-        = link_to t('.more_events'), "#"
+    %h4= t('.welcome_to_new_kassi')
+    .welcome_text
+      = render :partial => "welcome_text"
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
 #recent_listings.grid_18
