@@ -69,9 +69,7 @@ class Listing < ActiveRecord::Base
     
     # attributes
     has created_at, updated_at
-    # TODO: these should help to use search with tags, but not yet in use
-    #has tags(:id), :as => :tag_ids, :facet => true
-    #has taggings.tag_id, :as => :tag_ids
+    has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
     set_property :enable_star => true
     set_property :delta => true
