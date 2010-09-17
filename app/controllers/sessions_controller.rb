@@ -21,10 +21,7 @@ class SessionsController < ApplicationController
         # Existing Sizzle user's first login in Kassi
         session[:temp_cookie] = @session.cookie
         session[:temp_person_id] = @session.person_id
-        
-        #@current_user = Person.add_to_kassi_db(@session.person_id )
-        redirect_to consent_path and return
-        
+        redirect_to terms_path and return
       end
     end
     

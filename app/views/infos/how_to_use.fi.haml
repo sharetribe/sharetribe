@@ -10,11 +10,14 @@
   = link_to("mitä ihmiset tällä hetkellä kaipaavat", requests_path) + "."
   Kukaties pystyt tarjoamaan juuri jotain sellaista, mitä joku toinen on pyytänyt.
   
+%p
+  Kassin tarkoitus on yhdistää tarvitsijat ja tarjoajat, ja he voivat sopia keskenään vapaasti mahdollisista vastineista. Palvelussa voi siis myydä, vuokrata ja vaihtaa tai antaa, lainata ja auttaa ihan ilmaiseksi pelkkää hyvää mieltä vastaan.
+  
 %h3 Pyydä muilta tarvitsemaasi
 
 %p
   Tarvitsitpa sitten tavaraa, palvelusta, kyytiä tai asuntoa, kaikki löytyvät helpoiten Kassin kätevällä
-  = link_to("Hakutoiminnolla", search_path) + "."
+  = link_to("hakutoiminnolla", search_path) + "."
   Vaihtoehtoisesti voit
   = link_to("selata avoimia tarjouksia", offers_path) + "."
 
@@ -29,7 +32,7 @@
 %p
   Jos et löytänyt Kassista tarvitsemaasi, voit 
   = link_to("luoda avoimen pyynnön", new_request_path(:type => "request")) + ","
-  jossa kerrot mitä tarvitset. Todennäköisesti joku toinen Kassin käyttäjistä pystyy tarjoaaman juuri tarvitsemasi asian.
+  jossa kerrot mitä tarvitset. Pyyntö näytetään kaikille Kassin käyttäjille. Todennäköisesti joku toinen Kassin käyttäjistä pystyy tarjoaaman juuri tarvitsemasi asian.
   
 %h3 Vinkkejä
 
@@ -39,7 +42,12 @@
     = link_to("täyttää omat profiilitiedot huolellisesti", profile_person_settings_path(:person_id => @current_user.id)) + "." 
   - else
     täyttää omat profiilitiedot huolellisesti. 
-  Erityisesti kannattaa muistaa esiintyä omalla nimellään ja lisätä itselleen tunnistettava profiilikuva.
+  Erityisesti kannattaa muistaa esiintyä omalla nimellään ja 
+  - if logged_in?
+    = link_to("lisätä itselleen tunnistettava profiilikuva", avatar_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    lisätä itselleen tunnistettava profiilikuva.
+  
 
 %p
   Kun tarjoat jotain muille käyttäjille tai pyydät heiltä jotain, kannattaa aina muistaa antaa tapahtuman jälkeen palautetta toiselle osapuolelle. Hyvä palaute tuo toiselle osapuolelle hyvän mielen, ja jos toinen ei ole toiminut odotetulla tavalla, on myös siitä hyvä huomauttaa tälle. Palaute on julkista ja näkyy kaikille palautteen saaneen käyttäjän profiilissa, joten se auttaa muita käyttäjiä arvioimaan kyseisen käyttäjän luotettavuutta. Kannattaa siis myös kehottaa toisia käyttäjiä antamaan palautetta sinulle, sillä saamasi positiivisen palautteen myötä muut tietävät, että sinuun kannnattaa luottaa. Palautteen lisääminen tapahtuu viestinäkymässä klikkaamalla "Anna palautetta" -linkkiä hyväksytyn pyynnön tai tarjouksen kohdalla.
