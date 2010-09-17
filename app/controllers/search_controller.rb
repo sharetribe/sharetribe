@@ -6,9 +6,14 @@ class SearchController < ApplicationController
       #query = (params[:q].length > 0) ? "*#{params[:q]}*" : ""
       #person_query = (params[:q].length > 0) ? params[:q] : ""
       
-      
-      # TODO add requirement for the listing to be open.
-      @listings = Listing.open.search(@query, :include => :listing_images, :page => params[:page], :per_page => 15, :star => true)
+
+      @listings = Listing.search(@query, 
+                                :include => :listing_images, 
+                                :page => params[:page],
+                                :per_page => 15, 
+                                :star => true,
+                                :with => {:open => true}
+                                )
       
       # FIXME: Here performance could be boosted if the contents of the resluting JSON would be used
       # and not only the IDs picked from there, and used to request person details separately.
