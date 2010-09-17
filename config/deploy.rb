@@ -14,9 +14,7 @@ set :branch, "kassi2"
 set :deploy_via, :remote_cache
 
 set :deploy_to, "/var/datat/kassi2"
-
-
-#set :host, "alpha.sizl.org"
+set :port, 3500
 
 if ENV['DEPLOY_ENV']
   set :server_name, ENV['DEPLOY_ENV']
@@ -24,6 +22,14 @@ if ENV['DEPLOY_ENV']
 else
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
+end
+
+# temporary settings for DB-testing
+if ENV['DEPLOY_ENV'] == "dbtest"
+  set :deploy_to, "/var/datat/kassi2dbtest"
+  set :server_name, "alpha"
+  set :host, "alpha.sizl.org"
+  set :port, 3550
 end
 
 # mongrel_cluster_size = {
@@ -74,6 +80,9 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
     run "ln -nfs #{shared_path}/vendor_bundle #{release_path}/vendor/bundle"
+    if ENV['DEPLOY_ENV'] == "dbtest"
+      run "ln -nfs #{shared_path}/system/sphinx.yml #{release_path}/config/sphinx.yml"
+    end 
   end
 
   desc "Run the bundle install on the server"
@@ -92,7 +101,8 @@ namespace :deploy do
   task :start, :roles => :app do 
     # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
     #     #{shared_path}/system/mongrel_cluster.yml" 
-     run "cd #{deploy_to}/current && rails server -p 3500 -e production -d"
+    
+     run "cd #{deploy_to}/current && rails server -p #{port} -e production -d"
   end 
   desc "Modified stop task to work with mongrel cluster" 
   task :stop, :roles => :app do 
