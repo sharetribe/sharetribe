@@ -247,6 +247,10 @@ function initialize_signup_form(locale, username_in_use_message, email_in_use_me
 	});	
 }
 
+function initialize_terms_form() {
+	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
+}
+
 function initialize_update_profile_info_form(locale, person_id) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();

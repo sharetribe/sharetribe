@@ -113,6 +113,11 @@
         get :terms
       end  
     end
+    resource :terms do
+      member do
+        post :accept
+      end  
+    end    
     resources :sessions
     resources :consent
   end

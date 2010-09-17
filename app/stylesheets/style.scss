@@ -932,6 +932,9 @@ div.checkbox_float {
 		@include send_button;
 		margin: 15px 0 0 10px;
 	}
+	input.send_button_terms {
+		@include send_button;
+	}
 	label {
 		margin: 10px;
 		width: 340px;

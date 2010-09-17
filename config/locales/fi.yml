@@ -446,6 +446,12 @@ fi:
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+  terms:
+    show:
+      accept_terms: "Kassin käyttöehtojen hyväksyminen"
+      you_need_to_accept: "Tervetuloa Kassiin! Tämä näyttäisi olevan ensimmäinen kerta, kun käytät palvelua. Ennen käytön aloittamista sinun täytyy vielä hyväksyä"
+      terms: "Kassin käyttöehdot"
+      i_accept_terms: "Hyväksyn käyttöehdot"    
   testimonials:
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
