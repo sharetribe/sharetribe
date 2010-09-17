@@ -445,7 +445,13 @@ en:
       email_about_new_messages: "...somebody sends me a message"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
-      email_when_conversation_rejected: "...somebody rejects my offer or request"  
+      email_when_conversation_rejected: "...somebody rejects my offer or request"
+  terms:
+    show:
+      accept_terms: "Accepting Kassi terms of use"
+      you_need_to_accept: "Welcome to Kassi! This seems to be the first time you are using the service. Before starting you must first accepts the"
+      terms: "Kassi terms of use"
+      i_accept_terms: "I accept the terms"  
   testimonials:
     new:
       give_feedback_to: "Give feedback to %{person}"

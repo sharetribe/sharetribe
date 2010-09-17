@@ -34,7 +34,6 @@ Given /^there are following users:$/ do |person_table|
   end
 end
 
-
 # Filling in with random strings
 When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
   @values = {}
@@ -61,5 +60,22 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|em
       assert_match(/#{@values[value]}/, field_value)
     end
   end
+end
+
+# Adds a test person to ASI but not in Kassi
+Given /^I already have an OtaSizzle account$/ do
+  cookie = Session.create.cookie
+  @username = generate_random_username
+  @password = "test"
+  person_hash = {:person => {:username => @username, :email => "#{@username}@mail.com", :password => @password, :consent => "Test"} }
+  response = PersonConnection.create_person(person_hash, cookie)
+end
+
+When /^I fill in username with my OtaSizzle username$/ do
+  fill_in("username", :with => @username)
+end
+
+When /^I fill in password with my OtaSizzle password$/ do
+  fill_in("password", :with => @password)
 end
 
