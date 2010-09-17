@@ -57,6 +57,9 @@ if defined?(ActiveRecord::Base)
   end
 end
 
+require 'cucumber/thinking_sphinx/external_world'
+Cucumber::ThinkingSphinx::ExternalWorld.new
+
 Before do
   Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
