@@ -6,6 +6,11 @@ class HomepageController < ApplicationController
     @events = ["Event 1", "Event 2", "Event 3"]
     listings_per_page = 15
     
+    unless session[:welcome_message]
+      flash.now[:info_message] = ["welcome_message", :read_more, about_infos_path]
+      session[:welcome_message] = true    
+    end  
+    
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
     params[:page] = 1 unless request.xhr?
