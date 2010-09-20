@@ -269,6 +269,16 @@ form, input {
     padding: 5px 5px;
     overflow: hidden;
     width: 927px; }
+  #notifications .info_message {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icons.png") 5px -115px no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
 
 .field_with_errors {
   float: left; }

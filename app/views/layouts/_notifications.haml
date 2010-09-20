@@ -2,7 +2,7 @@
   $(document).ready(function() { $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); }); });
 
 #notifications.container_24
-  - [:notice, :warning, :error].each do |announcement|
+  - [:notice, :warning, :error, :info_message].each do |announcement|
     - if flash[announcement]  
       %div{:class => announcement.to_s}
         .notification_text
@@ -14,3 +14,4 @@
             = t(".#{flash[announcement]}")
         .close_notification_link  
           = link_to "X", "#", :id => "close_notification_link"
+     
