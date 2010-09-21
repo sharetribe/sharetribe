@@ -1,4 +1,4 @@
-  Kassi::Application.routes.draw do |map|
+Kassi::Application.routes.draw do
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -118,7 +118,11 @@
         post :accept
       end  
     end    
-    resources :sessions
+    resources :sessions do
+      collection do
+        post :request_new_password
+      end
+    end  
     resources :consent
   end
   

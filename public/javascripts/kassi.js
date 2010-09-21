@@ -69,7 +69,10 @@ function initialize_defaults(default_text) {
 }
 
 function initialize_login_form() {
-	$('#password_forgotten_link').click(function() { $('#password_forgotten').slideToggle('fast'); });
+	$('#password_forgotten_link').click(function() { 
+		$('#password_forgotten').slideToggle('fast'); 
+		$('input.request_password').focus();
+	});
   $('input.text_field:first').focus();
 }
 
