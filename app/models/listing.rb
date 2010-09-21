@@ -77,7 +77,7 @@ class Listing < ActiveRecord::Base
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
     set_property :enable_star => true
-    set_property :delta => true
+    set_property :delta => false
     set_property :field_weights => {
           :title       => 10,
           :tags        => 8,
@@ -114,9 +114,10 @@ class Listing < ActiveRecord::Base
     end  
   end
   
+  # sets the time to midnight (unless rideshare listing, where exact time matters)
   def set_valid_until_time
     if valid_until
-      self.valid_until = valid_until.utc + 23.hours + 59.minutes + 59.seconds unless category.eql?("rideshare")
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category.eql?("rideshare")
     end  
   end
   
