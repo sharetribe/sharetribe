@@ -69,6 +69,8 @@ class Listing < ActiveRecord::Base
     
     # attributes
     has created_at, updated_at
+    has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
+    has "listing_type = 'request'", :as => :is_request, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
     set_property :enable_star => true

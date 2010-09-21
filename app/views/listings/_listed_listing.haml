@@ -7,7 +7,7 @@
       %div{:class => "listing_image_#{listing.category}"}
         =  link_to "#", listing_path(listing), :title => title
   .listed_listing_text
-    %h5= link_to (action_name.eql?("search") ? title : listing.title), listing
+    %h5= link_to (params[:q] ? title : listing.title), listing
     - if listing.closed?
       .listed_listing_closed_status
         = t(".#{listing.listing_type}_is_closed")

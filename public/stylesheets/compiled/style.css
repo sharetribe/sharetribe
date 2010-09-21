@@ -274,7 +274,7 @@ form, input {
     color: #264409;
     border: 2px solid #c6d880;
     background: #e6efc2 url("/images/icons/notification_icons.png") 5px -115px no-repeat;
-    font-weight: bold;
+    font-weight: normal;
     font-size: 14px;
     padding: 5px 5px;
     overflow: hidden;
@@ -1894,9 +1894,7 @@ a.edit_profile {
     width: 620px;
     border-bottom: 2px solid #464646; }
 
-#search_page h1 {
-  margin-bottom: 25px; }
-#search_page input.text_field {
+#search_page input.text_field, #browse_page input.text_field {
   float: left;
   font-weight: bold;
   color: #464646;
@@ -1907,9 +1905,9 @@ a.edit_profile {
   padding: 5px 9px;
   border: 2px solid #765d3a;
   margin-top: 3px; }
-  #search_page input.text_field:focus {
+  #search_page input.text_field:focus, #browse_page input.text_field:focus {
     background: white; }
-#search_page input.send_button {
+#search_page input.send_button, #browse_page input.send_button {
   font-size: 14px;
   font-weight: bold;
   background: #765d3a;
@@ -1923,17 +1921,26 @@ a.edit_profile {
   margin: 3px 0 0 10px;
   float: left;
   font-size: 13px; }
-  #search_page input.send_button:active {
+  #search_page input.send_button:active, #browse_page input.send_button:active {
     background-color: #4d3d26;
     padding-top: 1px; }
-  #search_page input.send_button:hover {
+  #search_page input.send_button:hover, #browse_page input.send_button:hover {
     background-color: #9f7d4e; }
-  #search_page input.send_button:focus {
+  #search_page input.send_button:focus, #browse_page input.send_button:focus {
     background-color: #9f7d4e; }
+
+#search_page h1 {
+  margin-bottom: 25px; }
+
+#browse_page h1 {
+  margin-bottom: 10px; }
 
 #search_form {
   overflow: hidden;
   margin-bottom: 20px; }
+
+#search_form_spacer {
+  height: 40px; }
 
 #search_results h2 {
   text-align: left;
@@ -1945,7 +1952,8 @@ a.edit_profile {
 
 #left_link_panel_browse {
   margin-top: 10px;
-  width: 218px; }
+  width: 218px;
+  margin-top: 0; }
   #left_link_panel_browse a {
     font-weight: normal;
     display: block;
@@ -2288,7 +2296,8 @@ a.edit_profile {
   float: right; }
 
 #browse_view_spacer {
-  width: 100%;
+  margin-top: 10px;
+  border-top: 1px solid #464646;
   height: 10px; }
 
 #captcha_container {

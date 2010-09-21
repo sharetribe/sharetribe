@@ -1,7 +1,7 @@
 - content_for :javascript do
   initialize_browse_view('#{@title}','#{I18n.locale}');
 
-#search_page.grid_24
+#browse_page.grid_24
   .grid_6.alpha
     %h1= t(".#{@title}s")
     #left_link_panel_browse
@@ -18,10 +18,8 @@
 
   .grid_18.omega
     .grid_10.alpha
-      #search_form
-        = form_tag({ :action => :show, :controller => :search }, :method => "get") do
-          = text_field_tag("q", params[:q], :class => "text_field")
-          = submit_tag(t(".search_verb"), :class => "send_button")
+      #search_form_spacer
+        &nbsp;
     .grid_8.omega
       #new_listing_links
         = t(".did_not_found_what_you_were_looking_for")
