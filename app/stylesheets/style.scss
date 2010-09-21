@@ -321,12 +321,12 @@ form, input {
 	height: 5px;
 }
 
-@mixin notification($text, $border, $bg, $bg_position: 0) {
+@mixin notification($text, $border, $bg, $bg_position: 0, $font-weight: bold) {
 	margin: 0 5px;
 	color: $text;
 	border: 2px solid $border;
 	background: $bg url("/images/icons/notification_icons.png") 5px $bg_position no-repeat;
-	font-weight: bold;
+	font-weight: $font-weight;
 	font-size: 14px;
 	padding: 5px 5px;
 	overflow: hidden;
@@ -359,7 +359,7 @@ form, input {
 		@include notification($warning_text, $warning_border, $warning_bg, -80px);
 	}
 	.info_message{
-		@include notification($notice_text, $notice_border, $notice_bg, -115px);
+		@include notification($notice_text, $notice_border, $notice_bg, -115px, normal);
 	}
 }
 
@@ -1663,10 +1663,7 @@ a.edit_profile {
 	}	
 }
 
-#search_page {
-	h1 {
-		margin-bottom: 25px;
-	}
+#search_page, #browse_page {
 	input.text_field {
 		float: left;
 		font-weight: bold;
@@ -1690,9 +1687,25 @@ a.edit_profile {
 	}
 }
 
+#search_page {
+	h1 {
+		margin-bottom: 25px;
+	}
+}
+
+#browse_page {
+	h1 {
+		margin-bottom: 10px;
+	}
+}
+
 #search_form {
 	overflow: hidden;
 	margin-bottom: 20px;
+}
+
+#search_form_spacer {
+	height: 40px;
 }
 
 #search_results {
@@ -1732,6 +1745,7 @@ a.edit_profile {
 
 #left_link_panel_browse {
 	@include left_link_panel;
+	margin-top: 0;
 }
 
 #left_link_panel_search {
@@ -2004,7 +2018,8 @@ a.edit_profile {
 }
 
 #browse_view_spacer {
-	width: 100%;
+	margin-top: 10px;
+	border-top: 1px solid $text_color;
 	height: 10px;
 }
 

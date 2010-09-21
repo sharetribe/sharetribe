@@ -6,13 +6,18 @@ class SearchController < ApplicationController
       #query = (params[:q].length > 0) ? "*#{params[:q]}*" : ""
       #person_query = (params[:q].length > 0) ? params[:q] : ""
       
+      with = {:open => true}
+      if params[:type]
+        with[:is_request] = true if params[:type].eql?("request")
+        with[:is_offer] = true if params[:type].eql?("offer")
+      end  
 
       @listings = Listing.search(@query, 
                                 :include => :listing_images, 
                                 :page => params[:page],
                                 :per_page => 15, 
                                 :star => true,
-                                :with => {:open => true}
+                                :with => with
                                 )
       
       # FIXME: Here performance could be boosted if the contents of the resluting JSON would be used
