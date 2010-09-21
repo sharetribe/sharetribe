@@ -39,6 +39,7 @@ class ListingsController < ApplicationController
   
   def show
     @listing = Listing.find(params[:id])
+    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
   end
   
   def new

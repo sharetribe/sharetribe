@@ -17,6 +17,7 @@ Factory.define :listing do |l|
   l.share_types { |st| [st.association(:share_type), st.association(:share_type, :name => "buy")] }
   l.tag_list("tools, hammers")
   l.valid_until DateTime.now + 3.months
+  l.times_viewed 0
 end
 
 Factory.define :conversation do |c|
