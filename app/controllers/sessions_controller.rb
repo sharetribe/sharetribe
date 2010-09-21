@@ -45,7 +45,7 @@ class SessionsController < ApplicationController
     redirect_to root
   end
   
-  def forgot_password
+  def request_new_password
     begin
       RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
       # RestClient.post("#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
