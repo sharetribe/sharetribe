@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100922081110) do
+ActiveRecord::Schema.define(:version => 20100922122740) do
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -217,7 +217,7 @@ ActiveRecord::Schema.define(:version => 20100922081110) do
     t.datetime "updated_at"
     t.integer  "is_admin",    :default => 0
     t.string   "locale",      :default => "fi"
-    t.string   "preferences"
+    t.text     "preferences"
   end
 
   create_table "people_smerf_forms", :force => true do |t|

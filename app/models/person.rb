@@ -42,9 +42,12 @@ class Person < ActiveRecord::Base
     "email_about_new_messages",
     "email_about_new_comments_to_own_listing",
     "email_when_conversation_accepted",
-    "email_when_conversation_rejected"
+    "email_when_conversation_rejected",
+    "email_when_new_friend_request",
+    "email_when_new_feedback_on_transaction",
+    "email_when_new_listing_from_friend"
   ] 
-  
+    
   serialize :preferences
   
   # Returns conversations for the "received" and "sent" actions
