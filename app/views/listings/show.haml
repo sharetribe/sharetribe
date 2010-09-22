@@ -36,7 +36,7 @@
 
     #listing_author
       .float_left
-        = link_to small_avatar_thumb(@listing.author), @listing.author
+        = small_avatar_thumb(@listing.author)
       #listing_author_description
         %strong
           = t(".#{@listing.listing_type}_author") + ":"

@@ -59,6 +59,9 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
+    namespace :admin do
+      resources :feedbacks
+    end
     resources :listings do
       collection do
         get :more_listings

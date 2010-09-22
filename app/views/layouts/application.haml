@@ -4,13 +4,36 @@
   %head
     %title Kassi
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'rails', 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
     = csrf_meta_tag
     
     :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}'); #{yield :javascript} });
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
       
   %body
+  
+    .feedback_div
+      %a{:class => "handle"}
+        %div
+          - if I18n.locale.to_s.eql?("fi")
+            &nbsp;&nbsp;Palaute
+          - else  
+            Feedback
+      %h3= t(".give_feedback")
+      #new_feedback_form
+        = form_for :feedback, :url => admin_feedbacks_path, :remote => true, :html => { :id => "new_feedback" } do |form|
+          - unless logged_in?
+            = form.label :email, t(".your_email_address")
+            = form.text_field :email, :class => "text_field"
+          = form.label :content, t(".feedback")
+          = form.text_area :content, :class => "feedback"
+          = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
+          = form.hidden_field :url, :value => request.request_uri
+          = form.submit t(".send_feedback_to_admin"), :class => "send_button"
+          %span
+            = t(".or_check_our")
+            = link_to t(".feedback_forum"), "http://kassi.uservoice.com"
+            = t(".to_see_what_others_have_suggested")
   
     %noscript
       .js_enabled

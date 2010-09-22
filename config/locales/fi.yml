@@ -31,6 +31,15 @@ fi:
     community: "Yhteisö"
     search_kassi: "Etsi Kassista"       
   layouts:
+    application:
+      give_feedback: "Anna palautetta Kassista"
+      send_feedback_to_admin: "Lähetä palaute ylläpidolle"
+      your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
+      feedback: "Palaute ylläpidolle"
+      or_check_our: "...tai tarkista"
+      feedback_forum: "palautefoorumiltamme,"
+      to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
+      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
     logged_in:
       login: "Kirjaudu"
       sign_up: "Luo tunnus"
@@ -95,6 +104,9 @@ fi:
       read_more: "Lue lisää!"
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
+      feedback_saved: "Kiitos palautteestasi!"
+      feedback_not_saved: "Palautteen lähettäminen epäonnistui."
+      feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
     conversations:
       messages: "Viestit"
       received: "Saapuneet"

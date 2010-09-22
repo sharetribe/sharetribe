@@ -9,6 +9,7 @@ input[type="submit"]::-moz-focus-inner {
 
 /* Used for divs with rounded corners */
 /* Used for divs with rounded top or bottom */
+/* Used for divs with rounded left or right */
 /* Basic form */
 .align_right {
   text-align: right; }
@@ -2334,3 +2335,114 @@ div.container_24 {
 
 .welcome_text p {
   margin: 20px; }
+
+.feedback_div {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-bottom-right-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
+  padding: 20px 20px 30px 20px;
+  width: 250px;
+  background: #2f5707;
+  color: white; }
+  .feedback_div h3 {
+    color: #f7f5e6;
+    font-size: 16px;
+    margin-bottom: 15px; }
+
+a.handle {
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  -moz-border-radius-topright: 7px;
+  -moz-border-radius-bottomright: 7px;
+  -webkit-border-top-right-radius: 7px;
+  -webkit-border-top-right-radius: 7px;
+  cursor: pointer;
+  width: 35px;
+  height: 122px;
+  background: #223f05;
+  color: white; }
+  a.handle:hover {
+    background: #2f5707; }
+  a.handle div {
+    width: 28px;
+    margin-top: 75px;
+    font-size: 16px;
+    -moz-transform: rotate(-90deg);
+    /* FF3.5+ */
+    -o-transform: rotate(-90deg);
+    /* Opera 10.5 */
+    -webkit-transform: rotate(-90deg);
+    /* Saf3.1+, Chrome */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
+    /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; }
+
+#new_feedback_form {
+  overflow: hidden; }
+  #new_feedback_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    font-size: 13px;
+    margin: 10px 35px 10px 0; }
+    #new_feedback_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #new_feedback_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #new_feedback_form input.send_button:focus {
+      background-color: #9f7d4e; }
+  #new_feedback_form label {
+    float: left;
+    width: 235px; }
+  #new_feedback_form .default_textarea_text {
+    background: #f7f5e6;
+    color: #939393; }
+  #new_feedback_form input.text_field {
+    float: left;
+    color: #464646;
+    background: #f7f5e6;
+    width: 235px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    font-weight: bold;
+    margin: 5px 0 10px 0; }
+    #new_feedback_form input.text_field:focus {
+      background: white; }
+  #new_feedback_form textarea {
+    float: left;
+    margin: 5px 0 0 0;
+    width: 235px;
+    color: #464646;
+    background: #f7f5e6;
+    font-size: 12px;
+    height: 80px;
+    padding: 9px 9px;
+    border: 0; }
+    #new_feedback_form textarea:focus {
+      background: white; }
+  #new_feedback_form span {
+    float: left;
+    width: 235px; }
+  #new_feedback_form a {
+    color: #f8792f; }
+    #new_feedback_form a:hover {
+      color: #fa9961; }
+  #new_feedback_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    width: 325px;
+    margin: 5px 60px 0 0;
+    padding: 14px 10px 7px 10px;
+    background: red url("/images/error_arrow3.png") no-repeat top left;
+    color: white; }

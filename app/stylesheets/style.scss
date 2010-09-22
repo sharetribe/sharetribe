@@ -52,6 +52,16 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 	-webkit-border-#{$side}-left-radius: $radius;
 }
 
+/* Used for divs with rounded left or right */
+@mixin half_rounded_side($side, $radius: 7px) {
+  border-top-#{$side}-radius: $radius;
+	border-bottom-#{$side}-radius: $radius;
+  -moz-border-radius-top#{$side}: $radius;
+	-moz-border-radius-bottom#{$side}: $radius;
+  -webkit-border-top-#{$side}-radius: $radius;
+	-webkit-border-top-#{$side}-radius: $radius;
+}
+
 @mixin spacer($color: $medium_brown, $type: solid) {
 	border-top: 1px $type $color;
 	width: 100%;
@@ -2064,4 +2074,96 @@ div.container_24 { display: none; }
 	p {
 		margin: 20px;
 	}	
+}
+
+.feedback_div {
+	@include half_rounded(bottom);
+	padding: 20px 20px 30px 20px;
+  width: 250px;
+ 	background: lighten($dark_green, 5%);
+	color: white;
+	h3 {
+		color: $bg_color;
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+}
+
+a.handle {
+	@include half_rounded_side(right);
+	cursor: pointer;
+	width: 35px;
+	height: 122px;
+	background: $dark_green;
+	color: white;
+	&:hover { background: lighten($dark_green, 5%); }
+	div {
+		width: 28px;
+		margin-top: 75px;
+		font-size: 16px;
+		-moz-transform: rotate(-90deg);  /* FF3.5+ */
+		-o-transform: rotate(-90deg);  /* Opera 10.5 */
+		-webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
+		filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
+	}	
+}
+
+#new_feedback_form {
+	overflow: hidden;
+	input.send_button {
+		@include send_button;
+		font-size: 13px;
+		margin: 10px 35px 10px 0;
+	}
+	label {
+		float: left;
+		width: 235px;
+	}
+	.default_textarea_text {
+		background: $bg_color;
+		color: lighten($text_color, 30%);
+	}
+	input.text_field {
+		float: left;
+		color: $text_color;
+		background: $bg_color;
+		width: 235px;
+		border: 0;
+		&:focus { background: white; }
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		font-weight: bold;
+		margin: 5px 0 10px 0;
+	}
+	textarea {
+		float: left;
+		margin: 5px 0 0 0;
+		width: 235px;
+		color: $text_color;
+		background: $bg_color;
+		font-size: 12px;
+		height: 80px;
+		padding: 9px 9px;
+		border: 0;
+		&:focus { background: white; }
+	}
+	span {
+		float: left;
+		width: 235px;
+	}
+	a {
+		color: $light_orange;
+		&:hover { color: lighten($light_orange, 10%); }
+	}
+	label.error {
+		font-size: 13px;
+		font-weight: bold;
+		width: 325px;
+		margin: 5px 60px 0 0;
+		padding: 14px 10px 7px 10px;
+		background: red url("/images/error_arrow3.png") no-repeat top left;
+		color: white;
+	}
 }

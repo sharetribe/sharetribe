@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user
-  before_filter :set_locale
+  before_filter :fetch_logged_in_user, :set_locale
   
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
   
