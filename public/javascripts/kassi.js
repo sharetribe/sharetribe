@@ -60,12 +60,37 @@ $.validator.
   );
 
 // Initialize code that is needed for every view
-function initialize_defaults(default_text) {
+function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
 	// Make sure that Kassi cannot be used if js is disabled
 	$('.wrapper').addClass('js_enabled');
+	initialize_feedback_tab();
+	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
+	translate_validation_messages(locale);
+	var form_id = "#new_feedback"
+	$(form_id).validate({
+		rules: {
+			"feedback[content]": {required: true, minlength: 1}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "true");
+		}
+	});
+}
+
+function initialize_feedback_tab() {
+  $('.feedback_div').tabSlideOut({
+  	tabHandle: '.handle',                     //class of the element that will become your tab
+    imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+    imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
+    tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
+    speed: 300,                               //speed of animation
+    action: 'click',                          //options: 'click' or 'hover', action to trigger animation
+   	topPos: '200px',                          //position from the top/ use if tabLocation is left or right
+    fixedPosition: true
+  });
 }
 
 function initialize_login_form() {
@@ -73,7 +98,7 @@ function initialize_login_form() {
 		$('#password_forgotten').slideToggle('fast'); 
 		$('input.request_password').focus();
 	});
-  $('input.text_field:first').focus();
+  $('#login_form input.text_field:first').focus();
 }
 
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id) {
@@ -592,6 +617,7 @@ function disable_and_submit(form_id, form, locale, ajax) {
 	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
 	$(form_id + ' input[type=submit]').val(disabled_value);
 	if (ajax == "true") {
+		console.log(form);
 		$(form).ajaxSubmit();
 	} else {
   	form.submit();

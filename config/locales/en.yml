@@ -31,6 +31,15 @@ en:
     community: "Community"
     search_kassi: "Search Kassi"    
   layouts:
+    application:
+      give_feedback: "Give feedback on Kassi"
+      send_feedback_to_admin: "Send feedback"
+      your_email_address: "Your email address (not required)"
+      feedback: "Feedback to Kassi staff"
+      or_check_our: "...or check our"
+      feedback_forum: "feedback forum"
+      to_see_what_others_have_suggested: "to see what other users have suggested."
+      default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
     logged_in:
       login: "Login"
       sign_up: "Sign up"
@@ -95,6 +104,9 @@ en:
       read_more: "Read more!"
       password_recovery_sent: "Instructions to change your password were sent to your email."
       email_not_found: "The email you gave was not found from Kassi database."
+      feedback_saved: "Thanks for your feedback!"
+      feedback_not_saved: "Feedback could not be sent."
+      feedback_considered_spam: "Feedback not saved, due to its formatting. Try again or use the feedback forum."
     conversations:
       messages: "Messages"
       received: "Received"
