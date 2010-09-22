@@ -26,7 +26,7 @@ module ApplicationHelper
       case distance_in_days
         when 0..30    then time = "#{distance_in_days} #{t('timestamps.days_ago')}"
         when 31..364  then time = "#{(distance_in_days.to_f / 30.0).round} #{t('timestamps.months_ago')}"
-        else               time = "{(distance_in_days.to_f / 365.24).round} #{t('timestamps.years_ago')}"
+        else               time = "#{(distance_in_days.to_f / 365.24).round} #{t('timestamps.years_ago')}"
       end
     end
     
