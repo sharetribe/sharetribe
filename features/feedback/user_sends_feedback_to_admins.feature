@@ -6,7 +6,6 @@ Feature: User sends feedback to admins
   @javascript
   Scenario: Giving feedback successfully when not logged in
     Given I am on the home page
-    And show me the page
     When I follow "Feedback"
     And I fill in "Your email address" with "test"
     And I fill in "Feedback to Kassi staff" with "Feedback"
@@ -33,7 +32,7 @@ Feature: User sends feedback to admins
   Scenario: Trying to send a spam link
     Given I am logged in
     When I follow "Feedback"
-    And I fill in "Feedback to Kassi staff" with "[url=\"testi\"]"
+    And I fill in "Feedback to Kassi staff" with "[url=testi"
     And I press "Send feedback"
     Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".error"
   

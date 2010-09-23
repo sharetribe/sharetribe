@@ -13,7 +13,7 @@
   %body
   
     .feedback_div
-      %a{:class => "handle"}
+      %a{:class => "handle", :id => "Feedback", :href => "#"}
         %div
           - if I18n.locale.to_s.eql?("fi")
             &nbsp;&nbsp;Palaute
@@ -28,7 +28,7 @@
           = form.label :content, t(".feedback")
           = form.text_area :content, :class => "feedback"
           = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
-          = form.hidden_field :url, :value => request.request_uri
+          = form.hidden_field :url, :value => request.fullpath
           = form.submit t(".send_feedback_to_admin"), :class => "send_button"
           %span
             = t(".or_check_our")
