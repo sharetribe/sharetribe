@@ -4,4 +4,6 @@
       = link_to Conversation.unread_count(@current_user.id).to_s, received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')
 - else
   .logged_in_icon_inbox
-    = link_to "#", received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')
+    %a{:href => received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')}
+      %span{:class => "not_visible"}
+        a

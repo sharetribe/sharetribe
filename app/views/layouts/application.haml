@@ -59,7 +59,7 @@
           = form_tag({ :action => :show, :controller => :search }, :method => "get") do
             - one_line do              
               = text_field_tag("q", params[:q], :class => "search_field")
-              = submit_tag("search", :class => "search_button")
+              = submit_tag("s", :class => "search_button")
         #right.grid_10
           = render :partial => "layouts/logged_in"
         .clear

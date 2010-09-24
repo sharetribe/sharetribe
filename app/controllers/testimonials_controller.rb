@@ -13,10 +13,12 @@ class TestimonialsController < ApplicationController
 
   def create
     @testimonial = Testimonial.new(params[:testimonial])
+    puts 
     if @testimonial.save
       flash[:notice] = ["feedback_sent_to", @conversation.other_party(@current_user).given_name, @conversation.other_party(@current_user)]
       redirect_to (session[:return_to_inbox_content] || root)
     else
+      puts @testimonial.errors.full_messages.inspect
       render :action => new
     end    
   end

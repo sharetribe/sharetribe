@@ -126,18 +126,22 @@ form, input {
     background: #f7f5e6;
     color: #898989; }
   #search input.search_button {
+    text-align: left;
     background: #d45207 url("/images/icons/header_icons.png") 8px -356px no-repeat;
     width: 41px;
     height: 28px;
     padding: 0;
     border: 0;
-    color: transparent; }
+    color: #d45207; }
     #search input.search_button:active {
-      background: #a33f05 url("/images/icons/header_icons.png") 8px -356px no-repeat; }
+      background: #a33f05 url("/images/icons/header_icons.png") 8px -356px no-repeat;
+      color: #a33f05; }
     #search input.search_button:hover {
-      background-color: #f8792f; }
+      background-color: #f8792f;
+      color: #f8792f; }
     #search input.search_button:focus {
-      background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat; }
+      background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat;
+      color: #f8792f; }
 
 #top_navi select {
   background: #f7f5e6;
@@ -279,7 +283,8 @@ form, input {
     font-size: 14px;
     padding: 5px 5px;
     overflow: hidden;
-    width: 927px; }
+    width: 927px;
+    line-height: 18px; }
 
 .field_with_errors {
   float: left; }
@@ -759,6 +764,9 @@ p.description {
       padding: 67px 15px 9px 15px;
       background: #e3e1da url("/images/icons/new_listing_type_select_icons.png") 28px -989px no-repeat; }
 
+span.not_visible {
+  visibility: hidden; }
+
 .hidden {
   display: none; }
 
@@ -975,8 +983,8 @@ div.checkbox_float {
     background: #f7f5e6;
     width: 300px;
     font-size: 14px;
-    height: 26px;
-    padding: 5px 9px;
+    height: 18px;
+    padding: 9px;
     margin-left: 10px;
     border: 0; }
     #login_form input.text_field:focus, #new_message_form input.text_field:focus, #signup_form input.text_field:focus {

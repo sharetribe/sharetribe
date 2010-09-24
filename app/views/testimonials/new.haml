@@ -21,4 +21,4 @@
       .message_form_field_container
         = form.hidden_field :author_id, :value => @current_user.id
         = form.hidden_field :participation_id, :value => @participation.id
-        = form.submit t(".send_feedback"), :class => "send_button"
+        = form.submit t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

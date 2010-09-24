@@ -17,7 +17,7 @@ Feature: User gives feedback from transaction
     And I follow "Give feedback"
     And I follow "As expected"
     And I fill in "Textual feedback:" with "Everything went ok."
-    And I press "Send feedback"
+    And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within "#notifications"
     And I should see "Feedback given" within ".conversation_status_label_links"
   
@@ -34,7 +34,7 @@ Feature: User gives feedback from transaction
     When I follow "Messages"
     And I follow "Give feedback"
     And I fill in "Textual feedback:" with "Everything went ok."
-    And I press "Send feedback"
+    And I press "send_testimonial_button"
     Then I should see "Remember to grade the user by clicking one of the icons above" within ".error"
   
   
