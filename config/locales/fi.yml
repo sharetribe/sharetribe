@@ -32,6 +32,7 @@ fi:
     search_kassi: "Etsi Kassista"       
   layouts:
     application:
+      feedback_handle: "Palaute"
       give_feedback: "Anna palautetta Kassista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"

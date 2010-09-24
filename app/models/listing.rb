@@ -71,6 +71,7 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
+    has "listings.visibility IN ('everybody','kassi_users')", :as => :visible_to_kassi_users, :type => :boolean
     has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
@@ -86,11 +87,11 @@ class Listing < ActiveRecord::Base
   
   # Filter out listings that current user cannot see
   def self.visible_to(current_user)
-    current_user ? scoped : where("listings.visibility = 'everybody'")
+    current_user ? where("listings.visibility IN ('everybody','kassi_users')") : where("listings.visibility = 'everybody'")
   end
   
   def visible_to?(current_user)
-    current_user || self.visibility.eql?("everybody")
+    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
   end
   
   def share_type_attributes=(attributes)

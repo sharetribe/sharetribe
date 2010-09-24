@@ -28,12 +28,7 @@
     .wrapper
     
       .feedback_div
-        %a{:class => "handle", :id => "Feedback", :href => "#"}
-          %div
-            - if I18n.locale.to_s.eql?("fi")
-              &nbsp;&nbsp;Palaute
-            - else  
-              Feedback
+        = link_to t(".feedback_handle"), "#", :class => "handle", :id => "Feedback"
         %h3= t(".give_feedback")
         #new_feedback_form
           = form_for :feedback, :url => admin_feedbacks_path, :remote => true, :html => { :id => "new_feedback" } do |form|
