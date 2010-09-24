@@ -2327,10 +2327,10 @@ a.edit_profile {
   #no_javascript h2 {
     margin-bottom: 5px; }
 
-div.container_24 {
+div.container_24, div.feedback_div {
   display: none; }
 
-.js_enabled div.container_24 {
+.js_enabled div.container_24, .js_enabled div.feedback_div {
   display: block; }
 
 #infos_content {
@@ -2384,9 +2384,7 @@ a.handle {
     /* Opera 10.5 */
     -webkit-transform: rotate(-90deg);
     /* Saf3.1+, Chrome */
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);
-    /* IE6,IE7 */
-    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; }
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
 
 #new_feedback_form {
   overflow: hidden; }

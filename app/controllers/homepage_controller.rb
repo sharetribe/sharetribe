@@ -15,8 +15,8 @@ class HomepageController < ApplicationController
     # and show the normal front page starting from newest listing
     params[:page] = 1 unless request.xhr?
     
-    @requests = Listing.requests.open.paginate(:per_page => listings_per_page, :page => params[:page])
-    @offers = Listing.offers.open.paginate(:per_page => listings_per_page, :page => params[:page])
+    @requests = Listing.requests.visible_to(@current_user).open.paginate(:per_page => listings_per_page, :page => params[:page])
+    @offers = Listing.offers.visible_to(@current_user).open.paginate(:per_page => listings_per_page, :page => params[:page])
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   

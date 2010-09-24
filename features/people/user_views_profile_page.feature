@@ -66,6 +66,27 @@ Feature: User views profile page
     And I should see "Offers (2)" within ".inbox_tab_selected"
     And I should see "Requests (1)" within ".inbox_tab_unselected"
   
+  Scenario: User views a profile page with listings with visibility settings
+     Given there are following users:
+       | person | 
+       | kassi_testperson1 |
+       | kassi_testperson2 |
+     And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
+     And visibility of that listing is "kassi_users"
+     And there is favor offer with title "massage" from "kassi_testperson1"
+     And I am on the home page
+     And I should not see "car spare parts"
+     When I follow "massage"
+     And I follow "listing_author"
+     And I should not see "car spare parts"
+     And I should see "massage"
+     When I log in as "kassi_testperson1"
+     And I follow "massage"
+     And I follow "listing_author"
+     Then I should see "car spare parts"
+     And I should see "massage"
+  
+  
   
   
   

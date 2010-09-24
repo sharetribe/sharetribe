@@ -71,6 +71,7 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
+    has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
     set_property :enable_star => true
@@ -81,6 +82,15 @@ class Listing < ActiveRecord::Base
           :description => 3,
           :comments    => 1
         }
+  end
+  
+  # Filter out listings that current user cannot see
+  def self.visible_to(current_user)
+    current_user ? scoped : where("listings.visibility = 'everybody'")
+  end
+  
+  def visible_to?(current_user)
+    current_user || self.visibility.eql?("everybody")
   end
   
   def share_type_attributes=(attributes)
@@ -149,7 +159,7 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.gsub(/\W/, '_').downcase}"
   end
   
-  def self.find_with(params)
+  def self.find_with(params, current_user=nil)
     conditions = []
     conditions[0] = "listing_type = ?"
     conditions[1] = params[:listing_type]
@@ -157,11 +167,11 @@ class Listing < ActiveRecord::Base
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]
     end
+    listings = where(conditions)
     if params[:share_type] && !params[:share_type][0].eql?("all")
-      where(conditions).joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id).order("listings.id DESC")
-    else
-      where(conditions).order("id DESC")
-    end    
+      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
+    end
+    listings.visible_to(current_user).order("listings.id DESC")
   end
   
   # Returns true if listing exists and valid_until is set

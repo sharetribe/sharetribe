@@ -12,6 +12,7 @@ class ConversationsController < ApplicationController
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
+  before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
   
   def index
     redirect_to received_person_messages_path(:person_id => @current_user.id)
@@ -88,6 +89,14 @@ class ConversationsController < ApplicationController
     if current_user?(@listing.author)
       flash[:error] = "you_cannot_reply_to_your_own_#{@listing.listing_type}"
       redirect_to (session[:return_to_content] || root)
+    end  
+  end
+  
+  # Ensure that only users with appropriate visibility settings can reply to the listing
+  def ensure_authorized_to_reply
+    unless @listing.visible_to?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
     end  
   end
 

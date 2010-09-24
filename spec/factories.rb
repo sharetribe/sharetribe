@@ -18,6 +18,7 @@ Factory.define :listing do |l|
   l.tag_list("tools, hammers")
   l.valid_until DateTime.now + 3.months
   l.times_viewed 0
+  l.visibility "everybody"
 end
 
 Factory.define :conversation do |c|

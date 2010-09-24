@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
     @person = Person.find(params[:id])
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
-    @listings = @listings.order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
+    @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end
 
