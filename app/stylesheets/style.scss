@@ -242,15 +242,25 @@ form, input {
 		color: #898989;
 	}
 	input.search_button {
+		text-align: left;
 		background: $orange url("/images/icons/header_icons.png") 8px -356px no-repeat;
 		width: 41px;
 		height: 28px;
 		padding: 0;
 		border: 0;
-		color: transparent;
-		&:active { background: $dark_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; }
-		&:hover { background-color: $light_orange; }
-		&:focus { background: $light_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; }
+		color: $orange;
+		&:active { 
+			background: $dark_orange url("/images/icons/header_icons.png") 8px -356px no-repeat;
+			color: $dark_orange;
+		}
+		&:hover { 
+			background-color: $light_orange; 
+			color: $light_orange;
+		}
+		&:focus { 
+			background: $light_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; 
+			color: $light_orange;
+		}
 	}
 }
 
@@ -370,6 +380,7 @@ form, input {
 	}
 	.info_message{
 		@include notification($notice_text, $notice_border, $notice_bg, -115px, normal);
+		line-height: 18px;
 	}
 }
 
@@ -730,6 +741,10 @@ p.description {
 	@include listing_type_select_icon_unselected(-1090px);
 }
 
+span.not_visible {
+	visibility: hidden;
+}
+
 .hidden {
 	display: none;
 }
@@ -935,8 +950,8 @@ div.checkbox_float {
 		background: $bg_color;
 		width: 300px;
 		font-size: 14px;
-		height: 26px;
-		padding: 5px 9px;
+		height: 18px;
+		padding: 9px;
 		margin-left: 10px;
 		border: 0;
 		&:focus { background: white; }

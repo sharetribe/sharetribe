@@ -4,7 +4,9 @@
       #logged_in_messages_icon
         = render :partial => "layouts/logged_in_messages_icon"
       .logged_in_icon_settings
-        = link_to "#", person_settings_path(:person_id => @current_user.id), :title => t('.settings')  
+        %a{:href => person_settings_path(:person_id => @current_user.id), :title => t('.settings') }
+          %span{:class => "not_visible"}
+            a
   #logged_in_links.grid_5.omega
     %span
       = t('.hi')

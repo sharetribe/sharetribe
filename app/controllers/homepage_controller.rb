@@ -5,7 +5,7 @@ class HomepageController < ApplicationController
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
     listings_per_page = 15
-      
+    
     unless session[:welcome_message]
       flash.now[:info_message] = ["welcome_message", :read_more, about_infos_path]
       session[:welcome_message] = true    
