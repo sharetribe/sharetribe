@@ -111,7 +111,7 @@
         
         if(settings.tabLocation === 'left') {
             obj.css({ 'left': '-' + properties.containerWidth});
-            settings.tabHandle.css({'right' : '-80px'});
+            settings.tabHandle.css({'right' : '-' + properties.tabWidth});
         }
 
         if(settings.tabLocation === 'right') {
