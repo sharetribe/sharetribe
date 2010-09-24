@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
   end
   
   # Ensure that only users with appropriate visibility settings can reply to the listing
-  def ensure_authorized_to_reply
+  def ensure_authorized_to_comment
     @comment = Comment.new(params[:comment])
     unless @comment.listing.visible_to?(@current_user)
       flash[:error] = "you_are_not_authorized_to_view_this_content"
