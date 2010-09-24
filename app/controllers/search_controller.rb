@@ -10,7 +10,9 @@ class SearchController < ApplicationController
       if params[:type]
         with[:is_request] = true if params[:type].eql?("request")
         with[:is_offer] = true if params[:type].eql?("offer")
-      end  
+      end
+      
+      with[:visible_to_everybody] = true unless @current_user  
 
       @listings = Listing.search(@query, 
                                 :include => :listing_images, 

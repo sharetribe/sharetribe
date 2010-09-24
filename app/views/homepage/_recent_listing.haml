@@ -5,7 +5,9 @@
       = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => link_title
     - else
       %div{:class => "listing_image_#{listing.category}"}
-        =  link_to "#", listing_path(listing), :title => link_title
+        %a{:href => listing_path(listing), :title => link_title}
+          %span{:class => "not_visible"}
+            a
   .recent_listing_text
     %h5= link_to listing.title, listing
     %p{:class => "description"}

@@ -4,8 +4,9 @@ class CommentsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_send_a_comment"
   end
   
+  before_filter :ensure_authorized_to_comment
+  
   def create
-    @comment = Comment.new(params[:comment])
     if @comment.save
       flash.now[:comment_notice] = "comment_sent"
       @comment.send_email_to_author(request.host)
@@ -17,4 +18,14 @@ class CommentsController < ApplicationController
       format.js { render :layout => false }
     end
   end
+  
+  # Ensure that only users with appropriate visibility settings can reply to the listing
+  def ensure_authorized_to_reply
+    @comment = Comment.new(params[:comment])
+    unless @comment.listing.visible_to?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
+    end  
+  end
+  
 end

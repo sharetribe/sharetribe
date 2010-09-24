@@ -2071,8 +2071,8 @@ a.edit_profile {
 	}
 }
 
-div.container_24 { display: none; } 
-.js_enabled div.container_24 { display: block; }
+div.container_24, div.feedback_div { display: none; } 
+.js_enabled div.container_24, .js_enabled div.feedback_div { display: block; }
 
 #infos_content {
 	margin: 10px 20px;
@@ -2119,8 +2119,7 @@ a.handle {
 		-moz-transform: rotate(-90deg);  /* FF3.5+ */
 		-o-transform: rotate(-90deg);  /* Opera 10.5 */
 		-webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
-		filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
-		-ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)";
+		filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 	}	
 }
 

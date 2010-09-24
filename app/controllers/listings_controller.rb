@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
 
   before_filter :save_current_path, :only => :show
+  before_filter :ensure_authorized_to_view, :only => :show
 
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
@@ -28,7 +29,7 @@ class ListingsController < ApplicationController
   def load
     @title = params[:listing_type]
     @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.open.find_with(params).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.open.find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
@@ -38,7 +39,6 @@ class ListingsController < ApplicationController
   end
   
   def show
-    @listing = Listing.find(params[:id])
     @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
   end
   
@@ -88,6 +88,17 @@ class ListingsController < ApplicationController
       format.html { redirect_to @listing }
       format.js { render :layout => false }
     end
+  end
+  
+  private
+  
+  # Ensure that only users with appropriate visibility settings can view the listing
+  def ensure_authorized_to_view
+    @listing = Listing.find(params[:id])
+    unless @listing.visible_to?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
+    end  
   end
 
 end

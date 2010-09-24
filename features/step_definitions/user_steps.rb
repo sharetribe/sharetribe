@@ -5,6 +5,13 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   click_button("Login")
 end
 
+Given /^I log in(?: as "([^"]*)")?$/ do |person|
+  visit login_path(:locale => :en)
+  fill_in("username", :with => (person ? person : "kassi_testperson1"))
+  fill_in("password", :with => "testi")
+  click_button("Login")
+end
+
 Given /^I am not logged in$/ do
   # TODO Check here that not logged in
 end
