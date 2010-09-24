@@ -2345,9 +2345,6 @@ div.container_24, div.feedback_div {
   margin: 20px; }
 
 .feedback_div {
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
   padding: 20px 20px 30px 20px;
   width: 250px;
   background: #2f5707;
@@ -2357,32 +2354,8 @@ div.container_24, div.feedback_div {
     font-size: 16px;
     margin-bottom: 15px; }
 
-a.handle {
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
-  -moz-border-radius-bottomright: 7px;
-  -moz-border-radius-bottomleft: 7px;
-  -webkit-border-bottom-right-radius: 7px;
-  -webkit-border-bottom-left-radius: 7px;
-  cursor: pointer;
-  width: 122px;
-  height: 30px;
-  background: #223f05;
-  color: white;
-  margin-top: 60px;
-  text-align: center;
-  padding-top: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  -moz-transform: rotate(-90deg);
-  /* FF3.5+ */
-  -o-transform: rotate(-90deg);
-  /* Opera 10.5 */
-  -webkit-transform: rotate(-90deg);
-  /* Saf3.1+, Chrome */
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); }
-  a.handle:hover {
-    background: #2f5707; }
+a.handle:hover {
+  background-position: -40px 0; }
 
 #new_feedback_form {
   overflow: hidden; }

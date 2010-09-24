@@ -83,7 +83,8 @@ function initialize_defaults(default_text, locale, feedback_default_text) {
 function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
-    imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+    pathToTabImage: '/images/feedback_handles.png',
+		imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
     speed: 300,                               //speed of animation
