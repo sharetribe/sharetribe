@@ -1,5 +1,5 @@
 /*
-    tabSlideOUt v1.3
+    tabSlideOUt v1.4.1
     
     By William Paoli: http://wpaoli.building58.com
 
@@ -23,6 +23,7 @@
     $.fn.tabSlideOut = function(callerSettings) {
         var settings = $.extend({
             tabHandle: '.handle',
+			toggleButton: '.button',
             speed: 300, 
             action: 'click',
             tabLocation: 'left',
@@ -37,6 +38,8 @@
         }, callerSettings||{});
 
         settings.tabHandle = $(settings.tabHandle);
+        settings.toggleButton = $(settings.toggleButton);
+
         var obj = this;
         if (settings.fixedPosition === true) {
             settings.positioning = 'fixed';
@@ -55,8 +58,7 @@
         
         if (settings.pathToTabImage != null) {
             settings.tabHandle.css({
-            'background-image' : 'url('+settings.pathToTabImage+')',
-			'background-repeat' : 'no-repeat',
+            'background' : 'url('+settings.pathToTabImage+') no-repeat',
             'width' : settings.imageWidth,
             'height': settings.imageHeight
             });
@@ -125,8 +127,7 @@
         settings.tabHandle.click(function(event){
             event.preventDefault();
         });
-
-				$('#give_feedback_link').click(function(event){
+        settings.toggleButton.click(function(event){
             event.preventDefault();
         });
         
@@ -162,9 +163,10 @@
                 event.stopPropagation();
             });
 
-						$('#give_feedback_link').click(function(event){
-			      	event.stopPropagation();
-			      });
+			settings.toggleButton.click(function(event){
+                event.stopPropagation();
+            });
+			
             
             $(document).click(function(){
                 slideIn();
@@ -172,14 +174,6 @@
         };
         
         var clickAction = function(){
-						$('#give_feedback_link').click(function(event){
-                if (obj.hasClass('open')) {
-                    slideIn();
-                } else {
-                    slideOut();
-                }
-            });
-	
             settings.tabHandle.click(function(event){
                 if (obj.hasClass('open')) {
                     slideIn();
@@ -187,7 +181,13 @@
                     slideOut();
                 }
             });
-            
+            settings.toggleButton.click(function(event){
+                if (obj.hasClass('open')) {
+                    slideIn();
+                } else {
+                    slideOut();
+                }
+            });
             clickScreenToClose();
         };
         

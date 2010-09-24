@@ -10,11 +10,13 @@
     
         $('.slide-out-div').tabSlideOut({
                 tabHandle: '.handle',                         //class of the element that will be your tab -doesnt have to be an anchor
-                pathToTabImage: 'images/contact_tab.gif',     //relative path to the image for the tab *required*
-                imageHeight: '133px',                         //height of tab image *required*
-                imageWidth: '44px',                           //width of tab image *required*    
+                pathToTabImage: 'images/contact_tab.gif',     //relative path to the image for the tab
+                imageHeight: '133px',                         //height of tab image
+                imageWidth: '44px',                           //width of tab image   
         });
 
+    or you can leave out these options
+    and set the image properties using css
     
 */
 
@@ -55,8 +57,7 @@
         
         if (settings.pathToTabImage != null) {
             settings.tabHandle.css({
-            'background-image' : 'url('+settings.pathToTabImage+')',
-			'background-repeat' : 'no-repeat',
+            'background' : 'url('+settings.pathToTabImage+') 0 0 no-repeat',
             'width' : settings.imageWidth,
             'height': settings.imageHeight
             });
@@ -64,7 +65,7 @@
         
         settings.tabHandle.css({ 
             'display': 'block',
-            'textIndent' : '-99999px',
+            'textIndent' : '0',
             'outline' : 'none',
             'position' : 'absolute'
         });
@@ -110,7 +111,7 @@
         
         if(settings.tabLocation === 'left') {
             obj.css({ 'left': '-' + properties.containerWidth});
-            settings.tabHandle.css({'right' : '-' + properties.tabWidth});
+            settings.tabHandle.css({'right' : '-80px'});
         }
 
         if(settings.tabLocation === 'right') {
@@ -171,7 +172,8 @@
             });
         };
         
-        var clickAction = function(){
+        var clickAction = function() {
+						
 						$('#give_feedback_link').click(function(event){
                 if (obj.hasClass('open')) {
                     slideIn();
@@ -179,7 +181,7 @@
                     slideOut();
                 }
             });
-	
+						
             settings.tabHandle.click(function(event){
                 if (obj.hasClass('open')) {
                     slideIn();

@@ -9,7 +9,12 @@
     
     :javascript
       $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
-      
+    
+    - if I18n.locale.to_s.eql?("en")
+      %style{:type => "text/css"}
+        a.handle { background-position: -80px 0; }
+        a.handle:hover { background-position: -120px 0; }
+    
   %body
   
     %noscript

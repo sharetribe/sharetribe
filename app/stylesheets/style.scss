@@ -2092,7 +2092,6 @@ div.container_24, div.feedback_div { display: none; }
 }
 
 .feedback_div {
-	@include rounded;
 	padding: 20px 20px 30px 20px;
   width: 250px;
  	background: lighten($dark_green, 5%);
@@ -2105,22 +2104,9 @@ div.container_24, div.feedback_div { display: none; }
 }
 
 a.handle {
-	@include half_rounded(bottom);
-	cursor: pointer;
-	width: 122px;
-	height: 30px;
-	background: $dark_green;
-	color: white;
-	margin-top: 60px;
-	text-align: center;
-	padding-top: 10px;
-	font-size: 16px;
-	font-weight: bold;
-	&:hover { background: lighten($dark_green, 5%); }
-	-moz-transform: rotate(-90deg);  /* FF3.5+ */
-	-o-transform: rotate(-90deg);  /* Opera 10.5 */
-	-webkit-transform: rotate(-90deg);  /* Saf3.1+, Chrome */
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	&:hover { 
+		background-position: -40px 0;
+	}
 }
 
 #new_feedback_form {
