@@ -17,6 +17,7 @@ class ChangeSettingsToNewFormat < ActiveRecord::Migration
       end
       print "."; STDOUT.flush
     end
+    puts ""
   end
 
   def self.down
