@@ -139,13 +139,17 @@ Feature: User browses listings
     And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
     And visibility of that listing is "kassi_users"
     And there is favor request with title "massage" from "kassi_testperson1"
+    And there is housing request with title "apartment" and with share type "rent"
+    And visibility of that listing is "disabled"
     And I am on the requests page
     And I should not see "car spare parts"
     And I should see "massage"
+    And I should not see "apartment"
     When I log in as "kassi_testperson1"
     And I follow "Requests"
     Then I should see "car spare parts"
     And I should see "massage"
+    And I should not see "apartment"
   
   
   
