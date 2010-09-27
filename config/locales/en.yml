@@ -276,14 +276,14 @@ en:
       borrows: "Borrowing"
       rents: "Renting"   
     form:
-      listing_form_content:
+      form_content:
         request_something: "Request something"
         offer_something: "Offer something"
         item: "Item"
         favor: "Favor"
         rideshare: "Rideshare"
         housing: "Housing"
-      listing_share_type:
+      share_type:
         offer_type: "Offer type"
         request_type: "Request type"
         sell: "Sell"
@@ -295,35 +295,39 @@ en:
         buy: "Buy"
         borrow: "Borrow"
         rent: "Rent"
-      listing_title:
+      title:
         item_you_request: "Item you need"
         item_you_offer: "Item you offer"
         favor_you_request: "Favor you need"
         favor_you_offer: "Favor you offer"
         housing_you_request: "Housing you need"
         housing_you_offer: "Housing you offer"
-      listing_origin:
+      origin:
         origin: "Origin"
-      listing_destination:
+      destination:
         destination: "Destination"
-      listing_tag_list:
+      tag_list:
         tags: "Tags"
         comma_separate: "(comma separate)"      
-      listing_description:
+      description:
         detailed_description: "Detailed description"
-      listing_images:
+      images:
         image: "Image"
         select_file: "Select file"
         no_file_selected: "No file selected"
         remove_image: "Remove image"
-      listing_valid_until:
+      valid_until:
         valid_until: "Expiration date"
-      listing_valid_until_radio_buttons:
+      valid_until_radio_buttons:
         for_the_time_being: "For the time being"  
-      listing_departure_time:  
+      departure_time:  
         departure_time: "Departure time"
         at: "At"  
-      listing_send_button:
+      visibility:
+        visibility: "Visibility"
+        everybody: "Everybody"
+        kassi_users: "Only logged in users"
+      send_button:
         save_request: "Save request"
         save_offer: "Save offer"
     show:

@@ -98,7 +98,7 @@ class ListingsController < ApplicationController
     unless @listing.visible_to?(@current_user)
       flash[:error] = "you_are_not_authorized_to_view_this_content"
       redirect_to root and return
-    end  
+    end
   end
 
 end

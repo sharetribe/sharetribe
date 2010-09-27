@@ -18,7 +18,9 @@ http://pixelmatrixdesign.com/uniform/themer.html
 div.selector, 
 div.selector span,
 div.selector2, 
-div.selector2 span, 
+div.selector2 span,
+div.selector3, 
+div.selector3 span, 
 div.checker span, 
 div.radio span, 
 div.uploader, 
@@ -29,6 +31,7 @@ div.uploader span.action {
 
 .selector,
 .selector2, 
+.selector2,
 .radio, 
 .checker, 
 .uploader, 
@@ -168,6 +171,70 @@ div.selector2.disabled.active {
 div.selector2.disabled span,
 div.selector2.disabled:active span,
 div.selector2.disabled.active span {
+  background-position: right -684px;
+}
+
+/* Select3 */
+
+div.selector3 {
+  background-position: -483px -720px;
+  line-height: 35px;
+	height: 35px;
+}
+
+div.selector3 span {
+  background-position: right -540px;
+  height: 35px;
+	line-height: 35px;
+}
+
+div.selector3 select {
+  /* change these to adjust positioning of select element */
+  top: 0px;
+	left: 0px;
+}
+
+div.selector3:active, 
+div.selector3.active {
+	background-position: -483px -756px;
+}
+
+div.selector3:active span, 
+div.selector3.active span {
+	background-position: right -576px;
+}
+
+div.selector3.focus, div.selector3.hover, div.selector3:hover {
+	background-position: -483px -792px;
+}
+
+div.selector3.focus span, div.selector3.hover span, div.selector3:hover span {
+	background-position: right -612px;
+}
+
+div.selector3.focus:active,
+div.selector3.focus.active,
+div.selector3:hover:active,
+div.selector3.active:hover {
+	background-position: -483px -828px;
+}
+
+div.selector3.focus:active span,
+div.selector3:hover:active span,
+div.selector3.active:hover span,
+div.selector3.focus.active span {
+	background-position: right -648px;
+}
+
+div.selector3.disabled,
+div.selector3.disabled:active,
+div.selector3.disabled.active {
+	background-position: -483px -900px;
+}
+
+div.selector3.disabled span,
+div.selector3.disabled:active span,
+div.selector3.disabled.active span {
   background-position: right -684px;
 }
 
@@ -420,6 +487,37 @@ div.selector2.disabled span {
   color: #bbb;
 }
 
+/* Select3 */
+div.selector3 {
+	margin-right: 6px;
+	float: left;
+  width: 274px;
+  font-size: 12px;
+	font-weight: bold;
+}
+
+div.selector3 select {
+  width: 274px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+	font-weight: bold;
+  border: solid 1px #fff;
+}
+
+div.selector3 span {
+  padding-top: 1px;
+}
+
+div.selector3 span {
+  color: #464646;
+  width: 262px;
+  text-shadow: 0 1px 0 #fff;
+}
+
+div.selector3.disabled span {
+  color: #bbb;
+}
+
 
 /* Checker */
 div.checker {
@@ -521,6 +619,30 @@ div.selector2 span {
 }
 
 div.selector2 select {
+	position: absolute;
+	opacity: 0;
+  height: 35px;
+  border: none;
+  background: none;
+}
+
+/* Select3 */
+
+div.selector3 {
+	position: relative;
+	overflow: hidden;
+}
+
+div.selector3 span {
+	padding-left: 10px;
+	display: block;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+div.selector3 select {
 	position: absolute;
 	opacity: 0;
   height: 35px;

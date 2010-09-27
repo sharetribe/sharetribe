@@ -112,6 +112,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		fileDefaultText: fileDefaultText, 
 		fileBtnText: fileBtnText
 	});
+	$("select.visibility_select").uniform({selectClass: 'selector3'});
 	$(':radio[name=valid_until_select]').change(function() {
 		if ($(this).val() == "for_now") {
 			$('select.listing_date_select').attr('disabled', 'disabled');

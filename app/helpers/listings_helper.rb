@@ -43,4 +43,12 @@ module ListingsHelper
     end  
   end
   
+  def visibility_array
+    array = []
+    Listing::VALID_VISIBILITIES.each do |visibility|
+      array << [t(".#{visibility}"), visibility]
+    end
+    return array  
+  end
+  
 end
