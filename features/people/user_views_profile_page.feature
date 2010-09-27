@@ -3,6 +3,7 @@ Feature: User views profile page
   As a user
   I want to 
 
+  @javascript
   Scenario: User views his own profile page
     Given there are following users:
       | person | 
@@ -46,6 +47,7 @@ Feature: User views profile page
     And I should see "Requests (1)" within ".inbox_tab_unselected"
     And I should not see "sewing"
   
+  @javascript
   Scenario: User views somebody else's profile page
     Given there are following users:
       | person | 
@@ -66,6 +68,7 @@ Feature: User views profile page
     And I should see "Offers (2)" within ".inbox_tab_selected"
     And I should see "Requests (1)" within ".inbox_tab_unselected"
   
+  @javascript
   Scenario: User views a profile page with listings with visibility settings
      Given there are following users:
        | person | 
@@ -74,6 +77,8 @@ Feature: User views profile page
      And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
      And visibility of that listing is "kassi_users"
      And there is favor offer with title "massage" from "kassi_testperson1"
+     And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
+     And visibility of that listing is "disabled"
      And I am on the home page
      And I should not see "car spare parts"
      When I follow "massage"
@@ -85,6 +90,7 @@ Feature: User views profile page
      And I follow "listing_author"
      Then I should see "car spare parts"
      And I should see "massage"
+     And I should not see "apartment"
   
   
   
