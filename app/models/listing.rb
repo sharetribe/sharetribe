@@ -44,6 +44,7 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
+  VALID_VISIBILITIES = ["everybody", "kassi_users"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
   
@@ -91,7 +92,7 @@ class Listing < ActiveRecord::Base
   end
   
   def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
+    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
   end
   
   def share_type_attributes=(attributes)
