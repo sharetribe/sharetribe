@@ -31,9 +31,9 @@
           = render :partial => "listings/form/departure_time", :locals => { :form => form }  
         = render :partial => "listings/form/description", :locals => { :form => form }
         = render :partial => "listings/form/tag_list", :locals => { :form => form }
-        = render :partial => "listings/form/images", :locals => { :form => form }
         - unless @listing.category.eql?("rideshare")
           = render :partial => "listings/form/valid_until", :locals => { :form => form }
+        = render :partial => "listings/form/images", :locals => { :form => form }
         = render :partial => "listings/form/visibility", :locals => { :form => form }
         = render :partial => "listings/form/send_button", :locals => { :form => form }
 

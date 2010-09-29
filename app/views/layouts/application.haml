@@ -46,40 +46,36 @@
               = t(".to_see_what_others_have_suggested")
     
       #header.container_24
-        #logo.grid_6
-          #logo_image.grid_3.alpha
+        .grid_3
+          #logo
             = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
-          #logo_text.grid_3.omega
-        #search.grid_8
-          = form_tag({ :action => :show, :controller => :search }, :method => "get") do
-            - one_line do              
-              = text_field_tag("q", params[:q], :class => "search_field")
-              = submit_tag("s", :class => "search_button")
-        #right.grid_10
-          = render :partial => "layouts/logged_in"
-        .clear
-
-      #top_navi.container_24
-        .top_navi_form.grid_3.prefix_3
-          .locale_select_padding
-            = form_tag("/change_locale", :method => "get") do
-              = hidden_field_tag :redirect_uri, @return_to
-              = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
-        .tabs.grid_9.prefix_6
-          .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
-            = link_to t('header.home'), root
-          .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
-            = link_to t('header.requests'), requests_path
-          .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
-            = link_to t('header.offers'), offers_path
+        .grid_9
+          .grid_7.prefix_2.alpha
+            #search
+              = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+                - one_line do              
+                  = text_field_tag("q", params[:q], :class => "search_field")
+                  = submit_tag("s", :class => "search_button")
           .clear
-        .top_navi_link.align_right.grid_3
-          .navi_link_margin_right
-            = link_to t('header.about'), about_infos_path
-        .clear
-
-      #top_spacer.container_24
-        &nbsp;
+          .top_navi_form.grid_3
+            .locale_select_padding
+              = form_tag("/change_locale", :method => "get") do
+                = hidden_field_tag :redirect_uri, @return_to
+                = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+        .grid_12
+          = render :partial => "layouts/logged_in"
+          .clear
+          .tabs.grid_9.alpha
+            .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.home'), root
+            .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.requests'), requests_path
+            .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.offers'), offers_path
+            .clear
+          .top_navi_link.align_right.grid_3.omega
+            .navi_link_margin_right
+              = link_to t('header.about'), about_infos_path
 
       #notification_container 
         = render :partial => "layouts/notifications"

@@ -205,15 +205,20 @@ form, input {
 }
 
 #header {
-	height: 56px;
+	height: 100px;
 }
 
 #main {
 	margin-top: 20px;
+	overflow: hidden;
+}
+
+#listing_form_wrapper {
+	overflow: hidden;
 }
 
 #logo {
-	margin-top: 8px;
+	margin-top: 7px;
 }
 
 #logo_image {
@@ -227,7 +232,7 @@ form, input {
 }
 
 #search {
-	margin: 15px 0 0 0;
+	margin: 15px 0 0 32px;
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
@@ -264,6 +269,10 @@ form, input {
 	}
 }
 
+.tabs {
+	margin-top: 16px;
+}
+
 #top_navi {
 	select {
 		background: $bg_color;
@@ -272,7 +281,7 @@ form, input {
 }
 
 .top_navi_link {
-	margin-top:10px;
+	margin-top:26px;
 	a {
 		color: white;
 		font-weight: bold;
@@ -283,8 +292,13 @@ form, input {
 	}
 }
 
+.login_tabs {
+	height: 40px;
+	margin-right: 10px;
+}
+
 .locale_select_padding {
-	margin-left: 5px;
+	margin: 13px 0 0 5px;
 }
 
 @mixin tab {
@@ -338,7 +352,7 @@ form, input {
 }
 
 #top_spacer {
-	height: 5px;
+	height: 20px;
 }
 
 @mixin notification($text, $border, $bg, $bg_position: 0, $font-weight: bold) {
@@ -368,7 +382,7 @@ form, input {
 }
 
 #notifications {
-	margin-top: 20px;
+	margin-top: 15px;
 	.notice {
 		@include notification($notice_text, $notice_border, $notice_bg);
 	}
@@ -1040,7 +1054,7 @@ div.checkbox_float {
 }
 
 #logged_in_icons {
-	margin: 12px 0 0 11px;
+	margin: 12px 0 0 0;
 	color: white;
 	overflow: hidden;
 }
@@ -1115,7 +1129,7 @@ div.checkbox_float {
 
 #logged_in_links {
 	text-align: right;
-	margin-top: 21px;
+	margin: 21px 10px 0 0;
 	color: white;
 	font-size: 13px;
 	a {
