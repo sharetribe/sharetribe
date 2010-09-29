@@ -11,4 +11,5 @@
           = yield
           %br/
           %br/
-          = render :partial => "email_signature"
+          - unless @feedback
+            = render :partial => "email_signature"

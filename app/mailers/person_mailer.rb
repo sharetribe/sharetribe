@@ -33,5 +33,13 @@ class PersonMailer < ActionMailer::Base
     mail(:to => recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
+  
+  # Used to send notification to Kassi admins when somebody
+  # gives feedback on Kassi
+  def new_feedback(feedback)
+    @feedback = feedback
+    subject = "Uutta palautetta #{APP_CONFIG.production_server}-Kassista käyttäjältä #{feedback.author.try(:name)}"
+    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
+  end
 
 end

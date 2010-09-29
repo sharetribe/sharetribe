@@ -2345,6 +2345,12 @@ div.container_24, div.feedback_div {
   margin: 20px; }
 
 .feedback_div {
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  -moz-border-radius-bottomright: 7px;
+  -moz-border-radius-bottomleft: 7px;
+  -webkit-border-bottom-right-radius: 7px;
+  -webkit-border-bottom-left-radius: 7px;
   padding: 20px 20px 30px 20px;
   width: 250px;
   background: #2f5707;

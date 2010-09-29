@@ -2092,6 +2092,7 @@ div.container_24, div.feedback_div { display: none; }
 }
 
 .feedback_div {
+	@include half_rounded(bottom);
 	padding: 20px 20px 30px 20px;
   width: 250px;
  	background: lighten($dark_green, 5%);

@@ -7,7 +7,7 @@ class Admin::FeedbacksController < ApplicationController
       flash.now[:error] = "feedback_considered_spam"
     elsif @feedback.save
       flash.now[:notice] = "feedback_saved"
-      #PersonMailer.deliver_notification_of_new_feedback(@feedback, request)
+      PersonMailer.new_feedback(@feedback).deliver
     else
       flash.now[:error] = "feedback_not_saved"
     end
