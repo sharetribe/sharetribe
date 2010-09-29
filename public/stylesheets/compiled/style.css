@@ -286,6 +286,29 @@ form, input {
     width: 927px;
     line-height: 18px; }
 
+.notifications {
+  margin-top: 20px; }
+  .notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  .notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+
 .field_with_errors {
   float: left; }
 
@@ -2429,3 +2452,73 @@ a.handle:hover {
     padding: 14px 10px 7px 10px;
     background: red url("/images/error_arrow3.png") no-repeat top left;
     color: white; }
+
+#error {
+  margin-top: 120px; }
+  #error h2 {
+    margin-bottom: 5px; }
+
+#error_content_javascript {
+  margin-top: 20px; }
+  #error_content_javascript h2 {
+    line-height: 26px; }
+
+#error_kaapo {
+  margin-left: 20px;
+  margin-bottom: 20px; }
+
+#error_page_feedback_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  padding: 20px;
+  overflow: hidden; }
+  #error_page_feedback_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    font-size: 13px;
+    margin: 20px 35px 10px 0; }
+    #error_page_feedback_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #error_page_feedback_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #error_page_feedback_form input.send_button:focus {
+      background-color: #9f7d4e; }
+  #error_page_feedback_form label {
+    float: left;
+    width: 405px; }
+  #error_page_feedback_form input.text_field {
+    float: left;
+    color: #464646;
+    background: #f7f5e6;
+    width: 405px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    font-weight: bold;
+    margin: 5px 0 10px 0; }
+    #error_page_feedback_form input.text_field:focus {
+      background: white; }
+  #error_page_feedback_form textarea {
+    float: left;
+    margin: 5px 0 0 0;
+    width: 405px;
+    color: #464646;
+    background: #f7f5e6;
+    font-size: 12px;
+    height: 80px;
+    padding: 9px 9px;
+    border: 0; }
+    #error_page_feedback_form textarea:focus {
+      background: white; }

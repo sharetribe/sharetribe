@@ -1,8 +1,11 @@
 !!! 5
 !!! xml
-%html{html_attrs}
+%html{html_attrs(I18n.locale)}
   %head
     %title Kassi
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+    %meta{ :name => "keywords", :content => t(".keywords") } 
+    %meta{ :name => "description", :content => t(".meta_description") }
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
     = csrf_meta_tag
@@ -20,15 +23,7 @@
     %noscript
       .js_enabled
         #no_javascript.container_24
-          .grid_12.prefix_6.suffix_6
-            %h2 Javascript ei ole päällä selaimessasi
-            %p
-              Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää palautetta sähköpostiosoitteeseen 
-              = link_to "kassi aet sizl.org", "#"
-            %h2 Javascript is disabled in your browser
-            %p
-              Unfortunately Kassi does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use Kassi without javascript, please send feedback to
-              = link_to "kassi aet sizl.org", "#"
+          = render :partial => "layouts/no_javascript"
         
     .wrapper
     

@@ -52,3 +52,11 @@ Factory.define :comment do |c|
   c.association :listing
   c.content "Test text"
 end
+
+Factory.define :feedback do |f|
+  f.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  f.content "Test feedback"
+  f.url "/requests"
+  f.email "kassi_testperson1@example.com"
+  f.is_handled 0
+end

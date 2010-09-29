@@ -384,6 +384,16 @@ form, input {
 	}
 }
 
+.notifications {
+	margin-top: 20px;
+	.notice {
+		@include notification($notice_text, $notice_border, $notice_bg);
+	}
+	.error {
+		@include notification($error_text, $error_border, $error_bg, -40px);
+	}
+}
+
 .field_with_errors {
 	float: left;
 }
@@ -2166,5 +2176,63 @@ a.handle {
 		padding: 14px 10px 7px 10px;
 		background: red url("/images/error_arrow3.png") no-repeat top left;
 		color: white;
+	}
+}
+
+#error { 
+	margin-top: 120px; 
+	h2 {
+		margin-bottom: 5px;
+	}
+}
+
+#error_content_javascript {
+	margin-top: 20px;
+	h2 { line-height: 26px; }		
+}
+
+#error_kaapo {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#error_page_feedback_form {
+	@include form;
+	margin-bottom: 30px;
+	padding: 20px;
+	overflow: hidden;
+	input.send_button {
+		@include send_button;
+		font-size: 13px;
+		margin: 20px 35px 10px 0;
+	}
+	label {
+		float: left;
+		width: 405px;
+	}
+	input.text_field {
+		float: left;
+		color: $text_color;
+		background: $bg_color;
+		width: 405px;
+		border: 0;
+		&:focus { background: white; }
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		font-weight: bold;
+		margin: 5px 0 10px 0;
+	}
+	textarea {
+		float: left;
+		margin: 5px 0 0 0;
+		width: 405px;
+		color: $text_color;
+		background: $bg_color;
+		font-size: 12px;
+		height: 80px;
+		padding: 9px 9px;
+		border: 0;
+		&:focus { background: white; }
 	}
 }
