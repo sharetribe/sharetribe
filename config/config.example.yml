@@ -23,6 +23,11 @@ default: &default_settings
   recaptcha_public_key: 'enter_your_own_key_here'
   recaptcha_private_key: 'enter_your_own_key_here'  
 
+  # You can use Hoptoad to track errors if you want.
+  # You need to register an account and get an API key from hoptoadapp.com 
+  use_hoptoad: false
+  hoptoad_api_key: 'your_own_api_key_here'
+
   # Ressi is Researcher's Interface for logged data
   # If you don't need it just leave it to false
   # If log_to_ressi is false, other ressi settings can be ignored.
