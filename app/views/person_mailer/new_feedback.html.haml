@@ -1,0 +1,10 @@
+= "#{(@feedback.author ? @feedback.author.name : 'Kirjautumaton käyttäjä')} on lähettänyt #{APP_CONFIG.production_server}-Kassissa seuraavan palautteen:"
+
+%div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
+  - text_with_line_breaks do
+    = @feedback.content
+
+%br/
+
+Terveisin,
+Kassin palautteenkäsittelijäropotti
