@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   layout 'application'
   
   before_filter :fetch_logged_in_user, :set_locale
+  before_filter :generate_event_id
+  
+  # after filter would be more logical, but then log would be skipped when action cache is hit.
+  before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
   
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
   
@@ -82,6 +86,7 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
   
+  
   private
 
   def session_unauthorized
@@ -93,6 +98,70 @@ class ApplicationController < ActionController::Base
   
   def clear_user_session
     @current_user = session[:person_id] = session[:cookie] = nil
+  end
+  
+  # this generates the event_id that will be used in 
+  # requests to cos during this kassi-page view only
+  def generate_event_id
+    RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"  
+    # The event id is generated here and stored for the duration of this request.
+    # The option above stores it to thread which should work fine on mongrel    
+  end
+  
+  def log_to_ressi
+    
+    # These were the fields stored by Kassi earlier
+    # relevant_header_fields = ["SERVER_NAME",
+    #  "HTTP_MAX_FORWARDS",
+    #  "HTTP_ACCEPT",
+    #  "HTTP_HOST",
+    #  "HTTP_X_FORWARDED_HOST",
+    #  "HTTP_VIA",
+    #  "HTTP_USER_AGENT",
+    #  "REQUEST_PATH",
+    #  "SERVER_PROTOCOL",
+    #  "HTTP_ACCEPT_LANGUAGE",
+    #  "REMOTE_ADDR",
+    #  "PATH_INFO",
+    #  "SERVER_SOFTWARE",
+    #  "SCRIPT_NAME",
+    #  "HTTP_VERSION",
+    #  "HTTP_X_FORWARDED_SERVER",
+    #  "REQUEST_URI",
+    #  "SERVER_PORT",
+    #  "HTTP_X_FORWARDED_FOR",
+    #  "HTTP_ACCEPT_CHARSET",
+    #  "REQUEST_METHOD",
+    #  "QUERY_STRING",
+    #  "GATEWAY_INTERFACE",
+    #  "HTTP_CONNECTION",
+    #  "HTTP_ACCEPT_ENCODING"]
+    
+    # These are the fields that are currently stored in Ressi, so no need to store others
+    relevant_header_fields = ["HTTP_USER_AGENT","REQUEST_URI", "HTTP_REFERER"]
+    
+    CachedRessiEvent.create do |e|
+      e.user_id           = @current_user ? @current_user.id : nil
+      e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
+      e.session_id        = request.session_options ? request.session_options[:id] : nil
+      e.ip_address        = request.remote_ip
+      e.action            = "#{self.class}\##{action_name}"
+      begin
+        if (params["file"] || (params["listing"] && params["listing"]["image_file"]))
+          # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
+          e.parameters    = params.inspect.gsub('=>', ':')
+        else  #normal case
+          e.parameters    = request.filtered_parameters.to_json
+        end  
+      rescue JSON::GeneratorError => error
+        e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
+      end
+      e.return_value      = @_response.status
+      e.semantic_event_id = RestHelper.event_id
+      e.headers           = request.headers.reject do |key, value|
+        !relevant_header_fields.include?(key)
+      end.to_json
+    end
   end
   
 end
