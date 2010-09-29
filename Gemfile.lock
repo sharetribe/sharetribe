@@ -111,6 +111,8 @@ GEM
     hoe (2.6.2)
       rake (>= 0.8.7)
       rubyforge (>= 2.0.4)
+    hoptoad_notifier (2.3.7)
+      activesupport
     httpclient (2.1.5.2)
     i18n (0.4.1)
     jeweler (1.4.0)
@@ -214,6 +216,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   haml
+  hoptoad_notifier
   httpclient
   launchy
   memcache-client (>= 1.8.5)

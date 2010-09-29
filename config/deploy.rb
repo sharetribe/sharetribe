@@ -141,3 +141,6 @@ after "deploy:setup" do
 end
 
 
+
+        require 'config/boot'
+        require 'hoptoad_notifier/capistrano'
