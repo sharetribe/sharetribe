@@ -95,13 +95,17 @@ form, input {
   float: left; }
 
 #header {
-  height: 56px; }
+  height: 100px; }
 
 #main {
-  margin-top: 20px; }
+  margin-top: 20px;
+  overflow: hidden; }
+
+#listing_form_wrapper {
+  overflow: hidden; }
 
 #logo {
-  margin-top: 8px; }
+  margin-top: 7px; }
 
 #logo_image {
   height: 48px; }
@@ -112,7 +116,7 @@ form, input {
     text-shadow: 1px 1px 1px #000; }
 
 #search {
-  margin: 15px 0 0 0; }
+  margin: 15px 0 0 32px; }
   #search input.search_field {
     margin-left: 5px;
     background: #f7f5e6;
@@ -143,12 +147,15 @@ form, input {
       background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat;
       color: #f8792f; }
 
+.tabs {
+  margin-top: 16px; }
+
 #top_navi select {
   background: #f7f5e6;
   font-size: 11px; }
 
 .top_navi_link {
-  margin-top: 10px; }
+  margin-top: 26px; }
   .top_navi_link a {
     color: white;
     font-weight: bold;
@@ -160,8 +167,12 @@ form, input {
     .top_navi_link a:active {
       color: #d45207; }
 
+.login_tabs {
+  height: 40px;
+  margin-right: 10px; }
+
 .locale_select_padding {
-  margin-left: 5px; }
+  margin: 13px 0 0 5px; }
 
 .tab_unselected a {
   width: 110px;
@@ -228,7 +239,7 @@ form, input {
     background: #a33f05; }
 
 #top_spacer {
-  height: 5px; }
+  height: 20px; }
 
 .notification_text {
   width: 850px;
@@ -243,7 +254,7 @@ form, input {
   font-weight: bold; }
 
 #notifications {
-  margin-top: 20px; }
+  margin-top: 15px; }
   #notifications .notice {
     margin: 0 5px;
     color: #264409;
@@ -1107,7 +1118,7 @@ div.checkbox_float {
   display: none; }
 
 #logged_in_icons {
-  margin: 12px 0 0 11px;
+  margin: 12px 0 0 0;
   color: white;
   overflow: hidden; }
 
@@ -1215,7 +1226,7 @@ div.checkbox_float {
 
 #logged_in_links {
   text-align: right;
-  margin-top: 21px;
+  margin: 21px 10px 0 0;
   color: white;
   font-size: 13px; }
   #logged_in_links a {
