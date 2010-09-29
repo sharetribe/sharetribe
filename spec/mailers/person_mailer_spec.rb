@@ -49,5 +49,12 @@ describe PersonMailer do
     assert_equal [@test_person2.email], email.to
     assert_equal "Your offer was rejected", email.subject
   end
+  
+  it "should send email to admins of new feedback" do
+    @feedback = Factory(:feedback)
+    email = PersonMailer.new_feedback(@feedback).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
+  end  
 
 end
