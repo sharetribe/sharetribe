@@ -7,7 +7,7 @@
       .conversation_status_container
         .conversation_status_label
           = t(".waiting_confirmation_from_listing_author")
-  - else
+  - elsif conversation.status
     .conversation_status_container
       .conversation_status_label{:class => conversation.status}
         = t(".#{conversation.discussion_type}_#{conversation.status}")
