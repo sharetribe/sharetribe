@@ -34,7 +34,6 @@ elsif ENV['DEPLOY_ENV'] == "kassi2test"
   set :deploy_to, "/var/datat/kassi2test"
   set :server_name, "beta"
   set :host, "beta.sizl.org"
-  set :branch, "migration"
 end
 # mongrel_cluster_size = {
 #   "alpha" => 2,
@@ -69,8 +68,8 @@ end
 namespace :deploy do
   
   task :preparations do
-    run "killall mongrel_rails" rescue nil
-    run "killall searchd" rescue nil
+    #run "killall mongrel_rails" rescue nil
+    #run "killall searchd" rescue nil
   end
   
   task :symlinks_to_shared_path do
