@@ -36,6 +36,7 @@ gem 'thinking-sphinx',
   :require => 'thinking_sphinx'
 gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
 gem 'hoptoad_notifier'
+gem 'passenger'
 
 group :test do
   gem "rspec-rails", ">= 2.0.0.beta.19"
