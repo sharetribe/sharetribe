@@ -3,7 +3,7 @@ require 'thinking_sphinx/deploy/capistrano'
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
-set :application, "kassi2"
+set :application, "kassi"
 set :repository,  "git://github.com/sizzlelab/kassi.git"
 set :user, "kassi"  # The server's user for deploys
 ssh_options[:forward_agent] = true
@@ -13,7 +13,7 @@ set :branch, "kassi2"
 
 set :deploy_via, :remote_cache
 
-set :deploy_to, "/var/datat/kassi2"
+set :deploy_to, "/var/datat/kassi"
 set :mongrel_port, "3500"
 
 if ENV['DEPLOY_ENV']
