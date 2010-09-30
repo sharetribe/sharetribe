@@ -21,7 +21,8 @@ en:
       valid_until: "This date must be between current time and one year from now."
       departure_time: "Departure time must be between current time and one year from now."
     testimonials:
-      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"      
+      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"
+      you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."      
   header:
     mobile_version: "Mobile version"
     about: "About Kassi"
@@ -401,6 +402,7 @@ en:
       terms: "terms"
       username_is_in_use: "The username you gave is already in use."
       email_is_in_use: "The email you gave is already in use."
+      captcha_was_wrong: "Captcha text was incorrect."
     profile_listings:
       offers: "Offers"
       requests: "Requests"

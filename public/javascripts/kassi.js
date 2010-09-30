@@ -59,6 +59,21 @@ $.validator.
     }
   );
 
+$.validator.	
+	addMethod("required_when_not_neutral_feedback", 
+		function(value, element, param) {
+			if (value == "") {
+				var radioButtonArray = new Array("1", "2", "4", "5"); 
+				for (var i = 0; i < radioButtonArray.length; i++) {
+				  if ($('#grade-' + radioButtonArray[i]).is(':checked')) {
+						return false;
+					}
+				}
+			}
+			return true; 
+	 	}
+	);
+
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -217,7 +232,7 @@ function initialize_comment_form(locale) {
 	});	
 }
 
-function initialize_give_feedback_form(error_message, locale) {
+function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	faceGrade.create('.feedback_grade_images');
@@ -225,13 +240,19 @@ function initialize_give_feedback_form(error_message, locale) {
 	var form_id = "#new_testimonial"
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			error.appendTo(element.parent().parent().parent());
+			if (element.attr("name") == "testimonial[text]") {
+				error.appendTo(element.parent());
+			} else {
+				error.appendTo(element.parent().parent().parent());
+			}	
 		},	
 		rules: {
-			"testimonial[grade]": {required: true}
+			"testimonial[grade]": {required: true},
+			"testimonial[text]": {required_when_not_neutral_feedback: true}
 		}, 
 		messages: {
-			"testimonial[grade]": { required: error_message }
+			"testimonial[grade]": { required: grade_error_message },
+			"testimonial[text]": { required_when_not_neutral_feedback: text_error_message }
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "false");
@@ -239,7 +260,7 @@ function initialize_give_feedback_form(error_message, locale) {
 	});
 }
 
-function initialize_signup_form(locale, username_in_use_message, email_in_use_message) {
+function initialize_signup_form(locale, username_in_use_message, email_in_use_message, captcha_message) {
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
@@ -266,7 +287,7 @@ function initialize_signup_form(locale, username_in_use_message, email_in_use_me
 			"recaptcha_response_field": {required: true, captcha: true }
 		},
 		messages: {
-		  "recaptcha_response_field": { captcha: "Captcha was wrong. Please try again." },
+		  "recaptcha_response_field": { captcha: captcha_message },
 			"person[username]": { remote: username_in_use_message },
 			"person[email]": { remote: email_in_use_message },
 		},
