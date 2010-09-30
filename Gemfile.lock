@@ -147,6 +147,10 @@ GEM
     paperclip (2.3.3)
       activerecord
       activesupport
+    passenger (2.2.15)
+      fastthread (>= 1.0.1)
+      rack
+      rake (>= 0.8.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -224,6 +228,7 @@ DEPENDENCIES
   mysql (= 2.8.1)
   newrelic_rpm
   paperclip
+  passenger
   rails (= 3.0.0)
   recaptcha!
   rest-client (>= 1.6.0)
