@@ -12,7 +12,7 @@ class MigrateListingImagesToPaperClip < ActiveRecord::Migration
     
      Listing.all.each do |listing|
        if File.exists?("#{listing_images_path}/#{listing.id.to_s}.png")
-         listing_image = ListingImage.new(:image => File.new("public/listing_images/#{listing.id.to_s}.png"))
+         listing_image = ListingImage.new(:image => File.new("#{listing_images_path}/#{listing.id.to_s}.png"))
          listing.listing_images = [listing_image]
        end
        print "."
