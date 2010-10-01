@@ -29,7 +29,7 @@ class ListingsController < ApplicationController
   def load
     @title = params[:listing_type]
     @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.open.find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
