@@ -379,41 +379,48 @@ form, input {
 .more_events_link {
   padding: 20px 0; }
 
-#request_something_button a {
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 0;
-  color: white;
-  background: #d45207;
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px; }
-  #request_something_button a:hover {
-    background: #f8792f; }
-  #request_something_button a:active {
-    background: #a33f05; }
+.home_button {
+  width: 340px; }
 
-#offer_something_button a {
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 0;
-  color: white;
-  background: #765d3a;
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px; }
-  #offer_something_button a:hover {
-    background: #a98553; }
-  #offer_something_button a:active {
-    background: #544229; }
+#request_something_button {
+  width: 185px; }
+  #request_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #request_something_button a:hover {
+      background: #f8792f; }
+    #request_something_button a:active {
+      background: #a33f05; }
+
+#offer_something_button {
+  width: 185px; }
+  #offer_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #765d3a;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #offer_something_button a:hover {
+      background: #a98553; }
+    #offer_something_button a:active {
+      background: #544229; }
 
 /* Aligns button descriptions to buttons */
 .button_description_fix {
-  width: 270px; }
+  width: 265px; }
 
 #request_button_description {
   font-size: 11px;
@@ -1296,6 +1303,7 @@ a.edit_profile {
 
 #request_listing_link {
   margin-left: 10px;
+  width: 185px;
   width: 210px; }
   #request_listing_link a {
     display: block;
@@ -1514,41 +1522,45 @@ a.edit_profile {
     margin-right: 7px;
     display: inline; }
 
-.accept a {
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 0;
-  color: white;
-  background: #d45207;
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px; }
-  .accept a:hover {
-    background: #f8792f; }
-  .accept a:active {
-    background: #a33f05; }
-.accept a {
-  font-size: 13px; }
+.accept {
+  width: 185px; }
+  .accept a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    .accept a:hover {
+      background: #f8792f; }
+    .accept a:active {
+      background: #a33f05; }
+  .accept a {
+    font-size: 13px; }
 
-.reject a {
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px 0;
-  color: white;
-  background: #765d3a;
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px; }
-  .reject a:hover {
-    background: #a98553; }
-  .reject a:active {
-    background: #544229; }
-.reject a {
-  font-size: 13px; }
+.reject {
+  width: 185px; }
+  .reject a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #765d3a;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    .reject a:hover {
+      background: #a98553; }
+    .reject a:active {
+      background: #544229; }
+  .reject a {
+    font-size: 13px; }
 
 .conversation_status_container {
   background: #ececdb;

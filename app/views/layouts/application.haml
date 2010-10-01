@@ -2,7 +2,11 @@
 !!! xml
 %html{html_attrs(I18n.locale)}
   %head
-    %title Kassi
+    %title 
+      Kassi
+      - if @listing && action_name.eql?("show")
+        = "- #{@listing.title}"
+        
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => t(".meta_description") }
     %meta{ :name => "keywords", :content => t(".keywords") } 
