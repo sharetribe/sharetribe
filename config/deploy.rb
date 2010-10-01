@@ -117,7 +117,7 @@ namespace :deploy do
   task :finalize do
     #whenever.write_crontab
     #apache.restart
-    run "sudo /etc/init.d/apache2 restart"
+    #run "sudo /etc/init.d/apache2 restart"
   end  
 end
 
