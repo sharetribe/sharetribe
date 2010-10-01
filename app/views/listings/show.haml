@@ -19,8 +19,8 @@
       - text_with_line_breaks do
         = @listing.description.blank? ? t(".no_description") : @listing.description
     
-    - unless @listing.share_types.empty? && @listing.tag_list.empty?    
-      #share_types_and_tags
+    #share_types_and_tags
+      - unless @listing.share_types.empty? && @listing.tag_list.empty?    
         - unless @listing.tag_list.empty?
           %strong
             = t(".tags") + ":"
@@ -33,7 +33,12 @@
             = t(".share_types") + ":"
           - @listing.share_types.collect do |st| 
             = t("common.share_types.#{st.name}")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
-
+        - unless @listing.share_types.empty? && @listing.tag_list.empty?
+          %br/
+      %strong
+        = t(".times_viewed") + ":"
+      = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times")) 
+            
     #listing_author
       .float_left
         = small_avatar_thumb(@listing.author)
