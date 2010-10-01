@@ -476,7 +476,12 @@ form, input {
 	padding: 20px 0;
 }
 
+.home_button {
+	width: 340px;
+}
+
 @mixin home_button($background: $orange) {
+	width: 185px;
 	a {
 		display: block;
 		font-size: 14px;
@@ -514,7 +519,7 @@ form, input {
 
 /* Aligns button descriptions to buttons */
 .button_description_fix {
-	width: 270px;
+	width: 265px;
 }
 
 #request_button_description {

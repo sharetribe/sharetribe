@@ -1,17 +1,11 @@
-#recent_event_box.grid_6
-  .recent_events
-    = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    %h4= t('.welcome_to_new_kassi')
-    .welcome_text
-      = render :partial => "welcome_text"
-    = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
 #recent_listings.grid_18
 
-  #request_something_button.grid_5.prefix_2.suffix_2.alpha
-    = link_to t('.request_something'), new_request_path(:type => "request")
-  #offer_something_button.grid_5.prefix_2.suffix_2.omega
-    = link_to t('.offer_something'), new_request_path(:type => "offer")
+  .grid_5.prefix_2.suffix_2.alpha
+    #request_something_button
+      = link_to t('.request_something'), new_request_path(:type => "request")
+  .grid_5.prefix_2.suffix_2.omega
+    #offer_something_button
+      = link_to t('.offer_something'), new_request_path(:type => "offer")
   .clear
 
   #request_button_description.grid_7.prefix_1.suffix_1.alpha
@@ -48,3 +42,11 @@
       = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
       = will_paginate(@offers)
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
+  
+#recent_event_box.grid_6
+  .recent_events
+    = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+    %h4= t('.welcome_to_new_kassi')
+    .welcome_text
+      = render :partial => "welcome_text"
+    = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
