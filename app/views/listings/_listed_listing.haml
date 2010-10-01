@@ -21,5 +21,5 @@
       = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form" 
     .float_right
       %span
-        = link_to listing.author.given_name, "#"
+        = link_to listing.author.given_name, listing.author
         = time_ago(listing.created_at)
