@@ -77,7 +77,7 @@ class Listing < ActiveRecord::Base
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     
     set_property :enable_star => true
-    set_property :delta => false
+    set_property :delta => true
     set_property :field_weights => {
           :title       => 10,
           :tags        => 8,

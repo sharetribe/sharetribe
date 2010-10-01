@@ -66,6 +66,7 @@ Kassi::Application.routes.draw do
       collection do
         get :more_listings
         get :browse
+        get :random
       end
       resources :images, :controller => :listing_images
       resources :comments
