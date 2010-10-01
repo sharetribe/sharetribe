@@ -5,7 +5,7 @@
     %title 
       Kassi
       - if @listing && action_name.eql?("show")
-        = "- #{@listing.title}"
+        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
         
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => t(".meta_description") }
