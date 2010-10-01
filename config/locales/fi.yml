@@ -352,6 +352,9 @@ fi:
       tags: "Avainsanat"
       no_description: "Ei kuvausta"
       comments: "Kommentit"
+      times_viewed: "Katsottu"
+      time: "kerta"
+      times: "kertaa"
     comment_form:
       write_comment: "Kirjoita uusi kommentti:"
       send_comment: "Lähetä kommentti"
@@ -429,6 +432,7 @@ fi:
       requests: "Pyynnöistä"
       search_results: "Hakutulokset"
       loading_more_search_results: "Ladataan lisää hakutuloksia"
+      search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
   sessions:
     new:
       login_to_kassi: "Kirjaudu sisään Kassiin"

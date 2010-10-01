@@ -6,5 +6,4 @@
     - if params[:listing_type]
       = t(".no_#{params[:listing_type]}s_with_the_conditions_you_gave")
       = link_to t(".#{Listing.opposite_type(params[:listing_type])}_something"), new_request_path(:type => Listing.opposite_type(params[:listing_type]))
-    - else
-      = t(".search_returned_no_results")
+    
