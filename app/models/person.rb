@@ -43,8 +43,13 @@ class Person < ActiveRecord::Base
     "email_about_new_comments_to_own_listing",
     "email_when_conversation_accepted",
     "email_when_conversation_rejected"
+    
+    # These should not yet be shown in UI, although they might be stored in DB
+    # "email_when_new_friend_request",
+    # "email_when_new_feedback_on_transaction",
+    # "email_when_new_listing_from_friend"
   ] 
-  
+    
   serialize :preferences
   
   # Returns conversations for the "received" and "sent" actions
@@ -203,8 +208,6 @@ class Person < ActiveRecord::Base
     # If not found use the person_hash cache (which is separate for each asker)
     
     Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
-    # FIXME: THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA SERVER
-    name_or_username_from_person_hash(cookie) # get without name cache
   end
       
   def name_or_username_from_person_hash(cookie=nil)
