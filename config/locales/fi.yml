@@ -547,7 +547,7 @@ fi:
   time:
     formats:
       default: "%a, %e. %b %Y %H:%M:%S %z"
-      short: "%e. %b kello %H:%M"
+      short: "%e. %b %Y kello %H:%M"
       long: "%B %d, %Y %H:%M"
     am: "aamupäivä"
     pm: "iltapäivä"
