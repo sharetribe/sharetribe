@@ -130,6 +130,7 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
