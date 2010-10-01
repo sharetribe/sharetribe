@@ -90,6 +90,17 @@ class ListingsController < ApplicationController
     end
   end
   
+  #shows a random listing (that is visible to all)
+  def random
+    conditions = "open = 1 AND valid_until >= '" + DateTime.now.to_s + "' AND visibility = 'everybody'"
+        
+    open_listings_ids = Listing.select("id").where(conditions).all
+    random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)].id
+    #redirect_to listing_path(random_id)
+    @listing = Listing.find_by_id(random_id)
+    render :action => :show
+  end
+  
   private
   
   # Ensure that only users with appropriate visibility settings can view the listing
