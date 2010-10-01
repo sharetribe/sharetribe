@@ -3,7 +3,7 @@ require 'thinking_sphinx/deploy/capistrano'
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
-set :application, "kassi2"
+set :application, "kassi"
 set :repository,  "git://github.com/sizzlelab/kassi.git"
 set :user, "kassi"  # The server's user for deploys
 ssh_options[:forward_agent] = true
@@ -13,7 +13,7 @@ set :branch, "kassi2"
 
 set :deploy_via, :remote_cache
 
-set :deploy_to, "/var/datat/kassi2"
+set :deploy_to, "/var/datat/kassi"
 set :mongrel_port, "3500"
 
 if ENV['DEPLOY_ENV']
@@ -30,8 +30,11 @@ if ENV['DEPLOY_ENV'] == "dbtest"
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
   set :mongrel_port, "3550"
+elsif ENV['DEPLOY_ENV'] == "kassi2test"
+  set :deploy_to, "/var/datat/kassi2test"
+  set :server_name, "beta"
+  set :host, "beta.sizl.org"
 end
-
 # mongrel_cluster_size = {
 #   "alpha" => 2,
 #   "beta" => 3,
@@ -54,19 +57,19 @@ set :use_sudo, false
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
 
 namespace :deploy do
   
   task :preparations do
-    run "killall mongrel_rails" rescue nil
-    run "killall searchd" rescue nil
+    #run "killall mongrel_rails" rescue nil
+    #run "killall searchd" rescue nil
   end
   
   task :symlinks_to_shared_path do
@@ -90,27 +93,27 @@ namespace :deploy do
     run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install --deployment --without test"
   end
     
-  desc "Modified restart task to work with mongrel cluster" 
-  task :restart, :roles => :app do 
-    # run "cd #{deploy_to}/current && mongrel_rails cluster::restart -C 
-    # #{shared_path}/system/mongrel_cluster.yml" 
-    deploy.stop
-    deploy.start
-  end 
-  desc "Modified start task to work with mongrel cluster" 
-  task :start, :roles => :app do 
-    # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
-    #     #{shared_path}/system/mongrel_cluster.yml" 
-    
-     run "cd #{deploy_to}/current && rails server -p #{mongrel_port} -e production -d"
-  end 
-  desc "Modified stop task to work with mongrel cluster" 
-  task :stop, :roles => :app do 
-    # run "cd #{deploy_to}/current && mongrel_rails cluster::stop -C 
-    # #{shared_path}/system/mongrel_cluster.yml" 
-    run "cd #{current_path} && mongrel_rails stop -p tmp/pids/server.pid" rescue nil
-  end
-  
+  # desc "Modified restart task to work with mongrel cluster" 
+  # task :restart, :roles => :app do 
+  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::restart -C 
+  #   # #{shared_path}/system/mongrel_cluster.yml" 
+  #   deploy.stop
+  #   deploy.start
+  # end 
+  # desc "Modified start task to work with mongrel cluster" 
+  # task :start, :roles => :app do 
+  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
+  #   #     #{shared_path}/system/mongrel_cluster.yml" 
+  #   
+  #    run "cd #{deploy_to}/current && rails server -p #{mongrel_port} -e production -d"
+  # end 
+  # desc "Modified stop task to work with mongrel cluster" 
+  # task :stop, :roles => :app do 
+  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::stop -C 
+  #   # #{shared_path}/system/mongrel_cluster.yml" 
+  #   run "cd #{current_path} && mongrel_rails stop -p tmp/pids/server.pid" rescue nil
+  # end
+  # 
   task :finalize do
     #whenever.write_crontab
     #apache.restart

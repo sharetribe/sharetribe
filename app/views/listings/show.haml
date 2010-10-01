@@ -25,14 +25,14 @@
           %strong
             = t(".tags") + ":"
           - @listing.tag_list.collect do |tag| 
-            = link_to(tag, "#") + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+            = tag + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
         - unless @listing.share_types.empty? || @listing.tag_list.empty?
           %br/
         - unless @listing.share_types.empty?
           %strong
             = t(".share_types") + ":"
           - @listing.share_types.collect do |st| 
-            = link_to(t("common.share_types.#{st.name}"), "#")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
+            = t("common.share_types.#{st.name}")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
 
     #listing_author
       .float_left
