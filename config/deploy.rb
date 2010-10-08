@@ -14,7 +14,6 @@ set :branch, "kassi2"
 set :deploy_via, :remote_cache
 
 set :deploy_to, "/var/datat/kassi"
-set :mongrel_port, "3500"
 
 if ENV['DEPLOY_ENV']
   set :server_name, ENV['DEPLOY_ENV']
