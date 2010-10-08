@@ -94,3 +94,14 @@
         &nbsp;
         %br/
         %br/
+      - if (APP_CONFIG.use_google_analytics)
+        <!-- The google analytics script-->
+        <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        = 'var pageTracker = _gat._getTracker("'.html_safe + APP_CONFIG.google_analytics_key.to_s + '");'.html_safe
+        pageTracker._trackPageview();
+        } catch(err) {}</script>
