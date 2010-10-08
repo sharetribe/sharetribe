@@ -9,6 +9,7 @@ class Testimonial < ActiveRecord::Base
   ]
 
   belongs_to :author, :class_name => "Person", :dependent => :destroy
+  belongs_to :target, :class_name => "Person", :dependent => :destroy
   belongs_to :participation, :dependent => :destroy
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false

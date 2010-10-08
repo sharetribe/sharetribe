@@ -4,7 +4,7 @@
 .grid_10.prefix_7.suffix_7
   #new_testimonial_form
     %h2
-      = t(".give_feedback_to", :person => @current_user.given_name)
+      = t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name)
     = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
       = form.error_messages
       .message_form_field_container
@@ -20,5 +20,6 @@
         = form.text_area :text, :class => "text_area"
       .message_form_field_container
         = form.hidden_field :author_id, :value => @current_user.id
+        = form.hidden_field :target_id, :value => @conversation.other_party(@current_user).id
         = form.hidden_field :participation_id, :value => @participation.id
         = form.submit t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

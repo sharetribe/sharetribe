@@ -6,21 +6,38 @@
   - if current_user?(@person)    
     #edit_links
       = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s), :class => "edit_profile"
+  - if @person.received_testimonials.size > 0
+    .profile_feedback_header
+      .profile_feedback_average_image
+        %div{:class => grade_image_class(@person.feedback_average)}
+          &nbsp;
+      .profile_feedback_average
+        .profile_feedback_average_title
+          = t(".feedback_average")
+        .profile_feedback_average_value
+          = @person.feedback_average.to_s + "/5"
+        .profile_feedback_average_description
+          = "(" + grade_text(@person.feedback_average) + ")"
+    .profile_feedback_list
+      .profile_feedback_arrow
+        &nbsp;
+      = render :partial => "profile_feedback"
   
 .grid_18
   .grid_12.alpha
     %h1= @person.name
     #profile_info
-      .profile_info_row
-        .profile_info_row_title
-          = t(".address")
-        .profile_info_row_content
-          = @person.unstructured_address
-      .profile_info_row    
-        .profile_info_row_title
-          = t(".phone_number")
-        .profile_info_row_content
-          = @person.phone_number 
+      - if logged_in?
+        .profile_info_row
+          .profile_info_row_title
+            = t(".address")
+          .profile_info_row_content
+            = @person.unstructured_address
+        .profile_info_row    
+          .profile_info_row_title
+            = t(".phone_number")
+          .profile_info_row_content
+            = @person.phone_number 
       .profile_info_row    
         .profile_info_row_title
           = t(".about_me")

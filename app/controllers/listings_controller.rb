@@ -11,6 +11,10 @@ class ListingsController < ApplicationController
     controller.ensure_authorized "only_listing_author_can_close_a_listing"
   end
   
+  def index
+    redirect_to root
+  end
+  
   def requests
     params[:listing_type] = "request"
     @to_render = {:action => :index}

@@ -18,6 +18,7 @@ Feature: User views profile page
     And there is favor offer with title "sewing" from "kassi_testperson1"
     And that listing is closed
     And I am logged in as "kassi_testperson1"
+    And I should not see "Feedback average:"
     When I follow "profile"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
@@ -91,6 +92,37 @@ Feature: User views profile page
      Then I should see "car spare parts"
      And I should see "massage"
      And I should not see "apartment"
+     
+  @javascript
+  Scenario: User views feedback in a profile page
+    Given there are following users:
+       | person | 
+       | kassi_testperson1 |
+       | kassi_testperson2 |
+       | kassi_testperson3 |
+    And there is item request with title "hammer" from "kassi_testperson1" and with share type "borrow"
+    And there is a message "I offer this" from "kassi_testperson2" about that listing
+    And the offer is accepted
+    And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
+    And there is item request with title "saw" from "kassi_testperson1" and with share type "borrow"
+    And there is a message "I offer this" from "kassi_testperson3" about that listing
+    And the offer is accepted
+    And there is feedback about that event from "kassi_testperson3" with grade "0.25" and with text "Test feedback"
+    And there is item request with title "drill" from "kassi_testperson1" and with share type "borrow"
+    And there is a message "I offer this" from "kassi_testperson2" about that listing
+    And the offer is accepted
+    And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
+    And there is item request with title "tool" from "kassi_testperson1" and with share type "borrow"
+    And there is a message "I offer this" from "kassi_testperson3" about that listing
+    And the offer is accepted
+    And there is feedback about that event from "kassi_testperson3" with grade "1" and with text "Test feedback"
+    And I am logged in as "kassi_testperson1"
+    When I follow "profile"
+    Then I should see "Feedback average:"
+    And I should see "3.8" within "grade"
+  
+  
+  
   
   
   

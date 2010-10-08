@@ -21,6 +21,8 @@ $bg_color_dark: darken($bg_color, 10%);
 $listing_button_grey: #5c5c5c;
 $listing_button_light_grey: #b8b19f;
 $dark_green: #223f05;
+$lighter_green: lighten($dark_green, 5%);
+$light_green: #ececdb;
 $unread_message: #efd6ba;
 $notice_text: #264409; 
 $notice_border: #c6d880; 
@@ -480,8 +482,8 @@ form, input {
 	width: 340px;
 }
 
-@mixin home_button($background: $orange) {
-	width: 185px;
+@mixin home_button($background: $orange, $width: 185px) {
+	width: $width;
 	a {
 		display: block;
 		font-size: 14px;
@@ -1396,7 +1398,6 @@ a.edit_profile {
 .conversation_status_link {
 	float: left;
 	margin-right: 10px;
-	width: 170px;
 	img {
 		vertical-align: -25%;
 		margin-right: 7px;
@@ -1405,12 +1406,12 @@ a.edit_profile {
 }
 
 .accept {
-	@include home_button($orange);
+	@include home_button($orange, 170px);
 	a { font-size: 13px; }
 }
 
 .reject {
-	@include home_button($medium_brown);
+	@include home_button($medium_brown, 170px);
 	a { font-size: 13px; }
 }
 
@@ -2260,4 +2261,70 @@ a.handle {
 		border: 0;
 		&:focus { background: white; }
 	}
+}
+
+.profile_feedback_header {
+	overflow: hidden;
+	margin-top: 10px;
+}
+
+.profile_feedback_average_image {
+	padding: 5px;
+	width: 50px;
+	border: 2px solid lighten($dark_green, 5%);
+	float: left;
+}
+
+@mixin profile_feedback_average_image($image_pos: 0) {
+	width: 50px;
+	height: 50px;
+	background: $bg_color url("/images/kaapo/basic_link.png") 0 $image_pos no-repeat;
+}
+
+.profile_feedback_average_image_5 { @include profile_feedback_average_image; }
+.profile_feedback_average_image_4 { @include profile_feedback_average_image(-150px); }
+.profile_feedback_average_image_3 { @include profile_feedback_average_image(-300px); }
+.profile_feedback_average_image_2 { @include profile_feedback_average_image(-450px); }
+.profile_feedback_average_image_1 { @include profile_feedback_average_image(-600px); }
+
+.profile_feedback_average {
+	background: lighten($dark_green, 5%);
+	float: left;
+	width: 134px;
+	height: 47px;
+	font-weight: bold;
+	padding: 7px 10px 10px 10px;
+	color: white;
+	overflow: hidden;
+}
+
+.profile_feedback_average_title {
+	width: 134px;
+	font-size: 12px;
+	float: left;
+}
+
+.profile_feedback_average_value {
+	float: left;
+	width: 68px;
+	font-size: 26px;
+	line-height: 26px;
+}
+
+.profile_feedback_average_description {
+	font-size: 10px;
+	float: left;
+	width: 66px;
+	line-height: 11px;
+	padding-top: 2px;
+}
+
+.profile_feedback_list {
+	overflow: hidden;
+	background: $light_green;
+	width: 218px;
+}
+
+.profile_feedback_arrow {
+	background: $light_green url("/images/profile_feedback_arrow.png") 150px 0 no-repeat;
 }
