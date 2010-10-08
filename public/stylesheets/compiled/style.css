@@ -1515,15 +1515,14 @@ a.edit_profile {
 
 .conversation_status_link {
   float: left;
-  margin-right: 10px;
-  width: 170px; }
+  margin-right: 10px; }
   .conversation_status_link img {
     vertical-align: -25%;
     margin-right: 7px;
     display: inline; }
 
 .accept {
-  width: 185px; }
+  width: 170px; }
   .accept a {
     display: block;
     font-size: 14px;
@@ -1543,7 +1542,7 @@ a.edit_profile {
     font-size: 13px; }
 
 .reject {
-  width: 185px; }
+  width: 170px; }
   .reject a {
     display: block;
     font-size: 14px;
@@ -2550,3 +2549,74 @@ a.handle:hover {
     border: 0; }
     #error_page_feedback_form textarea:focus {
       background: white; }
+
+.profile_feedback_header {
+  overflow: hidden;
+  margin-top: 10px; }
+
+.profile_feedback_average_image {
+  padding: 5px;
+  width: 50px;
+  border: 2px solid #2f5707;
+  float: left; }
+
+.profile_feedback_average_image_5 {
+  width: 50px;
+  height: 50px;
+  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 0 no-repeat; }
+
+.profile_feedback_average_image_4 {
+  width: 50px;
+  height: 50px;
+  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -150px no-repeat; }
+
+.profile_feedback_average_image_3 {
+  width: 50px;
+  height: 50px;
+  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -300px no-repeat; }
+
+.profile_feedback_average_image_2 {
+  width: 50px;
+  height: 50px;
+  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -450px no-repeat; }
+
+.profile_feedback_average_image_1 {
+  width: 50px;
+  height: 50px;
+  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -600px no-repeat; }
+
+.profile_feedback_average {
+  background: #2f5707;
+  float: left;
+  width: 134px;
+  height: 47px;
+  font-weight: bold;
+  padding: 7px 10px 10px 10px;
+  color: white;
+  overflow: hidden; }
+
+.profile_feedback_average_title {
+  width: 134px;
+  font-size: 12px;
+  float: left; }
+
+.profile_feedback_average_value {
+  float: left;
+  width: 68px;
+  font-size: 26px;
+  line-height: 26px; }
+
+.profile_feedback_average_description {
+  font-size: 10px;
+  float: left;
+  width: 66px;
+  line-height: 11px;
+  padding-top: 2px; }
+
+.profile_feedback_list {
+  overflow: hidden;
+  background: #ececdb;
+  width: 218px; }
+
+.profile_feedback_arrow {
+  background: #ececdb url("/images/profile_feedback_arrow.png") 150px 0 no-repeat; }

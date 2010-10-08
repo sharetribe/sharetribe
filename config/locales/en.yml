@@ -352,6 +352,9 @@ en:
       tags: "Tags"
       no_description: "No description"
       comments: "Comments"
+      times_viewed: "Viewed"
+      time: "time"
+      times: "times"
     comment_form:
       write_comment: "Write a new comment:"
       send_comment: "Send comment"
@@ -417,6 +420,12 @@ en:
       show_full_description: "Show more"
       hide_description: "Show less"
       edit_profile_info: "Edit profile"
+      feedback_average: "Feedback average:"
+      less_than_expected: "Worse than expected"
+      slightly_less_than_expected: "Worse than expected"
+      as_expected: "As expected"
+      slightly_better_than_expected: "Exceeded expectations"
+      exceeded_expectations: "Exceeded expectations"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"            

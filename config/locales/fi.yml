@@ -420,6 +420,12 @@ fi:
       show_full_description: "Näytä koko teksti"
       hide_description: "Vähemmän tekstiä"
       edit_profile_info: "Muokkaa tietojasi"
+      feedback_average: "Palautteiden keskiarvo:"
+      less_than_expected: "Ei vastannut odotuksia"
+      slightly_less_than_expected: "Ei vastannut odotuksia"
+      as_expected: "Vastasi odotuksia"
+      slightly_better_than_expected: "Ylitti odotukset"
+      exceeded_expectations: "Ylitti odotukset"
     help_texts:
       help_captcha_title: "Olethan ihminen"
       terms_title: "Kassin käyttöehdot"  
@@ -490,7 +496,7 @@ fi:
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
       as_expected: "Vastasi odotuksia"
-      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
+      slightly_better_than_expected: "Ylitti osin odotukset"
       exceeded_expectations: "Ylitti täysin odotukset"
       send_feedback: "Lähetä palaute"
   timestamps:

@@ -35,7 +35,8 @@ class Person < ActiveRecord::Base
   
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
-  has_many :authored_testimonials, :class_name => "Testimonial"
+  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
+  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "target_id", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   
   EMAIL_NOTIFICATION_TYPES = [
@@ -55,6 +56,10 @@ class Person < ActiveRecord::Base
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)
     conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
+  end
+  
+  def feedback_average
+    ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
   end
 
   # has_many :feedbacks

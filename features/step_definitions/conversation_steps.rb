@@ -26,3 +26,8 @@ end
 Given /^the (offer|request) is (accepted|rejected)$/ do |listing_type, status|
   @conversation.update_attribute(:status, status)
 end
+
+When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
+  participation = @conversation.participations.find_by_person_id(@people[feedback_giver].id)
+  participation.testimonial = Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text)
+end
