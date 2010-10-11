@@ -6,7 +6,8 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
                              :tag_list => "tools, test",
                              :share_type_attributes => (share_type ? share_type.split(",") : nil),
                              :author_id => (@people && @people[author] ? @people[author].id : Person.first.id),
-                             :valid_until => 3.months.from_now
+                             :valid_until => 3.months.from_now,
+                             :visibility => "everybody"
                             )
 end
 

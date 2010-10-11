@@ -111,6 +111,7 @@ en:
       feedback_saved: "Thanks for your feedback!"
       feedback_not_saved: "Feedback could not be sent."
       feedback_considered_spam: "Feedback not saved, due to its formatting. Try again or use the feedback forum."
+      you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -406,6 +407,21 @@ en:
       username_is_in_use: "The username you gave is already in use."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
+    profile_feedback:
+      grade: "grade:"
+      less_than_expected: "Worse than expected"
+      slightly_less_than_expected: "Slightly worse than expected"
+      as_expected: "As expected"
+      slightly_better_than_expected: "Slightly better than expected"
+      exceeded_expectations: "Much better than expected"
+      requested_item: "requested an item"
+      requested_favor: "requested a favor"
+      requested_rideshare: "requested a ride"
+      requested_housing: "requested housing"
+      offered_item: "offered an item"
+      offered_favor: "offered a favor"
+      offered_rideshare: "offered a ride"
+      offered_housing: "offered housing"
     profile_listings:
       offers: "Offers"
       requests: "Requests"
@@ -426,6 +442,7 @@ en:
       as_expected: "As expected"
       slightly_better_than_expected: "Exceeded expectations"
       exceeded_expectations: "Exceeded expectations"
+      show_all_feedback: "Show all feedback"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"            

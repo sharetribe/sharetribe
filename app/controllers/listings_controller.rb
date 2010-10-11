@@ -110,9 +110,17 @@ class ListingsController < ApplicationController
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
-    unless @listing.visible_to?(@current_user)
-      flash[:error] = "you_are_not_authorized_to_view_this_content"
-      redirect_to root and return
+    if @current_user
+      unless @listing.visible_to?(@current_user)
+        flash[:error] = "you_are_not_authorized_to_view_this_content"
+        redirect_to root and return
+      end
+    else
+      unless @listing.visibility.eql?("everybody")
+        session[:return_to] = request.fullpath
+        flash[:warning] = "you_must_log_in_to_view_this_content"
+        redirect_to new_session_path and return
+      end
     end
   end
 

@@ -21,8 +21,9 @@
     .profile_feedback_list
       .profile_feedback_arrow
         &nbsp;
-      = render :partial => "profile_feedback"
-  
+      .profile_feedback_texts
+        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(2), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
+          
 .grid_18
   .grid_12.alpha
     %h1= @person.name

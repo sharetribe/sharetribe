@@ -2620,3 +2620,16 @@ a.handle:hover {
 
 .profile_feedback_arrow {
   background: #ececdb url("/images/profile_feedback_arrow.png") 150px 0 no-repeat; }
+
+.profile_feedback_texts {
+  padding: 0px 15px 15px 15px;
+  font-size: 12px; }
+  .profile_feedback_texts span {
+    font-size: 11px; }
+
+.profile_feedback_spacer {
+  border-top: 1px dashed #223f05;
+  width: 100%;
+  margin: 10px 0;
+  padding: 0;
+  height: 0; }
