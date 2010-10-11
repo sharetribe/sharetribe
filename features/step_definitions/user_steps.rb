@@ -23,6 +23,10 @@ Given /^My given name is "([^"]*)"$/ do |name|
   test_person.set_given_name(name, session.cookie)
 end
 
+Given /^I have phone number in my profile$/ do
+  pending # express the regexp above with the code you wish you had
+end
+
 
 When /^I enter correct credentials$/ do
   @session = Session.create( {:username => "kassi_testperson1", :password => "testi"})
