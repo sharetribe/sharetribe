@@ -14,4 +14,9 @@ class Testimonial < ActiveRecord::Base
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
 
+  # Formats grade so that it can be displayed in the UI
+  def displayed_grade
+    (grade * 4 + 1).to_i
+  end
+
 end

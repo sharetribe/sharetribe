@@ -2328,3 +2328,15 @@ a.handle {
 .profile_feedback_arrow {
 	background: $light_green url("/images/profile_feedback_arrow.png") 150px 0 no-repeat;
 }
+
+.profile_feedback_texts {
+	padding: 0px 15px 15px 15px;
+	span {
+		font-size: 11px;
+	}	
+	font-size: 12px;
+}
+
+.profile_feedback_spacer {
+	@include spacer($dark_green, dashed);
+}
