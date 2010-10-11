@@ -6,6 +6,11 @@ class PeopleController < ApplicationController
   
   helper_method :show_closed?
   
+  def index
+    # this is not yet in use in this version of Kassi, but old URLs point here so implement this to avoid errors
+   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+  end
+  
   def show
     @person = Person.find(params[:id])
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
