@@ -108,7 +108,8 @@ Kassi::Application.routes.draw do
           get :account
           get :notifications
         end
-      end      
+      end
+      resources :badges      
     end
     resources :infos do
       collection do
@@ -131,6 +132,7 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
   match "/:locale/offers" => "listings#offers", :as => :offers

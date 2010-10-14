@@ -32,6 +32,9 @@ en:
     community: "Community"
     search_kassi: "Search Kassi"    
   layouts:
+    admin:
+      admin: "Kassi admin panel"
+      back_to_kassi: "Back to Kassi"
     application:
       meta_description: "Kassi is a service that helps members of associations and other communities to do each other favors, sell and lend items to each other, organize car pooling and help each other in many other ways."
       keywords: "favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, trade,exchange, buying, selling, buy, sell, giving, give, Kassi, ecological, community, online community"
@@ -53,6 +56,7 @@ en:
       notifications: "Notifications"
       settings: "Settings"
       go_to_your_profile_page: "Profile"
+      admin: "Admin"
     logged_in_messages_icon:
       messages: "Messages"  
     notifications:
@@ -112,6 +116,7 @@ en:
       feedback_not_saved: "Feedback could not be sent."
       feedback_considered_spam: "Feedback not saved, due to its formatting. Try again or use the feedback forum."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
+      only_kassi_administrators_can_access_this_area: "Only Kassi administrators can access this area"
     conversations:
       messages: "Messages"
       received: "Received"
@@ -541,3 +546,4 @@ en:
     formats:
       short: "%e %b %Y at %H:%M"
       sms: "%e %b at %H:%M"
+      shorter: "%e %b at %H:%M"

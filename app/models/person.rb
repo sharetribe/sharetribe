@@ -39,6 +39,8 @@ class Person < ActiveRecord::Base
   has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "target_id", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   
+  has_many :badges
+  
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
     "email_about_new_comments_to_own_listing",
@@ -61,55 +63,6 @@ class Person < ActiveRecord::Base
   def feedback_average
     ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
   end
-
-  # has_many :feedbacks
-  # 
-  #   
-  #   has_many :items, :foreign_key => "owner_id", :dependent => :destroy
-  #            
-  #   has_many :disabled_items, 
-  #            :class_name => "Item",
-  #            :foreign_key => "owner_id",
-  #            :conditions => "status = 'disabled'",
-  #            :order => "title",
-  #            :dependent => :destroy 
-  #   
-  #   has_many :disabled_favors, 
-  #            :class_name => "Favor",
-  #            :foreign_key => "owner_id", 
-  #            :conditions => "status = 'disabled'",
-  #            :order => "title",
-  #            :dependent => :destroy 
-  #   
-  #   has_many :favors, :foreign_key => "owner_id", :dependent => :destroy 
-  # 
-  #   has_many :person_interesting_listings, :dependent => :destroy 
-  #   has_many :interesting_listings, 
-  #            :through => :person_interesting_listings, 
-  #            :source => :listing
-  #            
-
-  #   
-  #   has_many :received_comments, 
-  #            :class_name => "PersonComment", 
-  #            :foreign_key => "target_person_id",
-  #            :dependent => :destroy,
-  #            :order => "id DESC" 
-  #            
-  #   has_many :kassi_event_participations, :dependent => :destroy
-  #   has_many :kassi_events, 
-  #            :through => :kassi_event_participations, 
-  #            :source => :kassi_event,
-  #            :conditions => "pending = 0"
-  #   has_many :own_kassi_events, 
-  #            :through => :kassi_event_participations, 
-  #            :source => :kassi_event
-  #            
-  #   has_one :settings, :dependent => :destroy
-  #   
-  #   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"        
-  
- 
   
   # Create a new person to Common Services and Kassi.
   def self.create(params, cookie)
@@ -538,6 +491,10 @@ class Person < ActiveRecord::Base
     
   def self.cache_delete(id,cookie)
     Rails.cache.delete(cache_key(id,cookie))
+  end
+  
+  def give_badge(badge_name)
+    Badge.create(:person_id => id, :name => badge_name)
   end
   
   private
