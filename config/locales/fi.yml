@@ -32,6 +32,9 @@ fi:
     community: "Yhteisö"
     search_kassi: "Etsi Kassista"       
   layouts:
+    admin:
+      admin: "Kassin ylläpitonäkymä"
+      back_to_kassi: "Takaisin Kassiin"
     application:
       meta_description: "Kassi on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       keywords: "palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, Kassi, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
@@ -53,6 +56,7 @@ fi:
       notifications: "Tiedotteet"
       settings: "Asetukset"
       go_to_your_profile_page: "Profiili"
+      admin: "Ylläpito"
     logged_in_messages_icon:
       messages: "Viestit"  
     notifications:
@@ -112,6 +116,7 @@ fi:
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
+      only_kassi_administrators_can_access_this_area: "Vain Kassin ylläpitäjillä on pääsy tähän sisältöön"
     conversations:
       messages: "Viestit"
       received: "Saapuneet"
@@ -154,6 +159,14 @@ fi:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
       has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
+  admin:
+    badges:
+      index:
+        add_new_badge: "Lisää uusi ansiomerkki"
+        name: "Merkin nimi"
+        image: "Merkin kuva"
+        save_badge: "Tallenna ansiomerkki"
+        existing_badges: "Tallennetut ansiomerkit"
   conversations:
     index:
       message_partitive: "viesti"
@@ -583,6 +596,7 @@ fi:
     formats:
       default: "%a, %e. %b %Y %H:%M:%S %z"
       short: "%e. %b %Y kello %H:%M"
+      shorter: "%e. %b klo %H:%M"
       long: "%B %d, %Y %H:%M"
       sms: "%e.%m. klo %H:%M" 
     am: "aamupäivä"

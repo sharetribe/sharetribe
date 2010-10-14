@@ -107,14 +107,6 @@ form, input {
 #logo {
   margin-top: 7px; }
 
-#logo_image {
-  height: 48px; }
-  #logo_image a {
-    color: #f7f5e6;
-    font-size: 28px;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px #000; }
-
 #search {
   margin: 15px 0 0 32px; }
   #search input.search_field {
@@ -2633,3 +2625,26 @@ a.handle:hover {
   margin: 10px 0;
   padding: 0;
   height: 0; }
+
+#admin_content {
+  margin-top: 60px; }
+
+#logo_image {
+  height: 48px;
+  color: #f7f5e6;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px #000; }
+
+.admin_top_navi_link {
+  margin-top: 20px; }
+  .admin_top_navi_link a {
+    color: white;
+    font-weight: bold;
+    font-size: 11px; }
+    .admin_top_navi_link a:hover {
+      color: #f8792f; }
+    .admin_top_navi_link a:focus {
+      color: #f8792f; }
+    .admin_top_navi_link a:active {
+      color: #d45207; }

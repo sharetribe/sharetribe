@@ -137,4 +137,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def ensure_is_admin
+    unless @current_user.is_admin?
+      flash[:error] = "only_kassi_administrators_can_access_this_area"
+      redirect_to root and return
+    end
+  end
+  
 end

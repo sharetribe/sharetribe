@@ -223,16 +223,6 @@ form, input {
 	margin-top: 7px;
 }
 
-#logo_image {
-	height: 48px;
-	a {
-		color: $bg_color;
-		font-size: 28px;
-		font-weight: bold;
-		text-shadow: 1px 1px 1px #000;
-	}	
-}
-
 #search {
 	margin: 15px 0 0 32px;
 	input.search_field {
@@ -2339,4 +2329,28 @@ a.handle {
 
 .profile_feedback_spacer {
 	@include spacer($dark_green, dashed);
+}
+
+#admin_content {
+	margin-top: 60px;
+}
+
+#logo_image {
+	height: 48px;
+	color: $bg_color;
+	font-size: 24px;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #000;	
+}
+
+.admin_top_navi_link {
+	margin-top:20px;
+	a {
+		color: white;
+		font-weight: bold;
+		&:hover { color: $light_orange; }
+		&:focus { color: $light_orange; }
+		&:active { color: $orange; }
+		font-size: 11px;
+	}
 }

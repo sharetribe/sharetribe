@@ -1,0 +1,23 @@
+!!! 5
+!!! xml
+%html{html_attrs(I18n.locale)}
+  %head
+    %title 
+      = t(".admin")
+
+    = stylesheet_link_tag 'compiled/style.css'
+    
+  %body
+    .js_enabled
+      .container_24
+        .grid_21
+          #logo
+            #logo_image
+              = t(".admin")
+        .grid_3
+          .admin_top_navi_link
+            = link_to t(".back_to_kassi"), root
+        .clear
+        .grid_24
+          #admin_content
+            = yield
