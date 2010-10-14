@@ -15,6 +15,10 @@
   #listing_center.grid_10.alpha
     %h1
       #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+    - if @listing.category == "rideshare"
+      %p
+        %strong
+          = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
     %p
       - text_with_line_breaks do
         = @listing.description.blank? ? t(".no_description") : @listing.description

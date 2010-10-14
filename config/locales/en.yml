@@ -515,7 +515,12 @@ en:
       as_expected: "As expected"
       slightly_better_than_expected: "Slightly better than expected"
       exceeded_expectations: "Much better than expected"
-      send_feedback: "Send feedback"         
+      send_feedback: "Send feedback"
+  sms:
+    rideshare: ride|rideshare       #may be a regular expression
+    offer: offer                    #may be a regular expression
+    request: request                #may be a regular expression
+    parsing_error: "Could not understand the message contents. Please check the instructions and try again."
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

@@ -22,6 +22,11 @@ class PersonConnection
      return RestHelper.make_request(:get,"#{APP_CONFIG.asi_url}/people?search=#{escaped_query}", {:cookies => cookie})
    end
    
+   def self.search_by_phone_number(number, cookie)
+      escaped_query = ApplicationHelper.escape_for_url(number.to_s)
+      return RestHelper.make_request(:get,"#{APP_CONFIG.asi_url}/people?phone_number=#{escaped_query}", {:cookies => cookie})
+    end
+   
    def self.get_friends(id, cookie)
      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:cookies => cookie})
    end
