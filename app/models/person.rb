@@ -176,6 +176,17 @@ class Person < ActiveRecord::Base
     return person_hash
   end
   
+  def self.search_by_phone_number(number)
+    cookie = Session.kassi_cookie
+    begin
+      person_hash = PersonConnection.search_by_phone_number(number, cookie)
+    rescue RestClient::ResourceNotFound => e
+      #Could not find person with that id in ASI Database!
+      return nil
+    end  
+    return person_hash["entry"][0]
+  end
+  
   def self.username_available?(username, cookie=Session.kassi_cookie)
     resp = PersonConnection.availability({:username => username}, cookie)
     if resp["entry"] && resp["entry"][0]["username"] && resp["entry"][0]["username"] == "unavailable"

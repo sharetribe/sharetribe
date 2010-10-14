@@ -516,6 +516,11 @@ fi:
       slightly_better_than_expected: "Ylitti osin odotukset"
       exceeded_expectations: "Ylitti täysin odotukset"
       send_feedback: "Lähetä palaute"
+  sms:
+    rideshare: kyyti                      #may be a regular expression
+    offer: tarjous                        #may be a regular expression
+    request: pyyntö                       #may be a regular expression
+    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
