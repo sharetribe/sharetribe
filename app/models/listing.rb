@@ -25,6 +25,7 @@ class Listing < ActiveRecord::Base
   
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
+  scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   
@@ -49,6 +50,7 @@ class Listing < ActiveRecord::Base
   before_validation :set_rideshare_title, :set_valid_until_time
   
   before_save :downcase_tags
+  after_create :check_possible_matches
   
   validates_presence_of :author_id
   validates_length_of :title, :in => 2..100, :allow_nil => false
@@ -199,4 +201,54 @@ class Listing < ActiveRecord::Base
     type.eql?("offer") ? "request" : "offer"
   end
   
+  # Called after save
+  # Checks if there was already an offer matching this request
+  # or a request matching this offer
+  # Inform the requester if possible match is found
+  def check_possible_matches
+    timing_tolerance = 1.hours # how big difference in starting time is accepted
+    
+    # currently check only rideshare listings
+    return true unless category == "rideshare"
+    
+    potential_listings = []
+    if listing_type == "request"
+      potential_listings =  Listing.open.rideshare.offers
+    else
+      potential_listings = Listing.open.rideshare.requests
+    end
+    
+    potential_listings.each do |candidate|
+      if (origin.casecmp(candidate.origin) == 0 && 
+          destination.casecmp(candidate.destination) == 0 &&
+          (valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until))
+        if listing_type == "request"
+          inform_requester_about_potential_match(self, candidate)
+        else
+          inform_requester_about_potential_match(candidate, self)
+        end
+      end
+    end
+    
+  end
+  
+  def inform_requester_about_potential_match(request, offer)
+      logger.info "Informing the author of: #{request.title} (starting at #{request.valid_until}) about the possible match of #{offer.title} (starting at #{offer.valid_until})"
+      
+      # Check if requester has a phone number and sens sms if sms's are in use
+      if APP_CONFIG.use_sms && !request.author.phone_number.blank?
+        
+        # send the message in recipients language and use very short date format to fit in sms
+        locale = request.author.locale.to_sym || :fi
+        Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
+        message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
+        unless offer.author.phone_number.blank?
+          message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
+        else
+          message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "-lorem ipsum- listing_url(offer)", :locale => locale)
+        end
+              
+        SmsHelper.send(message, request.author.phone_number)
+      end
+    end
 end

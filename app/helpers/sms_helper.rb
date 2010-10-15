@@ -7,8 +7,26 @@ module SmsHelper
   class SmsParseError < StandardError
   end
   
-  def self.send
+  def self.send(message, number)
     
+    # clean up the number (for some reason putting ')' and '(' in regexp didn't work, so using 3 gsubs for cleaning)
+    # also change numbers starting with 0 to start with finnish 358
+    number = number.gsub(/[\s\+-]/, "").gsub("(", "").gsub(")","").gsub(/^0/, "358")
+    
+    user_key = log_in_to_api
+    sms_uri = "http://api.medialab.sonera.fi/iw/rest/messaging/sms?serviceKey=#{APP_CONFIG.sms_service_key}&userKey=#{user_key}"
+    sms_text = '{"sms":{"@messageClass" : "1","@anonymous" : "true","address" : "' + number +'", "message" : "' + message + '" }}'
+    
+    begin
+      Rails.logger.info  "Sending sms message: '#{message}' to #{number}"
+      response = RestClient.post(sms_uri, sms_text, :content_type => 'application/json')
+    rescue Exception => e
+      # HoptoadNotifier.notify(
+      #            :error_class => "Special Error", 
+      #            :error_message => "Special Error: #{e.message}", 
+      #          )
+      Rails.logger.error { "Sending message failed: #{e.inspect}, #{e.response}" }
+    end
   end
   
   def self.get_messages
