@@ -245,7 +245,7 @@ class Listing < ActiveRecord::Base
         unless offer.author.phone_number.blank?
           message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
         else
-          message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "-lorem ipsum- listing_url(offer)", :locale => locale)
+          message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
         end
               
         SmsHelper.send(message, request.author.phone_number)
