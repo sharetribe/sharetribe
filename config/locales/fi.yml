@@ -521,6 +521,9 @@ fi:
     offer: tarjous                        #may be a regular expression
     request: pyyntö                       #may be a regular expression
     parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
+    potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
+    you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
+    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
@@ -581,6 +584,7 @@ fi:
       default: "%a, %e. %b %Y %H:%M:%S %z"
       short: "%e. %b %Y kello %H:%M"
       long: "%B %d, %Y %H:%M"
+      sms: "%e.%m. klo %H:%M" 
     am: "aamupäivä"
     pm: "iltapäivä"
 
