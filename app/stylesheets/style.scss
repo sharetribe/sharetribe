@@ -2255,7 +2255,7 @@ a.handle {
 
 .profile_feedback_header {
 	overflow: hidden;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 .profile_feedback_average_image {
@@ -2353,4 +2353,30 @@ a.handle {
 		&:active { color: $orange; }
 		font-size: 11px;
 	}
+}
+
+.profile_badges_header {
+	background: lighten($dark_green, 5%);
+	padding: 5px 8px;
+	color: white;
+	font-weight: bold;
+	margin-top: 15px;
+	width: 202px;
+	a {
+		font-size: 10px;
+		color: lighten($light_orange, 10%);
+		&:hover { color: lighten($light_orange, 20%); }
+	}
+}
+
+.profile_badges {
+	overflow: hidden;
+	width: 208px;
+	background: $light_green;
+	padding: 10px 0 10px 10px;
+}
+
+.profile_badge {
+	float: left;
+	margin-right: 8px;
 }
