@@ -412,6 +412,9 @@ en:
       username_is_in_use: "The username you gave is already in use."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
+    profile_badge:
+      first_transaction: "First event"
+      rookie: "Rookie"
     profile_feedback:
       grade: "grade:"
       less_than_expected: "Worse than expected"
@@ -448,6 +451,8 @@ en:
       slightly_better_than_expected: "Exceeded expectations"
       exceeded_expectations: "Exceeded expectations"
       show_all_feedback: "Show all feedback"
+      badges: "Badges"
+      what_are_these: "What are these?"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"            

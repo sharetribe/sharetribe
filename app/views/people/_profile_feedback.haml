@@ -16,5 +16,6 @@
       &ldquo;#{truncate(testimonial.text, :length => 60, :omission => "...")}&rdquo;
       %br/
       %br/
-  = t(".grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."
+  %b
+    = t(".grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."
     
