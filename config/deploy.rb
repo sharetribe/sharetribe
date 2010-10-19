@@ -15,24 +15,27 @@ set :deploy_via, :remote_cache
 
 set :deploy_to, "/var/datat/kassi"
 
-if ENV['DEPLOY_ENV']
-  set :server_name, ENV['DEPLOY_ENV']
-  set :host, "#{ENV['DEPLOY_ENV']}.sizl.org"
-else
-  set :server_name, "alpha"
-  set :host, "alpha.sizl.org"
-end
-
-# temporary settings for DB-testing
-if ENV['DEPLOY_ENV'] == "dbtest"
+if ENV['DEPLOY_ENV'] == "beta"
+  set :server_name, "beta"
+  set :host, "beta.sizl.org"
+elsif ENV['DEPLOY_ENV'] == "icsi"
+  set :deploy_to, "/opt/kassi"
+  set :server_name, "icsi"
+  set :host, "sizl.icsi.berkeley.edu"
+  set :user, "amvirola"
+  # sed -i "s/\/images/..\/..\/images/" style.css
+  
+elsif ENV['DEPLOY_ENV'] == "dbtest"
   set :deploy_to, "/var/datat/kassi2dbtest"
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
-  set :mongrel_port, "3550"
 elsif ENV['DEPLOY_ENV'] == "kassi2test"
   set :deploy_to, "/var/datat/kassi2test"
   set :server_name, "beta"
   set :host, "beta.sizl.org"
+else
+  set :server_name, "alpha"
+  set :host, "alpha.sizl.org"
 end
 # mongrel_cluster_size = {
 #   "alpha" => 2,
