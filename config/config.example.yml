@@ -51,6 +51,7 @@ default: &default_settings
   # New relic is a software used for performance testing
   # Leave to false unless you need it
   use_newrelic: false
+  newrelic_key: 'enter_your_key_here'
   
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
