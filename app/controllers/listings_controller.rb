@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
     else
       path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
       flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id))
+      #Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id))
       redirect_to @listing
     end
   end
