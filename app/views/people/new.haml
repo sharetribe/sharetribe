@@ -41,7 +41,6 @@
       .form_field_container
         = submit_tag(t('.create_new_account'), :class => "send_button")
 
-- ["help_captcha", "terms"].each do |field|
-  = render :partial => "help_texts", :locals => { :field => field }
+= render :partial => "help_texts", :collection => ["help_captcha", "terms"], :as => :field
         
         

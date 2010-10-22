@@ -482,6 +482,7 @@ function initialize_profile_view() {
 		$('#profile_description_preview').show();
 		$('#profile_description_full').hide(); 
 	});
+	$('#badges_description_link').click(function() { $('#badges_description').lightbox_me({centered: true}); });
 }
 
 function translate_validation_messages(locale) {
