@@ -1,10 +1,10 @@
 class TestimonialsController < ApplicationController
   
   before_filter do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_send_a_message"
-    controller.ensure_authorized "you_are_not_authorized_to_do_this"
+    controller.ensure_logged_in "you_must_log_in_to_give_feedback"
   end
   
+  before_filter :ensure_authorized_to_give_feedback
   before_filter :ensure_feedback_not_given
   
   def new
@@ -33,9 +33,16 @@ class TestimonialsController < ApplicationController
   
   private
   
-  def ensure_feedback_not_given
+  def ensure_authorized_to_give_feedback
     @conversation = Conversation.find(params[:message_id])
     @participation = Participation.find_by_person_id_and_conversation_id(@current_user, @conversation)
+    unless @participation
+      flash[:error] = "you_are_not_allowed_to_give_feedback_on_this_transaction"
+      redirect_to root and return
+    end
+  end
+  
+  def ensure_feedback_not_given
     unless @participation.feedback_can_be_given? 
       flash[:error] = "you_have_already_given_feedback_about_this_event"
       redirect_to root and return

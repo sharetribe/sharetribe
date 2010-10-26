@@ -7,8 +7,16 @@ class ListingsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
   end
   
-  before_filter :only => :close do |controller|
-    controller.ensure_authorized "only_listing_author_can_close_a_listing"
+  before_filter :only => [ :edit, :update, :close ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+  end
+  
+  before_filter :only => [ :close ] do |controller|
+    controller.ensure_current_user_is_listing_author "only_listing_author_can_close_a_listing"
+  end
+  
+  before_filter :only => [ :edit, :update ] do |controller|
+    controller.ensure_current_user_is_listing_author "only_listing_author_can_edit_a_listing"
   end
   
   def index
@@ -71,12 +79,10 @@ class ListingsController < ApplicationController
   end
   
   def edit
-    @listing = Listing.find(params[:id])
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
   end
   
   def update
-    @listing = Listing.find(params[:id])
     if @listing.update_fields(params[:listing])
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
@@ -86,7 +92,6 @@ class ListingsController < ApplicationController
   end
   
   def close
-    @listing = Listing.find(params[:id])
     @listing.update_attribute(:open, false)
     flash.now[:notice] = "#{@listing.listing_type}_closed"
     respond_to do |format|
@@ -104,6 +109,13 @@ class ListingsController < ApplicationController
     #redirect_to listing_path(random_id)
     @listing = Listing.find_by_id(random_id)
     render :action => :show
+  end
+  
+  def ensure_current_user_is_listing_author(error_message)
+    @listing = Listing.find(params[:id])
+    return if current_user?(@listing.author) || @current_user.is_admin?
+    flash[:error] = error_message
+    redirect_to @listing and return
   end
   
   private
