@@ -25,6 +25,8 @@ Feature: User views badges
     And I follow "profile"
     Then I should see "Badges"
     And I should see badge with alt text "Rookie"
+    When I follow "rookie_description_link"
+    Then I should see "You have added an offer or a request in Kassi for the first time. Here we go!"
   
   @javascript
   Scenario: User has first event badge

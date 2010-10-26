@@ -422,7 +422,9 @@ fi:
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
     profile_badge:
       first_transaction: "Ensimmäinen tapahtuma"
-      rookie: "Tulokas"  
+      first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
+      rookie: "Tulokas"
+      rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen Kassiin. Tästä se lähtee!"
     profile_feedback:
       grade: "arvio:"
       less_than_expected: "Ei vastannut lainkaan odotuksia"

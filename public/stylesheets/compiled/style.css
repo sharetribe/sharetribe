@@ -2671,3 +2671,32 @@ a.handle:hover {
 .profile_badge {
   float: left;
   margin-right: 8px; }
+
+.badge_description {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 450px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+  .badge_description h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
+  .badge_description img {
+    padding: 0 10px 30px 10px;
+    float: right; }
+
+.badge_description_title {
+  float: left;
+  width: 400px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0 0 20px; }
+
+.badge_description_content {
+  float: left;
+  width: 210px;
+  padding: 20px 0 0 20px; }

@@ -2380,3 +2380,25 @@ a.handle {
 	float: left;
 	margin-right: 8px;
 }
+
+.badge_description {
+	@include hidden_div(450px);
+	img {
+		padding: 0 10px 30px 10px;
+		float: right;
+	}
+}
+
+.badge_description_title {
+	float: left;
+	width: 400px;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 0 0 20px;
+}
+
+.badge_description_content {
+	float: left;
+	width: 210px;
+	padding: 20px 0 0 20px;
+}
