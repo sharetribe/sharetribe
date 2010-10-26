@@ -13,7 +13,11 @@ module NavigationHelpers
     when /the signup page/
       '/en/signup' 
     when /the requests page/
-      '/en/requests' 
+      '/en/requests'
+    when /the edit listing page/
+      edit_listing_path(:id => @listing.id) 
+    when /^the give feedback path of "(.*)"$/i
+      new_person_message_feedback_path(:person_id => @people[$1].id, :message_id => @conversation.id.to_s)
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -114,5 +114,11 @@ Feature: User checks inbox
     Then I should see "You must log in to Kassi to view your inbox." within "#notifications"
     And I should see "Log in to Kassi" within "h2"
   
-  
-  
+  Scenario: Trying to view somebody else's inbox
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And I am logged in as "kassi_testperson2"
+    When I try to go to inbox of "kassi_testperson1"
+    Then I should see "You are not authorized to view this content" within "#notifications"

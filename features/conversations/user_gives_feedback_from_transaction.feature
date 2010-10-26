@@ -70,3 +70,31 @@ Feature: User gives feedback from transaction
     And I press "send_testimonial_button"
     Then I should see "If you want to give non-neutral feedback, you must explain why" within ".error"
   
+  @javascript
+  Scenario: Try to give feedback without logging in
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is favor request with title "Massage" from "kassi_testperson1"
+    And there is a message "I offer this" from "kassi_testperson2" about that listing
+    And the offer is accepted
+    When I go to the give feedback path of "kassi_testperson1"
+    Then I should see "You must log in to give feedback" within "#notifications"
+  
+  @javascript
+  Scenario: Try to give feedback on somebody else's transaction
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+      | kassi_testperson3 |
+    And there is favor request with title "Massage" from "kassi_testperson3"
+    And there is a message "I offer this" from "kassi_testperson2" about that listing
+    And the offer is accepted
+    And I am logged in as "kassi_testperson1"
+    When I go to the give feedback path of "kassi_testperson3"
+    And show me the page
+    Then I should see "You are not authorized to give feedback on this event" within "#notifications"
+    When I go to the give feedback path of "kassi_testperson1"
+    Then I should see "You are not authorized to give feedback on this event" within "#notifications"

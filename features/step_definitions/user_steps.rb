@@ -27,7 +27,6 @@ Given /^I have phone number in my profile$/ do
   pending # express the regexp above with the code you wish you had
 end
 
-
 When /^I enter correct credentials$/ do
   @session = Session.create( {:username => "kassi_testperson1", :password => "testi"})
 end
@@ -90,3 +89,6 @@ When /^I fill in password with my OtaSizzle password$/ do
   fill_in("password", :with => @password)
 end
 
+Given /^"([^"]*)" has admin rights$/ do |username|
+  @people[username].update_attribute(:is_admin, true)
+end
