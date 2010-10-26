@@ -6,8 +6,12 @@
     #conversation_title
       %h2= @conversation.title
       - if @conversation.listing
-        = t(".#{@conversation.listing.listing_type}_sent_by")
-        = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
+        - if current_user?(@conversation.messages.first.sender)
+          = t(".#{@conversation.listing.listing_type}_sent_to")
+          = link_to @conversation.other_party(@conversation.messages.first.sender).name, @conversation.other_party(@conversation.messages.first.sender)
+        - else
+          = t(".#{@conversation.listing.listing_type}_sent_by")
+          = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
         = t(".in_response_to_#{@conversation.listing.listing_type}")
         = link_to @conversation.listing.title, @conversation.listing
   .grid_15.omega

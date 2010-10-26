@@ -6,9 +6,13 @@ class ConversationsController < ApplicationController
   
   before_filter :except => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+  end
+  
+  before_filter :only => [ :index, :received, :sent ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
+  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
@@ -29,7 +33,6 @@ class ConversationsController < ApplicationController
   end
   
   def show
-    @conversation = Conversation.find(params[:id])
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
   end
 
@@ -68,12 +71,19 @@ class ConversationsController < ApplicationController
   end
   
   def change_status(status)
-    @conversation = Conversation.find(params[:id])
     @conversation.change_status(status, @current_user, request)
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
     respond_to do |format|
       format.html { render :action => :show }
       format.js { render :layout => false }
+    end
+  end
+  
+  def ensure_authorized_to_view_message
+    @conversation = Conversation.find(params[:id])
+    unless @conversation.participants.include?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
     end
   end
   
