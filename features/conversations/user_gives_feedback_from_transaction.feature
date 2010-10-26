@@ -94,7 +94,6 @@ Feature: User gives feedback from transaction
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
     When I go to the give feedback path of "kassi_testperson3"
-    And show me the page
     Then I should see "You are not authorized to give feedback on this event" within "#notifications"
     When I go to the give feedback path of "kassi_testperson1"
     Then I should see "You are not authorized to give feedback on this event" within "#notifications"
