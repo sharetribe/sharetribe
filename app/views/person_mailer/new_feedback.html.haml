@@ -4,6 +4,10 @@
   - text_with_line_breaks do
     = @feedback.content
 
+- unless !@feedback.email || @feedback.email.eql?("")
+  Käyttäjän sähköpostiosoite on #{@feedback.email}
+
+%br/
 %br/
 
 Terveisin,

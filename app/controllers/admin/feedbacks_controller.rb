@@ -6,7 +6,7 @@ class Admin::FeedbacksController < ApplicationController
     @feedback = Feedback.new(params[:feedback])
     error_page = params[:feedback][:url].include?("Error page")
     # Detect most usual spam messages
-    if (@feedback.content && @feedback.content.include?("[url="))
+    if (@feedback.content && (@feedback.content.include?("[url=") || @feedback.content.include?("<a href=")))
       if error_page
         flash[:error] = "feedback_considered_spam"
       else  
