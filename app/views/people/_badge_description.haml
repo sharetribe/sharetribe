@@ -1,2 +1,10 @@
-%div{:id => "#{badge.name}_description"}
-  = image_tag "/images/badges/#{badge.name}_medium.png", :alt => t(".#{badge.name}"), :title => t(".#{badge.name}")
+%div{:id => "#{badge.name}_description_link_target", :class => "badge_description"}
+  .badge_description_title
+    = t("people.profile_badge.#{badge.name}")
+  .close_link
+    = link_to "X", "#", :id => "close_x", :class => "close"
+  .badge_description_content
+    %p
+      = t("people.profile_badge.#{badge.name}_description")
+  = image_tag "/images/badges/#{badge.name}_large.png", :alt => t("people.profile_badge.#{badge.name}"), :title => t("people.profile_badge.#{badge.name}")
+    

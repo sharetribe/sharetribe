@@ -10,11 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101013124056) do
+ActiveRecord::Schema.define(:version => 20101026082126) do
 
   create_table "badges", :force => true do |t|
-    t.string "person_id"
-    t.string "name"
+    t.string   "person_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "cached_ressi_events", :force => true do |t|

@@ -473,7 +473,7 @@ function initialize_browse_view(listing_type, locale) {
 	);
 }
 
-function initialize_profile_view() {
+function initialize_profile_view(badges) {
 	$('#description_preview_link').click(function() { 
 		$('#profile_description_preview').hide();
 		$('#profile_description_full').show(); 
@@ -483,6 +483,11 @@ function initialize_profile_view() {
 		$('#profile_description_full').hide(); 
 	});
 	$('#badges_description_link').click(function() { $('#badges_description').lightbox_me({centered: true}); });
+	for (var i = 0; i < badges.length; i++) {
+		$('#' + badges[i] + '_description_link').click(function(badge) {
+			$('#' + badge.currentTarget.id + '_target').lightbox_me({centered: true});
+		});
+	}
 }
 
 function translate_validation_messages(locale) {
