@@ -58,7 +58,9 @@ en:
       go_to_your_profile_page: "Profile"
       admin: "Admin"
     logged_in_messages_icon:
-      messages: "Messages"  
+      messages: "Messages"
+    logged_in_notifications_icon:
+      notifications: "Notifications"  
     notifications:
       request_created_successfully: "Request created successfully."
       offer_created_successfully: "Offer created successfully."
@@ -202,6 +204,8 @@ en:
       housing_offer_message_title: "Reply to your listing %{title}"
       default_request_message_text: "Explain what you are offering and under what conditions."
       default_offer_message_text: "Explain what you need."
+    notifications:
+      no_notifications: "No notifications."
     show:
       offer_sent_by: Request sent by
       request_sent_by: Offer sent by

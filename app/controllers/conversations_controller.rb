@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
   end
   
-  before_filter :only => [ :index, :received, :sent ] do |controller|
+  before_filter :only => [ :index, :received, :sent, :notifications ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
@@ -33,7 +33,8 @@ class ConversationsController < ApplicationController
   end
   
   def notifications
-    
+    @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
+    @current_user.mark_all_notifications_as_read
   end
   
   def show

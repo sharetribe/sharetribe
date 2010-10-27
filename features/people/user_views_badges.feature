@@ -25,8 +25,12 @@ Feature: User views badges
     And I follow "profile"
     Then I should see "Badges"
     And I should see badge with alt text "Rookie"
+    And I should see "1" within "#logged_in_notifications_icon"
     When I follow "rookie_description_link"
     Then I should see "You have added an offer or a request in Kassi for the first time. Here we go!"
+    When I follow "Notifications"
+    Then I should see "You have earned a badge Rookie!"
+    And I should not see "1" within "#logged_in_notifications_icon"
   
   @javascript
   Scenario: User has first event badge
@@ -46,7 +50,10 @@ Feature: User views badges
     And I follow "profile"
     Then I should see "Badges"
     And I should see badge with alt text "First event"
-  
+    And I should see "1" within "#logged_in_notifications_icon"
+    When I follow "Notifications"
+    Then I should see "You have earned a badge First event!"
+    And I should not see "1" within "#logged_in_notifications_icon"
   
   
   

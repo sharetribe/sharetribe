@@ -1171,6 +1171,40 @@ div.checkbox_float {
       padding: 0;
       margin: 0; }
 
+.logged_in_icon_notifications_notifications {
+  cursor: pointer;
+  width: 27px;
+  height: 24px;
+  float: left;
+  margin: 3px 0 0 9px;
+  background: transparent url("/images/icons/header_icons.png") 0px -156px no-repeat; }
+  .logged_in_icon_notifications_notifications:hover {
+    background: transparent url("/images/icons/header_icons.png") 0px -196px no-repeat; }
+  .logged_in_icon_notifications_notifications:focus {
+    background: transparent url("/images/icons/header_icons.png") 0px -196px no-repeat; }
+  .logged_in_icon_notifications_notifications:active {
+    margin-top: 4px;
+    background: transparent url("/images/icons/header_icons.png") 0px -196px no-repeat; }
+  .logged_in_icon_notifications_notifications .logged_in_icon_notification_text {
+    width: 9px;
+    height: 8px;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background: #d45207;
+    margin-left: 11px;
+    padding: 1px 2px 5px 3px;
+    text-align: center;
+    color: white;
+    font-size: 8px;
+    font-weight: bold; }
+    .logged_in_icon_notifications_notifications .logged_in_icon_notification_text a {
+      color: white;
+      font-size: 8px;
+      font-weight: bold;
+      padding: 0;
+      margin: 0; }
+
 .logged_in_icon_inbox {
   width: 27px;
   height: 20px;
@@ -1226,7 +1260,7 @@ div.checkbox_float {
   width: 27px;
   height: 20px;
   float: left;
-  margin: 7px 0 0 2px; }
+  margin: 7px 0 0 3px; }
   .logged_in_icon_settings a {
     color: transparent;
     display: block;
@@ -1357,7 +1391,6 @@ a.edit_profile {
   background: #b8b19f url("/images/icons/big_category_icons.png") 0 -900px no-repeat; }
 
 #inbox_tabs {
-  margin-left: 10px;
   overflow: hidden; }
 
 #settings_tabs {
@@ -1430,8 +1463,7 @@ a.edit_profile {
   margin-bottom: 10px; }
 
 #conversations {
-  margin: 20px 30px 20px 20px;
-  border-top: 1px solid #464646;
+  margin: 0 15px 0 5px;
   border-bottom: 1px solid #464646; }
   #conversations h2 {
     text-align: left;
@@ -1470,7 +1502,7 @@ a.edit_profile {
 
 .conversation_center {
   margin-left: 10px;
-  width: 310px;
+  width: 350px;
   float: left;
   line-height: 19px; }
   .conversation_center a {
@@ -1510,7 +1542,7 @@ a.edit_profile {
   margin: 0; }
 
 #conversation_title {
-  margin: 20px 0 0 20px; }
+  margin-top: 18px; }
   #conversation_title h2 {
     text-align: left;
     font-size: 16px;
@@ -1591,7 +1623,7 @@ a.edit_profile {
   width: 300px; }
 
 #messages {
-  margin: 15px 20px 10px 20px;
+  margin: 15px 0 10px 0;
   clear: both;
   overflow: hidden; }
 
@@ -1666,7 +1698,7 @@ a.edit_profile {
   float: left; }
 
 #reply_form {
-  margin-left: 97px; }
+  margin-left: 77px; }
   #reply_form label {
     font-weight: bold; }
   #reply_form textarea {
@@ -2716,3 +2748,15 @@ a.handle:hover {
   float: left;
   width: 210px;
   padding: 20px 0 0 20px; }
+
+.notification {
+  padding: 15px 10px;
+  overflow: hidden; }
+
+.notification_date {
+  float: left;
+  width: 225px;
+  font-weight: bold; }
+
+.notification_content {
+  float: left; }
