@@ -74,11 +74,11 @@ Feature: User checks inbox
     And I should not see "Test2"
     And I should see "Rideshare request: Helsinki - Turku" within "h3"
     And I should see "Fine" within ".unread"
-    And I should see "3" within ".logged_in_icon_notification_text"
+    And I should see "3" within "#logged_in_messages_icon"
     And I follow "Fine"
     And I follow "Messages"
     And I should not see "Fine" within ".unread"
-    And I should see "2" within ".logged_in_icon_notification_text"  
+    And I should see "2" within "#logged_in_messages_icon"  
   
   @javascript
   Scenario: Viewing sent messages when there are multiple messages from different senders

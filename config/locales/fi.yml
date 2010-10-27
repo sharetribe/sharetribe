@@ -58,7 +58,9 @@ fi:
       go_to_your_profile_page: "Profiili"
       admin: "Ylläpito"
     logged_in_messages_icon:
-      messages: "Viestit"  
+      messages: "Viestit"
+    logged_in_notifications_icon:
+      notifications: "Tiedotteet"  
     notifications:
       request_created_successfully: "Pyyntö tallennettu."
       offer_created_successfully: "Tarjous tallennettu."
@@ -202,6 +204,8 @@ fi:
       housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
       default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
+    notifications:
+      no_notifications: "Ei tiedotteita."
     show:
       offer_sent_by: "Pyynnön lähetti"
       offer_sent_to: "Pyyntö lähetetty käyttäjälle"
@@ -225,7 +229,7 @@ fi:
       accept_request: "Hyväksy pyyntö"
       accept_offer: "Hyväksy tarjous"
       reject_request: "Hylkää pyyntö"
-      reject_offer: "Hylkää tarjous"  
+      reject_offer: "Hylkää tarjous"    
   homepage:
     index:
       welcome_to_new_kassi: "Kassi on uudistunut!"

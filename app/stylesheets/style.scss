@@ -1090,25 +1090,25 @@ div.checkbox_float {
 	}
 }
 
-.logged_in_icon_inbox_notifications {
+@mixin logged_in_icon_notifications($icon_pos: 0px, $notif_pos: 15px) {
 	cursor: pointer;
 	width: 27px;
 	height: 24px;
 	float: left;
 	margin: 3px 0 0 9px;
-	background: transparent url("/images/icons/header_icons.png") 0px 4px no-repeat;
-	&:hover { background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
-	&:focus { background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; }
+	background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos + 4px) no-repeat;
+	&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
+	&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
 	&:active {
 		margin-top: 4px;
-		background: transparent url("/images/icons/header_icons.png") 0px -36px no-repeat; 
+		background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; 
 	}
 	.logged_in_icon_notification_text {
 		width: 9px;
 		height: 8px;
 		@include rounded(7px);
 		background: $orange;
-		margin-left: 15px;
+		margin-left: $notif_pos;
 		padding: 1px 2px 5px 3px;
 		text-align: center;
 		color: white;
@@ -1124,6 +1124,14 @@ div.checkbox_float {
 	}
 }
 
+.logged_in_icon_inbox_notifications {
+	@include logged_in_icon_notifications;
+}
+
+.logged_in_icon_notifications_notifications {
+	@include logged_in_icon_notifications(-160px, 11px);
+}
+
 .logged_in_icon_inbox {
 	@include logged_in_icon(0px, 9px);
 }
@@ -1137,7 +1145,7 @@ div.checkbox_float {
 }
 
 .logged_in_icon_settings {
-	@include logged_in_icon(-240px, 2px);
+	@include logged_in_icon(-240px, 3px);
 }
 
 #logged_in_links {
@@ -1246,7 +1254,6 @@ a.edit_profile {
 }
 
 #inbox_tabs {
-	margin-left: 10px;
 	overflow: hidden;
 }
 
@@ -1317,9 +1324,8 @@ a.edit_profile {
 		width: 100%;
 		border-bottom: 4px solid $text_color;
 		margin-bottom: 0;
-	}	
-	margin: 20px 30px 20px 20px;
-	border-top: 1px solid $text_color;
+	}
+	margin: 0 15px 0 5px;
 	border-bottom: 1px solid $text_color;
 	.unread {
 		background: $unread_message;
@@ -1351,7 +1357,7 @@ a.edit_profile {
 .conversation_center {
 	@include grey_link;
 	margin-left: 10px;
-	width: 310px;
+	width: 350px;
 	float: left;
 	line-height: 19px;
 	a {
@@ -1393,7 +1399,7 @@ a.edit_profile {
 		color: $text_color;
 		margin-bottom: 0;
 	}
-	margin: 20px 0 0 20px;
+	margin-top: 18px
 }
 
 #conversation_status {
@@ -1448,7 +1454,7 @@ a.edit_profile {
 }
 
 #messages {
-	margin: 15px 20px 10px 20px;
+	margin: 15px 0 10px 0;
 	clear: both;
 	overflow: hidden;
 }
@@ -1533,7 +1539,7 @@ a.edit_profile {
 	float: left;
 }
 
-@mixin message_form($field_width: 377px, $left_margin: 97px) {
+@mixin message_form($field_width: 377px, $left_margin: 77px) {
 	margin-left: $left_margin;
 	label {
 		font-weight: bold;
@@ -2417,4 +2423,19 @@ a.handle {
 	float: left;
 	width: 210px;
 	padding: 20px 0 0 20px;
+}
+
+.notification {
+	padding: 15px 10px;
+	overflow: hidden;
+}
+
+.notification_date {
+	float: left;
+	width: 225px;
+	font-weight: bold;
+}
+
+.notification_content {
+	float: left;
 }

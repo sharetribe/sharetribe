@@ -38,8 +38,8 @@ class Person < ActiveRecord::Base
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
   has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "target_id", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
-  
   has_many :badges
+  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
@@ -494,7 +494,12 @@ class Person < ActiveRecord::Base
   end
   
   def give_badge(badge_name)
-    Badge.create(:person_id => id, :name => badge_name)
+    badge = Badge.create(:person_id => id, :name => badge_name)
+    badge_notification = BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
+  end
+  
+  def mark_all_notifications_as_read
+    Notification.update_all("is_read = 1", ["is_read = 0 AND receiver_id = ?", id])
   end
   
   private

@@ -51,7 +51,7 @@ class ListingsController < ApplicationController
   end
   
   def show
-    @listing.update_attribute(:times_viewed, @listing.times_viewed + 1)
+    @listing.increment!(:times_viewed)
   end
   
   def new
