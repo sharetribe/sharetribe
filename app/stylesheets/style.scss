@@ -528,7 +528,7 @@ form, input {
 }
 
 p.description {
-	min-height: 46px;
+	min-height: 48px;
 }
 
 .request_spacer {
@@ -546,6 +546,18 @@ p.description {
 
 .recent_listing {
 	overflow: hidden;
+}
+
+.recent_listing_tag {
+	margin-top: 3px;
+	a {
+		font-size: 10px;
+		color: white;
+		@include rounded(5px);
+		padding: 1px 4px 2px 4px;
+		background: lighten($light_orange, 5%);
+		&:hover { background: lighten($light_orange, 15%); }
+	}
 }
 
 .listed_listing {
@@ -602,9 +614,13 @@ p.description {
 
 .recent_listing_text {
 	@include listing_text;
-	p {
+	p.description {
+		margin: 2px 0 2px 0;
+		min-height: 31px;
+	}
+	p.description_tall {
 		margin: 4px 0 4px 0;
-		min-height: 44px;
+		min-height: 45px;
 	}
 }
 
