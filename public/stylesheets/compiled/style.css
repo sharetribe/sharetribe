@@ -441,7 +441,7 @@ form, input {
   width: 340px; }
 
 p.description {
-  min-height: 46px; }
+  min-height: 48px; }
 
 .request_spacer {
   border-top: 1px solid #d45207;
@@ -467,6 +467,19 @@ p.description {
 
 .recent_listing {
   overflow: hidden; }
+
+.recent_listing_tag {
+  margin-top: 3px; }
+  .recent_listing_tag a {
+    font-size: 10px;
+    color: white;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 1px 4px 2px 4px;
+    background: #f98948; }
+    .recent_listing_tag a:hover {
+      background: #fba979; }
 
 .listed_listing {
   overflow: hidden; }
@@ -513,9 +526,12 @@ p.description {
     padding-top: 1px; }
     .recent_listing_text span a {
       font-weight: normal; }
-  .recent_listing_text p {
+  .recent_listing_text p.description {
+    margin: 2px 0 2px 0;
+    min-height: 31px; }
+  .recent_listing_text p.description_tall {
     margin: 4px 0 4px 0;
-    min-height: 44px; }
+    min-height: 45px; }
 
 .listed_listing_text {
   float: left;
