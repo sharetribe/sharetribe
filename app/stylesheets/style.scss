@@ -1133,11 +1133,11 @@ div.checkbox_float {
 }
 
 .logged_in_icon_notifications {
-	@include logged_in_icon(-160px, 2px);
+	@include logged_in_icon(-160px);
 }
 
 .logged_in_icon_settings {
-	@include logged_in_icon(-240px);
+	@include logged_in_icon(-240px, 2px);
 }
 
 #logged_in_links {
