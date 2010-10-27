@@ -6,31 +6,31 @@
   - if current_user?(@person)    
     #edit_links
       = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s), :class => "edit_profile"
-  - if 1 < 0
-    - if @person.badges.size > 0
-      .profile_badges_header
-        = "#{t('.badges')} (#{@person.badges.size})"
-        &nbsp;
-        = link_to t(".what_are_these"), "#", :id => "badges_description_link"
-      .profile_badges
-        = render :partial => "profile_badge", :collection => @person.badges.limit(6), :as => :badge
-    - if @person.received_testimonials.size > 0    
-      .profile_feedback_header
-        .profile_feedback_average_image
-          %div{:class => grade_image_class(@person.feedback_average)}
-            &nbsp;
-        .profile_feedback_average
-          .profile_feedback_average_title
-            = t(".feedback_average")
-          .profile_feedback_average_value
-            = @person.feedback_average.to_s + "/5"
-          .profile_feedback_average_description
-            = "(" + grade_text(@person.feedback_average) + ")"
-      .profile_feedback_list
-        .profile_feedback_arrow
+  - if @person.badges.size > 0
+    .profile_badges_header
+      = "#{t('.badges')} (#{@person.badges.size})"
+      &nbsp;
+      = link_to t(".what_are_these"), "#", :id => "badges_description_link"
+    .profile_badges
+      = render :partial => "profile_badge", :collection => @person.badges.limit(6), :as => :badge
+  - if @person.received_testimonials.size > 0    
+    .profile_feedback_header
+      .profile_feedback_average_image
+        %div{:class => grade_image_class(@person.feedback_average)}
           &nbsp;
-        .profile_feedback_texts
-          = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(2), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
+      .profile_feedback_average
+        .profile_feedback_average_title
+          = t(".feedback_average")
+        .profile_feedback_average_value
+          = @person.feedback_average.to_s + "/5"
+        .profile_feedback_average_description
+          = "(" + grade_text(@person.feedback_average) + ")"
+    .profile_feedback_list
+      .profile_feedback_arrow
+        &nbsp;
+      .profile_feedback_texts
+        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(2), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
+    
   
 .grid_18
   .grid_12.alpha

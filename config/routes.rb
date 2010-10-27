@@ -88,6 +88,7 @@ Kassi::Application.routes.draw do
         collection do
           get :received
           get :sent
+          get :notifications
         end
         member do
           put :accept

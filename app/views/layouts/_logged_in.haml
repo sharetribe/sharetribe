@@ -3,6 +3,10 @@
     #logged_in_icons
       #logged_in_messages_icon
         = render :partial => "layouts/logged_in_messages_icon"
+      .logged_in_icon_notifications
+        %a{:href => notifications_person_messages_path(:person_id => @current_user.id), :title => t('.messages') }
+          %span{:class => "not_visible"}
+            a
       .logged_in_icon_settings
         %a{:href => person_settings_path(:person_id => @current_user.id), :title => t('.settings') }
           %span{:class => "not_visible"}

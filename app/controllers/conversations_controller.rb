@@ -32,6 +32,10 @@ class ConversationsController < ApplicationController
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
+  def notifications
+    
+  end
+  
   def show
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
   end
