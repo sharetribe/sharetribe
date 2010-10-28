@@ -498,6 +498,10 @@ class Person < ActiveRecord::Base
     badge_notification = BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
   end
   
+  def has_badge?(badge)
+    ! badges.find_by_name(badge).nil?
+  end
+  
   def mark_all_notifications_as_read
     Notification.update_all("is_read = 1", ["is_read = 0 AND receiver_id = ?", id])
   end

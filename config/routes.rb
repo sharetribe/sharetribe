@@ -110,7 +110,7 @@ Kassi::Application.routes.draw do
           get :notifications
         end
       end
-      resources :badges      
+      resources :badges
     end
     resources :infos do
       collection do

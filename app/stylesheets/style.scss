@@ -1190,7 +1190,14 @@ a.close_listing {
 }
 
 a.edit_profile {
-	@include edit_listing_link(5px, 186px);
+	display: block;
+	height: 20px;
+	padding: 5px 10px 5px 32px;
+	background: $bg_color url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
+	&:hover {
+		color: white;
+		background: $orange url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat;
+	}
 }
 
 .remove_image_link {
@@ -2382,7 +2389,7 @@ a.handle {
 	padding: 5px 8px;
 	color: white;
 	font-weight: bold;
-	margin-top: 15px;
+	margin-top: 10px;
 	width: 202px;
 	a {
 		font-size: 10px;
@@ -2401,6 +2408,11 @@ a.handle {
 .profile_badge {
 	float: left;
 	margin-right: 8px;
+}
+
+.profile_badges_link_to_all {
+	clear: both;
+	padding-top: 10px;
 }
 
 .badge_description {
@@ -2438,4 +2450,33 @@ a.handle {
 
 .notification_content {
 	float: left;
+}
+
+#profile_extras_person {
+	overflow: hidden;
+	margin: 0 10px 10px 10px;
+}
+
+#profile_extras_person_description {
+	h2 {
+		margin: 0;
+		font-size: 16px;
+	}
+	float: left;
+	margin-left: 20px;
+	padding-top: 5px;
+}
+
+#badge_canvas {
+	margin-top: 10px;
+	overflow: hidden;
+	width: 760px;
+	height: 750px;
+	background: $bg_color url("/images/huge_bag.png") 0 0 no-repeat;
+	padding: 130px 150px 150px 120px;
+}
+
+.badge {
+	float: left;
+	margin-right: 8px;
 }
