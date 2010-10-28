@@ -1315,12 +1315,10 @@ a.close_listing {
     background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -109px no-repeat; }
 
 a.edit_profile {
-  width: 186px;
   display: block;
   height: 20px;
-  padding: 5px 0px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
-  border-bottom: 1px solid #f8792f; }
+  padding: 5px 10px 5px 32px;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat; }
   a.edit_profile:hover {
     color: white;
     background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat; }
@@ -2702,7 +2700,7 @@ a.handle:hover {
   padding: 5px 8px;
   color: white;
   font-weight: bold;
-  margin-top: 15px;
+  margin-top: 10px;
   width: 202px; }
   .profile_badges_header a {
     font-size: 10px;
@@ -2719,6 +2717,10 @@ a.handle:hover {
 .profile_badge {
   float: left;
   margin-right: 8px; }
+
+.profile_badges_link_to_all {
+  clear: both;
+  padding-top: 10px; }
 
 .badge_description {
   border-radius: 7px;
@@ -2760,3 +2762,27 @@ a.handle:hover {
 
 .notification_content {
   float: left; }
+
+#profile_extras_person {
+  overflow: hidden;
+  margin: 0 10px 10px 10px; }
+
+#profile_extras_person_description {
+  float: left;
+  margin-left: 20px;
+  padding-top: 5px; }
+  #profile_extras_person_description h2 {
+    margin: 0;
+    font-size: 16px; }
+
+#badge_canvas {
+  margin-top: 10px;
+  overflow: hidden;
+  width: 760px;
+  height: 750px;
+  background: #f7f5e6 url("/images/huge_bag.png") 0 0 no-repeat;
+  padding: 130px 150px 150px 120px; }
+
+.badge {
+  float: left;
+  margin-right: 8px; }

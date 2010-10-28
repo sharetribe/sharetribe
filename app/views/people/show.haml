@@ -3,9 +3,6 @@
 
 .grid_6
   = large_avatar_thumb(@person)
-  - if current_user?(@person)    
-    #edit_links
-      = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s), :class => "edit_profile"
   - if @person.badges.size > 0
     .profile_badges_header
       = "#{t('.badges')} (#{@person.badges.size})"
@@ -13,6 +10,9 @@
       = link_to t(".what_are_these"), "#", :id => "badges_description_link"
     .profile_badges
       = render :partial => "profile_badge", :collection => @person.badges.limit(6), :as => :badge
+      - if @person.badges.size > 6
+        .profile_badges_link_to_all
+          = link_to t(".show_all_badges"), person_badges_path(:person_id => @person.id)
   - if @person.received_testimonials.size > 0    
     .profile_feedback_header
       .profile_feedback_average_image
@@ -64,7 +64,12 @@
               %br/  
               = link_to t(".hide_description"), "#", :id => "description_full_link"
   .grid_6.omega
-    
+    - if current_user?(@person)
+      #request_listing_link
+        %a{:href => profile_person_settings_path(:person_id => @current_user.id.to_s)}
+          = image_tag "/images/icons/request_icon.png"
+          .request_listing_link_label
+            = t(".edit_profile_info")
   .clear  
     
   #listings

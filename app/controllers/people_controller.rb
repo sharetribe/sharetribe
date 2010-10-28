@@ -101,8 +101,7 @@ class PeopleController < ApplicationController
     end
   end
 
-private
-
+  private
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
@@ -117,4 +116,5 @@ private
     end
     
   end
+  
 end

@@ -47,6 +47,16 @@ fi:
       feedback_forum: "palautefoorumiltamme,"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
+    conversations:
+      messages: "Viestit"
+      received: "Saapuneet"
+      sent: "Lähetetyt"
+      notifications: "Tiedotteet"
+    infos:
+      info_about_kassi: "Tietoa Kassista"
+      about: "Mikä Kassi?"
+      how_to_use: "Näin Kassi toimii"
+      terms: "Käyttöehdot"
     logged_in:
       login: "Kirjaudu"
       sign_up: "Luo tunnus"
@@ -122,22 +132,16 @@ fi:
       only_kassi_administrators_can_access_this_area: "Vain Kassin ylläpitäjillä on pääsy tähän sisältöön"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
-    conversations:
-      messages: "Viestit"
-      received: "Saapuneet"
-      sent: "Lähetetyt"
-      notifications: "Tiedotteet"
+    profile_extras_header:
+      back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
+      feedback: "Palaute"
+      badges: "Kassimerkit"
     settings:
       settings: "Asetukset"
       profile: "Profiilitiedot"
       avatar: "Profiilikuva"
       account: "Tilin tiedot"
       notifications: "Tiedotteet"
-    infos:
-      info_about_kassi: "Tietoa Kassista"
-      about: "Mikä Kassi?"
-      how_to_use: "Näin Kassi toimii"
-      terms: "Käyttöehdot"  
   emails:      
     common:
       thanks: "Terveisin,"
@@ -415,6 +419,9 @@ fi:
       edit_request: "Muokkaa pyyntöä"
       edit_offer: "Muokkaa tarjousta"  
   people:
+    badge_description:
+      badge_achieved_at: "Kassimerkki ansaittu"
+      you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
     new:
       sign_up: "Luo uusi tunnus Kassiin"
       username: "Käyttäjätunnus:"
@@ -436,6 +443,7 @@ fi:
       first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
       rookie: "Tulokas"
       rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen Kassiin. Tästä se lähtee!"
+      item_lister_bronze: "Luetteloija"
     profile_feedback:
       grade: "arvio:"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
@@ -474,6 +482,7 @@ fi:
       show_all_feedback: "Näytä kaikki palautteet"
       badges: "Kassimerkit"
       what_are_these: "Mitä nämä ovat?"
+      show_all_badges: "Näytä kaikki kassimerkit"
     help_texts:
       help_captcha_title: "Olethan ihminen"
       terms_title: "Kassin käyttöehdot"

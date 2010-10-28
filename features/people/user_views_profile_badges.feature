@@ -1,7 +1,7 @@
-Feature: User views badges
+Feature: User views profile badges
   In order to view what achievements I have accomplished in Kassi
   As a user
-  I want to be able to view my badges
+  I want to be able to view my badges in my profile page
 
   @javascript
   Scenario: User has no badges

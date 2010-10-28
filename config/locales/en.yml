@@ -47,6 +47,16 @@ en:
       feedback_forum: "feedback forum"
       to_see_what_others_have_suggested: "to see what other users have suggested."
       default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
+    conversations:
+      messages: "Messages"
+      received: "Received"
+      sent: "Sent"
+      notifications: "Notifications"
+    infos:
+      info_about_kassi: "Information about Kassi"
+      about: "What is Kassi?"
+      how_to_use: "How to use Kassi"
+      terms: "Terms of use"
     logged_in:
       login: "Login"
       sign_up: "Sign up"
@@ -122,22 +132,16 @@ en:
       only_kassi_administrators_can_access_this_area: "Only Kassi administrators can access this area"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
-    conversations:
-      messages: "Messages"
-      received: "Received"
-      sent: "Sent"
-      notifications: "Tiedotteet"
+    profile_extras_header:
+      back_to_profile_of_person: "Back to user's profile"
+      feedback: "Feedback"
+      badges: "Badges"
     settings:
       settings: "Settings"
       profile: "Profile info"
       avatar: "Profile picture"
       account: "Account"
       notifications: "Notifications"
-    infos:
-      info_about_kassi: "Information about Kassi"
-      about: "What is Kassi?"
-      how_to_use: "How to use Kassi"
-      terms: "Terms of use"    
   emails:
     common:
       thanks: "Thanks,"
@@ -413,6 +417,9 @@ en:
       edit_request: "Edit request"
       edit_offer: "Edit offer"  
   people:
+    badge_description:
+      badge_achieved_at: "Badge achieved "
+      you_do_not_yet_have_this_badge: "Badge has not yet been achieved."
     new:
       sign_up: "Create a new account in Kassi"
       username: "Username:"
@@ -434,6 +441,7 @@ en:
       first_transaction_description: "Congrats on your first event in Kassi! One of your requests or offers has been accepted and confirmed as done."
       rookie: "Rookie"
       rookie_description: "You have added an offer or a request in Kassi for the first time. Here we go!"
+      item_lister_bronze: "Catalogizer"
     profile_feedback:
       grade: "grade:"
       less_than_expected: "Worse than expected"
@@ -472,6 +480,7 @@ en:
       show_all_feedback: "Show all feedback"
       badges: "Badges"
       what_are_these: "What are these?"
+      show_all_badges: "Show all badges"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"
