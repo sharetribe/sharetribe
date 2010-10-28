@@ -162,6 +162,14 @@ en:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_rejected_your_request: "%{accepter} has rejected your request considering offer %{listing}"
       has_rejected_your_offer: "%{accepter} has rejected your offer considering request %{listing}"  
+  admin:
+    badges:
+      index:
+        add_new_badge: "Add new badge"
+        name: "Badge name"
+        image: "Badge picture"
+        save_badge: "Save badge"
+        existing_badges: "Existing badges"
   conversations:
     index:
       message_partitive: "message"
@@ -218,6 +226,7 @@ en:
   homepage:
     index:
       welcome_to_new_kassi: "Welcome to new Kassi!"
+      news: "News"
       recent_events: "Recent events"
       more_events: "More events..."
       request_something: "Request something"
