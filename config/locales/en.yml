@@ -168,7 +168,10 @@ en:
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_rejected_your_request: "%{accepter} has rejected your request considering offer %{listing}"
-      has_rejected_your_offer: "%{accepter} has rejected your offer considering request %{listing}"  
+      has_rejected_your_offer: "%{accepter} has rejected your offer considering request %{listing}"
+    new_badge:
+      you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in Kassi!"
+      you_can_view_all_your_badges_in: "You can view all your badges in"
   admin:
     badges:
       index:
@@ -177,9 +180,6 @@ en:
         image: "Badge picture"
         save_badge: "Save badge"
         existing_badges: "Existing badges"
-    new_badge:
-      you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in Kassi!"
-      you_can_view_all_your_badges_in: "You can view all your badges in"
   conversations:
     index:
       message_partitive: "message"
