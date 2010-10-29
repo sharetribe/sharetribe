@@ -1,6 +1,6 @@
 class TestimonialsController < ApplicationController
   
-  before_filter, :except => :index do |controller|
+  before_filter :except => :index do |controller|
     controller.ensure_logged_in "you_must_log_in_to_give_feedback"
   end
   
