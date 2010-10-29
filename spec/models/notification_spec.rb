@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe Notification do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  before(:each) do
+    @notification = Factory.build(:notification)
+  end
+  
+  it "is valid with valid attributes" do
+    @notification.should be_valid
+  end
+  
 end

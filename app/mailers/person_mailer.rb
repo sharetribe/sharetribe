@@ -34,6 +34,17 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
   
+  def new_badge(badge, host=nil)
+    recipient = badge.person
+    @url = host ? "http://#{host}/#{recipient.locale}#{person_badges_path(:person_id => recipient.id)}" : "test_url"
+    @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
+    @badge = badge
+    @badge_name = t("people.profile_badge.#{@badge.name}")
+    set_locale recipient.locale
+    mail(:to => recipient.email,
+         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
+  end
+  
   # Used to send notification to Kassi admins when somebody
   # gives feedback on Kassi
   def new_feedback(feedback)

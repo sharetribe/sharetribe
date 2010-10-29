@@ -60,3 +60,19 @@ Factory.define :feedback do |f|
   f.email "kassi_testperson1@example.com"
   f.is_handled 0
 end
+
+Factory.define :badge do |b|
+  b.person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  b.name "rookie"
+end
+
+Factory.define :notification do |n|
+  n.receiver { |receiver| receiver.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  n.is_read 0
+end
+
+Factory.define :badge_notification do |b|
+  b.receiver { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  b.is_read 0
+  b.association :badge
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101027103753) do
+ActiveRecord::Schema.define(:version => 20101028151541) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"

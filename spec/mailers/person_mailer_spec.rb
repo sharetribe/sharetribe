@@ -9,7 +9,7 @@ describe PersonMailer do
     @test_person2.save
   end   
 
-  it "should send email about new message" do
+  it "should send email about a new message" do
     @conversation = Factory(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
@@ -22,7 +22,7 @@ describe PersonMailer do
     assert_equal "You have a new message in Kassi", email.subject
   end
   
-  it "should send email about new comment to own listing" do
+  it "should send email about a new comment to own listing" do
     @comment = Factory(:comment)
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @session.cookie)
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
@@ -31,7 +31,7 @@ describe PersonMailer do
     assert_equal "Teppo Testaaja has commented your listing in Kassi", email.subject
   end
   
-  it "should send email about accepted and rejected offer or request" do
+  it "should send email about an accepted and rejected offer or request" do
     @conversation = Factory(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2
@@ -49,6 +49,14 @@ describe PersonMailer do
     assert_equal [@test_person2.email], email.to
     assert_equal "Your offer was rejected", email.subject
   end
+  
+  it "should send email about a new badge" do
+    @badge = Factory(:badge)
+    email = PersonMailer.new_badge(@badge).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal [@test_person.email], email.to
+    assert_equal "You have achieved a badge 'Rookie' in Kassi!", email.subject
+  end  
   
   it "should send email to admins of new feedback" do
     @feedback = Factory(:feedback)

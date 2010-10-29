@@ -169,6 +169,9 @@ fi:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
       has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
+    new_badge:
+      you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
+      you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
   admin:
     badges:
       index:
@@ -540,6 +543,7 @@ fi:
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+      email_about_new_badges: "...olen ansainnut uuden kassimerkin"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"
