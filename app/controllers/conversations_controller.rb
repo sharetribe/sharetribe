@@ -35,6 +35,7 @@ class ConversationsController < ApplicationController
   def notifications
     @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
     @current_user.mark_all_notifications_as_read
+    render :partial => "additional_notifications" if request.xhr?
   end
   
   def show

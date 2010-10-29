@@ -1,11 +1,15 @@
 class TestimonialsController < ApplicationController
   
-  before_filter do |controller|
+  before_filter, :except => :index do |controller|
     controller.ensure_logged_in "you_must_log_in_to_give_feedback"
   end
   
-  before_filter :ensure_authorized_to_give_feedback
-  before_filter :ensure_feedback_not_given
+  before_filter :ensure_authorized_to_give_feedback, :except => :index
+  before_filter :ensure_feedback_not_given, :except => :index
+  
+  def index
+    @person = Person.find(params[:person_id])
+  end
   
   def new
     @testimonial = Testimonial.new

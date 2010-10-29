@@ -111,6 +111,7 @@ Kassi::Application.routes.draw do
         end
       end
       resources :badges
+      resources :testimonials
     end
     resources :infos do
       collection do
