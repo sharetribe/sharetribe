@@ -45,7 +45,8 @@ class Person < ActiveRecord::Base
     "email_about_new_messages",
     "email_about_new_comments_to_own_listing",
     "email_when_conversation_accepted",
-    "email_when_conversation_rejected"
+    "email_when_conversation_rejected",
+    "email_about_new_badges"
     
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
@@ -493,9 +494,12 @@ class Person < ActiveRecord::Base
     Rails.cache.delete(cache_key(id,cookie))
   end
   
-  def give_badge(badge_name)
+  def give_badge(badge_name, host)
     badge = Badge.create(:person_id => id, :name => badge_name)
     badge_notification = BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
+    if preferences["email_about_new_badges"]
+      PersonMailer.new_badge(badge, host).deliver
+    end
   end
   
   def has_badge?(badge)
