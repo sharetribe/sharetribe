@@ -17,78 +17,10 @@
 </head>
 
 <body>
-  <div id="wrapper">
-    <div id="main">
-      <br /><br /><br />
-      <div id="login_box">
-        <div class="home_content_right_box_top"></div>
-        <div class="home_content_right_box_content">
-      	  <h1>Lomakkeen käsittely epäonnistui</h1>
-      	  <p>
-      	    Useimmiten tämä johtuu virheestä evästeiden käsittelyssä. 
-      	    Helpoin tapa päästä virheestä eroon on yleensä
-      	    sulkea selain kokonaan ja käynnistää uudestaan.
-      	  </p>
-      	  <p>
-      	    Jos virhe toistuu selaimen uudelleenkäynnistämisestä huolimatta,
-      	    lähetä palautetta alla olevalla lomakkella ja kerro missä virhe tapahtui.
-      	  </p>
-					<h1>Form handling error</h1>
-					<p>
-					  This is sometimes caused by error in cookie handling. The easiest 
-					  solution is usually to shut down the browser and start it again.
-				  </p>
-					<p>
-					  If the problem persists even after restarting the browser,
-					  please send feedback with the form below and tell us where this happened.
-					</p>
-          <br />
-          <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="6e1c1399c83ef146b054fa11222046e522add966" /></div>
-            <div class="login_padding">
-              <b>Virheen kuvaus - error description</b>
-            </div>  
-            <div class="login_padding">
-              <textarea cols="40" id="feedback_content" name="feedback[content]" rows="5" class="error_page"></textarea> 
-            </div>
-						<input id="feedback_author_id" name="feedback[author_id]" type="hidden" value="virheilmoitus500" />
-            <input id="feedback_url" name="feedback[url]" type="hidden" value="/error_notice_received.html" />  
-            <div class="login_form_br"></div>
-            <div class="login_padding">
-              <input name="commit" onclick="this.form.submit();" type="submit" value="Lähetä - Send" class="home_button" />
-            </div>
-          </form>
-              
-          <br />
-          
-          <p>
-            <a href="/"> Takaisin Kassin etusivulle - Back to Kassi Front page </a>
-          </p>
-        </div>
-        <div class="home_content_right_box_bottom"></div>
-      </div>
-    </div>
-
-    <div id="push"></div>
+  <!-- This file lives in public/422.html -->
+  <div class="dialog">
+    <h1>The change you wanted was rejected.</h1>
+    <p>Maybe you tried to change something you didn't have access to.</p>
   </div>
-  <!-- The UserVoice script -->
-  <script type="text/javascript">
-    var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
-    document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
-  </script>
-  <script type="text/javascript">
-  UserVoice.Tab.show({ 
-    /* required */
-    key: 'kassi',
-    host: 'kassi.uservoice.com', 
-    forum: '30582', 
-    /* optional */
-    alignment: 'left',
-    background_color:'#406704', 
-    text_color: 'white',
-    hover_color: '#c0e783',
-    lang: 'en'
-  })
-  </script>
-  
 </body>
 </html>

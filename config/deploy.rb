@@ -13,8 +13,6 @@ set :branch, "kassi2"
 
 set :deploy_via, :remote_cache
 
-set :scm, :git
-set :deploy_via, :remote_cache
 set :deploy_to, "/var/datat/kassi"
 
 if ENV['DEPLOY_ENV'] == "beta"
@@ -56,6 +54,8 @@ role :web, host
 role :db, host, :primary => true
 
 set :rails_env, :production
+set :use_sudo, false
+
 
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
