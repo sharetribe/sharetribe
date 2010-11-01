@@ -45,6 +45,11 @@ class SessionsController < ApplicationController
     redirect_to root
   end
   
+  def index
+    # this is not in use in Kassi, but bots seem to try the url so implementing this to avoid errors
+   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+  end
+  
   def request_new_password
     begin
       RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
