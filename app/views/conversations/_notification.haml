@@ -1,0 +1,5 @@
+.notification
+  .notification_date
+    = l(notification.created_at, :format => :short)
+  .notification_content  
+    = render :partial => "conversations/notifications/#{notification.type.downcase}", :locals => { :notification => notification }

@@ -1,0 +1,19 @@
+- content_for :javascript do
+  initialize_update_avatar_form('#{t('listings.form.images.no_file_selected')}', '#{t('listings.form.images.select_file')}','#{I18n.locale}');
+
+#person_settings_form
+  #settings_avatar_form
+    %h2= t(".update_profile_picture")
+    :javascript
+      function handleResponse() { location = "#{@return_url}%>"}
+
+    = form_tag({ :controller => "people", :action => "update_avatar", :id => @person.id }, :method => "put",  :multipart => true, :id => "avatar_form") do
+      .form_field_container
+        = file_field_tag "file", :size => 30, :id => "avatar_file"
+      .form_field_container
+        = submit_tag t(".add_avatar_submit"), :onclick => "this.disabled=true,this.form.submit();", :class => "send_button_notifications"
+  #settings_avatar_image
+    = large_avatar_thumb(@person)
+
+%iframe{:id => "upload_frame", :name => "upload_frame", :style => "display: none"}
+  

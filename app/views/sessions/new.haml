@@ -1,0 +1,26 @@
+- content_for :javascript do
+  initialize_login_form();
+
+.grid_10.prefix_7.suffix_7
+  #login_form
+    %h2
+      = t('.login_to_kassi')
+    = form_tag(:action => "create") do  
+      .form_field_container
+        %label{:for => "username"}
+          = t('.username') + ":"
+        = text_field_tag :username, nil, :value => session[:form_username], :class => :text_field 
+      .form_field_container  
+        %label{:for => "password"}
+          = t('.password') + ":"
+        = password_field_tag :password, nil, :class => :text_field  
+      .form_field_container
+        = submit_tag(t('.login'), :class => "send_button")
+      .form_field_container
+        .links
+          = link_to t('.create_new_account'), sign_up_path
+          %span{:class => "big"}
+            |
+          = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link"
+    #password_forgotten
+      = render :partial => "password_forgotten"

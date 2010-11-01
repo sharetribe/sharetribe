@@ -1,0 +1,52 @@
+%h3 Offer items and favors to others
+
+%p
+  Do you own tools, sports equipment, funny costumes or other items that you do not use often and could easily lend to others, or even sell or give them away? Are you good at fixing bikes, sewing or perhaps eager to walk dogs? Would you be willing to give a ride to somebody for some gas money when travelling to work? Do you have an apartment waiting for someone to rent it? 
+  = link_to "Add information about all these to Kassi", new_request_path(:type => "offer")
+  and experience the joy of helping your fellow man!
+
+%p
+  Also remember to 
+  = link_to("check what other people need at the moment", requests_path) + "."
+  Maybe you can offer something that someone is currently requesting.
+
+%p
+  Kassi aims to bring together people who need something and who can offer something. They can then freely discuss on the methods of exchange. This means that you sell, rent and trade or give, lend and help others for free.
+
+%h3 Ask others what you need
+
+%p
+  Whether you need an item, a favor, a ride or an apartment, they can all be found using Kassi's useful
+  = link_to("search", search_path) + "."
+  You can also
+  = link_to("browse open offers", offers_path) + "."
+
+%p
+  If somebody is already offering what you need in Kassi, you can click the "request" or "reply" link in that offer and send a free message to the person who created the offer using the form that opens up. After that you only need to wait for the recipient of the message to accept your request. You can agree on the details of the exchange by Kassi's messaging functionality. You will get an automatic email notification from all new messages and accepted requests and offers. Thus, there's no need for you to reveal your email address to the other party unless you wish to do so. You can view all your received and sent messages and accepted, rejected and pending requests and offers in the
+  - if logged_in?
+    = link_to("messages view", person_messages_path(:person_id => @current_user.id)) + ","
+  - else 
+    messages view,
+  which you can always access by clicking the envelope icon on the top of each page, when you have logged in to Kassi.
+
+%p
+  If you did not find what you are looking for, you can
+  = link_to("create an open request", new_request_path(:type => "request")) + ","
+  where you describe what you need. This request will be shown to all other Kassi users. It is very likely that somebody can offer just the thing you need.
+  
+%h3 Tips
+
+%p
+  The more trustworthy you appear to other people, the more eager they probably are to offer you the things you need. The easiest way to build your credibility is to
+  - if logged_in?
+    = link_to("fill out your profile information carefully", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    fill out your profile information carefully.
+  You should at least fill in your full name and
+  - if logged_in?
+    = link_to("add a recognizable profile picture of yourself", avatar_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    add a recognizable profile picture of yourself.
+
+%p
+  When you offer something to other users or they offer something to you, it's always good to give feedback to the other party after the transaction. Good feedback will make people happy, and if somebody doesn't go the way you think you should, it's also good to leave a note about that. All feedback is public and is shown in the profile of the person who received the feedback, and thus helps the other people to assess the credibility of that person. For that reason you should also remind others to give feedback to you, because the positive feedback builds your credibility in the eyes of others, and smoothens future transactions. You can give feedback by clicking the "Give Feedback" link on an accepted request or offer in the messages view.

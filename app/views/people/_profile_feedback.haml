@@ -1,0 +1,21 @@
+- listing = testimonial.participation.conversation.listing
+%span
+  = link_to testimonial.author.given_name, testimonial.author
+  = t(".#{listing.listing_type}ed_#{listing.category}")
+  - if listing.visibility.eql?("disabled")
+    &ldquo;#{listing.title}&rdquo;
+  - else
+    = link_to listing.title, listing
+  = time_ago(testimonial.created_at) + "."
+  
+%br/ 
+%br/
+%span
+  %i
+    - unless testimonial.text.eql?("")
+      &ldquo;#{truncate(testimonial.text, :length => 60, :omission => "...")}&rdquo;
+      %br/
+      %br/
+  %b
+    = t(".grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."
+    

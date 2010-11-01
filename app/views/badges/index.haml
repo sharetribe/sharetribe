@@ -1,0 +1,6 @@
+= render :partial => "layouts/profile_extras_header"
+
+#badge_canvas
+  = render :partial => "badge", :collection => Badge::UNIQUE_BADGES, :as => :badge
+
+#single_badge.hidden

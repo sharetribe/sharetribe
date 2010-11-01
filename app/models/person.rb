@@ -2,205 +2,101 @@ require 'json'
 require 'rest_client'
 require 'httpclient'
 
+# This class represents a person (a user of Kassi). Most of the person
+# information is stored in ASI that is accessed via PersonConnection class.
+# Because the delays in the http requests, we use some caching to store the
+# results of the ASI-requests.
+
 class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
-  PERSON_HASH_CACHE_EXPIRE_TIME = 15
-  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours
+  # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
+  PERSON_HASH_CACHE_EXPIRE_TIME = 0#15  #ALSO THIS CACHE TEMPORARILY OFF TO TEST PERFORMANCE WIHTOUT IT
+  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
     
-  attr_accessor :guid, :password, :password2, :username, :email, :form_username, :form_given_name, :form_family_name, :form_password, :form_password2, :form_email, :consent
+  attr_accessor :guid, :password, :password2, :username, :email, :form_username,
+                :form_given_name, :form_family_name, :form_password, 
+                :form_password2, :form_email, :consent
   
   attr_protected :is_admin
 
-  has_many :feedbacks
-
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
+  has_many :offers, 
+           :foreign_key => "author_id", 
+           :class_name => "Listing", 
+           :conditions => { :listing_type => "offer" },
+           :order => "id DESC"
+  has_many :requests, 
+           :foreign_key => "author_id", 
+           :class_name => "Listing", 
+           :conditions => { :listing_type => "request" },
+           :order => "id DESC"
   
-  has_many :items, :foreign_key => "owner_id", :dependent => :destroy
-           
-  has_many :disabled_items, 
-           :class_name => "Item",
-           :foreign_key => "owner_id",
-           :conditions => "status = 'disabled'",
-           :order => "title",
-           :dependent => :destroy 
+  has_many :participations, :dependent => :destroy 
+  has_many :conversations, :through => :participations
+  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
+  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "target_id", :order => "id DESC"
+  has_many :messages, :foreign_key => "sender_id"
+  has_many :badges
+  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   
-  has_many :disabled_favors, 
-           :class_name => "Favor",
-           :foreign_key => "owner_id", 
-           :conditions => "status = 'disabled'",
-           :order => "title",
-           :dependent => :destroy 
+  EMAIL_NOTIFICATION_TYPES = [
+    "email_about_new_messages",
+    "email_about_new_comments_to_own_listing",
+    "email_when_conversation_accepted",
+    "email_when_conversation_rejected",
+    "email_about_new_badges"
+    
+    # These should not yet be shown in UI, although they might be stored in DB
+    # "email_when_new_friend_request",
+    # "email_when_new_feedback_on_transaction",
+    # "email_when_new_listing_from_friend"
+  ] 
+    
+  serialize :preferences
   
-  has_many :favors, :foreign_key => "owner_id", :dependent => :destroy 
-
-  has_many :person_interesting_listings, :dependent => :destroy 
-  has_many :interesting_listings, 
-           :through => :person_interesting_listings, 
-           :source => :listing
-           
-  has_many :person_conversations, :dependent => :destroy 
-  has_many :conversations, 
-           :through => :person_conversations, 
-           :source => :conversation
+  # Returns conversations for the "received" and "sent" actions
+  def messages_that_are(action)
+    conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
+  end
   
-  has_many :received_comments, 
-           :class_name => "PersonComment", 
-           :foreign_key => "target_person_id",
-           :dependent => :destroy,
-           :order => "id DESC" 
-           
-  has_many :kassi_event_participations, :dependent => :destroy
-  has_many :kassi_events, 
-           :through => :kassi_event_participations, 
-           :source => :kassi_event,
-           :conditions => "pending = 0"
-  has_many :own_kassi_events, 
-           :through => :kassi_event_participations, 
-           :source => :kassi_event
-           
-  has_one :settings, :dependent => :destroy
-  
-  has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"        
-
-  class PersonConnection < ActiveRecord::Base
-    # This is an inner class to handle remote connection to COS database where the actual information
-    # of person model is stored. This is subclass of ActiveResource so it includes some automatic
-    # functionality to access REST interface.
-    #
-    # In practise we use here connection.post/get/put/delete and the URL and Parameters as described
-    # in COS documentation at #{APP_CONFIG.asi_url}
-     
-    include RestHelper
-    
-    def self.create_person(params, cookie)
-      CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people", params, {:cookies => cookie})
-      #return JSON.parse(RestClient.post("#{APP_CONFIG.asi_url}/people", params, {:cookies => cookie}))
-    end
-    
-    def self.get_person(id, cookie)
-      #puts "THREADISTA  #{RestHelper.event_id}"
-      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@self", {:cookies => cookie})
-
-    end
-    
-    def self.search(query, cookie)
-      escaped_query = ApplicationHelper.escape_for_url(query)
-      return RestHelper.make_request(:get,"#{APP_CONFIG.asi_url}/people?search=#{escaped_query}", {:cookies => cookie})
-      # return JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people?search=#{escaped_query}", {:cookies => cookie}))
-    end
-    
-    def self.get_friends(id, cookie)
-      #JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:cookies => cookie}))
-      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:cookies => cookie})
-    end
-    
-    def self.get_pending_friend_requests(id, cookie)
-      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests", {:cookies => cookie})
-      #return JSON.parse(RestClient.get("#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests", {:cookies => cookie}))
-    end
-    
-    def self.put_attributes(params, id, cookie)
-      # information changes, clear cache
-      parent.cache_delete(id,cookie)
-      CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:put, "#{APP_CONFIG.asi_url}/people/#{id}/@self", {:person => params}, {:cookies => cookie})
-      #JSON.parse(RestClient.put("#{APP_CONFIG.asi_url}/people/#{id}/@self", {:person => params}, {:cookies => cookie})) 
-    end
-    
-    def self.update_avatar(image, id, cookie)
-      response = HTTPClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@avatar", { :file => image }, {'Cookie' => cookie})
-      if response.status != 200
-        raise Exception.new(JSON.parse(response.body.content)["messages"])
-      end
-    end
-    
-    def self.add_as_friend(friend_id, id, cookie)
-      parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
-      parent.cache_delete(friend_id,cookie)
-      CacheHelper.update_people_last_changed
-      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
-      #return RestClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@friends", {:friend_id => friend_id}, {:cookies => cookie})
-    end
-    
-    def self.remove_from_friends(friend_id, id, cookie)
-      parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
-      parent.cache_delete(friend_id,cookie)
-      CacheHelper.update_people_last_changed
-      #RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie}) 
-      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@friends/#{friend_id}", {:cookies => cookie})
-    end
-    
-    def self.remove_pending_friend_request(friend_id, id, cookie)
-      parent.cache_delete(id,cookie)
-      #Rails.cache.delete("person_hash.#{friend_id}_asked_with_cookie.#{cookie}")
-      parent.cache_delete(friend_id,cookie)
-      CacheHelper.update_people_last_changed
-      # RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
-      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@pending_friend_requests/#{friend_id}", {:cookies => cookie})
-    end
-    
-    def self.get_groups(id, cookie, event_id=nil)
-      request_url = "#{APP_CONFIG.asi_url}/people/#{id}/@groups"
-      request_url += "?event_id=#{event_id}" if event_id
-      #JSON.parse(RestClient.get(request_url, {:cookies => cookie}))
-      
-      return RestHelper.make_request(:get, request_url, {:cookies => cookie})
-    
-    end
-    
-    def self.join_group(id, group_id, cookie)
-      CacheHelper.update_groups_last_changed
-      #JSON.parse(RestClient.post("#{APP_CONFIG.asi_url}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie}))
-      return RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/#{id}/@groups", {:group_id => group_id}, {:cookies => cookie} )
-      #response = connection.post("#{prefix}people/#{id}/@groups", { :group_id => group_id }.to_json, {"Cookie" => cookie})
-    end
-    
-    def self.leave_group(id, group_id, cookie)
-      CacheHelper.update_groups_last_changed
-      #JSON.parse(RestClient.delete("#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie}))
-      return RestHelper.make_request(:delete, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
-      #response = connection.delete("#{prefix}people/#{id}/@groups/#{group_id}", {"Cookie" => cookie})
-    end
-    
-    def self.get_group_admin_status(id, group_id, cookie)
-      logger.info "Url: #{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}"
-      return RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{id}/@groups/#{group_id}", {:cookies => cookie})
-    end
-    
-    #fixes utf8 letters
-    # def self.fix_alphabets(json_hash)
-    #   #the parameter must be a hash that is decoded from JSON by activeResource messing up umlaut letters
-    #   #puts json_hash.inspect
-    #   JSON.parse(json_hash.to_json.gsub(/\\\\u/,'\\u'))
-    # end
-    
+  def feedback_average
+    ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
   end
   
   # Create a new person to Common Services and Kassi.
   def self.create(params, cookie)
     
-    # Try to create the person to COS
-    person_hash = {:person => params.slice(:username, :password, :email) }
+    # Try to create the person to ASI
+    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}) }
     response = PersonConnection.create_person(person_hash, cookie)
-    
-    # Pick id from the response (same id in kassi and COS DBs)
+
+    # Pick id from the response (same id in kassi and ASI DBs)
     params[:id] = response["entry"]["id"]
     
-    # Add name information for the person to COS 
-    params[:given_name] = params[:given_name].slice(0, 28)
-    params[:family_name] = params[:family_name].slice(0, 28)
+    # Because ASI now associates the used cookie to a session for the newly created user
+    # Change the KassiCookie to nil if it was used (because now it is no more an app-only cookie) 
+    Session.update_kassi_cookie   if  (cookie == Session.kassi_cookie)    
+    
+    # Add name information for the person to ASI 
+    params["given_name"] = params["given_name"].slice(0, 28)
+    params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale), params[:id], cookie)
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id), params[:id], cookie)
     
     # Create locally with less attributes 
-    super(params.except(:username, :email, :name))
+    super(params.except(:username, :email, "name", :terms))
   end 
   
+  def set_default_preferences
+    self.preferences = {}
+    EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
+    save
+  end
+  
+  # Creates a record to local DB with given id
+  # Should be used only with ids that exist also in ASI
   def self.add_to_kassi_db(id)
     person = Person.new({:id => id })
     if person.save
@@ -211,6 +107,8 @@ class Person < ActiveRecord::Base
     end
   end
 
+
+  # Using GUID string as primary key and id requires little fixing like this
   def initialize(params={})
     self.guid = params[:id] #store GUID to temporary attribute
     super(params)
@@ -222,14 +120,43 @@ class Person < ActiveRecord::Base
   end
   
   def self.search(query)
-    cookie = Session.kassiCookie
+    cookie = Session.kassi_cookie
     begin
       person_hash = PersonConnection.search(query, cookie)
     rescue RestClient::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
+      #Could not find person with that id in ASI Database!
       return nil
     end  
     return person_hash
+  end
+  
+  def self.search_by_phone_number(number)
+    cookie = Session.kassi_cookie
+    begin
+      person_hash = PersonConnection.search_by_phone_number(number, cookie)
+    rescue RestClient::ResourceNotFound => e
+      #Could not find person with that id in ASI Database!
+      return nil
+    end  
+    return person_hash["entry"][0]
+  end
+  
+  def self.username_available?(username, cookie=Session.kassi_cookie)
+    resp = PersonConnection.availability({:username => username}, cookie)
+    if resp["entry"] && resp["entry"][0]["username"] && resp["entry"][0]["username"] == "unavailable"
+      return false
+    else
+      return true
+    end
+  end
+
+  def self.email_available?(email, cookie=Session.kassi_cookie)
+    resp = PersonConnection.availability({:email => email}, cookie)
+    if resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable"
+      return false
+    else
+      return true
+    end
   end
   
   def username(cookie=nil)
@@ -247,8 +174,9 @@ class Person < ActiveRecord::Base
   end
   
   def name_or_username(cookie=nil)
-    # First check the person name cache (which is common to al users)
+    # First check the person name cache (which is common to all users)
     # If not found use the person_hash cache (which is separate for each asker)
+    
     Rails.cache.fetch("person_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {name_or_username_from_person_hash(cookie)}
   end
       
@@ -264,17 +192,26 @@ class Person < ActiveRecord::Base
   end
   
   def name(cookie=nil)
+    # We rather return the username than blank if no name is set
     return name_or_username(cookie)
+  end
+  
+  def given_name_or_username(cookie=nil)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
+      return person_hash["username"]
+    end
+    return person_hash["name"]["given_name"]
   end
   
   def given_name(cookie=nil)
     if new_record?
       return form_given_name ? form_given_name : ""
     end
-    person_hash = get_person_hash(cookie)
-    return "Not found!" if person_hash.nil?
-    return "" if person_hash["name"].nil?
-    return person_hash["name"]["given_name"]
+    # We rather return the username than blank if no given name is set
+    return Rails.cache.fetch("given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_or_username(cookie)}
+    #given_name_or_username(cookie) 
   end
   
   def set_given_name(name, cookie)
@@ -391,30 +328,12 @@ class Person < ActiveRecord::Base
     update_attributes({:description => description}, cookie)
   end
   
-  # Returns contacts of this person as an array of Person objects
-  def contacts
-    Person.find_by_sql(contact_query("people.id, people.created_at"))
-  end
-  
-  # Returns a query that gets the selected attributes for contacts
-  def contact_query(select)
-    "SELECT DISTINCT #{select} 
-    FROM 
-      people, kassi_event_participations
-    WHERE
-      people.id = person_id AND
-      person_id <> '#{id}' AND 
-      kassi_event_id IN (
-        SELECT kassi_event_id FROM kassi_event_participations WHERE person_id = '#{id}'
-      )"
-  end
-  
   # Returns friends of this person as an array of Person objects
   def friends(cookie)
     Person.find_kassi_users_by_ids(get_friend_ids(cookie))
   end
   
-  # Returns ids of OtaSizzle friends of this person
+  # Returns ids of friends (in ASI) of this person
   def get_friend_ids(cookie)
     Person.get_person_ids(get_friends(cookie))
   end
@@ -436,100 +355,69 @@ class Person < ActiveRecord::Base
     PersonConnection.remove_from_friends(friend_id, self.id, cookie)
   end
   
-  # Retrieves friends of this person from COS
+  # Retrieves friends of this person from ASI
   def get_friends(cookie)
-    
-      # rescue is commented out to spot the error cases more clearly
-    
-    # begin
-      friend_hash = PersonConnection.get_friends(self.id, cookie)
-    # rescue RestClient::ResourceNotFound => e
-    #   #Could not find person with that id in COS Database!
-    #   return nil
-    # end
-    
+    friend_hash = PersonConnection.get_friends(self.id, cookie)
     return friend_hash
   end
   
   def get_friend_requests(cookie)
-    
-      # rescue is commented out to spot the error cases more clearly
-    
-    # begin
-      request_hash = PersonConnection.get_pending_friend_requests(self.id, cookie)
-    # rescue RestClient::ResourceNotFound => e
-    #    #Could not find person with that id in COS Database!
-    #    return nil
-    #  end
-    
+    request_hash = PersonConnection.get_pending_friend_requests(self.id, cookie)
     return request_hash
   end
   
-  # Returns all the groups that this user is a member in 
-  # as an array of Group objects
-  # if some of the groups are not already in kassi database, add them
-  def groups(cookie, event_id=nil)
-    group_ids = get_group_ids(cookie, event_id)
-    begin
-      return Group.find(group_ids)
-    rescue ActiveRecord::RecordNotFound
-      Group.add_new_groups_to_kassi_db(group_ids)
-      return Group.find(group_ids)
-    end
-  end
-  
-  # Returns ids of OtaSizzle groups of this person
-  def get_group_ids(cookie, event_id=nil)
-    Group.get_group_ids(get_groups(cookie, event_id))
-  end
-  
-  # Returns a hash from COS containing groups of this person
-  def get_groups(cookie, event_id=nil)
-    group_hash = Rails.cache.fetch(Person.groups_cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_groups(self.id, cookie, event_id)}
-    return group_hash
-  end
-  
-  def update_attributes(params, cookie)
-    #Handle name part parameters also if they are in hash root level
-    Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
-    Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
-
-    if params["name"] || params[:name]
-      # If name is going to be changed, expire name cache
-      Rails.cache.delete("person_name/#{self.id}")
-    end
-         
-    PersonConnection.put_attributes(params, self.id, cookie)
-  end
-  
-  def self.remove_root_level_fields(params, field_type, fields)
-    fields.each do |field|
-      if params[field] && (params[field_type].nil? || params[field_type][field].nil?)
-        params.update({field_type => Hash.new}) if params[field_type].nil?
-        params[field_type].update({field => params[field]})
-        params.delete(field)
+  def update_attributes(params, cookie=nil)
+    if params[:preferences]
+      super(params)
+    else  
+      #Handle name part parameters also if they are in hash root level
+      Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
+      Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
+      if params["name"] || params[:name]
+        # If name is going to be changed, expire name cache
+        Rails.cache.delete("person_name/#{self.id}")
+        Rails.cache.delete("given_name/#{self.id}")
       end
-    end  
+      PersonConnection.put_attributes(params.except("password2"), self.id, cookie)
+    end
   end
   
-  def update_avatar(image, cookie)
-    PersonConnection.update_avatar(image, self.id, cookie)
+  def update_avatar(file, cookie)
+    path = file.path
+    original_filename = file.original_filename
+    new_path = path.gsub(/\/[^\/]+\Z/, "/#{original_filename}")
+    
+    logger.info "path #{path} original_filename #{original_filename} new_path #{new_path}"
+    
+    #rename the file to get a suffix and content type accepted by COS
+    File.rename(path, new_path)
+    
+    file_to_post = File.new(new_path)
+    
+    logger.info "FILE TO POST #{file_to_post.path}"
+    success = true
+    begin 
+      PersonConnection.update_avatar(file_to_post, self.id, cookie)
+    rescue Exception => e
+      logger.info "ASI error: #{e.message.to_s}"
+      success = false
+      begin
+        File.delete(path)
+      rescue
+        #don't care if fails
+      end
+    end
+    File.delete(new_path) if file_to_post || file_to_post.exists?
+    return success
   end
   
   def get_person_hash(cookie=nil)
-    cookie = Session.kassiCookie if cookie.nil?
+    cookie = Session.kassi_cookie if cookie.nil?
     
     begin
-      #person_hash = Rails.cache.fetch("person_hash.#{id}_asked_with_cookie.#{cookie}", :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(self.id, cookie)}
       person_hash = Person.cache_fetch(id,cookie)
-      #person_hash = PersonConnection.get_person(self.id, cookie)
-    rescue RestClient::Unauthorized => e
-      cookie = Session.updateKassiCookie
-      person_hash = PersonConnection.get_person(self.id, cookie)
-      #Rails.cache.write("person_hash.#{id}_asked_with_cookie.#{cookie}",  person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
-      Person.cache_write(person_hash,id,cookie)
     rescue RestClient::ResourceNotFound => e
-      #Could not find person with that id in COS Database!
+      #Could not find person with that id in ASI Database!
       return nil
     end
     
@@ -542,103 +430,19 @@ class Person < ActiveRecord::Base
     return person_hash["connection"]
   end
   
-  def available_items(conditions)
-    Item.find :all, 
-              :conditions => ["owner_id = '#{id}' AND status <> 'disabled'" + conditions],
-              :order => "title"
-  end
-  
-  def save_item(item)
-    existing_item = disabled_items.find_by_title(item.title)
-    if existing_item
-      existing_item.description = item.description
-      if existing_item.save
-        existing_item.enable
-        return true
-      else
-        item.errors.add(:description, "is too long")
-      end  
-    else
-      return true if item.save
-    end
-    return false
-  end
-  
-  def available_favors(conditions)
-    Favor.find :all, 
-              :conditions => ["owner_id = '#{id}' AND status <> 'disabled'" + conditions],
-              :order => "title"
-  end
-  
-  def save_favor(favor)
-    existing_favor = disabled_favors.find_by_title(favor.title)
-    if existing_favor
-      existing_favor.description = favor.description
-      if existing_favor.save
-        existing_favor.enable
-        return true
-      else
-        favor.errors.add(:description, "is too long")
-      end  
-    else
-      return true if favor.save
-    end  
-    return false
-  end
-  
-  def join_group(group_id, cookie)
-    PersonConnection.join_group(self.id, group_id, cookie)
-    Rails.cache.delete(Person.groups_cache_key(id,cookie))
-  end
-  
-  def leave_group(group_id, cookie)
-    PersonConnection.leave_group(self.id, group_id, cookie)
-    Rails.cache.delete(Person.groups_cache_key(id,cookie))
-  end
-  
-  # Takes a person hash from COS and extracts ids from it
+  # Takes a person hash from ASI and extracts ids from it
   # into an array.
   def self.get_person_ids(person_hash)
     return nil if person_hash.nil?
     person_hash["entry"].collect { |person| person["id"] }
   end
   
-  # A query to get the Kassi events if they are only displayed after
-  # the return time of the reservation related to the event has passed.
-  # NOTE: not currently used, since behaviore described above is not needed
-  def get_kassi_events
-    query = "
-      SELECT DISTINCT kassi_events.id, kassi_events.realizer_id, kassi_events.receiver_id, 
-                      kassi_events.eventable_id, kassi_events.eventable_type, kassi_events.created_at 
-      FROM kassi_events, conversations, kassi_events_people
-      WHERE kassi_events.id = kassi_events_people.kassi_event_id
-      AND kassi_events_people.person_id = '#{id}'
-      AND kassi_events.pending = 0
-      AND (kassi_events.eventable_type <> 'Reservation'
-      OR (kassi_events.eventable_id = conversations.id
-          AND conversations.return_time < '#{DateTime.now.utc}'))
-      ORDER BY id DESC
-    "
-    KassiEvent.find_by_sql(query)
-  end
   
   # Returns true if the person has admin rights in Kassi.
   def is_admin?
     is_admin == 1
   end
-  
-  # Returns the number of kassi events of this person that
-  # he has not yet commented on.
-  def uncommented_kassi_event_count
-    query1 = "
-      SELECT COUNT(ke.id) - (SELECT COUNT(*) FROM person_comments WHERE author_id = '#{id}')
-      FROM kassi_events AS ke, kassi_event_participations AS kep
-      WHERE kep.person_id = '#{id}'
-      AND kep.kassi_event_id = ke.id
-    "
-    KassiEvent.count_by_sql(query1)
-  end
-  
+    
   # Starts following a listing
   def follow(listing)
     followed_listings << listing
@@ -666,33 +470,20 @@ class Person < ActiveRecord::Base
     end
   end
   
-  # Returns true if this person is an admin of the
-  # given group
-  def is_admin_of?(group, cookie)
-    return false unless group.is_member?(self, cookie)
-    PersonConnection.get_group_admin_status(id, group.id, cookie)["entry"]["admin_role"]
+  def create_listing(params)
+    listings.create params
   end
   
-  private
-  
-  # This method constructs a key to be used in caching.
-  # Important thing is that cache contains peoples profiles, but
-  # the contents stored may be different, depending on who's asking.
-  # There for the key contains person_id and a hash calculated from cookie.
-  # (Cookie is different for each asker.)
-  def self.cache_key(id,cookie)
-    "person_hash.#{id}_asked_by.#{cookie.hash}"
+  def read(conversation)
+    conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
   
-  def self.groups_cache_key(id,cookie)
-    "person_groups_hash.#{id}_asked_by.#{cookie.hash}"
-  end
-  
-  
-  #Methods to simplify the cache access
+  # Methods to simplify the cache access
   
   def self.cache_fetch(id,cookie)
-    Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+    # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
+    PersonConnection.get_person(id, cookie)  # A line to skip the cache temporarily
+    #Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
   end
   
   def self.cache_write(person_hash,id,cookie)
@@ -702,4 +493,46 @@ class Person < ActiveRecord::Base
   def self.cache_delete(id,cookie)
     Rails.cache.delete(cache_key(id,cookie))
   end
+  
+  def give_badge(badge_name, host)
+    badge = Badge.create(:person_id => id, :name => badge_name)
+    badge_notification = BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
+    if preferences["email_about_new_badges"]
+      PersonMailer.new_badge(badge, host).deliver
+    end
+  end
+  
+  def has_badge?(badge)
+    ! badges.find_by_name(badge).nil?
+  end
+  
+  def mark_all_notifications_as_read
+    Notification.update_all("is_read = 1", ["is_read = 0 AND receiver_id = ?", id])
+  end
+  
+  private
+  
+  # This method constructs a key to be used in caching.
+  # Important thing is that cache contains peoples profiles, but
+  # the contents stored may be different, depending on who's asking.
+  # Therefore the key contains person_id and a hash calculated from cookie.
+  # (Cookie is different for each asker.)
+  def self.cache_key(id,cookie)
+    "person_hash.#{id}_asked_by.#{cookie.hash}"
+  end
+  
+  def self.groups_cache_key(id,cookie)
+    "person_groups_hash.#{id}_asked_by.#{cookie.hash}"
+  end
+  
+  def self.remove_root_level_fields(params, field_type, fields)
+    fields.each do |field|
+      if params[field] && (params[field_type].nil? || params[field_type][field].nil?)
+        params.update({field_type => Hash.new}) if params[field_type].nil?
+        params[field_type].update({field => params[field]})
+        params.delete(field)
+      end
+    end
+  end
+  
 end

@@ -15,13 +15,18 @@ default: &default_settings
 
   # The default locale (language) of the user interface
   default_locale: en
-
+  
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
   # to get the keys
   use_recaptcha: false
-  recaptcha_public_key: 'your_key_here'
-  recaptcha_private_key: 'your_key_here'
+  recaptcha_public_key: 'enter_your_own_key_here'
+  recaptcha_private_key: 'enter_your_own_key_here'  
+
+  # You can use Hoptoad to track errors if you want.
+  # You need to register an account and get an API key from hoptoadapp.com 
+  use_hoptoad: false
+  hoptoad_api_key: 'your_own_api_key_here'
 
   # Ressi is Researcher's Interface for logged data
   # If you don't need it just leave it to false
@@ -42,30 +47,25 @@ default: &default_settings
   use_error_mailer: false
   error_mailer_recipients: 'admins@example.com'
   error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
-
-  # New relic is a software used for performance testing
-  # Leave to false unless you need it
-  use_newrelic: false
+  
+  # Google Analytics can be used to track traffic on the site
+  # If set to true you need to obtain your own API key for analytics
+  # and enter it below
+  use_google_analytics: false
+  google_analytics_key: "enter_your_key_here"
 
   # CAS is a centralized authentication system, it is completely optional
   # If not needed leave to false
   use_CAS: false
-  cas_base_url: fill_according_to_used_CAS_server
-  cas_service_validate_url: fill_according_to_used_CAS_server
-  cas_validate_url: fill_according_to_used_CAS_server
-  cas_proxy_url: fill_according_to_used_CAS_server
-  cas_logger: cas_logger,
-  cas_proxy_retrieval_url:fill_according_to_used_CAS_server
-  cas_proxy_callback_url: fill_according_to_used_CAS_server
-  cas_authenticate_on_every_request: false
   
-  
-  # If you have multiple servers, you can set this value to separate
-  # for example the error and feedback mails coming from those
-  server_name: local
-  # If the current server is meant only for test usage, you can set this
-  # to true to display a waring notice on the site
-  test_site_warning: false
+  # TeliaSonera sms API is optional and experimental
+  # leave this to false unless you know what you're doing
+  # (The receiver resource must be created separately. see: http://developer.medialab.sonera.fi/info/index.php/Receiver_resource)
+  use_sms: false
+  sms_username: your_api_username
+  sms_password: your_api_password
+  sms_service_key: your_api_service_key
+  sms_receiver_id: your_separately_registered_keyword
   
   
   # Below it is possible to specify different settings for different

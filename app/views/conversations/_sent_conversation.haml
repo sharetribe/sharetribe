@@ -1,0 +1,16 @@
+- last_message = conversation.last_message(@current_user, false)
+- receiver = conversation.other_party(@current_user)
+
+.conversation
+  .person_image
+    = small_avatar_thumb conversation.other_party(@current_user)
+  .conversation_left
+    = link_to receiver.name, receiver
+    %br/
+    %span= l last_message.created_at, :format => :shorter
+  .conversation_center
+    %h3= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)  
+    %span= link_to(truncate(last_message.content, :length => 60, :omission => "..."), single_conversation_path(:conversation_type => action_name, :id => conversation.id))
+  .conversation_right
+    %div{:id => "conversation_#{conversation.id.to_s}_status"}
+      = render :partial => "status", :locals => { :conversation => conversation }

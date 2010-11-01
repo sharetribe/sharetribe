@@ -1,0 +1,9 @@
+- if Conversation.unread_count(@current_user.id) > 0
+  .logged_in_icon_inbox_notifications{:onclick => "location.href='/people/#{@current_user.id}/messages/received';", :title => t('.messages')}
+    .logged_in_icon_notification_text
+      = link_to Conversation.unread_count(@current_user.id).to_s, received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')
+- else
+  .logged_in_icon_inbox
+    %a{:href => received_person_messages_path(:person_id => @current_user.id), :title => t('.messages')}
+      %span{:class => "not_visible"}
+        a

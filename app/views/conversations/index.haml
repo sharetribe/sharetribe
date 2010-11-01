@@ -1,0 +1,9 @@
+- if @conversations && !@conversations.empty?
+  #conversations
+    = render :partial => "conversations/#{action_name}_conversation", :collection => @conversations, :as => :conversation, :spacer_template => "inbox_spacer"
+    = will_paginate(@conversations)
+    = pageless(@conversations.total_pages, '#conversations', "#{action_name}", t('.loading_more_messages')) 
+- else
+  #no_conversations
+    = t(".no_#{action_name}_messages")
+  

@@ -1,0 +1,11 @@
+/* Display notice */
+$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
+
+/* Update conversation status label */
+$("#conversation_<%= @conversation.id.to_s %>_status").html("<%= escape_javascript(render(:partial => 'conversations/status', :locals => { :conversation => @conversation })) %>");
+
+/* Remove unread color */
+$("#conversation_<%= @conversation.id.to_s %>").removeClass("unread");
+
+/* Update unread messages count */
+$("#logged_in_messages_icon").html("<%= escape_javascript(render(:partial => 'layouts/logged_in_messages_icon')) %>");

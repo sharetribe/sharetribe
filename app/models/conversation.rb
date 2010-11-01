@@ -1,25 +1,26 @@
 class Conversation < ActiveRecord::Base
 
-  after_save :update_read_statuses, :save_person_conversations
-
   belongs_to :listing
-
-  has_many :person_conversations, :dependent => :destroy 
-  has_many :participants, :through => :person_conversations, :source => :person
   
   has_many :messages, :dependent => :destroy 
   
-  attr_accessor :request_protocol, :request_host
+  has_many :participations, :dependent => :destroy
+  has_many :participants, :through => :participations, :source => :person
   
-  validates_length_of :title, :within => 2..100
-  validates_numericality_of :listing_id, :only_integer => true, :allow_nil => true 
-
-  # Includes the title of the conversation in the url
-  def to_param
-    "#{id}-#{title.to_s.gsub(/\W/, '_').downcase}"
+  VALID_STATUSES = ["pending", "accepted", "rejected"]
+  
+  validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_inclusion_of :status, :in => VALID_STATUSES
+  
+  def self.unread_count(person_id)
+    Conversation.scoped.
+    joins(:participations).
+    joins(:listing).
+    where("(participations.is_read = '0' OR (conversations.status = 'pending' AND listings.author_id = '#{person_id}')) AND participations.person_id = '#{person_id}'").
+    count
   end
   
-  # Creates a new message in the conversation
+  # Creates a new message to the conversation
   def message_attributes=(attributes)
     messages.build(attributes)
   end
@@ -27,31 +28,49 @@ class Conversation < ActiveRecord::Base
   # Sets the participants of the conversation
   def conversation_participants=(conversation_participants)
     conversation_participants.each do |participant, is_sender|
-      person_conversations.build(:person_id => participant,
-                                 :is_read => is_sender,
-                                 :last_sent_at => created_at)
-    end
-  end 
-  
-  # Send email notification to message receivers and returns the receivers
-  def send_email_to_participants(request)
-    unless RAILS_ENV == "test"
-      recipients(last_message.sender).each do |recipient|
-        if recipient.settings.email_when_new_comment == 1
-          UserMailer.deliver_notification_of_new_message(recipient, last_message, request)
-        end  
-      end
+      last_at = is_sender.eql?("true") ? "last_sent_at" : "last_received_at"
+      participations.build(:person_id => participant,
+                           :is_read => is_sender,
+                           last_at.to_sym => DateTime.now)
     end
   end
   
-  # Updates read statuses for each participant so that the sender of the newest
-  # message has read the conversation and others haven't
-  def update_read_statuses
-    person_conversations.each do |p_c|
-      if p_c.person_id == last_message.sender.id
-        p_c.update_attribute(:last_sent_at, last_message.created_at)
-      else
-        p_c.update_attributes({ :is_read => 0, :last_received_at => last_message.created_at })
+  # Returns last received or sent message
+  def last_message(user, received = true, count = -1)
+    (messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
+  end
+  
+  def other_party(person)
+    participants.reject { |p| p.id == person.id }.first
+  end  
+
+  def read_by?(person)
+    participations.where(["person_id LIKE ?", person.id]).first.is_read
+  end
+  
+  # If listing is an offer, return request, otherwise return offer
+  def discussion_type
+    listing.listing_type.eql?("request") ? "offer" : "request"
+  end
+  
+  def can_be_cancelled?
+    participations.each { |p| return false unless p.feedback_can_be_given? }
+    return true
+  end
+
+  def has_feedback_from?(person)
+    participations.find_by_person_id(person.id).has_feedback?
+  end
+  
+  def feedback_skipped_by?(person)
+    participations.find_by_person_id(person.id).feedback_skipped?
+  end
+  
+  # Send email notification to message receivers and returns the receivers
+  def send_email_to_participants(request)
+    recipients(messages.last.sender).each do |recipient|
+      if recipient.preferences["email_about_new_messages"]
+        PersonMailer.new_message_notification(messages.last, request.host).deliver
       end  
     end
   end
@@ -61,14 +80,12 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
   
-  # Returns the last created message
-  def last_message  
-    messages.last
-  end
-  
-  # Saves the participations to the db.
-  def save_person_conversations
-    person_conversations.each { |p_c| p_c.save }
+  def change_status(new_status, current_user, request)
+    update_attribute(:status, new_status)
+    participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
+    if other_party(current_user).preferences["email_when_conversation_#{new_status}"]
+      PersonMailer.conversation_status_changed(self, request.host).deliver
+    end      
   end
 
 end

@@ -8,7 +8,6 @@ class CachedRessiEvent < ActiveRecord::Base
 
       CachedRessiEvent.find_in_batches(:batch_size => 1000) do |events|
         events.each_with_index do |event, i|
-          #logger.info i if i % 999 == 0
           tries = 0
           begin
             tries += 1

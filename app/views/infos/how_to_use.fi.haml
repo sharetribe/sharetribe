@@ -1,0 +1,53 @@
+%h3 Lisää tavarasi ja taitosi tarjolle
+
+%p
+  Omistatko työkaluja, urheiluvälineitä, naamiaisasuja tai muita vastaavaa tavaroita, joita et käytä usein ja voisit hyvin lainata muille, tai kenties myydä tai antaa kokonaan pois? Oletko taitava pyöränkorjaaja, näppärä ompelija tai kenties ulkoilutat mielelläsi koiria? Liikutko usein autolla ja ottaisit mielelläsi ihmisiä kyytiin bensarahoja vastaan? Onko sinulla asunto vailla vuokralaista?
+  = link_to "Lisää Kassiin tieto kaikista näistä", new_request_path(:type => "offer")
+  ja koe auttamisen ilo!
+
+%p
+  Kannattaa myös tarkistaa, 
+  = link_to("mitä ihmiset tällä hetkellä kaipaavat", requests_path) + "."
+  Kukaties pystyt tarjoamaan juuri jotain sellaista, mitä joku toinen on pyytänyt.
+  
+%p
+  Kassin tarkoitus on yhdistää tarvitsijat ja tarjoajat, ja he voivat sopia keskenään vapaasti mahdollisista vastineista. Palvelussa voi siis myydä, vuokrata ja vaihtaa tai antaa, lainata ja auttaa ihan ilmaiseksi pelkkää hyvää mieltä vastaan.
+  
+%h3 Pyydä muilta tarvitsemaasi
+
+%p
+  Tarvitsitpa sitten tavaraa, palvelusta, kyytiä tai asuntoa, kaikki löytyvät helpoiten Kassin kätevällä
+  = link_to("hakutoiminnolla", search_path) + "."
+  Vaihtoehtoisesti voit
+  = link_to("selata avoimia tarjouksia", offers_path) + "."
+
+%p
+  Jos joku tarjoaa jo Kassissa sitä mitä tarvitset, voit klikata kyseisen tarjouksen "pyydä"-linkkiä ja lähettää kyseiselle käyttäjälle vapaamuotoisen viestin. Sen jälkeen sinun tarvitsee enää odottaa, että viestin vastaanottaja hyväksyy pyyntösi. Viestien välityksellä voitte sopia tarkemmin tapahtuman yksityiskohdista. Saat uusista viesteistä ja pyynnön hyväksynnästä automaattisesti tiedon sähköpostiisi, joten sinun ei tarvitse paljastaa toiselle osapuolelle sähköpostiosoitettasi, ellet niin halua. Näet saapuneet ja lähetetyt viestisi sekä hyväksytyt ja hyväksymättömät pyyntösi ja tarjouksesi
+  - if logged_in?
+    = link_to("viestinäkymässä", person_messages_path(:person_id => @current_user.id)) + ","
+  - else 
+    viestinäkymässä,
+  johon pääset aina kätevästi yläreunassa olevan kirjekuori-ikonin kautta, kun olet kirjautunut sisään Kassiin.
+
+%p
+  Jos et löytänyt Kassista tarvitsemaasi, voit 
+  = link_to("luoda avoimen pyynnön", new_request_path(:type => "request")) + ","
+  jossa kerrot mitä tarvitset. Pyyntö näytetään kaikille Kassin käyttäjille. Todennäköisesti joku toinen Kassin käyttäjistä pystyy tarjoaaman juuri tarvitsemasi asian.
+  
+%h3 Vinkkejä
+
+%p
+  Mitä luotettavammalta vaikutat muiden Kassin käyttäjien silmissä, sitä innokkaampia he ovat tarjoamaan sinulle pyytämiäsi asioita. Helppo tapa lisätä luotettavuutta on 
+  - if logged_in?
+    = link_to("täyttää omat profiilitiedot huolellisesti", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    täyttää omat profiilitiedot huolellisesti. 
+  Erityisesti kannattaa muistaa esiintyä omalla nimellään ja 
+  - if logged_in?
+    = link_to("lisätä itselleen tunnistettava profiilikuva", avatar_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    lisätä itselleen tunnistettava profiilikuva.
+  
+
+%p
+  Kun tarjoat jotain muille käyttäjille tai pyydät heiltä jotain, kannattaa aina muistaa antaa tapahtuman jälkeen palautetta toiselle osapuolelle. Hyvä palaute tuo toiselle osapuolelle hyvän mielen, ja jos toinen ei ole toiminut odotetulla tavalla, on myös siitä hyvä huomauttaa tälle. Palaute on julkista ja näkyy kaikille palautteen saaneen käyttäjän profiilissa, joten se auttaa muita käyttäjiä arvioimaan kyseisen käyttäjän luotettavuutta. Kannattaa siis myös kehottaa toisia käyttäjiä antamaan palautetta sinulle, sillä saamasi positiivisen palautteen myötä muut tietävät, että sinuun kannnattaa luottaa. Palautteen lisääminen tapahtuu viestinäkymässä klikkaamalla "Anna palautetta" -linkkiä hyväksytyn pyynnön tai tarjouksen kohdalla.

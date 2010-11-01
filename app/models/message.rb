@@ -1,12 +1,17 @@
 class Message < ActiveRecord::Base
 
+  after_save :update_conversation_read_status
+
   belongs_to :sender, :class_name => "Person"
   belongs_to :conversation
   
-  attr_accessor :receiver_id, :listing_id, :title, :current_conversation, :item_id, :favor_id
-  
   validates_presence_of :sender_id, :content
   
-  validates_numericality_of :conversation_id, :only_integer => true, :allow_nil => true
+  def update_conversation_read_status
+    conversation.participations.each do |p|
+      last_at = p.person.eql?(sender) ? :last_sent_at : :last_received_at
+      p.update_attributes({ :is_read => p.person.eql?(sender), last_at => created_at})
+    end  
+  end
   
 end

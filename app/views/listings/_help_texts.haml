@@ -1,0 +1,7 @@
+.hidden_description{:id => "#{field}"}
+  .hidden_title
+    = t(".#{field}_title")
+  .close_link
+    = link_to "X", "#", :id => "close_x", :class => "close"
+  .hidden_content
+    = render :partial => "listings/help_texts/#{field}"

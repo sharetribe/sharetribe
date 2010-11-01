@@ -1,0 +1,2 @@
+.badge
+  = link_to image_tag("/images/badges/#{badge}_medium#{@person.has_badge?(badge) ? "" : "_gray"}.png", :alt => t("people.profile_badge.#{badge}"), :title => t("people.profile_badge.#{badge}")), person_badge_path(:person_id => @person.id, :id => badge), :id => "#{badge}_description_link", :remote => true

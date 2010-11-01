@@ -1,0 +1,9 @@
+= t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name)
+
+%div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
+  - text_with_line_breaks do
+    = t("people.profile_badge.#{@badge.name}_description")
+
+= t("emails.new_badge.you_can_view_all_your_badges_in")
+= link_to(@url, @url + "?ref=email")
+

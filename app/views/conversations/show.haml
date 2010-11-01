@@ -1,0 +1,37 @@
+- content_for :javascript do
+  initialize_reply_form('#{I18n.locale}');
+
+.grid_24
+  .grid_11.alpha
+    #conversation_title
+      %h2= @conversation.title
+      - if @conversation.listing
+        - if current_user?(@conversation.messages.first.sender)
+          = t(".#{@conversation.listing.listing_type}_sent_to")
+          = link_to @conversation.other_party(@conversation.messages.first.sender).name, @conversation.other_party(@conversation.messages.first.sender)
+        - else
+          = t(".#{@conversation.listing.listing_type}_sent_by")
+          = link_to @conversation.messages.first.sender.name, @conversation.messages.first.sender
+        = t(".in_response_to_#{@conversation.listing.listing_type}")
+        = link_to @conversation.listing.title, @conversation.listing
+  .grid_13.omega
+    #conversation_status
+      %div{:id => "conversation_#{@conversation.id.to_s}_status"}
+        = render :partial => "status", :locals => { :conversation => @conversation }
+  
+.grid_24
+  #messages
+    = render :partial => "message", :collection => @conversation.messages
+  
+  #conversation_notice
+    
+  #reply_form
+    = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s), :remote => true do |f|
+      .message_form_field_container
+        = f.label :content, t(".write_a_reply")
+      .message_form_field_container  
+        = f.text_area :content
+      .message_form_field_container
+        = f.hidden_field :conversation_id, :value => @conversation.id.to_s
+        = f.hidden_field :sender_id, :value => @current_user.id
+        = f.submit t(".send_reply"), :class => "send_button"

@@ -11,7 +11,7 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
     adapter: mysql
     database: kassi_test
     encoding: utf8
@@ -28,3 +28,6 @@ production:
     host: localhost
 #    socket: /var/run/mysqld/mysqld.sock
 
+
+cucumber:
+  <<: *test

@@ -1,0 +1,15 @@
+- content_for :javascript do
+  initialize_update_notification_settings_form('#{I18n.locale}','#{@person.id.to_s}');
+
+#person_settings_form
+  #settings_form_notifications_description
+    %h2= t(".i_want_to_get_email_notification_when")
+  #settings_notification_checkboxes  
+    = form_for @person do |form|
+      - Person::EMAIL_NOTIFICATION_TYPES.each do |notification_type|
+        .settings_checkbox_container
+          .checkbox_float
+            = check_box_tag "person[preferences][#{notification_type}]", "true", @person.preferences[notification_type] ? true : false, :id => notification_type
+          = label_tag notification_type, t(".#{notification_type}"), :class => "checkbox"
+      = form.hidden_field "preferences[temp]", :value => "temp"
+      = form.submit t("settings.save_information"), :class => "send_button_notifications"

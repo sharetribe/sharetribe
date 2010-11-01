@@ -42,7 +42,6 @@ module EventIdHelper
       regexp_to_match = /#\(params\[:([^\]]+)\]\)/
       while (event_string =~ regexp_to_match) do
         key = event_string[regexp_to_match, 1]
-        #puts "RPLPLLPLPL #{params[key]}"
         replace_value = params[key] || ""
         event_string.sub!(/#\(params\[:#{key}\]\)/, replace_value)
       end

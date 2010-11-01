@@ -1,39 +1,35 @@
 class Admin::FeedbacksController < ApplicationController
-
-  before_filter :is_admin, :except => :create
+  
   protect_from_forgery :except => :create
   
-  def index
-    save_navi_state(['admin','','',''])
-    @feedbacks = Feedback.paginate :page => params[:page], 
-                                   :per_page => per_page,
-                                   :order => "is_handled, id DESC"                               
-  end
-
   def create
     @feedback = Feedback.new(params[:feedback])
-    
+    error_page = params[:feedback][:url].include?("Error page")
     # Detect most usual spam messages
-    if (@feedback.content && @feedback.content.include?("[url="))
-      flash[:error] = :feedback_considered_spam
-      
+    if (@feedback.content && (@feedback.content.include?("[url=") || @feedback.content.include?("<a href=")))
+      if error_page
+        flash[:error] = "feedback_considered_spam"
+      else  
+        flash.now[:error] = "feedback_considered_spam"
+      end  
     elsif @feedback.save
-      flash[:notice] = :feedback_saved
-      if RAILS_ENV != "development" 
-        UserMailer.deliver_notification_of_new_feedback(@feedback, request)
+      if error_page
+        flash[:notice] = "feedback_saved"
+      else  
+        flash.now[:notice] = "feedback_saved"
       end
+      PersonMailer.new_feedback(@feedback).deliver
     else
-      flash[:error] = :feedback_not_saved
+      if error_page
+        flash[:error] = "feedback_not_saved"
+      else  
+        flash.now[:error] = "feedback_not_saved"
+      end
     end
-    
-    redirect_to params[:feedback][:url]    
+    respond_to do |format|
+      format.html { redirect_to (error_page ? root : params[:feedback][:url]) }
+      format.js { render :layout => false }
+    end
   end
   
-  # Marks checked feedback fields as read
-  def handle
-    @feedback = Feedback.find(params[:id])
-    @feedback.update_attribute(:is_handled, 1)
-    redirect_to :back
-  end
-
 end

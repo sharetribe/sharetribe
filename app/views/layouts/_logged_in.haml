@@ -1,0 +1,27 @@
+- if logged_in?
+  .grid_4.prefix_3.alpha
+    #logged_in_icons
+      #logged_in_messages_icon
+        = render :partial => "layouts/logged_in_messages_icon"
+      #logged_in_notifications_icon
+        = render :partial => "layouts/logged_in_notifications_icon"
+      .logged_in_icon_settings
+        %a{:href => person_settings_path(:person_id => @current_user.id), :title => t('.settings') }
+          %span{:class => "not_visible"}
+            a
+  .grid_5.omega
+    #logged_in_links
+      %span
+        = t('.hi')
+      = link_to @current_user.given_name, @current_user, :class => "left", :id => "profile", :title => t(".go_to_your_profile_page")
+      - if @current_user.is_admin?
+        = link_to t(".admin"), "#"
+        |
+      = link_to t('.logout'), logout_path
+- else
+  .grid_12.alpha
+    .login_tabs
+      .login_tab.float_right
+        = link_to t('.sign_up'), sign_up_path, :title => t('.sign_up')
+      .login_tab.float_right
+        = link_to t('.login'), login_path, :title => t('.login')

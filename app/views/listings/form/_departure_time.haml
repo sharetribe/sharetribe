@@ -1,0 +1,5 @@
+.new_listing_form_field_container
+  = form.label :valid_until, t('.departure_time') + "*:", :class => "input"
+  .date_select_container
+    - clear_datetime_select do 
+      = datetime_select(:listing, :valid_until, {:start_year => Time.now.year, :end_year => Time.now.year + 1, :default => 3.hours.from_now}, :class => "listing_date_select")

@@ -1,0 +1,16 @@
+- content_for :javascript do
+  initialize_terms_form();
+
+.grid_10.prefix_7.suffix_7
+  #signup_form
+    .form_field_container
+      %h2
+        = t('.accept_terms')
+      %p
+        = t('.you_need_to_accept')
+        = link_to(t(".terms"), "#", :id => "terms_link") + "."
+    = form_tag accept_terms_path do
+      .form_field_container
+        = submit_tag(t('.i_accept_terms'), :class => "send_button_terms")
+
+= render :partial => "people/help_texts", :locals => { :field => "terms" }

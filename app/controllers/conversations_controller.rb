@@ -1,170 +1,118 @@
 class ConversationsController < ApplicationController
-  helper :all
 
-  before_filter :logged_in
+  before_filter :only => [ :new, :create ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_send_a_message"
+  end
   
-  # Shows inbox
+  before_filter :except => [ :new, :create ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+  end
+  
+  before_filter :only => [ :index, :received, :sent, :notifications ] do |controller|
+    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+  end
+  
+  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
+  before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
+  before_filter :ensure_listing_is_open, :only => [ :new, :create ]
+  before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
+  before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
+  
   def index
-    @person = Person.find(params[:person_id])
-    return unless must_be_current_user(@person)
-    fetch_conversations("received")
-  end
-
-  # Shows sent-mail_box
-  def sent
-    @person = Person.find(params[:person_id])
-    return unless must_be_current_user(@person)
-    fetch_conversations("sent")
+    redirect_to received_person_messages_path(:person_id => @current_user.id)
   end
   
-  # Display a form for a new message to a new conversation
+  def received
+    @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
+  end
+  
+  def sent
+    @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
+  end
+  
+  def notifications
+    @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
+    @current_user.mark_all_notifications_as_read
+  end
+  
+  def show
+    @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
+  end
+
   def new
-    unless get_target_object_and_validate
-      flash[:error] = :cant_send_message_to_self
-      redirect_to params[:return_to] and return
-    end  
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build
+    render :action => :new, :layout => "application"
   end
   
-  # Create a new conversation and send a message to it
   def create
-    if params[:conversation][:type].eql?("Reservation")
-      @conversation = Reservation.new(params[:conversation])
-    elsif params[:conversation][:type].eql?("FavorRequest")
-      @conversation = FavorRequest.new(params[:conversation])
-    else
-      @conversation = Conversation.new(params[:conversation])
-    end  
+    @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      @conversation.send_email_to_participants(request)
-      flash[:notice] = :message_sent
-      redirect_to params[:return_to]
+      flash[:notice] = @conversation.listing ? "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent" : "message_sent"
+      @conversation.send_email_to_participants(request) 
+      redirect_to (session[:return_to_content] || root)
     else
-      get_target_object_and_validate
-      if params[:conversation][:type].eql?("Reservation")
-        @items = Item.find(params[:conversation][:reserved_items].keys, :order => "title")
-        @person = Person.find(params[:receiver])
-        render :template => "items/borrow"
-      elsif params[:conversation][:type].eql?("FavorRequest")
-        @favor = Favor.find(params[:conversation][:favor_id])
-        @person = Person.find(params[:receiver])
-        render :template => "favors/ask_for"
-      else
-        render :action => :new
-      end  
+      render :action => :new
     end  
   end
   
-  # Displays edit form. Used only with reservations.
-  def edit
-    @person = Person.find(params[:person_id])
-    return unless must_be_current_user(@person)
-    @conversation = Conversation.find(params[:id])
-    unless @conversation.is_allowed_to_edit?(@current_user)
-      redirect_to person_inbox_path(@current_user, @conversation) and return
-    end
-    session[:links_panel_navi] = "received" unless ["received", "sent"].include?(session[:links_panel_navi])
-    @person_conversations = fetch_conversations(session[:links_panel_navi], :all)  
-    @items = @conversation.items
+  def accept
+    change_status("accepted")
   end
   
-  # Send a message to an existing conversation
-  def update
-    if params[:accepted]
-      params[:conversation][:status] = "accepted"
-      params[:kassi_event][:pending] = 1
-    elsif params[:rejected]
-      params[:conversation][:status] = "rejected"
-      if "Hyväksytty.".eql?(params[:conversation][:message_attributes][:content])
-        params[:conversation][:message_attributes][:content] = "Hylätty."
-      elsif "Accepted.".eql?(params[:conversation][:message_attributes][:content])
-        params[:conversation][:message_attributes][:content] = "Rejected."
-      end  
-    end
-    @conversation = Conversation.find(params[:id])
-    if @conversation.update_attributes(params[:conversation])
-      if params[:accepted]
-        @kassi_event = KassiEvent.create(params[:kassi_event])
-      end  
-      @conversation.send_email_to_participants(request)
-      if @conversation.type.eql?("Reservation")
-        if ["accepted", "rejected"].include?(params[:conversation][:status])
-          flash[:notice] = "borrow_request_" + params[:conversation][:status]
-        else  
-          flash[:notice] = :borrow_request_edited
-        end
-      elsif @conversation.type.eql?("FavorRequest")
-        if ["accepted", "rejected"].include?(params[:conversation][:status])
-          flash[:notice] = "favor_request_" + params[:conversation][:status]
-        end
-      end
-      flash[:notice] ||= :message_sent    
-      redirect_to person_inbox_path(@current_user, @conversation)
-    else
-      if (@conversation.type.eql?("Reservation") && params[:conversation][:status] && 
-        !["accepted", "rejected"].include?(params[:conversation][:status]))
-        flash[:error] = @conversation.errors.full_messages.first
-        redirect_to edit_person_inbox_path(@current_user, @conversation)
-      else  
-        flash[:error] = :message_could_not_be_sent
-        redirect_to person_inbox_path(@current_user, @conversation)
-      end  
-    end
-  end  
-
-  # Shows one conversation 
-  def show
-    @person = Person.find(params[:person_id])
-    return unless must_be_current_user(@person)
-    session[:links_panel_navi] = "received" unless ["received", "sent"].include?(session[:links_panel_navi])
-    @person_conversations = fetch_conversations(session[:links_panel_navi], :all)
-    @conversation = Conversation.find(params[:id])
-    person_conversation = PersonConversation.find_by_conversation_id_and_person_id(@conversation.id, @current_user.id)
-    if person_conversation.is_read == 0
-      @inbox_new_count -= 1
-      @new_arrived_items_count -= 1
-      person_conversation.update_attribute(:is_read, 1)
-    end
-    index = @person_conversations.index(person_conversation)
-    @previous_conversation = (index == @person_conversations.size - 1) ? @conversation : @person_conversations[index + 1].conversation
-    @next_conversation = (index == 0) ? @conversation : @person_conversations[index - 1].conversation
-    @listing = @conversation.listing if @conversation.listing
+  def reject
+    change_status("rejected")
   end
   
   private
   
-  # Sets target object and title based on parameters given. Also validate that
-  # the user is not sending a message to him/herself.
-  def get_target_object_and_validate
-    is_valid = true
-    case params[:target_object_type]
-    when "listing"
-      @target_object = Listing.find(params[:target_object])
-      @title = t(:reply_to_listing) + ' "' + CGI.escapeHTML(@target_object.title) + '"'
-      is_valid = false if current_user?(@target_object.author)
-    when "favor"
-      @target_object = Favor.find(params[:target_object])
-      @title = t(:ask_for_favor) + " " + @target_object.title.downcase + " " + t(:from_user) + " " + @target_object.owner.name(session[:cookie])
-      is_valid = false if current_user?(@target_object.owner)
-    else
-      @receiver = Person.find(params[:receiver])
-      @title = t(:send_message_to_user) + " " + @receiver.name(session[:cookie])
-      is_valid = false if current_user?(@receiver)
+  # Saves current path so that the user can be
+  # redirected back to that path when needed.
+  def save_current_inbox_path
+    session[:return_to_inbox_content] = request.fullpath
+  end
+  
+  def change_status(status)
+    @conversation.change_status(status, @current_user, request)
+    flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
+    respond_to do |format|
+      format.html { render :action => :show }
+      format.js { render :layout => false }
     end
-    return is_valid
   end
   
-  # Returns all conversations based on conversation type (can be "sent" or "received")
-  def fetch_conversations(conversation_type, per_page_number = nil)
-    save_navi_state(['own', 'inbox', '', '', conversation_type])
-    @pagination_type = conversation_type
-    @person_conversations = PersonConversation.paginate(:all, 
-                                                        :page => params[:page], 
-                                                        :per_page => per_page_number || per_page, 
-                                                        :conditions => ["person_id LIKE ? AND last_#{conversation_type}_at IS NOT NULL", @current_user.id],
-                                                        :order => "last_#{conversation_type}_at DESC")
+  def ensure_authorized_to_view_message
+    @conversation = Conversation.find(params[:id])
+    unless @conversation.participants.include?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
+    end
   end
   
+  def ensure_listing_is_open
+    @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
+    if @listing.closed?
+      flash[:error] = "you_cannot_reply_to_a_closed_#{@listing.listing_type}"
+      redirect_to (session[:return_to_content] || root)
+    end
+  end
+  
+  def ensure_listing_author_is_not_current_user
+    if current_user?(@listing.author)
+      flash[:error] = "you_cannot_reply_to_your_own_#{@listing.listing_type}"
+      redirect_to (session[:return_to_content] || root)
+    end  
+  end
+  
+  # Ensure that only users with appropriate visibility settings can reply to the listing
+  def ensure_authorized_to_reply
+    unless @listing.visible_to?(@current_user)
+      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      redirect_to root and return
+    end  
+  end
+
 end

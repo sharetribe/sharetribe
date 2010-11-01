@@ -1,267 +1,120 @@
 class PeopleController < ApplicationController
-
-  before_filter :logged_in, :only  => [ :show, :edit, :update ]
   
-  before_filter :update_navi, :only => [ :home, :index] #needed for cached actions
-  caches_action :home, :layout => false, 
-                :if => Proc.new { |c| !c.params[:nocache]}, 
-                :cache_path => Proc.new { |c| 
-                  #This is kind of copmlicated cache key that tries to include every value that could have been changed if the contents of front page have been changed
-                  # for ontifications are there will be delay of AppContr::NEW_ARRIVED_ITEMS_CACHE_TIME until changes are seen
-                  "front_page/#{c.session[:locale]}/#{CacheHelper.frontpage_last_changed}/#{Rails.cache.read("new_arrived_items_for:#{c.session[:person_id]}")}/#{c.params[:nosplash]}/#{c.session[:person_id]}}"
-                }
-  caches_action :index, :layout => false, :cache_path => Proc.new { |c| "people_list/#{c.session[:locale]}/#{CacheHelper.people_last_changed}/p#{c.params[:page]}/pp#{c.params[:per_page]}/#{c.session[:person_id]}"}
-  #cache_sweeper :person_sweeper, :only => [:create, :edit, :update, :index]
-  
-  def update_navi
-    case params[:action]    
-      when "home" then   save_navi_state(['home', '']) 
-      when "index" then  save_navi_state(['people', 'browse_people'])
-        
-    end
+  before_filter :only => [ :update, :update_avatar ] do |controller|
+    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
-
+  
+  helper_method :show_closed?
+  
   def index
-    @title = "kassi_users"
-    #save_navi_state(['people', 'browse_people']) #moved to filter
-    # @people = Person.find(:all).sort { 
-    #   |a,b| a.name(session[:cookie]) <=> b.name(session[:cookie])
-    # }.paginate :page => params[:page], :per_page => per_page
-    @people = Person.paginate(:page => params[:page], :per_page => per_page, :order => "created_at DESC")
+    # this is not yet in use in this version of Kassi, but old URLs point here so implement this to avoid errors
+   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
   end
   
-  def home
-    #save_navi_state(['home', ''])#moved to filter
-    @events_per_page = 5
-    @content_items_per_page = 15
-    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :conditions => "pending = 0", :order => "id DESC")
-    @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
-    get_newest_content_items(@content_items_per_page)
-    @rss = RssHandler.get_kassi_feed
-  end
-  
-  def more_kassi_events
-    @events_per_page = params[:events_per_page].to_i + 5
-    @kassi_events = KassiEvent.find(:all, :limit => @events_per_page, :order => "id DESC")
-    @more_kassi_events_available = @events_per_page < KassiEvent.count(:all)
-    render :update do |page|
-      page["kassi_events"].replace_html :partial => "kassi_events/frontpage_event",
-                                        :as => :kassi_event,
-                                        :collection => @kassi_events, 
-                                        :spacer_template => "layouts/dashed_line_white"
-      page["more_kassi_events_link"].replace_html :partial => "more_kassi_events_link", 
-                                                  :locals => { :events_per_page => @events_per_page }                                  
-    end
-  end
-  
-  def more_content_items
-    @content_items_per_page = params[:content_items_per_page].to_i + 10
-    @content_items = get_newest_content_items(@content_items_per_page)
-    render :update do |page|
-      page["content_items"].replace_html :partial => "content_item",
-                                        :as => :content_item,
-                                        :collection => @content_items, 
-                                        :spacer_template => "layouts/dashed_line"
-      page["more_content_items_link"].replace_html :partial => "more_content_items_link", 
-                                                   :locals => { :content_items_per_page => @content_items_per_page }                                  
-    end
-  end
-    
-  # Shows profile page of a person.
   def show
-    #@event_id = "show_profile_page_#{random_UUID}"
     @person = Person.find(params[:id])
-    @items = @person.available_items(get_visibility_conditions("item"))
-    @item = Item.new
-    @favors = @person.available_favors(get_visibility_conditions("item"))
-    @favor = Favor.new
-    @groups = @person.groups(session[:cookie], @event_id)
-    if @person.id == @current_user.id || session[:navi1] == nil || session[:navi1].eql?("")
-      save_navi_state(['own', 'profile', '', '', 'information'])
-    else
-      save_navi_state(['people', 'browse_people'])
-      session[:links_panel_navi] = 'information'
-    end
+    logger.info @person.preferences.inspect
+    @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
+    @listings = show_closed? ? @listings : @listings.open 
+    @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
+    render :partial => "listings/additional_listings" if request.xhr?
   end
-  
-  def search
-    save_navi_state(['people', 'search_people'])
-    if params[:q]
-      ids = Array.new
-      Person.search(params[:q])["entry"].each do |person|
-        ids << person["id"]
-      end
-      @people = Person.find_kassi_users_by_ids(ids).paginate :page => params[:page], :per_page => per_page
-    end
-  end
-  
-  # Search used for auto completion
-  def search_by_name
-    results = Person.search(params[:search])
-    return if results.nil?
-    #puts "RESLUTADO: #{results.inspect}"
-    @suggestions = Array.new
-    results["entry"].each do |person|
-      @suggestions << ["#{person["name"]["unstructured"]} (#{person["username"]})", person["id"]]   
-    end
-    #puts "SUGGES: #{@suggestions.inspect}"  
-    #@people = get_all_people_array
-    #@matching = @people.reject {|p| p[0] !~ /#{params[:search]}/i}
-    render :inline => "<%= content_tag(:ul, @suggestions.map { |person| content_tag(:li, h(person[0])) }) %>"
-  end
-  
-  # Creates a new person
-  def create
-    
-    # Check captcha first
+
+  def new
     @person = Person.new
-    if APP_CONFIG.use_recaptcha && !verify_recaptcha(:model => @person, :message => t(:captcha_incorrect))
-      preserve_create_form_values(@person)
+  end
+
+  def create
+    @person = Person.new
+    if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
       render :action => "new" and return
     end
-    
-    # should expire cache for people listing
-    
+
     # Open a Session first only for Kassi to be able to create a user
     @session = Session.create
-    session[:cookie] = @session.headers["Cookie"]
-    params[:person][:locale] = session[:locale] || 'fi'
-  
-    # Try to create a new person in COS. 
-    @person = Person.new
-    if params[:person][:password].eql?(params[:person][:password2]) &&
-       params[:person][:consent]
-      begin
-        @person = Person.create(params[:person], session[:cookie])
-      rescue RestClient::RequestFailed => e
-        @person.add_errors_from(e)
-        preserve_create_form_values(@person)
-        render :action => "new" and return
-      end
-      session[:person_id] = @person.id
-      self.smerf_user_id = @person.id   
-      @person.settings = Settings.create
-      flash[:notice] = :registration_succeeded
-      if session[:return_to]
-        redirect_to session[:return_to]
-        session[:return_to] = nil
-      else
-        redirect_to root_path
-      end
-    else
-      @person.errors.add(:password, "does not match") unless params[:person][:password].eql?(params[:person][:password2])
-      @person.errors.add(:consent, @person.errors.generate_message(:consent, :not_accepted)) unless params[:person][:consent]
-      preserve_create_form_values(@person)
+    session[:cookie] = @session.cookie
+    params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
+
+    # Try to create a new person in ASI.
+
+    begin
+      @person = Person.create(params[:person], session[:cookie])
+      @person.set_default_preferences
+    rescue RestClient::RequestFailed => e
+      logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
       render :action => "new" and return
     end
+    session[:person_id] = @person.id
+    flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
+    redirect_to (session[:return_to] || root)
 
-  end  
-  
-  # Displays register form
-  def new
-    clear_navi_state
-    @person = Person.new
-  end
-  
-  def edit
-    @person = Person.find(params[:id])
-    render :update do |page|
-      page["profile_info_texts"].replace_html :partial => 'people/edit_profile_info'
-      page["edit_profile_link"].replace_html :partial => 'cancel_edit_profile_link'
-    end  
   end
   
   def update
-    # should expire cache for people listing
-    
-    @person = Person.find(params[:id])
-    @successful = update_person(@person)
-    render :update do |page|
-      if @successful
-        page["profile_info_texts"].replace_html :partial => 'people/profile_info'
-        page["edit_profile_link"].replace_html :partial => 'edit_profile_link'
-        page["profile_header"].replace_html :partial => 'profile_header'
-      end  
-      refresh_announcements(page)
-    end
-  end
-  
-  def cancel_edit
-    @person = Person.find(params[:id])
-    render :update do |page|
-      page["profile_info_texts"].replace_html :partial => 'people/profile_info'
-      page["edit_profile_link"].replace_html :partial => 'edit_profile_link'
-    end
-  end
-  
-  def send_message
-    @person = Person.find(params[:id])
-    @message = Message.new
-    return unless must_not_be_current_user(@person, :cant_send_message_to_self)
-  end
-  
-  private
-  
-  def update_person(person)
     begin
-      person.update_attributes(params[:person], session[:cookie])
+      @person.update_attributes(params[:person], session[:cookie])
       flash[:notice] = :person_updated_successfully
-      flash[:error] = nil
     rescue RestClient::RequestFailed => e
-      flash[:error] = translate_error_message(e.response.body.to_s)
-      flash[:notice] = nil
-      return false
+      flash[:error] = "update_error"
     end
-    return true
+    redirect_to :back
   end
   
-  def translate_error_message(message)
-    if message.include?("Given name is too long")
-      return :given_name_is_too_long
-    elsif message.include?("Family name is too long")
-      return :family_name_is_too_long
-    elsif message.include?("address is too long")
-      return :street_address_is_too_long
-    elsif message.include?("Postal code is too long") 
-      return :postal_code_is_too_long  
-    elsif message.include?("Locality is too long") 
-      return :locality_is_too_long    
-    elsif message.include?("Phone number is too long")
-      return :phone_number_is_too_long 
-    elsif message.include?("Description is too long")
-      return :about_me_is_too_long
+  def update_avatar
+    if @person.update_avatar(params[:file], session[:cookie])
+      flash[:notice] = :avatar_upload_successful
+    else 
+      flash[:error] = :avatar_upload_failed
+    end
+    redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
+  end
+  
+  def check_username_availability
+    respond_to do |format|
+      format.json { render :json => Person.username_available?(params[:person][:username]) }
+    end
+  end
+  
+  def check_email_availability
+    available = nil
+    if @current_user && (@current_user.email == params[:person][:email])
+      # Current user's own email should not be shown as unavailable
+      available = true
     else
-      return message
-    end  
+      available = Person.email_available?(params[:person][:email])
+    end
+    
+    respond_to do |format|
+      format.json { render :json => available }
+    end
   end
   
+  def show_closed?
+    params[:closed] && params[:closed].eql?("true")
+  end
+
+  def check_captcha
+    if verify_recaptcha_unless_already_accepted
+      render :json => "success" and return
+    else
+      render :json => "failed" and return
+    end
+  end
+
   private
   
-  def get_newest_content_items(limit)
-    favors = Favor.find(:all, 
-                        :conditions => "status <> 'disabled'" + get_visibility_conditions("favor"),
-                        :limit => limit,
-                        :order => "id DESC")
-    items =  Item.find(:all, 
-                       :conditions => "status <> 'disabled'" + get_visibility_conditions("item"),
-                       :limit => limit, 
-                       :order => "id DESC")    
-    listings = Listing.find(:all, 
-                            :conditions => "status = 'open' AND good_thru >= '" + Date.today.to_s + "'" + get_visibility_conditions("listing"),
-                            :limit => limit, 
-                            :order => "id DESC")
-    @content_items = favors.concat(items).concat(listings).sort {
-      |a, b| b.created_at <=> a.created_at
-    }[0..(limit-1)]                              
-  end
-  
-  def preserve_create_form_values(person)
-    person.form_username = params[:person][:username]
-    person.form_given_name = params[:person][:given_name]
-    person.form_family_name = params[:person][:family_name]
-    person.form_password = params[:person][:password]
-    person.form_password2 = params[:person][:password2]
-    person.form_email = params[:person][:email]
+  def verify_recaptcha_unless_already_accepted(options={})
+    # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
+    if session[:last_accepted_captha] == "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
+      return true
+    else
+      accepted = verify_recaptcha(options)
+      if accepted
+        session[:last_accepted_captha] = "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
+      end
+      return accepted
+    end
+    
   end
   
 end
