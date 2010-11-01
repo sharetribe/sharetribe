@@ -5,6 +5,10 @@ class SmsController < ApplicationController
     attr_accessor :sms_from
   end
   
+  def show
+    message_arrived
+  end
+  
   def message_arrived
     
     begin
@@ -43,8 +47,8 @@ class SmsController < ApplicationController
         when "rideshare"
           listing_details = message.except(:phone_number, :original_text, :original_id)
           listing_details[:author_id] = author.id
-          listing = Listing.create!(listing_details)
-          logger.info "Received a message: \"#{message["message"]}\" from #{message[:phone_number]}, and created a listing (id: #{listing.id}) from it."
+          @listing = Listing.create!(listing_details)
+          logger.info "Received a message: \"#{message["message"]}\" from #{message[:phone_number]}, and created a listing (id: #{@listing.id}) from it."
           
           # Listing created succesfully, delete the message from inbox
           SmsHelper.delete_messages [message[:original_id]]

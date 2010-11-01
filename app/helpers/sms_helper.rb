@@ -36,7 +36,6 @@ module SmsHelper
     # get all messages in the inbox
     response = RestClient.get("http://api.medialab.sonera.fi/iw/rest/receive/#{APP_CONFIG.sms_username}/#{APP_CONFIG.sms_receiver_id}?userKey=#{user_key}&serviceKey=#{APP_CONFIG.sms_service_key}", {:Accept => 'application/json'})
     
-    puts response
     message_strings = JSON.parse(response)["receiver"]["messages"]
     return [] if message_strings.nil? # no messages in inbox
     messages = []
@@ -49,7 +48,6 @@ module SmsHelper
     
     message_strings.each do |message|
       messages.push(parse(message))
-      #puts message_hash.to_yaml
     end
     
     return messages
@@ -60,7 +58,6 @@ module SmsHelper
     
     id_array.each do |sms_id|
       response = RestClient.delete("http://api.medialab.sonera.fi/iw/rest/receive/#{APP_CONFIG.sms_username}/#{APP_CONFIG.sms_receiver_id}/#{sms_id}?userKey=#{user_key}&serviceKey=#{APP_CONFIG.sms_service_key}", {:Accept => 'application/json'}) unless sms_id.blank?
-      puts response
     end
     
     

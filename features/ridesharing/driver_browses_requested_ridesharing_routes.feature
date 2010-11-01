@@ -6,8 +6,8 @@ Feature: Driver browses requested car pooling routes
   @pending
   Scenario: Browsing all requests
     Given there are ridesharing requests in Kassi
-    When I click the "rideshare" tab
-    And I click the "requested" sub-tab
+    And I am on the requests page
+    And I follow "rideshare"
     Then I should see all the ridesharing requests on the page
   
   

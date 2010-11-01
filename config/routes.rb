@@ -130,6 +130,9 @@ Kassi::Application.routes.draw do
       end
     end  
     resources :consent
+    resource :sms do
+      get :message_arrived
+    end
   end
   
   # Some non-RESTful mappings
@@ -149,7 +152,6 @@ Kassi::Application.routes.draw do
   match "/:locale/signup" => "people#new", :as => :sign_up
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/login" => "sessions#new", :as => :login
-  match "/:locale/sms" => "sms#message_arrived"
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
   
