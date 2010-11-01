@@ -1,0 +1,81 @@
+- content_for :javascript do
+  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.limit(6).collect(&:name))});
+
+.grid_6
+  = large_avatar_thumb(@person)
+  - if @person.badges.size > 0
+    .profile_badges_header
+      = "#{t('.badges')} (#{@person.badges.size})"
+      &nbsp;
+      = link_to t(".what_are_these"), "#", :id => "badges_description_link"
+    .profile_badges
+      = render :partial => "profile_badge", :collection => @person.badges.limit(6), :as => :badge
+      - if @person.badges.size > 6
+        .profile_badges_link_to_all
+          = link_to t(".show_all_badges"), person_badges_path(:person_id => @person.id)
+  - if @person.received_testimonials.size > 0    
+    .profile_feedback_header
+      .profile_feedback_average_image
+        %div{:class => grade_image_class(@person.feedback_average)}
+          &nbsp;
+      .profile_feedback_average
+        .profile_feedback_average_title
+          = t(".feedback_average")
+        .profile_feedback_average_value
+          = @person.feedback_average.to_s + "/5"
+        .profile_feedback_average_description
+          = "(" + grade_text(@person.feedback_average) + ")"
+    .profile_feedback_list
+      .profile_feedback_arrow
+        &nbsp;
+      .profile_feedback_texts
+        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(2), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
+    
+  
+.grid_18
+  .grid_12.alpha
+    %h1= @person.name
+    #profile_info
+      - if logged_in?
+        .profile_info_row
+          .profile_info_row_title
+            = t(".address")
+          .profile_info_row_content
+            = @person.unstructured_address
+        .profile_info_row    
+          .profile_info_row_title
+            = t(".phone_number")
+          .profile_info_row_content
+            = @person.phone_number 
+      .profile_info_row    
+        .profile_info_row_title
+          = t(".about_me")
+        .profile_info_row_content
+          #profile_description_preview
+            - text_with_line_breaks do
+              = truncate(@person.description, :length => 200, :omission => "...")
+            - if @person.description && @person.description.length > 200
+              %br/
+              = link_to t(".show_full_description"), "#", :id => "description_preview_link"
+          - if @person.description && @person.description.length > 200      
+            #profile_description_full
+              - text_with_line_breaks do
+                = @person.description
+              %br/  
+              = link_to t(".hide_description"), "#", :id => "description_full_link"
+  .grid_6.omega
+    - if current_user?(@person)
+      #request_listing_link
+        %a{:href => profile_person_settings_path(:person_id => @current_user.id.to_s)}
+          = image_tag "/images/icons/request_icon.png"
+          .request_listing_link_label
+            = t(".edit_profile_info")
+  .clear  
+    
+  #listings
+    = render :partial => "profile_listings"
+
+
+- if @person.badges.size > 0
+  = render :partial => "help_texts", :collection => ["badges_description"], :as => :field
+  = render :partial => "badge_description", :collection => @person.badges.limit(6), :as => :badge

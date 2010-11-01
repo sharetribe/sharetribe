@@ -1,0 +1,42 @@
+- content_for :javascript do
+  initialize_update_account_info_form('#{I18n.locale}','#{t(".change")}','#{t("common.cancel")}','#{t(".new_email")}','#{t(".new_password")}','#{t(".confirm_new_password")}','#{t("people.new.email_is_in_use")}');
+
+#person_settings_form
+  #settings_form_description
+    = t(".these_fields_are_shown_only_to_you")
+  .settings_account_row 
+    .settings_account_row_title
+      = t(".username")
+    .settings_account_row_content
+      .settings_form_padding
+        = @person.username
+    .settings_account_row_link
+      &nbsp;
+  .settings_account_row    
+    .settings_account_row_title
+      = t(".email")
+    .settings_account_row_content
+      #account_email_content
+        .settings_form_padding
+          = @person.email(session[:cookie])
+      #account_email_form
+        = form_for @person, :html => {:id => 'email_form'} do |form|
+          = form.text_field :email, :class => "text_field_account", :maxlenght => "255"
+          = form.submit t(".save"), :class => "send_button_account", :id => "email_submit"     
+    .settings_account_row_link
+      = link_to t(".change"), "#", :id => "account_email_link"
+  .settings_account_bottom_row    
+    .settings_account_row_title
+      = t(".password")
+    .settings_account_row_content
+      #account_password_content
+        .settings_form_padding_password
+          = "********"
+      #account_password_form
+        = form_for @person, :html => {:id => 'password_form'} do |form|
+          = form.password_field :password, :class => :text_field_account, :maxlength => "255"
+          = form.password_field :password2, :class => :text_field_account, :maxlength => "255"
+          = form.submit t(".save"), :class => "send_button_account", :id => "password_submit"    
+    .settings_account_row_link
+      = link_to t(".change"), "#", :id => "account_password_link"    
+    

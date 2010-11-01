@@ -1,309 +1,254 @@
-require 'rubygems'
-require 'nntp'
-
 class Listing < ActiveRecord::Base
-
-  after_save :write_image_to_file
-
-  after_destroy :delete_image_file
-
+  
+  scope :requests, where(:listing_type => 'request')
+  scope :offers, where(:listing_type => 'offer')
+  
+  belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
+  
+  acts_as_taggable_on :tags
+  
+  # TODO: these should help to use search with tags, but not yet working
+  # has_many :taggings, :as => :taggable, :dependent => :destroy, :include => :tag, :class_name => "ActsAsTaggableOn::Tagging",
+  #             :conditions => "taggings.taggable_type = 'Listing'"
+  # #for context-dependent tags:
+  # has_many :tags, :through => :taggings, :source => :tag, :class_name => "ActsAsTaggableOn::Tag",
+  #           :conditions => "taggings.context = 'tags'"
+  
+  has_many :listing_images, :dependent => :destroy
+  accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
+  
   has_many :conversations
-
-  has_many :comments, :class_name => "ListingComment", :dependent => :destroy 
-
-  belongs_to :author, :class_name => "Person", :foreign_key => "author_id" 
-
-  has_many :person_read_listings, :dependent => :destroy 
-  has_many :readers, :through => :person_read_listings, :source => :person
-
-  has_many :person_interesting_listings, :dependent => :destroy 
-  has_many :interested_people, :through => :person_interesting_listings, :source => :person
-
-  has_many :kassi_events, :as => :eventable
-
-  has_and_belongs_to_many :groups
   
-  has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
-
-  serialize :language, Array
-
-  attr_accessor :language_fi, :language_en, :language_swe, :newsgroup
-
-  acts_as_ferret :fields => {
-    :title => {},
-    :content => {},
-    :id_sort => {:index => :untokenized}
-  }
-
-  #Options for status
-  VALID_STATUS = ["open", "in_progress", "closed"]
-
-  # Allowed language codes
-  VALID_LANGUAGES = ["fi", "swe", "en"]
-
-  # Possible visibility types
-  POSSIBLE_VISIBILITIES = ["everybody", "kassi_users", "friends", "contacts", "groups", "f_c", "f_g", "c_g", "f_c_g", "none"]
-
-  # Main categories.
-  MAIN_CATEGORIES = ['marketplace', "borrow_items", "lost_property", "rides", "groups", "favors", "housing", "others"]
+  has_many :comments
   
-  # Newsgroups corresponding to categories
-  # 
-  # Default groups can be created by adding :default => "name_of_group" 
-  NEWSGROUPS = {
-    "sell" => { :groups => ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan", "tori.liput"] },
-    "buy" => { :groups => ["tori.ostetaan", "tori.atk.ostetaan", "tori.opinnot.ostetaan", "tori.liput"] },
-    "give" => { :groups => ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan", "tori.liput", "tori.sekalaista"] },
-    "lost" => { :groups => ["tori.kadonnut"] },
-    "rides" => { :groups => ["tori.kyydit"] },
-    "for_rent" => { :groups => ["tori.asunnot"] },
-    "looking_for_apartment" => { :groups => ["tori.asunnot"] },
-    "roommates" => { :groups => ["tori.asunnot"] },
-    "temporary_accommodation" => { :groups => ["tori.asunnot"] },
-    "borrow_items" => { :groups => ["tori.sekalaista"] },
-    "favors" => { :groups => ["tori.sekalaista"] },
-    "groups" => { :groups => ["tori.sekalaista"] },
-    "others" => { :groups => ["tori.sekalaista"] }
+  has_many :share_types
+  
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
+  scope :rideshare, :conditions => { :category => "rideshare"}
+  
+  scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
+  
+  VALID_TYPES = ["offer", "request"]
+  VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
+  VALID_SHARE_TYPES = {
+    "offer" => {
+      "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
+      "favor" => nil, 
+      "rideshare" => nil,
+      "housing" => ["rent_out", "sell", "temporary_accommodation"]
+    },
+    "request" => {
+      "item" => ["borrow", "buy", "rent", "trade"],
+      "favor" => nil, 
+      "rideshare" => nil,
+      "housing" => ["rent", "buy", "temporary_accommodation"],
+    }
   }
-
-  # Gets subcategories for a category.
-  def self.get_sub_categories(main_category)
-    case main_category
-    when "marketplace"
-      ['sell', 'buy', 'give']
-    when "lost_property"
-      ['lost', 'found'] 
-    when "housing"
-      ['for_rent', 'looking_for_apartment', 'roommates', 'temporary_accommodation']   
-    else
-      nil 
+  VALID_VISIBILITIES = ["everybody", "kassi_users"]
+  
+  before_validation :set_rideshare_title, :set_valid_until_time
+  
+  before_save :downcase_tags
+  after_create :check_possible_matches
+  
+  validates_presence_of :author_id
+  validates_length_of :title, :in => 2..100, :allow_nil => false
+  validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
+  validates_length_of :description, :maximum => 5000, :allow_nil => true
+  validates_inclusion_of :listing_type, :in => VALID_TYPES
+  validates_inclusion_of :category, :in => VALID_CATEGORIES
+  validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
+  validate :given_share_type_is_one_of_valid_share_types
+  validate :valid_until_is_not_nil
+  
+  # Index for sphinx search
+  define_index do
+    # fields
+    indexes title
+    indexes description
+    indexes taggings.tag.name, :as => :tags
+    indexes comments.content, :as => :comments
+    
+    # attributes
+    has created_at, updated_at
+    has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
+    has "listing_type = 'request'", :as => :is_request, :type => :boolean
+    has "listings.visibility IN ('everybody','kassi_users')", :as => :visible_to_kassi_users, :type => :boolean
+    has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
+    has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
+    
+    set_property :enable_star => true
+    set_property :delta => true
+    set_property :field_weights => {
+          :title       => 10,
+          :tags        => 8,
+          :description => 3,
+          :comments    => 1
+        }
+  end
+  
+  # Filter out listings that current user cannot see
+  def self.visible_to(current_user)
+    current_user ? where("listings.visibility IN ('everybody','kassi_users')") : where("listings.visibility = 'everybody'")
+  end
+  
+  def visible_to?(current_user)
+    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
+  end
+  
+  def share_type_attributes=(attributes)
+    share_types.clear
+    attributes.each { |name| share_types.build(:name => name) } if attributes
+  end
+  
+  def downcase_tags
+    tag_list.each { |t| t.downcase! }
+  end
+  
+  def rideshare?
+    category.eql?("rideshare")
+  end
+  
+  def set_rideshare_title
+    if rideshare?
+      self.title = "#{origin} - #{destination}" 
     end  
   end
-
-  # Gets all categories that are valid for a single listing.
-  # Categories that have subcategories are not valid.
-  def self.get_valid_categories
-    valid_categories = []
-    MAIN_CATEGORIES.each do |category|
-      if get_sub_categories(category)
-        get_sub_categories(category).each do |subcategory|
-          valid_categories << subcategory
-        end  
-      else
-        valid_categories << category  
-      end
-    end
-    return valid_categories
+  
+  # sets the time to midnight (unless rideshare listing, where exact time matters)
+  def set_valid_until_time
+    if valid_until
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category.eql?("rideshare")
+    end  
   end
-
-  # Image sizes
-  IMG_SIZE = '"300x240>"'
-  THUMB_SIZE = '"100x100>"'
-
-  # Image directories
-  if ENV["RAILS_ENV"] == "test"
-    URL_STUB = DIRECTORY = "tmp/test_images"
-  else
-    URL_STUB = "/images/listing_images"
-    DIRECTORY = File.join("public", "images", "listing_images")
+  
+  def default_share_type?(share_type)
+    share_type.eql?(Listing::VALID_SHARE_TYPES[listing_type][category].first)
   end
-
-  validates_presence_of :author_id, :category, :content, :good_thru, :status, :language
-
-  validates_inclusion_of :status, :in => VALID_STATUS
-  validates_inclusion_of :visibility, :in => POSSIBLE_VISIBILITIES
-  validates_inclusion_of :category, :in => get_valid_categories
-  validates_inclusion_of :good_thru, :allow_nil => true, 
-  :in => DateTime.now..DateTime.now + 1.year
-
-  validates_length_of :title, :within => 2..50
-  validates_length_of :value_other, :allow_nil => true, :allow_blank => true, :maximum => 50
-
-  validates_numericality_of :times_viewed, :value_cc, :only_integer => true, :allow_nil => true
-
-  validate :given_language_is_one_of_valid_languages, :file_data_is_valid
-
-  # Makes sure that the all the languages given are valid.
-  def given_language_is_one_of_valid_languages
-    unless language.nil?
-      language.each do |test_language|
-        errors.add(:language, "should be one of the valid ones") if !VALID_LANGUAGES.include?(test_language)
+  
+  def given_share_type_is_one_of_valid_share_types
+    if ["favor", "rideshare"].include?(category)
+      errors.add(:share_types, errors.generate_message(:share_types, :must_be_nil)) unless share_types.empty?
+    elsif share_types.empty?
+      errors.add(:share_types, errors.generate_message(:share_types, :blank)) 
+    elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
+      share_types.each do |test_type|
+        unless VALID_SHARE_TYPES[listing_type][category].include?(test_type.name)
+          errors.add(:share_types, errors.generate_message(:share_types, :inclusion))
+        end   
       end
     end  
   end
-
-  # Validates image if image data is given. Listing is also valid 
-  # without image, so no file data equals valid file data.
-  def file_data_is_valid
-    if @file_data
-      if @file_data.size.zero?
-        return true
-      elsif @file_data.content_type !~ /^image/
-        errors.add(:image_file, errors.generate_message(:image_file, :format))
-        return false
-      elsif @file_data.size > 5.megabyte
-        errors.add(:image_file, errors.generate_message(:image_file, :size))
-        return false    
-      end
-    end
-    return true
+  
+  def self.unique_share_types(listing_type)
+    share_types = []
+    VALID_CATEGORIES.each do |category|
+      if VALID_SHARE_TYPES[listing_type][category] 
+        VALID_SHARE_TYPES[listing_type][category].each do |share_type|
+          share_types << share_type
+        end
+      end  
+    end     
+    share_types.uniq!.sort
   end
-
+  
+  def valid_until_is_not_nil
+    if (rideshare? || listing_type.eql?("request")) && !valid_until
+      errors.add(:valid_until, "cannot be empty")
+    end  
+  end
+  
   # Overrides the to_param method to implement clean URLs
   def to_param
     "#{id}-#{title.gsub(/\W/, '_').downcase}"
   end
-
-  # Puts image file data in an instance variable.
-  def image_file=(file_data)
-    @file_data = file_data
-  end
-
-  # Returns image filename.
-  def filename
-    File.join(DIRECTORY, self.id.to_s + ".png")
-  end
-
-  def thumb_filename
-    File.join(DIRECTORY, self.id.to_s + "_thumb.png")
-  end
-
-  # Converts image to right size and writes it to a PNG file.
-  # Filename is [LISTING_ID].png
-  def write_image_to_file
-    if (@file_data && !@file_data.size.zero?)
-      Dir.mkdir(DIRECTORY) unless File.directory?(DIRECTORY) 
-      # Prepare the filenames for the conversion.
-      source = File.join("tmp",self.id.to_s)
-      # Ensure that small and large images both work by writing to a normal file. 
-      # (Small files show up as StringIO, larger ones as Tempfiles.)
-      File.open(source, "wb") { |f| f.write(@file_data.read) }
-      # Convert the files.
-      img = system("#{'convert'} '#{source}' -resize #{IMG_SIZE} '#{filename}'")
-      thumb = system("#{'convert'} '#{source}' -resize #{THUMB_SIZE} '#{thumb_filename}'")
-      # Delete temp file.
-      File.delete(source) if File.exists?(source)
+  
+  def self.find_with(params, current_user=nil)
+    conditions = []
+    conditions[0] = "listing_type = ?"
+    conditions[1] = params[:listing_type]
+    if params[:category] && !params[:category][0].eql?("all") 
+      conditions[0] += " AND category IN (?)"
+      conditions << params[:category]
     end
-  end
-
-  # Deletes image file if listing is destroyed.
-  def delete_image_file
-    File.delete(filename) if File.exists?(filename)
-  end
-
-  def id_sort
-    id
-  end  
-
-  def open?
-    if status.eql?("closed") || good_thru < Date.today
-      return false
-    else
-      return true
-    end    
+    listings = where(conditions)
+    if params[:share_type] && !params[:share_type][0].eql?("all")
+      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
+    end
+    listings.visible_to(current_user).order("listings.id DESC")
   end
   
-  def close!
-    update_attribute(:status, "closed")
-    CacheHelper.update_listings_last_changed
+  # Returns true if listing exists and valid_until is set
+  def temporary?
+    !new_record? && valid_until
   end
-
-  # Save group visibility data to db
-  def save_group_visibilities(group_ids)
-    groups.clear
-    if group_ids
-      selected_groups = Group.find(group_ids)
-      selected_groups.each do |group|
-        groups << group
-      end
-    end
+  
+  def update_fields(params)
+    update_attribute(:valid_until, nil) unless params[:valid_until]
+    update_attributes(params)
   end
-
-  # Post the contents of the listing to a news.tky.fi group 
-  def post_to_newsgroups(url)
-    return if !newsgroup || newsgroup.eql?("do_not_post")
-    date = DateTime.now().strftime(fmt='%a, %d %b %Y %T %z')
-    if ["tori.myydaan", "tori.atk.myydaan", "tori.opinnot.myydaan"].include?(newsgroup)
-      subject = category.eql?("sell") ? "M:" + title : "A:" + title 
-    else
-      subject = title
-    end  
-
-# This is the actual message string
-
-    msgstr = <<END_OF_MESSAGE
-From: #{author.name} <#{author.given_name}.#{author.family_name}@not.real.invalid>
-Sender: Kassi
-Newsgroups: #{newsgroup}
-Subject: #{subject}
-Date: #{date}
-
-#{content}
-
-***
-
-Tämä viesti on lähetetty Kassi-palvelusta. Voit vastata viestiin osoitteessa #{url}
-
-This message was sent using Kassi. To reply to this message, go to #{url}
-
-END_OF_MESSAGE
-
+  
+  def closed?
+    !open? || (valid_until && valid_until < DateTime.now)
+  end
+  
+  def has_share_type?(share_type)
+    !share_types.find_by_name(share_type).nil?
+  end
+  
+  def self.opposite_type(type)
+    type.eql?("offer") ? "request" : "offer"
+  end
+  
+  # Called after save
+  # Checks if there was already an offer matching this request
+  # or a request matching this offer
+  # Inform the requester if possible match is found
+  def check_possible_matches
+    timing_tolerance = 1.hours # how big difference in starting time is accepted
     
-    # Do the actual newsgroup post
+    # currently check only rideshare listings
+    return true unless category == "rideshare"
     
-    if APP_CONFIG.production_server == "beta"
-      Net::NNTP.start('news.tky.fi', 119) do |nntp|
-        msgstr = Iconv.iconv("ISO-8859-15", "UTF-8", msgstr)[0]
-        nntp.post msgstr       
-      end
-    end  
-  end
-  
-  # Returns the role of the author of the listing
-  # in a kassi event.
-  def author_role
-    if ["borrow_items", "lost", "favors"].include?(category)
-      "requester"
-    elsif "found".eql?(category)
-      "provider"
-    elsif "buy".eql?(category)
-      "buyer"
-    elsif "sell".eql?(category)
-      "seller"     
+    potential_listings = []
+    if listing_type == "request"
+      potential_listings =  Listing.open.rideshare.offers
     else
-      "none"
-    end    
-  end
-  
-  # Returns the role of the person who has performed what
-  # was requested in the listing.
-  def realizer_role
-    if ["borrow_items", "lost", "favors"].include?(category)
-      "provider"
-    elsif "found".eql?(category)
-      "requester"
-    elsif "buy".eql?(category)
-      "seller"
-    elsif "sell".eql?(category)
-      "buyer"      
-    else
-      "none"
+      potential_listings = Listing.open.rideshare.requests
     end
-  end
-  
-  # Send notifications to the users following this listing
-  # when the listing is updated (update=true) or a
-  # new comment to the listing is created.
-  def notify_followers(host, current_user, update)
-    followers.each do |follower|
-      unless follower.id == current_user.id
-        if update
-          UserMailer.deliver_notification_of_new_update_to_listing(self, follower, host)
+    
+    potential_listings.each do |candidate|
+      if (origin.casecmp(candidate.origin) == 0 && 
+          destination.casecmp(candidate.destination) == 0 &&
+          (valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until))
+        if listing_type == "request"
+          inform_requester_about_potential_match(self, candidate)
         else
-          UserMailer.deliver_notification_of_new_comment_to_followed_listing(comments.last, follower, host)
+          inform_requester_about_potential_match(candidate, self)
         end
       end
     end
+    
   end
-
+  
+  def inform_requester_about_potential_match(request, offer)
+      logger.info "Informing the author of: #{request.title} (starting at #{request.valid_until}) about the possible match of #{offer.title} (starting at #{offer.valid_until})"
+      
+      # Check if requester has a phone number and sens sms if sms's are in use
+      if APP_CONFIG.use_sms && !request.author.phone_number.blank?
+        
+        # send the message in recipients language and use very short date format to fit in sms
+        locale = request.author.locale.to_sym || :fi
+        Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
+        message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
+        unless offer.author.phone_number.blank?
+          message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
+        else
+          message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
+        end
+              
+        SmsHelper.send(message, request.author.phone_number)
+      end
+    end
 end

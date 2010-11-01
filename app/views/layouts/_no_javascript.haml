@@ -1,0 +1,31 @@
+- [:notice, :warning, :error, :info_message].each do |announcement|
+  - if flash[announcement]  
+    .notifications
+      %div{:class => announcement.to_s}
+        .notification_text
+          = t("layouts.notifications.#{flash[announcement]}")
+
+.grid_16.prefix_4.suffix_4
+  .grid_8.alpha
+    #error_content_javascript
+      %h2 Javascript ei ole päällä selaimessasi
+      %p
+        Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella.
+      %h2 Javascript is disabled in your browser
+      %p
+        Unfortunately Kassi does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use Kassi without javascript, please send us feedback using the form below.
+  .grid_8.omega
+    #error_kaapo
+      = image_tag "/images/kaapo/sad_kaapo_big.png", :alt => "Kaapo"
+
+.grid_12.prefix_6.suffix_6
+  #error_page_feedback_form
+    = form_for :feedback, :url => admin_feedbacks_path, :remote => true, :html => { :id => "new_error_feedback" } do |form|
+      - unless logged_in?
+        = form.label :email, "Sähköpostiosoitteesi / Your email address"
+        = form.text_field :email, :class => "text_field", :id => "error_feedback_email"
+      = form.label :content, "Palautteesi ylläpidolle / Your feedback to admins"
+      = form.text_area :content, :class => "feedback", :id => "error_feedback_content"
+      = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous"), :id => "error_feedback_author_id"
+      = form.hidden_field :url, :value => "Error page no javascript", :id => "error_feedback_url"
+      = form.submit "Lähetä / Send", :class => "send_button", :id => "error_feedback_submit"

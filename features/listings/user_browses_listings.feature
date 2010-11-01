@@ -1,0 +1,155 @@
+Feature: User browses listings
+  In order to find out what kind of offers and requests there are available in Kassi
+  As a person who needs something or has something
+  I want to be able to browse offers and requests
+
+  @javascript
+  Scenario: User browses offers page
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell"
+    And there is favor offer with title "massage" from "kassi_testperson1"
+    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
+    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
+    And there is item offer with title "saw" from "kassi_testperson2" and with share type "lend,trade"
+    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend,trade"
+    And that listing is closed
+    And there is item request with title "tool" from "kassi_testperson2" and with share type "buy,borrow"
+    And I am on the home page
+    When I follow "Offers"
+    Then I should see "car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Items"
+    And I should see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Lending"
+    And I should not see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Selling"
+    And I should see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Favors"
+    And I should not see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "All offer types"
+    And I should not see "car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    
+  @javascript
+  Scenario: User browses requests page
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
+    And there is favor request with title "massage" from "kassi_testperson1"
+    And there is rideshare request from "Helsinki" to "Turku" by "kassi_testperson1"
+    And there is housing request with title "Apartment" from "kassi_testperson2" and with share type "buy"
+    And there is item request with title "saw" from "kassi_testperson2" and with share type "borrow,trade"
+    And there is item request with title "axe" from "kassi_testperson2" and with share type "borrow,trade"
+    And that listing is closed
+    And there is item offer with title "tool" from "kassi_testperson2" and with share type "sell,lend"
+    And I am on the home page
+    When I follow "Requests"
+    Then I should see "car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Items"
+    And I should see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Borrowing"
+    And I should not see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Buying"
+    And I should see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "Favors"
+    And I should not see "car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    And I follow "All request types"
+    And I should not see "car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "saw"
+    And I should not see "axe"
+    And I should not see "tool"
+    
+  @javascript
+  Scenario: User browses requests with visibility settings
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
+    And visibility of that listing is "kassi_users"
+    And there is favor request with title "massage" from "kassi_testperson1"
+    And there is housing request with title "apartment" and with share type "rent"
+    And visibility of that listing is "disabled"
+    And I am on the requests page
+    And I should not see "car spare parts"
+    And I should see "massage"
+    And I should not see "apartment"
+    When I log in as "kassi_testperson1"
+    And I follow "Requests"
+    Then I should see "car spare parts"
+    And I should see "massage"
+    And I should not see "apartment"
+  
+  
+  

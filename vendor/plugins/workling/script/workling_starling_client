@@ -1,7 +1,0 @@
-#!/usr/bin/env ruby
-
-puts "\n>>>>>"
-puts ">>>>> This script has been DEPRACATED. Please use script/workling_client instead!"
-puts ">>>>>\n\n"
-
-load File.dirname(__FILE__) + '/workling_client'

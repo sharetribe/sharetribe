@@ -1,0 +1,18 @@
+- badge_name = badge.instance_of?(Badge) ? badge.name : badge
+%div{:id => "#{badge_name}_description_link_target", :class => "badge_description"}
+  .badge_description_title
+    = t("people.profile_badge.#{badge_name}")
+  .close_link
+    = link_to "X", "#", :id => "close_x", :class => "close"
+  .badge_description_content
+    %p
+      = t("people.profile_badge.#{badge_name}_description")
+    %p
+      %b
+        - if badge.instance_of?(Badge)
+          = t(".badge_achieved_at")
+          = l(badge.created_at, :format => :short)
+        - else
+          = t(".you_do_not_yet_have_this_badge")
+  = image_tag "/images/badges/#{badge_name}_large.png", :alt => t("people.profile_badge.#{badge_name}"), :title => t("people.profile_badge.#{badge_name}")
+  

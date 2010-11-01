@@ -1,108 +1,94 @@
 require 'json'
 
-class Session < ActiveResource::Base
+class Session
 
   attr_accessor :username
   attr_writer   :password
-  attr_reader   :headers
+  attr_accessor :app_name
+  attr_writer   :app_password
+  attr_accessor :cookie
   attr_reader   :person_id
- 
-  self.site = APP_CONFIG.ssl_asi_url
-  self.format = :json 
-  self.timeout = APP_CONFIG.asi_timeout
-  @@app_password = APP_CONFIG.asi_app_password
-  @@app_name = APP_CONFIG.asi_app_name
-  @@cookie = nil
   
-  def self.destroy(cookie)
-    deleting_headers = {"Cookie" => cookie}
-    connection.delete("#{prefix}#{element_name}", deleting_headers)
-  end
+  @@kassi_cookie = nil # a cookie stored for a general App-only session for Kassi
+  @@session_uri = "#{APP_CONFIG.ssl_asi_url}/session"
+  KASSI_COOKIE_CACHE_KEY = "kassi_cookie"
   
-  #Use only for session containing a user (NO app-only session)
-  def self.get_by_cookie(cookie)
-    new_session = Session.new
-    new_session.cookie = cookie
-
-    return nil unless new_session.set_person_id()   
-    return new_session
-  end
-  
-  #a general app-only session cookie that maintains an open session to Cos for Kassi
-  def self.kassiCookie
-    if @@cookie.nil?
-      @@cookie = Session.create.cookie
-    end
-    return @@cookie
-  end
-  
-  #this method can be called, if kassiCookie is not valid anymore
-  def self.updateKassiCookie
-    @@cookie = Session.create.cookie
+  # Creates a session and logs it in to Aalto Social Interface (ASI)
+  def self.create(params={})
+    session = Session.new(params)
+    session.login
+    return session
   end
   
   def initialize(params={})
     self.username = params[:username]
     self.password = params[:password]
-    super(params)
+    self.app_name = params[:app_name]
+    self.app_password = params[:app_password]
   end
   
-  def create
-    @headers = {}
+  #Logs in to Aalto Social Interface (ASI)
+  def login(params={})
     params = {:session => {}}
-    params[:session][:username] = @username if @username
-    params[:session][:password] = @password if @password
-    params[:session][:app_name] = @@app_name
-    params[:session][:app_password] = @@app_password
-    begin     
-      resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
-    rescue ActiveResource::TimeoutError => e
-        #try again
-        resp = connection.post("#{self.class.prefix}#{self.class.element_name}", params.to_json)
-        # if this seems to still keep happening, could add here another rescue and do something
-        # no now rescue to get error mails if this still happens
+    
+    # if both username and password given as parameters or instance variables
+    if ((@username && @password) || (params[:username] && params[:password]))
+      params[:session][:username] = params[:username] || @username
+      params[:session][:password] = params[:password] || @password
     end
-    @headers["Cookie"] = resp.get_fields("set-cookie").to_s
-    json = JSON.parse(resp.body)
-    @person_id = json["entry"]["user_id"] 
+    params[:session][:app_name] = @app_name || APP_CONFIG.asi_app_name
+    params[:session][:app_password] = @app_password || APP_CONFIG.asi_app_password
+
+    resp = RestHelper.make_request(:post, @@session_uri, params , nil, true)
+
+    #@headers["Cookie"] = resp[1].headers[:set_cookie].to_s
+    @cookie = resp[1].cookies
+    @person_id = resp[0]["entry"]["user_id"]
   end
   
-  def check
-    get("")
-  end
-  
-  def get(path)
+  # A class method for destroying a session based on cookie
+  def self.destroy(cookie)
     begin
-      return connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
-    rescue ActiveResource::ResourceNotFound => e
-      return nil
-    rescue ActiveResource::UnauthorizedAccess => e
-      return nil
-    rescue ActiveResource::TimeoutError => e
-      #try again
-      return connection.get("#{self.class.prefix}#{self.class.element_name}", @headers)
-      # if this seems to still keep happening, could add here another rescue and return nil
-      # no now rescue to get error mails if this still happens
+      resp = RestHelper.make_request(:delete, @@session_uri, {:cookies => cookie}, nil, true)
+    rescue RestClient::ResourceNotFound => e
+      # If resource is not found, the session is no more valid, so can be considered destroyed
     end
   end
-   
+  
   def destroy
-    Session.destroy(@headers["Cookie"])
+    Session.destroy(@cookie)
   end
   
-  def cookie
-    @headers["Cookie"]
+  #a general app-only session cookie that maintains an open session to ASI for Kassi
+  #Stored in cache to have the same cookie available between pageloads
+  def self.kassi_cookie
+    if @@kassi_cookie.nil?
+      @@kassi_cookie = Rails.cache.fetch(KASSI_COOKIE_CACHE_KEY) {update_kassi_cookie}
+    end
+    return @@kassi_cookie
   end
   
-  def cookie=(cookie)
-    @headers ||= {}
-    @headers["Cookie"] = cookie
+  #this method can be called, if kassi_cookie is not valid anymore
+  def self.update_kassi_cookie
+    Rails.logger.debug "Updating Kassi-cookie from ASI"
+    @@kassi_cookie = Session.create.cookie
+    Rails.cache.write(KASSI_COOKIE_CACHE_KEY, @@kassi_cookie)
+    return @@kassi_cookie
   end
   
-  def set_person_id
-    info = self.check
-    return nil if (info.nil? || info["entry"].nil?)
-    @person_id =  info["entry"]["user_id"]
-    return @person_id
+  # Used for tests
+  def self.set_kassi_cookie(new_cookie)
+    @@kassi_cookie = new_cookie
+    Rails.cache.write(KASSI_COOKIE_CACHE_KEY, @@kassi_cookie)
   end
+  
+  # Posts a GET request to ASI for this session
+  def check
+    begin
+      return RestHelper.get(@@session_uri,{:cookies => @cookie})
+    rescue RestClient::ResourceNotFound => e
+      return nil
+    end
+  end
+  
 end

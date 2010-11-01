@@ -1,0 +1,11 @@
+= t("emails.new_message.has_sent_you_a_message_in_kassi", :sender => @message.sender.name)
+
+***
+
+= @message.content
+
+***
+
+= t("emails.new_message.you_can_reply_to_message_in") + " " + @url + "?ref=email"
+
+= t("emails.new_message.do_not_reply_to_this_email")

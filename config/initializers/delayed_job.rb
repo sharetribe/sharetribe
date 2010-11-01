@@ -1,0 +1,1 @@
+require 'delayed_job'

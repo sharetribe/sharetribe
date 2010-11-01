@@ -1,0 +1,108 @@
+!!! 5
+!!! xml
+%html{html_attrs(I18n.locale)}
+  %head
+    %title 
+      Kassi
+      - if @listing && action_name.eql?("show")
+        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
+        
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+    %meta{ :name => "description", :content => t(".meta_description") }
+    %meta{ :name => "keywords", :content => t(".keywords") } 
+    = stylesheet_link_tag 'compiled/style.css'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
+    = csrf_meta_tag
+    
+    :javascript
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
+    
+    - if I18n.locale.to_s.eql?("en")
+      %style{:type => "text/css"}
+        a.handle { background-position: -80px 0; }
+        a.handle:hover { background-position: -120px 0; }
+    
+  %body
+  
+    %noscript
+      .js_enabled
+        #no_javascript.container_24
+          = render :partial => "layouts/no_javascript"
+        
+    .wrapper
+    
+      .feedback_div
+        = link_to t(".feedback_handle"), "#", :class => "handle", :id => "Feedback"
+        %h3= t(".give_feedback")
+        #new_feedback_form
+          = form_for :feedback, :url => admin_feedbacks_path, :remote => true, :html => { :id => "new_feedback" } do |form|
+            - unless logged_in?
+              = form.label :email, t(".your_email_address")
+              = form.text_field :email, :class => "text_field"
+            = form.label :content, t(".feedback")
+            = form.text_area :content, :class => "feedback"
+            = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
+            = form.hidden_field :url, :value => request.fullpath
+            = form.submit t(".send_feedback_to_admin"), :class => "send_button"
+            %span
+              = t(".or_check_our")
+              = link_to t(".feedback_forum"), "http://kassi.uservoice.com"
+              = t(".to_see_what_others_have_suggested")
+    
+      #header.container_24
+        .grid_3
+          #logo
+            = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+        .grid_9
+          .grid_7.prefix_2.alpha
+            #search
+              = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+                - one_line do              
+                  = text_field_tag("q", params[:q], :class => "search_field")
+                  = submit_tag("s", :class => "search_button")
+          .clear
+          .top_navi_form.grid_3
+            .locale_select_padding
+              = form_tag("/change_locale", :method => "get") do
+                = hidden_field_tag :redirect_uri, @return_to
+                = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+        .grid_12
+          = render :partial => "layouts/logged_in"
+          .clear
+          .tabs.grid_9.alpha
+            .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.home'), root
+            .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.requests'), requests_path
+            .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.offers'), offers_path
+            .clear
+          .top_navi_link.align_right.grid_3.omega
+            .navi_link_margin_right
+              = link_to t('header.about'), about_infos_path
+
+      #notification_container 
+        = render :partial => "layouts/notifications"
+
+      #main.container_24
+        = content_for?(:content) ? yield(:content) : yield
+
+      #bottom_spacer.container_24  
+        %br/
+        &nbsp;
+        %br/
+        &nbsp;
+        %br/
+        %br/
+      - if (APP_CONFIG.use_google_analytics)
+        <!-- The google analytics script-->
+        <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+        try {
+        = 'var pageTracker = _gat._getTracker("'.html_safe + APP_CONFIG.google_analytics_key.to_s + '");'.html_safe
+        pageTracker._trackPageview();
+        } catch(err) {}</script>
+

@@ -1,0 +1,73 @@
+- content_for :javascript do
+  initialize_comment_form('#{I18n.locale}');
+
+#listing_image_side.grid_8
+  .image
+    - if @listing.listing_images.empty?
+      %div{:id => "listing_category_big_icon_#{@listing.category}"}
+    - @listing.listing_images.each do |listing_image|
+      = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
+  - if current_user?(@listing.author) || (@current_user && @current_user.is_admin?)
+    #edit_links
+      = render :partial => "edit_links"
+    
+#listing_content_side.grid_16
+  #listing_center.grid_10.alpha
+    %h1
+      #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+    - if @listing.category == "rideshare"
+      %p
+        %strong
+          = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
+    %p
+      - text_with_line_breaks do
+        = @listing.description.blank? ? t(".no_description") : @listing.description
+    
+    #share_types_and_tags
+      - unless @listing.share_types.empty? && @listing.tag_list.empty?    
+        - unless @listing.tag_list.empty?
+          %strong
+            = t(".tags") + ":"
+          - @listing.tag_list.collect do |tag| 
+            = tag + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+        - unless @listing.share_types.empty? || @listing.tag_list.empty?
+          %br/
+        - unless @listing.share_types.empty?
+          %strong
+            = t(".share_types") + ":"
+          - @listing.share_types.collect do |st| 
+            = t("common.share_types.#{st.name}")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
+        - unless @listing.share_types.empty? && @listing.tag_list.empty?
+          %br/
+      %strong
+        = t(".times_viewed") + ":"
+      = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times")) 
+            
+    #listing_author
+      .float_left
+        = small_avatar_thumb(@listing.author)
+      #listing_author_description
+        %strong
+          = t(".#{@listing.listing_type}_author") + ":"
+          = link_to @listing.author.name, @listing.author, :title => "listing_author"
+        %br/
+        %span{:class => "smaller"}
+          = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
+
+  #listing_right_panel.grid_6.omega
+    #listing_reply_link
+      = render :partial => "reply_link"
+    
+  .clear
+  
+  #comments
+    %h2
+      = image_tag "/images/icons/comment_icon.png"
+      = t(".comments")
+      %span{:id => "comment_count"}= "(#{@listing.comments.count})"
+    = render :partial => "comment", :collection => @listing.comments
+  
+  #comment_notice  
+  
+  #listing_comment_form
+    = render :partial => "comment_form"

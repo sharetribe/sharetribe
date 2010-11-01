@@ -1,0 +1,22 @@
+.message
+  - if current_user?(message.sender)
+    .message_content_spacer
+      &nbsp;
+  - else
+    .person_image_message
+      = small_avatar_thumb(message.sender)
+    .message_arrow_left
+      &nbsp;
+  .message_main
+    .message_sender
+      = link_to message.sender.name, message.sender
+      %span
+        = l(message.created_at, :format => :short) + ":"
+    .message_content_div
+      - text_with_line_breaks do  
+        = message.content
+  - if current_user?(message.sender)
+    .message_arrow_right
+      &nbsp;
+    .person_image_message
+      = small_avatar_thumb(message.sender)  

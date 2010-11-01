@@ -1,0 +1,25 @@
+#search_page.grid_24
+  .grid_6.alpha
+    %h1= t(".search")
+    #left_link_panel_search
+      = link_to t(".all_results"), search_path(:q => params[:q]), :class => (params[:type] ? "unselected" : "selected")
+      = link_to t(".offers"), search_path(:q => params[:q], :type => "offer"), :class => ((params[:type] && params[:type].eql?("offer")) ? "selected" : "unselected")
+      = link_to t(".requests"), search_path(:q => params[:q], :type => "request"), :class => ((params[:type] && params[:type].eql?("request")) ? "selected" : "unselected")
+
+  .grid_18.omega
+    #search_form
+      = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+        = text_field_tag("q", params[:q], :class => "text_field")
+        = submit_tag(t(".search_verb"), :class => "send_button")
+    #search_results
+      - if @listings && @listings.size > 0
+        %h2
+          = t('.search_results')
+          = "(#{@listings.total_entries})"
+        = render :partial => "listings/listed_listing", :collection => @listings, :as => :listing, :spacer_template => "listings/listing_spacer"
+        = will_paginate(@listings)
+        = pageless(@listings.total_pages, '#search_results', "search?q=#{@query}", t('.loading_more_search_results'))
+      - else
+        #no_results_found
+          = t(".search_returned_no_results")
+        

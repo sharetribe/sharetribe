@@ -5,17 +5,18 @@ config/*.sphinx.conf
 config/database.yml
 config/config.yml
 config/session_secret
-config/deploy.rb
 config/gmaps_api_key.yml
-log/*.log
+log/
 tmp/**/*
+tmp/autotest-flag
 doc/api
 doc/app
 public/images/listing_images
 index/
 db/development_structure.sql
+old_databases.sql
 .bundle
+.sass_cache/
 capybara*
 public/system/
-Gemfile.lock
 

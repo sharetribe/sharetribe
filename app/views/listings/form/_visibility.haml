@@ -1,0 +1,3 @@
+.new_listing_form_field_container
+  = form.label :visibility, t(".visibility") + "*:", :class => "input"
+  = select("listing", "visibility", visibility_array, {:selected => (@listing.visibility || "everybody")}, { :class => "visibility_select" })

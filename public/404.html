@@ -1,91 +1,59 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <title>Kassi</title>
-
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="/stylesheets/formatting.css?1231833706" media="screen" rel="stylesheet" type="text/css" />
-  <link href="/stylesheets/layout.css?1231833706" media="screen" rel="stylesheet" type="text/css" />
-  
-  <style type="text/css">
-    #main {
-  	  background: #f4f6d0;
-    }
-  </style>
-
-</head>
-
-<body>
-  <div id="wrapper">
-    <div id="main">
-      <br /><br /><br />
-      <div id="login_box">
-        <div class="home_content_right_box_top"></div>
-        <div class="home_content_right_box_content">
-      	  <h1>Sivua ei löydy!</h1>
-      	  <p>
-      	    Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?
-      	  </p>
-      	  <p>
-      	    Jos arvelet että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä ja mitä kyseisellä sivulla pitäisi näkyä.
-      	  </p>
-      	  <h1>Page can not be found!</h1>
-      	  <p>
-      	    The page you requested can not be found. Are you sure you spelled the address correctly?
-      	  </p>
-      	  <p>
-      	    If you believe that the address is correct and it should be working, please help us locate the error by letting us know
-      	    what address caused the error and what should be seen on the page with the form below.
-      	  </p>
-          
-          <br />
-
-          <form action="/admin/feedbacks" method="post"><div style="margin:0;padding:0"><input name="authenticity_token" type="hidden" value="6e1c1399c83ef146b054fa11222046e522add966" /></div>
-            <div class="login_padding">
-              <b>Virheen kuvaus - error description</b>
-            </div>  
-            <div class="login_padding">
-              <textarea cols="40" id="feedback_content" name="feedback[content]" rows="5" class="error_page"></textarea> 
+<!DOCTYPE html> 
+<html lang='en-US' xml:lang='en-US' xmlns='http://www.w3.org/1999/xhtml'> 
+  <head> 
+    <title>Kassi</title>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'> 
+    <link href="/stylesheets/compiled/style.css?1285747368" media="screen" rel="stylesheet" type="text/css" />
+  </head> 
+  <body> 
+    <div class="js_enabled">
+      <div class='container_24' id='error'> 
+        <div class='grid_16 prefix_4 suffix_4'> 
+          <div class='grid_8 alpha'>
+            <div id="error_content">
+              <h2>Sivua ei löydy!</h2> 
+              <p> 
+                Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?
+              </p>
+              <p>
+          	    Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä.
+          	  </p>
+          	  <p>
+          	    <a href="/">Takaisin Kassin etusivulle</a>
+          	  </p>
+          	  <h2>Page can not be found!</h2>
+          	  <p>
+          	    The page you requested can not be found. Are you sure you spelled the address correctly?
+          	  </p>
+          	  <p>
+          	    If you believe that the address is correct and it should be working, please help us locate the error by letting us know
+          	    what address caused the error and what should be seen on the page with the form below.
+          	  </p>
+          	  <p>
+          	    <a href="/">Back to Kassi front page</a>
+          	  </p>
             </div>
-            <input id="feedback_author_id" name="feedback[author_id]" type="hidden" value="virheilmoitus500" />
-            <input id="feedback_url" name="feedback[url]" type="hidden" value="/error_notice_received.html" />
-            <div class="login_form_br"></div>
-            <div class="login_padding">
-              <input name="commit" onclick="this.form.submit();" type="submit" value="Lähetä - Send" class="home_button" />
-            </div>
-          </form>
-              
-          <br />    
-
-          <p>
-            <a href="/"> Takaisin Kassin etusivulle - Back to Kassi Front page </a>
-          </p>  
+      	  </div>
+      	  <div class="grid_8 omega">
+      	    <div id="error_kaapo">
+      	      <img src="/images/kaapo/sad_kaapo_big.png" alt="Kaapo" />
+      	    </div>
+      	  </div>
         </div>
-        <div class="home_content_right_box_bottom"></div>
+        <div class='grid_12 prefix_6 suffix_6'>
+          <div id="error_page_feedback_form">
+            <form accept-charset="UTF-8" action="/en/admin/feedbacks" data-remote="true" id="new_error_feedback" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" />
+              <label for="feedback_email">Sähköpostiosoite / email address</label> 
+              <input class="text_field" id="feedback_email" name="feedback[email]" size="30" type="text" /> 
+              <label for="feedback_content">Virheen kuvaus / error description</label> 
+              <textarea class="feedback" cols="40" id="feedback_content" name="feedback[content]" rows="20"></textarea> 
+              <input id="feedback_author_id" name="feedback[author_id]" type="hidden" value="Anonymous" /> 
+              <input id="feedback_url" name="feedback[url]" type="hidden" value="Error page 500" /> 
+              <input class="send_button" id="feedback_submit" name="commit" type="submit" value="Lähetä / Send" /> 
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div id="push"></div>
-  </div>
-  <!-- The UserVoice script -->
-  <script type="text/javascript">
-    var uservoiceJsHost = ("https:" == document.location.protocol) ? "https://uservoice.com" : "http://cdn.uservoice.com";
-    document.write(unescape("%3Cscript src='" + uservoiceJsHost + "/javascripts/widgets/tab.js' type='text/javascript'%3E%3C/script%3E"))
-  </script>
-  <script type="text/javascript">
-  UserVoice.Tab.show({ 
-    /* required */
-    key: 'kassi',
-    host: 'kassi.uservoice.com', 
-    forum: '30582', 
-    /* optional */
-    alignment: 'left',
-    background_color:'#406704', 
-    text_color: 'white',
-    hover_color: '#c0e783',
-    lang: 'en'
-  })
-  </script>
-</body>
-
+    </div> 
+  </body>
 </html>

@@ -1,5 +1,6 @@
 require 'test_helper'
-require 'performance_test_help'
+require 'rails/performance_test_help'
+
 
 # Profiling results for each test method are written to tmp/performance.
 class BrowsingTest < ActionController::PerformanceTest
@@ -7,38 +8,42 @@ class BrowsingTest < ActionController::PerformanceTest
     get '/'
   end
   
-  def test_homepage_no_cache
-    get '/?nocache=1'
+  def test_new_request_page
+    get "en/listings/new/request"
+    
   end
+  # def test_homepage_no_cache
+  #   get '/?nocache=1'
+  # end
   
-  def test_listings_page
-    get '/listings/categories/all_categories'
-  end
+  # def test_listings_page
+  #     get '/listings/categories/all_categories'
+  #   end
+  #   
+  #   def test_people_page
+  #     get '/people'
+  #   end
+  #   
+  #   def test_random_listing_page
+  #     get '/listings/random'
+  #   end
+  #   
+  #   def test_items_page
+  #     get '/items'
+  #   end
+  #   
+  #   def test_favors_page
+  #     get '/favors'
+  #   end
+  #   
+  #   def test_groups_page
+  #     get '/groups'
+  #   end
   
-  def test_people_page
-    get '/people'
-  end
-  
-  def test_random_listing_page
-    get '/listings/random'
-  end
-  
-  def test_items_page
-    get '/items'
-  end
-  
-  def test_favors_page
-    get '/favors'
-  end
-  
-  def test_groups_page
-    get '/groups'
-  end
-  
-  def test_log_in_and_out
-    post "/session", { :username => "kassi_testperson1", :password => "testi"}
-    delete "/session"
-  end
+  # def test_log_in_and_out
+  #   post "/session", { :username => "kassi_testperson1", :password => "testi"}
+  #   delete "/session"
+  # end
   
 
   
