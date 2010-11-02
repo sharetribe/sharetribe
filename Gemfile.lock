@@ -185,9 +185,8 @@ GEM
     rspec-expectations (2.0.0.beta.19)
       diff-lcs (>= 1.1.2)
     rspec-mocks (2.0.0.beta.19)
-    rspec-rails (2.0.0.beta.19)
-      rspec (= 2.0.0.beta.19)
-      webrat (>= 0.7.2.beta.1)
+    rspec-rails (2.0.1)
+      rspec (~> 2.0.0)
     ruby-prof (0.9.2)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
@@ -202,10 +201,6 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.23)
-    webrat (0.7.2.beta.1)
-      nokogiri (>= 1.2.0)
-      rack (>= 1.0)
-      rack-test (>= 0.5.3)
     whenever (0.5.0)
       chronic (>= 0.2.3)
     will_paginate (3.0.pre)
@@ -236,7 +231,7 @@ DEPENDENCIES
   rails (= 3.0.0)
   recaptcha!
   rest-client (>= 1.6.0)
-  rspec-rails (>= 2.0.0.beta.19)
+  rspec-rails (~> 2.0.1)
   ruby-prof
   thinking-sphinx!
   whenever (~> 0.5.0)

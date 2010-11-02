@@ -12,6 +12,7 @@ require 'cucumber/rails/rspec'
 require 'cucumber/rails/world'
 require 'cucumber/rails/active_record'
 require 'cucumber/web/tableish'
+#require 'cucumber/rspec/doubles'
 
 require 'capybara/rails'
 require 'capybara/cucumber'

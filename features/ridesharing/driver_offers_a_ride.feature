@@ -2,23 +2,25 @@ Feature: Driver offers a ride
   In order to help others and/or get some gas money with a car ride I'm going to do anyway
   As a driver planning a car ride soon
   I want to publish my planned route and schedule so that others can ask me to pick them up
-  
-    @pending
+    
+    #THIS SHOULD WORK IF CUCUMBER > 9.0.0 CAN BE USED
+    @pending 
     Scenario: Offering ridesharing by SMS
-      Given I'm planning to drive somewhere
-      When I send SMS "tkk taik 14:00" to Kassi
-      Then An offer for shared ride from "tkk" to "taik" starting at "14:00" should be added to Kassi
+      Given my given name is "Johnny"
+      And my phone number in my profile is "0505252525"
+      When I send sms "ride offer tkk taik 14:00"
+      Then There should be a rideshare offer from "tkk" to "taik" starting at "14:00"
     
     @pending
     Scenario: Offering ridesharing starting right now by SMS
-      Given I'm planning to drive somewhere
+      Given I am planning to drive somewhere
       And I want to start about now
       When I send SMS "tkk taik" to Kassi
       Then An offer for shared ride from "tkk" to "taik" starting at current time should be added to Kassi
   
     @pending
     Scenario: Offering ridesharing from current location by SMS
-      Given I'm planning to drive somewhere
+      Given I am planning to drive somewhere
       And my phone location can be requested by Kassi
       When I send SMS "hse 9:30" to Kassi
       Then An offer for shared ride from my current location to "hse" starting at "9:30" should be added to Kassi
