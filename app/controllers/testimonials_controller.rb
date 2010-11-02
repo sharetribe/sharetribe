@@ -9,6 +9,9 @@ class TestimonialsController < ApplicationController
   
   def index
     @person = Person.find(params[:person_id])
+    @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
+    @grade_amounts = @person.grade_amounts
+    render :partial => "additional_testimonials" if request.xhr?
   end
   
   def new
