@@ -201,7 +201,7 @@ class Listing < ActiveRecord::Base
     type.eql?("offer") ? "request" : "offer"
   end
   
-  # Called after save
+  # Called after create
   # Checks if there was already an offer matching this request
   # or a request matching this offer
   # Inform the requester if possible match is found

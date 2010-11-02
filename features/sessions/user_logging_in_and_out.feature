@@ -16,7 +16,7 @@ Feature: User logging in and out
   
   Scenario: Seeing my name or username on header after login
     Given I am logged in
-    And My given name is "John"
+    And my given name is "John"
     When I am on the home page
     Then I should see "John"
   

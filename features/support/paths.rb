@@ -14,6 +14,8 @@ module NavigationHelpers
       '/en/signup' 
     when /the requests page/
       '/en/requests'
+    when /the offers page/
+      '/en/offers'  
     when /the edit listing page/
       edit_listing_path(:id => @listing.id) 
     when /^the give feedback path of "(.*)"$/i

@@ -16,15 +16,17 @@ Given /^I am not logged in$/ do
   # TODO Check here that not logged in
 end
 
-Given /^My given name is "([^"]*)"$/ do |name|
+Given /^my given name is "([^"]*)"$/ do |name|
   # Using direct model (and ASI) access here
-  session = Session.create({:username => "kassi_testperson1", :password => "testi" })
-  test_person = Person.find(session.person_id)
-  test_person.set_given_name(name, session.cookie)
+  @session = Session.create({:username => "kassi_testperson1", :password => "testi" })
+  @test_person = Person.find(@session.person_id)
+  @test_person.set_given_name(name, @session.cookie)
 end
 
-Given /^I have phone number in my profile$/ do
-  pending # express the regexp above with the code you wish you had
+Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
+  raise RuntimeException.new("@session neede to be set before the line 'my phone number...'") unless @session
+  @test_person = Person.find(@session.person_id) if @test_person.nil?
+  @test_person.set_phone_number(phone_number, @session.cookie)
 end
 
 When /^I enter correct credentials$/ do
