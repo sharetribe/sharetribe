@@ -134,7 +134,7 @@ fi:
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      testimonials: "Palaute"
+      testimonials: "Saatu palaute"
       badges: "Kassimerkit"
     settings:
       settings: "Asetukset"
@@ -487,6 +487,7 @@ fi:
       badges: "Kassimerkit"
       what_are_these: "Mitä nämä ovat?"
       show_all_badges: "Näytä kaikki kassimerkit"
+      show_all_testimonials: "Näytä kaikki palautteet"
     help_texts:
       help_captcha_title: "Olethan ihminen"
       terms_title: "Kassin käyttöehdot"
@@ -552,6 +553,11 @@ fi:
       terms: "Kassin käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"    
   testimonials:
+    index:
+      no_testimonials: "Ei saatuja palautteita."
+      all_testimonials: "Kaikki palautteet"
+      loading_more_testimonials: "Ladataan lisää palautteita"
+      feedback_altogether: "Palautteita yhteensä: "
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
       grade: "Arvio käyttäjän toiminnasta"
@@ -562,6 +568,9 @@ fi:
       slightly_better_than_expected: "Ylitti osin odotukset"
       exceeded_expectations: "Ylitti täysin odotukset"
       send_feedback: "Lähetä palaute"
+    testimonial:
+      from_user: "käyttäjältä"
+      to_user: "käyttäjälle"
   sms:
     rideshare: kyyti                      #may be a regular expression
     offer: tarjous                        #may be a regular expression

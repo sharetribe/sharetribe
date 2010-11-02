@@ -510,6 +510,14 @@ class Person < ActiveRecord::Base
     Notification.update_all("is_read = 1", ["is_read = 0 AND receiver_id = ?", id])
   end
   
+  def grade_amounts
+    grade_amounts = []
+    Testimonial::GRADES.each_with_index do |grade, index|
+      grade_amounts[index] = [grade[0], received_testimonials.where(:grade => grade[1][:db_value]).count, grade[1][:form_value]]
+    end  
+    return grade_amounts  
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

@@ -24,14 +24,16 @@
         .profile_feedback_average_value
           = @person.feedback_average.to_s + "/5"
         .profile_feedback_average_description
-          = "(" + grade_text(@person.feedback_average) + ")"
+          = "(" + grade_text(@person.feedback_average, false) + ")"
     .profile_feedback_list
       .profile_feedback_arrow
         &nbsp;
       .profile_feedback_texts
-        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(2), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
-    
-  
+        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
+      - if @person.received_testimonials.size > 1
+        .profile_testimonials_link_to_all
+          = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
+        
 .grid_18
   .grid_12.alpha
     %h1= @person.name

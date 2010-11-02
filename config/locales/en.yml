@@ -134,7 +134,7 @@ en:
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
-      testimonials: "Feedback"
+      testimonials: "Received feedback"
       badges: "Badges"
     settings:
       settings: "Settings"
@@ -485,6 +485,7 @@ en:
       badges: "Badges"
       what_are_these: "What are these?"
       show_all_badges: "Show all badges"
+      show_all_testimonials: "Show all feedback"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"
@@ -550,6 +551,11 @@ en:
       terms: "Kassi terms of use"
       i_accept_terms: "I accept the terms"  
   testimonials:
+    index:
+      no_testimonials: "No received feedback."
+      all_testimonials: "All feedback"
+      loading_more_testimonials: "Loading more testimonials"
+      feedback_altogether: "Feedback altogether: "
     new:
       give_feedback_to: "Give feedback to %{person}"
       grade: "Assessment of performance"
@@ -560,6 +566,9 @@ en:
       slightly_better_than_expected: "Slightly better than expected"
       exceeded_expectations: "Much better than expected"
       send_feedback: "Send feedback"
+    testimonial:
+      from_user: "from"
+      to_user: "to"
   sms:
     rideshare: ride|rideshare       #may be a regular expression
     offer: offer                    #may be a regular expression
