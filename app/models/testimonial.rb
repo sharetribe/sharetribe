@@ -9,7 +9,7 @@ class Testimonial < ActiveRecord::Base
   ]
 
   belongs_to :author, :class_name => "Person", :dependent => :destroy
-  belongs_to :target, :class_name => "Person", :dependent => :destroy
+  belongs_to :receiver, :class_name => "Person", :dependent => :destroy
   belongs_to :participation, :dependent => :destroy
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
@@ -17,6 +17,13 @@ class Testimonial < ActiveRecord::Base
   # Formats grade so that it can be displayed in the UI
   def displayed_grade
     (grade * 4 + 1).to_i
+  end
+  
+  def notify_receiver(host)
+    TestimonialNotification.create(:testimonial_id => id, :receiver_id => receiver.id)
+    if receiver.preferences["email_about_new_received_testimonials"]
+      PersonMailer.new_testimonial(self, host).deliver
+    end
   end
 
 end

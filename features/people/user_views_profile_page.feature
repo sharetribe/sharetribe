@@ -123,7 +123,7 @@ Feature: User views profile page
     And I should see "Excellent feedback" within ".profile_feedback_texts"
     And I should not see "OK feedback" within ".profile_feedback_texts"
     And I should not see "Test feedback" within ".profile_feedback_texts"
-    And I should see "Show all feedback (3)"
+    And I should see "Show all feedback (4)"
   
   
   
