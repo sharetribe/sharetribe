@@ -899,6 +899,10 @@ span.smaller {
 	@include hidden_div(500px);
 }
 
+.hidden_description_feedback {
+	@include hidden_div(600px);
+}
+
 .hidden_title {
 	float: left;
 	width: 200px;

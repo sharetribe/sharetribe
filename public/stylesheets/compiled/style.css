@@ -950,6 +950,20 @@ span.smaller {
     margin: 0;
     padding: 0; }
 
+.hidden_description_feedback {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 600px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+  .hidden_description_feedback h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
+
 .hidden_title {
   float: left;
   width: 200px;

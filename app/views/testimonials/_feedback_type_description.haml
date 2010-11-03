@@ -4,5 +4,5 @@
       &nbsp;  
   .feedback_type_description_text
     = t("people.profile_feedback.#{grade_amount[0]}")
-  .feedback_type_description_grade
+  .feedback_type_description_grade{:id => "feedback_grade_#{grade_amount[2]}"}
     = grade_amount[1]

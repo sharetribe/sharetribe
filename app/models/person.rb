@@ -513,7 +513,7 @@ class Person < ActiveRecord::Base
   def grade_amounts
     grade_amounts = []
     Testimonial::GRADES.each_with_index do |grade, index|
-      grade_amounts[index] = [grade[0], received_testimonials.where(:grade => grade[1][:db_value]).count, grade[1][:form_value]]
+      grade_amounts[Testimonial::GRADES.size - 1 - index] = [grade[0], received_testimonials.where(:grade => grade[1][:db_value]).count, grade[1][:form_value]]
     end  
     return grade_amounts  
   end

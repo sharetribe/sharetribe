@@ -36,4 +36,15 @@ module PeopleHelper
     end
   end
   
+  def help_text_class(field)
+    case field
+    when "terms"
+      "hidden_description_terms"
+    when "feedback_description"
+      "hidden_description_feedback"
+    else
+       "hidden_description"
+    end
+  end
+  
 end

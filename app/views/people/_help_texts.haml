@@ -1,4 +1,4 @@
-%div{:id => field, :class => (field.eql?("terms") ? "hidden_description_terms" : "hidden_description")}
+%div{:id => field, :class => help_text_class(field)}
   .hidden_title
     = t(".#{field}_title")
   .close_link
