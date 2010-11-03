@@ -1,0 +1,4 @@
+= link_to notification.testimonial.receiver.name, notification.testimonial.receiver
+has given you feedback on event
+= link_to(notification.testimonial.participation.conversation.title, person_message_path(:person_id => @current_user.id, :id => notification.testimonial.participation.conversation.id)) + "."
+= link_to "View all the feedback you've received", person_testimonials_path(:person_id => @current_user.id)

@@ -172,6 +172,9 @@ fi:
     new_badge:
       you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
       you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
+      you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
   admin:
     badges:
       index:
@@ -547,6 +550,7 @@ fi:
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
+      email_about_new_received_testimonials: "...joku antaa minulle palautetta"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"

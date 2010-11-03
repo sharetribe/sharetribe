@@ -36,7 +36,7 @@ class Person < ActiveRecord::Base
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
-  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "target_id", :order => "id DESC"
+  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
@@ -46,7 +46,8 @@ class Person < ActiveRecord::Base
     "email_about_new_comments_to_own_listing",
     "email_when_conversation_accepted",
     "email_when_conversation_rejected",
-    "email_about_new_badges"
+    "email_about_new_badges",
+    "email_about_new_received_testimonials"
     
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
@@ -496,7 +497,7 @@ class Person < ActiveRecord::Base
   
   def give_badge(badge_name, host)
     badge = Badge.create(:person_id => id, :name => badge_name)
-    badge_notification = BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
+    BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
     if preferences["email_about_new_badges"]
       PersonMailer.new_badge(badge, host).deliver
     end
