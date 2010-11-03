@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_profile_feedback_view();
+
 = render :partial => "layouts/profile_extras_header"
 
 - if @testimonials && !@testimonials.empty?
@@ -12,7 +15,7 @@
     .feedback_average_description
       = "(" + grade_text(@person.feedback_average) + ")"
     .feedback_average_description_link_div
-      = link_to t("common.what_is_this"), "#"
+      = link_to t("common.what_is_this"), "#", :id => "help_feedback_link"
   .grid_10
     #feedback_type_descriptions
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
@@ -29,3 +32,5 @@
 - else
   #no_conversations
     = t(".no_testimonials")
+    
+= render :partial => "people/help_texts", :locals => { :field => "feedback_description" }
