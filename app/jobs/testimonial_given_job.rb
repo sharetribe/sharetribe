@@ -1,4 +1,4 @@
-class TestimonialGivenJob < Struct.new(:conversation_id, :host) 
+class TestimonialGivenJob < Struct.new(:conversation_id, :host, :target_id) 
   
   def perform
     conversation = Conversation.find(conversation_id)
