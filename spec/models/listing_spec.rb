@@ -191,6 +191,29 @@ describe Listing do
       @listing.valid_until = nil
       @listing.should_not be_valid
     end
+    
+    describe "#origin_and_destination_close_enough?" do
+      it "should return true, when comparing listings with origin and destination close enough" do
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "Otakaari 20"
+        other_listing.destination = "Simonkatu 4"
+        @listing.destination = "helsinki"
+        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        
+      end
+      
+      it "should return false when comparing places too far away (either destination or origin)" do
+        sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "Otakaari 20"
+        other_listing.destination = "Vilhonvuorenkatu 3"
+        @listing.destination = "Espoon keskus"
+        @listing.origin_and_destination_close_enough?(other_listing, 4).should be_false
+      end
+      
+    end
   
   end
   
