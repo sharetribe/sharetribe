@@ -1,5 +1,7 @@
 class Listing < ActiveRecord::Base
   
+  include LocationsHelper
+  
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
   
@@ -207,6 +209,7 @@ class Listing < ActiveRecord::Base
   # Inform the requester if possible match is found
   def check_possible_matches
     timing_tolerance = 1.hours # how big difference in starting time is accepted
+    location_tolerance = 3 # kilometers, the max distance between spots to match them
     
     # currently check only rideshare listings
     return true unless category == "rideshare"
@@ -219,9 +222,8 @@ class Listing < ActiveRecord::Base
     end
     
     potential_listings.each do |candidate|
-      if (origin.casecmp(candidate.origin) == 0 && 
-          destination.casecmp(candidate.destination) == 0 &&
-          (valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until))
+      if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
+          origin_and_destination_close_enough?(candidate, location_tolerance))
         if listing_type == "request"
           inform_requester_about_potential_match(self, candidate)
         else
@@ -230,6 +232,17 @@ class Listing < ActiveRecord::Base
       end
     end
     
+  end
+  
+  def origin_and_destination_close_enough?(candidate, location_tolerance)
+    #puts "Distance between origins: #{distance_between(get_coordinates(origin), get_coordinates(candidate.origin))}"
+    #puts "Distance between destinations: #{distance_between(get_coordinates(destination), get_coordinates(candidate.destination))}"
+    if distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance &&
+        distance_between(get_coordinates(destination), get_coordinates(candidate.destination)) < location_tolerance
+      return true
+    else 
+      return false
+    end
   end
   
   def inform_requester_about_potential_match(request, offer)
