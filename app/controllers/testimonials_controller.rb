@@ -1,11 +1,18 @@
 class TestimonialsController < ApplicationController
   
-  before_filter do |controller|
+  before_filter :except => :index do |controller|
     controller.ensure_logged_in "you_must_log_in_to_give_feedback"
   end
   
-  before_filter :ensure_authorized_to_give_feedback
-  before_filter :ensure_feedback_not_given
+  before_filter :ensure_authorized_to_give_feedback, :except => :index
+  before_filter :ensure_feedback_not_given, :except => :index
+  
+  def index
+    @person = Person.find(params[:person_id])
+    @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
+    @grade_amounts = @person.grade_amounts
+    render :partial => "additional_testimonials" if request.xhr?
+  end
   
   def new
     @testimonial = Testimonial.new
@@ -14,7 +21,7 @@ class TestimonialsController < ApplicationController
   def create
     @testimonial = Testimonial.new(params[:testimonial])
     if @testimonial.save
-      Delayed::Job.enqueue(TestimonialGivenJob.new(@conversation.id, request.host))
+      Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, request.host))
       flash[:notice] = ["feedback_sent_to", @conversation.other_party(@current_user).given_name, @conversation.other_party(@current_user)]
       redirect_to (session[:return_to_inbox_content] || root)
     else

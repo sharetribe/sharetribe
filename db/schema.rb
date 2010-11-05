@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101028151541) do
+ActiveRecord::Schema.define(:version => 20101103163019) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -224,10 +224,11 @@ ActiveRecord::Schema.define(:version => 20101028151541) do
   create_table "notifications", :force => true do |t|
     t.string   "receiver_id"
     t.string   "type"
-    t.boolean  "is_read",     :default => false
+    t.boolean  "is_read",        :default => false
     t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "testimonial_id"
   end
 
   create_table "participations", :force => true do |t|
@@ -357,7 +358,7 @@ ActiveRecord::Schema.define(:version => 20101028151541) do
     t.integer  "participation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "target_id"
+    t.string   "receiver_id"
   end
 
   create_table "transactions", :force => true do |t|

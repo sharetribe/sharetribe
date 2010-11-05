@@ -1,0 +1,13 @@
+= t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name) + "."
+
+***
+
+- unless @testimonial.text.eql?("")
+  = @testimonial.text
+  
+= t("people.profile_feedback.grade").capitalize + " " + grade_text(@testimonial.displayed_grade).downcase + "."
+
+***
+
+= t("emails.new_testimonial.you_can_view_all_your_feedback_in") + " " + @url + "?ref=email"
+

@@ -950,6 +950,20 @@ span.smaller {
     margin: 0;
     padding: 0; }
 
+.hidden_description_feedback {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  width: 600px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+  .hidden_description_feedback h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
+
 .hidden_title {
   float: left;
   width: 200px;
@@ -2601,27 +2615,102 @@ a.handle:hover {
 .profile_feedback_average_image_5 {
   width: 50px;
   height: 50px;
-  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 0 no-repeat; }
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades.png") 0 0 no-repeat; }
 
 .profile_feedback_average_image_4 {
   width: 50px;
   height: 50px;
-  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -150px no-repeat; }
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades.png") 0 -50px no-repeat; }
 
 .profile_feedback_average_image_3 {
   width: 50px;
   height: 50px;
-  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -300px no-repeat; }
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades.png") 0 -100px no-repeat; }
 
 .profile_feedback_average_image_2 {
   width: 50px;
   height: 50px;
-  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -450px no-repeat; }
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades.png") 0 -150px no-repeat; }
 
 .profile_feedback_average_image_1 {
   width: 50px;
   height: 50px;
-  background: #f7f5e6 url("/images/kaapo/basic_link.png") 0 -600px no-repeat; }
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades.png") 0 -200px no-repeat; }
+
+.feedback_average_image_5 {
+  width: 50px;
+  height: 50px;
+  background: transparent url("/images/kaapo/kaapo_grades.png") 0 0 no-repeat; }
+
+.feedback_average_image_4 {
+  width: 50px;
+  height: 50px;
+  background: transparent url("/images/kaapo/kaapo_grades.png") 0 -50px no-repeat; }
+
+.feedback_average_image_3 {
+  width: 50px;
+  height: 50px;
+  background: transparent url("/images/kaapo/kaapo_grades.png") 0 -100px no-repeat; }
+
+.feedback_average_image_2 {
+  width: 50px;
+  height: 50px;
+  background: transparent url("/images/kaapo/kaapo_grades.png") 0 -150px no-repeat; }
+
+.feedback_average_image_1 {
+  width: 50px;
+  height: 50px;
+  background: transparent url("/images/kaapo/kaapo_grades.png") 0 -200px no-repeat; }
+
+.profile_feedback_average_image_5_big {
+  width: 140px;
+  height: 140px;
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades_big.png") 0 0 no-repeat; }
+
+.profile_feedback_average_image_4_big {
+  width: 140px;
+  height: 140px;
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades_big.png") 0 -140px no-repeat; }
+
+.profile_feedback_average_image_3_big {
+  width: 140px;
+  height: 140px;
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades_big.png") 0 -280px no-repeat; }
+
+.profile_feedback_average_image_2_big {
+  width: 140px;
+  height: 140px;
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades_big.png") 0 -420px no-repeat; }
+
+.profile_feedback_average_image_1_big {
+  width: 140px;
+  height: 140px;
+  background: #f7f5e6 url("/images/kaapo/kaapo_grades_big.png") 0 -560px no-repeat; }
+
+.profile_feedback_average_image_5_small {
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 0 no-repeat; }
+
+.profile_feedback_average_image_4_small {
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 -35px no-repeat; }
+
+.profile_feedback_average_image_3_small {
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 -70px no-repeat; }
+
+.profile_feedback_average_image_2_small {
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 -105px no-repeat; }
+
+.profile_feedback_average_image_1_small {
+  width: 35px;
+  height: 35px;
+  background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 -140px no-repeat; }
 
 .profile_feedback_average {
   background: #2f5707;
@@ -2720,7 +2809,8 @@ a.handle:hover {
 
 .profile_badges_link_to_all {
   clear: both;
-  padding-top: 10px; }
+  padding-top: 10px;
+  font-size: 11px; }
 
 .badge_description {
   border-radius: 7px;
@@ -2761,7 +2851,8 @@ a.handle:hover {
   font-weight: bold; }
 
 .notification_content {
-  float: left; }
+  float: left;
+  width: 675px; }
 
 #profile_extras_person {
   overflow: hidden;
@@ -2786,3 +2877,102 @@ a.handle:hover {
 .badge {
   float: left;
   margin-right: 8px; }
+
+.profile_testimonials_link_to_all {
+  font-size: 11px;
+  padding: 0 15px 15px 15px; }
+
+#all_testimonials {
+  margin: 20px 15px 0 5px; }
+  #all_testimonials h2 {
+    margin: 0;
+    padding: 3px 10px 4px 10px;
+    font-size: 14px;
+    background: #2f5707;
+    color: white; }
+
+#testimonials_grade_image {
+  padding-top: 40px; }
+
+#feedback_average {
+  padding-top: 60px;
+  overflow: hidden; }
+
+.feedback_average_title {
+  font-size: 22px;
+  font-weight: bold;
+  width: 434px;
+  float: left; }
+
+.feedback_average_value {
+  padding-top: 10px;
+  float: left;
+  width: 150px;
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 26px; }
+
+.feedback_average_description {
+  font-size: 13px;
+  float: left;
+  width: 200px;
+  line-height: 11px;
+  padding-top: 18px; }
+
+.single_testimonial {
+  overflow: hidden;
+  background: #ececdb; }
+
+.testimonial_image {
+  padding: 15px;
+  float: left; }
+
+.testimonial_description {
+  width: 700px;
+  float: left;
+  padding: 22px 0 15px 10px; }
+
+.testimonial_description_text {
+  font-style: italic;
+  font-size: 11px; }
+
+.light_green {
+  background: #ececdb; }
+
+.light_red {
+  background: #fbe3e4; }
+
+.feedback_average_description_link_div {
+  clear: both;
+  padding-top: 10px; }
+
+#feedback_type_descriptions {
+  background: #d1c9b4;
+  margin: 20px 10px 0 0;
+  padding: 5px; }
+  #feedback_type_descriptions h4 {
+    margin: 0 0 10px 0; }
+
+#feedback_type_description_list {
+  overflow: hidden;
+  margin-bottom: 15px; }
+
+.feedback_type_description {
+  overflow: hidden;
+  clear: both; }
+
+.feedback_type_description_image {
+  float: left;
+  width: 35px;
+  margin: 0 25px 5px 35px; }
+
+.feedback_type_description_text {
+  float: left;
+  width: 230px;
+  margin-top: 7px; }
+
+.feedback_type_description_grade {
+  float: left;
+  width: 30px;
+  font-weight: bold;
+  margin-top: 7px; }

@@ -1,0 +1,36 @@
+- content_for :javascript do
+  initialize_profile_feedback_view();
+
+= render :partial => "layouts/profile_extras_header"
+
+- if @testimonials && !@testimonials.empty?
+  #testimonials_grade_image.grid_4
+    %div{:class => "#{grade_image_class(@person.feedback_average)}_big"}
+      &nbsp;
+  #feedback_average.grid_10
+    .feedback_average_title
+      = t("people.show.feedback_average")
+    .feedback_average_value
+      = @person.feedback_average.to_s + "/5"
+    .feedback_average_description
+      = "(" + grade_text(@person.feedback_average) + ")"
+    .feedback_average_description_link_div
+      = link_to t("common.what_is_this"), "#", :id => "help_feedback_link"
+  .grid_10
+    #feedback_type_descriptions
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      %h4= t(".feedback_altogether") + @testimonials.total_entries.to_s
+      #feedback_type_description_list
+        = render :partial => "feedback_type_description", :collection => @grade_amounts, :as => :grade_amount
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+  .clear
+  #all_testimonials
+    %h2= t(".all_testimonials") + " (#{@testimonials.total_entries})"
+    = render :partial => @testimonials, :spacer_template => "conversations/inbox_spacer"
+    = will_paginate(@testimonials)
+    = pageless(@testimonials.total_pages, '#all_testimonials', person_testimonials_path(@person), t('.loading_more_testimonials')) 
+- else
+  #no_conversations
+    = t(".no_testimonials")
+    
+= render :partial => "people/help_texts", :locals => { :field => "feedback_description" }

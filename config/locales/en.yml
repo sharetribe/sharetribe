@@ -134,7 +134,7 @@ en:
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
-      feedback: "Feedback"
+      testimonials: "Received feedback"
       badges: "Badges"
     settings:
       settings: "Settings"
@@ -172,6 +172,9 @@ en:
     new_badge:
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in Kassi!"
       you_can_view_all_your_badges_in: "You can view all your badges in"
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} has given you feedback in Kassi"
+      you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
   admin:
     badges:
       index:
@@ -213,6 +216,7 @@ en:
       default_offer_message_text: "Explain what you need."
     notifications:
       no_notifications: "No notifications."
+      loading_more_notifications: "Loading more notifications"
     show:
       offer_sent_by: Request sent by
       request_sent_by: Offer sent by
@@ -484,10 +488,12 @@ en:
       badges: "Badges"
       what_are_these: "What are these?"
       show_all_badges: "Show all badges"
+      show_all_testimonials: "Show all feedback"
     help_texts:
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"
-      badges_description_title: "Badges"              
+      badges_description_title: "Badges"
+      feedback_description_title: "Feedback"                
   search:
     show:
       search: "Search"
@@ -542,6 +548,7 @@ en:
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
       email_about_new_badges: "...I have achieved a new badge"
+      email_about_new_received_testimonials: "...somebody gives me feedback"
   terms:
     show:
       accept_terms: "Accepting Kassi terms of use"
@@ -549,6 +556,11 @@ en:
       terms: "Kassi terms of use"
       i_accept_terms: "I accept the terms"  
   testimonials:
+    index:
+      no_testimonials: "No received feedback."
+      all_testimonials: "All feedback"
+      loading_more_testimonials: "Loading more testimonials"
+      feedback_altogether: "Feedback altogether: "
     new:
       give_feedback_to: "Give feedback to %{person}"
       grade: "Assessment of performance"
@@ -559,6 +571,9 @@ en:
       slightly_better_than_expected: "Slightly better than expected"
       exceeded_expectations: "Much better than expected"
       send_feedback: "Send feedback"
+    testimonial:
+      from_user: "from"
+      to_user: "to"
   sms:
     rideshare: ride|rideshare       #may be a regular expression
     offer: offer                    #may be a regular expression

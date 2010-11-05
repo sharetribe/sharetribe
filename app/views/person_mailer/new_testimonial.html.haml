@@ -1,0 +1,13 @@
+= t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name) + "."
+
+- unless @testimonial.text.eql?("")
+  %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
+    %i
+      - text_with_line_breaks do
+        = @testimonial.text
+    %br/
+    = t("people.profile_feedback.grade").capitalize + " " + grade_text(@testimonial.displayed_grade).downcase + "."
+
+= t("emails.new_testimonial.you_can_view_all_your_feedback_in")
+= link_to(@url, @url + "?ref=email")
+

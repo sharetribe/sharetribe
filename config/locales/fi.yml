@@ -134,7 +134,7 @@ fi:
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      feedback: "Palaute"
+      testimonials: "Saatu palaute"
       badges: "Kassimerkit"
     settings:
       settings: "Asetukset"
@@ -172,6 +172,9 @@ fi:
     new_badge:
       you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
       you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
+      you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
   admin:
     badges:
       index:
@@ -213,6 +216,7 @@ fi:
       default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
     notifications:
       no_notifications: "Ei tiedotteita."
+      loading_more_notifications: "Ladataan lisää tiedotteita"
     show:
       offer_sent_by: "Pyynnön lähetti"
       offer_sent_to: "Pyyntö lähetetty käyttäjälle"
@@ -486,10 +490,12 @@ fi:
       badges: "Kassimerkit"
       what_are_these: "Mitä nämä ovat?"
       show_all_badges: "Näytä kaikki kassimerkit"
+      show_all_testimonials: "Näytä kaikki palautteet"
     help_texts:
       help_captcha_title: "Olethan ihminen"
       terms_title: "Kassin käyttöehdot"
-      badges_description_title: "Kassimerkit"  
+      badges_description_title: "Kassimerkit"
+      feedback_description_title: "Palaute"  
   search:
     show:
       search: "Haku"
@@ -544,6 +550,7 @@ fi:
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
+      email_about_new_received_testimonials: "...joku antaa minulle palautetta"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"
@@ -551,6 +558,11 @@ fi:
       terms: "Kassin käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"    
   testimonials:
+    index:
+      no_testimonials: "Ei saatuja palautteita."
+      all_testimonials: "Kaikki palautteet"
+      loading_more_testimonials: "Ladataan lisää palautteita"
+      feedback_altogether: "Palautteita yhteensä: "
     new:
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
       grade: "Arvio käyttäjän toiminnasta"
@@ -561,6 +573,9 @@ fi:
       slightly_better_than_expected: "Ylitti osin odotukset"
       exceeded_expectations: "Ylitti täysin odotukset"
       send_feedback: "Lähetä palaute"
+    testimonial:
+      from_user: "käyttäjältä"
+      to_user: "käyttäjälle"
   sms:
     rideshare: kyyti                      #may be a regular expression
     offer: tarjous                        #may be a regular expression
