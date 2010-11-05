@@ -2851,7 +2851,8 @@ a.handle:hover {
   font-weight: bold; }
 
 .notification_content {
-  float: left; }
+  float: left;
+  width: 675px; }
 
 #profile_extras_person {
   overflow: hidden;

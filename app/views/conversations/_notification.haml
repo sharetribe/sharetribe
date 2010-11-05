@@ -1,4 +1,4 @@
-.notification
+.notification{:class => (@unread_notifications.include?(notification) ? "unread" : "")}
   .notification_date
     = l(notification.created_at, :format => :short)
   .notification_content  

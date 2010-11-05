@@ -20,6 +20,12 @@ Feature: User gives feedback from transaction
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within "#notifications"
     And I should see "Feedback given" within ".conversation_status_label_links"
+    And the system processes jobs
+    When I follow "Logout"
+    And I am logged in as "kassi_testperson2"
+    When I follow "notifications_link"
+    Then I should see "has given you feedback on event Favor offer: Massage. View all the feedback you've received"
+    And I should not see "1" within "#logged_in_notifications_icon"
   
   @javascript
   Scenario: Try to give feedback without giving a grade

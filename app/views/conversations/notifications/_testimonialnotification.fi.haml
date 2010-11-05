@@ -1,4 +1,4 @@
-= link_to notification.testimonial.receiver.name, notification.testimonial.receiver
+= link_to notification.testimonial.author.name, notification.testimonial.author
 on antanut sinulle palautetta liittyen tapahtumaan
 = link_to(notification.testimonial.participation.conversation.title, person_message_path(:person_id => @current_user.id, :id => notification.testimonial.participation.conversation.id)) + "."
 = link_to "Katso kaikki saamasi palautteet", person_testimonials_path(:person_id => @current_user.id)
