@@ -576,12 +576,15 @@ en:
       to_user: "to"
   sms:
     rideshare: ride|rideshare       #may be a regular expression
+    pay: pay|payment                #may be a regular expression
     offer: offer                    #may be a regular expression
     request: request                #may be a regular expression
     parsing_error: "Could not understand the message contents. Please check the instructions and try again."
     potential_ride_share_offer: "%{author_name} offers a ride in Kassi from %{origin} to %{destination} %{start_time}."
     you_can_call_him_at: "You can call him/her at %{phone_number}"
     check_the_offer_in_kassi: "Check the offer in Kassi: %{listing_url}"
+    you_can_pay_gas_money_to_driver: "To pay some gas money to %{driver}, reply 'kassi pay %{driver} Xe' where X is the amount (max.90e). The amount + 5% commission is put in your phone bill."
+    payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} in your phone bill."
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"
