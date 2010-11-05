@@ -53,6 +53,18 @@ class SmsController < ApplicationController
           
           # Listing created succesfully, delete the message from inbox
           SmsHelper.delete_messages [message[:original_id]]
+        when "pay"
+          # When operator payment API exists,
+          # At this point we should check the stored info about the payment 
+          # suggestion messages sent and find the a recent one that suggested a ride
+          # for this day or yesterday and where the drivers name matches to the name in the message
+          
+          # And then should call the payment API to make the actual payment
+          
+          # Payment delivered succesfully, delete the message from inbox
+          SmsHelper.delete_messages [message[:original_id]]  
+            
+          render :text => t("sms.payment_delivered", :receiver => message[:receiver], :amount => message[:amount], :amount_plus_commission => (message[:amount].to_f * 1.05)) and return
         else
           delete_message_and_render_error(message, 
             "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä. This category not yet supported by sms.") and return

@@ -15,6 +15,11 @@ default: &default_settings
 
   # The default locale (language) of the user interface
   default_locale: en
+  # Available locales (languages) of the user interface
+  # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
+  # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
+  # If you make new translations, please share those for example in github.
+  available_locales: [["English", "en"], ["Finnish", "fi"]]
   
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha

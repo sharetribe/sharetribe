@@ -31,6 +31,17 @@ describe SmsController do
         listing.valid_until.should == (time)
       end
     
+      it "replies with ok message, when a payment request is made" do
+        message = SmsHelper.parse({"message" => "pay george 3e", "msisdn" => "358501234567", "@id" => "test_id"})
+        Person.should_receive(:search_by_phone_number).with("358501234567").and_return({"id" => people(:one).id})
+        SmsHelper.should_receive(:get_messages).and_return([message])
+        SmsHelper.should_receive(:delete_messages).and_return(true)
+        get :message_arrived
+        response.body.should include("delivered")
+        response.body.should include("3 euros")
+        response.body.should include("george")
+        response.body.should include("3.15 in your phone bill")
+      end
     end
   end
 end

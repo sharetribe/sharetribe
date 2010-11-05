@@ -209,7 +209,7 @@ class Listing < ActiveRecord::Base
   # Inform the requester if possible match is found
   def check_possible_matches
     timing_tolerance = 1.hours # how big difference in starting time is accepted
-    location_tolerance = 3 # kilometers, the max distance between spots to match them
+    location_tolerance = 5 # kilometers, the max distance between spots to match them
     
     # currently check only rideshare listings
     return true unless (category == "rideshare" && APP_CONFIG.use_sms)
@@ -266,7 +266,11 @@ class Listing < ActiveRecord::Base
         else
           message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
         end
-              
+        message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name)
+        # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
+        # to the driver (and the time and date of the suggestions)
+        # But as there is not yet real payment API, this is not yet implemented.
+        
         SmsHelper.send(message, request.author.phone_number)
       end
     end

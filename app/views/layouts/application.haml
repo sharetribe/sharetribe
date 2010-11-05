@@ -65,7 +65,7 @@
             .locale_select_padding
               = form_tag("/change_locale", :method => "get") do
                 = hidden_field_tag :redirect_uri, @return_to
-                = select_tag 'locale', options_for_select([["Finnish", "fi"], ["English", "en"]], (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+                = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
         .grid_12
           = render :partial => "layouts/logged_in"
           .clear
