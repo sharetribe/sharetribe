@@ -10,6 +10,7 @@ class SmsController < ApplicationController
   end
   
   def message_arrived
+    render :text => "SMS feature not in use" and return unless APP_CONFIG.use_sms
     
     begin
       messages = SmsHelper.get_messages

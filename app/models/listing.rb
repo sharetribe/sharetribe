@@ -212,7 +212,7 @@ class Listing < ActiveRecord::Base
     location_tolerance = 3 # kilometers, the max distance between spots to match them
     
     # currently check only rideshare listings
-    return true unless category == "rideshare"
+    return true unless (category == "rideshare" && APP_CONFIG.use_sms)
     
     potential_listings = []
     if listing_type == "request"
@@ -235,6 +235,12 @@ class Listing < ActiveRecord::Base
   end
   
   def origin_and_destination_close_enough?(candidate, location_tolerance)
+    
+    # This could be enchaned by using a routing API (eg. from google, 
+    # and checking how much the offerer's route would be longer if he
+    # would pickup the requester. If difference is small it the ride would
+    # be suggested to the requester)
+    
     #puts "Distance between origins: #{distance_between(get_coordinates(origin), get_coordinates(candidate.origin))}"
     #puts "Distance between destinations: #{distance_between(get_coordinates(destination), get_coordinates(candidate.destination))}"
     if distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance &&
