@@ -899,6 +899,10 @@ span.smaller {
 	@include hidden_div(500px);
 }
 
+.hidden_description_feedback {
+	@include hidden_div(600px);
+}
+
 .hidden_title {
 	float: left;
 	width: 200px;
@@ -2294,17 +2298,47 @@ a.handle {
 	float: left;
 }
 
-@mixin profile_feedback_average_image($image_pos: 0) {
+@mixin profile_feedback_average_image($image_pos: 0, $bg: $bg_color) {
 	width: 50px;
 	height: 50px;
-	background: $bg_color url("/images/kaapo/basic_link.png") 0 $image_pos no-repeat;
+	background: $bg url("/images/kaapo/kaapo_grades.png") 0 $image_pos no-repeat;
 }
 
 .profile_feedback_average_image_5 { @include profile_feedback_average_image; }
-.profile_feedback_average_image_4 { @include profile_feedback_average_image(-150px); }
-.profile_feedback_average_image_3 { @include profile_feedback_average_image(-300px); }
-.profile_feedback_average_image_2 { @include profile_feedback_average_image(-450px); }
-.profile_feedback_average_image_1 { @include profile_feedback_average_image(-600px); }
+.profile_feedback_average_image_4 { @include profile_feedback_average_image(-50px); }
+.profile_feedback_average_image_3 { @include profile_feedback_average_image(-100px); }
+.profile_feedback_average_image_2 { @include profile_feedback_average_image(-150px); }
+.profile_feedback_average_image_1 { @include profile_feedback_average_image(-200px); }
+
+.feedback_average_image_5 { @include profile_feedback_average_image(0, transparent); }
+.feedback_average_image_4 { @include profile_feedback_average_image(-50px, transparent); }
+.feedback_average_image_3 { @include profile_feedback_average_image(-100px, transparent); }
+.feedback_average_image_2 { @include profile_feedback_average_image(-150px, transparent); }
+.feedback_average_image_1 { @include profile_feedback_average_image(-200px, transparent); }
+
+@mixin profile_feedback_average_image_big($image_pos: 0) {
+	width: 140px;
+	height: 140px;
+	background: $bg_color url("/images/kaapo/kaapo_grades_big.png") 0 $image_pos no-repeat;
+}
+
+.profile_feedback_average_image_5_big { @include profile_feedback_average_image_big; }
+.profile_feedback_average_image_4_big { @include profile_feedback_average_image_big(-140px); }
+.profile_feedback_average_image_3_big { @include profile_feedback_average_image_big(-280px); }
+.profile_feedback_average_image_2_big { @include profile_feedback_average_image_big(-420px); }
+.profile_feedback_average_image_1_big { @include profile_feedback_average_image_big(-560px); }
+
+@mixin profile_feedback_average_image_small($image_pos: 0) {
+	width: 35px;
+	height: 35px;
+	background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 $image_pos no-repeat;
+}
+
+.profile_feedback_average_image_5_small { @include profile_feedback_average_image_small; }
+.profile_feedback_average_image_4_small { @include profile_feedback_average_image_small(-35px); }
+.profile_feedback_average_image_3_small { @include profile_feedback_average_image_small(-70px); }
+.profile_feedback_average_image_2_small { @include profile_feedback_average_image_small(-105px); }
+.profile_feedback_average_image_1_small { @include profile_feedback_average_image_small(-140px); }
 
 .profile_feedback_average {
 	background: lighten($dark_green, 5%);
@@ -2413,6 +2447,7 @@ a.handle {
 .profile_badges_link_to_all {
 	clear: both;
 	padding-top: 10px;
+	font-size: 11px;
 }
 
 .badge_description {
@@ -2450,6 +2485,7 @@ a.handle {
 
 .notification_content {
 	float: left;
+	width: 675px;
 }
 
 #profile_extras_person {
@@ -2479,4 +2515,125 @@ a.handle {
 .badge {
 	float: left;
 	margin-right: 8px;
+}
+
+.profile_testimonials_link_to_all {
+	font-size: 11px;
+	padding: 0 15px 15px 15px;
+}
+
+#all_testimonials {
+	margin: 20px 15px 0 5px;
+	h2 {
+		margin: 0;
+		padding: 3px 10px 4px 10px;
+		font-size: 14px;
+		background: lighten($dark_green, 5%);
+		color: white;
+	}
+}
+
+#testimonials_grade_image {
+	padding-top: 40px;
+}
+
+#feedback_average {
+	padding-top: 60px;
+	overflow: hidden;
+}
+
+.feedback_average_title {
+	font-size: 22px;
+	font-weight: bold;
+	width: 434px;
+	float: left;
+}
+
+.feedback_average_value {
+	padding-top: 10px;
+	float: left;
+	width: 150px;
+	font-size: 60px;
+	font-weight: bold;
+	line-height: 26px;
+}
+
+.feedback_average_description {
+	font-size: 13px;
+	float: left;
+	width: 200px;
+	line-height: 11px;
+	padding-top: 18px;
+}
+
+.single_testimonial {
+	overflow: hidden;
+	background: $light_green;
+}
+
+.testimonial_image {
+	padding: 15px;
+	float: left;
+}
+
+.testimonial_description {
+	width: 700px;
+	float: left;
+	padding: 22px 0 15px 10px;
+}
+
+.testimonial_description_text {
+	font-style: italic;
+	font-size: 11px;
+}
+
+.light_green {
+	background: $light_green;
+}
+
+.light_red {
+	background: $error_bg;
+}
+
+.feedback_average_description_link_div {
+	clear: both;
+	padding-top: 10px;
+}
+
+#feedback_type_descriptions {
+	background: $form_bg;
+	margin: 20px 10px 0 0;
+	padding: 5px;
+	h4 {
+		margin: 0 0 10px 0;
+	}
+}
+
+#feedback_type_description_list {
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.feedback_type_description {
+	overflow: hidden;
+	clear: both;
+}
+
+.feedback_type_description_image {
+	float: left;
+	width: 35px;
+	margin: 0 25px 5px 35px;
+}
+
+.feedback_type_description_text {
+	float: left;
+	width: 230px;
+	margin-top: 7px;
+}
+
+.feedback_type_description_grade {
+	float: left;
+	width: 30px;
+	font-weight: bold;
+	margin-top: 7px;
 }

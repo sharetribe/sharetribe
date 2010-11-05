@@ -121,8 +121,9 @@ Feature: User views profile page
     Then I should see "Feedback average:"
     And I should see "3.8/5" within ".profile_feedback_average_value"
     And I should see "Excellent feedback" within ".profile_feedback_texts"
-    And I should see "OK feedback" within ".profile_feedback_texts"
+    And I should not see "OK feedback" within ".profile_feedback_texts"
     And I should not see "Test feedback" within ".profile_feedback_texts"
+    And I should see "Show all feedback (4)"
   
   
   

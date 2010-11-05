@@ -29,5 +29,5 @@ end
 
 When /^there is feedback about that event from "([^"]*)" with grade "([^"]*)" and with text "([^"]*)"$/ do |feedback_giver, grade, text|
   participation = @conversation.participations.find_by_person_id(@people[feedback_giver].id)
-  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :target_id => @conversation.other_party(@people[feedback_giver]).id)
+  Testimonial.create!(:grade => grade, :author_id => @people[feedback_giver].id, :text => text, :participation_id => participation.id, :receiver_id => @conversation.other_party(@people[feedback_giver]).id)
 end
