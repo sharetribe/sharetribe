@@ -56,7 +56,21 @@ describe PersonMailer do
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person.email], email.to
     assert_equal "You have achieved a badge 'Rookie' in Kassi!", email.subject
-  end  
+  end
+  
+  it "should send email about a new testimonial" do
+    @conversation = Factory(:conversation)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @session.cookie)
+    @conversation.update_attribute(:status, "accepted")
+    @participation = Participation.find_by_person_id_and_conversation_id(@test_person.id, @conversation.id)
+    @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author_id => @test_person.id, :receiver_id => @test_person2.id, :participation_id => @participation.id)
+    email = PersonMailer.new_testimonial(@testimonial).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Teppo Testaaja has given you feedback in Kassi", email.subject
+  end
   
   it "should send email to admins of new feedback" do
     @feedback = Factory(:feedback)
