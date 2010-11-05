@@ -9,7 +9,7 @@ set :user, "kassi"  # The server's user for deploys
 ssh_options[:forward_agent] = true
 
 set :scm, :git
-set :branch, "kassi2"
+
 
 set :deploy_via, :remote_cache
 
@@ -18,35 +18,19 @@ set :deploy_to, "/var/datat/kassi"
 if ENV['DEPLOY_ENV'] == "beta"
   set :server_name, "beta"
   set :host, "beta.sizl.org"
+  set :branch, ENV['BRANCH'] || "production"
 elsif ENV['DEPLOY_ENV'] == "icsi"
   set :deploy_to, "/opt/kassi"
   set :server_name, "icsi"
   set :host, "sizl.icsi.berkeley.edu"
   set :user, "amvirola"
-  # sed -i "s/\/images/..\/..\/images/" style.css
-  
-elsif ENV['DEPLOY_ENV'] == "dbtest"
-  set :deploy_to, "/var/datat/kassi2dbtest"
-  set :server_name, "alpha"
-  set :host, "alpha.sizl.org"
-elsif ENV['DEPLOY_ENV'] == "kassi2test"
-  set :deploy_to, "/var/datat/kassi2test"
-  set :server_name, "beta"
-  set :host, "beta.sizl.org"
+  set :branch, ENV['BRANCH'] || "production"
 else
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
+  set :branch, ENV['BRANCH'] || "master"
 end
-# mongrel_cluster_size = {
-#   "alpha" => 2,
-#   "beta" => 3,
-#   "localhost" => 1
-# }
 
-#set :mongrel_cluster_size, mongrel_cluster_size[server_name]
-set :mongrel_conf, "#{shared_path}/system/mongrel_cluster.yml"
-
-set :rails_env, :production
 set :path, "$PATH:/var/lib/gems/1.8/bin"
 
 role :app, host
@@ -97,31 +81,8 @@ namespace :deploy do
     run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install --deployment --without test"
   end
     
-  # desc "Modified restart task to work with mongrel cluster" 
-  # task :restart, :roles => :app do 
-  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::restart -C 
-  #   # #{shared_path}/system/mongrel_cluster.yml" 
-  #   deploy.stop
-  #   deploy.start
-  # end 
-  # desc "Modified start task to work with mongrel cluster" 
-  # task :start, :roles => :app do 
-  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::start -C 
-  #   #     #{shared_path}/system/mongrel_cluster.yml" 
-  #   
-  #    run "cd #{deploy_to}/current && rails server -p #{mongrel_port} -e production -d"
-  # end 
-  # desc "Modified stop task to work with mongrel cluster" 
-  # task :stop, :roles => :app do 
-  #   # run "cd #{deploy_to}/current && mongrel_rails cluster::stop -C 
-  #   # #{shared_path}/system/mongrel_cluster.yml" 
-  #   run "cd #{current_path} && mongrel_rails stop -p tmp/pids/server.pid" rescue nil
-  # end
-  # 
   task :finalize do
     #whenever.write_crontab
-    #apache.restart
-    #run "sudo /etc/init.d/apache2 restart"
   end  
 end
 
@@ -147,8 +108,6 @@ after "deploy:setup" do
   thinking_sphinx.start
 end
 
-
-
-        require 'config/boot'
-        require 'hoptoad_notifier/capistrano'
+require 'config/boot'
+require 'hoptoad_notifier/capistrano'
 
