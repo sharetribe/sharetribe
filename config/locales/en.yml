@@ -445,9 +445,15 @@ en:
       captcha_was_wrong: "Captcha text was incorrect."
     profile_badge:
       first_transaction: "First event"
-      first_transaction_description: "Congrats on your first event in Kassi! One of your requests or offers has been accepted and confirmed as done."
+      first_transaction_description: "Congrats on your first exchange in Kassi! One of your requests or offers has been accepted and confirmed as done."
       rookie: "Rookie"
       rookie_description: "You have added an offer or a request in Kassi for the first time. Here we go!"
+      active_member_bronze: "Active member bronze"
+      active_member_bronze_description: "This was the third exchange you participated in Kassi! It seems that you're on your way to becoming a regular. Keep it going!"
+      active_member_silver: "Active member silver"
+      active_member_silver_description: "Congrats on your 10th exchange in Kassi! A lot is happening in the service thanks to you. Great!"
+      active_member_gold: "Active member gold"
+      active_member_gold_description: "20th exchange in Kassi, awesome! You are a VIP in Kassi. It's people like you who keep the wheels rolling. Thanks a lot!"
       item_lister_bronze: "Catalogizer"
     profile_feedback:
       grade: "grade:"

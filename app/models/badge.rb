@@ -3,7 +3,7 @@ class Badge < ActiveRecord::Base
   belongs_to :person
   
   UNIQUE_BADGES = [
-    "rookie", "first_transaction"
+    "rookie", "first_transaction", "active_member_bronze", "active_member_silver", "active_member_gold"
   ]
   
   validates_presence_of :person_id, :name
