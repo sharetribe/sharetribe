@@ -23,11 +23,13 @@ class ConversationsController < ApplicationController
   end
   
   def received
+    params[:page] = 1 unless request.xhr?
     @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
   def sent
+    params[:page] = 1 unless request.xhr?
     @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end

@@ -13,7 +13,7 @@
     = t(".#{profile_testimonial_other_person_role(@person, listing).eql?('request') ? 'from' : 'to'}_user")
     = @person.given_name
     = time_ago(testimonial.created_at) + "."
-    - unless testimonial.text.eql?("")
+    - unless !testimonial.text || testimonial.text.eql?("")
       %br/
       .testimonial_description_text
         - text_with_line_breaks do
