@@ -66,7 +66,10 @@ module SmsHelper
   
     def self.parse(message)
       details = {:phone_number => message["msisdn"], :original_text => message["message"], :original_id => message["@id"]}    
-      parts = message["message"].split
+      parts = message["message"].split(" ")
+        
+      Rails.logger "Received a sms message and divided it to #{parts}"
+        
         
       details[:category] = case parts[0]
       when /#{all_translations("sms.rideshare")}/
