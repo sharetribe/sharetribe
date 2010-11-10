@@ -68,7 +68,8 @@ module SmsHelper
       details = {:phone_number => message["msisdn"], :original_text => message["message"], :original_id => message["@id"]}    
       parts = message["message"].split(" ")
         
-      #Rails.logger.info "Received a sms message and divided it to #{parts.inspect}"
+      Rails.logger.info "Received a sms message and divided it to #{parts}"
+
         
         
       case parts[0]
