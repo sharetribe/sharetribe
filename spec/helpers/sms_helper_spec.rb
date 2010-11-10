@@ -13,6 +13,18 @@ describe SmsHelper do
       details[:destination].should == "taik"
     end
     
+    it "accpets a rideshare messsage also with other languages" do
+      message = {"@id"=>"3907911", "msisdn"=>358501234567, "message"=>"kyyti pyyntö otaniemi rautatieasema,helsinki 14:10", "calendar"=>"2010-10-10T08:03:04+00:00"}
+      details = SmsHelper.parse(message)
+      details.should_not be_nil
+      details[:phone_number].should == message["msisdn"]
+      details[:listing_type].should == "request"
+      details[:category].should == "rideshare"
+      details[:origin].should == "otaniemi"
+      details[:destination].should == "rautatieasema,helsinki"
+      details[:valid_until].should == Time.zone.parse("14:10").to_datetime
+    end
+    
     it "splits a payment message to valid details" do
       message = {"@id"=>"3907911", "msisdn"=>358501234567, "message"=>"pay Simo 8,50e ", "calendar"=>"2010-10-10T08:03:04+00:00"}
       details = SmsHelper.parse(message)
