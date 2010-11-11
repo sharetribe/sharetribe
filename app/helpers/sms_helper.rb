@@ -72,9 +72,9 @@ module SmsHelper
         
         
       details[:category] = case parts[0]
-      when /#{all_translations("sms.rideshare")}/
+      when /#{all_translations("sms.rideshare")}/i
         "rideshare"
-      when /#{all_translations("sms.pay")}/
+      when /#{all_translations("sms.pay")}/i
         "pay"
       else
         raise_sms_parse_error(message)
@@ -91,9 +91,9 @@ module SmsHelper
       end
     
       details[:listing_type] = case parts[1]
-      when /#{all_translations("sms.offer")}/
+      when /#{all_translations("sms.offer")}/i
         "offer"
-      when /#{all_translations("sms.request")}/
+      when /#{all_translations("sms.request")}/i
         "request"
       else
         raise_sms_parse_error(message)
