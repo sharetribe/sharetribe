@@ -585,8 +585,8 @@ fi:
     potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
     check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
-    you_can_pay_gas_money_to_driver: "Voit maksaa kuskille bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa (max.90e). Tuo summa + 5% komissio lisätään puhelinlaskuusi"
-    payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission}."
+    you_can_pay_gas_money_to_driver: "Voit maksaa kuskille bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa (max.90e). Tuo summa + 5% komissio lisätään puhelinlaskuusi."
+    payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
