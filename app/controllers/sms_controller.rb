@@ -64,7 +64,7 @@ class SmsController < ApplicationController
           # Payment delivered succesfully, delete the message from inbox
           SmsHelper.delete_messages [message[:original_id]]  
             
-          render :text => t("sms.payment_delivered", :receiver => message[:receiver], :amount => message[:amount], :amount_plus_commission => (message[:amount].to_f * 1.05)) and return
+          render :text => t("sms.payment_delivered", :receiver => message[:receiver], :amount => message[:amount], :amount_plus_commission => sprintf('%.2f', (message[:amount].to_f * 1.05))) and return
         else
           delete_message_and_render_error(message, 
             "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä. This category not yet supported by sms.") and return
