@@ -40,7 +40,7 @@ describe SmsController do
         response.body.should include("delivered")
         response.body.should include("3 euros")
         response.body.should include("george")
-        response.body.should include("3.15 in your phone bill")
+        response.body.should include("3.15 euros in your phone bill")
       end
     end
   end

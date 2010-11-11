@@ -22,7 +22,7 @@ describe SmsHelper do
       details[:category].should == "rideshare"
       details[:origin].should == "otaniemi"
       details[:destination].should == "rautatieasema,helsinki"
-      details[:valid_until].should == Time.zone.parse("14:10").to_datetime
+      [Time.zone.parse("14:10").to_datetime, (Time.zone.parse("14:10").to_datetime + 1.days)].should include(details[:valid_until])
     end
     
     it "splits a payment message to valid details" do
@@ -35,6 +35,18 @@ describe SmsHelper do
       details[:amount].should == "8.50"
       
     end
+    
+    it "does case insensitive parsing" do
+      message = {"@id"=>"3907911", "msisdn"=>358501234567, "message"=>"Maksa simo 5,50", "calendar"=>"2010-10-10T08:03:04+00:00"}
+      details = SmsHelper.parse(message)
+      details.should_not be_nil
+      details[:phone_number].should == message["msisdn"]
+      details[:category].should == "pay"
+      details[:receiver].should == "simo"
+      details[:amount].should == "5.50"
+      
+    end
+    
   end
   
   describe "#send" do
