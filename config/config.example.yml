@@ -19,6 +19,8 @@ default: &default_settings
   # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
   # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
   # If you make new translations, please share those for example in github.
+  # If you change the default locale, you should put that one first in the list of available_locations, to get
+  # the language dropdown menu work more logically.
   available_locales: [["English", "en"], ["Finnish", "fi"]]
   
   # reCAPTChA is used to avoid bots registering accounts
