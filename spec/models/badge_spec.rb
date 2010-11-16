@@ -21,4 +21,13 @@ describe Badge do
     @badge2.should_not be_valid
   end
   
+  it "is only valid if name is one of the valid names" do
+    @badge.name = "test"
+    @badge.should_not be_valid
+    Badge::UNIQUE_BADGES.each do |name|
+      @badge.name = name
+      @badge.should be_valid
+    end  
+  end
+  
 end

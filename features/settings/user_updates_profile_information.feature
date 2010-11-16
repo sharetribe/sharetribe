@@ -3,6 +3,7 @@ Feature: User updates profile information
   As a user
   I want to able to update my profile information
 
+  @javascript
   Scenario: Updating profile successfully
     Given there are following users:
       | person | 

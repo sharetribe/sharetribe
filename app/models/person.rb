@@ -40,6 +40,7 @@ class Person < ActiveRecord::Base
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
+  has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",

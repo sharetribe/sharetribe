@@ -249,6 +249,8 @@ ActiveRecord::Schema.define(:version => 20101116105410) do
     t.integer  "is_admin",    :default => 0
     t.string   "locale",      :default => "fi"
     t.text     "preferences"
+    t.integer  "active_days_count",   :default => 0
+    t.datetime "last_page_load_date"
   end
 
   create_table "people_smerf_forms", :force => true do |t|

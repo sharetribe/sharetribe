@@ -17,8 +17,11 @@
       - unless current_user?(listing.author)
         = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
         &nbsp;|&nbsp;
-      - comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""  
-      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form" 
+      - comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""
+      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"
+      - if current_user?(listing.author)
+        &nbsp;|&nbsp;
+        = link_to t(".edit"), edit_listing_path(:id => listing.id) 
     .float_right
       %span
         = link_to listing.author.given_name, listing.author

@@ -40,8 +40,8 @@ class PersonMailer < ActionMailer::Base
     @url = host ? "http://#{host}/#{recipient.locale}#{person_badges_path(:person_id => recipient.id)}" : "test_url"
     @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
     @badge = badge
-    @badge_name = t("people.profile_badge.#{@badge.name}")
     set_locale recipient.locale
+    @badge_name = t("people.profile_badge.#{@badge.name}")
     mail(:to => recipient.email,
          :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
   end

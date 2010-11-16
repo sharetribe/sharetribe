@@ -2,8 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user, :set_locale
-  before_filter :generate_event_id
+  before_filter :fetch_logged_in_user, :set_locale, :generate_event_id
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
@@ -42,15 +41,11 @@ class ApplicationController < ActionController::Base
   def fetch_logged_in_user
     if session[:person_id]
       @current_user = Person.find_by_id(session[:person_id])
-      
       unless session[:cookie]
         # If there is no ASI-cookie for this session, log out completely
         clear_user_session
       end
-      
-      # Here used to be a check for session validity that was done on every page load
-      # Now it is removed. So there is no certainty that the session is valid.
-      
+      Delayed::Job.enqueue(PageLoadedJob.new(@current_user.id, request.host))
     end
   end
   

@@ -1,10 +1,5 @@
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
+
   def path_to(page_name)
     case page_name
 
@@ -24,12 +19,8 @@ module NavigationHelpers
       person_message_path(:person_id => @people[$1].id, :id => @conversation.id.to_s)
     when /^the profile page of "(.*)"$/i
       person_path(:id => @people[$1].id)
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
-
+    when /^the badges page of "(.*)"$/i
+      person_badges_path(:person_id => @people[$1].id)
     else
       begin
         page_name =~ /the (.*) page/
@@ -41,6 +32,7 @@ module NavigationHelpers
       end
     end
   end
+  
 end
 
 World(NavigationHelpers)
