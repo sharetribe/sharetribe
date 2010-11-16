@@ -71,47 +71,48 @@ module SmsHelper
       #Rails.logger.info "Received a sms message and divided it to #{parts.inspect}"
         
         
-      details[:category] = case parts[0]
+      case parts[0]
       when /#{all_translations("sms.rideshare")}/i
-        "rideshare"
+        details[:category] = "rideshare"
+        
+        raise_sms_parse_error(message) if parts.count < 5
+        
+        details[:listing_type] = case parts[1]
+        when /#{all_translations("sms.offer")}/i
+          "offer"
+        when /#{all_translations("sms.request")}/i
+          "request"
+        else
+          raise_sms_parse_error(message)
+        end
+
+        details[:origin] = parts[2]
+        details[:destination] = parts[3]
+
+        time =  Time.zone.parse(parts[4]).to_datetime
+        if time < DateTime.now && time > 1.days.ago
+          # if only clock time is given and it's earlier than now,
+          # probably the time means tomorrow.
+          time += 1.days
+        end
+        details[:valid_until] = time
+        details[:description] = parts[5..(parts.length-1)].join(" ")
+       
       when /#{all_translations("sms.pay")}/i
-        "pay"
-      else
-        raise_sms_parse_error(message)
-      end
-    
-      if details[:category] == "pay"
+        details[:category] = "pay"
         details[:receiver] = parts[1]
         amount = parts[2]
         raise_sms_parse_error(message) unless amount =~ /^\d+(\.|,)?\d*e?$/i
         amount.gsub!(/e/i,"")
         amount.gsub!(",",".")
         details[:amount] = amount
-        return details
-      end
-    
-      details[:listing_type] = case parts[1]
-      when /#{all_translations("sms.offer")}/i
-        "offer"
-      when /#{all_translations("sms.request")}/i
-        "request"
+        
       else
         raise_sms_parse_error(message)
       end
-    
-      details[:origin] = parts[2]
-      details[:destination] = parts[3]
-    
-      time =  Time.zone.parse(parts[4]).to_datetime
-      if time < DateTime.now && time > 1.days.ago
-        # if only clock time is given and it's earlier than now,
-        # probably the time means tomorrow.
-        time += 1.days
-      end
-      details[:valid_until] = time
-      details[:description] = parts[5..(parts.length-1)].join(" ")
-    
-      return details
+      
+      return details  
+      
     end
   
     # returns all translations for given key, joined with a |
