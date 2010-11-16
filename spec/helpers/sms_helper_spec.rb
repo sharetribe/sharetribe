@@ -44,7 +44,14 @@ describe SmsHelper do
       details[:category].should == "pay"
       details[:receiver].should == "simo"
       details[:amount].should == "5.50"
-      
+    end
+    
+    it "handles malformated messages" do
+      message = {"@id"=>"3907911", "msisdn"=>358501234567, "message"=>"ride request london manchester", "calendar"=>"2010-10-10T08:03:04+00:00"}
+      lambda {
+        details = SmsHelper.parse(message)
+      }.should raise_error(SmsController::SmsParseError)
+
     end
     
   end
