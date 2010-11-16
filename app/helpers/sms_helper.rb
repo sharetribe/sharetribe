@@ -71,7 +71,6 @@ module SmsHelper
       Rails.logger.info "Received a sms message and divided it to #{parts}"
 
         
-        
       case parts[0]
       when /#{all_translations("sms.rideshare")}/i
         details[:category] = "rideshare"
