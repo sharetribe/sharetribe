@@ -13,6 +13,8 @@ class Testimonial < ActiveRecord::Base
   belongs_to :participation, :dependent => :destroy
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
+  
+  scope :positive, where("grade >= 0.5")
 
   # Formats grade so that it can be displayed in the UI
   def displayed_grade

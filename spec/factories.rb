@@ -76,3 +76,9 @@ Factory.define :badge_notification do |b|
   b.is_read 0
   b.association :badge
 end
+
+Factory.define :testimonial_notification do |b|
+  b.receiver { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  b.is_read 0
+  b.association :testimonial
+end

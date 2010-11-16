@@ -37,5 +37,6 @@ Kassi::Application.configure do
   end
   
   Capybara.default_wait_time = 10
+  #Capybara.ignore_hidden_elements = true
   
 end

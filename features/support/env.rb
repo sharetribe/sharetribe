@@ -23,7 +23,6 @@ require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links wi
 # prefer to use XPath just remove this line and adjust any selectors in your
 # steps to use the XPath syntax.
 Capybara.default_selector = :css
-#Capybara.ignore_hidden_elements = true
 
 # If you set this to false, any error raised from within your app will bubble 
 # up to your step definition and out to cucumber unless you catch it somewhere

@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
   def create
     if @comment.save
       flash.now[:comment_notice] = "comment_sent"
-      @comment.send_email_to_author(request.host)
+      logger.info "Comment amount: #{@comment.author.authored_comments.size}"
+      Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, request.host))
     else
       flash[:error] = "comment_cannot_be_empty"
     end
