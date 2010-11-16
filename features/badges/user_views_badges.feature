@@ -8,11 +8,10 @@ Feature: User views badges
   Scenario: User views active member badge
     Given I should see badge "active_member_bronze_medium_gray"
     And I should not see badge "active_member_bronze_medium"
-    When I have "2" testimonials with grade "0.5"
-    And I get testimonial with grade "0.25"
-    And the system processes jobs
+    And I have "2" testimonials with grade "0.5"
+    When I get "1" testimonial with grade "Worse than expected"
     Then I should not see badge "active_member_bronze_medium"
-    When I get "1" testimonial with grade "0.5"
+    When I get "1" testimonial with grade "As expected"
     And the system processes jobs
     Then I should see badge "active_member_bronze_medium"
     And I should not see badge "active_member_bronze_medium_gray"
