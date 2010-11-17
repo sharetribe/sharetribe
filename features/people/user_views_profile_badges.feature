@@ -51,7 +51,6 @@ Feature: User views profile badges
     And I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "profile"
-    And show me the page
     Then I should see "Badges"
     And I should see badge with alt text "First event"
     And I should see "1" within "#logged_in_notifications_icon"
