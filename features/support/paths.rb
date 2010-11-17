@@ -2,7 +2,6 @@ module NavigationHelpers
 
   def path_to(page_name)
     case page_name
-
     when /the home\s?page/
       '/'
     when /the signup page/
@@ -21,6 +20,8 @@ module NavigationHelpers
       person_path(:id => @people[$1].id)
     when /^the badges page of "(.*)"$/i
       person_badges_path(:person_id => @people[$1].id)
+    when /the listing page/
+      listing_path(:id => @listing.id)
     else
       begin
         page_name =~ /the (.*) page/
