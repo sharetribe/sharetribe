@@ -53,7 +53,7 @@ Feature: User views profile badges
     And I follow "profile"
     Then I should see "Badges"
     And I should see badge with alt text "First event"
-    And I should see "1" within "#logged_in_notifications_icon"
+    And I should see "2" within "#logged_in_notifications_icon"
     When I follow "notifications_link"
     Then I should see "You have earned a badge First event!"
     And I should not see "1" within "#logged_in_notifications_icon"
