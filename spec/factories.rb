@@ -48,7 +48,7 @@ Factory.define :testimonial do |t|
 end
 
 Factory.define :comment do |c|
-  c.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  c.author { |author| author.association(:person) }
   c.association :listing
   c.content "Test text"
 end

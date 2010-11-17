@@ -7,6 +7,8 @@ class TestimonialGivenJob < Struct.new(:testimonial_id, :host)
     Badge.assign_with_levels("active_member", testimonial.receiver.received_testimonials.positive.count, testimonial.receiver, [3, 10, 20], host)
     if testimonial.receiver.received_testimonials.positive.collect { |t| "#{t.participation.conversation.listing.listing_type}_#{t.participation.conversation.listing.category}" }.uniq.size == 5
       testimonial.receiver.give_badge("jack_of_all_trades", host) unless testimonial.receiver.has_badge?("jack_of_all_trades")
+    else
+      puts "Uniques: #{testimonial.receiver.received_testimonials.positive.collect { |t| "#{t.participation.conversation.listing.listing_type}_#{t.participation.conversation.listing.category}" }.uniq.size}"
     end
   end
   
