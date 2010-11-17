@@ -41,13 +41,17 @@ Feature: User views profile badges
     And there is item request with title "hammer" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
-    And I am logged in as "kassi_testperson1"
+    And I am logged in as "kassi_testperson2"
     When I follow "Messages"
+    And I follow "Sent"
     And I follow "Give feedback"
     And I follow "As expected"
     And I press "send_testimonial_button"
     And the system processes jobs
+    And I follow "Logout"
+    And I log in as "kassi_testperson1"
     And I follow "profile"
+    And show me the page
     Then I should see "Badges"
     And I should see badge with alt text "First event"
     And I should see "1" within "#logged_in_notifications_icon"
