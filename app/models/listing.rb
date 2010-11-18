@@ -203,6 +203,12 @@ class Listing < ActiveRecord::Base
     type.eql?("offer") ? "request" : "offer"
   end
   
+  # Returns the role of a person participating in an exchange
+  # related to this listing: offerer or requester
+  def offerer?(person)
+    (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
+  end
+  
   # Called after create
   # Checks if there was already an offer matching this request
   # or a request matching this offer
@@ -257,26 +263,27 @@ class Listing < ActiveRecord::Base
   end
   
   def inform_requester_about_potential_match(request, offer)
-      logger.info "Informing the author of: #{request.title} (starting at #{request.valid_until}) about the possible match of #{offer.title} (starting at #{offer.valid_until})"
-      
-      # Check if requester has a phone number and sens sms if sms's are in use
-      if APP_CONFIG.use_sms && !request.author.phone_number.blank?
-        
-        # send the message in recipients language and use very short date format to fit in sms
-        locale = request.author.locale.to_sym || :fi
-        Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
-        message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
-        unless offer.author.phone_number.blank?
-          message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
-        else
-          message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
-        end
-        message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name)
-        # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
-        # to the driver (and the time and date of the suggestions)
-        # But as there is not yet real payment API, this is not yet implemented.
-        
-        SmsHelper.send(message, request.author.phone_number)
+    logger.info "Informing the author of: #{request.title} (starting at #{request.valid_until}) about the possible match of #{offer.title} (starting at #{offer.valid_until})"
+
+    # Check if requester has a phone number and sens sms if sms's are in use
+    if APP_CONFIG.use_sms && !request.author.phone_number.blank?
+
+      # send the message in recipients language and use very short date format to fit in sms
+      locale = request.author.locale.to_sym || :fi
+      Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
+      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
+      unless offer.author.phone_number.blank?
+        message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
+      else
+        message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
       end
+      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name)
+      # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
+      # to the driver (and the time and date of the suggestions)
+      # But as there is not yet real payment API, this is not yet implemented.
+
+      SmsHelper.send(message, request.author.phone_number)
     end
+  end
+  
 end
