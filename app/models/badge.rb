@@ -7,7 +7,8 @@ class Badge < ActiveRecord::Base
     "active_member_bronze", "active_member_silver", "active_member_gold", 
     "enthusiast_bronze", "enthusiast_silver", "enthusiast_gold",
     "commentator_bronze", "commentator_silver", "commentator_gold",
-    "listing_freak_bronze", "listing_freak_silver", "listing_freak_gold"
+    "listing_freak_bronze", "listing_freak_silver", "listing_freak_gold",
+    "chauffer_bronze", "chauffer_silver", "chauffer_gold"
   ]
   
   LEVELS = ["bronze", "silver", "gold"]

@@ -10,16 +10,17 @@ Then /^I should not see badge "(.+)"$/ do |badge|
   find("img[src='/images/badges/#{badge}.png']").nil?.should == true
 end
 
-Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?$/ do |amount, grade, category|
+Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?$/ do |amount, grade, category, role|
+  listing_type = role ? role.chop.chop : "request"
   amount.to_i.times do
     if category
       case category
       when "favor"
-        listing = Factory(:listing, :category => category, :share_types => [])
+        listing = Factory(:listing, :category => category, :share_types => [], :listing_type => listing_type)
       when "rideshare"
-        listing = Factory(:listing, :category => category, :share_types => [], :origin => "test", :destination => "test2")
+        listing = Factory(:listing, :category => category, :share_types => [], :origin => "test", :destination => "test2", :listing_type => listing_type)
       else
-        listing = Factory(:listing, :category => category, :share_types => [Factory(:share_type, :name => "buy")] )
+        listing = Factory(:listing, :category => category, :share_types => [Factory(:share_type, :name => "buy")], :listing_type => listing_type)
       end
     else
       listing = Factory(:listing, :category => "item")
@@ -31,10 +32,18 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([
   end
 end
 
-When /^I get "(.+)" testimonials? with grade "(.+)"$/ do |amount, grade|
+When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?$/ do |amount, grade, category|
   amount.to_i.times do
+    if category
+      if category.eql?("rideshare")
+        steps %Q{ Given there is rideshare offer from "Otaniemi" to "Turkkunen" by "kassi_testperson1" }
+      else
+        steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" }
+      end
+    else
+      steps %Q{ Given there is favor offer with title "massage" from "kassi_testperson1" }
+    end
     steps %Q{
-      Given there is favor offer with title "massage" from "kassi_testperson1"
       And there is a message "I request this" from "kassi_testperson2" about that listing
       And the request is accepted
       And I follow "Logout"

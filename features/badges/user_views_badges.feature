@@ -90,3 +90,21 @@ Feature: User views badges
     And I should not see badge "jack_of_all_trades_medium"
     When I get "1" testimonial with grade "As expected"
     Then I get the badge "jack_of_all_trades"
+  
+  @badge
+  @javascript
+  Scenario: User views chauffer badge
+    Given I should see badge "chauffer_bronze_medium_gray"
+    And I should not see badge "chauffer_bronze_medium"
+    And I have "1" testimonial with grade "0.5" from category "rideshare" as "offerer"
+    And I should not see badge "chauffer_bronze_medium"
+    When I get "1" testimonial with grade "As expected" from category "rideshare"
+    Then I get the badge "chauffer_bronze"
+    And I should not see badge "chauffer_silver_medium"
+    When I have "3" testimonials with grade "0.5" from category "rideshare" as "offerer"
+    And I get "1" testimonial with grade "As expected" from category "rideshare"
+    Then I get the badge "chauffer_silver"
+    And I should not see badge "chauffer_gold_medium"
+    When I have "8" testimonials with grade "0.5" from category "rideshare" as "offerer"
+    And I get "1" testimonial with grade "As expected" from category "rideshare"
+    Then I get the badge "chauffer_gold"
