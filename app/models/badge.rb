@@ -8,6 +8,7 @@ class Badge < ActiveRecord::Base
     "enthusiast_bronze", "enthusiast_silver", "enthusiast_gold",
     "commentator_bronze", "commentator_silver", "commentator_gold",
     "listing_freak_bronze", "listing_freak_silver", "listing_freak_gold",
+    "helper_bronze", "helper_silver", "helper_gold",
     "chauffer_bronze", "chauffer_silver", "chauffer_gold"
   ]
   

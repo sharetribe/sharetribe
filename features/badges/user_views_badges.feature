@@ -108,3 +108,21 @@ Feature: User views badges
     When I have "8" testimonials with grade "0.5" from category "rideshare" as "offerer"
     And I get "1" testimonial with grade "As expected" from category "rideshare"
     Then I get the badge "chauffer_gold"
+    
+  @badge
+  @javascript
+  Scenario: User views helper badge
+    Given I should see badge "helper_bronze_medium_gray"
+    And I should not see badge "helper_bronze_medium"
+    And I have "1" testimonial with grade "0.5" from category "favor" as "offerer"
+    And I should not see badge "helper_bronze_medium"
+    When I get "1" testimonial with grade "As expected" from category "favor"
+    Then I get the badge "helper_bronze"
+    And I should not see badge "helper_silver_medium"
+    When I have "3" testimonials with grade "0.5" from category "favor" as "offerer"
+    And I get "1" testimonial with grade "As expected" from category "favor"
+    Then I get the badge "helper_silver"
+    And I should not see badge "helper_gold_medium"
+    When I have "8" testimonials with grade "0.5" from category "favor" as "offerer"
+    And I get "1" testimonial with grade "As expected" from category "favor"
+    Then I get the badge "helper_gold"
