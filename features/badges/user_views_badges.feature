@@ -18,7 +18,7 @@ Feature: User views badges
     And I should not see badge "active_member_silver_medium"
     When I get "1" testimonial with grade "As expected"
     Then I get the badge "active_member_silver"
-    When I have "9" testimonials with grade "0.5"
+    When I have "14" testimonials with grade "0.5"
     And I should not see badge "active_member_gold_medium"
     When I get "1" testimonial with grade "As expected"
     Then I get the badge "active_member_gold"
@@ -126,3 +126,21 @@ Feature: User views badges
     When I have "8" testimonials with grade "0.5" from category "favor" as "offerer"
     And I get "1" testimonial with grade "As expected" from category "favor"
     Then I get the badge "helper_gold"
+    
+  @badge
+  @javascript
+  Scenario: User views generous badge
+    Given I should see badge "generous_bronze_medium_gray"
+    And I should not see badge "generous_bronze_medium"
+    And I have "1" testimonial with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
+    And I should not see badge "generous_bronze_medium"
+    When I get "1" testimonial with grade "As expected" from category "item" with share type "give_away"
+    Then I get the badge "generous_bronze"
+    And I should not see badge "generous_silver_medium"
+    When I have "3" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend,give_away"
+    Then I get the badge "generous_silver"
+    And I should not see badge "generous_gold_medium"
+    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend,give_away"
+    Then I get the badge "generous_gold"

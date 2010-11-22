@@ -209,6 +209,24 @@ class Listing < ActiveRecord::Base
     (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
   end
   
+  def selling_or_renting?
+    does_not_have_any_of_share_types?(["trade", "lend", "give_away"])
+  end
+  
+  def lending_or_giving_away?
+    does_not_have_any_of_share_types?(["sell", "rent_out", "trade"])
+  end
+  
+  def does_not_have_any_of_share_types?(sts)
+    return_value = true
+    sts.each { |st| return_value = false if share_type_names.include?(st) }
+    return return_value
+  end
+  
+  def share_type_names
+    share_types.collect(&:name)
+  end
+  
   # Called after create
   # Checks if there was already an offer matching this request
   # or a request matching this offer
