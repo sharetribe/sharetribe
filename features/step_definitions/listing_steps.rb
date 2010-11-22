@@ -35,6 +35,5 @@ end
 
 Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
   listings = Listing.find_all_by_title("#{origin} - #{destination}")
-  
 end
 

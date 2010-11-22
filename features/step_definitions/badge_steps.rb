@@ -10,8 +10,9 @@ Then /^I should not see badge "(.+)"$/ do |badge|
   find("img[src='/images/badges/#{badge}.png']").nil?.should == true
 end
 
-Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?$/ do |amount, grade, category, role|
+Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
   listing_type = role ? role.chop.chop : "request"
+  share_types = share_type ? share_type.split(",").collect { |st| Factory(:share_type, :name => st) } : nil
   amount.to_i.times do
     if category
       case category
@@ -20,7 +21,7 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([
       when "rideshare"
         listing = Factory(:listing, :category => category, :share_types => [], :origin => "test", :destination => "test2", :listing_type => listing_type)
       else
-        listing = Factory(:listing, :category => category, :share_types => [Factory(:share_type, :name => "buy")], :listing_type => listing_type)
+        listing = Factory(:listing, :category => category, :share_types => share_types, :listing_type => listing_type)
       end
     else
       listing = Factory(:listing, :category => "item")
@@ -32,13 +33,17 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([
   end
 end
 
-When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?$/ do |amount, grade, category|
+When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, share_type|
   amount.to_i.times do
     if category
       if category.eql?("rideshare")
         steps %Q{ Given there is rideshare offer from "Otaniemi" to "Turkkunen" by "kassi_testperson1" }
       else
-        steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" }
+        if share_type
+          steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" and with share type "#{share_type}" }
+        else
+          steps %Q{ Given there is #{category} offer with title "test" from "kassi_testperson1" }
+        end  
       end
     else
       steps %Q{ Given there is favor offer with title "massage" from "kassi_testperson1" }
