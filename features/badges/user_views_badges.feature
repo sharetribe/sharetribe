@@ -144,3 +144,72 @@ Feature: User views badges
     When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
     And I get "1" testimonial with grade "As expected" from category "item" with share type "lend,give_away"
     Then I get the badge "generous_gold"
+    
+  @badge
+  @javascript
+  Scenario: User views moneymaker badge
+    Given I should see badge "moneymaker_bronze_medium_gray"
+    And I should not see badge "moneymaker_bronze_medium"
+    And I have "1" testimonial with grade "0.5" from category "item" as "offerer" with share type "sell"
+    And I should not see badge "moneymaker_bronze_medium"
+    When I get "1" testimonial with grade "As expected" from category "item" with share type "rent_out"
+    Then I get the badge "moneymaker_bronze"
+    And I should not see badge "moneymaker_silver_medium"
+    When I have "3" testimonials with grade "0.5" from category "item" as "offerer" with share type "sell"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "rent_out"
+    Then I get the badge "moneymaker_silver"
+    And I should not see badge "moneymaker_gold_medium"
+    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "sell,rent_out"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "sell,rent_out"
+    Then I get the badge "moneymaker_gold"
+  
+  @badge
+  @javascript
+  Scenario: User views volunteer badge
+    Given I should see badge "volunteer_bronze_medium_gray"
+    And I should not see badge "volunteer_bronze_medium"
+    When I have "2" favor offer listings
+    And I create a new favor offer listing
+    Then I get the badge "volunteer_bronze"
+    And I should not see badge "volunteer_silver_medium"
+    When I have "6" favor offer listings
+    And I create a new favor offer listing
+    Then I get the badge "volunteer_silver"
+    And I should not see badge "volunteer_gold_medium"
+    When I have "14" favor offer listings
+    And I create a new favor offer listing
+    Then I get the badge "volunteer_gold"
+    
+  @badge
+  @javascript
+  Scenario: User views lender badge
+    Given I should see badge "lender_bronze_medium_gray"
+    And I should not see badge "lender_bronze_medium"
+    When I have "2" item offer listings with share type "lend"
+    And I create a new item offer listing with share type "lend,sell"
+    Then I get the badge "lender_bronze"
+    And I should not see badge "lender_silver_medium"
+    When I have "6" item offer listings with share type "lend,give_away"
+    And I create a new item offer listing with share type "lend"
+    Then I get the badge "lender_silver"
+    And I should not see badge "lender_gold_medium"
+    When I have "14" item offer listings with share type "lend"
+    And I create a new item offer listing with share type "lend"
+    Then I get the badge "lender_gold"
+  
+  @badge
+  @javascript
+  Scenario: User views taxi stand badge
+    Given I should see badge "taxi_stand_bronze_medium_gray"
+    And I should not see badge "taxi_stand_bronze_medium"
+    When I have "2" rideshare offer listings
+    And I create a new rideshare offer listing
+    Then I get the badge "taxi_stand_bronze"
+    And I should not see badge "taxi_stand_silver_medium"
+    When I have "6" rideshare offer listings
+    And I create a new rideshare offer listing
+    Then I get the badge "taxi_stand_silver"
+    And I should not see badge "taxi_stand_gold_medium"
+    When I have "14" rideshare offer listings
+    And I create a new rideshare offer listing
+    Then I get the badge "taxi_stand_gold"
