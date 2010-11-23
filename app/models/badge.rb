@@ -4,13 +4,17 @@ class Badge < ActiveRecord::Base
   
   UNIQUE_BADGES = [
     "rookie", "first_transaction", "jack_of_all_trades",
-    "active_member_bronze", "active_member_silver", "active_member_gold", 
-    "enthusiast_bronze", "enthusiast_silver", "enthusiast_gold",
-    "commentator_bronze", "commentator_silver", "commentator_gold",
-    "listing_freak_bronze", "listing_freak_silver", "listing_freak_gold",
+    "active_member_bronze", "active_member_silver", "active_member_gold",
     "generous_bronze", "generous_silver", "generous_gold",
+    "moneymaker_bronze", "moneymaker_silver", "moneymaker_gold",
     "helper_bronze", "helper_silver", "helper_gold",
-    "chauffer_bronze", "chauffer_silver", "chauffer_gold"
+    "chauffer_bronze", "chauffer_silver", "chauffer_gold",
+    "listing_freak_bronze", "listing_freak_silver", "listing_freak_gold",
+    "lender_bronze", "lender_silver", "lender_gold",
+    "volunteer_bronze", "volunteer_silver", "volunteer_gold",
+    "taxi_stand_bronze", "taxi_stand_silver", "taxi_stand_gold",
+    "enthusiast_bronze", "enthusiast_silver", "enthusiast_gold",
+    "commentator_bronze", "commentator_silver", "commentator_gold"
   ]
   
   LEVELS = ["bronze", "silver", "gold"]

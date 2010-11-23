@@ -1,6 +1,23 @@
 # Modules in this file are included in both specs and cucumber steps.
 
 module TestHelpers
+  
+  def create_listing(listing_type, category, share_type)
+    share_types = share_type ? share_type.split(",").collect { |st| Factory(:share_type, :name => st) } : [Factory(:share_type, :name => (listing_type.eql?("offer") ? "sell" : "buy"))]
+    if category
+      case category
+      when "favor"
+        listing = Factory(:listing, :category => category, :share_types => [], :listing_type => listing_type)
+      when "rideshare"
+        listing = Factory(:listing, :category => category, :share_types => [], :origin => "test", :destination => "test2", :listing_type => listing_type)
+      else
+        listing = Factory(:listing, :category => category, :share_types => share_types, :listing_type => listing_type)
+      end
+    else
+      listing = Factory(:listing, :category => "item")
+    end
+  end
+  
   def get_test_person_and_session(username="kassi_testperson1")
     session = nil
     test_person = nil

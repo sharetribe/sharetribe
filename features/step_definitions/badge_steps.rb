@@ -12,20 +12,8 @@ end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
   listing_type = role ? role.chop.chop : "request"
-  share_types = share_type ? share_type.split(",").collect { |st| Factory(:share_type, :name => st) } : nil
   amount.to_i.times do
-    if category
-      case category
-      when "favor"
-        listing = Factory(:listing, :category => category, :share_types => [], :listing_type => listing_type)
-      when "rideshare"
-        listing = Factory(:listing, :category => category, :share_types => [], :origin => "test", :destination => "test2", :listing_type => listing_type)
-      else
-        listing = Factory(:listing, :category => category, :share_types => share_types, :listing_type => listing_type)
-      end
-    else
-      listing = Factory(:listing, :category => "item")
-    end
+    listing = create_listing(listing_type, category, share_type)
     conversation = Factory(:conversation, :status => "accepted", :listing => listing)
     conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
     participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson1"].id, conversation.id)
@@ -78,19 +66,36 @@ When /^I get the badge "(.+)"$/ do |badge|
   }
 end
 
-When /^I have "(.+)" (item|favor|rideshare) (offer|request) listings$/ do |amount, category, listing_type|
+When /^I have "([^"]*)" (item|favor|rideshare) (offer|request) listings(?: with share type "([^"]*)")?$/ do |amount, category, listing_type, share_type|
   amount.to_i.times do
-    Factory(:listing, :category => category, :listing_type => listing_type)
+    listing = create_listing(listing_type, category, share_type)
   end
 end
 
-Then /^I create a new (item|favor|rideshare) (offer|request) listing$/ do |category, listing_type|
+Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with share type "([^"]*)")?$/ do |category, listing_type, share_type|
   steps %Q{
     When I go to the home page
     When I follow "#{listing_type.capitalize} something"
     And I follow "#{category.capitalize}"
-    And I fill in "listing_title" with "Test"
-    And I press "Save request"
+  }
+  if category.eql?("rideshare")
+    steps %Q{
+      And I fill in "listing_origin" with "Test" 
+      And I fill in "listing_destination" with "Test2"
+    }
+  else
+    steps %Q{ And I fill in "listing_title" with "Test" }
+  end
+  if share_type
+    steps %Q{ And I uncheck "lend" }
+    share_type.split(",").each do |st|
+      steps %Q{
+        And I check "#{st}"
+      }
+    end
+  end
+  steps %Q{
+    And I press "Save #{listing_type}"
     And the system processes jobs
     And I go to the badges page of "kassi_testperson1"
   }
