@@ -9,5 +9,8 @@
 
 ***
 
+- if @testimonial.receiver.can_give_feedback_on?(@testimonial.participation.conversation)
+  = t("emails.new_testimonial.you_can_give_feedback_to", :name => @testimonial.author.given_name) + " " + @give_feedback_url + "?ref=email"
+
 = t("emails.new_testimonial.you_can_view_all_your_feedback_in") + " " + @url + "?ref=email"
 
