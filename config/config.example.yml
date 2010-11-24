@@ -1,5 +1,9 @@
 default: &default_settings
   
+  # The domain where you are running Kassi. If testing in localhost. You can use the lvh.me here.
+  # The possible subdomains for communities are added in front of the domain here: 
+  domain: "lvh.me"
+  
   #This is the url of the ASI server you want to use
   asi_url: "http://cos.alpha.sizl.org"
   # The following url will be used when handling passwords
