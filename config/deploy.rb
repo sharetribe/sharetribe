@@ -25,6 +25,11 @@ elsif ENV['DEPLOY_ENV'] == "icsi"
   set :host, "sizl.icsi.berkeley.edu"
   set :user, "amvirola"
   set :branch, ENV['BRANCH'] || "production"
+elsif ENV['DEPLOY_ENV'] == "delta"
+  set :server_name, "alpha"
+  set :host, "alpha.sizl.org"
+  set :branch, ENV['BRANCH'] || "production"
+  set :deploy_to, "/var/datat/deltakassi"
 else
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
@@ -47,13 +52,12 @@ set :use_sudo, false
 
 namespace :deploy do
   task :start do ; end
+  
   task :stop do ; end
+  
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-end
-
-namespace :deploy do
   
   task :preparations do
     #run "killall mongrel_rails" rescue nil
