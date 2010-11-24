@@ -49,6 +49,7 @@ class PersonMailer < ActionMailer::Base
   def new_testimonial(testimonial, host=nil)
     recipient = testimonial.receiver
     @url = host ? "http://#{host}/#{recipient.locale}#{person_testimonials_path(:person_id => recipient.id)}" : "test_url"
+    @give_feedback_url = host ? "http://#{host}/#{recipient.locale}#{new_person_message_feedback_path(:person_id => recipient.id, :message_id => testimonial.participation.conversation.id)}" : "test_url"
     @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
     @testimonial = testimonial
     set_locale recipient.locale
