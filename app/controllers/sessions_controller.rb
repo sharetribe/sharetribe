@@ -3,6 +3,10 @@ require 'rest_client'
 class SessionsController < ApplicationController
   
   def create
+    
+    #if the request came from different domain, redirects back there.
+    domain = request.headers["HTTP_ORIGIN"] || ""
+    
     session[:form_username] = params[:username]
     begin
       @session = Session.create({ :username => params[:username], 
@@ -10,7 +14,7 @@ class SessionsController < ApplicationController
                                                           
     rescue RestClient::Unauthorized => e
       flash[:error] = :login_failed
-      redirect_to login_path and return
+      redirect_to domain + login_path and return
     end
 
     session[:form_username] = nil
@@ -21,7 +25,7 @@ class SessionsController < ApplicationController
         # Existing Sizzle user's first login in Kassi
         session[:temp_cookie] = @session.cookie
         session[:temp_person_id] = @session.person_id
-        redirect_to terms_path and return
+        redirect_to domain + terms_path and return
       end
     end
     
@@ -30,10 +34,10 @@ class SessionsController < ApplicationController
       
     flash[:notice] = [:login_successful, (@current_user.given_name + "!").to_s, person_path(@current_user)]
     if session[:return_to]
-      redirect_to session[:return_to]
+      redirect_to domain + session[:return_to]
       session[:return_to] = nil
     else
-      redirect_to root
+      redirect_to domain + root_path
     end
   end
   
