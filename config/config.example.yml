@@ -1,5 +1,10 @@
 default: &default_settings
   
+  # The domain where you are running Kassi.
+  # If this is left empty, everything will work, except that users
+  # will have to login separately to different subdomains.
+  domain:
+  
   #This is the url of the ASI server you want to use
   asi_url: "http://cos.alpha.sizl.org"
   # The following url will be used when handling passwords
@@ -94,4 +99,6 @@ test:
   # even if you change it for others
   default_locale: en
   
+  # The domain should be not set for running the tests succesfully
+  domain:
 
