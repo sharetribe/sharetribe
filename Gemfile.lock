@@ -89,7 +89,7 @@ GEM
     culerity (0.2.12)
     daemons (1.1.0)
     database_cleaner (0.5.2)
-    delayed_job (2.1.0.pre2)
+    delayed_job (2.1.1)
       activesupport (~> 3.0)
       daemons
     diff-lcs (1.1.2)
@@ -216,7 +216,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   database_cleaner
-  delayed_job (~> 2.1.0.pre2)
+  delayed_job
   factory_girl_rails
   haml
   hoptoad_notifier

@@ -2,6 +2,7 @@ class TestimonialGivenJob < Struct.new(:testimonial_id, :host)
   
   def perform
     testimonial = Testimonial.find(testimonial_id)
+    testimonial.participation.update_attribute(:is_read, true)
     testimonial.notify_receiver(host)
     testimonial.receiver.give_badge("first_transaction", host) if testimonial.receiver.received_testimonials.positive.count == 1
     Badge.assign_with_levels("active_member", testimonial.receiver.received_testimonials.positive.count, testimonial.receiver, [3, 10, 25], host)

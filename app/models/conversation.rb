@@ -87,5 +87,10 @@ class Conversation < ActiveRecord::Base
       PersonMailer.conversation_status_changed(self, request.host).deliver
     end      
   end
+  
+  def has_feedback_from_all_participants?
+    participations.each { |p| return false if p.feedback_can_be_given? }
+    return true
+  end
 
 end

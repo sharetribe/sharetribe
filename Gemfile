@@ -37,7 +37,7 @@ gem 'thinking-sphinx',
 gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
 gem 'hoptoad_notifier'
 gem 'passenger'
-gem 'delayed_job', '~> 2.1.0.pre2'
+gem 'delayed_job'
 
 group :test do
   gem "rspec-rails", "~> 2.0.1"

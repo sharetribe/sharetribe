@@ -23,7 +23,7 @@ class TestimonialsController < ApplicationController
     if @testimonial.save
       Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, request.host))
       flash[:notice] = ["feedback_sent_to", @conversation.other_party(@current_user).given_name, @conversation.other_party(@current_user)]
-      redirect_to (session[:return_to_inbox_content] || root)
+      redirect_to (session[:return_to_inbox_content] || person_message_path(:person_id => @current_user.id, :id => @conversation.id))
     else
       render :action => new
     end    
