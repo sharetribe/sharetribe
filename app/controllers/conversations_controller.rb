@@ -83,6 +83,7 @@ class ConversationsController < ApplicationController
   def change_status(status)
     @conversation.change_status(status, @current_user, request)
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
+    Delayed::Job.enqueue(TestimonialReminderJob.new(@conversation.id, request.host), 0, 1.week.from_now) if status.eql?("accepted")
     respond_to do |format|
       format.html { render :action => :show }
       format.js { render :layout => false }

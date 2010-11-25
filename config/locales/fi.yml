@@ -176,6 +176,10 @@ fi:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
       you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+    testimonial_reminder:
+      remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
+      you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
+      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
   admin:
     badges:
       index:
@@ -620,6 +624,7 @@ fi:
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
+      email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"

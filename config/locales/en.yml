@@ -176,6 +176,10 @@ en:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in Kassi"
       you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
       you_can_give_feedback_to: "You can give feedback to %{name} in"
+    testimonial_reminder:
+      remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
+      you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
+      feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
   admin:
     badges:
       index:
@@ -618,6 +622,7 @@ en:
       email_when_conversation_rejected: "...somebody rejects my offer or request"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_received_testimonials: "...somebody gives me feedback"
+      email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
   terms:
     show:
       accept_terms: "Accepting Kassi terms of use"

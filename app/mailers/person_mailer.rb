@@ -57,12 +57,29 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
   end
   
+  def testimonial_reminder(participation, host=nil)
+    recipient = set_up_recipient(participation.person, host)
+    @url = host ? "http://#{host}/#{recipient.locale}#{new_person_message_feedback_path(:person_id => recipient.id, :message_id => participation.conversation.id)}" : "test_url"
+    @participation = participation
+    @other_party = @participation.conversation.other_party(@participation.person)
+    mail(:to => recipient.email,
+         :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
+  end
+  
   # Used to send notification to Kassi admins when somebody
   # gives feedback on Kassi
   def new_feedback(feedback)
     @feedback = feedback
     subject = "Uutta palautetta #{APP_CONFIG.production_server}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
+  end
+  
+  private
+  
+  def set_up_recipient(recipient, host=nil)
+    @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
+    set_locale recipient.locale
+    recipient
   end
 
 end

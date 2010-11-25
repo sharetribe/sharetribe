@@ -4,7 +4,7 @@ describe PersonMailer do
   
   before(:all) do
     @test_person, @session = get_test_person_and_session
-    @test_person2 = get_test_person_and_session("kassi_testperson2")[0]
+    @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
     @test_person2.locale = "en"
     @test_person2.save
   end   
@@ -70,6 +70,19 @@ describe PersonMailer do
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person2.email], email.to
     assert_equal "Teppo Testaaja has given you feedback in Kassi", email.subject
+  end
+  
+  it "should remind about testimonial" do
+    @conversation = Factory(:conversation)
+    @conversation.participants << @test_person
+    @conversation.participants << @test_person2
+    @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @session.cookie)
+    @conversation.update_attribute(:status, "accepted")
+    @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
+    email = PersonMailer.testimonial_reminder(@participation).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
   end
   
   it "should send email to admins of new feedback" do
