@@ -5,7 +5,7 @@
   #login_form
     %h2
       = t('.login_to_kassi')
-    = form_tag(:action => "create") do  
+    = form_tag("#{APP_CONFIG.login_domain}" + sessions_path,:action => "create") do  
       .form_field_container
         %label{:for => "username"}
           = t('.username') + ":"
