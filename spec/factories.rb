@@ -2,6 +2,7 @@ Factory.define :person do |p|
   p.id "dMF4WsJ7Kr3BN6ab9B7ckF"
   p.is_admin 1
   p.locale "en"
+  p.test_group_number 4
 end  
 
 Factory.define :share_type do |s|
