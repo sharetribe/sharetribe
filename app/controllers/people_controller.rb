@@ -24,9 +24,23 @@ class PeopleController < ApplicationController
   end
 
   def create
+    
+    #if the request came from different domain, redirects back there.
+    domain = request.headers["HTTP_ORIGIN"] || ""
+    
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
-      render :action => "new" and return
+        
+      # This should not actually ever happen if all the checks work at Kassi's end.
+      # Anyway if Captha responses with error, show message to user
+      # Also notify Hoptoad that this kind of error happened.
+      # TODO: if this ever happens, should change the message to something else than "unknown error"
+      flash[:error] = :unknown_error
+      HoptoadNotifier.notify(
+                 :error_class => "Special Error", 
+                 :error_message => "New user Sign up failed because Captha check failed, when it shouldn't." 
+               )
+      redirect_to domain + sign_up_path and return
     end
 
     # Open a Session first only for Kassi to be able to create a user
@@ -42,11 +56,21 @@ class PeopleController < ApplicationController
       @person.set_default_preferences
     rescue RestClient::RequestFailed => e
       logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
-      render :action => "new" and return
+      
+      # This should not actually ever happen if all the checks work at Kassi's end.
+      # Anyway if ASI responses with error, show message to user
+         # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
+      # Also notify Hoptoad that this kind of error happened.
+      flash[:error] = :unknown_error
+      HoptoadNotifier.notify(
+                 :error_class => "Special Error", 
+                 :error_message => "New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}" 
+               )
+      redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
-    redirect_to (session[:return_to] || root)
+    redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
 
   end
   

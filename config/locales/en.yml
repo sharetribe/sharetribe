@@ -132,6 +132,7 @@ en:
       only_kassi_administrators_can_access_this_area: "Only Kassi administrators can access this area"
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
+      unknown_error: "Unknown error. Please use the feedback link to send details about what happened."
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       testimonials: "Received feedback"
@@ -224,7 +225,9 @@ en:
       loading_more_notifications: "Loading more notifications"
     show:
       offer_sent_by: Request sent by
+      offer_sent_to: "Offer sent to"
       request_sent_by: Offer sent by
+      request_sent_to: "Request sent to"
       in_response_to_request: "in response to request"
       in_response_to_offer: "about offer"
       write_a_reply: "Write a reply:"
@@ -447,6 +450,7 @@ en:
       i_accept_the: "I accept the"
       terms: "terms"
       username_is_in_use: "The username you gave is already in use."
+      username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
     profile_badge:
