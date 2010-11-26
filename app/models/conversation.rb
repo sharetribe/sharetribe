@@ -92,5 +92,9 @@ class Conversation < ActiveRecord::Base
     participations.each { |p| return false if p.feedback_can_be_given? }
     return true
   end
+  
+  def offerer
+    participants.each { |p| return p if listing.offerer?(p) }
+  end
 
 end

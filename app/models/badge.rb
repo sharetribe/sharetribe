@@ -14,7 +14,8 @@ class Badge < ActiveRecord::Base
     "volunteer_bronze", "volunteer_silver", "volunteer_gold",
     "taxi_stand_bronze", "taxi_stand_silver", "taxi_stand_gold",
     "enthusiast_bronze", "enthusiast_silver", "enthusiast_gold",
-    "commentator_bronze", "commentator_silver", "commentator_gold"
+    "commentator_bronze", "commentator_silver", "commentator_gold",
+    "santa"
   ]
   
   LEVELS = ["bronze", "silver", "gold"]
