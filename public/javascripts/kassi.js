@@ -4,7 +4,14 @@
 $.validator.
 	addMethod( "accept", 
 		function(value, element, param) {
-			return value.match(new RegExp("(\.jpe?g|\.gif|\.png|^$)"));
+			return value.match(new RegExp(/(\.jpe?g|\.gif|\.png|^$)/i));
+		}
+	);
+	
+$.validator.
+	addMethod( "valid_username", 
+		function(value, element, param) {
+			return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
 		}
 	);
 	
@@ -260,7 +267,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 	});
 }
 
-function initialize_signup_form(locale, username_in_use_message, email_in_use_message, captcha_message) {
+function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message) {
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
@@ -277,7 +284,7 @@ function initialize_signup_form(locale, username_in_use_message, email_in_use_me
 			}	
 		},
 		rules: {
-      "person[username]": {required: true, minlength: 3, maxlength: 20, remote: "/people/check_username_availability"},
+      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
       "person[given_name]": {required: true, minlength: 2, maxlength: 30},
       "person[family_name]": {required: true, minlength: 2, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
@@ -288,7 +295,7 @@ function initialize_signup_form(locale, username_in_use_message, email_in_use_me
 		},
 		messages: {
 		  "recaptcha_response_field": { captcha: captcha_message },
-			"person[username]": { remote: username_in_use_message },
+			"person[username]": { valid_username: invalid_username_message, remote: username_in_use_message },
 			"person[email]": { remote: email_in_use_message },
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
