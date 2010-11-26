@@ -13,12 +13,10 @@ Feature: User creates a new account
     And I fill in "Password:" with "test"
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
-    And I fill in "recaptcha_response_field" with "running_tests"
     And I press "Create account"
     Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
   
-  # Error message text should be better than fix this field
-  @fixme
+
   @javascript  
   Scenario: Trying to create account with unavailable username 
     Given I am not logged in
@@ -32,8 +30,20 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "The username you gave is already in use." within ".error"
   
-  # Error message text should be better than fix this field
-  @fixme
+  
+  @javascript  
+  Scenario: Trying to create account with invalid username 
+    Given I am not logged in
+    And I am on the signup page
+    When I fill in "Username" with "sirkka-liisa"
+    And I fill in "Given name:" with "Testmanno"
+    And I fill in "Family name:" with "Namez"
+    And I fill in "Password:" with "test"
+    And I fill in "Confirm password:" with "test"
+    And I fill in "Email address:" with random email
+    And I press "Create account"
+    Then I should see "Username is invalid." within ".error"
+  
   @javascript
   Scenario: Trying to create account with unavailable email
     Given I am not logged in

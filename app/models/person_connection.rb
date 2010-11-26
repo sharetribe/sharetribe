@@ -95,8 +95,8 @@ class PersonConnection
    
    def self.availability(options, cookie)
      query_string = "/people/availability?"
-     query_string += "email=#{options[:email]}&" if options[:email]
-     query_string += "username=#{options[:username]}&" if options[:username]
+     query_string += "email=#{ApplicationHelper.escape_for_url(options[:email])}&" if options[:email]
+     query_string += "username=#{ApplicationHelper.escape_for_url(options[:username])}&" if options[:username]
      return RestHelper.get("#{APP_CONFIG.asi_url}#{query_string}", {:cookies => cookie})
    end
    
