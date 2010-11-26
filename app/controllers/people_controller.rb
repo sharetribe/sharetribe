@@ -33,6 +33,7 @@ class PeopleController < ApplicationController
     @session = Session.create
     session[:cookie] = @session.cookie
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
+    params[:person][:test_group_number] = 1 + rand(4)
 
     # Try to create a new person in ASI.
 

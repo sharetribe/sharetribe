@@ -11,6 +11,7 @@
   #inbox_tabs
     %div{:class => get_profile_extras_tab_class("testimonials")} 
       = link_to t('.testimonials'), person_testimonials_path(:person_id => @person.id)
-    %div{:class => get_profile_extras_tab_class("badges")}  
-      = link_to t('.badges'), person_badges_path(:person_id => @person.id)
+    - if @person.badges_visible_to?(@current_user)
+      %div{:class => get_profile_extras_tab_class("badges")}  
+        = link_to t('.badges'), person_badges_path(:person_id => @person.id)
   #inbox_tab_spacer

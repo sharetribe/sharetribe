@@ -2,7 +2,62 @@ Feature: User views badges
   In order to view what achievements I have accomplished in Kassi
   As a user
   I want to be able to view my badges
-
+  
+  @javascript
+  Scenario: User views badges while belonging to different test groups
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And I am logged in as "kassi_testperson2"
+    And I create a new favor offer listing
+    And I follow "Logout"
+    And I log in as "kassi_testperson1"
+    And I have "2" testimonials with grade "0.5"
+    And I get "1" testimonial with grade "As expected"
+    When I belong to test group "1"
+    And I go to the badges page of "kassi_testperson1"
+    Then I should see badge "active_member_bronze_medium"
+    And I should not see badge "active_member_bronze_medium_gray"
+    When I go to the profile page of "kassi_testperson2"
+    Then I should not see "Badges"
+    When I go to the badges page of "kassi_testperson2"
+    Then I should not see badge "rookie_medium"
+    And I should see "No received feedback"
+    When I belong to test group "2"
+    And I go to the badges page of "kassi_testperson1"
+    Then I should see badge "active_member_bronze_medium"
+    And I should not see badge "active_member_bronze_medium_gray"
+    When I go to the profile page of "kassi_testperson2"
+    Then I should see "Badges"
+    When I go to the badges page of "kassi_testperson2"
+    Then I should see badge "rookie_medium"
+    And I should not see badge "active_member_bronze_medium_gray"
+    When I belong to test group "3"
+    And I go to the badges page of "kassi_testperson1"
+    Then I should see badge "active_member_bronze_medium"
+    And I should see badge "active_member_silver_medium_gray"
+    When I go to the profile page of "kassi_testperson2"
+    Then I should not see "Badges"
+    When I go to the badges page of "kassi_testperson2"
+    Then I should not see badge "rookie_medium"
+    And I should see "No received feedback"
+    When I belong to test group "4"
+    And I go to the badges page of "kassi_testperson1"
+    Then I should see badge "active_member_bronze_medium"
+    And I should see badge "active_member_silver_medium_gray"
+    When I go to the profile page of "kassi_testperson2"
+    Then I should see "Badges"
+    When I go to the badges page of "kassi_testperson2"
+    Then I should see badge "rookie_medium"
+    And I should see badge "active_member_bronze_medium_gray"
+    When I follow "Logout"
+    And I go to the badges page of "kassi_testperson1"
+    Then I should not see badge "active_member_bronze_medium"
+    And I should see "Feedback average:"
+    When I go to the profile page of "kassi_testperson1"
+    Then I should not see "Badges"
+    
   @badge
   @javascript
   Scenario: User views active member badge

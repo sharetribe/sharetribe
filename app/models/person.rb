@@ -86,7 +86,7 @@ class Person < ActiveRecord::Base
     params["given_name"] = params["given_name"].slice(0, 28)
     params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id), params[:id], cookie)
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number), params[:id], cookie)
     
     # Create locally with less attributes 
     super(params.except(:username, :email, "name", :terms))
@@ -526,6 +526,14 @@ class Person < ActiveRecord::Base
   def can_give_feedback_on?(conversation)
     participation = Participation.find_by_person_id_and_conversation_id(id, conversation.id)
     participation.feedback_can_be_given?
+  end
+  
+  def badges_visible_to?(person)
+    if person
+      self.eql?(person) ? true : [2,4].include?(person.test_group_number)
+    else
+      false
+    end
   end
   
   private

@@ -122,3 +122,7 @@ When /^I comment that listing$/ do
     And I go to the badges page of "kassi_testperson1"
   } 
 end
+
+When /^I belong to test group "(.+)"$/ do |group_number|
+  @people["kassi_testperson1"].update_attribute(:test_group_number, group_number)
+end  
