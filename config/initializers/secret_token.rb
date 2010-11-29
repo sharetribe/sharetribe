@@ -4,4 +4,15 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random, 
 # no regular words or you'll be exposed to dictionary attacks.
-Rails.application.config.secret_token = 'd8594a84698f2f544a06d9c40be87569583dac4895979d10529d3ddce10eb0f51a3da80ed4ea01d544a2b2f320d0bb7371afdcf0569b77980b250c2ba20fcb30'
+
+# Will use the secert found in the file if exists. Otherwise generate new and store.
+
+secret_file = File.join(RAILS_ROOT, "config/session_secret")
+if File.exist?(secret_file)
+  secret = File.read(secret_file)
+else
+  secret = ActiveSupport::SecureRandom.hex(64)
+  File.open(secret_file, 'w') { |f| f.write(secret) }
+end
+
+Rails.application.config.secret_token = secret
