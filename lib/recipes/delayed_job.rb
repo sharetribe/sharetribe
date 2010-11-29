@@ -9,29 +9,27 @@
 #   after "deploy:start",   "delayed_job:start"
 #   after "deploy:restart", "delayed_job:restart"
 
-Capistrano::Configuration.instance.load do
-  namespace :delayed_job do
-    def rails_env
-      fetch(:rails_env, false) ? "RAILS_ENV=#{fetch(:rails_env)}" : ''
-    end
-    
-    def args
-      fetch(:delayed_job_args, "")
-    end
-    
-    desc "Stop the delayed_job process"
-    task :stop, :roles => :app do
-      run "cd #{current_path};#{rails_env} script/delayed_job stop"
-    end
+namespace :delayed_job do
+  def rails_env
+    fetch(:rails_env, false) ? "RAILS_ENV=#{fetch(:rails_env)}" : ''
+  end
+  
+  def args
+    fetch(:delayed_job_args, "")
+  end
+  
+  desc "Stop the delayed_job process"
+  task :stop, :roles => :app do
+    run "cd #{current_path};#{rails_env} script/delayed_job stop"
+  end
 
-    desc "Start the delayed_job process"
-    task :start, :roles => :app do
-      run "cd #{current_path};#{rails_env} script/delayed_job start #{args}"
-    end
+  desc "Start the delayed_job process"
+  task :start, :roles => :app do
+    run "cd #{current_path};#{rails_env} script/delayed_job start #{args}"
+  end
 
-    desc "Restart the delayed_job process"
-    task :restart, :roles => :app do
-      run "cd #{current_path};#{rails_env} script/delayed_job restart #{args}"
-    end
+  desc "Restart the delayed_job process"
+  task :restart, :roles => :app do
+    run "cd #{current_path};#{rails_env} script/delayed_job restart #{args}"
   end
 end
