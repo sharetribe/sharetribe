@@ -117,6 +117,11 @@ after "deploy:setup" do
   thinking_sphinx.start
 end
 
+# Manage Delayed Job similarly as the server.
+after "deploy:stop",    "delayed_job:stop"
+after "deploy:start",   "delayed_job:start"
+after "deploy:restart", "delayed_job:restart"
+
 require 'config/boot'
 require 'hoptoad_notifier/capistrano'
 
