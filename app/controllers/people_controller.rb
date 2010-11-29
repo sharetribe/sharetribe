@@ -39,13 +39,10 @@ class PeopleController < ApplicationController
         
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if Captha responses with error, show message to user
-      # Also notify Hoptoad that this kind of error happened.
+      # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
       flash[:error] = :unknown_error
-      HoptoadNotifier.notify(
-                 :error_class => "Special Error", 
-                 :error_message => "New user Sign up failed because Captha check failed, when it shouldn't." 
-               )
+      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.")
       redirect_to domain + sign_up_path and return
     end
 
@@ -66,12 +63,9 @@ class PeopleController < ApplicationController
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if ASI responses with error, show message to user
          # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
-      # Also notify Hoptoad that this kind of error happened.
+      # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
-      HoptoadNotifier.notify(
-                 :error_class => "Special Error", 
-                 :error_message => "New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}" 
-               )
+      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}")
       redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
     end
     session[:person_id] = @person.id

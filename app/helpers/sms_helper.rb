@@ -22,10 +22,7 @@ module SmsHelper
         Rails.logger.info  "Sending sms message: '#{message}' to #{number}"
         response = RestClient.post(sms_uri, sms_text, :content_type => 'application/json')
       rescue Exception => e
-        # HoptoadNotifier.notify(
-        #            :error_class => "Special Error", 
-        #            :error_message => "Special Error: #{e.message}", 
-        #          )
+        ApplicationHelper.send_error_notification("Sms send failed, message: #{e.message}")
         Rails.logger.error { "Sending message failed: #{e.inspect}, #{e.response}" }
       end
     end

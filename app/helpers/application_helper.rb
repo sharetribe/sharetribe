@@ -77,4 +77,11 @@ module ApplicationHelper
     "inbox_tab_#{controller_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
+  def self.send_error_notification(message)
+    if APP_CONFIG.use_hoptoad
+      HoptoadNotifier.notify(:error_class => "Special Error", :error_message => message 
+               )
+    end
+  end
+  
 end
