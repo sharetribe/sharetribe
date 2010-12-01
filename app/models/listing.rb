@@ -267,9 +267,10 @@ class Listing < ActiveRecord::Base
     
     #puts "Distance between origins: #{distance_between(get_coordinates(origin), get_coordinates(candidate.origin))}"
     #puts "Distance between destinations: #{distance_between(get_coordinates(destination), get_coordinates(candidate.destination))}"
+
     begin
-      if distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance &&
-          distance_between(get_coordinates(destination), get_coordinates(candidate.destination)) < location_tolerance
+      if  (( origin.casecmp(candidate.origin) == 0 || distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance) && 
+          (destination.casecmp(candidate.destination) == 0 || distance_between(get_coordinates(destination), get_coordinates(candidate.destination)) < location_tolerance))
         return true
       else 
         return false
