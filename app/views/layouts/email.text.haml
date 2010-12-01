@@ -1,4 +1,7 @@
+- if @recipient
+  = t("emails.common.hey", :name => @recipient.given_name)
+
 = yield
 
-- unless @feedback
+- unless @no_settings
   = render :partial => "email_signature"

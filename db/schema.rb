@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101125150638) do
+ActiveRecord::Schema.define(:version => 20101201105920) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -241,7 +241,7 @@ ActiveRecord::Schema.define(:version => 20101125150638) do
     t.datetime "last_received_at"
     t.boolean  "feedback_skipped", :default => false
   end
-  
+
   create_table "people", :id => false, :force => true, :primary_key => :id do |t|
     t.string :id, :limit => 22, :null => false
     t.datetime "created_at"

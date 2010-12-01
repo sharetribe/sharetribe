@@ -13,6 +13,12 @@ class PeopleController < ApplicationController
   
   def show
     @person = Person.find(params[:id])
+    logger.info "Preferences: #{@person.preferences.inspect}"
+    @person.preferences.each do |key, value|
+      if key.is_a?(Symbol)
+        logger.info "Symbol"
+      end
+    end
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
     @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])

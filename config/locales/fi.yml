@@ -149,9 +149,10 @@ fi:
       kassi_team: "Kassitiimi"
       want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
       check_your_settings: "Tarkista asetuksesi"
+      hey: "Hei %{name},"
     new_message:
       you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
-      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa"
+      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa:"
       you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
       do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
     new_comment:
@@ -181,6 +182,11 @@ fi:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
       feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
+    badge_migration_notification: 
+      you_have_received_badges: "Olet saanut kassimerkkejä!"
+      you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit osoitteessa"
+      badge_description1: "Voit ansaita Kassissa erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
+      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
   admin:
     badges:
       index:
