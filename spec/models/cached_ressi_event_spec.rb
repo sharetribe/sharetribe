@@ -14,6 +14,7 @@ describe CachedRessiEvent do
      :user_id=>"biPssKjrCr3PQyaaWPEYjL",
      :ip_address=>"128.214.20.122",
      :semantic_event_id => "running_cached_ressi_event_spec",
+     :test_group_number => 2,
      :headers => {"foo" => "bar"}.to_json }
 
 

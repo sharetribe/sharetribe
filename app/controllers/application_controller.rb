@@ -116,6 +116,7 @@ class ApplicationController < ActionController::Base
       e.session_id        = request.session_options ? request.session_options[:id] : nil
       e.ip_address        = request.remote_ip
       e.action            = "#{self.class}\##{action_name}"
+      e.test_group_number = @current_user ? @current_user.test_group_number : nil
       begin
         if (params["file"] || (params["listing"] && params["listing"]["listing_images_attributes"]))
           # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
