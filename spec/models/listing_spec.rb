@@ -203,6 +203,28 @@ describe Listing do
         
       end
       
+      it "should return true, when comparing listings with origin and destination exact same string, but not found on map." do
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "Otski"
+        other_listing.destination = "Taikki"
+        @listing.origin = "Otski"
+        @listing.destination = "Taikki"
+        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        
+      end
+      
+      it "should return true, when comparing listings with origin exactly same and destination close enough." do
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "Skatta"
+        other_listing.destination = "simonkatu 4"
+        @listing.origin = "Skatta"
+        @listing.destination = "Helsinki"
+        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        
+      end
+      
       it "should return false when comparing places too far away (either destination or origin)" do
         sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
         other_listing = Factory.build(:listing)
