@@ -8,8 +8,12 @@
         %td
           %h1{:style => "font-size: 22px; margin:7px 0 12px 0; padding:0;"}
             Kassi
+          - if @recipient
+            = t("emails.common.hey", :name => @recipient.given_name)
+            %br/
+            %br/
           = yield
           %br/
           %br/
-          - unless @feedback
+          - unless @no_settings
             = render :partial => "email_signature"

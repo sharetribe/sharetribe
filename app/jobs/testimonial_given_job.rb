@@ -4,11 +4,11 @@ class TestimonialGivenJob < Struct.new(:testimonial_id, :host)
     testimonial = Testimonial.find(testimonial_id)
     testimonial.participation.update_attribute(:is_read, true)
     testimonial.notify_receiver(host)
-    testimonial.receiver.give_badge("first_transaction", host) if testimonial.receiver.received_testimonials.positive.count == 1
-    Badge.assign_with_levels("active_member", testimonial.receiver.received_testimonials.positive.count, testimonial.receiver, [3, 10, 25], host)
     received = testimonial.receiver.received_testimonials.positive
+    testimonial.receiver.give_badge("first_transaction", host) if received.count == 1
+    Badge.assign_with_levels("active_member", received.count, testimonial.receiver, [3, 10, 25], host)
     if received.collect { |t| "#{t.participation.conversation.listing.listing_type}_#{t.participation.conversation.listing.category}" }.uniq.size == 5
-      testimonial.receiver.give_badge("jack_of_all_trades", host) unless testimonial.receiver.has_badge?("jack_of_all_trades")
+      testimonial.receiver.give_badge("jack_of_all_trades", host)
     end
     badge_levels = { "generous" => 0, "moneymaker" => 0, "helper" => 0, "chauffer" => 0 }
     received.each do |t|

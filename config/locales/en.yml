@@ -149,9 +149,10 @@ en:
       kassi_team: "The Kassi Team"
       want_to_control_emails: "Want to control which emails you receive from Kassi?"
       check_your_settings: "Check your settings"
+      hey: "Hi %{name},"
     new_message:
       you_have_a_new_message: "You have a new message in Kassi"
-      has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in Kassi"
+      has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in Kassi:"
       you_can_reply_to_message_in: "You can reply to the message in"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
     new_comment:
@@ -181,6 +182,11 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
+    badge_migration_notification: 
+      you_have_received_badges: "You have received badges in Kassi!"
+      you_have_received_badges_in_kassi: "You have earned new badges in Kassi. You can view your badges in"
+      badge_description1: "You can earn several different badges in Kassi as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, doing favors, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
+      badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in Kassi: buy, sell, lend and borrow items, do others favors, share rides and watch your badge arsenal grow!"
   admin:
     badges:
       index:
