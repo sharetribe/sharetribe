@@ -38,7 +38,8 @@ class CachedRessiEvent < ActiveRecord::Base
                               :return_value =>   return_value,
                               :headers =>        headers,
                               :semantic_event_id => semantic_event_id,
-                              :created_at =>     created_at
+                              :created_at =>     created_at,
+                              :test_group_number  => test_group_number
                             })
   end
 end

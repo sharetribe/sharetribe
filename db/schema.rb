@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201105920) do
+ActiveRecord::Schema.define(:version => 20101201133429) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20101201105920) do
     t.string   "semantic_event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "test_group_number"
   end
 
   create_table "comments", :force => true do |t|
@@ -246,8 +247,8 @@ ActiveRecord::Schema.define(:version => 20101201105920) do
     t.string :id, :limit => 22, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",    :default => 0
-    t.string   "locale",      :default => "fi"
+    t.integer  "is_admin",            :default => 0
+    t.string   "locale",              :default => "fi"
     t.text     "preferences"
     t.integer  "active_days_count",   :default => 0
     t.datetime "last_page_load_date"
