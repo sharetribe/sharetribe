@@ -83,3 +83,14 @@ Factory.define :testimonial_notification do |b|
   b.is_read 0
   b.association :testimonial
 end
+
+Factory.define :community do |c|
+  c.name "Test"
+  c.domain "test_domain-name9"
+end
+
+Factory.define :community_membership do |c|
+  c.association :community
+  c.member { |member| member.association(:person) }
+  c.admin false
+end
