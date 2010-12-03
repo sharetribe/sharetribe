@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user, :set_locale, :generate_event_id
+  before_filter :fetch_logged_in_user, :set_locale, :generate_event_id, :fetch_community
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
@@ -83,6 +83,15 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
   
+  def fetch_community
+    if @community = Community.find_by_domain(request.subdomain)
+      if @current_user.communities.include?(@community)
+      
+      else
+      end
+    else    
+    end
+  end
   
   private
 
