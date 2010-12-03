@@ -10,9 +10,8 @@
       = link_to t(".what_are_these"), "#", :id => "badges_description_link"
     .profile_badges
       = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
-      - if @person.badges.size > 6
-        .profile_badges_link_to_all
-          = link_to t(".show_all_badges"), person_badges_path(:person_id => @person.id)
+      .profile_badges_link_to_all
+        = link_to t(".show_all_badges"), person_badges_path(:person_id => @person.id)
   - if @person.received_testimonials.size > 0    
     .profile_feedback_header
       .profile_feedback_average_image
@@ -30,9 +29,9 @@
         &nbsp;
       .profile_feedback_texts
         = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
-      - if @person.received_testimonials.size > 1
-        .profile_testimonials_link_to_all
-          = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
+      .profile_testimonials_link_to_all
+        = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
+        
         
 .grid_18
   .grid_12.alpha
