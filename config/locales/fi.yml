@@ -665,7 +665,7 @@ fi:
     pay: maksa|maksu                      #may be a regular expression
     offer: tarjous                        #may be a regular expression
     request: pyyntö                       #may be a regular expression
-    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
+    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan. Kimppakyytiviestin tulisi olla muotoa: 'kassi kyyti pyyntö/tarjous lähtöpaikka määränpää aika (vapaaehtoinen listätieto)'"
     potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
     or_check_the_offer_in_kassi: " tai katsoa tarjouksen Kassissa: %{listing_url}"

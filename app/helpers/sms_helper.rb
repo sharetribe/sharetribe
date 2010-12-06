@@ -62,50 +62,55 @@ module SmsHelper
     end
   
     def self.parse(message)
-      details = {:phone_number => message["msisdn"], :original_text => message["message"], :original_id => message["@id"]}    
-      parts = message["message"].split(" ")
+      begin
+      
+        details = {:phone_number => message["msisdn"], :original_text => message["message"], :original_id => message["@id"]}    
+        parts = message["message"].split(" ")
         
         
-      case parts[0]
-      when /#{all_translations("sms.rideshare")}/i
-        details[:category] = "rideshare"
+        case parts[0]
+        when /#{all_translations("sms.rideshare")}/i
+          details[:category] = "rideshare"
         
-        raise_sms_parse_error(message) if parts.count < 5
+          raise_sms_parse_error(message) if parts.count < 5
         
-        details[:listing_type] = case parts[1]
-        when /#{all_translations("sms.offer")}/i
-          "offer"
-        when /#{all_translations("sms.request")}/i
-          "request"
+          details[:listing_type] = case parts[1]
+          when /#{all_translations("sms.offer")}/i
+            "offer"
+          when /#{all_translations("sms.request")}/i
+            "request"
+          else
+            raise_sms_parse_error(message)
+          end
+
+          details[:origin] = parts[2]
+          details[:destination] = parts[3]
+
+          time =  Time.zone.parse(parts[4]).to_datetime
+          if time < DateTime.now && time > 1.days.ago
+            # if only clock time is given and it's earlier than now,
+            # probably the time means tomorrow.
+            time += 1.days
+          end
+          details[:valid_until] = time
+          details[:description] = parts[5..(parts.length-1)].join(" ")
+       
+        when /#{all_translations("sms.pay")}/i
+          details[:category] = "pay"
+          details[:receiver] = parts[1]
+          amount = parts[2]
+          raise_sms_parse_error(message) unless amount =~ /^\d+(\.|,)?\d*e?$/i
+          amount.gsub!(/e/i,"")
+          amount.gsub!(",",".")
+          details[:amount] = amount
         else
           raise_sms_parse_error(message)
         end
-
-        details[:origin] = parts[2]
-        details[:destination] = parts[3]
-
-        time =  Time.zone.parse(parts[4]).to_datetime
-        if time < DateTime.now && time > 1.days.ago
-          # if only clock time is given and it's earlier than now,
-          # probably the time means tomorrow.
-          time += 1.days
-        end
-        details[:valid_until] = time
-        details[:description] = parts[5..(parts.length-1)].join(" ")
-       
-      when /#{all_translations("sms.pay")}/i
-        details[:category] = "pay"
-        details[:receiver] = parts[1]
-        amount = parts[2]
-        raise_sms_parse_error(message) unless amount =~ /^\d+(\.|,)?\d*e?$/i
-        amount.gsub!(/e/i,"")
-        amount.gsub!(",",".")
-        details[:amount] = amount
-      else
+      
+        return details
+      rescue Exception => e
         raise_sms_parse_error(message)
       end
-      
-      return details  
       
     end
   
