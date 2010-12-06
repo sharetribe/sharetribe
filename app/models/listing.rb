@@ -232,7 +232,8 @@ class Listing < ActiveRecord::Base
   # or a request matching this offer
   # Inform the requester if possible match is found
   def check_possible_matches
-    timing_tolerance = 1.hours # how big difference in starting time is accepted
+    logger.info "Checking possible matches for just created rideshare listing."
+    timing_tolerance = 1.6.hours # how big difference in starting time is accepted
         
     # currently check only rideshare listings
     return true unless (category == "rideshare" && APP_CONFIG.use_sms)
@@ -275,6 +276,8 @@ class Listing < ActiveRecord::Base
     # If routing fails, fall back to old solution of comparing strings and posibly geocoded coordinates.
     # This is used by the old method only:
     location_tolerance = 5 # kilometers, the max distance between spots to match them
+    
+    logger.info "Comparing origin and destinations of #{title} and #{candidate.title}"
     
     
     # Try first with route comparison
