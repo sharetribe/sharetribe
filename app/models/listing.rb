@@ -246,14 +246,20 @@ class Listing < ActiveRecord::Base
     end
     
     potential_listings.each do |candidate|
-      if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
-          origin_and_destination_close_enough?(candidate))
-        if listing_type == "request"
+      if listing_type == "request"
+        if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
+            candidate.origin_and_destination_close_enough?(self))
+            
           inform_requester_about_potential_match(self, candidate)
-        else
+        end
+      else
+        if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
+            origin_and_destination_close_enough?(candidate))
+        
           inform_requester_about_potential_match(candidate, self)
         end
       end
+      
     end
     
   end
@@ -286,6 +292,8 @@ class Listing < ActiveRecord::Base
       ridesharing_route = route_duration_and_distance(origin, destination, [candidate.origin, candidate.destination])
       duration_difference = ridesharing_route[0] - direct_route[0]
       distance_difference = ridesharing_route[1] - direct_route[1]
+      
+      logger.info "Result was that difference in duration would be: #{duration_difference} minutes and in distance #{distance_difference} km."
       
       if ((duration_difference < min_duration_tolerance || 
          duration_difference < direct_route[0] * duration_tolerence_percentage * 0.01) &&
