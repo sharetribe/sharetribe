@@ -86,6 +86,10 @@ default: &default_settings
   sms_service_key: your_api_service_key
   sms_receiver_id: your_separately_registered_keyword
   
+  # In rideshare matching, the Helsinki Area Journey Planner API can be used if you have access. Otherwise leave empty.
+  journey_planner_username:
+  journey_planner_password:  
+  
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Kassi, you 

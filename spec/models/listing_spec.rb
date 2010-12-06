@@ -244,6 +244,22 @@ describe Listing do
         @listing.origin_and_destination_close_enough?(other_listing).should be_true
       end
       
+      it "should handle location nicknames in Helsinki if journey planner in use" do
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "dipoli"
+        other_listing.destination = "taik"
+        @listing.origin = "otski"
+        @listing.destination = "arabianranta"
+        response = @listing.origin_and_destination_close_enough?(other_listing)
+        if APP_CONFIG.journey_planner_username
+          response.should be_true
+        else
+          response.should be_false
+        end  
+      end
+      
+      
     end
     if APP_CONFIG.use_sms 
       describe "#inform_requester_about_potential_match" do
