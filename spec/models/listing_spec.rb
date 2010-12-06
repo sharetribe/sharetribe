@@ -239,8 +239,8 @@ describe Listing do
         other_listing = Factory.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Lahti"
-        other_listing.destination = "Ylivieska"
-        @listing.destination = "Oulu"
+        other_listing.destination = "Oulu"
+        @listing.destination = "Rovaniemi"
         @listing.origin_and_destination_close_enough?(other_listing).should be_true
       end
       
