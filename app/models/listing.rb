@@ -233,8 +233,7 @@ class Listing < ActiveRecord::Base
   # Inform the requester if possible match is found
   def check_possible_matches
     timing_tolerance = 1.hours # how big difference in starting time is accepted
-    location_tolerance = 5 # kilometers, the max distance between spots to match them
-    
+        
     # currently check only rideshare listings
     return true unless (category == "rideshare" && APP_CONFIG.use_sms)
     
@@ -247,7 +246,7 @@ class Listing < ActiveRecord::Base
     
     potential_listings.each do |candidate|
       if ((valid_until-timing_tolerance..valid_until+timing_tolerance) === (candidate.valid_until) &&
-          origin_and_destination_close_enough?(candidate, location_tolerance))
+          origin_and_destination_close_enough?(candidate))
         if listing_type == "request"
           inform_requester_about_potential_match(self, candidate)
         else
@@ -258,16 +257,48 @@ class Listing < ActiveRecord::Base
     
   end
   
-  def origin_and_destination_close_enough?(candidate, location_tolerance)
+  def origin_and_destination_close_enough?(candidate)
     
-    # This could be enchaned by using a routing API (eg. from google, 
-    # and checking how much the offerer's route would be longer if he
-    # would pickup the requester. If difference is small it the ride would
-    # be suggested to the requester)
+    # The Google routing API is used to check
+    # how much the offerer's route would be longer if he
+    # would pickup the requester. If difference is small it the ride 
+    # is suggested to the requester)
     
-    #puts "Distance between origins: #{distance_between(get_coordinates(origin), get_coordinates(candidate.origin))}"
-    #puts "Distance between destinations: #{distance_between(get_coordinates(destination), get_coordinates(candidate.destination))}"
-
+    # consider origin and destaination being close enough, if the
+    # difference between direct journey and with waypoints is 
+    # smaller than the tolerance for duration and distance.
+    duration_tolerence_percentage = 20
+    min_duration_tolerance = 15 # in minutes
+    distance_tolerance_percentage = 20
+    min_distance_tolerance = 10
+    
+    # If routing fails, fall back to old solution of comparing strings and posibly geocoded coordinates.
+    # This is used by the old method only:
+    location_tolerance = 5 # kilometers, the max distance between spots to match them
+    
+    
+    # Try first with route comparison
+    begin
+      direct_route = route_duration_and_distance(origin, destination)
+      ridesharing_route = route_duration_and_distance(origin, destination, [candidate.origin, candidate.destination])
+      duration_difference = ridesharing_route[0] - direct_route[0]
+      distance_difference = ridesharing_route[1] - direct_route[1]
+      
+      if ((duration_difference < min_duration_tolerance || 
+         duration_difference < direct_route[0] * duration_tolerence_percentage * 0.01) &&
+         (distance_difference < min_distance_tolerance ||
+         distance_difference < direct_route[1] * distance_tolerance_percentage * 0.01))
+        return true
+      else
+        # got valid result from routing, but the difference was too big, so return false.
+        return false
+      end
+    rescue  RuntimeError => e
+      logger.info "Error while calculating route: #{e.message}"
+      # encountered and error with routing so continue and try the other method
+    end
+    
+    # try second if exact match or closeness by geocoded coordinates is close enough
     begin
       if  (( origin.casecmp(candidate.origin) == 0 || distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance) && 
           (destination.casecmp(candidate.destination) == 0 || distance_between(get_coordinates(destination), get_coordinates(candidate.destination)) < location_tolerance))
@@ -276,7 +307,7 @@ class Listing < ActiveRecord::Base
         return false
       end
     rescue RuntimeError => e
-      logger.info "Error while geocoding: #{e.message}"
+      logger.info "Error while  geocoding: #{e.message}"
       return false
     end
   end
@@ -293,8 +324,10 @@ class Listing < ActiveRecord::Base
       message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
       unless offer.author.phone_number.blank?
         message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
+        message += " " + I18n.t("sms.or_check_the_offer_in_kassi", :listing_url => "http://alpha.kassi.eu/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
+        
       else
-        message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://kassi.alpha.sizl.org/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
+        message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://alpha.kassi.eu/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
       end
       message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name)
       # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
