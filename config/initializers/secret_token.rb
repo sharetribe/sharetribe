@@ -7,7 +7,7 @@
 
 # Will use the secert found in the file if exists. Otherwise generate new and store.
 
-secret_file = File.join(RAILS_ROOT, "config/session_secret")
+secret_file = File.join(Rails.root.to_s, "config/session_secret")
 if File.exist?(secret_file)
   secret = File.read(secret_file)
 else

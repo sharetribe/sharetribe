@@ -199,7 +199,7 @@ describe Listing do
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Simonkatu 4"
         @listing.destination = "helsinki"
-        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        @listing.origin_and_destination_close_enough?(other_listing).should be_true
         
       end
       
@@ -210,7 +210,7 @@ describe Listing do
         other_listing.destination = "Taikki"
         @listing.origin = "Otski"
         @listing.destination = "Taikki"
-        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        @listing.origin_and_destination_close_enough?(other_listing).should be_true
         
       end
       
@@ -221,7 +221,7 @@ describe Listing do
         other_listing.destination = "simonkatu 4"
         @listing.origin = "Skatta"
         @listing.destination = "Helsinki"
-        @listing.origin_and_destination_close_enough?(other_listing, 1).should be_true
+        @listing.origin_and_destination_close_enough?(other_listing).should be_true
         
       end
       
@@ -232,11 +232,69 @@ describe Listing do
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Vilhonvuorenkatu 3"
         @listing.destination = "Espoon keskus"
-        @listing.origin_and_destination_close_enough?(other_listing, 4).should be_false
+        @listing.origin_and_destination_close_enough?(other_listing).should be_false
+      end
+      
+      it "returns true even with long distances if differences are small enough" do
+        other_listing = Factory.build(:listing)
+        other_listing.category = "rideshare"
+        other_listing.origin = "Lahti"
+        other_listing.destination = "Ylivieska"
+        @listing.destination = "Oulu"
+        @listing.origin_and_destination_close_enough?(other_listing).should be_true
       end
       
     end
-  
+    if APP_CONFIG.use_sms 
+      describe "#inform_requester_about_potential_match" do
+        context "When driver has a phone number in profile" do
+          it "should send sms including driver's phone number and offer url" do
+            offer = Factory.build(:listing)
+            request = Factory.build(:listing)
+            author = Factory.build(:person)
+            request_author = Factory.build(:person)
+            offer.id = 13
+            offer.category = "rideshare"
+            offer.origin = "Otakaari 20"
+            offer.destination = "Vilhonvuorenkatu 3"
+            offer.listing_type = "offer"
+            offer.author = author
+            request.listing_type = "request"
+            request.author = request_author
+            
+            SmsHelper.should_receive(:send).with(/Danny.+Otakaari 20.+ Vilhonvuorenkatu 3 .+ 358507654321.+ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
+            
+            author.should_receive(:phone_number).twice.and_return("358507654321")
+            author.should_receive(:given_name).twice.and_return("Danny")
+            
+            request.inform_requester_about_potential_match(request, offer)
+            
+          end        
+        end
+      
+        context "When driver doesn't have a phone number in profile" do
+          it "should send sms including offers url" do
+            offer = Factory.build(:listing)
+            request = Factory.build(:listing)
+            author = Factory.build(:person)
+            request_author = Factory.build(:person)
+            offer.id = 15
+            #author.phone_number = nil
+            
+            SmsHelper.should_receive(:send).with(/ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
+            
+            author.should_receive(:phone_number).once.and_return(nil)
+            offer.listing_type = "offer"
+            offer.author = author
+            request.listing_type = "request"
+            request.author = Factory.build(:person)
+            
+            request.inform_requester_about_potential_match(request, offer)
+          end
+        end
+      
+      end
+    end
   end
   
   private
