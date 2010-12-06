@@ -665,7 +665,7 @@ en:
     pay: pay|payment                #may be a regular expression
     offer: offer                    #may be a regular expression
     request: request                #may be a regular expression
-    parsing_error: "Could not understand the message contents. Please check the instructions and try again."
+    parsing_error: "Could not understand the message contents. Please check the instructions and try again. General rideshare sms should look like: 'kassi ride offer/request origin destination time (optional description)'"
     potential_ride_share_offer: "%{author_name} offers a ride in Kassi from %{origin} to %{destination} %{start_time}."
     you_can_call_him_at: "You can call the driver at %{phone_number}"
     or_check_the_offer_in_kassi: "or check the offer in Kassi: %{listing_url}"
