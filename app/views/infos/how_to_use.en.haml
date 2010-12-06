@@ -50,3 +50,29 @@
 
 %p
   When you offer something to other users or they offer something to you, it's always good to give feedback to the other party after the transaction. Good feedback will make people happy, and if somebody doesn't go the way you think you should, it's also good to leave a note about that. All feedback is public and is shown in the profile of the person who received the feedback, and thus helps the other people to assess the credibility of that person. For that reason you should also remind others to give feedback to you, because the positive feedback builds your credibility in the eyes of others, and smoothens future transactions. You can give feedback by clicking the "Give Feedback" link on an accepted request or offer in the messages view.
+  
+-if APP_CONFIG.use_sms
+  %h3 Ridesharing with SMS
+  
+  %p Ridesharing offers and requests can be added also with sms. It can be a handy way to check available rides on the move or announce your driving plans when walking towards your car. Kassi will inform the offer author by sms if the number is in the profile in the international form (e.g. +358501234567), when matching offers are found in Kassi.
+
+  %p
+    Before posting offers or requests with sms you have to have added your mobile phone number
+    - if logged_in?
+      = link_to("in your profile.", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+    - else
+      in your profile.
+  
+  %p Messages should be sent to +358400312821 and be formed as: "kassi ride offer/request origin destination time (optional description)". For example:
+  %ul
+    %li kassi ride offer somestreet20 Helsinki 18:30 still place for two in the car
+    %li kassi ride request railwaystation,hämeenlinna Tampere 14:00
+  
+  %p Currently Kassi separates all parts by spaces, so write addres numbers or other clarifications without space, to correct results. Kassi will search for matching request and offers based on the locations given.
+  
+  %p The time is expected to be within next 24 hours, but it is possible to write exact date if you want, e.g. 24.11.2010-17:30.
+  
+  %p 
+    Sms features are still a work in progress, so there might be small glitches here and there. Please send  
+    = link_to "feedback", "#", :id => "give_feedback_link"
+    if you notices any problems or have ideas about how to improve the feature.

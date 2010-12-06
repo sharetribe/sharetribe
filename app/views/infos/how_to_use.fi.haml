@@ -51,3 +51,30 @@
 
 %p
   Kun tarjoat jotain muille käyttäjille tai pyydät heiltä jotain, kannattaa aina muistaa antaa tapahtuman jälkeen palautetta toiselle osapuolelle. Hyvä palaute tuo toiselle osapuolelle hyvän mielen, ja jos toinen ei ole toiminut odotetulla tavalla, on myös siitä hyvä huomauttaa tälle. Palaute on julkista ja näkyy kaikille palautteen saaneen käyttäjän profiilissa, joten se auttaa muita käyttäjiä arvioimaan kyseisen käyttäjän luotettavuutta. Kannattaa siis myös kehottaa toisia käyttäjiä antamaan palautetta sinulle, sillä saamasi positiivisen palautteen myötä muut tietävät, että sinuun kannnattaa luottaa. Palautteen lisääminen tapahtuu viestinäkymässä klikkaamalla "Anna palautetta" -linkkiä hyväksytyn pyynnön tai tarjouksen kohdalla.
+  
+-if APP_CONFIG.use_sms
+  %h3 Kimppakyytejä tekstiviestillä
+  
+  %p Kimppakyytitarjouksia ja -pyyntöjä voit jättää myös normaalihintaisella tekstiviestillä. Tämä voi olla kätevä tapa tarkistaa tarjolla olevat kyydit liikkeessä ollessa, tai ilmoittaa omista ajoaikeistaan vaikkapa autolle kävellessä. Kunhan olet lisännyt puhelinnumerosi kansainvälisessä muodossa (esim. +358501234567) profiiliisi, saat kyydin pyytäjänä heti tekstiviestillä tiedon, jos sopiva kyyti löytyy jo Kassista, tai kun sopiva tarjous lisätään.
+
+  %p 
+    Puhelinnumeron tulee olla lisättynä 
+    - if logged_in?
+      = link_to("profiiliin", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+    - else
+      profiiliin
+    ennen kuin tekstiviesti-ilmoituksia voi jättää, jotta ilmoitukset osataan merkitä oikealle henkilölle.
+  
+  %p Viesti tulee lähettää numeroon +358400312821 ja sen muoto on: "kassi kyyti pyyntö/tarjous lähtöpaikka määränpää kellonaika (vapaaehtoinen kuvausteksti)". Eli esimerkiksi:
+  %ul
+    %li kassi kyyti tarjous otakaari20 keskusta 18:30 vielä kaksi mahtuu kyytiin
+    %li kassi kyyti pyyntö rautatieasema,hämeenlinna tampere 14:00
+  
+  %p Kassi yrittää päätellä osoitetiedoista yhteensopivia tarjouksia ja pyyntöjä, mutta erottelee tällä hetkellä viestin osat aina välilöynnillä, joten osoitenumerot tai tarkentavat kaupungit tulee kirjoittaa yhteen tai erottaa pilkulla (eikä välilyönnillä).
+  
+  %p Kellonajan oletetaan viittaavan aina seuraavan 24 tunnin sisällä olevaan aikaan, mutta jos haluat tehdä pyynnön tai tarjouksen pidemmälle tulevaisuuteen, voit merkitä ajaksi esim. 24.11.2010-17:30.
+  
+  %p 
+    Tekstiviestitoiminnallisuus on vielä kokeiluasteella, joten pieniä virheitä saattaa esiintyä. Lähetä ihmeessä 
+    = link_to "palautetta", "#", :id => "give_feedback_link"
+    , jos huomaat kummallisuuksia tai sinulla on ajatuksia toiminnan kehittämiseksi.
