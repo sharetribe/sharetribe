@@ -106,4 +106,13 @@
         = 'var pageTracker = _gat._getTracker("'.html_safe + APP_CONFIG.google_analytics_key.to_s + '");'.html_safe
         pageTracker._trackPageview();
         } catch(err) {}</script>
+      
+      - if (APP_CONFIG.use_funneld)
+        <!-- Funneld script-->
+        <script type="text/javascript" src="http://s.funneld.com/tracker_v2.js"></script>
+        <script type="text/javascript">
+        jQuery(function() {
+        = 'funneldTrack("'.html_safe + APP_CONFIG.funneld_key.to_s + '");'.html_safe
+        });
+        </script>
 

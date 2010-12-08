@@ -72,6 +72,10 @@ default: &default_settings
   # and enter it below
   use_google_analytics: false
   google_analytics_key: "enter_your_key_here"
+  
+  # Funneld can be used to track social media activity on the site. 
+  use_funneld: false
+  funneld_key: "enter_your_key_here"
 
   # CAS is a centralized authentication system, it is completely optional
   # If not needed leave to false

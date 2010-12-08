@@ -548,13 +548,19 @@ p.description {
 	overflow: hidden;
 }
 
+.recent_listing_tags {
+	overflow: hidden;
+}
+
 .recent_listing_tag {
-	margin-top: 3px;
 	a {
+		margin-top: 3px;
+		float: left;
 		font-size: 10px;
 		color: white;
 		@include rounded(5px);
 		padding: 1px 4px 2px 4px;
+		margin-right: 3px;
 		background: lighten($light_orange, 5%);
 		&:hover { background: lighten($light_orange, 15%); }
 	}
@@ -615,12 +621,16 @@ p.description {
 .recent_listing_text {
 	@include listing_text;
 	p.description {
-		margin: 2px 0 2px 0;
+		margin: 0;
+		padding: 2px 0 0 0;
 		min-height: 31px;
+		clear: both;
 	}
 	p.description_tall {
-		margin: 4px 0 4px 0;
+		margin: 0;
+		padding: 4px 0 4px 0;
 		min-height: 45px;
+		clear: both;
 	}
 }
 
