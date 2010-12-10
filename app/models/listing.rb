@@ -389,7 +389,7 @@ class Listing < ActiveRecord::Base
       else
         message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => "http://alpha.kassi.eu/#{locale.to_s}/listings/#{offer.id}", :locale => locale)
       end
-      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name)
+      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name, :locale => locale)
       # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
       # to the driver (and the time and date of the suggestions)
       # But as there is not yet real payment API, this is not yet implemented.

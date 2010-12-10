@@ -692,6 +692,8 @@ en:
     check_the_offer_in_kassi: "Check the offer in Kassi: %{listing_url}"
     you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
     payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} euros in your phone bill."
+    category_not_supported: "This category not yet supported by sms."
+    listing_created: "Thank you for the message, a listing is now added to Kassi."
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

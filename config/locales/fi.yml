@@ -693,6 +693,8 @@ fi:
     check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
     you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
     payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
+    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
+    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"
