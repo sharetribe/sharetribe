@@ -67,15 +67,7 @@ describe SmsController do
         }.should raise_error(SmsController::SmsParseError, response_matcher)
         
         lambda {
-          kassi_receives_message("ride request place 11:20")
-        }.should raise_error(SmsController::SmsParseError, response_matcher)
-        
-        lambda {
-          kassi_receives_message("ride offer italy france")
-        }.should raise_error(SmsController::SmsParseError, response_matcher)
-        
-        lambda {
-          kassi_receives_message("ride offer homeroad 20 otherroad 14 8:30")
+          kassi_receives_message("ride request place")
         }.should raise_error(SmsController::SmsParseError, response_matcher)
         
       end

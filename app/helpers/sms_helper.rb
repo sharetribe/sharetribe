@@ -67,34 +67,9 @@ module SmsHelper
         details = {:phone_number => message["msisdn"], :original_text => message["message"], :original_id => message["@id"]}    
         parts = message["message"].split(" ")
         
+        parts_counter = 0
         
         case parts[0]
-        when /#{all_translations("sms.rideshare")}/i
-          details[:category] = "rideshare"
-        
-          raise_sms_parse_error(message) if parts.count < 5
-        
-          details[:listing_type] = case parts[1]
-          when /#{all_translations("sms.offer")}/i
-            "offer"
-          when /#{all_translations("sms.request")}/i
-            "request"
-          else
-            raise_sms_parse_error(message)
-          end
-
-          details[:origin] = parts[2]
-          details[:destination] = parts[3]
-
-          time =  Time.zone.parse(parts[4]).to_datetime
-          if time < DateTime.now && time > 1.days.ago
-            # if only clock time is given and it's earlier than now,
-            # probably the time means tomorrow.
-            time += 1.days
-          end
-          details[:valid_until] = time
-          details[:description] = parts[5..(parts.length-1)].join(" ")
-       
         when /#{all_translations("sms.pay")}/i
           details[:category] = "pay"
           details[:receiver] = parts[1]
@@ -103,6 +78,57 @@ module SmsHelper
           amount.gsub!(/e/i,"")
           amount.gsub!(",",".")
           details[:amount] = amount
+          
+        when /#{all_translations("sms.rideshare")}|#{all_translations("sms.offer")}|#{all_translations("sms.request")}/i
+          # either the category is ridesharing, or omited and defaulting to ridesharing
+          details[:category] = "rideshare"
+          raise_sms_parse_error(message) if parts.count < 3
+                    
+          if parts[0] =~ /#{all_translations("sms.rideshare")}/
+            parts_counter = 1 # read listing_type from parts[1]
+          else
+            parts_counter = 0 # read listing_type from parts[0]
+                              # because category was missing
+          end
+          
+          details[:listing_type] = case parts[parts_counter]
+          when /#{all_translations("sms.offer")}/i
+            "offer"
+          when /#{all_translations("sms.request")}/i
+            "request"
+          else
+            raise_sms_parse_error(message)
+          end
+
+          parts_counter += 1 # read the next word
+          details[:origin] = parts[parts_counter]
+          
+          parts_counter += 1  # read the next word 
+          details[:destination] = parts[parts_counter]
+
+          parts_counter += 1  # read the next word 
+          if parts[parts_counter].present?
+            
+            begin
+              time =  Time.zone.parse(parts[parts_counter]).to_datetime
+              if time < DateTime.now && time > 1.days.ago
+                # if only clock time is given and it's earlier than now,
+                # probably the time means tomorrow.
+                time += 1.days
+              end
+              details[:valid_until] = time
+              parts_counter += 1  # date parsing succeeded, so read the next word
+            rescue Exception => e
+              # This is probably caused by that there is no time in the message
+              # So use the default time: 
+              details[:valid_until] = 1.hour.from_now
+            end
+          else
+            details[:valid_until] = 1.hour.from_now
+          end
+          details[:description] = parts[parts_counter..(parts.length-1)].join(" ")
+       
+
         else
           raise_sms_parse_error(message)
         end
