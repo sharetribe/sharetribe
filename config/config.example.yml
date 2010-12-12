@@ -81,6 +81,12 @@ default: &default_settings
   # If not needed leave to false
   use_CAS: false
   
+  # Bit.ly url shortener
+  # At some places urls can be made shorter if you add your bit.ly login and apikey here:
+  # if you leave these empty, urls will be kept long
+  bitly_username: 
+  bitly_key: 
+  
   # TeliaSonera sms API is optional and experimental
   # leave this to false unless you know what you're doing
   # (The receiver resource must be created separately. see: http://developer.medialab.sonera.fi/info/index.php/Receiver_resource)
