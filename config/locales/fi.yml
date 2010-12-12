@@ -683,8 +683,8 @@ fi:
   sms:
     rideshare: kyyti                      #may be a regular expression
     pay: maksa|maksu                      #may be a regular expression
-    offer: tarjous                        #may be a regular expression
-    request: pyyntö                       #may be a regular expression
+    offer: ^tarjous$|^t$                        #may be a regular expression
+    request: ^pyyntö$|^p$                       #may be a regular expression
     parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
     #" Kimppakyytiviestin tulisi olla muotoa: 'kassi kyyti pyyntö/tarjous lähtöpaikka määränpää aika (vapaaehtoinen listätieto)'" #This should be included in the message if longer message available
     potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
