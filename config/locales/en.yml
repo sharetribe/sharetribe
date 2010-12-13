@@ -688,7 +688,7 @@ en:
     #" General rideshare sms should look like: 'kassi ride offer/request origin destination time (optional description)'" #This should be included in the message if longer message available
     potential_ride_share_offer: "%{author_name} offers a ride in Kassi from %{origin} to %{destination} %{start_time}."
     you_can_call_him_at: "You can call the driver at %{phone_number}"
-    or_check_the_offer_in_kassi: "or check the offer in Kassi: %{listing_url}"
+    or_check_the_offer_in_kassi: "or check the offer %{listing_url}"
     check_the_offer_in_kassi: "Check the offer in Kassi: %{listing_url}"
     you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
     payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} euros in your phone bill."

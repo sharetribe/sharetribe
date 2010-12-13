@@ -689,7 +689,7 @@ fi:
     #" Kimppakyytiviestin tulisi olla muotoa: 'kassi kyyti pyyntö/tarjous lähtöpaikka määränpää aika (vapaaehtoinen listätieto)'" #This should be included in the message if longer message available
     potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
-    or_check_the_offer_in_kassi: " tai katsoa tarjouksen Kassissa: %{listing_url}"
+    or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
     check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
     you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
     payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
