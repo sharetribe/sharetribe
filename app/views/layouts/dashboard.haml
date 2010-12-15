@@ -1,0 +1,17 @@
+!!! 5
+!!! xml
+%html{html_attrs(I18n.locale)}
+  %head
+    %title
+      = t(".title")
+        
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+    %meta{ :name => "description", :content => t(".meta_description") }
+    %meta{ :name => "keywords", :content => t(".keywords") } 
+    = stylesheet_link_tag 'compiled/style_dashboard.css'
+    = javascript_include_tag 'jquery', 'jquery.watermark.min', 'jquery.uniform.min', 'rails', 'kassi_dashboard'
+    :javascript
+      $(document).ready(function() { #{yield :javascript} });
+  %body
+    .container_24
+      = yield

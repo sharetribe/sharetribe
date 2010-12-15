@@ -52,6 +52,8 @@ fi:
       received: "Saapuneet"
       sent: "Lähetetyt"
       notifications: "Tiedotteet"
+    dashboard:
+      title: "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     infos:
       info_about_kassi: "Tietoa Kassista"
       about: "Mikä Kassi?"
@@ -252,7 +254,24 @@ fi:
       accept_request: "Hyväksy pyyntö"
       accept_offer: "Hyväksy tarjous"
       reject_request: "Hylkää pyyntö"
-      reject_offer: "Hylkää tarjous"    
+      reject_offer: "Hylkää tarjous"
+  dashboard:
+    index:
+      email_default_text: "Sähköpostiosoitteesi"
+      bubble_text_line_1: "ANNA HYVÄN"
+      bubble_text_line_2: "KIERTÄÄ!"
+      description: "Kassi on suomalainen yhteisöllinen verkkopalvelu, jonka avulla yhdistyksen tai muun yhteisön jäsenet voivat auttaa toisiaan monin tavoin: lainata ja myydä tavaroita, tehdä palveluksia, järjestää kimppakyytejä ja paljon muuta!"
+      want_to_use_kassi_in_your_association: "Haluatko Kassin käyttöön yhdistyksessäsi?"
+      send: "Lähetä!"
+      or_contact_by_email: "...tai ota yhteyttä sähköpostilla:"
+      want_to_know_how_kassi_works: "Haluatko tietää miten Kassi toimii?"
+      get_to_know_the_aalto_community: "Tutustu Aalto-yliopiston kassiyhteisöön!"
+      want_to_know_more_about_us: "Haluatko tietää lisää toiminta-ajatuksestamme?"
+      get_to_know_the_avoin_yritys_blog: "Tutustu Avoin yritys -blogiin!"
+      kassi_in_facebook: "Kassi Facebookissa"
+      kassi_in_twitter: "Kassi Twitterissä"
+      thank_you: "Kiitos!"
+      thank_you_for_contacting: "Kiitos yhteydenotostasi. Otamme sinuun yhteyttä ensi tilassa. Halutessasi voit lähettää meille myös sähköpostia: kassi aet sizl.org"
   homepage:
     index:
       welcome_to_new_kassi: "Kassi on uudistunut!"

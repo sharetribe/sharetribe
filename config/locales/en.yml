@@ -52,6 +52,8 @@ en:
       received: "Received"
       sent: "Sent"
       notifications: "Notifications"
+    dashboard:
+      title: "Kassi - share goods, favors and rides in your local community!"
     infos:
       info_about_kassi: "Information about Kassi"
       about: "What is Kassi?"
@@ -252,7 +254,24 @@ en:
       give_feedback: "Give feedback"
       skip_feedback: "Skip feedback"
       feedback_given: "Feedback given"
-      feedback_skipped: "Feedback skipped"  
+      feedback_skipped: "Feedback skipped"
+  dashboard:
+    index:
+      email_default_text: "Your email address"
+      bubble_text_line_1: "PAY IT"
+      bubble_text_line_2: "FORWARD!"
+      description: "Kassi is a web service that helps your community members to help each other out in several ways: by lending and selling stuff, doing favors, sharing rides and many others!"
+      want_to_use_kassi_in_your_association: "Want to use Kassi in your community?"
+      send: "Send!"
+      or_contact_by_email: "...or get in touch by email:"
+      want_to_know_how_kassi_works: "Want to know how Kassi works?"
+      get_to_know_the_aalto_community: "Check out the Kassi community of Aalto University!"
+      want_to_know_more_about_us: "Want to know more about our philosophy?"
+      get_to_know_the_avoin_yritys_blog: "Check out our blog! (currently in Finnish)"
+      kassi_in_facebook: "Kassi in Facebook"
+      kassi_in_twitter: "Kassi in Twitter"
+      thank_you: "Thank you!"
+      thank_you_for_contacting: "Thank you for contacting us. We will get back to you as soon as possible. If you want you can also reach us by email: kassi aet sizl.org"
   homepage:
     index:
       welcome_to_new_kassi: "Welcome to new Kassi!"

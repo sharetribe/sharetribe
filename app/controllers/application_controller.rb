@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include UrlHelper
   protect_from_forgery
   layout 'application'
   
@@ -84,12 +85,14 @@ class ApplicationController < ActionController::Base
   end
   
   def fetch_community
+    return if ["contact_requests", "dashboard"].include?(controller_name)
+    redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
     if @community = Community.find_by_domain(request.subdomain)
-      if @current_user.communities.include?(@community)
-      
-      else
+      if @current_user && !@current_user.communities.include?(@community)
+        # Show notification "you are not a member in this community"
       end
-    else    
+    else
+      redirect_to root_url(:subdomain => "www")
     end
   end
   
