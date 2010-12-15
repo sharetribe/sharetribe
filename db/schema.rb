@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101203115634) do
+ActiveRecord::Schema.define(:version => 20101213152125) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -53,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20101203115634) do
     t.string   "member_id"
     t.integer  "community_id"
     t.boolean  "admin",        :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contact_requests", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

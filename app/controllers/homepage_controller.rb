@@ -8,7 +8,7 @@ class HomepageController < ApplicationController
     
     unless session[:welcome_message]
       flash.now[:info_message] = ["welcome_message", :read_more, about_infos_path]
-      session[:welcome_message] = true    
+      session[:welcome_message] = true
     end  
     
     # If requesting a specific page on non-ajax request, we'll ignore that
