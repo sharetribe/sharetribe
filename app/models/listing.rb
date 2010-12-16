@@ -25,6 +25,10 @@ class Listing < ActiveRecord::Base
   
   has_many :share_types
   
+  has_and_belongs_to_many :communities
+  
+  attr_accessor :current_community_id
+  
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
@@ -47,11 +51,11 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "kassi_users"]
+  VALID_VISIBILITIES = ["everybody", "communities", "this_community"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
-  
   before_save :downcase_tags
+  after_validation :set_community_visibilities
   after_create :check_possible_matches
   
   validates_presence_of :author_id
@@ -90,13 +94,23 @@ class Listing < ActiveRecord::Base
         }
   end
   
+  def set_community_visibilities
+    communities.clear
+    if visibility.eql?("this_community")
+      communities << Community.find(current_community_id)
+    else
+      communities = author.communities
+      logger.info "Communities: #{communities}"
+    end
+  end
+  
   # Filter out listings that current user cannot see
   def self.visible_to(current_user)
-    current_user ? where("listings.visibility IN ('everybody','kassi_users')") : where("listings.visibility = 'everybody'")
+    current_user ? where("listings.visibility IN ('everybody','communities')") : where("listings.visibility = 'everybody'")
   end
   
   def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
+    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("communities"))
   end
   
   def share_type_attributes=(attributes)
