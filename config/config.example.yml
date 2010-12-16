@@ -117,8 +117,11 @@ test:
   # captcha is expected to be off when running tests
   use_recaptcha: false
   
-  # The domain should be not set for running the tests succesfully
-  domain:
+  # The domain should be set to lvh.me (which redirects to localhost)
+  # to be able to run the tests with subdomains.
+  domain: lvh.me
+  # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
+  # Contact Gnomet at Github to get more info about this if needed.
     
   # The login domain should be empty for tests
   login_domain:
