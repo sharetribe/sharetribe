@@ -61,7 +61,7 @@ class PersonMailer < ActionMailer::Base
   def new_feedback(feedback)
     @no_settings = true
     @feedback = feedback
-    subject = "Uutta palautetta #{APP_CONFIG.production_server}-Kassista käyttäjältä #{feedback.author.try(:name)}"
+    subject = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
@@ -71,6 +71,15 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @url = "http://aalto.kassi.eu/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}"
     mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
+  end
+  
+  # Used to send notification to Kassi admins when somebody
+  # wants to contact them through the form in the dashboard
+  def contact_request_notification(email)
+    @no_settings = true
+    @email = email
+    subject = "Uusi yhteydenottopyyntö #{APP_CONFIG.server_name}-Kassista"
+    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
   private
