@@ -87,7 +87,7 @@ class ApplicationController < ActionController::Base
   def fetch_community
     return if ["contact_requests", "dashboard"].include?(controller_name)
     redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
-    if @community = Community.find_by_domain(request.subdomain)
+    if request.subdomain == "login" || @community = Community.find_by_domain(request.subdomain)
       if @current_user && !@current_user.communities.include?(@community)
         # Show notification "you are not a member in this community"
       end
