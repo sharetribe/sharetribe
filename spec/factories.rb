@@ -91,6 +91,6 @@ end
 
 Factory.define :community_membership do |c|
   c.association :community
-  c.member { |member| member.association(:person) }
+  c.association :person
   c.admin false
 end

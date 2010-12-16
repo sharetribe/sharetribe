@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101213152125) do
+ActiveRecord::Schema.define(:version => 20101216152952) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -49,8 +49,13 @@ ActiveRecord::Schema.define(:version => 20101213152125) do
     t.datetime "updated_at"
   end
 
+  create_table "communities_listings", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "listing_id"
+  end
+
   create_table "community_memberships", :force => true do |t|
-    t.string   "member_id"
+    t.string   "person_id"
     t.integer  "community_id"
     t.boolean  "admin",        :default => false
     t.datetime "created_at"
