@@ -68,4 +68,5 @@ Before do
   Fixtures.create_fixtures(fixtures_folder, fixtures)
   
   Capybara.default_host = 'test.lvh.me'
+  Capybara.app_host = "http://test.lvh.me:9887"
 end
