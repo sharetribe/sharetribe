@@ -106,11 +106,11 @@ class Listing < ActiveRecord::Base
   
   # Filter out listings that current user cannot see
   def self.visible_to(current_user)
-    current_user ? where("listings.visibility IN ('everybody','communities')") : where("listings.visibility = 'everybody'")
+    current_user ? where("listings.visibility IN ('everybody','communities','this_community')") : where("listings.visibility = 'everybody'")
   end
   
   def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("communities"))
+    self.visibility.eql?("everybody") || (current_user && ["communities", "this_community"].include?(self.visibility))
   end
   
   def share_type_attributes=(attributes)
