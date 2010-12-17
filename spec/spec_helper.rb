@@ -29,6 +29,11 @@ end
 require File.expand_path('../../test/helper_modules', __FILE__)
 include TestHelpers
 
+def set_subdomain(subdomain = "test")
+  subdomain += "." unless subdomain.blank?
+  @request.host = "#{subdomain}lvh.me"
+end
+
 # def get_test_person_and_session(username="kassi_testperson1")
 #   session = nil
 #   test_person = nil
