@@ -154,6 +154,11 @@ GEM
       fastthread (>= 1.0.1)
       rack
       rake (>= 0.8.1)
+    pickle (0.4.4)
+      cucumber (>= 0.8)
+      rake
+      rspec (>= 1.3)
+      yard
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -228,6 +233,7 @@ DEPENDENCIES
   newrelic_rpm
   paperclip
   passenger
+  pickle
   rails (= 3.0.0)
   recaptcha!
   rest-client (>= 1.6.0)

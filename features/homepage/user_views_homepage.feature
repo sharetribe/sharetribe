@@ -13,6 +13,7 @@ Feature: User views homepage
     And that listing is closed
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"
     And visibility of that listing is "kassi_users"
+    And I use subdomain "test"
     When I am on the homepage
     And I should see "car spare parts"
     And I should see "Request item"
