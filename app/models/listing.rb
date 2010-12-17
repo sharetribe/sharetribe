@@ -29,8 +29,8 @@ class Listing < ActiveRecord::Base
   
   attr_accessor :current_community_id
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
@@ -54,8 +54,7 @@ class Listing < ActiveRecord::Base
   VALID_VISIBILITIES = ["everybody", "communities", "this_community"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
-  before_save :downcase_tags
-  after_validation :set_community_visibilities
+  before_save :downcase_tags, :set_community_visibilities
   after_create :check_possible_matches
   
   validates_presence_of :author_id
@@ -95,22 +94,44 @@ class Listing < ActiveRecord::Base
   end
   
   def set_community_visibilities
-    communities.clear
-    if visibility.eql?("this_community")
-      communities << Community.find(current_community_id)
-    else
-      communities = author.communities
-      logger.info "Communities: #{communities}"
+    if current_community_id
+      communities.clear
+      if visibility.eql?("this_community")
+        communities << Community.find(current_community_id)
+      else
+        author.communities.each { |c| communities << c }
+      end
     end
   end
   
   # Filter out listings that current user cannot see
   def self.visible_to(current_user)
-    current_user ? where("listings.visibility IN ('everybody','communities','this_community')") : where("listings.visibility = 'everybody'")
+    if current_user
+      where("
+        listings.visibility = 'everybody' 
+        OR (
+          listings.visibility IN ('communities','this_community') 
+          AND listings.id IN (
+            SELECT listings.id 
+            FROM communities_listings, listings
+            WHERE communities_listings.community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
+            AND communities_listings.listing_id = listings.id
+          )
+        )
+      ")
+    else 
+      where("listings.visibility = 'everybody'")
+    end
   end
   
   def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && ["communities", "this_community"].include?(self.visibility))
+    self.visibility.eql?("everybody") || (current_user && Listing.count_by_sql("
+      SELECT count(*) 
+      FROM community_memberships, communities_listings 
+      WHERE community_memberships.person_id = '#{current_user.id}' 
+      AND community_memberships.community_id = communities_listings.community_id
+      AND communities_listings.listing_id = '#{id}'
+      ") > 0)
   end
   
   def share_type_attributes=(attributes)
