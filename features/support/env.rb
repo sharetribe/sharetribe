@@ -66,4 +66,7 @@ Before do
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
   Fixtures.create_fixtures(fixtures_folder, fixtures)
+  
+  Capybara.default_host = 'test.lvh.me'
+  Capybara.app_host = "http://test.lvh.me:9887"
 end

@@ -47,4 +47,5 @@ group :test do
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'
+  gem "pickle"
 end
