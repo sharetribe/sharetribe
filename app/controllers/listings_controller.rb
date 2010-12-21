@@ -124,7 +124,7 @@ class ListingsController < ApplicationController
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
     if @current_user
-      unless @listing.visible_to?(@current_user)
+      unless @listing.visible_to?(@current_user, @current_community)
         flash[:error] = "you_are_not_authorized_to_view_this_content"
         redirect_to root and return
       end

@@ -118,7 +118,7 @@ class ConversationsController < ApplicationController
   
   # Ensure that only users with appropriate visibility settings can reply to the listing
   def ensure_authorized_to_reply
-    unless @listing.visible_to?(@current_user)
+    unless @listing.visible_to?(@current_user, @current_community)
       flash[:error] = "you_are_not_authorized_to_view_this_content"
       redirect_to root and return
     end  

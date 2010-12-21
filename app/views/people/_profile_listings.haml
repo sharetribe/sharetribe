@@ -1,6 +1,6 @@
 #inbox_tabs
   %div{:class => get_profile_tab_class("offers")}
-    - offer_count = show_closed? ? @person.offers.visible_to(@current_user).count : @person.offers.open.visible_to(@current_user).count
+    - offer_count = show_closed? ? @person.offers.visible_to(@current_user, @current_community).count : @person.offers.open.visible_to(@current_user, @current_community).count
     = link_to t('.offers') + " (#{offer_count})", person_listings_path(:id => @person.id.to_s, :type => "offers", :closed => (params[:closed] || "false"))
   %div{:class => get_profile_tab_class("requests")} 
     - request_count = show_closed? ? @person.requests.count : @person.requests.open.count
