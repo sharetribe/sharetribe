@@ -125,14 +125,27 @@ class Listing < ActiveRecord::Base
   end
   
   def visible_to?(current_user, current_community)
-    self.visibility.eql?("everybody") || (current_user && Listing.count_by_sql("
-      SELECT count(*) 
-      FROM community_memberships, communities_listings 
-      WHERE community_memberships.person_id = '#{current_user.id}' 
-      AND community_memberships.community_id = communities_listings.community_id
-      AND communities_listings.listing_id = '#{id}'
-      AND communities_listings.community_id = '#{current_community.id}'
-      ") > 0)
+    if current_user
+      Listing.count_by_sql("
+        SELECT count(*) 
+        FROM community_memberships, communities_listings 
+        WHERE community_memberships.person_id = '#{current_user.id}' 
+        AND community_memberships.community_id = communities_listings.community_id
+        AND communities_listings.listing_id = '#{id}'
+        AND communities_listings.community_id = '#{current_community.id}'
+      ") > 0
+    else
+      Listing.count_by_sql("
+        SELECT count(id) 
+        FROM listings 
+        WHERE visibility = 'everybody'
+        AND id IN (
+          SELECT listing_id 
+          FROM communities_listings 
+          WHERE community_id = '#{current_community.id}'
+        )
+      ") > 0
+    end
   end
   
   def share_type_attributes=(attributes)
