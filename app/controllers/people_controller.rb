@@ -21,7 +21,7 @@ class PeopleController < ApplicationController
     end
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
-    @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
+    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end
 
@@ -57,6 +57,7 @@ class PeopleController < ApplicationController
     begin
       @person = Person.create(params[:person], session[:cookie])
       @person.set_default_preferences
+      @person.communities << @current_community
     rescue RestClient::RequestFailed => e
       logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
       

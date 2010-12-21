@@ -79,18 +79,18 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    has "listings.visibility IN ('everybody','kassi_users')", :as => :visible_to_kassi_users, :type => :boolean
     has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
+    has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
     set_property :delta => true
     set_property :field_weights => {
-          :title       => 10,
-          :tags        => 8,
-          :description => 3,
-          :comments    => 1
-        }
+      :title       => 10,
+      :tags        => 8,
+      :description => 3,
+      :comments    => 1
+    }
   end
   
   def set_community_visibilities
@@ -105,32 +105,33 @@ class Listing < ActiveRecord::Base
   end
   
   # Filter out listings that current user cannot see
-  def self.visible_to(current_user)
+  def self.visible_to(current_user, current_community)
     if current_user
       where("
-        listings.visibility = 'everybody' 
+        (listings.visibility = 'everybody' 
         OR (
           listings.visibility IN ('communities','this_community') 
           AND listings.id IN (
-            SELECT listings.id 
-            FROM communities_listings, listings
-            WHERE communities_listings.community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
-            AND communities_listings.listing_id = listings.id
+            SELECT listing_id 
+            FROM communities_listings
+            WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
           )
-        )
+        ))
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')
       ")
     else 
-      where("listings.visibility = 'everybody'")
+      where("listings.visibility = 'everybody' AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')")
     end
   end
   
-  def visible_to?(current_user)
+  def visible_to?(current_user, current_community)
     self.visibility.eql?("everybody") || (current_user && Listing.count_by_sql("
       SELECT count(*) 
       FROM community_memberships, communities_listings 
       WHERE community_memberships.person_id = '#{current_user.id}' 
       AND community_memberships.community_id = communities_listings.community_id
       AND communities_listings.listing_id = '#{id}'
+      AND communities_listings.community_id = '#{current_community.id}'
       ") > 0)
   end
   
