@@ -212,7 +212,7 @@ class Listing < ActiveRecord::Base
   
   # Overrides the to_param method to implement clean URLs
   def to_param
-    "#{id}-#{title.gsub(/\W/, '_').downcase}"
+    "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
   def self.find_with(params, current_user=nil)
