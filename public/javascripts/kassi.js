@@ -91,7 +91,7 @@ function initialize_defaults(default_text, locale, feedback_default_text) {
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
 	translate_validation_messages(locale);
-	var form_id = "#new_feedback"
+	var form_id = "#new_feedback";
 	$(form_id).validate({
 		rules: {
 			"feedback[content]": {required: true, minlength: 1}
@@ -296,7 +296,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 		messages: {
 		  "recaptcha_response_field": { captcha: captcha_message },
 			"person[username]": { valid_username: invalid_username_message, remote: username_in_use_message },
-			"person[email]": { remote: email_in_use_message },
+			"person[email]": { remote: email_in_use_message }
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
@@ -324,7 +324,7 @@ function initialize_update_profile_info_form(locale, person_id) {
 			"person[street_address]": {required: false, maxlength: 50},
 			"person[postal_code]": {required: false, maxlength: 8},
 			"person[city]": {required: false, maxlength: 50},
-			"person[phone_number]": {required: false, maxlength: 25},
+			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "true");
@@ -645,7 +645,7 @@ var faceGrade = {
       $(this).addClass('grade-over');
     }, function() {
       // Handle star mouse out
-      $(this).siblings().andSelf().removeClass('grade-over')
+      $(this).siblings().andSelf().removeClass('grade-over');
     });    
   } 
 }
