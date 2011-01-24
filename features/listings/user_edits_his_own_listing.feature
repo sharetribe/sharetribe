@@ -43,7 +43,7 @@ Feature: User edits his own listing
     And I uncheck "buy"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
-    And I select "2011" from "listing_valid_until_1i"
+    And I select "2012" from "listing_valid_until_1i"
     And I press "Save request"
     Then I should see "This field is required." within ".error"
     And I should see "You must check at least one of the boxes above." within ".error"
