@@ -31,7 +31,7 @@ describe CachedRessiEvent do
          event.save!
          event.upload
        rescue Errno::ECONNREFUSED => e
-         puts "No connection to RESSI at #{APP_CONFIG.ressi_url}"
+         puts "No connection to RESSI (optional) at #{APP_CONFIG.ressi_url}"
        rescue Exception => e
          assert false,  "Ressi timed out at #{APP_CONFIG.ressi_url}, #{e.message}"
        end
