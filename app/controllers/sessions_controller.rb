@@ -3,8 +3,8 @@ require 'rest_client'
 class SessionsController < ApplicationController
   
   def create
-    
-    #if the request came from different domain, redirects back there.
+    # if the request came from different domain, redirects back there.
+    # e.g. if using login-subdoain for logging in with https
     domain = request.headers["HTTP_ORIGIN"] || ""
     
     session[:form_username] = params[:username]

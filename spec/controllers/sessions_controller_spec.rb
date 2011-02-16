@@ -3,7 +3,9 @@ require 'spec_helper'
 
 
 describe SessionsController, "POST create" do
-  fixtures :people  
+  fixtures :people, :communities
+  
+  before (:each) {set_subdomain("login")}  
   
   it "creates a Session model" do
     #Session.should_receive(:create)
