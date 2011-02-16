@@ -16,7 +16,8 @@ Feature: User changes email address
     And I press "email_submit"
     And I follow "account_email_link"
     Then I should see "Information updated" within "#notifications"
-    And the "person_email" field should contain the email I gave
+    And I should see the email I gave within "#account_email_content"
+    
     
   @javascript
   Scenario: Trying to update email address with false information
