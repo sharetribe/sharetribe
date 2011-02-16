@@ -74,6 +74,16 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|em
   end
 end
 
+Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_content(@values[value])
+    else
+      assert page.has_content?(@values[value])
+    end
+  end
+end
+
 # Adds a test person to ASI but not in Kassi
 Given /^I already have an OtaSizzle account$/ do
   cookie = Session.create.cookie
