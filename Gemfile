@@ -37,10 +37,10 @@ gem 'passenger'
 gem 'delayed_job'
 
 group :test do
-  gem "rspec-rails", "~> 2.0.1"
-  gem 'capybara'
+  gem "rspec-rails", "2.0.0.beta.19" #
+  gem 'capybara', '0.3.9' #
   gem 'cucumber-rails'
-  gem 'cucumber'#, '~> 0.9.3'
+  gem 'cucumber', '0.8.5' #
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'
