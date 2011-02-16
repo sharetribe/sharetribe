@@ -90,6 +90,13 @@ describe PersonMailer do
     email = PersonMailer.new_feedback(@feedback).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
-  end  
+  end
+  
+  it "should send email to admins of new contact request" do
+    @contact_request = Factory(:contact_request)
+    email = PersonMailer.contact_request_notification(@contact_request).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
+  end
 
 end

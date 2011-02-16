@@ -1599,7 +1599,7 @@ a.edit_profile {
 	margin-bottom: 5px;
 }
 
-@mixin message_notice($width: 340px, $margin_left: 97px) {
+@mixin message_notice($width: 340px, $margin_left: 77px) {
 	@include notification($notice_text, $notice_border, $notice_bg);
 	margin: 10px 77px 10px $margin_left;
 	width: $width;
