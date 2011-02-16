@@ -21,3 +21,13 @@ After('@subdomain2') do
   Capybara.default_host = 'test.lvh.me'
   Capybara.app_host = "http://test.lvh.me:9887"
 end
+
+Before ('@no_subdomain') do
+  Capybara.default_host = 'lvh.me'
+  Capybara.app_host = "http://lvh.me:9887"
+end
+
+After('@no_subdomain') do
+  Capybara.default_host = 'test.lvh.me'
+  Capybara.app_host = "http://test.lvh.me:9887"
+end
