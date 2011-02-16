@@ -1,7 +1,7 @@
 Given /^I use subdomain "([^"]*)"$/ do |subdomain|
   #visit("http://#{subdomain}.lvh.me:9887") 
   Capybara.default_host = "#{subdomain}.lvh.me"
-  Capybara.app_host = "http://#{subdomain}.lvh.me:9887" # if Capybara.current_driver == :culerity
+  Capybara.app_host = "http://#{subdomain}.lvh.me:9887" if Capybara.current_driver == :culerity
 end
 
 When 'the system processes jobs' do

@@ -11,3 +11,13 @@ Before('@badge') do
     And I should see "Received feedback" within ".inbox_tab_unselected"
   }
 end
+
+Before ('@subdomain2') do
+  Capybara.default_host = 'test2.lvh.me'
+  Capybara.app_host = "http://test2.lvh.me:9887"
+end
+
+After('@subdomain2') do
+  Capybara.default_host = 'test.lvh.me'
+  Capybara.app_host = "http://test.lvh.me:9887"
+end

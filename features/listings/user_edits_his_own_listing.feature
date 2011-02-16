@@ -17,7 +17,7 @@ Feature: User edits his own listing
     And the "rent" checkbox should not be checked
     And the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
-    And the "listing_tag_list" field should contain "tools, test"
+    And the "listing_tag_list" field should contain "tools, hammers"
     And I uncheck "Buy"
     And I check "Rent"
     And I fill in "listing_title" with "Sledgehammer"
@@ -43,7 +43,7 @@ Feature: User edits his own listing
     And I uncheck "buy"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
-    And I select "2011" from "listing_valid_until_1i"
+    And I select "2012" from "listing_valid_until_1i"
     And I press "Save request"
     Then I should see "This field is required." within ".error"
     And I should see "You must check at least one of the boxes above." within ".error"

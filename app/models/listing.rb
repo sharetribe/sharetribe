@@ -215,7 +215,7 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  def self.find_with(params, current_user=nil)
+  def self.find_with(params, current_user=nil, current_community=nil)
     conditions = []
     conditions[0] = "listing_type = ?"
     conditions[1] = params[:listing_type]
@@ -227,7 +227,7 @@ class Listing < ActiveRecord::Base
     if params[:share_type] && !params[:share_type][0].eql?("all")
       listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
     end
-    listings.visible_to(current_user).order("listings.id DESC")
+    listings.visible_to(current_user, current_community).order("listings.id DESC")
   end
   
   # Returns true if listing exists and valid_until is set

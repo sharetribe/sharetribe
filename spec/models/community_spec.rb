@@ -20,6 +20,8 @@ describe Community do
   end
   
   it "is not valid without proper domain" do
+    @community.domain = "test_community-9"
+    @community.should be_valid
     @community.domain = nil
     @community.should_not be_valid
     @community.domain = "a"
