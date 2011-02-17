@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ApplicationController do 
-  before (:each) {set_subdomain}
+  #before (:each) {set_subdomain}
   
   controller do
     # a mock method to raise the error
@@ -12,7 +12,6 @@ describe ApplicationController do
   
   describe "handling RestClient::Unauthorized exceptions" do
     it "redirects to the home page" do
-      set_subdomain("")
       get :index
       response.should redirect_to("/?locale=en")
     end
@@ -23,7 +22,7 @@ describe ApplicationController do
       assigns("current_user").should be_nil
     end
     it "shows flash error" do
-      set_subdomain("login")
+      @request.host = "login.lvh.me"
       get :index
       flash[:error].class.should == Array
       flash[:error][0].should eq("error_with_session") 
