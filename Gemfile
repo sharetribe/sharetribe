@@ -41,6 +41,7 @@ group :test do
   gem 'capybara', '0.3.9' #
   gem 'cucumber-rails'
   gem 'cucumber', '0.8.5' #
+  gem 'selenium-webdriver', '0.0.28' ##
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'
