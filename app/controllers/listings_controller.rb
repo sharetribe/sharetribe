@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
     else
-      render  @to_render
+      render @to_render
     end
   end
   

@@ -236,7 +236,7 @@ function initialize_comment_form(locale) {
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "true");
 		}
-	});	
+	});
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
