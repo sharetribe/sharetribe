@@ -102,6 +102,7 @@ class ApplicationController < ActionController::Base
     # For some reason, ASI session is no longer valid => log the user out
     clear_user_session
     flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
+    ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.")
     redirect_to root_path and return
   end
   
