@@ -397,7 +397,8 @@ en:
       visibility:
         visibility: "Visibility"
         everybody: "Everybody"
-        kassi_users: "Only logged in users"
+        communities: "All my Kassi communities"
+        this_community: "Only %{community} community"
       send_button:
         save_request: "Save request"
         save_offer: "Save offer"

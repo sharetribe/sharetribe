@@ -85,7 +85,7 @@ class ApplicationController < ActionController::Base
   end
   
   def fetch_community
-    return if ["contact_requests", "dashboard"].include?(controller_name)
+    return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
     redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
     if request.subdomain == "login" || @current_community = Community.find_by_domain(request.subdomain)
       if @current_user && !@current_user.communities.include?(@current_community)

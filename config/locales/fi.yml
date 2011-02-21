@@ -398,7 +398,7 @@ fi:
         visibility: "Näkyvyys"
         everybody: "Kaikille"
         communities: "Omille Kassiyhteisöilleni"
-        this_community: "Vain tälle yhteisölle"
+        this_community: "Vain %{community}-yhteisölle"
       send_button:
         save_request: "Tallenna pyyntö"
         save_offer: "Tallenna tarjous"
