@@ -162,8 +162,9 @@ Kassi::Application.routes.draw do
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
-
-  constraints(Subdomain) do  
+  
+  constraints(Subdomain) do
+    match '/:locale/' => 'homepage#index'
     match '/' => 'homepage#index'
   end  
   root :to => 'dashboard#index'

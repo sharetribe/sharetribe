@@ -4,15 +4,15 @@
 #header.grid_18.prefix_3.suffix_3
   .grid_3.alpha 
     #logo 
-      %img{:src => "/images/kassi_logo.png"} 
+      = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
   .grid_11
     #slogan= t("layouts.dashboard.title")
   .grid_4.omega
     - if APP_CONFIG.available_locales.count > 1
       #locale_select
         = form_tag("/change_locale", :method => "get") do
-          = hidden_field_tag :redirect_uri, root
-          = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale] || "fi"), :onchange => 'this.form.submit()', :class => 'language_select'
+          = hidden_field_tag :redirect_uri, @return_to
+          = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
 #main.grid_18.prefix_3.suffix_3  
   #middle_text.grid_12.alpha 
     #bubble_container 
