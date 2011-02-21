@@ -278,7 +278,7 @@ describe Listing do
             request.listing_type = "request"
             request.author = request_author
             
-            SmsHelper.should_receive(:send).with(/Danny.+Otakaari 20.+ Vilhonvuorenkatu 3 .+ 358507654321.+ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
+            SmsHelper.should_receive(:send).with(/Danny.+Otakaari 20.+ Vilhonvuorenkatu 3 .+ 358507654321.+ http:\/\/.+ /, request_author.phone_number).and_return(true)
             
             author.should_receive(:phone_number).twice.and_return("358507654321")
             author.should_receive(:given_name).twice.and_return("Danny")
@@ -297,7 +297,11 @@ describe Listing do
             offer.id = 15
             #author.phone_number = nil
             
-            SmsHelper.should_receive(:send).with(/ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
+            if APP_CONFIG.bitly_username && APP_CONFIG.bitly_key
+              SmsHelper.should_receive(:send).with(/ http:\/\/bit.ly\/.+ /, request_author.phone_number).and_return(true)
+            else
+              SmsHelper.should_receive(:send).with(/ http:\/\/.+\/#{offer.id} /, request_author.phone_number).and_return(true)
+            end
             
             author.should_receive(:phone_number).once.and_return(nil)
             offer.listing_type = "offer"

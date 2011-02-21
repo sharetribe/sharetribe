@@ -38,6 +38,19 @@ module ApplicationHelper
      URI.escape(str, Regexp.new("[^-_!~*()a-zA-Z\\d]"))
   end
   
+  def self.shorten_url(url)
+    if APP_CONFIG.bitly_username && APP_CONFIG.bitly_key
+      begin
+        bit_ly_query = "http://api.bit.ly/shorten/?version=2.0.1&login=#{APP_CONFIG.bitly_username}&longUrl=#{escape_for_url(url)}&apiKey=#{APP_CONFIG.bitly_key}"
+        return JSON.parse(RestClient.get(bit_ly_query))["results"][url]["shortUrl"]
+      rescue Exception => e
+        return url
+      end
+    else
+      return url
+    end
+  end
+  
   # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(&block)
     pattern = /[\.)]*$/

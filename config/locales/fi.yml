@@ -683,16 +683,18 @@ fi:
   sms:
     rideshare: kyyti                      #may be a regular expression
     pay: maksa|maksu                      #may be a regular expression
-    offer: tarjous                        #may be a regular expression
-    request: pyyntö                       #may be a regular expression
+    offer: ^tarjous$|^t$                        #may be a regular expression
+    request: ^pyyntö$|^p$                       #may be a regular expression
     parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
     #" Kimppakyytiviestin tulisi olla muotoa: 'kassi kyyti pyyntö/tarjous lähtöpaikka määränpää aika (vapaaehtoinen listätieto)'" #This should be included in the message if longer message available
     potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
-    or_check_the_offer_in_kassi: " tai katsoa tarjouksen Kassissa: %{listing_url}"
+    or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
     check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
     you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
     payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
+    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
+    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
   timestamps:
     seconds_ago: "sekuntia sitten"
     minute_ago:  "minuutti sitten"

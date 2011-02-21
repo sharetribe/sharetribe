@@ -683,16 +683,18 @@ en:
   sms:
     rideshare: ride|rideshare       #may be a regular expression
     pay: pay|payment                #may be a regular expression
-    offer: offer                    #may be a regular expression
-    request: request                #may be a regular expression
+    offer: ^offer$|^o$                    #may be a regular expression
+    request: ^request$|^r$                #may be a regular expression
     parsing_error: "Could not understand the message contents. Please check the instructions and try again."
     #" General rideshare sms should look like: 'kassi ride offer/request origin destination time (optional description)'" #This should be included in the message if longer message available
     potential_ride_share_offer: "%{author_name} offers a ride in Kassi from %{origin} to %{destination} %{start_time}."
     you_can_call_him_at: "You can call the driver at %{phone_number}"
-    or_check_the_offer_in_kassi: "or check the offer in Kassi: %{listing_url}"
+    or_check_the_offer_in_kassi: "or check the offer %{listing_url}"
     check_the_offer_in_kassi: "Check the offer in Kassi: %{listing_url}"
     you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
     payment_delivered: "Payment of %{amount} euros is delivered to %{receiver}. You'll be paying %{amount_plus_commission} euros in your phone bill."
+    category_not_supported: "This category not yet supported by sms."
+    listing_created: "Thank you for the message, a listing is now added to Kassi."
   timestamps:
     seconds_ago: "seconds ago"
     minute_ago:  "minute ago"

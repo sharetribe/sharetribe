@@ -42,6 +42,9 @@ class SmsController < ApplicationController
           "Kirjaudu Kassiin ainakin kerran, ennen kuin lähetät viestiä. You have to log in Kassi at least once before sumbiting an SMS.") and return
       end
       
+      # At this point we can know the preferred language of the user.
+      I18n.locale = author.locale.to_sym || :fi
+      
       # Create the listing
       begin
         case message[:category]
@@ -66,8 +69,7 @@ class SmsController < ApplicationController
             
           render :text => t("sms.payment_delivered", :receiver => message[:receiver], :amount => message[:amount], :amount_plus_commission => sprintf('%.2f', (message[:amount].to_f * 1.05))) and return
         else
-          delete_message_and_render_error(message, 
-            "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä. This category not yet supported by sms.") and return
+          delete_message_and_render_error(message, t("sms.category_not_supported")) and return
         end
       rescue Exception => e
         delete_message_and_render_error(message, 
@@ -75,7 +77,7 @@ class SmsController < ApplicationController
       end
     end
     
-    render :text => "Kiitos viestistä, ilmoitus luotu! Thank you for the message, a listing is created!"
+    render :text => t("sms.listing_created")
   end
 
   def delete_message_and_render_error(message, error_message)

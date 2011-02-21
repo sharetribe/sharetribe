@@ -22,7 +22,7 @@ describe RessiEvent do
         test_event.save.should be_true
         test_event.should_not be_nil
       rescue Errno::ECONNREFUSED => e
-        puts "No connection to RESSI at #{APP_CONFIG.ressi_url}"
+        puts "No connection to RESSI (optional) at #{APP_CONFIG.ressi_url}"
       end
 
     end
