@@ -85,9 +85,21 @@ class ApplicationController < ActionController::Base
   end
   
   def fetch_community
+    # if in dashboard, no community to fetch, just return
     return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
+    
+    # if form posted to login-domain, pick community domain from origin url
+    if request.subdomain == "login"    
+      origin_subdomain = request.headers["HTTP_ORIGIN"][/\/\/([^\.]+)\./, 1]
+      @current_community = Community.find_by_domain(origin_subdomain)
+      return
+    end
+    
+    # Redirect to root if trying to do a non-dashboard action in dashboard domain
     redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
-    if request.subdomain == "login" || @current_community = Community.find_by_domain(request.subdomain)
+    
+    
+    if @current_community = Community.find_by_domain(request.subdomain)
       if @current_user && !@current_user.communities.include?(@current_community)
         # Show notification "you are not a member in this community"
       end
