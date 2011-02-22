@@ -13,7 +13,6 @@ Feature: User views dashboard
   @javascript
   Scenario: User changes dashboard language
     Given I am on the home page
-    And I follow "Kassi"
     When I select "Finnish" from "locale"
     Then I should see "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
 
