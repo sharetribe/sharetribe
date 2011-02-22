@@ -90,11 +90,18 @@ class ApplicationController < ActionController::Base
     
     # if form posted to login-domain, pick community domain from origin url
     if request.subdomain == "login"
-      # Detect if non-login requst came to login url
-      if request.headers["HTTP_ORIGIN"].blank? || controller_name != "session"
+      if ENV['RAILS_ENV'] == 'test' && request.headers["HTTP_ORIGIN"].blank?
+        #when running tests, the origin may be blank, in that case set to test
+        @current_community = Community.find_by_domain("test")
+        return
+      end
+      
+      # Detect if non-login/register requst came to login url
+      if request.headers["HTTP_ORIGIN"].blank? ||  
+         ! ["sessions", "people"].include?(controller_name)
         # This can be the case if people click links in old emails that have the login.kassi.eu/... url
-        # Temporarily, to keep the old links working, we change this to Aalto.
-        # in the future, this should just render an error probably.
+        # Temporarily, to keep the old links working, we change this now to aalto.
+        # In the future, this should just render an error probably.
         # Because only session related actions should be posted to login-url
         ApplicationHelper.send_error_notification("Got a wrong request to login-url, redirecting to aalto.kassi.eu/#{request.headers["REQUEST_PATH"]}")
         redirect_to "http://aalto.kassi.eu#{request.headers["REQUEST_PATH"]}" and return
