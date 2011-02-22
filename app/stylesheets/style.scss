@@ -413,10 +413,10 @@ form, input {
 
 /* Home page */
 
-.recent_events {
+@mixin stapled_box($width: 219px) {
 	background: $form_bg;
 	font-size: 11px;
-	width: 219px;
+	width: $width;
 	p {
 		margin: 0;
 		padding: 0;
@@ -427,6 +427,12 @@ form, input {
 		font-size: 10px;
 		float: right;
 	}	
+}
+
+.recent_events { @include stapled_box; }
+.not_a_member_notification { 
+	@include stapled_box(700px);
+	margin-left: 10px; 
 }
 
 .staple {
@@ -2646,4 +2652,24 @@ a.handle {
 	width: 30px;
 	font-weight: bold;
 	margin-top: 7px;
+}
+
+.not_member_notification {
+	color: $text_color;
+	overflow: hidden;
+	padding: 25px 40px;
+	font-size: 13px;
+	h1 {
+		font-size: 20px;
+		color: $medium_brown;
+	}
+	p {
+		margin-bottom: 15px;
+	}
+}
+
+.not_member_notification_left {
+	float: left;
+	width: 300px;
+	padding-top: 10px;
 }

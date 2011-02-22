@@ -96,6 +96,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def person_belongs_to_current_community
+    @person = Person.find(params[:person_id] || params[:id])
+    redirect_to not_member_people_path and return unless @person.communities.include?(@current_community)
+  end
+  
   private
 
   def session_unauthorized

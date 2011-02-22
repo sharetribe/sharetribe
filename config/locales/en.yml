@@ -479,6 +479,10 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
+    not_member:
+      this_user_does_not_belong_to_this_community: "This uses does not belong to %{community} community"
+      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. Kassi does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
+      read_more_about_kassi_communities: "Read more about Kassi communities"
     profile_badge:
       first_transaction: "First event"
       first_transaction_description: "Congrats on your first exchange in Kassi! One of your requests or offers has been accepted and confirmed as done."
