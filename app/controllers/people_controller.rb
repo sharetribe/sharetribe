@@ -4,6 +4,8 @@ class PeopleController < ApplicationController
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
+  before_filter :person_belongs_to_current_community, :only => :show
+  
   helper_method :show_closed?
   
   def index
@@ -12,13 +14,6 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person = Person.find(params[:id])
-    logger.info "Preferences: #{@person.preferences.inspect}"
-    @person.preferences.each do |key, value|
-      if key.is_a?(Symbol)
-        logger.info "Symbol"
-      end
-    end
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
     @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
@@ -124,6 +119,11 @@ class PeopleController < ApplicationController
     else
       render :json => "failed" and return
     end
+  end
+  
+  # Showed when somebody tries to view a profile of
+  # a person that is not a member of that community
+  def not_member
   end
 
   private

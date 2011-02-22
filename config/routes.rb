@@ -77,6 +77,7 @@ Kassi::Application.routes.draw do
       collection do
         get :check_username_availability
         get :check_email_availability
+        get :not_member
       end
       member do 
         put :update_avatar
