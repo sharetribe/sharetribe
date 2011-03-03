@@ -7,7 +7,10 @@
       %div{:class => announcement.to_s}
         .notification_text
           - if flash[announcement].is_a?(Array)
-            = t(".#{flash[announcement][0]}")
+            - if flash[announcement][3]
+              = t(".#{flash[announcement][0]}", flash[announcement][3][0] => flash[announcement][3][1].capitalize)
+            - else
+              = t(".#{flash[announcement][0]}")
             - link_text = flash[announcement][1].class.to_s.eql?("String") ? flash[announcement][1] : t(".#{flash[announcement][1]}")
             = link_to(link_text, flash[announcement][2]) 
           - else  
