@@ -30,6 +30,8 @@ Kassi::Application.configure do
   # like if you have constraints or database-specific column types
   # config.active_record.schema_format = :sql
     
+  config.active_support.deprecation = :stderr  
+    
   # Use chrome for testing javascript
   if ENV["USE_CHROME"]
     require "selenium-webdriver"

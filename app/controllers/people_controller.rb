@@ -27,7 +27,7 @@ class PeopleController < ApplicationController
   def create
     
     #if the request came from different domain, redirects back there.
-    domain = request.headers["HTTP_ORIGIN"] || ""
+    domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
     
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))

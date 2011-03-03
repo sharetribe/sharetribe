@@ -112,8 +112,11 @@ end
 after "deploy:update_code" do
   deploy.symlinks_to_shared_path
   deploy.bundle
-  thinking_sphinx.rebuild
   whenever.update_crontab
+end
+
+after "deploy:update" do
+  thinking_sphinx.rebuild
 end
 
 after "deploy:setup" do
