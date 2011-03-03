@@ -89,7 +89,8 @@ class ApplicationController < ActionController::Base
     return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
     
     # if form posted to login-domain, pick community domain from origin url
-    if request.subdomain == "login"
+    login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
+    if login_subdomain && request.subdomain == login_subdomain
       if ENV['RAILS_ENV'] == 'test' && request.headers["HTTP_ORIGIN"].blank?
         #when running tests, the origin may be blank, in that case set to test
         @current_community = Community.find_by_domain("test")
