@@ -7,7 +7,7 @@ class HomepageController < ApplicationController
     listings_per_page = 15
     
     unless session[:welcome_message]
-      flash.now[:info_message] = ["welcome_message", :read_more, about_infos_path]
+      flash.now[:info_message] = ["welcome_message", :read_more, about_infos_path, [:community, @current_community.name]]
       session[:welcome_message] = true
     end  
     
