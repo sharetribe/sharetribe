@@ -131,7 +131,8 @@ test:
   # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
   # Contact Gnomet at Github to get more info about this if needed.
     
-  # The login domain should be empty for tests
-  login_domain:
+  # The login domain should be "http://login.lvh.me:9887" for tests
+  # Note above, if running tests disconnected from the internet
+  login_domain: "http://login.lvh.me:9887"
 
 

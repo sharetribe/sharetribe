@@ -8,7 +8,6 @@ describe SessionsController, "POST create" do
   #before (:each) {set_subdomain("login")}  
   
   it "creates a Session model" do
-    #Session.should_receive(:create)
     @request.host = "login.lvh.me"
     post :create, {:username => "kassi_testperson1", :password => "testi"}
     assigns["session"].should_not be_nil

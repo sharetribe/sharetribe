@@ -92,6 +92,7 @@ GEM
       builder
     httpclient (2.1.6.1)
     i18n (0.4.2)
+    json (1.2.2)
     json_pure (1.4.6)
     launchy (0.3.7)
       configuration (>= 0.0.5)
@@ -207,6 +208,7 @@ DEPENDENCIES
   haml
   hoptoad_notifier
   httpclient
+  json
   launchy
   memcache-client (>= 1.8.5)
   mongrel
