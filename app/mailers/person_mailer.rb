@@ -65,7 +65,6 @@ class PersonMailer < ActionMailer::Base
   # Used to send notification to Kassi admins when somebody
   # gives feedback on Kassi
   def new_feedback(feedback)
-    alert_if_erroneus_host(host)
     @no_settings = true
     @feedback = feedback
     subject = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
@@ -73,7 +72,6 @@ class PersonMailer < ActionMailer::Base
   end
   
   def badge_migration_notification(recipient)
-    alert_if_erroneus_host(host)
     @recipient = recipient
     set_locale @recipient.locale
     @no_settings = true
@@ -84,7 +82,6 @@ class PersonMailer < ActionMailer::Base
   # Used to send notification to Kassi admins when somebody
   # wants to contact them through the form in the dashboard
   def contact_request_notification(email)
-    alert_if_erroneus_host(host)
     @no_settings = true
     @email = email
     subject = "Uusi yhteydenottopyyntö #{APP_CONFIG.server_name}-Kassista"
