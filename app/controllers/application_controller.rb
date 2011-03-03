@@ -87,18 +87,18 @@ class ApplicationController < ActionController::Base
   def fetch_community
     # if in dashboard, no community to fetch, just return
     return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
-    
+        
     # if form posted to login-domain, pick community domain from origin url
     login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
     if login_subdomain && request.subdomain == login_subdomain
-      if ENV['RAILS_ENV'] == 'test' && request.headers["HTTP_ORIGIN"].blank?
+      if ENV['RAILS_ENV'] == 'test' && ApplicationHelper.pick_referer_domain_part_from_request(request).blank?
         #when running tests, the origin may be blank, in that case set to test
         @current_community = Community.find_by_domain("test")
         return
       end
       
       # Detect if non-login/register requst came to login url
-      if request.headers["HTTP_ORIGIN"].blank? ||  
+      if ApplicationHelper.pick_referer_domain_part_from_request(request).blank? ||  
          ! ["sessions", "people"].include?(controller_name)
         # This can be the case if people click links in old emails that have the login.kassi.eu/... url
         # Temporarily, to keep the old links working, we change this now to aalto.
@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
         # TODO: Fix this to be an error case instead of Aalto specific redirection.
         
       end
-      origin_subdomain = request.headers["HTTP_ORIGIN"][/\/\/([^\.]+)\./, 1]
+      origin_subdomain = ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
       @current_community = Community.find_by_domain(origin_subdomain)
       return
     end
