@@ -94,7 +94,16 @@ module ApplicationHelper
     if APP_CONFIG.use_hoptoad
       HoptoadNotifier.notify(:error_class => "Special Error", :error_message => message 
                )
+    else
+      Rails.logger.error message 
     end
+  end
+  
+  #Checks if HTTP_REFERER or HTTP_ORIGIN exists and returns only the domain part with protocol
+  def self.pick_referer_domain_part_from_request(request)
+    return request.headers["HTTP_ORIGIN"] if request.headers["HTTP_ORIGIN"]
+    return request.headers["HTTP_REFERER"][/(^[^\/]*(\/\/)?[^\/]+)/,1] if request.headers["HTTP_REFERER"]
+    return ""
   end
   
 end
