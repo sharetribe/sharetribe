@@ -1,3 +1,5 @@
+require 'subdomain'
+
 Kassi::Application.routes.draw do
 
   # The priority is based upon order of creation:
@@ -75,6 +77,7 @@ Kassi::Application.routes.draw do
       collection do
         get :check_username_availability
         get :check_email_availability
+        get :not_member
       end
       member do 
         put :update_avatar
@@ -134,6 +137,11 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
+    resources :contact_requests do
+      collection do
+        get :thank_you
+      end
+    end
   end
   
   # Some non-RESTful mappings
@@ -156,6 +164,10 @@ Kassi::Application.routes.draw do
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
   
-  root :to => 'homepage#index'
+  constraints(Subdomain) do
+    match '/:locale/' => 'homepage#index'
+    match '/' => 'homepage#index'
+  end  
+  root :to => 'dashboard#index'
   
 end

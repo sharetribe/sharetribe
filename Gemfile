@@ -30,21 +30,22 @@ gem "will_paginate", "~> 3.0.pre2"
 gem 'whenever', "~> 0.5.0"
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx',
-  :git     => 'git://github.com/freelancing-god/thinking-sphinx.git',
-  :branch  => 'rails3',
-  :require => 'thinking_sphinx'
+gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
 gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
 gem 'hoptoad_notifier'
 gem 'passenger'
 gem 'delayed_job'
+gem 'json'
 
 group :test do
-  gem "rspec-rails", "~> 2.0.1"
-  gem 'capybara'
+  gem "rspec-rails", "2.0.0.beta.19" #
+  gem 'capybara', '0.3.9' #
   gem 'cucumber-rails'
-  gem 'cucumber'#, '~> 0.9.3'
+  gem 'cucumber', '0.8.5' #
+  gem 'selenium-webdriver', '0.0.28' ##
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'
+  gem "pickle"
 end
+

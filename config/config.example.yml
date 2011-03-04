@@ -119,14 +119,20 @@ test:
   # The locale should be "en" for test environment
   # even if you change it for others
   default_locale: en
+  # available are at least english and finnish (to test language changing) English comes first in dropdowns.
+  available_locales: [["English", "en"], ["Finnish", "fi"]]
   
   # captcha is expected to be off when running tests
   use_recaptcha: false
   
-  # The domain should be not set for running the tests succesfully
-  domain:
+  # The domain should be set to lvh.me (which redirects to localhost)
+  # to be able to run the tests with subdomains.
+  domain: lvh.me
+  # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
+  # Contact Gnomet at Github to get more info about this if needed.
     
-  # The login domain should be empty for tests
-  login_domain:
+  # The login domain should be "http://login.lvh.me:9887" for tests
+  # Note above, if running tests disconnected from the internet
+  login_domain: "http://login.lvh.me:9887"
 
 

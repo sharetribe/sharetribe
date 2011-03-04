@@ -17,7 +17,7 @@ Feature: User edits his own listing
     And the "rent" checkbox should not be checked
     And the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
-    And the "listing_tag_list" field should contain "tools, test"
+    And the "listing_tag_list" field should contain "tools, hammers"
     And I uncheck "Buy"
     And I check "Rent"
     And I fill in "listing_title" with "Sledgehammer"

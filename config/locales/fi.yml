@@ -52,6 +52,8 @@ fi:
       received: "Saapuneet"
       sent: "Lähetetyt"
       notifications: "Tiedotteet"
+    dashboard:
+      title: "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     infos:
       info_about_kassi: "Tietoa Kassista"
       about: "Mikä Kassi?"
@@ -121,7 +123,7 @@ fi:
       you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
       you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
       you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
-      welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla aaltolaiset voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
+      welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       read_more: "Lue lisää!"
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
@@ -252,7 +254,24 @@ fi:
       accept_request: "Hyväksy pyyntö"
       accept_offer: "Hyväksy tarjous"
       reject_request: "Hylkää pyyntö"
-      reject_offer: "Hylkää tarjous"    
+      reject_offer: "Hylkää tarjous"
+  dashboard:
+    index:
+      email_default_text: "Sähköpostiosoitteesi"
+      bubble_text_line_1: "ANNA HYVÄN"
+      bubble_text_line_2: "KIERTÄÄ!"
+      description: "Kassi on suomalainen yhteisöllinen verkkopalvelu, jonka avulla yhdistyksen tai muun yhteisön jäsenet voivat auttaa toisiaan monin tavoin: lainata ja myydä tavaroita, tehdä palveluksia, järjestää kimppakyytejä ja paljon muuta!"
+      want_to_use_kassi_in_your_association: "Haluatko Kassin käyttöön yhdistyksessäsi?"
+      send: "Lähetä!"
+      or_contact_by_email: "...tai ota yhteyttä sähköpostilla:"
+      want_to_know_how_kassi_works: "Haluatko tietää miten Kassi toimii?"
+      get_to_know_the_aalto_community: "Tutustu Aalto-yliopiston kassiyhteisöön!"
+      want_to_know_more_about_us: "Haluatko tietää lisää toiminta-ajatuksestamme?"
+      get_to_know_the_avoin_yritys_blog: "Tutustu Avoin yritys -blogiin!"
+      kassi_in_facebook: "Kassi Facebookissa"
+      kassi_in_twitter: "Kassi Twitterissä"
+      thank_you: "Kiitos!"
+      thank_you_for_contacting: "Kiitos yhteydenotostasi. Otamme sinuun yhteyttä ensi tilassa. Halutessasi voit lähettää meille myös sähköpostia: kassi aet sizl.org"
   homepage:
     index:
       welcome_to_new_kassi: "Kassi on uudistunut!"
@@ -377,8 +396,9 @@ fi:
         at: "Kellonaika"
       visibility:
         visibility: "Näkyvyys"
-        everybody: "Kaikille"
-        kassi_users: "Vain kirjautuneille käyttäjille"
+        everybody: "Kaikille internetin käyttäjille"
+        communities: "Omille Kassiyhteisöilleni"
+        this_community: "Vain %{community}-yhteisön jäsenille"
       send_button:
         save_request: "Tallenna pyyntö"
         save_offer: "Tallenna tarjous"
@@ -459,6 +479,10 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
+    not_member:
+      this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
+      explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
+      read_more_about_kassi_communities: "Lue lisää Kassin yhteisöistä"
     profile_badge:
       first_transaction: "Ensimmäinen tapahtuma"
       first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
