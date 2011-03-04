@@ -396,9 +396,9 @@ fi:
         at: "Kellonaika"
       visibility:
         visibility: "Näkyvyys"
-        everybody: "Kaikille"
+        everybody: "Kaikille internetin käyttäjille"
         communities: "Omille Kassiyhteisöilleni"
-        this_community: "Vain %{community}-yhteisölle"
+        this_community: "Vain %{community}-yhteisön jäsenille"
       send_button:
         save_request: "Tallenna pyyntö"
         save_offer: "Tallenna tarjous"
