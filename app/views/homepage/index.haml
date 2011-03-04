@@ -48,5 +48,5 @@
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
     %h4= t('.news')
     .welcome_text
-      = render :partial => "welcome_text"
+      = render :partial => "welcome_text_#{ENV['RAILS_ENV'] == 'test' ? 'aalto' : @current_community.domain}"
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

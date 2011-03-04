@@ -42,6 +42,9 @@ Given /^there are following users:$/ do |person_table|
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, @hash_session.cookie)
+    #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
+      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id)
+    #end
     @people[hash['person']] = @hash_person
   end
 end
@@ -70,6 +73,16 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should contain the (username|em
       field_value.should =~ /#{@values[value]}/
     else
       assert_match(/#{@values[value]}/, field_value)
+    end
+  end
+end
+
+Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do |value, selector|
+  with_scope(selector) do
+    if page.respond_to? :should
+      page.should have_content(@values[value])
+    else
+      assert page.has_content?(@values[value])
     end
   end
 end

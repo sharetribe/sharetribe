@@ -3,15 +3,14 @@ require 'rest_client'
 class SessionsController < ApplicationController
   
   def create
-    
-    #if the request came from different domain, redirects back there.
-    domain = request.headers["HTTP_ORIGIN"] || ""
-    
+    # if the request came from different domain, redirects back there.
+    # e.g. if using login-subdoain for logging in with https
+    domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
+        
     session[:form_username] = params[:username]
     begin
       @session = Session.create({ :username => params[:username], 
                                   :password => params[:password] })
-                                                          
     rescue RestClient::Unauthorized => e
       flash[:error] = :login_failed
       redirect_to domain + login_path and return

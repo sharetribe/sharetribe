@@ -1,0 +1,14 @@
+#recent_event_box.grid_18.prefix_3.suffix_3
+  .not_a_member_notification
+    = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+    .not_member_notification
+      %h1
+        = t(".this_user_does_not_belong_to_this_community", :community => @current_community.name)
+      .not_member_notification_left
+        %p
+          = t(".explanation_text", :community => @current_community.name)
+        %p
+          = link_to t(".read_more_about_kassi_communities"), about_infos_path
+      .float_right
+        = image_tag "/images/kaapo/kaapo_confused.png"
+    = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

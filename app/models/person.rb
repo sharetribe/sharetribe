@@ -41,6 +41,8 @@ class Person < ActiveRecord::Base
   has_many :badges
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
+  has_many :community_memberships, :dependent => :destroy 
+  has_many :communities, :through => :community_memberships
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",

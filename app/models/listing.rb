@@ -25,8 +25,12 @@ class Listing < ActiveRecord::Base
   
   has_many :share_types
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
+  has_and_belongs_to_many :communities
+  
+  attr_accessor :current_community_id
+  
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
@@ -47,11 +51,10 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "kassi_users"]
+  VALID_VISIBILITIES = ["everybody", "this_community"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
-  
-  before_save :downcase_tags
+  before_save :downcase_tags, :set_community_visibilities
   after_create :check_possible_matches
   
   validates_presence_of :author_id
@@ -76,27 +79,73 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    has "listings.visibility IN ('everybody','kassi_users')", :as => :visible_to_kassi_users, :type => :boolean
     has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
+    has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
     set_property :delta => true
     set_property :field_weights => {
-          :title       => 10,
-          :tags        => 8,
-          :description => 3,
-          :comments    => 1
-        }
+      :title       => 10,
+      :tags        => 8,
+      :description => 3,
+      :comments    => 1
+    }
+  end
+  
+  def set_community_visibilities
+    if current_community_id
+      communities.clear
+      if visibility.eql?("this_community")
+        communities << Community.find(current_community_id)
+      else
+        author.communities.each { |c| communities << c }
+      end
+    end
   end
   
   # Filter out listings that current user cannot see
-  def self.visible_to(current_user)
-    current_user ? where("listings.visibility IN ('everybody','kassi_users')") : where("listings.visibility = 'everybody'")
+  def self.visible_to(current_user, current_community)
+    if current_user
+      where("
+        (listings.visibility = 'everybody' 
+        OR (
+          listings.visibility IN ('communities','this_community') 
+          AND listings.id IN (
+            SELECT listing_id 
+            FROM communities_listings
+            WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
+          )
+        ))
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')
+      ")
+    else 
+      where("listings.visibility = 'everybody' AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')")
+    end
   end
   
-  def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
+  def visible_to?(current_user, current_community)
+    if current_user
+      Listing.count_by_sql("
+        SELECT count(*) 
+        FROM community_memberships, communities_listings 
+        WHERE community_memberships.person_id = '#{current_user.id}' 
+        AND community_memberships.community_id = communities_listings.community_id
+        AND communities_listings.listing_id = '#{id}'
+        AND communities_listings.community_id = '#{current_community.id}'
+      ") > 0
+    else
+      Listing.count_by_sql("
+        SELECT count(id) 
+        FROM listings 
+        WHERE visibility = 'everybody'
+        AND id IN (
+          SELECT listing_id 
+          FROM communities_listings 
+          WHERE community_id = '#{current_community.id}'
+        )
+      ") > 0
+    end
   end
   
   def share_type_attributes=(attributes)
@@ -163,10 +212,10 @@ class Listing < ActiveRecord::Base
   
   # Overrides the to_param method to implement clean URLs
   def to_param
-    "#{id}-#{title.gsub(/\W/, '_').downcase}"
+    "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  def self.find_with(params, current_user=nil)
+  def self.find_with(params, current_user=nil, current_community=nil)
     conditions = []
     conditions[0] = "listing_type = ?"
     conditions[1] = params[:listing_type]
@@ -178,7 +227,7 @@ class Listing < ActiveRecord::Base
     if params[:share_type] && !params[:share_type][0].eql?("all")
       listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
     end
-    listings.visible_to(current_user).order("listings.id DESC")
+    listings.visible_to(current_user, current_community).order("listings.id DESC")
   end
   
   # Returns true if listing exists and valid_until is set

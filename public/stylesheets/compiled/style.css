@@ -335,6 +335,20 @@ form, input {
     font-size: 10px;
     float: right; }
 
+.not_a_member_notification {
+  background: #d1c9b4;
+  font-size: 11px;
+  width: 700px;
+  margin-left: 10px; }
+  .not_a_member_notification p {
+    margin: 0;
+    padding: 0; }
+  .not_a_member_notification span {
+    color: #797979;
+    font-style: italic;
+    font-size: 10px;
+    float: right; }
+
 .staple {
   border-radius: 5px;
   -moz-border-radius: 5px;
@@ -1816,7 +1830,7 @@ a.edit_profile {
   padding: 5px 5px;
   overflow: hidden;
   width: 927px;
-  margin: 10px 77px 10px 97px;
+  margin: 10px 77px 10px 77px;
   width: 340px;
   padding: 10px 0 10px 55px; }
 
@@ -2984,3 +2998,19 @@ a.handle:hover {
   width: 30px;
   font-weight: bold;
   margin-top: 7px; }
+
+.not_member_notification {
+  color: #464646;
+  overflow: hidden;
+  padding: 25px 40px;
+  font-size: 13px; }
+  .not_member_notification h1 {
+    font-size: 20px;
+    color: #765d3a; }
+  .not_member_notification p {
+    margin-bottom: 15px; }
+
+.not_member_notification_left {
+  float: left;
+  width: 300px;
+  padding-top: 10px; }

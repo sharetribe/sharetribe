@@ -8,6 +8,7 @@ class TermsController < ApplicationController
     @current_user = Person.add_to_kassi_db(session[:temp_person_id])
     @current_user.set_default_preferences
     @current_user.update_attribute(:locale, (params[:locale] || APP_CONFIG.default_locale))
+    @current_user.communities << @current_community
     session[:cookie] = session[:temp_cookie]
     session[:person_id] = session[:temp_person_id]
     session[:temp_cookie] = session[:temp_person_id] = nil

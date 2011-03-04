@@ -6,9 +6,9 @@ class TestimonialsController < ApplicationController
   
   before_filter :ensure_authorized_to_give_feedback, :except => :index
   before_filter :ensure_feedback_not_given, :except => :index
+  before_filter :person_belongs_to_current_community, :only => :index
   
   def index
-    @person = Person.find(params[:person_id])
     @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
     @grade_amounts = @person.grade_amounts
     render :partial => "additional_testimonials" if request.xhr?

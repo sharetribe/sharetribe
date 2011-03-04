@@ -4,6 +4,8 @@ class PeopleController < ApplicationController
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
+  before_filter :person_belongs_to_current_community, :only => :show
+  
   helper_method :show_closed?
   
   def index
@@ -12,16 +14,9 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person = Person.find(params[:id])
-    logger.info "Preferences: #{@person.preferences.inspect}"
-    @person.preferences.each do |key, value|
-      if key.is_a?(Symbol)
-        logger.info "Symbol"
-      end
-    end
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
-    @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
+    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end
 
@@ -32,7 +27,7 @@ class PeopleController < ApplicationController
   def create
     
     #if the request came from different domain, redirects back there.
-    domain = request.headers["HTTP_ORIGIN"] || ""
+    domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
     
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
@@ -57,6 +52,7 @@ class PeopleController < ApplicationController
     begin
       @person = Person.create(params[:person], session[:cookie])
       @person.set_default_preferences
+      @person.communities << @current_community
     rescue RestClient::RequestFailed => e
       logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
       
@@ -123,6 +119,11 @@ class PeopleController < ApplicationController
     else
       render :json => "failed" and return
     end
+  end
+  
+  # Showed when somebody tries to view a profile of
+  # a person that is not a member of that community
+  def not_member
   end
 
   private

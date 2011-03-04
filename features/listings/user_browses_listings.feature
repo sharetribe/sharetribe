@@ -137,7 +137,7 @@ Feature: User browses listings
       | person | 
       | kassi_testperson1 |
     And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
-    And visibility of that listing is "kassi_users"
+    And visibility of that listing is "this_community"
     And there is favor request with title "massage" from "kassi_testperson1"
     And there is housing request with title "apartment" and with share type "rent"
     And visibility of that listing is "disabled"
@@ -150,6 +150,25 @@ Feature: User browses listings
     Then I should see "car spare parts"
     And I should see "massage"
     And I should not see "apartment"
-  
-  
-  
+    
+  @javascript
+  @subdomain2
+  Scenario: User browses requests in a different subdomain
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
+    And visibility of that listing is "this_community"
+    And there is favor request with title "massage" from "kassi_testperson1"
+    And visibility of that listing is "communities"
+    And there is item request with title "saw" from "kassi_testperson1" and with share type "buy"
+    And visibility of that listing is "communities"
+    And that listing is visible to members of community "test2"
+    When I am on the homepage
+    Then I should not see "car spare parts"
+    And I should not see "massage"
+    And I should not see "saw"
+    When I log in as "kassi_testperson1"
+    Then I should not see "car spare parts"
+    And I should not see "massage"
+    And I should see "saw"

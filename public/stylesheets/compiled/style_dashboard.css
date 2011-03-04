@@ -1,0 +1,137 @@
+@import url('../reset.css');
+@import url('../text.css');
+@import url('../960_24_col.css');
+@import url('../uniform.kassi.css');
+/* Colors */
+body {
+  background: #d1c9b4 url("/images/dashboard/background.png") repeat-x;
+  color: #464646; }
+
+input[type=text] {
+  height: 34px;
+  width: 238px;
+  float: left;
+  border: 0;
+  padding: 3px 10px;
+  font-size: 15px;
+  background: #f7f5e6; }
+
+label.dashboard {
+  margin: 8px 20px 0 15px;
+  color: #fdf4bc;
+  font-size: 14px;
+  float: left; }
+
+a, a:visited {
+  color: #d45207;
+  text-decoration: none; }
+
+a:hover {
+  color: #f8792f; }
+
+a:active {
+  color: #a33f05; }
+
+input[type=text]:focus {
+  background: white; }
+
+input[type=submit] {
+  background: #d45207;
+  color: white;
+  font-size: 15px;
+  width: 124px;
+  height: 40px;
+  border: 0;
+  margin-left: 12px;
+  cursor: pointer; }
+
+input[type=submit]:active {
+  background-color: #a33f05;
+  padding-top: 1px; }
+
+input[type=submit]:hover {
+  background-color: #f8792f; }
+
+input[type=submit]:focus {
+  background-color: #f8792f; }
+
+#logo {
+  color: #f7f5e6;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+  margin-top: 20px; }
+
+#slogan {
+  box-shadow: 2px 2px 5px black;
+  -webkit-box-shadow: 2px 2px 5px black;
+  -moz-box-shadow: 2px 2px 5px black;
+  filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=2, offY=2, positive=true);
+  margin: 29px 0 0 10px;
+  background: #d45207;
+  color: white;
+  padding: 10px 25px 10px 25px;
+  font-size: 17px;
+  width: 335px; }
+
+#bubble_container {
+  margin-top: 30px;
+  overflow: hidden; }
+
+#bubble {
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  color: #464646;
+  background: white;
+  font-size: 55px;
+  font-weight: bold;
+  padding: 15px 30px 20px 25px;
+  line-height: 65px;
+  width: 375px;
+  min-height: 135px;
+  float: left; }
+
+#bubble_arrow {
+  margin-top: 100px;
+  width: 40px;
+  height: 50px;
+  background: transparent url("/images/dashboard/speech_bubble_arrow.png") 0 0 no-repeat;
+  float: left; }
+
+#main_text {
+  width: 420px;
+  min-height: 105px;
+  margin: 30px 0 0 15px;
+  color: #fdf4bc;
+  font-size: 18px;
+  line-height: 22px; }
+
+#email_container {
+  overflow: hidden;
+  margin-top: 12px; }
+
+#contact_by_email {
+  margin: 5px 0 0 316px;
+  color: white; }
+
+span.contact {
+  color: #fa9961; }
+
+#links {
+  margin: 55px 0 0 60px;
+  font-size: 16px;
+  font-weight: bold; }
+
+#social_links {
+  margin-top: 55px;
+  text-align: center; }
+
+span.social_link {
+  margin-right: 30px; }
+
+#locale_select {
+  margin: 30px 0 0 40px; }
+
+#no_email_spacer {
+  height: 80px; }

@@ -1,11 +1,19 @@
 require 'test_helper'
 require 'rails/performance_test_help'
-
+#require File.expand_path('../../helper_modules', __FILE__)
 
 # Profiling results for each test method are written to tmp/performance.
 class BrowsingTest < ActionController::PerformanceTest
+  
+  def setup
+    author = Factory(:person)
+    60.times do
+      Factory(:listing, :author => Person.first)
+    end
+  end
+  
   def test_homepage
-    get '/'
+    get 'test.lvh.me'
   end
   
   def test_new_request_page

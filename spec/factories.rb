@@ -11,15 +11,16 @@ end
 
 Factory.define :listing do |l|
   l.title "Sledgehammer"
-  l.description("Test" * 1000)
+  l.description("test")
   l.author { |author| author.association(:person) }
   l.listing_type "request"
   l.category "item"
   l.share_types { |st| [st.association(:share_type), st.association(:share_type, :name => "buy")] }
   l.tag_list("tools, hammers")
-  l.valid_until DateTime.now + 3.months
+  l.valid_until 3.months.from_now
   l.times_viewed 0
   l.visibility "everybody"
+  l.communities { [ Factory.create(:community) ] }
 end
 
 Factory.define :conversation do |c|
@@ -82,4 +83,19 @@ Factory.define :testimonial_notification do |b|
   b.receiver { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
   b.is_read 0
   b.association :testimonial
+end
+
+Factory.define :community do |c|
+  c.name "Test"
+  c.domain "test"
+end
+
+Factory.define :community_membership do |c|
+  c.association :community
+  c.association :person
+  c.admin false
+end
+
+Factory.define :contact_request do |c|
+  c.email "test@example.com"
 end
