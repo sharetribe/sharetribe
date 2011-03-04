@@ -6,6 +6,7 @@ class PersonMailer < ActionMailer::Base
   layout 'email'
 
   def new_message_notification(message, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s)}" : "test_url"
     @message = message
@@ -14,6 +15,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def new_comment_to_own_listing_notification(comment, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(comment.listing.author, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}" : "test_url"
     @comment = comment
@@ -22,6 +24,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def conversation_status_changed(conversation, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s)}" : "test_url"
     @conversation = conversation
@@ -30,6 +33,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def new_badge(badge, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(badge.person, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}" : "test_url"
     @badge = badge
@@ -39,6 +43,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def new_testimonial(testimonial, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(testimonial.receiver, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_testimonials_path(:person_id => @recipient.id)}" : "test_url"
     @give_feedback_url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id)}" : "test_url"
@@ -48,6 +53,7 @@ class PersonMailer < ActionMailer::Base
   end
   
   def testimonial_reminder(participation, host=nil)
+    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(participation.person, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id)}" : "test_url"
     @participation = participation
@@ -88,6 +94,12 @@ class PersonMailer < ActionMailer::Base
     @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
     set_locale recipient.locale
     recipient
+  end
+  
+  def alert_if_erroneus_host(host)
+    if host =~ /login/
+      ApplicationHelper.send_error_notification("Sending mail with LOGIN host: #{host}, which should not happen!")
+    end
   end
 
 end
