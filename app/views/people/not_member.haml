@@ -3,10 +3,10 @@
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
     .not_member_notification
       %h1
-        = t(".this_user_does_not_belong_to_this_community", :community => @current_community.name.capitalize)
+        = t(".this_user_does_not_belong_to_this_community", :community => @current_community.name)
       .not_member_notification_left
         %p
-          = t(".explanation_text")
+          = t(".explanation_text", :community => @current_community.name)
         %p
           = link_to t(".read_more_about_kassi_communities"), about_infos_path
       .float_right
