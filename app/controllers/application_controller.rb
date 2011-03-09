@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user, :set_locale, :generate_event_id, :fetch_community
+  before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
@@ -14,6 +14,10 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     locale = logged_in? ? @current_user.locale : params[:locale]
+    
+    if locale.blank? && @current_community
+      locale = @current_community.default_locale
+    end
       
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale

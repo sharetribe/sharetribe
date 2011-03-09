@@ -162,12 +162,16 @@ Kassi::Application.routes.draw do
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
-  match '/:locale' => 'homepage#index'
   
+  # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(Subdomain) do
     match '/:locale/' => 'homepage#index'
     match '/' => 'homepage#index'
   end  
+  
+  # Below are the routes that are matched if didn't match inside subdomain constraints
+  match '/:locale' => 'dashboard#index'
+  
   root :to => 'dashboard#index'
   
 end
