@@ -74,7 +74,7 @@ class Person < ActiveRecord::Base
   def self.create(params, cookie, asi_welcome_mail = false)
     
     # Try to create the person to ASI
-    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}), :welcome_mail => asi_welcome_mail}
+    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}), :welcome_email => asi_welcome_mail}
     response = PersonConnection.create_person(person_hash, cookie)
 
     # Pick id from the response (same id in kassi and ASI DBs)
