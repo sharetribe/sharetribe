@@ -29,7 +29,8 @@ class Community < ActiveRecord::Base
    if settings && !settings["locales"].blank?
       return settings["locales"]
     else
-      return APP_CONFIG.available_locales
+      # if locales not set, return the short locales from the default list
+      return APP_CONFIG.available_locales.collect{|loc| loc[1]}
     end
   end
   
