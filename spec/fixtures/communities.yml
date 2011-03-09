@@ -3,7 +3,7 @@ test_community:
   name: "Test"
   domain: test
   settings: <%= {
-     "locales" => [:fi, :en],
+     "locales" => ["en", "fi"],
      "asi_welcome_mail" => true}.to_yaml.inspect %>
 
 test_community2:
@@ -11,4 +11,4 @@ test_community2:
   name: "Test2"
   domain: "test2"
   settings: <%= {
-     "locales" => [ :en]}.to_yaml.inspect %>
+     "locales" => ["en"]}.to_yaml.inspect %>

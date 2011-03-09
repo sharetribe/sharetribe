@@ -26,11 +26,14 @@ default: &default_settings
   asi_app_password: kassi_tester
 
   # The default locale (language) of the user interface
+  # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
+  # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
-  # Available locales (languages) of the user interface
+  # Available locales (languages) of the user interface. This is the list of all the possible locales on this Kassi server.
+  # Some communities may have shorter list but not longer.
   # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
   # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
-  # If you make new translations, please share those for example in github.
+  # If you make new translations, please share those for example in Github.
   # If you change the default locale, you should put that one first in the list of available_locations, to get
   # the language dropdown menu work more logically.
   available_locales: [["English", "en"], ["Finnish", "fi"]]
