@@ -2,8 +2,13 @@ test_community:
   id: 1
   name: "Test"
   domain: test
-  
+  settings: <%= {
+     "locales" => [:fi, :en],
+     "asi_welcome_mail" => true}.to_yaml.inspect %>
+
 test_community2:
   id: 2
   name: "Test2"
   domain: "test2"
+  settings: <%= {
+     "locales" => [ :en]}.to_yaml.inspect %>
