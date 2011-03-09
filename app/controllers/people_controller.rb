@@ -25,7 +25,6 @@ class PeopleController < ApplicationController
   end
 
   def create
-    
     #if the request came from different domain, redirects back there.
     domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
     
@@ -41,20 +40,19 @@ class PeopleController < ApplicationController
       redirect_to domain + sign_up_path and return
     end
 
-    # Open a Session first only for Kassi to be able to create a user
+    # Open an ASI Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.cookie
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
 
     # Try to create a new person in ASI.
-
     begin
-      @person = Person.create(params[:person], session[:cookie])
+      @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
       @person.set_default_preferences
       @person.communities << @current_community
     rescue RestClient::RequestFailed => e
-      logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
+      logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if ASI responses with error, show message to user

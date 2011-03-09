@@ -129,7 +129,14 @@ test:
   # to be able to run the tests with subdomains.
   domain: lvh.me
   # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
-  # Contact Gnomet at Github to get more info about this if needed.
+  # And add lines: (where there is one tab separating the ip and the domain)
+  #127.0.0.1       lvh.me
+  #127.0.0.1       login.lvh.me
+  #127.0.0.1       test.lvh.me
+  #127.0.0.1       test2.lvh.me
+
+  
+  
     
   # The login domain should be "http://login.lvh.me:9887" for tests
   # Note above, if running tests disconnected from the internet
