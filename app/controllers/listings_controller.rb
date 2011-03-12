@@ -28,6 +28,11 @@ class ListingsController < ApplicationController
     @to_render = {:action => :index}
     load
   end
+  def requests_mobile
+    params[:listing_type] = "request"
+    @to_render = {:action => :index_mobile}
+    load
+  end
   
   def offers
     params[:listing_type] = "offer"
