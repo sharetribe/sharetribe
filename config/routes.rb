@@ -142,6 +142,7 @@ Kassi::Application.routes.draw do
   match "/:locale/load" => "listings#load", :as => :load
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
+  match "/:locale/requests_mobile" => "listings#requests_mobile", :as => :requests
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
