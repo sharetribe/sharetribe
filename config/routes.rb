@@ -155,6 +155,7 @@ Kassi::Application.routes.draw do
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
+  match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   
   root :to => 'homepage#index'
   
