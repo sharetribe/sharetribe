@@ -6,7 +6,8 @@
   .nube5 {font-size: 2.2em;}
   .nube6 {font-size: 2.5em;}
 
-- result = tag_cloud(@tags, %w(nube1 nube2 nube3 nube4 nube5 nube6))
+- tags = Tag.tags(:limit => 100, :order => "count DESC")
+- result = tag_cloud(tags, %w(nube1 nube2 nube3 nube4 nube5 nube6))
 - result.each do |k, v|
   = link_to k, {:controller => "search", :action => "show", :q => k}, :class => v
 
