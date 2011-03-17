@@ -1,0 +1,12 @@
+:css
+  .nube1 {font-size: 1.0em;}
+  .nube2 {font-size: 1.3em;}
+  .nube3 {font-size: 1.6em;}
+  .nube4 {font-size: 1.9em;}
+  .nube5 {font-size: 2.2em;}
+  .nube6 {font-size: 2.5em;}
+
+- result = tag_cloud(@tags, %w(nube1 nube2 nube3 nube4 nube5 nube6))
+- result.each do |k, v|
+  = link_to k, {:controller => "search", :action => "show", :q => k}, :class => v
+
