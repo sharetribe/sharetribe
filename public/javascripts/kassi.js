@@ -663,3 +663,74 @@ function disable_and_submit(form_id, form, locale, ajax) {
   	form.submit();
 	}	
 }
+function update_map(field) {
+	if(geocoder){
+	  geocoder.getLatLng(
+          field.value,
+          function(point) {
+            if (!point) {
+		    //Remove this when we get proper jquery stuff
+              alert("Address " +field.value + " not found");
+            } else {
+		    center = point;
+              map.setCenter(point, 13);
+              //var marker2 = new GMarker(point);
+              //map.addOverlay(marker);
+	      marker.setLatLng(point);
+
+              // As this is user-generated content, we display it as
+              // text rather than HTML to reduce XSS vulnerabilities.
+              //marker.openInfoWindow(document.createTextNode(address));
+	      return true;
+            }
+          }
+        );
+	}
+	else
+		return false;
+	//alert(field.value);
+	
+}
+function initialize_map(canvas) {
+      if (GBrowserIsCompatible()) {
+	
+        map = new GMap2(document.getElementById(canvas));
+	geocoder = new GClientGeocoder();
+	//geocoder.load("locale" : "fi");
+        //map = new GMap2(canvas);
+        //center = new GLatLng(60.1894, 24.8358);
+	
+	if(update_map(source)){
+	}
+	else
+		center = new GLatLng(60.1894, 24.8358);
+        map.setCenter(center, 13);
+	map.addControl(new GSmallMapControl());
+        map.addControl(new GMapTypeControl());
+
+
+        marker = new GMarker(center, {draggable: true});
+
+        GEvent.addListener(marker, "dragstart", function() {
+        });
+
+        GEvent.addListener(marker, "dragend", function() {
+		geocoder.getLocations(marker.getLatLng(),updateSource);
+        });
+
+        map.addOverlay(marker);
+
+      }
+}
+function updateSource(response){
+	updatePlace(response,source);
+}
+function updatePlace(response, element){
+	  if (!response || response.Status.code != 200) {
+    alert("Status Code:" + response.Status.code);
+  } else {
+	  var place = response.Placemark[0];
+	  element.value = place.address;
+  }
+}
+
