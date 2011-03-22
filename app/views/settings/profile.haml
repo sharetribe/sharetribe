@@ -9,8 +9,8 @@
   var center;
   var marker;
   var source;
-  var canvas;
-  var body;
+  //var canvas;
+  //var body;
 
 #person_settings_form
   #settings_form_description
@@ -32,8 +32,8 @@
       .map{:id => "map_canvas", :style => "width: 500px; height: 300px"}
         //Here initialize the elements we want to use with the map
         :javascript
-          canvas = document.getElementById("map_canvas");
-          body = document.getElementsByTagName("body").item(0);
+          //canvas = document.getElementById("map_canvas");
+          //body = document.getElementsByTagName("body").item(0);
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
           initialize_map("map_canvas");
