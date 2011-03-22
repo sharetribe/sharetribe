@@ -35,8 +35,11 @@
           canvas = document.getElementById("map_canvas");
           body = document.getElementsByTagName("body").item(0);
           source = document.getElementById("person_street_address");
+          $(document).ready(function(){
+          initialize_map("map_canvas");
+          })
           //body.setAttribute("onLoad", "initialize_map(\"map_canvas\",map,center,marker,geocoder)");
-          body.setAttribute("onLoad", "initialize_map(\"map_canvas\")");
+          //body.setAttribute("onLoad", "initialize_map(\"map_canvas\")");
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
       = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
