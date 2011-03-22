@@ -711,6 +711,11 @@ function initialize_map(canvas) {
 
         marker = new GMarker(center, {draggable: true});
 
+        GEvent.addListener(map, "click", function(overlay, latlng) {
+			if(latlng);
+			marker.setLatLng(latlng);
+			geocoder.getLocations(marker.getLatLng(),updateSource);
+        });
         GEvent.addListener(marker, "dragstart", function() {
         });
 
@@ -723,9 +728,9 @@ function initialize_map(canvas) {
       }
 }
 function updateSource(response){
-	updatePlace(response,source);
+	updateLocation(response,source);
 }
-function updatePlace(response, element){
+function updateLocation(response, element){
 	  if (!response || response.Status.code != 200) {
     alert("Status Code:" + response.Status.code);
   } else {
