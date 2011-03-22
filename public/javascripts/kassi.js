@@ -679,10 +679,18 @@ function update_map(field) {
 	    //var marker2 = new GMarker(point);
 	    //map.addOverlay(marker);
 	    marker.setLatLng(center);
+	    //alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.SubAdministrativeAreaName);
+	    //Remove this after we've totally switched to the location model!
+	    var city = $('#person_locality');
+	    if(city!=null){
+	    	//city.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+	    	city.value = place.LocalityName
+		var postcode = $('#person_postal_code');
+		//postcode.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
+		postcode.value = place.PostalCodeNumber;
+	    	//alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName);
+	    }
 
-	    // As this is user-generated content, we display it as
-	    // text rather than HTML to reduce XSS vulnerabilities.
-	    //marker.openInfoWindow(document.createTextNode(address));
 	    return true;
             }
           }
@@ -738,6 +746,14 @@ function updateLocation(response, element){
   } else {
 	  var place = response.Placemark[0];
 	  element.value = place.address;
+
+	    var city = $('#person_locality');
+	    if(city!=null){
+	    	//city.value = place.AddressDetails.Country.SubAdministrativeArea.Locality.LocalityName;
+	    	city.value = place.LocalityName;
+		var postcode = $('#person_postal_code');
+		postcode.value = place.PostalCodeNumber;
+	    }
   }
 }
 
