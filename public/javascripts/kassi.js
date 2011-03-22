@@ -665,23 +665,25 @@ function disable_and_submit(form_id, form, locale, ajax) {
 }
 function update_map(field) {
 	if(geocoder){
-	  geocoder.getLatLng(
+	  geocoder.getLocations(
           field.value,
-          function(point) {
-            if (!point) {
+          function(response) {
+            if (!response || response.Status.code != 200) {
 		    //Remove this when we get proper jquery stuff
               alert("Address " +field.value + " not found");
             } else {
-		    center = point;
-              map.setCenter(point, 13);
-              //var marker2 = new GMarker(point);
-              //map.addOverlay(marker);
-	      marker.setLatLng(point);
+	    var place = response.Placemark[0];
+	    center = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
+	    map.setCenter(center, 13);
+	    field.value = place.address;
+	    //var marker2 = new GMarker(point);
+	    //map.addOverlay(marker);
+	    marker.setLatLng(center);
 
-              // As this is user-generated content, we display it as
-              // text rather than HTML to reduce XSS vulnerabilities.
-              //marker.openInfoWindow(document.createTextNode(address));
-	      return true;
+	    // As this is user-generated content, we display it as
+	    // text rather than HTML to reduce XSS vulnerabilities.
+	    //marker.openInfoWindow(document.createTextNode(address));
+	    return true;
             }
           }
         );
@@ -714,7 +716,7 @@ function initialize_map(canvas) {
         GEvent.addListener(map, "click", function(overlay, latlng) {
 			if(latlng);
 			marker.setLatLng(latlng);
-			geocoder.getLocations(marker.getLatLng(),updateSource);
+			geocoder.getLocations(latlng,updateSource);
         });
         GEvent.addListener(marker, "dragstart", function() {
         });
