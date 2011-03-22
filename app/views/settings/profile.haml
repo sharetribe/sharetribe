@@ -46,4 +46,9 @@
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
       = form.text_area :description
+    .hidden_field{:style => "visibility:hidden;width:0;height:0"}
+      = form.label :postal_code, t(".postal_code"), :class => "input"
+      = form.text_field :postal_code, :class => "text_field", :maxlength => "8"
+      = form.label :locality, t(".city"), :class => "input"
+      = form.text_field :locality, :class => "text_field", :maxlength => "50"
     = form.submit t("settings.save_information"), :class => "send_button"
