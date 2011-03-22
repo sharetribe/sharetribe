@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110322141439) do
+ActiveRecord::Schema.define(:version => 20110322151957) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -212,8 +212,6 @@ ActiveRecord::Schema.define(:version => 20110322141439) do
     t.datetime "valid_until"
     t.boolean  "delta",                   :default => true,        :null => false
     t.boolean  "open",                    :default => true
-    t.integer  "origin_loc_id"
-    t.integer  "destination_loc_id"
   end
 
   create_table "locations", :force => true do |t|
@@ -223,6 +221,8 @@ ActiveRecord::Schema.define(:version => 20110322141439) do
     t.string   "google_address"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "person_id"
+    t.integer  "listing_id"
   end
 
   create_table "messages", :force => true do |t|
@@ -264,7 +264,6 @@ ActiveRecord::Schema.define(:version => 20110322141439) do
     t.integer  "active_days_count",                 :default => 0
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                 :default => 1
-    t.integer  "location_id"
   end
 
   create_table "people_smerf_forms", :force => true do |t|
