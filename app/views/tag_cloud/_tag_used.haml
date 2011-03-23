@@ -1,0 +1,7 @@
+- if @tag
+  .left_panel_section
+    .left_panel_title
+      %h3= t(".with_tag")
+      = link_to @tag, offers_with_tag_path(@tag), :class => "selected"
+      = link_to t(".without_tag"), offers_path
+
