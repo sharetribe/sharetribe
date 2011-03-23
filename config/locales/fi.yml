@@ -635,6 +635,10 @@ fi:
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+  tag_cloud:
+    tag_used:
+      with_tag: "Avainsanalla"
+      without_tag: "Ilman avainsanaa"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"

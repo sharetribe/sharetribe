@@ -24,4 +24,5 @@ Kassi::Application.configure do
     :domain => 'cos.alpha.sizl.org'
   }
   
+  config.active_support.deprecation = :log
 end

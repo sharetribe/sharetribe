@@ -466,9 +466,16 @@ function reload_browse_view(link, listing_type, locale) {
 		}
 	});
 	var request_path = '/' + locale + '/load'
-	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
-		$('#search_results').html(data);
-	});
+	if (remember_tag != "") {
+		$.get(request_path, { listing_type: listing_type, tag: remember_tag, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
+	    $('#search_results').html(data);
+	    });
+	}
+  else {
+		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
+	    $('#search_results').html(data);
+	    });
+	}
 }
 
 function initialize_browse_view(listing_type, locale) {
