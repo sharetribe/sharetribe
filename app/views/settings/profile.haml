@@ -48,9 +48,11 @@
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
       = form.text_area :description
-    .hidden_field{:style => "visibility:hidden;width:0;height:0"}
-      = form.label :postal_code, t(".postal_code"), :class => "input"
-      = form.text_field :postal_code, :class => "text_field", :maxlength => "8"
-      = form.label :locality, t(".city"), :class => "input"
-      = form.text_field :locality, :class => "text_field", :maxlength => "50"
+      = form.hidden_field :postal_code
+      = form.hidden_field :locality
+    = form.fields_for :location do |loc|
+      = loc.hidden_field :address, :value => @person.location.address
+      = loc.hidden_field :google_address, :value => @person.location.google_address
+      = loc.hidden_field :latitude, :value => @person.location.latitude
+      = loc.hidden_field :longitude, :value => @person.location.longitude
     = form.submit t("settings.save_information"), :class => "send_button"
