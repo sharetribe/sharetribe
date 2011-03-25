@@ -29,6 +29,7 @@
     .form_field_container
       = form.label :street_address, t(".street_address"), :class => "input"
       = form.text_field :street_address, :class => "text_field", :maxlength => "50", :onchange => "update_map(this)"
+      #flash_address{:class => "notification_text"}
     .form_field_container
       .map{:id => "map_canvas", :style => "width: 500px; height: 300px"}
         //Here initialize the elements we want to use with the map
