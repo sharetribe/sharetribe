@@ -681,15 +681,9 @@ function update_map(field) {
 	    marker.setLatLng(center);
 	    //alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.SubAdministrativeAreaName);
 	    //Remove this after we've totally switched to the location model!
-	    var city = $('#person_locality');
-	    if(city!=null){
-	    	//city.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
-	    	city.value = place.LocalityName
-		var postcode = $('#person_postal_code');
-		//postcode.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
-		postcode.value = place.PostalCodeNumber;
-	    	//alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName);
-	    }
+	    //var city = $('#person_locality');
+	    if (profilemap)
+	    	updateProfileLocation(place);
 
 	    return true;
             }
@@ -746,14 +740,99 @@ function updateLocation(response, element){
   } else {
 	  var place = response.Placemark[0];
 	  element.value = place.address;
+	  if(profilemap)
+		  updateProfileLocation(place);
 
-	    var city = $('#person_locality');
+	    //var city = $('#person_locality');
+	    /*
+	    var city = document.getElementById("person_locality");
 	    if(city!=null){
 	    	//city.value = place.AddressDetails.Country.SubAdministrativeArea.Locality.LocalityName;
 	    	city.value = place.LocalityName;
-		var postcode = $('#person_postal_code');
+		//var postcode = $('#person_postal_code');
+		var postcode = document.getElementById("person_postal_code");
+		
 		postcode.value = place.PostalCodeNumber;
 	    }
+	    */
   }
+}
+function updateProfileLocation(place){
+	//var r = parseGooglePlaceJSON(place);
+	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
+	var r = {};
+	traverse(place,r,param);
+
+	var city = document.getElementById("person_locality");
+	var postcode = document.getElementById("person_postal_code");
+	var address = document.getElementById("person_location_address");
+	var latitude = document.getElementById("person_location_latitude");
+	var longitude = document.getElementById("person_location_longitude");
+	var google_address = document.getElementById("person_location_google_address");
+
+	city.value = r.LocalityName;
+	postcode.value = r.PostalCodeNumber;
+	address.value = r.ThoroughfareName;
+	latitude.value = r.Point.coordinates[1];
+	longitude.value = r.Point.coordinates[0];
+	google_address.value = r.address;
+	//address.value = r.ThoroughfareName;
+	//$.cookie("address", place.address);
+	/*
+	    if(city!=null){
+	    	//city.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+	    	//city.attr("value",place.LocalityName);
+		var plz = place.LocalityName;
+	    	city.value = place.LocalityName;
+		//var postcode = $('#person_postal_code');
+		var postcode = document.getElementById("person_postal_code");
+		//postcode.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
+		//postcode.attr("value",place.PostalCodeNumber);
+		postcode.value = place.PostalCodeNumber;
+	    	//alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName);
+	    }
+	    */
+}
+function parseGooglePlaceJSON(place){
+	/*
+	 * Since google geocoder sometimes returns different structure for the object, 
+	 * we need to parse it properly here. This still returns an error sometimes :/
+	 */
+	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName"];
+	//alert(place[this[param]]);
+	var returnable = {};
+
+
+	traverse(place,returnable,param);
+	/*
+	var temp = place.AddressDetails.Country;
+	if (temp.AdministrativeArea != null){
+		returnable.LocalityName = temp.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
+		returnable.PostalCodeNumber = temp.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
+	}
+	else{
+		temp = temp.SubAdministrativeArea.Locality;
+		if(temp.DependentLocality != null){
+			returnable.LocalityName = temp.DependentLocality.LocalityName;
+			returnable.PostalCodeNumber = temp.DependentLocality.PostalCode.PostalCodeNumber;
+		}
+		else{
+			returnable.LocalityName = temp.LocalityName;
+			returnable.PostalCodeNumber = temp.PostalCode.PostalCodeNumber;
+		}
+	}
+	*/
+
+	//alert(returnable.PostalCodeNumber);
+	return returnable;
+}
+function traverse(o,returnable,param){
+	for(i in o){
+		for(k = 0;k<param.length;k++)
+			if(i == param[k])
+					returnable[param[k]] = o[i];
+		if(typeof(o[i]) == "object")
+			traverse(o[i],returnable,param);
+	}
 }
 
