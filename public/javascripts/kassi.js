@@ -669,8 +669,9 @@ function update_map(field) {
           field.value,
           function(response) {
             if (!response || response.Status.code != 200) {
+	    	address_not_found(field);
 		    //Remove this when we get proper jquery stuff
-              alert("Address " +field.value + " not found");
+              //alert("Address " +field.value + " not found");
             } else {
 	    var place = response.Placemark[0];
 	    center = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
@@ -683,7 +684,7 @@ function update_map(field) {
 	    //Remove this after we've totally switched to the location model!
 	    //var city = $('#person_locality');
 	    if (profilemap)
-	    	updateProfileLocation(place);
+	    	update_profile_location(place);
 
 	    return true;
             }
@@ -718,30 +719,31 @@ function initialize_map(canvas) {
         GEvent.addListener(map, "click", function(overlay, latlng) {
 			if(latlng);
 			marker.setLatLng(latlng);
-			geocoder.getLocations(latlng,updateSource);
+			geocoder.getLocations(latlng,update_source);
         });
         GEvent.addListener(marker, "dragstart", function() {
         });
 
         GEvent.addListener(marker, "dragend", function() {
-		geocoder.getLocations(marker.getLatLng(),updateSource);
+		geocoder.getLocations(marker.getLatLng(),update_source);
         });
 
         map.addOverlay(marker);
 
       }
 }
-function updateSource(response){
-	updateLocation(response,source);
+function update_source(response){
+	update_location(response,source);
 }
-function updateLocation(response, element){
+function update_location(response, element){
 	  if (!response || response.Status.code != 200) {
-    alert("Status Code:" + response.Status.code);
+		  address_not_found(element);
+    //alert("Status Code:" + response.Status.code);
   } else {
 	  var place = response.Placemark[0];
 	  element.value = place.address;
 	  if(profilemap)
-		  updateProfileLocation(place);
+		  update_profile_location(place);
 
 	    //var city = $('#person_locality');
 	    /*
@@ -757,7 +759,7 @@ function updateLocation(response, element){
 	    */
   }
 }
-function updateProfileLocation(place){
+function update_profile_location(place){
 	//var r = parseGooglePlaceJSON(place);
 	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
 	var r = {};
@@ -793,17 +795,18 @@ function updateProfileLocation(place){
 	    }
 	    */
 }
-function parseGooglePlaceJSON(place){
+//Not used anymore
+//function parseGooglePlaceJSON(place){
 	/*
 	 * Since google geocoder sometimes returns different structure for the object, 
 	 * we need to parse it properly here. This still returns an error sometimes :/
 	 */
-	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName"];
+	//param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName"];
 	//alert(place[this[param]]);
-	var returnable = {};
+	//var returnable = {};
 
 
-	traverse(place,returnable,param);
+	//traverse(place,returnable,param);
 	/*
 	var temp = place.AddressDetails.Country;
 	if (temp.AdministrativeArea != null){
@@ -824,8 +827,8 @@ function parseGooglePlaceJSON(place){
 	*/
 
 	//alert(returnable.PostalCodeNumber);
-	return returnable;
-}
+	//return returnable;
+//}
 function traverse(o,returnable,param){
 	for(i in o){
 		for(k = 0;k<param.length;k++)
@@ -834,5 +837,11 @@ function traverse(o,returnable,param){
 		if(typeof(o[i]) == "object")
 			traverse(o[i],returnable,param);
 	}
+}
+function address_not_found(field){
+	flash = $("#flash_address");
+	
+	//alert(field);
+	//alert(field.value);
 }
 
