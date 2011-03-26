@@ -28,30 +28,49 @@ class ListingsController < ApplicationController
     @to_render = {:action => :index}
     load
   end
-  def requests_mobile
-    params[:listing_type] = "request"
-    @to_render = {:action => :index_mobile}
-    load
-  end
   
   def offers
     params[:listing_type] = "offer"
     @to_render = {:action => :index}
     load
   end
-  
+
+  # detect the browser and return the approriate layout
+  def detect_browser
+    mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
+"palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
+"windows ce; smartphone;","windows ce; iemobile", 
+"up.browser","up.link","mmp","symbian","smartphone", 
+"midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
+    agent = request.headers["HTTP_USER_AGENT"].downcase
+    mobile_browsers.each do |m|
+      return true if agent.match(m)
+    end
+    return true
+  end
+
   # Used to load listings to be shown
   # How the results are rendered depends on 
   # the type of request and if @to_render is set
   def load
-    @title = params[:listing_type]
-    @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
-    @request_path = request.fullpath
-    if request.xhr? && params[:page] && params[:page].to_i > 1
-      render :partial => "listings/additional_listings"
+    @check_mobile = detect_browser
+    if @check_mobile
+      @title = params[:listing_type]
+      @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+      render :partial => "listings/mobile_listings"
+      
+      
+      
     else
-      render  @to_render
+      @title = params[:listing_type]
+      @to_render ||= {:partial => "listings/listed_listings"}
+      @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+      @request_path = request.fullpath
+      if request.xhr? && params[:page] && params[:page].to_i > 1
+        render :partial => "listings/additional_listings"
+      else
+        render  @to_render
+      end
     end
   end
   

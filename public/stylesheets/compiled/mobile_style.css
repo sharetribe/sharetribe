@@ -1,6 +1,6 @@
 @import url('../reset.css');
 @import url('../text.css');
-@import url('../960_24_col.css');
+@import url('../480_24_col.css');
 @import url('../uniform.kassi.css');
 /* Colors */
 /* Used to fix form padding problem in FF */
@@ -95,20 +95,29 @@ form, input {
   float: left; }
 
 #header {
-  height: 100px; }
+  height: 100px;
+  margin: 0;
+  float: left;
+  display: block; }
 
 #main {
   margin-top: 20px;
-  overflow: hidden; }
+  display: block; }
 
 #listing_form_wrapper {
   overflow: hidden; }
 
 #logo {
-  margin-top: 7px; }
+  margin-top: 0;
+  vertical-align: middle; }
 
+#map_canvas {
+  height: 500%;
+  width: 100%;
+}  
+  
 #search {
-  margin: 15px 0 0 32px; }
+  margin: 5px 0 0 18px; }
   #search input.search_field {
     margin-left: 5px;
     background: #f7f5e6;
@@ -140,7 +149,9 @@ form, input {
       color: #f8792f; }
 
 .tabs {
-  margin-top: 16px; }
+  margin-top: 7px; 
+  margin-bottom: 10px; 
+  }
 
 #top_navi select {
   background: #f7f5e6;
@@ -160,7 +171,6 @@ form, input {
       color: #d45207; }
 
 .login_tabs {
-  height: 40px;
   margin-right: 10px; }
 
 .locale_select_padding {
@@ -168,8 +178,8 @@ form, input {
 
 .tab_unselected a {
   width: 110px;
-  height: 26px;
-  padding-top: 10px;
+  height: 20px;
+  padding-top: 0px;
   text-align: center;
   display: block;
   font-weight: bold;
@@ -191,8 +201,8 @@ form, input {
 
 .tab_selected a {
   width: 110px;
-  height: 26px;
-  padding-top: 10px;
+  height: 20px;
+  padding-top: 0px;
   text-align: center;
   display: block;
   font-weight: bold;
@@ -493,11 +503,6 @@ p.description {
   height: 85px;
   float: left; }
 
-.listing_map {
-  width: 85px;
-  height: 85px;
-  float: right; }
-
 .listing_image_item a {
   height: 85px;
   display: block;
@@ -563,26 +568,6 @@ p.description {
     margin: 21px 0 2px 0;
     min-height: 45px; }
   .listed_listing_text h5 {
-    float: left; }
-
-.listed_listing_text_mobile {
-  float: left;
-  font-size: 11px;
-  width: 519px;
-  margin-left: 10px;
-  margin-right: 10px; }
-  .listed_listing_text_mobile span {
-    color: #797979;
-    font-style: italic;
-    font-size: 10px;
-    float: right;
-    padding-top: 1px; }
-    .listed_listing_text_mobile span a {
-      font-weight: normal; }
-  .listed_listing_text_mobile p {
-    margin: 21px 0 2px 0;
-    min-height: 45px; }
-  .listed_listing_text_mobile h5 {
     float: left; }
 
 /* New listing page */
@@ -1322,9 +1307,10 @@ div.checkbox_float {
 
 #logged_in_links {
   text-align: right;
-  margin: 21px 10px 0 0;
+  margin: 0;
   color: white;
-  font-size: 13px; }
+  font-size: 13px;
+  display: inline; }
   #logged_in_links a {
     font-size: 13px;
     font-weight: bold;
@@ -2927,31 +2913,6 @@ a.handle:hover {
 #testimonials_grade_image {
   padding-top: 40px; }
 
-#feedback_average {
-  padding-top: 60px;
-  overflow: hidden; }
-
-.feedback_average_title {
-  font-size: 22px;
-  font-weight: bold;
-  width: 434px;
-  float: left; }
-
-.feedback_average_value {
-  padding-top: 10px;
-  float: left;
-  width: 150px;
-  font-size: 60px;
-  font-weight: bold;
-  line-height: 26px; }
-
-.feedback_average_description {
-  font-size: 13px;
-  float: left;
-  width: 200px;
-  line-height: 11px;
-  padding-top: 18px; }
-
 .single_testimonial {
   overflow: hidden;
   background: #ececdb; }
@@ -2974,38 +2935,3 @@ a.handle:hover {
 
 .light_red {
   background: #fbe3e4; }
-
-.feedback_average_description_link_div {
-  clear: both;
-  padding-top: 10px; }
-
-#feedback_type_descriptions {
-  background: #d1c9b4;
-  margin: 20px 10px 0 0;
-  padding: 5px; }
-  #feedback_type_descriptions h4 {
-    margin: 0 0 10px 0; }
-
-#feedback_type_description_list {
-  overflow: hidden;
-  margin-bottom: 15px; }
-
-.feedback_type_description {
-  overflow: hidden;
-  clear: both; }
-
-.feedback_type_description_image {
-  float: left;
-  width: 35px;
-  margin: 0 25px 5px 35px; }
-
-.feedback_type_description_text {
-  float: left;
-  width: 230px;
-  margin-top: 7px; }
-
-.feedback_type_description_grade {
-  float: left;
-  width: 30px;
-  font-weight: bold;
-  margin-top: 7px; }

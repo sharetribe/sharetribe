@@ -1,0 +1,57 @@
+!!! 5
+!!! xml
+%html{html_attrs(I18n.locale)}
+  %head
+    %title 
+      Kassi
+      - if @listing && action_name.eql?("show")
+        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
+        
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+    %meta{ :name => "description", :content => t(".meta_description") }
+    %meta{ :name => "keywords", :content => t(".keywords") } 
+    = stylesheet_link_tag 'compiled/mobile_style.css'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
+    = csrf_meta_tag
+    
+    :javascript
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
+    
+    - if I18n.locale.to_s.eql?("en")
+      %style{:type => "text/css"}
+        a.handle { background-position: -80px 0; }
+        a.handle:hover { background-position: -120px 0; }
+    
+  %body
+  
+    .wrapper
+    
+      #header.container_24
+        .grid_6
+          #logo
+            = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+        .grid_17
+          = render :partial => "layouts/mobile_logged_in"
+          .clear
+          .grid_15.alpha
+            #search
+              = form_tag({ :action => :show, :controller => :search }, :method => "get") do
+                - one_line do              
+                  = text_field_tag("q", params[:q], :class => "search_field")
+                  = submit_tag("s", :class => "search_button")
+          .clear
+          .tabs.grid_15.alpha
+            .grid_6.prefix_1.alpha{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.requests'), requests_path
+            .grid_6.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
+              = link_to t('header.offers'), offers_path
+      #header.container_24      
+        %img{:src => "http://maps.google.com/maps/api/staticmap?center=Otaniemi+Espoo&zoom=13&size=480x540&maptype=roadmap&markers=color:blue|label:R|60.184595,24.832116&markers=color:red|label:O|60.183611,24.837317&markers=color:red|label:O|60.192422,24.80683&markers=color:blue|label:R|60.179489,24.799812&sensor=false", :alt => "Google Maps", :width => "480", :height => "540"}
+      #bottom_spacer.container_24  
+        %br/
+        &nbsp;
+        %br/
+        &nbsp;
+        %br/
+        %br/
+    
