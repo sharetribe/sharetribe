@@ -19,7 +19,7 @@ gem 'capistrano'
 # Bundle the extra gems:
 
 gem "mongrel"
-gem 'mysql', '2.8.1'
+gem 'mysql'
 gem 'haml'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
