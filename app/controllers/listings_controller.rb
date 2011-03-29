@@ -56,11 +56,11 @@ class ListingsController < ApplicationController
   
   def new
     @listing = Listing.new
-    @listing.origin_loc = Location.new
+    @listing.build_origin_loc
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
     if @listing.category == "rideshare"
-    	@listing.destination_loc = Location.new
+    	@listing.build_destination_loc
     end
     1.times { @listing.listing_images.build }
     respond_to do |format|
