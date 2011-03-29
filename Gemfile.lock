@@ -198,7 +198,7 @@ DEPENDENCIES
   launchy
   memcache-client (>= 1.8.5)
   mongrel
-  mysql (= 2.8.1)
+  mysql
   newrelic_rpm
   paperclip
   passenger
