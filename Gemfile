@@ -19,7 +19,7 @@ gem 'capistrano'
 # Bundle the extra gems:
 
 gem "mongrel"
-gem 'mysql', '2.8.1'
+gem 'mysql'
 gem 'haml'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
@@ -31,7 +31,7 @@ gem 'whenever', "~> 0.5.0"
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
-gem 'recaptcha', :git => 'git://github.com/rfc2822/recaptcha.git', :branch => 'rails3' #:git => 'git://github.com/ambethia/recaptcha.git'
+gem 'recaptcha'
 gem 'hoptoad_notifier'
 gem 'passenger'
 gem 'delayed_job'
