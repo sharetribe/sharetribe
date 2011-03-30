@@ -726,14 +726,12 @@ function initialize_map(canvas) {
 	//map.addControl(new GSmallMapControl());
         //map.addControl(new GMapTypeControl());
 
-
         marker = new google.maps.Marker({
 			      map:map,
 			      draggable:true,
       			      animation: google.maps.Animation.DROP,
       				position: center
     });
-
 
         google.maps.event.addListener(map, "click", function(event) {
 			marker.setPosition(event.latLng);
