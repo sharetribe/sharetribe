@@ -363,6 +363,10 @@ fi:
         comma_separate: "(erota pilkulla)"  
       description:
         detailed_description: "Tarkempi kuvaus"
+      googlemap:
+        googlemap_description: "Kartta"
+        googlemap_updatemap: "Päivitä karttaa"
+        googlemap_copy: "Päätepisteet Kartalta"
       images:
         image: "Kuva"
         select_file: "Valitse tiedosto"
