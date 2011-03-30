@@ -665,28 +665,27 @@ function disable_and_submit(form_id, form, locale, ajax) {
 }
 function update_map(field) {
 	if(geocoder){
-	  geocoder.getLocations(
-          field.value,
-          function(response) {
-            if (!response || response.Status.code != 200) {
-	    	address_not_found(field);
-		    //Remove this when we get proper jquery stuff
-              //alert("Address " +field.value + " not found");
-            } else {
-	    var place = response.Placemark[0];
-	    center = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
-	    map.setCenter(center, 13);
-	    field.value = place.address;
+	  geocoder.geocode(
+			  {'address':field.value},
+          function(response,info) {
+            if (info == google.maps.GeocoderStatus.OK){
+	    //center = new google.maps.LatLng(place.geometry.location)
+	    map.setCenter(response[0].geometry.location);
+	    field.value = response[0].formatted_address;
 	    //var marker2 = new GMarker(point);
 	    //map.addOverlay(marker);
-	    marker.setLatLng(center);
+	    marker.setPosition(response[0].geometry.location);
 	    //alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.SubAdministrativeAreaName);
 	    //Remove this after we've totally switched to the location model!
 	    //var city = $('#person_locality');
 	    if (profilemap)
-	    	update_profile_location(place);
+	    	update_profile_location(response);
 
 	    return true;
+		    //Remove this when we get proper jquery stuff
+              //alert("Address " +field.value + " not found");
+            } else {
+	    	address_not_found(field);
             }
           }
         );
@@ -697,53 +696,67 @@ function update_map(field) {
 	
 }
 function initialize_map(canvas) {
-      if (GBrowserIsCompatible()) {
+      //if (GBrowserIsCompatible()) {
 	
-        map = new GMap2(document.getElementById(canvas));
-	geocoder = new GClientGeocoder();
+	if(profilemap){
+		var latitude = document.getElementById("person_location_latitude");
+		var longitude = document.getElementById("person_location_longitude");
+		center = new google.maps.LatLng(latitude.value, longitude.value);
+	}
+	else
+		center = new google.maps.LatLng(60.1894, 24.8358);
+	var myOptions = {
+		zoom: 13,
+      		center: center,
+      		mapTypeId: google.maps.MapTypeId.ROADMAP
+    }
+
+        map = new google.maps.Map(document.getElementById(canvas), myOptions);
+	geocoder = new google.maps.Geocoder();
+	//geocoder = navigator.geolocation
 	//geocoder.load("locale" : "fi");
         //map = new GMap2(canvas);
         //center = new GLatLng(60.1894, 24.8358);
 	
 	if(update_map(source)){
 	}
-	else
-		center = new GLatLng(60.1894, 24.8358);
-        map.setCenter(center, 13);
-	map.addControl(new GSmallMapControl());
-        map.addControl(new GMapTypeControl());
+        //map.setCenter(center, 13);
+	//map.addControl(new GSmallMapControl());
+        //map.addControl(new GMapTypeControl());
 
 
-        marker = new GMarker(center, {draggable: true});
+        marker = new google.maps.Marker({
+			      map:map,
+			      draggable:true,
+      			      animation: google.maps.Animation.DROP,
+      				position: center
+    });
 
-        GEvent.addListener(map, "click", function(overlay, latlng) {
-			if(latlng);
-			marker.setLatLng(latlng);
-			geocoder.getLocations(latlng,update_source);
+
+        google.maps.event.addListener(map, "click", function(event) {
+			marker.setPosition(event.latLng);
+			geocoder.geocode({"latLng":event.latLng},update_source);
         });
-        GEvent.addListener(marker, "dragstart", function() {
+        //GEvent.addListener(marker, "dragstart", function() {
+        //});
+
+        google.maps.event.addListener(marker, "dragend", function() {
+		geocoder.geocode({"latLng":marker.getPosition()},update_source);
         });
 
-        GEvent.addListener(marker, "dragend", function() {
-		geocoder.getLocations(marker.getLatLng(),update_source);
-        });
+        //map.addOverlay(marker);
 
-        map.addOverlay(marker);
-
-      }
 }
-function update_source(response){
-	update_location(response,source);
+function update_source(response,status){
+	if (status == google.maps.GeocoderStatus.OK){
+		update_location(response,source);
+	}
 }
 function update_location(response, element){
-	  if (!response || response.Status.code != 200) {
-		  address_not_found(element);
     //alert("Status Code:" + response.Status.code);
-  } else {
-	  var place = response.Placemark[0];
-	  element.value = place.address;
+	  element.value = response[0].formatted_address;
 	  if(profilemap)
-		  update_profile_location(place);
+		  update_profile_location(response);
 
 	    //var city = $('#person_locality');
 	    /*
@@ -757,13 +770,14 @@ function update_location(response, element){
 		postcode.value = place.PostalCodeNumber;
 	    }
 	    */
-  }
 }
 function update_profile_location(place){
 	//var r = parseGooglePlaceJSON(place);
-	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
+	//param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
+	param = ["locality","postal_code","address"];
+	
 	var r = {};
-	traverse(place,r,param);
+	traverse_new_api(place,r,param);
 
 	var city = document.getElementById("person_locality");
 	var postcode = document.getElementById("person_postal_code");
@@ -771,14 +785,26 @@ function update_profile_location(place){
 	var latitude = document.getElementById("person_location_latitude");
 	var longitude = document.getElementById("person_location_longitude");
 	var google_address = document.getElementById("person_location_google_address");
+	
 
+	//city.value = place[0].address_components[2].long_name;
+	//postcode.value = place[0].address_components[6].long_name;
+	city.value = r.locality;
+	postcode.value = r.postal_code;
+	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
+	latitude.value = place[0].geometry.location.Ca;
+	longitude.value = place[0].geometry.location.Ea;
+	google_address.value = place[0].formatted_address;
+
+	/*
 	city.value = r.LocalityName;
 	postcode.value = r.PostalCodeNumber;
 	address.value = r.ThoroughfareName;
 	latitude.value = r.Point.coordinates[1];
 	longitude.value = r.Point.coordinates[0];
 	google_address.value = r.address;
-	//address.value = r.ThoroughfareName;
+	address.value = r.ThoroughfareName;
+	*/
 	//$.cookie("address", place.address);
 	/*
 	    if(city!=null){
@@ -836,6 +862,16 @@ function traverse(o,returnable,param){
 					returnable[param[k]] = o[i];
 		if(typeof(o[i]) == "object")
 			traverse(o[i],returnable,param);
+	}
+}
+function traverse_new_api(o,returnable,param){
+	for(i in o){
+		for(k = 0;k<param.length;k++)
+			for(j in o[i].types)
+				if(o[i].types[j] == param[k])
+					returnable[param[k]] = o[i].address_components[0].long_name;
+		//if(typeof(o[i]) == "object")
+			//traverse(o[i],returnable,param);
 	}
 }
 function address_not_found(field){
