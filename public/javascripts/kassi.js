@@ -663,6 +663,7 @@ function disable_and_submit(form_id, form, locale, ajax) {
   	form.submit();
 	}	
 }
+
 function update_map(field) {
 	if(geocoder){
 	  geocoder.getLocations(
@@ -696,6 +697,7 @@ function update_map(field) {
 	//alert(field.value);
 	
 }
+
 function initialize_map(canvas) {
       if (GBrowserIsCompatible()) {
 	
