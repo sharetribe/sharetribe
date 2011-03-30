@@ -1,0 +1,9 @@
+.new_listing_form_field_container
+  = form.label :description, t('.googlemap_description') + ":", :class => "input"
+  .jsmap{:id => "map_canvas", :style => "width: 400px; height: 300px"}
+  :javascript 
+    $(document).ready(function() { 
+      googlemapInit('map_canvas');
+    });
+  = form.submit t('.googlemap_updatemap'), :class => "send_button", :type => "button", :id => "update_map", :onclick => "startCopy()"
+  = form.submit t('.googlemap_copy'), :class => "send_button", :type => "button", :id => "copy_map", :onclick => "copyGooglePoints()"
