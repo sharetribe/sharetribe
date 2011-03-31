@@ -156,6 +156,8 @@ Kassi::Application.routes.draw do
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
+  match "/:locale/offers_on_map" => "mapview#offers", :as => :offers_on_map
+  match "/:locale/requests_on_map" => "mapview#requests", :as => :requests_on_map
   
   root :to => 'homepage#index'
   
