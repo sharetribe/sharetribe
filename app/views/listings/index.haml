@@ -20,6 +20,16 @@
     .grid_10.alpha
       #search_form_spacer
         &nbsp;
+        
+      .tabs.grid_9.alpha 
+        .grid_3.alpha
+          #map_view_load
+            = link_to t(".map_view")
+        .grid_3.omega
+          #list_view_selector
+            = link_to t(".list_view")  
+        
+        
     .grid_8.omega
       #new_listing_links
         = t(".did_not_found_what_you_were_looking_for")
