@@ -12,3 +12,11 @@ When /^I print "(.+)"$/ do |text|
   puts text
 end
 
+Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
+  lambda {
+    with_scope(selector) do
+      # nothing to do here, just try to search the selector and should fail on that
+    end
+  }.should raise_error(Capybara::ElementNotFound)
+end
+

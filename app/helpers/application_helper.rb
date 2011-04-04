@@ -90,6 +90,15 @@ module ApplicationHelper
     "inbox_tab_#{controller_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
+  def available_locales
+    if @current_community
+      # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
+      return @current_community.locales.collect{|loc| APP_CONFIG.available_locales.select{|app_loc| app_loc[1] == loc }[0]}
+    else
+      return APP_CONFIG.available_locales
+    end
+  end
+  
   def self.send_error_notification(message)
     if APP_CONFIG.use_hoptoad
       HoptoadNotifier.notify(:error_class => "Special Error", :error_message => message 

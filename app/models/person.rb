@@ -70,11 +70,11 @@ class Person < ActiveRecord::Base
     ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
   end
   
-  # Create a new person to Common Services and Kassi.
-  def self.create(params, cookie)
+  # Create a new person to ASI and Kassi.
+  def self.create(params, cookie, asi_welcome_mail = false)
     
     # Try to create the person to ASI
-    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}) }
+    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}), :welcome_email => asi_welcome_mail}
     response = PersonConnection.create_person(person_hash, cookie)
 
     # Pick id from the response (same id in kassi and ASI DBs)
