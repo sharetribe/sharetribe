@@ -281,7 +281,7 @@ ActiveRecord::Schema.define(:version => 20110308172759) do
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",   :default => 1
   end
-
+  
   create_table "people_smerf_forms", :force => true do |t|
     t.string  "person_id",     :null => false
     t.integer "smerf_form_id", :null => false
