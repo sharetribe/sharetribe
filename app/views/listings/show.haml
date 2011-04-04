@@ -34,7 +34,7 @@
           %br/
         - unless @listing.share_types.empty?
           %strong
-            = t(".share_types") + ":"
+            = t(".share_types_#{@listing.listing_type}") + ":"
           - @listing.share_types.collect do |st| 
             = t("common.share_types.#{st.name}")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
         - unless @listing.share_types.empty? && @listing.tag_list.empty?

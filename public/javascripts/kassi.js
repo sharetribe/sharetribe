@@ -465,7 +465,7 @@ function reload_browse_view(link, listing_type, locale) {
 			sections[link_type].push(link_title);
 		}
 	});
-	var request_path = '/' + locale + '/load'
+	var request_path = '/' + locale + '/load';
 	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
 		$('#search_results').html(data);
 	});
