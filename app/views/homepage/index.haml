@@ -46,7 +46,11 @@
 #recent_event_box.grid_6
   .recent_events
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    %h4= t('.news')
+    %h4 
+      - if @current_community.domain.eql?("ospn")
+        Welcome to Kassi on behalf of Oakland Single Parents' Network!
+      - else
+        = t('.news')
     .welcome_text
       = render :partial => "welcome_text_#{ENV['RAILS_ENV'] == 'test' ? 'aalto' : @current_community.domain}"
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

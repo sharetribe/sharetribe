@@ -181,7 +181,7 @@ h3.brown {
 h4 {
 	color: $medium_brown;
 	text-align: center;
-	margin: 5px 0 15px 0;
+	margin: 5px 20px 15px 20px;
 }
 
 h5 {
@@ -223,12 +223,22 @@ form, input {
 	margin-top: 7px;
 }
 
+#logo_link {
+	line-height: 14px;
+	margin-top: 15px;
+	a { 
+		color: $bg_color;
+		&:hover { color: $light_orange; }
+	}
+}
+
 #search {
-	margin: 15px 0 0 32px;
+	overflow: hidden;
+	margin: 15px 0 0 0;
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
-		width: 175px;
+		width: 165px;
 		height: 18px;
 		padding: 5px 8px;
 		border: 0;
