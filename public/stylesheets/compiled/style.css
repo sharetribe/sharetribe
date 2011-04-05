@@ -64,7 +64,7 @@ h3.brown {
 h4 {
   color: #765d3a;
   text-align: center;
-  margin: 5px 0 15px 0; }
+  margin: 5px 20px 15px 20px; }
 
 h5 {
   margin: 0;
@@ -107,12 +107,21 @@ form, input {
 #logo {
   margin-top: 7px; }
 
+#logo_link {
+  line-height: 14px;
+  margin-top: 15px; }
+  #logo_link a {
+    color: #f7f5e6; }
+    #logo_link a:hover {
+      color: #f8792f; }
+
 #search {
-  margin: 15px 0 0 32px; }
+  overflow: hidden;
+  margin: 15px 0 0 0; }
   #search input.search_field {
     margin-left: 5px;
     background: #f7f5e6;
-    width: 175px;
+    width: 165px;
     height: 18px;
     padding: 5px 8px;
     border: 0; }
