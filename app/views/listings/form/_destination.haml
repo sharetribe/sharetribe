@@ -1,6 +1,8 @@
 .new_listing_form_field_container
   = form.label :destination, t(".destination") + "*:", :class => "input"
-  = form.text_field(:destination, :class => "title_text_field", :maxlength => "48")
+  = form.text_field(:destination, :class => "title_text_field", :maxlength => "48", 
+                    :onkeydown => "if (event.keyCode == 13) startCopyForm()",
+                    :onblur => "startCopyForm()")
   = form.fields_for :destination_loc do |loc|
     = loc.hidden_field :address, :value => destination_loc.address
     = loc.hidden_field :google_address, :value => destination_loc.google_address
