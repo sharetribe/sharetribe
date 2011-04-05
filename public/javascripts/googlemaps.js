@@ -1,5 +1,4 @@
 var directionsDisplay;
-//var directionsService = new google.maps.DirectionsService();
 var directionsService;
 var geocoder;
 var map;
@@ -16,8 +15,9 @@ function googlemapInit(canvas) {
     'zoom': 10,
     'center': latlng,
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
-    'disableDefaultUI': true,
-	'streetViewControl': false
+    'disableDefaultUI': false,
+	'streetViewControl': false,
+	'mapTypeControl': false
   }
 
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
@@ -26,30 +26,33 @@ function googlemapInit(canvas) {
     'map': map,
 	'hideRouteList': true,
     'preserveViewport': false,
-    'draggable': true,
+    'draggable': false,
   });
 
   google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
     if (currentDirections) {
-	  updateTextBoxes();
+	  //updateTextBoxes();
       }
 	currentDirections = directionsDisplay.getDirections();
     });
 
-  startCopy();
 }
 
-function startCopy() {
-	document.getElementById("listing_origin_loc_attributes_google_address").value = document.getElementById("listing_origin").value;
-	document.getElementById("listing_destination_loc_attributes_google_address").value = document.getElementById("listing_destination").value;
-	calcRoute();
+function startCopyForm() {
+	//document.getElementById("listing_origin_loc_attributes_google_address").value = document.getElementById("listing_origin").value;
+	//document.getElementById("listing_destination_loc_attributes_google_address").value = document.getElementById("listing_destination").value;
+	var foo = document.getElementById("listing_origin").value;
+	var bar = document.getElementById("listing_destination").value;
+	calcRoute(foo, bar);
 }
 
-function calcRoute() {
-  var start = document.getElementById("listing_origin_loc_attributes_google_address").value;
-  var end = document.getElementById("listing_destination_loc_attributes_google_address").value;
-  //var start = "Helsinki";
-  //var end = "Vantaa";
+function startCopy(orig, dest) {
+	calcRoute(orig, dest);
+}
+
+function calcRoute(orig, dest) {
+  var start = orig;
+  var end = dest;
     
   var request = {
     origin:start,
@@ -61,26 +64,21 @@ function calcRoute() {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      updateTextBoxes();
+      //updateTextBoxes();
     }
   });
-  loadStaticMap();
 }
 
-function copyGooglePoints() {
-	document.getElementById("listing_origin").value = document.getElementById("listing_origin_loc_attributes_google_address").value;
-	document.getElementById("listing_destination").value = document.getElementById("listing_destination_loc_attributes_google_address").value;
-	startCopy();
-}
-
+// Not currently used
 function updateTextBoxes() {
   document.getElementById("listing_origin_loc_attributes_google_address").value = directionsDisplay.getDirections().routes[0].legs[0].start_address;
   document.getElementById("listing_destination_loc_attributes_google_address").value = directionsDisplay.getDirections().routes[0].legs[0].end_address;
 }
 
-function loadStaticMap() {
+// elementId: Specify the element.src where you want to display the static map.
+function loadStaticMap(elementId) {
   var baseUrl = "http://maps.google.com/maps/api/staticmap?";
-  var params = []; // The static map request parameters
+  var parser = []; // The static map request parameters
   var latlngArray = []; // An array of latlng-values for the polyline
   var markerString = ""; // A and B markers, should be replaced by two separate arguments	
 	
@@ -96,40 +94,32 @@ function loadStaticMap() {
 		}
 	}
 	
-	//document.getElementById("steps").value = directionsDisplay.getDirections().routes[0].overview_path.length;
-	//document.getElementById("steps").value = latlngArray.length;
-
-	
 	var polyOptions = {
       path: latlngArray
 	}
 	var poly = new google.maps.Polyline(polyOptions);
 	//poly.setMap(map); // draw the polyline to the Javascript map
 	var encodeString = google.maps.geometry.encoding.encodePath(poly.getPath());
-	//document.getElementById("encoded_string").value = encodeString;
 		
 	// Size
-	params.push("size=400x300");
+	parser.push("size=640x640");
 	
 	// Start and End Markers
-	params.push("markers=" + markerString);
+	parser.push("markers=" + markerString);
 	
 	// Polyline Path
-	params.push("path=weight:5%7Ccolor:blue%7Cenc:" + encodeString);
+	parser.push("path=weight:5%7Ccolor:blue%7Cenc:" + encodeString);
 	
 	// Sensor to false
-	params.push("sensor=false");
+	parser.push("sensor=false");
 	
 	// Center -- Not needed with polyline
-	//params.push("center=" + directionsDisplay.getMap().getCenter().lat().toFixed(6) + "," + directionsDisplay.getMap().getCenter().lng().toFixed(6));
+	//parser.push("center=" + directionsDisplay.getMap().getCenter().lat().toFixed(6) + "," + directionsDisplay.getMap().getCenter().lng().toFixed(6));
 	
 	// Zoom -- Not needed with polyline
 	//var zoomLevel = directionsDisplay.getMap().getZoom() - 2;
-	//params.push("zoom=" + zoomLevel);
+	//parser.push("zoom=" + zoomLevel);
 	
-	baseUrl += params.join("&");
-	
-    //document.getElementById("listing_description").value = baseUrl;
-	//document.getElementById("static_google").value = baseUrl; // The textbox
-	//document.getElementById("staticMap").src = baseUrl; // The image
-  }
+	baseUrl += parser.join("&");
+	document.getElementById(elementId).src = baseUrl;
+}
