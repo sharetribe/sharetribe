@@ -1,0 +1,10 @@
+.googlemap
+  %input{:id => "origin_foo", :value => @listing.origin, :type => "hidden"}
+  %input{:id => "destination_foo", :value => @listing.destination, :type => "hidden"}
+  .jsmap{:id => "map_canvas", :style => "width: 300px; height: 260px"}
+  :javascript 
+    $(document).ready(function() { 
+      googlemapInit('map_canvas');
+      calcRoute(document.getElementById("origin_foo").value, 
+                document.getElementById("destination_foo").value)
+    });
