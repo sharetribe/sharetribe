@@ -1,8 +1,4 @@
 var directionsDisplay;
-<<<<<<< HEAD
-=======
-//var directionsService = new google.maps.DirectionsService();
->>>>>>> googlemaps.js
 var directionsService;
 var geocoder;
 var map;
