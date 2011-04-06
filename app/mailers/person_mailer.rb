@@ -67,8 +67,9 @@ class PersonMailer < ActionMailer::Base
   def new_feedback(feedback)
     @no_settings = true
     @feedback = feedback
+    @feedback.email ||= feedback.author.try(:email)
     subject = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
-    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
+    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject, :reply_to => @feedback.email)
   end
   
   def badge_migration_notification(recipient)
