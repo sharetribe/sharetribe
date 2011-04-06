@@ -1,0 +1,5 @@
+- file_path = "communities/#{@current_community.domain}/terms/terms.#{I18n.locale}.haml"
+- if File.exists?(file_path)
+  = render :file => file_path
+- else
+  = render :file => "communities/default/terms/terms.#{I18n.locale}.haml"
