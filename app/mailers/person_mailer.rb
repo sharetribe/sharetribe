@@ -6,58 +6,58 @@ class PersonMailer < ActionMailer::Base
   layout 'email'
 
   def new_message_notification(message, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s)}" : "test_url"
     @message = message
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"))
   end
   
   def new_comment_to_own_listing_notification(comment, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(comment.listing.author, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}" : "test_url"
     @comment = comment
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
   end
   
   def conversation_status_changed(conversation, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s)}" : "test_url"
     @conversation = conversation
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
   
   def new_badge(badge, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(badge.person, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}" : "test_url"
     @badge = badge
     @badge_name = t("people.profile_badge.#{@badge.name}")
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
   end
   
   def new_testimonial(testimonial, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(testimonial.receiver, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_testimonials_path(:person_id => @recipient.id)}" : "test_url"
     @give_feedback_url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id)}" : "test_url"
     @testimonial = testimonial
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
   end
   
   def testimonial_reminder(participation, host=nil)
-    alert_if_erroneus_host(host)
     @recipient = set_up_recipient(participation.person, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id)}" : "test_url"
     @participation = participation
     @other_party = @participation.conversation.other_party(@participation.person)
+    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end
@@ -96,9 +96,9 @@ class PersonMailer < ActionMailer::Base
     recipient
   end
   
-  def alert_if_erroneus_host(host)
+  def alert_if_erroneus_host(host, sent_link="not_available")
     if host =~ /login/
-      ApplicationHelper.send_error_notification("Sending mail with LOGIN host: #{host}, which should not happen!")
+      ApplicationHelper.send_error_notification("Sending mail with LOGIN host: #{host}, which should not happen!", "Mailer domain error", params.merge({:sent_link => sent_link}))
     end
   end
 
