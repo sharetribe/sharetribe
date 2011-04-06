@@ -36,7 +36,7 @@ class PeopleController < ApplicationController
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
       flash[:error] = :unknown_error
-      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.")
+      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
       redirect_to domain + sign_up_path and return
     end
 
@@ -59,7 +59,7 @@ class PeopleController < ApplicationController
          # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
-      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}")
+      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
       redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
     end
     session[:person_id] = @person.id
