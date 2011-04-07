@@ -48,6 +48,18 @@ class ListingsController < ApplicationController
     else
       render  @to_render
     end
+  end 
+  
+  def loadmap
+    @title = params[:listing_type]
+    @to_render ||= {:partial => "listings/map_view"}
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+    @request_path = request.fullpath
+    if request.xhr? && params[:page] && params[:page].to_i > 1
+      render :partial => "listings/map_view"
+    else
+      render  @to_render
+    end
   end
   
   def show
