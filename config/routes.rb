@@ -140,6 +140,7 @@ Kassi::Application.routes.draw do
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
+  match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings

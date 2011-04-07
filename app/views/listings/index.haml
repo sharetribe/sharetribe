@@ -24,7 +24,7 @@
       .tabs.grid_9.alpha 
         .grid_3.alpha
           #map_view_load
-            = link_to t(".map_view")
+            = link_to t(".map_view"), "#", :name => "map_view"
         .grid_3.omega
           #list_view_selector
             = link_to t(".list_view")  
@@ -42,3 +42,5 @@
       &nbsp;
     #search_results
       = render :partial => "listed_listings"
+    #map_results
+      
