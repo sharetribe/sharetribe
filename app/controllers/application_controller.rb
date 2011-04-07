@@ -154,7 +154,7 @@ class ApplicationController < ActionController::Base
     
     
     
-    origin_subdomain = ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
+    origin_subdomain = params[:community] || ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
     @current_community = Community.find_by_domain(origin_subdomain)
   end
 
