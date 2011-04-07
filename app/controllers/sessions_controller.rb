@@ -1,11 +1,15 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
+  include UrlHelper
   
   def create
     # if the request came from different domain, redirects back there.
-    # e.g. if using login-subdoain for logging in with https
-    domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
+    # e.g. if using login-subdoain for logging in with https    
+    if params["community"].blank?
+      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
+    end
+    domain = "http://#{with_subdomain(params[:community])}"
         
     session[:form_username] = params[:username]
     begin
