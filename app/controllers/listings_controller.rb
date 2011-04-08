@@ -57,9 +57,17 @@ class ListingsController < ApplicationController
     if @check_mobile
       @title = params[:listing_type]
       @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+
+      @locations = Array.new
+      
+      @listings.each do |t|
+        temp = Hash.new
+        temp['lat'] = t.origin_loc.latitude
+        temp['long'] = t.origin_loc.longitude
+        @locations.push temp
+      end
+      
       render :partial => "listings/mobile_listings"
-      
-      
       
     else
       @title = params[:listing_type]
