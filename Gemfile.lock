@@ -80,10 +80,14 @@ GEM
     fastthread (1.0.7)
     ffi (1.0.5)
       rake (>= 0.8.7)
+    ffi (1.0.5-x86-mingw32)
+      rake (>= 0.8.7)
     file-tail (1.0.5)
       spruz (>= 0.1.0)
     gem_plugin (0.2.3)
     gherkin (2.1.5)
+      trollop (~> 1.16.2)
+    gherkin (2.1.5-x86-mingw32)
       trollop (~> 1.16.2)
     haml (3.0.25)
     highline (1.6.1)
@@ -108,7 +112,11 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
+    mongrel (1.1.5-x86-mingw32)
+      cgi_multipart_eof_fix (>= 2.4)
+      gem_plugin (>= 0.2.3)
     mysql (2.8.1)
+    mysql (2.8.1-x86-mingw32)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -118,6 +126,7 @@ GEM
       net-ssh (>= 1.99.1)
     newrelic_rpm (2.13.4)
     nokogiri (1.4.4)
+    nokogiri (1.4.4-x86-mingw32)
     paperclip (2.3.8)
       activerecord
       activesupport
@@ -188,6 +197,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   acts-as-taggable-on
