@@ -9,11 +9,14 @@ class SettingsController < ApplicationController
   end
   
   def show
+  if @person.location == nil
+  	@person.location = Location.new(:address => @person.street_address, :latitude => 0,:longitude => 0,:google_address => "")
+        end
     render :action => :profile
   end
   
   def profile
-    
+#A helper for transitional phase to using location-model
   end
   
   def avatar
