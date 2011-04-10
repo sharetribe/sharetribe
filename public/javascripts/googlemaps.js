@@ -13,7 +13,6 @@ function googlemapInit(canvas) {
 	
   var myOptions = {
     'zoom': 10,
-    'center': latlng,
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
     'disableDefaultUI': false,
 	'streetViewControl': false,
@@ -38,19 +37,43 @@ function googlemapInit(canvas) {
 
 }
 
-function startCopyForm() {
-	//document.getElementById("listing_origin_loc_attributes_google_address").value = document.getElementById("listing_origin").value;
-	//document.getElementById("listing_destination_loc_attributes_google_address").value = document.getElementById("listing_destination").value;
-	var foo = document.getElementById("listing_origin").value;
-	var bar = document.getElementById("listing_destination").value;
+// Use this one for "new" and "edit"
+function startRoute() {
+    var foo = document.getElementById("listing_origin").value;
+    var bar = document.getElementById("listing_destination").value;
+    document.getElementById("listing_origin_loc_attributes_address").value = foo;
+    document.getElementById("listing_destination_loc_attributes_address").value = bar;
 	calcRoute(foo, bar);
 }
 
-function startCopy(orig, dest) {
-	calcRoute(orig, dest);
+function calcRoute(orig, dest) {
+  var start = orig;
+  var end = dest;  
+  
+  var request = {
+    origin:start,
+    destination:end,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    unitSystem: google.maps.DirectionsUnitSystem.METRIC
+  };
+  
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+      updateEditTextBoxes();
+    }
+  });
 }
 
-function calcRoute(orig, dest) {
+function updateEditTextBoxes() {
+  var foo = directionsDisplay.getDirections().routes[0].legs[0].start_address;
+  var bar = directionsDisplay.getDirections().routes[0].legs[0].end_address;
+  document.getElementById("listing_origin_loc_attributes_google_address").value = foo; 
+  document.getElementById("listing_destination_loc_attributes_google_address").value = bar;
+}
+
+// Use this one for "show"
+function showRoute(orig, dest) {
   var start = orig;
   var end = dest;
     
@@ -64,15 +87,8 @@ function calcRoute(orig, dest) {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-      //updateTextBoxes();
     }
   });
-}
-
-// Not currently used
-function updateTextBoxes() {
-  document.getElementById("listing_origin_loc_attributes_google_address").value = directionsDisplay.getDirections().routes[0].legs[0].start_address;
-  document.getElementById("listing_destination_loc_attributes_google_address").value = directionsDisplay.getDirections().routes[0].legs[0].end_address;
 }
 
 // elementId: Specify the element.src where you want to display the static map.
