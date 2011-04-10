@@ -49,8 +49,6 @@
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
       = form.text_area :description
-      = form.hidden_field :postal_code
-      = form.hidden_field :locality
     = form.fields_for :location do |loc|
       = loc.hidden_field :address, :value => @person.location.address
       = loc.hidden_field :google_address, :value => @person.location.google_address
