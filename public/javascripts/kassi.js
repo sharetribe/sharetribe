@@ -319,12 +319,12 @@ function initialize_update_profile_info_form(locale, person_id) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
-			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[street_address]": {required: false, maxlength: 50},
-			"person[postal_code]": {required: false, maxlength: 8},
-			"person[city]": {required: false, maxlength: 50},
-			"person[phone_number]": {required: false, maxlength: 25}
+			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
+			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			// 			"person[street_address]": {required: false, maxlength: 50},
+			// 			"person[postal_code]": {required: false, maxlength: 8},
+			// 			"person[city]": {required: false, maxlength: 50},
+			// 			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "true");
