@@ -776,13 +776,13 @@ function update_location(response, element){
 function update_profile_location(place){
 	//var r = parseGooglePlaceJSON(place);
 	//param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
-	param = ["locality","postal_code","address"];
+	//param = ["locality","postal_code","address"];
 	
-	var r = {};
-	traverse_new_api(place,r,param);
+	//var r = {};
+	//traverse_new_api(place,r,param);
 
-	var city = document.getElementById("person_locality");
-	var postcode = document.getElementById("person_postal_code");
+	//var city = document.getElementById("person_locality");
+	//var postcode = document.getElementById("person_postal_code");
 	var address = document.getElementById("person_location_address");
 	var latitude = document.getElementById("person_location_latitude");
 	var longitude = document.getElementById("person_location_longitude");
@@ -791,8 +791,8 @@ function update_profile_location(place){
 
 	//city.value = place[0].address_components[2].long_name;
 	//postcode.value = place[0].address_components[6].long_name;
-	city.value = r.locality;
-	postcode.value = r.postal_code;
+	//city.value = r.locality;
+	//postcode.value = r.postal_code;
 	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
 	latitude.value = place[0].geometry.location.Ca;
 	longitude.value = place[0].geometry.location.Ea;
