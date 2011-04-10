@@ -9,6 +9,8 @@
       = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
   #googlemap
     = render :partial => "googlemap"
+    = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
+    = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc } 
   - if current_user?(@listing.author) || (@current_user && @current_user.is_admin?)
     #edit_links
       = render :partial => "edit_links"
