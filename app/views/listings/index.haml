@@ -24,10 +24,16 @@
       .tabs.grid_9.alpha 
         .grid_3.alpha
           #map_view_load
-            = link_to t(".map_view"), "#", :name => "map_view"
+            - if params[:listing_type] == "requests"
+              = link_to t(".map_view"), requests_on_map_path, :name => "map_view"
+            - else
+              = link_to t(".map_view"), offers_on_map_path, :name => "map_view"
         .grid_3.omega
           #list_view_selector
-            = link_to t(".list_view")  
+            - if params[:listing_type] == "requests"
+              = link_to t(".list_view"), requests_path
+            - else
+              = link_to t(".list_view"), offers_path
         
         
     .grid_8.omega
@@ -41,5 +47,8 @@
     #browse_view_spacer
       &nbsp;
     #search_results
-      = render :partial => "listed_listings"
+      - if @listing_style == "listing"
+        = render :partial => "listed_listings"
+      - else
+        = render :partial => "listings_on_map"
       
