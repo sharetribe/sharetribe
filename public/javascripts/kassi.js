@@ -475,7 +475,7 @@ function reload_browse_view(link, listing_type, locale) {
 function reload_map_view(link, listing_type, locale) {
 	var request_path = '/' + locale + '/loadmap'
 	$.get(request_path, function(data) {
-		$('requests_on_map').html(data);
+		$('#search_results').html(data);
 	});
 }
 
