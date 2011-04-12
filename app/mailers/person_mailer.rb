@@ -93,7 +93,7 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = person
     @email = email
-    mail(:to => "juho.makkonen@gmail.com", :subject => "New member in OSPN Kassi")
+    mail(:to => "kadiekelly@yahoo.com", :subject => "New member in OSPN Kassi")
   end
   
   private

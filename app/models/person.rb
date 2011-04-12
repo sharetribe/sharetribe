@@ -74,7 +74,7 @@ class Person < ActiveRecord::Base
   def self.create(params, cookie, asi_welcome_mail = false)
     
     # Try to create the person to ASI
-    person_hash = {:person => params.slice(:username, :password, :email).merge!({:consent => "KASSI_FI1.0"}), :welcome_email => asi_welcome_mail}
+    person_hash = {:person => params.slice(:username, :password, :email, :consent), :welcome_email => asi_welcome_mail}
     response = PersonConnection.create_person(person_hash, cookie)
 
     # Pick id from the response (same id in kassi and ASI DBs)
@@ -88,10 +88,10 @@ class Person < ActiveRecord::Base
     params["given_name"] = params["given_name"].slice(0, 28)
     params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number), params[:id], cookie)
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number, :consent), params[:id], cookie)
     
     # Create locally with less attributes 
-    super(params.except(:username, :email, "name", :terms))
+    super(params.except(:username, :email, "name", :terms, :consent))
   end 
   
   def set_default_preferences
