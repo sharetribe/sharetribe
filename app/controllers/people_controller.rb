@@ -64,8 +64,8 @@ class PeopleController < ApplicationController
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
+    PersonMailer.new_ospn_member(@person, params[:person][:email]).deliver if @current_community.domain.eql?("ospn")
     redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
-
   end
   
   def update

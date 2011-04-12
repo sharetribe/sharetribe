@@ -113,4 +113,14 @@ module ApplicationHelper
     return ""
   end
   
+  def community_file(type, with_locale=false)
+    locale_string = with_locale ? ".#{I18n.locale}" : ""
+    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}.haml"
+    if File.exists?(file_path)
+      file_path
+    else
+      "communities/default/#{type}/#{type}#{locale_string}.haml"
+    end
+  end
+  
 end

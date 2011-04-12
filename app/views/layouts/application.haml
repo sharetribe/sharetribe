@@ -11,7 +11,7 @@
     %meta{ :name => "description", :content => t(".meta_description") }
     %meta{ :name => "keywords", :content => t(".keywords") } 
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'google_analytics', 'rails', 'kassi'
     = csrf_meta_tag
     
     :javascript
@@ -55,11 +55,7 @@
             = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
         .grid_9
           .grid_3.alpha
-            - if @current_community.domain.eql?("ospn")
-              #logo_link
-                = link_to "Oakland Single Parents Network", "http://oaklandsingleparents.com/"
-            - else
-              %br/
+            = render :file => community_file("logo_text", false)
           .grid_6.omega
             #search
               = form_tag({ :action => :show, :controller => :search }, :method => "get") do
@@ -101,17 +97,8 @@
         &nbsp;
         %br/
         %br/
-      - if (APP_CONFIG.use_google_analytics)
-        <!-- The google analytics script-->
-        <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-        try {
-        = 'var pageTracker = _gat._getTracker("'.html_safe + APP_CONFIG.google_analytics_key.to_s + '");'.html_safe
-        pageTracker._trackPageview();
-        } catch(err) {}</script>
+      = render :partial => "layouts/google_analytics_script"
+        
       
       - if (APP_CONFIG.use_funneld)
         <!-- Funneld script-->

@@ -8,7 +8,7 @@ Feature: User views terms
     Given I am not logged in
     And I am on the signup page
     When I follow "terms"
-    Then I should see "This is a community"
+    Then I should see "Rights of content"
   
   @javascript
   @subdomain2
