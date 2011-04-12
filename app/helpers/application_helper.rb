@@ -106,7 +106,9 @@ module ApplicationHelper
     Rails.logger.error "#{error_class}: #{message}"
   end
   
-  #Checks if HTTP_REFERER or HTTP_ORIGIN exists and returns only the domain part with protocol
+  # Checks if HTTP_REFERER or HTTP_ORIGIN exists and returns only the domain part with protocol
+  # This was first used to return user to original community from login domain.
+  # Now the domain is included in the params, so this is used only in error cases to redirect back
   def self.pick_referer_domain_part_from_request(request)
     return request.headers["HTTP_ORIGIN"] if request.headers["HTTP_ORIGIN"].present?
     return request.headers["HTTP_REFERER"][/(^[^\/]*(\/\/)?[^\/]+)/,1] if request.headers["HTTP_REFERER"]

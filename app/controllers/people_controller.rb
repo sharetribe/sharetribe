@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  include UrlHelper
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
@@ -25,8 +26,13 @@ class PeopleController < ApplicationController
   end
 
   def create
-    #if the request came from different domain, redirects back there.
-    domain = ApplicationHelper.pick_referer_domain_part_from_request(request)
+    # if the request came from different domain, redirects back there.
+    # e.g. if using login-subdoain for registering in with https    
+    if params["community"].blank?
+      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
+    end
+    domain = "http://#{with_subdomain(params[:community])}"
+
     
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
@@ -53,7 +59,6 @@ class PeopleController < ApplicationController
       @person.communities << @current_community
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
-      
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if ASI responses with error, show message to user
          # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.

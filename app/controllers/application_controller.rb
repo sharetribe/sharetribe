@@ -135,13 +135,13 @@ class ApplicationController < ActionController::Base
           # Temporarily, to keep the old links working, we change this now to aalto.
           # In the future, this should just render an error probably.
           # Because only session related actions should be posted to login-url
-          ApplicationHelper.send_error_notification("Got a wrong (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) request to login-url, redirecting to aalto.kassi.eu#{request.headers["REQUEST_PATH"]}", "Login-domain-redirect error", params)
+          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url, redirecting to aalto.kassi.eu#{request.headers["REQUEST_PATH"]}", "Login-domain-redirect error", params)
           redirect_to "http://aalto.kassi.eu#{request.headers["REQUEST_PATH"]}" and return
           # TODO: Change this to be an error case instead of Aalto specific redirection.
         else
           # Otherwise just display error. We do not know from which community the user came from (no HTTP_REFERER) so we show
           # an error page without links and user has to click back in the browser
-          ApplicationHelper.send_error_notification("Got a wrong (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) request to login-url. Showing error page.}", "Login-domain error", params.merge({:request_path => request.headers["REQUEST_PATH"]}))
+          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url. Showing error page.}", "Login-domain error", params.merge({:request_path => request.headers["REQUEST_PATH"]}))
           render "public/501.html", :layout => false and return
         end
       else # HTTP_REFERER is known: redirect back there with error message
@@ -154,7 +154,7 @@ class ApplicationController < ActionController::Base
     
     
     
-    origin_subdomain = ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
+    origin_subdomain = params[:community] || ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
     @current_community = Community.find_by_domain(origin_subdomain)
   end
 

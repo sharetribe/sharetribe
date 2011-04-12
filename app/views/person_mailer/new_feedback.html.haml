@@ -1,14 +1,6 @@
-= "#{(@feedback.author ? @feedback.author.name : 'Kirjautumaton käyttäjä')} on lähettänyt #{APP_CONFIG.production_server}-Kassissa seuraavan palautteen:"
+= "#{(@feedback.author ? @feedback.author.name : 'Unlogged user')} has sent the following feedback from #{APP_CONFIG.production_server}-Kassi:"
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
   - text_with_line_breaks do
     = @feedback.content
 
-- unless !@feedback.email || @feedback.email.eql?("")
-  Käyttäjän sähköpostiosoite on #{@feedback.email}
-
-%br/
-%br/
-
-Terveisin,
-Kassin palautteenkäsittelijäropotti

@@ -9,7 +9,7 @@ describe SessionsController, "POST create" do
   
   it "creates a Session model" do
     @request.host = "login.lvh.me"
-    post :create, {:username => "kassi_testperson1", :password => "testi"}
+    post :create, {:username => "kassi_testperson1", :password => "testi", :community => "test"}
     assigns["session"].should_not be_nil
     assigns["session"].person_id.should_not be_nil
     
@@ -17,9 +17,15 @@ describe SessionsController, "POST create" do
   
   it "stores person_id to session if logged succesfully" do
     @request.host = "login.lvh.me"
-    post :create, {:username => "kassi_testperson1", :password => "testi"}
+    post :create, {:username => "kassi_testperson1", :password => "testi", :community => "test"}
     session["person_id"].should_not be_blank
     session["person_id"].should equal(assigns["session"].person_id)
+  end
+  
+  it "redirects back to original community's domain" do
+    @request.host = "login.lvh.me"
+    post :create, {:username => "kassi_testperson1", :password => "testi", :community => "test"}
+    response.should redirect_to "http://test.lvh.me/?locale=en"
   end
     
   
