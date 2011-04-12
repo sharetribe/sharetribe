@@ -1,0 +1,7 @@
+- if (APP_CONFIG.use_google_analytics)
+  :javascript
+    $(document).ready(function() { 
+      start_analytics('#{APP_CONFIG.google_analytics_key.to_s}', '#{APP_CONFIG.domain.to_s}');
+    });
+    
+    

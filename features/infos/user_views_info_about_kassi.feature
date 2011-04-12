@@ -19,7 +19,8 @@ Feature: User views info about kassi
     And I should see "What is Kassi?" within ".inbox_tab_unselected"
     And I should see "How to use Kassi" within ".inbox_tab_unselected"
     And I should see "Terms of use" within ".inbox_tab_selected"
-    And I should see "Rights of Content" within "h3"
+    And show me the page
+    And I should see "Rights of content" within "h3"
   
   Scenario: User views how to use page without logging in
     Given I am on the home page

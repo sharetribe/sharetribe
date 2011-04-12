@@ -88,6 +88,13 @@ class PersonMailer < ActionMailer::Base
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
+  def new_ospn_member(person, email)
+    @no_settings = true
+    @person = person
+    @email = email
+    mail(:to => "juho.makkonen@gmail.com", :subject => "New member in OSPN Kassi")
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)
