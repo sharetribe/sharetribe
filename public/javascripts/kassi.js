@@ -493,12 +493,12 @@ function reload_map_view(link, listing_type, locale) {
 					   reload_browse_view($(this), listing_type, locale);
                }
        );
-       $('#map_view_load').find('a').click(
+       /*$('#map_view_load').find('a').click(
                function() {
                        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
 					   reload_map_view($(this),listing_type, locale);       
                }
-       );
+       );*/
 }
 
 function initialize_profile_view(badges) {
