@@ -56,7 +56,7 @@
     
     
     function addListingMarkers() {
-      // The following two statements had Ruby evaluations, but they did not with the current implementation
+      // The following two statements had Ruby evaluations, but they did not work with the current implementation
       //var lat = Location.first.latitude;
       //var lng = Location.first.longitude;
       var lat = 60.1863;
@@ -67,6 +67,20 @@
         position: location,
         map: map
       });
+      
+      
+      // Test requesting location data
+      var request_path = '/api/query'
+    	$.get(request_path, function(data) {	
+    		for (i in data) {
+    		  var entry = data[i];
+      		var location = new google.maps.LatLng(entry["lat"], entry["lng"]);
+          var marker = new google.maps.Marker({
+            position: location,
+            map: map
+          });
+        }
+    	});
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);

@@ -84,6 +84,10 @@ class ListingsController < ApplicationController
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
     # This has not yet been implemented
+    @locations = [{:lat => 60.1796, :lng => 24.8004}, {:lat => 60.1946, :lng => 24.7928}, 
+                 {:lat => 60.1805, :lng => 24.8502}, {:lat => 60.1636, :lng => 24.8066}, 
+                 {:lat => 60.1980, :lng => 24.8742}]
+    render :json => @locations
   end
 
   def show
