@@ -140,6 +140,7 @@ Kassi::Application.routes.draw do
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
+  match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
@@ -156,8 +157,13 @@ Kassi::Application.routes.draw do
   match "/change_locale" => "i18n#change_locale"
   match '/:locale' => 'homepage#index'
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
-  match "/:locale/offers_on_map" => "mapview#offers", :as => :offers_on_map
-  match "/:locale/requests_on_map" => "mapview#requests", :as => :requests_on_map
+  # match "/:locale/offers_on_map" => "mapview#offers", :as => :offers_on_map
+  # match "/:locale/requests_on_map" => "mapview#requests", :as => :requests_on_map
+  match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
+  match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
+  match "/api/query" => "listings#serve_listing_data", :as => :listings_data
+  
+
   
   root :to => 'homepage#index'
   

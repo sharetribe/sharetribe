@@ -472,19 +472,17 @@ function reload_browse_view(link, listing_type, locale) {
 }
 
 
-function reload_map_view(link, locale) {
-	var request_path = '/' + locale + '/offers_on_map'
-	alert(data.toString());
+function reload_map_view(link, listing_type, locale) {
+	var request_path = '/' + locale + '/loadmap'
 	$.get(request_path, function(data) {
 		$('#search_results').html(data);
 	});
 }
 
 
-
  function initialize_browse_view(listing_type, locale) {
        $('#left_link_panel_browse').find('a').click(
-               function() { 
+               function() {
                        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
                        reload_browse_view($(this), listing_type, locale);
                }
@@ -492,16 +490,15 @@ function reload_map_view(link, locale) {
        $('#list_view_selector').find('a').click(
                function() { 
                        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                       reload_browse_view($(this), listing_type, locale);
+					   reload_browse_view($(this), listing_type, locale);
                }
        );
-       $('#map_view_load').find('a').click(
-               function() { 
-                       //$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                       reload_map_view($(this), locale);
-                       
+       /*$('#map_view_load').find('a').click(
+               function() {
+                       $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+					   reload_map_view($(this),listing_type, locale);       
                }
-       );
+       );*/
 }
 
 function initialize_profile_view(badges) {

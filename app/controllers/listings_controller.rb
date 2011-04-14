@@ -26,12 +26,14 @@ class ListingsController < ApplicationController
   def requests
     params[:listing_type] = "request"
     @to_render = {:action => :index}
+    @listing_style = "listing"
     load
   end
   
   def offers
     params[:listing_type] = "offer"
     @to_render = {:action => :index}
+    @listing_style = "listing"
     load
   end
   
@@ -48,8 +50,46 @@ class ListingsController < ApplicationController
     else
       render  @to_render
     end
+  end 
+  
+  # This is not currently used
+  def loadmap
+    @title = params[:listing_type]
+    @to_render ||= {:partial => "listings/map_view"}
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+    @request_path = request.fullpath
+    @listing_style = "map"
+    
+    render  @to_render
+  end
+
+  # The following two are simple dummy implementations duplicating the
+  # functionality of normal listing methods.
+  def requests_on_map
+    params[:listing_type] = "request"
+    @to_render = {:action => :index}
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
+    @listing_style = "map"
+    load
+  end
+
+  def offers_on_map
+    params[:listing_type] = "offer"
+    @to_render = {:action => :index}
+    @listing_style = "map"
+    load
   end
   
+  
+  # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
+  def serve_listing_data
+    # This has not yet been implemented
+    @locations = [{:lat => 60.1796, :lng => 24.8004}, {:lat => 60.1946, :lng => 24.7928}, 
+                 {:lat => 60.1805, :lng => 24.8502}, {:lat => 60.1636, :lng => 24.8066}, 
+                 {:lat => 60.1980, :lng => 24.8742}]
+    render :json => @locations
+  end
+
   def show
     @listing.increment!(:times_viewed)
   end
