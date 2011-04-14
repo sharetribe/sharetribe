@@ -37,6 +37,10 @@ class ListingsController < ApplicationController
 
   # detect the browser and return the approriate layout
   def detect_browser
+    if APP_CONFIG.force_mobile_ui
+        return true
+    end
+    
     mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
 "palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
 "windows ce; smartphone;","windows ce; iemobile", 
@@ -44,10 +48,11 @@ class ListingsController < ApplicationController
 "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
     agent = request.headers["HTTP_USER_AGENT"].downcase
     mobile_browsers.each do |m|
-      return true if agent.match(m)
-    end
-    return true
+        return true if agent.match(m)
+    end    
+    return false
   end
+    
 
   # Used to load listings to be shown
   # How the results are rendered depends on 
