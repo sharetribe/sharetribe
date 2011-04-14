@@ -24,13 +24,13 @@
       .tabs.grid_9.alpha 
         .grid_3.alpha
           #map_view_load
-            - if params[:listing_type] == "requests"
+            - if params[:listing_type] == "request"
               = link_to t(".map_view"), requests_on_map_path, :name => "map_view"
             - else
               = link_to t(".map_view"), offers_on_map_path, :name => "map_view"
         .grid_3.omega
           #list_view_selector
-            - if params[:listing_type] == "requests"
+            - if params[:listing_type] == "request"
               = link_to t(".list_view"), requests_path
             - else
               = link_to t(".list_view"), offers_path
