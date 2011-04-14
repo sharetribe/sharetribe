@@ -31,18 +31,13 @@
       = form.text_field :street_address, :class => "text_field", :maxlength => "50", :onchange => "update_map(this)"
       #flash_address{:class => "notification_text"}
     .form_field_container
-      .map{:id => "map_canvas", :style => "width: 500px; height: 300px"}
-        //Here initialize the elements we want to use with the map
+      = form.label :description, t('.profilemap') + ":", :class => "input"
+      .map{:id => "map_canvas", :style => "width: 318px; height: 260px"}
         :javascript
-          //canvas = document.getElementById("map_canvas");
-          //body = document.getElementsByTagName("body").item(0);
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
-          initialize_map("map_canvas");
-          })
-          //alert($('#person_given_name'));
-          //body.setAttribute("onLoad", "initialize_map(\"map_canvas\",map,center,marker,geocoder)");
-          //body.setAttribute("onLoad", "initialize_map(\"map_canvas\")");
+            initialize_map("map_canvas");
+            });
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
       = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
