@@ -792,8 +792,8 @@ function update_profile_location(place){
 	//city.value = r.locality;
 	//postcode.value = r.postal_code;
 	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
-	latitude.value = place[0].geometry.location.Ca;
-	longitude.value = place[0].geometry.location.Ea;
+	latitude.value = place[0].geometry.location.lat();
+	longitude.value = place[0].geometry.location.lng();
 	google_address.value = place[0].formatted_address;
 
 	/*

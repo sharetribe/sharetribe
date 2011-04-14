@@ -70,6 +70,11 @@ function updateEditTextBoxes() {
   var bar = directionsDisplay.getDirections().routes[0].legs[0].end_address;
   document.getElementById("listing_origin_loc_attributes_google_address").value = foo; 
   document.getElementById("listing_destination_loc_attributes_google_address").value = bar;
+  document.getElementById("listing_origin_loc_attributes_latitude").value = directionsDisplay.getDirections().routes[0].legs[0].end_location.lat();
+  document.getElementById("listing_origin_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].end_location.lng();
+  document.getElementById("listing_destination_loc_attributes_latitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lat();
+  document.getElementById("listing_destination_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lng();
+
 }
 
 // Use this one for "show"
