@@ -25,8 +25,8 @@ class Listing < ActiveRecord::Base
   
   has_many :share_types
 
-  has_one :origin_loc, :class_name => "Location", :dependent => :destroy
-  has_one :destination_loc, :class_name => "Location", :dependent => :destroy
+  has_one :origin_loc, :class_name => "Location", :conditions => ['type = ?', 'origin_loc'], :dependent => :destroy
+  has_one :destination_loc, :class_name => "Location", :conditions => ['type = ?', 'destination_loc'], :dependent => :destroy
   
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
