@@ -707,10 +707,12 @@ function initialize_map(canvas) {
 	}
 	else
 		center = new google.maps.LatLng(60.1894, 24.8358);
-	var myOptions = {
-		zoom: 13,
-      		center: center,
-      		mapTypeId: google.maps.MapTypeId.ROADMAP
+	    var myOptions = {
+		'zoom': 13,
+      	'center': center,
+		'streetViewControl': false,
+		'mapTypeControl': false,
+        'mapTypeId': google.maps.MapTypeId.ROADMAP
     }
 
         map = new google.maps.Map(document.getElementById(canvas), myOptions);
@@ -791,6 +793,7 @@ function update_profile_location(place){
 	//postcode.value = place[0].address_components[6].long_name;
 	//city.value = r.locality;
 	//postcode.value = r.postal_code;
+	//address.value = place[0].formatted_address;
 	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
 	latitude.value = place[0].geometry.location.lat();
 	longitude.value = place[0].geometry.location.lng();
