@@ -8,6 +8,7 @@
     var map;
     var helsinki = new google.maps.LatLng(60.2, 24.9);
     var browserSupportFlag =  new Boolean();
+    var listing_type = "#{params[:listing_type]}";
 
     function initialize() {
       var myOptions = {
@@ -67,7 +68,6 @@
         position: location,
         map: map
       });
-      
       
       // Test requesting location data
       var request_path = '/api/query'
