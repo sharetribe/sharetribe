@@ -46,10 +46,10 @@ function update_map(field) {
 	if(geocoder){
 	  geocoder.geocode({'address':field.value}, function(response,info) {
         if (info == google.maps.GeocoderStatus.OK){
+			marker.setVisible(true);
 	    	map.setCenter(response[0].geometry.location);
 	    	field.value = response[0].formatted_address;
 	    	marker.setPosition(response[0].geometry.location);
-			marker.setVisible(true);
 	    if (profilemap)
 	    	update_profile_location(response);
 
@@ -57,9 +57,10 @@ function update_map(field) {
 		    //Remove this when we get proper jquery stuff
               //alert("Address " +field.value + " not found");
             } else {
-	    	address_not_found(field);
-			map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
-			marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
+	    	//address_not_found(field);
+			map.setCenter(center);
+			map.panTo(center);
+			marker.setPosition(center);
 			marker.setVisible(false);
 			nil_profile_locations();
             }
