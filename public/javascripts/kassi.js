@@ -676,6 +676,7 @@ function update_map(field) {
 	    //var marker2 = new GMarker(point);
 	    //map.addOverlay(marker);
 	    marker.setPosition(response[0].geometry.location);
+	    marker.setVisible(true);
 	    //alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.SubAdministrativeAreaName);
 	    //Remove this after we've totally switched to the location model!
 	    //var city = $('#person_locality');
@@ -687,6 +688,10 @@ function update_map(field) {
               //alert("Address " +field.value + " not found");
             } else {
 	    	address_not_found(field);
+		map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
+		marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
+		marker.setVisible(false);
+		nil_profile_locations();
             }
           }
         );
@@ -737,6 +742,7 @@ function initialize_map(canvas) {
 
         google.maps.event.addListener(map, "click", function(event) {
 			marker.setPosition(event.latLng);
+			marker.setVisible(true);
 			geocoder.geocode({"latLng":event.latLng},update_source);
         });
         //GEvent.addListener(marker, "dragstart", function() {
@@ -752,6 +758,13 @@ function initialize_map(canvas) {
 function update_source(response,status){
 	if (status == google.maps.GeocoderStatus.OK){
 		update_location(response,source);
+	}
+	else
+	{
+	    map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
+	    marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
+	    marker.setVisible(false);
+	    nil_profile_locations();
 	}
 }
 function update_location(response, element){
@@ -772,6 +785,16 @@ function update_location(response, element){
 		postcode.value = place.PostalCodeNumber;
 	    }
 	    */
+}
+function nil_profile_locations(){
+	var address = document.getElementById("person_location_address");
+	var latitude = document.getElementById("person_location_latitude");
+	var longitude = document.getElementById("person_location_longitude");
+	var google_address = document.getElementById("person_location_google_address");
+	address.value = null;
+	latitude.value = null;
+	longitude.value = null;
+	google_address.value = null;
 }
 function update_profile_location(place){
 	//var r = parseGooglePlaceJSON(place);
