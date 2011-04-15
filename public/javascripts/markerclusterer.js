@@ -30,6 +30,14 @@
  * limitations under the License.
  */
 
+ var global_listing = null;
+ var global_infoWindows = null;
+ 
+ function convertListingToWindows(opt_marker) {
+ 
+    global_infoWindows[i]['location'] = google.map.latLong
+    global_infoWindows[i]['info'] = html
+ }
 
 /**
  * A Marker Clusterer that clusters markers.
@@ -67,6 +75,9 @@ function MarkerClusterer(map, opt_markers, opt_listings, opt_options) {
   // there is no point going ahead :)
   this.extend(MarkerClusterer, google.maps.OverlayView);
   this.map_ = map;
+  
+  global_listing = opt_listings;
+  convertListingToWindows(opt_markers);
 
   /**
    * @type {Array.<google.maps.Marker>}
@@ -776,6 +787,7 @@ MarkerClusterer.prototype.addToClosestCluster_ = function(marker) {
   } else {
     var cluster = new Cluster(this);
     cluster.addMarker(marker);
+    
     this.clusters_.push(cluster);
   }
 };
@@ -802,6 +814,8 @@ MarkerClusterer.prototype.createClusters_ = function() {
       this.addToClosestCluster_(marker);
     }
   }
+  
+  
 };
 
 
@@ -820,10 +834,12 @@ function Cluster(markerClusterer) {
   this.minClusterSize_ = markerClusterer.getMinClusterSize();
   this.averageCenter_ = markerClusterer.isAverageCenter();
   this.center_ = null;
+  this.onePostion = true;
   this.markers_ = [];
   this.bounds_ = null;
   this.clusterIcon_ = new ClusterIcon(this, markerClusterer.getStyles(),
       markerClusterer.getGridSize());
+  
 }
 
 /**
@@ -845,14 +861,14 @@ Cluster.prototype.isMarkerAlreadyAdded = function(marker) {
   return false;
 };
 
-
 /**
  * Add a marker the cluster.
  *
  * @param {google.maps.Marker} marker The marker to add.
  * @return {boolean} True if the marker was added.
  */
-Cluster.prototype.addMarker = function(marker) {
+Cluster.prototype.addMarker = function(marker, listing) {
+   
   if (this.isMarkerAlreadyAdded(marker)) {
     return false;
   }
@@ -871,8 +887,11 @@ Cluster.prototype.addMarker = function(marker) {
   }
 
   marker.isAdded = true;
-  this.markers_.push(marker);
-
+  
+  this.markers_.push(marker);   
+  
+ 
+  
   var len = this.markers_.length;
   if (len < this.minClusterSize_ && marker.getMap() != this.map_) {
     // Min cluster size not reached so show the marker.
@@ -891,6 +910,38 @@ Cluster.prototype.addMarker = function(marker) {
   }
 
   this.updateIcon();
+  
+   if (this.markers_[0].getPosition().lat() != marker.getPosition().lat() || this.markers_[0].getPosition().lng() != marker.getPosition().lng()) 
+  {
+    this.onePosition = false;
+    this.clusterIcon_.onePositionIcon = null;
+  }
+ 
+ if ((this.onePosition == undefined || this.onePosition == true) && this.markers_.length > 1)
+  {
+  // fix thing here later
+    var html = this.infoWindowsContent;
+    var infoWindows = new google.maps.InfoWindow({
+        content: html
+    });
+    
+    this.clusterIcon_.hide();
+    
+    var marker = new google.maps.Marker( {
+        position: this.markers_[0].getPosition(),
+        map: this.map_,
+        visible: true,
+        icon: "/images/icons/multiple_listing/iconb" + this.markers_.length + ".png",
+        clickable: true
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+        infoWindows.open(this.getMap(), marker);
+    });
+    
+    this.clusterIcon_.onePositionIcon = marker;
+  }
+  
   return true;
 };
 
@@ -1049,6 +1100,7 @@ function ClusterIcon(cluster, styles, opt_padding) {
   this.div_ = null;
   this.sums_ = null;
   this.visible_ = false;
+  this.onePositionIcon = null;
 
   this.setMap(this.map_);
 }
@@ -1063,9 +1115,39 @@ ClusterIcon.prototype.triggerClusterClick = function() {
   // Trigger the clusterclick event.
   google.maps.event.trigger(markerClusterer, 'clusterclick', this.cluster_);
 
-  if (markerClusterer.isZoomOnClick()) {
-    // Zoom into the cluster.
-    this.map_.fitBounds(this.cluster_.getBounds());
+  if (this.cluster_.onePosition == undefined)
+    this.cluster_.onePosition = true;
+   
+  if (this.cluster_.onePosition == false && markerClusterer.isZoomOnClick())
+        // Zoom into the cluster.
+        this.map_.fitBounds(this.cluster_.getBounds());
+  else
+  {
+    //
+    
+    
+      // stupid code, delete later
+     
+  // this.cluster_.markers_[0].getPosition()
+    
+    
+    var marker = new google.maps.Marker({
+        position: this.cluster_.markers_[0].getPosition(),
+        map: this.map_,
+        title: 'Uluru (Ayers Rock)'
+    });
+    
+      var html = "test";
+      var infoWindows = new google.maps.InfoWindow({
+        content: html
+      });
+        
+      google.maps.event.addListener(marker, 'click', function() {
+        infoWindows.open(this.getMap(), marker);
+      });
+    
+    
+             
   }
 };
 
@@ -1089,6 +1171,8 @@ ClusterIcon.prototype.onAdd = function() {
   google.maps.event.addDomListener(this.div_, 'click', function() {
     that.triggerClusterClick();
   });
+  
+
 };
 
 
@@ -1127,6 +1211,13 @@ ClusterIcon.prototype.hide = function() {
   if (this.div_) {
     this.div_.style.display = 'none';
   }
+  
+  if  (this.onePositionIcon != null)
+  {
+    this.onePositionIcon.setVisible(false);
+    delete this.onePositionIcon;  
+  }
+  
   this.visible_ = false;
 };
 
@@ -1198,6 +1289,7 @@ ClusterIcon.prototype.useStyle = function() {
   this.anchor_ = style['anchor'];
   this.textSize_ = style['textSize'];
   this.backgroundPosition_ = style['backgroundPosition'];
+  this.hide();
 };
 
 
