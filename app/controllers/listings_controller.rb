@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
     mobile_browsers.each do |m|
         return true if agent.match(m)
     end    
-    return false
+    return true
   end
     
 

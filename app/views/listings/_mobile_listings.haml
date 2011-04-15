@@ -25,7 +25,9 @@
         var map = new google.maps.Map(document.getElementById('map_canvas'), {
           zoom: 13,
           center: center,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          zoomControl: true,
+          disableDefaultUI: true
         });
         
         var location_data = #{@locations.to_json};
