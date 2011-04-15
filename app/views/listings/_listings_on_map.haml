@@ -72,13 +72,33 @@
       // Test requesting location data
       var request_path = '/api/query'
     	$.get(request_path, function(data) {	
-    		for (i in data) {
-    		  var entry = data[i];
-      		var location = new google.maps.LatLng(entry["lat"], entry["lng"]);
-          var marker = new google.maps.Marker({
-            position: location,
-            map: map
-          });
+    	  var data_arr = data["data"];
+    	  var infowindow = new google.maps.InfoWindow();
+    		for (i in data_arr) {
+    		  (function() {
+    		    var entry = data_arr[i];
+        		var location = new google.maps.LatLng(entry["lat"], entry["lng"]);
+        		var contentString = '<div id="content">'+
+                                '<div id="siteNotice">'+
+                                '</div>'+
+                                '<h1 id="firstHeading" class="firstHeading">'+entry["title"]+'</h1>'+
+                                '<div id="bodyContent">'+
+                                '<p> Description </p>'+
+                                '<p> User: <a href="www.google.en">'+
+                                'username </a> (two days ago).</p>'+
+                                '</div>'+
+                                '</div>';
+  
+            var marker = new google.maps.Marker({
+              position: location,
+              map: map,
+              icon: '/images/map_icons/'+entry["category"]+'_'+entry["request_type"]+'.png'
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(contentString);
+              infowindow.open(map,marker);
+            });
+          })();
         }
     	});
     }
