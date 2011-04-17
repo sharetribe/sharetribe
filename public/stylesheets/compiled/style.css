@@ -508,6 +508,10 @@ p.description {
   .recent_listing_tag a:hover {
     background: #fba979; }
 
+.aarremarkkinat_hilight a {
+  background: #ee3333; 
+}
+
 .listed_listing {
   overflow: hidden; }
 
