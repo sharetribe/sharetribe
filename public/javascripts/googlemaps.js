@@ -48,7 +48,7 @@ function update_map(field) {
         if (info == google.maps.GeocoderStatus.OK){
 			marker.setVisible(true);
 	    	map.setCenter(response[0].geometry.location);
-	    	field.value = response[0].formatted_address;
+	    	//field.value = response[0].formatted_address;
 	    	marker.setPosition(response[0].geometry.location);
 	    if (profilemap)
 	    	update_profile_location(response);
