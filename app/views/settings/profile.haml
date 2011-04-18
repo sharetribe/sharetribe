@@ -3,15 +3,6 @@
   
 
 //Variables needed for the map
-:javascript
-  var geocoder;
-  var map;
-  var center;
-  var marker;
-  var source;
-  var profilemap = true;
-  //var canvas;
-  //var body;
 
 #person_settings_form
   #settings_form_description
@@ -34,6 +25,7 @@
       = form.label :description, t('.profilemap') + ":", :class => "input"
       .map{:id => "map_canvas", :style => "width: 318px; height: 260px"}
         :javascript
+          var profilemap = true
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
             googlemapMarkerInit("map_canvas");
