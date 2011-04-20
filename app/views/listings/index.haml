@@ -15,7 +15,6 @@
           %h3= t(".#{params[:listing_type]}_type")
         = link_to t(".all_#{params[:listing_type]}_types"), "#", :class => "selected", :name => "sharetypes_all"
         = render :partial => "left_panel_link", :collection => Listing.unique_share_types(params[:listing_type]), :as => :title, :locals => { :type => "sharetypes" }
-      = render :partial => "tag_cloud/tag_used"
     = render :partial => "tag_cloud/tag_cloud"  
 
   .grid_18.omega
