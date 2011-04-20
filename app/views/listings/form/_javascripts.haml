@@ -2,4 +2,51 @@
 :javascript
   $(document).ready(function() {
     initialize_new_listing_form('#{t('listings.form.images.no_file_selected')}', '#{t('listings.form.images.select_file')}', '#{I18n.locale}', '#{t('error_messages.listings.share_type')}', '#{valid_until_msg}', '#{@listing.rideshare?}', '#{@listing.listing_type == "offer" ? "true" : "false"}', '#{listing_id}');
+    initialize_map();
   });
+
+- content_for :extra_javascript do
+  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+
+- content_for :extra_javascript do
+  :javascript
+    var map;
+    var geocoder;
+    var marker;
+    var helsinki = new google.maps.LatLng(60.2, 24.9);
+
+    function initialize_map() {
+
+      var myOptions = {
+        center: helsinki,
+        zoom: 10,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+
+      map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+      google.maps.event.addListener(map, 'click', getAddress);
+      geocoder = new google.maps.Geocoder();
+
+      marker = new google.maps.Marker({
+        position: helsinki,
+        map: map,
+      });
+
+    }
+
+    function getAddress(response) {
+      if (response.latLng != null) {
+        geocoder.geocode({location: response.latLng}, showAddress);
+      }
+    }
+
+    function showAddress(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.fitBounds(results[0].geometry.viewport);
+        document.getElementById("listing_address").value = results[0].formatted_address;
+        document.getElementById("listing_origin_loc").value = results[0].geometry.location;
+        marker.setPosition(results[0].geometry.location);
+      }
+    }
+

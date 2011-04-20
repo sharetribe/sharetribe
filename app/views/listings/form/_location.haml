@@ -1,0 +1,7 @@
+.new_listing_form_field_container
+  = form.label :address, t('.location') + ":", :class => "input"
+  = form.text_field(:address, :class => "title_text_field", :maxlength => "48", :onchange => "geocoder.geocode({address: this.value}, showAddress); return false")
+  = form.hidden_field(:origin_loc, :value => "")
+
+  #map-canvas{:style => "width: 398px; height: 250px"}
+
