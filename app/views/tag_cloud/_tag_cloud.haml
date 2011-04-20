@@ -5,15 +5,27 @@
   .nube4 {font-size: 1.3em;}
   .nube5 {font-size: 1.5em;}
   .nube6 {font-size: 1.7em;}
+  .nubesel {color: inherit;
+            background-color: black;
+            -moz-border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px / 5px 5px 5px 5px;}
+
 
 - tags = Tag.tags(:limit => 20, :order => "count DESC")
 - result = tag_cloud(tags, %w(nube1 nube2 nube3 nube4 nube5 nube6))
 - if controller.action_name == 'offers'
   - result.each do |k, v|
-    = link_to k, offers_with_tag_path(k), :class => v
+    - if k == @tag
+      = link_to k, offers_path, :class => "#{[v]}, nubesel"
+    - else
+      = link_to k, offers_with_tag_path(k), :class => v
 - else
   - result.each do |k, v|
-    = link_to k, requests_with_tag_path(k), :class => v
+    - if k == @tag
+      = link_to k, requests_path, :class => "#{[v]}, nubesel"
+    - else
+      = link_to k, requests_with_tag_path(k), :class => v
+
 
 :javascript
   var remember_tag = "#{params[:tag]}";
