@@ -22,7 +22,7 @@
         &nbsp;
         
       .tabs.grid_9.alpha 
-        .inbox_container
+        .tabs.grid_9.alpha 
           #inbox_tabs
             %div{:class => get_map_tab_class(params[:listing_type]+ "s_on_map")} 
               - if params[:listing_type] == "request" 
@@ -34,9 +34,8 @@
                 = link_to t(".list_view"), requests_path
               - else
                 = link_to t(".list_view"), offers_path
-          #settings_tab_spacer
         
-        .grid_3.omegas
+        .grid_3.omega
                           
     .grid_8.omega
       #new_listing_links
@@ -46,7 +45,7 @@
         = t(".you_have_something_others_do_not")
         = link_to t(".offer_something"), new_request_path(:type => "offer")
     .clear
-    #browse_view_spacer
+    #profile_tab_spacer
       &nbsp;
     #search_results
       - if @listing_style == "listing"
