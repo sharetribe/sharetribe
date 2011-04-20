@@ -22,20 +22,22 @@
         &nbsp;
         
       .tabs.grid_9.alpha 
-        .grid_3.alpha
-          #map_view_load
-            - if params[:listing_type] == "request"
-              = link_to t(".map_view"), requests_on_map_path, :name => "map_view"
-            - else
-              = link_to t(".map_view"), offers_on_map_path, :name => "map_view"
-        .grid_3.omega
-          #list_view_selector
-            - if params[:listing_type] == "request"
-              = link_to t(".list_view"), requests_path
-            - else
-              = link_to t(".list_view"), offers_path
+        .inbox_container
+          #inbox_tabs
+            %div{:class => get_map_tab_class(params[:listing_type]+ "s_on_map")} 
+              - if params[:listing_type] == "request" 
+                = link_to t(".map_view"), requests_on_map_path, :name => "map_view"
+              - else
+                = link_to t(".map_view"), offers_on_map_path, :name => "map_view"
+            %div{:class => get_map_tab_class(params[:listing_type]+ "s")} 
+              - if params[:listing_type] == "request"
+                = link_to t(".list_view"), requests_path
+              - else
+                = link_to t(".list_view"), offers_path
+          #settings_tab_spacer
         
-        
+        .grid_3.omegas
+                          
     .grid_8.omega
       #new_listing_links
         = t(".did_not_found_what_you_were_looking_for")
