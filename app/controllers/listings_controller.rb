@@ -95,6 +95,7 @@ class ListingsController < ApplicationController
 
   def show
     @listing.increment!(:times_viewed)
+    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def new
@@ -127,10 +128,13 @@ class ListingsController < ApplicationController
   
   def edit
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def update
+    @location = Location.where(:listing_id => @listing.id).first
     if @listing.update_fields(params[:listing])
+      @location.update_attributes(params[:location])
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
     else
