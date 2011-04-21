@@ -32,32 +32,57 @@
         
         var location_data = #{@locations.to_json};
         var listing_data = #{@listings.to_json};
+        var listing_type = #{@title.to_json};
         
-        var requestIcon = "/images/icons/orange_MarkerR.png";        
-        var offerIcon = "/images/icons/green_MarkerO.png"; 
+        var item_requestIcon = "/images/icons/map_listing/item_request.png";        
+        var item_offerIcon = "/images/icons/map_listing/item_offer.png"; 
+        var rideshare_requestIcon = "/images/icons/map_listing/rideshare_request.png";        
+        var rideshare_offerIcon = "/images/icons/map_listing/rideshare_offer.png"; 
+        var housing_requestIcon = "/images/icons/map_listing/housing_request.png";        
+        var housing_offerIcon = "/images/icons/map_listing/housing_offer.png"; 
+        var favor_requestIcon = "/images/icons/map_listing/favor_request.png";        
+        var favor_offerIcon = "/images/icons/map_listing/favor_offer.png"; 
+        
+        var prefix_multipleIcon = "/images/icons/map_listing/multiple_listing/iconb";
         
         var markers = [];
         
         for (var i = 0; i < location_data.length; i++) {
           var latLng = new google.maps.LatLng(location_data[i]['lat'], location_data[i]['long']);
           
-          if (listing_data[i]['listing']['listing_type'] == 'request')
-            var marker = new google.maps.Marker({
-              position: latLng,
-              icon: requestIcon,
-              clickable: true
-            });    
-          else
-             var marker = new google.maps.Marker({
-              position: latLng,
-              icon: offerIcon,
-              clickable: true
-            });
-            
+            if (listing_data[i]['id'].length == 1)
+            {                
+                if (listing_data[i]['category'] == 'item')
+                {
+                    if (listing_type == 'request')
+                        var marker = new google.maps.Marker({
+                        position: latLng,
+                        icon: item_requestIcon,
+                        clickable: true
+                        });    
+                    else 
+                        var marker = new google.maps.Marker({
+                        position: latLng,
+                        icon: item_offerIcon,
+                        clickable: true
+                        });
+                }
+                
+            }
+            else
+            {
+                var numberIcon = prefix_multipleIcon + listing_data[i]['id'].length + ".png";
+
+                var marker = new google.maps.Marker({
+                position: latLng,
+                icon: numberIcon, 
+                clickable: true
+                }); 
+            }
           markers.push(marker);
         }
         
-        var markerCluster = new MarkerClusterer(map, markers, listing_data);
+        var markerCluster = new MarkerClusterer(map, markers, listing_data, listing_type);
         
       }
       
