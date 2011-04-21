@@ -1,18 +1,24 @@
 - tags = Tag.tags(:limit => 20, :order => "count DESC")
 - result = tag_cloud(tags, %w(tag1 tag2 tag3 tag4 tag5 tag6))
-#tag_cloud
-  - if controller.action_name == 'offers'
-    - result.each do |k, v|
-      - if k == @tag
-        = link_to k, offers_path, :class => "#{[v]} selected"
-      - else
-        = link_to k, offers_with_tag_path(k), :class => v
-  - if controller.action_name =='request'
-    - result.each do |k, v|
-      - if k == @tag
-        = link_to k, requests_path, :class => "#{[v]} selected"
-      - else
-        = link_to k, requests_with_tag_path(k), :class => v
+
+- if tags != nil
+  &nbsp;
+  #tag_cloud
+    .left_panel_section
+      .left_panel_title
+        %h3= "Tag Cloud"      
+        - if controller.action_name == 'offers'
+          - result.each do |k, v|
+            - if k == @tag
+              = link_to k, offers_path, :class => "#{[v]} selected"
+            - else
+              = link_to k, offers_with_tag_path(k), :class => v
+        - if controller.action_name =='request'
+          - result.each do |k, v|
+            - if k == @tag
+              = link_to k, requests_path, :class => "#{[v]} selected"
+            - else
+              = link_to k, requests_with_tag_path(k), :class => v
 
 :javascript
   var remember_tag = "#{params[:tag]}";
