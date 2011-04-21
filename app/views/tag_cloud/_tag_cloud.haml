@@ -1,29 +1,18 @@
-:css
-  .nube1 {font-size: 0.7em;}
-  .nube2 {font-size: 0.9em;}
-  .nube3 {font-size: 1.1em;}
-  .nube4 {font-size: 1.3em;}
-  .nube5 {font-size: 1.5em;}
-  .nube6 {font-size: 1.7em;}
-  .nubesel {text-decoration: underline;}
-
-
 - tags = Tag.tags(:limit => 20, :order => "count DESC")
-- result = tag_cloud(tags, %w(nube1 nube2 nube3 nube4 nube5 nube6))
-- if controller.action_name == 'offers'
-  - result.each do |k, v|
-    - if k == @tag
-      = link_to k, offers_path, :class => "#{[v]} nubesel"
-    - else
-      = link_to k, offers_with_tag_path(k), :class => v
-- else
-  - result.each do |k, v|
-    - if k == @tag
-      = link_to k, requests_path, :class => "#{[v]} nubesel"
-    - else
-      = link_to k, requests_with_tag_path(k), :class => v
-
+- result = tag_cloud(tags, %w(tag1 tag2 tag3 tag4 tag5 tag6))
+#tag_cloud
+  - if controller.action_name == 'offers'
+    - result.each do |k, v|
+      - if k == @tag
+        = link_to k, offers_path, :class => "#{[v]} selected"
+      - else
+        = link_to k, offers_with_tag_path(k), :class => v
+  - if controller.action_name =='request'
+    - result.each do |k, v|
+      - if k == @tag
+        = link_to k, requests_path, :class => "#{[v]} selected"
+      - else
+        = link_to k, requests_with_tag_path(k), :class => v
 
 :javascript
   var remember_tag = "#{params[:tag]}";
-
