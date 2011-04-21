@@ -61,15 +61,34 @@ class ListingsController < ApplicationController
     @check_mobile = detect_browser
     if @check_mobile
       @title = params[:listing_type]
-      @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+      @listings_temp = Listing.open.joins(:origin_loc).find_with(params, @current_user).order("locations.latitude ASC, locations.longitude ASC")
 
       @locations = Array.new
-      
-      @listings.each do |t|
-        temp = Hash.new
-        temp['lat'] = t.origin_loc.latitude
-        temp['long'] = t.origin_loc.longitude
-        @locations.push temp
+      @listings = Array.new
+            
+      for i in 0..(@listings_temp.length-1)
+        if (i == 0) or (@listings_temp[i].origin_loc.latitude != @listings_temp[i-1].origin_loc.latitude) or (@listings_temp[i].origin_loc.longitude != @listings_temp[i-1].origin_loc.longitude)
+            location_temp = Hash.new
+            location_temp['lat'] = @listings_temp[i].origin_loc.latitude
+            location_temp['long'] = @listings_temp[i].origin_loc.longitude
+            @locations.push location_temp
+            
+            listing_temp = Hash.new
+            listing_temp['id'] = Array.new
+            listing_temp['title'] = Array.new
+            listing_temp['description'] = Array.new       
+            listing_temp['category'] = Array.new
+            listing_temp['id'].push @listings_temp[i].id
+            listing_temp['title'].push @listings_temp[i].title
+            listing_temp['description'].push @listings_temp[i].description   
+            listing_temp['category'].push @listings_temp[i].category
+            @listings.push listing_temp            
+        else
+            @listings[@listings.length - 1]['id'].push @listings_temp[i].id
+            @listings[@listings.length - 1]['title'].push @listings_temp[i].title
+            @listings[@listings.length - 1]['description'].push @listings_temp[i].description
+            @listings[@listings.length - 1]['category'].push @listings_temp[i].category
+        end        
       end
       
       render :partial => "listings/mobile_listings"
