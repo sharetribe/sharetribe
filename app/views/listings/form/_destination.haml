@@ -1,3 +1,13 @@
 .new_listing_form_field_container
-  = form.label :destination, t(".destination") + "*:", :class => "input"
-  = form.text_field(:destination, :class => "title_text_field", :maxlength => "48")
+  = fields_for :destination_loc do |destination_form|
+    = destination_form.label :address, t('.destination') + ":", :class => "input"
+    = destination_form.text_field(:address, :class => "title_text_field", :maxlength => "48", :onchange => "geocoder.geocode({address: this.value}, showAddress); return false")
+    = destination_form.hidden_field(:latitude)
+    = destination_form.hidden_field(:longitude)
+
+  #map-canvas{:style => "width: 398px; height: 250px"}
+
+-#
+  .new_listing_form_field_container
+    = form.label :destination, t(".destination") + "*:", :class => "input"
+    = form.text_field(:destination, :class => "title_text_field", :maxlength => "48")
