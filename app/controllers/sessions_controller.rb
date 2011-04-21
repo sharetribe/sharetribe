@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
     if params["community"].blank?
       ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
     end
-    domain = "http://#{with_subdomain(params[:community])}"
+    current_community = Community.find_by_domain(params[:community])
+    domain = "http://#{with_subdomain(current_community.domain)}"
         
     session[:form_username] = params[:username]
     begin
@@ -23,11 +24,15 @@ class SessionsController < ApplicationController
     session[:form_username] = nil
     
     if @session.person_id  # if not app-only-session and person found in cos
-      unless  @current_user = Person.find_by_id(@session.person_id)
+      @current_user = Person.find_by_id(@session.person_id)
+      unless @current_user && current_community.consent.eql?(@current_user.consent(current_community))
         # The user has succesfully logged in, but is not found in Kassi DB
         # Existing Sizzle user's first login in Kassi
         session[:temp_cookie] = @session.cookie
         session[:temp_person_id] = @session.person_id
+        session[:temp_community_id] = current_community.id
+        session[:consent_changed] = true if @current_user
+        logger.info "Current user: #{@current_user.name}"
         redirect_to domain + terms_path and return
       end
     end
