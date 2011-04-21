@@ -538,6 +538,10 @@ class Person < ActiveRecord::Base
     end
   end
   
+  def consent(community)
+    community_memberships.find_by_community_id(community.id).consent
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

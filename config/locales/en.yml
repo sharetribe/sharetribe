@@ -666,7 +666,12 @@ en:
       accept_terms: "Accepting Kassi terms of use"
       you_need_to_accept: "Welcome to Kassi! This seems to be the first time you are using the service. Before starting you must first accepts the"
       terms: "Kassi terms of use"
-      i_accept_terms: "I accept the terms"  
+      i_accept_terms: "I accept the terms"
+      terms_have_changed: "Terms of use have changed"
+      you_need_to_accept_new_terms: "Kassin terms of use have changed. You have to accept the new terms in order to continue using Kassi. The new terms are intended to enable the upkeep of the service after the research project has ended."
+      you_can_view_the_new_terms: "You can view the new terms"
+      here: "here"
+      i_accept_new_terms: "I accept the new terms"  
   testimonials:
     index:
       no_testimonials: "No received feedback."

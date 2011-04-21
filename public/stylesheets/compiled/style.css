@@ -1111,7 +1111,8 @@ div.checkbox_float {
     height: 40px;
     padding: 0;
     border: 0;
-    color: white; }
+    color: white;
+    width: 250px; }
     #login_form input.send_button_terms:active, #new_message_form input.send_button_terms:active, #signup_form input.send_button_terms:active {
       background-color: #4d3d26;
       padding-top: 1px; }
