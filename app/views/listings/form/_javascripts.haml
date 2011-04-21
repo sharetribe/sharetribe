@@ -44,8 +44,9 @@
     function showAddress(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.fitBounds(results[0].geometry.viewport);
-        document.getElementById("listing_address").value = results[0].formatted_address;
-        document.getElementById("listing_origin_loc").value = results[0].geometry.location;
+        document.getElementById("location_address").value = results[0].formatted_address;
+        document.getElementById("location_latitude").value = results[0].geometry.location.lat();
+        document.getElementById("location_longitude").value = results[0].geometry.location.lng();
         marker.setPosition(results[0].geometry.location);
       }
     }
