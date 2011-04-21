@@ -29,6 +29,8 @@
           = form.hidden_field :open, :value => true
         = form.hidden_field :last_modified, :value => DateTime.now
         = render :partial => "listings/form/images", :locals => { :form => form }
+        - unless @listing.category.eql?("rideshare")
+          = render :partial => "listings/form/location", :locals => { :form => form }
         = render :partial => "listings/form/visibility", :locals => { :form => form }
         = render :partial => "listings/form/send_button", :locals => { :form => form }
 
