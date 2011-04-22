@@ -25,10 +25,10 @@
       = form.label :description, t('.profilemap') + ":", :class => "input"
       .map{:id => "map_canvas", :style => "width: 318px; height: 260px"}
         :javascript
-          var profilemap = true
+          //var prefix = "person_location";
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
-            googlemapMarkerInit("map_canvas");
+            googlemapMarkerInit("map_canvas","person_location");
             });
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
