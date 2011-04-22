@@ -4,11 +4,20 @@ var marker;
 var geocoder;
 var map;
 var center;
+var prefix;
+//var textfield;
+//var mapcanvas;
 var currentDirections = null;
 
 // Marker
-function googlemapMarkerInit(canvas) {
-	center = new google.maps.LatLng(60.1894, 24.8358);
+function googlemapMarkerInit(canvas,n_prefix) {
+	prefix = n_prefix;
+	var latitude = document.getElementById(prefix+ "_latitude");
+	var longitude = document.getElementById(prefix+ "_longitude");
+	if(latitude.value != null)
+		center = new google.maps.LatLng(latitude.value,longitude.value);
+	else
+		center = new google.maps.LatLng(60.1894, 24.8358);
 	var myOptions = {
 		'zoom': 12,
 		'center': center,
@@ -16,13 +25,11 @@ function googlemapMarkerInit(canvas) {
 		'mapTypeControl': false,
         'mapTypeId': google.maps.MapTypeId.ROADMAP
     	}
-	// }
 	
 	map = new google.maps.Map(document.getElementById(canvas), myOptions);
 	geocoder = new google.maps.Geocoder();
 	
-	if(update_map(source)){
-	}
+	//update_map(source)
 	
 	marker = new google.maps.Marker({
 		'map': map,
@@ -50,19 +57,19 @@ function update_map(field) {
 	    	map.setCenter(response[0].geometry.location);
 	    	//field.value = response[0].formatted_address;
 	    	marker.setPosition(response[0].geometry.location);
-	    if (profilemap)
-	    	update_profile_location(response);
+	    	update_model_location(response);
 
 	    return true;
 		    //Remove this when we get proper jquery stuff
               //alert("Address " +field.value + " not found");
             } else {
 	    	//address_not_found(field);
-			map.setCenter(center);
-			map.panTo(center);
-			marker.setPosition(center);
-			marker.setVisible(false);
-			nil_profile_locations();
+			//map.setCenter(center);
+			//map.panTo(center);
+			//marker.setPosition(center);
+			//marker.setVisible(false);
+			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
+		  		nil_locations();
             }
 		});
 	}
@@ -70,65 +77,40 @@ function update_map(field) {
 		return false;
 }
 
-// function update_map(field) {
-// 	if(geocoder){
-// 	  geocoder.geocode( {'address':field.value}, function(response,info) {
-//       	
-// 		if (info == google.maps.GeocoderStatus.OK) {
-// 		    map.setCenter(response[0].geometry.location);
-// 	    	field.value = response[0].formatted_address;
-// 	    	marker.setPosition(response[0].geometry.location);
-// 	    	marker.setVisible(true);
-// 	    	
-// 			if (profilemap) {
-// 	    		update_profile_location(response);
-// 			}
-// 	    	
-// 			return true;	
-// 		    
-// 		} else {
-// 	    	address_not_found(field);
-// 			map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
-// 			marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
-// 			marker.setVisible(false);
-// 			nil_profile_locations();
-// 		}
-// 	});
-// 	}
-// 	else
-// 		return false;	
-// }
 function update_source(response,status){
 	if (status == google.maps.GeocoderStatus.OK){
-		update_location(response,source);
+		update_model_location(response);
+		//source = document.getElementById(textfield);
+		source.value = response[0].formatted_address;
+		//update_location(response,source);
 	} else {
-	    map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
+	    //map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
 	    marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
 	    marker.setVisible(false);
-	    nil_profile_locations();
+	    nil_locations();
 	}
 }
+//Not used
 function update_location(response, element){
 	element.value = response[0].formatted_address;
-	if(profilemap) {
-		update_profile_location(response);
-	}
+	update_model_location(response);
 }
-function nil_profile_locations(){
-	var address = document.getElementById("person_location_address");
-	var latitude = document.getElementById("person_location_latitude");
-	var longitude = document.getElementById("person_location_longitude");
-	var google_address = document.getElementById("person_location_google_address");
+function nil_locations(){
+	var address = document.getElementById(prefix+ "_address");
+	var latitude = document.getElementById(prefix+ "_latitude");
+	var longitude = document.getElementById(prefix+ "_longitude");
+	var google_address = document.getElementById(prefix+ "_google_address");
 	address.value = null;
 	latitude.value = null;
 	longitude.value = null;
 	google_address.value = null;
 }
-function update_profile_location(place){
-	var address = document.getElementById("person_location_address");
-	var latitude = document.getElementById("person_location_latitude");
-	var longitude = document.getElementById("person_location_longitude");
-	var google_address = document.getElementById("person_location_google_address");
+function update_model_location(place){
+	var address = document.getElementById(prefix+ "_address");
+	var latitude = document.getElementById(prefix+ "_latitude");
+	var longitude = document.getElementById(prefix+ "_longitude");
+	var google_address = document.getElementById(prefix+ "_google_address");
+
 	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
 	latitude.value = place[0].geometry.location.lat();
 	longitude.value = place[0].geometry.location.lng();

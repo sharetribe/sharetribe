@@ -3,6 +3,14 @@
   .jsmap{:id => "map_canvas", :style => "width: 398px; height: 260px"}
   :javascript 
     $(document).ready(function() { 
+      if (!#{rideshare}){
+        var source = "listing_origin";
+        //var prefix = "listing_origin_loc_attributes";
+        googlemapMarkerInit('map_canvas',"listing_origin_loc_attributes");
+        }
+      else
+      {
       googlemapRouteInit('map_canvas');
       startRoute();
+      }
     });
