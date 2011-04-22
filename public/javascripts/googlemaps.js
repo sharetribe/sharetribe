@@ -5,13 +5,16 @@ var geocoder;
 var map;
 var center;
 var prefix;
-//var textfield;
+var textfield;
 //var mapcanvas;
 var currentDirections = null;
 
 // Marker
-function googlemapMarkerInit(canvas,n_prefix) {
+function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
+	textfield = n_textfield;
+	if (draggable == undefined)
+		draggable = false;
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
 	if(latitude.value != null)
@@ -33,11 +36,12 @@ function googlemapMarkerInit(canvas,n_prefix) {
 	
 	marker = new google.maps.Marker({
 		'map': map,
-		'draggable': true,
+		'draggable': draggable,
 		'animation': google.maps.Animation.DROP,
 		'position': center
     });
 
+    if (draggable){
 	google.maps.event.addListener(map, "click", function(event) {
 		marker.setPosition(event.latLng);
 		marker.setVisible(true);
@@ -47,6 +51,7 @@ function googlemapMarkerInit(canvas,n_prefix) {
 	google.maps.event.addListener(marker, "dragend", function() {
 		geocoder.geocode({"latLng":marker.getPosition()},update_source);
 	});
+    }
 }
 
 function update_map(field) {
@@ -80,7 +85,7 @@ function update_map(field) {
 function update_source(response,status){
 	if (status == google.maps.GeocoderStatus.OK){
 		update_model_location(response);
-		//source = document.getElementById(textfield);
+		source = document.getElementById(textfield);
 		source.value = response[0].formatted_address;
 		//update_location(response,source);
 	} else {

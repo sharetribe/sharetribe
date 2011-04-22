@@ -28,7 +28,7 @@
           //var prefix = "person_location";
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
-            googlemapMarkerInit("map_canvas","person_location");
+            googlemapMarkerInit("map_canvas","person_location","person_street_address", true);
             });
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
