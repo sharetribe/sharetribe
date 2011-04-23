@@ -1,6 +1,4 @@
 .googlemap
-  -#%input{:id => "origin_foo", :value => @listing.origin, :type => "hidden"}
-  -#%input{:id => "destination_foo", :value => @listing.destination, :type => "hidden"}
   .jsmap{:id => "map_canvas", :style => "width: 300px; height: 260px"}
   :javascript 
     $(document).ready(function() { 
@@ -13,5 +11,5 @@
       googlemapRouteInit('map_canvas');
       showRoute(document.getElementById("origin_loc_google_address").value, 
                 document.getElementById("destination_loc_google_address").value)
-                }
+      }
     });
