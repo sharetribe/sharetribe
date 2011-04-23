@@ -168,7 +168,27 @@ function startRoute() {
 	calcRoute(foo, bar);
 }
 
-// Rideshare creation
+// Use this one for "show"
+function showRoute(orig, dest) {
+  var start = orig;
+  var end = dest;
+    
+  var request = {
+    origin:start,
+    destination:end,
+    travelMode: google.maps.DirectionsTravelMode.DRIVING,
+    unitSystem: google.maps.DirectionsUnitSystem.METRIC
+  };
+  
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+
+// Route request to the Google API
 function calcRoute(orig, dest) {
   var start = orig;
   var end = dest;  
@@ -199,24 +219,6 @@ function updateEditTextBoxes() {
   document.getElementById("listing_destination_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lng();
 }
 
-// Rideshare viewing
-function showRoute(orig, dest) {
-  var start = orig;
-  var end = dest;
-    
-  var request = {
-    origin:start,
-    destination:end,
-    travelMode: google.maps.DirectionsTravelMode.DRIVING,
-    unitSystem: google.maps.DirectionsUnitSystem.METRIC
-  };
-  
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
 
 // elementId: Specify the element.src where you want to display the static map.
 function loadStaticRouteMap(elementId) {
