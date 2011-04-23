@@ -884,6 +884,14 @@ span.not_visible {
     padding: 9px 9px; }
     #new_listing_form_main input.text_field:focus {
       background: white; }
+  #new_listing_form_main .map_canvas {
+    width: 398px;
+    border: 0;
+    background: #f7f5e6;
+    font-size: 14px;
+    height: 250px;
+    margin: 0px 9px;
+    float: right; }    
   #new_listing_form_main input.send_button {
     font-size: 14px;
     font-weight: bold;
