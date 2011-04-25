@@ -25,7 +25,8 @@
     %p
       -#
         TODO: Add map with marker here to show location
-      = @location.address
+      - if @listing.location != nil
+        = @listing.location.address
     
     #share_types_and_tags
       - unless @listing.share_types.empty? && @listing.tag_list.empty?    
