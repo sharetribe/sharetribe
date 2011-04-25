@@ -78,14 +78,20 @@ function update_map(field) {
 			//marker.setPosition(center);
 			//marker.setVisible(false);
 			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
-			infowindow.setContent("Location " + field.value + " not found");
-			infowindow.open(map, marker);
+			//infowindow.setContent("Location " + field.value + " not found");
+			//infowindow.open(map, marker);
+			addressNotFound(field.id);
+			marker.setVisible(false);
 			nil_locations();
             }
 		});
 	}
 	else
 		return false;
+}
+
+function addressNotFound(field) {
+	document.getElementById(field).value = "Address not found";
 }
 
 function update_source(response,status){
@@ -168,43 +174,39 @@ function googlemapRouteInit(canvas) {
     });
 }
 
+
 // Use this one for "new" and "edit"
 function startRoute() {
     var foo = document.getElementById("listing_origin").value;
     var bar = document.getElementById("listing_destination").value;
-	var check = true;
-
+	directionsDisplay.setMap(map);
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
 	geocoder.geocode( { 'address': foo}, function(responce,status){
 		if (!(status == google.maps.GeocoderStatus.OK)) {
+			removeRoute();
 			if (!(document.getElementById("listing_origin").value == '')) {
-				wrongAddress("listing_origin");
-				wipeFields("listing_destination");
-				check = false;
+				wrongLocationRoute("listing_origin");
+				wipeFieldsRoute("listing_destination");
 			}
 		}
 	});
 
 	geocoder.geocode( { 'address': bar}, function(responce,status){
 		if (!(status == google.maps.GeocoderStatus.OK)) {
+			removeRoute();
 			if (!(document.getElementById("listing_destination").value == '')) {
-				wipeFields("listing_origin");
-				wrongAddress("listing_destination");
-				check = false;
+				wipeFieldsRoute("listing_origin");
+				wrongLocationRoute("listing_destination");
 			}
-		} else {
-			
-		}
+		} 
 	});
 
-	if (check) {
-		calcRoute(foo, bar);
-	}
+	calcRoute(foo, bar);
 }
 
-function wrongAddress(field){
+function wrongLocationRoute(field){
   document.getElementById(field).value = "Address not found";
   document.getElementById(field+"_loc_attributes_address").value = null; 
   document.getElementById(field+"_loc_attributes_google_address").value = null; 
@@ -212,11 +214,15 @@ function wrongAddress(field){
   document.getElementById(field+"_loc_attributes_longitude").value = null;
 }
 
-function wipeFields(field) {
+function wipeFieldsRoute(field) {
   document.getElementById(field+"_loc_attributes_address").value = null; 
   document.getElementById(field+"_loc_attributes_google_address").value = null; 
   document.getElementById(field+"_loc_attributes_latitude").value = null;
-  document.getElementById(field+"_loc_attributes_longitude").value = null;	
+  document.getElementById(field+"_loc_attributes_longitude").value = null;
+}
+
+function removeRoute() {
+  directionsDisplay.setMap(null);	
 }
 
 
