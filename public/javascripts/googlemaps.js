@@ -172,40 +172,51 @@ function googlemapRouteInit(canvas) {
 function startRoute() {
     var foo = document.getElementById("listing_origin").value;
     var bar = document.getElementById("listing_destination").value;
+	var check = true;
 
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-	// if (checkAddress(foo) == true) {
-	// 	alert(foo + " is true");
-	// } else {
-	// 	alert(foo + " is false");
-	// }
-	// 
-	// if (checkAddress(bar) == true) {
-	// 	alert(bar + " is true");
-	// } else {
-	// 	alert(bar + " is false");
-	// }
-
-	//alert(checkAddress(foo) + " " + checkAddress(bar));
 	geocoder.geocode( { 'address': foo}, function(responce,status){
 		if (!(status == google.maps.GeocoderStatus.OK)) {
-			wrongAddress("listing_origin");
+			if (!(document.getElementById("listing_origin").value == '')) {
+				wrongAddress("listing_origin");
+				wipeFields("listing_destination");
+				check = false;
+			}
 		}
-	}
-			);
+	});
+
 	geocoder.geocode( { 'address': bar}, function(responce,status){
 		if (!(status == google.maps.GeocoderStatus.OK)) {
-			wrongAddress("listing_destination");
+			if (!(document.getElementById("listing_destination").value == '')) {
+				wipeFields("listing_origin");
+				wrongAddress("listing_destination");
+				check = false;
+			}
+		} else {
+			
 		}
+	});
+
+	if (check) {
+		calcRoute(foo, bar);
 	}
-			);
-	
-	calcRoute(foo, bar);
 }
+
 function wrongAddress(field){
-    document.getElementById(field).value = "Address not found";
+  document.getElementById(field).value = "Address not found";
+  document.getElementById(field+"_loc_attributes_address").value = null; 
+  document.getElementById(field+"_loc_attributes_google_address").value = null; 
+  document.getElementById(field+"_loc_attributes_latitude").value = null;
+  document.getElementById(field+"_loc_attributes_longitude").value = null;
+}
+
+function wipeFields(field) {
+  document.getElementById(field+"_loc_attributes_address").value = null; 
+  document.getElementById(field+"_loc_attributes_google_address").value = null; 
+  document.getElementById(field+"_loc_attributes_latitude").value = null;
+  document.getElementById(field+"_loc_attributes_longitude").value = null;	
 }
 
 
@@ -242,7 +253,7 @@ function calcRoute(orig, dest) {
   
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
+   	  directionsDisplay.setDirections(response);
       updateEditTextBoxes();
     } 
   });
