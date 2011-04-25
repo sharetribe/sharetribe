@@ -25,6 +25,7 @@ class Listing < ActiveRecord::Base
   
   has_many :share_types
 
+  has_one :location, :class_name => "Location"
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
   has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
   
@@ -351,6 +352,21 @@ class Listing < ActiveRecord::Base
 
       SmsHelper.send(message, request.author.phone_number)
     end
+  end
+  
+  # This is used to provide clean JSON-strings for map view queries
+  def as_json(options = {})
+    json_dict = {
+      :title => self.title,
+      :listing_type => self.listing_type,
+      :description => self.description,
+      :category => self.category,
+      :share_types => self.share_types
+    }
+    
+    json_dict[:location] = self.location.as_json if self.location
+    
+    json_dict
   end
   
 end
