@@ -80,8 +80,8 @@ function update_map(field) {
 			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
 			//infowindow.setContent("Location " + field.value + " not found");
 			//infowindow.open(map, marker);
-			addressNotFound(field.id);
-			marker.setVisible(false);
+			// addressNotFound(field.id);
+			// marker.setVisible(false);
 			nil_locations();
             }
 		});
@@ -183,25 +183,25 @@ function startRoute() {
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-	geocoder.geocode( { 'address': foo}, function(responce,status){
-		if (!(status == google.maps.GeocoderStatus.OK)) {
-			removeRoute();
-			if (!(document.getElementById("listing_origin").value == '')) {
-				wrongLocationRoute("listing_origin");
-				wipeFieldsRoute("listing_destination");
-			}
-		}
-	});
-
-	geocoder.geocode( { 'address': bar}, function(responce,status){
-		if (!(status == google.maps.GeocoderStatus.OK)) {
-			removeRoute();
-			if (!(document.getElementById("listing_destination").value == '')) {
-				wipeFieldsRoute("listing_origin");
-				wrongLocationRoute("listing_destination");
-			}
-		} 
-	});
+	// geocoder.geocode( { 'address': foo}, function(responce,status){
+	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
+	// 		removeRoute();
+	// 		if (!(document.getElementById("listing_origin").value == '')) {
+	// 			wrongLocationRoute("listing_origin");
+	// 			wipeFieldsRoute("listing_destination");
+	// 		}
+	// 	}
+	// });
+	// 
+	// geocoder.geocode( { 'address': bar}, function(responce,status){
+	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
+	// 		removeRoute();
+	// 		if (!(document.getElementById("listing_destination").value == '')) {
+	// 			wipeFieldsRoute("listing_origin");
+	// 			wrongLocationRoute("listing_destination");
+	// 		}
+	// 	} 
+	// });
 
 	calcRoute(foo, bar);
 }

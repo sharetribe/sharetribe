@@ -80,6 +80,25 @@ $.validator.
 	 	}
 	);
 
+function FullAddressValidator(value, element, paras) {
+	if (value.length == 0) {
+		return true;
+	}
+
+	// Create a new Google geocoder
+	var gc = new google.maps.Geocoder();
+	gc.geocode({ 'address': value }, function (results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+	        return true; // Doesn't work
+	    } else {
+	        return false; // Doesn't work
+	    }
+	});
+	return false; // Works...
+}
+$.validator.addMethod("fulladdress", FullAddressValidator);
+
+
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -167,8 +186,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		debug: false,
 		rules: {
 			"listing[title]": {required: true},
-			"listing[origin]": {required: true},
-			"listing[destination]": {required: true, minlength: 2},
+			"listing[origin]": {required: true, fulladdress: true},
+			"listing[destination]": {required: true, fulladdress: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
