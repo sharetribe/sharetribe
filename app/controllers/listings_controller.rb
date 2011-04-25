@@ -83,14 +83,18 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
+    
     # This has not yet been implemented
-    @locations ={:data => [{:title => "ItemOffer1", :category => "item", :request_type => "offer", :lat => 60.1796, :lng => 24.8004}, 
-                           {:title => "RideshareOffer1", :category => "rideshare", :request_type => "offer", :lat => 60.1946, :lng => 24.7928}, 
-                           {:title => "HousingOffer1", :category => "housing", :request_type => "offer", :lat => 60.1805, :lng => 24.8502}, 
-                           {:title => "FavorRequest1", :category => "favor", :request_type => "request", :lat => 60.1636, :lng => 24.8066}, 
-                           {:title => "ItemRequest1", :category => "item", :request_type => "request", :lat => 60.1980, :lng => 24.8742},
-                           {:title => "HousingRequest1", :category => "housing", :request_type => "request", :lat => 60.1950, :lng => 24.8422},], :errors => []}
-    render :json => @locations
+    #@locations ={:data => [{:title => "ItemOffer1", :category => "item", :request_type => "offer", :lat => 60.1796, :lng => 24.8004}, 
+    #                       {:title => "RideshareOffer1", :category => "rideshare", :request_type => "offer", :lat => 60.1946, :lng => 24.7928}, 
+    #                       {:title => "HousingOffer1", :category => "housing", :request_type => "offer", :lat => 60.1805, :lng => 24.8502}, 
+    #                       {:title => "FavorRequest1", :category => "favor", :request_type => "request", :lat => 60.1636, :lng => 24.8066}, 
+    #                       {:title => "ItemRequest1", :category => "item", :request_type => "request", :lat => 60.1980, :lng => 24.8742},
+    #                       {:title => "HousingRequest1", :category => "housing", :request_type => "request", :lat => 60.1950, :lng => 24.8422},], :errors => []}
+    
+    # render :json => @listings, :only => [:title, :category, :listing_type, :description]
+    render :json => { :data => @listings }
   end
 
   def show
