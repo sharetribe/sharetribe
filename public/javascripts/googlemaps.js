@@ -188,20 +188,26 @@ function startRoute() {
 	// 	alert(bar + " is false");
 	// }
 
-	alert(checkAddress(foo) + " " + checkAddress(bar));
+	//alert(checkAddress(foo) + " " + checkAddress(bar));
+	geocoder.geocode( { 'address': foo}, function(responce,status){
+		if (!(status == google.maps.GeocoderStatus.OK)) {
+			wrongAddress("listing_origin");
+		}
+	}
+			);
+	geocoder.geocode( { 'address': bar}, function(responce,status){
+		if (!(status == google.maps.GeocoderStatus.OK)) {
+			wrongAddress("listing_destination");
+		}
+	}
+			);
 	
 	calcRoute(foo, bar);
 }
-
-function checkAddress(address) {
-	geocoder.geocode( { 'address': address}, function(results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-			return true;
-		} else {
-			return false;
-		}
-	});
+function wrongAddress(field){
+    document.getElementById(field).value = "Address not found";
 }
+
 
 // Use this one for "show"
 function showRoute(orig, dest) {
