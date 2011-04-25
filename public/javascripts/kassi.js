@@ -166,8 +166,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		},
 		debug: false,
 		rules: {
-			"listing[title]": {required: true, minlength: 2},
-			"listing[origin]": {required: true, minlength: 2},
+			"listing[title]": {required: true},
+			"listing[origin]": {required: true},
 			"listing[destination]": {required: true, minlength: 2},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },

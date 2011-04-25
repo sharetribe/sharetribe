@@ -3,6 +3,7 @@ var directionsService;
 var marker;
 var geocoder;
 var map;
+var infowindow;
 var center;
 var prefix;
 var textfield;
@@ -41,6 +42,8 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		'position': center
     });
 
+	infowindow = new google.maps.InfoWindow();
+
     if (draggable){
 	google.maps.event.addListener(map, "click", function(event) {
 		marker.setPosition(event.latLng);
@@ -62,6 +65,7 @@ function update_map(field) {
 	    	map.setCenter(response[0].geometry.location);
 	    	//field.value = response[0].formatted_address;
 	    	marker.setPosition(response[0].geometry.location);
+			infowindow.close();
 	    	update_model_location(response);
 
 	    return true;
@@ -74,7 +78,9 @@ function update_map(field) {
 			//marker.setPosition(center);
 			//marker.setVisible(false);
 			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
-		  		nil_locations();
+			infowindow.setContent("Location " + field.value + " not found");
+			infowindow.open(map, marker);
+			nil_locations();
             }
 		});
 	}
@@ -115,8 +121,10 @@ function update_model_location(place){
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
 	var google_address = document.getElementById(prefix+ "_google_address");
-
-	address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
+	
+	// Changed this, need to discuss further
+	//address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
+	address.value = place[0].address_components[0].long_name;
 	latitude.value = place[0].geometry.location.lat();
 	longitude.value = place[0].geometry.location.lng();
 	google_address.value = place[0].formatted_address;
