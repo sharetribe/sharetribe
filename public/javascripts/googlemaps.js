@@ -172,17 +172,33 @@ function googlemapRouteInit(canvas) {
 function startRoute() {
     var foo = document.getElementById("listing_origin").value;
     var bar = document.getElementById("listing_destination").value;
+
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
+
+	// if (checkAddress(foo) == true) {
+	// 	alert(foo + " is true");
+	// } else {
+	// 	alert(foo + " is false");
+	// }
+	// 
+	// if (checkAddress(bar) == true) {
+	// 	alert(bar + " is true");
+	// } else {
+	// 	alert(bar + " is false");
+	// }
+
+	alert(checkAddress(foo) + " " + checkAddress(bar));
+	
 	calcRoute(foo, bar);
 }
 
 function checkAddress(address) {
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			// alert("Location " + address + " ok!");
+			return true;
 		} else {
-			alert("Location " + address + " not found!");
+			return false;
 		}
 	});
 }
