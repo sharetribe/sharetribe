@@ -162,8 +162,9 @@ function googlemapRouteInit(canvas) {
   google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
     if (currentDirections) {
 	  //updateTextBoxes();
-      }
-	currentDirections = directionsDisplay.getDirections();
+      } else {
+		currentDirections = directionsDisplay.getDirections();
+	  }
     });
 }
 
@@ -171,9 +172,26 @@ function googlemapRouteInit(canvas) {
 function startRoute() {
     var foo = document.getElementById("listing_origin").value;
     var bar = document.getElementById("listing_destination").value;
+    
+	if (foo != "")
+		checkAddress(foo);
+		
+	if (bar != "")
+		checkAddress(bar);
+
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 	calcRoute(foo, bar);
+}
+
+function checkAddress(address) {
+	geocoder.geocode( { 'address': address}, function(results, status) {
+		if (status == google.maps.GeocoderStatus.OK) {
+			alert("Location " + address + " ok!");
+		} else {
+			alert("Location " + address + " not found!");
+		}
+	});
 }
 
 // Use this one for "show"
@@ -191,10 +209,9 @@ function showRoute(orig, dest) {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
-    }
+    } 
   });
 }
-
 
 // Route request to the Google API
 function calcRoute(orig, dest) {
@@ -212,7 +229,7 @@ function calcRoute(orig, dest) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
       updateEditTextBoxes();
-    }
+    } 
   });
 }
 
