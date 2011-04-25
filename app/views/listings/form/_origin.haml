@@ -5,7 +5,7 @@
   - else
     = form.label :origin, t(".origin") + "*:", :class => "input"
     = form.text_field(:origin, :class => "title_text_field", :maxlength => "48",
-                    :onblur => "startRoute()")
+                    :onblur => "startRoute(); checkAddress(listing_origin.value)")
   = form.fields_for :origin_loc do |loc|
     = loc.hidden_field :address, :value => origin_loc.address
     = loc.hidden_field :google_address, :value => origin_loc.google_address
