@@ -60,24 +60,18 @@
       // The following two statements had Ruby evaluations, but they did not work with the current implementation
       //var lat = Location.first.latitude;
       //var lng = Location.first.longitude;
-      var lat = 60.1863;
-      var lng = 24.8279;
-      var location = new google.maps.LatLng(lat, lng)
-      
-      var marker = new google.maps.Marker({
-        position: location,
-        map: map
-      });
       
       // Test requesting location data
-      var request_path = '/api/query'
+      // Now the request_path needs to also have a query string with the wanted parameters
+      var request_path = '/api/query?listing_type=offer&category=item'
     	$.get(request_path, function(data) {	
     	  var data_arr = data["data"];
     	  var infowindow = new google.maps.InfoWindow();
     		for (i in data_arr) {
     		  (function() {
     		    var entry = data_arr[i];
-        		var location = new google.maps.LatLng(entry["lat"], entry["lng"]);
+        		var location = new google.maps.LatLng(entry["location"]["latitude"], entry["location"]["longitude"]);
+
         		var contentString = '<div id="content">'+
                                 '<div id="siteNotice">'+
                                 '</div>'+
@@ -92,7 +86,7 @@
             var marker = new google.maps.Marker({
               position: location,
               map: map,
-              icon: '/images/map_icons/'+entry["category"]+'_'+entry["request_type"]+'.png'
+              icon: '/images/map_icons/'+entry["category"]+'_'+ "offer" +'.png'
             });
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.setContent(contentString);
