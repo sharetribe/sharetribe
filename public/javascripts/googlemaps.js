@@ -172,13 +172,6 @@ function googlemapRouteInit(canvas) {
 function startRoute() {
     var foo = document.getElementById("listing_origin").value;
     var bar = document.getElementById("listing_destination").value;
-    
-	if (foo != "")
-		checkAddress(foo);
-		
-	if (bar != "")
-		checkAddress(bar);
-
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 	calcRoute(foo, bar);
@@ -187,7 +180,7 @@ function startRoute() {
 function checkAddress(address) {
 	geocoder.geocode( { 'address': address}, function(results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			alert("Location " + address + " ok!");
+			// alert("Location " + address + " ok!");
 		} else {
 			alert("Location " + address + " not found!");
 		}
