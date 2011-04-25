@@ -80,12 +80,8 @@ $.validator.
 	 	}
 	);
 
+// This validator doesn't work yet
 function FullAddressValidator(value, element, paras) {
-	if (value.length == 0) {
-		return true;
-	}
-
-	// Create a new Google geocoder
 	var gc = new google.maps.Geocoder();
 	gc.geocode({ 'address': value }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
@@ -94,7 +90,7 @@ function FullAddressValidator(value, element, paras) {
 	        return false; // Doesn't work
 	    }
 	});
-	return false; // Works...
+	return true; // Works...
 }
 $.validator.addMethod("fulladdress", FullAddressValidator);
 

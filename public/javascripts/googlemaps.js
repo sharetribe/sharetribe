@@ -65,7 +65,7 @@ function update_map(field) {
 	    	map.setCenter(response[0].geometry.location);
 	    	//field.value = response[0].formatted_address;
 	    	marker.setPosition(response[0].geometry.location);
-			infowindow.close();
+			// infowindow.close();
 	    	update_model_location(response);
 
 	    return true;
@@ -78,10 +78,13 @@ function update_map(field) {
 			//marker.setPosition(center);
 			//marker.setVisible(false);
 			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
-			//infowindow.setContent("Location " + field.value + " not found");
-			//infowindow.open(map, marker);
+			
+			// infowindow.setContent("Location " + field.value + " not found");
+			// infowindow.open(map, marker);
+			
 			// addressNotFound(field.id);
 			// marker.setVisible(false);
+			
 			nil_locations();
             }
 		});
