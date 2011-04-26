@@ -86,15 +86,19 @@ class ListingsController < ApplicationController
     @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
     
     # This has not yet been implemented
-    #@locations ={:data => [{:title => "ItemOffer1", :category => "item", :request_type => "offer", :lat => 60.1796, :lng => 24.8004}, 
-    #                       {:title => "RideshareOffer1", :category => "rideshare", :request_type => "offer", :lat => 60.1946, :lng => 24.7928}, 
-    #                       {:title => "HousingOffer1", :category => "housing", :request_type => "offer", :lat => 60.1805, :lng => 24.8502}, 
-    #                       {:title => "FavorRequest1", :category => "favor", :request_type => "request", :lat => 60.1636, :lng => 24.8066}, 
-    #                       {:title => "ItemRequest1", :category => "item", :request_type => "request", :lat => 60.1980, :lng => 24.8742},
-    #                       {:title => "HousingRequest1", :category => "housing", :request_type => "request", :lat => 60.1950, :lng => 24.8422},], :errors => []}
-    
-    # render :json => @listings, :only => [:title, :category, :listing_type, :description]
-    render :json => { :data => @listings }
+    #@locations ={:data => [{:title => "Item1", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.1796, :lng => 24.8004, :date => "2 hours ago"},
+     #                      {:title => "Item2", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.236744, :lng => 25.037842, :date => "2 hours ago"},
+     #                      {:title => "Rideshare1", :category => "rideshare", :type => [], :listing_type => "request", :description => "description", :lat => 60.1946, :lng => 24.7928, :latdest => 60.302124, :lngdest => 25.039902, :date => "2 days ago"},
+     #                      {:title => "Rideshare2", :category => "rideshare", :type => [], :listing_type => "request", :description => "Espoo - Helsinki", :lat => 60.220037, :lng => 24.656067, :latdest => 60.176014, :lngdest => 24.941025, :date => "3 days ago"},
+     #                      {:title => "Housing1", :category => "housing", :type => ["renting out"], :listing_type => "offer", :description => "description", :lat => 60.1805, :lng => 24.8502, :date => "4 days ago"}, 
+     #                      {:title => "Favor1", :category => "favor", :type => [], :listing_type => "request", :description => "description", :lat => 60.1636, :lng => 24.8066, :date => "4 hours ago"}, 
+     #                      {:title => "Item3", :category => "item", :type => ["trading"], :listing_type => "request", :description => "description", :lat => 60.1980, :lng => 24.8742, :date => "20 hours ago"},
+     #                      {:title => "Housing2", :category => "housing", :type => ["renting"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "3 hours ago"},
+     #                      {:title => "Favor2", :category => "favor", :type => [], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "5 hours ago"},
+     #                      {:title => "Rideshare3", :category => "rideshare", :type => [], :listing_type => "request", :description => "X - Y", :lat => 60.1950, :lng => 24.8422, :latdest => 60.302124, :lngdest => 25.039902, :date => "3 days ago"},
+     #                      {:title => "Item4", :category => "item", :type => ["buying"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "22 hours ago"}], :errors => []}
+    #render :json => @locations
+	render :json => { :data => @listings }
   end
 
   def show
