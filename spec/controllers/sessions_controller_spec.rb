@@ -3,7 +3,7 @@ require 'spec_helper'
 
 
 describe SessionsController, "POST create" do
-  fixtures :people, :communities
+  fixtures :people, :communities, :community_memberships
   
   #before (:each) {set_subdomain("login")}  
   
