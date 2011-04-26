@@ -1,19 +1,19 @@
-- tags = Tag.tags(:limit => 20, :order => "count DESC")
+- tags = Tag.tags(:limit => 20, :order => "count DESC", :listing_type => listing_type)
 - result = tag_cloud(tags, %w(tag1 tag2 tag3 tag4 tag5 tag6))
 
-- if tags != nil
+- if !tags.empty?
   &nbsp;
   #tag_cloud
     .left_panel_section
       .left_panel_title
         %h3= "Tag Cloud"      
-        - if controller.action_name == 'offers'
+        - if listing_type.eql?('offer')
           - result.each do |k, v|
             - if k == @tag
               = link_to k, offers_path, :class => "#{[v]} selected"
             - else
               = link_to k, offers_with_tag_path(k), :class => v
-        - if controller.action_name =='request'
+        - else
           - result.each do |k, v|
             - if k == @tag
               = link_to k, requests_path, :class => "#{[v]} selected"
