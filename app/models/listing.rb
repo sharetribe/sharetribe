@@ -1,6 +1,8 @@
 class Listing < ActiveRecord::Base
   
   include LocationsHelper
+  include ApplicationHelper
+  include ActionView::Helpers::TranslationHelper
   
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
@@ -361,8 +363,13 @@ class Listing < ActiveRecord::Base
       :listing_type => self.listing_type,
       :description => self.description,
       :category => self.category,
-      :share_types => self.share_types
+      :share_types => self.share_types,
+      :created_at => time_ago(self.created_at),
+      :origin => self.origin,
+      :destination => self.destination
     }
+    
+    puts "\n\nJSON_DICT\n #{json_dict}"
     
     json_dict[:location] = self.location.as_json if self.location
     
