@@ -32,7 +32,6 @@ class SessionsController < ApplicationController
         session[:temp_person_id] = @session.person_id
         session[:temp_community_id] = current_community.id
         session[:consent_changed] = true if @current_user
-        logger.info "Current user: #{@current_user.name}"
         redirect_to domain + terms_path and return
       end
     end
