@@ -418,7 +418,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 function reload_browse_view(link, listing_type, locale) {
 	type = link.attr("name").split("_")[0];
 	title = link.attr("name").split("_")[1];
-	allLinks = link.parent().parent().find('a');
+	allLinks = link.parent().parent().parent().find('a');
 	
 	// Handle selected items
 	if (type == "sharetypes") {
@@ -447,6 +447,12 @@ function reload_browse_view(link, listing_type, locale) {
 				none_selected = false;
 			}
 		});
+	} else if (type == "tags") {
+		if(link.hasClass("selected")) {
+			link.removeClass("selected");
+		} else {
+			link.addClass("selected");
+		}
 	} else {
 		link.parent().find('a').removeClass("selected");
 		link.addClass("selected");
@@ -454,7 +460,7 @@ function reload_browse_view(link, listing_type, locale) {
 	
 	// Make AJAX request based on selected items
 	var sections = new Array();
-	var sectionTypes = ["categories","sharetypes"];
+	var sectionTypes = ["categories","sharetypes", "tags"];
 	for (var i = 0; i < sectionTypes.length; i++) {
 		sections[sectionTypes[i]] = new Array();
 	}
@@ -466,20 +472,19 @@ function reload_browse_view(link, listing_type, locale) {
 		}
 	});
 	var request_path = '/' + locale + '/load'
-	if (remember_tag != "") {
-		$.get(request_path, { listing_type: listing_type, tag: remember_tag, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
-	    $('#search_results').html(data);
-	    });
-	}
-  else {
-		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
-	    $('#search_results').html(data);
-	    });
-	}
+	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'], 'tag[]': sections['tags'] }, function(data) {
+    $('#search_results').html(data);
+	  });
 }
 
 function initialize_browse_view(listing_type, locale) {
 	$('#left_link_panel_browse').find('a').click(
+		function() { 
+			$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+			reload_browse_view($(this), listing_type, locale);
+		}
+	);
+	$('#tag_cloud').find('a').click(
 		function() { 
 			$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
 			reload_browse_view($(this), listing_type, locale);

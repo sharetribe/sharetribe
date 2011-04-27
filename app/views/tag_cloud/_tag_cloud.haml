@@ -7,18 +7,8 @@
     .left_panel_section
       .left_panel_title
         %h3= "Tag Cloud"      
-        - if listing_type.eql?('offer')
-          - result.each do |k, v|
-            - if k == @tag
-              = link_to k, offers_path, :class => "#{[v]} selected"
-            - else
-              = link_to k, offers_with_tag_path(k), :class => v
-        - else
-          - result.each do |k, v|
-            - if k == @tag
-              = link_to k, requests_path, :class => "#{[v]} selected"
-            - else
-              = link_to k, requests_with_tag_path(k), :class => v
+      - result.each do |k, v|
+        = link_to k, '#', :class => v, :name => "tags_"+k
 
 :javascript
   var remember_tag = "#{params[:tag]}";
