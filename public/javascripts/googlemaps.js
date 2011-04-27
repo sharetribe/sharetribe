@@ -10,6 +10,40 @@ var textfield;
 //var mapcanvas;
 var currentDirections = null;
 
+function address_found_in_origin(value, element, paras){
+  if(value != "")
+    return false;
+  else
+    return true;
+}
+$.validator.addMethod("address_found", address_found_in_origin);
+function initialize_map_origin_error_form(locale,address_not_found_message){
+	var form_id = "#new_listing";
+	var emptyfield = $('input[id$="google_address"]').attr("id");
+  	translate_validation_messages(locale);
+	$(form_id).validate({
+		errorPlacement: function(error, element) {
+			error.appendTo(element.parent());
+		},	
+		rules: {
+		  emptyfield: { required: true, minlength: 1 }
+		  //"listing"[should_be_empty]": {:required: false, maxlength: 0}
+			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
+			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			// 			"person[street_address]": {required: false, maxlength: 50},
+			// 			"person[postal_code]": {required: false, maxlength: 8},
+			// 			"person[city]": {required: false, maxlength: 50},
+			// 			"person[phone_number]": {required: false, maxlength: 25}
+		},
+messages: {
+"listing[should_be_empty]": { address_not_found: address_not_found_message }
+} ,
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, locale, "true");
+		}
+	});	
+
+}
 // Marker
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
@@ -55,53 +89,55 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		geocoder.geocode({"latLng":marker.getPosition()},update_source);
 	});
     }
+
 }
 
 function update_map(field) {
-	if(geocoder){
-	  geocoder.geocode({'address':field.value}, function(response,info) {
-        if (info == google.maps.GeocoderStatus.OK){
-			marker.setVisible(true);
-	    	map.setCenter(response[0].geometry.location);
-	    	//field.value = response[0].formatted_address;
-	    	marker.setPosition(response[0].geometry.location);
-			// infowindow.close();
-	    	update_model_location(response);
+  if(geocoder){
+    geocoder.geocode({'address':field.value}, function(response,info) {
+	if (info == google.maps.GeocoderStatus.OK){
+	marker.setVisible(true);
+	map.setCenter(response[0].geometry.location);
+	//field.value = response[0].formatted_address;
+	marker.setPosition(response[0].geometry.location);
+	// infowindow.close();
+	update_model_location(response);
 
-	    return true;
-		    //Remove this when we get proper jquery stuff
-              //alert("Address " +field.value + " not found");
-            } else {
-	    	//address_not_found(field);
-			//map.setCenter(center);
-			//map.panTo(center);
-			//marker.setPosition(center);
-			//marker.setVisible(false);
-			//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
-			
-			// infowindow.setContent("Location " + field.value + " not found");
-			// infowindow.open(map, marker);
-			
-			// addressNotFound(field.id);
-			// marker.setVisible(false);
-			
-			nil_locations();
-            }
-		});
+	//return true;
+	//Remove this when we get proper jquery stuff
+	//alert("Address " +field.value + " not found");
+	} else {
+	//address_not_found(field);
+	//map.setCenter(center);
+	//map.panTo(center);
+	//marker.setPosition(center);
+	//marker.setVisible(false);
+	//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
+
+	// infowindow.setContent("Location " + field.value + " not found");
+	// infowindow.open(map, marker);
+
+	 addressNotFound(field);
+	 marker.setVisible(false);
+
+	  nil_locations();
 	}
-	else
-		return false;
+    });
+  }
+  else
+    return false;
 }
 
 function addressNotFound(field) {
-	document.getElementById(field).value = "Address not found";
+  //nil_locations actually handles this already
+  //document.getElementById("listing_should_be_empty").value = "Address was not found";
 }
 
 function update_source(response,status){
-	if (status == google.maps.GeocoderStatus.OK){
-		update_model_location(response);
-		source = document.getElementById(textfield);
-		source.value = response[0].formatted_address;
+  if (status == google.maps.GeocoderStatus.OK){
+    update_model_location(response);
+    source = document.getElementById(textfield);
+    source.value = response[0].formatted_address;
 		//update_location(response,source);
 	} else {
 	    //map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
