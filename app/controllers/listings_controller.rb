@@ -95,7 +95,6 @@ class ListingsController < ApplicationController
 
   def show
     @listing.increment!(:times_viewed)
-    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def new
@@ -103,7 +102,9 @@ class ListingsController < ApplicationController
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
     1.times { @listing.listing_images.build }
-    @location = Location.new
+    if @listing.category != "rideshare"
+      @listing.build_location
+    end
     respond_to do |format|
       format.html
       format.js {render :layout => false}
@@ -112,7 +113,7 @@ class ListingsController < ApplicationController
   
   def create
     @listing = @current_user.create_listing params[:listing]
-    @location = Location.new(params[:location])
+    @location = @listing.create_location(params[:location])
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
@@ -120,21 +121,17 @@ class ListingsController < ApplicationController
       path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
       flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
-      @location.listing_id = @listing.id
-      @location.save
       redirect_to @listing
     end
   end
   
   def edit
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
-    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def update
-    @location = Location.where(:listing_id => @listing.id).first
     if @listing.update_fields(params[:listing])
-      @location.update_attributes(params[:location])
+      @listing.location.update_attributes(params[:location])
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
     else
