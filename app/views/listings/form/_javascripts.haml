@@ -2,53 +2,12 @@
 :javascript
   $(document).ready(function() {
     initialize_new_listing_form('#{t('listings.form.images.no_file_selected')}', '#{t('listings.form.images.select_file')}', '#{I18n.locale}', '#{t('error_messages.listings.share_type')}', '#{valid_until_msg}', '#{@listing.rideshare?}', '#{@listing.listing_type == "offer" ? "true" : "false"}', '#{listing_id}');
-    initialize_map();
-    #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @location.address.nil? }
   });
 
 - content_for :extra_javascript do
   = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
 
-- content_for :extra_javascript do
-  :javascript
-    var map;
-    var geocoder;
-    var marker;
-    var helsinki = new google.maps.LatLng(60.2, 24.9);
-
-    function initialize_map() {
-
-      var myOptions = {
-        center: helsinki,
-        zoom: 10,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-
-      google.maps.event.addListener(map, 'click', getAddress);
-      geocoder = new google.maps.Geocoder();
-
-      marker = new google.maps.Marker({
-        position: helsinki,
-        map: map,
-      });
-
-    }
-
-    function getAddress(response) {
-      if (response.latLng != null) {
-        geocoder.geocode({location: response.latLng}, showAddress);
-      }
-    }
-
-    function showAddress(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.fitBounds(results[0].geometry.viewport);
-        document.getElementById("location_address").value = results[0].formatted_address;
-        document.getElementById("location_latitude").value = results[0].geometry.location.lat();
-        document.getElementById("location_longitude").value = results[0].geometry.location.lng();
-        marker.setPosition(results[0].geometry.location);
-      }
-    }
-
+- if @listing.category.eql?("rideshare")
+  = render :partial => "listings/form/two_maps_js"
+-else
+  = render :partial => "listings/form/map_js"
