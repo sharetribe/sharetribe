@@ -3,6 +3,7 @@ class Listing < ActiveRecord::Base
   include LocationsHelper
   include ApplicationHelper
   include ActionView::Helpers::TranslationHelper
+  include Rails.application.routes.url_helpers
   
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
@@ -366,10 +367,13 @@ class Listing < ActiveRecord::Base
       :share_types => self.share_types,
       :created_at => time_ago(self.created_at),
       :origin => self.origin,
-      :destination => self.destination
+      :destination => self.destination,
+      :author => self.author.given_name,
+      :author_url => person_path(:id => self.author.id),
+      :listing_url => listing_path(:id => self.id),
+      :listing_comment_url => listing_path(:id => self.id) + "#comment_form"
+      # This doesn't work yet :listing_reply_url => reply_to_listing_path(:id => self.id)
     }
-    
-    puts "\n\nJSON_DICT\n #{json_dict}"
     
     json_dict[:location] = self.location.as_json if self.location
     
