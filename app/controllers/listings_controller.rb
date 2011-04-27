@@ -104,6 +104,9 @@ class ListingsController < ApplicationController
     1.times { @listing.listing_images.build }
     if @listing.category != "rideshare"
       @listing.build_location
+    else
+      @listing.build_origin_loc
+      @listing.build_destination_loc
     end
     respond_to do |format|
       format.html
@@ -113,7 +116,12 @@ class ListingsController < ApplicationController
   
   def create
     @listing = @current_user.create_listing params[:listing]
-    @location = @listing.create_location(params[:location])
+    if @listing.category != "rideshare"
+      @location = @listing.create_location(params[:location])
+    else
+      @origin_loc = @listing.create_origin_loc(params[:origin_loc])
+      @destination_loc = @listing.create_destination_loc(params[:destination_loc])
+    end
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
@@ -127,6 +135,7 @@ class ListingsController < ApplicationController
   
   def edit
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def update
