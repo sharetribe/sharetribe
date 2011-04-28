@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_browse_view('#{@title}','#{I18n.locale}');
+  initialize_browse_view('#{@title}','#{@listing_style}','#{I18n.locale}');
 
 #browse_page.grid_24
   .grid_6.alpha
@@ -24,16 +24,16 @@
       .tabs.grid_9.alpha 
         .tabs.grid_9.alpha 
           #inbox_tabs
+            %div{:class => get_map_tab_class(params[:listing_type]+ "s")} 
+              - if params[:listing_type] == "request"
+                = link_to t(".list_view"), requests_path
+              - else
+                = link_to t(".list_view"), offers_path            
             %div{:class => get_map_tab_class(params[:listing_type]+ "s_on_map")} 
               - if params[:listing_type] == "request" 
                 = link_to t(".map_view"), requests_on_map_path, :name => "map_view"
               - else
                 = link_to t(".map_view"), offers_on_map_path, :name => "map_view"
-            %div{:class => get_map_tab_class(params[:listing_type]+ "s")} 
-              - if params[:listing_type] == "request"
-                = link_to t(".list_view"), requests_path
-              - else
-                = link_to t(".list_view"), offers_path
         
         .grid_3.omega
                           

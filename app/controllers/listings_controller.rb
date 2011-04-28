@@ -52,14 +52,12 @@ class ListingsController < ApplicationController
     end
   end 
   
-  # This is not currently used
   def loadmap
     @title = params[:listing_type]
-    @to_render ||= {:partial => "listings/map_view"}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
-    @request_path = request.fullpath
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
     @listing_style = "map"
-    
+    @to_render ||= {:partial => "listings/listings_on_map"}
+    @request_path = request.fullpath
     render  @to_render
   end
 
