@@ -35,6 +35,7 @@ class Listing < ActiveRecord::Base
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   
+ 
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
@@ -182,6 +183,9 @@ class Listing < ActiveRecord::Base
     if params[:share_type] && !params[:share_type][0].eql?("all")
       listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
     end
+    if params[:tag]
+      listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
+    end 
     listings.visible_to(current_user).order("listings.id DESC")
   end
   

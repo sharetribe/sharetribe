@@ -143,6 +143,8 @@ Kassi::Application.routes.draw do
   match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
+  match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
+  match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
