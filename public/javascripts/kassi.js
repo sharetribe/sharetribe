@@ -81,18 +81,18 @@ $.validator.
 	);
 
 // This validator doesn't work yet
-function FullAddressValidator(value, element, paras) {
+function AddressValidator(value, element, paras) {
 	var gc = new google.maps.Geocoder();
 	gc.geocode({ 'address': value }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-	        return true; // Doesn't work
+			return true; // Doesn't work
 	    } else {
-	        return false; // Doesn't work
+			return false; // Doesn't work
 	    }
 	});
-	return true; // Works...
+	return false;
 }
-$.validator.addMethod("fulladdress", FullAddressValidator);
+$.validator.addMethod("address_validator", AddressValidator);
 
 
 // Initialize code that is needed for every view
@@ -120,7 +120,7 @@ function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
     pathToTabImage: '/images/feedback_handles.png',
-		imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+	imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
     speed: 300,                               //speed of animation
@@ -138,7 +138,7 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -182,8 +182,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		debug: false,
 		rules: {
 			"listing[title]": {required: true},
-			"listing[origin]": {required: true, fulladdress: true},
-			"listing[destination]": {required: true, fulladdress: true},
+			"listing[origin]": {required: true, address_validator: true},
+			"listing[destination]": {required: true, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -540,7 +540,7 @@ function translate_validation_messages_to_finnish() {
 		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),
 		range: $.validator.format("Kentän arvon tulee olla välillä {0} ja {1}."),
 		max: $.validator.format("Arvo voi olla enintään {0}."),
-		address_not_found: $.validator.format("Osoitetta ei löytynyt"),
+		address_validator: $.validator.format("Osoitetta ei löytynyt"),
 		min: $.validator.format("Arvon täytyy olla vähintään {0}."),
 		min_date: "Ilmoituksen viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki."
 	});

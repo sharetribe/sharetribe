@@ -96,29 +96,28 @@ function update_map(field) {
   if(geocoder){
     geocoder.geocode({'address':field.value}, function(response,info) {
 	if (info == google.maps.GeocoderStatus.OK){
-	marker.setVisible(true);
-	map.setCenter(response[0].geometry.location);
-	//field.value = response[0].formatted_address;
-	marker.setPosition(response[0].geometry.location);
-	// infowindow.close();
-	update_model_location(response);
+	  marker.setVisible(true);
+	  map.setCenter(response[0].geometry.location);
+	  //field.value = response[0].formatted_address;
+	  marker.setPosition(response[0].geometry.location);
+	  // infowindow.close();
+	  update_model_location(response);
 
-	//return true;
-	//Remove this when we get proper jquery stuff
-	//alert("Address " +field.value + " not found");
+	  //return true;
+	  //Remove this when we get proper jquery stuff
+	  //alert("Address " +field.value + " not found");
 	} else {
-	//address_not_found(field);
-	//map.setCenter(center);
-	//map.panTo(center);
-	//marker.setPosition(center);
-	//marker.setVisible(false);
-	//$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
+	  //address_not_found(field);
+	  //map.setCenter(center);
+	  //map.panTo(center);
+	  //marker.setPosition(center);
+	  //marker.setVisible(false);
+	  //$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
 
-	// infowindow.setContent("Location " + field.value + " not found");
-	// infowindow.open(map, marker);
+	  // infowindow.setContent("Location " + field.value + " not found");
+	  // infowindow.open(map, marker);
 
-	 addressNotFound(field);
-	 marker.setVisible(false);
+	  marker.setVisible(false);
 
 	  nil_locations();
 	}
@@ -126,11 +125,6 @@ function update_map(field) {
   }
   else
     return false;
-}
-
-function addressNotFound(field) {
-  //nil_locations actually handles this already
-  //document.getElementById("listing_should_be_empty").value = "Address was not found";
 }
 
 function update_source(response,status){
