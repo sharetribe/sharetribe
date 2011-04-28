@@ -81,7 +81,7 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    @listings = Listing.includes(:share_types, :location).open.order("created_at DESC").find_with(params, @current_user)
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).order("created_at DESC").find_with(params, @current_user)
     
     # This has not yet been implemented
     #@locations ={:data => [{:title => "Item1", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.1796, :lng => 24.8004, :date => "2 hours ago"},
@@ -96,7 +96,7 @@ class ListingsController < ApplicationController
      #                      {:title => "Rideshare3", :category => "rideshare", :type => [], :listing_type => "request", :description => "X - Y", :lat => 60.1950, :lng => 24.8422, :latdest => 60.302124, :lngdest => 25.039902, :date => "3 days ago"},
      #                      {:title => "Item4", :category => "item", :type => ["buying"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "22 hours ago"}], :errors => []}
     #render :json => @locations
-	render :json => { :data => @listings }
+    render :json => { :data => @listings }
   end
 
   def show
