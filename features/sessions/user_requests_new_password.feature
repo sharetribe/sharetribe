@@ -6,7 +6,7 @@ Feature: User requests new password
   @javascript
   Scenario: User requests new password successfully
     Given I am on the home page
-    When I follow "Login"
+    When I follow "Log in"
     And I follow "I forgot my password"
     And I fill in "Email:" with "kassi_testperson2@example.com"
     And I press "Request new password"
@@ -15,7 +15,7 @@ Feature: User requests new password
   @javascript 
   Scenario: title
     Given I am on the home page
-    When I follow "Login"
+    When I follow "Log in"
     And I follow "I forgot my password"
     And I fill in "Email:" with "some random string"
     And I press "Request new password"

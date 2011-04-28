@@ -2,14 +2,14 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("username", :with => (person ? person : "kassi_testperson1"))
   fill_in("password", :with => "testi")
-  click_button("Login")
+  click_button("Log in")
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("username", :with => (person ? person : "kassi_testperson1"))
   fill_in("password", :with => "testi")
-  click_button("Login")
+  click_button("Log in")
 end
 
 Given /^I am not logged in$/ do
