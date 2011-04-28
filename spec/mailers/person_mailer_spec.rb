@@ -105,7 +105,7 @@ describe PersonMailer do
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal @test_person.email, email.to
-    assert_equal "New member in Test Kassi", email.subject
+    assert_equal "New member in Test Kassi", [email.subject]
   end
 
 end
