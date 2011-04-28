@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe PersonMailer do
+  fixtures :people, :communities, :community_memberships
   
   before(:all) do
     @test_person, @session = get_test_person_and_session
@@ -97,6 +98,14 @@ describe PersonMailer do
     email = PersonMailer.contact_request_notification(@contact_request).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
+  end
+  
+  it "should send email to community admins of new member if wanted" do
+    @community = Factory(:community, :email_admins_about_new_members => 1)
+    email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
+    assert !ActionMailer::Base.deliveries.empty?
+    assert_equal @test_person.email, email.to
+    assert_equal "New member in Test Kassi", email.subject
   end
 
 end
