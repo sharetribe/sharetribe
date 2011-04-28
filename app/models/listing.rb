@@ -1,6 +1,9 @@
 class Listing < ActiveRecord::Base
   
   include LocationsHelper
+  include ApplicationHelper
+  include ActionView::Helpers::TranslationHelper
+  include Rails.application.routes.url_helpers
   
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
@@ -26,8 +29,9 @@ class Listing < ActiveRecord::Base
   has_many :share_types
   
   has_one :location, :dependent => :destroy
-  has_one :origin_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "origin"}
-  has_one :destination_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "destination"}
+  has_one :origin_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "origin_loc"}
+  has_one :destination_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "destination_loc"}
+
   
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
@@ -35,7 +39,6 @@ class Listing < ActiveRecord::Base
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   
- 
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
@@ -356,6 +359,29 @@ class Listing < ActiveRecord::Base
 
       SmsHelper.send(message, request.author.phone_number)
     end
+  end
+  
+  # This is used to provide clean JSON-strings for map view queries
+  def as_json(options = {})
+    json_dict = {
+      :title => self.title,
+      :listing_type => self.listing_type,
+      :description => self.description,
+      :category => self.category,
+      :share_types => self.share_types,
+      :created_at => time_ago(self.created_at),
+      :origin => self.origin,
+      :destination => self.destination,
+      :author => self.author.given_name,
+      :author_url => person_path(:id => self.author.id),
+      :listing_url => listing_path(:id => self.id),
+      :listing_comment_url => listing_path(:id => self.id) + "#comment_form"
+      # This doesn't work yet :listing_reply_url => reply_to_listing_path(:id => self.id)
+    }
+    
+    json_dict[:location] = self.location.as_json if self.location
+    
+    json_dict
   end
   
 end

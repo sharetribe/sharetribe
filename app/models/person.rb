@@ -41,7 +41,7 @@ class Person < ActiveRecord::Base
   has_many :badges
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
-  has_one :location
+  has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
@@ -374,6 +374,14 @@ class Person < ActiveRecord::Base
     if params[:preferences]
       super(params)
     else  
+      #Handle location information
+	if self.location != nil
+		self.location.delete
+	end
+	self.location = Location.new(params[:location])
+	params[:location].each {|key| params[:location].delete(key)}
+	params.delete(:location)
+
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
       Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
