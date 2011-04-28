@@ -4,7 +4,6 @@
     = destination_form.text_field(:address, :class => "title_text_field", :maxlength => "48", :onchange => "geocoder.geocode({address: this.value}, showDestinationAddress); return false")
     = destination_form.hidden_field(:latitude)
     = destination_form.hidden_field(:longitude)
-    = destination_form.hidden_field(:location_type, :value => "destination")
 
   #destination-map-canvas{:class => "map_canvas"}
 
