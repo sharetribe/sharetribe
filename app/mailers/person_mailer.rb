@@ -89,11 +89,13 @@ class PersonMailer < ActionMailer::Base
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
-  def new_ospn_member(person, email)
+  def new_member_notification(person, community, email)
+    @community = Community.find_by_domain(community)
     @no_settings = true
     @person = person
     @email = email
-    mail(:to => "kadiekelly@yahoo.com", :subject => "New member in OSPN Kassi")
+    admin_emails = Person.admins_of(@community).collect { |p| p.email }
+    mail(:to => admin_emails, :subject => "New member in #{@community.name} Kassi")
   end
   
   private

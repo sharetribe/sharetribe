@@ -542,6 +542,11 @@ class Person < ActiveRecord::Base
     community_memberships.find_by_community_id(community.id).consent
   end
   
+  # Return the people who are admins of the given community
+  def self.admins_of(community)
+    joins(:community_memberships).where(["community_id = ? AND admin = 1", community.id])
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

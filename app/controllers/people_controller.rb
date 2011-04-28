@@ -32,7 +32,6 @@ class PeopleController < ApplicationController
       ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
     end
     domain = "http://#{with_subdomain(params[:community])}"
-
     
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
@@ -69,7 +68,7 @@ class PeopleController < ApplicationController
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
-    PersonMailer.new_ospn_member(@person, params[:person][:email]).deliver if @current_community.domain.eql?("ospn")
+    PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
     redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
   end
   
