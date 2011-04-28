@@ -135,7 +135,6 @@ class ListingsController < ApplicationController
   
   def edit
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
-    @location = Location.where(:listing_id => @listing.id).first
   end
   
   def update

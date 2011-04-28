@@ -43,7 +43,7 @@
 :javascript
   $(document).ready(function() {
     initialize_map();
-    #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @location.nil? || @location.address.nil? }
+    #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @listing.location.nil? || @listing.location.address.nil? }
   });
 
 

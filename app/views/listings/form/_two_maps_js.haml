@@ -70,6 +70,8 @@
 :javascript
   $(document).ready(function() {
     initialize_maps();
+    #{ 'geocoder.geocode({address: document.getElementById("listing_origin").value}, showOriginAddress);' unless @listing.origin_loc.nil? || @listing.origin_loc.address.nil? }
+    #{ 'geocoder.geocode({address: document.getElementById("listing_destination").value}, showDestinationAddress);' unless @listing.destination_loc.nil? || @listing.destination_loc.address.nil? }
   });
 
 -# #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @location.nil? || @location.address.nil? }
