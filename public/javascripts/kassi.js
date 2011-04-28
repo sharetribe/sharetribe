@@ -80,18 +80,31 @@ $.validator.
 	 	}
 	);
 
+
 // This validator doesn't work yet
-function AddressValidator(value, element, paras) {
+function AddressValidator(value, element, params) {
+	// alert(value + " -- " + element + " -- " + params);
+	var foo;
+	geocodeAddress(function(foo) {}, value);
+	alert(foo);
+	if (foo) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+function geocodeAddress(callback, value) {
 	var gc = new google.maps.Geocoder();
 	gc.geocode({ 'address': value }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
-			return true; // Doesn't work
+			callback(true);
 	    } else {
-			return false; // Doesn't work
+			callback(false);
 	    }
 	});
-	return false;
 }
+
 $.validator.addMethod("address_validator", AddressValidator);
 
 
