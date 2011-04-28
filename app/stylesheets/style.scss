@@ -935,13 +935,16 @@ span.smaller {
 	@include hidden_div(600px);
 }
 
-.hidden_title {
+@mixin hidden_title($width: 200px) {
 	float: left;
-	width: 200px;
+	width: $width;
 	font-weight: bold;
 	font-size: 16px;
 	padding: 10px 0 0 20px;
 }
+
+.hidden_title { @include hidden_title; }
+.hidden_title_wide { @include hidden_title(300px); }
 
 .close_link {
 	float: right;
