@@ -551,7 +551,7 @@ function translate_validation_messages_to_finnish() {
 		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),
 		range: $.validator.format("Kentän arvon tulee olla välillä {0} ja {1}."),
 		max: $.validator.format("Arvo voi olla enintään {0}."),
-		address_validator: $.validator.format("Osoitetta ei löytynyt"),
+		address_validator: $.validator.format("Osoitetta ei löytynyt."),
 		min: $.validator.format("Arvon täytyy olla vähintään {0}."),
 		min_date: "Ilmoituksen viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki."
 	});
