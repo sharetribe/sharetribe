@@ -80,30 +80,29 @@ $.validator.
 	 	}
 	);
 
-// This validator doesn't work yet
-function AddressValidator(value, element, params) {
-	var check;
-	geocodeAddress(function(check) {
-		console.log("check: " + check);
-		if (check) {
-			return true;
-		} else {
-			return false;
-		}	
-	}, value);
-}
+$.validator.
+	addMethod("address_validator",
+		function(value, element, param) {
+			var callBackValue;
+			var returnValue = geocodeAddress(function(callBackValue) {
+				console.log("callBackValue: " + callBackValue);
+				return callBackValue;
+			}, value);
+			console.log("returnValue: " + returnValue);
+		});
 
 function geocodeAddress(callback, value) {
 	var gc = new google.maps.Geocoder();
 	gc.geocode({ 'address': value }, function (results, status) {
 		if (status == google.maps.GeocoderStatus.OK) {
 			callback(true);
+			return true;
 	    } else {
 			callback(false);
+			return false;
 	    }
 	});
 }
-$.validator.addMethod("address_validator", AddressValidator);
 
 
 // Initialize code that is needed for every view
