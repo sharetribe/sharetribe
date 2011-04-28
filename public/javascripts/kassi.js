@@ -415,7 +415,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	});	
 }
 
-function reload_browse_view(link, listing_type, locale) {
+function reload_browse_view(link, listing_type, listing_style, locale) {
 	type = link.attr("name").split("_")[0];
 	title = link.attr("name").split("_")[1];
 	allLinks = link.parent().parent().parent().find('a');
@@ -471,41 +471,22 @@ function reload_browse_view(link, listing_type, locale) {
 			sections[link_type].push(link_title);
 		}
 	});
-	var request_path = '/' + locale + '/load'
+	if (listing_style == "map")
+		var request_path = '/' + locale + '/loadmap'
+	else
+		var request_path = '/' + locale + '/load'
 	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'], 'tag[]': sections['tags'] }, function(data) {
-    $('#search_results').html(data);
-	  });
-}
-
-
-function reload_map_view(link, listing_type, locale) {
-	var request_path = '/' + locale + '/loadmap'
-	$.get(request_path, function(data) {
 		$('#search_results').html(data);
 	});
 }
 
-
- function initialize_browse_view(listing_type, locale) {
+ function initialize_browse_view(listing_type, listing_style, locale) {
        $('#left_link_panel_browse').find('a').click(
                function() {
                        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                       reload_browse_view($(this), listing_type, locale);
+                       reload_browse_view($(this), listing_type, listing_style, locale);
                }
        );
-       $('#list_view_selector').find('a').click(
-               function() { 
-                       $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-					   reload_browse_view($(this), listing_type, locale);
-               }
-       );
-       /*$('#map_view_load').find('a').click(
-               function() {
-                       $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-					   reload_map_view($(this),listing_type, locale);       
-               }
-       );*/
-
 	   $('#tag_cloud').find('a').click(
 		   function() { 
 			   $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
