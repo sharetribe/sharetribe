@@ -80,29 +80,31 @@ $.validator.
 	 	}
 	);
 
-$.validator.
-	addMethod("address_validator",
-		function(value, element, param) {
-			var callBackValue;
-			var returnValue = geocodeAddress(function(callBackValue) {
-				console.log("callBackValue: " + callBackValue);
-				return callBackValue;
-			}, value);
-			console.log("returnValue: " + returnValue);
-		});
 
-function geocodeAddress(callback, value) {
-	var gc = new google.maps.Geocoder();
-	gc.geocode({ 'address': value }, function (results, status) {
-		if (status == google.maps.GeocoderStatus.OK) {
-			callback(true);
-			return true;
-	    } else {
-			callback(false);
-			return false;
-	    }
-	});
-}
+// $.validator.
+// 	addMethod("address_validator",
+// 		function(value, element, param) {
+// 			var callBackValue;
+// 			var returnValue = geocodeAddress(function(callBackValue) {
+// 				console.log("callBackValue: " + callBackValue);
+// 				return callBackValue;
+// 				submit();
+// 			}, value);
+// 			console.log("returnValue: " + returnValue);
+// 		});
+// 
+// function geocodeAddress(callback, value) {
+// 	var gc = new google.maps.Geocoder();
+// 	gc.geocode({ 'address': value }, function (results, status) {
+// 		if (status == google.maps.GeocoderStatus.OK) {
+// 			callback(true);
+// 			return true;
+// 	    } else {
+// 			callback(false);
+// 			return false;
+// 	    }
+// 	});
+// }
 
 
 // Initialize code that is needed for every view

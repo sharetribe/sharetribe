@@ -17,6 +17,31 @@ function address_found_in_origin(value, element, paras){
     return true;
 }
 $.validator.addMethod("address_found", address_found_in_origin);
+
+$.validator.
+	addMethod("address_validator",
+		function(value, element, param) {
+			var check = null;
+			$.ajax({url: "",
+					data: {},
+					async: true, // Thought this would help, it didn't.
+					success:
+						function() {		
+							var gc = new google.maps.Geocoder();
+							gc.geocode({ 'address': value }, function(results, status) {
+								if (status == google.maps.GeocoderStatus.OK) {
+									check = true;
+								} else {
+									check = false;
+								}
+								console.log("status: " + status);
+								console.log("check-inner: " + check);
+							});
+						}
+				});
+				console.log("check-outer: " + check);
+		});
+
 function initialize_map_origin_error_form(locale,address_not_found_message){
 	var form_id = "#new_listing";
 	var emptyfield = $('input[id$="google_address"]').attr("id");
@@ -220,8 +245,7 @@ function startRoute() {
 	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
 	// 		removeRoute();
 	// 		if (!(document.getElementById("listing_origin").value == '')) {
-	// 			wrongLocationRoute("listing_origin");
-	// 			wipeFieldsRoute("listing_destination");
+	// 			wipeFieldsRoute("listing_origin");
 	// 		}
 	// 	}
 	// });
@@ -230,8 +254,7 @@ function startRoute() {
 	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
 	// 		removeRoute();
 	// 		if (!(document.getElementById("listing_destination").value == '')) {
-	// 			wipeFieldsRoute("listing_origin");
-	// 			wrongLocationRoute("listing_destination");
+	// 			wipeFieldsRoute("listing_destination");
 	// 		}
 	// 	} 
 	// });
