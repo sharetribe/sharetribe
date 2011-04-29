@@ -19,28 +19,28 @@ function address_found_in_origin(value, element, paras){
 $.validator.addMethod("address_found", address_found_in_origin);
 
 $.validator.
-	addMethod("address_validator",
-		function(value, element, param) {
-			var check = null;
-			$.ajax({url: "",
-					data: {},
-					async: true, // Thought this would help, it didn't.
-					success:
-						function() {		
-							var gc = new google.maps.Geocoder();
-							gc.geocode({ 'address': value }, function(results, status) {
-								if (status == google.maps.GeocoderStatus.OK) {
-									check = true;
-								} else {
-									check = false;
-								}
-								console.log("status: " + status);
-								console.log("check-inner: " + check);
-							});
-						}
-				});
-				console.log("check-outer: " + check);
-		});
+addMethod("address_validator",
+    function(value, element, param) {
+    var check = null;
+    $.ajax({url: "",
+      data: {},
+      async: true, // Thought this would help, it didn't.
+      success:
+      function() {		
+      var gc = new google.maps.Geocoder();
+      gc.geocode({ 'address': value }, function(results, status) {
+	if (status == google.maps.GeocoderStatus.OK) {
+	check = true;
+	} else {
+	check = false;
+	}
+	console.log("status: " + status);
+	console.log("check-inner: " + check);
+	});
+      }
+      });
+    console.log("check-outer: " + check);
+    });
 
 function initialize_map_origin_error_form(locale,address_not_found_message){
 	var form_id = "#new_listing";
@@ -77,10 +77,11 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		draggable = false;
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
-	if(latitude.value != null)
+	if(latitude.value != "")
 		center = new google.maps.LatLng(latitude.value,longitude.value);
-	else
+	else{
 		center = new google.maps.LatLng(60.1894, 24.8358);
+	}
 	var myOptions = {
 		'zoom': 12,
 		'center': center,
