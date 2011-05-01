@@ -1,10 +1,7 @@
-- content_for :javascript do
-  initialize_map_origin_error_form('#{I18n.locale}', "address not found");
-
 .new_listing_form_field_container
   - if !rideshare
     = form.label :origin, t(".location") + "*:", :class => "input"
-    = form.text_field :origin, :class => "text_field", :maxlength => "48", :onchange => "update_map(this)", :value => origin_loc.address
+    = form.text_field :origin, :class => "text_field", :maxlength => "48", :onkeyup => "timed_input(this)", :value => origin_loc.address
   - else
     = form.label :origin, t(".origin") + "*:", :class => "input"
     = form.text_field(:origin, :class => "title_text_field", :maxlength => "48",
