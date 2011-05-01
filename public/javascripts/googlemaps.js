@@ -308,32 +308,17 @@ function startRoute() {
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-	 geocoder.geocode( { 'address': foo}, function(responce,status){
-	 	if (!(status == google.maps.GeocoderStatus.OK)) {
-                  nil_locations("listing_origin_loc_attributes");
-	 		removeRoute();
-	 		//if (!(document.getElementById("listing_origin").value == '')) {
-                        //wipeFieldsRoute("listing_origin");
-			//}
-	 	}
-                else
-                {
-                update_model_location(responce, "listing_origin_loc_attributes");
-                calcRoute(foo, bar);
-                }
-	 });
-	 
-	 geocoder.geocode( { 'address': bar}, function(responce,status){
-	 	if (!(status == google.maps.GeocoderStatus.OK)) {
-                  nil_locations("listing_destination_loc_attributes");
-	 		removeRoute();
-	 	} 
-                else
-                {
-                update_model_location(responce, "listing_destination_loc_attributes");
-                calcRoute(foo, bar);
-                }
-	 });
+    if(foo && bar)
+         calcRoute(foo, bar);
+    else{
+      removeRoute();
+      if(foo){
+      }
+      else if (bar){
+      }
+      else{
+      }
+    }
 
 }
 
@@ -375,12 +360,56 @@ function showRoute(orig, dest) {
     } 
   });
 }
+function route_not_found(orig,dest){
+  if(orig){
+	 geocoder.geocode( { 'address': orig}, function(responce,status){
+	 	if (!(status == google.maps.GeocoderStatus.OK)) {
+                  nil_locations("listing_origin_loc_attributes");
+	 		removeRoute();
+	 		//if (!(document.getElementById("listing_origin").value == '')) {
+                        //wipeFieldsRoute("listing_origin");
+			//}
+	 	}
+                else
+                {
+                update_model_location(responce, "listing_origin_loc_attributes");
+                //calcRoute(foo, bar);
+                }
+	 });
+  }
+  else
+                  nil_locations("listing_origin_loc_attributes");
+
+	 
+  if(dest){
+	 geocoder.geocode( { 'address': dest}, function(responce,status){
+	 	if (!(status == google.maps.GeocoderStatus.OK)) {
+                  nil_locations("listing_destination_loc_attributes");
+	 		removeRoute();
+	 	} 
+                else
+                {
+                update_model_location(responce, "listing_destination_loc_attributes");
+                //calcRoute(foo, bar);
+                }
+	 });
+  }
+  else
+                  nil_locations("listing_destination_loc_attributes");
+}
 
 // Route request to the Google API
 function calcRoute(orig, dest) {
   var start = orig;
   var end = dest;  
+  /*
+  if(!orig)
+    nil_locations("listing_origin_loc_attributes");
+  if(!dest)
+    nil_locations("listing_destination_loc_attributes");
+    */
   
+  if(!orig.match(dest)){
   var request = {
     origin:start,
     destination:end,
@@ -391,9 +420,18 @@ function calcRoute(orig, dest) {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
    	  directionsDisplay.setDirections(response);
-      //updateEditTextBoxes();
+          updateEditTextBoxes();
     } 
+    else{
+    removeRoute();
+    route_not_found(orig,dest);
+    }
   });
+  }
+  else{
+    removeRoute();
+    //route_not_found(orig,dest);
+  }
 }
 
 function updateEditTextBoxes() {
@@ -405,6 +443,8 @@ function updateEditTextBoxes() {
   document.getElementById("listing_origin_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].end_location.lng();
   document.getElementById("listing_destination_loc_attributes_latitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lat();
   document.getElementById("listing_destination_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].start_location.lng();
+    manually_validate("listing_destination");
+    manually_validate("listing_origin");
 }
 
 
