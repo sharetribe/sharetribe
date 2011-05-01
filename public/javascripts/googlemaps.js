@@ -238,7 +238,8 @@ function update_model_location(place,_prefix){
 
     // Changed this, need to discuss further
     //address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
-    address.value = place[0].address_components[0].long_name;
+    // address.value = place[0].address_components[0].long_name;
+	address.value = place[0].formatted_address;
     latitude.value = place[0].geometry.location.lat();
     longitude.value = place[0].geometry.location.lng();
     google_address.value = place[0].formatted_address;
