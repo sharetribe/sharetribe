@@ -308,18 +308,16 @@ function startRoute() {
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-    if(foo && bar)
+    if(foo != '' && bar != '') {
          calcRoute(foo, bar);
-    else{
+    } else {
       removeRoute();
-      if(foo){
-      }
-      else if (bar){
-      }
-      else{
+      if (foo == '' && bar == '') {
+		var center = new google.maps.LatLng(60.1894, 24.8358);
+		map.setCenter(center);
+      	map.setZoom(12);
       }
     }
-
 }
 
 function wrongLocationRoute(field){
