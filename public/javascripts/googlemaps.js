@@ -98,14 +98,14 @@ function timed_input(param){
   clearTimeout(timer);
   timer=setTimeout(function(){
       update_map(param);
-      }, 400);
+      }, 1500);
   //timer=setTimeout("alert(\"PSUR\")", 1000);
 }
 function timed_input_on_route(){
   clearTimeout(timer);
   timer=setTimeout(function(){
       startRoute();
-      }, 400);
+      }, 1500);
 }
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
