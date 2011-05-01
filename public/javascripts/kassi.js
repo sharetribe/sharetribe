@@ -212,6 +212,10 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
+onkeyup: false, //Only do validations when form focus changes to avoid exessive Google Maps API calls
+         onclick: false, //Only do validations when form focus changes to avoid exessive Google Maps API calls
+         onfocusout: false, //Only do validations when form focus changes to avoid exessive Google Maps API calls
+onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "false");
 		}
