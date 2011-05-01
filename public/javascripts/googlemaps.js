@@ -3,6 +3,7 @@ var directionsService;
 var marker;
 var geocoder;
 var map;
+var defaultCenter;
 var infowindow;
 var center;
 var prefix;
@@ -20,50 +21,6 @@ function address_found_in_origin(value, element, paras){
 }
 $.validator.addMethod("address_found", address_found_in_origin);
 */
-
-$.validator.
-addMethod("address_validator",
-    function(value, element, param) {
-    var check = null;
-    /*
-    $.ajax({url: "",
-      data: {},
-      async: true, // Thought this would help, it didn't.
-      success:
-      function() {		
-      var gc = new google.maps.Geocoder();
-      gc.geocode({ 'address': value }, function(results, status) {
-	if (status == google.maps.GeocoderStatus.OK) {
-	check = true;
-	} else {
-	check = false;
-	}
-	console.log("status: " + status);
-	console.log("check-inner: " + check);
-	});
-      }
-      });
-      */
-
-    //alert(this.currentForm.id);
-    var pref = element.id.split("_");
-    var elem_prefix ="";
-    if (pref[0].match("person"))
-      elem_prefix = "person";
-    else
-      elem_prefix = pref[0] + "_" + pref[1];
-        
-
-    var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
-    //var emptyfield = $('input[id$="latitude"]').attr("value") || "";
-    if(emptyfield != "")
-      check = true;
-    else
-      check = false;
-
-    console.log("check-outer: " + check);
-    return check;
-    });
 
 /*
 function initialize_map_origin_error_form(locale,address_not_found_message){
@@ -94,6 +51,32 @@ messages: {
 
 }
 */
+
+$.validator.
+addMethod("address_validator",
+    function(value, element, param) {
+    var check = null;
+
+    //alert(this.currentForm.id);
+    var pref = element.id.split("_");
+    var elem_prefix ="";
+    if (pref[0].match("person"))
+      elem_prefix = "person";
+    else
+      elem_prefix = pref[0] + "_" + pref[1];
+        
+
+    var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
+    //var emptyfield = $('input[id$="latitude"]').attr("value") || "";
+    if(emptyfield != "")
+      check = true;
+    else
+      check = false;
+
+    console.log("check-outer: " + check);
+    return check;
+    });
+
 function timed_input(param){
   clearTimeout(timer);
   timer=setTimeout(function(){
@@ -110,6 +93,7 @@ function timed_input_on_route(){
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
 	textfield = n_textfield;
+	defaultCenter = new google.maps.LatLng(60.1894, 24.8358);
 	if (draggable == undefined)
 		draggable = false;
 	var latitude = document.getElementById(prefix+ "_latitude");
@@ -117,7 +101,7 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	if(latitude.value != "")
 		center = new google.maps.LatLng(latitude.value,longitude.value);
 	else{
-		center = new google.maps.LatLng(60.1894, 24.8358);
+		center = defaultCenter;
 	}
 	var myOptions = {
 		'zoom': 12,
@@ -268,6 +252,7 @@ function googlemapRouteInit(canvas) {
 
   geocoder = new google.maps.Geocoder();
   directionsService = new google.maps.DirectionsService();
+  defaultCenter = new google.maps.LatLng(60.1894, 24.8358);
 	
   var myOptions = {
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
@@ -313,8 +298,7 @@ function startRoute() {
     } else {
       removeRoute();
       if (foo == '' && bar == '') {
-		var center = new google.maps.LatLng(60.1894, 24.8358);
-		map.setCenter(center);
+		map.setCenter(defaultCenter);
       	map.setZoom(12);
       }
     }
@@ -364,9 +348,6 @@ function route_not_found(orig,dest){
 	 	if (!(status == google.maps.GeocoderStatus.OK)) {
                   nil_locations("listing_origin_loc_attributes");
 	 		removeRoute();
-	 		//if (!(document.getElementById("listing_origin").value == '')) {
-                        //wipeFieldsRoute("listing_origin");
-			//}
 	 	}
                 else
                 {
@@ -400,12 +381,6 @@ function route_not_found(orig,dest){
 function calcRoute(orig, dest) {
   var start = orig;
   var end = dest;  
-  /*
-  if(!orig)
-    nil_locations("listing_origin_loc_attributes");
-  if(!dest)
-    nil_locations("listing_destination_loc_attributes");
-    */
   
   if(!orig.match(dest)){
   var request = {
