@@ -81,7 +81,19 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).order("created_at DESC").find_with(params, @current_user)
+    unless params.has_key?(:bounds_sw) && params.has_key?(:bounds_ne) then
+      # Send error JSON-message; these params are required
+      render :json => { :errors => ["Parameters missing! bounds_sw and bounds_ne are required"]}
+    end 
+    
+    # Bounds of the shown map; query only listings within these bounds (South-West, North-East -coordinates)
+    bound_sw_lat, bound_sw_lng = params[:bounds_sw].split('|')
+    bound_ne_lat, bound_ne_lng = params[:bounds_ne].split('|')
+    
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).
+                where('locations.latitude <= ? AND locations.longitude <= ? AND locations.latitude >= ? AND locations.longitude >= ?', 
+                bound_ne_lat, bound_ne_lng, bound_sw_lat, bound_sw_lng).
+                order("created_at DESC").find_with(params, @current_user)
     
     # This has not yet been implemented
     #@locations ={:data => [{:title => "Item1", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.1796, :lng => 24.8004, :date => "2 hours ago"},
