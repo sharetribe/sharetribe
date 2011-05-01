@@ -335,7 +335,7 @@ function initialize_terms_form() {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 }
 
-function initialize_update_profile_info_form(locale, person_id) {
+function initialize_update_profile_info_form(locale, person_id,address_validator) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();
 	translate_validation_messages(locale);
@@ -345,9 +345,9 @@ function initialize_update_profile_info_form(locale, person_id) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
+                    "person[street_address]": {required: true, minlength: 2, address_validator: true},
 			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
 			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
-			// 			"person[street_address]": {required: false, maxlength: 50},
 			// 			"person[postal_code]": {required: false, maxlength: 8},
 			// 			"person[city]": {required: false, maxlength: 50},
 			// 			"person[phone_number]": {required: false, maxlength: 25}

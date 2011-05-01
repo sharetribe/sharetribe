@@ -7,9 +7,11 @@ var infowindow;
 var center;
 var prefix;
 var textfield;
+var timer;
 //var mapcanvas;
 var currentDirections = null;
 
+/*
 function address_found_in_origin(value, element, paras){
   if(value != "")
     return false;
@@ -17,11 +19,13 @@ function address_found_in_origin(value, element, paras){
     return true;
 }
 $.validator.addMethod("address_found", address_found_in_origin);
+*/
 
 $.validator.
 addMethod("address_validator",
     function(value, element, param) {
     var check = null;
+    /*
     $.ajax({url: "",
       data: {},
       async: true, // Thought this would help, it didn't.
@@ -39,9 +43,21 @@ addMethod("address_validator",
 	});
       }
       });
+      */
+
+    //alert(this.currentForm.id);
+    var emptyfield = $('input[id$="latitude"][id^='+element.id+']').attr("value") || "";
+    //var emptyfield = $('input[id$="latitude"]').attr("value") || "";
+    if(emptyfield != "")
+      check = true;
+    else
+      check = false;
+
     console.log("check-outer: " + check);
+    return check;
     });
 
+/*
 function initialize_map_origin_error_form(locale,address_not_found_message){
 	var form_id = "#new_listing";
 	var emptyfield = $('input[id$="google_address"]').attr("id");
@@ -69,7 +85,14 @@ messages: {
 	});	
 
 }
-// Marker
+*/
+function timed_input(param){
+  clearTimeout(timer);
+  timer=setTimeout(function(){
+      update_map(param);
+      }, 600);
+  //timer=setTimeout("alert(\"PSUR\")", 1000);
+}
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
 	textfield = n_textfield;
@@ -171,6 +194,29 @@ function update_location(response, element){
 	element.value = response[0].formatted_address;
 	update_model_location(response);
 }
+//function manually_validate(_element="listing_origin",_form_id="new_listing_form"){
+function manually_validate(formhint){
+  //alert(formhint);
+  var rray = formhint.split("_");
+  var form_id = "#";
+  var _element = "#";
+  //alert(rray[0]);
+
+  if(rray[0].match("person")){
+    form_id += "person_settings_form";
+    _element += "person_street_address";
+  }
+  else if (rray[0].match("listing")) {
+    form_id += "new_listing_form";
+    if(rray[1].match("origin")){
+    _element += "listing_origin";
+    }
+    else if(rray[1].match("destination")){
+    _element += "listing_destination";
+    }
+  }
+  $(form_id).validate().element(_element);
+}
 function nil_locations(){
 	var address = document.getElementById(prefix+ "_address");
 	var latitude = document.getElementById(prefix+ "_latitude");
@@ -180,6 +226,7 @@ function nil_locations(){
 	latitude.value = null;
 	longitude.value = null;
 	google_address.value = null;
+          manually_validate(prefix);
 }
 function update_model_location(place){
 	var address = document.getElementById(prefix+ "_address");
@@ -193,6 +240,7 @@ function update_model_location(place){
 	latitude.value = place[0].geometry.location.lat();
 	longitude.value = place[0].geometry.location.lng();
 	google_address.value = place[0].formatted_address;
+          manually_validate(prefix);
 }
 
 
