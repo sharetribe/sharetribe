@@ -46,7 +46,15 @@ addMethod("address_validator",
       */
 
     //alert(this.currentForm.id);
-    var emptyfield = $('input[id$="latitude"][id^='+element.id+']').attr("value") || "";
+    var pref = element.id.split("_");
+    var elem_prefix ="";
+    if (pref[0].match("person"))
+      elem_prefix = "person";
+    else
+      elem_prefix = pref[0] + "_" + pref[1];
+        
+
+    var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
     //var emptyfield = $('input[id$="latitude"]').attr("value") || "";
     if(emptyfield != "")
       check = true;
@@ -90,8 +98,14 @@ function timed_input(param){
   clearTimeout(timer);
   timer=setTimeout(function(){
       update_map(param);
-      }, 600);
+      }, 400);
   //timer=setTimeout("alert(\"PSUR\")", 1000);
+}
+function timed_input_on_route(){
+  clearTimeout(timer);
+  timer=setTimeout(function(){
+      startRoute();
+      }, 400);
 }
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
@@ -217,30 +231,34 @@ function manually_validate(formhint){
   }
   $(form_id).validate().element(_element);
 }
-function nil_locations(){
-	var address = document.getElementById(prefix+ "_address");
-	var latitude = document.getElementById(prefix+ "_latitude");
-	var longitude = document.getElementById(prefix+ "_longitude");
-	var google_address = document.getElementById(prefix+ "_google_address");
-	address.value = null;
-	latitude.value = null;
-	longitude.value = null;
-	google_address.value = null;
-          manually_validate(prefix);
+function nil_locations(_prefix){
+  if (!_prefix)
+    _prefix = prefix;
+  var address = document.getElementById(_prefix+ "_address");
+  var latitude = document.getElementById(_prefix+ "_latitude");
+  var longitude = document.getElementById(_prefix+ "_longitude");
+  var google_address = document.getElementById(_prefix+ "_google_address");
+  address.value = null;
+  latitude.value = null;
+  longitude.value = null;
+  google_address.value = null;
+  manually_validate(_prefix);
 }
-function update_model_location(place){
-	var address = document.getElementById(prefix+ "_address");
-	var latitude = document.getElementById(prefix+ "_latitude");
-	var longitude = document.getElementById(prefix+ "_longitude");
-	var google_address = document.getElementById(prefix+ "_google_address");
-	
-	// Changed this, need to discuss further
-	//address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
-	address.value = place[0].address_components[0].long_name;
-	latitude.value = place[0].geometry.location.lat();
-	longitude.value = place[0].geometry.location.lng();
-	google_address.value = place[0].formatted_address;
-          manually_validate(prefix);
+function update_model_location(place,_prefix){
+    if (!_prefix)
+      _prefix = prefix;
+    var address = document.getElementById(_prefix+ "_address");
+    var latitude = document.getElementById(_prefix+ "_latitude");
+    var longitude = document.getElementById(_prefix+ "_longitude");
+    var google_address = document.getElementById(_prefix+ "_google_address");
+
+    // Changed this, need to discuss further
+    //address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
+    address.value = place[0].address_components[0].long_name;
+    latitude.value = place[0].geometry.location.lat();
+    longitude.value = place[0].geometry.location.lng();
+    google_address.value = place[0].formatted_address;
+    manually_validate(_prefix);
 }
 
 
@@ -290,25 +308,33 @@ function startRoute() {
     document.getElementById("listing_origin_loc_attributes_address").value = foo;
     document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-	// geocoder.geocode( { 'address': foo}, function(responce,status){
-	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
-	// 		removeRoute();
-	// 		if (!(document.getElementById("listing_origin").value == '')) {
-	// 			wipeFieldsRoute("listing_origin");
-	// 		}
-	// 	}
-	// });
-	// 
-	// geocoder.geocode( { 'address': bar}, function(responce,status){
-	// 	if (!(status == google.maps.GeocoderStatus.OK)) {
-	// 		removeRoute();
-	// 		if (!(document.getElementById("listing_destination").value == '')) {
-	// 			wipeFieldsRoute("listing_destination");
-	// 		}
-	// 	} 
-	// });
+	 geocoder.geocode( { 'address': foo}, function(responce,status){
+	 	if (!(status == google.maps.GeocoderStatus.OK)) {
+                  nil_locations("listing_origin_loc_attributes");
+	 		removeRoute();
+	 		//if (!(document.getElementById("listing_origin").value == '')) {
+                        //wipeFieldsRoute("listing_origin");
+			//}
+	 	}
+                else
+                {
+                update_model_location(responce, "listing_origin_loc_attributes");
+                calcRoute(foo, bar);
+                }
+	 });
+	 
+	 geocoder.geocode( { 'address': bar}, function(responce,status){
+	 	if (!(status == google.maps.GeocoderStatus.OK)) {
+                  nil_locations("listing_destination_loc_attributes");
+	 		removeRoute();
+	 	} 
+                else
+                {
+                update_model_location(responce, "listing_destination_loc_attributes");
+                calcRoute(foo, bar);
+                }
+	 });
 
-	calcRoute(foo, bar);
 }
 
 function wrongLocationRoute(field){
@@ -365,7 +391,7 @@ function calcRoute(orig, dest) {
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
    	  directionsDisplay.setDirections(response);
-      updateEditTextBoxes();
+      //updateEditTextBoxes();
     } 
   });
 }

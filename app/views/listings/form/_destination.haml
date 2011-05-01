@@ -1,7 +1,7 @@
 .new_listing_form_field_container
   = form.label :destination, t(".destination") + "*:", :class => "input"
   = form.text_field(:destination, :class => "title_text_field", :maxlength => "48", 
-                    :onchange => "startRoute()")
+                    :onkeyup => "timed_input_on_route()")
   = form.fields_for :destination_loc do |loc|
     = loc.hidden_field :address, :value => destination_loc.address
     = loc.hidden_field :google_address, :value => destination_loc.google_address
