@@ -62,7 +62,6 @@
       // to wait for idle moment (otherwise the server will be bombarded with requests)
       google.maps.event.addListener(map, 'bounds_changed', (function() {
           var timer;
-          console.log("Map: bounds_changed event fired.");
           return function() {
             clearTimeout(timer);
             timer = setTimeout(function() {
@@ -96,7 +95,6 @@
         var markers = [];
         var markerContents = [];
         var showingMarker = [];
-        var lastMarker = null;
     		for (i in data_arr) {
     		  (function() {
     		    var entry = data_arr[i];
