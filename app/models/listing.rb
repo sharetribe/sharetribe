@@ -184,7 +184,7 @@ class Listing < ActiveRecord::Base
     end
     listings = where(conditions)
     if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
+      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group('share_types.listing_id')
     end
     if params[:tag]
       listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
