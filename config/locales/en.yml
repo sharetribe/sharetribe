@@ -366,6 +366,7 @@ en:
         housing_you_offer: "Housing you offer"
       origin:
         origin: "Origin"
+        location: "Location"
       destination:
         destination: "Destination"
       tag_list:
@@ -373,6 +374,10 @@ en:
         comma_separate: "(comma separate)"      
       description:
         detailed_description: "Detailed description"
+      googlemap:
+        googlemap_description: "Mapview"
+        googlemap_updatemap: "Update Map"
+        googlemap_copy: "End Points From Map"
       images:
         image: "Image"
         select_file: "Select file"
@@ -469,6 +474,7 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
+      address_validator: "The location was not found."
     profile_badge:
       first_transaction: "First event"
       first_transaction_description: "Congrats on your first exchange in Kassi! One of your requests or offers has been accepted and confirmed as done."
@@ -623,6 +629,7 @@ en:
       city: "City:"
       phone_number: "Phone number:"
       about_you: "About you:"
+      profilemap: "Mapview"
     avatar:  
       update_profile_picture: "Update profile picture"
       add_avatar_submit: "Save picture"
