@@ -62,7 +62,15 @@ class ListingsController < ApplicationController
     if @check_mobile
       @title = params[:listing_type]
       @listings_temp = Listing.open.joins(:origin_loc).find_with(params, @current_user).order("locations.latitude ASC, locations.longitude ASC")
-
+      
+      @userlocation = Hash.new
+      if !@current_user.location.nil?
+        @userlocation['lat'] = @current_user.location.latitude
+        @userlocation['long'] = @current_user.location.longitude
+      else
+        @userlocation = nil
+      end
+      
       @locations = Array.new
       @listings = Array.new
       
