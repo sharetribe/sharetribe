@@ -466,18 +466,22 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 		}
 	});
 	if (listing_style == "map")
-		var request_path = '/' + locale + '/loadmap'
-	else
+		//var request_path = '/' + locale + '/loadmap'
+		filtersUpdated(sections['categories'], sections['sharetypes']);
+	else {
 		var request_path = '/' + locale + '/load'
-	$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
-		$('#search_results').html(data);
-	});
+		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'] }, function(data) {
+			$('#search_results').html(data);
+		});
+	}
 }
 
  function initialize_browse_view(listing_type, listing_style, locale) {
        $('#left_link_panel_browse').find('a').click(
                function() {
-                       $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+                       if (listing_style == 'listing') {
+                       		$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+                       }
                        reload_browse_view($(this), listing_type, listing_style, locale);
                }
        );

@@ -9,8 +9,11 @@
     var map;
     var helsinki = new google.maps.LatLng(60.2, 24.9);
     var browserSupportFlag =  new Boolean();
+    var markersArr = [];   // Array for keeping track of markers on map
     var listing_type = "#{params[:listing_type]}";
     var listing_style = "#{@listing_style}";
+    var listing_category = ["all"];
+    var listing_sharetypes = ["all"];
 
     function initialize() {
       var myOptions = {
@@ -63,7 +66,6 @@
           return function() {
             clearTimeout(timer);
             timer = setTimeout(function() {
-                console.log("Map: Updating markers!");
                 // Update markers on the map
                 addListingMarkers();
             }, 500);
@@ -73,7 +75,6 @@
     
     
     function addListingMarkers() {
-      console.log("MAP: adding listing markers");
       // Test requesting location data
       // Now the request_path needs to also have a query string with the wanted parameters
       
@@ -82,8 +83,9 @@
       var ne = bounds.getNorthEast();
       
       var request_path = '/api/query'
-    	$.get(request_path, { listing_type: 'offer', 'category[]': ['item'], bounds_sw: sw.lat().toString() + '|' + sw.lng().toString(), 
-    	                      bounds_ne: ne.lat().toString() + '|' + ne.lng().toString() },function(data) {	
+    	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 
+    	                      bounds_sw: sw.lat().toString() + '|' + sw.lng().toString(), 
+    	                      bounds_ne: ne.lat().toString() + '|' + ne.lng().toString() }, function(data) {	
     	
     	  var data_arr = data["data"];
     	  var infowindow = new google.maps.InfoWindow();
@@ -148,6 +150,7 @@
               icon: '/images/map_icons/'+entry["category"]+'_'+entry["listing_type"]+'.png'
             });
             markers.push(marker);
+            markersArr.push(marker);
             markerContents.push(contentString);
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.close();
@@ -192,6 +195,23 @@
         var markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, lastMarker, {
         imagePath: '/images/map_icons/group_'+listing_type});
     	});
+    }
+    
+    function clearMarkers() {
+        if (markersArr) {
+            for (i in markersArr) {
+                markersArr[i].setMap(null);
+            }
+        }
+    }
+    
+    
+    // Simple callback for passing filter changes to the mapview
+    function filtersUpdated(category, sharetypes) {
+        listing_category = category;
+        listing_sharetypes = sharetypes;
+        clearMarkers();
+        addListingMarkers();
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
