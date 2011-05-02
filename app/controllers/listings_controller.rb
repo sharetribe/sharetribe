@@ -108,7 +108,11 @@ class ListingsController < ApplicationController
      #                      {:title => "Rideshare3", :category => "rideshare", :type => [], :listing_type => "request", :description => "X - Y", :lat => 60.1950, :lng => 24.8422, :latdest => 60.302124, :lngdest => 25.039902, :date => "3 days ago"},
      #                      {:title => "Item4", :category => "item", :type => ["buying"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "22 hours ago"}], :errors => []}
     #render :json => @locations
-    render :json => { :data => @listings }
+    @render_array = [];
+    @listings.each do |listing|
+      @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
+    end
+    render :json => { :info => @render_array, :data => @listings }
   end
 
   def show

@@ -59,7 +59,7 @@
  * @constructor
  * @extends google.maps.OverlayView
  */
-function MarkerClusterer(map, opt_markers, markerContents, infowindow, lastMarker, opt_options) {
+function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMarker, opt_options) {
   // MarkerClusterer implements google.maps.OverlayView interface. We use the
   // extend function to extend MarkerClusterer with google.maps.OverlayView
   // because it might not always be available when the code is defined so we
@@ -75,9 +75,10 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, lastMarke
    */
   this.markers_ = [];
   this.markerContents_ = [];
+  this.showingMarker_ = [];
 
   this.infowindow_ = infowindow;
-  this.lastMarker_ = lastMarker;
+
   /**
    *  @type {Array.<Cluster>}
    */
@@ -183,7 +184,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, lastMarke
 
   // Finally, add the markers
   if (opt_markers && opt_markers.length) {
-    this.addMarkers(opt_markers, markerContents, false);
+    this.addMarkers(opt_markers, markerContents, showingMarker, false);
   }
 }
 
@@ -407,9 +408,9 @@ MarkerClusterer.prototype.getCalculator = function() {
  * @param {Array.<google.maps.Marker>} markers The markers to add.
  * @param {boolean=} opt_nodraw Whether to redraw the clusters.
  */
-MarkerClusterer.prototype.addMarkers = function(markers, markerContents, opt_nodraw) {
+MarkerClusterer.prototype.addMarkers = function(markers, markerContents, showingMarker, opt_nodraw) {
   for (var i = 0, marker; marker = markers[i]; i++) {
-    this.pushMarkerTo_(marker, markerContents[i]);
+    this.pushMarkerTo_(marker, markerContents[i], showingMarker[i]);
   }
   if (!opt_nodraw) {
     this.redraw();
@@ -423,7 +424,7 @@ MarkerClusterer.prototype.addMarkers = function(markers, markerContents, opt_nod
  * @param {google.maps.Marker} marker The marker to add.
  * @private
  */
-MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent) {
+MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent, showingMarker) {
   marker.isAdded = false;
   if (marker['draggable']) {
     // If the marker is draggable add a listener so we update the clusters on
@@ -436,6 +437,7 @@ MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent) {
   }
   this.markers_.push(marker);
   this.markerContents_.push(markerContent);
+  this.showingMarker_.push(showingMarker);
 };
 
 
@@ -480,6 +482,7 @@ MarkerClusterer.prototype.removeMarker_ = function(marker) {
 
   this.markers_.splice(index, 1);
   this.markerContents_.splice(index,1);
+  this.showingMarker_.splice(index,1);
 
   return true;
 };
@@ -667,6 +670,8 @@ MarkerClusterer.prototype.clearMarkers = function() {
 
   // Set the markers a empty array.
   this.markers_ = [];
+  this.markerContents_ = [];
+  this.showingMarker_ = [];
 };
 
 
@@ -750,8 +755,8 @@ MarkerClusterer.prototype.distanceBetweenPoints_ = function(p1, p2) {
  * @param {google.maps.Marker} marker The marker to add.
  * @private
  */
-MarkerClusterer.prototype.addToClosestCluster_ = function(marker, markerContent) {
-  var distance = 20000; // Some large number
+MarkerClusterer.prototype.addToClosestCluster_ = function(marker, markerIndex) {
+  var distance = 40000; // Some large number
   var clusterToAddTo = null;
   var pos = marker.getPosition();
   for (var i = 0, cluster; cluster = this.clusters_[i]; i++) {
@@ -766,10 +771,10 @@ MarkerClusterer.prototype.addToClosestCluster_ = function(marker, markerContent)
   }
 
   if (clusterToAddTo && clusterToAddTo.isMarkerInClusterBounds(marker)) {
-    clusterToAddTo.addMarker(marker, markerContent);
+    clusterToAddTo.addMarker(marker, markerIndex);
   } else {
     var cluster = new Cluster(this);
-    cluster.addMarker(marker, markerContent);
+    cluster.addMarker(marker, markerIndex);
     this.clusters_.push(cluster);
   }
 };
@@ -792,8 +797,8 @@ MarkerClusterer.prototype.createClusters_ = function() {
   var bounds = this.getExtendedBounds(mapBounds);
 
   for (var i = 0, marker; marker = this.markers_[i]; i++) {
-    if (!marker.isAdded && this.isMarkerInBounds_(marker, bounds) && (marker.getTitle() != "open")) {
-      this.addToClosestCluster_(marker, this.markerContents_[i]);
+    if (!marker.isAdded && this.isMarkerInBounds_(marker, bounds) && (!this.showingMarker_[i])) {
+      this.addToClosestCluster_(marker, i);
     }
   }
 };
@@ -815,7 +820,7 @@ function Cluster(markerClusterer) {
   this.averageCenter_ = markerClusterer.isAverageCenter();
   this.center_ = null;
   this.markers_ = [];
-  this.markerContents_ = [];
+  this.markerIndex_ = [];
   this.bounds_ = null;
   this.clusterIcon_ = new ClusterIcon(this, markerClusterer.getStyles(),
       markerClusterer.getGridSize());
@@ -847,7 +852,7 @@ Cluster.prototype.isMarkerAlreadyAdded = function(marker) {
  * @param {google.maps.Marker} marker The marker to add.
  * @return {boolean} True if the marker was added.
  */
-Cluster.prototype.addMarker = function(marker, markerContent) {
+Cluster.prototype.addMarker = function(marker, markerIndex) {
   if (this.isMarkerAlreadyAdded(marker)) {
     return false;
   }
@@ -867,7 +872,7 @@ Cluster.prototype.addMarker = function(marker, markerContent) {
 
   marker.isAdded = true;
   this.markers_.push(marker);
-  this.markerContents_.push(markerContent)
+  this.markerIndex_.push(markerIndex);
 
   var len = this.markers_.length;
   if (len < this.minClusterSize_ && marker.getMap() != this.map_) {
@@ -923,6 +928,7 @@ Cluster.prototype.remove = function() {
   this.clusterIcon_.remove();
   this.markers_.length = 0;
   delete this.markers_;
+  delete this.markerIndex_;
 };
 
 
@@ -1045,6 +1051,7 @@ function ClusterIcon(cluster, styles, opt_padding) {
   this.div_ = null;
   this.sums_ = null;
   this.visible_ = false;
+  this.showingInfo_ =  false;
 
   this.setMap(this.map_);
 }
@@ -1065,14 +1072,13 @@ ClusterIcon.prototype.triggerClusterClick = function() {
     if (!marker.getPosition().equals(position)) sameLocation = false;
   }
   if (sameLocation) {
-  	if (markers[0].getTitle() == "close") {
-		if (this.cluster_.markerClusterer_.lastMarker_) this.cluster_.markerClusterer_.lastMarker_.setTitle("close");
-		markers[0].setTitle("openCluster");
-		this.cluster_.markerClusterer_.lastMarker_ = markers[0];
-		var clusterContent = "<div class=\"recent_listings\" style=\"width:415px; background-color:#F7F5E6\">";
+  	if (!this.showingInfo_) {
+		this.cluster_.markerClusterer_.showingMarker_.forEach(function(infoshow) { infoshow = false; });
+		this.showingInfo_ = true;
+		var clusterContent = "<div style=\"width:360px; background-color:#F7F5E6\"><div style=\"height:10px;\"></div>";
 		for (var i = 0, marker; marker = markers[i]; i++) {
-			if (i > 0) clusterContent += "<div class=\"request_spacer\"></div>";
-			clusterContent += this.cluster_.markerContents_[i];
+			if (i > 0) clusterContent += "<div class=\"offer_spacer\"></div>";
+			clusterContent += this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];
 		}
 		clusterContent += "</div>";
 		this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
@@ -1080,7 +1086,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
 	}
 	else {
 		this.cluster_.markerClusterer_.infowindow_.close();
-		markers[0].setTitle("close");
+		this.showingInfo_ = false;
 	}
   }
   else if (markerClusterer.isZoomOnClick()) {
