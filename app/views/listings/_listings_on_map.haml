@@ -55,18 +55,35 @@
         map.setCenter(initialLocation);
       }
       google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
+      // 'bounds_changed' event will fire continuously while the map is being panned so we need a timeout
+      // to wait for idle moment (otherwise the server will be bombarded with requests)
+      google.maps.event.addListener(map, 'bounds_changed', (function() {
+          var timer;
+          console.log("Map: bounds_changed event fired.");
+          return function() {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+                console.log("Map: Updating markers!");
+                // Update markers on the map
+                addListingMarkers();
+            }, 500);
+          }
+      })());
     }
     
     
     function addListingMarkers() {
-      // The following two statements had Ruby evaluations, but they did not work with the current implementation
-      //var lat = Location.first.latitude;
-      //var lng = Location.first.longitude;
-      
+      console.log("MAP: adding listing markers");
       // Test requesting location data
       // Now the request_path needs to also have a query string with the wanted parameters
-      var request_path = '/api/query?listing_type=offer&category=item'
-    	$.get(request_path, function(data) {	
+      
+      var bounds = map.getBounds();
+      var sw = bounds.getSouthWest();
+      var ne = bounds.getNorthEast();
+      
+      var request_path = '/api/query'
+    	$.get(request_path, { listing_type: 'offer', 'category[]': ['item'], bounds_sw: sw.lat().toString() + '|' + sw.lng().toString(), 
+    	                      bounds_ne: ne.lat().toString() + '|' + ne.lng().toString() },function(data) {	
     	
     	  var data_arr = data["data"];
     	  var infowindow = new google.maps.InfoWindow();
