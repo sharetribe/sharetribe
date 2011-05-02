@@ -14,21 +14,55 @@
     = stylesheet_link_tag 'compiled/mobile_style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi', 'markerclusterer'
     %script{ :type => "text/javascript", :src => "http://www.google.com/jsapi"}
-    %script{ :type => "text/javascript", :src => "http://maps.google.com/maps/api/js?sensor=false"}
+    %script{ :type => "text/javascript", :src => "http://maps.google.com/maps/api/js?sensor=true"}
+    %script{ :type => "text/javascript", :src => "http://code.google.com/apis/gears/gears_init.js"}
     = csrf_meta_tag
     
     :javascript
       $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
       
+      var initialLocation;
+      
       function initialize() {
-        var center = new google.maps.LatLng(60.184593, 24.832106)
-        var map = new google.maps.Map(document.getElementById('map_canvas'), {
-          zoom: 13,
-          center: center,
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          zoomControl: true,
-          disableDefaultUI: true
-        });
+        var myOptions = {
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            zoomControl: true,
+            disableDefaultUI: true
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        // Try W3C Geolocation (Preferred)
+        if(navigator.geolocation) 
+        {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
+                map.setCenter(initialLocation);
+            }, function() {
+            handleNoGeolocation();
+            });
+        // Try Google Gears Geolocation
+        } else if (google.gears) 
+        {
+            var geo = google.gears.factory.create('beta.geolocation');
+            geo.getCurrentPosition(function(position) {
+                initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
+                map.setCenter(initialLocation);
+            }, function() {
+            handleNoGeoLocation();
+            });
+        // Browser doesn't support Geolocation
+        } 
+        else 
+        {
+            handleNoGeolocation();
+        }
+
+        function handleNoGeolocation() {
+            initialLocation = new google.maps.LatLng(60.184593, 24.832106)
+            map.setCenter(initialLocation);
+        }
+      
         
         var location_data = #{@locations.to_json};
         var listing_data = #{@listings.to_json};
@@ -79,6 +113,8 @@
                 clickable: true
                 }); 
             }
+            
+          marker.setZIndex(listing_data[i]['id'].length);
           markers.push(marker);
         }
         

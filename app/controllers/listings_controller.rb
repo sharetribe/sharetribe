@@ -65,7 +65,7 @@ class ListingsController < ApplicationController
 
       @locations = Array.new
       @listings = Array.new
-            
+      
       for i in 0..(@listings_temp.length-1)
         if (i == 0) or (@listings_temp[i].origin_loc.latitude != @listings_temp[i-1].origin_loc.latitude) or (@listings_temp[i].origin_loc.longitude != @listings_temp[i-1].origin_loc.longitude)
             location_temp = Hash.new
@@ -88,7 +88,7 @@ class ListingsController < ApplicationController
             @listings[@listings.length - 1]['title'].push @listings_temp[i].title
             @listings[@listings.length - 1]['description'].push @listings_temp[i].description
             @listings[@listings.length - 1]['category'].push @listings_temp[i].category
-        end        
+        end  
       end
       
       render :partial => "listings/mobile_listings"

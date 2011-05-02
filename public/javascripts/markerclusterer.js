@@ -358,7 +358,12 @@ MarkerClusterer.prototype.getMaxZoom = function() {
  */
 MarkerClusterer.prototype.calculator_ = function(markers, numStyles) {
   var index = 0;
-  var count = markers.length;
+  
+  // var count = markers.length;
+  var count = 0;
+  for (var i = 0; i < markers.length; i++)
+    count += markers[i].getZIndex();
+  
   var dv = count;
   while (dv !== 0) {
     dv = parseInt(dv / 10, 10);
@@ -438,8 +443,7 @@ MarkerClusterer.prototype.pushMarkerTo_ = function(marker, listing, listing_type
         for (var i = 0; i < listing['id'].length; i++)
         {
             var link = "listings/" + listing['id'][i];
-            html += "<img src='/images/icons/map_listing/" + listing['category'][i] + "_" + listing_type + ".png" + "'><a href='" + link + "'><strong>" + listing['title'][i] + "</strong> </a> <br/>" + 
-        listing['description'][i] + "<br/>";
+            html += "<img src='/images/icons/map_listing/" + listing['category'][i] + "_" + listing_type + ".png" + "'><a href='" + link + "'><strong>" + listing['title'][i] + "</strong> </a> <br/>";
         }
     }
     else
