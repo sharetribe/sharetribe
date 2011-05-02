@@ -356,6 +356,7 @@ fi:
         housing_you_offer: "Mitä tarjoat"
       origin:
         origin: "Lähtöpaikka"
+        location: "Sijainti"
       destination:  
         destination: "Määränpää"
       tag_list:
@@ -363,6 +364,10 @@ fi:
         comma_separate: "(erota pilkulla)"  
       description:
         detailed_description: "Tarkempi kuvaus"
+      googlemap:
+        googlemap_description: "Karttanäkymä"
+        googlemap_updatemap: "Päivitä karttaa"
+        googlemap_copy: "Päätepisteet Kartalta"
       images:
         image: "Kuva"
         select_file: "Valitse tiedosto"
@@ -459,6 +464,7 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
+      address_validator: "Sijaintia ei löytynyt."
     profile_badge:
       first_transaction: "Ensimmäinen tapahtuma"
       first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
@@ -613,6 +619,7 @@ fi:
       city: "Kaupunki:"
       phone_number: "Puhelinnumero:"
       about_you: "Tietoa sinusta:"
+      profilemap: "Karttanäkymä"
     avatar:  
       update_profile_picture: "Profiilikuvan päivitys"
       add_avatar_submit: "Tallenna kuva"

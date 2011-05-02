@@ -9,9 +9,10 @@ class SettingsController < ApplicationController
   end
   
   def show
-  if @person.location == nil
-  	@person.location = Location.new(:address => @person.street_address, :latitude => 0,:longitude => 0,:google_address => "")
-        end
+    if @person.location == nil
+     @person.build_location(:address => @person.street_address,:type => 'person')
+     @person.location.search_and_fill_latlng
+    end
     render :action => :profile
   end
   
