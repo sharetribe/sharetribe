@@ -2,7 +2,7 @@ include ApplicationHelper
 include PeopleHelper
 
 class PersonMailer < ActionMailer::Base
-  default :from => "Kassi <kassi@sizl.org>"
+  default :from => APP_CONFIG.kassi_mail_from_address
   layout 'email'
 
   def new_message_notification(message, host=nil)
