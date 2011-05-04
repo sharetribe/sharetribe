@@ -57,9 +57,9 @@ addMethod("address_validator",
     var check = null;
 	
 	// Added to allow empty locations
-	if (value == "") {
-		return true;
-	}
+	// if (value == "") {
+	// 	return true;
+	// }
 	
     //alert(this.currentForm.id);
     var pref = element.id.split("_");

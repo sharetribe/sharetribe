@@ -151,13 +151,15 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	
 	// Added to allow empty locations in item/favor/housing
-	if (is_rideshare == "true") {
-		$("listing[origin]").rules("add", {
-			required: true,
-			minlength: 2,
-			address_validator: true
-		});
-	}
+	// if (is_rideshare == "true") {
+	// 	$("listing[origin]").rules("add", {
+	// 		required: true,
+	// 		minlength: 2,
+	// 		address_validator: true
+	// 	});
+	// } else {
+	// 	$("listing[origin]").rules("remove");
+	// }
 	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
