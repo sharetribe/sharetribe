@@ -149,6 +149,16 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	});
 	translate_validation_messages(locale);
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	
+	// Added to allow empty locations in item/favor/housing
+	if (is_rideshare == "true") {
+		$("listing[origin]").rules("add", {
+			required: true,
+			minlength: 2,
+			address_validator: true
+		});
+	}
+	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[share_type_attributes][]") {
@@ -168,7 +178,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		debug: false,
 		rules: {
 			"listing[title]": {required: true},
-			"listing[origin]": {required: true, minlength: 2, address_validator: true},
+			"listing[origin]": {required: false, minlength: 2, address_validator: true},
 			"listing[destination]": {required: true, minlength: 2, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
