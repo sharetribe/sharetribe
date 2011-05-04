@@ -55,7 +55,12 @@ $.validator.
 addMethod("address_validator",
     function(value, element, param) {
     var check = null;
-
+	
+	// Added to allow empty locations
+	if (value == "") {
+		return true;
+	}
+	
     //alert(this.currentForm.id);
     var pref = element.id.split("_");
     var elem_prefix ="";
