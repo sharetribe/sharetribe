@@ -366,17 +366,9 @@ class Listing < ActiveRecord::Base
     json_dict = {
       :title => self.title,
       :listing_type => self.listing_type,
-      :description => self.description,
       :category => self.category,
-      :share_types => self.share_types,
-      :created_at => time_ago(self.created_at),
       :origin => self.origin,
       :destination => self.destination,
-      :author => self.author.given_name,
-      :author_url => person_path(:id => self.author.id),
-      :listing_url => listing_path(:id => self.id),
-      :listing_comment_url => listing_path(:id => self.id) + "#comment_form"
-      # This doesn't work yet :listing_reply_url => reply_to_listing_path(:id => self.id)
     }
     
     json_dict[:location] = self.location.as_json if self.location

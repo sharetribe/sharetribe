@@ -62,7 +62,6 @@
       // to wait for idle moment (otherwise the server will be bombarded with requests)
       google.maps.event.addListener(map, 'bounds_changed', (function() {
           var timer;
-          console.log("Map: bounds_changed event fired.");
           return function() {
             clearTimeout(timer);
             timer = setTimeout(function() {
@@ -77,7 +76,6 @@
     function addListingMarkers() {
       // Test requesting location data
       // Now the request_path needs to also have a query string with the wanted parameters
-      
       var bounds = map.getBounds();
       var sw = bounds.getSouthWest();
       var ne = bounds.getNorthEast();
@@ -86,7 +84,8 @@
     	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 
     	                      bounds_sw: sw.lat().toString() + '|' + sw.lng().toString(), 
     	                      bounds_ne: ne.lat().toString() + '|' + ne.lng().toString() }, function(data) {	
-    	
+
+    	  var info = data.info	
     	  var data_arr = data["data"];
     	  var infowindow = new google.maps.InfoWindow();
     	  var directionsService = new google.maps.DirectionsService();
@@ -95,78 +94,38 @@
         var flagMarker = new google.maps.Marker();
         var markers = [];
         var markerContents = [];
-        var lastMarker = null;
+        var showingMarker = [];
     		for (i in data_arr) {
     		  (function() {
     		    var entry = data_arr[i];
     		    if (entry["location"]) { //////////
         		var location = new google.maps.LatLng(entry["location"]["latitude"], entry["location"]["longitude"]);
-        		var action;
-        		if (entry["category"]=="housing") action = "Reply";
-        		else if (entry["listing_type"]=="offer") {
-        		  action = "Request ";
-        		  if (entry["category"]=="rideshare") action += "ride"; 
-        		  else action += entry["category"];
-        		}
-        		else if (entry["listing_type"]=="request") {
-        		  action = "Offer ";
-        		  if (entry["category"]=="rideshare") action += "a ride"; 
-        		  else if (entry["category"]=="favor") action += "your help";
-        		  else if (entry["category"]=="item") action += "your item";
-        		}
-        		
-        		var typeTags = '';
-        		for (j in entry["share_types"]) {
-        		  typeTags += '<div class="recent_listing_tag"><a href="#">'+entry["share_types"][j]+'</a></div>';
-        		}
-        		
-        		var contentString = '<div class="recent_listing" style="width:395px; background-color:#F7F5E6">'+
-                                '<div class="listing_image">'+
-                                '<div class="listing_image_'+entry["category"]+'">'+
-                                '<a href="#" title="Item '+entry["listing_type"]+': '+entry["title"]+'">#</a>'+
-                                '</div></div>'+
-                                '<div class="recent_listing_text" style="width:300px">'+
-                        				'<h5><a href="#">'+entry["title"]+'</a></h5>'+
-                        				typeTags+
-                        				'<p class="description">'+
-                        				entry["description"]+
-                                '</p>'+
-                                '<div class="float_left" style="width:160px">'+
-                                '<a href="#">'+action+' </a>'+
-                                '&nbsp;|&nbsp;'+
-                                '<a href="#comment_form">Comment</a>'+
-                                '</div>'+
-                                '<div class="float_right" style="width:140px">'+
-                                '<span>'+
-                                '<a href="/en/people/#">Username</a>'+
-                                '&nbsp;'+entry["created_at"]+
-                                '</span>'+
-                                '</div></div></div>'; 
-
+        	                      
+            var contentString = '<div style="background-color:#F7F5E6">'+info[i]+'</div>';
             var marker = new google.maps.Marker({
               position: location,
-              title: "close",
+              title: entry["title"],
              // map: map,
               icon: '/images/map_icons/'+entry["category"]+'_'+entry["listing_type"]+'.png'
             });
             markers.push(marker);
             markersArr.push(marker);
+            showingMarker.push(false);
             markerContents.push(contentString);
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.close();
               directionsDisplay.setMap(null);
               flagMarker.setOptions({map:null});
-              if (marker.getTitle()!="close") 
-                marker.setTitle("close");
+              if (showingMarker[i]) 
+                showingMarker[i] = false;
               else {
-                if (lastMarker) lastMarker.setTitle("close");
-                marker.setTitle("open");
-                lastMarker = marker;
+                showingMarker.forEach(function(infoshow) { infoshow = false; });
+                showingMarker[i] = true;
                 infowindow.setContent(contentString);
                 infowindow.open(map,marker);
                 
                 if (entry["category"]=="rideshare") {
-                  var end = new google.maps.LatLng(entry["latdest"], entry["lngdest"]);
+                  var end = new google.maps.LatLng(entry["destination"]["latitude"], entry["destination"]["longitude"]);
                   var request = {
                     origin:location, 
                     destination:end,
@@ -187,12 +146,12 @@
               }
             });
             google.maps.event.addListener(infowindow, 'closeclick', function() {
-              lastMarker.setTitle("close");
+              showingMarker.forEach(function(infoshow) { infoshow = false; });
             });
           } ///////////////////////////////////////
           })();
         }
-        var markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, lastMarker, {
+        var markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
         imagePath: '/images/map_icons/group_'+listing_type});
     	});
     }
