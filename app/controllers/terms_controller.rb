@@ -3,9 +3,7 @@ class TermsController < ApplicationController
   def show
     redirect_to root_path unless session[:temp_cookie]
     current_community = Community.find(session[:temp_community_id])
-    logger.info "Consent changed 1: #{session[:consent_changed]}"
     @current_user = nil
-    logger.info "Consent changed 2: #{session[:consent_changed]}"
   end
   
   def accept
@@ -14,6 +12,13 @@ class TermsController < ApplicationController
       current_community = Community.find(session[:temp_community_id])
       @current_user.community_memberships.find_by_community_id(current_community.id).update_attribute(:consent, current_community.consent) 
     else
+      # This situation can occur when the users clicks the back button
+      # of the browser after accepting new terms, returns to the acceptance
+      # form and clicks the accept button again. In that case an error page is shown.
+      unless session[:temp_person_id]
+        ApplicationHelper.send_error_notification("User tried to accept the new terms again. Showing an error page.", "Duplicate-acceptance-of-terms error", params) 
+        render :status => 500 and return
+      end
       @current_user = Person.add_to_kassi_db(session[:temp_person_id])
       @current_user.set_default_preferences
       @current_user.update_attribute(:locale, (params[:locale] || APP_CONFIG.default_locale))
