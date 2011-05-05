@@ -124,7 +124,7 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -150,16 +150,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	translate_validation_messages(locale);
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	
-	// Added to allow empty locations in item/favor/housing
-	// if (is_rideshare == "true") {
-	// 	$("listing[origin]").rules("add", {
-	// 		required: true,
-	// 		minlength: 2,
-	// 		address_validator: true
-	// 	});
-	// } else {
-	// 	$("listing[origin]").rules("remove");
-	// }
+	// Change the origin and destination requirements based on listing_type
+	var rs = null;
+	if (is_rideshare == "true") {
+		rs = true;
+	} else {
+		rs = false;
+	}
 	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
@@ -180,8 +177,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		debug: false,
 		rules: {
 			"listing[title]": {required: true},
-			"listing[origin]": {required: false, minlength: 2, address_validator: true},
-			"listing[destination]": {required: true, minlength: 2, address_validator: true},
+			"listing[origin]": {required: rs, address_validator: true},
+			"listing[destination]": {required: rs, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -206,7 +203,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "false");
 		}
-	});
+	});	
 	set_textarea_maxlength();
 	auto_resize_text_areas();
 }
