@@ -11,46 +11,6 @@ var textfield;
 var timer;
 var currentDirections = null;
 
-/*
-function address_found_in_origin(value, element, paras){
-  if(value != "")
-    return false;
-  else
-    return true;
-}
-$.validator.addMethod("address_found", address_found_in_origin);
-*/
-
-function initialize_map_origin_error_form(locale,address_not_found_message, rideshare){
-	var form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
-	//var form_id = "#new_listing";
-	//var emptyfield = $('input[id$="google_address"]').attr("id");
-  	translate_validation_messages(locale);
-	$(form_id).validate({
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parent());
-		},	
-		rules: {
-		  listing[origin]: { required: true, address_validator: true }
-		  listing[destination]: { required: true, address_validator: true }
-		  //"listing"[should_be_empty]": {:required: false, maxlength: 0}
-			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
-			// 			"person[street_address]": {required: false, maxlength: 50},
-			// 			"person[postal_code]": {required: false, maxlength: 8},
-			// 			"person[city]": {required: false, maxlength: 50},
-			// 			"person[phone_number]": {required: false, maxlength: 25}
-		},
-messages: {
-"listing[should_be_empty]": { address_not_found: address_not_found_message }
-} ,
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
-		}
-	});	
-
-}
-
 $.validator.
 addMethod("address_validator",
     function(value, element, param) {
