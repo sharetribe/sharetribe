@@ -142,6 +142,9 @@ class ListingsController < ApplicationController
   end
   
   def create
+	  if params[:listing][:origin_loc_attributes][:address].empty?
+	    params[:listing].delete("origin_loc_attributes")
+	  end
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
@@ -155,6 +158,9 @@ class ListingsController < ApplicationController
   end
   
   def edit
+	  if !@listing.origin_loc
+	      @listing.build_origin_loc(:location_type => "origin_loc")
+	  end
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
   end
   
