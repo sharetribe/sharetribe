@@ -165,6 +165,12 @@ class ListingsController < ApplicationController
   end
   
   def update
+  if params[:listing][:origin_loc_attributes][:address].empty?
+    params[:listing].delete("origin_loc_attributes")
+    if @listing.origin_loc
+     @listing.origin_loc.delete
+    end
+  end
     if @listing.update_fields(params[:listing])
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
