@@ -63,10 +63,13 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		draggable = false;
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
-	if(latitude.value != "")
+	var visible = true;
+	if(latitude.value != ""){
 		center = new google.maps.LatLng(latitude.value,longitude.value);
+	}
 	else{
 		center = defaultCenter;
+		visible = false;
 	}
 	var myOptions = {
 		'zoom': 12,
@@ -101,6 +104,8 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		geocoder.geocode({"latLng":marker.getPosition()},update_source);
 	});
     }
+    if(!visible)
+	    marker.setVisible(false);
 
 }
 
