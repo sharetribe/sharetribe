@@ -7,10 +7,12 @@
         var source = "listing_origin";
         //var prefix = "listing_origin_loc_attributes";
         googlemapMarkerInit('map_canvas',"listing_origin_loc_attributes","listing_origin",true);
+
         }
       else
       {
       googlemapRouteInit('map_canvas');
       startRoute();
       }
+        initialize_map_origin_error_form(#{I18n.locale},'#{t('address_validator')}', #{rideshare}){
     });

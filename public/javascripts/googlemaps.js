@@ -22,17 +22,18 @@ function address_found_in_origin(value, element, paras){
 $.validator.addMethod("address_found", address_found_in_origin);
 */
 
-/*
-function initialize_map_origin_error_form(locale,address_not_found_message){
-	var form_id = "#new_listing";
-	var emptyfield = $('input[id$="google_address"]').attr("id");
+function initialize_map_origin_error_form(locale,address_not_found_message, rideshare){
+	var form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	//var form_id = "#new_listing";
+	//var emptyfield = $('input[id$="google_address"]').attr("id");
   	translate_validation_messages(locale);
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
-		  emptyfield: { required: true, minlength: 1 }
+		  listing[origin]: { required: true, address_validator: true }
+		  listing[destination]: { required: true, address_validator: true }
 		  //"listing"[should_be_empty]": {:required: false, maxlength: 0}
 			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
 			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
@@ -50,7 +51,6 @@ messages: {
 	});	
 
 }
-*/
 
 $.validator.
 addMethod("address_validator",

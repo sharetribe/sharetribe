@@ -194,8 +194,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		debug: false,
 		rules: {
 			"listing[title]": {required: true},
-			"listing[origin]": {required: true, minlength: 2, address_validator: true},
-			"listing[destination]": {required: true, minlength: 2, address_validator: true},
+			//"listing[origin]": {required: true, minlength: 2, address_validator: true},
+			//"listing[destination]": {required: true, minlength: 2, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
