@@ -333,7 +333,7 @@ function initialize_update_profile_info_form(locale, person_id,address_validator
 			error.appendTo(element.parent());
 		},	
 		rules: {
-                    "person[street_address]": {required: true, minlength: 2, address_validator: true},
+                    "person[street_address]": {required: false, address_validator: true},
 			// "person[given_name]": {required: true, minlength: 2, maxlength: 30},
 			// 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
 			// 			"person[postal_code]": {required: false, maxlength: 8},
