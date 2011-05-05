@@ -50,7 +50,7 @@ class ListingsController < ApplicationController
     mobile_browsers.each do |m|
         return true if agent.match(m)
     end    
-    return true
+    return false
   end
     
 
@@ -64,7 +64,7 @@ class ListingsController < ApplicationController
       @listings_temp = Listing.open.joins(:origin_loc).find_with(params, @current_user).order("locations.latitude ASC, locations.longitude ASC")
       
       @userlocation = Hash.new
-      if !@current_user.location.nil?
+      if (!@current_user.nil? && !@current_user.location.nil?)
         @userlocation['lat'] = @current_user.location.latitude
         @userlocation['long'] = @current_user.location.longitude
       else
