@@ -12,7 +12,8 @@ Feature: User updates profile information
     When I follow "Settings"
     And I fill in "Given name*:" with "Test"
     And I fill in "Family name*:" with "Dude"
-    And I fill in "Street address" with "Test Street 1"
+    And I fill in "Street address" with "Broadway"
+    And wait for 2 seconds
 #These features removed with google map functionality
 #And I fill in "Postal code" with "11111"
 #And I fill in "City" with "Turku"
