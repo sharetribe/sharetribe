@@ -54,12 +54,13 @@ messages: {
 $.validator.
 addMethod("address_validator",
     function(value, element, param) {
-    var check = null;
+    // alert(element);
+	var check = null;
 	
 	// Added to allow empty locations
-	// if (value == "") {
-	// 	return true;
-	// }
+	if (value == "") {
+		return true;
+	}
 	
     //alert(this.currentForm.id);
     var pref = element.id.split("_");
