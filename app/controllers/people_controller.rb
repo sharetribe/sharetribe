@@ -75,6 +75,12 @@ class PeopleController < ApplicationController
   end
   
   def update
+  if params[:person][:location][:address].empty?
+    params[:person].delete("location")
+    if @person.location
+     @person.location.delete
+    end
+  end
     begin
       @person.update_attributes(params[:person], session[:cookie])
       flash[:notice] = :person_updated_successfully
