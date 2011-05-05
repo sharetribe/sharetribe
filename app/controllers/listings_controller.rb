@@ -61,7 +61,7 @@ class ListingsController < ApplicationController
     @check_mobile = detect_browser
     if @check_mobile
       @title = params[:listing_type]
-      @listings_temp = Listing.open.joins(:origin_loc).find_with(params, @current_user).order("locations.latitude ASC, locations.longitude ASC")
+      @listings_temp = Listing.open.joins(:origin_loc).order("locations.latitude ASC, locations.longitude ASC").find_with(params, @current_user)
       
       @userlocation = Hash.new
       if (!@current_user.nil? && !@current_user.location.nil?)
