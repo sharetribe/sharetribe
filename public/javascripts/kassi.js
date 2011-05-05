@@ -81,32 +81,6 @@ $.validator.
 	);
 
 
-// $.validator.
-// 	addMethod("address_validator",
-// 		function(value, element, param) {
-// 			var callBackValue;
-// 			var returnValue = geocodeAddress(function(callBackValue) {
-// 				console.log("callBackValue: " + callBackValue);
-// 				return callBackValue;
-// 				submit();
-// 			}, value);
-// 			console.log("returnValue: " + returnValue);
-// 		});
-// 
-// function geocodeAddress(callback, value) {
-// 	var gc = new google.maps.Geocoder();
-// 	gc.geocode({ 'address': value }, function (results, status) {
-// 		if (status == google.maps.GeocoderStatus.OK) {
-// 			callback(true);
-// 			return true;
-// 	    } else {
-// 			callback(false);
-// 			return false;
-// 	    }
-// 	});
-// }
-
-
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -175,6 +149,18 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	});
 	translate_validation_messages(locale);
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	
+	// Added to allow empty locations in item/favor/housing
+	// if (is_rideshare == "true") {
+	// 	$("listing[origin]").rules("add", {
+	// 		required: true,
+	// 		minlength: 2,
+	// 		address_validator: true
+	// 	});
+	// } else {
+	// 	$("listing[origin]").rules("remove");
+	// }
+	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[share_type_attributes][]") {
