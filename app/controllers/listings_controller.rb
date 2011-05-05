@@ -46,10 +46,12 @@ class ListingsController < ApplicationController
 "windows ce; smartphone;","windows ce; iemobile", 
 "up.browser","up.link","mmp","symbian","smartphone", 
 "midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
-    agent = request.headers["HTTP_USER_AGENT"].downcase
-    mobile_browsers.each do |m|
-        return true if agent.match(m)
-    end    
+    if request.headers["HTTP_USER_AGENT"]
+	    agent = request.headers["HTTP_USER_AGENT"].downcase
+	    mobile_browsers.each do |m|
+		    return true if agent.match(m)
+	    end    
+    end
     return false
   end
     
