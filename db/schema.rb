@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110414124938) do
+ActiveRecord::Schema.define(:version => 20110430214450) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -224,6 +224,7 @@ ActiveRecord::Schema.define(:version => 20110414124938) do
     t.integer  "listing_id"
     t.string   "person_id"
     t.string   "location_type"
+    t.boolean  "location_ok"
   end
 
   create_table "messages", :force => true do |t|
