@@ -7,11 +7,12 @@
       %div{:id => "listing_category_big_icon_#{@listing.category}"}
     - @listing.listing_images.each do |listing_image|
       = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
-  #googlemap
-    = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
-    = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
-    - if @listing.category == "rideshare"
-      = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc } 
+  - if @listing.origin_loc && @listing.origin_loc.address != ""
+    #googlemap
+      = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
+      = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
+      - if @listing.category == "rideshare"
+        = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc } 
   - if current_user?(@listing.author) || (@current_user && @current_user.is_admin?)
     #edit_links
       = render :partial => "edit_links"
