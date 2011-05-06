@@ -1,6 +1,8 @@
 # Extends class Tag from gem 'acts-as-taggable-on'
 class Tag < ActiveRecord::Base
 
+  validates_length_of :name, :in => 2..18
+
   def self.tags(options = {})
     query = "select tags.id, name, count(*) as count"
     query << " from taggings, tags, listings"
