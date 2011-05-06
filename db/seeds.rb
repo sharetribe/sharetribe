@@ -10,11 +10,16 @@
 Person.all.each { |p| p.set_default_preferences }
 
 user = Person.first
-for i in 1..20
+for i in 1..500
   listing_type = Listing::VALID_TYPES[SecureRandom.random_number(2)]
   category = Listing::VALID_CATEGORIES[SecureRandom.random_number(4)]
   valid_until = DateTime.now + 1.month
-  listing = user.create_listing(:listing_type => listing_type, :category => category, :valid_until => valid_until, :title => "#{listing_type} - #{category} - test#{i}", :description => "Test #{listing_type} #{category}")
+  tag_list = [
+    "#{SecureRandom.random_number(33) + 1}tag",
+    "#{SecureRandom.random_number(33) + 1}longertag",
+    "#{SecureRandom.random_number(33) + 1}verylongtag"
+  ]
+  listing = user.create_listing(:listing_type => listing_type, :category => category, :valid_until => valid_until, :tag_list => tag_list, :description => "Test #{listing_type} #{category}")
   
   if(category.eql? "rideshare")
     origin_lat = SecureRandom.random_number() * 0.15 + 60.15
@@ -29,13 +34,12 @@ for i in 1..20
     lat = SecureRandom.random_number() * 0.15 + 60.15
     lng = SecureRandom.random_number() * 0.5 + 24.70
     listing.build_location(:latitude => lat, :longitude => lng)
+    listing.title = "#{listing_type} - #{category} - test#{i}"
   end
   
   if(Listing::VALID_SHARE_TYPES[listing_type][category])
     share_type = Listing::VALID_SHARE_TYPES[listing_type][category][SecureRandom.random_number(Listing::VALID_SHARE_TYPES[listing_type][category].length)]
-  else
-    share_type = []
+    listing.share_types.build(:name => share_type)
   end
-  listing.share_types.build(:name => share_type)
   listing.save
 end
