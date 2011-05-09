@@ -331,6 +331,26 @@ form, input {
   margin-bottom: 20px; }
 
 /* Home page */
+#teaser {
+  background: #e7b78d;
+  padding: 20px 30px;
+  width: 887px;
+  margin-bottom: 20px;
+  overflow: hidden; }
+
+#teaser_left {
+  float: left;
+  width: 500px;
+  margin-right: 50px; }
+  #teaser_left h1 {
+    font-size: 32px;
+    color: #4d3d26; }
+  #teaser_left p {
+    font-size: 14px; }
+
+#teaser_right {
+  float: left; }
+
 .recent_events {
   background: #d1c9b4;
   font-size: 11px;

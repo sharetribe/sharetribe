@@ -30,7 +30,7 @@ fi:
     requests: "Pyynnöt"
     offers: "Tarjoukset"
     community: "Yhteisö"
-    search_kassi: "Etsi Kassista"       
+    search_kassi: "Hae Kassista"       
   layouts:
     admin:
       admin: "Kassin ylläpitonäkymä"
@@ -276,6 +276,9 @@ fi:
       avoinyritys_url: "http://www.avoinyritys.fi"
   homepage:
     index:
+      lend_rent_help_carpool: "Lainaa, vuokraa, auta, kyyditse"
+      teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko sinä lainata muille tavaroita tai auttaa heitä?"
+      tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "Kassi on uudistunut!"
       news: "Uutiset"
       recent_events: "Uusimmat tapahtumat"

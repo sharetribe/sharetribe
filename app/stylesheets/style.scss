@@ -14,6 +14,7 @@ $dark_orange: darken($orange, 10%);
 $darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
 $lighter_orange: lighten($orange, 25%);
+$teaser_bg: #e7b78d;
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
@@ -422,6 +423,31 @@ form, input {
 }
 
 /* Home page */
+
+#teaser {
+	background: $teaser_bg;
+	padding: 20px 30px;
+	width: 887px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#teaser_left {
+	float: left;
+	width: 500px;
+	margin-right: 50px;
+	h1 { 
+		font-size: 32px;
+		color: $dark_brown;
+	}
+	p { 
+		font-size: 14px;
+	}
+}
+
+#teaser_right {
+	float: left;
+}
 
 @mixin stapled_box($width: 219px) {
 	background: $form_bg;
