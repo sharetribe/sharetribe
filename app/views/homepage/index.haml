@@ -1,12 +1,16 @@
-#recent_listings.grid_18
-
-  .grid_5.prefix_2.suffix_2.alpha
+#teaser
+  #teaser_left
+    %h1= t(".lend_rent_help_carpool")
+    %p
+      = t(".teaser_text", :community => @current_community.name)
+      = link_to t(".tell_it_here"), new_request_path(:type => "offer")
+  #teaser_right
     #request_something_button
       = link_to t('.request_something'), new_request_path(:type => "request")
-  .grid_5.prefix_2.suffix_2.omega
     #offer_something_button
       = link_to t('.offer_something'), new_request_path(:type => "offer")
-  .clear
+  
+#recent_listings.grid_18
 
   #request_button_description.grid_7.prefix_1.suffix_1.alpha
     .button_description_fix
