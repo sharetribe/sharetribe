@@ -344,8 +344,8 @@ form, input {
 #teaser_left {
   color: #4d3d26;
   float: left;
-  width: 500px;
-  margin-right: 10px; }
+  width: 475px;
+  margin: 0 30px 5px 0; }
   #teaser_left h1 {
     font-size: 32px; }
 
@@ -365,7 +365,7 @@ form, input {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #d45207;
@@ -385,7 +385,7 @@ form, input {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #765d3a;
@@ -499,6 +499,20 @@ p.description {
   height: 0;
   width: 700px; }
 
+.blank_slate {
+  padding: 10px 15px;
+  font-size: 14px; }
+
+.blank_slate_header {
+  margin-bottom: 20px; }
+
+.blank_slate_suggestions {
+  background: #ccd1b9;
+  padding: 15px 20px 10px 20px;
+  font-size: 13px; }
+  .blank_slate_suggestions h3 {
+    font-size: 13px; }
+
 .recent_listing {
   overflow: hidden; }
 
@@ -518,9 +532,6 @@ p.description {
   background: #f98948; }
   .recent_listing_tag a:hover {
     background: #fba979; }
-
-.aarremarkkinat_hilight a {
-  background: #ee3333; }
 
 .listed_listing {
   overflow: hidden; }
@@ -1418,7 +1429,7 @@ a.edit_profile {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #d45207;
@@ -1636,7 +1647,7 @@ a.edit_profile {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #d45207;
@@ -1658,7 +1669,7 @@ a.edit_profile {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #765d3a;

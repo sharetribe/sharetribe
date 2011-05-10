@@ -1,0 +1,18 @@
+.blank_slate
+  .blank_slate_header
+    - if @current_user
+      = t(".no_open_#{slate_type}s_currently")
+      = link_to t(".add_first"), new_request_path(:type => "request")
+    - else
+      = t(".no_#{slate_type}s_visible_unless_logged_in")
+      = link_to t(".log_in"), login_path
+  .blank_slate_suggestions
+    %h3= t(".examples_of_what_you_could_#{slate_type}_to_others")
+    %p
+      %b= t(".items_to_#{slate_type}")
+      = t(".item_#{slate_type}_list")
+    %p
+      %b= t(".favors_to_#{slate_type}")
+      = t(".favor_#{slate_type}_list")
+    %p
+      %b= t(".ride_#{slate_type}")

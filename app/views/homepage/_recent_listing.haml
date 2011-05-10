@@ -14,10 +14,6 @@
       .recent_listing_tags
       - listing.share_types.each do |st|
         .recent_listing_tag= link_to t("common.share_types.#{st.name}"), listing
-    - if listing.tag_list.include?("aarremarkkinat")
-      .recent_listing_tag
-        .aarremarkkinat_hilight
-          = link_to "Aarremarkkinat", "http://www.facebook.com/event.php?eid=185279331517794"
     %p{:class => "description#{!listing.share_types.empty? ? '' : '_tall'}"}
       = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 60, :omission => "..."))
       %span

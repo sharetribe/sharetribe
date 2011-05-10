@@ -24,6 +24,7 @@ $listing_button_light_grey: #b8b19f;
 $dark_green: #223f05;
 $lighter_green: lighten($dark_green, 5%);
 $light_green: #ececdb;
+$greyish_green: #ccd1b9;
 $unread_message: #efd6ba;
 $notice_text: #264409; 
 $notice_border: #c6d880; 
@@ -437,8 +438,8 @@ form, input {
 #teaser_left {
 	color: $dark_brown;
 	float: left;
-	width: 500px;
-	margin-right: 10px;
+	width: 475px;
+	margin: 0 30px 5px 0;
 	h1 { font-size: 32px; }
 }
 
@@ -459,7 +460,7 @@ form, input {
 		display: block;
 		font-size: 14px;
 		text-align: center;
-		font-weight: bold;
+		font-weight: normal;
 		padding: 10px 0;
 		color: white;
 		background: $background;
@@ -575,6 +576,20 @@ p.description {
 	width: 700px;
 }
 
+.blank_slate {
+	padding: 10px 15px;
+	font-size: 14px;
+}
+
+.blank_slate_header { margin-bottom: 20px; }
+
+.blank_slate_suggestions {
+	background: $greyish_green;
+	padding: 15px 20px 10px 20px;
+	font-size: 13px;
+	h3 { font-size: 13px; }
+}
+
 .recent_listing {
 	overflow: hidden;
 }
@@ -595,12 +610,6 @@ p.description {
 		background: lighten($light_orange, 5%);
 		&:hover { background: lighten($light_orange, 15%); }
 	}
-}
-
-.aarremarkkinat_hilight {
-  a {
-  background: #ee3333; 
-  }
 }
 
 .listed_listing {
