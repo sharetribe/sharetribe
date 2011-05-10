@@ -5,33 +5,25 @@
       = t(".teaser_text", :community => @current_community.name)
       = link_to t(".tell_it_here"), new_request_path(:type => "offer")
   #teaser_right
-    #request_something_button
-      = link_to t('.request_something'), new_request_path(:type => "request")
-    #offer_something_button
-      = link_to t('.offer_something'), new_request_path(:type => "offer")
+    #teaser_button_container
+      #request_something_button
+        = link_to t('.request_something'), new_request_path(:type => "request")
+      #teaser_button_description
+        = t(".request_something_description")
+    #teaser_button_container
+      #offer_something_button
+        = link_to t('.offer_something'), new_request_path(:type => "offer")
+      #teaser_button_description
+        = t(".offer_something_description")
+    #teaser_browse_links
+      %p
+        = t(".or_see_what_the_others")
+        = link_to t(".are_offering"), offers_path
+        = t(".or")
+        = link_to t(".requesting"), requests_path
+      
   
 #recent_listings.grid_18
-
-  #request_button_description.grid_7.prefix_1.suffix_1.alpha
-    .button_description_fix
-      #{link_to t('.buy').capitalize, new_request_path(:type => "request", :category => "item", :share_type => "buy")}, 
-      #{link_to t('.rent'), new_request_path(:type => "request", :category => "item", :share_type => "rent")}, 
-      #{link_to t('.borrow'), new_request_path(:type => "request", :category => "item")},
-      #{link_to t('.look_for_apartment'), new_request_path(:type => "request", :category => "housing")}, 
-      #{link_to t('.ask_for_favor'), new_request_path(:type => "request", :category => "favor")}
-      #{t('.or')}
-      #{link_to t('.ride_partitive'), new_request_path(:type => "request", :category => "rideshare")}
-  #offer_button_description.grid_7.prefix_1.suffix_1.omega
-    .button_description_fix
-      #{link_to t('.offer_favors').capitalize, new_request_path(:type => "offer", :category => "favor")},
-      #{link_to t('.ride_partitive'), new_request_path(:type => "offer", :category => "rideshare")},
-      #{link_to t('.housing_partitive'), new_request_path(:type => "offer", :category => "housing")},  
-      #{t('.or')}
-      #{link_to t('.items_partitive'), new_request_path(:type => "offer", :category => "item")} 
-      #{link_to t('.to_borrow'), new_request_path(:type => "offer", :category => "item")}
-      #{t('.or')}
-      #{link_to t('.to_buy'), new_request_path(:type => "offer", :category => "item", :share_type => "sell")}
-  .clear
  
   #recent_requests.grid_9.alpha
     .recent_listings

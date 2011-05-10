@@ -425,28 +425,72 @@ form, input {
 /* Home page */
 
 #teaser {
+	color: $dark_brown;
 	background: $teaser_bg;
-	padding: 20px 30px;
-	width: 887px;
-	margin-bottom: 20px;
+	padding: 20px 30px 0 30px;
+	width: 880px;
+	margin: 0 0 30px 5px;
 	overflow: hidden;
+	p { font-size: 14px;}
 }
 
 #teaser_left {
+	color: $dark_brown;
 	float: left;
 	width: 500px;
-	margin-right: 50px;
-	h1 { 
-		font-size: 32px;
-		color: $dark_brown;
-	}
-	p { 
-		font-size: 14px;
-	}
+	margin-right: 10px;
+	h1 { font-size: 32px; }
 }
 
 #teaser_right {
+	color: $dark_brown;
 	float: left;
+	margin-top: 5px;
+}
+
+#teaser_button_container {
+	overflow: hidden;
+}
+
+@mixin home_button($background: $orange, $width: 225px) {
+	width: $width;
+	float: left;
+	a {
+		display: block;
+		font-size: 14px;
+		text-align: center;
+		font-weight: bold;
+		padding: 10px 0;
+		color: white;
+		background: $background;
+		@include rounded;
+		&:hover { background: lighten($background, 15%); }
+		&:active { 
+			background: darken($background, 10%);
+		}
+	}
+	margin-bottom: 10px;
+}
+
+#request_something_button {
+	@include home_button($orange);
+}
+
+#offer_something_button {
+	@include home_button($medium_brown);
+}
+
+#teaser_button_description {
+	padding-top: 5px;
+	margin-left: 20px;
+	float: left;
+	width: 125px;
+	font-size: 11px;
+	color: $medium_brown;
+}
+
+#teaser_browse_links {
+	margin: 10px 20px;
 }
 
 @mixin stapled_box($width: 219px) {
@@ -510,62 +554,7 @@ form, input {
 	padding: 20px 0;
 }
 
-.home_button {
-	width: 340px;
-}
-
-@mixin home_button($background: $orange, $width: 185px) {
-	width: $width;
-	a {
-		display: block;
-		font-size: 14px;
-		text-align: center;
-		font-weight: bold;
-		padding: 10px 0;
-		color: white;
-		background: $background;
-		@include rounded;
-		&:hover { background: lighten($background, 15%); }
-		&:active { 
-			background: darken($background, 10%);
-		}
-	}
-}
-
-#request_something_button {
-	@include home_button($orange);
-}
-
-#offer_something_button {
-	@include home_button($medium_brown);
-}
-
-@mixin button_description($color: $orange) {
-	a {
-		color: $color;
-		&:hover { color: darken($color, 15%); }
-		&:active { color: lighten($color, 10%); }
-	}	
-	font-size: 11px;
-	text-align: center;
-	margin-top: 5px;
-}
-
-/* Aligns button descriptions to buttons */
-.button_description_fix {
-	width: 265px;
-}
-
-#request_button_description {
-	@include button_description;
-}
-
-#offer_button_description {
-	@include button_description($medium_brown);
-}
-
 .recent_listings {
-	padding: 20px 0 0 0;
 	width: 340px;
 }
 
