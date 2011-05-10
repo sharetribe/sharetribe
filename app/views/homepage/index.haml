@@ -39,7 +39,7 @@
     .recent_listings
       %h3{:class => "brown"}
         = link_to t('.recent_offers'), offers_path
-      - if @requests.total_entries > 0
+      - if @offers.total_entries > 0
         = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
         = will_paginate(@offers)
       - else
