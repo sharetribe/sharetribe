@@ -332,24 +332,81 @@ form, input {
 
 /* Home page */
 #teaser {
+  color: #4d3d26;
   background: #e7b78d;
-  padding: 20px 30px;
-  width: 887px;
-  margin-bottom: 20px;
+  padding: 20px 30px 0 30px;
+  width: 880px;
+  margin: 0 0 30px 5px;
   overflow: hidden; }
-
-#teaser_left {
-  float: left;
-  width: 500px;
-  margin-right: 50px; }
-  #teaser_left h1 {
-    font-size: 32px;
-    color: #4d3d26; }
-  #teaser_left p {
+  #teaser p {
     font-size: 14px; }
 
+#teaser_left {
+  color: #4d3d26;
+  float: left;
+  width: 500px;
+  margin-right: 10px; }
+  #teaser_left h1 {
+    font-size: 32px; }
+
 #teaser_right {
-  float: left; }
+  color: #4d3d26;
+  float: left;
+  margin-top: 5px; }
+
+#teaser_button_container {
+  overflow: hidden; }
+
+#request_something_button {
+  width: 225px;
+  float: left;
+  margin-bottom: 10px; }
+  #request_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #request_something_button a:hover {
+      background: #f8792f; }
+    #request_something_button a:active {
+      background: #a33f05; }
+
+#offer_something_button {
+  width: 225px;
+  float: left;
+  margin-bottom: 10px; }
+  #offer_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+    color: white;
+    background: #765d3a;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #offer_something_button a:hover {
+      background: #a98553; }
+    #offer_something_button a:active {
+      background: #544229; }
+
+#teaser_button_description {
+  padding-top: 5px;
+  margin-left: 20px;
+  float: left;
+  width: 125px;
+  font-size: 11px;
+  color: #765d3a; }
+
+#teaser_browse_links {
+  margin: 10px 20px; }
 
 .recent_events {
   background: #d1c9b4;
@@ -414,73 +471,7 @@ form, input {
 .more_events_link {
   padding: 20px 0; }
 
-.home_button {
-  width: 340px; }
-
-#request_something_button {
-  width: 185px; }
-  #request_something_button a {
-    display: block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    color: white;
-    background: #d45207;
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px; }
-    #request_something_button a:hover {
-      background: #f8792f; }
-    #request_something_button a:active {
-      background: #a33f05; }
-
-#offer_something_button {
-  width: 185px; }
-  #offer_something_button a {
-    display: block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    color: white;
-    background: #765d3a;
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px; }
-    #offer_something_button a:hover {
-      background: #a98553; }
-    #offer_something_button a:active {
-      background: #544229; }
-
-/* Aligns button descriptions to buttons */
-.button_description_fix {
-  width: 265px; }
-
-#request_button_description {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 5px; }
-  #request_button_description a {
-    color: #d45207; }
-    #request_button_description a:hover {
-      color: #8a3505; }
-    #request_button_description a:active {
-      color: #f76917; }
-
-#offer_button_description {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 5px; }
-  #offer_button_description a {
-    color: #765d3a; }
-    #offer_button_description a:hover {
-      color: #433521; }
-    #offer_button_description a:active {
-      color: #98784b; }
-
 .recent_listings {
-  padding: 20px 0 0 0;
   width: 340px; }
 
 p.description {
@@ -1419,7 +1410,9 @@ a.edit_profile {
 
 #request_listing_link {
   margin-left: 10px;
-  width: 185px;
+  width: 225px;
+  float: left;
+  margin-bottom: 10px;
   width: 210px; }
   #request_listing_link a {
     display: block;
@@ -1636,7 +1629,9 @@ a.edit_profile {
     display: inline; }
 
 .accept {
-  width: 170px; }
+  width: 170px;
+  float: left;
+  margin-bottom: 10px; }
   .accept a {
     display: block;
     font-size: 14px;
@@ -1656,7 +1651,9 @@ a.edit_profile {
     font-size: 13px; }
 
 .reject {
-  width: 170px; }
+  width: 170px;
+  float: left;
+  margin-bottom: 10px; }
   .reject a {
     display: block;
     font-size: 14px;
