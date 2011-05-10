@@ -2,19 +2,20 @@
   #teaser_left
     %h1= t(".lend_rent_help_carpool")
     %p
-      = t(".teaser_text", :community => @current_community.name)
+      - community_name = (@current_community.name.include?(" ") && I18n.locale.to_s.eql?("fi")) ? "#{@current_community.name} " : @current_community.name
+      = t(".teaser_text", :community => community_name )
       = link_to t(".tell_it_here"), new_request_path(:type => "offer")
   #teaser_right
-    #teaser_button_container
-      #request_something_button
-        = link_to t('.request_something'), new_request_path(:type => "request")
-      #teaser_button_description
-        = t(".request_something_description")
     #teaser_button_container
       #offer_something_button
         = link_to t('.offer_something'), new_request_path(:type => "offer")
       #teaser_button_description
         = t(".offer_something_description")
+    #teaser_button_container
+      #request_something_button
+        = link_to t('.request_something'), new_request_path(:type => "request")
+      #teaser_button_description
+        = t(".request_something_description")
     #teaser_browse_links
       %p
         = t(".or_see_what_the_others")
@@ -29,14 +30,20 @@
     .recent_listings
       %h3{:class => "orange"}
         = link_to t('.recent_requests'), requests_path
-      = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
-      = will_paginate(@requests)
+      - if @requests.total_entries > 0
+        = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
+        = will_paginate(@requests)
+      - else
+        = render :partial => "blank_slate", :locals => { :slate_type => "request" }
   #recent_offers.grid_9.omega
     .recent_listings
       %h3{:class => "brown"}
         = link_to t('.recent_offers'), offers_path
-      = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
-      = will_paginate(@offers)
+      - if @requests.total_entries > 0
+        = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
+        = will_paginate(@offers)
+      - else
+        = render :partial => "blank_slate", :locals => { :slate_type => "offer" }
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
   
 #recent_event_box.grid_6
