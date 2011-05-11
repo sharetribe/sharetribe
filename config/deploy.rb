@@ -1,4 +1,5 @@
 require 'thinking_sphinx/deploy/capistrano'
+require 'bundler/capistrano'
 
 
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
@@ -91,15 +92,9 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
-    run "ln -nfs #{shared_path}/vendor_bundle #{release_path}/vendor/bundle"
     if ENV['DEPLOY_ENV'] == "dbtest"
       run "ln -nfs #{shared_path}/system/sphinx.yml #{release_path}/config/sphinx.yml"
     end 
-  end
-
-  desc "Run the bundle install on the server"
-  task :bundle do
-    run "cd #{release_path} && RAILS_ENV=#{rails_env} bundle install --deployment --without test"
   end
     
   task :finalize do
@@ -117,7 +112,6 @@ end
 
 after "deploy:update_code" do
   deploy.symlinks_to_shared_path
-  deploy.bundle
   whenever.update_crontab
 end
 
