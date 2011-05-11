@@ -15,7 +15,7 @@ Feature: User changes language
   Scenario: User changes language when logged in
     Given I am logged in
     When I select "Finnish" from "locale"
-    Then I should see "Tarjoa jotain" within "#offer_something_button"
+    Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   
   
   
