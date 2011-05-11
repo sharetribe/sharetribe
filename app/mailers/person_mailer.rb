@@ -64,10 +64,11 @@ class PersonMailer < ActionMailer::Base
   
   # Used to send notification to Kassi admins when somebody
   # gives feedback on Kassi
-  def new_feedback(feedback)
+  def new_feedback(feedback, current_community)
     @no_settings = true
     @feedback = feedback
     @feedback.email ||= feedback.author.try(:email)
+    @current_community = current_community
     subject = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject, :reply_to => @feedback.email)
   end

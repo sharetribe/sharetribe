@@ -6,7 +6,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     #And I check "Buy"  #This combined with adding an image breaks the test in a mysterious way.
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
@@ -24,7 +24,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Offer something"
+    When I follow "List your items and skills!"
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
@@ -36,7 +36,7 @@ Feature: User creates a new listing
   Scenario: Creating a new favor request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Favor"
     And I should not see "Borrow"
     And I fill in "listing_title" with "Massage"
@@ -50,7 +50,7 @@ Feature: User creates a new listing
   Scenario: Creating a new rideshare request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Rideshare"
     And I fill in "listing_origin" with "Otaniemi"
     And I fill in "listing_destination" with "Turku"
@@ -63,7 +63,7 @@ Feature: User creates a new listing
   Scenario: Trying to create a new request without being logged in
     Given I am not logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     Then I should see "You must log in to Kassi to create a new request." within "#notifications"
     And I should see "Log in to Kassi" within "h2"
 
@@ -71,7 +71,7 @@ Feature: User creates a new listing
   Scenario: Trying to create a new item request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I uncheck "borrow"
     And I attach the file "spec/fixtures/i_am_not_image.txt" to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
@@ -87,7 +87,7 @@ Feature: User creates a new listing
   Scenario: Trying to create a new rideshare request with insufficient information
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Rideshare"
     And I fill in "Origin" with "Test"
     And I select "31" from "listing_valid_until_3i"

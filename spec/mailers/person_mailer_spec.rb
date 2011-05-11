@@ -88,7 +88,8 @@ describe PersonMailer do
   
   it "should send email to admins of new feedback" do
     @feedback = Factory(:feedback)
-    email = PersonMailer.new_feedback(@feedback).deliver
+    @community = Factory(:community)
+    email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
   end
