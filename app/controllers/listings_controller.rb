@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   before_filter :ensure_authorized_to_view, :only => :show
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
+    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:type]}", "create_one_here".to_sym, sign_up_path])
   end
   
   before_filter :only => [ :edit, :update, :close ] do |controller|
