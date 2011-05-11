@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hours do
-  rake "thinking_sphinx:reindex"
+  rake "thinking_sphinx:reindex", :cron_log => "/dev/null" 
 end
