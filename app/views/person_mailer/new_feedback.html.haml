@@ -1,4 +1,4 @@
-= "#{(@feedback.author ? @feedback.author.name : 'Unlogged user')} has sent the following feedback from #{APP_CONFIG.production_server}-Kassi:"
+= "#{(@feedback.author ? @feedback.author.name : 'Unlogged user')} has sent the following feedback from Kassi community '#{@current_community.name}':"
 
 %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
   - text_with_line_breaks do

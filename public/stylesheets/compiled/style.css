@@ -109,7 +109,8 @@ form, input {
 
 #logo_link {
   line-height: 14px;
-  margin-top: 15px; }
+  margin-top: 15px;
+  color: #f7f5e6; }
   #logo_link a {
     color: #f7f5e6; }
     #logo_link a:hover {
@@ -466,7 +467,9 @@ form, input {
   width: 100%;
   margin: 10px 0;
   padding: 0;
-  height: 0; }
+  height: 0;
+  width: 180px;
+  margin-left: 19px; }
 
 .more_events_link {
   padding: 20px 0; }

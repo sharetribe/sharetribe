@@ -228,6 +228,7 @@ form, input {
 #logo_link {
 	line-height: 14px;
 	margin-top: 15px;
+	color: $bg_color;
 	a { 
 		color: $bg_color;
 		&:hover { color: $light_orange; }
@@ -549,6 +550,8 @@ form, input {
 
 .event_spacer {
 	@include spacer($medium_brown, dashed);
+	width: 180px;
+	margin-left: 19px;
 }
 
 .more_events_link {

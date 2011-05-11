@@ -18,7 +18,7 @@ Feature: User views profile badges
        | person | 
        | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I fill in "listing_title" with "Hammer"
     And I press "Save request"
     And the system processes jobs
