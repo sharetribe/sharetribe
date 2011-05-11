@@ -121,6 +121,7 @@ Kassi::Application.routes.draw do
         get :about
         get :how_to_use
         get :terms
+        get :register_details
       end  
     end
     resource :terms do
