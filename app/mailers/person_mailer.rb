@@ -69,7 +69,7 @@ class PersonMailer < ActionMailer::Base
     @feedback = feedback
     @feedback.email ||= feedback.author.try(:email)
     @current_community = current_community
-    subject = "Uutta palautetta #{APP_CONFIG.server_name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
+    subject = "Uutta palautetta #{@current_community.name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject, :reply_to => @feedback.email)
   end
   
