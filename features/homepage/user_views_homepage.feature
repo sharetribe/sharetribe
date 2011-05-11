@@ -79,6 +79,26 @@ Feature: User views homepage
     And I should not see "massage"
     And I should see "saw"
   
+  @javascript
+  Scenario: User browses homepage when there is no content
+    Given there are following users:
+       | person | 
+       | kassi_testperson1 |
+    When I am on the homepage
+    Then I should see "No item, favor or rideshare requests visible to non-logged-in users."
+    And I should see "No item, favor or rideshare offers visible to non-logged-in users."
+    When I log in as "kassi_testperson2"
+    Then I should see "No open item, favor or rideshare requests."
+    And I should see "No open item, favor or rideshare offers."
+    When there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
+    And I am on the homepage
+    Then I should not see "No open item, favor or rideshare requests."
+    And I should see "No open item, favor or rideshare offers."
+    When there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
+    And I am on the homepage
+    Then I should not see "No open item, favor or rideshare requests."
+    And I should not see "No open item, favor or rideshare offers."
+  
   @pending
   Scenario: Latest transactions on the homepage
     Given the latest transaction is "Johnny offered an item drill to Bill" #This Given needs better structure
