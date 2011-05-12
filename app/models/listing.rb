@@ -367,11 +367,12 @@ class Listing < ActiveRecord::Base
       :title => self.title,
       :listing_type => self.listing_type,
       :category => self.category,
-      :origin => self.origin,
-      :destination => self.destination,
+      :id => self.id
     }
     
     json_dict[:location] = self.location.as_json if self.location
+    json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
+    json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
     
     json_dict
   end
