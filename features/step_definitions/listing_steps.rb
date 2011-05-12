@@ -11,6 +11,19 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
                             )
 end
 
+Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
+  @listing = Listing.create!(:listing_type => type, 
+                             :category => category, 
+                             :title => title,
+                             :description => "test",
+                             :tag_list => (tags ? tags.split(", ") : nil),
+                             :share_type_attributes => (share_type ? share_type.split(",") : nil),
+                             :author_id => (@people && @people[author] ? @people[author].id : Person.first.id),
+                             :valid_until => 3.months.from_now,
+                             :visibility => "everybody"
+                            )
+end
+
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
   @listing = Listing.create!(:listing_type => type, 
                              :category => "rideshare", 

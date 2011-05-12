@@ -75,7 +75,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMa
    */
   this.markers_ = [];
   this.markerContents_ = [];
-  this.showingMarker_ = [];
+  this.showingMarker_ = showingMarker;
 
   this.infowindow_ = infowindow;
 
@@ -184,7 +184,7 @@ function MarkerClusterer(map, opt_markers, markerContents, infowindow, showingMa
 
   // Finally, add the markers
   if (opt_markers && opt_markers.length) {
-    this.addMarkers(opt_markers, markerContents, showingMarker, false);
+    this.addMarkers(opt_markers, markerContents, false);
   }
 }
 
@@ -408,9 +408,9 @@ MarkerClusterer.prototype.getCalculator = function() {
  * @param {Array.<google.maps.Marker>} markers The markers to add.
  * @param {boolean=} opt_nodraw Whether to redraw the clusters.
  */
-MarkerClusterer.prototype.addMarkers = function(markers, markerContents, showingMarker, opt_nodraw) {
+MarkerClusterer.prototype.addMarkers = function(markers, markerContents, opt_nodraw) {
   for (var i = 0, marker; marker = markers[i]; i++) {
-    this.pushMarkerTo_(marker, markerContents[i], showingMarker[i]);
+    this.pushMarkerTo_(marker, markerContents[i]);
   }
   if (!opt_nodraw) {
     this.redraw();
@@ -424,7 +424,7 @@ MarkerClusterer.prototype.addMarkers = function(markers, markerContents, showing
  * @param {google.maps.Marker} marker The marker to add.
  * @private
  */
-MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent, showingMarker) {
+MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent) {
   marker.isAdded = false;
   if (marker['draggable']) {
     // If the marker is draggable add a listener so we update the clusters on
@@ -437,7 +437,6 @@ MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent, showin
   }
   this.markers_.push(marker);
   this.markerContents_.push(markerContent);
-  this.showingMarker_.push(showingMarker);
 };
 
 
@@ -482,7 +481,6 @@ MarkerClusterer.prototype.removeMarker_ = function(marker) {
 
   this.markers_.splice(index, 1);
   this.markerContents_.splice(index,1);
-  this.showingMarker_.splice(index,1);
 
   return true;
 };
@@ -671,7 +669,6 @@ MarkerClusterer.prototype.clearMarkers = function() {
   // Set the markers a empty array.
   this.markers_ = [];
   this.markerContents_ = [];
-  this.showingMarker_ = [];
 };
 
 
@@ -797,7 +794,7 @@ MarkerClusterer.prototype.createClusters_ = function() {
   var bounds = this.getExtendedBounds(mapBounds);
 
   for (var i = 0, marker; marker = this.markers_[i]; i++) {
-    if (!marker.isAdded && this.isMarkerInBounds_(marker, bounds) && (!this.showingMarker_[i])) {
+    if (!marker.isAdded && this.isMarkerInBounds_(marker, bounds) && (showingMarker!=marker.getTitle())) {
       this.addToClosestCluster_(marker, i);
     }
   }
@@ -1073,7 +1070,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
   }
   if (sameLocation) {
   	if (!this.showingInfo_) {
-		this.cluster_.markerClusterer_.showingMarker_.forEach(function(infoshow) { infoshow = false; });
+		this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
 		this.showingInfo_ = true;
 		var clusterContent = "<div style=\"width:360px; background-color:#F7F5E6\"><div style=\"height:10px;\"></div>";
 		for (var i = 0, marker; marker = markers[i]; i++) {
@@ -1086,6 +1083,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
 	}
 	else {
 		this.cluster_.markerClusterer_.infowindow_.close();
+		this.cluster_.markerClusterer_.showingMarker_="";
 		this.showingInfo_ = false;
 	}
   }
@@ -1093,7 +1091,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
     // Zoom into the cluster.
 	var z = this.map_.getZoom();
     this.map_.fitBounds(this.cluster_.getBounds());
-	this.map_.setZoom(z+1);
+	if ((this.map_.getZoom()-z)>2) this.map_.setZoom(z+2);
   }
 };
 
