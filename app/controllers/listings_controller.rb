@@ -82,38 +82,29 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    unless params.has_key?(:bounds_sw) && params.has_key?(:bounds_ne) then
-      # Send error JSON-message; these params are required
-      render :json => { :errors => ["Parameters missing! bounds_sw and bounds_ne are required"]}
-    end 
     
-    # Bounds of the shown map; query only listings within these bounds (South-West, North-East -coordinates)
-    bound_sw_lat, bound_sw_lng = params[:bounds_sw].split('|')
-    bound_ne_lat, bound_ne_lng = params[:bounds_ne].split('|')
-    
-    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).
-                where('locations.latitude <= ? AND locations.longitude <= ? AND locations.latitude >= ? AND locations.longitude >= ?', 
-                bound_ne_lat, bound_ne_lng, bound_sw_lat, bound_sw_lng).
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
                 order("created_at DESC").find_with(params, @current_user)
     
-    # This has not yet been implemented
-    #@locations ={:data => [{:title => "Item1", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.1796, :lng => 24.8004, :date => "2 hours ago"},
-     #                      {:title => "Item2", :category => "item", :type => ["borrowing","buying"], :listing_type => "offer", :description => "description", :lat => 60.236744, :lng => 25.037842, :date => "2 hours ago"},
-     #                      {:title => "Rideshare1", :category => "rideshare", :type => [], :listing_type => "request", :description => "description", :lat => 60.1946, :lng => 24.7928, :latdest => 60.302124, :lngdest => 25.039902, :date => "2 days ago"},
-     #                      {:title => "Rideshare2", :category => "rideshare", :type => [], :listing_type => "request", :description => "Espoo - Helsinki", :lat => 60.220037, :lng => 24.656067, :latdest => 60.176014, :lngdest => 24.941025, :date => "3 days ago"},
-     #                      {:title => "Housing1", :category => "housing", :type => ["renting out"], :listing_type => "offer", :description => "description", :lat => 60.1805, :lng => 24.8502, :date => "4 days ago"}, 
-     #                      {:title => "Favor1", :category => "favor", :type => [], :listing_type => "request", :description => "description", :lat => 60.1636, :lng => 24.8066, :date => "4 hours ago"}, 
-     #                      {:title => "Item3", :category => "item", :type => ["trading"], :listing_type => "request", :description => "description", :lat => 60.1980, :lng => 24.8742, :date => "20 hours ago"},
-     #                      {:title => "Housing2", :category => "housing", :type => ["renting"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "3 hours ago"},
-     #                      {:title => "Favor2", :category => "favor", :type => [], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "5 hours ago"},
-     #                      {:title => "Rideshare3", :category => "rideshare", :type => [], :listing_type => "request", :description => "X - Y", :lat => 60.1950, :lng => 24.8422, :latdest => 60.302124, :lngdest => 25.039902, :date => "3 days ago"},
-     #                      {:title => "Item4", :category => "item", :type => ["buying"], :listing_type => "request", :description => "description", :lat => 60.1950, :lng => 24.8422, :date => "22 hours ago"}], :errors => []}
-    #render :json => @locations
-    @render_array = [];
-    @listings.each do |listing|
-      @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
-    end
-    render :json => { :info => @render_array, :data => @listings }
+    
+    render :json => { :data => @listings }
+  end
+  
+  def listing_bubble
+    if params[:id] then
+      @listing = Listing.find params[:id]
+      render :partial => "homepage/recent_listing", :locals => {:listing => @listing}
+    end 
+  end
+  
+  def listing_all_bubbles
+      @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
+                order("created_at DESC").find_with(params, @current_user)
+      @render_array = [];
+      @listings.each do |listing|
+        @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
+      end
+      render :json => { :info => @render_array }
   end
 
   def show

@@ -162,6 +162,9 @@ Kassi::Application.routes.draw do
   match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
   match "/api/query" => "listings#serve_listing_data", :as => :listings_data
+  match "/:locale/listings_bubbles/all" => "listings#listing_all_bubbles", :as => :listing_all_bubbles
+  match "/:locale/listings_bubbles/:id" => "listings#listing_bubble", :as => :listing_bubble
+  
   
 
   

@@ -152,4 +152,104 @@ Feature: User browses listings
     And I should not see "apartment" within listings
   
   
+  @javascript
+  Scenario: User browses requests page with tags
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy" and with tags "car"
+    And there is item request with title "other car spare parts" from "kassi_testperson2" and with share type "buy" and with tags "car"
+    And there is favor request with title "massage" from "kassi_testperson1" and with tags "massage"
+    And there is rideshare request from "Helsinki" to "Turku" by "kassi_testperson1" and with tags "helsinki,turku"
+    And there is housing request with title "Apartment" from "kassi_testperson2" and with share type "buy"
+    And there is item request with title "axe" from "kassi_testperson2" and with share type "borrow,trade" and with tags "axe"
+    And that listing is closed
+    And I am on the home page
+    When I follow "Requests"
+    Then I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should see "Apartment"
+    And I should not see "axe"
+    And I follow "axe"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "massage"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "helsinki"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "car"
+    And I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    
+  @javascript
+  Scenario: User browses offers page with tags
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "buy" and with tags "car"
+    And there is item offer with title "other car spare parts" from "kassi_testperson2" and with share type "buy" and with tags "car"
+    And there is favor offer with title "massage" from "kassi_testperson1" and with tags "massage"
+    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1" and with tags "helsinki,turku"
+    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "buy"
+    And there is item offer with title "axe" from "kassi_testperson2" and with share type "borrow,trade" and with tags "axe"
+    And that listing is closed
+    And I am on the home page
+    When I follow "Offers"
+    Then I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should see "Apartment"
+    And I should not see "axe"
+    And I follow "axe"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "massage"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "helsinki"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "car"
+    And I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+
   
