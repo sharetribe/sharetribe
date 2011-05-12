@@ -162,7 +162,7 @@ class ListingsController < ApplicationController
   
   def update
     if @listing.update_fields(params[:listing])
-      @listing.location.update_attributes(params[:location])
+      @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
     else
