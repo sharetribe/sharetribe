@@ -484,18 +484,20 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 
  function initialize_browse_view(listing_type, listing_style, locale) {
        $('#left_link_panel_browse').find('a').click(
-               function() {
-                       if (listing_style == 'listing') {
-                       		$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                       }
-                       reload_browse_view($(this), listing_type, listing_style, locale);
-               }
+       		function() {
+            	if (listing_style == 'listing') {
+                	$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+                }
+                reload_browse_view($(this), listing_type, listing_style, locale);
+            }
        );
 	   $('#tag_cloud').find('a').click(
-		   function() { 
-			   $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-			   reload_browse_view($(this), listing_type, locale);
-		   }
+		   	function() {
+		   		if (listing_style == 'listing') {
+					$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+				}
+			   	reload_browse_view($(this), listing_type,listing_style, locale);
+		   	}
 	   );
 }
 
