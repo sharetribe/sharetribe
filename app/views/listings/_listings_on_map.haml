@@ -13,6 +13,7 @@
     var listing_style = "#{@listing_style}";
     var listing_category = ["all"];
     var listing_sharetypes = ["all"];
+    var listing_tags = [];
     
     var infowindow = new google.maps.InfoWindow();
     var directionsService = new google.maps.DirectionsService();
@@ -78,7 +79,7 @@
       
       markerContents = [];
       markers = [];
-      $.get('/en/listings_bubbles/all',{ listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes }, function(data){
+      $.get('/en/listings_bubbles/all',{ listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data){
         var data_arr = data.info;
     		for (i in data_arr) {
           var contentString = '<div style="background-color:#F7F5E6">'+data_arr[i]+'</div>';
@@ -87,7 +88,7 @@
       });
       
       var request_path = '/api/query'
-    	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes }, function(data) {	
+    	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data) {	
 
     	  var data_arr = data.data;
         
@@ -186,9 +187,10 @@
     
     
     // Simple callback for passing filter changes to the mapview
-    function filtersUpdated(category, sharetypes) {
+    function filtersUpdated(category, sharetypes, tags) {
         listing_category = category;
         listing_sharetypes = sharetypes;
+        listing_tags = tags;
         clearMarkers();
         addListingMarkers();
     }

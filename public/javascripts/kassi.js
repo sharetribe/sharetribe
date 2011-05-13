@@ -473,7 +473,7 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 	});
 	if (listing_style == "map")
 		//var request_path = '/' + locale + '/loadmap'
-		filtersUpdated(sections['categories'], sections['sharetypes']);
+		filtersUpdated(sections['categories'], sections['sharetypes'], sections['tags']);
 	else {
 		var request_path = '/' + locale + '/load'
 		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'], 'tag[]': sections['tags'] }, function(data) {
