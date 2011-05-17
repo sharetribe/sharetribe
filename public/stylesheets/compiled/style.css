@@ -493,6 +493,11 @@ p.description {
   height: 85px;
   float: left; }
 
+.listing_map {
+  width: 85px;
+  height: 85px;
+  float: right; }
+
 .listing_image_item a {
   height: 85px;
   display: block;
@@ -558,6 +563,26 @@ p.description {
     margin: 21px 0 2px 0;
     min-height: 45px; }
   .listed_listing_text h5 {
+    float: left; }
+
+.listed_listing_text_mobile {
+  float: left;
+  font-size: 11px;
+  width: 519px;
+  margin-left: 10px;
+  margin-right: 10px; }
+  .listed_listing_text_mobile span {
+    color: #797979;
+    font-style: italic;
+    font-size: 10px;
+    float: right;
+    padding-top: 1px; }
+    .listed_listing_text_mobile span a {
+      font-weight: normal; }
+  .listed_listing_text_mobile p {
+    margin: 21px 0 2px 0;
+    min-height: 45px; }
+  .listed_listing_text_mobile h5 {
     float: left; }
 
 /* New listing page */

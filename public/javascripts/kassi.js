@@ -1,5 +1,4 @@
 // Custom Javascript functions for Kassi
-
 // Add custom validation methods
 $.validator.
 	addMethod( "accept", 
@@ -81,6 +80,7 @@ $.validator.
 	 	}
 	);
 
+
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -106,7 +106,7 @@ function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
     pathToTabImage: '/images/feedback_handles.png',
-		imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+	imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
     speed: 300,                               //speed of animation
@@ -124,7 +124,7 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -149,6 +149,15 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	});
 	translate_validation_messages(locale);
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	
+	// Change the origin and destination requirements based on listing_type
+	var rs = null;
+	if (is_rideshare == "true") {
+		rs = true;
+	} else {
+		rs = false;
+	}
+	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[share_type_attributes][]") {
@@ -167,9 +176,9 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		},
 		debug: false,
 		rules: {
-			"listing[title]": {required: true, minlength: 2},
-			"listing[origin]": {required: true, minlength: 2},
-			"listing[destination]": {required: true, minlength: 2},
+			"listing[title]": {required: true},
+			"listing[origin]": {required: rs, address_validator: true},
+			"listing[destination]": {required: rs, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -186,10 +195,15 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
+		 // Run validations only when submitting the form.
+		 onkeyup: false,
+         onclick: false,
+         onfocusout: false,
+		 onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "false");
 		}
-	});
+	});	
 	set_textarea_maxlength();
 	auto_resize_text_areas();
 }
@@ -309,7 +323,7 @@ function initialize_terms_form() {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 }
 
-function initialize_update_profile_info_form(locale, person_id) {
+function initialize_update_profile_info_form(locale, person_id,address_validator) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();
 	translate_validation_messages(locale);
@@ -319,13 +333,17 @@ function initialize_update_profile_info_form(locale, person_id) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
-			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[street_address]": {required: false, maxlength: 50},
-			"person[postal_code]": {required: false, maxlength: 8},
-			"person[city]": {required: false, maxlength: 50},
-			"person[phone_number]": {required: false, maxlength: 25}
+                    "person[street_address]": {required: false, address_validator: true},
+			 "person[given_name]": {required: true, minlength: 2, maxlength: 30},
+			 			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			// 			"person[postal_code]": {required: false, maxlength: 8},
+			// 			"person[city]": {required: false, maxlength: 50},
+						"person[phone_number]": {required: false, maxlength: 25}
 		},
+		 onkeyup: false,
+         onclick: false,
+         onfocusout: false,
+		 onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, locale, "true");
 		}
@@ -526,6 +544,7 @@ function translate_validation_messages_to_finnish() {
 		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),
 		range: $.validator.format("Kentän arvon tulee olla välillä {0} ja {1}."),
 		max: $.validator.format("Arvo voi olla enintään {0}."),
+		address_validator: $.validator.format("Osoitetta ei löytynyt."),
 		min: $.validator.format("Arvon täytyy olla vähintään {0}."),
 		min_date: "Ilmoituksen viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki."
 	});
@@ -663,3 +682,4 @@ function disable_and_submit(form_id, form, locale, ajax) {
   	form.submit();
 	}	
 }
+
