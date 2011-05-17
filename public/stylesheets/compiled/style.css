@@ -2,6 +2,7 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 @import url('../uniform.kassi.css');
+@import url('../massi.css');
 /* Colors */
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {
@@ -884,6 +885,13 @@ span.not_visible {
     padding: 9px 9px; }
     #new_listing_form_main input.text_field:focus {
       background: white; }
+  #new_listing_form_main .map_canvas {
+    width: 398px;
+    border: 0;
+    background: #f7f5e6;
+    font-size: 14px;
+    height: 250px;
+    margin: 0px 9px 0px 170px; }    
   #new_listing_form_main input.send_button {
     font-size: 14px;
     font-weight: bold;

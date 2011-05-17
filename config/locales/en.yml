@@ -375,6 +375,8 @@ en:
       departure_time:  
         departure_time: "Departure time"
         at: "At"  
+      location:
+        location: "Location"
       visibility:
         visibility: "Visibility"
         everybody: "Everybody"
@@ -438,6 +440,28 @@ en:
     edit:
       edit_request: "Edit request"
       edit_offer: "Edit offer"  
+  mapview:
+    please_comment: "Comment"
+    index:
+      requests: "Requests"
+      offers: "Offers"
+      category: "Category"      
+      all_categories: "All categories"
+      request_type: "Request type"
+      offer_type: "Offer type"
+      all_request_types: "All request types"
+      all_offer_types: "All offer types"
+      items: "Items"
+      favors: "Favors"
+      rideshare: "Rideshare"
+      housing: "Housing"
+      list_view: "List view"
+      map_view: "Map view"
+      search_verb: "Search"
+      did_not_found_what_you_were_looking_for: "Didn't find what you need?"
+      request_something: "Request something!"
+      you_have_something_others_do_not: "Have something to offer?"
+      offer_something: "Let others know!"
   people:
     badge_description:
       badge_achieved_at: "Badge achieved "
@@ -635,6 +659,10 @@ en:
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_received_testimonials: "...somebody gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
+  tag_cloud:
+    tag_used:
+      with_tag: "With tag"
+      without_tag: "Without tag"
   terms:
     show:
       accept_terms: "Accepting Kassi terms of use"

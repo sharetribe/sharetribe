@@ -1,0 +1,50 @@
+:javascript
+  var map;
+  var geocoder;
+  var marker;
+  var helsinki = new google.maps.LatLng(60.17, 24.94);
+
+  function initialize_map() {
+
+    var myOptions = {
+      center: helsinki,
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+
+    google.maps.event.addListener(map, 'click', getAddress);
+    geocoder = new google.maps.Geocoder();
+
+    marker = new google.maps.Marker({
+      position: helsinki,
+      map: map,
+    });
+
+  }
+
+  function getAddress(response) {
+    if (response.latLng != null) {
+      geocoder.geocode({location: response.latLng}, showAddress);
+    }
+  }
+
+  function showAddress(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.fitBounds(results[0].geometry.viewport);
+      document.getElementById("location_address").value = results[0].formatted_address;
+      document.getElementById("location_latitude").value = results[0].geometry.location.lat();
+      document.getElementById("location_longitude").value = results[0].geometry.location.lng();
+      marker.setPosition(results[0].geometry.location);
+    }
+  }
+
+:javascript
+  $(document).ready(function() {
+    initialize_map();
+    #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @listing.location.nil? || @listing.location.address.nil? }
+  });
+
+
+

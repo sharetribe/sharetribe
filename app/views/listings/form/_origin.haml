@@ -1,3 +1,11 @@
 .new_listing_form_field_container
-  = form.label :origin, t(".origin") + "*:", :class => "input"
-  = form.text_field(:origin, :class => "title_text_field", :maxlength => "48")
+  = fields_for :origin_loc do |origin_form|
+    = origin_form.label :address, t('.origin') + ":", :class => "input"
+    = origin_form.text_field(:address, :class => "title_text_field", :maxlength => "48", :onchange => "geocoder.geocode({address: this.value}, showOriginAddress); return false")
+    = origin_form.hidden_field(:latitude)
+    = origin_form.hidden_field(:longitude)
+    
+  #origin-map-canvas{:class => "map_canvas"}
+
+  = form.hidden_field(:origin)
+

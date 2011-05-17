@@ -1,6 +1,9 @@
 class Listing < ActiveRecord::Base
   
   include LocationsHelper
+  include ApplicationHelper
+  include ActionView::Helpers::TranslationHelper
+  include Rails.application.routes.url_helpers
   
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
@@ -24,6 +27,11 @@ class Listing < ActiveRecord::Base
   has_many :comments
   
   has_many :share_types
+  
+  has_one :location, :dependent => :destroy
+  has_one :origin_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "origin_loc"}
+  has_one :destination_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "destination_loc"}
+
   
   scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
@@ -176,8 +184,11 @@ class Listing < ActiveRecord::Base
     end
     listings = where(conditions)
     if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
+      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group('share_types.listing_id')
     end
+    if params[:tag]
+      listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
+    end 
     listings.visible_to(current_user).order("listings.id DESC")
   end
   
@@ -348,6 +359,22 @@ class Listing < ActiveRecord::Base
 
       SmsHelper.send(message, request.author.phone_number)
     end
+  end
+  
+  # This is used to provide clean JSON-strings for map view queries
+  def as_json(options = {})
+    json_dict = {
+      :title => self.title,
+      :listing_type => self.listing_type,
+      :category => self.category,
+      :id => self.id
+    }
+    
+    json_dict[:location] = self.location.as_json if self.location
+    json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
+    json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
+    
+    json_dict
   end
   
 end
