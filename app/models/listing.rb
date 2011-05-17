@@ -34,6 +34,7 @@ class Listing < ActiveRecord::Base
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
+  scope :public, :conditions  => "visibility = 'everybody'"
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
@@ -216,9 +217,12 @@ class Listing < ActiveRecord::Base
   end
   
   def self.find_with(params, current_user=nil, current_community=nil)
+    params = params || {}  # Set params to empty hash if it's nil
     conditions = []
-    conditions[0] = "listing_type = ?"
-    conditions[1] = params[:listing_type]
+    if params[:listing_type] && !params[:listing_type].eql?("all") 
+      conditions[0] = "listing_type = ?"
+      conditions[1] = params[:listing_type]
+    end
     if params[:category] && !params[:category][0].eql?("all") 
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]

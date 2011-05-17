@@ -100,11 +100,13 @@ class ListingsController < ApplicationController
     end
   end
   
-  #shows a random listing (that is visible to all)
+  #shows a random listing from current community
   def random
-    conditions = "open = 1 AND valid_until >= '" + DateTime.now.to_s + "' AND visibility = 'everybody'"
-        
-    open_listings_ids = Listing.select("id").where(conditions).all
+    open_listings_ids = Listing.open.select("id").find_with(nil, @current_user, @current_community).all
+    if open_listings_ids.empty?
+      redirect_to root and return
+      #render :action => :index and return
+    end
     random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)].id
     #redirect_to listing_path(random_id)
     @listing = Listing.find_by_id(random_id)
