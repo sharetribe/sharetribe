@@ -13,8 +13,9 @@ Feature: User updates profile information
     And I fill in "Given name*:" with "Test"
     And I fill in "Family name*:" with "Dude"
     And I fill in "Street address" with "Test Street 1"
-    And I fill in "Postal code" with "11111"
-    And I fill in "City" with "Turku"
+#These features removed with google map functionality
+#And I fill in "Postal code" with "11111"
+#And I fill in "City" with "Turku"
     And I fill in "Phone number" with "0700-715517"
     And I fill in "About you:" with "Some random text about me"
     And I press "Save information"

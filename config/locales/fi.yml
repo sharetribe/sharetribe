@@ -375,6 +375,8 @@ fi:
       departure_time:  
         departure_time: "Lähtöaika"  
         at: "Kellonaika"
+      location:
+        location: "Sijainti"
       visibility:
         visibility: "Näkyvyys"
         everybody: "Kaikille"
@@ -438,6 +440,28 @@ fi:
     edit:
       edit_request: "Muokkaa pyyntöä"
       edit_offer: "Muokkaa tarjousta"  
+  mapview:
+    please_comment: "Kommentoi"
+    index:
+      requests: "Pyynnöt"
+      offers: "Tarjoukset"
+      category: "Kategoria"
+      all_categories: "Kaikki kategoriat"
+      request_type: "Pyyntötapa"
+      offer_type: "Tarjoustapa"
+      all_request_types: "Kaikki pyyntötavat"
+      all_offer_types: "Kaikki tarjoustavat"
+      items: "Tavarat"
+      favors: "Palvelukset"
+      rideshare: "Kimppakyydit"
+      housing: "Asuminen"
+      list_view: "Listanäkymä"
+      map_view: "Karttanäkymä"
+      search_verb: "Hae"
+      did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
+      request_something: "Jätä avoin pyyntö!"
+      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+      offer_something: "Laadi tarjous!"
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
@@ -635,6 +659,10 @@ fi:
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+  tag_cloud:
+    tag_used:
+      with_tag: "Avainsanalla"
+      without_tag: "Ilman avainsanaa"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"
