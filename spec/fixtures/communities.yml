@@ -2,6 +2,7 @@ test_community:
   id: 1
   name: "Test"
   domain: test
+  consent: "test_consent0.1"
   settings: <%= {
      "locales" => ["en", "fi"],
      "asi_welcome_mail" => true}.to_yaml.inspect %>

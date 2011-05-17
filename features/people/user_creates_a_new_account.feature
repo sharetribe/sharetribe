@@ -16,6 +16,7 @@ Feature: User creates a new account
     And I check "person_terms"
     And I press "Create account"
     Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
+    And Most recently created user should be member of "test" community with its latest consent accepted
   
 
   @javascript  
