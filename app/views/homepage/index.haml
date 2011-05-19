@@ -33,6 +33,9 @@
       - if @requests.total_entries > 0
         = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
         = will_paginate(@requests)
+        - if @requests.total_pages < 2 && @private_listings && @private_listings["request"].present? && @private_listings["request"] > 0
+          .request_spacer
+          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "request", :private_listings_count =>  @private_listings["request"]}
       - else
         = render :partial => "blank_slate", :locals => { :slate_type => "request" }
   #recent_offers.grid_9.omega
@@ -42,6 +45,9 @@
       - if @offers.total_entries > 0
         = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
         = will_paginate(@offers)
+        - if @offers.total_pages < 2 && @private_listings && @private_listings["offer"].present? && @private_listings["offer"] > 0
+          .offer_spacer
+          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "offer", :private_listings_count =>  @private_listings["offer"]}       
       - else
         = render :partial => "blank_slate", :locals => { :slate_type => "offer" }
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 

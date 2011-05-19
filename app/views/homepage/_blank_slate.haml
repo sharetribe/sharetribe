@@ -15,7 +15,9 @@
       = link_to t(".log_in"), login_path
     - else # Blank slate telling there are no listings
       = t(".no_#{slate_type}s_visible_unless_logged_in")
-      = link_to t(".log_in").capitalize, login_path
+      = link_to t(".create_new_account_for_yourself"), sign_up_path
+      = t("common.or")
+      = link_to t(".log_in"), login_path
   .blank_slate_suggestions
     %h3= t(".examples_of_what_you_could_#{slate_type}_to_others")
     %p
