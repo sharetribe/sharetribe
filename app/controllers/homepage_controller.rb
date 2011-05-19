@@ -13,6 +13,13 @@ class HomepageController < ApplicationController
     @requests = Listing.requests.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
     @offers = Listing.offers.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
     
+    #If browsing Kassi unlogged, count also the number of private listings available 
+    unless @current_user
+      @private_listings = {}
+      @private_listings["request"] = Listing.requests.open.private_to_community(@current_community).count
+      @private_listings["offer"] = Listing.offers.open.private_to_community(@current_community).count
+    end
+    
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
     end

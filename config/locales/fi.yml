@@ -15,6 +15,7 @@ fi:
       rent: "vuokrataan"
     cancel: "Peruuta"
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
+    or: "tai"
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
@@ -300,7 +301,14 @@ fi:
       no_open_requests_currently: "Ei yhtään tavara-, palvelus- tai kyytipyyntöä avoinna."
       add_first: "Lisää ensimmäinen!"
       no_requests_visible_unless_logged_in: "Ei yhtään palvelus-, tavara- tai kyytipyyntöä näkyvissä kirjautumattomille käyttäjille."
-      log_in: "Kirjaudu sisään!"
+      some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
+      some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
+      one_private_offer_exists: "Palvelussa on jo <b>yksi tarjous</b>,"
+      one_private_request_exists: "Palvelussa on jo <b>yksi pyyntö</b>,"
+      but_those_are_visible_only_to_registered_members: "mutta ne näkyvät vain kirjautuneille käyttäjille."
+      but_that_is_visible_only_to_registered_members: "mutta se on näkyvissä vain kirjautuneille käyttäjille."
+      create_new_account_for_yourself: "Luo tunnus itsellesi"
+      log_in: "kirjaudu sisään!"
       examples_of_what_you_could_request_to_others: "Esimerkkejä siitä mitä voisit pyytää muilta"
       items_to_request: "Lainatavaroita: "
       item_request_list: "työkalut, harrastusvälineet, naamiaisasut, retkeilytarvikkeet"
