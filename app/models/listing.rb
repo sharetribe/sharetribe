@@ -35,6 +35,7 @@ class Listing < ActiveRecord::Base
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   scope :public, :conditions  => "visibility = 'everybody'"
+  scope :private, :conditions  => "visibility <> 'everybody'"
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
@@ -147,6 +148,14 @@ class Listing < ActiveRecord::Base
         )
       ") > 0
     end
+  end
+  
+  # Get only  listings that are private to current community (or to many communities including current)
+  def self.private_to_community(community)
+    where("
+        listings.visibility IN ('communities','this_community') 
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
+      ")
   end
   
   def share_type_attributes=(attributes)
