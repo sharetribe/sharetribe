@@ -323,6 +323,11 @@ en:
       favors_to_offer: "Help: "
       favor_offer_list: "computer assistance, clothes repair, baking, bike fixing"
       ride_offer: "Take others' kids to their hobbies"
+    additional_private_listings_slate:
+      additionally_some_private_offers_exist: "Additionally there are <b>%{number_of_listings} other offers</b>,"
+      additionally_some_private_requests_exist: "Additionally there are <b>%{number_of_listings} other requests</b>,"
+      additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
+      additionally_one_private_request_exists: "Additionally  there is <b>one other request</b>,"
     recent_listing:
       please_offer: "Offer"
   listings:
