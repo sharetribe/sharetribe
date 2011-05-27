@@ -45,7 +45,8 @@ elsif ENV['DEPLOY_ENV'] == "mara" || ENV['DEPLOY_ENV'] == "hetz"
   set :branch, ENV['BRANCH'] || "production"
 else
   set :server_name, "alpha"
-  set :host, "alpha.sizl.org"
+  set :host, "mara.kassi.eu"
+  set :deploy_to, "/opt/alpha.kassi"
   set :branch, ENV['BRANCH'] || "master"
 end
 
