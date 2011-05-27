@@ -448,9 +448,9 @@ en:
       offer_author: "Offered by"
       request_author: "Requested by"
       offer_created: "Offer created"
-      request_created: "Type of request"
+      request_created: "Request created"
       share_types_offer: "Type of offer"
-      share_types_request: "Share types"
+      share_types_request: "Type of request"
       tags: "Tags"
       no_description: "No description"
       comments: "Comments"
@@ -465,6 +465,9 @@ en:
       you_must: "You must"
       log_in: "log in"
       to_send_a_comment: "to send a new comment."
+    reply_link:
+      request_closed: "Request is closed"
+      offer_closed: "Offer is closed"
     edit_links:
       edit_request: "Edit request"
       edit_offer: "Edit offer"
@@ -472,9 +475,6 @@ en:
       close_offer: "Close offer"
       reopen_request: "Reopen request"
       reopen_offer: "Reopen offer"
-    reply_link:
-      request_closed: "Request is closed"
-      offer_closed: "Offer is closed"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"
