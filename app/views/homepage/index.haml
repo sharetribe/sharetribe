@@ -3,8 +3,7 @@
     %h1= t(".lend_rent_help_carpool")
     %p
       - community_name = (@current_community.name.include?(" ") && I18n.locale.to_s.eql?("fi")) ? "#{@current_community.name} " : @current_community.name
-      = t(".teaser_text", :community => community_name )
-      = link_to t(".tell_it_here"), new_request_path(:type => "offer")
+      = render :file => community_file("teaser_welcome_text", false), :locals => {:community_name => community_name}
   #teaser_right
     #teaser_button_container
       #offer_something_button
