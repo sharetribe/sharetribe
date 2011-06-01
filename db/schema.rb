@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110428134543) do
+ActiveRecord::Schema.define(:version => 20110529110417) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20110428134543) do
     t.text     "settings"
     t.string   "consent",                        :default => "KASSI_FI1.0"
     t.boolean  "email_admins_about_new_members", :default => false
+    t.boolean  "use_fb_like",                    :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -284,7 +285,7 @@ ActiveRecord::Schema.define(:version => 20110428134543) do
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",   :default => 1
   end
-  
+
   create_table "people_smerf_forms", :force => true do |t|
     t.string  "person_id",     :null => false
     t.integer "smerf_form_id", :null => false

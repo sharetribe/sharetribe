@@ -14,7 +14,8 @@ en:
       borrow: "borrowing"
       rent: "renting"
     cancel: "Cancel"
-    fields_that_are_mandatory: "Fields marked with star (*) are mandatory."   
+    fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
+    or: "or"
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
@@ -300,7 +301,14 @@ en:
       no_open_requests_currently: "No open item, favor or rideshare requests."
       add_first: "Add one!"
       no_requests_visible_unless_logged_in: "No item, favor or rideshare requests visible to non-logged-in users."
-      log_in: "Log in!"
+      some_private_offers_exist: "There are already <b>%{number_of_listings} offers</b>,"
+      some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
+      one_private_offer_exists: "There is already <b>one offer</b>,"
+      one_private_request_exists: "There is already <b>one request</b>,"
+      but_those_are_visible_only_to_registered_members: "but those are visible only to registered members."
+      but_that_is_visible_only_to_registered_members: "but that is visible only to registered members."
+      create_new_account_for_yourself: "Create yourself a new account"
+      log_in: "log in!"
       examples_of_what_you_could_request_to_others: "What could you request from the others"
       items_to_request: "Goods to borrow: "
       item_request_list: "tools, sports equipment, costumes, camping equipment"
@@ -315,6 +323,11 @@ en:
       favors_to_offer: "Help: "
       favor_offer_list: "computer assistance, clothes repair, baking, bike fixing"
       ride_offer: "Take others' kids to their hobbies"
+    additional_private_listings_slate:
+      additionally_some_private_offers_exist: "Additionally there are <b>%{number_of_listings} other offers</b>,"
+      additionally_some_private_requests_exist: "Additionally there are <b>%{number_of_listings} other requests</b>,"
+      additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
+      additionally_one_private_request_exists: "Additionally  there is <b>one other request</b>,"
     recent_listing:
       please_offer: "Offer"
   listings:
@@ -437,8 +450,8 @@ en:
       offer_created: "Offer created"
       request_created: "Request created"
       share_types: "Share types"
-      share_types_offer: "Offer type"
-      share_types_request: "Request type"
+      share_types_offer: "Type of offer"
+      share_types_request: "Type of request"
       tags: "Tags"
       no_description: "No description"
       comments: "Comments"
@@ -453,6 +466,9 @@ en:
       you_must: "You must"
       log_in: "log in"
       to_send_a_comment: "to send a new comment."
+    reply_link:
+      request_closed: "Request is closed"
+      offer_closed: "Offer is closed"
     edit_links:
       edit_request: "Edit request"
       edit_offer: "Edit offer"
@@ -460,9 +476,6 @@ en:
       close_offer: "Close offer"
       reopen_request: "Reopen request"
       reopen_offer: "Reopen offer"
-    reply_link:
-      request_closed: "Request is closed"
-      offer_closed: "Offer is closed"
     link_labels:  
       link_label_for_item_offer: "Request item"
       link_label_for_favor_offer: "Request favor"

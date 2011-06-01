@@ -11,3 +11,10 @@ end
 Given /^the terms of community "([^"]*)" are changed to "([^"]*)"$/ do |community, terms|
   Community.find_by_domain(community).update_attribute(:consent, terms)
 end
+
+Then /^Most recently created user should be member of "([^"]*)" community with its latest consent accepted$/ do |community_domain|
+    community = Community.find_by_domain(community_domain)
+    Person.last.communities.last.should == community
+    Person.last.community_memberships.last.community.should == community
+    Person.last.community_memberships.last.consent.should == community.consent
+end

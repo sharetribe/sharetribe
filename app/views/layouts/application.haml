@@ -1,6 +1,6 @@
 !!! 5
 !!! xml
-%html{html_attrs(I18n.locale)}
+%html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
   %head
     %title 
       Kassi
@@ -8,8 +8,16 @@
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
         
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => t(".meta_description") }
-    %meta{ :name => "keywords", :content => t(".keywords") } 
+    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
+    %meta{ :name => "keywords", :content => t(".keywords") }
+    %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
+    %meta{ :property => "og:type", :content =>"website"}
+    %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
+    %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
+    %meta{ :property => "og:site_name", :content =>"Kassi"}
+    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+    %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi', 'google_analytics'
     = csrf_meta_tag
@@ -63,12 +71,15 @@
                   = text_field_tag("q", params[:q], :class => "search_field")
                   = submit_tag("s", :class => "search_button")
           .clear
-          .top_navi_form.grid_3
+          .top_navi_form.grid_9
             - if available_locales.count > 1
               .locale_select_padding
                 = form_tag("/change_locale", :method => "get") do
                   = hidden_field_tag :redirect_uri, @return_to
                   = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+            - elsif @current_community.use_fb_like
+              .fb_like_padding
+                = "<iframe src=\"http://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe              
         .grid_12
           = render :partial => "layouts/logged_in"
           .clear

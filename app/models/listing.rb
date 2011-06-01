@@ -34,6 +34,8 @@ class Listing < ActiveRecord::Base
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
+  scope :public, :conditions  => "visibility = 'everybody'"
+  scope :private, :conditions  => "visibility <> 'everybody'"
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
@@ -148,6 +150,14 @@ class Listing < ActiveRecord::Base
     end
   end
   
+  # Get only  listings that are private to current community (or to many communities including current)
+  def self.private_to_community(community)
+    where("
+        listings.visibility IN ('communities','this_community') 
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
+      ")
+  end
+  
   def share_type_attributes=(attributes)
     share_types.clear
     attributes.each { |name| share_types.build(:name => name) } if attributes
@@ -216,9 +226,12 @@ class Listing < ActiveRecord::Base
   end
   
   def self.find_with(params, current_user=nil, current_community=nil)
+    params = params || {}  # Set params to empty hash if it's nil
     conditions = []
-    conditions[0] = "listing_type = ?"
-    conditions[1] = params[:listing_type]
+    if params[:listing_type] && !params[:listing_type].eql?("all") 
+      conditions[0] = "listing_type = ?"
+      conditions[1] = params[:listing_type]
+    end
     if params[:category] && !params[:category][0].eql?("all") 
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]
