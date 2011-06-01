@@ -51,6 +51,7 @@ Feature: User views homepage
      And I should not see "car spare parts"
      And I should see "massage"
      And I should not see "place to live"
+     And I should see "Additionally there is one other request, but that is visible only to registered members."
      When I log in as "kassi_testperson1"
      Then I should see "car spare parts"
      And I should see "massage"
@@ -98,6 +99,27 @@ Feature: User views homepage
     And I am on the homepage
     Then I should not see "No open item, favor or rideshare requests."
     And I should not see "No open item, favor or rideshare offers."
+  
+  @javascript
+  Scenario: User browses homepage when there are only private listings. He should see blank slates
+     Given there are following users:
+       | person | 
+       | kassi_testperson1 |
+     And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell"
+     And visibility of that listing is "this_community"
+     And there is housing request with title "place to live" and with share type "rent"
+     And visibility of that listing is "this_community"
+     And I am on the home page page
+     And I should not see "car spare parts"
+     And I should not see "place to live"
+     And I should see "There is already one request, but that is visible only to registered members."
+     And I should see "There is already one offer, but that is visible only to registered members."
+     When there is item request with title "bike parts" from "kassi_testperson2" and with share type "buy"
+     And visibility of that listing is "this_community"
+     And I am on the homepage
+     Then I should not see "bike parts"
+     And I should see "There are already 2 requests, but those are visible only to registered members."
+  
   
   @pending
   Scenario: Latest transactions on the homepage

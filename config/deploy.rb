@@ -31,13 +31,8 @@ elsif ENV['DEPLOY_ENV'] == "delta"
   set :host, "alpha.sizl.org"
   set :branch, ENV['BRANCH'] || "production"
   set :deploy_to, "/var/datat/deltakassi"
-elsif ENV['DEPLOY_ENV'] == "dbtest"
-  set :deploy_to, "/var/datat/kassi2dbtest"
-  set :server_name, "alpha"
-  set :host, "alpha.sizl.org"
-  set :branch, ENV['BRANCH'] || "master"
 elsif  ENV['DEPLOY_ENV'] == "aws" || ENV['DEPLOY_ENV'] == "amazon"
-  set :host, "46.137.99.187"
+  set :host, "aws.kassi.eu"
   set :user, "kassi"
   set :server_name, "aws"
   set :deploy_to, "/opt/kassi"
@@ -50,7 +45,8 @@ elsif ENV['DEPLOY_ENV'] == "mara" || ENV['DEPLOY_ENV'] == "hetz"
   set :branch, ENV['BRANCH'] || "production"
 else
   set :server_name, "alpha"
-  set :host, "alpha.sizl.org"
+  set :host, "mara.kassi.eu"
+  set :deploy_to, "/opt/alpha.kassi"
   set :branch, ENV['BRANCH'] || "master"
 end
 
@@ -76,12 +72,7 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
-  
-  task :preparations do
-    #run "killall mongrel_rails" rescue nil
-    #run "killall searchd" rescue nil
-  end
-  
+    
   task :symlinks_to_shared_path do
     run "rm -rf #{release_path}/public/images/listing_images"
     run "rm -rf #{release_path}/tmp/performance"
@@ -92,22 +83,8 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
-    if ENV['DEPLOY_ENV'] == "dbtest"
-      run "ln -nfs #{shared_path}/system/sphinx.yml #{release_path}/config/sphinx.yml"
-    end 
   end
     
-  task :finalize do
-    #whenever.write_crontab
-  end  
-end
-
-before "cold" do
-  preparations
-end
-
-after %w(deploy:migrations deploy:cold deploy:start ) do
-  deploy.finalize
 end
 
 after "deploy:update_code" do

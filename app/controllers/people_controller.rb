@@ -55,7 +55,8 @@ class PeopleController < ApplicationController
     begin
       @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
       @person.set_default_preferences
-      @person.communities << @current_community
+      # Make person a member of the current community
+      CommunityMembership.create(:person => @person, :community => @current_community, :consent => @current_community.consent)
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.

@@ -25,6 +25,8 @@ class SessionsController < ApplicationController
     
     if @session.person_id  # if not app-only-session and person found in cos
       @current_user = Person.find_by_id(@session.person_id)
+      # TODO: Should check here if the user is a member of current community
+      
       unless @current_user && current_community.consent.eql?(@current_user.consent(current_community))
         # The user has succesfully logged in, but is not found in Kassi DB
         # Existing Sizzle user's first login in Kassi
