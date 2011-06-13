@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  include UrlHelper
+  include UrlHelper, ApplicationHelper
   protect_from_forgery
   layout 'application'
   
@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
       
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
-    else  
-      I18n.locale = ["fi", "en"].include?(locale) ? locale : APP_CONFIG.default_locale
+    else
+      I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
     
     # A hack to get the path where the user is 

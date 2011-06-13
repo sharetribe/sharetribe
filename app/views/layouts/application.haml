@@ -19,13 +19,13 @@
     %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
 
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi', 'google_analytics'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', "locales/#{I18n.locale}.js", 'kassi', 'google_analytics'
     = csrf_meta_tag
     
     :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
     
-    - if I18n.locale.to_s.eql?("en")
+    - unless I18n.locale.to_s.eql?("fi")
       %style{:type => "text/css"}
         a.handle { background-position: -80px 0; }
         a.handle:hover { background-position: -120px 0; }
