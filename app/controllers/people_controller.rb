@@ -1,5 +1,6 @@
 class PeopleController < ApplicationController
   include UrlHelper
+  protect_from_forgery :except => :create
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
