@@ -50,10 +50,9 @@ class ApplicationController < ActionController::Base
         # If there is no ASI-cookie for this session, log out completely
         clear_user_session
       end
-      # FIXME: Day counting disabled as it produced too big numbers for unknown reason
-      # unless @current_user.last_page_load_date && @current_user.last_page_load_date.to_date.eql?(Date.today)
-      #   Delayed::Job.enqueue(PageLoadedJob.new(@current_user.id, request.host))
-      # end
+      unless @current_user.last_page_load_date && @current_user.last_page_load_date.to_date.eql?(Date.today)
+        Delayed::Job.enqueue(PageLoadedJob.new(@current_user.id, request.host))
+      end
     end
   end
   
