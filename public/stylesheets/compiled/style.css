@@ -411,6 +411,8 @@ form, input {
 
 #teaser_browse_links {
   margin: 10px 20px; }
+  #teaser_browse_links p {
+    width: 300px; }
 
 .recent_events {
   background: #d1c9b4;
