@@ -497,6 +497,7 @@ form, input {
 
 #teaser_browse_links {
 	margin: 10px 20px;
+	p { width: 300px; }
 }
 
 @mixin stapled_box($width: 219px) {

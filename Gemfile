@@ -21,6 +21,7 @@ gem 'capistrano'
 gem "mongrel"
 gem 'mysql', '2.8.1'
 gem 'haml'
+gem 'sass'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
