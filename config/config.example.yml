@@ -36,7 +36,7 @@ default: &default_settings
   # If you make new translations, please share those for example in Github.
   # If you change the default locale, you should put that one first in the list of available_locations, to get
   # the language dropdown menu work more logically.
-  available_locales: [["English", "en"], ["Finnish", "fi"]]
+  available_locales: [["English", "en"], ["Finnish", "fi"], ["Russian", "ru"]]
   
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
