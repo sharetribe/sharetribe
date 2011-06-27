@@ -2410,7 +2410,7 @@ a.edit_profile {
 .settings_account_row_link {
   width: 50px;
   float: right;
-  padding-top: 5px; }
+  padding: 5px 15px 0 0; }
 
 #account_email_form, #account_password_form {
   display: none; }

@@ -49,7 +49,7 @@
       #listing_author_description
         %strong
           = t(".#{@listing.listing_type}_author") + ":"
-          = link_to @listing.author.name, @listing.author, :title => "listing_author"
+          = link_to @listing.author.name, @listing.author, :title => @listing.author.name
         %br/
         %span{:class => "smaller"}
           = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)

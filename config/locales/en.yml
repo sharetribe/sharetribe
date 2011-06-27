@@ -234,6 +234,13 @@ en:
     notifications:
       no_notifications: "No notifications."
       loading_more_notifications: "Loading more notifications"
+      badgenotification:
+        you_have_earned_badge: "You have earned the badge"
+        see_all_your_badges: "See all your badges"
+      testimonialnotification:
+        has_given_you_feedback_on_event: "has given you feedback on event"
+        give_feedback_to: "Give feedback to {{name}}"
+        see_all_the_feedback_you_have_received: "see all the feedback you have received"
     show:
       offer_sent_by: Request sent by
       offer_sent_to: "Offer sent to"

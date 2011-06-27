@@ -37,6 +37,7 @@ gem 'hoptoad_notifier'
 gem 'passenger'
 gem 'delayed_job'
 gem 'json'
+gem 'russian'
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19" #
