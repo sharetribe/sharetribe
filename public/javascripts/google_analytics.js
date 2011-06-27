@@ -3,6 +3,7 @@ function start_analytics(api_key, domain) {
 	_gaq.push(['_setAccount', api_key]);
 	_gaq.push(['_setDomainName', '.' + domain]);
 	_gaq.push(['_trackPageview']);
+	_gaq.push(['_trackPageLoadTime']);
 
 	(function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
