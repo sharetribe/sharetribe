@@ -38,7 +38,7 @@ class Person < ActiveRecord::Base
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
   has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
-  has_many :badges
+  has_many :badges, :dependent => :destroy 
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
   has_many :community_memberships, :dependent => :destroy 
