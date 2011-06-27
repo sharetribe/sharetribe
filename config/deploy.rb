@@ -14,40 +14,31 @@ set :scm, :git
 
 set :deploy_via, :remote_cache
 
-set :deploy_to, "/var/datat/kassi"
+set :deploy_to, "/opt/kassi"
+set :branch, ENV['BRANCH'] || "master"
 
 if ENV['DEPLOY_ENV'] == "beta"
   set :server_name, "beta"
   set :host, "beta.sizl.org"
-  set :branch, ENV['BRANCH'] || "production"
+  set :deploy_to, "/var/datat/kassi"
 elsif ENV['DEPLOY_ENV'] == "icsi"
-  set :deploy_to, "/opt/kassi"
   set :server_name, "icsi"
   set :host, "sizl.icsi.berkeley.edu"
   set :user, "amvirola"
-  set :branch, ENV['BRANCH'] || "production"
 elsif ENV['DEPLOY_ENV'] == "delta"
   set :server_name, "alpha"
   set :host, "alpha.sizl.org"
-  set :branch, ENV['BRANCH'] || "production"
   set :deploy_to, "/var/datat/deltakassi"
 elsif  ENV['DEPLOY_ENV'] == "aws" || ENV['DEPLOY_ENV'] == "amazon"
   set :host, "aws.kassi.eu"
-  set :user, "kassi"
   set :server_name, "aws"
-  set :deploy_to, "/opt/kassi"
-  set :branch, ENV['BRANCH'] || "master"
 elsif ENV['DEPLOY_ENV'] == "mara" || ENV['DEPLOY_ENV'] == "hetz"
-  set :deploy_to, "/opt/kassi"
   set :server_name, "mara"
   set :host, "mara.kassi.eu"
-  set :user, "kassi"
-  set :branch, ENV['BRANCH'] || "production"
 else
   set :server_name, "alpha"
   set :host, "mara.kassi.eu"
   set :deploy_to, "/opt/alpha.kassi"
-  set :branch, ENV['BRANCH'] || "master"
 end
 
 set :path, "$PATH:/var/lib/gems/1.8/bin"
