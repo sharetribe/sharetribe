@@ -234,6 +234,13 @@ fi:
     notifications:
       no_notifications: "Ei tiedotteita."
       loading_more_notifications: "Ladataan lisää tiedotteita"
+      badgenotification:
+        you_have_earned_badge: "Olet ansainnut kassimerkin"
+        see_all_your_badges: "Katso kaikki kassimerkkisi"
+      testimonialnotification:
+        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
+        give_feedback_to: "Anna palautetta käyttäjälle {{name}}"
+        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"      
     show:
       offer_sent_by: "Pyynnön lähetti"
       offer_sent_to: "Pyyntö lähetetty käyttäjälle"
