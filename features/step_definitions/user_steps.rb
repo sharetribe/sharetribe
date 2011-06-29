@@ -107,3 +107,7 @@ end
 Given /^"([^"]*)" has admin rights$/ do |username|
   @people[username].update_attribute(:is_admin, true)
 end
+
+Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
+  CommunityMembership.find_by_person_id_and_community_id(@people[username].id, Community.find_by_name(community).id).update_attribute(:admin, true)
+end

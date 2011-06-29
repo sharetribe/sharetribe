@@ -115,7 +115,7 @@ class ListingsController < ApplicationController
   
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
-    return if current_user?(@listing.author) || @current_user.is_admin?
+    return if current_user?(@listing.author) || @current_user.has_admin_rights_in?(@current_community)
     flash[:error] = error_message
     redirect_to @listing and return
   end

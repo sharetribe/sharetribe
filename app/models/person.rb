@@ -442,8 +442,7 @@ class Person < ActiveRecord::Base
     person_hash["entry"].collect { |person| person["id"] }
   end
   
-  
-  # Returns true if the person has admin rights in Kassi.
+  # Returns true if the person has global admin rights in Kassi.
   def is_admin?
     is_admin == 1
   end
@@ -545,6 +544,14 @@ class Person < ActiveRecord::Base
   # Return the people who are admins of the given community
   def self.admins_of(community)
     joins(:community_memberships).where(["community_id = ? AND admin = 1", community.id])
+  end
+  
+  def is_admin_of?(community)
+    community_memberships.find_by_community_id(community.id).admin?
+  end
+  
+  def has_admin_rights_in?(community)
+    is_admin? || is_admin_of?(community)
   end
   
   private
