@@ -105,7 +105,7 @@ describe PersonMailer do
     @contact_request = Factory(:contact_request)
     email = PersonMailer.reply_to_contact_request(@contact_request.email, "en").deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal @contact_request.email, email.to
+    assert_equal [@contact_request.email], email.to
     assert_equal "Thank you for your interest in Kassi!", email.subject
   end
   
