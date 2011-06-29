@@ -234,6 +234,13 @@ ru:
     notifications:
       no_notifications: "Нет оповещений."
       loading_more_notifications: "Загрузка оповещений"
+      badgenotification:
+        you_have_earned_badge: "Вы заработали значок"
+        see_all_your_badges: "Посмотреть все значки"
+      testimonialnotification:
+        has_given_you_feedback_on_event: "оставил отзыв о событии"
+        give_feedback_to: "Оставить отзыв о %{name}"
+        see_all_the_feedback_you_have_received: "просмотреть все отзывы, полученные вами"
     show:
       offer_sent_by: "Предложения, отправленные от"
       offer_sent_to: "Предложения, отправленные"

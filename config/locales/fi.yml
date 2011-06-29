@@ -183,6 +183,8 @@ fi:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
       you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+    reply_to_contact_request:
+      thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
     testimonial_reminder:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
@@ -239,7 +241,7 @@ fi:
         see_all_your_badges: "Katso kaikki kassimerkkisi"
       testimonialnotification:
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
-        give_feedback_to: "Anna palautetta käyttäjälle {{name}}"
+        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
         see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"      
     show:
       offer_sent_by: "Pyynnön lähetti"

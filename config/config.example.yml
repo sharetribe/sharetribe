@@ -119,6 +119,13 @@ production:
 development:
   <<: *default_settings
   
+  # These settings are used for sending email from your local computer.
+  # This example is using gmail SMTP, but you can also use your local SMTP server.
+  local_email_address: "smtp.gmail.com"
+  local_email_port: 587
+  local_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
+  local_email_password: "<YOUR_GMAIL_PASSWORD>"
+  
 test:
   <<: *default_settings
   # The locale should be "en" for test environment

@@ -183,6 +183,8 @@ en:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in Kassi"
       you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
       you_can_give_feedback_to: "You can give feedback to %{name} in"
+    reply_to_contact_request:
+      thank_you_for_your_interest: "Thank you for your interest in Kassi!"
     testimonial_reminder:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
@@ -239,7 +241,7 @@ en:
         see_all_your_badges: "See all your badges"
       testimonialnotification:
         has_given_you_feedback_on_event: "has given you feedback on event"
-        give_feedback_to: "Give feedback to {{name}}"
+        give_feedback_to: "Give feedback to %{name}"
         see_all_the_feedback_you_have_received: "see all the feedback you have received"
     show:
       offer_sent_by: Request sent by

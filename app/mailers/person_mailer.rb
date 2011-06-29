@@ -99,6 +99,13 @@ class PersonMailer < ActionMailer::Base
     mail(:to => admin_emails, :subject => "New member in #{@community.name} Kassi")
   end
   
+  # Automatic reply to people who try to contact us via Dashboard
+  def reply_to_contact_request(email, locale)
+    @no_settings = true
+    set_locale locale
+    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>")
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)
