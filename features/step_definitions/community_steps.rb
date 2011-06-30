@@ -18,3 +18,7 @@ Then /^Most recently created user should be member of "([^"]*)" community with i
     Person.last.community_memberships.last.community.should == community
     Person.last.community_memberships.last.consent.should == community.consent
 end
+
+Given /^given name and last name are not required in community "([^"]*)"$/ do |community|
+  Community.find_by_domain(community).update_attribute(:real_name_required, 0)
+end

@@ -1074,7 +1074,6 @@ div.checkbox_float {
 	}
 	label {
 		margin: 10px;
-		width: 340px;
 		font-size: 14px;
 		font-weight: bold;
 	}
@@ -1084,6 +1083,10 @@ div.checkbox_float {
 		width: 200px;
 		font-size: 12px;
 		font-weight: bold;
+	}
+	label.before_description {
+	  margin: 0 10px;
+	  float: left;
 	}
 	.links {
 		margin: 10px 0 0 10px;
@@ -1100,6 +1103,11 @@ div.checkbox_float {
 	}
 	span.small {
 		font-size: 11px;	
+	}
+	span.tiny_description { 
+	  float: left;
+	  font-size: 11px;
+	  padding-top: 2px;
 	}
 	textarea {
 		margin-left: 10px;
@@ -1977,6 +1985,7 @@ a.edit_profile {
 		font-size: 14px;
 		height: 100px;
 		padding: 12px 10px 5px 15px;
+		float: left;
 	}
 	input.send_button {
 		@include send_button;
@@ -2004,6 +2013,13 @@ a.edit_profile {
 		width: 248px;
 		margin: 0 0 10px 0;
 	}
+}
+
+span.profile_settings_visibility_info {
+  margin-left: 15px;
+  float: left;
+  font-size: 11px;
+  padding-top: 9px;
 }
 
 #settings_avatar_form {
