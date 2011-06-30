@@ -28,10 +28,14 @@ Feature: User updates profile information
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     When I follow "Settings"
-    And I fill in "Given name*:" with "T"
+    And I fill in "Given name*:" with ""
     And I fill in "Family name*:" with ""
     And I press "Save information"
     Then I should see "This field is required." within ".error"
-    And I should see "Please enter at least 2 characters." within ".error"
-  
+    When given name and last name are not required in community "test"
+    When I follow "Settings"
+    And I fill in "Given name*:" with ""
+    And I fill in "Family name*:" with ""
+    And I press "Save information"
+    Then I should see "Information updated" within "#notifications"
 

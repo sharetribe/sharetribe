@@ -262,11 +262,12 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 	});
 }
 
-function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message) {
+function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, name_required) {
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
 	var form_id = "#new_person"
+	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
@@ -279,8 +280,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 		},
 		rules: {
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
-      "person[given_name]": {required: true, minlength: 2, maxlength: 30},
-      "person[family_name]": {required: true, minlength: 2, maxlength: 30},
+      "person[given_name]": {required: name_required, maxlength: 30},
+      "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
@@ -303,7 +304,7 @@ function initialize_terms_form() {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 }
 
-function initialize_update_profile_info_form(locale, person_id) {
+function initialize_update_profile_info_form(locale, person_id, name_required) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();
 	var form_id = "#edit_person_" + person_id
@@ -312,8 +313,8 @@ function initialize_update_profile_info_form(locale, person_id) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
-			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			"person[given_name]": {required: name_required, maxlength: 30},
+			"person[family_name]": {required: name_required, maxlength: 30},
 			"person[street_address]": {required: false, maxlength: 50},
 			"person[postal_code]": {required: false, maxlength: 8},
 			"person[city]": {required: false, maxlength: 50},

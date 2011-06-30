@@ -1159,7 +1159,6 @@ div.checkbox_float {
       background-color: #9f7d4e; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
-    width: 340px;
     font-size: 14px;
     font-weight: bold; }
   #login_form label.checkbox, #new_message_form label.checkbox, #signup_form label.checkbox {
@@ -1168,6 +1167,9 @@ div.checkbox_float {
     width: 200px;
     font-size: 12px;
     font-weight: bold; }
+  #login_form label.before_description, #new_message_form label.before_description, #signup_form label.before_description {
+    margin: 0 10px;
+    float: left; }
   #login_form .links, #new_message_form .links, #signup_form .links {
     margin: 10px 0 0 10px; }
   #login_form .text, #new_message_form .text, #signup_form .text {
@@ -1180,6 +1182,10 @@ div.checkbox_float {
     font-size: 16px; }
   #login_form span.small, #new_message_form span.small, #signup_form span.small {
     font-size: 11px; }
+  #login_form span.tiny_description, #new_message_form span.tiny_description, #signup_form span.tiny_description {
+    float: left;
+    font-size: 11px;
+    padding-top: 2px; }
   #login_form textarea, #new_message_form textarea, #signup_form textarea {
     margin-left: 10px;
     width: 300px;
@@ -2261,7 +2267,8 @@ a.edit_profile {
     width: 293px;
     font-size: 14px;
     height: 100px;
-    padding: 12px 10px 5px 15px; }
+    padding: 12px 10px 5px 15px;
+    float: left; }
     #person_settings_form textarea:focus {
       background: white; }
   #person_settings_form input.send_button {
@@ -2341,6 +2348,12 @@ a.edit_profile {
     color: white;
     width: 248px;
     margin: 0 0 10px 0; }
+
+span.profile_settings_visibility_info {
+  margin-left: 15px;
+  float: left;
+  font-size: 11px;
+  padding-top: 9px; }
 
 #settings_avatar_form {
   width: 420px;

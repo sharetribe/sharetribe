@@ -507,6 +507,9 @@ en:
       you_do_not_yet_have_this_badge: "Badge has not yet been achieved."
     new:
       sign_up: "Create a new account in Kassi"
+      visible_to_everybody: "visible to everybody"
+      visible_only_to_you: "visible only to you"
+      not_required: ", not required"
       username: "Username:"
       given_name: "Given name:"
       family_name: "Family name:"
@@ -672,9 +675,11 @@ en:
     save_information: "Save information"
     profile:
       these_fields_are_shown_in_your: "This information is visible to all Kassi users"
+      visible_to_everybody: "visible to everybody"
+      visible_to_registered_users: "visible to users that have logged in"
       profile_page: "in your profile page"
-      given_name: "Given name*:"
-      family_name: "Family name*:"
+      given_name: "Given name:"
+      family_name: "Family name:"
       street_address: "Street address:"
       postal_code: "Postal code:"
       city: "City:"

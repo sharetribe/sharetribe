@@ -506,6 +506,9 @@ fi:
       you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
     new:
       sign_up: "Luo uusi tunnus Kassiin"
+      visible_to_everybody: "näkyy kaikille"
+      visible_only_to_you: "näkyy vain sinulle"
+      not_required: ", ei pakollinen"
       username: "Käyttäjätunnus:"
       given_name: "Etunimi:"
       family_name: "Sukunimi:"
@@ -671,9 +674,11 @@ fi:
     save_information: "Tallenna tiedot"  
     profile:
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille Kassin käyttäjille"
+      visible_to_everybody: "näytetään kaikille"
+      visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
       profile_page: "profiilisivullasi"
-      given_name: "Etunimi*:"
-      family_name: "Sukunimi*:"
+      given_name: "Etunimi:"
+      family_name: "Sukunimi:"
       street_address: "Katuosoite:"
       postal_code: "Postinumero:"
       city: "Kaupunki:"
