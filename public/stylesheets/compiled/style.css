@@ -681,7 +681,15 @@ p.description {
   overflow: hidden;
   padding: 20px 15px; }
   #new_listing_form h1 {
-    margin-left: 15px; }
+    margin-left: 15px;
+    float: left;
+    width: 300px; }
+
+#new_listing_form_close_link {
+  float: right;
+  margin: 7px 22px 0 0; }
+  #new_listing_form_close_link a {
+    font-size: 14px; }
 
 #favor_form, #rideshare_form, #housing_form {
   display: none; }

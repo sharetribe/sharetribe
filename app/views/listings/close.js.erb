@@ -9,3 +9,9 @@ $("#edit_links").html("<%= escape_javascript(render(:partial => 'listings/edit_l
 
 /* Update comment form */
 $("#comment_form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");
+
+/* Update listed listing closed status */
+$("#listed_listing_closed_status_container_<%= @listing.id.to_s %>").html("<%= escape_javascript(render(:partial => 'listings/listed_listing_closed_status', :locals => { :listing => @listing })) %>");
+
+/* Update listed listing closed status */
+$("#listed_listing_edit_links_<%= @listing.id.to_s %>").html("<%= escape_javascript(render(:partial => 'listings/listed_listing_edit_links', :locals => { :listing => @listing })) %>");

@@ -370,10 +370,11 @@ fi:
       offer_something: "Aseta jotain tarjolle!"
       request_something: "Pyydä jotakin!"
       search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
-    listed_listing:  
+    listed_listing:
+      edit: "Muokkaa"
+    listed_listing_closed_status:
       request_is_closed: "Pyyntö on suljettu"
       offer_is_closed: "Tarjous on suljettu"
-      edit: "Muokkaa"
     left_panel_link:
       items: "Tavarat"
       favors: "Palvelukset"
