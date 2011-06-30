@@ -93,10 +93,16 @@ class ListingsController < ApplicationController
   
   def close
     @listing.update_attribute(:open, false)
-    flash.now[:notice] = "#{@listing.listing_type}_closed"
+    notice = "#{@listing.listing_type}_closed"
     respond_to do |format|
-      format.html { redirect_to @listing }
-      format.js { render :layout => false }
+      format.html { 
+        flash[:notice] = notice
+        redirect_to @listing 
+      }
+      format.js {
+        flash.now[:notice] = notice
+        render :layout => false 
+      }
     end
   end
   

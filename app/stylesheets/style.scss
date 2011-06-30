@@ -751,7 +751,17 @@ p.description {
 	padding: 20px 15px;
 	h1 {
 		margin-left: 15px;
-	}	
+		float: left;
+		width: 300px;
+	}
+}
+
+#new_listing_form_close_link {
+  float: right;
+  margin: 7px 22px 0 0;
+  a {
+    font-size: 14px;
+  }
 }
 
 #favor_form, #rideshare_form, #housing_form {
