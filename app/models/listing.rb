@@ -47,7 +47,7 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent_out", "sell", "temporary_accommodation"]
     },
     "request" => {
-      "item" => ["borrow", "buy", "rent", "trade"],
+      "item" => ["borrow", "buy", "rent", "trade", "receive"],
       "favor" => nil, 
       "rideshare" => nil,
       "housing" => ["rent", "buy", "temporary_accommodation"],
