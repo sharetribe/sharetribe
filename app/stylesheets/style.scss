@@ -274,8 +274,8 @@ form, input {
 	}
 }
 
-.tabs {
-	margin-top: 16px;
+#logged_in_icon_container {
+  height: 56px;
 }
 
 #top_navi {
@@ -286,7 +286,7 @@ form, input {
 }
 
 .top_navi_link {
-	margin-top:26px;
+	margin-top: 11px;
 	a {
 		color: white;
 		font-weight: bold;
@@ -298,7 +298,7 @@ form, input {
 }
 
 .login_tabs {
-	height: 40px;
+	height: 56px;
 	margin-right: 10px;
 }
 
