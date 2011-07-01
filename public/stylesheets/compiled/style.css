@@ -149,15 +149,15 @@ form, input {
       background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat;
       color: #f8792f; }
 
-.tabs {
-  margin-top: 16px; }
+#logged_in_icon_container {
+  height: 56px; }
 
 #top_navi select {
   background: #f7f5e6;
   font-size: 11px; }
 
 .top_navi_link {
-  margin-top: 26px; }
+  margin-top: 11px; }
   .top_navi_link a {
     color: white;
     font-weight: bold;
@@ -170,7 +170,7 @@ form, input {
       color: #d45207; }
 
 .login_tabs {
-  height: 40px;
+  height: 56px;
   margin-right: 10px; }
 
 .locale_select_padding {
