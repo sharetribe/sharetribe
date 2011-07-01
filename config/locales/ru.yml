@@ -85,6 +85,7 @@ ru:
       create_one_here: "создать её"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны зайти в Kassi."
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в Kassi."
+      you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
       login_successful: "Добро пожаловать в Kassi, "
       logout_successful: "Вы только что вышли из Kassi. Заходите ещё!"
       login_failed: "Не удалось войти. Проверьте правильность введённых данных."
@@ -183,6 +184,8 @@ ru:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_view_all_your_feedback_in: "Вы можете просмотреть все полученные вами отзывы здесь -"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь -"
+    reply_to_contact_request:
+      thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
     testimonial_reminder:
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
       you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события '%{event}'. Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
@@ -506,6 +509,9 @@ ru:
       you_do_not_yet_have_this_badge: "Значки пока не заработаны."
     new:
       sign_up: "Зарегистрироваться в Kassi"
+      visible_to_everybody: "видимо для всех"
+      visible_only_to_you: "видимо только вам"
+      not_required: ", не обязательно"
       username: "Имя пользователя:"
       given_name: "Настоящее имя:"
       family_name: "Фамилия:"
@@ -671,9 +677,11 @@ ru:
     save_information: "Сохранить"
     profile:
       these_fields_are_shown_in_your: "Эта информация видна всем пользователям Kassi"
+      visible_to_everybody: "видимо для всех"
+      visible_to_registered_users: "видимо только для зарегистрированных пользователей"
       profile_page: "на странице вашего профиля"
-      given_name: "Имя*:"
-      family_name: "Фамилия*:"
+      given_name: "Имя:"
+      family_name: "Фамилия:"
       street_address: "Адрес:"
       postal_code: "Индекс:"
       city: "Город:"
