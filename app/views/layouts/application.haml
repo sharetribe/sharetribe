@@ -10,13 +10,15 @@
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
     %meta{ :name => "keywords", :content => t(".keywords") }
-    %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
-    %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
-    %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
-    %meta{ :property => "og:site_name", :content =>"Kassi"}
-    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-    %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+    - if @current_community.use_fb_like
+      %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
+      %meta{ :property => "og:type", :content =>"website"}
+      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
+      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
+      %meta{ :property => "og:site_name", :content =>"Kassi"}
+      %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+      %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+    = yield :head
 
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', "locales/#{I18n.locale}.js", 'kassi'
@@ -33,7 +35,7 @@
       - else
         %style{:type => "text/css"}
           a.handle { background-position: -80px 0; }
-          a.handle:hover { background-position: -120px 0; }
+          a.handle:hover { background-position: -120px 0; }  
     
   %body
   
