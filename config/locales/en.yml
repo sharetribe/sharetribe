@@ -17,6 +17,13 @@ en:
     cancel: "Cancel"
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: "or"
+  error_pages:
+    your_email_address: "Your email address"
+    your_feedback_to_admins: "Your feedback to admins"
+    send_feedback: "Send feedback"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "Javascript is disabled in your browser"
+      kassi_does_not_currently_work_without_javascript: "Unfortunately Kassi does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use Kassi without javascript, please send us feedback using the form below."
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
