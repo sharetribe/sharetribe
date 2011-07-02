@@ -2330,8 +2330,11 @@ a.handle {
 }
 
 #error_content_javascript {
-	margin-top: 20px;
-	h2 { line-height: 26px; }		
+	margin-top: 70px;
+	h2 { 
+	  line-height: 30px;
+	  margin-bottom: 20px;
+	}		
 }
 
 #error_kaapo {

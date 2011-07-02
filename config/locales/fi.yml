@@ -17,6 +17,13 @@ fi:
     cancel: "Peruuta"
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: "tai"
+  error_pages:
+    your_email_address: "Sähköpostiosoitteesi"
+    your_feedback_to_admins: "Palautteesi ylläpidolle"
+    send_feedback: "Lähetä palaute"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
+      kassi_does_not_currently_work_without_javascript: "Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
