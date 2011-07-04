@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
     session[:cookie] = @session.cookie
     session[:person_id] = @session.person_id
       
-    flash[:notice] = [:login_successful, (@current_user.given_name + "!").to_s, person_path(@current_user)]
+    flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
     if session[:return_to]
       redirect_to domain + session[:return_to]
       session[:return_to] = nil

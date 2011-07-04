@@ -1,5 +1,5 @@
 - if @recipient
-  = t("emails.common.hey", :name => @recipient.given_name)
+  = t("emails.common.hey", :name => @recipient.given_name_or_username)
 
 = yield
 

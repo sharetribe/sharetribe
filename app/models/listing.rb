@@ -394,7 +394,7 @@ class Listing < ActiveRecord::Base
       # send the message in recipients language and use very short date format to fit in sms
       locale = request.author.locale.to_sym || :fi
       Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
-      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
+      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name_or_username, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
       listing_url = ApplicationHelper.shorten_url("http://demo.kassi.eu/#{locale.to_s}/listings/#{offer.id}")
       unless offer.author.phone_number.blank?
         message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
@@ -403,7 +403,7 @@ class Listing < ActiveRecord::Base
       else
         message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => listing_url, :locale => locale)
       end
-      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name, :locale => locale)
+      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name_or_username, :locale => locale)
       # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
       # to the driver (and the time and date of the suggestions)
       # But as there is not yet real payment API, this is not yet implemented.

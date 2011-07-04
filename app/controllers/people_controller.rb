@@ -70,7 +70,7 @@ class PeopleController < ApplicationController
       redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
     end
     session[:person_id] = @person.id
-    flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
+    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
     PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
     redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
   end
