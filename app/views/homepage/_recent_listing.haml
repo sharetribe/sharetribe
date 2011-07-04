@@ -18,7 +18,7 @@
       = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 60, :omission => "..."))
       %span
         &ndash;
-        = link_to listing.author.given_name, listing.author
+        = link_to listing.author.given_name_or_username, listing.author
         = time_ago(listing.created_at)
     .float_left
       - unless current_user?(listing.author)

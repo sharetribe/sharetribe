@@ -4,7 +4,7 @@
 .grid_10.prefix_7.suffix_7
   #new_testimonial_form
     %h2
-      = t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name)
+      = t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
     = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
       = form.error_messages
       .message_form_field_container

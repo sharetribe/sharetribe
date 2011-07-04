@@ -1,6 +1,6 @@
 - listing = testimonial.participation.conversation.listing
 %span
-  = link_to testimonial.author.given_name, testimonial.author
+  = link_to testimonial.author.given_name_or_username, testimonial.author
   = t(".#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category}")
   - if listing.visibility.eql?("disabled")
     &ldquo;#{listing.title}&rdquo;

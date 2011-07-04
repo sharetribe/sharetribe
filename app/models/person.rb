@@ -11,9 +11,8 @@ class Person < ActiveRecord::Base
   
   include ErrorsHelper
   
-  # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
-  PERSON_HASH_CACHE_EXPIRE_TIME = 0#15  #ALSO THIS CACHE TEMPORARILY OFF TO TEST PERFORMANCE WIHTOUT IT
-  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  ## THE CACHE IS TEMPORARILY OFF BECAUSE CAUSED PROBLEMS ON ALPHA: SEE ALSO COMMENTING OUT AT THE PLACE WHER CACHE IS USED!
+  PERSON_HASH_CACHE_EXPIRE_TIME = 15.minutes
+  PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours  
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
@@ -203,6 +202,12 @@ class Person < ActiveRecord::Base
   end
   
   def given_name_or_username(cookie=nil)
+    unless given_name(cookie).blank?
+      return given_name(cookie)
+    else
+      return username(cookie)
+    end
+    
     person_hash = get_person_hash(cookie)
     return "Not found!" if person_hash.nil?
     if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
@@ -215,9 +220,18 @@ class Person < ActiveRecord::Base
     if new_record?
       return form_given_name ? form_given_name : ""
     end
-    # We rather return the username than blank if no given name is set
-    return Rails.cache.fetch("given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_or_username(cookie)}
-    #given_name_or_username(cookie) 
+    
+    return Rails.cache.fetch("person_given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_from_person_hash(cookie)} 
+  end
+  
+  def given_name_from_person_hash(cookie)
+    person_hash = get_person_hash(cookie)
+    return "Not found!" if person_hash.nil?
+    unless person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
+      return person_hash["name"]["given_name"]
+    else
+      return ""
+    end
   end
   
   def set_given_name(name, cookie)
@@ -379,12 +393,17 @@ class Person < ActiveRecord::Base
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
       Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
-      if params["name"] || params[:name]
-        # If name is going to be changed, expire name cache
-        Rails.cache.delete("person_name/#{self.id}")
-        Rails.cache.delete("given_name/#{self.id}")
-      end
-      PersonConnection.put_attributes(params.except("password2"), self.id, cookie)
+
+      # Expire the person_hash cache everytime 
+      # (we can do this only for the current sessions, so the other users will see the old info for the PERSON_HASH_CACHE_EXPIRE_TIME
+      Person.cache_delete(id, cookie)
+      Person.cache_delete(id, nil) # also the delete the data fetched and cached without a cookie
+      Person.cache_delete(id, Session.kassi_cookie) # also the delete the data fetched and cached with the Kassi's (app only) cookie
+      # Expire also the name_caches every time, because it's hard to detecet changes in names if they are changed to empty
+      Rails.cache.delete("person_name/#{self.id}")
+      Rails.cache.delete("person_given_name/#{self.id}")
+       
+      PersonConnection.put_attributes(params.except("password2"), self.id, cookie)    
     end
   end
   
@@ -486,9 +505,8 @@ class Person < ActiveRecord::Base
   # Methods to simplify the cache access
   
   def self.cache_fetch(id,cookie)
-    # FIXME: CACHING DISABLED DUE PROBLEMS AT ALPHA SERVER
-    PersonConnection.get_person(id, cookie)  # A line to skip the cache temporarily
-    #Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+    #PersonConnection.get_person(id, cookie)
+    Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
   end
   
   def self.cache_write(person_hash,id,cookie)

@@ -17,5 +17,5 @@
         = render :partial => "listings/listed_listing_edit_links", :locals => { :listing => listing }
     .float_right
       %span
-        = link_to listing.author.given_name, listing.author
+        = link_to listing.author.given_name_or_username, listing.author
         = time_ago(listing.created_at)
