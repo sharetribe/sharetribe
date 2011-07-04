@@ -5,19 +5,21 @@ namespace :i18n do
   def write_error_page(status, locale = nil)
     dest_filename = [status.to_s, locale, "html"].compact.join(".")
     File.open(File.join(Rails.root, "public", dest_filename), "w") do |file|
-      path = File.join(Rails.root, "app", "views", "errors", "#{status}.haml")
-      file.print Haml::Engine.new(File.read(path)).render
+      path = File.join("app", "views", "errors", "#{status}.haml")
+      file.print ActionView::Base.new(Rails.configuration.paths.app.views.first).render(:file => path)
     end   
   end
   
   desc 'Write public/404.html and public/500.html error pages'
   task :write_error_pages => :environment do
-    [505, 506].each do |status|
+    [404, 500].each do |status|
       APP_CONFIG.available_locales.collect{|loc| loc[1]}.each do |locale|
-        write_error_page(status, locale)
-        # Create also a default error page for situations
-        # when error pages are not run through rails
-        write_error_page(status) if locale.to_sym == "en"
+        I18n.with_locale locale do
+          write_error_page(status, locale)
+          # Create also a default error page for situations
+          # when error pages are not run through rails
+          write_error_page(status) if locale.eql?("en")
+        end
       end
     end
   end

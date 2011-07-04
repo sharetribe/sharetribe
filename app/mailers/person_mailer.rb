@@ -2,6 +2,10 @@ include ApplicationHelper
 include PeopleHelper
 
 class PersonMailer < ActionMailer::Base
+  
+  # Enable use of method to_date.
+  require 'active_support/core_ext'
+  
   default :from => APP_CONFIG.kassi_mail_from_address
   layout 'email'
 
@@ -70,7 +74,8 @@ class PersonMailer < ActionMailer::Base
     @feedback.email ||= feedback.author.try(:email)
     @current_community = current_community
     subject = "Uutta palautetta #{@current_community.name}-Kassista käyttäjältä #{feedback.author.try(:name)}"
-    mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject, :reply_to => @feedback.email)
+    mail_to = @current_community.feedback_to_admin? ? @community.admin_emails : APP_CONFIG.feedback_mailer_recipients
+    mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
   end
   
   def badge_migration_notification(recipient)
@@ -95,8 +100,7 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = person
     @email = email
-    admin_emails = Person.admins_of(@community).collect { |p| p.email }
-    mail(:to => admin_emails, :subject => "New member in #{@community.name} Kassi")
+    mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Kassi")
   end
   
   # Automatic reply to people who try to contact us via Dashboard
@@ -104,6 +108,16 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     set_locale locale
     mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>")
+  end
+  
+  # Remind users of conversations that have not been accepted or rejected
+  def accept_reminder(conversation, recipient, host=nil)
+    @recipient = set_up_recipient(recipient, host)
+    @conversation = conversation
+    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => @conversation.id.to_s)}" : "test_url"
+    alert_if_erroneus_host(host, @url)
+    mail(:to => @recipient.email,
+         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
   
   private

@@ -51,6 +51,7 @@ class Person < ActiveRecord::Base
     "email_when_conversation_rejected",
     "email_about_new_badges",
     "email_about_new_received_testimonials",
+    "email_about_accept_reminders",
     "email_about_testimonial_reminders"
     
     # These should not yet be shown in UI, although they might be stored in DB
@@ -539,11 +540,6 @@ class Person < ActiveRecord::Base
   
   def consent(community)
     community_memberships.find_by_community_id(community.id).consent
-  end
-  
-  # Return the people who are admins of the given community
-  def self.admins_of(community)
-    joins(:community_memberships).where(["community_id = ? AND admin = 1", community.id])
   end
   
   def is_admin_of?(community)
