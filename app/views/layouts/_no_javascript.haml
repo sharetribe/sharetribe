@@ -21,6 +21,8 @@
       - unless logged_in?
         = form.label :email, t('error_pages.your_email_address')
         = form.text_field :email, :class => "text_field", :id => "error_feedback_email"
+      = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
+      = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
       = form.label :content, t('error_pages.no_javascript.your_feedback_to_admins')
       = form.text_area :content, :class => "feedback", :id => "error_feedback_content"
       = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous"), :id => "error_feedback_author_id"
