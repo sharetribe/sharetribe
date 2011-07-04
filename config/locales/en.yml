@@ -18,12 +18,25 @@ en:
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: "or"
   error_pages:
+    error_404_title: "page not found"
+    error_500_title: "page loading failed"
+    error_404:
+      page_can_not_be_found: "Page can not be found!"
+      page_you_requested_can_not_be_found: "The page you requested can not be found. Are you sure you spelled the address correctly?"
+      if_you_believe: "If you believe that the address is correct and it should be working, please help us locate the error by letting us know what address caused the error and what should be seen on the page with the form below."
+    error_500:
+      page_loading_failed: "Page loading failed!"
+      reload_refresh: "Reloading/refreshing the page often helps you to get on the page that you were trying to reach. We try to locate and fix the problem that caused the error as soon as possible."
+      help_us_find_the_problem: "You can help us find find the problem by writing a short description of the problem in the box below."
+    back_to_kassi_front_page: "Back to Kassi front page"
     your_email_address: "Your email address"
-    your_feedback_to_admins: "Your feedback to admins"
-    send_feedback: "Send feedback"
+    error_description: "Error description"
+    send: "Send"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript is disabled in your browser"
       kassi_does_not_currently_work_without_javascript: "Unfortunately Kassi does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use Kassi without javascript, please send us feedback using the form below."
+      your_feedback_to_admins: "Your feedback to admins"
+      send_feedback: "Send feedback"
   error_messages:
     listings:
       share_type: "You must check at least one of the boxes above." 
@@ -203,6 +216,16 @@ en:
       you_have_received_badges_in_kassi: "You have earned new badges in Kassi. You can view your badges by logging in to Kassi and going to"
       badge_description1: "You can earn several different badges in Kassi as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, doing favors, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
       badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in Kassi: buy, sell, lend and borrow items, do others favors, share rides and watch your badge arsenal grow!"
+    accept_reminder:
+      remember_to_accept_offer: "Remember to accept or reject an offer"
+      remember_to_accept_request: "Remember to accept or reject a request"
+      you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received on %{date}."
+      you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received on %{date}."
+      request_accusative: "request"
+      offer_accusative: "offer"
+      remember_to_accept_listing: "Remember to accept %{listing_type}, even though the actual event has already taken place. Accepting makes it possible for the parties to give feedback to each other. The good feedback you have received will be shown to other Kassi users in your profile. It will make you more trustworthy in the eyes of other Kassi users and assures that everything will go smoothly for you also in the future. Good feedback also helps you get badges."
+      you_can_accept_or_reject_request_at: "You can accept or reject the request in"
+      you_can_accept_or_reject_offer_at: "You can accept or reject the request in"
   admin:
     badges:
       index:
@@ -719,6 +742,7 @@ en:
       email_when_conversation_rejected: "...somebody rejects my offer or request"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_received_testimonials: "...somebody gives me feedback"
+      email_about_accept_reminders: "...I have forgotten to accept an event"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
   terms:
     show:

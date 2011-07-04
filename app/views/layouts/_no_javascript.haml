@@ -7,7 +7,7 @@
 
 .grid_16.prefix_4.suffix_4
   .grid_8.alpha
-    #error_content_javascript
+    #error_content
       %h2= t('error_pages.no_javascript.javascript_is_disabled_in_your_browser')
       %p= t('error_pages.no_javascript.kassi_does_not_currently_work_without_javascript')
 
@@ -17,12 +17,12 @@
 
 .grid_12.prefix_6.suffix_6
   #error_page_feedback_form
-    = form_for :feedback, :url => admin_feedbacks_path, :remote => true, :html => { :id => "new_error_feedback" } do |form|
+    = form_for :feedback, :url => admin_feedbacks_path, :html => { :id => "new_error_feedback" } do |form|
       - unless logged_in?
         = form.label :email, t('error_pages.your_email_address')
         = form.text_field :email, :class => "text_field", :id => "error_feedback_email"
-      = form.label :content, t('error_pages.your_feedback_to_admins')
+      = form.label :content, t('error_pages.no_javascript.your_feedback_to_admins')
       = form.text_area :content, :class => "feedback", :id => "error_feedback_content"
       = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous"), :id => "error_feedback_author_id"
       = form.hidden_field :url, :value => "Error page no javascript", :id => "error_feedback_url"
-      = form.submit t('error_pages.send_feedback'), :class => "send_button", :id => "error_feedback_submit"
+      = form.submit t('error_pages.no_javascript.send_feedback'), :class => "send_button", :id => "error_feedback_submit"

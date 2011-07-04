@@ -18,12 +18,25 @@ fi:
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: "tai"
   error_pages:
+    error_404_title: "sivua ei löydy"
+    error_500_title: "sivun lataus ei onnistunut"
+    error_404:
+      page_can_not_be_found: "Sivua ei löydy!"
+      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?"
+      if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
+    error_500:
+      page_loading_failed: "Sivun lataus ei onnistunut!"
+      reload_refresh: "Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit. Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian."
+      help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
+    back_to_kassi_front_page: "Takaisin Kassin etusivulle"
     your_email_address: "Sähköpostiosoitteesi"
-    your_feedback_to_admins: "Palautteesi ylläpidolle"
-    send_feedback: "Lähetä palaute"
+    error_description: "Virheen kuvaus"
+    send: "Lähetä"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
+      your_feedback_to_admins: "Palautteesi ylläpidolle"
+      send_feedback: "Lähetä palaute"
   error_messages:
     listings:
       share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
@@ -203,6 +216,16 @@ fi:
       you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
       badge_description1: "Voit ansaita Kassissa erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
       badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
+    accept_reminder:
+      remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
+      remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
+      you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
+      you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
+      request_accusative: "pyynnön"
+      offer_accusative: "tarjouksen"
+      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille Kassin käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös kassimerkkien saaminen edellyttää hyvän palautteen saamista."
+      you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
+      you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
   admin:
     badges:
       index:
@@ -718,6 +741,7 @@ fi:
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
+      email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
   terms:
     show:
@@ -809,9 +833,9 @@ fi:
 
   date:
     formats:
-      default: "%e.%m.%Y" #was originally "%e. %Bta %Y", but changed to same as short 'cos it's better default for Kassi
+      default: "%d.%m.%Y" #was originally "%e. %Bta %Y", but changed to same as short 'cos it's better default for Kassi
       long: "%A%e. %Bta %Y"
-      short: "%e.%m.%Y"
+      short: "%d.%m.%Y"
  
     day_names: [Sunnuntai, Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Lauantai]
     abbr_day_names: [Su, Ma, Ti, Ke, To, Pe, La]
