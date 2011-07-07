@@ -8,6 +8,7 @@ ru:
       lend: "дам на время"
       rent_out: "прокат"
       trade: "обменяю"
+      receive: "Приму в дар"
       give_away: "отдам"
       temporary_accommodation: "временное проживание"
       buy: "куплю"
@@ -15,7 +16,27 @@ ru:
       rent: "аренда"
     cancel: "Отмена"
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
-  or: "или"
+    or: "или"
+  error_pages:
+     error_404_title: "страница не найдена"
+     error_500_title: "ошибка сервера"
+     error_404:
+       page_can_not_be_found: "Такой страницы нет!"
+       page_you_requested_can_not_be_found: "Запрашиваемая вами страница отсутствует на сервере. Проверьте правильность адреса."
+       if_you_believe: "Если вы полагаете, что адрес верен и всё должно работать, сообщите нам, используя форму ниже, по какому адресу возникает ошибка и что, как вы думаете, должно располагаться на этой странице."
+     error_500:
+       page_loading_failed: "Ошибка сервера!"
+       reload_refresh: "Попробуйте обновить/перезагрузить страницу. В большинстве случаев это поможет. Мы делаем всё возможное, чтобы устранить причину этой ошибки как можно скорее."
+       help_us_find_the_problem: "Вы можете помочь нам найти проблему, отправив её краткое описание через форму, расположенную ниже."
+     back_to_kassi_front_page: "На главную страницу Kassi"
+     your_email_address: "Ваш адрес электронной почты"
+     error_description: "Описание ошибки"
+     send: "Отправить"
+     no_javascript:
+       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
+       kassi_does_not_currently_work_without_javascript: "К сожалению, Kassi не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу. Если вы хотите пользоваться Kassi без javascript, сообщите нам, почему."
+       your_feedback_to_admins: "Обратная связь с администрацией"
+       send_feedback: "Отправить"
   error_messages:
      listings:
        share_type: "Вы должны выбрать как минимум один из пунктов." 
@@ -186,6 +207,16 @@ ru:
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь -"
     reply_to_contact_request:
       thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
+    accept_reminder:
+      remember_to_accept_offer: "Напоминание о необходимости принять решение по предложению"
+      remember_to_accept_request: "Напоминание о необходимости принять решение по запросу"
+      you_have_not_yet_accepted_or_rejected_request: "Вы всё ещё не приняли решение по запросу '%{title}', полученному вами %{date}."
+      you_have_not_yet_accepted_or_rejected_offer: "Вы всё ещё не приняли решение по предложению '%{title}', полученному вами %{date}."
+      request_accusative: "запрос"
+      offer_accusative: "предложение"
+      remember_to_accept_listing: "Не забудьте принять %{listing_type}, даже в том случае, если фактически событие уже произошло. После того, как листинг будет принят, у обеих сторон появляется возможность оставлять взаимные отзывы о событии. Полученные вами хорошие отзывы будут видны другим пользователям на странице вашего профиля. Это обеспечит вам статус надёжного пользователя и обеспечит беспроблемное совершение сделок в будущем. Кроме того, хорошие отзывы будут приносить вам новые значки."
+      you_can_accept_or_reject_request_at: "Вы можете принять или отклонить запрос "
+      you_can_accept_or_reject_offer_at: "Вы можете принять или отклонить предложение "
     testimonial_reminder:
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
       you_have_not_given_feedback_yet: "Вы ещё не оставили отзыв о %{name} после события '%{event}'. Не забудьте оставить отзыв о том, как зарекомендовал себя %{given_name} во время этого события."
@@ -384,6 +415,7 @@ ru:
       lends: "Дам на время"
       rent_outs: "Прокат"
       trades: "Обмен"
+      receives: "Прить в дар"
       give_aways: "Отдам бесплатно"
       temporary_accommodations: "Временное проживание"
       buys: "Покупка"
@@ -404,6 +436,7 @@ ru:
         lend: "Дам на время"
         rent_out: "Прокат"
         trade: "Обмен"
+        receive: "Приму в дар"
         give_away: "Отдам"
         temporary_accommodation: "Временное проживание"
         buy: "Куплю"
@@ -629,6 +662,7 @@ ru:
       show_also_closed: "Показывать закрытые"
       show_only_open: "Показывать только открытые"
     show:
+      joined_this_community: "Зарегистрирован с"
       address: "Адрес:"
       phone_number: "Телефон:"
       about_me: "Обо мне:"  
@@ -708,6 +742,7 @@ ru:
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
       email_about_new_badges: "...я получил новый значок"
       email_about_new_received_testimonials: "...кто-либо дал мне отзыв"
+      email_about_accept_reminders: "...Я забыл принять решение по событию"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
   terms:
     show:
