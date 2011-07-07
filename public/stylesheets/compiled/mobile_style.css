@@ -97,7 +97,6 @@ form, input {
 #header {
   height: 100px;
   margin: 0;
-  float: left;
   display: block; }
 
 #main {
@@ -111,11 +110,6 @@ form, input {
   margin-top: 0;
   vertical-align: middle; }
 
-#map_canvas {
-  height: 500%;
-  width: 100%;
-}  
-  
 #search {
   margin: 5px 0 0 18px; }
   #search input.search_field {
@@ -149,9 +143,7 @@ form, input {
       color: #f8792f; }
 
 .tabs {
-  margin-top: 7px; 
-  margin-bottom: 10px; 
-  }
+  margin-top: 16px; }
 
 #top_navi select {
   background: #f7f5e6;
@@ -171,6 +163,7 @@ form, input {
       color: #d45207; }
 
 .login_tabs {
+  height: 40px;
   margin-right: 10px; }
 
 .locale_select_padding {
