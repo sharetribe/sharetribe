@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704144650) do
+ActiveRecord::Schema.define(:version => 20110707163036) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -245,6 +245,18 @@ ActiveRecord::Schema.define(:version => 20110704144650) do
     t.datetime "valid_until"
     t.boolean  "delta",                   :default => true,        :null => false
     t.boolean  "open",                    :default => true
+  end
+
+  create_table "locations", :force => true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "google_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "listing_id"
+    t.string   "person_id"
+    t.string   "location_type"
   end
 
   create_table "messages", :force => true do |t|
