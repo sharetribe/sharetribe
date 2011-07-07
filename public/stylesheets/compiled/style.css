@@ -2631,6 +2631,9 @@ a.handle:hover {
     background: red url("/images/error_arrow3.png") no-repeat top left;
     color: white; }
 
+.unwanted_text_field {
+  display: none; }
+
 #error {
   margin-top: 120px; }
   #error h2 {
