@@ -34,7 +34,7 @@ class Community < ActiveRecord::Base
   
   # Return the people who are admins of this community
   def admins
-    members.joins(:community_memberships).where(:admin => 1)
+    members.joins(:community_memberships).where("community_memberships.admin = '1'").group("people.id")
   end
   
   # Returns the emails of admins in an array
