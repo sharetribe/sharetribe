@@ -92,6 +92,16 @@ en:
       settings: "Settings"
       go_to_your_profile_page: "Profile"
       admin: "Admin"
+    mobile_logged_in:
+      login: "Login"
+      sign_up: "Sign up"
+      logout: "Logout"
+      hi: "Hi"
+      requests: "Friend requests"
+      notifications: "Notifications"
+      settings: "Settings"
+      go_to_your_profile_page: "Profile"
+      admin: "Admin"
     logged_in_messages_icon:
       messages: "Messages"
     logged_in_notifications_icon:
@@ -451,6 +461,7 @@ en:
         housing_you_offer: "Housing you offer"
       origin:
         origin: "Origin"
+        location: "Location"
       destination:
         destination: "Destination"
       tag_list:
@@ -458,6 +469,10 @@ en:
         comma_separate: "(comma separate)"      
       description:
         detailed_description: "Detailed description"
+      googlemap:
+        googlemap_description: "Mapview"
+        googlemap_updatemap: "Update Map"
+        googlemap_copy: "End Points From Map"
       images:
         image: "Image"
         select_file: "Select file"
@@ -584,6 +599,7 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       email_is_in_use: "The email you gave is already in use."
       captcha_was_wrong: "Captcha text was incorrect."
+      address_validator: "The location was not found."
     not_member:
       this_user_does_not_belong_to_this_community: "This uses does not belong to %{community} community"
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. Kassi does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
@@ -745,6 +761,7 @@ en:
       city: "City:"
       phone_number: "Phone number:"
       about_you: "About you:"
+      profilemap: "Mapview"
     avatar:  
       update_profile_picture: "Update profile picture"
       add_avatar_submit: "Save picture"

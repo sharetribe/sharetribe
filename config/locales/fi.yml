@@ -451,6 +451,7 @@ fi:
         housing_you_offer: "Mitä tarjoat"
       origin:
         origin: "Lähtöpaikka"
+        location: "Sijainti"
       destination:  
         destination: "Määränpää"
       tag_list:
@@ -458,6 +459,10 @@ fi:
         comma_separate: "(erota pilkulla)"  
       description:
         detailed_description: "Tarkempi kuvaus"
+      googlemap:
+        googlemap_description: "Karttanäkymä"
+        googlemap_updatemap: "Päivitä karttaa"
+        googlemap_copy: "Päätepisteet Kartalta"
       images:
         image: "Kuva"
         select_file: "Valitse tiedosto"
@@ -583,6 +588,7 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
+      address_validator: "Sijaintia ei löytynyt."
     not_member:
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
       explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
@@ -744,6 +750,7 @@ fi:
       city: "Kaupunki:"
       phone_number: "Puhelinnumero:"
       about_you: "Tietoa sinusta:"
+      profilemap: "Karttanäkymä"
     avatar:  
       update_profile_picture: "Profiilikuvan päivitys"
       add_avatar_submit: "Tallenna kuva"

@@ -36,7 +36,28 @@ class ListingsController < ApplicationController
     @listing_style = "listing"
     load
   end
-  
+
+  # detect the browser and return the approriate layout
+  def detect_browser
+    if APP_CONFIG.force_mobile_ui
+        return true
+    end
+    
+    mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
+"palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
+"windows ce; smartphone;","windows ce; iemobile", 
+"up.browser","up.link","mmp","symbian","smartphone", 
+"midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
+    if request.headers["HTTP_USER_AGENT"]
+	    agent = request.headers["HTTP_USER_AGENT"].downcase
+	    mobile_browsers.each do |m|
+		    return true if agent.match(m)
+	    end    
+    end
+    return false
+  end
+    
+
   # Used to load listings to be shown
   # How the results are rendered depends on 
   # the type of request and if @to_render is set
@@ -115,6 +136,18 @@ class ListingsController < ApplicationController
     @listing = Listing.new
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
+    if @listing.category == "rideshare"
+	    @listing.build_origin_loc(:location_type => "origin_loc")
+	    @listing.build_destination_loc(:location_type => "destination_loc")
+    else
+	    if (@current_user.location != nil)
+	      temp = @current_user.location
+	      temp.location_type = "origin_loc"
+	      @listing.build_origin_loc(temp.attributes)
+      else
+	      @listing.build_origin_loc(:location_type => "origin_loc")
+      end
+    end
     1.times { @listing.listing_images.build }
     if @listing.category != "rideshare"
       @listing.build_location
@@ -129,6 +162,9 @@ class ListingsController < ApplicationController
   end
   
   def create
+	  if params[:listing][:origin_loc_attributes][:address].empty?
+	    params[:listing].delete("origin_loc_attributes")
+	  end
     @listing = @current_user.create_listing params[:listing]
     if @listing.category != "rideshare"
       @location = @listing.create_location(params[:location])
@@ -148,10 +184,19 @@ class ListingsController < ApplicationController
   end
   
   def edit
+	  if !@listing.origin_loc
+	      @listing.build_origin_loc(:location_type => "origin_loc")
+	  end
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
   end
   
   def update
+  if params[:listing][:origin_loc_attributes][:address].empty?
+    params[:listing].delete("origin_loc_attributes")
+    if @listing.origin_loc
+     @listing.origin_loc.delete
+    end
+  end
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
