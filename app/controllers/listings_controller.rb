@@ -67,7 +67,7 @@ class ListingsController < ApplicationController
   def requests_on_map
     params[:listing_type] = "request"
     @to_render = {:action => :index}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community)
     @listing_style = "map"
     load
   end
@@ -84,7 +84,7 @@ class ListingsController < ApplicationController
   def serve_listing_data
     
     @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
-                order("created_at DESC").find_with(params, @current_user)
+                order("created_at DESC").find_with(params, @current_user, @current_community)
     
     
     render :json => { :data => @listings }
@@ -99,7 +99,7 @@ class ListingsController < ApplicationController
   
   def listing_all_bubbles
       @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
-                order("created_at DESC").find_with(params, @current_user)
+                order("created_at DESC").find_with(params, @current_user, @current_community)
       @render_array = [];
       @listings.each do |listing|
         @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
