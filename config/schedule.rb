@@ -20,5 +20,12 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hours do
-  rake "thinking_sphinx:reindex"
+  rake "thinking_sphinx:index", :cron_log => "/dev/null" 
+end
+
+
+# Upload cached Ressi events.
+# If Ressi (Research data collection) is not in use, this doesn't do anything.
+every 1.day, :at => '1am' do
+  rake "ressi:upload"
 end

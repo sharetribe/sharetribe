@@ -52,7 +52,11 @@ module ListingsHelper
   def visibility_array
     array = []
     Listing::VALID_VISIBILITIES.each do |visibility|
-      array << [t(".#{visibility}"), visibility]
+      if visibility.eql?("this_community")
+        array << [t(".#{visibility}", :community => @current_community.name), visibility]
+      else
+        array << [t(".#{visibility}"), visibility]
+      end
     end
     return array  
   end

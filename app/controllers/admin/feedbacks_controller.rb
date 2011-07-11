@@ -3,10 +3,10 @@ class Admin::FeedbacksController < ApplicationController
   protect_from_forgery :except => :create
   
   def create
-    @feedback = Feedback.new(params[:feedback])
+    @feedback = Feedback.new(params[:feedback].except(:title))
     error_page = params[:feedback][:url].include?("Error page")
     # Detect most usual spam messages
-    if (@feedback.content && (@feedback.content.include?("[url=") || @feedback.content.include?("<a href=")))
+    if (@feedback.content && (@feedback.content.include?("[url=") || @feedback.content.include?("<a href=")) || params[:feedback][:title].present?)
       if error_page
         flash[:error] = "feedback_considered_spam"
       else  
@@ -18,7 +18,7 @@ class Admin::FeedbacksController < ApplicationController
       else  
         flash.now[:notice] = "feedback_saved"
       end
-      PersonMailer.new_feedback(@feedback).deliver
+      PersonMailer.new_feedback(@feedback, @current_community).deliver
     else
       if error_page
         flash[:error] = "feedback_not_saved"

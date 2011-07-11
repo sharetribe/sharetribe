@@ -8,21 +8,14 @@
         =  link_to "#", listing_path(listing), :title => title
   .listed_listing_text
     %h5= link_to (params[:q] ? title : listing.title), listing
-    - if listing.closed?
-      .listed_listing_closed_status
-        = t(".#{listing.listing_type}_is_closed")
+    %div{:id => "listed_listing_closed_status_container_#{listing.id.to_s}"}
+      = render :partial => "listings/listed_listing_closed_status", :locals => { :listing => listing }
     %p{:class => "description"}
       = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 320, :omission => "..."))
     .float_left
-      - unless current_user?(listing.author)
-        = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
-        &nbsp;|&nbsp;
-      - comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""
-      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"
-      - if current_user?(listing.author)
-        &nbsp;|&nbsp;
-        = link_to t(".edit"), edit_listing_path(:id => listing.id) 
+      %div{:id => "listed_listing_edit_links_#{listing.id.to_s}"}
+        = render :partial => "listings/listed_listing_edit_links", :locals => { :listing => listing }
     .float_right
       %span
-        = link_to listing.author.given_name, listing.author
+        = link_to listing.author.given_name_or_username, listing.author
         = time_ago(listing.created_at)

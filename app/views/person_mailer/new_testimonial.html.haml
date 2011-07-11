@@ -9,7 +9,7 @@
     = t("people.profile_feedback.grade").capitalize + " " + grade_text(@testimonial.displayed_grade).downcase + "."
     
 - if @testimonial.receiver.can_give_feedback_on?(@testimonial.participation.conversation)
-  = t("emails.new_testimonial.you_can_give_feedback_to", :name => @testimonial.author.given_name)
+  = t("emails.new_testimonial.you_can_give_feedback_to", :name => @testimonial.author.given_name_or_username)
   = link_to(@give_feedback_url, @give_feedback_url + "?ref=email")
   %br/
   %br/

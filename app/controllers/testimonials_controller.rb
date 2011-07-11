@@ -6,9 +6,9 @@ class TestimonialsController < ApplicationController
   
   before_filter :ensure_authorized_to_give_feedback, :except => :index
   before_filter :ensure_feedback_not_given, :except => :index
+  before_filter :person_belongs_to_current_community, :only => :index
   
   def index
-    @person = Person.find(params[:person_id])
     @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
     @grade_amounts = @person.grade_amounts
     render :partial => "additional_testimonials" if request.xhr?
@@ -22,7 +22,7 @@ class TestimonialsController < ApplicationController
     @testimonial = Testimonial.new(params[:testimonial])
     if @testimonial.save
       Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, request.host))
-      flash[:notice] = ["feedback_sent_to", @conversation.other_party(@current_user).given_name, @conversation.other_party(@current_user)]
+      flash[:notice] = ["feedback_sent_to", @conversation.other_party(@current_user).given_name_or_username, @conversation.other_party(@current_user)]
       redirect_to (session[:return_to_inbox_content] || person_message_path(:person_id => @current_user.id, :id => @conversation.id))
     else
       render :action => new

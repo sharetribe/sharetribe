@@ -1,9 +1,9 @@
-= t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => @other_party.name, :event => @participation.conversation.title, :given_name => @other_party.given_name)
+= t("emails.testimonial_reminder.you_have_not_given_feedback_yet", :name => @other_party.name, :event => @participation.conversation.title, :given_name => @other_party.given_name_or_username)
 
 %br/
 %br/
 
-= t("emails.new_testimonial.you_can_give_feedback_to", :name => @other_party.given_name)
+= t("emails.new_testimonial.you_can_give_feedback_to", :name => @other_party.given_name_or_username)
 = link_to(@url, @url + "?ref=email")
 
 %br/

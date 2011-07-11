@@ -6,16 +6,16 @@ Feature: User changes language
   @javascript
   Scenario: User changes language without logging in
     Given I am on the home page
-    When I follow "Offer something"
+    When I follow "List your items and skills!"
     And I follow "Home" 
     And I select "Finnish" from "locale"
-    Then I should see "Tarjoa jotain" within "#offer_something_button"
+    Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
     When I select "Finnish" from "locale"
-    Then I should see "Tarjoa jotain" within "#offer_something_button"
+    Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   
   
   

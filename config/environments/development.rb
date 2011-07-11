@@ -19,12 +19,15 @@ Kassi::Application.configure do
   
   # Enable sending mail from localhost
   ActionMailer::Base.smtp_settings = {
-    :address => 'smtp.hut.fi', #if needed change to own smtp server
-    :port => 25,
-    :domain => 'cos.alpha.sizl.org'
+    :address              => APP_CONFIG.local_email_address,
+    :port                 => APP_CONFIG.local_email_port,
+    :domain               => 'localhost',
+    :user_name            => APP_CONFIG.local_email_user_name,
+    :password             => APP_CONFIG.local_email_password,
+    :authentication       => 'plain',
+    :enable_starttls_auto => true  
   }
 
   config.active_support.deprecation = :log
   
-  config.active_support.deprecation = :log
 end

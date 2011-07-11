@@ -82,7 +82,7 @@ $.validator.
 	);
 
 // Initialize code that is needed for every view
-function initialize_defaults(default_text, locale, feedback_default_text) {
+function initialize_defaults(default_text, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
@@ -90,14 +90,14 @@ function initialize_defaults(default_text, locale, feedback_default_text) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	translate_validation_messages(locale);
+	translate_validation_messages();
 	var form_id = "#new_feedback";
 	$(form_id).validate({
 		rules: {
 			"feedback[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
 	});
 }
@@ -147,7 +147,6 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		}
 		$.uniform.update("select.listing_date_select");
 	});
-	translate_validation_messages(locale);
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
@@ -187,63 +186,59 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "false");
+		  disable_and_submit(form_id, form, "false");
 		}
 	});
 	set_textarea_maxlength();
 	auto_resize_text_areas();
 }
 
-function initialize_send_message_form(default_text, locale) {
+function initialize_send_message_form(default_text) {
 	auto_resize_text_areas();
 	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
-	translate_validation_messages(locale);
 	var form_id = "#new_conversation"
 	$(form_id).validate({
 		rules: {
 			"conversation[message_attributes][content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "false");
+		  disable_and_submit(form_id, form, "false");
 		}
 	});	
 }
 
-function initialize_reply_form(locale) {
+function initialize_reply_form() {
 	auto_resize_text_areas();
 	$('textarea').focus();
-	translate_validation_messages(locale);
 	var form_id = "#new_message"
 	$(form_id).validate({
 		rules: {
 			"message[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
 	});	
 }
 
-function initialize_comment_form(locale) {
+function initialize_comment_form() {
 	auto_resize_text_areas();
-	translate_validation_messages(locale);
 	var form_id = "#new_comment"
 	$(form_id).validate({
 		rules: {
 			"comment[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
-	});	
+	});
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	faceGrade.create('.feedback_grade_images');
-	translate_validation_messages(locale);
 	var form_id = "#new_testimonial"
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
@@ -262,17 +257,17 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 			"testimonial[text]": { required_when_not_neutral_feedback: text_error_message }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "false");
+		  disable_and_submit(form_id, form, "false");
 		}
 	});
 }
 
-function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message) {
+function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, name_required) {
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
-	translate_validation_messages(locale);
 	var form_id = "#new_person"
+	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
@@ -285,8 +280,8 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 		},
 		rules: {
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
-      "person[given_name]": {required: true, minlength: 2, maxlength: 30},
-      "person[family_name]": {required: true, minlength: 2, maxlength: 30},
+      "person[given_name]": {required: name_required, maxlength: 30},
+      "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
@@ -300,7 +295,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
-      disable_and_submit(form_id, form, locale, "false");  
+      disable_and_submit(form_id, form, "false");  
 		}
 	});	
 }
@@ -309,25 +304,24 @@ function initialize_terms_form() {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 }
 
-function initialize_update_profile_info_form(locale, person_id) {
+function initialize_update_profile_info_form(locale, person_id, name_required) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();
-	translate_validation_messages(locale);
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
-			"person[given_name]": {required: true, minlength: 2, maxlength: 30},
-			"person[family_name]": {required: true, minlength: 2, maxlength: 30},
+			"person[given_name]": {required: name_required, maxlength: 30},
+			"person[family_name]": {required: name_required, maxlength: 30},
 			"person[street_address]": {required: false, maxlength: 50},
 			"person[postal_code]": {required: false, maxlength: 8},
 			"person[city]": {required: false, maxlength: 50},
 			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
 	});	
 }
@@ -337,7 +331,7 @@ function initialize_update_notification_settings_form(locale, person_id) {
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
 	});	
 }
@@ -353,7 +347,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 			"file": { required: true, accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, locale, "true");
+		  disable_and_submit(form_id, form, "true");
 		}
 	});	
 }
@@ -388,7 +382,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			$(this).text(change_text);
 		}
 	);
-	translate_validation_messages(locale);
 	var email_form_id = "#email_form"
 	$(email_form_id).validate({
 		errorClass: "error_account",
@@ -399,7 +392,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			"person[email]": { remote: email_in_use_message }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(email_form_id, form, locale, "false");
+		  disable_and_submit(email_form_id, form, "false");
 		}
 	});
 	var password_form_id = "#password_form"
@@ -410,7 +403,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(password_form_id, form, locale, "false");
+		  disable_and_submit(password_form_id, form, "false");
 		}
 	});	
 }
@@ -465,8 +458,12 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 		sections[sectionTypes[i]] = new Array();
 	}
 	allLinks.each(function() {
-		link_type = $(this).attr("name").split("_")[0];
-		link_title = $(this).attr("name").split("_")[1];
+	  var link_array = $(this).attr("name").split("_");
+		link_type = link_array[0];
+		link_title = link_array[1];
+		if (link_array.length > 2) {
+		  link_title += "_" + link_array[2];
+		}
 		if ($(this).hasClass("selected")) {
 			sections[link_type].push(link_title);
 		}
@@ -520,36 +517,6 @@ function initialize_profile_view(badges) {
 
 function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
-}
-
-function translate_validation_messages(locale) {
-	if (locale == "fi") {
-		translate_validation_messages_to_finnish();
-	}
-}
-
-function translate_validation_messages_to_finnish() {
-	jQuery.extend(jQuery.validator.messages, {
-		required: "Tämä on pakollinen kenttä.",
-		remote: "Kentän arvo on virheellinen.",
-		email: "Anna toimiva sähköpostiosoite.",
-		url: "Anna oikeanlainen URL-osoite.",
-		date: "Anna päivämäärä oikessa muodossa.",
-		dateISO: "Anna päivämäärä oikeassa muodossa (ISO).",
-		number: "Annetun arvon pitää olla numero.",
-		digits: "Tähän kenttään voit syöttää ainoastaan kirjaimia.",
-		creditcard: "Anna oikeantyyppinen luottokortin numero.",
-		equalTo: "Antamasi arvot eivät täsmää.",
-		accept: "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF.",
-		captcha: "Captcha ei ollut oikein. Yritä uudestaan.",
-		maxlength: $.validator.format("Voit syöttää tähän kenttään maksimissaan {0} merkkiä."),
-		minlength: $.validator.format("Syötä tähän kenttään vähintään {0} merkkiä."),
-		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),
-		range: $.validator.format("Kentän arvon tulee olla välillä {0} ja {1}."),
-		max: $.validator.format("Arvo voi olla enintään {0}."),
-		min: $.validator.format("Arvon täytyy olla vähintään {0}."),
-		min_date: "Ilmoituksen viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki."
-	});
 }
 
 function set_textarea_maxlength() {
@@ -671,12 +638,9 @@ var faceGrade = {
   } 
 }
 
-function disable_and_submit(form_id, form, locale, ajax) {
-	disabled_value = (locale == "fi") ? "Odota hetki..." : "Please wait...";
-	// $(form_id + ' input[type=submit]').removeClass('send_button_notifications');
-	// $(form_id + ' input[type=submit]').addClass('loading_button');
+function disable_and_submit(form_id, form, ajax) {
 	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
-	$(form_id + ' input[type=submit]').val(disabled_value);
+	$(form_id + ' input[type=submit]').val(please_wait_string());
 	if (ajax == "true") {
 		console.log(form);
 		$(form).ajaxSubmit();

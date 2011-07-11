@@ -91,12 +91,26 @@ describe Person do
         @test_person.given_name.should == "Ripa"
       end
       
-      it "should return username if given name is blank" do
+      it "should return blank if given name is blank" do
         @test_person.update_attributes({'given_name' => "", 'family_name' => ""}, @cookie)
-        @test_person.given_name.should == @test_person.username
+        @test_person.given_name.should == ""
       end
       
     end
+    
+    describe "#given_name_or_username" do
+
+      it "should return the given name if it exists" do
+        @test_person.given_name_or_username.should == "Ripa"
+      end
+
+      it "should return username if given name is blank" do
+        @test_person.update_attributes({'given_name' => "", 'family_name' => ""}, @cookie)
+        @test_person.given_name_or_username.should == @test_person.username
+      end
+
+    end
+    
   end
   
   describe "email functions" do

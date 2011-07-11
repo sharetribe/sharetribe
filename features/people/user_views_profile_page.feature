@@ -61,7 +61,7 @@ Feature: User views profile page
     And I am not logged in
     And I am on the home page
     When I follow "car spare parts"
-    And I follow "listing_author"
+    And I follow "listing_author_link"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
@@ -76,19 +76,19 @@ Feature: User views profile page
        | kassi_testperson1 |
        | kassi_testperson2 |
      And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
-     And visibility of that listing is "kassi_users"
+     And visibility of that listing is "this_community"
      And there is favor offer with title "massage" from "kassi_testperson1"
      And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
      And visibility of that listing is "disabled"
      And I am on the home page
      And I should not see "car spare parts"
      When I follow "massage"
-     And I follow "listing_author"
+     And I follow "listing_author_link"
      And I should not see "car spare parts"
      And I should see "massage"
      When I log in as "kassi_testperson1"
      And I follow "massage"
-     And I follow "listing_author"
+     And I follow "listing_author_link"
      Then I should see "car spare parts"
      And I should see "massage"
      And I should not see "apartment"

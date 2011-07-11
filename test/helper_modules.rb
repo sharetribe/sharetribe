@@ -50,4 +50,10 @@ module TestHelpers
     1.upto(length - 7) { |i| random_username << chars[rand(chars.size-1)] }
     return random_username
   end
+  
+  def set_subdomain(subdomain = "test")
+    subdomain += "." unless subdomain.blank?
+    @request.host = "#{subdomain}.lvh.me"
+  end
+  
 end

@@ -90,11 +90,43 @@ module ApplicationHelper
     "inbox_tab_#{controller_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
-  def self.send_error_notification(message)
-    if APP_CONFIG.use_hoptoad
-      HoptoadNotifier.notify(:error_class => "Special Error", :error_message => message 
-               )
+  def available_locales
+    if @current_community
+      # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
+      return @current_community.locales.collect{|loc| APP_CONFIG.available_locales.select{|app_loc| app_loc[1] == loc }[0]}
+    else
+      return APP_CONFIG.available_locales
     end
+  end
+  
+  def self.send_error_notification(message, error_class="Special Error", parameters={})
+    if APP_CONFIG.use_hoptoad
+      HoptoadNotifier.notify(:error_class => error_class, :error_message => message, :parameters => parameters)
+    end
+    Rails.logger.error "#{error_class}: #{message}"
+  end
+  
+  # Checks if HTTP_REFERER or HTTP_ORIGIN exists and returns only the domain part with protocol
+  # This was first used to return user to original community from login domain.
+  # Now the domain is included in the params, so this is used only in error cases to redirect back
+  def self.pick_referer_domain_part_from_request(request)
+    return request.headers["HTTP_ORIGIN"] if request.headers["HTTP_ORIGIN"].present?
+    return request.headers["HTTP_REFERER"][/(^[^\/]*(\/\/)?[^\/]+)/,1] if request.headers["HTTP_REFERER"]
+    return ""
+  end
+  
+  def community_file(type, with_locale=false)
+    locale_string = with_locale ? ".#{I18n.locale}" : ""
+    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}.haml"
+    if File.exists?(file_path)
+      file_path
+    else
+      "communities/default/#{type}/#{type}#{locale_string}.haml"
+    end
+  end
+  
+  def facebook_like
+    content_tag :iframe, nil, :src => "http://www.facebook.com/plugins/like.php?locale=#{I18n.locale}_#{I18n.locale.to_s.upcase}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=true&width=450&action=recommend&font=arial&colorscheme=light&height=80", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like
   end
   
 end

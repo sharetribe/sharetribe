@@ -4,14 +4,14 @@
     %div{:class => grade_image_class(testimonial.displayed_grade, false), :title => t("people.profile_feedback.grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."}
       &nbsp;
   .testimonial_description
-    = link_to testimonial.author.given_name, testimonial.author
+    = link_to testimonial.author.given_name_or_username, testimonial.author
     = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category}")
     - if listing.visibility.eql?("disabled")
       &ldquo;#{listing.title}&rdquo;
     - else
       = link_to listing.title, listing
     = t(".#{profile_testimonial_other_person_role(@person, listing).eql?('request') ? 'from' : 'to'}_user")
-    = @person.given_name
+    = @person.given_name_or_username
     = time_ago(testimonial.created_at) + "."
     - unless !testimonial.text || testimonial.text.eql?("")
       %br/

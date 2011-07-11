@@ -1,7 +1,6 @@
 - content_for :javascript do
-  initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}');
+  initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}', #{@current_community.real_name_required?});
   
-
 //Variables needed for the map
 :javascript
   var geocoder;
@@ -17,12 +16,13 @@
   #settings_form_description
     = t(".these_fields_are_shown_in_your")
     = link_to(t(".profile_page"), @person) + "."
-    = t("common.fields_that_are_mandatory")
 
   = form_for @person do |form|
     .form_field_container
       = form.label :given_name, t(".given_name"), :class => "input"
       = form.text_field :given_name, :class => "text_field", :maxlength => "30"
+      %span.profile_settings_visibility_info
+        = t('.visible_to_everybody')
     .form_field_container
       = form.label :family_name, t(".family_name"), :class => "input"
       = form.text_field :family_name, :class => "text_field", :maxlength => "30"
@@ -43,17 +43,21 @@
           //alert($('#person_given_name'));
           //body.setAttribute("onLoad", "initialize_map(\"map_canvas\",map,center,marker,geocoder)");
           //body.setAttribute("onLoad", "initialize_map(\"map_canvas\")");
+      %span.profile_settings_visibility_info
+        = t('.visible_to_everybody')
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
       = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
+      %span.profile_settings_visibility_info
+        = t('.visible_to_registered_users')
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
       = form.text_area :description
       = form.hidden_field :postal_code
       = form.hidden_field :locality
-    = form.fields_for :location do |loc|
-      = loc.hidden_field :address, :value => @person.location.address
-      = loc.hidden_field :google_address, :value => @person.location.google_address
-      = loc.hidden_field :latitude, :value => @person.location.latitude
-      = loc.hidden_field :longitude, :value => @person.location.longitude
-    = form.submit t("settings.save_information"), :class => "send_button"
+      = form.fields_for :location do |loc|
+        = loc.hidden_field :address, :value => @person.location.address
+        = loc.hidden_field :google_address, :value => @person.location.google_address
+        = loc.hidden_field :latitude, :value => @person.location.latitude
+        = loc.hidden_field :longitude, :value => @person.location.longitude
+      = form.submit t("settings.save_information"), :class => "send_button"

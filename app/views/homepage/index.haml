@@ -1,52 +1,58 @@
+#teaser
+  #teaser_left
+    %h1= t(".lend_rent_help_carpool")
+    %p
+      - community_name = (@current_community.name.include?(" ") && I18n.locale.to_s.eql?("fi")) ? "#{@current_community.name} " : @current_community.name
+      = render :file => community_file("teaser_welcome_text", false), :locals => {:community_name => community_name}
+  #teaser_right
+    #teaser_button_container
+      #offer_something_button
+        = link_to t('.offer_something'), new_request_path(:type => "offer")
+      #teaser_button_description
+        = t(".offer_something_description")
+    #teaser_button_container
+      #request_something_button
+        = link_to t('.request_something'), new_request_path(:type => "request")
+      #teaser_button_description
+        = t(".request_something_description")
+    #teaser_browse_links
+      %p
+        = t(".or_see_what_the_others")
+        = link_to t(".are_offering"), offers_path
+        = t(".or")
+        = link_to t(".requesting"), requests_path
+      
+  
 #recent_listings.grid_18
-
-  .grid_5.prefix_2.suffix_2.alpha
-    #request_something_button
-      = link_to t('.request_something'), new_request_path(:type => "request")
-  .grid_5.prefix_2.suffix_2.omega
-    #offer_something_button
-      = link_to t('.offer_something'), new_request_path(:type => "offer")
-  .clear
-
-  #request_button_description.grid_7.prefix_1.suffix_1.alpha
-    .button_description_fix
-      #{link_to t('.buy').capitalize, new_request_path(:type => "request", :category => "item", :share_type => "buy")}, 
-      #{link_to t('.rent'), new_request_path(:type => "request", :category => "item", :share_type => "rent")}, 
-      #{link_to t('.borrow'), new_request_path(:type => "request", :category => "item")},
-      #{link_to t('.look_for_apartment'), new_request_path(:type => "request", :category => "housing")}, 
-      #{link_to t('.ask_for_favor'), new_request_path(:type => "request", :category => "favor")}
-      #{t('.or')}
-      #{link_to t('.ride_partitive'), new_request_path(:type => "request", :category => "rideshare")}
-  #offer_button_description.grid_7.prefix_1.suffix_1.omega
-    .button_description_fix
-      #{link_to t('.offer_favors').capitalize, new_request_path(:type => "offer", :category => "favor")},
-      #{link_to t('.ride_partitive'), new_request_path(:type => "offer", :category => "rideshare")},
-      #{link_to t('.housing_partitive'), new_request_path(:type => "offer", :category => "housing")},  
-      #{t('.or')}
-      #{link_to t('.items_partitive'), new_request_path(:type => "offer", :category => "item")} 
-      #{link_to t('.to_borrow'), new_request_path(:type => "offer", :category => "item")}
-      #{t('.or')}
-      #{link_to t('.to_buy'), new_request_path(:type => "offer", :category => "item", :share_type => "sell")}
-  .clear
  
   #recent_requests.grid_9.alpha
     .recent_listings
       %h3{:class => "orange"}
         = link_to t('.recent_requests'), requests_path
-      = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
-      = will_paginate(@requests)
+      - if @requests.total_entries > 0
+        = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
+        = will_paginate(@requests)
+        - if @requests.total_pages < 2 && @private_listings && @private_listings["request"].present? && @private_listings["request"] > 0
+          .request_spacer
+          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "request", :private_listings_count =>  @private_listings["request"]}
+      - else
+        = render :partial => "blank_slate", :locals => { :slate_type => "request" }
   #recent_offers.grid_9.omega
     .recent_listings
       %h3{:class => "brown"}
         = link_to t('.recent_offers'), offers_path
-      = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
-      = will_paginate(@offers)
+      - if @offers.total_entries > 0
+        = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
+        = will_paginate(@offers)
+        - if @offers.total_pages < 2 && @private_listings && @private_listings["offer"].present? && @private_listings["offer"] > 0
+          .offer_spacer
+          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "offer", :private_listings_count =>  @private_listings["offer"]}       
+      - else
+        = render :partial => "blank_slate", :locals => { :slate_type => "offer" }
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
   
 #recent_event_box.grid_6
   .recent_events
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    %h4= t('.news')
-    .welcome_text
-      = render :partial => "welcome_text"
+    = render :file => community_file("frontpage_sidebar", true)
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

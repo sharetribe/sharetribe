@@ -1,0 +1,17 @@
+test_community_membership:
+  person_id: dMF4WsJ7Kr3BN6ab9B7ckF
+  community_id: 1
+  admin: 1
+  consent: "test_consent0.1"
+  
+test_community_membership2:
+  person_id: df0LOkLS4r3yF-aby-BSxS
+  community_id: 1
+  admin: 0
+  consent: "test_consent0.1"
+  
+test_community_membership3:
+  person_id: df0LOkLS4r3yF-aby-BSxS
+  community_id: 2
+  admin: 0
+  consent: "KASSI_FI1.0"

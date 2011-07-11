@@ -1,0 +1,12 @@
+I18n.backend.class.send(:include, I18n::Backend::Fallbacks)
+I18n.fallbacks.map('ru' => 'en')
+
+module I18n
+  def self.with_locale(locale, &block)
+    orig_locale = self.locale
+    self.locale = locale
+    return_value = yield
+    self.locale = orig_locale
+    return_value
+  end
+end

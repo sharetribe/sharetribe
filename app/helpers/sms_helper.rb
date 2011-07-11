@@ -22,7 +22,7 @@ module SmsHelper
         Rails.logger.info  "Sending sms message: '#{message}' to #{number}"
         response = RestClient.post(sms_uri, sms_text, :content_type => 'application/json')
       rescue Exception => e
-        ApplicationHelper.send_error_notification("Sms send failed, message: #{e.message}")
+        ApplicationHelper.send_error_notification("Sms send failed, message: #{e.message}", "SMS error", params)
         Rails.logger.error { "Sending message failed: #{e.inspect}, #{e.response}" }
       end
     end

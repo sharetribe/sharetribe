@@ -15,6 +15,7 @@ $dark_orange: darken($orange, 10%);
 $darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
 $lighter_orange: lighten($orange, 25%);
+$teaser_bg: #e7b78d;
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
@@ -24,6 +25,7 @@ $listing_button_light_grey: #b8b19f;
 $dark_green: #223f05;
 $lighter_green: lighten($dark_green, 5%);
 $light_green: #ececdb;
+$greyish_green: #ccd1b9;
 $unread_message: #efd6ba;
 $notice_text: #264409; 
 $notice_border: #c6d880; 
@@ -182,7 +184,7 @@ h3.brown {
 h4 {
 	color: $medium_brown;
 	text-align: center;
-	margin: 5px 0 15px 0;
+	margin: 5px 20px 15px 20px;
 }
 
 h5 {
@@ -224,12 +226,23 @@ form, input {
 	margin-top: 7px;
 }
 
+#logo_link {
+	line-height: 14px;
+	margin-top: 15px;
+	color: $bg_color;
+	a { 
+		color: $bg_color;
+		&:hover { color: $light_orange; }
+	}
+}
+
 #search {
-	margin: 15px 0 0 32px;
+	overflow: hidden;
+	margin: 15px 0 0 0;
 	input.search_field {
 		margin-left: 5px;
 		background: $bg_color;
-		width: 175px;
+		width: 165px;
 		height: 18px;
 		padding: 5px 8px;
 		border: 0;
@@ -262,8 +275,8 @@ form, input {
 	}
 }
 
-.tabs {
-	margin-top: 16px;
+#logged_in_icon_container {
+  height: 56px;
 }
 
 #top_navi {
@@ -274,7 +287,7 @@ form, input {
 }
 
 .top_navi_link {
-	margin-top:26px;
+	margin-top: 11px;
 	a {
 		color: white;
 		font-weight: bold;
@@ -286,12 +299,16 @@ form, input {
 }
 
 .login_tabs {
-	height: 40px;
+	height: 56px;
 	margin-right: 10px;
 }
 
 .locale_select_padding {
 	margin: 13px 0 0 5px;
+}
+
+.fb_like_padding {
+  margin: 24px 0 0 5px;
 }
 
 @mixin tab {
@@ -328,7 +345,7 @@ form, input {
 .login_tab {
 	a {
 		font-size: 11px;
-		width: 90px;
+		width: 130px;
 		height: 23px;
 		padding-top: 4px;
 		text-align: center;
@@ -414,10 +431,80 @@ form, input {
 
 /* Home page */
 
-.recent_events {
+#teaser {
+	color: $dark_brown;
+	background: $teaser_bg;
+	padding: 20px 30px 0 30px;
+	width: 880px;
+	margin: 0 0 30px 5px;
+	overflow: hidden;
+	p { font-size: 14px;}
+}
+
+#teaser_left {
+	color: $dark_brown;
+	float: left;
+	width: 475px;
+	margin: 0 30px 5px 0;
+	h1 { font-size: 32px; }
+}
+
+#teaser_right {
+	color: $dark_brown;
+	float: left;
+	margin-top: 5px;
+}
+
+#teaser_button_container {
+	overflow: hidden;
+}
+
+@mixin home_button($background: $orange, $width: 225px) {
+	width: $width;
+	float: left;
+	a {
+		display: block;
+		font-size: 14px;
+		text-align: center;
+		font-weight: normal;
+		padding: 10px 0;
+		color: white;
+		background: $background;
+		@include rounded;
+		&:hover { background: lighten($background, 15%); }
+		&:active { 
+			background: darken($background, 10%);
+		}
+	}
+	margin-bottom: 10px;
+}
+
+#request_something_button {
+	@include home_button($orange);
+}
+
+#offer_something_button {
+	@include home_button($medium_brown);
+}
+
+#teaser_button_description {
+	padding-top: 5px;
+	margin-left: 20px;
+	float: left;
+	width: 125px;
+	font-size: 11px;
+	color: $medium_brown;
+}
+
+#teaser_browse_links {
+	margin: 10px 20px;
+	p { width: 300px; }
+}
+
+@mixin stapled_box($width: 219px) {
 	background: $form_bg;
 	font-size: 11px;
-	width: 219px;
+	width: $width;
 	p {
 		margin: 0;
 		padding: 0;
@@ -428,6 +515,12 @@ form, input {
 		font-size: 10px;
 		float: right;
 	}	
+}
+
+.recent_events { @include stapled_box; }
+.not_a_member_notification { 
+	@include stapled_box(700px);
+	margin-left: 10px; 
 }
 
 .staple {
@@ -463,68 +556,15 @@ form, input {
 
 .event_spacer {
 	@include spacer($medium_brown, dashed);
+  width: 180px;
+	margin-left: 19px;
 }
 
 .more_events_link {
 	padding: 20px 0;
 }
 
-.home_button {
-	width: 340px;
-}
-
-@mixin home_button($background: $orange, $width: 185px) {
-	width: $width;
-	a {
-		display: block;
-		font-size: 14px;
-		text-align: center;
-		font-weight: bold;
-		padding: 10px 0;
-		color: white;
-		background: $background;
-		@include rounded;
-		&:hover { background: lighten($background, 15%); }
-		&:active { 
-			background: darken($background, 10%);
-		}
-	}
-}
-
-#request_something_button {
-	@include home_button($orange);
-}
-
-#offer_something_button {
-	@include home_button($medium_brown);
-}
-
-@mixin button_description($color: $orange) {
-	a {
-		color: $color;
-		&:hover { color: darken($color, 15%); }
-		&:active { color: lighten($color, 10%); }
-	}	
-	font-size: 11px;
-	text-align: center;
-	margin-top: 5px;
-}
-
-/* Aligns button descriptions to buttons */
-.button_description_fix {
-	width: 265px;
-}
-
-#request_button_description {
-	@include button_description;
-}
-
-#offer_button_description {
-	@include button_description($medium_brown);
-}
-
 .recent_listings {
-	padding: 20px 0 0 0;
 	width: 340px;
 }
 
@@ -543,6 +583,20 @@ p.description {
 .listing_spacer {
 	@include spacer;
 	width: 700px;
+}
+
+.blank_slate {
+	padding: 10px 15px;
+	font-size: 14px;
+}
+
+.blank_slate_header { margin-bottom: 20px; }
+
+.blank_slate_suggestions {
+	background: $greyish_green;
+	padding: 15px 20px 10px 20px;
+	font-size: 13px;
+	h3 { font-size: 13px; }
 }
 
 .recent_listing {
@@ -698,7 +752,17 @@ p.description {
 	padding: 20px 15px;
 	h1 {
 		margin-left: 15px;
-	}	
+		float: left;
+		width: 300px;
+	}
+}
+
+#new_listing_form_close_link {
+  float: right;
+  margin: 7px 22px 0 0;
+  a {
+    font-size: 14px;
+  }
 }
 
 #favor_form, #rideshare_form, #housing_form {
@@ -914,13 +978,16 @@ span.smaller {
 	@include hidden_div(600px);
 }
 
-.hidden_title {
+@mixin hidden_title($width: 200px) {
 	float: left;
-	width: 200px;
+	width: $width;
 	font-weight: bold;
 	font-size: 16px;
 	padding: 10px 0 0 20px;
 }
+
+.hidden_title { @include hidden_title; }
+.hidden_title_wide { @include hidden_title(300px); }
 
 .close_link {
 	float: right;
@@ -1014,10 +1081,10 @@ div.checkbox_float {
 	}
 	input.send_button_terms {
 		@include send_button;
+		width: 250px;
 	}
 	label {
 		margin: 10px;
-		width: 340px;
 		font-size: 14px;
 		font-weight: bold;
 	}
@@ -1027,6 +1094,10 @@ div.checkbox_float {
 		width: 200px;
 		font-size: 12px;
 		font-weight: bold;
+	}
+	label.before_description {
+	  margin: 0 10px;
+	  float: left;
 	}
 	.links {
 		margin: 10px 0 0 10px;
@@ -1043,6 +1114,11 @@ div.checkbox_float {
 	}
 	span.small {
 		font-size: 11px;	
+	}
+	span.tiny_description { 
+	  float: left;
+	  font-size: 11px;
+	  padding-top: 2px;
 	}
 	textarea {
 		margin-left: 10px;
@@ -1600,7 +1676,7 @@ a.edit_profile {
 	margin-bottom: 5px;
 }
 
-@mixin message_notice($width: 340px, $margin_left: 97px) {
+@mixin message_notice($width: 340px, $margin_left: 77px) {
 	@include notification($notice_text, $notice_border, $notice_bg);
 	margin: 10px 77px 10px $margin_left;
 	width: $width;
@@ -1920,6 +1996,7 @@ a.edit_profile {
 		font-size: 14px;
 		height: 100px;
 		padding: 12px 10px 5px 15px;
+		float: left;
 	}
 	input.send_button {
 		@include send_button;
@@ -1947,6 +2024,13 @@ a.edit_profile {
 		width: 248px;
 		margin: 0 0 10px 0;
 	}
+}
+
+span.profile_settings_visibility_info {
+  margin-left: 15px;
+  float: left;
+  font-size: 11px;
+  padding-top: 9px;
 }
 
 #settings_avatar_form {
@@ -2030,7 +2114,7 @@ a.edit_profile {
 .settings_account_row_link {
 	width: 50px;
 	float: right;
-	padding-top: 5px;
+	padding: 5px 15px 0 0;
 }
 
 #account_email_form, #account_password_form {
@@ -2239,6 +2323,10 @@ a.handle {
 	}
 }
 
+.unwanted_text_field {
+  display:none
+}
+
 #error { 
 	margin-top: 120px; 
 	h2 {
@@ -2246,9 +2334,12 @@ a.handle {
 	}
 }
 
-#error_content_javascript {
-	margin-top: 20px;
-	h2 { line-height: 26px; }		
+#error_content {
+  margin-top: 70px;
+	h2 { 
+	  line-height: 30px;
+	  margin-bottom: 20px;
+	}
 }
 
 #error_kaapo {
@@ -2647,4 +2738,28 @@ a.handle {
 	width: 30px;
 	font-weight: bold;
 	margin-top: 7px;
+}
+
+.not_member_notification {
+	color: $text_color;
+	overflow: hidden;
+	padding: 25px 40px;
+	font-size: 13px;
+	h1 {
+		font-size: 20px;
+		color: $medium_brown;
+	}
+	p {
+		margin-bottom: 15px;
+	}
+}
+
+.not_member_notification_left {
+	float: left;
+	width: 300px;
+	padding-top: 10px;
+}
+
+#additional_listing_links {
+  margin: 10px;
 }

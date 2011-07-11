@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{t("people.new.email_is_in_use")}','#{t("people.new.captcha_was_wrong")}');
+  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{t("people.new.email_is_in_use")}','#{t("people.new.captcha_was_wrong")}',#{@current_community.real_name_required?});
 
 .grid_10.prefix_7.suffix_7
   #signup_form
@@ -8,16 +8,24 @@
     = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
       = form.error_messages
       .form_field_container
-        = form.label :username, t('.username')
+        = form.label :username, t('.username'), :class => "before_description"
+        %span.tiny_description
+          = "(#{t('.visible_to_everybody')})" 
         = form.text_field :username, :class => :text_field, :maxlength => "20"
       .form_field_container
-        = form.label :given_name, t('.given_name')
+        = form.label :given_name, t('.given_name'), :class => "before_description"
+        %span.tiny_description
+          = "(#{t('.visible_to_everybody')}#{t('.not_required') unless @current_community.real_name_required?})"
         = form.text_field :given_name, :class => :text_field, :maxlength => "30"
       .form_field_container
-        = form.label :family_name, t('.family_name')
+        = form.label :family_name, t('.family_name'), :class => "before_description"
+        %span.tiny_description
+          = "(#{t('.visible_to_everybody')}#{t('.not_required') unless @current_community.real_name_required?})"
         = form.text_field :family_name, :class => :text_field, :maxlength => "30"
       .form_field_container
-        = form.label :email, t('.email')
+        = form.label :email, t('.email'), :class => "before_description"
+        %span.tiny_description
+          = "(#{t('.visible_only_to_you')})"
         = form.text_field :email, :class => :text_field, :maxlenght => "255"       
       .form_field_container  
         = form.label :password, t('.password')
@@ -34,11 +42,13 @@
       .form_field_container
         .signup_checkbox_container
           .signup_checkbox_input_container
-            %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]", :checked => "checked"}
+            %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]"}
           .signup_checkbox_label_container
             = form.label :terms, t('.i_accept_the'), :class => "checkbox"
             = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link" 
       .form_field_container
+        = form.hidden_field :consent, :value => @current_community.consent
+        = hidden_field_tag :community, @current_community.domain
         = submit_tag(t('.create_new_account'), :class => "send_button")
 
 = render :partial => "help_texts", :collection => ["help_captcha", "terms"], :as => :field

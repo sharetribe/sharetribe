@@ -1,3 +1,5 @@
+require 'subdomain'
+
 Kassi::Application.routes.draw do
 
   # The priority is based upon order of creation:
@@ -75,6 +77,7 @@ Kassi::Application.routes.draw do
       collection do
         get :check_username_availability
         get :check_email_availability
+        get :not_member
       end
       member do 
         put :update_avatar
@@ -118,6 +121,7 @@ Kassi::Application.routes.draw do
         get :about
         get :how_to_use
         get :terms
+        get :register_details
       end  
     end
     resource :terms do
@@ -133,6 +137,11 @@ Kassi::Application.routes.draw do
     resources :consent
     resource :sms do
       get :message_arrived
+    end
+    resources :contact_requests do
+      collection do
+        get :thank_you
+      end
     end
   end
   
@@ -165,9 +174,15 @@ Kassi::Application.routes.draw do
   match "/:locale/listings_bubbles/all" => "listings#listing_all_bubbles", :as => :listing_all_bubbles
   match "/:locale/listings_bubbles/:id" => "listings#listing_bubble", :as => :listing_bubble
   
+  # Inside this constraits are the routes that are used when request has subdomain other than www
+  constraints(Subdomain) do
+    match '/:locale/' => 'homepage#index'
+    match '/' => 'homepage#index'
+  end  
   
-
+  # Below are the routes that are matched if didn't match inside subdomain constraints
+  match '/:locale' => 'dashboard#index'
   
-  root :to => 'homepage#index'
+  root :to => 'dashboard#index'
   
 end

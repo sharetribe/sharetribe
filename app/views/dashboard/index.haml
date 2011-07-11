@@ -1,0 +1,81 @@
+- content_for :javascript do
+  initialize_dashboard('#{t("dashboard.index.email_default_text")}');
+  
+#header.grid_18.prefix_3.suffix_3
+  .grid_3.alpha 
+    #logo 
+      = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+  .grid_11
+    #slogan= t("layouts.dashboard.title")
+  .grid_4.omega
+    - if APP_CONFIG.available_locales.count > 1
+      #locale_select
+        = form_tag("/change_locale", :method => "get") do
+          = hidden_field_tag :redirect_uri, @return_to
+          = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+#main.grid_18.prefix_3.suffix_3  
+  #middle_text.grid_12.alpha 
+    #bubble_container 
+      #bubble.rounded
+        - if session[:contact_request_sent]
+          = t(".thank_you")
+        - else
+          = t(".bubble_text_line_1")
+          %br/
+          = t(".bubble_text_line_2")
+      #bubble_arrow
+    #main_text
+      %p
+        - if session[:contact_request_sent]
+          = t(".thank_you_for_contacting")
+        - else
+          = t(".description")
+  #middle_image.grid_6.omega 
+    #kaapo 
+      %img{:src => "/images/dashboard/kaapo_big.png"} 
+  .clear
+  - if session[:contact_request_sent]
+    #no_email_spacer
+      &nbsp;
+  - else
+    #email_container
+      #kassi_for_association
+      = form_for @contact_request do |form|
+        = form.label :email, t(".want_to_use_kassi_in_your_association"), :class => "dashboard"
+        = form.text_field :email, :class => "text_field"
+        = form.submit t(".send")
+    #contact_by_email
+      = t(".or_contact_by_email")
+      %span.contact
+        info (at) kassi.eu
+  #links
+    %p 
+      = t(".want_to_know_how_kassi_works")
+      = link_to t(".get_to_know_the_aalto_community"), t(".aalto_community_url")
+    %p
+      = t(".want_to_know_more_about_us")
+      = link_to t(".get_to_know_the_avoin_yritys_blog"), t(".avoinyritys_url")
+  #social_links
+    %span.social_link
+      = link_to t(".kassi_in_facebook"), "http://www.facebook.com/#!/pages/Kassi/117309854407"
+    %span.social_link
+      = link_to t(".kassi_in_twitter"), "http://www.twitter.com/kassi_eu"
+
+  =# render :partial => "layouts/google_analytics_script"  
+  
+  - if APP_CONFIG.use_google_analytics
+    <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+    = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    </script>
