@@ -1,16 +1,7 @@
 - content_for :javascript do
-  initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}', #{@current_community.real_name_required?});
+  initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}', '#{t('address_validator')}', #{@current_community.real_name_required?});
   
 //Variables needed for the map
-:javascript
-  var geocoder;
-  var map;
-  var center;
-  var marker;
-  var source;
-  var profilemap = true;
-  //var canvas;
-  //var body;
 
 #person_settings_form
   #settings_form_description
@@ -28,23 +19,19 @@
       = form.text_field :family_name, :class => "text_field", :maxlength => "30"
     .form_field_container
       = form.label :street_address, t(".street_address"), :class => "input"
-      = form.text_field :street_address, :class => "text_field", :maxlength => "50", :onchange => "update_map(this)"
+      = form.text_field :street_address, :class => "text_field", :maxlength => "50", :onkeyup => "timed_input(this)"
+      %span.profile_settings_visibility_info
+        = t('.visible_to_registered_users')
       #flash_address{:class => "notification_text"}
     .form_field_container
-      .map{:id => "map_canvas", :style => "width: 500px; height: 300px"}
-        //Here initialize the elements we want to use with the map
+      = form.label :description, t('.profilemap') + ":", :class => "input"
+      .map{:id => "map_canvas", :style => "width: 318px; height: 260px"}
         :javascript
-          //canvas = document.getElementById("map_canvas");
-          //body = document.getElementsByTagName("body").item(0);
+          //var prefix = "person_location";
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
-          initialize_map("map_canvas");
-          })
-          //alert($('#person_given_name'));
-          //body.setAttribute("onLoad", "initialize_map(\"map_canvas\",map,center,marker,geocoder)");
-          //body.setAttribute("onLoad", "initialize_map(\"map_canvas\")");
-      %span.profile_settings_visibility_info
-        = t('.visible_to_everybody')
+            googlemapMarkerInit("map_canvas","person_location","person_street_address", true);
+            });
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"
       = form.text_field :phone_number, :class => "text_field", :maxlength => "25"
@@ -53,11 +40,10 @@
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
       = form.text_area :description
-      = form.hidden_field :postal_code
-      = form.hidden_field :locality
       = form.fields_for :location do |loc|
         = loc.hidden_field :address, :value => @person.location.address
         = loc.hidden_field :google_address, :value => @person.location.google_address
         = loc.hidden_field :latitude, :value => @person.location.latitude
         = loc.hidden_field :longitude, :value => @person.location.longitude
+        = loc.hidden_field :location_type, :value => "person"
       = form.submit t("settings.save_information"), :class => "send_button"

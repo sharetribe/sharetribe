@@ -1,5 +1,4 @@
 // Custom Javascript functions for Kassi
-
 // Add custom validation methods
 $.validator.
 	addMethod( "accept", 
@@ -81,6 +80,7 @@ $.validator.
 	 	}
 	);
 
+
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, feedback_default_text) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
@@ -106,7 +106,7 @@ function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
     pathToTabImage: '/images/feedback_handles.png',
-		imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+	imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
     speed: 300,                               //speed of animation
@@ -124,7 +124,7 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id) {
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -148,6 +148,15 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		$.uniform.update("select.listing_date_select");
 	});
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
+	
+	// Change the origin and destination requirements based on listing_type
+	var rs = null;
+	if (is_rideshare == "true") {
+		rs = true;
+	} else {
+		rs = false;
+	}
+	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[share_type_attributes][]") {
@@ -166,9 +175,9 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 		},
 		debug: false,
 		rules: {
-			"listing[title]": {required: true, minlength: 2},
-			"listing[origin]": {required: true, minlength: 2},
-			"listing[destination]": {required: true, minlength: 2},
+			"listing[title]": {required: true},
+			"listing[origin]": {required: rs, address_validator: true},
+			"listing[destination]": {required: rs, address_validator: true},
 			"listing[share_type_attributes][]": {required: true, minlength: 1},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -185,10 +194,15 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
+		 // Run validations only when submitting the form.
+		 onkeyup: false,
+         onclick: false,
+         onfocusout: false,
+		 onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false");
 		}
-	});
+	});	
 	set_textarea_maxlength();
 	auto_resize_text_areas();
 }
@@ -304,7 +318,7 @@ function initialize_terms_form() {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 }
 
-function initialize_update_profile_info_form(locale, person_id, name_required) {
+function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
 	auto_resize_text_areas();
 	$('input.text_field:first').focus();
 	var form_id = "#edit_person_" + person_id
@@ -313,13 +327,17 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
 			error.appendTo(element.parent());
 		},	
 		rules: {
+      "person[street_address]": {required: false, address_validator: true},
 			"person[given_name]": {required: name_required, maxlength: 30},
-			"person[family_name]": {required: name_required, maxlength: 30},
-			"person[street_address]": {required: false, maxlength: 50},
-			"person[postal_code]": {required: false, maxlength: 8},
-			"person[city]": {required: false, maxlength: 50},
+      "person[family_name]": {required: name_required, maxlength: 30},
+			// 			"person[postal_code]": {required: false, maxlength: 8},
+			// 			"person[city]": {required: false, maxlength: 50},
 			"person[phone_number]": {required: false, maxlength: 25}
 		},
+		 onkeyup: false,
+         onclick: false,
+         onfocusout: false,
+		 onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "true");
 		}
@@ -647,186 +665,5 @@ function disable_and_submit(form_id, form, ajax) {
 	} else {
   	form.submit();
 	}	
-}
-function update_map(field) {
-	if(geocoder){
-	  geocoder.getLocations(
-          field.value,
-          function(response) {
-            if (!response || response.Status.code != 200) {
-	    	address_not_found(field);
-		    //Remove this when we get proper jquery stuff
-              //alert("Address " +field.value + " not found");
-            } else {
-	    var place = response.Placemark[0];
-	    center = new GLatLng(place.Point.coordinates[1],place.Point.coordinates[0]);
-	    map.setCenter(center, 13);
-	    field.value = place.address;
-	    //var marker2 = new GMarker(point);
-	    //map.addOverlay(marker);
-	    marker.setLatLng(center);
-	    //alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.SubAdministrativeAreaName);
-	    //Remove this after we've totally switched to the location model!
-	    //var city = $('#person_locality');
-	    if (profilemap)
-	    	update_profile_location(place);
-
-	    return true;
-            }
-          }
-        );
-	}
-	else
-		return false;
-	//alert(field.value);
-	
-}
-function initialize_map(canvas) {
-      if (GBrowserIsCompatible()) {
-	
-        map = new GMap2(document.getElementById(canvas));
-	geocoder = new GClientGeocoder();
-	//geocoder.load("locale" : "fi");
-        //map = new GMap2(canvas);
-        //center = new GLatLng(60.1894, 24.8358);
-	
-	if(update_map(source)){
-	}
-	else
-		center = new GLatLng(60.1894, 24.8358);
-        map.setCenter(center, 13);
-	map.addControl(new GSmallMapControl());
-        map.addControl(new GMapTypeControl());
-
-
-        marker = new GMarker(center, {draggable: true});
-
-        GEvent.addListener(map, "click", function(overlay, latlng) {
-			if(latlng);
-			marker.setLatLng(latlng);
-			geocoder.getLocations(latlng,update_source);
-        });
-        GEvent.addListener(marker, "dragstart", function() {
-        });
-
-        GEvent.addListener(marker, "dragend", function() {
-		geocoder.getLocations(marker.getLatLng(),update_source);
-        });
-
-        map.addOverlay(marker);
-
-      }
-}
-function update_source(response){
-	update_location(response,source);
-}
-function update_location(response, element){
-	  if (!response || response.Status.code != 200) {
-		  address_not_found(element);
-    //alert("Status Code:" + response.Status.code);
-  } else {
-	  var place = response.Placemark[0];
-	  element.value = place.address;
-	  if(profilemap)
-		  update_profile_location(place);
-
-	    //var city = $('#person_locality');
-	    /*
-	    var city = document.getElementById("person_locality");
-	    if(city!=null){
-	    	//city.value = place.AddressDetails.Country.SubAdministrativeArea.Locality.LocalityName;
-	    	city.value = place.LocalityName;
-		//var postcode = $('#person_postal_code');
-		var postcode = document.getElementById("person_postal_code");
-		
-		postcode.value = place.PostalCodeNumber;
-	    }
-	    */
-  }
-}
-function update_profile_location(place){
-	//var r = parseGooglePlaceJSON(place);
-	param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName","address"];
-	var r = {};
-	traverse(place,r,param);
-
-	var city = document.getElementById("person_locality");
-	var postcode = document.getElementById("person_postal_code");
-	var address = document.getElementById("person_location_address");
-	var latitude = document.getElementById("person_location_latitude");
-	var longitude = document.getElementById("person_location_longitude");
-	var google_address = document.getElementById("person_location_google_address");
-
-	city.value = r.LocalityName;
-	postcode.value = r.PostalCodeNumber;
-	address.value = r.ThoroughfareName;
-	latitude.value = r.Point.coordinates[1];
-	longitude.value = r.Point.coordinates[0];
-	google_address.value = r.address;
-	//address.value = r.ThoroughfareName;
-	//$.cookie("address", place.address);
-	/*
-	    if(city!=null){
-	    	//city.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
-	    	//city.attr("value",place.LocalityName);
-		var plz = place.LocalityName;
-	    	city.value = place.LocalityName;
-		//var postcode = $('#person_postal_code');
-		var postcode = document.getElementById("person_postal_code");
-		//postcode.value = place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
-		//postcode.attr("value",place.PostalCodeNumber);
-		postcode.value = place.PostalCodeNumber;
-	    	//alert(place.AddressDetails.Country.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName);
-	    }
-	    */
-}
-//Not used anymore
-//function parseGooglePlaceJSON(place){
-	/*
-	 * Since google geocoder sometimes returns different structure for the object, 
-	 * we need to parse it properly here. This still returns an error sometimes :/
-	 */
-	//param = ["LocalityName","PostalCodeNumber","Point", "ThoroughfareName"];
-	//alert(place[this[param]]);
-	//var returnable = {};
-
-
-	//traverse(place,returnable,param);
-	/*
-	var temp = place.AddressDetails.Country;
-	if (temp.AdministrativeArea != null){
-		returnable.LocalityName = temp.AdministrativeArea.SubAdministrativeArea.Locality.LocalityName;
-		returnable.PostalCodeNumber = temp.AdministrativeArea.SubAdministrativeArea.Locality.PostalCode.PostalCodeNumber;
-	}
-	else{
-		temp = temp.SubAdministrativeArea.Locality;
-		if(temp.DependentLocality != null){
-			returnable.LocalityName = temp.DependentLocality.LocalityName;
-			returnable.PostalCodeNumber = temp.DependentLocality.PostalCode.PostalCodeNumber;
-		}
-		else{
-			returnable.LocalityName = temp.LocalityName;
-			returnable.PostalCodeNumber = temp.PostalCode.PostalCodeNumber;
-		}
-	}
-	*/
-
-	//alert(returnable.PostalCodeNumber);
-	//return returnable;
-//}
-function traverse(o,returnable,param){
-	for(i in o){
-		for(k = 0;k<param.length;k++)
-			if(i == param[k])
-					returnable[param[k]] = o[i];
-		if(typeof(o[i]) == "object")
-			traverse(o[i],returnable,param);
-	}
-}
-function address_not_found(field){
-	flash = $("#flash_address");
-	
-	//alert(field);
-	//alert(field.value);
 }
 

@@ -29,8 +29,9 @@ class Listing < ActiveRecord::Base
   has_many :share_types
   
   has_one :location, :dependent => :destroy
-  has_one :origin_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "origin_loc"}
-  has_one :destination_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "destination_loc"}
+  has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
+  has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
+  accepts_nested_attributes_for :origin_loc, :destination_loc
 
   has_and_belongs_to_many :communities
   
