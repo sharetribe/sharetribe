@@ -65,7 +65,7 @@ h3.brown {
 h4 {
   color: #765d3a;
   text-align: center;
-  margin: 5px 0 15px 0; }
+  margin: 5px 20px 15px 20px; }
 
 h5 {
   margin: 0;
@@ -108,12 +108,22 @@ form, input {
 #logo {
   margin-top: 7px; }
 
+#logo_link {
+  line-height: 14px;
+  margin-top: 15px;
+  color: #f7f5e6; }
+  #logo_link a {
+    color: #f7f5e6; }
+    #logo_link a:hover {
+      color: #f8792f; }
+
 #search {
-  margin: 15px 0 0 32px; }
+  overflow: hidden;
+  margin: 15px 0 0 0; }
   #search input.search_field {
     margin-left: 5px;
     background: #f7f5e6;
-    width: 175px;
+    width: 165px;
     height: 18px;
     padding: 5px 8px;
     border: 0; }
@@ -140,15 +150,15 @@ form, input {
       background: #f8792f url("/images/icons/header_icons.png") 8px -356px no-repeat;
       color: #f8792f; }
 
-.tabs {
-  margin-top: 16px; }
+#logged_in_icon_container {
+  height: 56px; }
 
 #top_navi select {
   background: #f7f5e6;
   font-size: 11px; }
 
 .top_navi_link {
-  margin-top: 26px; }
+  margin-top: 11px; }
   .top_navi_link a {
     color: white;
     font-weight: bold;
@@ -161,11 +171,14 @@ form, input {
       color: #d45207; }
 
 .login_tabs {
-  height: 40px;
+  height: 56px;
   margin-right: 10px; }
 
 .locale_select_padding {
   margin: 13px 0 0 5px; }
+
+.fb_like_padding {
+  margin: 24px 0 0 5px; }
 
 .tab_unselected a {
   width: 110px;
@@ -209,7 +222,7 @@ form, input {
 
 .login_tab a {
   font-size: 11px;
-  width: 90px;
+  width: 130px;
   height: 23px;
   padding-top: 4px;
   text-align: center;
@@ -323,6 +336,85 @@ form, input {
   margin-bottom: 20px; }
 
 /* Home page */
+#teaser {
+  color: #4d3d26;
+  background: #e7b78d;
+  padding: 20px 30px 0 30px;
+  width: 880px;
+  margin: 0 0 30px 5px;
+  overflow: hidden; }
+  #teaser p {
+    font-size: 14px; }
+
+#teaser_left {
+  color: #4d3d26;
+  float: left;
+  width: 475px;
+  margin: 0 30px 5px 0; }
+  #teaser_left h1 {
+    font-size: 32px; }
+
+#teaser_right {
+  color: #4d3d26;
+  float: left;
+  margin-top: 5px; }
+
+#teaser_button_container {
+  overflow: hidden; }
+
+#request_something_button {
+  width: 225px;
+  float: left;
+  margin-bottom: 10px; }
+  #request_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #request_something_button a:hover {
+      background: #f8792f; }
+    #request_something_button a:active {
+      background: #a33f05; }
+
+#offer_something_button {
+  width: 225px;
+  float: left;
+  margin-bottom: 10px; }
+  #offer_something_button a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    padding: 10px 0;
+    color: white;
+    background: #765d3a;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #offer_something_button a:hover {
+      background: #a98553; }
+    #offer_something_button a:active {
+      background: #544229; }
+
+#teaser_button_description {
+  padding-top: 5px;
+  margin-left: 20px;
+  float: left;
+  width: 125px;
+  font-size: 11px;
+  color: #765d3a; }
+
+#teaser_browse_links {
+  margin: 10px 20px; }
+  #teaser_browse_links p {
+    width: 300px; }
+
 .recent_events {
   background: #d1c9b4;
   font-size: 11px;
@@ -331,6 +423,20 @@ form, input {
     margin: 0;
     padding: 0; }
   .recent_events span {
+    color: #797979;
+    font-style: italic;
+    font-size: 10px;
+    float: right; }
+
+.not_a_member_notification {
+  background: #d1c9b4;
+  font-size: 11px;
+  width: 700px;
+  margin-left: 10px; }
+  .not_a_member_notification p {
+    margin: 0;
+    padding: 0; }
+  .not_a_member_notification span {
     color: #797979;
     font-style: italic;
     font-size: 10px;
@@ -367,78 +473,14 @@ form, input {
   width: 100%;
   margin: 10px 0;
   padding: 0;
-  height: 0; }
+  height: 0;
+  width: 180px;
+  margin-left: 19px; }
 
 .more_events_link {
   padding: 20px 0; }
 
-.home_button {
-  width: 340px; }
-
-#request_something_button {
-  width: 185px; }
-  #request_something_button a {
-    display: block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    color: white;
-    background: #d45207;
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px; }
-    #request_something_button a:hover {
-      background: #f8792f; }
-    #request_something_button a:active {
-      background: #a33f05; }
-
-#offer_something_button {
-  width: 185px; }
-  #offer_something_button a {
-    display: block;
-    font-size: 14px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    color: white;
-    background: #765d3a;
-    border-radius: 7px;
-    -moz-border-radius: 7px;
-    -webkit-border-radius: 7px; }
-    #offer_something_button a:hover {
-      background: #a98553; }
-    #offer_something_button a:active {
-      background: #544229; }
-
-/* Aligns button descriptions to buttons */
-.button_description_fix {
-  width: 265px; }
-
-#request_button_description {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 5px; }
-  #request_button_description a {
-    color: #d45207; }
-    #request_button_description a:hover {
-      color: #8a3505; }
-    #request_button_description a:active {
-      color: #f76917; }
-
-#offer_button_description {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 5px; }
-  #offer_button_description a {
-    color: #765d3a; }
-    #offer_button_description a:hover {
-      color: #433521; }
-    #offer_button_description a:active {
-      color: #98784b; }
-
 .recent_listings {
-  padding: 20px 0 0 0;
   width: 340px; }
 
 p.description {
@@ -465,6 +507,20 @@ p.description {
   padding: 0;
   height: 0;
   width: 700px; }
+
+.blank_slate {
+  padding: 10px 15px;
+  font-size: 14px; }
+
+.blank_slate_header {
+  margin-bottom: 20px; }
+
+.blank_slate_suggestions {
+  background: #ccd1b9;
+  padding: 15px 20px 10px 20px;
+  font-size: 13px; }
+  .blank_slate_suggestions h3 {
+    font-size: 13px; }
 
 .recent_listing {
   overflow: hidden; }
@@ -626,7 +682,15 @@ p.description {
   overflow: hidden;
   padding: 20px 15px; }
   #new_listing_form h1 {
-    margin-left: 15px; }
+    margin-left: 15px;
+    float: left;
+    width: 300px; }
+
+#new_listing_form_close_link {
+  float: right;
+  margin: 7px 22px 0 0; }
+  #new_listing_form_close_link a {
+    font-size: 14px; }
 
 #favor_form, #rideshare_form, #housing_form {
   display: none; }
@@ -885,13 +949,6 @@ span.not_visible {
     padding: 9px 9px; }
     #new_listing_form_main input.text_field:focus {
       background: white; }
-  #new_listing_form_main .map_canvas {
-    width: 398px;
-    border: 0;
-    background: #f7f5e6;
-    font-size: 14px;
-    height: 250px;
-    margin: 0px 9px 0px 170px; }    
   #new_listing_form_main input.send_button {
     font-size: 14px;
     font-weight: bold;
@@ -983,6 +1040,13 @@ span.smaller {
 .hidden_title {
   float: left;
   width: 200px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0 0 20px; }
+
+.hidden_title_wide {
+  float: left;
+  width: 300px;
   font-weight: bold;
   font-size: 16px;
   padding: 10px 0 0 20px; }
@@ -1093,7 +1157,8 @@ div.checkbox_float {
     height: 40px;
     padding: 0;
     border: 0;
-    color: white; }
+    color: white;
+    width: 250px; }
     #login_form input.send_button_terms:active, #new_message_form input.send_button_terms:active, #signup_form input.send_button_terms:active {
       background-color: #4d3d26;
       padding-top: 1px; }
@@ -1103,7 +1168,6 @@ div.checkbox_float {
       background-color: #9f7d4e; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
-    width: 340px;
     font-size: 14px;
     font-weight: bold; }
   #login_form label.checkbox, #new_message_form label.checkbox, #signup_form label.checkbox {
@@ -1112,6 +1176,9 @@ div.checkbox_float {
     width: 200px;
     font-size: 12px;
     font-weight: bold; }
+  #login_form label.before_description, #new_message_form label.before_description, #signup_form label.before_description {
+    margin: 0 10px;
+    float: left; }
   #login_form .links, #new_message_form .links, #signup_form .links {
     margin: 10px 0 0 10px; }
   #login_form .text, #new_message_form .text, #signup_form .text {
@@ -1124,6 +1191,10 @@ div.checkbox_float {
     font-size: 16px; }
   #login_form span.small, #new_message_form span.small, #signup_form span.small {
     font-size: 11px; }
+  #login_form span.tiny_description, #new_message_form span.tiny_description, #signup_form span.tiny_description {
+    float: left;
+    font-size: 11px;
+    padding-top: 2px; }
   #login_form textarea, #new_message_form textarea, #signup_form textarea {
     margin-left: 10px;
     width: 300px;
@@ -1373,13 +1444,15 @@ a.edit_profile {
 
 #request_listing_link {
   margin-left: 10px;
-  width: 185px;
+  width: 225px;
+  float: left;
+  margin-bottom: 10px;
   width: 210px; }
   #request_listing_link a {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #d45207;
@@ -1590,12 +1663,14 @@ a.edit_profile {
     display: inline; }
 
 .accept {
-  width: 170px; }
+  width: 170px;
+  float: left;
+  margin-bottom: 10px; }
   .accept a {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #d45207;
@@ -1610,12 +1685,14 @@ a.edit_profile {
     font-size: 13px; }
 
 .reject {
-  width: 170px; }
+  width: 170px;
+  float: left;
+  margin-bottom: 10px; }
   .reject a {
     display: block;
     font-size: 14px;
     text-align: center;
-    font-weight: bold;
+    font-weight: normal;
     padding: 10px 0;
     color: white;
     background: #765d3a;
@@ -1824,7 +1901,7 @@ a.edit_profile {
   padding: 5px 5px;
   overflow: hidden;
   width: 927px;
-  margin: 10px 77px 10px 97px;
+  margin: 10px 77px 10px 77px;
   width: 340px;
   padding: 10px 0 10px 55px; }
 
@@ -2199,7 +2276,8 @@ a.edit_profile {
     width: 293px;
     font-size: 14px;
     height: 100px;
-    padding: 12px 10px 5px 15px; }
+    padding: 12px 10px 5px 15px;
+    float: left; }
     #person_settings_form textarea:focus {
       background: white; }
   #person_settings_form input.send_button {
@@ -2280,6 +2358,12 @@ a.edit_profile {
     width: 248px;
     margin: 0 0 10px 0; }
 
+span.profile_settings_visibility_info {
+  margin-left: 15px;
+  float: left;
+  font-size: 11px;
+  padding-top: 9px; }
+
 #settings_avatar_form {
   width: 420px;
   float: left; }
@@ -2348,7 +2432,7 @@ a.edit_profile {
 .settings_account_row_link {
   width: 50px;
   float: right;
-  padding-top: 5px; }
+  padding: 5px 15px 0 0; }
 
 #account_email_form, #account_password_form {
   display: none; }
@@ -2548,15 +2632,19 @@ a.handle:hover {
     background: red url("/images/error_arrow3.png") no-repeat top left;
     color: white; }
 
+.unwanted_text_field {
+  display: none; }
+
 #error {
   margin-top: 120px; }
   #error h2 {
     margin-bottom: 5px; }
 
-#error_content_javascript {
-  margin-top: 20px; }
-  #error_content_javascript h2 {
-    line-height: 26px; }
+#error_content {
+  margin-top: 70px; }
+  #error_content h2 {
+    line-height: 30px;
+    margin-bottom: 20px; }
 
 #error_kaapo {
   margin-left: 20px;
@@ -2992,3 +3080,22 @@ a.handle:hover {
   width: 30px;
   font-weight: bold;
   margin-top: 7px; }
+
+.not_member_notification {
+  color: #464646;
+  overflow: hidden;
+  padding: 25px 40px;
+  font-size: 13px; }
+  .not_member_notification h1 {
+    font-size: 20px;
+    color: #765d3a; }
+  .not_member_notification p {
+    margin-bottom: 15px; }
+
+.not_member_notification_left {
+  float: left;
+  width: 300px;
+  padding-top: 10px; }
+
+#additional_listing_links {
+  margin: 10px; }

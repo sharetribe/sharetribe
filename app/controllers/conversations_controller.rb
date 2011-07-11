@@ -57,7 +57,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
       flash[:notice] = @conversation.listing ? "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent" : "message_sent"
-      @conversation.send_email_to_participants(request) 
+      Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, request.host))
       redirect_to (session[:return_to_content] || root)
     else
       render :action => :new
@@ -85,7 +85,6 @@ class ConversationsController < ApplicationController
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
     if status.eql?("accepted")
       Delayed::Job.enqueue(ConversationAcceptedJob.new(@conversation.id, request.host))
-      Delayed::Job.enqueue(TestimonialReminderJob.new(@conversation.id, request.host), 0, 1.week.from_now)
     end
     respond_to do |format|
       format.html { render :action => :show }
@@ -118,7 +117,7 @@ class ConversationsController < ApplicationController
   
   # Ensure that only users with appropriate visibility settings can reply to the listing
   def ensure_authorized_to_reply
-    unless @listing.visible_to?(@current_user)
+    unless @listing.visible_to?(@current_user, @current_community)
       flash[:error] = "you_are_not_authorized_to_view_this_content"
       redirect_to root and return
     end  

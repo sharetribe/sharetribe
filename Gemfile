@@ -21,6 +21,7 @@ gem 'capistrano'
 gem "mongrel"
 gem 'mysql', '2.8.1'
 gem 'haml'
+gem 'sass'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
@@ -37,6 +38,8 @@ gem 'passenger'
 gem 'delayed_job'
 gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'win32-process', :platforms => [:mswin, :mingw]
+gem 'json'
+gem 'russian'
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19" #
@@ -47,4 +50,6 @@ group :test do
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'
+  gem "pickle"
 end
+

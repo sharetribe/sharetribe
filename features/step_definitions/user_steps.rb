@@ -2,14 +2,14 @@ Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("username", :with => (person ? person : "kassi_testperson1"))
   fill_in("password", :with => "testi")
-  click_button("Login")
+  click_button("Log in")
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
   fill_in("username", :with => (person ? person : "kassi_testperson1"))
   fill_in("password", :with => "testi")
-  click_button("Login")
+  click_button("Log in")
 end
 
 Given /^I am not logged in$/ do
@@ -42,6 +42,9 @@ Given /^there are following users:$/ do |person_table|
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, @hash_session.cookie)
+    #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
+      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id)
+    #end
     @people[hash['person']] = @hash_person
   end
 end
@@ -103,4 +106,8 @@ end
 
 Given /^"([^"]*)" has admin rights$/ do |username|
   @people[username].update_attribute(:is_admin, true)
+end
+
+Given /^"([^"]*)" has admin rights in community "([^"]*)"$/ do |username, community|
+  CommunityMembership.find_by_person_id_and_community_id(@people[username].id, Community.find_by_name(community).id).update_attribute(:admin, true)
 end

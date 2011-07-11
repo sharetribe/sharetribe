@@ -1,9 +1,0 @@
-= link_to notification.testimonial.author.name, notification.testimonial.author
-has given you feedback on event
-= link_to(notification.testimonial.participation.conversation.title, person_message_path(:person_id => @current_user.id, :id => notification.testimonial.participation.conversation.id)) + "."
-- if notification.testimonial.receiver.can_give_feedback_on?(notification.testimonial.participation.conversation)
-  = link_to "Give feedback to #{notification.testimonial.author.given_name}", new_person_message_feedback_path(:person_id => @current_user.id, :message_id => notification.testimonial.participation.conversation.id.to_s)
-  or
-  = link_to("view all the feedback you've received", person_testimonials_path(:person_id => @current_user.id)) + "."
-- else
-  = link_to("View all the feedback you've received", person_testimonials_path(:person_id => @current_user.id)) + "."

@@ -9,7 +9,7 @@
           %h1{:style => "font-size: 22px; margin:7px 0 12px 0; padding:0;"}
             Kassi
           - if @recipient
-            = t("emails.common.hey", :name => @recipient.given_name)
+            = t("emails.common.hey", :name => @recipient.given_name_or_username)
             %br/
             %br/
           = yield

@@ -10,8 +10,8 @@ Feature: User updates profile information
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     When I follow "Settings"
-    And I fill in "Given name*:" with "Test"
-    And I fill in "Family name*:" with "Dude"
+    And I fill in "Given name:" with "Test"
+    And I fill in "Family name:" with "Dude"
     And I fill in "Street address" with "Test Street 1"
 #These features removed with google map functionality
 #And I fill in "Postal code" with "11111"
@@ -20,7 +20,9 @@ Feature: User updates profile information
     And I fill in "About you:" with "Some random text about me"
     And I press "Save information"
     Then I should see "Information updated" within "#notifications"
-    And the "Given name*:" field should contain "Test"
+    And the "Given name:" field should contain "Test"
+    And the "Family name:" field should contain "Dude"
+    And the "Street address" field should contain "Test Street 1"
   
   @javascript
   Scenario: Trying to update profile with false information
@@ -29,10 +31,19 @@ Feature: User updates profile information
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     When I follow "Settings"
-    And I fill in "Given name*:" with "T"
-    And I fill in "Family name*:" with ""
+    And I fill in "Given name:" with ""
+    And I fill in "Family name:" with ""
+    And I fill in "About you:" with "Some random text"
     And I press "Save information"
     Then I should see "This field is required." within ".error"
-    And I should see "Please enter at least 2 characters." within ".error"
-  
+    When given name and last name are not required in community "test"
+    When I follow "Settings"
+    And I fill in "Given name:" with ""
+    And I fill in "Family name:" with ""
+    And I fill in "About you:" with "Some random text"
+    And I press "Save information"
+    Then I should see "Information updated" within "#notifications"
+    And the "Given name:" field should contain ""
+    And the "Family name:" field should contain ""
+    And the "About you" field should contain "Some random text"
 

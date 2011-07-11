@@ -1,6 +1,6 @@
 !!! 5
 !!! xml
-%html{html_attrs(I18n.locale)}
+%html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
   %head
     %title 
       Kassi
@@ -8,21 +8,36 @@
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
         
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => t(".meta_description") }
-    %meta{ :name => "keywords", :content => t(".keywords") } 
+    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
+    %meta{ :name => "keywords", :content => t(".keywords") }
+    - if @current_community.use_fb_like
+      %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
+      %meta{ :property => "og:type", :content =>"website"}
+      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
+      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
+      %meta{ :property => "og:site_name", :content =>"Kassi"}
+      %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+      %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+    = yield :head
+
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', "locales/#{I18n.locale}.js", 'kassi'
     = yield(:extra_javascript)
     = csrf_meta_tag
     -# The following Google Maps script is commented out, because it breaks the current map view implementation in listings (map view uses v3, this is v2)
     -#%script{:type => "text/javascript", :src => "http://maps.google.com/maps?file=api&language=#{I18n.locale}&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAqR1Q4UcLVyWMJCu_JfCH9RSD9HsicHLqIi5udBOQF6HPeU542xSLJ0YZbGFwTBf1a8EO2OM3LUbrmA"}
     :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{I18n.locale}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
     
-    - if I18n.locale.to_s.eql?("en")
-      %style{:type => "text/css"}
-        a.handle { background-position: -80px 0; }
-        a.handle:hover { background-position: -120px 0; }
+    - unless I18n.locale.to_s.eql?("fi")
+      - if I18n.locale.to_s.eql?("ru")
+        %style{:type => "text/css"}
+          a.handle { background-position: -160px 0; }
+          a.handle:hover { background-position: -200px 0; }
+      - else
+        %style{:type => "text/css"}
+          a.handle { background-position: -80px 0; }
+          a.handle:hover { background-position: -120px 0; }  
     
   %body
   
@@ -41,6 +56,8 @@
             - unless logged_in?
               = form.label :email, t(".your_email_address")
               = form.text_field :email, :class => "text_field"
+            = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
+            = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
             = form.label :content, t(".feedback")
             = form.text_area :content, :class => "feedback"
             = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
@@ -56,19 +73,24 @@
           #logo
             = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
         .grid_9
-          .grid_7.prefix_2.alpha
+          .grid_3.alpha
+            = render :file => community_file("logo_text", false)
+          .grid_6.omega
             #search
               = form_tag({ :action => :show, :controller => :search }, :method => "get") do
                 - one_line do              
                   = text_field_tag("q", params[:q], :class => "search_field")
                   = submit_tag("s", :class => "search_button")
           .clear
-          .top_navi_form.grid_3
-            - if APP_CONFIG.available_locales.count > 1
+          .top_navi_form.grid_9
+            - if available_locales.count > 1
               .locale_select_padding
                 = form_tag("/change_locale", :method => "get") do
                   = hidden_field_tag :redirect_uri, @return_to
-                  = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+                  = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+            - elsif @current_community.use_fb_like
+              .fb_like_padding
+                = "<iframe src=\"http://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe              
         .grid_12
           = render :partial => "layouts/logged_in"
           .clear
@@ -97,24 +119,23 @@
         &nbsp;
         %br/
         %br/
-      - if (APP_CONFIG.use_google_analytics)
-        <!-- The google analytics script-->
-        <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-        </script>
-        <script type="text/javascript">
-        try {
-        = 'var pageTracker = _gat._getTracker("'.html_safe + APP_CONFIG.google_analytics_key.to_s + '");'.html_safe
-        pageTracker._trackPageview();
-        } catch(err) {}</script>
       
-      - if (APP_CONFIG.use_funneld)
-        <!-- Funneld script-->
-        <script type="text/javascript" src="http://s.funneld.com/tracker_v2.js"></script>
+      =# render :partial => "layouts/google_analytics_script"
+
+      - if APP_CONFIG.use_google_analytics
         <script type="text/javascript">
-        jQuery(function() {
-        = 'funneldTrack("'.html_safe + APP_CONFIG.funneld_key.to_s + '");'.html_safe
-        });
+
+        var _gaq = _gaq || [];
+        = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+        = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageLoadTime']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
         </script>
 

@@ -1,0 +1,15 @@
+- unless current_user?(listing.author)
+  = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
+  &nbsp;|&nbsp;
+- comment_count = listing.comments.count > 1 ? " (#{listing.comments.count})" : ""
+= link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"
+- if current_user?(listing.author)
+  &nbsp;|&nbsp;
+  - if listing.closed?
+    = link_to t("listings.edit_links.reopen_#{listing.listing_type}"), edit_listing_path(:id => listing.id)
+  - else
+    = link_to t("listings.listed_listing.edit"), edit_listing_path(:id => listing.id)
+    &nbsp;|&nbsp;
+    = link_to t("listings.edit_links.close_#{listing.listing_type}"), close_person_listing_path(@current_user, listing), :method => :put, :remote => true
+  
+  

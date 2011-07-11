@@ -17,7 +17,7 @@ Feature: User edits his own listing
     And the "rent" checkbox should not be checked
     And the "listing_title" field should contain "Hammer"
     And the "description" field should contain "test"
-    And the "listing_tag_list" field should contain "tools, test"
+    And the "listing_tag_list" field should contain "tools, hammers"
     And I uncheck "Buy"
     And I check "Rent"
     And I fill in "listing_title" with "Sledgehammer"
@@ -69,6 +69,22 @@ Feature: User edits his own listing
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy,borrow"
     And I am logged in as "kassi_testperson2"
     And "kassi_testperson2" has admin rights
+    When I follow "Hammer"
+    And I follow "Edit request"
+    And I fill in "listing_title" with "Sledgehammer"
+    And I press "Save request"
+    Then I should see "Item request: Sledgehammer" within "h1"
+    And I should see "Request updated successfully" within "#notifications"
+    
+  @javascript
+  Scenario: Trying to update somebody else's listing as an admin of the current community
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy,borrow"
+    And I am logged in as "kassi_testperson2"
+    And "kassi_testperson2" has admin rights in community "Test"
     When I follow "Hammer"
     And I follow "Edit request"
     And I fill in "listing_title" with "Sledgehammer"

@@ -32,12 +32,17 @@ class Listing < ActiveRecord::Base
   has_one :origin_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "origin_loc"}
   has_one :destination_loc, :class_name => "Location", :dependent => :destroy, :conditions => {:location_type => "destination_loc"}
 
+  has_and_belongs_to_many :communities
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :include => :listing_images, :order => "created_at DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :include => :listing_images, :order => "created_at DESC"
+  attr_accessor :current_community_id
+  
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
+  scope :public, :conditions  => "visibility = 'everybody'"
+  scope :private, :conditions  => "visibility <> 'everybody'"
   
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
@@ -49,17 +54,16 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent_out", "sell", "temporary_accommodation"]
     },
     "request" => {
-      "item" => ["borrow", "buy", "rent", "trade"],
+      "item" => ["borrow", "buy", "rent", "trade", "receive"],
       "favor" => nil, 
       "rideshare" => nil,
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "kassi_users"]
+  VALID_VISIBILITIES = ["everybody", "this_community"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
-  
-  before_save :downcase_tags
+  before_save :downcase_tags, :set_community_visibilities
   after_create :check_possible_matches
   
   validates_presence_of :author_id
@@ -84,27 +88,81 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    has "listings.visibility IN ('everybody','kassi_users')", :as => :visible_to_kassi_users, :type => :boolean
     has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
+    has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
     set_property :delta => true
     set_property :field_weights => {
-          :title       => 10,
-          :tags        => 8,
-          :description => 3,
-          :comments    => 1
-        }
+      :title       => 10,
+      :tags        => 8,
+      :description => 3,
+      :comments    => 1
+    }
+  end
+  
+  def set_community_visibilities
+    if current_community_id
+      communities.clear
+      if visibility.eql?("this_community")
+        communities << Community.find(current_community_id)
+      else
+        author.communities.each { |c| communities << c }
+      end
+    end
   end
   
   # Filter out listings that current user cannot see
-  def self.visible_to(current_user)
-    current_user ? where("listings.visibility IN ('everybody','kassi_users')") : where("listings.visibility = 'everybody'")
+  def self.visible_to(current_user, current_community)
+    if current_user
+      where("
+        (listings.visibility = 'everybody' 
+        OR (
+          listings.visibility IN ('communities','this_community') 
+          AND listings.id IN (
+            SELECT listing_id 
+            FROM communities_listings
+            WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
+          )
+        ))
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')
+      ")
+    else 
+      where("listings.visibility = 'everybody' AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')")
+    end
   end
   
-  def visible_to?(current_user)
-    self.visibility.eql?("everybody") || (current_user && self.visibility.eql?("kassi_users"))
+  def visible_to?(current_user, current_community)
+    if current_user
+      Listing.count_by_sql("
+        SELECT count(*) 
+        FROM community_memberships, communities_listings 
+        WHERE community_memberships.person_id = '#{current_user.id}' 
+        AND community_memberships.community_id = communities_listings.community_id
+        AND communities_listings.listing_id = '#{id}'
+        AND communities_listings.community_id = '#{current_community.id}'
+      ") > 0
+    else
+      Listing.count_by_sql("
+        SELECT count(id) 
+        FROM listings 
+        WHERE visibility = 'everybody'
+        AND id IN (
+          SELECT listing_id 
+          FROM communities_listings 
+          WHERE community_id = '#{current_community.id}'
+        )
+      ") > 0
+    end
+  end
+  
+  # Get only  listings that are private to current community (or to many communities including current)
+  def self.private_to_community(community)
+    where("
+        listings.visibility IN ('communities','this_community') 
+        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{community.id}')
+      ")
   end
   
   def share_type_attributes=(attributes)
@@ -171,13 +229,16 @@ class Listing < ActiveRecord::Base
   
   # Overrides the to_param method to implement clean URLs
   def to_param
-    "#{id}-#{title.gsub(/\W/, '_').downcase}"
+    "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  def self.find_with(params, current_user=nil)
+  def self.find_with(params, current_user=nil, current_community=nil)
+    params = params || {}  # Set params to empty hash if it's nil
     conditions = []
-    conditions[0] = "listing_type = ?"
-    conditions[1] = params[:listing_type]
+    if params[:listing_type] && !params[:listing_type].eql?("all") 
+      conditions[0] = "listing_type = ?"
+      conditions[1] = params[:listing_type]
+    end
     if params[:category] && !params[:category][0].eql?("all") 
       conditions[0] += " AND category IN (?)"
       conditions << params[:category]
@@ -189,7 +250,7 @@ class Listing < ActiveRecord::Base
     if params[:tag]
       listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
     end 
-    listings.visible_to(current_user).order("listings.id DESC")
+    listings.visible_to(current_user, current_community).order("listings.id DESC")
   end
   
   # Returns true if listing exists and valid_until is set
@@ -343,7 +404,7 @@ class Listing < ActiveRecord::Base
       # send the message in recipients language and use very short date format to fit in sms
       locale = request.author.locale.to_sym || :fi
       Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
-      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
+      message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name_or_username, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
       listing_url = ApplicationHelper.shorten_url("http://demo.kassi.eu/#{locale.to_s}/listings/#{offer.id}")
       unless offer.author.phone_number.blank?
         message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
@@ -352,7 +413,7 @@ class Listing < ActiveRecord::Base
       else
         message += " " + I18n.t("sms.check_the_offer_in_kassi", :listing_url => listing_url, :locale => locale)
       end
-      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name, :locale => locale)
+      message += " " +  I18n.t("sms.you_can_pay_gas_money_to_driver", :driver => offer.author.given_name_or_username, :locale => locale)
       # Here it should be stored somewhere (DB probably) that a payment suggestion is made from potential passenger
       # to the driver (and the time and date of the suggestions)
       # But as there is not yet real payment API, this is not yet implemented.

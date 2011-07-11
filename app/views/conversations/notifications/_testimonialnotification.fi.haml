@@ -1,9 +1,0 @@
-= link_to notification.testimonial.author.name, notification.testimonial.author
-on antanut sinulle palautetta liittyen tapahtumaan
-= link_to(notification.testimonial.participation.conversation.title, person_message_path(:person_id => @current_user.id, :id => notification.testimonial.participation.conversation.id)) + "."
-- if notification.testimonial.receiver.can_give_feedback_on?(notification.testimonial.participation.conversation)
-  = link_to "Anna palautetta käyttäjälle #{notification.testimonial.author.given_name}", new_person_message_feedback_path(:person_id => @current_user.id, :message_id => notification.testimonial.participation.conversation.id.to_s)
-  tai
-  = link_to("katso kaikki saamasi palautteet", person_testimonials_path(:person_id => @current_user.id)) + "."
-- else
-  = link_to("Katso kaikki saamasi palautteet", person_testimonials_path(:person_id => @current_user.id)) + "."

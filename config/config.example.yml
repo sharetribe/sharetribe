@@ -26,14 +26,17 @@ default: &default_settings
   asi_app_password: kassi_tester
 
   # The default locale (language) of the user interface
+  # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
+  # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
-  # Available locales (languages) of the user interface
+  # Available locales (languages) of the user interface. This is the list of all the possible locales on this Kassi server.
+  # Some communities may have shorter list but not longer.
   # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
   # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
-  # If you make new translations, please share those for example in github.
+  # If you make new translations, please share those for example in Github.
   # If you change the default locale, you should put that one first in the list of available_locations, to get
   # the language dropdown menu work more logically.
-  available_locales: [["English", "en"], ["Finnish", "fi"]]
+  available_locales: [["English", "en"], ["Suomi", "fi"], ["Pусский", "ru"]]
   
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
@@ -72,6 +75,8 @@ default: &default_settings
   # and enter it below
   use_google_analytics: false
   google_analytics_key: "enter_your_key_here"
+  # If you use analytics, the tracked domain must be entered here. See Google anaylitys documentation if you need more info.
+  google_analytics_domain: ".yourdomain.here"
   
   # Funneld can be used to track social media activity on the site. 
   use_funneld: false
@@ -114,19 +119,39 @@ production:
 development:
   <<: *default_settings
   
+  # These settings are used for sending email from your local computer.
+  # This example is using gmail SMTP, but you can also use your local SMTP server.
+  local_email_address: "smtp.gmail.com"
+  local_email_port: 587
+  local_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
+  local_email_password: "<YOUR_GMAIL_PASSWORD>"
+  
 test:
   <<: *default_settings
   # The locale should be "en" for test environment
   # even if you change it for others
   default_locale: en
+  # available are at least english and finnish (to test language changing) English comes first in dropdowns.
+  available_locales: [["English", "en"], ["Finnish", "fi"]]
   
   # captcha is expected to be off when running tests
   use_recaptcha: false
   
-  # The domain should be not set for running the tests succesfully
-  domain:
+  # The domain should be set to lvh.me (which redirects to localhost)
+  # to be able to run the tests with subdomains.
+  domain: lvh.me
+  # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
+  # And add lines: (where there is one tab separating the ip and the domain)
+  #127.0.0.1       lvh.me
+  #127.0.0.1       login.lvh.me
+  #127.0.0.1       test.lvh.me
+  #127.0.0.1       test2.lvh.me
+
+  
+  
     
-  # The login domain should be empty for tests
-  login_domain:
+  # The login domain should be "http://login.lvh.me:9887" for tests
+  # Note above, if running tests disconnected from the internet
+  login_domain: "http://login.lvh.me:9887"
 
 

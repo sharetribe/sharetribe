@@ -1,8 +1,12 @@
 class PeopleController < ApplicationController
+  include UrlHelper
+  protect_from_forgery :except => :create
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
+  
+  before_filter :person_belongs_to_current_community, :only => :show
   
   helper_method :show_closed?
   
@@ -12,16 +16,10 @@ class PeopleController < ApplicationController
   end
   
   def show
-    @person = Person.find(params[:id])
-    logger.info "Preferences: #{@person.preferences.inspect}"
-    @person.preferences.each do |key, value|
-      if key.is_a?(Symbol)
-        logger.info "Symbol"
-      end
-    end
+    @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.open 
-    @listings = @listings.visible_to(@current_user).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
+    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end
 
@@ -30,9 +28,12 @@ class PeopleController < ApplicationController
   end
 
   def create
-    
-    #if the request came from different domain, redirects back there.
-    domain = request.headers["HTTP_ORIGIN"] || ""
+    # if the request came from different domain, redirects back there.
+    # e.g. if using login-subdoain for registering in with https    
+    if params["community"].blank?
+      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
+    end
+    domain = "http://#{with_subdomain(params[:community])}"
     
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
@@ -42,36 +43,36 @@ class PeopleController < ApplicationController
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
       flash[:error] = :unknown_error
-      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.")
+      ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
       redirect_to domain + sign_up_path and return
     end
 
-    # Open a Session first only for Kassi to be able to create a user
+    # Open an ASI Session first only for Kassi to be able to create a user
     @session = Session.create
     session[:cookie] = @session.cookie
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
 
     # Try to create a new person in ASI.
-
     begin
-      @person = Person.create(params[:person], session[:cookie])
+      @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
       @person.set_default_preferences
+      # Make person a member of the current community
+      CommunityMembership.create(:person => @person, :community => @current_community, :consent => @current_community.consent)
     rescue RestClient::RequestFailed => e
-      logger.info "Failed because of #{JSON.parse(e.response.body)["messages"]}"
-      
+      logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if ASI responses with error, show message to user
          # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
-      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}")
+      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
       redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
     end
     session[:person_id] = @person.id
-    flash[:notice] = [:login_successful, (@person.given_name + "!").to_s, person_path(@person)]
+    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
     redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
-
   end
   
   def update
@@ -129,6 +130,11 @@ class PeopleController < ApplicationController
     else
       render :json => "failed" and return
     end
+  end
+  
+  # Showed when somebody tries to view a profile of
+  # a person that is not a member of that community
+  def not_member
   end
 
   private

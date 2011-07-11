@@ -60,7 +60,7 @@ When /^I get the badge "(.+)"$/ do |badge|
     And I go to the badges page of "kassi_testperson1"
     And I should see badge "#{badge + '_medium'}"
     When I follow "notifications_link"
-    Then I should see "You have earned a badge #{I18n.translate('people.profile_badge.' + badge)}!"
+    Then I should see "You have earned the badge #{I18n.translate('people.profile_badge.' + badge)}!"
     And I should not see "1" within "#logged_in_notifications_icon"
     And I go to the badges page of "kassi_testperson1"
   }
@@ -73,11 +73,13 @@ When /^I have "([^"]*)" (item|favor|rideshare) (offer|request) listings(?: with 
 end
 
 Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with share type "([^"]*)")?$/ do |category, listing_type, share_type|
-  steps %Q{
-    When I go to the home page
-    When I follow "#{listing_type.capitalize} something"
-    And I follow "#{category.capitalize}"
-  }
+  steps %Q{ When I go to the home page }
+  if listing_type.eql?("offer")
+    steps %Q{ When I follow "List your items and skills!" }
+  else
+    steps %Q{ When I follow "Tell what you need!" }
+  end
+  steps %Q{ And I follow "#{category.capitalize}" }
   if category.eql?("rideshare")
     steps %Q{
       And I fill in "listing_origin" with "Test" 

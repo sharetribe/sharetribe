@@ -13,8 +13,10 @@ Feature: User creates a new account
     And I fill in "Password:" with "test"
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
+    And I check "person_terms"
     And I press "Create account"
     Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
+    And Most recently created user should be member of "test" community with its latest consent accepted
   
 
   @javascript  
@@ -57,12 +59,28 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "The email you gave is already in use." within ".error"
   
-  
-  @pending
-  Scenario: Trying to create a new listing and registering when prompted
-    Given context
-    When event
-    Then outcome
+  @javascript
+  Scenario: Trying to create an account without given name and last name
+    Given I am not logged in
+    And I am on the signup page
+    When I fill in "Username:" with random username
+    And I fill in "Username:" with random username
+    And I fill in "Password:" with "test"
+    And I fill in "Confirm password:" with "test"
+    And I fill in "Email address:" with random email
+    And I check "person_terms"
+    And I press "Create account"
+    Then I should see "This field is required."
+    When given name and last name are not required in community "test"
+    And I am on the signup page
+    When I fill in "Username:" with random username
+    And I fill in "Username:" with random username
+    And I fill in "Password:" with "test"
+    And I fill in "Confirm password:" with "test"
+    And I fill in "Email address:" with random email
+    And I check "person_terms"
+    And I press "Create account"
+    Then I should see "Welcome to Kassi" within "#notifications"
   
   
   

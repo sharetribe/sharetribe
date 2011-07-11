@@ -4,7 +4,7 @@ class ListingsController < ApplicationController
   before_filter :ensure_authorized_to_view, :only => :show
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_create_new_#{params[:type]}"
+    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:type]}", "create_one_here".to_sym, sign_up_path])
   end
   
   before_filter :only => [ :edit, :update, :close ] do |controller|
@@ -44,12 +44,12 @@ class ListingsController < ApplicationController
     @title = params[:listing_type]
     @tag = params[:tag]
     @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
     else
-      render  @to_render
+      render @to_render
     end
   end 
   
@@ -163,18 +163,26 @@ class ListingsController < ApplicationController
   
   def close
     @listing.update_attribute(:open, false)
-    flash.now[:notice] = "#{@listing.listing_type}_closed"
+    notice = "#{@listing.listing_type}_closed"
     respond_to do |format|
-      format.html { redirect_to @listing }
-      format.js { render :layout => false }
+      format.html { 
+        flash[:notice] = notice
+        redirect_to @listing 
+      }
+      format.js {
+        flash.now[:notice] = notice
+        render :layout => false 
+      }
     end
   end
   
-  #shows a random listing (that is visible to all)
+  #shows a random listing from current community
   def random
-    conditions = "open = 1 AND valid_until >= '" + DateTime.now.to_s + "' AND visibility = 'everybody'"
-        
-    open_listings_ids = Listing.select("id").where(conditions).all
+    open_listings_ids = Listing.open.select("id").find_with(nil, @current_user, @current_community).all
+    if open_listings_ids.empty?
+      redirect_to root and return
+      #render :action => :index and return
+    end
     random_id = open_listings_ids[Kernel.rand(open_listings_ids.length)].id
     #redirect_to listing_path(random_id)
     @listing = Listing.find_by_id(random_id)
@@ -183,7 +191,7 @@ class ListingsController < ApplicationController
   
   def ensure_current_user_is_listing_author(error_message)
     @listing = Listing.find(params[:id])
-    return if current_user?(@listing.author) || @current_user.is_admin?
+    return if current_user?(@listing.author) || @current_user.has_admin_rights_in?(@current_community)
     flash[:error] = error_message
     redirect_to @listing and return
   end
@@ -194,7 +202,7 @@ class ListingsController < ApplicationController
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
     if @current_user
-      unless @listing.visible_to?(@current_user)
+      unless @listing.visible_to?(@current_user, @current_community)
         flash[:error] = "you_are_not_authorized_to_view_this_content"
         redirect_to root and return
       end

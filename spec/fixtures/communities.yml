@@ -1,0 +1,17 @@
+test_community:
+  id: 1
+  name: "Test"
+  domain: test
+  consent: "test_consent0.1"
+  settings: <%= {
+     "locales" => ["en", "fi"],
+     "asi_welcome_mail" => true}.to_yaml.inspect %>
+  real_name_required: 1
+
+test_community2:
+  id: 2
+  name: "Test2"
+  domain: "test2"
+  settings: <%= {
+     "locales" => ["en"]}.to_yaml.inspect %>
+  real_name_required: 0

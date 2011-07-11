@@ -6,10 +6,10 @@ Feature: Otasizzle user logs in
   Scenario: User logs in and accepts the terms
     Given I already have an OtaSizzle account
     And I am on the home page
-    When I follow "Login"
+    When I follow "Log in"
     And I fill in username with my OtaSizzle username
     And I fill in password with my OtaSizzle password
-    And I press "Login"
+    And I press "Log in"
     Then I should see "Accepting Kassi terms of use"
     And I press "I accept the terms"
     And I should see "Welcome to Kassi" within "#notifications"
@@ -18,13 +18,13 @@ Feature: Otasizzle user logs in
   Scenario: User logs in but does not accept the terms
     Given I already have an OtaSizzle account
     And I am on the home page
-    When I follow "Login"
+    When I follow "Log in"
     And I fill in username with my OtaSizzle username
     And I fill in password with my OtaSizzle password
-    And I press "Login"
+    And I press "Log in"
     Then I should see "Accepting Kassi terms of use"
     And I follow "Home"
-    And I should see "Login"
+    And I should see "Log in"
     And I should not see "Logout"
   
   

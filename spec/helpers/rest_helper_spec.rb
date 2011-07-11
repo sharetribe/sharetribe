@@ -26,7 +26,7 @@ describe RestHelper do
     end
     
     context "user-session cookie is invalid" do     
-      it "should raise unatuhorized error" do
+      it "should raise unauthorized error" do
         @test_person, @session = get_test_person_and_session
         cookie = @session.cookie
         @session.destroy #logout to make the cookie invalid

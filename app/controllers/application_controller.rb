@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
+  include UrlHelper, ApplicationHelper
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user, :set_locale, :generate_event_id
+  before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
@@ -13,11 +14,15 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     locale = logged_in? ? @current_user.locale : params[:locale]
+    
+    if locale.blank? && @current_community
+      locale = @current_community.default_locale
+    end
       
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
-    else  
-      I18n.locale = ["fi", "en"].include?(locale) ? locale : APP_CONFIG.default_locale
+    else
+      I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
     
     # A hack to get the path where the user is 
@@ -83,14 +88,81 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
   
+  def fetch_community
+    # if in dashboard, no community to fetch, just return
+    return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
+        
+    # if form posted to login-domain, pick community domain from origin url
+    login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
+    if login_subdomain && request.subdomain == login_subdomain
+      fetch_community_for_login_domain
+      return
+    end
+    
+    # Redirect to root if trying to do a non-dashboard action in dashboard domain
+    redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
+    
+    # Otherwise pick the domain normally from the request subdomain
+    if @current_community = Community.find_by_domain(request.subdomain)
+      if @current_user && !@current_user.communities.include?(@current_community)
+        # Show notification "you are not a member in this community"
+      end
+    else
+      redirect_to root_url(:subdomain => "www")
+    end
+  end
+  
+  def person_belongs_to_current_community
+    @person = Person.find(params[:person_id] || params[:id])
+    redirect_to not_member_people_path and return unless @person.communities.include?(@current_community)
+  end
   
   private
+
+  # If request comes to login domain that is common to all communities, the community cannot be fetched directly from the subdomain
+  # There are also possible error cases, if wrong requests come to login domain.
+  # It's meant for only POST requests to sessions or people, i.e. the requests that may contain passwords and thus better be https
+  def fetch_community_for_login_domain
+    
+    # check if the request is allowed to login domain. Only POST to people or sessions.
+    unless ["sessions", "people"].include?(controller_name) && request.method == "POST"
+      
+      # If referer is blank, impossible to return to right community.
+      if ApplicationHelper.pick_referer_domain_part_from_request(request).blank?
+        # Detect if request came to non people/session controller with longer request path than just locale
+        if ! ["sessions", "people"].include?(controller_name) && request.headers["REQUEST_PATH"] && request.headers["REQUEST_PATH"].length > 4
+          # This can be the case if people click links in old emails that have the login.kassi.eu/... url
+          # Temporarily, to keep the old links working, we change this now to aalto.
+          # In the future, this should just render an error probably.
+          # Because only session related actions should be posted to login-url
+          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url, redirecting to aalto.kassi.eu#{request.headers["REQUEST_PATH"]}", "Login-domain-redirect error", params)
+          redirect_to "http://aalto.kassi.eu#{request.headers["REQUEST_PATH"]}" and return
+          # TODO: Change this to be an error case instead of Aalto specific redirection.
+        else
+          # Otherwise just display error. We do not know from which community the user came from (no HTTP_REFERER) so we show
+          # an error page without links and user has to click back in the browser
+          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url. Showing error page.}", "Login-domain error", params.merge({:request_path => request.headers["REQUEST_PATH"]}))
+          render "public/501.html", :layout => false and return
+        end
+      else # HTTP_REFERER is known: redirect back there with error message
+         I18n.locale = params[:locale] if params[:locale]
+        flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
+        redirect_to "#{ApplicationHelper.pick_referer_domain_part_from_request(request)}/#{ I18n.locale}"
+      end
+      
+    end
+    
+    
+    
+    origin_subdomain = params[:community] || ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
+    @current_community = Community.find_by_domain(origin_subdomain)
+  end
 
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
     clear_user_session
     flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
-    ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.")
+    ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
     redirect_to root_path and return
   end
   

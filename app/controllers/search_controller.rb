@@ -11,11 +11,10 @@ class SearchController < ApplicationController
         with[:is_request] = true if params[:type].eql?("request")
         with[:is_offer] = true if params[:type].eql?("offer")
       end
-      if @current_user 
+      unless @current_user && @current_user.communities.include?(@current_community)
         with[:visible_to_everybody] = true
-      else
-        with[:visible_to_kassi_users] = true
-      end    
+      end
+      with[:community_ids] = @current_community.id
 
       @listings = Listing.search(@query, 
                                 :include => :listing_images, 
