@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_comment_form();
 
+- content_for :extra_javascript do
+  %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?file=api&language=#{I18n.locale}&amp;v=2&amp;sensor=false"}
+
 #listing_image_side.grid_8
   .image
     - if @listing.listing_images.empty?
@@ -62,13 +65,18 @@
   #listing_right_panel.grid_7.omega
     #listing_reply_link
       = render :partial => "reply_link"
+    - logger.info "Here we are0"
     - if @listing.origin_loc && @listing.origin_loc.address != ""
+      - logger.info "Here we are1"
       #googlemap
         = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
         = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
         - if @listing.category == "rideshare"
           = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
     #additional_listing_links
+      .float_left
+        = link_to(t(".share"), "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
+        %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
       .float_left
         = facebook_like
         - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
@@ -80,9 +88,6 @@
           %meta{ :property => "og:site_name", :content =>"Kassi: "}
           %meta{ :property => "fb:admins", :content =>"823616678"}
           %meta{ :property => "og:description", :content => @listing.content}
-      .float_left
-        = link_to(t(".share"), "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
-        %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
         
   .clear
   
