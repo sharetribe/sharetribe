@@ -186,14 +186,14 @@ en:
       you_have_a_new_comment: "%{author} has commented your listing in Kassi"
       has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
       has_commented_your_offer_in_kassi: "%{author} has commented your offer %{listing}"
-      you_can_reply_to_comment_in: "You can view all the comments and reply to them in"  
+      you_can_reply_to_comment_in: "You can view all the comments and reply to them at"  
     conversation_status_changed:
       your_request_was_accepted: "Your request was accepted"
       your_offer_was_accepted: "Your offer was accepted"
       your_request_was_rejected: "Your request was rejected"
       your_offer_was_rejected: "Your offer was rejected"
-      you_can_view_the_request_in: "You can view your request and the related conversation in"
-      you_can_view_the_offer_in: "You can view your offer and the related conversation in"
+      you_can_view_the_request_in: "You can view your request and the related conversation at"
+      you_can_view_the_offer_in: "You can view your offer and the related conversation at"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_rejected_your_request: "%{accepter} has rejected your request considering offer %{listing}"
@@ -224,8 +224,8 @@ en:
       request_accusative: "request"
       offer_accusative: "offer"
       remember_to_accept_listing: "Remember to accept %{listing_type}, even though the actual event has already taken place. Accepting makes it possible for the parties to give feedback to each other. The good feedback you have received will be shown to other Kassi users in your profile. It will make you more trustworthy in the eyes of other Kassi users and assures that everything will go smoothly for you also in the future. Good feedback also helps you get badges."
-      you_can_accept_or_reject_request_at: "You can accept or reject the request in"
-      you_can_accept_or_reject_offer_at: "You can accept or reject the request in"
+      you_can_accept_or_reject_request_at: "You can accept or reject the request at"
+      you_can_accept_or_reject_offer_at: "You can accept or reject the offer at"
   admin:
     badges:
       index:
