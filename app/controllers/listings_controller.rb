@@ -142,10 +142,10 @@ class ListingsController < ApplicationController
     else
 	    if (@current_user.location != nil)
 	      temp = @current_user.location
-	      temp.location_type = "origin_loc"
+	      #temp.location_type = "origin_loc"
 	      @listing.build_origin_loc(temp.attributes)
       else
-	      @listing.build_origin_loc(:location_type => "origin_loc")
+	      @listing.build_origin_loc(:location_type => nil)
       end
     end
     1.times { @listing.listing_images.build }
