@@ -17,8 +17,7 @@ function translate_validation_messages() {
 		rangelength: $.validator.format("Merkkimäärän tulee olla välillä {0} ja {1}."),
 		range: $.validator.format("Kentän arvon tulee olla välillä {0} ja {1}."),
 		max: $.validator.format("Arvo voi olla enintään {0}."),
-		min: $.validator.format("Arvon täytyy olla vähintään {0}."),
-		min_date: "Ilmoituksen viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki."
+		min: $.validator.format("Arvon täytyy olla vähintään {0}.")
 	});
 }
 
