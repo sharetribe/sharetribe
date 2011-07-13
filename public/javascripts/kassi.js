@@ -82,7 +82,8 @@ $.validator.
 	);
 
 // Initialize code that is needed for every view
-function initialize_defaults(default_text, feedback_default_text) {
+function initialize_defaults(default_text, feedback_default_text, locale) {
+  translate_validation_messages(locale);
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
@@ -90,14 +91,13 @@ function initialize_defaults(default_text, feedback_default_text) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	translate_validation_messages();
 	var form_id = "#new_feedback";
 	$(form_id).validate({
 		rules: {
 			"feedback[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});
 }
@@ -186,14 +186,14 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "false");
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});
 	set_textarea_maxlength();
 	auto_resize_text_areas();
 }
 
-function initialize_send_message_form(default_text) {
+function initialize_send_message_form(default_text, locale) {
 	auto_resize_text_areas();
 	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
@@ -203,12 +203,12 @@ function initialize_send_message_form(default_text) {
 			"conversation[message_attributes][content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "false");
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
 
-function initialize_reply_form() {
+function initialize_reply_form(locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
 	var form_id = "#new_message"
@@ -217,12 +217,12 @@ function initialize_reply_form() {
 			"message[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});	
 }
 
-function initialize_comment_form() {
+function initialize_comment_form(locale) {
 	auto_resize_text_areas();
 	var form_id = "#new_comment"
 	$(form_id).validate({
@@ -230,7 +230,7 @@ function initialize_comment_form() {
 			"comment[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});
 }
@@ -257,7 +257,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 			"testimonial[text]": { required_when_not_neutral_feedback: text_error_message }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "false");
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});
 }
@@ -295,7 +295,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false");  
+      disable_and_submit(form_id, form, "false", locale);  
 		}
 	});	
 }
@@ -321,7 +321,7 @@ function initialize_update_profile_info_form(locale, person_id, name_required) {
 			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});	
 }
@@ -331,7 +331,7 @@ function initialize_update_notification_settings_form(locale, person_id) {
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});	
 }
@@ -347,7 +347,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 			"file": { required: true, accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true");
+		  disable_and_submit(form_id, form, "true", locale);
 		}
 	});	
 }
@@ -392,7 +392,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			"person[email]": { remote: email_in_use_message }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(email_form_id, form, "false");
+		  disable_and_submit(email_form_id, form, "false", locale);
 		}
 	});
 	var password_form_id = "#password_form"
@@ -403,7 +403,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(password_form_id, form, "false");
+		  disable_and_submit(password_form_id, form, "false", locale);
 		}
 	});	
 }
@@ -617,13 +617,39 @@ var faceGrade = {
   } 
 }
 
-function disable_and_submit(form_id, form, ajax) {
+function disable_and_submit(form_id, form, ajax, locale) {
 	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
-	$(form_id + ' input[type=submit]').val(please_wait_string());
+	jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
+	  $(form_id + ' input[type=submit]').val(json.please_wait);
+	});
 	if (ajax == "true") {
 		console.log(form);
 		$(form).ajaxSubmit();
 	} else {
   	form.submit();
 	}	
+}
+
+function translate_validation_messages(locale) {
+  jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
+    jQuery.extend(jQuery.validator.messages, {
+        required: json.validation_messages.required,
+        remote: json.validation_messages.remote,
+        email: json.validation_messages.email,
+        url: json.validation_messages.url,
+        date: json.validation_messages.date,
+        dateISO: json.validation_messages.dateISO,
+        number: json.validation_messages.number,
+        digits: json.validation_messages.digits,
+        creditcard: json.validation_messages.creditcard,
+        equalTo: json.validation_messages.equalTo,
+        accept: json.validation_messages.accept,
+        maxlength: jQuery.validator.format(json.validation_messages.maxlength),
+        minlength: jQuery.validator.format(json.validation_messages.minlength),
+        rangelength: jQuery.validator.format(json.validation_messages.rangelength),
+        range: jQuery.validator.format(json.validation_messages.range),
+        max: jQuery.validator.format(json.validation_messages.max),
+        min: jQuery.validator.format(json.validation_messages.min)
+    });
+  });
 }

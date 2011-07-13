@@ -1,0 +1,23 @@
+{ 
+  "validation_messages": {
+	  "required": "Tämä on pakollinen kenttä.",
+  	"remote": "Kentän arvo on virheellinen.",
+  	"email": "Anna toimiva sähköpostiosoite.",
+  	"url": "Anna oikeanlainen URL-osoite.",
+  	"date": "Anna päivämäärä oikessa muodossa.",
+  	"dateISO": "Anna päivämäärä oikeassa muodossa (ISO).",
+  	"number": "Annetun arvon pitää olla numero.",
+  	"digits": "Tähän kenttään voit syöttää ainoastaan kirjaimia.",
+  	"creditcard": "Anna oikeantyyppinen luottokortin numero.",
+  	"equalTo": "Antamasi arvot eivät täsmää.",
+  	"accept": "Kuvatiedosto on vääräntyyppinen. Sallitut tiedostomuodot: JPG, PNG ja GIF.",
+  	"captcha": "Captcha ei ollut oikein. Yritä uudestaan.",
+  	"maxlength": "Voit syöttää tähän kenttään maksimissaan {0} merkkiä.",
+  	"minlength": "Syötä tähän kenttään vähintään {0} merkkiä.",
+  	"rangelength": "Merkkimäärän tulee olla välillä {0} ja {1}.",
+  	"range": "Kentän arvon tulee olla välillä {0} ja {1}.",
+  	"max": "Arvo voi olla enintään {0}.",
+  	"min": "Arvon täytyy olla vähintään {0}."
+  },
+  "please_wait": "Odota hetki..."
+}

@@ -21,11 +21,11 @@
     = yield :head
 
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', "locales/#{I18n.locale}.js", 'kassi'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi'
     = csrf_meta_tag
     
     :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{t('layouts.application.default_feedback')}'); #{yield :javascript} });
+      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{t('layouts.application.default_feedback')}', '#{I18n.locale}'); #{yield :javascript} });
     
     - unless I18n.locale.to_s.eql?("fi")
       - if I18n.locale.to_s.eql?("ru")
