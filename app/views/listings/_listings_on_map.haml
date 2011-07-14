@@ -100,8 +100,8 @@
     		      if (entry["category"]=="rideshare")
     		        location = new google.maps.LatLng(entry["origin_loc"]["latitude"], entry["origin_loc"]["longitude"]);
     		      else
-          		  location = new google.maps.LatLng(entry["location"]["latitude"], entry["location"]["longitude"]);
-          	     
+    		        location = new google.maps.LatLng(entry["location"]["latitude"], entry["location"]["longitude"]);
+    		      
               var marker = new google.maps.Marker({
                 position: location,
                 title: entry["title"],
