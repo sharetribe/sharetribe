@@ -162,16 +162,10 @@ class ListingsController < ApplicationController
   end
   
   def create
-	  if params[:listing][:origin_loc_attributes][:address].empty?
-	    params[:listing].delete("origin_loc_attributes")
-	  end
-    @listing = @current_user.create_listing params[:listing]
-    if @listing.category != "rideshare"
-      @location = @listing.create_location(params[:location])
-    else
-      @origin_loc = @listing.create_origin_loc(params[:origin_loc])
-      @destination_loc = @listing.create_destination_loc(params[:destination_loc])
+    if params[:listing][:origin_loc_attributes][:address].empty?
+      params[:listing].delete("origin_loc_attributes")
     end
+    @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
@@ -183,6 +177,28 @@ class ListingsController < ApplicationController
     end
   end
   
+  # def create
+  #     if params[:listing][:origin_loc_attributes][:address].empty?
+  #       params[:listing].delete("origin_loc_attributes")
+  #     end
+  #   @listing = @current_user.create_listing params[:listing]
+  #   if @listing.category != "rideshare"
+  #     @location = @listing.create_location(params[:location])
+  #   else
+  #     @origin_loc = @listing.create_origin_loc(params[:origin_loc])
+  #     @destination_loc = @listing.create_destination_loc(params[:destination_loc])
+  #   end
+  #   if @listing.new_record?
+  #     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+  #     render :action => :new
+  #   else
+  #     path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
+  #     flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
+  #     Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
+  #     redirect_to @listing
+  #   end
+  # end
+  
   def edit
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
@@ -191,12 +207,12 @@ class ListingsController < ApplicationController
   end
   
   def update
-  if params[:listing][:origin_loc_attributes][:address].empty?
-    params[:listing].delete("origin_loc_attributes")
-    if @listing.origin_loc
-     @listing.origin_loc.delete
+    if params[:listing][:origin_loc_attributes][:address].empty?
+      params[:listing].delete("origin_loc_attributes")
+      if @listing.origin_loc
+        @listing.origin_loc.delete
+      end
     end
-  end
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
