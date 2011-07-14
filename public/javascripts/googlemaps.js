@@ -258,21 +258,21 @@ function googlemapRouteInit(canvas) {
 
 // Use this one for "new" and "edit"
 function startRoute() {
-    var foo = document.getElementById("listing_origin").value;
-    var bar = document.getElementById("listing_destination").value;
+  var foo = document.getElementById("listing_origin").value;
+  var bar = document.getElementById("listing_destination").value;
 	directionsDisplay.setMap(map);
-    document.getElementById("listing_origin_loc_attributes_address").value = foo;
-    document.getElementById("listing_destination_loc_attributes_address").value = bar;
+  document.getElementById("listing_origin_loc_attributes_address").value = foo;
+  document.getElementById("listing_destination_loc_attributes_address").value = bar;
 
-    if(foo != '' && bar != '') {
-         calcRoute(foo, bar);
-    } else {
-      removeRoute();
-      if (foo == '' && bar == '') {
-		map.setCenter(defaultCenter);
-      	map.setZoom(12);
-      }
+  if(foo != '' && bar != '') {
+    calcRoute(foo, bar);
+  } else {
+    removeRoute();
+    if (foo == '' && bar == '') {
+	    map.setCenter(defaultCenter);
+    	map.setZoom(12);
     }
+  }
 }
 
 function wrongLocationRoute(field){
@@ -329,15 +329,15 @@ function route_not_found(orig,dest){
   }
 	 
   if(dest){
-	 geocoder.geocode( { 'address': dest}, function(responce,status){
-	 	if (!(status == google.maps.GeocoderStatus.OK)) {
-            nil_locations("listing_destination_loc_attributes");
-	 		removeRoute();
-	 	} else {
-            update_model_location(responce, "listing_destination_loc_attributes");
-            calcRoute(foo, bar);
-		}
-	 });
+	  geocoder.geocode( { 'address': dest}, function(responce,status){
+	 	  if (!(status == google.maps.GeocoderStatus.OK)) {
+        nil_locations("listing_destination_loc_attributes");
+  	 		removeRoute();
+  	 	} else {
+        update_model_location(responce, "listing_destination_loc_attributes");
+        calcRoute(foo, bar);
+  		}
+	  });
   } else {
 	nil_locations("listing_destination_loc_attributes");
   }
@@ -346,17 +346,20 @@ function route_not_found(orig,dest){
 // Route request to the Google API
 function calcRoute(orig, dest) {
   var start = orig;
-  var end = dest;  
+  var end = dest;
   
   if(!orig.match(dest)){
+
     var request = {
       origin:start,
       destination:end,
       travelMode: google.maps.DirectionsTravelMode.DRIVING,
       unitSystem: google.maps.DirectionsUnitSystem.METRIC
     };
-  
     directionsService.route(request, function(response, status) {
+      // alert("changing text");
+      //       $("#form_test_div").html("Plim");
+      //       alert("done");
       if (status == google.maps.DirectionsStatus.OK) {
    	    directionsDisplay.setDirections(response);
         updateEditTextBoxes();
