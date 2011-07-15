@@ -13,26 +13,22 @@ var currentDirections = null;
 
 $.validator.
 addMethod("address_validator",
-    function(value, element, param) {
-    // alert(element);
-	var check = null;
+  function(value, element, param) {
+	  var check = null;
 	
-	// Added to allow empty locations
-	if (value == "") {
-		return true;
-	}
+	  // Added to allow empty locations
+	  if (value == "") {
+		  return true;
+	  }
 	
-    //alert(this.currentForm.id);
     var pref = element.id.split("_");
     var elem_prefix ="";
     if (pref[0].match("person"))
       elem_prefix = "person";
     else
-      elem_prefix = pref[0] + "_" + pref[1];
-        
+      elem_prefix = pref[0] + "_" + pref[1];     
 
     var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
-    //var emptyfield = $('input[id$="latitude"]').attr("value") || "";
     if(emptyfield != "")
       check = true;
     else
@@ -40,21 +36,26 @@ addMethod("address_validator",
 
     console.log("check-outer: " + check);
     return check;
-    });
+  }
+);
 
-function timed_input(param){
+function timed_input(param) {
   clearTimeout(timer);
-  timer=setTimeout(function(){
+  timer=setTimeout(
+    function() {
       update_map(param);
-      }, 1500);
-  //timer=setTimeout("alert(\"PSUR\")", 1000);
+    }, 
+    1500
+  );
 }
+
 function timed_input_on_route(){
   clearTimeout(timer);
   timer=setTimeout(function(){
       startRoute();
       }, 1500);
 }
+
 function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
 	textfield = n_textfield;
@@ -356,10 +357,8 @@ function calcRoute(orig, dest) {
       travelMode: google.maps.DirectionsTravelMode.DRIVING,
       unitSystem: google.maps.DirectionsUnitSystem.METRIC
     };
+    
     directionsService.route(request, function(response, status) {
-      // alert("changing text");
-      //       $("#form_test_div").html("Plim");
-      //       alert("done");
       if (status == google.maps.DirectionsStatus.OK) {
    	    directionsDisplay.setDirections(response);
         updateEditTextBoxes();
