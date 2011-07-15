@@ -26,7 +26,7 @@ addMethod("address_validator",
     if (pref[0].match("person"))
       elem_prefix = "person";
     else
-      elem_prefix = pref[0] + "_" + pref[1];     
+      elem_prefix = pref[0] + "_" + pref[1];
 
     var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
     if(emptyfield != "")
@@ -34,7 +34,6 @@ addMethod("address_validator",
     else
       check = false;
 
-    console.log("check-outer: " + check);
     return check;
   }
 );
@@ -60,25 +59,27 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	prefix = n_prefix;
 	textfield = n_textfield;
 	defaultCenter = new google.maps.LatLng(60.1894, 24.8358);
+	
 	if (draggable == undefined)
 		draggable = false;
+		
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
 	var visible = true;
 	if(latitude.value != ""){
 		center = new google.maps.LatLng(latitude.value,longitude.value);
-	}
-	else{
+	} else {
 		center = defaultCenter;
 		visible = false;
 	}
+	
 	var myOptions = {
 		'zoom': 12,
 		'center': center,
 		'streetViewControl': false,
 		'mapTypeControl': false,
-        'mapTypeId': google.maps.MapTypeId.ROADMAP
-    	}
+    'mapTypeId': google.maps.MapTypeId.ROADMAP
+  }
 	
 	map = new google.maps.Map(document.getElementById(canvas), myOptions);
 	geocoder = new google.maps.Geocoder();
@@ -90,24 +91,28 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 		'draggable': draggable,
 		'animation': google.maps.Animation.DROP,
 		'position': center
-    });
+  });
 
 	infowindow = new google.maps.InfoWindow();
 
-    if (draggable){
-	google.maps.event.addListener(map, "click", function(event) {
-		marker.setPosition(event.latLng);
-		marker.setVisible(true);
-		geocoder.geocode({"latLng":event.latLng},update_source);
-	});
+  if (draggable){
+	  google.maps.event.addListener(map, "click", 
+	    function(event) {
+		    marker.setPosition(event.latLng);
+		    marker.setVisible(true);
+		    geocoder.geocode({"latLng":event.latLng},update_source);
+	    }
+	  );
 	
-	google.maps.event.addListener(marker, "dragend", function() {
-		geocoder.geocode({"latLng":marker.getPosition()},update_source);
-	});
-    }
-    if(!visible)
-	    marker.setVisible(false);
-
+	  google.maps.event.addListener(marker, "dragend", 
+	    function() {
+		    geocoder.geocode({"latLng":marker.getPosition()},update_source);
+	    }
+	  );
+  }
+  
+  if(!visible)
+	  marker.setVisible(false);
 }
 
 function update_map(field) {
@@ -314,22 +319,21 @@ function showRoute(orig, dest) {
     } 
   });
 }
-function route_not_found(orig,dest){
-  if(orig) {
-	 geocoder.geocode( { 'address': orig}, function(responce,status){
-	 	if (!(status == google.maps.GeocoderStatus.OK)) {
-        	nil_locations("listing_origin_loc_attributes");
-	 		removeRoute();
-	 	} else {
-            update_model_location(responce, "listing_origin_loc_attributes");
-            //calcRoute(foo, bar);
-		}
-	 });
+
+function route_not_found(orig, dest) {
+  if (orig) {
+	  geocoder.geocode( { 'address': orig}, function(response, status){
+	 	  if (!(status == google.maps.GeocoderStatus.OK)) {
+        nil_locations("listing_origin_loc_attributes");
+	 		  removeRoute();
+	 	  } else {
+        update_model_location(response, "listing_origin_loc_attributes");
+		  }
+	  });
   } else { 
-	nil_locations("listing_origin_loc_attributes");
+	  nil_locations("listing_origin_loc_attributes");
   }
-	 
-  if(dest){
+  if (dest) {
 	  geocoder.geocode( { 'address': dest}, function(responce,status){
 	 	  if (!(status == google.maps.GeocoderStatus.OK)) {
         nil_locations("listing_destination_loc_attributes");
@@ -340,7 +344,7 @@ function route_not_found(orig,dest){
   		}
 	  });
   } else {
-	nil_locations("listing_destination_loc_attributes");
+	  nil_locations("listing_destination_loc_attributes");
   }
 }
 
@@ -369,7 +373,6 @@ function calcRoute(orig, dest) {
     });
   } else {
     removeRoute();
-    //route_not_found(orig,dest);
   }
 }
 
@@ -384,54 +387,4 @@ function updateEditTextBoxes() {
   document.getElementById("listing_destination_loc_attributes_longitude").value = directionsDisplay.getDirections().routes[0].legs[0].end_location.lng();
   manually_validate("listing_destination");
   manually_validate("listing_origin");
-}
-
-
-// elementId: Specify the element.src where you want to display the static map.
-function loadStaticRouteMap(elementId) {
-  var baseUrl = "http://maps.google.com/maps/api/staticmap?";
-  var parser = []; // The static map request parameters
-  var latlngArray = []; // An array of latlng-values for the polyline
-  var markerString = ""; // A and B markers, should be replaced by two separate arguments	
-	
-  var overview_length = directionsDisplay.getDirections().routes[0].overview_path.length;
-	for (i = 0; i < overview_length; i++) {
-		var m = directionsDisplay.getDirections().routes[0].overview_path[i];
-		latlngArray[i] = m;
-		if (i == 0) {
-			markerString += directionsDisplay.getDirections().routes[0].legs[0].start_location.toUrlValue() + "|";
-		}
-		if (i == overview_length-1) {
-			markerString += directionsDisplay.getDirections().routes[0].legs[0].end_location.toUrlValue();
-		}
-	}
-	
-	var polyOptions = {
-      path: latlngArray
-	}
-	var poly = new google.maps.Polyline(polyOptions);
-	//poly.setMap(map); // draw the polyline to the Javascript map
-	var encodeString = google.maps.geometry.encoding.encodePath(poly.getPath());
-		
-	// Size
-	parser.push("size=640x640");
-	
-	// Start and End Markers
-	parser.push("markers=" + markerString);
-	
-	// Polyline Path
-	parser.push("path=weight:5%7Ccolor:blue%7Cenc:" + encodeString);
-	
-	// Sensor to false
-	parser.push("sensor=false");
-	
-	// Center -- Not needed with polyline
-	//parser.push("center=" + directionsDisplay.getMap().getCenter().lat().toFixed(6) + "," + directionsDisplay.getMap().getCenter().lng().toFixed(6));
-	
-	// Zoom -- Not needed with polyline
-	//var zoomLevel = directionsDisplay.getMap().getZoom() - 2;
-	//parser.push("zoom=" + zoomLevel);
-	
-	baseUrl += parser.join("&");
-	document.getElementById(elementId).src = baseUrl;
 }
