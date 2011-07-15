@@ -142,19 +142,13 @@ class ListingsController < ApplicationController
     else
 	    if (@current_user.location != nil)
 	      temp = @current_user.location
-	      #temp.location_type = "origin_loc"
+	      temp.location_type = "origin_loc"
 	      @listing.build_origin_loc(temp.attributes)
       else
-	      @listing.build_origin_loc(:location_type => nil)
+	      @listing.build_origin_loc(:location_type => "origin_loc")
       end
     end
     1.times { @listing.listing_images.build }
-    if @listing.category != "rideshare"
-      @listing.build_location
-    else
-      @listing.build_origin_loc
-      @listing.build_destination_loc
-    end
     respond_to do |format|
       format.html
       format.js {render :layout => false}
