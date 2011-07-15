@@ -84,8 +84,6 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	map = new google.maps.Map(document.getElementById(canvas), myOptions);
 	geocoder = new google.maps.Geocoder();
 	
-	//update_map(source)
-	
 	marker = new google.maps.Marker({
 		'map': map,
 		'draggable': draggable,
@@ -116,38 +114,23 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 }
 
 function update_map(field) {
-  if(geocoder){
-    geocoder.geocode({'address':field.value}, function(response,info) {
-	if (info == google.maps.GeocoderStatus.OK){
-	  marker.setVisible(true);
-	  map.setCenter(response[0].geometry.location);
-	  //field.value = response[0].formatted_address;
-	  marker.setPosition(response[0].geometry.location);
-	  // infowindow.close();
-	  update_model_location(response);
-
-	  //return true;
-	  //Remove this when we get proper jquery stuff
-	  //alert("Address " +field.value + " not found");
-	} else {
-	  //address_not_found(field);
-	  //map.setCenter(center);
-	  //map.panTo(center);
-	  //marker.setPosition(center);
-	  //marker.setVisible(false);
-	  //$(mapcanvas).after("<div id=\"olol\"><label class=\"error\" for=\"person_street_address\" generated=\"true\">Please enter at least 4 characters.</label></div>");
-
-	  // infowindow.setContent("Location " + field.value + " not found");
-	  // infowindow.open(map, marker);
-
-	  marker.setVisible(false);
-
-	  nil_locations();
-	}
-    });
-  }
-  else
+  if (geocoder) {
+    geocoder.geocode({'address':field.value}, 
+      function(response,info) {
+  	    if (info == google.maps.GeocoderStatus.OK){
+  	      marker.setVisible(true);
+  	      map.setCenter(response[0].geometry.location);
+  	      marker.setPosition(response[0].geometry.location);
+  	      update_model_location(response);
+  	    } else {
+  	      marker.setVisible(false);
+  	      nil_locations();
+  	    }
+      }
+    );
+  } else {
     return false;
+  }
 }
 
 function update_source(response,status){
@@ -155,43 +138,33 @@ function update_source(response,status){
     update_model_location(response);
     source = document.getElementById(textfield);
     source.value = response[0].formatted_address;
-		//update_location(response,source);
 	} else {
-	    //map.setCenter(new google.maps.LatLng(60.1894, 24.8358));
-	    marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
-	    marker.setVisible(false);
-	    nil_locations();
+	  marker.setPosition(new google.maps.LatLng(60.1894, 24.8358));
+	  marker.setVisible(false);
+	  nil_locations();
 	}
 }
-//Not used
-function update_location(response, element){
-	element.value = response[0].formatted_address;
-	update_model_location(response);
-}
-//function manually_validate(_element="listing_origin",_form_id="new_listing_form"){
-function manually_validate(formhint){
-  //alert(formhint);
+
+function manually_validate(formhint) {
   var rray = formhint.split("_");
   var form_id = "#";
   var _element = "#";
-  //alert(rray[0]);
 
-  if(rray[0].match("person")){
+  if (rray[0].match("person")) {
     form_id += "person_settings_form";
     _element += "person_street_address";
-  }
-  else if (rray[0].match("listing")) {
+  } else if (rray[0].match("listing")) {
     form_id += "new_listing_form";
-    if(rray[1].match("origin")){
-    _element += "listing_origin";
-    }
-    else if(rray[1].match("destination")){
-    _element += "listing_destination";
+    if (rray[1].match("origin")) {
+      _element += "listing_origin";
+    } else if(rray[1].match("destination")) {
+      _element += "listing_destination";
     }
   }
   $(form_id).validate().element(_element);
 }
-function nil_locations(_prefix){
+
+function nil_locations(_prefix) {
   if (!_prefix)
     _prefix = prefix;
   var address = document.getElementById(_prefix+ "_address");
@@ -204,22 +177,20 @@ function nil_locations(_prefix){
   google_address.value = null;
   manually_validate(_prefix);
 }
-function update_model_location(place,_prefix){
-    if (!_prefix)
-      _prefix = prefix;
-    var address = document.getElementById(_prefix+ "_address");
-    var latitude = document.getElementById(_prefix+ "_latitude");
-    var longitude = document.getElementById(_prefix+ "_longitude");
-    var google_address = document.getElementById(_prefix+ "_google_address");
 
-    // Changed this, need to discuss further
-    //address.value = place[0].address_components[1].long_name + " " + place[0].address_components[0].long_name;
-    // address.value = place[0].address_components[0].long_name;
+function update_model_location(place,_prefix){
+  if (!_prefix)
+    _prefix = prefix;
+  var address = document.getElementById(_prefix+ "_address");
+  var latitude = document.getElementById(_prefix+ "_latitude");
+  var longitude = document.getElementById(_prefix+ "_longitude");
+  var google_address = document.getElementById(_prefix+ "_google_address");
+
 	address.value = place[0].formatted_address;
-    latitude.value = place[0].geometry.location.lat();
-    longitude.value = place[0].geometry.location.lng();
-    google_address.value = place[0].formatted_address;
-    manually_validate(_prefix);
+  latitude.value = place[0].geometry.location.lat();
+  longitude.value = place[0].geometry.location.lng();
+  google_address.value = place[0].formatted_address;
+  manually_validate(_prefix);
 }
 
 
@@ -252,13 +223,15 @@ function googlemapRouteInit(canvas) {
 	'markerOptions': markerOptions
   });
 
-  google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-    if (currentDirections) {
-	  //updateTextBoxes();
+  google.maps.event.addListener(directionsDisplay, 'directions_changed', 
+    function() {
+      if (currentDirections) {
+	      //updateTextBoxes();
       } else {
-		currentDirections = directionsDisplay.getDirections();
-	  }
-    });
+		    currentDirections = directionsDisplay.getDirections();
+	    }
+    }
+  );
 }
 
 
