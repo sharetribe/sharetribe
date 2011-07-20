@@ -6,7 +6,9 @@
       Kassi
       - if @listing && action_name.eql?("show")
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
-        
+      - else
+        = "- #{@current_community.name}"
+      
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
     %meta{ :name => "keywords", :content => t(".keywords") }

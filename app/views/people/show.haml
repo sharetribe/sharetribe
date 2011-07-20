@@ -34,7 +34,7 @@
         
         
 .grid_18
-  .grid_12.alpha
+  .grid_11.alpha
     %h1= @person.name
     #profile_info
       = t(".joined_this_community")
@@ -68,7 +68,7 @@
                 = @person.description
               %br/  
               = link_to t(".hide_description"), "#", :id => "description_full_link"
-  .grid_6.omega
+  .grid_7.omega
     - if current_user?(@person)
       #request_listing_link
         %a{:href => profile_person_settings_path(:person_id => @current_user.id.to_s)}
