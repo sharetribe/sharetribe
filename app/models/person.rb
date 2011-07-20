@@ -32,6 +32,8 @@ class Person < ActiveRecord::Base
            :conditions => { :listing_type => "request" },
            :order => "id DESC"
   
+  has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
@@ -40,7 +42,6 @@ class Person < ActiveRecord::Base
   has_many :badges, :dependent => :destroy 
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
-  has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships
   

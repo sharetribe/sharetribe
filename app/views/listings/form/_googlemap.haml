@@ -1,13 +1,12 @@
 .new_listing_form_field_container
-  = form.label :description, t('.googlemap_description') + ":", :class => "input"
-  .jsmap{:id => "map_canvas", :style => "width: 398px; height: 260px"}
+  #listing_map_canvas.jsmap{:style => "width: 398px; height: 260px; margin-left: 170px;"}
   :javascript 
     $(document).ready(function() { 
       if (!#{rideshare}){
         var source = "listing_origin";
-        googlemapMarkerInit('map_canvas',"listing_origin_loc_attributes","listing_origin",true);
+        googlemapMarkerInit('listing_map_canvas',"listing_origin_loc_attributes","listing_origin",true);
       } else {
-        googlemapRouteInit('map_canvas');
+        googlemapRouteInit('listing_map_canvas');
         startRoute();
       }
     });
