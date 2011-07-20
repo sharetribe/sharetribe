@@ -9,15 +9,12 @@ class SettingsController < ApplicationController
   end
   
   def show
-    if @person.location == nil
-     @person.build_location(:address => @person.street_address,:type => 'person')
-     @person.location.search_and_fill_latlng
-    end
+    add_location_to_person
     render :action => :profile
   end
   
   def profile
-#A helper for transitional phase to using location-model
+    add_location_to_person
   end
   
   def avatar
@@ -29,6 +26,15 @@ class SettingsController < ApplicationController
   end
 
   def notifications
+  end
+  
+  private
+  
+  def add_location_to_person
+    unless @person.location
+      @person.build_location(:address => @person.street_address,:type => 'person')
+      @person.location.search_and_fill_latlng
+    end
   end
 
 end
