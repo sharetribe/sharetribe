@@ -63,7 +63,7 @@ class PeopleController < ApplicationController
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if ASI responses with error, show message to user
-         # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
+      # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
@@ -77,10 +77,10 @@ class PeopleController < ApplicationController
   
   def update
 	  if params[:person] && params[:person][:location] && params[:person][:location][:address].empty?
-    params[:person].delete("location")
-    if @person.location
-     @person.location.delete
-  end
+      params[:person].delete("location")
+      if @person.location
+        @person.location.delete
+      end
 	  end
     begin
       @person.update_attributes(params[:person], session[:cookie])

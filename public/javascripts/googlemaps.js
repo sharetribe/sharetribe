@@ -205,22 +205,22 @@ function googlemapRouteInit(canvas) {
   var myOptions = {
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
     'disableDefaultUI': false,
-	'streetViewControl': false,
-	'mapTypeControl': false
+	  'streetViewControl': false,
+	  'mapTypeControl': false
   }
 
   map = new google.maps.Map(document.getElementById(canvas), myOptions);
 
   var markerOptions = {
-	'animation': google.maps.Animation.DROP
+	  'animation': google.maps.Animation.DROP
   }
 
   directionsDisplay = new google.maps.DirectionsRenderer({
     'map': map,
-	'hideRouteList': true,
+	  'hideRouteList': true,
     'preserveViewport': false,
     'draggable': false,
-	'markerOptions': markerOptions
+	  'markerOptions': markerOptions
   });
 
   google.maps.event.addListener(directionsDisplay, 'directions_changed', 
