@@ -19,4 +19,3 @@ Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
     end
   }.should raise_error(Capybara::ElementNotFound)
 end
-

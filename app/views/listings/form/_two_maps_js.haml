@@ -1,0 +1,78 @@
+:javascript
+  var origin_map;
+  var destination_map;
+  var geocoder;
+  var origin_marker;
+  var destination_marker;
+  var helsinki = new google.maps.LatLng(60.17, 24.94);
+
+  function initialize_maps() {
+
+    var myOptions = {
+      center: helsinki,
+      zoom: 10,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    origin_map = new google.maps.Map(document.getElementById("origin-map-canvas"), myOptions);
+    destination_map = new google.maps.Map(document.getElementById("destination-map-canvas"), myOptions);
+
+    google.maps.event.addListener(origin_map, 'click', getOriginAddress);
+    google.maps.event.addListener(destination_map, 'click', getDestinationAddress);
+
+    geocoder = new google.maps.Geocoder();
+
+    origin_marker = new google.maps.Marker({
+      position: helsinki,
+      map: origin_map,
+    });
+
+    destination_marker = new google.maps.Marker({
+      position: helsinki,
+      map: destination_map,
+    });
+  }
+
+  function getOriginAddress(response) {
+    if (response.latLng != null) {
+      geocoder.geocode({location: response.latLng}, showOriginAddress);
+    }
+  }
+
+  function getDestinationAddress(response) {
+    if (response.latLng != null) {
+      geocoder.geocode({location: response.latLng}, showDestinationAddress);
+    }
+  }
+
+  function showOriginAddress(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      origin_map.fitBounds(results[0].geometry.viewport);
+      origin_marker.setPosition(results[0].geometry.location);
+      document.getElementById("origin_loc_address").value = results[0].formatted_address;
+      document.getElementById("listing_origin").value = results[0].formatted_address;
+      document.getElementById("origin_loc_latitude").value = results[0].geometry.location.lat();
+      document.getElementById("origin_loc_longitude").value = results[0].geometry.location.lng();
+    }
+  }
+
+  function showDestinationAddress(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      destination_map.fitBounds(results[0].geometry.viewport);
+      destination_marker.setPosition(results[0].geometry.location);
+      document.getElementById("destination_loc_address").value = results[0].formatted_address;
+      document.getElementById("listing_destination").value = results[0].formatted_address;
+      document.getElementById("destination_loc_latitude").value = results[0].geometry.location.lat();
+      document.getElementById("destination_loc_longitude").value = results[0].geometry.location.lng();
+    }
+  }
+
+:javascript
+  $(document).ready(function() {
+    initialize_maps();
+    #{ 'geocoder.geocode({address: document.getElementById("listing_origin").value}, showOriginAddress);' unless @listing.origin_loc.nil? || @listing.origin_loc.address.nil? }
+    #{ 'geocoder.geocode({address: document.getElementById("listing_destination").value}, showDestinationAddress);' unless @listing.destination_loc.nil? || @listing.destination_loc.address.nil? }
+  });
+
+-# #{ 'geocoder.geocode({address: document.getElementById("location_address").value}, showAddress);' unless @location.nil? || @location.address.nil? }
+

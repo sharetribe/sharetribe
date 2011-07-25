@@ -32,6 +32,8 @@ class Person < ActiveRecord::Base
            :conditions => { :listing_type => "request" },
            :order => "id DESC"
   
+  has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
+  
   has_many :participations, :dependent => :destroy 
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
@@ -390,6 +392,16 @@ class Person < ActiveRecord::Base
     if params[:preferences]
       super(params)
     else  
+      #Handle location information
+	if self.location
+		self.location.delete
+	end
+        if params[:location]
+	self.location = Location.new(params[:location])
+	params[:location].each {|key| params[:location].delete(key)}
+	params.delete(:location)
+        end
+
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
       Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 

@@ -1,0 +1,12 @@
+.new_listing_form_field_container
+  #listing_map_canvas.jsmap{:style => "width: 398px; height: 260px; margin-left: 170px;"}
+  :javascript 
+    $(document).ready(function() { 
+      if (!#{rideshare}){
+        var source = "listing_origin";
+        googlemapMarkerInit('listing_map_canvas',"listing_origin_loc_attributes","listing_origin",true);
+      } else {
+        googlemapRouteInit('listing_map_canvas');
+        startRoute();
+      }
+    });
