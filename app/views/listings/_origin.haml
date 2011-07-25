@@ -1,0 +1,7 @@
+.origin
+= fields_for :origin_loc do |loc|
+  = loc.hidden_field :address, :value => origin_loc.address
+  = loc.hidden_field :google_address, :value => origin_loc.google_address
+  = loc.hidden_field :latitude, :value => origin_loc.latitude
+  = loc.hidden_field :longitude, :value => origin_loc.longitude
+  = loc.hidden_field :location_type, :value => origin_loc.location_type
