@@ -73,6 +73,7 @@ namespace :deploy do
     run "ln -nfs #{shared_path}/system/session_secret #{release_path}/config/session_secret"
     run "ln -nfs #{shared_path}/system/config.yml #{release_path}/config/config.yml"
     run "ln -nfs #{shared_path}/system/gmaps_api_key.yml #{release_path}/config/gmaps_api_key.yml"
+    run "ln -nfs #{shared_path}/system/translation.yml #{release_path}/config/translation.yml"
     run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/sphinx"
   end
     
