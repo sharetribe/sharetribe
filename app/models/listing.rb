@@ -1,6 +1,9 @@
 class Listing < ActiveRecord::Base
   
   include LocationsHelper
+  include ApplicationHelper
+  include ActionView::Helpers::TranslationHelper
+  include Rails.application.routes.url_helpers
   
   scope :requests, where(:listing_type => 'request')
   scope :offers, where(:listing_type => 'offer')
@@ -25,6 +28,11 @@ class Listing < ActiveRecord::Base
   
   has_many :share_types
   
+  has_one :location, :dependent => :destroy
+  has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
+  has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
+  accepts_nested_attributes_for :origin_loc, :destination_loc
+
   has_and_belongs_to_many :communities
   
   attr_accessor :current_community_id
@@ -238,8 +246,11 @@ class Listing < ActiveRecord::Base
     end
     listings = where(conditions)
     if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group(:listing_id)
+      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group('share_types.listing_id')
     end
+    if params[:tag]
+      listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
+    end 
     listings.visible_to(current_user, current_community).order("listings.id DESC")
   end
   
@@ -287,6 +298,12 @@ class Listing < ActiveRecord::Base
   
   def share_type_names
     share_types.collect(&:name)
+  end
+  
+  # If listing is an offer, a discussion about the listing
+  # should be request, and vice versa
+  def discussion_type
+    listing_type.eql?("request") ? "offer" : "request"
   end
   
   # Called after create
@@ -410,6 +427,22 @@ class Listing < ActiveRecord::Base
 
       SmsHelper.send(message, request.author.phone_number)
     end
+  end
+  
+  # This is used to provide clean JSON-strings for map view queries
+  def as_json(options = {})
+    json_dict = {
+      :title => self.title,
+      :listing_type => self.listing_type,
+      :category => self.category,
+      :id => self.id
+    }
+    
+    json_dict[:location] = self.location.as_json if self.location
+    json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
+    json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
+    
+    json_dict
   end
   
 end

@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_comment_form('#{I18n.locale}');
 
+- content_for :extra_javascript do
+  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+
 #listing_image_side.grid_8
   .image
     - if @listing.listing_images.empty?
@@ -12,7 +15,7 @@
       = render :partial => "edit_links"
     
 #listing_content_side.grid_16
-  #listing_center.grid_10.alpha
+  #listing_center.grid_9.alpha
     %h1
       #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
     - if @listing.category == "rideshare"
@@ -22,6 +25,11 @@
     %p
       - text_with_line_breaks do
         = @listing.description.blank? ? t(".no_description") : @listing.description
+    %p
+      -#
+        TODO: Add map with marker here to show location
+      - if @listing.location != nil
+        = @listing.location.address
     
     #share_types_and_tags
       - unless @listing.share_types.empty? && @listing.tag_list.empty?    
@@ -54,20 +62,32 @@
         %span{:class => "smaller"}
           = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
 
-  #listing_right_panel.grid_6.omega
+  #listing_right_panel.grid_7.omega
     #listing_reply_link
       = render :partial => "reply_link"
+    - logger.info "Here we are0"
+    - if @listing.origin_loc && @listing.origin_loc.address != ""
+      #googlemap
+        = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
+        = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
+        - if @listing.category == "rideshare"
+          = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
     #additional_listing_links
-      = facebook_like
-      - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
-      - content_for :head do
-        %meta{ :property => "og:title", :content => @listing.title} 
-        %meta{ :property => "og:type", :content =>"website"}
-        %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
-        %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
-        %meta{ :property => "og:site_name", :content =>"Kassi: "}
-        %meta{ :property => "fb:admins", :content =>"823616678"}
-
+      .float_left
+        = link_to(t(".share"), "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
+        %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
+      .float_left
+        = facebook_like
+        - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
+        - content_for :head do
+          %meta{ :property => "og:title", :content => @listing.title} 
+          %meta{ :property => "og:type", :content =>"website"}
+          %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
+          %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
+          %meta{ :property => "og:site_name", :content =>"Kassi: "}
+          %meta{ :property => "fb:admins", :content =>"823616678"}
+          %meta{ :property => "og:description", :content => @listing.content}
+        
   .clear
   
   #comments

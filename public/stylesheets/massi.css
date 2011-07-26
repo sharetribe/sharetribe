@@ -1,0 +1,12 @@
+#tag_cloud {text-align: justify; }
+#tag_cloud a {border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#tag_cloud a:hover,focus { background: #fdd9c3;}
+#tag_cloud a:active { background: #fa9961; color: #464646; }
+#tag_cloud a.selected {background: #fbb992; color: #464646; }
+
+#tag_cloud .tag1 {font-size: 0.7em;}
+#tag_cloud .tag2 {font-size: 0.9em;}
+#tag_cloud .tag3 {font-size: 1.1em;}
+#tag_cloud .tag4 {font-size: 1.3em;}
+#tag_cloud .tag5 {font-size: 1.5em;}
+#tag_cloud .tag6 {font-size: 1.7em;}

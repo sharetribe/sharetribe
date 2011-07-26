@@ -149,8 +149,11 @@ Kassi::Application.routes.draw do
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
+  match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
+  match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
+  match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
   match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
@@ -163,6 +166,13 @@ Kassi::Application.routes.draw do
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
+  match '/:locale' => 'homepage#index'
+  match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
+  match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
+  match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
+  match "/api/query" => "listings#serve_listing_data", :as => :listings_data
+  match "/:locale/listings_bubbles/all" => "listings#listing_all_bubbles", :as => :listing_all_bubbles
+  match "/:locale/listings_bubbles/:id" => "listings#listing_bubble", :as => :listing_bubble
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(Subdomain) do

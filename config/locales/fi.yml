@@ -243,9 +243,9 @@ fi:
       loading_more_messages: "Ladataan lisää viestejä" 
     new:
       send_a_new_message: "Lähetä viesti"
+      send_offer_message: "Lähetä tarjous"
+      send_request_message: "Lähetä pyyntö"
       message: "Viesti"
-      send_request_message: "Lähetä tarjous"
-      send_offer_message: "Lähetä pyyntö"
       title: "Otsikko"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
@@ -451,6 +451,7 @@ fi:
         housing_you_offer: "Mitä tarjoat"
       origin:
         origin: "Lähtöpaikka"
+        location: "Sijainti"
       destination:  
         destination: "Määränpää"
       tag_list:
@@ -458,6 +459,10 @@ fi:
         comma_separate: "(erota pilkulla)"  
       description:
         detailed_description: "Tarkempi kuvaus"
+      googlemap:
+        googlemap_description: "Karttanäkymä"
+        googlemap_updatemap: "Päivitä karttaa"
+        googlemap_copy: "Päätepisteet Kartalta"
       images:
         image: "Kuva"
         select_file: "Valitse tiedosto"
@@ -470,6 +475,8 @@ fi:
       departure_time:  
         departure_time: "Lähtöaika"  
         at: "Kellonaika"
+      location:
+        location: "Sijainti"
       visibility:
         visibility: "Näkyvyys"
         everybody: "Kaikille internetin käyttäjille"
@@ -520,13 +527,13 @@ fi:
       reopen_request: "Avaa pyyntö uudelleen"
       reopen_offer: "Avaa tarjous uudelleen"
     link_labels:  
-      link_label_for_item_offer: "Pyydä tavaraa"
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
+      link_label_for_item_offer: "Pyydä tavara"
+      link_label_for_favor_offer: "Pyydä palvelus"
+      link_label_for_rideshare_offer: "Pyydä kyyti"
       link_label_for_housing_offer: "Vastaa"
-      link_label_for_item_request: "Tarjoa tavaraasi"
+      link_label_for_item_request: "Tarjoa tavara"
       link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
+      link_label_for_rideshare_request: "Tarjoa kyyti"
       link_label_for_housing_request: "Vastaa"
     help_texts:
       help_tags_title: "Avaisanat"
@@ -535,6 +542,28 @@ fi:
     edit:
       edit_request: "Muokkaa pyyntöä"
       edit_offer: "Muokkaa tarjousta"  
+  mapview:
+    please_comment: "Kommentoi"
+    index:
+      requests: "Pyynnöt"
+      offers: "Tarjoukset"
+      category: "Kategoria"
+      all_categories: "Kaikki kategoriat"
+      request_type: "Pyyntötapa"
+      offer_type: "Tarjoustapa"
+      all_request_types: "Kaikki pyyntötavat"
+      all_offer_types: "Kaikki tarjoustavat"
+      items: "Tavarat"
+      favors: "Palvelukset"
+      rideshare: "Kimppakyydit"
+      housing: "Asuminen"
+      list_view: "Listanäkymä"
+      map_view: "Karttanäkymä"
+      search_verb: "Hae"
+      did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
+      request_something: "Jätä avoin pyyntö!"
+      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+      offer_something: "Laadi tarjous!"
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
@@ -559,6 +588,7 @@ fi:
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
+      address_validator: "Sijaintia ei löytynyt."
     not_member:
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
       explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
@@ -720,6 +750,7 @@ fi:
       city: "Kaupunki:"
       phone_number: "Puhelinnumero:"
       about_you: "Tietoa sinusta:"
+      profilemap: "Karttanäkymä"
     avatar:  
       update_profile_picture: "Profiilikuvan päivitys"
       add_avatar_submit: "Tallenna kuva"
@@ -743,6 +774,10 @@ fi:
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+  tag_cloud:
+    tag_used:
+      with_tag: "Avainsanalla"
+      without_tag: "Ilman avainsanaa"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"

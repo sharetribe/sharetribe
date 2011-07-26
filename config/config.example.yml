@@ -110,7 +110,7 @@ default: &default_settings
   # environments. If you are not developing or testing Kassi, you 
   # don't need to change those
   # ----------------------------------------------------------------
-
+  force_mobile_ui: false
 
 production:
   <<: *default_settings

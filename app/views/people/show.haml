@@ -1,6 +1,9 @@
 - content_for :javascript do
   initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").limit(6).collect(&:name))});
 
+- content_for :extra_javascript do
+  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+  
 .grid_6
   = large_avatar_thumb(@person)
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
@@ -34,7 +37,7 @@
         
         
 .grid_18
-  .grid_12.alpha
+  .grid_11.alpha
     %h1= @person.name
     #profile_info
       = t(".joined_this_community")
@@ -68,13 +71,18 @@
                 = @person.description
               %br/  
               = link_to t(".hide_description"), "#", :id => "description_full_link"
-  .grid_6.omega
+  .grid_7.omega
     - if current_user?(@person)
       #request_listing_link
         %a{:href => profile_person_settings_path(:person_id => @current_user.id.to_s)}
           = image_tag "/images/icons/request_icon.png"
           .request_listing_link_label
             = t(".edit_profile_info")
+    - if @person.location && @person.location.address != ""
+      #googlemap
+        = render :partial => "googlemap"
+        = render :partial => "profile_location", :locals => { :location => @person.location }
+
   .clear  
     
   #listings

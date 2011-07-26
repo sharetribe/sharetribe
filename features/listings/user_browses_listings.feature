@@ -24,48 +24,48 @@ Feature: User browses listings
     And I should see "Helsinki - Turku"
     And I should see "Apartment"
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Items"
     And I should see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Lending"
-    And I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "car spare parts" within listings
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Selling"
     And I should see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Favors"
-    And I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "car spare parts" within listings
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
+    And I should not see "saw" within listings
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "All offer types"
-    And I should not see "car spare parts"
+    And I should not see "car spare parts" within listings
     And I should see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
+    And I should not see "saw" within listings
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     
   @javascript
   Scenario: User browses requests page
@@ -88,48 +88,48 @@ Feature: User browses listings
     And I should see "Helsinki - Turku"
     And I should see "Apartment"
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Items"
     And I should see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Borrowing"
-    And I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "car spare parts" within listings
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Buying"
     And I should see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
     And I should see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "Favors"
-    And I should not see "car spare parts"
-    And I should not see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "car spare parts" within listings
+    And I should not see "massage" within listings
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
+    And I should not see "saw" within listings
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     And I follow "All request types"
-    And I should not see "car spare parts"
+    And I should not see "car spare parts" within listings
     And I should see "massage"
-    And I should not see "Helsinki - Turku"
-    And I should not see "Apartment"
-    And I should not see "saw"
-    And I should not see "axe"
-    And I should not see "tool"
+    And I should not see "Helsinki - Turku" within listings
+    And I should not see "Apartment" within listings
+    And I should not see "saw" within listings
+    And I should not see "axe" within listings
+    And I should not see "tool" within listings
     
   @javascript
   Scenario: User browses requests with visibility settings
@@ -142,15 +142,59 @@ Feature: User browses listings
     And there is housing request with title "apartment" and with share type "rent"
     And visibility of that listing is "disabled"
     And I am on the requests page
-    And I should not see "car spare parts"
+    And I should not see "car spare parts" within listings
     And I should see "massage"
-    And I should not see "apartment"
+    And I should not see "apartment" within listings
     When I log in as "kassi_testperson1"
     And I follow "Requests"
     Then I should see "car spare parts"
     And I should see "massage"
-    And I should not see "apartment"
+    And I should not see "apartment" within listings
     
+  @javascript
+  Scenario: User browses offers page with tags
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+    And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell" and with tags "car"
+    And there is item offer with title "other car spare parts" from "kassi_testperson2" and with share type "sell" and with tags "car"
+    And there is favor offer with title "massage" from "kassi_testperson1" and with tags "service"
+    And there is rideshare offer from "Helsinki" to "Turku" by "kassi_testperson1"
+    And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
+    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend,trade" and with tags "tool"
+    And that listing is closed
+    And I am on the home page
+    When I follow "Offers"
+    Then I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should see "Helsinki - Turku"
+    And I should see "Apartment"
+    And I should see "tool"
+    And I should not see "axe"
+    And I follow "service"
+    And I should not see "car spare parts"
+    And I should not see "other car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "car"
+    And I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+    And I follow "service"
+    And I should see "car spare parts"
+    And I should see "other car spare parts"
+    And I should not see "massage"
+    And I should not see "Helsinki - Turku"
+    And I should not see "Apartment"
+    And I should not see "axe"
+
   @javascript
   @subdomain2
   Scenario: User browses requests in a different subdomain

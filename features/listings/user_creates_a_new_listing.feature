@@ -55,6 +55,7 @@ Feature: User creates a new listing
     And I fill in "listing_origin" with "Otaniemi"
     And I fill in "listing_destination" with "Turku"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
+    And wait for 2 seconds
     And I press "Save request"
     Then I should see "Rideshare request: Otaniemi - Turku" within "h1"
     And I should see "Request created successfully" within "#notifications" 

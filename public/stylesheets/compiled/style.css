@@ -2,6 +2,7 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 @import url('../uniform.kassi.css');
+@import url('../massi.css');
 /* Colors */
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {
@@ -683,7 +684,7 @@ p.description {
   #new_listing_form h1 {
     margin-left: 15px;
     float: left;
-    width: 300px; }
+    width: 400px; }
 
 #new_listing_form_close_link {
   float: right;
@@ -1392,6 +1393,13 @@ div.checkbox_float {
     margin-right: 15px; }
 
 /* Single listing view */
+#listing_center h1 {
+  line-height: 28px; }
+
+#googlemap {
+  margin-left: 10px;
+  padding-bottom: 5px; }
+
 a.edit_listing {
   width: 268px;
   display: block;
@@ -1428,11 +1436,10 @@ a.edit_profile {
   padding: 30px 0 0 30px; }
 
 #share_types_and_tags {
-  padding: 10px 0;
-  border-top: 1px solid #464646; }
+  padding: 10px;
+  border: 1px solid #464646; }
 
 #listing_author {
-  border-top: 1px solid #464646;
   padding: 15px 0;
   overflow: hidden; }
 
@@ -1443,10 +1450,11 @@ a.edit_profile {
 
 #request_listing_link {
   margin-left: 10px;
+  padding-bottom: 5px;
   width: 225px;
   float: left;
   margin-bottom: 10px;
-  width: 210px; }
+  width: 248px; }
   #request_listing_link a {
     display: block;
     font-size: 14px;
@@ -3097,4 +3105,5 @@ a.handle:hover {
   padding-top: 10px; }
 
 #additional_listing_links {
-  margin: 10px; }
+  margin: 10px;
+  overflow: hidden; }
