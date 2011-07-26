@@ -4,7 +4,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
@@ -20,7 +20,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "This place should not exist"
@@ -34,7 +34,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Request something"
+    When I follow "Tell what you need!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
@@ -48,7 +48,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Offer something"
+    When I follow "List your items and skills!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
@@ -64,7 +64,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Offer something"
+    When I follow "List your items and skills!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "This place should not exist"
@@ -78,7 +78,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Offer something"
+    When I follow "List your items and skills!"
     And I follow "Rideshare"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"

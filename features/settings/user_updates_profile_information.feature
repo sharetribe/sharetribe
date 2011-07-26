@@ -12,9 +12,6 @@ Feature: User updates profile information
     When I follow "Settings"
     And I fill in "Given name:" with "Test"
     And I fill in "Family name:" with "Dude"
-    And I fill in "Street address" with "Test Street 1"
-    And I fill in "Given name:" with "Test"
-    And I fill in "Family name:" with "Dude"
     And I fill in "Street address" with "Broadway"
     And wait for 2 seconds
     # These features removed with google map functionality
@@ -26,7 +23,7 @@ Feature: User updates profile information
     Then I should see "Information updated" within "#notifications"
     And the "Given name:" field should contain "Test"
     And the "Family name:" field should contain "Dude"
-    And the "Street address" field should contain "Test Street 1"
+    And the "Street address" field should contain "Broadway"
   
   @javascript
   Scenario: Trying to update profile with false information
