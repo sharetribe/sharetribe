@@ -1,0 +1,12 @@
+.googlemap
+  .jsmap{:id => "map_canvas", :style => "width: 250px; height: 200px"}
+  :javascript 
+    $(document).ready(function() { 
+      if (!#{rideshare}){
+        //var prefix = "listing_origin_loc_attributes";
+        googlemapMarkerInit('map_canvas',"origin_loc");
+      } else {
+        googlemapRouteInit('map_canvas');
+        showRoute(document.getElementById("origin_loc_google_address").value, document.getElementById("destination_loc_google_address").value)
+      }
+    });

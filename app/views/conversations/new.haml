@@ -24,6 +24,6 @@
         = hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", true
         = hidden_field_tag "conversation[conversation_participants][#{@listing.author.id}]", false
         = form.hidden_field :listing_id, :value => @listing.id
-        = form.submit t(".send_#{@listing.listing_type}_message"), :class => "send_button"
+        = form.submit t(".send_#{@listing.discussion_type}_message"), :class => "send_button"
 
 

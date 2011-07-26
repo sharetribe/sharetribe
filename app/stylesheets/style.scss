@@ -2,6 +2,7 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 @import url('../uniform.kassi.css');
+@import url('../massi.css');
 
 /* Colors */
 $bg_color: #f7f5e6;
@@ -752,7 +753,7 @@ p.description {
 	h1 {
 		margin-left: 15px;
 		float: left;
-		width: 300px;
+		width: 400px;
 	}
 }
 
@@ -1258,6 +1259,15 @@ div.checkbox_float {
 
 /* Single listing view */
 
+#listing_center {
+  h1 { line-height: 28px; }
+}
+
+#googlemap {
+  margin-left: 10px;
+  padding-bottom: 5px;
+}
+
 @mixin edit_listing_link($image_pos: 5px, $width: 268px) {
 	width: $width;
 	display: block;
@@ -1296,12 +1306,11 @@ a.edit_profile {
 }
 
 #share_types_and_tags {
-	padding: 10px 0;
-	border-top: 1px solid $text_color;
+	padding: 10px;
+	border: 1px solid $text_color;
 }
 
 #listing_author {
-	border-top: 1px solid $text_color;
 	padding: 15px 0;
 	overflow: hidden;
 }
@@ -1314,8 +1323,9 @@ a.edit_profile {
 
 #request_listing_link {
 	margin-left: 10px;
+	padding-bottom: 5px;
 	@include home_button($orange);
-	width: 210px;
+	width: 248px;
 	img {
 		vertical-align: -25%;
 		margin-right: 7px;
@@ -2023,6 +2033,18 @@ a.edit_profile {
 		width: 248px;
 		margin: 0 0 10px 0;
 	}
+}
+
+#settings_map_canvas {
+  width: 318px; 
+  height: 260px; 
+  margin-left: 143px;
+}
+
+#listing_map_canvas {
+  width: 318px; 
+  height: 260px; 
+  margin-left: 143px;
 }
 
 span.profile_settings_visibility_info {
@@ -2761,4 +2783,5 @@ a.handle {
 
 #additional_listing_links {
   margin: 10px;
+  overflow: hidden;
 }

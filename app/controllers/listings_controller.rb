@@ -26,20 +26,44 @@ class ListingsController < ApplicationController
   def requests
     params[:listing_type] = "request"
     @to_render = {:action => :index}
+    @listing_style = "listing"
     load
   end
   
   def offers
     params[:listing_type] = "offer"
     @to_render = {:action => :index}
+    @listing_style = "listing"
     load
   end
-  
+
+  # detect the browser and return the approriate layout
+  def detect_browser
+    if APP_CONFIG.force_mobile_ui
+        return true
+    end
+    
+    mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
+"palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
+"windows ce; smartphone;","windows ce; iemobile", 
+"up.browser","up.link","mmp","symbian","smartphone", 
+"midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
+    if request.headers["HTTP_USER_AGENT"]
+	    agent = request.headers["HTTP_USER_AGENT"].downcase
+	    mobile_browsers.each do |m|
+		    return true if agent.match(m)
+	    end    
+    end
+    return false
+  end
+    
+
   # Used to load listings to be shown
   # How the results are rendered depends on 
   # the type of request and if @to_render is set
   def load
     @title = params[:listing_type]
+    @tag = params[:tag]
     @to_render ||= {:partial => "listings/listed_listings"}
     @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
@@ -48,8 +72,62 @@ class ListingsController < ApplicationController
     else
       render @to_render
     end
+  end 
+  
+  def loadmap
+    @title = params[:listing_type]
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
+    @listing_style = "map"
+    @to_render ||= {:partial => "listings/listings_on_map"}
+    @request_path = request.fullpath
+    render  @to_render
+  end
+
+  # The following two are simple dummy implementations duplicating the
+  # functionality of normal listing methods.
+  def requests_on_map
+    params[:listing_type] = "request"
+    @to_render = {:action => :index}
+    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community)
+    @listing_style = "map"
+    load
+  end
+
+  def offers_on_map
+    params[:listing_type] = "offer"
+    @to_render = {:action => :index}
+    @listing_style = "map"
+    load
   end
   
+  
+  # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
+  def serve_listing_data
+    
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
+                order("created_at DESC").find_with(params, @current_user, @current_community)
+    
+    
+    render :json => { :data => @listings }
+  end
+  
+  def listing_bubble
+    if params[:id] then
+      @listing = Listing.find params[:id]
+      render :partial => "homepage/recent_listing", :locals => {:listing => @listing}
+    end 
+  end
+  
+  def listing_all_bubbles
+      @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
+                order("created_at DESC").find_with(params, @current_user, @current_community)
+      @render_array = [];
+      @listings.each do |listing|
+        @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
+      end
+      render :json => { :info => @render_array }
+  end
+
   def show
     @listing.increment!(:times_viewed)
   end
@@ -58,6 +136,18 @@ class ListingsController < ApplicationController
     @listing = Listing.new
     @listing.listing_type = params[:type]
     @listing.category = params[:category] || "item"
+    if @listing.category == "rideshare"
+	    @listing.build_origin_loc(:location_type => "origin_loc")
+	    @listing.build_destination_loc(:location_type => "destination_loc")
+    else
+	    if (@current_user.location != nil)
+	      temp = @current_user.location
+	      temp.location_type = "origin_loc"
+	      @listing.build_origin_loc(temp.attributes)
+      else
+	      @listing.build_origin_loc(:location_type => "origin_loc")
+      end
+    end
     1.times { @listing.listing_images.build }
     respond_to do |format|
       format.html
@@ -66,6 +156,9 @@ class ListingsController < ApplicationController
   end
   
   def create
+    if params[:listing][:origin_loc_attributes][:address].empty?
+      params[:listing].delete("origin_loc_attributes")
+    end
     @listing = @current_user.create_listing params[:listing]
     if @listing.new_record?
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
@@ -78,12 +171,44 @@ class ListingsController < ApplicationController
     end
   end
   
+  # def create
+  #     if params[:listing][:origin_loc_attributes][:address].empty?
+  #       params[:listing].delete("origin_loc_attributes")
+  #     end
+  #   @listing = @current_user.create_listing params[:listing]
+  #   if @listing.category != "rideshare"
+  #     @location = @listing.create_location(params[:location])
+  #   else
+  #     @origin_loc = @listing.create_origin_loc(params[:origin_loc])
+  #     @destination_loc = @listing.create_destination_loc(params[:destination_loc])
+  #   end
+  #   if @listing.new_record?
+  #     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
+  #     render :action => :new
+  #   else
+  #     path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
+  #     flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
+  #     Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
+  #     redirect_to @listing
+  #   end
+  # end
+  
   def edit
+	  if !@listing.origin_loc
+	      @listing.build_origin_loc(:location_type => "origin_loc")
+	  end
     1.times { @listing.listing_images.build } if @listing.listing_images.empty?
   end
   
   def update
+    if params[:listing][:origin_loc_attributes][:address].empty?
+      params[:listing].delete("origin_loc_attributes")
+      if @listing.origin_loc
+        @listing.origin_loc.delete
+      end
+    end
     if @listing.update_fields(params[:listing])
+      @listing.location.update_attributes(params[:location]) if @listing.location
       flash[:notice] = "#{@listing.listing_type}_updated_successfully"
       redirect_to @listing
     else

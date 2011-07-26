@@ -79,7 +79,11 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   else
     steps %Q{ When I follow "Tell what you need!" }
   end
-  steps %Q{ And I follow "#{category.capitalize}" }
+  steps %Q{ 
+    And I follow "#{category.capitalize}"
+    And wait for 2 seconds
+    And show me the page
+  }
   if category.eql?("rideshare")
     steps %Q{
       And I fill in "listing_origin" with "Test" 
@@ -120,7 +124,9 @@ When /^I comment that listing$/ do
     When I go to the listing page
     And I fill in "comment_content" with "Test comment"
     And I press "Send comment"
+    And wait for 2 seconds
     And the system processes jobs
+    And wait for 2 seconds
     And I go to the badges page of "kassi_testperson1"
   } 
 end
