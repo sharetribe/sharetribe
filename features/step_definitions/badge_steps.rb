@@ -82,7 +82,6 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   steps %Q{ 
     And I follow "#{category.capitalize}"
     And wait for 2 seconds
-    And show me the page
   }
   if category.eql?("rideshare")
     steps %Q{
