@@ -243,6 +243,8 @@ fi:
       loading_more_messages: "Ladataan lisää viestejä" 
     new:
       send_a_new_message: "Lähetä viesti"
+      send_offer_message: "Lähetä tarjous"
+      send_request_message: "Lähetä pyyntö"
       message: "Viesti"
       title: "Otsikko"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
@@ -525,13 +527,13 @@ fi:
       reopen_request: "Avaa pyyntö uudelleen"
       reopen_offer: "Avaa tarjous uudelleen"
     link_labels:  
-      link_label_for_item_offer: "Pyydä tavaraa"
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
+      link_label_for_item_offer: "Pyydä tavara"
+      link_label_for_favor_offer: "Pyydä palvelus"
+      link_label_for_rideshare_offer: "Pyydä kyyti"
       link_label_for_housing_offer: "Vastaa"
-      link_label_for_item_request: "Tarjoa tavaraasi"
+      link_label_for_item_request: "Tarjoa tavara"
       link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
+      link_label_for_rideshare_request: "Tarjoa kyyti"
       link_label_for_housing_request: "Vastaa"
     help_texts:
       help_tags_title: "Avaisanat"

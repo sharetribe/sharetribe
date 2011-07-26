@@ -95,25 +95,26 @@ Feature: User views badges
     And I create a new item request listing
     Then I get the badge "listing_freak_gold"
   
-  @badge
-  @javascript
-  Scenario: User views enthusiast badge
-    Given I should see badge "enthusiast_bronze_medium_gray"
-    And I should not see badge "enthusiast_bronze_medium"
-    When I have visited Kassi on "4" different days
-    And I go to the home page
-    And the system processes jobs
-    Then I get the badge "enthusiast_bronze"
-    And I should not see badge "enthusiast_silver_medium"
-    When I have visited Kassi on "29" different days
-    And I go to the home page
-    And the system processes jobs
-    Then I get the badge "enthusiast_silver"
-    And I should not see badge "enthusiast_gold_medium"
-    When I have visited Kassi on "99" different days
-    And I go to the home page
-    And the system processes jobs
-    Then I get the badge "enthusiast_gold"
+  # This badge is not in use for now.
+  # @badge
+  # @javascript
+  # Scenario: User views enthusiast badge
+  #   Given I should see badge "enthusiast_bronze_medium_gray"
+  #   And I should not see badge "enthusiast_bronze_medium"
+  #   When I have visited Kassi on "4" different days
+  #   And I go to the home page
+  #   And the system processes jobs
+  #   Then I get the badge "enthusiast_bronze"
+  #   And I should not see badge "enthusiast_silver_medium"
+  #   When I have visited Kassi on "29" different days
+  #   And I go to the home page
+  #   And the system processes jobs
+  #   Then I get the badge "enthusiast_silver"
+  #   And I should not see badge "enthusiast_gold_medium"
+  #   When I have visited Kassi on "99" different days
+  #   And I go to the home page
+  #   And the system processes jobs
+  #   Then I get the badge "enthusiast_gold"
     
   @badge
   @javascript

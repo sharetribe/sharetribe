@@ -300,6 +300,12 @@ class Listing < ActiveRecord::Base
     share_types.collect(&:name)
   end
   
+  # If listing is an offer, a discussion about the listing
+  # should be request, and vice versa
+  def discussion_type
+    listing_type.eql?("request") ? "offer" : "request"
+  end
+  
   # Called after create
   # Checks if there was already an offer matching this request
   # or a request matching this offer

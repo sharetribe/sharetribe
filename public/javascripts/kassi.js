@@ -662,7 +662,6 @@ function disable_and_submit(form_id, form, ajax, locale) {
 	  $(form_id + ' input[type=submit]').val(json.please_wait);
 	});
 	if (ajax == "true") {
-		console.log(form);
 		$(form).ajaxSubmit();
 	} else {
   	form.submit();
