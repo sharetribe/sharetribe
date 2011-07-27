@@ -29,7 +29,7 @@ Kassi::Application.configure do
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
-  config.serve_static_assets = false
+  config.serve_static_assets = APP_CONFIG.serve_static_assets_in_production || false
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -45,11 +45,20 @@ Kassi::Application.configure do
   # config.i18n.fallbacks = true #fallbacks defined in intitializers/i18n.rb
   
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :sendmail
-  ActionMailer::Base.sendmail_settings = {
-    :location       => '/usr/sbin/sendmail',
-    :arguments      => '-i -t'
-  }
+  
+  mail_delivery_method = APP_CONFIG.mail_delivery_method.to_sym || :sendmail
+  
+  config.action_mailer.delivery_method = mail_delivery_method
+  if mail_delivery_method == :postmark
+    config.action_mailer.postmark_settings = { :api_key => APP_CONFIG.postmark_api_key }
+  else
+    ActionMailer::Base.sendmail_settings = {
+      :location       => '/usr/sbin/sendmail',
+      :arguments      => '-i -t'
+    }  
+  end
+    
+    
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
   ActionMailer::Base.default_charset = "utf-8"
 end
