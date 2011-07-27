@@ -41,6 +41,7 @@ gem 'win32-process', :platforms => [:mswin, :mingw]
 gem 'json'
 gem 'russian'
 gem 'web_translate_it'
+gem 'postmark-rails'
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19" #
