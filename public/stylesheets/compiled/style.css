@@ -1478,6 +1478,10 @@ a.edit_profile {
 .request_listing_link_label {
   display: inline; }
 
+#single_listing_location {
+  padding-top: 5px;
+  font-weight: bold; }
+
 #listing_category_big_icon_item {
   width: 300px;
   height: 300px;
@@ -2364,6 +2368,16 @@ a.edit_profile {
     color: white;
     width: 248px;
     margin: 0 0 10px 0; }
+
+#settings_map_canvas {
+  width: 318px;
+  height: 260px;
+  margin-left: 143px; }
+
+#listing_map_canvas {
+  width: 318px;
+  height: 260px;
+  margin-left: 143px; }
 
 span.profile_settings_visibility_info {
   margin-left: 15px;

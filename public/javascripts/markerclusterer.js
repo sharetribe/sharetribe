@@ -1072,7 +1072,7 @@ ClusterIcon.prototype.triggerClusterClick = function() {
   	if (!this.showingInfo_) {
 		this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
 		this.showingInfo_ = true;
-		var clusterContent = "<div style=\"width:360px; background-color:#F7F5E6\"><div style=\"height:10px;\"></div>";
+		var clusterContent = "<div style=\"width:360px; background-color:#FFFFFF\"><div style=\"height:10px;\"></div>";
 		for (var i = 0, marker; marker = markers[i]; i++) {
 			if (i > 0) clusterContent += "<div class=\"offer_spacer\"></div>";
 			clusterContent += this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];

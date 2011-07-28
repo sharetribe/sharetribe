@@ -119,13 +119,13 @@ class ListingsController < ApplicationController
   end
   
   def listing_all_bubbles
-      @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
-                order("created_at DESC").find_with(params, @current_user, @current_community)
-      @render_array = [];
-      @listings.each do |listing|
-        @render_array[@render_array.length] = render_to_string :partial => "homepage/recent_listing", :locals => {:listing => listing}
-      end
-      render :json => { :info => @render_array }
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
+    order("created_at DESC").find_with(params, @current_user, @current_community)
+    @render_array = [];
+    @listings.each do |listing|
+      @render_array[@render_array.length] = render_to_string :partial => "bubble_listing", :locals => {:listing => listing}
+    end
+    render :json => { :info => @render_array }
   end
 
   def show

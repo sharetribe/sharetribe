@@ -1337,6 +1337,11 @@ a.edit_profile {
 	display: inline;
 }
 
+#single_listing_location {
+  padding-top: 5px;
+  font-weight: bold;
+}
+
 
 @mixin listing_category_big_icon($image_position: 0) {
 	width: 300px;
@@ -2785,3 +2790,4 @@ a.handle {
   margin: 10px;
   overflow: hidden;
 }
+
