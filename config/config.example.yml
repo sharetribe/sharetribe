@@ -57,6 +57,12 @@ default: &default_settings
   ressi_url: "http://cos.alpha.sizl.org/ressi"
   ressi_timeout: 5
   ressi_upload_hour: 1
+  
+  # Mail delivery method for mails sent by Kassi
+  # Kassi can send mails via sendmail or Postmark (postmarkapp.com)
+  # The default is sendmail. If using postmark, uncomment and enter your API key.
+  mail_delivery_method: sendmail
+  #postmark_api_key:
 
   # This will be the from field in the mails sent from Kassi
   kassi_mail_from_address: "noreply-kassi@example.com"
@@ -115,6 +121,9 @@ default: &default_settings
 production:
   <<: *default_settings
 
+  # Set this to true if you want the rails server to serve static assets in production mode (images, JS etc.)
+  # normally it is better to leave this for the web server (apache) to do.
+  serve_static_assets_in_production: false
 
 development:
   <<: *default_settings
