@@ -1,0 +1,28 @@
+- link_title = t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
+.recent_listing
+  .listing_image
+    - unless listing.listing_images.empty?
+      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => link_title
+    - else
+      %div{:class => "listing_image_#{listing.category}"}
+        %a{:href => listing_path(listing), :title => link_title}
+          %span{:class => "not_visible"}
+            a
+  .recent_listing_text
+    %h5= link_to listing.title, listing
+    - unless listing.share_types.empty?
+      .recent_listing_tags
+      - listing.share_types.each do |st|
+        .recent_listing_tag= link_to t("common.share_types.#{st.name}"), listing
+    %p{:class => "description#{!listing.share_types.empty? ? '' : '_tall'}"}
+      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 60, :omission => "..."))
+      %span
+        &ndash;
+        = link_to listing.author.given_name_or_username, listing.author
+        = time_ago(listing.created_at)
+    .float_left
+      - unless current_user?(listing.author)
+        = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
+        &nbsp;|&nbsp;
+      - comment_count = listing.comments.count > 0 ? " (#{listing.comments.count})" : ""  
+      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"

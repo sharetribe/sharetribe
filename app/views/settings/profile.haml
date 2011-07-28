@@ -22,7 +22,7 @@
         = t('.visible_to_everybody')
     .form_field_container
       = form.label :street_address, t(".street_address"), :class => "input"
-      = form.text_field :street_address, :class => "text_field", :maxlength => "50", :onkeyup => "timed_input(this)"
+      = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
       %span.profile_settings_visibility_info
         = t('.visible_to_registered_users')
     .form_field_container

@@ -25,11 +25,6 @@
     %p
       - text_with_line_breaks do
         = @listing.description.blank? ? t(".no_description") : @listing.description
-    %p
-      -#
-        TODO: Add map with marker here to show location
-      - if @listing.location != nil
-        = @listing.location.address
     
     #share_types_and_tags
       - unless @listing.share_types.empty? && @listing.tag_list.empty?    
@@ -72,6 +67,9 @@
         = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
         - if @listing.category == "rideshare"
           = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
+        - if @listing.location != nil 
+          #single_listing_location
+            = @listing.location.address
     #additional_listing_links
       .float_left
         = link_to(t(".share"), "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
