@@ -94,7 +94,7 @@ class Listing < ActiveRecord::Base
     has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
-    set_property :delta => false
+    set_property :delta => true
     set_property :field_weights => {
       :title       => 10,
       :tags        => 8,
