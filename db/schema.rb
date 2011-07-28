@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707163036) do
+ActiveRecord::Schema.define(:version => 20110728110124) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -247,14 +247,16 @@ ActiveRecord::Schema.define(:version => 20110707163036) do
     t.boolean  "open",                    :default => true
   end
 
-  create_table "mail", :force => true do |t|
-    t.integer  "message_id",                                       :null => false
-    t.integer  "conversation_id"
-    t.boolean  "read",                          :default => false
-    t.boolean  "trashed",                       :default => false
-    t.string   "mailbox",         :limit => 25
-    t.datetime "created_at",                                       :null => false
+  create_table "locations", :force => true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "google_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "listing_id"
     t.string   "person_id"
+    t.string   "location_type"
   end
 
   create_table "messages", :force => true do |t|
@@ -263,11 +265,6 @@ ActiveRecord::Schema.define(:version => 20110707163036) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "conversation_id"
-  end
-
-  create_table "messages_recipients", :id => false, :force => true do |t|
-    t.integer "message_id",   :null => false
-    t.integer "recipient_id", :null => false
   end
 
   create_table "notifications", :force => true do |t|
@@ -295,12 +292,12 @@ ActiveRecord::Schema.define(:version => 20110707163036) do
     t.string   "id",                  :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                          :default => 0
-    t.string   "locale",                            :default => "fi"
+    t.integer  "is_admin",            :default => 0
+    t.string   "locale",              :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                 :default => 0
+    t.integer  "active_days_count",   :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                 :default => 1
+    t.integer  "test_group_number",   :default => 1
   end
 
   create_table "people_smerf_forms", :force => true do |t|
