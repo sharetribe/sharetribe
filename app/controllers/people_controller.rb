@@ -76,7 +76,7 @@ class PeopleController < ApplicationController
   end
   
   def update
-	  if params[:person] && params[:person][:location] && params[:person][:location][:address].empty?
+	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
