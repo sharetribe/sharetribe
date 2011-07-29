@@ -8,6 +8,9 @@ class ApplicationController < ActionController::Base
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
   
+  # This updates translation files from WTI on every page load. Only useful in translation test servers.
+  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load
+    
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
   
   helper_method :root, :logged_in?, :current_user?
@@ -213,6 +216,10 @@ class ApplicationController < ActionController::Base
       flash[:error] = "only_kassi_administrators_can_access_this_area"
       redirect_to root and return
     end
+  end
+  
+  def fetch_translations
+    WebTranslateIt.fetch_translations
   end
   
 end
