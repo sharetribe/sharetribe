@@ -111,12 +111,21 @@ default: &default_settings
   journey_planner_username:
   journey_planner_password:  
   
+  # If you want to force Kassi to show mobile view even when accessed with normal desktop browser, set this to true
+  # Useful only for mobile development
+  force_mobile_ui: false
+  
+  # If you want to fetch the newest translate files from Web Translate It on every page load, set this to true
+  # This makes sense only in a server dedicated to translation testing.
+  # To make this work you also need config/translation.yml with wti credentials.
+  update_translations_on_every_page_load: false
+  
+  
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Kassi, you 
   # don't need to change those
   # ----------------------------------------------------------------
-  force_mobile_ui: false
 
 production:
   <<: *default_settings
