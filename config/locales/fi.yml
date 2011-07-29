@@ -22,6 +22,7 @@ fi:
       sell: myydään
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
+    test: ~
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
@@ -51,8 +52,8 @@ fi:
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       rideshare_request_message_title: "Kyytitarjous: %{title}"
       send_a_new_message: "Lähetä viesti"
-      send_offer_message: ~
-      send_request_message: ~
+      send_offer_message: "Lähetä tarjous"
+      send_request_message: "Lähetä pyyntö"
       title: Otsikko
     notifications:
       badgenotification:
