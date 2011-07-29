@@ -1,0 +1,850 @@
+sw:
+  admin:
+    badges:
+      index:
+        add_new_badge: "Ongeza beji mpya"
+        existing_badges: "Beji zilizopo"
+        image: "Picha ya beji"
+        name: "Jina la beji"
+        save_badge: "Hifadhi beji"
+  common:
+    cancel: Kufuta
+    fields_that_are_mandatory: "Sehemu zilizo na alama ya nyota(*) ni lazima kujazwa"
+    or: au
+    share_types:
+      borrow: kuazimwa
+      buy: kununua
+      give_away: kupeana
+      lend: kuazima
+      receive: "kuchukua bila malipo"
+      rent: kukodisha
+      rent_out: ~
+      sell: kuuza
+      temporary_accommodation: ~
+      trade: ~
+    what_is_this: "Nini hii?"
+  conversations:
+    index:
+      loading_more_messages: ~
+      message_partitive: ujumbe
+      messages_partitive: ujumbe
+      no_received_messages: ~
+      no_sent_messages: ~
+    new:
+      default_offer_message_text: "Fafanua unachotaka."
+      default_request_message_text: ~
+      favor_offer_message_form_title: ~
+      favor_offer_message_title: ~
+      favor_request_message_form_title: ~
+      favor_request_message_title: ~
+      housing_offer_message_form_title: "Jibu kwa"
+      housing_offer_message_title: ~
+      housing_request_message_form_title: "Jibu kwa"
+      housing_request_message_title: ~
+      item_offer_message_form_title: ~
+      item_offer_message_title: ~
+      item_request_message_form_title: ~
+      item_request_message_title: ~
+      message: Ujumbe
+      rideshare_offer_message_form_title: ~
+      rideshare_offer_message_title: ~
+      rideshare_request_message_form_title: ~
+      rideshare_request_message_title: ~
+      send_a_new_message: "Tuma ujumbe mpya"
+      send_offer_message: ~
+      send_request_message: ~
+      title: ~
+    notifications:
+      badgenotification:
+        see_all_your_badges: ~
+        you_have_earned_badge: ~
+      loading_more_notifications: ~
+      no_notifications: ~
+      testimonialnotification:
+        give_feedback_to: ~
+        has_given_you_feedback_on_event: ~
+        see_all_the_feedback_you_have_received: ~
+    show:
+      in_response_to_offer: ~
+      in_response_to_request: ~
+      offer_sent_by: ~
+      offer_sent_to: ~
+      request_sent_by: ~
+      request_sent_to: ~
+      send_reply: ~
+      write_a_reply: "Andika jibu:"
+    status:
+      feedback_given: ~
+      feedback_skipped: ~
+      give_feedback: ~
+      offer_accepted: ~
+      offer_rejected: ~
+      request_accepted: ~
+      request_rejected: ~
+      skip_feedback: ~
+      waiting_confirmation_from_listing_author: ~
+    status_link:
+      accept_offer: ~
+      accept_request: ~
+      reject_offer: ~
+      reject_request: ~
+  dashboard:
+    index:
+      aalto_community_url: ~
+      avoinyritys_url: ~
+      bubble_text_line_1: ~
+      bubble_text_line_2: ~
+      description: ~
+      email_default_text: "Anwani yako ya barua pepe"
+      get_to_know_the_aalto_community: ~
+      get_to_know_the_avoin_yritys_blog: ~
+      kassi_in_facebook: ~
+      kassi_in_twitter: ~
+      or_contact_by_email: "...ama tutumie barua pepe:"
+      send: Tuma!
+      thank_you: Ahsante!
+      thank_you_for_contacting: "Ahsante kwa kuwasiliana nasi. Tutakupatia jibu haraka iwezekanavyo. Ukitaka unaweza pia kututumia barua pepe: info (at) kassi.eu"
+      want_to_know_how_kassi_works: "Wataka kujua jinsi Kassi inavyo fanya kazi?"
+      want_to_know_more_about_us: ~
+      want_to_use_kassi_in_your_association: ~
+  emails:
+    accept_reminder:
+      offer_accusative: ~
+      remember_to_accept_listing: ~
+      remember_to_accept_offer: ~
+      remember_to_accept_request: ~
+      request_accusative: ~
+      you_can_accept_or_reject_offer_at: ~
+      you_can_accept_or_reject_request_at: ~
+      you_have_not_yet_accepted_or_rejected_offer: ~
+      you_have_not_yet_accepted_or_rejected_request: ~
+    badge_migration_notification:
+      badge_description1: ~
+      badge_description2: ~
+      you_have_received_badges: ~
+      you_have_received_badges_in_kassi: ~
+    common:
+      check_your_settings: ~
+      hey: "Sasa %{name},"
+      kassi_team: "Timu ya Kassi"
+      thanks: "Ahsante,"
+      want_to_control_emails: ~
+    conversation_status_changed:
+      has_accepted_your_offer: ~
+      has_accepted_your_request: ~
+      has_rejected_your_offer: ~
+      has_rejected_your_request: ~
+      you_can_view_the_offer_in: ~
+      you_can_view_the_request_in: ~
+      your_offer_was_accepted: ~
+      your_offer_was_rejected: ~
+      your_request_was_accepted: ~
+      your_request_was_rejected: ~
+    new_badge:
+      you_can_view_all_your_badges_in: ~
+      you_have_achieved_a_badge: ~
+    new_comment:
+      has_commented_your_offer_in_kassi: ~
+      has_commented_your_request_in_kassi: ~
+      you_can_reply_to_comment_in: ~
+      you_have_a_new_comment: ~
+    new_message:
+      do_not_reply_to_this_email: ~
+      has_sent_you_a_message_in_kassi: ~
+      you_can_reply_to_message_in: ~
+      you_have_a_new_message: ~
+    new_testimonial:
+      has_given_you_feedback_in_kassi: ~
+      you_can_give_feedback_to: ~
+      you_can_view_all_your_feedback_in: ~
+    reply_to_contact_request:
+      thank_you_for_your_interest: ~
+    testimonial_reminder:
+      feedback_is_public_and_is_shown: ~
+      remember_to_give_feedback_to: ~
+      you_have_not_given_feedback_yet: ~
+  error_messages:
+    listings:
+      departure_time: ~
+      share_type: ~
+      valid_until: ~
+    testimonials:
+      you_must_explain_not_neutral_feedback: ~
+      you_must_select_a_grade: ~
+  error_pages:
+    back_to_kassi_front_page: ~
+    error_404:
+      if_you_believe: ~
+      page_can_not_be_found: ~
+      page_you_requested_can_not_be_found: ~
+    error_404_title: ~
+    error_500:
+      help_us_find_the_problem: ~
+      page_loading_failed: ~
+      reload_refresh: ~
+    error_500_title: ~
+    error_description: ~
+    no_javascript:
+      javascript_is_disabled_in_your_browser: ~
+      kassi_does_not_currently_work_without_javascript: ~
+      send_feedback: ~
+      your_feedback_to_admins: ~
+    send: ~
+    your_email_address: ~
+  header:
+    about: ~
+    community: ~
+    home: ~
+    mobile_version: ~
+    offers: ~
+    requests: ~
+    search_kassi: ~
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: ~
+      additionally_one_private_request_exists: ~
+      additionally_some_private_offers_exist: ~
+      additionally_some_private_requests_exist: ~
+    blank_slate:
+      add_first: ~
+      but_that_is_visible_only_to_registered_members: ~
+      but_those_are_visible_only_to_registered_members: ~
+      create_new_account_for_yourself: ~
+      examples_of_what_you_could_offer_to_others: ~
+      examples_of_what_you_could_request_to_others: ~
+      favor_offer_list: ~
+      favor_request_list: ~
+      favors_to_offer: ~
+      favors_to_request: ~
+      item_offer_list: ~
+      item_request_list: ~
+      items_to_offer: ~
+      items_to_request: ~
+      log_in: ~
+      no_offers_visible_unless_logged_in: ~
+      no_open_offers_currently: ~
+      no_open_requests_currently: ~
+      no_requests_visible_unless_logged_in: ~
+      one_private_offer_exists: ~
+      one_private_request_exists: ~
+      ride_offer: ~
+      ride_request: ~
+      some_private_offers_exist: ~
+      some_private_requests_exist: ~
+    index:
+      are_offering: ~
+      lend_rent_help_carpool: ~
+      loading_more_content: ~
+      more_events: ~
+      news: ~
+      offer_something: ~
+      offer_something_description: ~
+      or: ~
+      or_see_what_the_others: ~
+      recent_events: ~
+      recent_offers: ~
+      recent_requests: ~
+      request_something: ~
+      request_something_description: ~
+      requesting: ~
+      teaser_text: ~
+      tell_it_here: ~
+      welcome_to_new_kassi: ~
+    recent_listing:
+      please_offer: ~
+  layouts:
+    admin:
+      admin: ~
+      back_to_kassi: ~
+    application:
+      default_feedback: ~
+      feedback: ~
+      feedback_forum: ~
+      feedback_handle: ~
+      give_feedback: ~
+      keywords: ~
+      meta_description: ~
+      or_check_our: ~
+      send_feedback_to_admin: ~
+      to_see_what_others_have_suggested: ~
+      your_email_address: ~
+    conversations:
+      messages: ~
+      notifications: ~
+      received: ~
+      sent: ~
+    dashboard:
+      title: ~
+    infos:
+      about: ~
+      how_to_use: ~
+      info_about_kassi: ~
+      register_details: ~
+      terms: ~
+    logged_in:
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
+      settings: ~
+      sign_up: ~
+    logged_in_messages_icon:
+      messages: ~
+    logged_in_notifications_icon:
+      notifications: ~
+    mobile_logged_in:
+      admin: ~
+      go_to_your_profile_page: ~
+      hi: ~
+      login: ~
+      logout: ~
+      notifications: ~
+      requests: ~
+      settings: ~
+      sign_up: ~
+    notifications:
+      avatar_upload_failed: ~
+      avatar_upload_successful: ~
+      comment_cannot_be_empty: ~
+      comment_sent: ~
+      create_new_offer: ~
+      create_new_request: ~
+      create_one_here: ~
+      email_not_found: ~
+      error_with_session: ~
+      favor_offer_message_sent: ~
+      favor_request_message_sent: ~
+      feedback_considered_spam: ~
+      feedback_not_saved: ~
+      feedback_saved: ~
+      feedback_sent_to: ~
+      feedback_skipped: ~
+      housing_offer_message_sent: ~
+      housing_request_message_sent: ~
+      item_offer_message_sent: ~
+      item_request_message_sent: ~
+      login_again: ~
+      login_failed: ~
+      login_successful: ~
+      logout_successful: ~
+      offer_accepted: ~
+      offer_closed: ~
+      offer_created_successfully: ~
+      offer_rejected: ~
+      offer_updated_successfully: ~
+      only_kassi_administrators_can_access_this_area: ~
+      only_listing_author_can_close_a_listing: ~
+      only_listing_author_can_edit_a_listing: ~
+      password_recovery_sent: ~
+      person_updated_successfully: ~
+      read_more: ~
+      reply_cannot_be_empty: ~
+      reply_sent: ~
+      request_accepted: ~
+      request_closed: ~
+      request_created_successfully: ~
+      request_rejected: ~
+      request_updated_successfully: ~
+      rideshare_offer_message_sent: ~
+      rideshare_request_message_sent: ~
+      unknown_error: ~
+      update_error: ~
+      welcome_message: ~
+      you_are_not_allowed_to_give_feedback_on_this_transaction: ~
+      you_are_not_authorized_to_do_this: ~
+      you_are_not_authorized_to_view_this_content: ~
+      you_cannot_reply_to_a_closed_offer: ~
+      you_cannot_reply_to_a_closed_request: ~
+      you_cannot_reply_to_your_own_offer: ~
+      you_cannot_reply_to_your_own_request: ~
+      you_have_already_given_feedback_about_this_event: ~
+      you_must_log_in_to_create_new_offer: ~
+      you_must_log_in_to_create_new_request: ~
+      you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_send_a_comment: ~
+      you_must_log_in_to_send_a_message: ~
+      you_must_log_in_to_view_this_content: ~
+      you_must_log_in_to_view_your_inbox: ~
+      you_must_log_in_to_view_your_settings: ~
+    profile_extras_header:
+      back_to_profile_of_person: ~
+      badges: ~
+      testimonials: ~
+    settings:
+      account: ~
+      avatar: ~
+      notifications: ~
+      profile: ~
+      settings: ~
+  listings:
+    comment_form:
+      log_in: ~
+      send_comment: ~
+      to_send_a_comment: ~
+      write_comment: ~
+      you_cannot_send_a_new_comment_because_offer_is_closed: ~
+      you_cannot_send_a_new_comment_because_request_is_closed: ~
+      you_must: ~
+    edit:
+      edit_offer: ~
+      edit_request: ~
+    edit_links:
+      close_offer: ~
+      close_request: ~
+      edit_offer: ~
+      edit_request: ~
+      reopen_offer: ~
+      reopen_request: ~
+    form:
+      departure_time:
+        at: ~
+        departure_time: ~
+      description:
+        detailed_description: ~
+      destination:
+        destination: ~
+      form_content:
+        favor: ~
+        housing: ~
+        item: ~
+        offer_something: ~
+        request_something: ~
+        rideshare: ~
+      googlemap:
+        googlemap_copy: ~
+        googlemap_description: ~
+        googlemap_updatemap: ~
+      images:
+        image: ~
+        no_file_selected: ~
+        remove_image: ~
+        select_file: ~
+      location:
+        location: ~
+      origin:
+        location: ~
+        origin: ~
+      send_button:
+        save_offer: ~
+        save_request: ~
+      share_type:
+        borrow: ~
+        buy: ~
+        give_away: ~
+        lend: ~
+        offer_type: ~
+        receive: ~
+        rent: ~
+        rent_out: ~
+        request_type: ~
+        sell: ~
+        temporary_accommodation: ~
+        trade: ~
+      tag_list:
+        comma_separate: ~
+        tags: ~
+      title:
+        favor_you_offer: ~
+        favor_you_request: ~
+        housing_you_offer: ~
+        housing_you_request: ~
+        item_you_offer: ~
+        item_you_request: ~
+      valid_until:
+        valid_until: ~
+      valid_until_radio_buttons:
+        for_the_time_being: ~
+      visibility:
+        communities: ~
+        everybody: ~
+        this_community: ~
+        visibility: ~
+    help_texts:
+      help_share_type_title: ~
+      help_tags_title: ~
+      help_valid_until_title: ~
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      search_verb: ~
+      you_have_something_others_do_not: ~
+    left_panel_link:
+      borrows: ~
+      buys: ~
+      favors: ~
+      give_aways: ~
+      housings: ~
+      items: ~
+      lends: ~
+      receives: ~
+      rent_outs: ~
+      rents: ~
+      rideshares: ~
+      sells: ~
+      temporary_accommodations: ~
+      trades: ~
+    link_labels:
+      link_label_for_favor_offer: ~
+      link_label_for_favor_request: ~
+      link_label_for_housing_offer: ~
+      link_label_for_housing_request: ~
+      link_label_for_item_offer: ~
+      link_label_for_item_request: ~
+      link_label_for_rideshare_offer: ~
+      link_label_for_rideshare_request: ~
+    listed_listing:
+      edit: ~
+    listed_listing_closed_status:
+      offer_is_closed: ~
+      request_is_closed: ~
+    listed_listings:
+      loading_more_offers: ~
+      loading_more_requests: ~
+      no_offers_with_the_conditions_you_gave: ~
+      no_requests_with_the_conditions_you_gave: ~
+      offer_something: ~
+      request_something: ~
+      search_returned_no_results: ~
+    please_comment: ~
+    reply_link:
+      offer_closed: ~
+      request_closed: ~
+    show:
+      comments: ~
+      favor_offer: ~
+      favor_request: ~
+      housing_offer: ~
+      housing_request: ~
+      item_offer: ~
+      item_request: ~
+      no_description: ~
+      offer: ~
+      offer_author: ~
+      offer_created: ~
+      request: ~
+      request_author: ~
+      request_created: ~
+      rideshare_offer: ~
+      rideshare_request: ~
+      share_types: ~
+      share_types_offer: ~
+      share_types_request: ~
+      tags: ~
+      time: ~
+      times: ~
+      times_viewed: ~
+  mapview:
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      search_verb: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
+  people:
+    badge_description:
+      badge_achieved_at: ~
+      you_do_not_yet_have_this_badge: ~
+    help_texts:
+      badges_description_title: ~
+      feedback_description_title: ~
+      help_captcha_title: ~
+      terms_title: ~
+    new:
+      address_validator: ~
+      captcha_incorrect: ~
+      captcha_was_wrong: ~
+      create_new_account: ~
+      email: ~
+      email_is_in_use: ~
+      enter_captcha: ~
+      family_name: ~
+      given_name: ~
+      i_accept_the: ~
+      not_required: ~
+      password: ~
+      password_again: ~
+      sign_up: ~
+      terms: ~
+      username: ~
+      username_is_in_use: ~
+      username_is_invalid: ~
+      visible_only_to_you: ~
+      visible_to_everybody: ~
+    not_member:
+      explanation_text: ~
+      read_more_about_kassi_communities: ~
+      this_user_does_not_belong_to_this_community: ~
+    profile_badge:
+      active_member_bronze: ~
+      active_member_bronze_description: ~
+      active_member_gold: ~
+      active_member_gold_description: ~
+      active_member_silver: ~
+      active_member_silver_description: ~
+      chauffer_bronze: ~
+      chauffer_bronze_description: ~
+      chauffer_gold: ~
+      chauffer_gold_description: ~
+      chauffer_silver: ~
+      chauffer_silver_description: ~
+      commentator_bronze: ~
+      commentator_bronze_description: ~
+      commentator_gold: ~
+      commentator_gold_description: ~
+      commentator_silver: ~
+      commentator_silver_description: ~
+      enthusiast_bronze: ~
+      enthusiast_bronze_description: ~
+      enthusiast_gold: ~
+      enthusiast_gold_description: ~
+      enthusiast_silver: ~
+      enthusiast_silver_description: ~
+      first_transaction: ~
+      first_transaction_description: ~
+      generous_bronze: ~
+      generous_bronze_description: ~
+      generous_gold: ~
+      generous_gold_description: ~
+      generous_silver: ~
+      generous_silver_description: ~
+      helper_bronze: ~
+      helper_bronze_description: ~
+      helper_gold: ~
+      helper_gold_description: ~
+      helper_silver: ~
+      helper_silver_description: ~
+      jack_of_all_trades: ~
+      jack_of_all_trades_description: ~
+      lender_bronze: ~
+      lender_bronze_description: ~
+      lender_gold: ~
+      lender_gold_description: ~
+      lender_silver: ~
+      lender_silver_description: ~
+      listing_freak_bronze: ~
+      listing_freak_bronze_description: ~
+      listing_freak_gold: ~
+      listing_freak_gold_description: ~
+      listing_freak_silver: ~
+      listing_freak_silver_description: ~
+      moneymaker_bronze: ~
+      moneymaker_bronze_description: ~
+      moneymaker_gold: ~
+      moneymaker_gold_description: ~
+      moneymaker_silver: ~
+      moneymaker_silver_description: ~
+      rookie: ~
+      rookie_description: ~
+      santa: ~
+      santa_description: ~
+      taxi_stand_bronze: ~
+      taxi_stand_bronze_description: ~
+      taxi_stand_gold: ~
+      taxi_stand_gold_description: ~
+      taxi_stand_silver: ~
+      taxi_stand_silver_description: ~
+      volunteer_bronze: ~
+      volunteer_bronze_description: ~
+      volunteer_gold: ~
+      volunteer_gold_description: ~
+      volunteer_silver: ~
+      volunteer_silver_description: ~
+    profile_feedback:
+      as_expected: ~
+      exceeded_expectations: ~
+      grade: ~
+      less_than_expected: ~
+      offered_favor: ~
+      offered_housing: ~
+      offered_item: ~
+      offered_rideshare: ~
+      requested_favor: ~
+      requested_housing: ~
+      requested_item: ~
+      requested_rideshare: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+    profile_listings:
+      loading_more_offers: ~
+      loading_more_requests: ~
+      offers: ~
+      requests: ~
+      show_also_closed: ~
+      show_only_open: ~
+    show:
+      about_me: ~
+      address: ~
+      as_expected: ~
+      badges: ~
+      edit_profile_info: ~
+      exceeded_expectations: ~
+      feedback_average: ~
+      hide_description: ~
+      joined_this_community: ~
+      less_than_expected: ~
+      phone_number: ~
+      show_all_badges: ~
+      show_all_feedback: ~
+      show_all_testimonials: ~
+      show_full_description: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      what_are_these: ~
+  search:
+    show:
+      all_results: ~
+      loading_more_search_results: ~
+      offers: ~
+      requests: ~
+      search: ~
+      search_results: ~
+      search_returned_no_results: ~
+      search_verb: ~
+  sessions:
+    new:
+      create_new_account: ~
+      i_forgot_my_password: ~
+      login: ~
+      login_to_kassi: ~
+      password: ~
+      username: ~
+    password_forgotten:
+      email: ~
+      password_recovery_instructions: ~
+      request_new_password: ~
+  settings:
+    account:
+      change: ~
+      confirm_new_password: ~
+      email: ~
+      new_email: ~
+      new_password: ~
+      password: ~
+      save: ~
+      these_fields_are_shown_only_to_you: ~
+      username: ~
+    avatar:
+      add_avatar_submit: ~
+      update_profile_picture: ~
+    notifications:
+      email_about_accept_reminders: ~
+      email_about_new_badges: ~
+      email_about_new_comments_to_own_listing: ~
+      email_about_new_messages: ~
+      email_about_new_received_testimonials: ~
+      email_about_testimonial_reminders: ~
+      email_when_conversation_accepted: ~
+      email_when_conversation_rejected: ~
+      i_want_to_get_email_notification_when: ~
+    profile:
+      about_you: ~
+      city: ~
+      family_name: ~
+      given_name: ~
+      phone_number: ~
+      postal_code: ~
+      profile_page: ~
+      profilemap: ~
+      street_address: ~
+      these_fields_are_shown_in_your: ~
+      visible_to_everybody: ~
+      visible_to_registered_users: ~
+    save_information: ~
+  sms:
+    category_not_supported: ~
+    check_the_offer_in_kassi: ~
+    listing_created: ~
+    offer: ~
+    or_check_the_offer_in_kassi: ~
+    parsing_error: ~
+    pay: ~
+    payment_delivered: ~
+    potential_ride_share_offer: ~
+    request: ~
+    rideshare: ~
+    you_can_call_him_at: ~
+    you_can_pay_gas_money_to_driver: ~
+  tag_cloud:
+    tag_used:
+      with_tag: ~
+      without_tag: ~
+  terms:
+    show:
+      accept_terms: ~
+      here: ~
+      i_accept_new_terms: ~
+      i_accept_terms: ~
+      terms: ~
+      terms_have_changed: ~
+      you_can_view_the_new_terms: ~
+      you_need_to_accept: ~
+      you_need_to_accept_new_terms: ~
+  testimonials:
+    index:
+      all_testimonials: ~
+      feedback_altogether: ~
+      loading_more_testimonials: ~
+      no_testimonials: ~
+    new:
+      as_expected: ~
+      exceeded_expectations: ~
+      give_feedback_to: ~
+      grade: ~
+      less_than_expected: ~
+      send_feedback: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      textual_feedback: ~
+    testimonial:
+      from_user: ~
+      to_user: ~
+  time:
+    formats:
+      short: ~
+      shorter: ~
+      sms: ~
+  timestamps:
+    day_ago: ~
+    days_ago: ~
+    hour_ago: ~
+    hours_ago: ~
+    minute_ago: ~
+    minutes_ago: ~
+    month_ago: ~
+    months_ago: ~
+    seconds_ago: ~
+    year_ago: ~
+    years_ago: ~

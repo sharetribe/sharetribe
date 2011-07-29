@@ -1,206 +1,158 @@
-# Translations specific for Kassi
-
 fi:
+  admin:
+    badges:
+      index:
+        add_new_badge: "Lisää uusi ansiomerkki"
+        existing_badges: "Tallennetut ansiomerkit"
+        image: "Merkin kuva"
+        name: "Merkin nimi"
+        save_badge: "Tallenna ansiomerkki"
   common:
-    what_is_this: "Mitä tämä tarkoittaa?"
-    share_types:
-      sell: "myydään"
-      lend: "lainataan"
-      rent_out: "vuokrataan"
-      trade: "vaihdetaan"
-      receive: "otetaan vastaan"
-      give_away: "annetaan"
-      temporary_accommodation: "tilapäismajoitus"
-      buy: "ostetaan"
-      borrow: "lainataan"
-      rent: "vuokrataan"
-    cancel: "Peruuta"
+    cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
-    or: "tai"
-  error_pages:
-    error_404_title: "sivua ei löydy"
-    error_500_title: "sivun lataus ei onnistunut"
-    error_404:
-      page_can_not_be_found: "Sivua ei löydy!"
-      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?"
-      if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
-    error_500:
-      page_loading_failed: "Sivun lataus ei onnistunut!"
-      reload_refresh: "Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit. Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian."
-      help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
-    back_to_kassi_front_page: "Takaisin Kassin etusivulle"
-    your_email_address: "Sähköpostiosoitteesi"
-    error_description: "Virheen kuvaus"
-    send: "Lähetä"
-    no_javascript:
-      javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
-      kassi_does_not_currently_work_without_javascript: "Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
-      your_feedback_to_admins: "Palautteesi ylläpidolle"
-      send_feedback: "Lähetä palaute"
-  error_messages:
-    listings:
-      share_type: "Sinun pitää valita ainakin yksi ylläolevista." 
-      valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
-      departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
-    testimonials:
-      you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
-      you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
-  header:
-    mobile_version: "Mobiiliversio"
-    about: "Tietoa Kassista"
-    home: "Etusivu"
-    requests: "Tarvitaan"
-    offers: "Tarjotaan"
-    community: "Yhteisö"
-    search_kassi: "Hae Kassista"       
-  layouts:
-    admin:
-      admin: "Kassin ylläpitonäkymä"
-      back_to_kassi: "Takaisin Kassiin"
-    application:
-      meta_description: "Kassi on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
-      keywords: "palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, Kassi, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
-      feedback_handle: "Palaute"
-      give_feedback: "Anna palautetta Kassista"
-      send_feedback_to_admin: "Lähetä palaute ylläpidolle"
-      your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
-      feedback: "Palaute ylläpidolle"
-      or_check_our: "...tai tarkista"
-      feedback_forum: "palautefoorumiltamme,"
-      to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
-      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
-    conversations:
-      messages: "Viestit"
-      received: "Saapuneet"
-      sent: "Lähetetyt"
-      notifications: "Tiedotteet"
-    dashboard:
-      title: "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
-    infos:
-      info_about_kassi: "Tietoa Kassista"
-      about: "Mikä Kassi?"
-      how_to_use: "Näin Kassi toimii"
-      terms: "Käyttöehdot"
-      register_details: "Rekisteriseloste"
-    logged_in:
-      login: "Kirjaudu sisään"
-      sign_up: "Luo uusi tunnus"
-      logout: "Ulos"
-      hi: "Hei"
-      requests: "Kutsut"
-      notifications: "Tiedotteet"
-      settings: "Asetukset"
-      go_to_your_profile_page: "Profiili"
-      admin: "Ylläpito"
-    logged_in_messages_icon:
-      messages: "Viestit"
-    logged_in_notifications_icon:
-      notifications: "Tiedotteet"  
+    or: tai
+    share_types:
+      borrow: lainataan
+      buy: ostetaan
+      give_away: annetaan
+      lend: lainataan
+      receive: "otetaan vastaan"
+      rent: vuokrataan
+      rent_out: vuokrataan
+      sell: myydään
+      temporary_accommodation: tilapäismajoitus
+      trade: vaihdetaan
+    what_is_this: "Mitä tämä tarkoittaa?"
+  conversations:
+    index:
+      loading_more_messages: "Ladataan lisää viestejä"
+      message_partitive: viesti
+      messages_partitive: viestiä
+      no_received_messages: "Ei vastaanotettuja viestejä"
+      no_sent_messages: "Ei lähetettyjä viestejä"
+    new:
+      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
+      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
+      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
+      favor_offer_message_title: "Palveluspyyntö: %{title}"
+      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
+      favor_request_message_title: "Palvelustarjous: %{title}"
+      housing_offer_message_form_title: "Vastaa käyttäjälle"
+      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
+      housing_request_message_form_title: "Vastaa käyttäjälle"
+      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
+      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
+      item_offer_message_title: "Tavarapyyntö: %{title}"
+      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
+      item_request_message_title: "Tavaratarjous: %{title}"
+      message: Viesti
+      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
+      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
+      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
+      rideshare_request_message_title: "Kyytitarjous: %{title}"
+      send_a_new_message: "Lähetä viesti"
+      send_offer_message: ~
+      send_request_message: ~
+      title: Otsikko
     notifications:
-      request_created_successfully: "Pyyntö tallennettu."
-      offer_created_successfully: "Tarjous tallennettu."
-      create_new_request: "Pyydä jotain muuta"
-      create_new_offer: "Tarjoa jotain muuta"
-      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
-      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
-      create_one_here: "luoda uuden"
-      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
-      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
-      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
-      login_successful: "Tervetuloa Kassiin, "
-      logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
-      login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
-      error_with_session: "Virhe istunnon käsittelyssä."
-      login_again: "Kirjaudu uudestaan."
-      item_request_message_sent: "Tavaratarjous lähetetty"
-      favor_request_message_sent: "Palvelustarjous lähetetty"
-      rideshare_request_message_sent: "Kyytitarjous lähetetty"
-      housing_request_message_sent: "Vastaus lähetetty"
-      item_offer_message_sent: "Tavarapyyntö lähetetty"
-      favor_offer_message_sent: "Palveluspyyntö lähetetty"
-      rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
-      housing_offer_message_sent: "Vastaus lähetetty"
-      reply_sent: "Vastaus lähetetty"
-      reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
-      request_accepted: "Pyyntö hyväksytty"
-      request_rejected: "Pyyntö hylätty"
+      badgenotification:
+        see_all_your_badges: "Katso kaikki kassimerkkisi"
+        you_have_earned_badge: "Olet ansainnut kassimerkin"
+      loading_more_notifications: "Ladataan lisää tiedotteita"
+      no_notifications: "Ei tiedotteita."
+      testimonialnotification:
+        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
+        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
+        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
+    show:
+      in_response_to_offer: tarjouksesta
+      in_response_to_request: "vastauksena pyyntöön"
+      offer_sent_by: "Pyynnön lähetti"
+      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
+      request_sent_by: "Tarjouksen lähetti"
+      request_sent_to: "Tarjous lähetetty käyttäjälle"
+      send_reply: "Lähetä viesti"
+      write_a_reply: "Kirjoita vastaus:"
+    status:
+      feedback_given: "Palaute annettu"
+      feedback_skipped: "Palaute ohitettu"
+      give_feedback: "Anna palautetta"
       offer_accepted: "Tarjous hyväksytty"
       offer_rejected: "Tarjous hylätty"
-      you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
-      you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
-      feedback_sent_to: "Palaute lähetetty käyttäjälle"
-      you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
-      feedback_skipped: "Palaute ohitettu"
-      you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
-      comment_sent: "Kommentti lähetetty"
-      comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
-      request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
-      offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
-      person_updated_successfully: "Tiedot päivitetty"
-      update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
-      avatar_upload_successful: "Profiilikuva päivitetty"
-      avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
-      only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
-      only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
-      request_closed: "Pyyntö suljettu"
-      offer_closed: "Tarjous suljettu"
-      you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
-      you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
-      you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
-      you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
-      welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
-      read_more: "Lue lisää!"
-      password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
-      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
-      feedback_saved: "Kiitos palautteestasi!"
-      feedback_not_saved: "Palautteen lähettäminen epäonnistui."
-      feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
-      you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
-      only_kassi_administrators_can_access_this_area: "Vain Kassin ylläpitäjillä on pääsy tähän sisältöön"
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
-      you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
-      unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
-    profile_extras_header:
-      back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      testimonials: "Saatu palaute"
-      badges: "Kassimerkit"
-    settings:
-      settings: "Asetukset"
-      profile: "Profiilitiedot"
-      avatar: "Profiilikuva"
-      account: "Tilin tiedot"
-      notifications: "Tiedotteet"
-  emails:      
+      request_accepted: "Pyyntö hyväksytty"
+      request_rejected: "Pyyntö hylätty"
+      skip_feedback: "Ohita palaute"
+      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
+    status_link:
+      accept_offer: "Hyväksy tarjous"
+      accept_request: "Hyväksy pyyntö"
+      reject_offer: "Hylkää tarjous"
+      reject_request: "Hylkää pyyntö"
+  dashboard:
+    index:
+      aalto_community_url: "http://aalto.kassi.eu"
+      avoinyritys_url: "http://www.avoinyritys.fi"
+      bubble_text_line_1: "ANNA HYVÄN"
+      bubble_text_line_2: KIERTÄÄ!
+      description: "Kassi on suomalainen yhteisöllinen verkkopalvelu, jonka avulla yhdistyksen tai muun yhteisön jäsenet voivat auttaa toisiaan monin tavoin: lainata ja myydä tavaroita, tehdä palveluksia, järjestää kimppakyytejä ja paljon muuta!"
+      email_default_text: Sähköpostiosoitteesi
+      get_to_know_the_aalto_community: "Tutustu Aalto-yliopiston kassiyhteisöön!"
+      get_to_know_the_avoin_yritys_blog: "Tutustu Avoin yritys -blogiin!"
+      kassi_in_facebook: "Kassi Facebookissa"
+      kassi_in_twitter: "Kassi Twitterissä"
+      or_contact_by_email: "...tai ota yhteyttä sähköpostilla:"
+      send: Lähetä!
+      thank_you: Kiitos!
+      thank_you_for_contacting: "Kiitos yhteydenotostasi. Otamme sinuun yhteyttä ensi tilassa. Halutessasi voit lähettää meille myös sähköpostia: info (aet) kassi.eu"
+      want_to_know_how_kassi_works: "Haluatko tietää miten Kassi toimii?"
+      want_to_know_more_about_us: "Haluatko tietää lisää toiminta-ajatuksestamme?"
+      want_to_use_kassi_in_your_association: "Haluatko Kassin käyttöön yhdistyksessäsi?"
+  emails:
+    accept_reminder:
+      offer_accusative: tarjouksen
+      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille Kassin käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös kassimerkkien saaminen edellyttää hyvän palautteen saamista."
+      remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
+      remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
+      request_accusative: pyynnön
+      you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
+      you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
+      you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
+      you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
+    badge_migration_notification:
+      badge_description1: "Voit ansaita Kassissa erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
+      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
+      you_have_received_badges: "Olet saanut kassimerkkejä!"
+      you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
     common:
-      thanks: "Terveisin,"
-      kassi_team: "Kassitiimi"
-      want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
+      kassi_team: Kassitiimi
+      thanks: "Terveisin,"
+      want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
+    conversation_status_changed:
+      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
+      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
+      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
+      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
+      you_can_view_the_offer_in: "Voit nähdä tarjouksesi ja siihen liittyvän keskustelun osoitteessa"
+      you_can_view_the_request_in: "Voit nähdä pyyntösi ja siihen liittyvän keskustelun osoitteessa"
+      your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
+      your_offer_was_rejected: "Tarjouksesi hylättiin"
+      your_request_was_accepted: "Pyyntösi hyväksyttiin"
+      your_request_was_rejected: "Pyyntösi hylättiin"
+    new_badge:
+      you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
+      you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
+    new_comment:
+      has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
+      has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
+      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
+      you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
     new_message:
-      you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
+      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa:"
       you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
-      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
-    new_comment:
-      you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
-      has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
-      has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
-      you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
-    conversation_status_changed:
-      your_request_was_accepted: "Pyyntösi hyväksyttiin"
-      your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
-      your_request_was_rejected: "Pyyntösi hylättiin"
-      your_offer_was_rejected: "Tarjouksesi hylättiin"
-      you_can_view_the_request_in: "Voit nähdä pyyntösi ja siihen liittyvän keskustelun osoitteessa"
-      you_can_view_the_offer_in: "Voit nähdä tarjouksesi ja siihen liittyvän keskustelun osoitteessa"
-      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
-      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
-      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
-      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
-    new_badge:
-      you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
-      you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
+      you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
@@ -208,827 +160,691 @@ fi:
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
     testimonial_reminder:
+      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
-      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
-    badge_migration_notification: 
-      you_have_received_badges: "Olet saanut kassimerkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
-      badge_description1: "Voit ansaita Kassissa erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
-      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
-    accept_reminder:
-      remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
-      remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
-      you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
-      you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
-      request_accusative: "pyynnön"
-      offer_accusative: "tarjouksen"
-      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille Kassin käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös kassimerkkien saaminen edellyttää hyvän palautteen saamista."
-      you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
-      you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
-  admin:
-    badges:
-      index:
-        add_new_badge: "Lisää uusi ansiomerkki"
-        name: "Merkin nimi"
-        image: "Merkin kuva"
-        save_badge: "Tallenna ansiomerkki"
-        existing_badges: "Tallennetut ansiomerkit"
-  conversations:
-    index:
-      message_partitive: "viesti"
-      messages_partitive: "viestiä"
-      no_received_messages: "Ei vastaanotettuja viestejä"
-      no_sent_messages: "Ei lähetettyjä viestejä"
-      loading_more_messages: "Ladataan lisää viestejä" 
-    new:
-      send_a_new_message: "Lähetä viesti"
-      send_offer_message: "Lähetä tarjous"
-      send_request_message: "Lähetä pyyntö"
-      message: "Viesti"
-      title: "Otsikko"
-      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
-      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
-      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
-      housing_request_message_form_title: "Vastaa käyttäjälle"
-      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
-      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
-      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
-      housing_offer_message_form_title: "Vastaa käyttäjälle"
-      item_request_message_title: "Tavaratarjous: %{title}"
-      favor_request_message_title: "Palvelustarjous: %{title}"
-      rideshare_request_message_title: "Kyytitarjous: %{title}"
-      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
-      item_offer_message_title: "Tavarapyyntö: %{title}"
-      favor_offer_message_title: "Palveluspyyntö: %{title}"
-      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
-      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
-      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
-      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
-    notifications:
-      no_notifications: "Ei tiedotteita."
-      loading_more_notifications: "Ladataan lisää tiedotteita"
-      badgenotification:
-        you_have_earned_badge: "Olet ansainnut kassimerkin"
-        see_all_your_badges: "Katso kaikki kassimerkkisi"
-      testimonialnotification:
-        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
-        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
-        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"      
-    show:
-      offer_sent_by: "Pyynnön lähetti"
-      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
-      request_sent_by: "Tarjouksen lähetti"
-      request_sent_to: "Tarjous lähetetty käyttäjälle"
-      in_response_to_request: "vastauksena pyyntöön"
-      in_response_to_offer: "tarjouksesta"
-      write_a_reply: "Kirjoita vastaus:"
-      send_reply: "Lähetä viesti"
-    status:
-      request_accepted: "Pyyntö hyväksytty"
-      request_rejected: "Pyyntö hylätty"
-      offer_accepted: "Tarjous hyväksytty"
-      offer_rejected: "Tarjous hylätty"
-      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
-      give_feedback: "Anna palautetta"
-      skip_feedback: "Ohita palaute"
-      feedback_given: "Palaute annettu"
-      feedback_skipped: "Palaute ohitettu"
-    status_link:  
-      accept_request: "Hyväksy pyyntö"
-      accept_offer: "Hyväksy tarjous"
-      reject_request: "Hylkää pyyntö"
-      reject_offer: "Hylkää tarjous"
-  dashboard:
-    index:
-      email_default_text: "Sähköpostiosoitteesi"
-      bubble_text_line_1: "ANNA HYVÄN"
-      bubble_text_line_2: "KIERTÄÄ!"
-      description: "Kassi on suomalainen yhteisöllinen verkkopalvelu, jonka avulla yhdistyksen tai muun yhteisön jäsenet voivat auttaa toisiaan monin tavoin: lainata ja myydä tavaroita, tehdä palveluksia, järjestää kimppakyytejä ja paljon muuta!"
-      want_to_use_kassi_in_your_association: "Haluatko Kassin käyttöön yhdistyksessäsi?"
-      send: "Lähetä!"
-      or_contact_by_email: "...tai ota yhteyttä sähköpostilla:"
-      want_to_know_how_kassi_works: "Haluatko tietää miten Kassi toimii?"
-      get_to_know_the_aalto_community: "Tutustu Aalto-yliopiston kassiyhteisöön!"
-      want_to_know_more_about_us: "Haluatko tietää lisää toiminta-ajatuksestamme?"
-      get_to_know_the_avoin_yritys_blog: "Tutustu Avoin yritys -blogiin!"
-      kassi_in_facebook: "Kassi Facebookissa"
-      kassi_in_twitter: "Kassi Twitterissä"
-      thank_you: "Kiitos!"
-      thank_you_for_contacting: "Kiitos yhteydenotostasi. Otamme sinuun yhteyttä ensi tilassa. Halutessasi voit lähettää meille myös sähköpostia: info (aet) kassi.eu"
-      aalto_community_url: "http://aalto.kassi.eu"
-      avoinyritys_url: "http://www.avoinyritys.fi"
+  error_messages:
+    listings:
+      departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
+      share_type: "Sinun pitää valita ainakin yksi ylläolevista."
+      valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
+    testimonials:
+      you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
+      you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
+  error_pages:
+    back_to_kassi_front_page: "Takaisin Kassin etusivulle"
+    error_404:
+      if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
+      page_can_not_be_found: "Sivua ei löydy!"
+      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?"
+    error_404_title: "sivua ei löydy"
+    error_500:
+      help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
+      page_loading_failed: "Sivun lataus ei onnistunut!"
+      reload_refresh: "Sivun uudelleen lataaminen (reload/refresh-nappi) auttaa useimmiten pääsemään sivulle, jolle yritit. Yritämme selvittää ongelman syyn ja korjata sen mahdollisimman pian."
+    error_500_title: "sivun lataus ei onnistunut"
+    error_description: "Virheen kuvaus"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
+      kassi_does_not_currently_work_without_javascript: "Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
+      send_feedback: "Lähetä palaute"
+      your_feedback_to_admins: "Palautteesi ylläpidolle"
+    send: Lähetä
+    your_email_address: Sähköpostiosoitteesi
+  header:
+    about: "Tietoa Kassista"
+    community: Yhteisö
+    home: Etusivu
+    mobile_version: Mobiiliversio
+    offers: Tarjotaan
+    requests: Tarvitaan
+    search_kassi: "Hae Kassista"
   homepage:
-    index:
-      lend_rent_help_carpool: "Lainaa, vuokraa, auta, kyyditse"
-      teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
-      tell_it_here: "Kerro se täällä!"
-      or_see_what_the_others: "...tai katso mitä muut"
-      are_offering: "tarjoavat"
-      or: "tai"
-      requesting: "tarvitsevat"
-      welcome_to_new_kassi: "Kassi on uudistunut!"
-      news: "Uutiset"
-      recent_events: "Uusimmat tapahtumat"
-      more_events: "Lisää tapahtumia..."
-      request_something: "+ Kerro mitä tarvitset!"
-      request_something_description: "Kerro muille, jos tarvitset tavaran, kyydin tai apua"
-      offer_something: "+ Listaa taitosi ja tavarasi!"
-      offer_something_description: "Lisää muille tarjoamasi tavarat, taidot ja kyydit"
-      recent_requests: "Mitä muut tarvitsevat"
-      recent_offers: "Mitä muut tarjoavat"
-      loading_more_content: "Ladataan lisää"
-    blank_slate:
-      no_open_requests_currently: "Ei yhtään tavara-, palvelus- tai kyytipyyntöä avoinna."
-      add_first: "Lisää ensimmäinen!"
-      no_requests_visible_unless_logged_in: "Ei yhtään palvelus-, tavara- tai kyytipyyntöä näkyvissä kirjautumattomille käyttäjille."
-      some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
-      some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
-      one_private_offer_exists: "Palvelussa on jo <b>yksi tarjous</b>,"
-      one_private_request_exists: "Palvelussa on jo <b>yksi pyyntö</b>,"
-      but_those_are_visible_only_to_registered_members: "mutta ne näkyvät vain kirjautuneille käyttäjille."
-      but_that_is_visible_only_to_registered_members: "mutta se on näkyvissä vain kirjautuneille käyttäjille."
-      create_new_account_for_yourself: "Luo tunnus itsellesi"
-      log_in: "kirjaudu sisään!"
-      examples_of_what_you_could_request_to_others: "Esimerkkejä siitä mitä voisit pyytää muilta"
-      items_to_request: "Lainatavaroita: "
-      item_request_list: "työkalut, harrastusvälineet, naamiaisasut, retkeilytarvikkeet"
-      favors_to_request: "Apua: "
-      favor_request_list: "lasten vahtiminen, soittotunnit, koiran ulkoilutus, ruohonleikkuu"
-      ride_request: "Kyyti töihin"
-      no_open_offers_currently: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä avoinna."
-      no_offers_visible_unless_logged_in: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä näkyvissä kirjautumattomille käyttäjille."
-      examples_of_what_you_could_offer_to_others: "Esimerkkejä siitä mitä voisit tarjota muille"
-      items_to_offer: "Lainatavaroita: "
-      item_offer_list: "työkalut, urheiluvälineet, naamiaisasut, retkeilytarvikkeet"
-      favors_to_offer: "Apua: "
-      favor_offer_list: "tietokoneapu, vaatteiden kunnostus, leivonta, pyörän huolto"
-      ride_offer: "Kyyditystä lasten harrastuksiin"
     additional_private_listings_slate:
-      additionally_some_private_offers_exist: "Lisäksi palvelussa on <b>%{number_of_listings} muuta tarjousta</b>,"
-      additionally_some_private_requests_exist: "Lisäksi palvelussa on <b>%{number_of_listings} muuta pyyntöä</b>,"
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
       additionally_one_private_request_exists: "Lisäksi palvelussa on <b>yksi muu pyyntö</b>,"
-    recent_listing:
-      please_offer: "Tarjoa"
-  listings:
-    please_comment: "Kommentoi"
+      additionally_some_private_offers_exist: "Lisäksi palvelussa on <b>%{number_of_listings} muuta tarjousta</b>,"
+      additionally_some_private_requests_exist: "Lisäksi palvelussa on <b>%{number_of_listings} muuta pyyntöä</b>,"
+    blank_slate:
+      add_first: "Lisää ensimmäinen!"
+      but_that_is_visible_only_to_registered_members: "mutta se on näkyvissä vain kirjautuneille käyttäjille."
+      but_those_are_visible_only_to_registered_members: "mutta ne näkyvät vain kirjautuneille käyttäjille."
+      create_new_account_for_yourself: "Luo tunnus itsellesi"
+      examples_of_what_you_could_offer_to_others: "Esimerkkejä siitä mitä voisit tarjota muille"
+      examples_of_what_you_could_request_to_others: "Esimerkkejä siitä mitä voisit pyytää muilta"
+      favor_offer_list: "tietokoneapu, vaatteiden kunnostus, leivonta, pyörän huolto"
+      favor_request_list: "lasten vahtiminen, soittotunnit, koiran ulkoilutus, ruohonleikkuu"
+      favors_to_offer: "Apua: "
+      favors_to_request: "Apua: "
+      item_offer_list: "työkalut, urheiluvälineet, naamiaisasut, retkeilytarvikkeet"
+      item_request_list: "työkalut, harrastusvälineet, naamiaisasut, retkeilytarvikkeet"
+      items_to_offer: "Lainatavaroita: "
+      items_to_request: "Lainatavaroita: "
+      log_in: "kirjaudu sisään!"
+      no_offers_visible_unless_logged_in: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä näkyvissä kirjautumattomille käyttäjille."
+      no_open_offers_currently: "Ei yhtään tarjottua palvelusta, tavaraa tai kyytiä avoinna."
+      no_open_requests_currently: "Ei yhtään tavara-, palvelus- tai kyytipyyntöä avoinna."
+      no_requests_visible_unless_logged_in: "Ei yhtään palvelus-, tavara- tai kyytipyyntöä näkyvissä kirjautumattomille käyttäjille."
+      one_private_offer_exists: "Palvelussa on jo <b>yksi tarjous</b>,"
+      one_private_request_exists: "Palvelussa on jo <b>yksi pyyntö</b>,"
+      ride_offer: "Kyyditystä lasten harrastuksiin"
+      ride_request: "Kyyti töihin"
+      some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
+      some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     index:
-      requests: "Pyynnöt"
-      offers: "Tarjoukset"
-      category: "Kategoria"
+      are_offering: tarjoavat
+      lend_rent_help_carpool: "Lainaa, vuokraa, auta, kyyditse"
+      loading_more_content: "Ladataan lisää"
+      more_events: "Lisää tapahtumia..."
+      news: Uutiset
+      offer_something: "+ Listaa taitosi ja tavarasi!"
+      offer_something_description: "Lisää muille tarjoamasi tavarat, taidot ja kyydit"
+      or: tai
+      or_see_what_the_others: "...tai katso mitä muut"
+      recent_events: "Uusimmat tapahtumat"
+      recent_offers: "Mitä muut tarjoavat"
+      recent_requests: "Mitä muut tarvitsevat"
+      request_something: "+ Kerro mitä tarvitset!"
+      request_something_description: "Kerro muille, jos tarvitset tavaran, kyydin tai apua"
+      requesting: tarvitsevat
+      teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
+      tell_it_here: "Kerro se täällä!"
+      welcome_to_new_kassi: "Kassi on uudistunut!"
+    recent_listing:
+      please_offer: Tarjoa
+  layouts:
+    admin:
+      admin: "Kassin ylläpitonäkymä"
+      back_to_kassi: "Takaisin Kassiin"
+    application:
+      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
+      feedback: "Palaute ylläpidolle"
+      feedback_forum: "palautefoorumiltamme,"
+      feedback_handle: Palaute
+      give_feedback: "Anna palautetta Kassista"
+      keywords: "palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, Kassi, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
+      meta_description: "Kassi on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
+      or_check_our: "...tai tarkista"
+      send_feedback_to_admin: "Lähetä palaute ylläpidolle"
+      to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
+      your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
+    conversations:
+      messages: Viestit
+      notifications: Tiedotteet
+      received: Saapuneet
+      sent: Lähetetyt
+    dashboard:
+      title: "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
+    infos:
+      about: "Mikä Kassi?"
+      how_to_use: "Näin Kassi toimii"
+      info_about_kassi: "Tietoa Kassista"
+      register_details: Rekisteriseloste
+      terms: Käyttöehdot
+    logged_in:
+      admin: Ylläpito
+      go_to_your_profile_page: Profiili
+      hi: Hei
+      login: "Kirjaudu sisään"
+      logout: Ulos
+      notifications: Tiedotteet
+      requests: Kutsut
+      settings: Asetukset
+      sign_up: "Luo uusi tunnus"
+    logged_in_messages_icon:
+      messages: Viestit
+    logged_in_notifications_icon:
+      notifications: Tiedotteet
+    mobile_logged_in:
+      admin: Ylläpito
+      go_to_your_profile_page: Profiili
+      hi: Hei
+      login: "Kirjaudu sisään"
+      logout: "Kirjaudu ulos"
+      notifications: Tiedotteet
+      requests: Kaverikutsut
+      settings: ~
+      sign_up: "Luo uusi tunnus"
+    notifications:
+      avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
+      avatar_upload_successful: "Profiilikuva päivitetty"
+      comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
+      comment_sent: "Kommentti lähetetty"
+      create_new_offer: "Tarjoa jotain muuta"
+      create_new_request: "Pyydä jotain muuta"
+      create_one_here: "luoda uuden"
+      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
+      error_with_session: "Virhe istunnon käsittelyssä."
+      favor_offer_message_sent: "Palveluspyyntö lähetetty"
+      favor_request_message_sent: "Palvelustarjous lähetetty"
+      feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
+      feedback_not_saved: "Palautteen lähettäminen epäonnistui."
+      feedback_saved: "Kiitos palautteestasi!"
+      feedback_sent_to: "Palaute lähetetty käyttäjälle"
+      feedback_skipped: "Palaute ohitettu"
+      housing_offer_message_sent: "Vastaus lähetetty"
+      housing_request_message_sent: "Vastaus lähetetty"
+      item_offer_message_sent: "Tavarapyyntö lähetetty"
+      item_request_message_sent: "Tavaratarjous lähetetty"
+      login_again: "Kirjaudu uudestaan."
+      login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
+      login_successful: "Tervetuloa Kassiin, "
+      logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
+      offer_accepted: "Tarjous hyväksytty"
+      offer_closed: "Tarjous suljettu"
+      offer_created_successfully: "Tarjous tallennettu."
+      offer_rejected: "Tarjous hylätty"
+      offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
+      only_kassi_administrators_can_access_this_area: "Vain Kassin ylläpitäjillä on pääsy tähän sisältöön"
+      only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
+      only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
+      password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
+      person_updated_successfully: "Tiedot päivitetty"
+      read_more: "Lue lisää!"
+      reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
+      reply_sent: "Vastaus lähetetty"
+      request_accepted: "Pyyntö hyväksytty"
+      request_closed: "Pyyntö suljettu"
+      request_created_successfully: "Pyyntö tallennettu."
+      request_rejected: "Pyyntö hylätty"
+      request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
+      rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
+      rideshare_request_message_sent: "Kyytitarjous lähetetty"
+      unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
+      update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
+      welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
+      you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
+      you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
+      you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
+      you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
+      you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
+      you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
+      you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
+      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
+      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
+      you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
+      you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
+      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
+      you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
+      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
+      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
+    profile_extras_header:
+      back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
+      badges: Kassimerkit
+      testimonials: "Saatu palaute"
+    settings:
+      account: "Tilin tiedot"
+      avatar: Profiilikuva
+      notifications: Tiedotteet
+      profile: Profiilitiedot
+      settings: Asetukset
+  listings:
+    comment_form:
+      log_in: "kirjautua sisään"
+      send_comment: "Lähetä kommentti"
+      to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
+      write_comment: "Kirjoita uusi kommentti:"
+      you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
+      you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
+      you_must: "Sinun täytyy"
+    edit:
+      edit_offer: "Muokkaa tarjousta"
+      edit_request: "Muokkaa pyyntöä"
+    edit_links:
+      close_offer: "Sulje tarjous"
+      close_request: "Sulje pyyntö"
+      edit_offer: "Muokkaa tarjousta"
+      edit_request: "Muokkaa pyyntöä"
+      reopen_offer: "Avaa tarjous uudelleen"
+      reopen_request: "Avaa pyyntö uudelleen"
+    form:
+      departure_time:
+        at: Kellonaika
+        departure_time: Lähtöaika
+      description:
+        detailed_description: "Tarkempi kuvaus"
+      destination:
+        destination: Määränpää
+      form_content:
+        favor: Palvelus
+        housing: Asuminen
+        item: Tavara
+        offer_something: "Tarjoa jotain"
+        request_something: "Pyydä jotain"
+        rideshare: Kimppakyyti
+      googlemap:
+        googlemap_copy: "Päätepisteet kartalta"
+        googlemap_description: Karttanäkymä
+        googlemap_updatemap: "Päivitä karttaa"
+      images:
+        image: Kuva
+        no_file_selected: "Ei tiedostoa valittuna"
+        remove_image: "Poista kuva"
+        select_file: "Valitse tiedosto"
+      location:
+        location: Sijainti
+      origin:
+        location: Sijainti
+        origin: Lähtöpaikka
+      send_button:
+        save_offer: "Tallenna tarjous"
+        save_request: "Tallenna pyyntö"
+      share_type:
+        borrow: Lainaa
+        buy: Osta
+        give_away: Anna
+        lend: Lainaa
+        offer_type: Tarjoustapa
+        receive: "Ota vastaan"
+        rent: Vuokraa
+        rent_out: Vuokraa
+        request_type: Pyyntötapa
+        sell: Myy
+        temporary_accommodation: Tilapäismajoitus
+        trade: Vaihda
+      tag_list:
+        comma_separate: "(erota pilkulla)"
+        tags: Avainsanat
+      title:
+        favor_you_offer: "Palvelus jonka tarjoat"
+        favor_you_request: "Palvelus jonka tarvitset"
+        housing_you_offer: "Mitä tarjoat"
+        housing_you_request: "Mitä tarvitset"
+        item_you_offer: "Tavara jonka tarjoat"
+        item_you_request: "Tavara jonka tarvitset"
+      valid_until:
+        valid_until: Voimassa
+      valid_until_radio_buttons:
+        for_the_time_being: Toistaiseksi
+      visibility:
+        communities: "Omille Kassiyhteisöilleni"
+        everybody: "Kaikille internetin käyttäjille"
+        this_community: "Vain %{community}-yhteisön jäsenille"
+        visibility: Näkyvyys
+    help_texts:
+      help_share_type_title: "Tarjous- tai pyyntötapa"
+      help_tags_title: Avaisanat
+      help_valid_until_title: "Viimeinen voimassaolopäivä"
+    index:
       all_categories: "Kaikki kategoriat"
-      request_type: "Pyyntötapa"
-      offer_type: "Tarjoustapa"
-      all_request_types: "Kaikki pyyntötavat"
       all_offer_types: "Kaikki tarjoustavat"
-      items: "Tavarat"
-      favors: "Palvelukset"
-      rideshare: "Kimppakyydit"
-      housing: "Asuminen"
-      list_view: "Listanäkymä"
-      map_view: "Karttanäkymä"
-      search_verb: "Hae"
+      all_request_types: "Kaikki pyyntötavat"
+      category: Kategoria
       did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
-      request_something: "Jätä avoin pyyntö!"
-      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+      favors: Palvelukset
+      housing: Asuminen
+      items: Tavarat
+      list_view: Listanäkymä
+      map_view: Karttanäkymä
       offer_something: "Laadi tarjous!"
-    listed_listings:  
-      loading_more_requests: "Ladataan lisää pyyntöjä"
+      offer_type: Tarjoustapa
+      offers: Tarjoukset
+      request_something: "Jätä avoin pyyntö!"
+      request_type: Pyyntötapa
+      requests: Pyynnöt
+      rideshare: Kimppakyydit
+      search_verb: Hae
+      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+    left_panel_link:
+      borrows: Lainataan
+      buys: Ostetaan
+      favors: Palvelukset
+      give_aways: Annetaan
+      housings: Asunnot
+      items: Tavarat
+      lends: Lainataan
+      receives: "Otetaan vastaan"
+      rent_outs: Vuokrataan
+      rents: Vuokrataan
+      rideshares: Kimppakyydit
+      sells: Myydään
+      temporary_accommodations: Tilapäismajoitus
+      trades: Vaihdetaan
+    link_labels:
+      link_label_for_favor_offer: "Pyydä palvelusta"
+      link_label_for_favor_request: "Tarjoa apuasi"
+      link_label_for_housing_offer: Vastaa
+      link_label_for_housing_request: Vastaa
+      link_label_for_item_offer: "Pyydä tavaraa"
+      link_label_for_item_request: "Tarjoa tavaraasi"
+      link_label_for_rideshare_offer: "Pyydä kyytiä"
+      link_label_for_rideshare_request: "Tarjoa kyytiä"
+    listed_listing:
+      edit: Muokkaa
+    listed_listing_closed_status:
+      offer_is_closed: "Tarjous on suljettu"
+      request_is_closed: "Pyyntö on suljettu"
+    listed_listings:
       loading_more_offers: "Ladataan lisää tarjouksia"
-      no_requests_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään pyyntöä." 
+      loading_more_requests: "Ladataan lisää pyyntöjä"
       no_offers_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään tarjousta."
+      no_requests_with_the_conditions_you_gave: "Antamillasi ehdoilla ei löytynyt yhtään pyyntöä."
       offer_something: "Aseta jotain tarjolle!"
       request_something: "Pyydä jotakin!"
       search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
-    listed_listing:
-      edit: "Muokkaa"
-    listed_listing_closed_status:
-      request_is_closed: "Pyyntö on suljettu"
-      offer_is_closed: "Tarjous on suljettu"
-    left_panel_link:
-      items: "Tavarat"
-      favors: "Palvelukset"
-      rideshares: "Kimppakyydit"
-      housings: "Asunnot"
-      sells: "Myydään"
-      lends: "Lainataan"
-      rent_outs: "Vuokrataan"
-      trades: "Vaihdetaan"
-      receives: "Otetaan vastaan"
-      give_aways: "Annetaan"
-      temporary_accommodations: "Tilapäismajoitus"
-      buys: "Ostetaan"
-      borrows: "Lainataan"
-      rents: "Vuokrataan"
-    form:
-      form_content:
-        request_something: "Pyydä jotain"
-        offer_something: "Tarjoa jotain"  
-        item: "Tavara"
-        favor: "Palvelus"
-        rideshare: "Kimppakyyti"
-        housing: "Asuminen"
-      share_type:
-        offer_type: "Tarjoustapa"
-        request_type: "Pyyntötapa"
-        sell: "Myy"
-        lend: "Lainaa"
-        rent_out: "Vuokraa"
-        trade: "Vaihda"
-        receive: "Ota vastaan"
-        give_away: "Anna"
-        temporary_accommodation: "Tilapäismajoitus"
-        buy: "Osta"
-        borrow: "Lainaa"
-        rent: "Vuokraa"
-      title:
-        item_you_request: "Tavara jonka tarvitset"
-        item_you_offer: "Tavara jonka tarjoat"
-        favor_you_request: "Palvelus jonka tarvitset"
-        favor_you_offer: "Palvelus jonka tarjoat"
-        housing_you_request: "Mitä tarvitset"
-        housing_you_offer: "Mitä tarjoat"
-      origin:
-        origin: "Lähtöpaikka"
-        location: "Sijainti"
-      destination:  
-        destination: "Määränpää"
-      tag_list:
-        tags: "Avainsanat"
-        comma_separate: "(erota pilkulla)"  
-      description:
-        detailed_description: "Tarkempi kuvaus"
-      googlemap:
-        googlemap_description: "Karttanäkymä"
-        googlemap_updatemap: "Päivitä karttaa"
-        googlemap_copy: "Päätepisteet Kartalta"
-      images:
-        image: "Kuva"
-        select_file: "Valitse tiedosto"
-        no_file_selected: "Ei tiedostoa valittuna"
-        remove_image: "Poista kuva"
-      valid_until:
-        valid_until: "Voimassa"
-      valid_until_radio_buttons:
-        for_the_time_being: "Toistaiseksi"  
-      departure_time:  
-        departure_time: "Lähtöaika"  
-        at: "Kellonaika"
-      location:
-        location: "Sijainti"
-      visibility:
-        visibility: "Näkyvyys"
-        everybody: "Kaikille internetin käyttäjille"
-        communities: "Omille Kassiyhteisöilleni"
-        this_community: "Vain %{community}-yhteisön jäsenille"
-      send_button:
-        save_request: "Tallenna pyyntö"
-        save_offer: "Tallenna tarjous"
-    show:
-      request: "Pyyntö"
-      offer: "Tarjous"
-      item_request: "Tavarapyyntö"
-      favor_request: "Palveluspyyntö"
-      rideshare_request: "Kyytitarve"
-      housing_request: "Asuntotarve"
-      item_offer: "Tavaratarjous"
-      favor_offer: "Palvelustarjous"
-      rideshare_offer: "Kyytitarjous"
-      housing_offer: "Asuntotarjous"
-      offer_author: "Tarjoaja"
-      request_author: "Pyytäjä"
-      offer_created: "Tarjous lisätty"
-      request_created: "Pyyntö lisätty"
-      share_types_offer: "Tarjoustapa"
-      share_types_request: "Pyyntötapa"
-      tags: "Avainsanat"
-      no_description: "Ei kuvausta"
-      comments: "Kommentit"
-      times_viewed: "Katsottu"
-      time: "kerta"
-      times: "kertaa"
-    comment_form:
-      write_comment: "Kirjoita uusi kommentti:"
-      send_comment: "Lähetä kommentti"
-      you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
-      you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
-      you_must: "Sinun täytyy"
-      log_in: "kirjautua sisään"
-      to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
+    please_comment: Kommentoi
     reply_link:
-      request_closed: "Pyyntö on suljettu"
       offer_closed: "Tarjous on suljettu"
-    edit_links:
-      edit_request: "Muokkaa pyyntöä"
-      edit_offer: "Muokkaa tarjousta"
-      close_request: "Sulje pyyntö"
-      close_offer: "Sulje tarjous"
-      reopen_request: "Avaa pyyntö uudelleen"
-      reopen_offer: "Avaa tarjous uudelleen"
-    link_labels:  
-      link_label_for_item_offer: "Pyydä tavara"
-      link_label_for_favor_offer: "Pyydä palvelus"
-      link_label_for_rideshare_offer: "Pyydä kyyti"
-      link_label_for_housing_offer: "Vastaa"
-      link_label_for_item_request: "Tarjoa tavara"
-      link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_rideshare_request: "Tarjoa kyyti"
-      link_label_for_housing_request: "Vastaa"
-    help_texts:
-      help_tags_title: "Avaisanat"
-      help_share_type_title: "Tarjous- tai pyyntötapa"
-      help_valid_until_title: "Viimeinen voimassaolopäivä"
-    edit:
-      edit_request: "Muokkaa pyyntöä"
-      edit_offer: "Muokkaa tarjousta"  
+      request_closed: "Pyyntö on suljettu"
+    show:
+      comments: Kommentit
+      favor_offer: Palvelustarjous
+      favor_request: Palveluspyyntö
+      housing_offer: Asuntotarjous
+      housing_request: Asuntotarve
+      item_offer: Tavaratarjous
+      item_request: Tavarapyyntö
+      no_description: "Ei kuvausta"
+      offer: Tarjous
+      offer_author: Tarjoaja
+      offer_created: "Tarjous lisätty"
+      request: Pyyntö
+      request_author: Pyytäjä
+      request_created: "Pyyntö lisätty"
+      rideshare_offer: Kyytitarjous
+      rideshare_request: Kyytitarve
+      share_types: Tarjoustavat
+      share_types_offer: Tarjoustapa
+      share_types_request: Pyyntötapa
+      tags: Avainsanat
+      time: kerta
+      times: kertaa
+      times_viewed: Katsottu
   mapview:
-    please_comment: "Kommentoi"
     index:
-      requests: "Pyynnöt"
-      offers: "Tarjoukset"
-      category: "Kategoria"
       all_categories: "Kaikki kategoriat"
-      request_type: "Pyyntötapa"
-      offer_type: "Tarjoustapa"
-      all_request_types: "Kaikki pyyntötavat"
       all_offer_types: "Kaikki tarjoustavat"
-      items: "Tavarat"
-      favors: "Palvelukset"
-      rideshare: "Kimppakyydit"
-      housing: "Asuminen"
-      list_view: "Listanäkymä"
-      map_view: "Karttanäkymä"
-      search_verb: "Hae"
+      all_request_types: "Kaikki pyyntötavat"
+      category: Kategoria
       did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
-      request_something: "Jätä avoin pyyntö!"
-      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+      favors: Palvelukset
+      housing: Asuminen
+      items: Tavarat
+      list_view: Listanäkymä
+      map_view: Karttanäkymä
       offer_something: "Laadi tarjous!"
+      offer_type: Tarjoustapa
+      offers: Tarjoukset
+      request_something: "Jätä avoin pyyntö!"
+      request_type: Pyyntötapa
+      requests: Pyynnöt
+      rideshare: Kimppakyydit
+      search_verb: Hae
+      you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
+    please_comment: Kommentoi
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
       you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
+    help_texts:
+      badges_description_title: Kassimerkit
+      feedback_description_title: Palaute
+      help_captcha_title: "Olethan ihminen"
+      terms_title: "Kassin käyttöehdot"
     new:
-      sign_up: "Luo uusi tunnus Kassiin"
-      visible_to_everybody: "näkyy kaikille"
-      visible_only_to_you: "näkyy vain sinulle"
-      not_required: ", ei pakollinen"
-      username: "Käyttäjätunnus:"
-      given_name: "Etunimi:"
-      family_name: "Sukunimi:"
+      address_validator: "Sijaintia ei löytynyt."
+      captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
+      captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
+      create_new_account: "Luo tunnus"
       email: "Sähköpostiosoite:"
+      email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
+      enter_captcha: "Olen ihminen:"
+      family_name: "Sukunimi:"
+      given_name: "Etunimi:"
+      i_accept_the: Hyväksyn
+      not_required: ", ei pakollinen"
       password: "Salasana:"
       password_again: "Salasana uudelleen:"
-      enter_captcha: "Olen ihminen:"
-      captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
-      create_new_account: "Luo tunnus"
-      i_accept_the: "Hyväksyn"
-      terms: "käyttöehdot"
+      sign_up: "Luo uusi tunnus Kassiin"
+      terms: käyttöehdot
+      username: "Käyttäjätunnus:"
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
-      email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
-      address_validator: "Sijaintia ei löytynyt."
+      visible_only_to_you: "näkyy vain sinulle"
+      visible_to_everybody: "näkyy kaikille"
     not_member:
-      this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
       explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
       read_more_about_kassi_communities: "Lue lisää Kassin yhteisöistä"
+      this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
     profile_badge:
-      first_transaction: "Ensimmäinen tapahtuma"
-      first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
-      rookie: "Tulokas"
-      rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen Kassiin. Tästä se lähtee!"
       active_member_bronze: "Kassiaktiivi (pronssi)"
       active_member_bronze_description: "Tämä oli jo kolmas tapahtumasi Kassissa! Sinusta on selvästi kuoriutumassa todellinen aktiivi. Jatka samaan malliin!"
-      active_member_silver: "Kassiaktiivi (hopea)"
-      active_member_silver_description: "Onneksi olkoon kymmenennen tapahtumasi johdosta! Sinun ansiostasi tavarat ja palvelukset kiertävät tehokkaasti. Hienoa!"
       active_member_gold: "Kassiaktiivi (kulta)"
       active_member_gold_description: "Kahdeskymmenesviides tapahtuma Kassissa, mahtavaa! Kuulut kassiaktiivien terävimpään kärkeen. Sinunlaisesi pitävät palvelun pyörät pyörimässä. Kiitos ja kumarrus!"
-      enthusiast_bronze: "Innokas (pronssi)"
-      enthusiast_bronze_description: "Olet käyttänyt Kassia jo viitenä päivänä. Sinusta alkaa pikku hiljaa tulla Kassin vakioasiakas."
-      enthusiast_silver: "Innokas (hopea)"
-      enthusiast_silver_description: "Kassi on osa päivittäistä elämänrytmiäsi: käyntikertoja on takana jo kuukauden päivät."
-      enthusiast_gold: "Innokas (kulta)"
-      enthusiast_gold_description: "Et malta pysyä poissa Kassista: olet käynyt palvelussa jo satana päivänä!"
-      commentator_bronze: "Kommentaattori (pronssi)"
-      commentator_bronze_description: "Keskustelet mielelläsi muiden Kassin käyttäjien kanssa. Olet jättänyt kolme kommenttia Kassissa oleviin pyyntöihin ja tarjouksiin."
-      commentator_silver: "Kommentaattori (hopea)"
-      commentator_silver_description: "10 kommenttia jätetty! Olet aktiivinen keskustelija."
-      commentator_gold: "Kommentaattori (kulta)"
-      commentator_gold_description: "30 kommenttia jätetty! Liikut Kassin yhteisössä kuin kotonasi, tutustut innokkaasti uusiin ihmisiin ja vaihdat ajatuksia näiden kanssa."
-      jack_of_all_trades: "Jokapaikanhöylä"
-      jack_of_all_trades_description: "Olet todellinen monitaituri! Olet ollut mukana resurssinvaihdoissa viidessä eri roolissa. Jatka samaan malliin ja kerää kaikki kahdeksan: tavaroiden tarjoaja, palvelusten tarjoaja, kyytien tarjoaja, asunnontarjoaja, tavaroiden tarvitsija, palveluksentarvitsija, kyydintarvitsija ja asunnontarvitsija."
-      listing_freak_bronze: "Ilmoittaja (pronssi)"
-      listing_freak_bronze_description: "Sinulla on viisi avointa pyyntöä ja/tai tarjousta listattuna Kassiin. Hienoa! Löytyisikö kaapistasi tai taitovalikoimastasi vielä jotakin, mistä olisi iloa muille?"
-      listing_freak_silver: "Ilmoittaja (hopea)"
-      listing_freak_silver_description: "20 avointa pyyntöä ja/tai tarjousta, kiitettävää listausaktiivisuutta!"
-      listing_freak_gold: "Ilmoittaja (kulta)"
-      listing_freak_gold_description: "40 avointa pyyntöä ja/tai tarjousta, mahtavaa! Lukeudut Kassin ahkerimpien sisällöntuottajien joukkoon."
-      generous_bronze: "Antelias (pronssi)"
-      generous_bronze_description: "Olet lahjoittanut tai lainannut jo kaksi kertaa tavaroitasi jollekulle toiselle."
-      generous_silver: "Antelias (hopea)"
-      generous_silver_description: "Jaat mielelläsi tavarasi muiden kanssa. 6 annettua tai lainattua tavaraa, hienoa!"
-      generous_gold: "Antelias (kulta)"
-      generous_gold_description: "Mikä on sinun, on myös muiden. Olet lainannut tai antanut kassissa tavaran jollekulle toiselle jo 15 kertaa, upeaa!"
-      moneymaker_bronze: "Tienaaja (pronssi)"
-      moneymaker_bronze_description: "Kassissa voi ansaita myös rahaa! Olet myynyt tai vuokrannut jo kaksi tavaraa."
-      moneymaker_silver: "Tienaaja (hopea)"
-      moneymaker_silver_description: "Saat Kassista mukavan lisän tienesteihisi. Jo kuusi myytyä tai vuokrattua tavaraa."
-      moneymaker_gold: "Tienaaja (kulta)"
-      moneymaker_gold_description: "15 myytyä tai vuokrattua tavaraa! Kassi on sinulle todella hyvä bisnes!"
-      helper_bronze: "Auttaja (pronssi)"
-      helper_bronze_description: "Olet tarjonnut jo kaksi kertaa apuasi toiselle käyttäjälle, mainiota!"
-      helper_silver: "Auttaja (hopea)"
-      helper_silver_description: "Tarjoat aktiivisesti apua muille: jo 6 tehtyä palvelusta!"
-      helper_gold: "Auttaja (kulta)"
-      helper_gold_description: "Olet oikea partiolainen: aina valmiina auttamaan, kun joku tarvitsee apua. Olet auttanut muita jo 15 kertaa!"
+      active_member_silver: "Kassiaktiivi (hopea)"
+      active_member_silver_description: "Onneksi olkoon kymmenennen tapahtumasi johdosta! Sinun ansiostasi tavarat ja palvelukset kiertävät tehokkaasti. Hienoa!"
       chauffer_bronze: "Kuski (pronssi)"
       chauffer_bronze_description: "Olet antanut jo kaksi kertaa kyydin toiselle käyttäjälle, hienoa!"
-      chauffer_silver: "Kuski (hopea)"
-      chauffer_silver_description: "6 tarjottua kyytiä, mainiota! Otat mielelläsi kyytiin matkaseuraa ollessasi autolla liikenteessä."
       chauffer_gold: "Kuski (kulta)"
       chauffer_gold_description: "15 kyyditystä! Suosit kimppakyytejä aina kun mahdollista. Oikea asenne, ympäristö kiittää!"
+      chauffer_silver: "Kuski (hopea)"
+      chauffer_silver_description: "6 tarjottua kyytiä, mainiota! Otat mielelläsi kyytiin matkaseuraa ollessasi autolla liikenteessä."
+      commentator_bronze: "Kommentaattori (pronssi)"
+      commentator_bronze_description: "Keskustelet mielelläsi muiden Kassin käyttäjien kanssa. Olet jättänyt kolme kommenttia Kassissa oleviin pyyntöihin ja tarjouksiin."
+      commentator_gold: "Kommentaattori (kulta)"
+      commentator_gold_description: "30 kommenttia jätetty! Liikut Kassin yhteisössä kuin kotonasi, tutustut innokkaasti uusiin ihmisiin ja vaihdat ajatuksia näiden kanssa."
+      commentator_silver: "Kommentaattori (hopea)"
+      commentator_silver_description: "10 kommenttia jätetty! Olet aktiivinen keskustelija."
+      enthusiast_bronze: "Innokas (pronssi)"
+      enthusiast_bronze_description: "Olet käyttänyt Kassia jo viitenä päivänä. Sinusta alkaa pikku hiljaa tulla Kassin vakioasiakas."
+      enthusiast_gold: "Innokas (kulta)"
+      enthusiast_gold_description: "Et malta pysyä poissa Kassista: olet käynyt palvelussa jo satana päivänä!"
+      enthusiast_silver: "Innokas (hopea)"
+      enthusiast_silver_description: "Kassi on osa päivittäistä elämänrytmiäsi: käyntikertoja on takana jo kuukauden päivät."
+      first_transaction: "Ensimmäinen tapahtuma"
+      first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
+      generous_bronze: "Antelias (pronssi)"
+      generous_bronze_description: "Olet lahjoittanut tai lainannut jo kaksi kertaa tavaroitasi jollekulle toiselle."
+      generous_gold: "Antelias (kulta)"
+      generous_gold_description: "Mikä on sinun, on myös muiden. Olet lainannut tai antanut kassissa tavaran jollekulle toiselle jo 15 kertaa, upeaa!"
+      generous_silver: "Antelias (hopea)"
+      generous_silver_description: "Jaat mielelläsi tavarasi muiden kanssa. 6 annettua tai lainattua tavaraa, hienoa!"
+      helper_bronze: "Auttaja (pronssi)"
+      helper_bronze_description: "Olet tarjonnut jo kaksi kertaa apuasi toiselle käyttäjälle, mainiota!"
+      helper_gold: "Auttaja (kulta)"
+      helper_gold_description: "Olet oikea partiolainen: aina valmiina auttamaan, kun joku tarvitsee apua. Olet auttanut muita jo 15 kertaa!"
+      helper_silver: "Auttaja (hopea)"
+      helper_silver_description: "Tarjoat aktiivisesti apua muille: jo 6 tehtyä palvelusta!"
+      jack_of_all_trades: Jokapaikanhöylä
+      jack_of_all_trades_description: "Olet todellinen monitaituri! Olet ollut mukana resurssinvaihdoissa viidessä eri roolissa. Jatka samaan malliin ja kerää kaikki kahdeksan: tavaroiden tarjoaja, palvelusten tarjoaja, kyytien tarjoaja, asunnontarjoaja, tavaroiden tarvitsija, palveluksentarvitsija, kyydintarvitsija ja asunnontarvitsija."
       lender_bronze: "Lainaaja (pronssi)"
       lender_bronze_description: "Olet asettanut kolme tavaraa lainattavaksi Kassiin, mainiota!"
-      lender_silver: "Lainaaja (hopea)"
-      lender_silver_description: "Kaapeissasi on paljon tavaroita, jotka voisit hyvin jakaa muiden kanssa: olet asettanut jo 10 lainatavaraa tarjolle Kassiin."
       lender_gold: "Lainaaja (kulta)"
       lender_gold_description: "Antaisit lähimmäisellesi vaikka paidan päältäsi. Olet listannut 25 tavaraa, jotka voisit lainata muille, mahtavaa!"
-      volunteer_bronze: "Vapaaehtoinen (pronssi)"
-      volunteer_bronze_description: "Haluat päästä hyödyntämään osaamistasi auttamalla muita. Sinulla on kolme avointa palvelustarjousta Kassissa."
-      volunteer_silver: "Vapaaehtoinen (hopea)"
-      volunteer_silver_description: "Sinulla on paljon annettavaa muille: olet listannut jo 10 avointa palvelustarjousta!"
-      volunteer_gold: "Vapaaehtoinen (kulta)"
-      volunteer_gold_description: "Et tiedä mitään parempaa kuin muiden auttaminen. Olet listannut profiiliisi 25 eri palvelustarjousta, hienoa!"
+      lender_silver: "Lainaaja (hopea)"
+      lender_silver_description: "Kaapeissasi on paljon tavaroita, jotka voisit hyvin jakaa muiden kanssa: olet asettanut jo 10 lainatavaraa tarjolle Kassiin."
+      listing_freak_bronze: "Ilmoittaja (pronssi)"
+      listing_freak_bronze_description: "Sinulla on viisi avointa pyyntöä ja/tai tarjousta listattuna Kassiin. Hienoa! Löytyisikö kaapistasi tai taitovalikoimastasi vielä jotakin, mistä olisi iloa muille?"
+      listing_freak_gold: "Ilmoittaja (kulta)"
+      listing_freak_gold_description: "40 avointa pyyntöä ja/tai tarjousta, mahtavaa! Lukeudut Kassin ahkerimpien sisällöntuottajien joukkoon."
+      listing_freak_silver: "Ilmoittaja (hopea)"
+      listing_freak_silver_description: "20 avointa pyyntöä ja/tai tarjousta, kiitettävää listausaktiivisuutta!"
+      moneymaker_bronze: "Tienaaja (pronssi)"
+      moneymaker_bronze_description: "Kassissa voi ansaita myös rahaa! Olet myynyt tai vuokrannut jo kaksi tavaraa."
+      moneymaker_gold: "Tienaaja (kulta)"
+      moneymaker_gold_description: "15 myytyä tai vuokrattua tavaraa! Kassi on sinulle todella hyvä bisnes!"
+      moneymaker_silver: "Tienaaja (hopea)"
+      moneymaker_silver_description: "Saat Kassista mukavan lisän tienesteihisi. Jo kuusi myytyä tai vuokrattua tavaraa."
+      rookie: Tulokas
+      rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen Kassiin. Tästä se lähtee!"
+      santa: Joulupukki
+      santa_description: "Onkos täällä kilttejä lapsia? Olet lahjoittanut vähintään yhden tavaran toiselle käyttäjälle joulukuussa."
       taxi_stand_bronze: "Taksitolppa (pronssi)"
       taxi_stand_bronze_description: "Olet laittanut kolme kertaa kyytitarjouksen Kassiin."
-      taxi_stand_silver: "Taksitolppa (hopea)"
-      taxi_stand_silver_description: "Kymmenen kyytitarjousta, hienoa! Ihmiset tietävät, että sinun puoleesi kannattaa kääntyä, jos on vailla kyytiä."
       taxi_stand_gold: "Taksitolppa (kulta)"
       taxi_stand_gold_description: "Päivystät jatkuvasti valmiina tarjoamaan kyytejä kanssaihmisillesi. 25 kyytitarjousta, upeaa!"
-      santa: "Joulupukki"
-      santa_description: "Onkos täällä kilttejä lapsia? Olet lahjoittanut vähintään yhden tavaran toiselle käyttäjälle joulukuussa."
+      taxi_stand_silver: "Taksitolppa (hopea)"
+      taxi_stand_silver_description: "Kymmenen kyytitarjousta, hienoa! Ihmiset tietävät, että sinun puoleesi kannattaa kääntyä, jos on vailla kyytiä."
+      volunteer_bronze: "Vapaaehtoinen (pronssi)"
+      volunteer_bronze_description: "Haluat päästä hyödyntämään osaamistasi auttamalla muita. Sinulla on kolme avointa palvelustarjousta Kassissa."
+      volunteer_gold: "Vapaaehtoinen (kulta)"
+      volunteer_gold_description: "Et tiedä mitään parempaa kuin muiden auttaminen. Olet listannut profiiliisi 25 eri palvelustarjousta, hienoa!"
+      volunteer_silver: "Vapaaehtoinen (hopea)"
+      volunteer_silver_description: "Sinulla on paljon annettavaa muille: olet listannut jo 10 avointa palvelustarjousta!"
     profile_feedback:
+      as_expected: "Vastasi odotuksia"
+      exceeded_expectations: "Ylitti täysin odotukset"
       grade: "arvio:"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
-      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      as_expected: "Vastasi odotuksia"
-      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
-      exceeded_expectations: "Ylitti täysin odotukset"
-      requested_item: "sai tavaran"
-      requested_favor: "sai palveluksen"
-      requested_rideshare: "sai kyydin"
-      requested_housing: "pyysi asunnon"
-      offered_item: "tarjosi tavaran"
       offered_favor: "teki palveluksen"
-      offered_rideshare: "tarjosi kyydin"
       offered_housing: "tarjosi asunnon"
+      offered_item: "tarjosi tavaran"
+      offered_rideshare: "tarjosi kyydin"
+      requested_favor: "sai palveluksen"
+      requested_housing: "pyysi asunnon"
+      requested_item: "sai tavaran"
+      requested_rideshare: "sai kyydin"
+      slightly_better_than_expected: "Ylitti jossain määrin odotukset"
+      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
     profile_listings:
-      offers: "Tarjoukset"
-      requests: "Pyynnöt"
       loading_more_offers: "Ladataan lisää tarjouksia"
       loading_more_requests: "Ladataan lisää pyyntöjä"
+      offers: Tarjoukset
+      requests: Pyynnöt
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
-      joined_this_community: "Liittynyt yhteisön jäseneksi"
-      address: "Sijainti:"
-      phone_number: "Puhelinnumero:"
-      about_me: "Tietoa minusta:"  
-      show_full_description: "Näytä koko teksti"
-      hide_description: "Vähemmän tekstiä"
-      edit_profile_info: "Muokkaa tietojasi"
-      feedback_average: "Palautteiden keskiarvo:"
-      less_than_expected: "Ei vastannut odotuksia"
-      slightly_less_than_expected: "Ei vastannut odotuksia"
+      about_me: "Tietoa minusta:"
+      address: "Osoite:"
       as_expected: "Vastasi odotuksia"
-      slightly_better_than_expected: "Ylitti odotukset"
+      badges: Kassimerkit
+      edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
-      show_all_feedback: "Näytä kaikki palautteet"
-      badges: "Kassimerkit"
-      what_are_these: "Mitä nämä ovat?"
+      feedback_average: "Palautteiden keskiarvo:"
+      hide_description: "Vähemmän tekstiä"
+      joined_this_community: "Liittynyt yhteisön jäseneksi"
+      less_than_expected: "Ei vastannut odotuksia"
+      phone_number: "Puhelinnumero:"
       show_all_badges: "Näytä kaikki kassimerkit"
+      show_all_feedback: "Näytä kaikki palautteet"
       show_all_testimonials: "Näytä kaikki palautteet"
-    help_texts:
-      help_captcha_title: "Olethan ihminen"
-      terms_title: "Kassin käyttöehdot"
-      badges_description_title: "Kassimerkit"
-      feedback_description_title: "Palaute"  
+      show_full_description: "Näytä koko teksti"
+      slightly_better_than_expected: "Ylitti odotukset"
+      slightly_less_than_expected: "Ei vastannut odotuksia"
+      what_are_these: "Mitä nämä ovat?"
   search:
     show:
-      search: "Haku"
-      search_verb: "Hae"
-      all_results: "Kaikista"
-      offers: "Tarjouksista"
-      requests: "Pyynnöistä"
-      search_results: "Hakutulokset"
+      all_results: Kaikista
       loading_more_search_results: "Ladataan lisää hakutuloksia"
+      offers: Tarjouksista
+      requests: Pyynnöistä
+      search: Haku
+      search_results: Hakutulokset
       search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
+      search_verb: Hae
   sessions:
     new:
-      login_to_kassi: "Kirjaudu sisään Kassiin"
-      username: "Käyttäjätunnus"
-      password: "Salasana"
-      login: "Kirjaudu sisään"
       create_new_account: "Luo uusi tunnus"
       i_forgot_my_password: "Salasana unohtunut"
+      login: "Kirjaudu sisään"
+      login_to_kassi: "Kirjaudu sisään Kassiin"
+      password: Salasana
+      username: Käyttäjätunnus
     password_forgotten:
-      email: "Sähköposti"
-      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen." 
+      email: Sähköposti
+      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen."
       request_new_password: "Pyydä uusi salasana"
   settings:
-    save_information: "Tallenna tiedot"  
+    account:
+      change: Vaihda
+      confirm_new_password: "Uusi salasana uudestaan"
+      email: "Sähköpostiosoite:"
+      new_email: "Uusi sähköpostiosoite"
+      new_password: "Uusi salasana"
+      password: "Salasana:"
+      save: Tallenna
+      these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
+      username: "Käyttäjätunnus:"
+    avatar:
+      add_avatar_submit: "Tallenna kuva"
+      update_profile_picture: "Profiilikuvan päivitys"
+    notifications:
+      email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
+      email_about_new_badges: "...olen ansainnut uuden kassimerkin"
+      email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
+      email_about_new_messages: "...joku lähettää minulle viestin"
+      email_about_new_received_testimonials: "...joku antaa minulle palautetta"
+      email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+      email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
+      email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+      i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
     profile:
+      about_you: "Tietoa sinusta:"
+      city: "Kaupunki:"
+      family_name: "Sukunimi:"
+      given_name: "Etunimi:"
+      phone_number: "Puhelinnumero:"
+      postal_code: "Postinumero:"
+      profile_page: profiilisivullasi
+      profilemap: Karttanäkymä
+      street_address: "Katuosoite:"
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille Kassin käyttäjille"
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
-      profile_page: "profiilisivullasi"
-      given_name: "Etunimi:"
-      family_name: "Sukunimi:"
-      street_address: "Sijainti:"
-      postal_code: "Postinumero:"
-      city: "Kaupunki:"
-      phone_number: "Puhelinnumero:"
-      about_you: "Tietoa sinusta:"
-      profilemap: "Karttanäkymä"
-    avatar:  
-      update_profile_picture: "Profiilikuvan päivitys"
-      add_avatar_submit: "Tallenna kuva"
-    account:
-      these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
-      email: "Sähköpostiosoite:"
-      new_email: "Uusi sähköpostiosoite"
-      save: "Tallenna"
-      change: "Vaihda"
-      username: "Käyttäjätunnus:"
-      password: "Salasana:"
-      new_password: "Uusi salasana"
-      confirm_new_password: "Uusi salasana uudestaan"   
-    notifications:
-      i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
-      email_about_new_messages: "...joku lähettää minulle viestin"
-      email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
-      email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
-      email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
-      email_about_new_badges: "...olen ansainnut uuden kassimerkin"
-      email_about_new_received_testimonials: "...joku antaa minulle palautetta"
-      email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
-      email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+    save_information: "Tallenna tiedot"
+  sms:
+    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
+    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
+    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
+    offer: ^tarjous$|^t$
+    or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
+    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
+    pay: maksa|maksu
+    payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
+    potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
+    request: ^pyyntö$|^p$
+    rideshare: kyyti
+    you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
+    you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
   tag_cloud:
     tag_used:
-      with_tag: "Avainsanalla"
+      with_tag: Avainsanalla
       without_tag: "Ilman avainsanaa"
   terms:
     show:
       accept_terms: "Kassin käyttöehtojen hyväksyminen"
-      you_need_to_accept: "Tervetuloa Kassiin! Tämä näyttäisi olevan ensimmäinen kerta, kun käytät palvelua. Ennen käytön aloittamista sinun täytyy vielä hyväksyä"
-      terms: "Kassin käyttöehdot"
+      here: täällä
+      i_accept_new_terms: "Hyväksyn uudet käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"
+      terms: "Kassin käyttöehdot"
       terms_have_changed: "Käyttöehdot ovat muuttuneet"
-      you_need_to_accept_new_terms: "Kassin käyttöehdot ovat muuttuneet. Sinun täytyy hyväksyä uudet ehdot, jotta voit jatkaa palvelun käyttöä. Uusien ehtojen tarkoituksena on mahdollistaa palvelun ylläpito tutkimusprojektin loppumisen jälkeen."
       you_can_view_the_new_terms: "Voit nähdä uudet ehdot"
-      here: "täällä"
-      i_accept_new_terms: "Hyväksyn uudet käyttöehdot"    
+      you_need_to_accept: "Tervetuloa Kassiin! Tämä näyttäisi olevan ensimmäinen kerta, kun käytät palvelua. Ennen käytön aloittamista sinun täytyy vielä hyväksyä"
+      you_need_to_accept_new_terms: "Kassin käyttöehdot ovat muuttuneet. Sinun täytyy hyväksyä uudet ehdot, jotta voit jatkaa palvelun käyttöä. Uusien ehtojen tarkoituksena on mahdollistaa palvelun ylläpito tutkimusprojektin loppumisen jälkeen."
   testimonials:
     index:
-      no_testimonials: "Ei saatuja palautteita."
       all_testimonials: "Kaikki palautteet"
-      loading_more_testimonials: "Ladataan lisää palautteita"
       feedback_altogether: "Palautteita yhteensä: "
+      loading_more_testimonials: "Ladataan lisää palautteita"
+      no_testimonials: "Ei saatuja palautteita."
     new:
+      as_expected: "Vastasi odotuksia"
+      exceeded_expectations: "Ylitti täysin odotukset"
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
       grade: "Arvio käyttäjän toiminnasta"
-      textual_feedback: "Perustelut"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
-      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      as_expected: "Vastasi odotuksia"
-      slightly_better_than_expected: "Ylitti osin odotukset"
-      exceeded_expectations: "Ylitti täysin odotukset"
       send_feedback: "Lähetä palaute"
+      slightly_better_than_expected: "Ylitti osin odotukset"
+      slightly_less_than_expected: "Ei täysin vastannut odotuksia"
+      textual_feedback: Perustelut
     testimonial:
-      from_user: "käyttäjältä"
-      to_user: "käyttäjälle"
-  sms:
-    rideshare: kyyti                      #may be a regular expression
-    pay: maksa|maksu                      #may be a regular expression
-    offer: ^tarjous$|^t$                        #may be a regular expression
-    request: ^pyyntö$|^p$                       #may be a regular expression
-    parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
-    #" Kimppakyytiviestin tulisi olla muotoa: 'kassi kyyti pyyntö/tarjous lähtöpaikka määränpää aika (vapaaehtoinen listätieto)'" #This should be included in the message if longer message available
-    potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
-    you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
-    or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
-    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
-    you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
-    payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
-    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
-    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
-  timestamps:
-    seconds_ago: "sekuntia sitten"
-    minute_ago:  "minuutti sitten"
-    minutes_ago: "minuuttia sitten"
-    hour_ago:    "tunti sitten"
-    hours_ago:   "tuntia sitten"
-    day_ago:     "päivä sitten"
-    days_ago:    "päivää sitten"
-    month_ago:   "kuukausi sitten"
-    months_ago:  "kuukautta sitten"
-    year_ago:    "vuosi sitten"
-    years_ago:   "vuotta sitten"    
-
-# Active record errors
-  activerecord:
-    models:
-      conversation: viesti
-      listing: ilmoitus
-    attributes:
-      conversation:
-        messages: "Viesti"
-        title: "Otsikko"
-        return_time: "Palautusajan"
-        items: ""
-      listing:
-        title: "Ilmoituksen otsikko" 
-        description: "Ilmoituksen kuvaus"
-        listing_images_image: ""  
-        valid_until: "Ilmoituksen viimeinen voimassaolopäivämäärä"
-        listing_images: ""
-        listing_images_image_content_type: ""
-        share_type: "Ilmoitustapa"
-      listing_image:
-        image: "kuva"
-      group:
-        title: "Ryhmän nimi"
-      person:
-        consent: "Tutkimussuostumus"
-
-
-# Default finnish translations for Ruby on Rails 
-# by Marko Seppä (marko.seppa@gmail.com)
-
-  date:
-    formats:
-      default: "%d.%m.%Y" #was originally "%e. %Bta %Y", but changed to same as short 'cos it's better default for Kassi
-      long: "%A%e. %Bta %Y"
-      short: "%d.%m.%Y"
- 
-    day_names: [Sunnuntai, Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Lauantai]
-    abbr_day_names: [Su, Ma, Ti, Ke, To, Pe, La]
-    month_names: [~, Tammikuu, Helmikuu, Maaliskuu, Huhtikuu, Toukokuu, Kesäkuu, Heinäkuu, Elokuu, Syyskuu, Lokakuu, Marraskuu, Joulukuu]
-    abbr_month_names: [~, tammikuuta, helmikuuta, maaliskuuta, huhtikuuta, toukokuuta, kesäkuuta, heinäkuuta, elokuuta, syyskuuta, lokakuuta, marraskuuta, joulukuuta]
-    order: [:day, :month, :year]
-
+      from_user: käyttäjältä
+      to_user: käyttäjälle
   time:
     formats:
-      default: "%a, %e. %b %Y %H:%M:%S %z"
       short: "%e. %b %Y kello %H:%M"
       shorter: "%e. %b klo %H:%M"
-      long: "%B %d, %Y %H:%M"
-      sms: "%e.%m. klo %H:%M" 
-    am: "aamupäivä"
-    pm: "iltapäivä"
-
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " ja "
-      last_word_connector: " ja "
-
-
-
-  number:
-    format:
-      separator: ","
-      delimiter: "."
-      precision: 3
-    
-    currency:
-      format:
-        format: "%n %u"
-        unit: "€"
-        separator: ","
-        delimiter: "."
-        precision: 2
-        
-    percentage:
-      format:
-        # separator:
-        delimiter: ""
-        # precision: 
-
-    precision:
-      format:
-        # separator:
-        delimiter: ""
-        # precision:
-        
-    human:
-      format:
-        delimiter: ""
-        precision: 1
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: "tavu"
-            other: "tavua"
-          kb: "kB" 
-          mb: "MB"
-          gb: "GB"
-          tb: "TB"
-
-  datetime:
-    distance_in_words:
-      half_a_minute: "puoli minuuttia"
-      less_than_x_seconds:
-        one:   "aiemmin kuin sekunti"
-        other: "aiemmin kuin %{count} sekuntia"
-      x_seconds:
-        one:   "sekunti"
-        other: "%{count} sekuntia"
-      less_than_x_minutes:
-        one:   "aiemmin kuin minuutti"
-        other: "aiemmin kuin %{count} minuuttia"
-      x_minutes:
-        one:   "minuutti"
-        other: "%{count} minuuttia"
-      about_x_hours:
-        one:   "noin tunti"
-        other: "noin %{count} tuntia"
-      x_days:
-        one:   "päivä"
-        other: "%{count} päivää"
-      about_x_months:
-        one:   "noin kuukausi"
-        other: "noin %{count} kuukautta"
-      x_months:
-        one:   "kuukausi"
-        other: "%{count} kuukautta"
-      about_x_years:
-        one:   "vuosi"
-        other: "noin %{count} vuotta"
-      over_x_years:
-        one:   "yli vuosi"
-        other: "yli %{count} vuotta"
-    prompts:
-      year:   "Vuosi"
-      month:  "Kuukausi"
-      day:    "Päivä"
-      hour:   "Tunti"
-      minute: "Minuutti"
-      second: "Sekuntia"
-  
-  activerecord:
-    errors:
-      messages:
-        record_invalid: "sisältö ei voi olla tyhjä."
-        
-  errors:
-    template:
-      header:
-        one:    "1 virhe esti tallentamisen"
-        other:  "%{count} virhettä esti tallentamisen"
-      body: "Seuraavat kentät aiheuttivat ongelmia:"
-    messages:
-      record_invalid: "sisältö ei voi olla tyhjä."
-      inclusion: "ei löydy listauksesta"
-      exclusion: "on jo varattu"
-      invalid: "ei kelpaa"
-      confirmation: "ei vastaa varmennusta"
-      accepted: "täytyy olla hyväksytty"
-      empty: "on pakollinen tieto"
-      blank: "on pakollinen tieto"
-      too_long: "on liian pitkä (maksimi on %{count} merkkiä)"
-      too_short: "on liian lyhyt (minimi on %{count} merkkiä)"
-      wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
-      taken: "on jo käytössä"
-      not_a_number: "ei ole numero"
-      greater_than: "täytyy olla suurempi kuin %{count}"
-      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin%{count}"
-      equal_to: "täytyy olla yhtä suuri kuin %{count}"
-      less_than: "täytyy olla pienempi kuin %{count}"
-      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin %{count}"
-      odd: "täytyy olla pariton"
-      even: "täytyy olla parillinen"
-    models:
-      person:
-        attributes:
-          consent:  
-            not_accepted: "täytyy hyväksyä"
-      conversation:
-        attributes:
-          return_time:
-            too_early: "pitää olla myöhäisempi kuin noutoajan"
-          items:
-            too_few_available: "Vain %{count} kappaletta tavaraa %{item_title} vapaana halutulla aikavälillä"
-            none_available: "Ei yhtään kappaletta tavaraa %{item_title} vapaana halutulla aikavälillä"
-          messages:
-            invalid: "Tyhjää viestiä ei voi lähettää"            
-      listing:
-        attributes:
-          valid_until:
-            blank: "syöttäminen on pakollista"
-            inclusion: "täytyy olla välillä nykyheti - yksi vuosi"
-          image_file:
-            format: "on oltava .gif, .jpg tai .png -muodossa"
-            size: "koon on oltava alle 5 megabittiä"
+      sms: "%e.%m. klo %H:%M"
+  timestamps:
+    day_ago: "päivä sitten"
+    days_ago: "päivää sitten"
+    hour_ago: "tunti sitten"
+    hours_ago: "tuntia sitten"
+    minute_ago: "minuutti sitten"
+    minutes_ago: "minuuttia sitten"
+    month_ago: "kuukausi sitten"
+    months_ago: "kuukautta sitten"
+    seconds_ago: "sekuntia sitten"
+    year_ago: "vuosi sitten"
+    years_ago: "vuotta sitten"
