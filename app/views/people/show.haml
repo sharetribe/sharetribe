@@ -78,7 +78,7 @@
           = image_tag "/images/icons/request_icon.png"
           .request_listing_link_label
             = t(".edit_profile_info")
-    - if @person.location && @person.location.address != ""
+    - if logged_in? && @person.location && @person.location.address != ""
       #googlemap
         = render :partial => "googlemap"
         = render :partial => "profile_location", :locals => { :location => @person.location }

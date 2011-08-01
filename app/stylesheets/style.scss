@@ -1266,6 +1266,7 @@ div.checkbox_float {
 #googlemap {
   margin-left: 10px;
   padding-bottom: 5px;
+  clear: both;
 }
 
 @mixin edit_listing_link($image_pos: 5px, $width: 268px) {
