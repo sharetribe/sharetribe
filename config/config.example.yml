@@ -13,6 +13,10 @@ default: &default_settings
   # If this is empty, will use the same domain for login
   login_domain: 
   
+  # Kassi can use an Aalto Social Interface server to store userinformation
+  # If you want to use an ASI server set this to true and specify server address and password below.
+  use_asi: true
+  
   #This is the url of the ASI server you want to use
   asi_url: "http://cos.alpha.sizl.org"
   # The following url will be used when handling passwords
