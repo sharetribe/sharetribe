@@ -60,7 +60,6 @@
   #listing_right_panel.grid_7.omega
     #listing_reply_link
       = render :partial => "reply_link"
-    - logger.info "Here we are0"
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       #googlemap
         = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
