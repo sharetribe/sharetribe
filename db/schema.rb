@@ -292,12 +292,12 @@ ActiveRecord::Schema.define(:version => 20110728110124) do
     t.string   "id",                  :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",            :default => 0
-    t.string   "locale",              :default => "fi"
+    t.integer  "is_admin",                          :default => 0
+    t.string   "locale",                            :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",   :default => 0
+    t.integer  "active_days_count",                 :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",   :default => 1
+    t.integer  "test_group_number",                 :default => 1
   end
 
   create_table "people_smerf_forms", :force => true do |t|
