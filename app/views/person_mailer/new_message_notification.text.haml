@@ -1,5 +1,7 @@
 = t("emails.new_message.has_sent_you_a_message_in_kassi", :sender => @message.sender.name)
 
+= t("emails.new_message.conversation_title", :title => @message.conversation.title)
+
 ***
 
 = @message.content
