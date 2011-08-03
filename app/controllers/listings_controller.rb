@@ -103,29 +103,22 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    
-    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
-                order("created_at DESC").find_with(params, @current_user, @current_community)
-    
-    
+    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group("listings.id").
+                order("listings.created_at DESC").find_with(params, @current_user, @current_community)
     render :json => { :data => @listings }
   end
   
   def listing_bubble
-    if params[:id] then
-      @listing = Listing.find params[:id]
-      render :partial => "homepage/recent_listing", :locals => {:listing => @listing}
+    if params[:id]
+      @listing = Listing.find(params[:id])
+      render :partial => "homepage/recent_listing", :locals => { :listing => @listing }
     end 
   end
   
-  def listing_all_bubbles
-    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group(:id).
-    order("created_at DESC").find_with(params, @current_user, @current_community)
-    @render_array = [];
-    @listings.each do |listing|
-      @render_array[@render_array.length] = render_to_string :partial => "bubble_listing", :locals => {:listing => listing}
-    end
-    render :json => { :info => @render_array }
+  # Used to show multiple listings in one bubble
+  def listing_bubble_multiple
+    @listings = Listing.find(params[:ids].split(","))
+    render :partial => "homepage/recent_listing", :collection => @listings, :as => :listing, :spacer_template => "homepage/request_spacer"
   end
 
   def show

@@ -432,7 +432,6 @@ class Listing < ActiveRecord::Base
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
     json_dict = {
-      :title => self.title,
       :listing_type => self.listing_type,
       :category => self.category,
       :id => self.id

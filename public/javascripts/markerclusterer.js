@@ -437,6 +437,7 @@ MarkerClusterer.prototype.pushMarkerTo_ = function(marker, markerContent) {
   }
   this.markers_.push(marker);
   this.markerContents_.push(markerContent);
+  //this.markerContents_.push("Plim");
 };
 
 
@@ -1070,28 +1071,31 @@ ClusterIcon.prototype.triggerClusterClick = function() {
   }
   if (sameLocation) {
   	if (!this.showingInfo_) {
-		this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
-		this.showingInfo_ = true;
-		var clusterContent = "<div style=\"width:360px; background-color:#FFFFFF\"><div style=\"height:10px;\"></div>";
-		for (var i = 0, marker; marker = markers[i]; i++) {
-			if (i > 0) clusterContent += "<div class=\"offer_spacer\"></div>";
-			clusterContent += this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];
-		}
-		clusterContent += "</div>";
-		this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
-		this.cluster_.markerClusterer_.infowindow_.open(this.map_, markers[0]);
-	}
-	else {
-		this.cluster_.markerClusterer_.infowindow_.close();
-		this.cluster_.markerClusterer_.showingMarker_="";
-		this.showingInfo_ = false;
-	}
-  }
-  else if (markerClusterer.isZoomOnClick()) {
+		  this.cluster_.markerClusterer_.showingMarker_=markers[0].getTitle();
+  		this.showingInfo_ = true;
+      this.cluster_.markerClusterer_.infowindow_.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 150px; padding-top: 75px;'><img src='/images/ajax-loader-grey.gif'></div></div>");
+      var ids = "";
+      for (var i = 0, marker; marker = markers[i]; i++) {
+        ids =  ids + this.cluster_.markerClusterer_.markerContents_[this.cluster_.markerIndex_[i]];
+        if (i < (markers.length - 1)) {
+          ids = ids + ",";
+        }
+      }
+      $.get('/en/listing_bubble_multiple/'+ids, function(data) {
+        $('#map_bubble').html(data);
+      });
+      //this.cluster_.markerClusterer_.infowindow_.setContent(clusterContent);
+  		this.cluster_.markerClusterer_.infowindow_.open(this.map_, markers[0]);
+	  } else {
+		  this.cluster_.markerClusterer_.infowindow_.close();
+		  this.cluster_.markerClusterer_.showingMarker_="";
+		  this.showingInfo_ = false;
+	  }
+  } else if (markerClusterer.isZoomOnClick()) {
     // Zoom into the cluster.
-	var z = this.map_.getZoom();
+	  var z = this.map_.getZoom();
     this.map_.fitBounds(this.cluster_.getBounds());
-	if ((this.map_.getZoom()-z)>2) this.map_.setZoom(z+2);
+	  if ((this.map_.getZoom()-z)>2) this.map_.setZoom(z+2);
   }
 };
 
