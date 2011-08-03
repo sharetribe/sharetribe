@@ -150,6 +150,7 @@ fi:
       you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
     new_message:
+      conversation_title: "Viestiketjun otsikko: %{title}"
       do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
       has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa:"
       you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
