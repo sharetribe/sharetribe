@@ -432,17 +432,8 @@ function addListingMarkers() {
   // Test requesting location data
   // Now the request_path needs to also have a query string with the wanted parameters
   
-  
   markerContents = [];
   markers = [];
-  
-  // $.get('/en/listings_bubbles/all',{ listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data){
-  //   var data_arr = data.info;
-  //    for (i in data_arr) {
-  //     var contentString = '<div style="background-color:#FFFFFF">'+data_arr[i]+'</div>';
-  //     markerContents[i]=contentString;
-  //   }
-  // });
   
   var starttime = new Date().getTime();
   var request_path = '/api/query'
