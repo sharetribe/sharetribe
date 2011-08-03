@@ -435,22 +435,24 @@ function addListingMarkers() {
   
   markerContents = [];
   markers = [];
-  $.get('/en/listings_bubbles/all',{ listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data){
-    var data_arr = data.info;
-		for (i in data_arr) {
-      var contentString = '<div style="background-color:#FFFFFF">'+data_arr[i]+'</div>';
-      markerContents[i]=contentString;
-    }
-  });
   
+  // $.get('/en/listings_bubbles/all',{ listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data){
+  //   var data_arr = data.info;
+  //    for (i in data_arr) {
+  //     var contentString = '<div style="background-color:#FFFFFF">'+data_arr[i]+'</div>';
+  //     markerContents[i]=contentString;
+  //   }
+  // });
+  
+  var starttime = new Date().getTime();
   var request_path = '/api/query'
 	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data) {	
 
 	  var data_arr = data.data;
-    
 		for (i in data_arr) {
 		  (function() {
 		    var entry = data_arr[i];
+		    markerContents[i] = entry["id"];
 		    if (entry["location"] || entry["origin_loc"]) {
 		      var location;
 		      location = new google.maps.LatLng(entry["origin_loc"]["latitude"], entry["origin_loc"]["longitude"]);
@@ -466,41 +468,34 @@ function addListingMarkers() {
             infowindow.close();
             directionsDisplay.setMap(null);
             flagMarker.setOptions({map:null});
-            if (showingMarker==marker.getTitle())
+            if (showingMarker==marker.getTitle()) {
               showingMarker = "";
-            else {
+            } else {
               showingMarker = marker.getTitle();
-              if (markerContents[ind]) {
-                infowindow.setContent(markerContents[ind]);
-                infowindow.open(map,marker);
-              }
-              else {
-                $.get('/en/listings_bubbles'+entry["id"], function(data) {
-                  var content = '<div style="background-color:#FFFFFF">'+data+'</div>';
-                  infowindow.setContent(content);
-                  infowindow.open(map,marker);
-                });
-              }
-              
-              if (entry["category"]=="rideshare") {
-                var end = new google.maps.LatLng(entry["destination_loc"]["latitude"], entry["destination_loc"]["longitude"]);
-                var request = {
-                  origin:location, 
-                  destination:end,
-                  travelMode: google.maps.DirectionsTravelMode.DRIVING
-                };
-                directionsDisplay.setMap(map);
-                directionsService.route(request, function(response, status) {
-                  if (status == google.maps.DirectionsStatus.OK) {
-                    directionsDisplay.setDirections(response);
-                  }
-                });
-                flagMarker.setOptions({
-                  position: end,
-                  map: map,
-                  icon: '/images/map_icons/flag_rideshare.png'
-                });
-              }
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 340px; height: 50px; padding: 25px 0;'><img src='/images/ajax-loader-grey.gif'></div></div>");
+              infowindow.open(map,marker);
+              $.get('/en/listing_bubble/'+entry["id"], function(data) {
+                $('#map_bubble').html(data);
+                if (entry["category"]=="rideshare") {
+                  var end = new google.maps.LatLng(entry["destination_loc"]["latitude"], entry["destination_loc"]["longitude"]);
+                  var request = {
+                    origin:location, 
+                    destination:end,
+                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                  };
+                  directionsDisplay.setMap(map);
+                  directionsService.route(request, function(response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                      directionsDisplay.setDirections(response);
+                    }
+                  });
+                  flagMarker.setOptions({
+                    position: end,
+                    map: map,
+                    icon: '/images/map_icons/flag_rideshare.png'
+                  });
+                }
+              });
             }
           });
           google.maps.event.addListener(infowindow, 'closeclick', function() {
@@ -511,7 +506,7 @@ function addListingMarkers() {
     }
     markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
     imagePath: '/images/map_icons/group_'+listing_type});
-
+  
 	});
 }
 

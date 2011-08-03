@@ -42,4 +42,5 @@ for i in 1..500
     listing.share_types.build(:name => share_type)
   end
   listing.save
+  Community.find_by_domain("aalto").listings << listing
 end
