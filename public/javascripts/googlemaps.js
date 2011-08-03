@@ -471,11 +471,13 @@ function addListingMarkers() {
             else {
               showingMarker = marker.getTitle();
               if (markerContents[ind]) {
+                alert("Here1");
                 infowindow.setContent(markerContents[ind]);
                 infowindow.open(map,marker);
               }
               else {
-                $.get('/en/listings_bubbles'+entry["id"], function(data){
+                alert("Here2");
+                $.get('/en/listings_bubbles'+entry["id"], function(data) {
                   var content = '<div style="background-color:#FFFFFF">'+data+'</div>';
                   infowindow.setContent(content);
                   infowindow.open(map,marker);
