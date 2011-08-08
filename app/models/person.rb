@@ -394,14 +394,19 @@ class Person < ActiveRecord::Base
       super(params)
     else  
       #Handle location information
-	if self.location
-		self.location.delete
-	end
-        if params[:location]
-	self.location = Location.new(params[:location])
-	params[:location].each {|key| params[:location].delete(key)}
-	params.delete(:location)
-        end
+      if self.location 
+        #delete location always (it would be better to check for changes)
+        self.location.delete
+      end
+      if params[:location]
+        # Set the address part of the location to be similar to what the user wrote.
+        # the google_address field will store the longer string for the exact position.
+        params[:location][:address] = params[:street_address] if params[:street_address]
+        
+        self.location = Location.new(params[:location])
+        params[:location].each {|key| params[:location].delete(key)}
+        params.delete(:location)
+      end
 
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
