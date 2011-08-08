@@ -99,6 +99,7 @@ class Person < ActiveRecord::Base
   def set_default_preferences
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
+    self.preferences["email_about_weekly_events"] = true
     save
   end
   

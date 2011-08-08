@@ -159,6 +159,21 @@ fi:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
       you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+    newsletter:
+      weekly_news_from_kassi: "Viikon tapahtumat %{community}-kassiyhteisössä"
+      hi: "Hei %{name},"
+      update_on_what_is_happening: "Tässä yhteenveto siitä, mitä %{community}-kassissa tapahtuu juuri nyt."
+      newest_offers: "Muun muassa näitä tarjotaan:"
+      newest_requests: "Muun muassa näitä tarvitaan"
+      could_you_offer_something: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota?"
+      add: "Lisää"
+      an_offer: "tarjous"
+      a_request: "pyyntö"
+      to_kassi: "Kassiin"
+      check_everything_that_others_are: "katso mitä muut"
+      offering: "tarjoavat"
+      requesting: "pyytävät"
+      text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
     testimonial_reminder:
@@ -382,6 +397,8 @@ fi:
       profile: Profiilitiedot
       settings: Asetukset
   listings:
+    bubble_listing_not_visible:
+      listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
     comment_form:
       log_in: "kirjautua sisään"
       send_comment: "Lähetä kommentti"
@@ -761,16 +778,19 @@ fi:
     avatar:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"
-    notifications:
+    notification_checkbox:
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
+      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä Kassissa tapahtuu"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+    notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
+      newsletters: "Uutiskirjeet"
     profile:
       about_you: "Tietoa sinusta:"
       city: "Kaupunki:"

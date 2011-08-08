@@ -103,22 +103,30 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    @listings = Listing.includes(:share_types, :location, :author).open.joins(:location).group("listings.id").
-                order("listings.created_at DESC").find_with(params, @current_user, @current_community)
+    @listings = Listing.open.joins(:origin_loc).group("listings.id").
+                order("listings.created_at DESC").find_with(params, @current_user, @current_community).select("listings.id, listing_type, category, latitude, longitude")
     render :json => { :data => @listings }
   end
   
   def listing_bubble
     if params[:id]
       @listing = Listing.find(params[:id])
-      render :partial => "homepage/recent_listing", :locals => { :listing => @listing }
+      if @listing.visible_to?(@current_user, @current_community)
+        render :partial => "homepage/recent_listing", :locals => { :listing => @listing }
+      else
+        render :partial => "bubble_listing_not_visible"
+      end
     end 
   end
   
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
-    @listings = Listing.find(params[:ids].split(","))
-    render :partial => "homepage/recent_listing", :collection => @listings, :as => :listing, :spacer_template => "homepage/request_spacer"
+    @listings = Listing.find(params[:ids].split(",")).visible_to(@current_user, @current_community)
+    if @listings.size > 0
+      render :partial => "homepage/recent_listing", :collection => @listings, :as => :listing, :spacer_template => "homepage/request_spacer"
+    else
+      render :partial => "bubble_listing_not_visible"
+    end
   end
 
   def show
@@ -249,13 +257,11 @@ class ListingsController < ApplicationController
   # Ensure that only users with appropriate visibility settings can view the listing
   def ensure_authorized_to_view
     @listing = Listing.find(params[:id])
-    if @current_user
-      unless @listing.visible_to?(@current_user, @current_community)
+    unless @listing.visible_to?(@current_user, @current_community)
+      if @current_user
         flash[:error] = "you_are_not_authorized_to_view_this_content"
         redirect_to root and return
-      end
-    else
-      unless @listing.visibility.eql?("everybody")
+      else
         session[:return_to] = request.fullpath
         flash[:warning] = "you_must_log_in_to_view_this_content"
         redirect_to new_session_path and return

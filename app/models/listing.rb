@@ -431,17 +431,27 @@ class Listing < ActiveRecord::Base
   
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-    json_dict = {
+    # json_dict = {
+    #   :listing_type => self.listing_type,
+    #   :category => self.category,
+    #   :id => self.id,
+    #   :latitude => self.origin_loc.latitude,
+    #   :longitude => self.origin_loc.longitude
+    # }
+    # 
+    # json_dict[:location] = self.location.as_json if self.location
+    # json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
+    # json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
+    # 
+    # json_dict
+    
+    {
       :listing_type => self.listing_type,
       :category => self.category,
-      :id => self.id
+      :id => self.id,
+      :latitude => self.origin_loc.latitude,
+      :longitude => self.origin_loc.longitude
     }
-    
-    json_dict[:location] = self.location.as_json if self.location
-    json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
-    json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
-    
-    json_dict
   end
   
 end

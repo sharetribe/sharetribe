@@ -158,6 +158,21 @@ en:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in Kassi"
       you_can_give_feedback_to: "You can give feedback to %{name} in"
       you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
+    newsletter:
+      weekly_news_from_kassi: "Weekly news from %{community} Kassi"
+      hi: "Hi %{name},"
+      update_on_what_is_happening: "Take a peek on what's happening in %{community} Kassi right now."
+      newest_offers: "What people currently offer to others"
+      newest_requests: "What people currently need"
+      could_you_offer_something: "Could you share something that others might need? Or do you need something that others might have?"
+      add: "Add"
+      an_offer: "an offer"
+      a_request: "a request"
+      to_kassi: "to Kassi"
+      check_everything_that_others_are: "check everything that the others are"
+      offering: "offering"
+      requesting: "requesting"
+      text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in Kassi!"
     testimonial_reminder:
@@ -381,6 +396,8 @@ en:
       profile: "Profile info"
       settings: Settings
   listings:
+    bubble_listing_not_visible:
+      listing_not_visible: "You do not have permission to view this listing."
     comment_form:
       log_in: "log in"
       send_comment: "Send comment"
@@ -760,16 +777,19 @@ en:
     avatar:
       add_avatar_submit: "Save picture"
       update_profile_picture: "Update profile picture"
-    notifications:
+    notification_checkbox:
       email_about_accept_reminders: "...I have forgotten to accept an event"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
       email_about_new_messages: "...somebody sends me a message"
       email_about_new_received_testimonials: "...somebody gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
+      email_about_weekly_events: "Send me an email every week on what is happening in Kassi"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
+    notifications:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
+      newsletters: "Newsletters"
     profile:
       about_you: "About you:"
       city: "City:"

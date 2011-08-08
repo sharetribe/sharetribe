@@ -2075,14 +2075,18 @@ span.profile_settings_visibility_info {
 	margin: 0 0 20px 3px;
 }
 
-#settings_form_notifications_description {
-	margin: 0 0 0px 3px;
+#newsletter_checkbox_container {
+  margin-bottom: 10px;
+}
+
+.settings_form_notifications_description {
+	margin: 0 0 0 3px;
 	h2 {
 		margin-bottom: 10px;
 	}	
 }
 
-#settings_notification_checkboxes {
+.settings_notification_checkboxes {
 	overflow: hidden;
 	margin-left: 10px;
 }

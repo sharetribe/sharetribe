@@ -29,3 +29,7 @@ end
 every 1.day, :at => '1am' do
   rake "ressi:upload"
 end
+
+every :tuesday, :at => "2pm" do
+  runner "PersonMailer.deliver_newsletters"
+end

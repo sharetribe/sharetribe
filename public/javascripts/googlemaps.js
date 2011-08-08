@@ -444,9 +444,9 @@ function addListingMarkers() {
 		  (function() {
 		    var entry = data_arr[i];
 		    markerContents[i] = entry["id"];
-		    if (entry["location"] || entry["origin_loc"]) {
+		    if (entry["latitude"]) {
 		      var location;
-		      location = new google.maps.LatLng(entry["origin_loc"]["latitude"], entry["origin_loc"]["longitude"]);
+		      location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
           var marker = new google.maps.Marker({
             position: location,
             title: entry["title"],
@@ -463,7 +463,7 @@ function addListingMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 340px; height: 50px; padding: 25px 0;'><img src='/images/ajax-loader-grey.gif'></div></div>");
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='/images/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
               $.get('/en/listing_bubble/'+entry["id"], function(data) {
                 $('#map_bubble').html(data);
