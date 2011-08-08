@@ -41,7 +41,7 @@
     %h1= @person.name
     #profile_info
       = t(".joined_this_community")
-      = l(@community_membership.created_at, :format => :short) + "."
+      = l(@community_membership.created_at.to_date) + "."
       %br/
       %br/
       - if logged_in?
@@ -49,7 +49,7 @@
           .profile_info_row_title
             = t(".address")
           .profile_info_row_content
-            = @person.unstructured_address
+            = @person.location.address
         .profile_info_row    
           .profile_info_row_title
             = t(".phone_number")

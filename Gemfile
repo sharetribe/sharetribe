@@ -42,6 +42,7 @@ gem 'json'
 gem 'russian'
 gem 'web_translate_it', '<= 1.7.4.5'
 gem 'postmark-rails'
+gem 'rails-i18n'
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19" #
