@@ -120,6 +120,30 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
   
+  def newsletter(recipient, community)
+    @community = community
+    @recipient = recipient
+    set_locale @recipient.locale
+    @url_base = "http://#{@community.domain}.#{APP_CONFIG.domain}/#{recipient.locale}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    @requests = @community.listings.open.requests.visible_to(@recipient, @community).limit(5)
+    @offers = @community.listings.open.offers.visible_to(@recipient, @community).limit(5)
+    mail(:to => @recipient.email,
+         :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)))
+  end
+  
+  def self.deliver_newsletters
+    Community.all.each do |community|
+      if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
+        community.members.each do |member|
+          if member.preferences["email_about_weekly_events"]
+            PersonMailer.newsletter(member, community).deliver
+          end
+        end
+      end
+    end
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)

@@ -51,5 +51,11 @@ class Community < ActiveRecord::Base
       return false
     end
   end
+  
+  # If community name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def name_with_separator(locale)
+    (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
+  end
 
 end
