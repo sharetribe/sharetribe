@@ -75,7 +75,7 @@
       #header.container_24
         .grid_3
           #logo
-            = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+            = render :file => community_file("logo", false)
         .grid_9
           .grid_3.alpha
             = render :file => community_file("logo_text", false)
