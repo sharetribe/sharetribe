@@ -115,7 +115,8 @@ class Listing < ActiveRecord::Base
   end
   
   # Filter out listings that current user cannot see
-  def self.visible_to(current_user, current_community)
+  def self.visible_to(current_user, current_community, ids=nil)
+    id_condition = ids ? ids : "SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}'"
     if current_user
       where("
         (listings.visibility = 'everybody' 
@@ -127,10 +128,10 @@ class Listing < ActiveRecord::Base
             WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
           )
         ))
-        AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')
+        AND listings.id IN (#{id_condition})
       ")
     else 
-      where("listings.visibility = 'everybody' AND listings.id IN (SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}')")
+      where("listings.visibility = 'everybody' AND listings.id IN (#{id_condition})")
     end
   end
   
