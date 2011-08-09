@@ -121,7 +121,7 @@ class ListingsController < ApplicationController
   
   # Used to show multiple listings in one bubble
   def listing_bubble_multiple
-    @listings = Listing.find(params[:ids].split(",")).visible_to(@current_user, @current_community)
+    @listings = Listing.visible_to(@current_user, @current_community, params[:ids])
     if @listings.size > 0
       render :partial => "homepage/recent_listing", :collection => @listings, :as => :listing, :spacer_template => "homepage/request_spacer"
     else
