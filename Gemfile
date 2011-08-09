@@ -28,7 +28,7 @@ gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem "will_paginate", "~> 3.0.pre2"
-gem 'whenever', "~> 0.5.0"
+gem 'whenever'
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
