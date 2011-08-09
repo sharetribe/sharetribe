@@ -49,7 +49,7 @@
           .profile_info_row_title
             = t(".address")
           .profile_info_row_content
-            = @person.location.address
+            = @person.location.address if @person.location.present?
         .profile_info_row    
           .profile_info_row_title
             = t(".phone_number")
