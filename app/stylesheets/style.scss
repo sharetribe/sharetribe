@@ -1290,6 +1290,14 @@ a.close_listing {
 	@include edit_listing_link(-71px);
 }
 
+a.activate_person {
+	@include edit_listing_link(5px, 188px);
+}
+
+a.deactivate_person {
+	@include edit_listing_link(-71px, 188px);
+}
+
 a.edit_profile {
 	display: block;
 	height: 20px;
@@ -2796,3 +2804,10 @@ a.handle {
   overflow: hidden;
 }
 
+#inactive_notification_box {
+  border: solid 2px $warning_border;
+  background: $warning_bg;
+  padding: 15px 20px 10px 20px;
+  width: 655px;
+  margin-bottom: 20px;
+}

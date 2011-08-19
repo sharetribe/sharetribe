@@ -136,7 +136,7 @@ class PersonMailer < ActionMailer::Base
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
-          if member.preferences["email_about_weekly_events"]
+          if member.should_receive?("email_about_weekly_events")
             PersonMailer.newsletter(member, community).deliver
           end
         end

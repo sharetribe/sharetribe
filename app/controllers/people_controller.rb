@@ -7,6 +7,7 @@ class PeopleController < ApplicationController
   end
   
   before_filter :person_belongs_to_current_community, :only => :show
+  before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   helper_method :show_closed?
   
@@ -137,6 +138,14 @@ class PeopleController < ApplicationController
   def not_member
   end
 
+  def activate
+    change_active_status("activated")
+  end
+  
+  def deactivate
+    change_active_status("deactivated")
+  end
+
   private
   
   def verify_recaptcha_unless_already_accepted(options={})
@@ -150,7 +159,25 @@ class PeopleController < ApplicationController
       end
       return accepted
     end
-    
+  end
+  
+  
+  def change_active_status(status)
+    @person = Person.find(params[:id])
+    #@person.update_attribute(:active, 0)
+    @person.update_attribute(:active, (status.eql?("activated") ? true : false))
+    @person.listings.update_all(:open => false) if status.eql?("deactivated") 
+    notice = "person_#{status}"
+    respond_to do |format|
+      format.html { 
+        flash[:notice] = notice
+        redirect_to @person
+      }
+      format.js {
+        flash.now[:notice] = notice
+        render :layout => false 
+      }
+    end
   end
   
 end

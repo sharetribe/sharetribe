@@ -18,7 +18,7 @@ class Participation < ActiveRecord::Base
   def send_testimonial_reminder(host)
     if feedback_can_be_given?
       update_attribute(:is_read, false)
-      if person.preferences["email_about_testimonial_reminders"]
+      if person.should_receive?("email_about_testimonial_reminders")
         PersonMailer.testimonial_reminder(self, host).deliver
       end
     end

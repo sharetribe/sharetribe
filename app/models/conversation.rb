@@ -69,7 +69,7 @@ class Conversation < ActiveRecord::Base
   # Send email notification to message receivers and returns the receivers
   def send_email_to_participants(host)
     recipients(messages.last.sender).each do |recipient|
-      if recipient.preferences["email_about_new_messages"]
+      if recipient.should_receive?("email_about_new_messages")
         PersonMailer.new_message_notification(messages.last, host).deliver
       end  
     end
@@ -83,7 +83,7 @@ class Conversation < ActiveRecord::Base
   def change_status(new_status, current_user, request)
     update_attribute(:status, new_status)
     participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
-    if other_party(current_user).preferences["email_when_conversation_#{new_status}"]
+    if other_party(current_user).should_receive?("email_when_conversation_#{new_status}")
       PersonMailer.conversation_status_changed(self, request.host).deliver
     end      
   end

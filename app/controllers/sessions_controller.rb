@@ -42,6 +42,7 @@ class SessionsController < ApplicationController
     session[:person_id] = @session.person_id
       
     flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
+    @current_user.update_attribute(:active, true) unless @current_user.active?
     if session[:return_to]
       redirect_to domain + session[:return_to]
       session[:return_to] = nil

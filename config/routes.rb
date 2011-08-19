@@ -81,6 +81,8 @@ Kassi::Application.routes.draw do
       end
       member do 
         put :update_avatar
+        put :activate
+        put :deactivate
       end
       resources :listings do
         member do 
