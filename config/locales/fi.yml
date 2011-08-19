@@ -356,6 +356,8 @@ fi:
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
+      person_activated: "Käyttäjä aktivoitu"
+      person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
       person_updated_successfully: "Tiedot päivitetty"
       read_more: "Lue lisää!"
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
@@ -367,6 +369,7 @@ fi:
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
       rideshare_request_message_sent: "Kyytitarjous lähetetty"
+      this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä Kassiyhteisöstä."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
       welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
@@ -522,11 +525,11 @@ fi:
       trades: Vaihdetaan
     link_labels:
       link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_favor_request: "Tarjoa apuasi"
+      link_label_for_favor_request: "Tarjoa apua"
       link_label_for_housing_offer: Vastaa
       link_label_for_housing_request: Vastaa
       link_label_for_item_offer: "Pyydä tavaraa"
-      link_label_for_item_request: "Tarjoa tavaraasi"
+      link_label_for_item_request: "Tarjoa tavaraa"
       link_label_for_rideshare_offer: "Pyydä kyytiä"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
     listed_listing:
@@ -596,11 +599,17 @@ fi:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
       you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
+    edit_links:
+      activate: "Aktivoi"
+      deactivate: "Muuta epäaktiiviseksi"
     help_texts:
       badges_description_title: Kassimerkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       terms_title: "Kassin käyttöehdot"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen Kassissa"
+      inactive_description: "Tämä käyttäjä on lopettanut Kassin käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
     new:
       address_validator: "Sijaintia ei löytynyt."
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
@@ -778,7 +787,9 @@ fi:
     avatar:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"
-    notification_checkbox:
+    notifications:
+      i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
+      newsletters: "Uutiskirjeet"
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
@@ -788,9 +799,6 @@ fi:
       email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä Kassissa tapahtuu"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
-    notifications:
-      i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
-      newsletters: "Uutiskirjeet"
     profile:
       about_you: "Tietoa sinusta:"
       city: "Kaupunki:"

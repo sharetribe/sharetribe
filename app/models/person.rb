@@ -539,7 +539,7 @@ class Person < ActiveRecord::Base
     unless has_badge?(badge_name)
       badge = Badge.create(:person_id => id, :name => badge_name)
       BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
-      if preferences["email_about_new_badges"]
+      if should_receive?("email_about_new_badges")
         PersonMailer.new_badge(badge, host).deliver
       end
     end
@@ -584,6 +584,10 @@ class Person < ActiveRecord::Base
   
   def has_admin_rights_in?(community)
     is_admin? || is_admin_of?(community)
+  end
+  
+  def should_receive?(email_type)
+    active && preferences[email_type]
   end
   
   private

@@ -6,6 +6,9 @@
   
 .grid_6
   = large_avatar_thumb(@person)
+  - if @current_user && @current_user.is_admin?
+    #edit_links
+      = render :partial => "edit_links"
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
     .profile_badges_header
       = "#{t('.badges')} (#{@person.badges.size})"
@@ -37,6 +40,8 @@
         
         
 .grid_18
+  #inactive_notification
+    = render :partial => "inactive_notification"
   .grid_11.alpha
     %h1= @person.name
     #profile_info

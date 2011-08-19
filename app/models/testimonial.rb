@@ -23,7 +23,7 @@ class Testimonial < ActiveRecord::Base
   
   def notify_receiver(host)
     TestimonialNotification.create(:testimonial_id => id, :receiver_id => receiver.id)
-    if receiver.preferences["email_about_new_received_testimonials"]
+    if receiver.should_receive?("email_about_new_received_testimonials")
       PersonMailer.new_testimonial(self, host).deliver
     end
   end

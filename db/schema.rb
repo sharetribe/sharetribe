@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110808161514) do
+ActiveRecord::Schema.define(:version => 20110817123457) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -299,6 +299,7 @@ ActiveRecord::Schema.define(:version => 20110808161514) do
     t.integer  "active_days_count",                 :default => 0
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                 :default => 1
+    t.boolean  "active",                            :default => true
   end
 
   create_table "people_smerf_forms", :force => true do |t|

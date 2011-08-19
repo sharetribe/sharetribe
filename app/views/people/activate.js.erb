@@ -1,0 +1,8 @@
+/* Display notice */
+$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
+
+/* Update edit links */
+$("#edit_links").html("<%= escape_javascript(render(:partial => 'people/edit_links')) %>");
+
+/* Update inactive notification */
+$("#inactive_notification").html("<%= escape_javascript(render(:partial => 'people/inactive_notification')) %>");

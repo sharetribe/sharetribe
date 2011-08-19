@@ -355,6 +355,8 @@ en:
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
       only_listing_author_can_edit_a_listing: "Only listing author can edit a listing"
       password_recovery_sent: "Instructions to change your password were sent to your email."
+      person_activated: "User activated"
+      person_deactivated: "User deactivated"
       person_updated_successfully: "Information updated"
       read_more: "Read more!"
       reply_cannot_be_empty: "You can't send an empty message"
@@ -366,6 +368,7 @@ en:
       request_updated_successfully: "Request updated successfully"
       rideshare_offer_message_sent: "Ride request sent successfully"
       rideshare_request_message_sent: "Ride offer sent successfully"
+      this_content_is_not_available_in_this_community: "This content is not available in this community."
       unknown_error: "Unknown error. Please use the feedback link to send details about what happened."
       update_error: "An error occurred when trying to update your information, please try again"
       welcome_message: "Welcome to Kassi! Kassi is a service that helps the members of the %{community} community to do each other favors, sell and lend items to each other, organize car pooling and help each other in many other ways."
@@ -595,11 +598,17 @@ en:
     badge_description:
       badge_achieved_at: "Badge achieved "
       you_do_not_yet_have_this_badge: "Badge has not yet been achieved."
+    edit_links:
+      activate: "Activate"
+      deactivate: "Deactivate"
     help_texts:
       badges_description_title: Badges
       feedback_description_title: Feedback
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "This user is no longer active in Kassi"
+      inactive_description: "This user has stopped using Kassi. You cannot contact this user, give feedback to them or comment their listings."
     new:
       address_validator: "The location was not found."
       captcha_incorrect: "reCAPTCHA check failed. Please write the words in the image to the box below."
@@ -777,7 +786,9 @@ en:
     avatar:
       add_avatar_submit: "Save picture"
       update_profile_picture: "Update profile picture"
-    notification_checkbox:
+    notifications:
+      i_want_to_get_email_notification_when: "I want to get an email notification when..."
+      newsletters: "Newsletters"
       email_about_accept_reminders: "...I have forgotten to accept an event"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
@@ -787,9 +798,6 @@ en:
       email_about_weekly_events: "Send me an email every week on what is happening in Kassi"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
-    notifications:
-      i_want_to_get_email_notification_when: "I want to get an email notification when..."
-      newsletters: "Newsletters"
     profile:
       about_you: "About you:"
       city: "City:"

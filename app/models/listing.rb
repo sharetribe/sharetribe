@@ -146,16 +146,7 @@ class Listing < ActiveRecord::Base
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
     else
-      Listing.count_by_sql("
-        SELECT count(id) 
-        FROM listings 
-        WHERE visibility = 'everybody'
-        AND id IN (
-          SELECT listing_id 
-          FROM communities_listings 
-          WHERE community_id = '#{current_community.id}'
-        )
-      ") > 0
+      current_community.listings.include?(self) && self.visibility.eql?("everybody")
     end
   end
   
