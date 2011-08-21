@@ -99,3 +99,7 @@ end
 Factory.define :contact_request do |c|
   c.email "test@example.com"
 end
+
+Factory.define :invitation do |c|
+  c.community_id 1
+end

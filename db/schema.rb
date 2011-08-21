@@ -10,7 +10,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817123457) do
+
+ActiveRecord::Schema.define(:version => 20110819123636) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110817123457) do
     t.boolean  "real_name_required",             :default => true
     t.boolean  "feedback_to_admin",              :default => false
     t.boolean  "automatic_newsletters",          :default => true
+    t.boolean  "join_with_invite_only",          :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -64,10 +66,11 @@ ActiveRecord::Schema.define(:version => 20110817123457) do
   create_table "community_memberships", :force => true do |t|
     t.string   "person_id"
     t.integer  "community_id"
-    t.boolean  "admin",        :default => false
+    t.boolean  "admin",         :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "consent",      :default => "KASSI_FI1.0"
+    t.string   "consent",       :default => "KASSI_FI1.0"
+    t.integer  "invitation_id"
   end
 
   create_table "contact_requests", :force => true do |t|
@@ -152,6 +155,16 @@ ActiveRecord::Schema.define(:version => 20110817123457) do
   create_table "groups_listings", :id => false, :force => true do |t|
     t.string  "group_id"
     t.integer "listing_id"
+  end
+
+  create_table "invitations", :force => true do |t|
+    t.string   "code"
+    t.integer  "community_id"
+    t.integer  "usages_left"
+    t.datetime "valid_until"
+    t.string   "information"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "item_reservations", :force => true do |t|
@@ -293,10 +306,10 @@ ActiveRecord::Schema.define(:version => 20110817123457) do
     t.string   "id",                  :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                          :default => 0
-    t.string   "locale",                            :default => "fi"
+    t.integer  "is_admin",            :default => 0
+    t.string   "locale",              :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                 :default => 0
+    t.integer  "active_days_count",   :default => 0
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                 :default => 1
     t.boolean  "active",                            :default => true
