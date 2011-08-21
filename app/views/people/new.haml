@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{t("people.new.email_is_in_use")}','#{t("people.new.captcha_was_wrong")}',#{@current_community.real_name_required?});
+  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{t("people.new.email_is_in_use")}','#{t("people.new.captcha_was_wrong")}', '#{t("people.new.invalid_invitation_code")}', #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 .grid_10.prefix_7.suffix_7
   #signup_form
@@ -7,6 +7,11 @@
       = t('.sign_up')
     = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
       = form.error_messages
+      - if @current_community.join_with_invite_only
+        .form_field_container
+          = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
+          %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
+          = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20"
       .form_field_container
         = form.label :username, t('.username'), :class => "before_description"
         %span.tiny_description
@@ -51,6 +56,6 @@
         = hidden_field_tag :community, @current_community.domain
         = submit_tag(t('.create_new_account'), :class => "send_button")
 
-= render :partial => "help_texts", :collection => ["help_captcha", "terms"], :as => :field
+= render :partial => "help_texts", :collection => ["help_captcha", "terms", "help_invitation_code"], :as => :field
         
         

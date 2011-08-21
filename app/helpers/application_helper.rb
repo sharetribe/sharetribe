@@ -129,4 +129,11 @@ module ApplicationHelper
     content_tag :iframe, nil, :src => "http://www.facebook.com/plugins/like.php?locale=#{I18n.locale}_#{I18n.locale.to_s.upcase}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=true&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 120, :height => 20
   end
   
+  def self.random_sting(length=6)
+    chars = ("a".."z").to_a + ("0".."9").to_a
+    random_string = ""
+    1.upto(length) { |i| random_string << chars[rand(chars.size-1)] }
+    return random_string
+  end
+  
 end

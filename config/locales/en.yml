@@ -606,6 +606,7 @@ en:
       feedback_description_title: Feedback
       help_captcha_title: "Are you human?"
       terms_title: "Kassi terms of use"
+      help_invitation_code_title: "You need and invite to join"
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in Kassi"
       inactive_description: "This user has stopped using Kassi. You cannot contact this user, give feedback to them or comment their listings."
@@ -630,6 +631,8 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you"
       visible_to_everybody: "visible to everybody"
+      invitation_code: "Invitation code:"
+      invalid_invitation_code: "The invitation code is not valid."
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. Kassi does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
       read_more_about_kassi_communities: "Read more about Kassi communities"

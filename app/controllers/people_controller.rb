@@ -36,6 +36,19 @@ class PeopleController < ApplicationController
     end
     domain = "http://#{with_subdomain(params[:community])}"
     
+    if @current_community.join_with_invite_only
+      # Check if invitation is valid
+      unless Invitation.code_usable?(params[:invitation_code], @current_community)
+        # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
+        ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
+        # TODO: if this ever happens, should change the message to something else than "unknown error"
+        flash[:error] = :unknown_error
+        redirect_to domain + sign_up_path and return
+      else
+        invitation = Invitation.find_by_code(params[:invitation_code].upcase)
+      end
+    end
+    
     @person = Person.new
     if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
@@ -59,7 +72,9 @@ class PeopleController < ApplicationController
       @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
       @person.set_default_preferences
       # Make person a member of the current community
-      CommunityMembership.create(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership.invitation = invitation if invitation.present?
+      membership.save!
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.
@@ -68,10 +83,14 @@ class PeopleController < ApplicationController
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
-      redirect_to domain + sign_up_path and return#{}"/#{I18n.locale}/signup"
+      redirect_to domain + sign_up_path and return
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    
+    # If invite was used, reduce usages left
+    invitation.use_once! if invitation.present?
+    
     PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
     redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
   end
@@ -120,6 +139,13 @@ class PeopleController < ApplicationController
       format.json { render :json => available }
     end
   end
+  
+  def check_invitation_code
+    respond_to do |format|
+      format.json { render :json => Invitation.code_usable?(params[:invitation_code], @current_community) }
+    end
+  end
+  
   
   def show_closed?
     params[:closed] && params[:closed].eql?("true")
