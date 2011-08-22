@@ -606,6 +606,7 @@ fi:
       badges_description_title: Kassimerkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
+      help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
       terms_title: "Kassin käyttöehdot"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen Kassissa"
@@ -621,6 +622,8 @@ fi:
       family_name: "Sukunimi:"
       given_name: "Etunimi:"
       i_accept_the: Hyväksyn
+      invalid_invitation_code: "Kutsukoodi ei kelpaa."
+      invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
       password: "Salasana:"
       password_again: "Salasana uudelleen:"
