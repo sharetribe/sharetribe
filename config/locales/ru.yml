@@ -22,7 +22,6 @@ ru:
       sell: продам
       temporary_accommodation: "временное проживание"
       trade: обменяю
-    test: ~
     what_is_this: "Что это?"
   conversations:
     index:
@@ -52,8 +51,8 @@ ru:
       rideshare_request_message_form_title: "Предложить поездку"
       rideshare_request_message_title: "Предложение совместной поездки: %{title}"
       send_a_new_message: "Отправить новое сообщение"
-      send_offer_message: ~
-      send_request_message: ~
+      send_offer_message: "Отправить предложение"
+      send_request_message: "Отправить запрос"
       title: Заголовок
     notifications:
       badgenotification:
@@ -150,6 +149,7 @@ ru:
       you_can_reply_to_comment_in: "Вы можете просмотреть комментарий и ответить на него"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в Kassi"
     new_message:
+      conversation_title: "Название цепочки сообщений: %{title}"
       do_not_reply_to_this_email: "Примечание: не отвечайте на это письмо. Используйте ссылку, приведённую ниже."
       has_sent_you_a_message_in_kassi: "%{sender} отправил вам сообщение в Kassi:"
       you_can_reply_to_message_in: "Вы можете ответить на это сообщение в"
@@ -158,6 +158,21 @@ ru:
       has_given_you_feedback_in_kassi: "%{name} оставил отзыв о вас в Kassi"
       you_can_give_feedback_to: "Вы можете оставить отзыв о %{name} здесь —"
       you_can_view_all_your_feedback_in: "Вы можете просмотреть все полученные вами отзывы здесь -"
+    newsletter:
+      a_request: запрос
+      add: Добавить
+      an_offer: предложение
+      check_everything_that_others_are: "посмотрите, что другие пользователи"
+      could_you_offer_something: "У вас есть что-нибудь, что может пригодиться другим? Или вам нужно что-либо, что может быть у других?"
+      hi: "Привет %{name},"
+      newest_offers: "Что люди предлагают сейчас"
+      newest_requests: "Что нужно людям сейчас"
+      offering: предлагают
+      requesting: запрашивают
+      text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
+      to_kassi: "на Kassi"
+      update_on_what_is_happening: "Посмотрите, что происходит в сообществе %{community} прямо сейчас."
+      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества «%{community}» на Kassi"
     reply_to_contact_request:
       thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
     testimonial_reminder:
@@ -304,7 +319,7 @@ ru:
       logout: Выйти
       notifications: Оповещения
       requests: "Запросы друзей"
-      settings: ~
+      settings: Настройки
       sign_up: Регистрация
     notifications:
       avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
@@ -340,6 +355,8 @@ ru:
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
       password_recovery_sent: "Инструкции по смене пароля отправлены на ваш почтовый ящик."
+      person_activated: "Пользователь активирован"
+      person_deactivated: "Пользователь отключен"
       person_updated_successfully: "Информация обновлена"
       read_more: "Узнать больше!"
       reply_cannot_be_empty: "Нельзя отправить пустое сообщение"
@@ -351,6 +368,7 @@ ru:
       request_updated_successfully: "Запрос успешно обновлён"
       rideshare_offer_message_sent: "Запрос на поездку успешно отправлен"
       rideshare_request_message_sent: "Предложение поездки успешно отправлено"
+      this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
       welcome_message: "Kassi - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
@@ -381,6 +399,8 @@ ru:
       profile: "Информация о вас"
       settings: Настройки
   listings:
+    bubble_listing_not_visible:
+      listing_not_visible: "У вас нет прав для просмотра этой записи."
     comment_form:
       log_in: войти
       send_comment: Отправить
@@ -578,11 +598,18 @@ ru:
     badge_description:
       badge_achieved_at: "Значок заработан "
       you_do_not_yet_have_this_badge: "Значок пока не заработан."
+    edit_links:
+      activate: Активировать
+      deactivate: Отключить
     help_texts:
       badges_description_title: Значки
       feedback_description_title: Отзывы
       help_captcha_title: "Вы человек?"
+      help_invitation_code_title: "Для того, чтобы присоединиться требуется приглашение"
       terms_title: "Условия использования Kassi"
+    inactive_notification:
+      inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
+      this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
     new:
       address_validator: "Местоположение не найдено."
       captcha_incorrect: "Проверка на ввод символов не пройдена. Введите символы с картинки в форму ниже."
@@ -594,6 +621,8 @@ ru:
       family_name: "Фамилия:"
       given_name: "Настоящее имя:"
       i_accept_the: "Я согласен с"
+      invalid_invitation_code: "Код приглашения недействителен."
+      invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
       password: "Пароль:"
       password_again: "Подтвердить пароль:"
@@ -767,9 +796,11 @@ ru:
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
+      email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на Kassi"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
+      newsletters: "Новостная рассылка"
     profile:
       about_you: "О вас:"
       city: "Город:"
