@@ -1,0 +1,8 @@
+notifications:
+  recipients:
+    - team@kassi.eu
+
+# select branches to build
+branches:
+  only:
+    - master
