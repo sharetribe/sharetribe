@@ -1,0 +1,78 @@
+%h3 Biedt items en gunsten aan
+
+%p
+  Heb je gereedschap, sport spullen, gekke outfits of andere items die je niet vaak gebruikt en aan anderen kan uitlenen, verkopen of weggeven? Ben je goed in het maken van fietsen, naaien of laat je graag een hond uit? Ben jij bereid om iemand een lift naar het werk te geven in ruil voor brandstof? Heb jij een appartement die je kan verhuren? 
+  = link_to "Voeg informatie over dit allemaal toe aan Kassi", new_request_path(:type => "Aanbod")
+  en ervaar het geluk van het helpen van je medemens!
+
+%p
+  Vergeet ook niet om 
+  = link_to("te kijken wat anderen op dit moment nodig hebben", requests_path) + "."
+  Misschien heb jij iets te bieden wat iemand anders nodig heeft.
+
+%p
+  Kassi probeert mensen, die iets nodig hebben of iets aan te bieden hebben, samen te brengen. Zij kunnen vrij discuseren over de manier van uitwisselen. Dit betekend dat je gratis anderen verkoopt, verhuurd en ruilt of geeft, leent en anderen helpt. 
+
+%h3 Vraag anderen wat je nodig hebt
+
+%p
+  Of je een item, gunst, rit of een appartement nodig hebt, het is allemaal te vinden door gebruik te maken van de zoekfunctie
+  = link_to("search", search_path) + "."
+  Je kan ook
+  = link_to("browse open offers", offers_path) + "."
+
+%p
+  Als iemand al iets aanbiedt wat jij nodig hebt, kan je op de "verzoek" of "beantwoord" link in het aanbod klikken en een bericht naar de persoon, die het aabod gemaakt heeft, sturen. Daarna hoef je alleen maar te wachten tot de andere jou verzoek accepteert. Over de manier van uitwisselen kan je uitkomen door gebruik te maken van Kassi's messaging functionaliteit. Je ontvangt een automatische email notificatie van alle nieuwe berichten en geaccepteerde verzoeken en aanbiedingen. Dus het is niet nodig om je email adres bekend te maken aan de andere partij, tenzij jij dat wilt. Je kan al jou ontvangen en verzonden berichten zien in de
+  - if logged_in?
+    = link_to("inbox", person_messages_path(:person_id => @current_user.id)) + ","
+  - else 
+    inbox,
+  welke je altijd kan openen door op het envelop icoontje boven aan elke pagina, te klikken.
+
+%p
+  Als je niet hIf you did not find what you are looking for, you can
+  = link_to("create an open request", new_request_path(:type => "request")) + ","
+  where you describe what you need. This request will be shown to all other Kassi users. It is very likely that somebody can offer just the thing you need.
+  
+%h3 Tips
+
+%p
+  The more trustworthy you appear to other people, the more eager they probably are to offer you the things you need. The easiest way to build your credibility is to
+  - if logged_in?
+    = link_to("fill out your profile information carefully", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    fill out your profile information carefully.
+  You should at least fill in your full name and
+  - if logged_in?
+    = link_to("add a recognizable profile picture of yourself", avatar_person_settings_path(:person_id => @current_user.id)) + "." 
+  - else
+    add a recognizable profile picture of yourself.
+
+%p
+  When you offer something to other users or they offer something to you, it's always good to give feedback to the other party after the transaction. Good feedback will make people happy, and if somebody doesn't go the way you think you should, it's also good to leave a note about that. All feedback is public and is shown in the profile of the person who received the feedback, and thus helps the other people to assess the credibility of that person. For that reason you should also remind others to give feedback to you, because the positive feedback builds your credibility in the eyes of others, and smoothens future transactions. You can give feedback by clicking the "Give Feedback" link on an accepted request or offer in the messages view.
+  
+-if APP_CONFIG.use_sms
+  %h3 Ridesharing with SMS
+  
+  %p Ridesharing offers and requests can be added also with sms. It can be a handy way to check available rides on the move or announce your driving plans when walking towards your car. Kassi will inform the offer author by sms if the number is in the profile in the international form (e.g. +358501234567), when matching offers are found in Kassi.
+
+  %p
+    Before posting offers or requests with sms you have to have added your mobile phone number
+    - if logged_in?
+      = link_to("in your profile.", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+    - else
+      in your profile.
+  
+  %p Messages should be sent to +358400312821 and be formed as: "kassi ride offer/request origin destination time (optional description)". For example:
+  %ul
+    %li kassi ride offer somestreet20 Helsinki 18:30 still place for two in the car
+    %li kassi ride request railwaystation,hämeenlinna Tampere 14:00
+  
+  %p Currently Kassi separates all parts by spaces, so write addres numbers or other clarifications without space, to correct results. Kassi will search for matching request and offers based on the locations given.
+  
+  %p The time is expected to be within next 24 hours, but it is possible to write exact date if you want, e.g. 24.11.2010-17:30.
+  
+  %p 
+    Sms features are still a work in progress, so there might be small glitches here and there. Please send  
+    = link_to "feedback", "#", :id => "give_feedback_link"
+    if you notices any problems or have ideas about how to improve the feature.

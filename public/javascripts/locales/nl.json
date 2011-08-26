@@ -1,22 +1,23 @@
 {
   "please_wait": null,
   "validation_messages": {
-    "accept": null,
-    "creditcard": null,
-    "date": null,
-    "dateISO": null,
-    "digits": null,
-    "email": null,
-    "equalTo": null,
-    "max": null,
-    "maxlength": null,
-    "min": null,
-    "minlength": null,
-    "number": null,
-    "range": null,
-    "rangelength": null,
-    "remote": null,
-    "required": null,
-    "url": null
+    "accept": "Vul alstublieft een waarde in met een geldige extensie.",
+    "creditcard": "Vul een geldig credit card nummer in alstublieft.",
+    "date": "Vul een geldige datum in alstublieft.",
+    "dateISO": "Vul een geldige date (ISO) in alstublieft.",
+    "digits": "Vul alleen cijfers in alstublieft.",
+    "email": "Vul een geldig email adres in alstublieft.",
+    "equalTo": "Vul dezelfde waarde opnieuw in.",
+    "max": "Vul een waarde minder of gelijk aan {0} in.",
+    "maxlength": "Vul alstublieft niet meer dan {0} tekens in.",
+    "min": "Vul een waarde groter of gelijk aan {0} in.",
+    "minlength": "Vul alstublieft op zijn minst {0} tekens in.",
+    "number": "Vul een geldig nummer in alstublieft.",
+    "range": "Vul een waarde tussen {0} en {1} in.",
+    "rangelength": "Vul alstublieft een waarde met een lengte tussen {0} en {1} in.",
+    "remote": "Herstel dit veld, alstublieft.",
+    "required": "Dit veld is verplicht.",
+    "url": "Vul een geldige URL in alstublieft."
   }
 }
+
