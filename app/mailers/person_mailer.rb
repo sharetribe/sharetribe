@@ -137,7 +137,12 @@ class PersonMailer < ActionMailer::Base
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
           if member.should_receive?("email_about_weekly_events")
-            PersonMailer.newsletter(member, community).deliver
+            begin
+              PersonMailer.newsletter(member, community).deliver
+            rescue Exception => e
+              # Catch the exception and continue sending the news letter
+              ApplicationHelper.send_error_notification("Error sending mail for weekly newsletter: #{e.message}", e.class)
+            end
           end
         end
       end
