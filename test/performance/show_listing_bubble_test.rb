@@ -11,7 +11,8 @@ class ShowListingBubbleTest < ActionController::PerformanceTest
   end
   
   def test_show_listing_bubble
-    get "test.lvh.me/en/listings_bubble/#{@listing.id.to_s}"
+    get "http://test.lvh.me/en/listings_bubble/#{@listing.id.to_s}"
+    assert_response :success
   end
   
 end
