@@ -6,20 +6,31 @@ require 'rails/performance_test_help'
 class BrowsingTest < ActionController::PerformanceTest
   
   def setup
-    author = Factory(:person)
-    60.times do
-      Factory(:listing, :author => Person.first)
+    @author = Factory(:person)
+    @community = Factory(:community, :domain => "test")
+    
+  end
+  
+  def create_listings(n=40)
+    40.times do |n|
+      Factory(:listing, :author => @author, 
+      :listing_type => ( n%2 == 0 ? "request" : "offer" ),
+      :share_types => [Factory(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
+      :communities => [@community])
     end
   end
   
   def test_homepage
-    get 'test.lvh.me'
+    create_listings
+    get 'http://test.lvh.me'
+    assert_response :success   
   end
   
   def test_new_request_page
-    get "en/listings/new/request"
-    
+    get "http://test.lvh.me/en/listings/new/request"
+    assert_response :success
   end
+  
   # def test_homepage_no_cache
   #   get '/?nocache=1'
   # end
