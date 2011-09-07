@@ -28,7 +28,7 @@ gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem "will_paginate", "~> 3.0.pre2"
-gem 'whenever'
+gem 'whenever', "0.6.8" # newer seems to cause "Invalid gemspec:invalid date format in specification" error
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
@@ -40,7 +40,7 @@ gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'win32-process', :platforms => [:mswin, :mingw]
 gem 'json'
 gem 'russian'
-gem 'web_translate_it', '<= 1.7.4.5'
+gem 'web_translate_it', '<= 1.7.4.5' # newer seems to cause "Invalid gemspec:invalid date format in specification" error
 gem 'postmark-rails'
 gem 'rails-i18n'
 
