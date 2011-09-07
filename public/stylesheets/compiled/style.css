@@ -1922,6 +1922,9 @@ a.edit_profile {
     margin: 0 400px 10px 0;
     background: red url("/images/error_arrow2.png") no-repeat top left; }
 
+.comment_checkbox_container {
+  padding: 5px 0 20px 0; }
+
 .message_form_field_container {
   margin-bottom: 5px; }
 
@@ -2600,14 +2603,14 @@ div.container_24, div.feedback_div {
   -moz-border-radius-bottomleft: 7px;
   -webkit-border-bottom-right-radius: 7px;
   -webkit-border-bottom-left-radius: 7px;
-  padding: 20px 20px 30px 20px;
+  padding: 20px 20px 35px 20px;
   width: 250px;
   background: #2f5707;
   color: white; }
   .feedback_div h3 {
     color: #f7f5e6;
     font-size: 16px;
-    margin-bottom: 15px; }
+    margin-bottom: 5px; }
 
 a.handle:hover {
   background-position: -40px 0; }
@@ -2634,7 +2637,8 @@ a.handle:hover {
       background-color: #9f7d4e; }
   #new_feedback_form label {
     float: left;
-    width: 235px; }
+    width: 235px;
+    margin-top: 10px; }
   #new_feedback_form .default_textarea_text {
     background: #f7f5e6;
     color: #939393; }
@@ -2648,7 +2652,7 @@ a.handle:hover {
     height: 18px;
     padding: 9px 9px;
     font-weight: bold;
-    margin: 5px 0 10px 0; }
+    margin: 5px 0 0 0; }
     #new_feedback_form input.text_field:focus {
       background: white; }
   #new_feedback_form textarea {
