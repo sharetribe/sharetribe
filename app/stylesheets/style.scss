@@ -1693,7 +1693,11 @@ a.edit_profile {
 
 #comment_form {
 	@include message_form(370px, 0);
-}	
+}
+
+.comment_checkbox_container {
+  padding: 5px 0 20px 0;
+}
 
 .message_form_field_container {
 	margin-bottom: 5px;
@@ -2286,14 +2290,14 @@ div.container_24, div.feedback_div { display: none; }
 
 .feedback_div {
 	@include half_rounded(bottom);
-	padding: 20px 20px 30px 20px;
+	padding: 20px 20px 35px 20px;
   width: 250px;
  	background: lighten($dark_green, 5%);
 	color: white;
 	h3 {
 		color: $bg_color;
 		font-size: 16px;
-		margin-bottom: 15px;
+		margin-bottom: 5px;
 	}
 }
 
@@ -2313,6 +2317,7 @@ a.handle {
 	label {
 		float: left;
 		width: 235px;
+		margin-top: 10px;
 	}
 	.default_textarea_text {
 		background: $bg_color;
@@ -2329,7 +2334,7 @@ a.handle {
 		height: 18px;
 		padding: 9px 9px;
 		font-weight: bold;
-		margin: 5px 0 10px 0;
+		margin: 5px 0 0 0;
 	}
 	textarea {
 		float: left;

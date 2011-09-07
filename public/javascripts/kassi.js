@@ -94,6 +94,7 @@ function initialize_defaults(default_text, feedback_default_text, locale) {
 	var form_id = "#new_feedback";
 	$(form_id).validate({
 		rules: {
+		  "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {

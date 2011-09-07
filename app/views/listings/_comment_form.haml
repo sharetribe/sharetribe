@@ -8,6 +8,9 @@
       .message_form_field_container  
         = f.text_area :content
       .message_form_field_container
+        .comment_checkbox_container
+          = check_box_tag "subscribe"
+      .message_form_field_container
         = f.hidden_field :listing_id, :value => @listing.id.to_s
         = f.hidden_field :author_id, :value => @current_user.id
         = f.submit t(".send_comment"), :class => "send_button"
