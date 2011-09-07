@@ -151,6 +151,7 @@ Feature: User browses listings
     And I should see "massage"
     And I should not see "apartment" within listings
     
+  @pending
   @javascript
   Scenario: User browses offers page with tags
     Given there are following users:
