@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   helper_method :root, :logged_in?, :current_user?
   
   def set_locale
-    locale = logged_in? ? @current_user.locale : params[:locale]
+    locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
     
     if locale.blank? && @current_community
       locale = @current_community.default_locale
