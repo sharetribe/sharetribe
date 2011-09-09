@@ -50,7 +50,7 @@ class PeopleController < ApplicationController
     end
     
     @person = Person.new
-    if APP_CONFIG.use_recaptcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
+    if APP_CONFIG.use_recaptcha && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if Captha responses with error, show message to user
