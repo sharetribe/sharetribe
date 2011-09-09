@@ -38,7 +38,7 @@
       .form_field_container  
         = form.label :password2, t('.password_again')
         = form.password_field :password2, :class => :text_field, :maxlength => "255"
-      - if APP_CONFIG.use_recaptcha
+      - if APP_CONFIG.use_recaptcha && @current_community.use_captcha
         .form_field_container
           = form.label :recaptcha, t('.enter_captcha') 
           %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_captcha_link")
