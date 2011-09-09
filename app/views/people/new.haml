@@ -5,6 +5,7 @@
   #signup_form
     %h2
       = t('.sign_up')
+    = render :file => community_file("signup_information", true)
     = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
       = form.error_messages
       - if @current_community.join_with_invite_only
