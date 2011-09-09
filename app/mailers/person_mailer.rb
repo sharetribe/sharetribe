@@ -75,7 +75,7 @@ class PersonMailer < ActionMailer::Base
     @current_community = current_community
     subject = "New #unanswered #feedback from #{@current_community.name} community from user #{feedback.author.try(:name)} "
     mail_to = @current_community.feedback_to_admin? ? @current_community.admin_emails : APP_CONFIG.feedback_mailer_recipients
-    mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
+    mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email, :delivery_method => :sendmail)
   end
   
   def badge_migration_notification(recipient)
@@ -129,7 +129,8 @@ class PersonMailer < ActionMailer::Base
     @requests = @community.listings.open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.open.offers.visible_to(@recipient, @community).limit(5)
     mail(:to => @recipient.email,
-         :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)))
+         :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
+         :delivery_method => :sendmail)
   end
   
   def self.deliver_newsletters
