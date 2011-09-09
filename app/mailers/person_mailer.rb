@@ -75,7 +75,7 @@ class PersonMailer < ActionMailer::Base
     @current_community = current_community
     subject = "New #unanswered #feedback from #{@current_community.name} community from user #{feedback.author.try(:name)} "
     mail_to = @current_community.feedback_to_admin? ? @current_community.admin_emails : APP_CONFIG.feedback_mailer_recipients
-    mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email, :delivery_method => :sendmail)
+    mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
   end
   
   def badge_migration_notification(recipient)
