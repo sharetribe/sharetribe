@@ -632,7 +632,7 @@ fi:
       username: "Käyttäjätunnus:"
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
-      visible_only_to_you: "näkyy vain sinulle"
+      visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
     not_member:
       explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
