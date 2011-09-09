@@ -52,12 +52,14 @@ Kassi::Application.configure do
   config.action_mailer.delivery_method = mail_delivery_method
   if mail_delivery_method == :postmark
     config.action_mailer.postmark_settings = { :api_key => APP_CONFIG.postmark_api_key }
-  else
-    ActionMailer::Base.sendmail_settings = {
-      :location       => '/usr/sbin/sendmail',
-      :arguments      => '-i -t'
-    }  
   end
+  
+  # Sendmail is used for some mails (e.g. Newsletter) so configure it even when postmark is the main method
+  ActionMailer::Base.sendmail_settings = {
+    :location       => '/usr/sbin/sendmail',
+    :arguments      => '-i -t'
+  }  
+  
     
     
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
