@@ -291,7 +291,10 @@ ActiveRecord::Schema.define(:version => 20110915101535) do
     t.integer  "testimonial_id"
     t.integer  "notifiable_id"
     t.string   "notifiable_type"
+<<<<<<< HEAD
     t.string   "description"
+=======
+>>>>>>> Continued "notifications from new comments" feature, fixed a bug in acceptreminderjob.
   end
 
   create_table "participations", :force => true do |t|
@@ -309,10 +312,17 @@ ActiveRecord::Schema.define(:version => 20110915101535) do
     t.string   "id",                   :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.integer  "is_admin",                           :default => 0
     t.string   "locale",                             :default => "fi"
     t.text     "preferences"
     t.integer  "active_days_count",                  :default => 0
+=======
+    t.integer  "is_admin",                          :default => 0
+    t.string   "locale",                            :default => "fi"
+    t.text     "preferences"
+    t.integer  "active_days_count",                 :default => 0
+>>>>>>> Continued "notifications from new comments" feature, fixed a bug in acceptreminderjob.
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",                  :default => 1
     t.boolean  "active",                             :default => true
