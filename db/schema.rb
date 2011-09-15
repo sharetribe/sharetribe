@@ -13,7 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20111228153911) do
 
-
   create_table "badges", :force => true do |t|
     t.string   "person_id"
     t.string   "name"
@@ -351,6 +350,8 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "given_name"
+    t.string   "family_name"
   end
   
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

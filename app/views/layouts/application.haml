@@ -81,7 +81,7 @@
             = render :file => community_file("logo_text", false)
           .grid_6.omega
             #search
-              = form_tag({ :action => :show, :controller => "/search" }, :method => "get") do
+              = form_tag("/#{I18n.locale}/search", :method => "get") do
                 - one_line do              
                   = text_field_tag("q", params[:q], :class => "search_field")
                   = submit_tag("s", :class => "search_button")

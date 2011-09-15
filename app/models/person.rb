@@ -202,21 +202,21 @@ class Person < ActiveRecord::Base
     #     return name_or_username(cookie)
     #   end
     #   
-    #   def given_name_or_username(cookie=nil)
-    #     return "TESTI"
-    #     unless given_name(cookie).blank?
-    #       return given_name(cookie)
-    #     else
-    #       return username(cookie)
-    #     end
-    #     
-    #     person_hash = get_person_hash(cookie)
-    #     return "Not found!" if person_hash.nil?
-    #     if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
-    #       return person_hash["username"]
-    #     end
-    #     return person_hash["name"]["given_name"]
-    #   end
+      def given_name_or_username(cookie=nil)
+        return "TESTI"
+        unless given_name(cookie).blank?
+          return given_name(cookie)
+        else
+          return username(cookie)
+        end
+        
+        person_hash = get_person_hash(cookie)
+        return "Not found!" if person_hash.nil?
+        if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
+          return person_hash["username"]
+        end
+        return person_hash["name"]["given_name"]
+      end
     #   
        # def given_name(cookie=nil)
        #  if new_record?
@@ -500,16 +500,11 @@ class Person < ActiveRecord::Base
     save
   end
   
-  # Using GUID string as primary key and id requires little fixing like this
-  def initialize(params={})
-    self.guid = params[:id] #store GUID to temporary attribute
-    super(params)
+  
+  before_validation(:on => :create) do
+      self.id = UUIDTools::UUID.timestamp_create().to_s
   end
   
-  def after_initialize
-    #self.id may already be correct in this point so use ||=
-    self.id ||= self.guid
-  end
   
   def password2
     if new_record?
