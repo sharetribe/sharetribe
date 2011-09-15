@@ -35,6 +35,17 @@
       super(params.except(:username, :email, "name", :terms, :consent))
     end
     
+    # Using GUID string as primary key and id requires little fixing like this
+    def initialize(params={})
+      self.guid = params[:id] #store GUID to temporary attribute
+      super(params)
+    end
+  
+    def after_initialize
+      #self.id may already be correct in this point so use ||=
+      self.id ||= self.guid
+    end
+    
     # Creates a record to local DB with given id
     # Should be used only with ids that exist also in ASI
     def Person.add_to_kassi_db(id)
