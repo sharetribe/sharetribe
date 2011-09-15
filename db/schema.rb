@@ -359,7 +359,6 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
   add_index "people", ["username"], :name => "index_people_on_username", :unique => true
 
-
   create_table "people_smerf_forms", :force => true do |t|
     t.string  "person_id",     :null => false
     t.integer "smerf_form_id", :null => false
