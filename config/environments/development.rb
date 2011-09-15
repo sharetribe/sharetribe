@@ -17,6 +17,9 @@ Kassi::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = true
   
+  # As instructed by Devise, to make local mails work
+  config.action_mailer.default_url_options = { :host => 'test.lvh.me:3000' }
+  
   # Enable sending mail from localhost
   ActionMailer::Base.smtp_settings = {
     :address              => APP_CONFIG.local_email_address,
