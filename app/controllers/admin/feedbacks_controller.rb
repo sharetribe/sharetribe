@@ -1,5 +1,7 @@
 class Admin::FeedbacksController < ApplicationController
   
+  skip_filter :check_email_confirmation
+  
   protect_from_forgery :except => :create
   
   def create

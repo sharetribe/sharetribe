@@ -3,6 +3,8 @@ require 'rest_client'
 class SessionsController < ApplicationController
   include UrlHelper
   
+  skip_filter :check_email_confirmation
+  
   def create
     # if the request came from different domain, redirects back there.
     # e.g. if using login-subdoain for logging in with https    
@@ -73,6 +75,11 @@ class SessionsController < ApplicationController
       flash[:error] = :email_not_found
     end
     redirect_to new_session_path
+  end
+  
+  # This is used if user has not confirmed her email address
+  def confirmation_pending
+    
   end
   
 end

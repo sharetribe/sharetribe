@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   layout 'application'
   
   before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id
+  before_filter :check_email_confirmation, :except => [ :confirmation_pending]
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
@@ -112,6 +113,14 @@ class ApplicationController < ActionController::Base
       end
     else
       redirect_to root_url(:subdomain => "www")
+    end
+  end
+  
+  def check_email_confirmation
+    # If confirmation is required, but not done, redirect to confirmation pending announcement page
+    # (but allow confirmation to come through)
+    if @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
+      redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
   
