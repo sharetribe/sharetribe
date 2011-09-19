@@ -2,8 +2,6 @@ require 'subdomain'
 
 Kassi::Application.routes.draw do
 
-  devise_for :people
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -63,6 +61,8 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
+    devise_for :people
+    
     namespace :admin do
       resources :feedbacks
     end
@@ -169,6 +169,7 @@ Kassi::Application.routes.draw do
   match "/:locale/logout" => "sessions#destroy", :as => :logout, :method => :delete
   match "/:locale/signup" => "people#new", :as => :sign_up
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
+  match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
   match "/:locale/login" => "sessions#new", :as => :login
   match "/change_locale" => "i18n#change_locale"
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud

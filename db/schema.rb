@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915084232) do
+ActiveRecord::Schema.define(:version => 20110915101535) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(:version => 20110915084232) do
     t.boolean  "automatic_newsletters",          :default => true
     t.boolean  "join_with_invite_only",          :default => false
     t.boolean  "use_captcha",                    :default => true
+    t.boolean  "email_confirmation",             :default => false
+    t.text     "allowed_emails"
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -302,7 +304,7 @@ ActiveRecord::Schema.define(:version => 20110915084232) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :id => false, :force => true do |t|
+ create_table "people", :id => false, :force => true do |t|
     t.string   "id",                  :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
