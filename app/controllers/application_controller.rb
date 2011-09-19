@@ -119,7 +119,7 @@ class ApplicationController < ActionController::Base
   def check_email_confirmation
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
-    if @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
+    if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end

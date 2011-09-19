@@ -1,5 +1,6 @@
+- email_not_accepted_message = @current_community.allowed_emails.present? ? t("people.new.email_is_in_use_or_not_allowed") : t("people.new.email_is_in_use")
 - content_for :javascript do
-  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{t("people.new.email_is_in_use")}','#{t("people.new.captcha_was_wrong")}', '#{t("people.new.invalid_invitation_code")}', #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
+  initialize_signup_form('#{I18n.locale}','#{t("people.new.username_is_in_use")}','#{t("people.new.username_is_invalid")}','#{email_not_accepted_message}','#{t("people.new.captcha_was_wrong")}', '#{t("people.new.invalid_invitation_code")}', #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
 .grid_10.prefix_7.suffix_7
   #signup_form

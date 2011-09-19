@@ -127,12 +127,22 @@ class PeopleController < ApplicationController
   end
   
   def check_email_availability
-    available = nil
-    if @current_user && (@current_user.email == params[:person][:email])
-      # Current user's own email should not be shown as unavailable
-      available = true
-    else
-      available = Person.email_available?(params[:person][:email])
+    available = true
+    
+    #first check if the community allows this email
+    if @current_community.allowed_emails.present?
+      available = email_allowed?(params[:person][:email], @current_community)
+    end
+    
+    
+    if available
+      # Then check if it's already in use
+      if @current_user && (@current_user.email == params[:person][:email])
+        # Current user's own email should not be shown as unavailable
+        available = true
+      else
+        available = Person.email_available?(params[:person][:email])
+      end
     end
     
     respond_to do |format|
@@ -204,6 +214,21 @@ class PeopleController < ApplicationController
         render :layout => false 
       }
     end
+  end
+  
+  def email_allowed?(email, community)
+    allowed = false
+    allowed_array = community.allowed_emails.split(",")
+    
+    allowed_array.each do |allowed_domain_or_address|
+      allowed_domain_or_address.strip!
+      if email =~ /#{allowed_domain_or_address}$/
+        allowed = true
+        break
+      end
+    end
+    
+    return allowed
   end
   
 end
