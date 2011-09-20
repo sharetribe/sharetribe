@@ -61,7 +61,7 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-    devise_for :people
+    devise_for :people, :controllers => { :confirmations => "confirmations" }
     
     namespace :admin do
       resources :feedbacks

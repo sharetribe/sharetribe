@@ -120,6 +120,7 @@ class ApplicationController < ActionController::Base
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
     if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
+      flash[:warning] = "you_need_to_confirm_your_account_first"
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
