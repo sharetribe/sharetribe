@@ -12,7 +12,8 @@ class ConfirmationsController < Devise::ConfirmationsController
 
     if successful_and_sane?(resource)
       set_flash_message(:notice, :send_instructions) if is_navigational_format?
-      respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
+      #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
+      redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
     else
       respond_with_navigational(resource){ render_with_scope :new }
     end
@@ -28,6 +29,8 @@ class ConfirmationsController < Devise::ConfirmationsController
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
       #respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
+      
+      # This is changed from Devise's default
       flash[:error] = "confirmation_link_is_wrong_or_used"
       redirect_to root_path
     end
