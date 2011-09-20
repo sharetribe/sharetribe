@@ -129,6 +129,11 @@ en:
       kassi_team: "The Kassi Team"
       thanks: "Thanks,"
       want_to_control_emails: "Want to control which emails you receive from Kassi?"
+    confirmation_instructions:
+      welcome_to_kassi: "Welcome to Kassi!"
+      need_to_confirm: "Before you start using Kassi, you must confirm your email address with the following link:"
+      confirmation_link_text: "Confirm my account"
+      confirmation_instructions_signature: "Best regards,<br/>The Kassi Team"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
@@ -776,6 +781,13 @@ en:
       email: Email
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password."
       request_new_password: "Request new password"
+    confirmation_pending:
+      welcome_to_kassi: "Welcome to %{community_name} Kassi!"
+      check_your_email: "Check your inbox"
+      account_conrimation_instructions: "You will soon receive an email from Kassi with a link that you need to click to gain access to this Kassi community.</p><p>This email check is done to ensure that all the members really belong to this community (<b>%{community_name}</b>). This creates a safer environment for sharing.</p><p>If you have any trouble using Kassi, just click the <a href=\"#\" id=\"give_feedback_link\">feedback</a> on the left and let us know. Please also share your improvement ideas!"
+      get_started: "Get started with Kassi"
+      getting_started_instructions: "When you have confirmed your account, it's a good idea to add a picture to your <a href=\"%{profile_url}\">profile</a> and fill in other details, or you can continue straight in to action by adding an <a href=\"/en/listings/new/offer\">offer</a> about something you could possibly lend, rent, sell or do for others. Or if you are needing some specific item or help with something, post a <a href=\"/en/listings/new/request\">request</a>."
+      resend_confirmation_instructions: "Resend confirmation instructions"
   settings:
     account:
       change: Change

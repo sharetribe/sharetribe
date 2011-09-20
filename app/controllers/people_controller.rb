@@ -222,6 +222,7 @@ class PeopleController < ApplicationController
     
     allowed_array.each do |allowed_domain_or_address|
       allowed_domain_or_address.strip!
+      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
       if email =~ /#{allowed_domain_or_address}$/
         allowed = true
         break
