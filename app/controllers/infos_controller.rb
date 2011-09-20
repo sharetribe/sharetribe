@@ -1,5 +1,7 @@
 class InfosController < ApplicationController
   
+  skip_filter :check_email_confirmation
+  
   def about
   end
   

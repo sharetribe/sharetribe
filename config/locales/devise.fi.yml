@@ -1,0 +1,46 @@
+fi:
+  errors:
+    messages:
+      not_found: "ei löytynyt"
+      already_confirmed: "on jo vahvistettu, yritä kirjautua sisään uudelleen"
+      not_locked: "ei ollut lukittu"
+      not_saved:
+        one: "1 virhe esti %{resource} tallentamisen:"
+        other: "%{count} virhettä esti %{resource} tallentamisen:"
+
+  devise:
+    failure:
+      unauthenticated: 'Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.'
+      unconfirmed: 'Sinun täytyy vahvistaa tunnuksesi ennen kuin voit jatkaa.'
+      locked: 'Tunnuksesi on lukittu.'
+      invalid: 'Epäkelpo sähköpostiosoite tai salasana.'
+      invalid_token: 'Epäkelpo autentikaatiopoletti.'
+      timeout: 'Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.'
+      inactive: 'Tunnustasi ei ole vielä aktivoitu.'
+    sessions:
+      signed_in: 'Sisäänkirjautuminen onnistui.'
+      signed_out: 'Uloskirjautuminen onnistui.'
+    passwords:
+      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon.'
+      updated: 'Salasanasi on nyt vaihdettu. Olet kirjautuneena sisälle.'
+    confirmations:
+      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.'
+      confirmed: 'Tunnuksesi on nyt vahvistettu.'
+    registrations:
+      signed_up: 'Tervetuloa! Rekisteröintisi onnistui.'
+      inactive_signed_up: 'Rekisteröintisi onnistui. Emme kuitenkaan voineet kirjata sinua sisään koska tunnuksesi on %{reason}.'
+      updated: 'Tunnuksesi on päivitetty.'
+      destroyed: 'Näkemiin! Tunnuksesi on nyt poistettu. Toivottavasti näemme sinut vielä uudelleen.'
+    unlocks:
+      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon.'
+      unlocked: 'Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle.'
+    omniauth_callbacks:
+      success: 'Onnistuneesti valtuutettu käyttäen palvelua %{kind}.'
+      failure: 'Valtuutus käyttäen palvelua %{kind} epäonnistui, koska "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Vahvistusohjeet'
+      reset_password_instructions:
+        subject: 'Ohjeet salasanan vaihtoon'
+      unlock_instructions:
+        subject: 'Ohjeet tunnuksen lukituksen poistoon'
