@@ -327,10 +327,12 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
       avatar_upload_successful: "Avatar upload succesful"
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
+      confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
       create_new_offer: "Offer something else"
       create_new_request: "Request something else"
       create_one_here: "create one here"
@@ -393,6 +395,7 @@ en:
       you_must_log_in_to_view_this_content: "You must log in to view this content"
       you_must_log_in_to_view_your_inbox: "You must log in to Kassi to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to Kassi to view your settings."
+      you_need_to_confirm_your_account_first: "You need to confirm your account first."
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -782,7 +785,7 @@ en:
       password_recovery_instructions: "Give your email address and you receive instructions on how to change your password."
       request_new_password: "Request new password"
     confirmation_pending:
-      welcome_to_kassi: "Welcome to %{community_name} Kassi!"
+      welcome_to_kassi: "Welcome to Kassi!"
       check_your_email: "Check your inbox"
       account_conrimation_instructions: "You will soon receive an email from Kassi with a link that you need to click to gain access to this Kassi community.</p><p>This email check is done to ensure that all the members really belong to this community (<b>%{community_name}</b>). This creates a safer environment for sharing.</p><p>If you have any trouble using Kassi, just click the <a href=\"#\" id=\"give_feedback_link\">feedback</a> on the left and let us know. Please also share your improvement ideas!"
       get_started: "Get started with Kassi"

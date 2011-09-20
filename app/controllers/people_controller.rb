@@ -66,7 +66,10 @@ class PeopleController < ApplicationController
     session[:cookie] = @session.cookie
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
-
+    
+    # skip email confirmation unless it's required in this community
+    params[:person][:confirmed_at] =  (@current_community.email_confirmation ? nil : Time.now)
+    
     # Try to create a new person in ASI.
     begin
       @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
@@ -92,7 +95,13 @@ class PeopleController < ApplicationController
     invitation.use_once! if invitation.present?
     
     PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
-    redirect_to (session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
+    
+    if @current_community.email_confirmation
+      flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
+    else
+      redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
+    end
   end
   
   def update
