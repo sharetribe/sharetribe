@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
   
-  before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id
+  before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending]
   
   # after filter would be more logical, but then log would be skipped when action cache is hit.
@@ -123,6 +123,10 @@ class ApplicationController < ActionController::Base
       flash[:warning] = "you_need_to_confirm_your_account_first"
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
+  end
+  
+  def set_default_url_for_mailer
+    ActionMailer::Base.default_url_options = {:host => request.host_with_port}
   end
   
   def person_belongs_to_current_community
