@@ -10,7 +10,7 @@
       - unless current_user?(@listing.author)
         .message_form_field_container
           .comment_checkbox_container
-            = check_box_tag "listing_comment[author_follow_status]", "true", :checked => true
+            = check_box_tag "comment[author_follow_status]", "true", :checked => true
             Subscribe to comments
       .message_form_field_container
         = f.hidden_field :listing_id, :value => @listing.id.to_s

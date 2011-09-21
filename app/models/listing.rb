@@ -34,6 +34,7 @@ class Listing < ActiveRecord::Base
   accepts_nested_attributes_for :origin_loc, :destination_loc
 
   has_and_belongs_to_many :communities
+  has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
   
   attr_accessor :current_community_id
   
@@ -444,6 +445,23 @@ class Listing < ActiveRecord::Base
       :latitude => self.origin_loc.latitude,
       :longitude => self.origin_loc.longitude
     }
+  end
+  
+  # Send notifications to the users following this listing
+  # when the listing is updated (update=true) or a
+  # new comment to the listing is created.
+  def notify_followers(host, current_user, update)
+    followers.each do |follower|
+      unless follower.id == current_user.id
+        if update
+          Notification.create(:notifiable_id => id, :notifiable_type => "Listing", :receiver_id => follower.id, :description => "update")
+          PersonMailer.new_update_to_listing_notification(self, follower, host).deliver
+        else
+          Notification.create(:notifiable_id => id, :notifiable_type => "Listing", :receiver_id => follower.id, :description => "to_followed")
+          PersonMailer.new_comment_to_followed_listing_notification(comments.last, follower, host).deliver
+        end
+      end
+    end
   end
   
 end

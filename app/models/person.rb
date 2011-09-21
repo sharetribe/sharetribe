@@ -548,7 +548,7 @@ class Person < ActiveRecord::Base
   def give_badge(badge_name, host)
     unless has_badge?(badge_name)
       badge = Badge.create(:person_id => id, :name => badge_name)
-      BadgeNotification.create(:badge_id => badge.id, :receiver_id => id)
+      Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
         PersonMailer.new_badge(badge, host).deliver
       end
