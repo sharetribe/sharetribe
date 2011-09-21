@@ -153,6 +153,9 @@ en:
       has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
       you_can_reply_to_comment_in: "You can view all the comments and reply to them at"
       you_have_a_new_comment: "%{author} has commented your listing in Kassi"
+      listing_you_follow_has_a_new_comment: "%{author} has commented a listing you follow in Kassi"
+      has_commented_offer_you_follow_in_kassi: "%{author} has commented the request '%{listing}' you are following in Kassi"
+      has_commented_request_you_follow_in_kassi: "%{author} has commented the offer '%{listing}' you are following in Kassi"
     new_message:
       conversation_title: "Message thread title: %{title}"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
@@ -777,14 +780,14 @@ en:
   sessions:
     new:
       create_new_account: "Create a new account"
-      i_forgot_my_password: "I forgot my password"
+      i_forgot_my_password: "I forgot my username or password"
       login: "Log in"
       login_to_kassi: "Log in to Kassi"
       password: Password
       username: Username
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Give your email address and you receive instructions on how to change your password."
+      password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
       request_new_password: "Request new password"
     confirmation_pending:
       welcome_to_kassi: "Welcome to Kassi!"

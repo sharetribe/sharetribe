@@ -11,6 +11,8 @@ class Testimonial < ActiveRecord::Base
   belongs_to :author, :class_name => "Person", :dependent => :destroy
   belongs_to :receiver, :class_name => "Person", :dependent => :destroy
   belongs_to :participation, :dependent => :destroy
+  
+  has_one :notification, :as => :notifiable
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
   
@@ -22,7 +24,7 @@ class Testimonial < ActiveRecord::Base
   end
   
   def notify_receiver(host)
-    TestimonialNotification.create(:testimonial_id => id, :receiver_id => receiver.id)
+    Notification.create(:notifiable_id => id, :notifiable_type => "Testimonial", :receiver_id => receiver.id)
     if receiver.should_receive?("email_about_new_received_testimonials")
       PersonMailer.new_testimonial(self, host).deliver
     end

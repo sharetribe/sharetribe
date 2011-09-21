@@ -9,13 +9,18 @@ class Comment < ActiveRecord::Base
   
   after_create :update_follow_status
 
-  def send_email_to_listing_author(host)
-    if !listing.author.id.eql?(author.id) && listing.author.should_receive?("email_about_new_comments_to_own_listing")
-      PersonMailer.new_comment_to_own_listing_notification(self, host).deliver
-    end  
+  def send_notifications(host)
+    if !listing.author.id.eql?(author.id)
+      Notification.create(:notifiable_id => id, :notifiable_type => "Comment", :receiver_id => listing.author.id, :description => "to_own")
+      if listing.author.should_receive?("email_about_new_comments_to_own_listing")
+        PersonMailer.new_comment_to_own_listing_notification(self, host).deliver
+      end
+    end
+    listing.notify_followers(host, author, false)
   end
   
   def update_follow_status
+    logger.info "Author follow status: #{author_follow_status}"
     if listing
       author.update_follow_status(listing, author_follow_status)
     end

@@ -154,6 +154,9 @@ fi:
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
       you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
       you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
+      listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta Kassissa"
+      has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
+      has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
       do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
@@ -778,14 +781,14 @@ fi:
   sessions:
     new:
       create_new_account: "Luo uusi tunnus"
-      i_forgot_my_password: "Salasana unohtunut"
+      i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään Kassiin"
       password: Salasana
       username: Käyttäjätunnus
     password_forgotten:
       email: Sähköposti
-      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään ohjeet salasanan vaihtamiseen."
+      password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
       request_new_password: "Pyydä uusi salasana"
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa Kassiin!"
