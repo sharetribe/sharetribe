@@ -121,7 +121,7 @@ module ApplicationHelper
     if File.exists?(file_path)
       file_path
     elsif File.exists?("communities/default/#{type}/#{type}#{locale_string}.haml")
-      # This should match usually since locale string is blank is no locale in use
+      # This should match usually since locale string is blank if no locale in use
       "communities/default/#{type}/#{type}#{locale_string}.haml"
     else
       # However, we fallback to non-locale default if there is such
