@@ -432,6 +432,8 @@ fi:
       departure_time:
         at: Kellonaika
         departure_time: Lähtöaika
+      departure_time_radio_buttons:
+        repeated: "Toistuva (kerro ajat ja päivät kohdassa 'tarkempi kuvaus')"
       description:
         detailed_description: "Tarkempi kuvaus"
       destination:

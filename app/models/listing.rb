@@ -215,7 +215,7 @@ class Listing < ActiveRecord::Base
   end
   
   def valid_until_is_not_nil
-    if (rideshare? || listing_type.eql?("request")) && !valid_until
+    if !rideshare? && listing_type.eql?("request") && !valid_until
       errors.add(:valid_until, "cannot be empty")
     end  
   end

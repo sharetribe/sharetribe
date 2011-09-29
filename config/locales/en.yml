@@ -431,6 +431,8 @@ en:
       departure_time:
         at: At
         departure_time: "Departure time"
+      departure_time_radio_buttons:
+        repeated: "Repeated (add times and days in the field 'detailed description')"
       description:
         detailed_description: "Detailed description"
       destination:
@@ -489,7 +491,7 @@ en:
       visibility:
         communities: "All my Kassi communities"
         everybody: "All internet users"
-        this_community: "Only %{community} community members"
+        this_community: "Only %{community} members"
         visibility: Visibility
     help_texts:
       help_share_type_title: "Type of the offer or request"
