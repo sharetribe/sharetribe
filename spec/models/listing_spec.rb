@@ -186,10 +186,10 @@ describe Listing do
       @listing.should_not be_valid
     end
     
-    it "should not be valid when there is no valid until" do
+    it "should be valid when there is no valid until" do
       @listing.listing_type = "offer"
       @listing.valid_until = nil
-      @listing.should_not be_valid
+      @listing.should be_valid
     end
     
     describe "#origin_and_destination_close_enough?" do

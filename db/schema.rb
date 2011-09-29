@@ -222,10 +222,8 @@ ActiveRecord::Schema.define(:version => 20110915101535) do
   end
 
   create_table "listing_followers", :id => false, :force => true do |t|
-    t.string   "person_id"
-    t.integer  "listing_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "person_id"
+    t.integer "listing_id"
   end
 
   create_table "listing_images", :force => true do |t|
@@ -286,11 +284,14 @@ ActiveRecord::Schema.define(:version => 20110915101535) do
   create_table "notifications", :force => true do |t|
     t.string   "receiver_id"
     t.string   "type"
-    t.boolean  "is_read",        :default => false
+    t.boolean  "is_read",         :default => false
     t.integer  "badge_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "testimonial_id"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.string   "description"
   end
 
   create_table "participations", :force => true do |t|
@@ -304,17 +305,17 @@ ActiveRecord::Schema.define(:version => 20110915101535) do
     t.boolean  "feedback_skipped", :default => false
   end
 
- create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                  :limit => 22,                   :null => false
+  create_table "people", :id => false, :force => true do |t|
+    t.string   "id",                   :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",             :default => 0
-    t.string   "locale",               :default => "fi"
+    t.integer  "is_admin",                           :default => 0
+    t.string   "locale",                             :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",    :default => 0
+    t.integer  "active_days_count",                  :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",    :default => 1
-    t.boolean  "active",               :default => true
+    t.integer  "test_group_number",                  :default => 1
+    t.boolean  "active",                             :default => true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

@@ -18,7 +18,7 @@
   #listing_center.grid_9.alpha
     %h1
       #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
-    - if @listing.category == "rideshare"
+    - if @listing.category == "rideshare" && @listing.valid_until
       %p
         %strong
           = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
