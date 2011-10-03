@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
   
   belongs_to :author, :class_name => "Person"
   belongs_to :listing
+  has_many :notifications, :as => :notifiable
   
   attr_accessor :author_follow_status
   
@@ -11,7 +12,7 @@ class Comment < ActiveRecord::Base
 
   def send_notifications(host)
     if !listing.author.id.eql?(author.id)
-      Notification.create(:notifiable_id => id, :notifiable_type => "Comment", :receiver_id => listing.author.id, :description => "to_own")
+      Notification.create(:notifiable_id => id, :notifiable_type => "Comment", :receiver_id => listing.author.id, :description => "to_own_listing")
       if listing.author.should_receive?("email_about_new_comments_to_own_listing")
         PersonMailer.new_comment_to_own_listing_notification(self, host).deliver
       end
@@ -20,7 +21,6 @@ class Comment < ActiveRecord::Base
   end
   
   def update_follow_status
-    logger.info "Author follow status: #{author_follow_status}"
     if listing
       author.update_follow_status(listing, author_follow_status)
     end
