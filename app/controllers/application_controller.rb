@@ -126,7 +126,8 @@ class ApplicationController < ActionController::Base
   end
   
   def set_default_url_for_mailer
-    ActionMailer::Base.default_url_options = {:host => request.host_with_port}
+    url = community_url(request.host_with_port, @current_community.domain)    
+    ActionMailer::Base.default_url_options = {:host => url}
   end
   
   def person_belongs_to_current_community
@@ -236,4 +237,10 @@ class ApplicationController < ActionController::Base
     WebTranslateIt.fetch_translations
   end
   
+  # returns the request_url_with_port in a way that the community subdomain is switched to be the 
+  # first part of the request
+  # This method is used to ensure that using the community subdomain and not the login subdomain
+  def  community_url(request_url_with_port, community_subdomain)
+      return request_url_with_port.sub(/[^\/\.]+\./, "#{community_subdomain}.")
+  end
 end
