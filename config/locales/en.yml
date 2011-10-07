@@ -647,7 +647,7 @@ en:
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. Kassi does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
       read_more_about_kassi_communities: "Read more about Kassi communities"
-      this_user_does_not_belong_to_this_community: "This uses does not belong to %{community} community"
+      this_user_does_not_belong_to_this_community: "This user does not belong to %{community} community"
     profile_badge:
       active_member_bronze: "Active member (bronze)"
       active_member_bronze_description: "This was the third exchange you participated in Kassi! Awesome start, keep it going!"
@@ -690,7 +690,7 @@ en:
       jack_of_all_trades: "Jack of all trades"
       jack_of_all_trades_description: "You are a true multitalent! You have been participating in resource exchange in five different roles. Carry on and collect all eight: item offerer, favor offerer, ride offerer, housing offerer, item requester, favor requester, ride requester and housing requester."
       lender_bronze: "Lender (bronze)"
-      lender_bronze_description: "You have listed three items that you could borrow in your profile, great!"
+      lender_bronze_description: "You have listed three items that you could lend in your profile, great!"
       lender_gold: "Lender (gold)"
       lender_gold_description: "You'd give your fellow man the shirt off your back. You have listed 25 items that you could lend, awesome!"
       lender_silver: "Lender (silver)"
@@ -860,7 +860,7 @@ en:
       terms: "Kassi terms of use"
       terms_have_changed: "Terms of use have changed"
       you_can_view_the_new_terms: "You can view the new terms"
-      you_need_to_accept: "Welcome to Kassi! This seems to be the first time you are using the service. Before starting you must first accepts the"
+      you_need_to_accept: "Welcome to Kassi! This seems to be the first time you are using the service. Before starting you must first accept the"
       you_need_to_accept_new_terms: "Kassin terms of use have changed. You have to accept the new terms in order to continue using Kassi. The new terms are intended to enable the upkeep of the service after the research project has ended."
   testimonials:
     index:
