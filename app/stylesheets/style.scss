@@ -1696,7 +1696,18 @@ a.edit_profile {
 }
 
 .comment_checkbox_container {
-  padding: 5px 0 20px 0;
+  padding: 5px 0 8px 0;
+  overflow: hidden;
+}
+
+.comment_checkbox {
+  float: left;
+  margin: 0 10px 0 3px;
+  padding-top: 4px;
+}
+
+.comment_checkbox_label {
+  float: left;
 }
 
 .message_form_field_container {

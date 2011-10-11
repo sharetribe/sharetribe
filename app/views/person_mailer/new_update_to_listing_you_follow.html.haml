@@ -1,0 +1,12 @@
+= t("emails.new_update_to_listing.has_updated_#{@listing.listing_type}_you_follow_in_kassi", :author => @listing.author.name, :listing => @listing.title)
+
+%br/
+%br/
+
+= t("emails.new_update_to_listing.you_can_view_the_changes_in")
+= link_to(@url, @url + "?ref=email")
+
+%br/
+%br/
+
+= t("emails.new_message.do_not_reply_to_this_email")

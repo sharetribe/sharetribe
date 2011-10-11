@@ -12,7 +12,7 @@ class Notification < ActiveRecord::Base
   
   def person_does_not_already_have_this_notification
     existing_notification = Notification.find_by_receiver_id_and_notifiable_id_and_notifiable_type(receiver_id, notifiable_id, notifiable_type)
-    errors.add(:base, "You have already received this notification.") if existing_notification
+    errors.add(:base, "You have already received this notification.") if (existing_notification && existing_notification.created_at > (DateTime.now - 1.day))
   end
 
 end

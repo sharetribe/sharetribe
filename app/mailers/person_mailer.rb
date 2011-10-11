@@ -20,7 +20,7 @@ class PersonMailer < ActionMailer::Base
   
   def new_comment_to_own_listing_notification(comment, host=nil)
     @recipient = set_up_recipient(comment.listing.author, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
     @comment = comment
     alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
@@ -29,11 +29,20 @@ class PersonMailer < ActionMailer::Base
   
   def new_comment_to_followed_listing_notification(comment, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
     @comment = comment
     alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
+  end
+  
+  def new_update_to_followed_listing_notification(listing, recipient, host=nil)
+    @recipient = set_up_recipient(recipient, host)
+    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => listing.id.to_s)}" : "test_url"
+    @listing = listing
+    alert_if_erroneus_host(host, @url)
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_update.listing_you_follow_has_been_updated"))
   end
   
   def conversation_status_changed(conversation, host=nil)

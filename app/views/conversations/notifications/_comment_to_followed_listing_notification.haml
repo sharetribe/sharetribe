@@ -1,2 +1,3 @@
 = link_to notification.notifiable.author.given_name, notification.notifiable.author
-= t(".has_commented_on_#{notification.notifiable.listing.}")
+= t(".has_commented")
+= link_to t(".#{notification.notifiable.listing.listing_type}_you_follow"), listing_path(notification.notifiable.listing) + "#comment#{notification.notifiable.id.to_s}" 

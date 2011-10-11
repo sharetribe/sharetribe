@@ -58,6 +58,18 @@ en:
       badgenotification:
         see_all_your_badges: "See all your badges"
         you_have_earned_badge: "You have earned the badge"
+      comment_to_followed_listing_notification:
+        has_commented: "has commented"
+        offer_you_follow: "an offer you follow"
+        request_you_follow: "a request you follow"
+      listing_updated_notification:
+        has_updated: "has updated"
+        offer_you_follow: "an offer you follow"
+        request_you_follow: "a request you follow"
+      comment_to_own_listing_notification:
+        has_commented: "has commented"
+        your_offer: "your offer"
+        your_request: "your request"
       loading_more_notifications: "Loading more notifications"
       no_notifications: "No notifications."
       testimonialnotification:
@@ -166,6 +178,11 @@ en:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in Kassi"
       you_can_give_feedback_to: "You can give feedback to %{name} in"
       you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: "Listing you follow has been updated"
+      has_updated_offer_you_follow_in_kassi: "%{author} has updated the request '%{listing}' you are following in Kassi"
+      has_updated_request_you_follow_in_kassi: "%{author} has updated the offer '%{listing}' you are following in Kassi"
+      you_can_view_the_changes_in: "You can view the changes in"
     newsletter:
       weekly_news_from_kassi: "Weekly news from %{community} Kassi"
       hi: "Hi %{name},"
@@ -420,6 +437,7 @@ en:
       you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send a new comment because this offer is closed."
       you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send a new comment because this request is closed."
       you_must: "You must"
+      subscribe_to_comments: "Notify me of new comments"
     edit:
       edit_offer: "Edit offer"
       edit_request: "Edit request"

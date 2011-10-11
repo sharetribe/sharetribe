@@ -59,6 +59,14 @@ fi:
       badgenotification:
         see_all_your_badges: "Katso kaikki kassimerkkisi"
         you_have_earned_badge: "Olet ansainnut kassimerkin"
+      comment_to_followed_listing_notification:
+        has_commented: "kommentoi"
+        offer_you_follow: "seuraamaasi tarjousta"
+        request_you_follow: "seuraamaasi pyyntöä"
+      comment_to_own_listing_notification:
+        has_commented: "kommentoi"
+        your_offer: "tarjoustasi"
+        your_request: "pyyntöäsi"
       loading_more_notifications: "Ladataan lisää tiedotteita"
       no_notifications: "Ei tiedotteita."
       testimonialnotification:
@@ -167,6 +175,11 @@ fi:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
       you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: "Seuraamasi ilmoitus on päivittynyt"
+      has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
+      has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
+      you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
     newsletter:
       weekly_news_from_kassi: "Viikon tapahtumat %{community}-kassiyhteisössä"
       hi: "Hei %{name},"
@@ -421,6 +434,7 @@ fi:
       you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
       you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
       you_must: "Sinun täytyy"
+      subscribe_to_comments: "Ilmoita minulle uusista kommenteista"
     edit:
       edit_offer: "Muokkaa tarjousta"
       edit_request: "Muokkaa pyyntöä"
