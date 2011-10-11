@@ -135,7 +135,8 @@ class PeopleController < ApplicationController
     end
   end
   
-  def check_email_availability
+  #This checks also that email is allowed for this community
+  def check_email_availability_and_validity
     available = true
     
     #first check if the community allows this email
@@ -143,15 +144,24 @@ class PeopleController < ApplicationController
       available = email_allowed?(params[:person][:email], @current_community)
     end
     
-    
     if available
       # Then check if it's already in use
-      if @current_user && (@current_user.email == params[:person][:email])
-        # Current user's own email should not be shown as unavailable
-        available = true
-      else
-        available = Person.email_available?(params[:person][:email])
+      check_email_availability
+    else #respond false  
+      respond_to do |format|
+        format.json { render :json => available }
       end
+    end
+  end
+  
+  # this checks only that email is not already in use
+  def check_email_availability
+    # check if it's already in use
+    if @current_user && (@current_user.email == params[:person][:email])
+      # Current user's own email should not be shown as unavailable
+      available = true
+    else
+      available = Person.email_available?(params[:person][:email])
     end
     
     respond_to do |format|
