@@ -1,0 +1,901 @@
+fr:
+  admin:
+    badges:
+      index:
+        add_new_badge: "Ajouter nouveau badge"
+        existing_badges: "Badges existants"
+        image: "Image de badge"
+        name: "Nom de badge"
+        save_badge: "Enregistrer badge"
+  common:
+    cancel: Annuler
+    fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
+    or: ou
+    share_types:
+      borrow: "à emprunter"
+      buy: "à acheter"
+      give_away: "à donner"
+      lend: "à prêter"
+      receive: "accepter gratuitement"
+      rent: "cherche à louer"
+      rent_out: "à louer"
+      sell: "à vendre"
+      temporary_accommodation: "hébergement temporaire"
+      trade: "à échanger"
+    test: test
+    what_is_this: "Qu'est-ce que c'est ?"
+  conversations:
+    index:
+      loading_more_messages: "Chargement de plus de messages"
+      message_partitive: message
+      messages_partitive: messages
+      no_received_messages: "Pas de messages reçus"
+      no_sent_messages: "Pas de messages envoyés"
+    new:
+      default_offer_message_text: "Veuillez spécifier ce dont vous avez besoin."
+      default_request_message_text: "Veuillez spécifier ce dont vous avez besoin et sous quelles conditions."
+      favor_offer_message_form_title: "Demander un service à"
+      favor_offer_message_title: "Demande de service : %{title}"
+      favor_request_message_form_title: "Proposer un service à"
+      favor_request_message_title: "Offre de service : %{title}"
+      housing_offer_message_form_title: "Répondre à"
+      housing_offer_message_title: "Répondre à votre annonce %{title}"
+      housing_request_message_form_title: "Répondre à"
+      housing_request_message_title: "Répondre à votre annonce %{title}"
+      item_offer_message_form_title: "Demander un article à"
+      item_offer_message_title: "Demande d'article : %{title}"
+      item_request_message_form_title: "Offrir un article à"
+      item_request_message_title: "Offre d'article : %{title}"
+      message: Message
+      rideshare_offer_message_form_title: "Demander un transport à"
+      rideshare_offer_message_title: "Demande de covoiturage : %{title}"
+      rideshare_request_message_form_title: "Proposer un transport à"
+      rideshare_request_message_title: "Offre de covoiturage : %{title}"
+      send_a_new_message: "Envoyer un nouveau message"
+      send_offer_message: "Envoyer l'offre"
+      send_request_message: "Envoyer la demande"
+      title: Titre
+    notifications:
+      badgenotification:
+        see_all_your_badges: "Voir tous vos badges"
+        you_have_earned_badge: "Vous avez gagné le badge"
+      loading_more_notifications: "Chargement de plus de notifications"
+      no_notifications: "Pas de notifications."
+      testimonialnotification:
+        give_feedback_to: "Donner une évaluation à %{name}"
+        has_given_you_feedback_on_event: "vous a donné une évaluation pour l'événement"
+        see_all_the_feedback_you_have_received: "voir toutes les évaluations reçues"
+    show:
+      in_response_to_offer: "concernant l'offre"
+      in_response_to_request: "en réponse à la demande"
+      offer_sent_by: "Demande envoyée par"
+      offer_sent_to: "Offre envoyée à"
+      request_sent_by: "Offre envoyée par"
+      request_sent_to: "Demande envoyée à"
+      send_reply: "Envoyer une réponse"
+      write_a_reply: "Ecrire une réponse :"
+    status:
+      feedback_given: "Evaluation donnée"
+      feedback_skipped: "Pas d'évaluation"
+      give_feedback: "Donner évaluation"
+      offer_accepted: "Offre acceptée"
+      offer_rejected: "Offre rejetée"
+      request_accepted: "Demande acceptée"
+      request_rejected: "Demande rejetée"
+      skip_feedback: "Pas d'évaluation"
+      waiting_confirmation_from_listing_author: "En attente de la confirmation de l'auteur de l'annonce"
+    status_link:
+      accept_offer: "Accepter offre"
+      accept_request: "Accepter demande"
+      reject_offer: "Rejeter offre"
+      reject_request: "Rejeter demande"
+  dashboard:
+    index:
+      aalto_community_url: "http://aalto.kassi.eu/en"
+      avoinyritys_url: "http://www.avoinyritys.fi/english/"
+      bubble_text_line_1: PAYER
+      bubble_text_line_2: "EN AVANT !"
+      description: "Kassi est un service en ligne qui permet aux membres de votre communauté de s'entraider de plusieurs façons : ils peuvent se prêter et vendre des objets, se rendre service, faire du covoiturage et beaucoup d'autres choses !"
+      email_default_text: "Votre adresse email"
+      get_to_know_the_aalto_community: "Passez voir la communauté Kassi de l'université Aalto !"
+      get_to_know_the_avoin_yritys_blog: "Consultez notre blog !"
+      kassi_in_facebook: "Kassi sur Facebook"
+      kassi_in_twitter: "Kassi sur Twitter"
+      or_contact_by_email: "... ou contactez-nous par email :"
+      send: "Envoyer !"
+      thank_you: "Merci !"
+      thank_you_for_contacting: "Merci de nous contacter. Nous reviendrons vers vous dès que possible. Si vous le souhaitez, vous pouvez aussi nous joindre par email : info(aet)kassi.eu"
+      want_to_know_how_kassi_works: "Vous souhaitez connaître le fonctionnement de Kassi ?"
+      want_to_know_more_about_us: "Vous souhaitez en savoir plus sur notre philosophie ?"
+      want_to_use_kassi_in_your_association: "Vous souhaitez utiliser Kassi dans votre communauté ?"
+  emails:
+    accept_reminder:
+      offer_accusative: offre
+      remember_to_accept_listing: "N'oubliez pas d'accepter %{listing_type}, même si l'événement lui-même a déjà eu lieu. Le fait de l'accepter donne aux participants la possibilité de s'évaluer entre eux. Les évaluations positives que vous recevez seront visibles dans votre profil aux autres utilisateurs de Kassi. Cela vous donnera plus de crédibilité aux yeux des autres utilisateurs et les assurera également du bon déroulement des transactions à venir. Les bonnes évaluations vous aideront aussi à obtenir des badges."
+      remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter une offre"
+      remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter une demande"
+      request_accusative: demande
+      you_can_accept_or_reject_offer_at: "Vous pouvez accepter ou rejeter l'offre à"
+      you_can_accept_or_reject_request_at: "Vous pouvez accepter ou rejeter la demande à"
+      you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou rejeté l'offre '%{title}' reçue le %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou rejeté la demande '%{title}' reçue le %{date}."
+    badge_migration_notification:
+      badge_description1: "Sur Kassi, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage etc.) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu une évaluation positive."
+      badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'articles, rendez service, faites du covoiturage et collectionnez toute la série des badges Kassi !"
+      you_have_received_badges: "Vous avez obtenu des badges sur Kassi !"
+      you_have_received_badges_in_kassi: "Vous avez gagné des badges sur Kassi. Pour visionner les badges obtenus, connectez-vous sur Kassi et allez à"
+    common:
+      check_your_settings: "Vérifiez vos paramètres"
+      hey: "Bonjour %{name},"
+      kassi_team: "L'équipe de Kassi"
+      thanks: "Merci,"
+      want_to_control_emails: "Vous souhaitez contrôler les emails que vous recevez de Kassi?"
+    confirmation_instructions:
+      confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de Kassi"
+      confirmation_link_text: "Confirmer mon inscription"
+      need_to_confirm: "Avant de commencer à utiliser Kassi, vous devez confirmer votre adresse email avec le lien suivant :"
+      welcome_to_kassi: "Bienvenue sur Kassi !"
+    conversation_status_changed:
+      has_accepted_your_offer: "%{accepter} a accepté votre offre concernant la demande %{listing}"
+      has_accepted_your_request: "%{accepter} a accepté votre demande concernant l'offre %{listing}"
+      has_rejected_your_offer: "%{accepter} a rejeté votre offre concernant la demande %{listing}"
+      has_rejected_your_request: "%{accepter} a rejeté votre demande concernant l'offre %{listing}"
+      you_can_view_the_offer_in: "Pour visionner votre offre et les commentaires liés, aller à"
+      you_can_view_the_request_in: "Pour visionner votre demande et les commentaires liés, aller à"
+      your_offer_was_accepted: "Votre offre a été accepté"
+      your_offer_was_rejected: "Votre offre a été rejetée"
+      your_request_was_accepted: "Votre demande a été acceptée"
+      your_request_was_rejected: "Votre demande a été rejetée"
+    new_badge:
+      you_can_view_all_your_badges_in: "Vous pouvez visionner tous vos badges à"
+      you_have_achieved_a_badge: "Vous avez gagné un badge '%{badge_name}' sur Kassi !"
+    new_comment:
+      has_commented_your_offer_in_kassi: "%{author} a fait un commentaire sur votre offre %{listing}"
+      has_commented_your_request_in_kassi: "%{author} a fait un commentaire sur votre demande %{listing}"
+      you_can_reply_to_comment_in: "Vous pouvez voir tous les commentaires et y répondre à"
+      you_have_a_new_comment: "%{author} a fait un commentaire sur votre annonce sur Kassi"
+    new_message:
+      conversation_title: "Titre du fil de messages : %{title}"
+      do_not_reply_to_this_email: "Merci de ne pas répondre à cet email. Pour nous répondre, veuillez utiliser le lien dessus."
+      has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur Kassi :"
+      you_can_reply_to_message_in: "Pour répondre au message, aller à"
+      you_have_a_new_message: "Vous avez un nouveau message sur Kassi"
+    new_testimonial:
+      has_given_you_feedback_in_kassi: "%{name} vous a donné une évaluation sur Kassi"
+      you_can_give_feedback_to: "Pour donner une évaluation à %{name}, aller à"
+      you_can_view_all_your_feedback_in: "Vous pouvez voir toutes vos évaluations reçues à"
+    newsletter:
+      a_request: "une demande"
+      add: Ajouter
+      an_offer: "une offre"
+      check_everything_that_others_are: "Vérifiez tout ce que les autres sont en train de"
+      could_you_offer_something: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ?"
+      hi: "Bonjour %{name},"
+      newest_offers: "Ce que les gens proposent aux autres en ce moment"
+      newest_requests: "Ce dont les gens ont besoin en ce moment"
+      offering: offre
+      requesting: demande
+      text_version_text: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ? Ajoutez une offre ou une demande ou vérifiez tout ce que les autres offrent ou demandent en ce moment à %{url}"
+      to_kassi: "à Kassi"
+      update_on_what_is_happening: "Jetez un oeil à ce qui se passe dans la communauté %{community} sur Kassi en ce moment."
+      weekly_news_from_kassi: "Actualités hebdomadaires de la communauté Kassi %{community}"
+    reply_to_contact_request:
+      thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à Kassi !"
+    testimonial_reminder:
+      feedback_is_public_and_is_shown: "Les évaluations sont publiques et visibles par tous les autres utilisateurs. En fonction des évaluations reçues, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner une évaluation à la fin de chaque transaction et de rappeler aux autres participants de vous en donner une. C'est également grâce aux évaluations positives que vous obtiendrez la plupart des badges."
+      remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner une évaluation à %{name}"
+      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'évaluation à %{name} pour la transaction '%{event}'. N'oubliez pas de donner une évaluation sur la façon dont %{given_name} a agi lors de la transaction."
+  error_messages:
+    listings:
+      departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
+      share_type: "Vous devez cocher au moins une des cases ci-dessus."
+      valid_until: "Cette date doit être comprise entre aujourd'hui et dans un an."
+    testimonials:
+      you_must_explain_not_neutral_feedback: "Si vous souhaitez donner une évaluation non-neutre, veuillez expliquer pourquoi."
+      you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
+  error_pages:
+    back_to_kassi_front_page: "Retour à la page d'accueil de Kassi"
+    error_404:
+      if_you_believe: "Si vous pensez que l'adresse est correcte et qu'elle devrait fonctionner, veuillez nous aider à localiser l'erreur en indiquant notamment l'adresse ayant causé le problème et ce qui aurait dû s'afficher (utiliser formulaire ci-dessous)."
+      page_can_not_be_found: "Page introuvable !"
+      page_you_requested_can_not_be_found: "L'adresse que vous demandez n'existe pas sur Kassi. Etes-vous sûr d'avoir saisi l'adresse correctement ?"
+    error_404_title: "page introuvable"
+    error_500:
+      help_us_find_the_problem: "Vous pouvez nous aider à détecter le problème en décrivant brièvement sur le formulaire ci-dessous ce qui s'est passé."
+      page_loading_failed: "Impossible de charger la page !"
+      reload_refresh: "Essayez de recharger/rafraîchir la page afin d'accéder à la page souhaitée. Nous nous efforçons de localiser et de résoudre le problème ayant causé l'erreur dans les meilleurs délais."
+    error_500_title: "impossible de charger la page"
+    error_description: "Description d'erreur"
+    no_javascript:
+      javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
+      kassi_does_not_currently_work_without_javascript: "Malheureusement Kassi ne fonctionne pas actuellement sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis recharger cette page à nouveau. Si vous souhaitez utiliser Kassi sans javascript, veuillez nous envoyer vos commentaires en utilisant le formulaire ci-dessous."
+      send_feedback: "Envoyer commentaires"
+      your_feedback_to_admins: "Vos commentaires aux administrateurs"
+    send: Envoyer
+    your_email_address: "Votre adresse email"
+  header:
+    about: "A propos de Kassi"
+    community: Communauté
+    home: Accueil
+    mobile_version: "Version mobile"
+    offers: Offres
+    requests: Demandes
+    search_kassi: "Chercher sur Kassi"
+  homepage:
+    additional_private_listings_slate:
+      additionally_one_private_offer_exists: "Par ailleurs, il y a <b>une autre offre</b>,"
+      additionally_one_private_request_exists: "Par ailleurs, il y a <b>une autre demande</b>,"
+      additionally_some_private_offers_exist: "Par ailleurs, il y a <b>%{number_of_listings} autres offres</b>,"
+      additionally_some_private_requests_exist: "Par ailleurs, il y a <b>%{number_of_listings} autres demandes</b>,"
+    blank_slate:
+      add_first: "Ajouter !"
+      but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres enregistrés."
+      but_those_are_visible_only_to_registered_members: "mais elles sont visibles uniquement aux membres enregistrés."
+      create_new_account_for_yourself: "Créer un nouveau compte"
+      examples_of_what_you_could_offer_to_others: "Que pourriez-vous offrir aux autres"
+      examples_of_what_you_could_request_to_others: "Que pourriez-vous demander aux autres"
+      favor_offer_list: "maintenance informatique, réparation de vêtements et de vélos, pâtisserie"
+      favor_request_list: "baby-sitting, cours de piano, promener les chiens, tondre la pelouse"
+      favors_to_offer: "Aide : "
+      favors_to_request: "Aide : "
+      item_offer_list: "outils, équipements sportifs, déguisements, matériel de camping"
+      item_request_list: "outils, équipements sportifs, déguisements, matériel de camping"
+      items_to_offer: "Articles à prêter : "
+      items_to_request: "Articles à emprunter : "
+      log_in: "se connecter !"
+      no_offers_visible_unless_logged_in: "Aucune offre d'article, de service ou de covoiturage visible aux utilisateurs non-enregistrés."
+      no_open_offers_currently: "Aucune offre d'article, de service ou de covoiturage en cours."
+      no_open_requests_currently: "Aucune demande d'article, de service ou de covoiturage en cours."
+      no_requests_visible_unless_logged_in: "Aucune demande d'article, de service ou de covoiturage visible aux utilisateurs non-enregistrés."
+      one_private_offer_exists: "Il y a déjà <b>une offre</b>,"
+      one_private_request_exists: "Il y a déjà <b>une demande</b>,"
+      ride_offer: "Accompagner les enfants des autres à leurs activités"
+      ride_request: "Covoiturage pour aller travailler"
+      some_private_offers_exist: "Il y a déjà <b>%{number_of_listings} offres</b>,"
+      some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
+    index:
+      are_offering: offre
+      lend_rent_help_carpool: "Vendre, prêter, aider, partager les trajets"
+      loading_more_content: "En cours de chargement"
+      more_events: "Plus d'événements ..."
+      news: Actualités
+      offer_something: "Listez vos articles et vos compétences !"
+      offer_something_description: "Ajouter les articles, compétences et covoiturages que vous pouvez proposer"
+      or: ou
+      or_see_what_the_others: "... ou voir ce que les autres"
+      recent_events: "Evénements les plus récents"
+      recent_offers: "Ce qu'offrent les autres"
+      recent_requests: "Ce dont les autres ont besoin"
+      request_something: "Dites-nous ce dont vous avez besoin !"
+      request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
+      requesting: besoin
+      teaser_text: "Kassi est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des articles, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
+      tell_it_here: "Dites-le ici !"
+      welcome_to_new_kassi: "Bienvenue sur la nouvelle version de Kassi !"
+    recent_listing:
+      please_offer: Offrir
+  layouts:
+    admin:
+      admin: "Panneau administrateur Kassi"
+      back_to_kassi: "Retour à la page d'accueil de Kassi"
+    application:
+      default_feedback: "Proposer une nouvelle fonctionnalité, signaler un bug, donnez votre opinion sur le service ou laissez-nous juste un mot pour dire bonjour !"
+      feedback: "Vos commentaires à l'équipe de Kassi"
+      feedback_forum: "forum de discussion"
+      feedback_handle: Commentaires
+      give_feedback: "Faites vos commentaires sur Kassi"
+      keywords: "service, article, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
+      meta_description: "Kassi est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
+      or_check_our: "...ou consultez notre"
+      send_feedback_to_admin: "Envoyer commentaires"
+      to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré."
+      your_email_address: "Votre adresse email (non-obligatoire)"
+    conversations:
+      messages: Messages
+      notifications: Notifications
+      received: Reçu
+      sent: Envoyé
+    dashboard:
+      title: "Kassi - partagez des biens, des services et des transports dans votre communauté locale !"
+    infos:
+      about: "Kassi - qu'est-ce que c'est?"
+      how_to_use: "Comment utiliser Kassi"
+      info_about_kassi: "Informations sur Kassi"
+      register_details: "Enregistrer les détails"
+      terms: "Conditions d'utilisation"
+    logged_in:
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Bonjour
+      login: "Se connecter"
+      logout: Déconnexion
+      notifications: Notifications
+      requests: "Demandes d'amis"
+      settings: Paramètres
+      sign_up: "Créer un compte utilisateur"
+    logged_in_messages_icon:
+      messages: Messages
+    logged_in_notifications_icon:
+      notifications: Notifications
+    mobile_logged_in:
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Bonjour
+      login: Connexion
+      logout: Déconnexion
+      notifications: Notifications
+      requests: "Demandes d'amis"
+      settings: Paramètres
+      sign_up: S'inscrire
+    notifications:
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
+      avatar_upload_failed: "Chargement d'avatar a échoué. Formats de photo acceptés : .png, .jpg ou .gif."
+      avatar_upload_successful: "Téléchargement d'avatar réussi."
+      comment_cannot_be_empty: "Commentaire ne peut pas être vide"
+      comment_sent: "Commentaire envoyé"
+      confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
+      create_new_offer: "Offrir autre chose"
+      create_new_request: "Demander autre chose"
+      create_one_here: "en créer un ici"
+      email_not_found: "L'email que vous avez donné est introuvable dans la base de données de Kassi."
+      error_with_session: "Erreur avec la session."
+      favor_offer_message_sent: "Demande de service envoyée avec succès"
+      favor_request_message_sent: "Offre de service envoyée avec succès"
+      feedback_considered_spam: "Commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utiliser le forum de discussion."
+      feedback_not_saved: "Commentaire n'a pas pu être envoyé."
+      feedback_saved: "Merci pour vos commentaires !"
+      feedback_sent_to: "Evaluation envoyée à"
+      feedback_skipped: "Pas d'évaluation"
+      housing_offer_message_sent: "Message envoyé avec succès"
+      housing_request_message_sent: "Message envoyé avec succès"
+      item_offer_message_sent: "Demande d'article envoyée avec succès"
+      item_request_message_sent: "Offre d'article envoyée avec succès"
+      login_again: "Merci de vous reconnecter."
+      login_failed: "Échec de connexion. Veuillez saisir les identifiants correctes."
+      login_successful: "Bienvenue sur Kassi, "
+      logout_successful: "Vous avez été déconnecté de Kassi. Bienvenue à nouveau !"
+      offer_accepted: "Offre acceptée"
+      offer_closed: "Offre fermée"
+      offer_created_successfully: "Offre créée avec succès."
+      offer_rejected: "Offre rejetée"
+      offer_updated_successfully: "Offre mise à jour avec succès"
+      only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de Kassi peuvent accéder à ce domaine"
+      only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peur la fermer"
+      only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
+      password_recovery_sent: "Instructions pour changer votre mot de passe ont été envoyées à votre adresse email."
+      person_activated: "Utilisateur activé"
+      person_deactivated: "Utilisateur désactivé"
+      person_updated_successfully: "Informations mises à jour"
+      read_more: "Lire la suite !"
+      reply_cannot_be_empty: "Vous ne pouvez pas envoyer un message vide"
+      reply_sent: "Réponse envoyée avec succès"
+      request_accepted: "Demande acceptée"
+      request_closed: "Demande fermée"
+      request_created_successfully: "Demande créée avec succès."
+      request_rejected: "Demande rejetée"
+      request_updated_successfully: "Demande mise à jour avec succès"
+      rideshare_offer_message_sent: "Demande de transport envoyée avec succès"
+      rideshare_request_message_sent: "Offre de transport envoyée avec succès"
+      this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible à cette communauté."
+      unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
+      update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
+      welcome_message: "Bienvenue sur Kassi ! Kassi est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner une évaluation sur cet événement"
+      you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
+      you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
+      you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre fermée"
+      you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande fermée"
+      you_cannot_reply_to_your_own_offer: "Vous ne pouvez pas répondre à votre propre offre"
+      you_cannot_reply_to_your_own_request: "Vous ne pouvez pas répondre à votre propre demande"
+      you_have_already_given_feedback_about_this_event: "Vous avez déjà donné une évaluation sur cet événement"
+      you_must_log_in_to_create_new_offer: "Vous devez être connecté à Kassi pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
+      you_must_log_in_to_create_new_request: "Vous devez être connecté à Kassi pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
+      you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner une évaluation"
+      you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
+      you_must_log_in_to_send_a_message: "Vous devez vous connecter à Kassi pour envoyer un message à un autre utilisateur."
+      you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
+      you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à Kassi pour consulter votre boîte de réception."
+      you_must_log_in_to_view_your_settings: "Vous devez vous connecter à Kassi pour afficher vos paramètres."
+      you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription."
+    profile_extras_header:
+      back_to_profile_of_person: "Retour au profil d'utilisateur"
+      badges: Badges
+      testimonials: "Evaluations reçues"
+    settings:
+      account: Compte
+      avatar: "Image de profil"
+      notifications: Notifications
+      profile: "Info profil"
+      settings: Paramètres
+  listings:
+    bubble_listing_not_visible:
+      listing_not_visible: "Vous n'avez pas la permission de consultez cette annonce."
+    comment_form:
+      log_in: "se connecter"
+      send_comment: "Envoyer un commentaire"
+      to_send_a_comment: "pour envoyer un nouveau commentaire."
+      write_comment: "Ecrire un nouveau commentaire :"
+      you_cannot_send_a_new_comment_because_offer_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette offre est fermée."
+      you_cannot_send_a_new_comment_because_request_is_closed: "Vous ne pouvez pas envoyer de nouveau commentaire car cette demande est fermée."
+      you_must: "Vous devez"
+    edit:
+      edit_offer: "Modifier l'offre"
+      edit_request: "Modifier demande"
+    edit_links:
+      close_offer: "Fermer offre"
+      close_request: "Fermer demande"
+      edit_offer: "Modifier offre"
+      edit_request: "Modifier demande"
+      reopen_offer: "Réouvrir offre"
+      reopen_request: "Réouvrir demande"
+    form:
+      departure_time:
+        at: A
+        departure_time: "Heure de départ"
+      departure_time_radio_buttons:
+        repeated: "Répété (ajouter le nombre de fois et de jours dans le champs 'description détaillée')"
+      description:
+        detailed_description: "Description détaillée"
+      destination:
+        destination: Destination
+      form_content:
+        favor: Service
+        housing: Logement
+        item: Article
+        offer_something: "Offrir quelque chose"
+        request_something: "Demander quelque chose"
+        rideshare: Covoiturage
+      googlemap:
+        googlemap_copy: "Extrémités depuis plan"
+        googlemap_description: Plan
+        googlemap_updatemap: "Mettre à jour le plan"
+      images:
+        image: Image
+        no_file_selected: "Aucun fichier sélectionné"
+        remove_image: "Supprimer image"
+        select_file: "Sélectionner fichier"
+      location:
+        location: Lieu
+      origin:
+        location: Lieu
+        origin: Provenance
+      send_button:
+        save_offer: "Enregistrer offre"
+        save_request: "Enregistrer demande"
+      share_type:
+        borrow: Emprunter
+        buy: Acheter
+        give_away: Donner
+        lend: Prêter
+        offer_type: "Type d'offre"
+        receive: "Accepter gratuitement"
+        rent: Louer
+        rent_out: "Offre de location"
+        request_type: "Type de demande"
+        sell: Vendre
+        temporary_accommodation: Temporaire
+        trade: Echange
+      tag_list:
+        comma_separate: "(séparé par une virgule)"
+        tags: Tags
+      title:
+        favor_you_offer: "Service que vous proposez"
+        favor_you_request: "Service dont vous avez besoin"
+        housing_you_offer: "Logement que vous proposez"
+        housing_you_request: "Logement dont vous avez besoin"
+        item_you_offer: "Article que vous proposez"
+        item_you_request: "Article dont vous avez besoin"
+      valid_until:
+        valid_until: "Date d'expiration"
+      valid_until_radio_buttons:
+        for_the_time_being: "Pour le moment"
+      visibility:
+        communities: "Toutes mes communautés Kassi"
+        everybody: "Tous les utilisateurs d'internet"
+        this_community: "Seuls les membres de %{community}"
+        visibility: Visibilité
+    help_texts:
+      help_share_type_title: "Type d'offre ou de demande"
+      help_tags_title: Tags
+      help_valid_until_title: "Date d'expiration"
+    index:
+      all_categories: "Toutes les catégories"
+      all_offer_types: "Tout type d'offre"
+      all_request_types: "Tout type de demande"
+      category: Catégorie
+      did_not_found_what_you_were_looking_for: "N'avez-vous pas trouvé ce que vous cherchiez ?"
+      favors: Services
+      housing: Logement
+      items: Articles
+      list_view: "Vue en liste"
+      map_view: "Afficher la carte"
+      offer_something: "Parlez-en aux autres !"
+      offer_type: "Type d'offre"
+      offers: Offres
+      request_something: "Demandez quelque chose !"
+      request_type: "Type de demande"
+      requests: Demandes
+      rideshare: Covoiturage
+      search_verb: Chercher
+      you_have_something_others_do_not: "Avez-vous quelque chose à offrir ?"
+    left_panel_link:
+      borrows: "A emprunter"
+      buys: "A acheter"
+      favors: Services
+      give_aways: "A donner"
+      housings: Logement
+      items: Articles
+      lends: "A prêter"
+      receives: "A accepter gratuitement"
+      rent_outs: "A louer"
+      rents: "Cherche à louer"
+      rideshares: Covoiturage
+      sells: "A vendre"
+      temporary_accommodations: "Hébergement temporaire"
+      trades: "A échanger"
+    link_labels:
+      link_label_for_favor_offer: "Demander un service"
+      link_label_for_favor_request: "Proposer votre aide"
+      link_label_for_housing_offer: Répondre
+      link_label_for_housing_request: Répondre
+      link_label_for_item_offer: "Demander un article"
+      link_label_for_item_request: "Offrir un article"
+      link_label_for_rideshare_offer: "Demander un transport"
+      link_label_for_rideshare_request: "Proposer un transport"
+    listed_listing:
+      edit: Modifier
+    listed_listing_closed_status:
+      offer_is_closed: "Offre fermée"
+      request_is_closed: "Demande fermée"
+    listed_listings:
+      loading_more_offers: "Chargement de plus d'offres"
+      loading_more_requests: "Chargement de plus de demandes"
+      no_offers_with_the_conditions_you_gave: "Pas d'offres avec les conditions que vous avez données."
+      no_requests_with_the_conditions_you_gave: "Pas de demande avec les conditions que vous avez données."
+      offer_something: "Offrez quelque chose !"
+      request_something: "Demandez quelque chose !"
+      search_returned_no_results: "Pas de résultats à votre recherche."
+    please_comment: "Faire un commentaire"
+    reply_link:
+      offer_closed: "Offre fermée"
+      request_closed: "Demande fermée"
+    show:
+      comments: Commentaires
+      favor_offer: "Offre de service"
+      favor_request: "Demande de service"
+      housing_offer: "Offre de logement"
+      housing_request: "Demande de logement"
+      item_offer: "Offre d'article"
+      item_request: "Demande d'article"
+      no_description: "Pas de description"
+      offer: Offre
+      offer_author: "Offert par"
+      offer_created: "Offre créée"
+      request: Demande
+      request_author: "Demandé par"
+      request_created: "Demande créée"
+      rideshare_offer: "Offre de covoiturage"
+      rideshare_request: "Demande de covoiturage"
+      share_types: "Types de partage"
+      share_types_offer: "Type d'offre"
+      share_types_request: "Type de demande"
+      tags: Tags
+      time: fois
+      times: fois
+      times_viewed: Vu
+  mapview:
+    index:
+      all_categories: "Toutes les catégories"
+      all_offer_types: "Tout type d'offre"
+      all_request_types: "Tout type de demande"
+      category: Catégorie
+      did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
+      favors: Services
+      housing: Logement
+      items: Articles
+      list_view: "Vue en liste"
+      map_view: Plan
+      offer_something: "Parlez-en à d'autres !"
+      offer_type: "Type d'offre"
+      offers: Offres
+      request_something: "Demander quelque chose !"
+      request_type: "Type de demande"
+      requests: Demandes
+      rideshare: Covoiturage
+      search_verb: Chercher
+      you_have_something_others_do_not: "Avez-vous quelque chose à offrir ?"
+    please_comment: Commentaire
+  people:
+    badge_description:
+      badge_achieved_at: "Badge obtenu "
+      you_do_not_yet_have_this_badge: "Le badge n'a pas encore été obtenu."
+    edit_links:
+      activate: Activer
+      deactivate: Désactiver
+    help_texts:
+      badges_description_title: Badges
+      feedback_description_title: Commentaires
+      help_captcha_title: "Etes-vous humain ?"
+      help_invitation_code_title: "Il vous faut une invitation pour participer"
+      terms_title: "Conditions d'utilisation de Kassi"
+    inactive_notification:
+      inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
+      this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
+    new:
+      address_validator: "Emplacement inconnu."
+      captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
+      captcha_was_wrong: "Texte Captcha incorrecte."
+      create_new_account: "Créer un compte utilisateur"
+      email: "Adresse email :"
+      email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
+      enter_captcha: "Je suis un être humain :"
+      family_name: "Nom de famille :"
+      given_name: "Prénom :"
+      i_accept_the: "J'accepte les"
+      invalid_invitation_code: "Le code d'invitation n'est pas valide."
+      invitation_code: "Code d'invitation :"
+      not_required: ", pas demandé"
+      password: "Mot de passe :"
+      password_again: "Confirmer le mot de passe :"
+      sign_up: "Créer un nouveau compte sur Kassi"
+      terms: "conditions d'utilisation"
+      username: "Nom d'utilisateur :"
+      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
+      username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
+      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
+      visible_to_everybody: "visible à tout le monde"
+    not_member:
+      explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, Kassi ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
+      read_more_about_kassi_communities: "En savoir plus sur les communautés Kassi"
+      this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de la communauté %{community}"
+    profile_badge:
+      active_member_bronze: "Membre actif (bronze)"
+      active_member_bronze_description: "Vous venez de participer à une transaction pour la troisième fois sur Kassi ! Excellent démarrage, continuez !"
+      active_member_gold: "Membre actif (or)"
+      active_member_gold_description: "Super ! Vous venez d'effectuer votre 25ème transaction sur Kassi. Vous êtes désormais un VIP sur Kassi. C'est grâce à des gens comme vous que les choses évoluent. Merci beaucoup !"
+      active_member_silver: "Membre actif (argent)"
+      active_member_silver_description: "Félicitations pour votre 10ème transaction sur Kassi ! Il se passe beaucoup de choses dans ce service grâce à vous. Génial !"
+      chauffer_bronze: "Conducteur (bronze)"
+      chauffer_bronze_description: "Vous avez proposé deux transports à d'autres utilisateurs, bravo !"
+      chauffer_gold: "Conducteur (or)"
+      chauffer_gold_description: "15 covoiturages effectués ! Vous êtes un vrai pro. Vous êtes sur la bonne voie, la planète vous en remercie !"
+      chauffer_silver: "Conducteur (argent)"
+      chauffer_silver_description: "6 covoiturages proposés, super ! On est mieux à plusieurs dans une voiture."
+      commentator_bronze: "Commentateur (bronze)"
+      commentator_bronze_description: "Vous aimez bien discuter avec les autres utilisateurs. Vous avez fait trois commentaires sur Kassi."
+      commentator_gold: "Commentateur (or)"
+      commentator_gold_description: "30 commentaires ! La communauté Kassi, c'est un peu votre deuxième chez vous. Vous prenez du plaisir à communiquer."
+      commentator_silver: "Commentateur (argent)"
+      commentator_silver_description: "10 commentaires ! Vous participez activement aux discussions avec d'autres utilisateurs de Kassi"
+      enthusiast_bronze: "Enthousiaste (bronze)"
+      enthusiast_bronze_description: "Vous êtes venu sur Kassi à cinq dates différentes. On dirait que vous êtes en train de devenir un habitué."
+      enthusiast_gold: "Enthousiaste (or)"
+      enthusiast_gold_description: "Vous ne pouvez pas vous éloigner de Kassi ! Vous avez visité le site à cent dates différentes !"
+      enthusiast_silver: "Enthousiaste (argent)"
+      enthusiast_silver_description: "Kassi fait partie de votre quotidien : vous nous avez déjà rendu visite 30 fois."
+      first_transaction: "Premier événement"
+      first_transaction_description: "Félicitations pour votre première transaction sur Kassi ! Une de vos demandes ou offres a été acceptée et confirmée comme effectuée."
+      generous_bronze: "Généreux (bronze)"
+      generous_bronze_description: "Vous avez prêté ou donné deux de vos articles. Bravo !"
+      generous_gold: "Généreux (or)"
+      generous_gold_description: "Ce qui est à vous est à tout le monde. Vous avez prêté ou donné 15 articles, c'est formidable !"
+      generous_silver: "Généreux (argent)"
+      generous_silver_description: "Vous aimez partager vos affaires avec les autres. 6 articles prêtés ou donnés, super !"
+      helper_bronze: "Aidant (bronze)"
+      helper_bronze_description: "Vous avez proposé votre aide aux autres deux fois, super !"
+      helper_gold: "Aidant (or)"
+      helper_gold_description: "Vous êtes toujours là pour aider les autres. 15 services rendus, formidable !"
+      helper_silver: "Aidant (argent)"
+      helper_silver_description: "Vous aimez passer du temps à aider les autres : 6 services rendus !"
+      jack_of_all_trades: "Homme à tout faire"
+      jack_of_all_trades_description: "Vos talents sont vraiment multiples ! Vous avez participé à des échanges de ressources dans 5 rôles différents. Continuez donc et cumulez les huit : donneur d'article, aidant, conducteur de covoiturage, logeur, demandeur d'article, demandeur de service, demandeur de covoiturage et demandeur de logement."
+      lender_bronze: "Prêteur (bronze)"
+      lender_bronze_description: "Vous avez listé trois articles que vous souhaitez prêter, génial !"
+      lender_gold: "Prêteur (or)"
+      lender_gold_description: "Vous êtes la générosité même ! Vous avez listé 25 articles que vous souhaitez prêter, c'est formidable !"
+      lender_silver: "Prêteur (argent)"
+      lender_silver_description: "Dans vos placards se trouvent de nombreux objets que vous pourriez partager avec les autres : 10 articles à prêter !"
+      listing_freak_bronze: "Amateur d'annonces (bronze)"
+      listing_freak_bronze_description: "Vous avez cinq offres/demandes ouvertes sur Kassi. Génial ! Y aurait-il encore quelque chose dans votre placard dont vous pourriez faire profiter les autres ?"
+      listing_freak_gold: "Amateur d'annonces (or)"
+      listing_freak_gold_description: "40 offres et/ou demandes ouvertes, c'est formidable ! Vous faites partie des contributeurs les plus actifs sur Kassi."
+      listing_freak_silver: "Amateur d'annonces (argent)"
+      listing_freak_silver_description: "20 offres et/ou demandes ouvertes, bravo ! Vous êtes vraiment un annonceur actif."
+      moneymaker_bronze: "Homme d'affaires (bronze)"
+      moneymaker_bronze_description: "Vous avez compris que sur Kassi, on peut aussi gagner beaucoup d'argent ! Vous avez vendu ou loué deux articles avec succès sur Kassi."
+      moneymaker_gold: "Homme d'affaires (or)"
+      moneymaker_gold_description: "15 articles vendus ou loués avec évaluation positive ! Kassi est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
+      moneymaker_silver: "Homme d'affaires (argent)"
+      moneymaker_silver_description: "Kassi vous permet d'augmenter vos revenus. Six articles vendus ou loués avec évaluation positive."
+      rookie: Débutant
+      rookie_description: "Vous venez d'ajouter votre première demande ou offre sur Kassi. C'est un bon début !"
+      santa: "Père Noël"
+      santa_description: "Ho, ho, ho, y a-t-il des enfants sages ici ? Vous avez donné au moins un article à un autre utilisateur au cours du mois de décembre."
+      taxi_stand_bronze: "Taxi (bronze)"
+      taxi_stand_bronze_description: "Vous avez proposé trois covoiturages sur Kassi."
+      taxi_stand_gold: "Taxi (or)"
+      taxi_stand_gold_description: "Vous êtes toujours là pour proposer des transports à vos concitoyens. 25 offres de covoiturage, formidable !"
+      taxi_stand_silver: "Taxi (argent)"
+      taxi_stand_silver_description: "Dix offres de covoiturage, super ! Les gens savent qu'ils peuvent se tourner vers vous pour leurs déplacements."
+      volunteer_bronze: "Bénévole (bronze)"
+      volunteer_bronze_description: "Vous souhaitez faire profiter les autres de vos compétences. Vous avez trois offres de service ouvertes sur Kassi."
+      volunteer_gold: "Bénévole (or)"
+      volunteer_gold_description: "Aider les autres est votre passe-temps préféré. Vous avez listé dans votre profil 25 offres de service différentes, génial !"
+      volunteer_silver: "Bénévole (argent)"
+      volunteer_silver_description: "Vous avez beaucoup à donner aux autres : vous avez déjà listé 10 offres de services !"
+    profile_feedback:
+      as_expected: "Correspondait à mes attentes"
+      exceeded_expectations: "Dépassait complètement mes attentes"
+      grade: "note :"
+      less_than_expected: "Ne correspondait pas du tout à mes attentes"
+      offered_favor: "a rendu service"
+      offered_housing: "a proposé un logement"
+      offered_item: "a proposé un article"
+      offered_rideshare: "a proposé un transport"
+      requested_favor: "a reçu un service"
+      requested_housing: "a demandé un logement"
+      requested_item: "a reçu un article"
+      requested_rideshare: "a demandé un transport"
+      slightly_better_than_expected: "Un peu mieux que ce à quoi je m'attendais"
+      slightly_less_than_expected: "Un peu moins bien que ce à quoi je m'attendais"
+    profile_listings:
+      loading_more_offers: "Chargement de plus d'offres"
+      loading_more_requests: "Chargement de plus de demandes"
+      offers: Offres
+      requests: Demandes
+      show_also_closed: "Montrer aussi les fermées"
+      show_only_open: "Montrer seulement les ouvertes"
+    show:
+      about_me: "Qui suis-je :"
+      address: "Adresse :"
+      as_expected: "Correspondait à mes attentes"
+      badges: Badges
+      edit_profile_info: "Modifier profil"
+      exceeded_expectations: "Dépassait mes attentes"
+      feedback_average: "Moyenne des évaluations :"
+      hide_description: "Montrer moins"
+      joined_this_community: "A rejoint la communauté"
+      less_than_expected: "Ne correspondait pas à mes attentes"
+      phone_number: "Numéro de téléphone :"
+      show_all_badges: "Montrer tous les badges Kassi"
+      show_all_feedback: "Montrer toutes les évaluations"
+      show_all_testimonials: "Montrer tous les commentaires"
+      show_full_description: "Montrer plus"
+      slightly_better_than_expected: "Dépassait mes attentes"
+      slightly_less_than_expected: "Ne correspondait pas à mes attentes"
+      what_are_these: "Qu'est-ce que c'est ?"
+  search:
+    show:
+      all_results: "Tous les résultats"
+      loading_more_search_results: "Chargement de plus de résultats de recherche"
+      offers: Offres
+      requests: Demandes
+      search: Recherche
+      search_results: "Résultats de recherche"
+      search_returned_no_results: "Pas de résultats à votre recherche."
+      search_verb: Chercher
+  sessions:
+    confirmation_pending:
+      account_conrimation_instructions: "Vous recevrez bientôt un email de Kassi avec un lien sur lequel vous devrez cliquer pour accéder à la communauté Kassi.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la communauté (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant Kassi, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
+      check_your_email: "Voir vos messages"
+      get_started: "Commencer avec Kassi"
+      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et d'ajouter d'autres informations, ou vous pouvez démarrer directement une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez éventuellement prêter, louer ou vendre aux autres, ou un service que vous pourriez leur proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez poster une  <a href=\"/en/listings/new/request\">demande</a>."
+      resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
+      welcome_to_kassi: "Bienvenue sur Kassi !"
+    new:
+      create_new_account: "Créer un nouveau compte"
+      i_forgot_my_password: "J’ai oublié mon mot de passe"
+      login: "Se connecter"
+      login_to_kassi: "Se connecter à Kassi"
+      password: "Mot de passe"
+      username: "Nom d'utilisateur"
+    password_forgotten:
+      email: Email
+      password_recovery_instructions: "Donner votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
+      request_new_password: "Demander un nouveau mot de passe"
+  settings:
+    account:
+      change: Changer
+      confirm_new_password: "Confirmer nouveau mot de passe"
+      email: "Adresse email :"
+      new_email: "Nouvelle adresse email"
+      new_password: "Nouveau mot de passe"
+      password: "Mot de passe :"
+      save: Sauvegarder
+      these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Les autres informations ne sont montrées qu'à vous."
+      username: "Nom d'utilisateur :"
+    avatar:
+      add_avatar_submit: "Sauvegarder image"
+      update_profile_picture: "Mettre à jour l'image de profil"
+    notifications:
+      email_about_accept_reminders: "... j'ai oublié d'accepter un événement"
+      email_about_new_badges: "... j'ai obtenu un nouveau badge"
+      email_about_new_comments_to_own_listing: "... quelqu'un fait un commentaire sur mon offre ou ma demande"
+      email_about_new_messages: "... quelqu'un m'envoie un message"
+      email_about_new_received_testimonials: "... quelqu'un me donne une évaluation"
+      email_about_testimonial_reminders: "... j'ai oublié de donner une évaluation sur un événement"
+      email_about_weekly_events: "Envoyez-moi un email toutes les semaines avec les actualités de Kassi"
+      email_when_conversation_accepted: "... quelqu'un accepte mon offre ou ma demande"
+      email_when_conversation_rejected: "... quelqu'un rejette mon offre ou ma demande"
+      i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
+      newsletters: "Bulletins d'information"
+    profile:
+      about_you: "Sur vous :"
+      city: "Ville :"
+      family_name: "Nom :"
+      given_name: "Prénom :"
+      phone_number: "Numéro de téléphone :"
+      postal_code: "Code postal :"
+      profile_page: "sur votre page de profile"
+      profilemap: Plan
+      street_address: "Adresse :"
+      these_fields_are_shown_in_your: "Cette information sera visible à tous les utilisateurs de Kassi"
+      visible_to_everybody: "visible à tout le monde"
+      visible_to_registered_users: "visible aux utilisateurs connectés"
+    save_information: "Sauvegarder information"
+  sms:
+    category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
+    check_the_offer_in_kassi: "Voir l'offre sur Kassi : %{listing_url}"
+    listing_created: "Merci pour votre message, une annonce vient d'être ajouté sur Kassi."
+    offer: ^offre$|^o$
+    or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
+    parsing_error: "Impossible de comprendre le contenu du message. Veuillez relire les instructions et réessayer."
+    pay: payer|paiement
+    payment_delivered: "Un paiement de %{amount} euros a été transmis à %{receiver}. Un montant de  %{amount_plus_commission} euros sera ajouté à votre facture téléphonique."
+    potential_ride_share_offer: "%{author_name} offre un transport sur Kassi de %{origin} à %{destination} %{start_time}."
+    request: ^demande$|^r$
+    rideshare: transport|covoiturage
+    you_can_call_him_at: "Vous pouvez téléphoner au conducteur au %{phone_number}"
+    you_can_pay_gas_money_to_driver: "Pour participer aux frais d'essence, répondre 'kassi payer %{driver} Xe' où X est le montant. Le montant + une commission de 5% seront ajoutés à votre facture téléphonique."
+  tag_cloud:
+    tag_used:
+      with_tag: "Avec tag"
+      without_tag: "Sans tag"
+  terms:
+    show:
+      accept_terms: "Accepter les conditions d'utilisation de Kassi"
+      here: ici
+      i_accept_new_terms: "J'accepte les nouvelles conditions"
+      i_accept_terms: "J'accepte les conditions"
+      terms: "Conditions d'utilisation de Kassi"
+      terms_have_changed: "Les conditions d'utilisation ont changé"
+      you_can_view_the_new_terms: "Vous pouvez voir les nouvelles conditions"
+      you_need_to_accept: "Bienvenue sur Kassi ! Cela semble être la première fois que vous utilisez ce service. Avant de commencer, vous devez accepter les"
+      you_need_to_accept_new_terms: "Les conditions d'utilisation de Kassi ont changé. Vous devez accepter les nouvelles conditions afin de continuer à utiliser Kassi. L'objectif des nouvelles conditions est de rendre possible l'entretien du service une fois le projet de recherche terminé."
+  testimonials:
+    index:
+      all_testimonials: "Tous les commentaires"
+      feedback_altogether: "Evaluations en tout : "
+      loading_more_testimonials: "Chargement de plus de commentaires"
+      no_testimonials: "Pas de commentaire reçu."
+    new:
+      as_expected: "Correspondait à mes attentes"
+      exceeded_expectations: "Dépassait complètement mes attentes"
+      give_feedback_to: "Donner une évaluation à %{person}"
+      grade: "Estimation des activités d'un utilisateur"
+      less_than_expected: "Ne correspondait pas du tout à mes attentes"
+      send_feedback: "Envoyer évaluation"
+      slightly_better_than_expected: "Dépassait partiellement mes attentes"
+      slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
+      textual_feedback: "Description textuelle"
+    testimonial:
+      from_user: par
+      to_user: à
+  time:
+    formats:
+      short: "%e. %b %Y heure %H:%M"
+      shorter: "%e. %b h %H:%M"
+      sms: "%e.%m. h %H:%M"
+  timestamps:
+    day_ago: "il y a un jour"
+    days_ago: "il y a  jours"
+    hour_ago: "il y a une heure"
+    hours_ago: "il y a  heures"
+    minute_ago: "il y a une minute"
+    minutes_ago: "il y a  minutes"
+    month_ago: "il y a un mois"
+    months_ago: "il y a  mois"
+    seconds_ago: "il y a  secondes"
+    year_ago: "il y a un an"
+    years_ago: "il y a  ans"
