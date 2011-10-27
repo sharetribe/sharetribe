@@ -175,7 +175,7 @@ fr:
       newest_requests: "Ce dont les gens ont besoin en ce moment"
       offering: offre
       requesting: demande
-      text_version_text: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ? Ajoutez une offre ou une demande ou vérifiez tout ce que les autres offrent ou demandent en ce moment à %{url}"
+      text_version_text: "Pourriez-vous partager quelque chose dont les autres auraient besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ? Ajoutez une offre ou une demande ou vérifiez tout ce que les autres offrent ou demandent en ce moment à %{url}"
       to_kassi: "à Kassi"
       update_on_what_is_happening: "Jetez un oeil à ce qui se passe dans la communauté %{community} sur Kassi en ce moment."
       weekly_news_from_kassi: "Actualités hebdomadaires de la communauté Kassi %{community}"
@@ -264,7 +264,7 @@ fr:
       or: ou
       or_see_what_the_others: "... ou voir ce que les autres"
       recent_events: "Evénements les plus récents"
-      recent_offers: "Ce qu'offrent les autres"
+      recent_offers: "Ce que proposent les autres"
       recent_requests: "Ce dont les autres ont besoin"
       request_something: "Dites-nous ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
@@ -780,7 +780,7 @@ fr:
       account_conrimation_instructions: "Vous recevrez bientôt un email de Kassi avec un lien sur lequel vous devrez cliquer pour accéder à la communauté Kassi.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la communauté (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant Kassi, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
       check_your_email: "Voir vos messages"
       get_started: "Commencer avec Kassi"
-      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et d'ajouter d'autres informations, ou vous pouvez démarrer directement une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez éventuellement prêter, louer ou vendre aux autres, ou un service que vous pourriez leur proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez poster une  <a href=\"/en/listings/new/request\">demande</a>."
+      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations, ou bien vous pouvez poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez éventuellement prêter, louer ou vendre aux autres, ou un service que vous pourriez leur proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez poster une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       welcome_to_kassi: "Bienvenue sur Kassi !"
     new:
