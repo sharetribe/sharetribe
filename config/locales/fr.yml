@@ -93,8 +93,8 @@ fr:
     index:
       aalto_community_url: "http://aalto.kassi.eu/en"
       avoinyritys_url: "http://www.avoinyritys.fi/english/"
-      bubble_text_line_1: PAYER
-      bubble_text_line_2: "EN AVANT !"
+      bubble_text_line_1: "FAITES PROFITER"
+      bubble_text_line_2: "LES AUTRES !"
       description: "Kassi est un service en ligne qui permet aux membres de votre communauté de s'entraider de plusieurs façons : ils peuvent se prêter et vendre des objets, se rendre service, faire du covoiturage et beaucoup d'autres choses !"
       email_default_text: "Votre adresse email"
       get_to_know_the_aalto_community: "Passez voir la communauté Kassi de l'université Aalto !"
@@ -254,8 +254,8 @@ fr:
       some_private_offers_exist: "Il y a déjà <b>%{number_of_listings} offres</b>,"
       some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
     index:
-      are_offering: offre
-      lend_rent_help_carpool: "Vendre, prêter, aider, partager les trajets"
+      are_offering: proposent
+      lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
       news: Actualités
@@ -268,7 +268,7 @@ fr:
       recent_requests: "Ce dont les autres ont besoin"
       request_something: "Dites-nous ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
-      requesting: besoin
+      requesting: cherchent
       teaser_text: "Kassi est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des articles, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de Kassi !"
@@ -293,15 +293,15 @@ fr:
     conversations:
       messages: Messages
       notifications: Notifications
-      received: Reçu
-      sent: Envoyé
+      received: Reçus
+      sent: Envoyés
     dashboard:
       title: "Kassi - partagez des biens, des services et des transports dans votre communauté locale !"
     infos:
       about: "Kassi - qu'est-ce que c'est?"
       how_to_use: "Comment utiliser Kassi"
       info_about_kassi: "Informations sur Kassi"
-      register_details: "Enregistrer les détails"
+      register_details: "Détails de registre"
       terms: "Conditions d'utilisation"
     logged_in:
       admin: Admin
@@ -312,7 +312,7 @@ fr:
       notifications: Notifications
       requests: "Demandes d'amis"
       settings: Paramètres
-      sign_up: "Créer un compte utilisateur"
+      sign_up: "Créer un compte"
     logged_in_messages_icon:
       messages: Messages
     logged_in_notifications_icon:
@@ -455,7 +455,7 @@ fr:
         remove_image: "Supprimer image"
         select_file: "Sélectionner fichier"
       location:
-        location: Lieu
+        location: Localisation
       origin:
         location: Lieu
         origin: Provenance
@@ -474,7 +474,7 @@ fr:
         request_type: "Type de demande"
         sell: Vendre
         temporary_accommodation: Temporaire
-        trade: Echange
+        trade: Echanger
       tag_list:
         comma_separate: "(séparé par une virgule)"
         tags: Tags
@@ -503,12 +503,12 @@ fr:
       all_offer_types: "Tout type d'offre"
       all_request_types: "Tout type de demande"
       category: Catégorie
-      did_not_found_what_you_were_looking_for: "N'avez-vous pas trouvé ce que vous cherchiez ?"
+      did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
       housing: Logement
       items: Articles
       list_view: "Vue en liste"
-      map_view: "Afficher la carte"
+      map_view: "Afficher le plan"
       offer_something: "Parlez-en aux autres !"
       offer_type: "Type d'offre"
       offers: Offres
@@ -517,7 +517,7 @@ fr:
       requests: Demandes
       rideshare: Covoiturage
       search_verb: Chercher
-      you_have_something_others_do_not: "Avez-vous quelque chose à offrir ?"
+      you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     left_panel_link:
       borrows: "A emprunter"
       buys: "A acheter"
@@ -603,7 +603,7 @@ fr:
       requests: Demandes
       rideshare: Covoiturage
       search_verb: Chercher
-      you_have_something_others_do_not: "Avez-vous quelque chose à offrir ?"
+      you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
     please_comment: Commentaire
   people:
     badge_description:
@@ -810,7 +810,7 @@ fr:
       update_profile_picture: "Mettre à jour l'image de profil"
     notifications:
       email_about_accept_reminders: "... j'ai oublié d'accepter un événement"
-      email_about_new_badges: "... j'ai obtenu un nouveau badge"
+      email_about_new_badges: "... j'obtiens un nouveau badge"
       email_about_new_comments_to_own_listing: "... quelqu'un fait un commentaire sur mon offre ou ma demande"
       email_about_new_messages: "... quelqu'un m'envoie un message"
       email_about_new_received_testimonials: "... quelqu'un me donne une évaluation"
@@ -833,7 +833,7 @@ fr:
       these_fields_are_shown_in_your: "Cette information sera visible à tous les utilisateurs de Kassi"
       visible_to_everybody: "visible à tout le monde"
       visible_to_registered_users: "visible aux utilisateurs connectés"
-    save_information: "Sauvegarder information"
+    save_information: "Sauvegarder informations"
   sms:
     category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
     check_the_offer_in_kassi: "Voir l'offre sur Kassi : %{listing_url}"
