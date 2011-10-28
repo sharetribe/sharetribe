@@ -31,7 +31,7 @@
     -# This is team d code, also causes the same problem than mentioned above?
     -# %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?file=api&language=#{I18n.locale}&amp;v=2&amp;sensor=false"}
     :javascript
-      $(document).ready(function() { initialize_defaults('#{t('header.search_kassi')}','#{t('layouts.application.default_feedback')}', '#{I18n.locale}'); #{yield :javascript} });
+      $(document).ready(function() { initialize_defaults("#{t('header.search_kassi')}","#{t('layouts.application.default_feedback')}", "#{I18n.locale}"); #{yield :javascript} });
     
     - unless I18n.locale.to_s.eql?("fi")
       - if I18n.locale.to_s.eql?("ru")

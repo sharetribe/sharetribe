@@ -17,8 +17,8 @@
 
 %p 
   Que vous ayez besoin d'un objet, d'un service, d'un transport ou d'un appartement, vous pouvez les trouver grâce à la
-  = link_to("recherche", search_path) + "." pratique de Kassi.
-  Vous pouvez également  
+  = link_to("recherche", search_path)
+  pratique de Kassi. Vous pouvez également  
   = link_to("consulter les offres ouvertes", offers_path) + "." 
 
 %p 
@@ -35,7 +35,7 @@
   dans laquelle vous décrivez ce dont vous avez besoin. Cette demande sera montrée à tous les autres utilisateurs de Kassi. Il est probable que quelqu'un pourra vous proposer exactement ce que vous cherchez.
 
 %h3 Conseils 
- 
+
 %p 
   Plus vous paraissez digne de confiance, plus les autres voudront vous offrir les choses dont vous avez besoin. La manière la plus facile de se faire une bonne réputation est de
   - if logged_in? 
@@ -43,12 +43,12 @@
   - else 
     entrer précisément les renseignements sur votre profil.
   Vous devriez au moins saisir votre nom et prénom et
-    - if logged_in?  
+  - if logged_in?  
     = link_to("ajouter une photo identifiable de vous-même", avatar_person_settings_path(:person_id => @current_user.id)) + "."  
   - else 
     ajouter une photo identifiable de vous-même.
 
- %p 
+%p 
   Lorsque vous proposez quelque chose aux autres utilisateurs ou qu'ils vous proposent quelque chose, il est toujours préférable de donner une évaluation à l'autre participant après la transaction. Les retours positifs rendent les gens heureux, et si quelque chose ne marche pas comme vous le souhaitez, il est bien d'en faire part aussi. Toutes les évaluations sont publiques et montrées dans le profil de l'utilisateur auquel elles s'adressent, ce qui permet aux autres utilisateurs de juger du sérieux de cette personne. Pour cette raison, vous devriez toujours rappeler aux autres de vous donner une évaluation, car ce sont les évaluations positives qui garantissent votre réputation et facilitent les futures transactions. Pour donner une évaluation, cliquer sur "Donner évaluation" dans les demandes ou offres acceptées dans votre messagerie.
 
 - if APP_CONFIG.use_sms 
