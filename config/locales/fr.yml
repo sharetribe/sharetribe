@@ -22,7 +22,6 @@ fr:
       sell: "à vendre"
       temporary_accommodation: "hébergement temporaire"
       trade: "à échanger"
-    test: test
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
@@ -77,7 +76,7 @@ fr:
     status:
       feedback_given: "Evaluation donnée"
       feedback_skipped: "Pas d'évaluation"
-      give_feedback: "Donner évaluation"
+      give_feedback: "Donner une évaluation"
       offer_accepted: "Offre acceptée"
       offer_rejected: "Offre rejetée"
       request_accepted: "Demande acceptée"
@@ -156,7 +155,7 @@ fr:
       you_have_a_new_comment: "%{author} a fait un commentaire sur votre annonce sur Kassi"
     new_message:
       conversation_title: "Titre du fil de messages : %{title}"
-      do_not_reply_to_this_email: "Merci de ne pas répondre à cet email. Pour nous répondre, veuillez utiliser le lien dessus."
+      do_not_reply_to_this_email: "Merci de ne pas répondre à cet email. Pour répondre, veuillez utiliser le lien dessus."
       has_sent_you_a_message_in_kassi: "%{sender} vous a envoyé un message sur Kassi :"
       you_can_reply_to_message_in: "Pour répondre au message, aller à"
       you_have_a_new_message: "Vous avez un nouveau message sur Kassi"
@@ -231,7 +230,7 @@ fr:
       add_first: "Ajouter !"
       but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres enregistrés."
       but_those_are_visible_only_to_registered_members: "mais elles sont visibles uniquement aux membres enregistrés."
-      create_new_account_for_yourself: "Créer un nouveau compte"
+      create_new_account_for_yourself: "Créez un nouveau compte"
       examples_of_what_you_could_offer_to_others: "Que pourriez-vous offrir aux autres"
       examples_of_what_you_could_request_to_others: "Que pourriez-vous demander aux autres"
       favor_offer_list: "maintenance informatique, réparation de vêtements et de vélos, pâtisserie"
@@ -242,7 +241,7 @@ fr:
       item_request_list: "outils, équipements sportifs, déguisements, matériel de camping"
       items_to_offer: "Articles à prêter : "
       items_to_request: "Articles à emprunter : "
-      log_in: "se connecter !"
+      log_in: "connectez-vous !"
       no_offers_visible_unless_logged_in: "Aucune offre d'article, de service ou de covoiturage visible aux utilisateurs non-enregistrés."
       no_open_offers_currently: "Aucune offre d'article, de service ou de covoiturage en cours."
       no_open_requests_currently: "Aucune demande d'article, de service ou de covoiturage en cours."
@@ -254,7 +253,7 @@ fr:
       some_private_offers_exist: "Il y a déjà <b>%{number_of_listings} offres</b>,"
       some_private_requests_exist: "Il y a déjà <b>%{number_of_listings} demandes</b>,"
     index:
-      are_offering: proposent
+      are_offering: offrent
       lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
@@ -268,7 +267,7 @@ fr:
       recent_requests: "Ce dont les autres ont besoin"
       request_something: "Dites-nous ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
-      requesting: cherchent
+      requesting: demandent
       teaser_text: "Kassi est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des articles, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de Kassi !"
@@ -411,7 +410,7 @@ fr:
     bubble_listing_not_visible:
       listing_not_visible: "Vous n'avez pas la permission de consultez cette annonce."
     comment_form:
-      log_in: "se connecter"
+      log_in: "vous connecter"
       send_comment: "Envoyer un commentaire"
       to_send_a_comment: "pour envoyer un nouveau commentaire."
       write_comment: "Ecrire un nouveau commentaire :"
@@ -420,10 +419,10 @@ fr:
       you_must: "Vous devez"
     edit:
       edit_offer: "Modifier l'offre"
-      edit_request: "Modifier demande"
+      edit_request: "Modifier la demande"
     edit_links:
-      close_offer: "Fermer offre"
-      close_request: "Fermer demande"
+      close_offer: "Fermer l'offre"
+      close_request: "Fermer la demande"
       edit_offer: "Modifier offre"
       edit_request: "Modifier demande"
       reopen_offer: "Réouvrir offre"
@@ -433,7 +432,7 @@ fr:
         at: A
         departure_time: "Heure de départ"
       departure_time_radio_buttons:
-        repeated: "Répété (ajouter le nombre de fois et de jours dans le champs 'description détaillée')"
+        repeated: "Répété (préciser les dates dans 'description détaillée')"
       description:
         detailed_description: "Description détaillée"
       destination:
@@ -441,7 +440,7 @@ fr:
       form_content:
         favor: Service
         housing: Logement
-        item: Article
+        item: Objet
         offer_something: "Offrir quelque chose"
         request_something: "Demander quelque chose"
         rideshare: Covoiturage
@@ -472,11 +471,11 @@ fr:
         rent: Louer
         rent_out: "Offre de location"
         request_type: "Type de demande"
-        sell: Vendre
+        sell: "A vendre"
         temporary_accommodation: Temporaire
         trade: Echanger
       tag_list:
-        comma_separate: "(séparé par une virgule)"
+        comma_separate: "(séparés par une virgule)"
         tags: Tags
       title:
         favor_you_offer: "Service que vous proposez"
@@ -488,7 +487,7 @@ fr:
       valid_until:
         valid_until: "Date d'expiration"
       valid_until_radio_buttons:
-        for_the_time_being: "Pour le moment"
+        for_the_time_being: "Pas de date d'expiration"
       visibility:
         communities: "Toutes mes communautés Kassi"
         everybody: "Tous les utilisateurs d'internet"
@@ -538,7 +537,7 @@ fr:
       link_label_for_favor_request: "Proposer votre aide"
       link_label_for_housing_offer: Répondre
       link_label_for_housing_request: Répondre
-      link_label_for_item_offer: "Demander un article"
+      link_label_for_item_offer: "Demander cet article"
       link_label_for_item_request: "Offrir un article"
       link_label_for_rideshare_offer: "Demander un transport"
       link_label_for_rideshare_request: "Proposer un transport"
@@ -575,7 +574,7 @@ fr:
       request_author: "Demandé par"
       request_created: "Demande créée"
       rideshare_offer: "Offre de covoiturage"
-      rideshare_request: "Demande de covoiturage"
+      rideshare_request: "Demande de transport"
       share_types: "Types de partage"
       share_types_offer: "Type d'offre"
       share_types_request: "Type de demande"
@@ -745,7 +744,7 @@ fr:
       offers: Offres
       requests: Demandes
       show_also_closed: "Montrer aussi les fermées"
-      show_only_open: "Montrer seulement les ouvertes"
+      show_only_open: "Montrer seulement les offres et demandes en cours"
     show:
       about_me: "Qui suis-je :"
       address: "Adresse :"
@@ -755,7 +754,7 @@ fr:
       exceeded_expectations: "Dépassait mes attentes"
       feedback_average: "Moyenne des évaluations :"
       hide_description: "Montrer moins"
-      joined_this_community: "A rejoint la communauté"
+      joined_this_community: "A rejoint la communauté le"
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone :"
       show_all_badges: "Montrer tous les badges Kassi"
@@ -780,7 +779,7 @@ fr:
       account_conrimation_instructions: "Vous recevrez bientôt un email de Kassi avec un lien sur lequel vous devrez cliquer pour accéder à la communauté Kassi.</p><p> Cette vérification par email est effectuée pour s'assurer que tous les membres appartiennent effectivement à la communauté (<b>%{community_name}</b>). L'environnement est ainsi plus sûr pour le partage. </p><p>Si vous rencontrez un problème quelconque en utilisant Kassi, cliquez sur <a href=\"#\" id=\"give_feedback_link\">commentaires</a> à gauche de l'écran et faites-nous le savoir. Veuillez aussi partager vos idées sur ce comment améliorer le service !"
       check_your_email: "Voir vos messages"
       get_started: "Commencer avec Kassi"
-      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations, ou bien vous pouvez poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez éventuellement prêter, louer ou vendre aux autres, ou un service que vous pourriez leur proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez poster une  <a href=\"/en/listings/new/request\">demande</a>."
+      getting_started_instructions: "Lorsque vous avez confirmé votre inscription, il est conseillé d'ajouter une photo à votre <a href=\"%{profile_url}\">profil</a> et de remplir d'autres informations. Vous pouvez également poursuivre directement vers une transaction en ajoutant une <a href=\"/en/listings/new/offer\">offre</a> concernant quelque chose que vous pourriez prêter, louer ou vendre, ou un service que vous pourriez proposer. Sinon, si vous avez besoin d'un certain objet ou d'aide avec quelque chose, vous pouvez envoyer une  <a href=\"/en/listings/new/request\">demande</a>."
       resend_confirmation_instructions: "Renvoyer les instructions de confirmation"
       welcome_to_kassi: "Bienvenue sur Kassi !"
     new:
