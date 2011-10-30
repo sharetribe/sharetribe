@@ -61,9 +61,9 @@ fr:
       loading_more_notifications: "Chargement de plus de notifications"
       no_notifications: "Pas de notifications."
       testimonialnotification:
-        give_feedback_to: "Donner une évaluation à %{name}"
-        has_given_you_feedback_on_event: "vous a donné une évaluation pour l'événement"
-        see_all_the_feedback_you_have_received: "voir toutes les évaluations reçues"
+        give_feedback_to: "Donner un avis pour %{name}"
+        has_given_you_feedback_on_event: "vous a donné un avis pour l'événement"
+        see_all_the_feedback_you_have_received: "voir tous les avis reçus"
     show:
       in_response_to_offer: "concernant l'offre"
       in_response_to_request: "en réponse à la demande"
@@ -74,14 +74,14 @@ fr:
       send_reply: "Envoyer une réponse"
       write_a_reply: "Ecrire une réponse :"
     status:
-      feedback_given: "Evaluation donnée"
-      feedback_skipped: "Pas d'évaluation"
-      give_feedback: "Donner une évaluation"
+      feedback_given: "Avis donné"
+      feedback_skipped: "Pas d'avis"
+      give_feedback: "Donner un avis"
       offer_accepted: "Offre acceptée"
       offer_rejected: "Offre rejetée"
       request_accepted: "Demande acceptée"
       request_rejected: "Demande rejetée"
-      skip_feedback: "Pas d'évaluation"
+      skip_feedback: "Pas d'avis"
       waiting_confirmation_from_listing_author: "En attente de la confirmation de l'auteur de l'annonce"
     status_link:
       accept_offer: "Accepter offre"
@@ -110,7 +110,7 @@ fr:
   emails:
     accept_reminder:
       offer_accusative: offre
-      remember_to_accept_listing: "N'oubliez pas d'accepter %{listing_type}, même si l'événement lui-même a déjà eu lieu. Le fait de l'accepter donne aux participants la possibilité de s'évaluer entre eux. Les évaluations positives que vous recevez seront visibles dans votre profil aux autres utilisateurs de Kassi. Cela vous donnera plus de crédibilité aux yeux des autres utilisateurs et les assurera également du bon déroulement des transactions à venir. Les bonnes évaluations vous aideront aussi à obtenir des badges."
+      remember_to_accept_listing: "N'oubliez pas d'accepter %{listing_type}, même si l'événement lui-même a déjà eu lieu. Le fait de l'accepter donne aux participants la possibilité de s'évaluer entre eux. Les avis positifs que vous recevez seront visibles dans votre profil aux autres utilisateurs de Kassi. Cela vous donnera plus de crédibilité aux yeux des autres utilisateurs et les assurera également du bon déroulement des transactions à venir. Les bons avis vous aideront aussi à obtenir des badges."
       remember_to_accept_offer: "N'oubliez pas d'accepter ou de rejeter une offre"
       remember_to_accept_request: "N'oubliez pas d'accepter ou de rejeter une demande"
       request_accusative: demande
@@ -119,7 +119,7 @@ fr:
       you_have_not_yet_accepted_or_rejected_offer: "Vous n'avez pas encore accepté ou rejeté l'offre '%{title}' reçue le %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou rejeté la demande '%{title}' reçue le %{date}."
     badge_migration_notification:
-      badge_description1: "Sur Kassi, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage etc.) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu une évaluation positive."
+      badge_description1: "Sur Kassi, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage etc.) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu un avis positif."
       badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'articles, rendez service, faites du covoiturage et collectionnez toute la série des badges Kassi !"
       you_have_received_badges: "Vous avez obtenu des badges sur Kassi !"
       you_have_received_badges_in_kassi: "Vous avez gagné des badges sur Kassi. Pour visionner les badges obtenus, connectez-vous sur Kassi et allez à"
@@ -160,9 +160,9 @@ fr:
       you_can_reply_to_message_in: "Pour répondre au message, aller à"
       you_have_a_new_message: "Vous avez un nouveau message sur Kassi"
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} vous a donné une évaluation sur Kassi"
-      you_can_give_feedback_to: "Pour donner une évaluation à %{name}, aller à"
-      you_can_view_all_your_feedback_in: "Vous pouvez voir toutes vos évaluations reçues à"
+      has_given_you_feedback_in_kassi: "%{name} vous a donné un avis sur Kassi"
+      you_can_give_feedback_to: "Pour donner un avis pour %{name}, aller à"
+      you_can_view_all_your_feedback_in: "Vous pouvez voir tous vos avis reçus à"
     newsletter:
       a_request: "une demande"
       add: Ajouter
@@ -181,16 +181,16 @@ fr:
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à Kassi !"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Les évaluations sont publiques et visibles par tous les autres utilisateurs. En fonction des évaluations reçues, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner une évaluation à la fin de chaque transaction et de rappeler aux autres participants de vous en donner une. C'est également grâce aux évaluations positives que vous obtiendrez la plupart des badges."
-      remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner une évaluation à %{name}"
-      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'évaluation à %{name} pour la transaction '%{event}'. N'oubliez pas de donner une évaluation sur la façon dont %{given_name} a agi lors de la transaction."
+      feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
+      remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis pour %{name}"
+      you_have_not_given_feedback_yet: "Vous n'avez pas encore donné d'avis à %{name} pour la transaction '%{event}'. N'oubliez pas de donner un avis sur la façon dont %{given_name} a agi lors de la transaction."
   error_messages:
     listings:
       departure_time: "L'heure de départ doit être comprise entre l'heure actuelle et dans un an."
       share_type: "Vous devez cocher au moins une des cases ci-dessus."
       valid_until: "Cette date doit être comprise entre aujourd'hui et dans un an."
     testimonials:
-      you_must_explain_not_neutral_feedback: "Si vous souhaitez donner une évaluation non-neutre, veuillez expliquer pourquoi."
+      you_must_explain_not_neutral_feedback: "Si vous souhaitez donner un avis non-neutre, veuillez expliquer pourquoi."
       you_must_select_a_grade: "Pensez à évaluer l'utilisateur en cliquant sur l'une des icônes ci-dessus (pour voir les explications des icônes, déplacer la souris sur elles)"
   error_pages:
     back_to_kassi_front_page: "Retour à la page d'accueil de Kassi"
@@ -343,8 +343,8 @@ fr:
       feedback_considered_spam: "Commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utiliser le forum de discussion."
       feedback_not_saved: "Commentaire n'a pas pu être envoyé."
       feedback_saved: "Merci pour vos commentaires !"
-      feedback_sent_to: "Evaluation envoyée à"
-      feedback_skipped: "Pas d'évaluation"
+      feedback_sent_to: "Avis envoyé à"
+      feedback_skipped: "Pas d'avis"
       housing_offer_message_sent: "Message envoyé avec succès"
       housing_request_message_sent: "Message envoyé avec succès"
       item_offer_message_sent: "Demande d'article envoyée avec succès"
@@ -379,17 +379,17 @@ fr:
       unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
       welcome_message: "Bienvenue sur Kassi ! Kassi est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner une évaluation sur cet événement"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
       you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre fermée"
       you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande fermée"
       you_cannot_reply_to_your_own_offer: "Vous ne pouvez pas répondre à votre propre offre"
       you_cannot_reply_to_your_own_request: "Vous ne pouvez pas répondre à votre propre demande"
-      you_have_already_given_feedback_about_this_event: "Vous avez déjà donné une évaluation sur cet événement"
+      you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
       you_must_log_in_to_create_new_offer: "Vous devez être connecté à Kassi pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_create_new_request: "Vous devez être connecté à Kassi pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
-      you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner une évaluation"
+      you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à Kassi pour envoyer un message à un autre utilisateur."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
@@ -399,7 +399,7 @@ fr:
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil d'utilisateur"
       badges: Badges
-      testimonials: "Evaluations reçues"
+      testimonials: "Avis reçus"
     settings:
       account: Compte
       avatar: "Image de profil"
@@ -436,7 +436,7 @@ fr:
       description:
         detailed_description: "Description détaillée"
       destination:
-        destination: Destination
+        destination: "Lieu d'arrivée"
       form_content:
         favor: Service
         housing: Logement
@@ -457,7 +457,7 @@ fr:
         location: Localisation
       origin:
         location: Lieu
-        origin: Provenance
+        origin: "Lieu de départ"
       send_button:
         save_offer: "Enregistrer offre"
         save_request: "Enregistrer demande"
@@ -533,7 +533,7 @@ fr:
       temporary_accommodations: "Hébergement temporaire"
       trades: "A échanger"
     link_labels:
-      link_label_for_favor_offer: "Demander un service"
+      link_label_for_favor_offer: "Demander service"
       link_label_for_favor_request: "Proposer votre aide"
       link_label_for_housing_offer: Répondre
       link_label_for_housing_request: Répondre
@@ -549,8 +549,8 @@ fr:
     listed_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
-      no_offers_with_the_conditions_you_gave: "Pas d'offres avec les conditions que vous avez données."
-      no_requests_with_the_conditions_you_gave: "Pas de demande avec les conditions que vous avez données."
+      no_offers_with_the_conditions_you_gave: "Pas d'offres avec les conditions que vous proposez."
+      no_requests_with_the_conditions_you_gave: "Pas de demandes avec les conditions que vous proposez."
       offer_something: "Offrez quelque chose !"
       request_something: "Demandez quelque chose !"
       search_returned_no_results: "Pas de résultats à votre recherche."
@@ -704,9 +704,9 @@ fr:
       moneymaker_bronze: "Homme d'affaires (bronze)"
       moneymaker_bronze_description: "Vous avez compris que sur Kassi, on peut aussi gagner beaucoup d'argent ! Vous avez vendu ou loué deux articles avec succès sur Kassi."
       moneymaker_gold: "Homme d'affaires (or)"
-      moneymaker_gold_description: "15 articles vendus ou loués avec évaluation positive ! Kassi est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
+      moneymaker_gold_description: "15 articles vendus ou loués avec avis positif ! Kassi est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
       moneymaker_silver: "Homme d'affaires (argent)"
-      moneymaker_silver_description: "Kassi vous permet d'augmenter vos revenus. Six articles vendus ou loués avec évaluation positive."
+      moneymaker_silver_description: "Kassi vous permet d'augmenter vos revenus. Six articles vendus ou loués avec avis positif."
       rookie: Débutant
       rookie_description: "Vous venez d'ajouter votre première demande ou offre sur Kassi. C'est un bon début !"
       santa: "Père Noël"
@@ -758,7 +758,7 @@ fr:
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone :"
       show_all_badges: "Montrer tous les badges Kassi"
-      show_all_feedback: "Montrer toutes les évaluations"
+      show_all_feedback: "Montrer tous les avis"
       show_all_testimonials: "Montrer tous les commentaires"
       show_full_description: "Montrer plus"
       slightly_better_than_expected: "Dépassait mes attentes"
@@ -792,7 +792,7 @@ fr:
     password_forgotten:
       email: Email
       password_recovery_instructions: "Donner votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
-      request_new_password: "Demander un nouveau mot de passe"
+      request_new_password: Envoyer
   settings:
     account:
       change: Changer
@@ -812,15 +812,15 @@ fr:
       email_about_new_badges: "... j'obtiens un nouveau badge"
       email_about_new_comments_to_own_listing: "... quelqu'un fait un commentaire sur mon offre ou ma demande"
       email_about_new_messages: "... quelqu'un m'envoie un message"
-      email_about_new_received_testimonials: "... quelqu'un me donne une évaluation"
-      email_about_testimonial_reminders: "... j'ai oublié de donner une évaluation sur un événement"
+      email_about_new_received_testimonials: "... quelqu'un me donne un avis"
+      email_about_testimonial_reminders: "... j'ai oublié de donner un avis sur un événement"
       email_about_weekly_events: "Envoyez-moi un email toutes les semaines avec les actualités de Kassi"
       email_when_conversation_accepted: "... quelqu'un accepte mon offre ou ma demande"
       email_when_conversation_rejected: "... quelqu'un rejette mon offre ou ma demande"
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
       newsletters: "Bulletins d'information"
     profile:
-      about_you: "Sur vous :"
+      about_you: "Qui suis-je :"
       city: "Ville :"
       family_name: "Nom :"
       given_name: "Prénom :"
@@ -865,16 +865,16 @@ fr:
   testimonials:
     index:
       all_testimonials: "Tous les commentaires"
-      feedback_altogether: "Evaluations en tout : "
+      feedback_altogether: "Evaluations globalement : "
       loading_more_testimonials: "Chargement de plus de commentaires"
-      no_testimonials: "Pas de commentaire reçu."
+      no_testimonials: "Pas d'avis reçu."
     new:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
-      give_feedback_to: "Donner une évaluation à %{person}"
+      give_feedback_to: "Donner un avis pour %{person}"
       grade: "Estimation des activités d'un utilisateur"
       less_than_expected: "Ne correspondait pas du tout à mes attentes"
-      send_feedback: "Envoyer évaluation"
+      send_feedback: "Envoyer avis"
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Description textuelle"
@@ -888,13 +888,13 @@ fr:
       sms: "%e.%m. h %H:%M"
   timestamps:
     day_ago: "il y a un jour"
-    days_ago: "il y a  jours"
+    days_ago: "days ago"
     hour_ago: "il y a une heure"
-    hours_ago: "il y a  heures"
+    hours_ago: "hours ago"
     minute_ago: "il y a une minute"
-    minutes_ago: "il y a  minutes"
+    minutes_ago: "minutes ago"
     month_ago: "il y a un mois"
-    months_ago: "il y a  mois"
-    seconds_ago: "il y a  secondes"
+    months_ago: "months ago"
+    seconds_ago: "seconds ago"
     year_ago: "il y a un an"
-    years_ago: "il y a  ans"
+    years_ago: "years ago"
