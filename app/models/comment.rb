@@ -10,6 +10,7 @@ class Comment < ActiveRecord::Base
   
   after_create :update_follow_status
 
+  # Creates notifications related to this comment and sends notification emails
   def send_notifications(host)
     if !listing.author.id.eql?(author.id)
       Notification.create(:notifiable_id => id, :notifiable_type => "Comment", :receiver_id => listing.author.id, :description => "to_own_listing")
