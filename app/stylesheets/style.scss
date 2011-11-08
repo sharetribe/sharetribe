@@ -42,7 +42,7 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 
 /* Used for divs with rounded corners */
 @mixin rounded($radius: 7px) {
-	border-radius: $radius;
+  border-radius: $radius;
   -moz-border-radius: $radius;
   -webkit-border-radius: $radius;
 }
@@ -50,7 +50,7 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 /* Used for divs with rounded top or bottom */
 @mixin half_rounded($side, $radius: 7px) {
   border-#{$side}-left-radius: $radius;
-	border-#{$side}-right-radius: $radius;
+  border-#{$side}-right-radius: $radius;
   -moz-border-radius-#{$side}right: $radius;
 	-moz-border-radius-#{$side}left: $radius;
   -webkit-border-#{$side}-right-radius: $radius;

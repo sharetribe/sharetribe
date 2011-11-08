@@ -54,6 +54,7 @@ fi:
       send_a_new_message: "Lähetä viesti"
       send_offer_message: "Lähetä tarjous"
       send_request_message: "Lähetä pyyntö"
+      this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä."
       title: Otsikko
     notifications:
       badgenotification:

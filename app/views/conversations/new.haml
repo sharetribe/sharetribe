@@ -7,6 +7,8 @@
     %h2
       = t(".#{@listing.category}_#{@listing.listing_type}_message_form_title")
       = link_to(@listing.author.given_name_or_username, @listing.author)
+    %p
+      = t(".this_message_is_private", :person => @listing.author.given_name) 
     = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
       = form.error_messages
       .form_field_container
