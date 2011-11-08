@@ -42,7 +42,7 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
-         :subject => t("emails.new_update.listing_you_follow_has_been_updated"))
+         :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
   
   def conversation_status_changed(conversation, host=nil)
