@@ -1,5 +1,20 @@
-%h4 Tervetuloa HTC-Kassiin!
+%h4 Uutiset
 .welcome_text
+
+  %p
+    %b
+      HTC Keilaniemen kierrätyskilpailu
+    %br
+    9.11.2011
+  
+  %p
+    Laita turha tavara kiertoon! HTC Keilaniemen Kassi-verkkotorilla on nyt käynnissä kierrätyskilpailu. Myy, anna tai lainaa käyttämättömät tavarasi muille HTC:n ihmisille ja voita hienoja palkintoja!
+  %p
+    Kilpailun säännöt ovat seuraavat: jokainen Kassiin aikavälillä 9.-22.11. lisätty tavaratarjous lasketaan mukaan, oli kyseessä sitten tavaran myynti, lainaaminen, vuokraaminen tai antaminen pois ilmaiseksi. Kolmelle eniten tavaratarjouksia (kuitenkin vähintään kolme tavaraa) palveluun tänä aikana lisänneelle on luvassa ilmainen lounas HTC Keilaniemen Sodexossa. Lisäksi kaikkien vähintään kolme tavaraa lisänneiden kesken arvotaan kolme lahjakorttia, jotka oikeuttavat 25 prosentin alennukseen hiustenleikkuusta HTC:n omassa parturi-kampaamossa Snazzyssa.
+  %p
+    = link_to "Lisää siis heti tavarasi tarjolle!", new_listing_path(:listing_type => :offer)
+    
+  .event_spacer
 
   %p
     Tämä on HTC Keilaniemen sähköinen ilmoitustaulu, jonka avulla parannetaan HTC Keilaniemen yritysten välistä yhteistoimintaa, tarjotaan lisäpalveluja ja apua yrityksille ja työntekijöille.
@@ -12,4 +27,3 @@
     = link_to "Intranet", "http://intra.htckeilaniemi.com/"
     %br
     = link_to "HTC Keilaniemi", "http://htckeilaniemi.com/"
-
