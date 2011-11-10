@@ -91,6 +91,7 @@ Feature: User creates a new listing
     When I follow "Tell what you need!"
     And I follow "Rideshare"
     And I fill in "Origin" with "Test"
+    And I choose "valid_until_select_date"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
     And I select "2012" from "listing_valid_until_1i"
