@@ -85,8 +85,9 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   }
   if category.eql?("rideshare")
     steps %Q{
-      And I fill in "listing_origin" with "Test" 
-      And I fill in "listing_destination" with "Test2"
+      And I fill in "listing_origin" with "Helsinki" 
+      And I fill in "listing_destination" with "Tampere"
+      And wait for 2 seconds
     }
   else
     steps %Q{ And I fill in "listing_title" with "Test" }
