@@ -13,6 +13,9 @@
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
     #edit_links
       = render :partial => "edit_links"
+  - else 
+    #follow_links
+      = render :partial => "follow_links"
     
 #listing_content_side.grid_16
   #listing_center.grid_9.alpha

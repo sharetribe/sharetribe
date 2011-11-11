@@ -71,18 +71,9 @@ end
 Factory.define :notification do |n|
   n.receiver { |receiver| receiver.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
   n.is_read 0
-end
-
-Factory.define :badge_notification do |b|
-  b.receiver { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-  b.is_read 0
-  b.association :badge
-end
-
-Factory.define :testimonial_notification do |b|
-  b.receiver { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-  b.is_read 0
-  b.association :testimonial
+  n.notifiable_type "Listing"
+  n.notifiable_id "1"
+  n.description "to_own_listing"
 end
 
 Factory.define :community do |c|

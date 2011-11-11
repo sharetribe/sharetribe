@@ -1274,11 +1274,11 @@ div.checkbox_float {
 	display: block;
 	height: 20px;
 	padding: 5px 0px 5px 32px;
-	background: $bg_color url("/images/icons/edit_listing_icons.png") 6px $image_pos no-repeat;
+	background: $bg_color url("/images/icons/edit_listing_icons2.png") 6px $image_pos no-repeat;
 	border-bottom: 1px solid $light_orange;
 	&:hover {
 		color: white;
-		background: $orange url("/images/icons/edit_listing_icons.png") 6px ($image_pos - 38px) no-repeat;
+		background: $orange url("/images/icons/edit_listing_icons2.png") 6px ($image_pos - 38px) no-repeat;
 	}
 }
 
@@ -1288,6 +1288,20 @@ a.edit_listing {
 
 a.close_listing {
 	@include edit_listing_link(-71px);
+}
+
+a.follow_listing {
+	@include edit_listing_link(-147px);
+}
+
+a.unfollow_listing {
+	@include edit_listing_link(-223px);
+}
+
+p.follow_description {
+  margin: 10px 5px;
+  width: 200px;
+  font-size: 11px;
 }
 
 a.activate_person {
@@ -1302,10 +1316,10 @@ a.edit_profile {
 	display: block;
 	height: 20px;
 	padding: 5px 10px 5px 32px;
-	background: $bg_color url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
+	background: $bg_color url("/images/icons/edit_listing_icons2.png") 6px 5px no-repeat;
 	&:hover {
 		color: white;
-		background: $orange url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat;
+		background: $orange url("/images/icons/edit_listing_icons2.png") 6px -33px no-repeat;
 	}
 }
 

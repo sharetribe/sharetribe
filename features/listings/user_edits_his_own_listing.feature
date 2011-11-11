@@ -3,12 +3,17 @@ Feature: User edits his own listing
   As the creator of the listing
   I want to be able to edit the listing
 
+  @javascript
   Scenario: User edits an item request
     Given there are following users:
       | person | 
       | kassi_testperson1 |
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy,borrow"
-    And I am logged in as "kassi_testperson1"
+    And I am logged in as "kassi_testperson2"
+    And I follow "Hammer"
+    And I follow "Follow this listing"
+    And I follow "Logout"
+    And I log in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Edit request"
     And the "borrow" checkbox should be checked
@@ -24,10 +29,27 @@ Feature: User edits his own listing
     And I fill in "listing_description" with "My description"
     And I fill in "listing_tag_list" with "hammers, sledges"
     And I press "Save request"
+    And the system processes jobs
     Then I should see "Item request: Sledgehammer" within "h1"
     And I should see "borrowing, renting" within "#share_types_and_tags"
     And I should see "hammers, sledges" within "#share_types_and_tags"
     And I should see "Request updated successfully" within "#notifications"
+    When I follow "Logout"
+    And I log in as "kassi_testperson2"
+    Then I should see "1" within "#logged_in_notifications_icon"
+    When I follow "notifications_link"
+    Then I should see "has updated a request you follow"
+    When I follow "a request you follow"
+    And I follow "Stop following this listing"
+    And I follow "Logout"
+    And I log in as "kassi_testperson1"
+    And I follow "Sledgehammer"
+    And I follow "Edit request"
+    And I press "Save request"
+    And the system processes jobs
+    And I follow "Logout"
+    And I log in as "kassi_testperson2"
+    Then I should not see "1" within "#logged_in_notifications_icon"
   
   @javascript
   Scenario: Trying to update an item request with invalid information
