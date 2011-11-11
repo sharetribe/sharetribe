@@ -7,7 +7,7 @@ Feature: User sends feedback to admins
   Scenario: Giving feedback successfully when not logged in
     Given I am on the home page
     When I follow "Feedback"
-    And I fill in "Your email address" with "test"
+    And I fill in "Your email address" with "test@example.com"
     And I fill in "Feedback to Kassi staff" with "Feedback"
     And I press "Send feedback"
     Then I should see "Thanks for your feedback!" within "#notifications"
@@ -22,11 +22,13 @@ Feature: User sends feedback to admins
     Then I should see "Thanks for your feedback!" within "#notifications"
   
   @javascript
-  Scenario: Trying to give empty feedback
-    Given I am logged in
+  Scenario: Trying to give invalid feedback
+    Given I am on the home page
     When I follow "Feedback"
+    And I fill in "Your email address" with "test"
     And I press "Send feedback"
     Then I should see "This field is required" within ".error"
+    And I should see "Please enter a valid email address" within ".error"
     
   @javascript
   Scenario: Trying to send a spam link

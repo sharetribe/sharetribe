@@ -407,6 +407,7 @@ en:
       you_cannot_reply_to_a_closed_request: "You cannot reply to a closed request"
       you_cannot_reply_to_your_own_offer: "You cannot reply to your own offer"
       you_cannot_reply_to_your_own_request: "You cannot reply to your own request"
+      you_followed_listing: "You are now following this listing"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       you_must_log_in_to_create_new_offer: "You must log in to Kassi to create a new offer. If you don't have an account you can"
       you_must_log_in_to_create_new_request: "You must log in to Kassi to create a new request. If you don't have an account you can"
@@ -417,6 +418,7 @@ en:
       you_must_log_in_to_view_your_inbox: "You must log in to Kassi to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to Kassi to view your settings."
       you_need_to_confirm_your_account_first: "You need to confirm your account first."
+      you_unfollowed_listing: "You are no longer following this listing"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -438,7 +440,7 @@ en:
       you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send a new comment because this offer is closed."
       you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send a new comment because this request is closed."
       you_must: "You must"
-      subscribe_to_comments: "Notify me of new comments"
+      subscribe_to_comments: "Notify me of new comments and updates"
     edit:
       edit_offer: "Edit offer"
       edit_request: "Edit request"
@@ -449,6 +451,10 @@ en:
       edit_request: "Edit request"
       reopen_offer: "Reopen offer"
       reopen_request: "Reopen request"
+    follow_links:
+      follow: "Follow this listing"
+      unfollow: "Stop following this listing"
+      follow_description: "By following a listing you will get notified of new comments and updates to it."
     form:
       departure_time:
         at: At

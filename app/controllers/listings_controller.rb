@@ -1,15 +1,15 @@
 class ListingsController < ApplicationController
 
-  before_filter :save_current_path, :only => :show
-  before_filter :ensure_authorized_to_view, :only => :show
+  before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
+    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+  end
 
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:type]}", "create_one_here".to_sym, sign_up_path])
   end
-  
-  before_filter :only => [ :edit, :update, :close ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
-  end
+
+  before_filter :save_current_path, :only => :show
+  before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
   
   before_filter :only => [ :close ] do |controller|
     controller.ensure_current_user_is_listing_author "only_listing_author_can_close_a_listing"
@@ -231,6 +231,14 @@ class ListingsController < ApplicationController
     redirect_to @listing and return
   end
   
+  def follow
+    change_follow_status("follow")
+  end
+  
+  def unfollow
+    change_follow_status("unfollow")
+  end
+  
   private
   
   # Ensure that only users with appropriate visibility settings can view the listing
@@ -250,6 +258,21 @@ class ListingsController < ApplicationController
         flash[:warning] = "you_must_log_in_to_view_this_content"
         redirect_to new_session_path and return
       end
+    end
+  end
+  
+  def change_follow_status(status)
+    status.eql?("follow") ? @current_user.follow(@listing) : @current_user.unfollow(@listing)
+    notice = "you_#{status}ed_listing"
+    respond_to do |format|
+      format.html { 
+        flash[:notice] = notice
+        redirect_to @listing 
+      }
+      format.js {
+        flash.now[:notice] = notice
+        render :follow, :layout => false 
+      }
     end
   end
 

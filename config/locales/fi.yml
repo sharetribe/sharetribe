@@ -404,6 +404,7 @@ fi:
       you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
       you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
       you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
+      you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
@@ -414,6 +415,7 @@ fi:
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
+      you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
       badges: Kassimerkit
@@ -435,7 +437,7 @@ fi:
       you_cannot_send_a_new_comment_because_offer_is_closed: "Et voi lähettää uutta kommenttia koska tarjous on suljettu."
       you_cannot_send_a_new_comment_because_request_is_closed: "Et voi lähettää uutta kommenttia koska pyyntö on suljettu."
       you_must: "Sinun täytyy"
-      subscribe_to_comments: "Ilmoita minulle uusista kommenteista"
+      subscribe_to_comments: "Ilmoita minulle uusista kommenteista ja päivityksistä"
     edit:
       edit_offer: "Muokkaa tarjousta"
       edit_request: "Muokkaa pyyntöä"
@@ -446,6 +448,10 @@ fi:
       edit_request: "Muokkaa pyyntöä"
       reopen_offer: "Avaa tarjous uudelleen"
       reopen_request: "Avaa pyyntö uudelleen"
+    follow_links:
+      follow: "Seuraa ilmoitusta"
+      unfollow: "Lopeta ilmoituksen seuraaminen"
+      follow_description: "Seuraamalla ilmoitusta saat tiedon siihen tulevista kommenteista ja muutoksista."
     form:
       departure_time:
         at: Kellonaika

@@ -1406,53 +1406,80 @@ a.edit_listing {
   display: block;
   height: 20px;
   padding: 5px 0px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px 5px no-repeat;
   border-bottom: 1px solid #f8792f; }
   a.edit_listing:hover {
     color: white;
-    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat; }
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -33px no-repeat; }
 
 a.close_listing {
   width: 268px;
   display: block;
   height: 20px;
   padding: 5px 0px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px -71px no-repeat;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px -71px no-repeat;
   border-bottom: 1px solid #f8792f; }
   a.close_listing:hover {
     color: white;
-    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -109px no-repeat; }
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -109px no-repeat; }
+
+a.follow_listing {
+  width: 268px;
+  display: block;
+  height: 20px;
+  padding: 5px 0px 5px 32px;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px -147px no-repeat;
+  border-bottom: 1px solid #f8792f; }
+  a.follow_listing:hover {
+    color: white;
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -185px no-repeat; }
+
+a.unfollow_listing {
+  width: 268px;
+  display: block;
+  height: 20px;
+  padding: 5px 0px 5px 32px;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px -223px no-repeat;
+  border-bottom: 1px solid #f8792f; }
+  a.unfollow_listing:hover {
+    color: white;
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -261px no-repeat; }
+
+p.follow_description {
+  margin: 10px 5px;
+  width: 200px;
+  font-size: 11px; }
 
 a.activate_person {
   width: 188px;
   display: block;
   height: 20px;
   padding: 5px 0px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px 5px no-repeat;
   border-bottom: 1px solid #f8792f; }
   a.activate_person:hover {
     color: white;
-    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat; }
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -33px no-repeat; }
 
 a.deactivate_person {
   width: 188px;
   display: block;
   height: 20px;
   padding: 5px 0px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px -71px no-repeat;
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px -71px no-repeat;
   border-bottom: 1px solid #f8792f; }
   a.deactivate_person:hover {
     color: white;
-    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -109px no-repeat; }
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -109px no-repeat; }
 
 a.edit_profile {
   display: block;
   height: 20px;
   padding: 5px 10px 5px 32px;
-  background: #f7f5e6 url("/images/icons/edit_listing_icons.png") 6px 5px no-repeat; }
+  background: #f7f5e6 url("/images/icons/edit_listing_icons2.png") 6px 5px no-repeat; }
   a.edit_profile:hover {
     color: white;
-    background: #d45207 url("/images/icons/edit_listing_icons.png") 6px -33px no-repeat; }
+    background: #d45207 url("/images/icons/edit_listing_icons2.png") 6px -33px no-repeat; }
 
 .remove_image_link {
   float: left;

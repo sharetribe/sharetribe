@@ -67,6 +67,10 @@ Kassi::Application.routes.draw do
       resources :feedbacks
     end
     resources :listings do
+      member do
+        post :follow
+        delete :unfollow
+      end
       collection do
         get :more_listings
         get :browse
@@ -89,7 +93,7 @@ Kassi::Application.routes.draw do
         put :deactivate
       end
       resources :listings do
-        member do 
+        member do
           put :close
         end  
       end  
