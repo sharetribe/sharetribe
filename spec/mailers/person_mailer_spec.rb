@@ -100,7 +100,7 @@ describe PersonMailer do
     CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :admin => 1)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person.email], email.to
+    assert_equal [APP_CONFIG.feedback_mailer_recipients, @test_person.email], email.to
   end
   
   it "should send email to admins of new contact request" do
