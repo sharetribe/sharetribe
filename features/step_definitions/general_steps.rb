@@ -19,3 +19,8 @@ Then /^(?:|I )should not see selector "([^"]*)"?$/ do |selector|
     end
   }.should raise_error(Capybara::ElementNotFound)
 end
+
+When /^I move the focus to "([^"]*)"?$/ do |selected_element_id|
+  #find("##{selected_element_id}").trigger('focus')
+  page.evaluate_script("$('##{selected_element_id}').focus();")
+end

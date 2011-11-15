@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Invitation do
+  
   describe "#create" do
     it "generates a code automatically" do
       i = Invitation.new

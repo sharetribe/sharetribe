@@ -10,7 +10,7 @@ class TermsController < ApplicationController
     if session[:consent_changed]
       @current_user = Person.find_by_id(session[:temp_person_id])
       current_community = Community.find(session[:temp_community_id])
-      @current_user.community_memberships.find_by_community_id(current_community.id).update_attribute(:consent, current_community.consent) 
+      @current_community_membership.update_attribute(:consent, current_community.consent) 
     else
       # This situation can occur when the users clicks the back button
       # of the browser after accepting new terms, returns to the acceptance

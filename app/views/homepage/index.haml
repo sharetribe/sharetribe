@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_homepage();
+
 #teaser
   #teaser_left
     %h1= t(".lend_rent_help_carpool")
@@ -50,8 +53,21 @@
         = render :partial => "blank_slate", :locals => { :slate_type => "offer" }
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
   
-#recent_event_box.grid_6
-  .recent_events
+.grid_6
+  
+  - if @current_user && @current_user.profile_info_empty?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :partial => "profile_info_empty_notification"
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+  
+  - if @current_user && @current_community.join_with_invite_only
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :partial => "invitation_form"
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+  
+  .homepage_sidebar_box
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
     = render :file => community_file("frontpage_sidebar", true)
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

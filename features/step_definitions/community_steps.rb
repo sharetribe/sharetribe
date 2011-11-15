@@ -40,4 +40,3 @@ end
 Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, usages|
   Invitation.find_by_code(code).usages_left.should == usages.to_i
 end
-

@@ -7,7 +7,7 @@
       %h2= @conversation.title
       - if @conversation.listing
         - if current_user?(@conversation.messages.first.sender)
-          = t(".#{@conversation.listing.listing_type}_sent_to")
+          = t(".#{@conversation.discussion_type}_sent_to")
           = link_to @conversation.other_party(@conversation.messages.first.sender).name, @conversation.other_party(@conversation.messages.first.sender)
         - else
           = t(".#{@conversation.listing.listing_type}_sent_by")

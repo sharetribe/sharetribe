@@ -1,0 +1,37 @@
+= t("emails.invitation_to_kassi.hi")
+
+%br/
+%br/
+
+= t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
+
+%br/
+%br/
+
+= t("emails.invitation_to_kassi.info_about_kassi")
+
+- if @invitation.message && !@invitation.message.blank?
+
+  %br/
+  %br/
+  
+  = t("emails.invitation_to_kassi.here_is_a_message_from", :inviter => @invitation.inviter.given_name)
+
+  %div{:style => "margin: 15px 0; padding: 10px; background-color: #d1c9b4;"}
+    - text_with_line_breaks do
+      = @invitation.message
+
+= t("emails.invitation_to_kassi.you_can_join_kassi_using_invitation_code", :code => @invitation.code)
+
+%br/
+%br/
+
+= t("emails.invitation_to_kassi.join_kassi_in")
+= link_to(@url, @url)
+
+%br/
+%br/
+
+= t("emails.common.thanks")
+%br/
+= t("emails.common.kassi_team")

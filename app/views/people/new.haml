@@ -13,7 +13,7 @@
         .form_field_container
           = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
           %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
-          = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20"
+          = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
       .form_field_container
         = form.label :username, t('.username'), :class => "before_description"
         %span.tiny_description

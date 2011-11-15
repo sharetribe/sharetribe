@@ -38,8 +38,6 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should see "This field is required."
     
-    
-    
   @javascript  
   Scenario: User tries to register with expired invite
     Given community "test" requires invite to join
@@ -57,7 +55,6 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should see "The invitation code is not valid."
   
-
   @javascript  
   Scenario: User should not see invitation code in the form, if it's not needed
     Given I am not logged in

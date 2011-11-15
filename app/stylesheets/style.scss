@@ -182,9 +182,7 @@ h3.brown {
 }
 
 h4 {
-	color: $medium_brown;
-	text-align: center;
-	margin: 5px 20px 15px 20px;
+	margin: 10px 20px 15px 20px;
 }
 
 h5 {
@@ -501,7 +499,7 @@ form, input {
 	p { width: 300px; }
 }
 
-@mixin stapled_box($width: 219px) {
+@mixin homepage_box($width: 219px) {
 	background: $form_bg;
 	font-size: 11px;
 	width: $width;
@@ -517,17 +515,67 @@ form, input {
 	}	
 }
 
-.recent_events { @include stapled_box; }
+.homepage_sidebar_box {
+  overflow: hidden; 
+  @include homepage_box;
+  margin-bottom: 20px;
+  h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  #invitation_form {
+    margin: 15px 15px 15px 15px;
+    overflow: hidden;
+    .form_field_container { margin: 0; }
+    .label_container { margin-top: 10px;}
+    input.text_field {
+      margin: 2px 0 5px 0;
+      width: 185px;
+      height: 20px;
+      border: 0;
+      padding: 2px 5px;
+    }
+    label { font-weight: bold; }
+    textarea {
+      margin: 2px 0 5px 0;
+      width: 185px;
+      height: 60px;
+      border: 0;
+      padding: 5px;
+    }
+    input.send_button { 
+      @include send_button;
+      width: 150px;
+      height: 30px;
+      margin-bottom: 5px;
+    }
+    label.error {
+  		@include form_error_field;
+  		margin: 0 0 0 0;
+  		width: 185px;
+  	}
+  }
+}
+
+.invitation_form_hidden_parts {
+  overflow: hidden;
+}
+
 .not_a_member_notification { 
-	@include stapled_box(700px);
+	@include homepage_box(700px);
 	margin-left: 10px; 
 }
 
+.homepage_sidebar_box_content {
+  margin: 15px;
+  p { margin-bottom: 5px; }
+}
+
 .staple {
-	@include rounded(5px);
+	@include rounded(3px);
 	background: $medium_brown;
-	width: 10px;
-	height: 10px;
+	width: 6px;
+	height: 6px;
 }
 
 .staples {
@@ -1354,6 +1402,18 @@ a.edit_profile {
 		margin-right: 7px;
 		display: inline;
 	}	
+}
+
+#edit_info_link {
+  margin-top: 15px;
+	padding-bottom: 5px;
+	@include home_button($orange);
+	width: 248px;
+	img {
+		vertical-align: -25%;
+		margin-right: 7px;
+		display: inline;
+	}
 }
 
 .request_listing_link_label {
@@ -2213,12 +2273,22 @@ span.profile_settings_visibility_info {
 }
 
 .profile_info_row_content {
-	width: 350px;
+	width: 300px;
 	float: left;
+	a { float: left;}
 }
 
 #profile_description_full {
 	display: none;
+}
+
+#profile_community_info {
+  width: 228px;
+  background: $form_bg;
+  padding: 15px;
+  font-size: 11px;
+  font-weight: bold;
+  h5 { margin-bottom: 10px; }
 }
 
 #listing_closed_status {

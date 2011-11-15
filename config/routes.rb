@@ -123,6 +123,7 @@ Kassi::Application.routes.draw do
           get :notifications
         end
       end
+      resources :invitations
       resources :badges
       resources :testimonials
     end
