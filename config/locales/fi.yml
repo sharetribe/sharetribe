@@ -155,6 +155,13 @@ fi:
       your_offer_was_rejected: "Tarjouksesi hylättiin"
       your_request_was_accepted: "Pyyntösi hyväksyttiin"
       your_request_was_rejected: "Pyyntösi hylättiin"
+    invitation_to_kassi:
+      hi: "Hei!"
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} Kassi-verkkopalvelua."
+      info_about_kassi: "Kassi on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
+      here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
+      you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
+      join_kassi_in: "Voit liittyä palveluun osoitteessa"
     new_badge:
       you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
       you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
@@ -289,6 +296,15 @@ fi:
       teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
       welcome_to_new_kassi: "Kassi on uudistunut!"
+    invitation_form:
+      invite_your_friends: "Kutsu kaverisi Kassiin!"
+      email: "Kaverisi sähköpostiosoite:"
+      message: "Viesti kaverillesi:"
+      send_invitation: "Lähetä kutsu"
+    profile_info_empty_notification:
+      add_your_info: "Lisää tietosi"
+      you_have_not_added_your_info: "Et ole lisännyt Kassiin yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä."
+      add_your_info_link: "Lisää tietosi Kassiin" 
     recent_listing:
       please_offer: Tarjoa
   layouts:
@@ -365,6 +381,8 @@ fi:
       feedback_skipped: "Palaute ohitettu"
       housing_offer_message_sent: "Vastaus lähetetty"
       housing_request_message_sent: "Vastaus lähetetty"
+      invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
+      invitation_sent: "Kutsu lähetetty"
       item_offer_message_sent: "Tavarapyyntö lähetetty"
       item_request_message_sent: "Tavaratarjous lähetetty"
       login_again: "Kirjaudu uudestaan."
@@ -772,6 +790,9 @@ fi:
       show_only_open: "Näytä vain avoimet"
     show:
       about_me: "Tietoa minusta:"
+      add_description: "Kerro jotain itsestäsi"
+      add_location: "Lisää sijainti"
+      add_phone_number: "Lisää puhelinnumero"
       address: "Osoite:"
       as_expected: "Vastasi odotuksia"
       badges: Kassimerkit

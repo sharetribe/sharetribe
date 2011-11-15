@@ -107,7 +107,7 @@ function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
     pathToTabImage: '/images/feedback_handles.png',
-	imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
+	  imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
     speed: 300,                               //speed of animation
@@ -539,6 +539,29 @@ function initialize_profile_view(badges) {
 
 function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
+}
+
+function initialize_homepage() {
+  $('#invitation_email').focus(function() {
+    $('div.invitation_form_hidden_parts').slideDown('fast');
+    $(document).bind('focusin.invitation_form_hidden_parts click.invitation_form_hidden_parts',function(e) {
+      if ($(e.target).closest('.invitation_form_hidden_parts, #invitation_email').length) return;
+      $(document).unbind('.example');
+      $('div.invitation_form_hidden_parts').slideUp('fast');
+    });
+  });
+  $('div.invitation_form_hidden_parts').slideUp('fast');
+  auto_resize_text_areas();
+  var form_id = "#new_invitation"
+	$(form_id).validate({
+		rules: {
+		  "invitation[email]": {required: true, email: true},
+			"invitation[message]": {required: false, maxlength: 5000}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, "true", locale);
+		}
+	});
 }
 
 function set_textarea_maxlength() {

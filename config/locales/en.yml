@@ -82,7 +82,7 @@ en:
       in_response_to_request: "in response to request"
       offer_sent_by: "Request sent by"
       offer_sent_to: "Offer sent to"
-      request_sent_by: "Offer sent by"
+      request_sent_by: "Request sent by"
       request_sent_to: "Request sent to"
       send_reply: "Send reply"
       write_a_reply: "Write a reply:"
@@ -292,6 +292,15 @@ en:
       teaser_text: "Kassi is a service for the %{community} community. Here you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
       welcome_to_new_kassi: "Welcome to new Kassi!"
+    invitation_form:
+      invite_your_friends: "Invite your friends to Kassi!"
+      email: "Your friend's email address:"
+      message: "A personal message:"
+      send_invitation: "Send invitation"
+    profile_info_empty_notification:
+      add_your_info: "Add your contact info"
+      you_have_not_added_your_info: "You have not added your contact information. Please do, so others can get in touch with you more easily."
+      add_your_info_link: "Add your info now" 
     recent_listing:
       please_offer: Offer
   layouts:
@@ -368,6 +377,8 @@ en:
       feedback_skipped: "Feedback skipped"
       housing_offer_message_sent: "Message sent successfully"
       housing_request_message_sent: "Message sent successfully"
+      invitation_cannot_be_sent: "Invitation could not be sent"
+      invitation_sent: "Invitation sent successfully"
       item_offer_message_sent: "Item request sent successfully"
       item_request_message_sent: "Item offer sent successfully"
       login_again: "Please, log in again."
@@ -775,14 +786,19 @@ en:
       show_only_open: "Show only open"
     show:
       about_me: "About me:"
+      add_description: "Tell something about yourself"
+      add_location: "Add location"
+      add_phone_number: "Add phone number"
       address: "Location:"
       as_expected: "As expected"
       badges: Badges
-      edit_profile_info: "Edit profile"
+      edit_profile_info: "Edit your information"
       exceeded_expectations: "Exceeded expectations"
       feedback_average: "Feedback average:"
       hide_description: "Show less"
-      joined_this_community: "Joined this community"
+      joined_this_community: "...joined this community"
+      was_last_seen: "...was last seen"
+      was_invited_by: "...was invited by"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_badges: "Show all badges"

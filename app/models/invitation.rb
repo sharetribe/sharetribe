@@ -6,11 +6,14 @@ class Invitation < ActiveRecord::Base
   
   has_many :community_memberships #One invitation can result many users joining.
   belongs_to :community
+  belongs_to :inviter, :class_name => "Person", :foreign_key => "inviter_id"
   
   validates_presence_of :community_id # The invitation must relate to one community
   
   validates_presence_of :code #generated automatically
   validates_uniqueness_of :code
+  
+  validates_length_of :message, :maximum => 5000, :allow_nil => true
   
   def after_initialize
     self.code ||= ApplicationHelper.random_sting.upcase
@@ -25,7 +28,6 @@ class Invitation < ActiveRecord::Base
     raise "Invitation is not usable" if not usable?
     update_attribute(:usages_left, self.usages_left - 1)
   end
-  
   
   def self.code_usable?(code, community=nil)
     invitation = Invitation.find_by_code(code.upcase) if code.present?

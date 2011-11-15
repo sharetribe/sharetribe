@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913080622) do
+ActiveRecord::Schema.define(:version => 20111114122315) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -68,11 +68,12 @@ ActiveRecord::Schema.define(:version => 20110913080622) do
   create_table "community_memberships", :force => true do |t|
     t.string   "person_id"
     t.integer  "community_id"
-    t.boolean  "admin",         :default => false
+    t.boolean  "admin",               :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "consent",       :default => "KASSI_FI1.0"
+    t.string   "consent",             :default => "KASSI_FI1.0"
     t.integer  "invitation_id"
+    t.datetime "last_page_load_date"
   end
 
   create_table "contact_requests", :force => true do |t|
@@ -167,6 +168,9 @@ ActiveRecord::Schema.define(:version => 20110913080622) do
     t.string   "information"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "inviter_id"
+    t.text     "message"
+    t.string   "email"
   end
 
   create_table "item_reservations", :force => true do |t|

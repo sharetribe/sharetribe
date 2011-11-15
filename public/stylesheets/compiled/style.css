@@ -63,9 +63,7 @@ h3.brown {
       color: #4d3d26; }
 
 h4 {
-  color: #765d3a;
-  text-align: center;
-  margin: 5px 20px 15px 20px; }
+  margin: 10px 20px 15px 20px; }
 
 h5 {
   margin: 0;
@@ -415,18 +413,77 @@ form, input {
   #teaser_browse_links p {
     width: 300px; }
 
-.recent_events {
+.homepage_sidebar_box {
+  overflow: hidden;
   background: #d1c9b4;
   font-size: 11px;
-  width: 219px; }
-  .recent_events p {
+  width: 219px;
+  margin-bottom: 20px; }
+  .homepage_sidebar_box p {
     margin: 0;
     padding: 0; }
-  .recent_events span {
+  .homepage_sidebar_box span {
     color: #797979;
     font-style: italic;
     font-size: 10px;
     float: right; }
+  .homepage_sidebar_box h3 {
+    font-size: 14px;
+    margin-bottom: 5px; }
+  .homepage_sidebar_box #invitation_form {
+    margin: 15px 15px 15px 15px;
+    overflow: hidden; }
+    .homepage_sidebar_box #invitation_form .form_field_container {
+      margin: 0; }
+    .homepage_sidebar_box #invitation_form .label_container {
+      margin-top: 10px; }
+    .homepage_sidebar_box #invitation_form input.text_field {
+      margin: 2px 0 5px 0;
+      width: 185px;
+      height: 20px;
+      border: 0;
+      padding: 2px 5px; }
+    .homepage_sidebar_box #invitation_form label {
+      font-weight: bold; }
+    .homepage_sidebar_box #invitation_form textarea {
+      margin: 2px 0 5px 0;
+      width: 185px;
+      height: 60px;
+      border: 0;
+      padding: 5px; }
+    .homepage_sidebar_box #invitation_form input.send_button {
+      font-size: 14px;
+      font-weight: bold;
+      background: #765d3a;
+      width: 200px;
+      height: 40px;
+      padding: 0;
+      border: 0;
+      color: white;
+      width: 150px;
+      height: 30px;
+      margin-bottom: 5px; }
+      .homepage_sidebar_box #invitation_form input.send_button:active {
+        background-color: #4d3d26;
+        padding-top: 1px; }
+      .homepage_sidebar_box #invitation_form input.send_button:hover {
+        background-color: #9f7d4e; }
+      .homepage_sidebar_box #invitation_form input.send_button:focus {
+        background-color: #9f7d4e; }
+    .homepage_sidebar_box #invitation_form label.error {
+      font-size: 13px;
+      font-weight: bold;
+      clear: both;
+      float: left;
+      margin: 5px 0 0 170px;
+      padding: 14px 10px 5px 10px;
+      background: red url("/images/error_arrow.png") no-repeat top left;
+      color: white;
+      margin: 0 0 0 0;
+      width: 185px; }
+
+.invitation_form_hidden_parts {
+  overflow: hidden; }
 
 .not_a_member_notification {
   background: #d1c9b4;
@@ -442,13 +499,18 @@ form, input {
     font-size: 10px;
     float: right; }
 
+.homepage_sidebar_box_content {
+  margin: 15px; }
+  .homepage_sidebar_box_content p {
+    margin-bottom: 5px; }
+
 .staple {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   background: #765d3a;
-  width: 10px;
-  height: 10px; }
+  width: 6px;
+  height: 6px; }
 
 .staples {
   padding: 0 10px 0 10px; }
@@ -1525,6 +1587,33 @@ a.edit_profile {
     margin-right: 7px;
     display: inline; }
 
+#edit_info_link {
+  margin-top: 15px;
+  padding-bottom: 5px;
+  width: 225px;
+  float: left;
+  margin-bottom: 10px;
+  width: 248px; }
+  #edit_info_link a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #edit_info_link a:hover {
+      background: #f8792f; }
+    #edit_info_link a:active {
+      background: #a33f05; }
+  #edit_info_link img {
+    vertical-align: -25%;
+    margin-right: 7px;
+    display: inline; }
+
 .request_listing_link_label {
   display: inline; }
 
@@ -2542,11 +2631,22 @@ span.profile_settings_visibility_info {
   font-weight: bold; }
 
 .profile_info_row_content {
-  width: 350px;
+  width: 300px;
   float: left; }
+  .profile_info_row_content a {
+    float: left; }
 
 #profile_description_full {
   display: none; }
+
+#profile_community_info {
+  width: 228px;
+  background: #d1c9b4;
+  padding: 15px;
+  font-size: 11px;
+  font-weight: bold; }
+  #profile_community_info h5 {
+    margin-bottom: 10px; }
 
 #listing_closed_status {
   margin: 0 5px;

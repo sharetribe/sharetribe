@@ -54,9 +54,6 @@ class ApplicationController < ActionController::Base
         # If there is no ASI-cookie for this session, log out completely
         clear_user_session
       end
-      unless @current_user.last_page_load_date && @current_user.last_page_load_date.to_date.eql?(Date.today)
-        Delayed::Job.enqueue(PageLoadedJob.new(@current_user.id, request.host))
-      end
     end
   end
   
@@ -108,7 +105,12 @@ class ApplicationController < ActionController::Base
     
     # Otherwise pick the domain normally from the request subdomain
     if @current_community = Community.find_by_domain(request.subdomain)
-      if @current_user && !@current_user.communities.include?(@current_community)
+      if @current_user && @current_user.communities.include?(@current_community)
+        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
+          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+        end
+      else
         # Show notification "you are not a member in this community"
       end
     else
