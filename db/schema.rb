@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111116144337) do
+ActiveRecord::Schema.define(:version => 20111116164728) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -48,17 +48,18 @@ ActiveRecord::Schema.define(:version => 20111116144337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "settings"
-    t.string   "consent",                        :default => "KASSI_FI1.0"
-    t.boolean  "email_admins_about_new_members", :default => false
-    t.boolean  "use_fb_like",                    :default => false
-    t.boolean  "real_name_required",             :default => true
-    t.boolean  "feedback_to_admin",              :default => false
-    t.boolean  "automatic_newsletters",          :default => true
-    t.boolean  "join_with_invite_only",          :default => false
-    t.boolean  "use_captcha",                    :default => true
-    t.boolean  "email_confirmation",             :default => false
+    t.string   "consent",                                   :default => "KASSI_FI1.0"
+    t.boolean  "email_admins_about_new_members",            :default => false
+    t.boolean  "use_fb_like",                               :default => false
+    t.boolean  "real_name_required",                        :default => true
+    t.boolean  "feedback_to_admin",                         :default => false
+    t.boolean  "automatic_newsletters",                     :default => true
+    t.boolean  "join_with_invite_only",                     :default => false
+    t.boolean  "use_captcha",                               :default => true
+    t.boolean  "email_confirmation",                        :default => false
     t.text     "allowed_emails"
-    t.boolean  "users_can_invite_new_users",     :default => false
+    t.boolean  "users_can_invite_new_users",                :default => false
+    t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
