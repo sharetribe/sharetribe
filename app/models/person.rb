@@ -52,7 +52,7 @@ class Person < ActiveRecord::Base
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships
-  has_many :invitations, :dependent => :destroy
+  has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   

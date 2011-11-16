@@ -100,6 +100,7 @@
         %br/
         = t(".was_invited_by")
         = link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter
+        = t(".as_invited_by")
     - if logged_in? && @person.location && @person.location.address != ""
       #googlemap
         = render :partial => "googlemap"
