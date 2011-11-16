@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111114122315) do
+ActiveRecord::Schema.define(:version => 20111116144337) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20111114122315) do
     t.boolean  "use_captcha",                    :default => true
     t.boolean  "email_confirmation",             :default => false
     t.text     "allowed_emails"
+    t.boolean  "users_can_invite_new_users",     :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|

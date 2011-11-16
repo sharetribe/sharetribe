@@ -31,6 +31,10 @@ Given /^community "([^"]*)" requires invite to join$/ do |community|
   Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
 end
 
+Given /^users can invite new users to join community "([^"]*)"$/ do |community|
+  Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, true)
+end
+
 Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: with (\d+) usages left)?$/ do |community, code, usages_left|
   inv = Invitation.new(:community => Community.find_by_domain(community), :code => code)
   inv.usages_left = usages_left if usages_left.present?

@@ -61,7 +61,7 @@
       = render :partial => "profile_info_empty_notification"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
   
-  - if @current_user && @current_community.join_with_invite_only
+  - if @current_user && @current_community.join_with_invite_only && @current_community.users_can_invite_new_users
     .homepage_sidebar_box
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       = render :partial => "invitation_form"

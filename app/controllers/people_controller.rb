@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
+  
   include UrlHelper
+  
   protect_from_forgery :except => :create
   
   before_filter :only => [ :update, :update_avatar ] do |controller|

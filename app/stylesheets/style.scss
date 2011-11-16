@@ -2140,9 +2140,16 @@ a.edit_profile {
 
 #settings_map_canvas {
   width: 318px; 
-  height: 260px; 
-  margin-left: 143px;
+  height: 260px;
+  float: left;
 }
+
+#profile_location_field_settings_description {
+  font-size: 11px;
+  width: 125px;
+  float: left;
+  padding: 0 15px 0 3px;
+}  
 
 #listing_map_canvas {
   width: 318px; 

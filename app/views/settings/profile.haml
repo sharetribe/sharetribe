@@ -26,6 +26,8 @@
       %span.profile_settings_visibility_info
         = t('.visible_to_registered_users')
     .form_field_container
+      #profile_location_field_settings_description
+        = t(".location_description")
       #settings_map_canvas.map
         :javascript
           source = document.getElementById("person_street_address");
