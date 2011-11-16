@@ -11,6 +11,7 @@ Feature: User joins invite only community
     And I am on the homepage
     And I should not see "Your friend's email address"
     When community "test" requires invite to join
+    And users can invite new users to join community "test"
     Then I should not see "Your friend's email address"
     When I log in as "kassi_testperson1"
     Then I should see "Your friend's email address"
@@ -29,6 +30,7 @@ Feature: User joins invite only community
     And I am on the homepage
     And I am logged in as "kassi_testperson1"
     And community "test" requires invite to join
+    And users can invite new users to join community "test"
     # FIXME: The rest of the test fails because of javascript recursion in selenium when calling focus.
     # When I move the focus to "invitation_email"
     # And I press "Send invitation"

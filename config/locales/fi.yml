@@ -383,6 +383,7 @@ fi:
       housing_request_message_sent: "Vastaus lähetetty"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
+      inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä kassiyhteisössä"
       item_offer_message_sent: "Tavarapyyntö lähetetty"
       item_request_message_sent: "Tavaratarjous lähetetty"
       login_again: "Kirjaudu uudestaan."
@@ -427,6 +428,7 @@ fi:
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
+      you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
       you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
@@ -870,6 +872,7 @@ fi:
       city: "Kaupunki:"
       family_name: "Sukunimi:"
       given_name: "Etunimi:"
+      location_description: "Sijainti voi olla joko tarkka katuosoite tai vain kaupunginosa tai postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin kartalta."
       phone_number: "Puhelinnumero:"
       postal_code: "Postinumero:"
       profile_page: profiilisivullasi
