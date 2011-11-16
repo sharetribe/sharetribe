@@ -2,15 +2,16 @@ class TermsController < ApplicationController
   
   def show
     redirect_to root_path unless session[:temp_cookie]
-    current_community = Community.find(session[:temp_community_id])
+    @current_community = Community.find(session[:temp_community_id])
     @current_user = nil
   end
   
   def accept
     if session[:consent_changed]
       @current_user = Person.find_by_id(session[:temp_person_id])
-      current_community = Community.find(session[:temp_community_id])
-      @current_community_membership.update_attribute(:consent, current_community.consent) 
+      @current_community = Community.find(session[:temp_community_id])
+      @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+      @current_community_membership.update_attribute(:consent, @current_community.consent) 
     else
       # This situation can occur when the users clicks the back button
       # of the browser after accepting new terms, returns to the acceptance
