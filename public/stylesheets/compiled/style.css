@@ -2660,7 +2660,8 @@ span.profile_settings_visibility_info {
   display: none; }
 
 #profile_community_info {
-  width: 228px;
+  margin: 0 0 10px 10px;
+  width: 220px;
   background: #d1c9b4;
   padding: 15px;
   font-size: 11px;

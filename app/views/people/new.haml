@@ -29,7 +29,7 @@
         .form_field_container
           .signup_checkbox_container
             .signup_checkbox_input_container
-              %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true}
+              %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
             .signup_checkbox_label_container
               = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
       .form_field_container

@@ -85,7 +85,6 @@ class Person < ActiveRecord::Base
   
   # Create a new person to ASI and Kassi.
   def self.create(params, cookie, asi_welcome_mail = false)
-    
     # Try to create the person to ASI
     person_hash = {:person => params.slice(:username, :password, :email, :consent), :welcome_email => asi_welcome_mail}
     response = PersonConnection.create_person(person_hash, cookie)
@@ -419,7 +418,7 @@ class Person < ActiveRecord::Base
         params[:location].each {|key| params[:location].delete(key)}
         params.delete(:location)
       end
-      self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true
+      self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
       save
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])

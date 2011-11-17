@@ -100,6 +100,22 @@ Feature: User creates a new account
     And I should not see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
   
+  @javascript  
+  Scenario: Creating a new account and allowing to show real name
+    Given I am not logged in
+    And I can choose whether I want to show my username to others in community "test"
+    And I am on the signup page
+    And I fill in "Username:" with random username
+    And I fill in "Given name:" with "Testmanno"
+    And I fill in "Family name:" with "Namez"
+    And I fill in "Password:" with "test"
+    And I fill in "Confirm password:" with "test"
+    And I fill in "Email address:" with random email
+    And I check "person_terms"
+    And I press "Create account"
+    Then I should not see my username
+    And I should see "Testmanno!"
+    And Most recently created user should be member of "test" community with its latest consent accepted
   
   
   
