@@ -101,8 +101,7 @@ class Person < ActiveRecord::Base
     params["given_name"] = params["given_name"].slice(0, 28)
     params["family_name"] = params["family_name"].slice(0, 28)
     Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number, :consent, :confirmed_at), params[:id], cookie)
-    
+    PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number, :consent, :confirmed_at, :show_real_name_to_other_users), params[:id], cookie)
     # Create locally with less attributes 
     super(params.except(:username, :email, "name", :terms, :consent))
   end 
@@ -212,16 +211,18 @@ class Person < ActiveRecord::Base
   
   def name(cookie=nil)
     # We rather return the username than blank if no name is set
+    return username unless show_real_name_to_other_users
     return name_or_username(cookie)
   end
   
   def given_name_or_username(cookie=nil)
-    unless given_name(cookie).blank?
-      return given_name(cookie)
-    else
+    if given_name(cookie).blank? || !show_real_name_to_other_users
       return username(cookie)
+    else
+      return given_name(cookie)
     end
     
+    return username unless show_real_name_to_other_users
     person_hash = get_person_hash(cookie)
     return "Not found!" if person_hash.nil?
     if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
@@ -234,7 +235,7 @@ class Person < ActiveRecord::Base
     if new_record?
       return form_given_name ? form_given_name : ""
     end
-    
+
     return Rails.cache.fetch("person_given_name/#{self.id}", :expires_in => PERSON_NAME_CACHE_EXPIRE_TIME) {given_name_from_person_hash(cookie)} 
   end
   
@@ -418,7 +419,9 @@ class Person < ActiveRecord::Base
         params[:location].each {|key| params[:location].delete(key)}
         params.delete(:location)
       end
-
+      logger.info "Show real name to other users: #{params[:show_real_name_to_other_users]}"
+      self.show_real_name_to_other_users = params[:show_real_name_to_other_users] ? true : false
+      save
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
       Person.remove_root_level_fields(params, "address", ["street_address", "postal_code", "locality"]) 
@@ -432,7 +435,7 @@ class Person < ActiveRecord::Base
       Rails.cache.delete("person_name/#{self.id}")
       Rails.cache.delete("person_given_name/#{self.id}")
        
-      PersonConnection.put_attributes(params.except("password2"), self.id, cookie)    
+      PersonConnection.put_attributes(params.except("password2", "show_real_name_to_other_users"), self.id, cookie)    
     end
   end
   

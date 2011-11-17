@@ -21,14 +21,17 @@
         = form.text_field :username, :class => :text_field, :maxlength => "20"
       .form_field_container
         = form.label :given_name, t('.given_name'), :class => "before_description"
-        %span.tiny_description
-          = "(#{t('.visible_to_everybody')}#{t('.not_required') unless @current_community.real_name_required?})"
         = form.text_field :given_name, :class => :text_field, :maxlength => "30"
       .form_field_container
         = form.label :family_name, t('.family_name'), :class => "before_description"
-        %span.tiny_description
-          = "(#{t('.visible_to_everybody')}#{t('.not_required') unless @current_community.real_name_required?})"
         = form.text_field :family_name, :class => :text_field, :maxlength => "30"
+      - if @current_community.select_whether_name_is_shown_to_everybody
+        .form_field_container
+          .signup_checkbox_container
+            .signup_checkbox_input_container
+              %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true}
+            .signup_checkbox_label_container
+              = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
       .form_field_container
         = form.label :email, t('.email'), :class => "before_description"
         %span.tiny_description

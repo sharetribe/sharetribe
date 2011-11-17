@@ -324,6 +324,7 @@ function initialize_terms_form() {
 
 function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
 	auto_resize_text_areas();
+	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({

@@ -13,13 +13,16 @@
     .form_field_container
       = form.label :given_name, t(".given_name"), :class => "input"
       = form.text_field :given_name, :class => "text_field", :maxlength => "30"
-      %span.profile_settings_visibility_info
-        = t('.visible_to_everybody')
     .form_field_container
       = form.label :family_name, t(".family_name"), :class => "input"
       = form.text_field :family_name, :class => "text_field", :maxlength => "30"
-      %span.profile_settings_visibility_info
-        = t('.visible_to_everybody')
+    - if @current_community.select_whether_name_is_shown_to_everybody
+      .form_field_container
+        .profile_settings_checkbox_container
+          .profile_settings_checkbox_input_container
+            %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users}
+          .profile_settings_checkbox_label_container
+            = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
     .form_field_container
       = form.label :street_address, t(".street_address"), :class => "input"
       = form.text_field :street_address, :class => "text_field", :onkeyup => "timed_input(this)"
