@@ -24,6 +24,7 @@ Feature: User updates profile information
     And the "Given name:" field should contain "Test"
     And the "Family name:" field should contain "Dude"
     And the "Location:" field should contain "Broadway"
+    And I should not see my username
   
   @javascript
   Scenario: Trying to update profile with false information
@@ -31,20 +32,14 @@ Feature: User updates profile information
       | person | 
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
+    And I can choose whether I want to show my username to others in community "test"
     When I follow "Settings"
-    And I fill in "Given name:" with ""
-    And I fill in "Family name:" with ""
-    And I fill in "About you:" with "Some random text"
+    And I fill in "Given name:" with "Testijeppe"
+    And I uncheck "person_show_real_name_to_other_users"
     And I press "Save information"
-    Then I should see "This field is required." within ".error"
-    When given name and last name are not required in community "test"
-    When I follow "Settings"
-    And I fill in "Given name:" with ""
-    And I fill in "Family name:" with ""
-    And I fill in "About you:" with "Some random text"
+    Then I should see my username
+    And I should not see "Testijeppe"
+    When I check "person_show_real_name_to_other_users"
     And I press "Save information"
-    Then I should see "Information updated" within "#notifications"
-    And the "Given name:" field should contain ""
-    And the "Family name:" field should contain ""
-    And the "About you" field should contain "Some random text"
-
+    Then I should not see my username
+    And I should see "Testijeppe"

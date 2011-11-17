@@ -72,6 +72,10 @@ class PeopleController < ApplicationController
     # skip email confirmation unless it's required in this community
     params[:person][:confirmed_at] =  (@current_community.email_confirmation ? nil : Time.now)
     
+    params[:person][:show_real_name_to_other_users] = false unless (params[:show_real_name_to_other_users] || !@current_community.select_whether_name_is_shown_to_everybody)
+    
+    logger.info "Show real name to other users: #{params[:person][:show_real_name_to_other_users]}"
+    
     # Try to create a new person in ASI.
     begin
       @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)

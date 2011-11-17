@@ -1,5 +1,5 @@
 %p
-  = t("emails.common.hey", :name => @resource.given_name)
+  = t("emails.common.hey", :name => @resource.given_name.or_username)
 %p
   = t("emails.confirmation_instructions.welcome_to_kassi") 
 %p
