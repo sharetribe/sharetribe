@@ -34,7 +34,7 @@
       - if @requests.total_entries > 0
         = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
         = will_paginate(@requests)
-        - if (@requests.total_pages < 2 || params[:page].to_int == @requests.total_pages) && @private_listings && @private_listings["request"].present? && @private_listings["request"] > 0
+        - if @requests.total_pages < 2 && @private_listings && @private_listings["request"].present? && @private_listings["request"] > 0
           .request_spacer
           = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "request", :private_listings_count =>  @private_listings["request"]}
       - else
@@ -46,7 +46,7 @@
       - if @offers.total_entries > 0
         = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
         = will_paginate(@offers)
-        - if (@offers.total_pages < 2 || params[:page].to_int == @offers.total_pages) && @private_listings && @private_listings["offer"].present? && @private_listings["offer"] > 0
+        - if @offers.total_pages < 2 && @private_listings && @private_listings["offer"].present? && @private_listings["offer"] > 0
           .offer_spacer
           = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "offer", :private_listings_count =>  @private_listings["offer"]}       
       - else
