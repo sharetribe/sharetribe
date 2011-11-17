@@ -118,16 +118,16 @@ end
 
 Then /^I should see my username$/ do
   if page.respond_to? :should
-    page.should have_content(Person.last.username)
+    page.should have_content(Person.order("created_at").last.username)
   else
-    assert page.has_content?(Person.last.username)
+    assert page.has_content?(Person.order("created_at").last.username)
   end
 end
 
 Then /^I should not see my username$/ do
   if page.respond_to? :should
-    page.should have_no_content(Person.last.username)
+    page.should have_no_content(Person.order("created_at").last.username)
   else
-    assert page.has_no_content?(Person.last.username)
+    assert page.has_no_content?(Person.order("created_at").last.username)
   end
 end

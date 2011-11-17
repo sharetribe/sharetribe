@@ -15,7 +15,6 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    And show me the page
     Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
@@ -97,7 +96,6 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    And show me the page
     Then I should see my username
     And I should not see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
