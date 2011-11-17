@@ -24,7 +24,7 @@ class Person < ActiveRecord::Base
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
-                :form_password2, :form_email, :consent
+                :form_password2, :form_email, :consent, :show_real_name_setting_affected
   
   attr_protected :is_admin
 
@@ -419,8 +419,7 @@ class Person < ActiveRecord::Base
         params[:location].each {|key| params[:location].delete(key)}
         params.delete(:location)
       end
-      logger.info "Show real name to other users: #{params[:show_real_name_to_other_users]}"
-      self.show_real_name_to_other_users = params[:show_real_name_to_other_users] ? true : false
+      self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true
       save
       #Handle name part parameters also if they are in hash root level
       Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])
@@ -435,7 +434,7 @@ class Person < ActiveRecord::Base
       Rails.cache.delete("person_name/#{self.id}")
       Rails.cache.delete("person_given_name/#{self.id}")
        
-      PersonConnection.put_attributes(params.except("password2", "show_real_name_to_other_users"), self.id, cookie)    
+      PersonConnection.put_attributes(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected"), self.id, cookie)    
     end
   end
   

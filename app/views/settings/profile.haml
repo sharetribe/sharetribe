@@ -21,6 +21,7 @@
         .profile_settings_checkbox_container
           .profile_settings_checkbox_input_container
             %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => @person.show_real_name_to_other_users}
+            = form.hidden_field :show_real_name_setting_affected, :value => true
           .profile_settings_checkbox_label_container
             = form.label :show_real_name_to_other_users, t('people.new.show_my_name_to_others'), :class => "checkbox"
     .form_field_container

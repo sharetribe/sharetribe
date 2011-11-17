@@ -14,4 +14,4 @@ test_community2:
   domain: "test2"
   settings: <%= {
      "locales" => ["en"]}.to_yaml.inspect %>
-  real_name_required: 0
+  real_name_required: 1
