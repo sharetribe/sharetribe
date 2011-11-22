@@ -93,9 +93,10 @@
         = @person.given_name_or_username +    "..."
       = t(".joined_this_community", :name => @person.given_name_or_username)
       = time_ago(@community_membership.created_at)
-      %br/
-      = t(".was_last_seen")
-      = time_ago(@community_membership.last_page_load_date)
+      - if @community_membership.last_page_load_date
+        %br/
+        = t(".was_last_seen")
+        = time_ago(@community_membership.last_page_load_date)
       - if @community_membership.invitation && @community_membership.invitation.inviter
         %br/
         = t(".was_invited_by")
