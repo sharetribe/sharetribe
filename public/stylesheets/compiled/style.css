@@ -3328,3 +3328,34 @@ a.handle:hover {
   padding: 15px 20px 10px 20px;
   width: 655px;
   margin-bottom: 20px; }
+
+#news_items p {
+  margin: 20px; }
+
+#left_link_panel_admin {
+  margin-top: 10px;
+  width: 218px; }
+  #left_link_panel_admin a {
+    font-weight: normal;
+    display: block;
+    width: 198px;
+    color: #d45207;
+    font-size: 11px;
+    padding: 4px 10px 4px 10px;
+    margin-bottom: 2px; }
+    #left_link_panel_admin a:hover {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -28px no-repeat; }
+    #left_link_panel_admin a:focus {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -28px no-repeat; }
+    #left_link_panel_admin a:active {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -56px no-repeat;
+      color: #464646; }
+  #left_link_panel_admin a.selected {
+    background: #f7f5e6 url("/images/left_panel_arrows.png") 0 0 no-repeat;
+    color: #464646; }
+  #left_link_panel_admin a {
+    color: #d45207;
+    font-size: 13px;
+    padding: 5px 10px 4px 10px; }
+  #left_link_panel_admin a.selected {
+    color: white; }

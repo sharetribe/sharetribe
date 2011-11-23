@@ -1,0 +1,5 @@
+%h3= t(".news_items")
+
+= link_to t(".create_news_item"), new_admin_news_item_path 
+
+= render :partial => @news_items

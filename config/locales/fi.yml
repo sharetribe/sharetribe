@@ -296,7 +296,8 @@ fi:
       lend_rent_help_carpool: "Myy, lainaa, auta, kyyditse"
       loading_more_content: "Ladataan lisää"
       more_events: "Lisää tapahtumia..."
-      news: Uutiset
+      news: "Uutiset"
+      no_news: "Ei uutisia"
       offer_something: "+ Listaa taitosi ja tavarasi!"
       offer_something_description: "Tarjoa muille apua, tavaroita tai kyytejä"
       or: ja
@@ -336,6 +337,8 @@ fi:
     admin:
       admin: "Kassin ylläpitonäkymä"
       back_to_kassi: "Takaisin Kassiin"
+      news_items: "Uutiset"
+      polls: "Gallupit"
     application:
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"

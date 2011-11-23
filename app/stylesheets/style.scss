@@ -2948,3 +2948,21 @@ a.handle {
   width: 655px;
   margin-bottom: 20px;
 }
+
+#news_items {
+  p {
+		margin: 20px;
+	} 
+}
+
+#left_link_panel_admin {
+	@include left_link_panel("arrows", 28px);
+	a {
+		color: $orange;
+		font-size: 13px;
+		padding: 5px 10px 4px 10px;
+	}
+	a.selected {
+		color: white;
+	}
+}
