@@ -69,5 +69,13 @@
   
   .homepage_sidebar_box
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    = render :file => community_file("frontpage_sidebar", true)
+    - if @current_community.news_enabled?
+      %h4= t(".news")
+      #news_items
+        - if @news_items.size > 0
+          = render :partial => @news_items, :spacer_template => "event_spacer"
+        - else 
+          %p= t(".no_news")
+    - else
+      = render :file => community_file("frontpage_sidebar", true)
     = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

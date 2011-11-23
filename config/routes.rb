@@ -65,6 +65,7 @@ Kassi::Application.routes.draw do
     
     namespace :admin do
       resources :feedbacks
+      resources :news_items
     end
     resources :homepage do
       collection do
@@ -162,9 +163,13 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+<<<<<<< HEAD
   match '/wdc' => 'dashboard#wdc'
   match '/okl' => 'dashboard#okl'
   match '/omakotiliitto' => 'dashboard#okl'
+=======
+  match '/:locale/admin' => 'admin/news_items#index', :as => :admin
+>>>>>>> Started the ability for community admins to post news.
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load

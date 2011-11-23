@@ -25,6 +25,8 @@ class HomepageController < ApplicationController
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
+    else
+      @news_items = @current_community.news_items.order("created_at DESC").limit(3)
     end
   end
   
