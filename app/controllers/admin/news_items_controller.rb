@@ -14,8 +14,10 @@ class Admin::NewsItemsController < ApplicationController
     @news_item = NewsItem.new(params[:news_item])
     if @news_item.save
       notice = "news_item_created"
+      redirect_to admin_news_items_path
     else
       notice = "creation_of_news_item_failed"
+      render :action => :new
     end
   end
   

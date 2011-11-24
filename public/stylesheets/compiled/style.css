@@ -3359,3 +3359,85 @@ a.handle:hover {
     padding: 5px 10px 4px 10px; }
   #left_link_panel_admin a.selected {
     color: white; }
+
+#new_news_item_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  padding: 20px 15px; }
+  #new_news_item_form h1 {
+    margin-left: 15px;
+    float: left;
+    width: 400px; }
+
+#new_news_item_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  padding: 30px 30px; }
+  #new_news_item_form h1 {
+    margin-left: 15px;
+    float: left;
+    width: 400px; }
+  #new_news_item_form label.input {
+    font-weight: bold;
+    padding: 8px 3px 0 3px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    width: 104px;
+    line-height: 110%; }
+  #new_news_item_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    width: 378px; }
+  #new_news_item_form input.text_field {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    width: 510px; }
+    #new_news_item_form input.text_field:focus {
+      background: white; }
+  #new_news_item_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    margin: 0px 0 0 110px; }
+    #new_news_item_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #new_news_item_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #new_news_item_form input.send_button:focus {
+      background-color: #9f7d4e; }
+  #new_news_item_form textarea {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    width: 503px;
+    font-size: 12px;
+    height: 100px;
+    padding: 12px 10px 5px 15px; }
+    #new_news_item_form textarea:focus {
+      background: white; }
