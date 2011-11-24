@@ -2966,3 +2966,55 @@ a.handle {
 		color: white;
 	}
 }
+
+#new_news_item_form {
+	@include form;
+	padding: 20px 15px;
+	h1 {
+		margin-left: 15px;
+		float: left;
+		width: 400px;
+	}
+}
+
+#new_news_item_form {
+  @include form;
+  padding: 30px 30px;
+	h1 {
+		margin-left: 15px;
+		float: left;
+		width: 400px;
+	}
+	label.input {
+		font-weight: bold;
+		padding: 8px 3px 0 3px;
+		margin: 0;
+		font-size: 14px;
+		font-weight: bold;
+		float: left;
+		width: 104px;
+		line-height: 110%;
+	}
+	label.error {
+		@include form_error_field;
+		width: 378px;
+	}
+	input.text_field {
+		@include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		width: 510px;
+	}
+	input.send_button {
+		@include send_button;
+		margin: 0px 0 0 110px;
+	}
+	textarea {
+		@include new_listing_form_field;
+		width: 503px;
+		font-size: 12px;
+		height: 100px;
+		padding: 12px 10px 5px 15px;
+	}
+}

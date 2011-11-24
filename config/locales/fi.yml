@@ -7,6 +7,15 @@ fi:
         image: "Merkin kuva"
         name: "Merkin nimi"
         save_badge: "Tallenna ansiomerkki"
+    news_items:
+      index:
+        news_items: "Uusimmat uutiset"
+        create_news_item: "Lisää uutinen"
+      new:
+        create_news_item: "Uutisen lisäys"
+        title: "Otsikko:"
+        content: "Teksti:"
+        save_news_item: "Tallenna uutinen"
   common:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
