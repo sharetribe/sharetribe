@@ -11,11 +11,16 @@ fi:
       index:
         news_items: "Uusimmat uutiset"
         create_news_item: "Lisää uutinen"
+        no_news: "Ei uutisia"
       new:
-        create_news_item: "Uutisen lisäys"
+        new_news_item: "Uutisen lisäys"
+        edit_news_item: "Uutisen muokkaus"
         title: "Otsikko:"
         content: "Teksti:"
         save_news_item: "Tallenna uutinen"
+      news_item:
+        edit_news_item: "Edit"
+        delete_news_item: "Delete"
   common:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
@@ -371,6 +376,7 @@ fi:
       about: "Mikä Kassi?"
       how_to_use: "Näin Kassi toimii"
       info_about_kassi: "Tietoa Kassista"
+      news: "Uutiset"
       register_details: Rekisteriseloste
       terms: Käyttöehdot
     logged_in:
@@ -427,6 +433,11 @@ fi:
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       login_successful: "Tervetuloa Kassiin, "
       logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
+      news_item_created: "Uutinen luotu"
+      news_item_creation_failed: "Uutisen luominen epäonnistui"
+      news_item_update_failed: "Uutisen muokkaus epäonnistui"
+      news_item_updated: "Uutinen tallennettu"
+      news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
       offer_closed: "Tarjous suljettu"
       offer_created_successfully: "Tarjous tallennettu."

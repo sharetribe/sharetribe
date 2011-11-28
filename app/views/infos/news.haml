@@ -1,0 +1,5 @@
+- if @news_items.size > 0
+  = render :partial => "infos/news_item", :collection => @news_items, :spacer_template => "listings/listing_spacer"
+- else
+  #no_news_found
+    = t(".no_news")
