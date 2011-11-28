@@ -1,0 +1,8 @@
+.news_item_infos_view
+  .news_item_infos_view_header
+    %h3= news_item.title
+    %span.news_item_created_at= l(news_item.created_at, :format => :short)
+  .news_item_infos_view_content
+    %p
+      - text_with_line_breaks do
+        = news_item.content

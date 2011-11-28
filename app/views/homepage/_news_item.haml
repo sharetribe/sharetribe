@@ -2,7 +2,7 @@
   %b
     = news_item.title
   %br
-    = news_item.created_at
-
-- text_with_line_breaks do
-  = news_item.content
+    = l(news_item.created_at, :format => :short)
+%p
+  - text_with_line_breaks do
+    = news_item.content

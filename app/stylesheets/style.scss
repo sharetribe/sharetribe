@@ -1408,11 +1408,6 @@ a.edit_profile {
 	padding-bottom: 5px;
 	@include home_button($orange);
 	width: 248px;
-	img {
-		vertical-align: -25%;
-		margin-right: 7px;
-		display: inline;
-	}	
 }
 
 #edit_info_link {
@@ -2949,7 +2944,8 @@ a.handle {
   margin-bottom: 20px;
 }
 
-#news_items {
+#news_items_homepage {
+  
   p {
 		margin: 20px;
 	} 
@@ -2968,18 +2964,8 @@ a.handle {
 }
 
 #new_news_item_form {
-	@include form;
-	padding: 20px 15px;
-	h1 {
-		margin-left: 15px;
-		float: left;
-		width: 400px;
-	}
-}
-
-#new_news_item_form {
   @include form;
-  padding: 30px 30px;
+  padding: 20px 25px;
 	h1 {
 		margin-left: 15px;
 		float: left;
@@ -2997,6 +2983,7 @@ a.handle {
 	}
 	label.error {
 		@include form_error_field;
+		margin-left: 110px;
 		width: 378px;
 	}
 	input.text_field {
@@ -3004,17 +2991,82 @@ a.handle {
 		font-size: 14px;
 		height: 18px;
 		padding: 9px 9px;
-		width: 510px;
+		width: 525px;
 	}
 	input.send_button {
 		@include send_button;
-		margin: 0px 0 0 110px;
+		margin: 0 0 0 110px;
 	}
 	textarea {
 		@include new_listing_form_field;
-		width: 503px;
+		width: 529px;
 		font-size: 12px;
-		height: 100px;
-		padding: 12px 10px 5px 15px;
+		height: 80px;
+		padding: 10px 5px 5px 9px;
 	}
+}
+
+#news_items_admin_view_title {
+  h3 {
+    padding-top: 6px;
+  }
+}
+
+#news_items_admin_view_list {
+  width: 699px;
+  border-top: 2px solid $text_color;
+  padding-top: 10px;
+  overflow: hidden;
+  h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0;
+    @include grey_link;
+  }
+  span.news_item_author { 
+    float: left;
+    padding-top: 6px;
+    font-size: 11px;
+  }
+  span.news_item_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px;
+  }
+}
+
+#create_news_item_link {
+  margin-left: 10px;
+	padding-bottom: 5px;
+	@include home_button($orange);
+	width: 208px;
+}
+
+.news_item_admin_view {
+  overflow: hidden;
+  padding: 5px;
+}
+
+.news_item_admin_view_header {
+  overflow: hidden;
+  width: 100%;
+}
+
+.news_item_admin_view_content {
+  display: none;
+  p { 
+    padding-top: 5px; 
+    margin: 0;
+  }
+}
+
+#no_news_found {
+	margin: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.infos_tab {
+  a { width: 130px; }
 }

@@ -567,6 +567,7 @@ function initialize_homepage() {
 	});
 }
 
+
 function initialize_private_community_defaults(locale, feedback_default_text) {
   add_validator_methods();
   translate_validation_messages(locale);
@@ -596,6 +597,21 @@ function initialize_private_community_homepage(username_default_text, password_d
 	$('#username').watermark(username_default_text, {className: 'default_text'});
 	$('#password').watermark(password_default_text, {className: 'default_text'});
 	$('.wrapper').addClass('js_enabled');
+	
+function initialize_admin_news_item(news_item_id) {
+  $('#news_item_' + news_item_id + '_content_link').click(function() { 
+		$('#news_item_' + news_item_id + '_content').slideToggle('fast'); 
+	});
+}
+
+function initialize_admin_new_news_item_form() {
+  auto_resize_text_areas();
+  $('#new_news_item input.text_field:first').focus();
+  $('#new_news_item').validate({
+		rules: {
+		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200}
+		}
+	});
 }
 
 function set_textarea_maxlength() {

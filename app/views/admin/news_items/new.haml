@@ -1,6 +1,9 @@
+- content_for :javascript do
+  initialize_admin_new_news_item_form();
+
 #new_news_item_form
-  %h2= t(".create_news_item")
-  = form_for @news_item, :url => admin_news_items_path do |form|
+  %h2= t(".#{controller.action_name}_news_item")
+  = form_for @news_item, :url => @path do |form|
     .form_field_container
       = form.label :title, t('.title'), :class => "input"
       = form.text_field :title, :class => "text_field", :maxlength => "200"

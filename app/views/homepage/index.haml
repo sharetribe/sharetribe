@@ -70,10 +70,10 @@
   .homepage_sidebar_box
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
     - if @current_community.news_enabled?
-      %h4= t(".news")
-      #news_items
+      %h4{:class => "news"}= t(".news")
+      #news_items_homepage
         - if @news_items.size > 0
-          = render :partial => @news_items, :spacer_template => "event_spacer"
+          = render :partial => "news_item", :collection => @news_items, :spacer_template => "event_spacer"
         - else 
           %p= t(".no_news")
     - else
