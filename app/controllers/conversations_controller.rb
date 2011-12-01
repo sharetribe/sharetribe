@@ -38,7 +38,6 @@ class ConversationsController < ApplicationController
     @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
     @unread_notifications = @current_user.notifications.unread.all
     @current_user.mark_all_notifications_as_read
-    logger.info "Unread: #{@unread_notifications.inspect}"
     render :partial => "additional_notifications" if request.xhr?
   end
   
