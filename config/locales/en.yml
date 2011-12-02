@@ -103,23 +103,28 @@ en:
       reject_request: "Reject request"
   dashboard:
     index:
-      aalto_community_url: "http://aalto.kassi.eu/en"
-      avoinyritys_url: "http://www.avoinyritys.fi/english/"
-      bubble_text_line_1: "PAY IT"
-      bubble_text_line_2: FORWARD!
-      description: "Kassi is a web service that helps your community members to help each other out in several ways: by lending and selling stuff, doing favors, sharing rides and many others!"
+      slogan: "The platform for creating online p2p marketplaces."
+      create_your_own: "Create your own"
+      sharing_website: "SHARING WEBSITE"
+      main_description: "Set up a space where the members of your community can share goods, services and rides in a trusted local environment."
+      kassi_for_your_company: "KASSI FOR YOUR COMPANY"
+      kassi_for_your_company_description: "Want to make your company more social and connected? Want to help people meet each other? Want to cut your emissions and become a greener enterprise? Kassi is the solution for you"
+      kassi_for_your_city: "KASSI FOR YOUR CITY"
+      kassi_for_your_city_description: "Want to transfer your neighborhoods to village communities where people know each other and help each other out when needed? Want to empower your citizens to improve their lives? Kassi will help you achieve all that!"
+      kassi_for_your_university: "KASSI FOR YOUR UNIVERSITY"
+      kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Kassi and perceive the change! An example:"
+      kassi_in_aalto_university: "Kassi in Aalto University"
+      want_kassi_for_your_community: "Want Kassi for your community?"
       email_default_text: "Your email address"
-      get_to_know_the_aalto_community: "Check out the Kassi community of Aalto University!"
-      get_to_know_the_avoin_yritys_blog: "Check out our blog!"
-      kassi_in_facebook: "Kassi in Facebook"
-      kassi_in_twitter: "Kassi in Twitter"
-      or_contact_by_email: "...or get in touch by email:"
       send: Send!
-      thank_you: "Thank you!"
-      thank_you_for_contacting: "Thank you for contacting us. We will get back to you as soon as possible. If you want you can also reach us by email: info (aet) kassi.eu"
-      want_to_know_how_kassi_works: "Want to know how Kassi works?"
-      want_to_know_more_about_us: "Want to know more about our philosophy?"
-      want_to_use_kassi_in_your_association: "Want to use Kassi in your community?"
+      or_drop_us_a_line: "...or drop us a line:"
+      thanks_for_contacting_us: "Thanks for contacting us! We'll send you info more info about how to create a Kassi community soon."
+      resources: "RESOURCES"
+      connect: "CONNECT"
+      blog: "Blog"
+      code: "Code"
+      issue_tracker: "Issue tracker"
+      product_of: "Kassi is a product of"
   emails:
     accept_reminder:
       offer_accusative: offer
