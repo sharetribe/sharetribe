@@ -1,6 +1,6 @@
 @import url('../reset.css');
 @import url('../text.css');
-@import url('../960_24_col.css');
+@import url('../960.css');
 @import url('../uniform.kassi.css');
 
 /* Colors */
@@ -10,6 +10,7 @@ $form_bg: #d1c9b4;
 $light_green_bg: #ececdb;
 $orange: #d45207;
 $medium_brown: #765d3a;
+$darker_brown: #5d492e;
 $dark_orange: darken($orange, 10%);
 $darker_orange: darken($orange, 20%);
 $light_orange: lighten($orange, 15%);
@@ -18,11 +19,10 @@ $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
 $yellow: #fdf4bc;
+$dark_green: #223f05;
+$lighter_green: #3e6714;
 
-body {
-  background: $form_bg url("/images/dashboard/background.png") repeat-x;
-  color: $text_color; 
-}
+/* Mixins */
 
 @mixin rounded($radius: 15px) {
 	border-radius: $radius;
@@ -30,16 +30,134 @@ body {
   -webkit-border-radius: $radius;
 }
 
-@mixin shadow {
-	box-shadow: 2px 2px 5px black;
-	-webkit-box-shadow: 2px 2px 5px black;
-	-moz-box-shadow: 2px 2px 5px black;
-	filter: progid:DXImageTransform.Microsoft.dropShadow(color=black, offX=2, offY=2, positive=true);
+@mixin connect_icon($icon_type) {
+	display: block;
+	float: left;
+	background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + ".png") no-repeat;
+	width: 49px;
+	height: 49px;
+	color: transparent;
+	&:hover { background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + "_lighter.png") no-repeat };
+}
+
+/* Actual stuff */
+
+body {
+  background: $medium_brown;
+  color: $text_color; 
+}
+
+h1 {
+  font-size: 50px;
+  margin-top: 40px;
+  color: white;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px $text_color;
+  line-height: 56px;
+  span.indentation { margin-left: 30px; }
+}
+
+h2 {
+  margin: 30px 0 5px 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: $lighter_green;
+  letter-spacing: 1px;
+}
+
+h3 {
+  margin: 20px 0 0 0;
+  font-size: 22px;
+  letter-spacing: 5px;
+  color: white;
+  font-weight: 200;
+}
+
+a, a:visited {
+	color: $yellow;
+	font-size: 14px;
+	text-decoration: none;
+	font-weight: 300;
+}
+
+a:hover {
+	color: white;
+}
+
+a:active {
+	color: $light_orange;
+}
+
+#header {
+  height: 64px;
+	background: $bg_color;
+}
+
+#logo {
+  margin-top: 17px;
+}
+
+#select_language_form {
+  margin-top: 11px;
+  float: right;
+}
+
+#slogan {
+  color: $orange;
+  margin-top: 22px;
+}
+
+#home_main {
+  height: 421px;
+  background-color: #3e6e14;
+  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, from(rgb(34, 63, 5)), to(rgb(62, 110, 20)));
+  background-image: -webkit-radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
+  background-image: -moz-radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
+  background-image: -ms-radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
+  background-image: radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
+  box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
+  -moz-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
+  -khtml-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
+  p {
+    margin: 58px 0 55px 0;
+    font-size: 18px;
+    color: white;
+  }
+}
+
+#home_main_title {
+  height: 158px;
+}
+
+#home_main_screenshot {
+  height: 223px;
+}
+
+.form_field_container {
+  overflow: hidden;
+  margin-bottom: 10px;
+  span.email {
+    float: left; 
+    color: white; 
+    font-size: 16px;
+    font-weight: 200;
+  }
+  img.email {
+    float: left;
+    margin-left: 5px;
+    padding-top: 4px;
+  }
+}
+
+label.dashboard {
+	color: white;
+	font-size: 22px;
 }
 
 input[type=text] {
 	height: 34px;
-	width: 238px;
+	width: 208px;
 	float: left;
 	border: 0;
 	padding: 3px 10px;
@@ -47,131 +165,123 @@ input[type=text] {
 	background: $bg_color;
 }
 
-label.dashboard {
-	margin: 8px 20px 0 15px;
-	color: $yellow;
-	font-size: 14px;
-	float: left;
-}
-
-a, a:visited {
-	color: $orange;
-	text-decoration: none;
-}
-
-a:hover {
-	color: $light_orange
-}
-
-a:active {
-	color: $dark_orange
-}
-
 input[type=text]:focus { 
 	background: white; 
 }
 
-input[type=submit] { 
-	background: $orange;
+input[type=submit] {
+	background-color: #e77148;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(231, 113, 72)), to(rgb(210, 84, 39)));
+  background-image: -webkit-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
+  background-image: -moz-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
+  background-image: -o-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
+  background-image: -ms-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
+  background-image: linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e77148', EndColorStr='#d25427');
 	color: white;
 	font-size: 15px;
 	width: 124px;
 	height: 40px;
-	border: 0; 
+	border: 0px;
 	margin-left: 12px;
 	cursor: pointer;
+	@include rounded(7px);
 }
 
-input[type=submit]:active { background-color: $dark_orange; padding-top: 1px; }
-input[type=submit]:hover { background-color: $light_orange; }
-input[type=submit]:focus { background-color: $light_orange; }
-
-#logo {
-  color: $bg_color;
-  font-size: 28px;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px black;
-	margin-top: 20px;
+input[type=submit]:active { 
+  padding-top: 1px;
+  background-color: #d25427;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 84, 39)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d25427', EndColorStr='#e77148');
 }
 
-#slogan {
-	@include shadow;
-	margin: 29px 0 0 10px;
-	background: $orange;
-	color: white;
-	padding: 10px 25px 10px 25px;
-	font-size: 17px;
-	width: 335px;
+input[type=submit]:focus { 
+  padding-top: 1px;
+  background-color: #d25427;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 84, 39)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d25427', EndColorStr='#e77148');
 }
 
-#bubble_container {
-	margin-top: 30px;
-	overflow: hidden;
+input[type=submit]:hover { 
+  background-color: #ffa348;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 163, 72)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffa348', EndColorStr='#e77148');
 }
 
-#bubble {
-	@include rounded;
-	color: $text_color;
-	background: white;
-	font-size: 55px;
-	font-weight: bold;
-	padding: 15px 30px 20px 25px;
-	line-height: 65px;
-	width: 375px;
-	min-height: 135px;
-	float: left;
+#thanks {
+  padding-top: 10px;
+  color: white;
+  font-size: 14px;
 }
 
-#bubble_arrow {
-	margin-top: 100px;
-	width: 40px;
-	height: 50px;
-	background: transparent url("/images/dashboard/speech_bubble_arrow.png") 0 0 no-repeat;
-	float: left;
+#home_more_info {
+  overflow: hidden;
+  background: $bg_color;
+  padding-bottom: 20px;
+  box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+  -khtml-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
+  a { 
+    color: $orange;
+    font-weight: bold;
+    &:hover { color: $light_orange; }
+    &:focus { color: $light_orange; }
+    &:active { color: $dark_orange; }
+  }
+  p {
+    font-size: 14px;
+    line-height: 24px;
+    margin-right: 20px;
+  }
 }
 
-#main_text {
-	width: 420px;
-	min-height: 105px;
-	margin: 30px 0 0 15px;
-	color: $yellow;
-	font-size: 18px;
-	line-height: 22px;
+.white_corner {
+  height: 75px;
+  width: 59px;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+  margin: 5px 0 20px 0;
 }
 
-#email_container {
-	overflow: hidden;
-	margin-top: 12px;
+.footer_links {
+  line-height: 28px;
 }
 
-#contact_by_email {
-	margin: 5px 0 0 316px;
-	color: white;
+#connect_icons {
+  @include rounded(7px);
+  background-color: $darker_brown;
+  padding: 15px;
+  width: 177px;
+  height: 47px;
+  margin-top: 5px;
+  a.left_icon { margin-right: 15px; }
+  a.facebook { @include connect_icon("facebook");}
+  a.twitter { @include connect_icon("twitter");}
+  a.google_plus { @include connect_icon("google_plus");}
 }
 
-span.contact {
-	color: lighten($light_orange, 10%);
-}
-
-#links {
-	margin: 55px 0 0 60px;
-	font-size: 16px;
-	font-weight: bold;
-}
-
-#social_links {
-	margin-top: 55px;
-	text-align: center;
-}
-
-span.social_link {
-	margin-right: 30px;
-}
-
-#locale_select {
-	margin: 30px 0 0 40px;
-}
-
-#no_email_spacer {
-	height: 80px;
+#product {
+  float: right;
+  margin-top: 20px;
+  color: white;
+  a { 
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
