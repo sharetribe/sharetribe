@@ -50,72 +50,33 @@
  *
  * http://docs.jquery.com/UI/Theming/API
  *
- * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Lucida%20Grande,%20Lucida%20Sans,%20Arial,%20sans-serif&fwDefault=normal&fsDefault=1.1em&cornerRadius=10px&bgColorHeader=3a8104&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=33&borderColorHeader=3f7506&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=285c00&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=10&borderColorContent=72b42d&fcContent=ffffff&iconColorContent=72b42d&bgColorDefault=4ca20b&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=60&borderColorDefault=45930b&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=4eb305&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=50&borderColorHover=8bd83b&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=285c00&bgTextureActive=04_highlight_hard.png&bgImgOpacityActive=30&borderColorActive=72b42d&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fbf5d0&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=f9dd34&fcHighlight=363636&iconColorHighlight=4eb305&bgColorError=ffdc2e&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=95&borderColorError=fad000&fcError=2b2b2b&iconColorError=cd0a0a&bgColorOverlay=444444&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=15&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=07_diagonals_small.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=0px&offsetTopShadow=4px&offsetLeftShadow=4px&cornerRadiusShadow=4px
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Helvetica%20neue,%20Lucida%20Sans,%20Arial,%20sans-serif&fwDefault=normal&fsDefault=1em&cornerRadius=7px&bgColorHeader=d45207&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=33&borderColorHeader=d45207&fcHeader=ffffff&iconColorHeader=ffffff&bgColorContent=ffffff&bgTextureContent=05_inset_soft.png&bgImgOpacityContent=10&borderColorContent=223f05&fcContent=223f05&iconColorContent=223f05&bgColorDefault=d45207&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=40&borderColorDefault=d45207&fcDefault=ffffff&iconColorDefault=ffffff&bgColorHover=e77148&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=40&borderColorHover=e77148&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=e77148&bgTextureActive=05_inset_soft.png&bgImgOpacityActive=30&borderColorActive=e77148&fcActive=ffffff&iconColorActive=ffffff&bgColorHighlight=fbf5d0&bgTextureHighlight=02_glass.png&bgImgOpacityHighlight=55&borderColorHighlight=f9dd34&fcHighlight=363636&iconColorHighlight=4eb305&bgColorError=ffdc2e&bgTextureError=08_diagonals_thick.png&bgImgOpacityError=95&borderColorError=fad000&fcError=2b2b2b&iconColorError=cd0a0a&bgColorOverlay=444444&bgTextureOverlay=08_diagonals_thick.png&bgImgOpacityOverlay=15&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=07_diagonals_small.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=0px&offsetTopShadow=4px&offsetLeftShadow=4px&cornerRadiusShadow=4px
  */
 
 
 /* Component containers
 ----------------------------------*/
-.ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
+.ui-widget { font-family: Helvetica neue, Lucida Sans, Arial, sans-serif; font-size: 0.9em; }
 .ui-widget .ui-widget { font-size: 1em; }
-.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
-.ui-widget-content { border: 0px solid #72b42d; background: #285c00 url(images/ui-bg_inset-soft_10_285c00_1x100.png) 50% bottom repeat-x; color: #ffffff; }
-.ui-widget-content a { color: #ffffff; }
-.ui-widget-header { border: 10x solid #3f7506; background: #3a8104 url(images/ui-bg_highlight-soft_33_3a8104_1x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Helvetica neue, Lucida Sans, Arial, sans-serif; font-size: 1em; }
+.ui-widget-content { border: 0px solid #223f05; background: #ffffff url(images/ui-bg_inset-soft_10_ffffff_1x100.png) 50% bottom repeat-x; color: #223f05; }
+.ui-widget-content a { color: #223f05; }
+.ui-widget-header { border: 0px solid #d45207; background: #d45207 url(images/ui-bg_highlight-soft_33_d45207_1x100.png) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
 .ui-widget-header a { color: #ffffff; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { 
-  border: 0px solid #45930b; font-weight: normal; color: #ffffff;
-  background-color: #e77148;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(231, 113, 72)), to(rgb(210, 84, 39)));
-  background-image: -webkit-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -moz-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -o-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -ms-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e77148', EndColorStr='#d25427');
-}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 0px solid #d45207; background: #d45207 url(images/ui-bg_highlight-soft_40_d45207_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { 
-  background-color: #ffa348;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 163, 72)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffa348', EndColorStr='#e77148');
-}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 0px solid #e77148; background: #e77148 url(images/ui-bg_highlight-soft_40_e77148_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #ffffff; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { 
-  border: 0px; font-weight: normal; color: #ffffff; 
-  background-color: #ffa348;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 163, 72)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffa348', EndColorStr='#e77148'); 
-}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 0px solid #e77148; background: #e77148 url(images/ui-bg_inset-soft_30_e77148_1x100.png) 50% 50% repeat-x; font-weight: normal; color: #ffffff; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
 /* Interaction Cues
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {
-  border: 0px solid #f9dd34; color: #363636;
-  background-color: #ffa348;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 163, 72)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffa348', EndColorStr='#e77148');
-}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 0px solid #f9dd34; background: #fbf5d0 url(images/ui-bg_glass_55_fbf5d0_1x400.png) 50% 50% repeat-x; color: #363636; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
 .ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 0px solid #fad000; background: #ffdc2e url(images/ui-bg_diagonals-thick_95_ffdc2e_40x40.png) 50% 50% repeat; color: #2b2b2b; }
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #2b2b2b; }
@@ -128,8 +89,8 @@
 ----------------------------------*/
 
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_72b42d_256x240.png); }
-.ui-widget-content .ui-icon {background-image: url(images/ui-icons_72b42d_256x240.png); }
+.ui-icon { width: 16px; height: 16px; background-image: url(images/ui-icons_223f05_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(images/ui-icons_223f05_256x240.png); }
 .ui-widget-header .ui-icon {background-image: url(images/ui-icons_ffffff_256x240.png); }
 .ui-state-default .ui-icon { background-image: url(images/ui-icons_ffffff_256x240.png); }
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(images/ui-icons_ffffff_256x240.png); }
@@ -319,10 +280,10 @@
 ----------------------------------*/
 
 /* Corner radius */
-.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl { -moz-border-radius-topleft: 10px; -webkit-border-top-left-radius: 10px; -khtml-border-top-left-radius: 10px; border-top-left-radius: 10px; }
-.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr { -moz-border-radius-topright: 10px; -webkit-border-top-right-radius: 10px; -khtml-border-top-right-radius: 10px; border-top-right-radius: 10px; }
-.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl { -moz-border-radius-bottomleft: 10px; -webkit-border-bottom-left-radius: 10px; -khtml-border-bottom-left-radius: 10px; border-bottom-left-radius: 10px; }
-.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 10px; -webkit-border-bottom-right-radius: 10px; -khtml-border-bottom-right-radius: 10px; border-bottom-right-radius: 10px; }
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl { -moz-border-radius-topleft: 7px; -webkit-border-top-left-radius: 7px; -khtml-border-top-left-radius: 7px; border-top-left-radius: 7px; }
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr { -moz-border-radius-topright: 7px; -webkit-border-top-right-radius: 7px; -khtml-border-top-right-radius: 7px; border-top-right-radius: 7px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl { -moz-border-radius-bottomleft: 7px; -webkit-border-bottom-left-radius: 7px; -khtml-border-bottom-left-radius: 7px; border-bottom-left-radius: 7px; }
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br { -moz-border-radius-bottomright: 7px; -webkit-border-bottom-right-radius: 7px; -khtml-border-bottom-right-radius: 7px; border-bottom-right-radius: 7px; }
 
 /* Overlays */
 .ui-widget-overlay { background: #444444 url(images/ui-bg_diagonals-thick_15_444444_40x40.png) 50% 50% repeat; opacity: .30;filter:Alpha(Opacity=30); }

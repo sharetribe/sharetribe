@@ -9,15 +9,16 @@
     .grid_5
       #slogan
         = t(".slogan")
-    .grid_3
-      #language_label
-        = t(".language")
-    .grid_2.omega
-      #select_language_form
-        - if APP_CONFIG.available_locales.count > 1
-          = form_tag("/change_locale", :method => "get") do
-            = hidden_field_tag :redirect_uri, @return_to
-            = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+    .grid_5.omega
+      #language_switch
+        #select_language_form
+          - if APP_CONFIG.available_locales.count > 1
+            = form_tag("/change_locale", :method => "get") do
+              = hidden_field_tag :redirect_uri, @return_to
+              = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+        #language_label
+          = t(".language")
+      
       
 
 #home_main
