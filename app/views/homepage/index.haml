@@ -74,6 +74,8 @@
       #news_items_homepage
         - if @news_items.size > 0
           = render :partial => "news_item", :collection => @news_items, :spacer_template => "event_spacer"
+          - if @current_community.news_items.size > 3
+            %p= link_to t(".more_news"), news_infos_path
         - else 
           %p= t(".no_news")
     - else
