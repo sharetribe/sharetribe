@@ -7,9 +7,11 @@
         
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => t("layouts.application.meta_description") }
-    %meta{ :name => "keywords", :content => t("layouts.application.keywords") } 
+    %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
+    = stylesheet_link_tag "themes/le-frog/jquery-ui-1.8.16.custom.css"
+    = stylesheet_link_tag 'ui.selectmenu.css'
     = stylesheet_link_tag 'compiled/style_dashboard.css'
-    = javascript_include_tag 'jquery', 'jquery.watermark.min', 'jquery.uniform.min', 'rails', 'kassi_dashboard', 'google_analytics'
+    = javascript_include_tag 'jquery-1.6.2.min', 'jquery-ui-1.8.16.custom.min.js', 'jquery.ui.selectmenu.js', 'jquery.watermark.min', 'rails', 'kassi_dashboard', 'google_analytics'
     :javascript
       $(document).ready(function() { #{yield :javascript} });
   %body

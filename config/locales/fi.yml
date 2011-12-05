@@ -100,23 +100,29 @@ fi:
       reject_request: "Hylkää pyyntö"
   dashboard:
     index:
-      aalto_community_url: "http://aalto.kassi.eu"
-      avoinyritys_url: "http://www.avoinyritys.fi"
-      bubble_text_line_1: "ANNA HYVÄN"
-      bubble_text_line_2: KIERTÄÄ!
-      description: "Kassi on suomalainen yhteisöllinen verkkopalvelu, jonka avulla yhdistyksen tai muun yhteisön jäsenet voivat auttaa toisiaan monin tavoin: lainata ja myydä tavaroita, tehdä palveluksia, järjestää kimppakyytejä ja paljon muuta!"
-      email_default_text: Sähköpostiosoitteesi
-      get_to_know_the_aalto_community: "Tutustu Aalto-yliopiston kassiyhteisöön!"
-      get_to_know_the_avoin_yritys_blog: "Tutustu Avoin yritys -blogiin!"
-      kassi_in_facebook: "Kassi Facebookissa"
-      kassi_in_twitter: "Kassi Twitterissä"
-      or_contact_by_email: "...tai ota yhteyttä sähköpostilla:"
-      send: Lähetä!
-      thank_you: Kiitos!
-      thank_you_for_contacting: "Kiitos yhteydenotostasi. Otamme sinuun yhteyttä ensi tilassa. Halutessasi voit lähettää meille myös sähköpostia: info (aet) kassi.eu"
-      want_to_know_how_kassi_works: "Haluatko tietää miten Kassi toimii?"
-      want_to_know_more_about_us: "Haluatko tietää lisää toiminta-ajatuksestamme?"
-      want_to_use_kassi_in_your_association: "Haluatko Kassin käyttöön yhdistyksessäsi?"
+      slogan: "Yhteisösi markkinapaikka verkossa."
+      create_your_own: "Luo yhteisöllesi"
+      sharing_website: "OMA VERKKOTORI"
+      main_description: "Kassi on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
+      kassi_for_your_company: "KASSI YRITYKSELLE"
+      kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? Kassi on ratkaisu sinulle."
+      kassi_for_your_city: "KASSI KAUPUNGILLE"
+      kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? Kassin avulla saavutat kaiken tämän."
+      kassi_for_your_university: "KASSI KORKEAKOULULLE"
+      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile Kassia ja huomaa muutos! Tutustu "
+      kassi_in_aalto_university: "Aalto-yliopiston kassiyhteisöön!"
+      want_kassi_for_your_community: "Haluatko Kassin yhteisösi käyttöön?"
+      email_default_text: "Sähköpostiosoitteesi"
+      send: "Lähetä!"
+      or_drop_us_a_line: "...tai ota yhteyttä:"
+      thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman kassiyhteisön."
+      resources: "RESURSSIT"
+      connect: "YHTEYS"
+      blog: "Blogi"
+      code: "Koodi"
+      issue_tracker: "Tehtävänhallinta"
+      product_of: "Kassia tekee"
+      language: "Kieli:"
   emails:
     accept_reminder:
       offer_accusative: tarjouksen

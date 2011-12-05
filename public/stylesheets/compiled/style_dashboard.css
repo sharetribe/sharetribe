@@ -53,12 +53,15 @@ a:active {
   margin-top: 17px; }
 
 #select_language_form {
-  margin-top: 11px;
+  margin-top: 18px;
   float: right; }
 
-#slogan {
+#slogan, #language_label {
   color: #d45207;
   margin-top: 22px; }
+
+#language_label {
+  float: right; }
 
 #home_main {
   height: 421px;
@@ -102,7 +105,7 @@ label.dashboard {
 
 input[type=text] {
   height: 34px;
-  width: 208px;
+  width: 224px;
   float: left;
   border: 0;
   padding: 3px 10px;
@@ -122,7 +125,7 @@ input[type=submit] {
   background-image: linear-gradient(top, #e77148, #d25427);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e77148', EndColorStr='#d25427');
   color: white;
-  font-size: 15px;
+  font-size: 16px;
   width: 124px;
   height: 40px;
   border: 0px;
@@ -191,6 +194,9 @@ input[type=submit]:hover {
     line-height: 24px;
     margin-right: 20px; }
 
+#footer {
+  overflow: hidden; }
+
 .white_corner {
   height: 75px;
   width: 59px;
@@ -241,9 +247,10 @@ input[type=submit]:hover {
       background: #5d492e url("/images/dashboard/connect_icons/google_plus_lighter.png") no-repeat; }
 
 #product {
-  float: right;
-  margin-top: 20px;
-  color: white; }
+  margin-top: 24px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400; }
   #product a {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400; }

@@ -9,7 +9,7 @@ Feature: User sends contact request
     Given I am on the home page
     When I fill in "contact_request_email" with "test@example.com"
     And I press "Send!"
-    Then I should see "Thank you!"
+    Then I should see "Thanks for contacting us!"
   
   
   

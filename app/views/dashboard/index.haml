@@ -3,19 +3,22 @@
   
 #header
   .container_12
-    .grid_12
-      .grid_2.alpha
-        #logo
-          = image_tag("/images/dashboard/kassi_logo_text.png", :alt => "Kassi")
-      .grid_7
-        #slogan
-          = t(".slogan")
-      .grid_3.omega
-        #select_language_form
-          - if APP_CONFIG.available_locales.count > 1
-            = form_tag("/change_locale", :method => "get") do
-              = hidden_field_tag :redirect_uri, @return_to
-              = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+    .grid_2.alpha
+      #logo
+        = image_tag("/images/dashboard/kassi_logo_text.png", :alt => "Kassi")
+    .grid_5
+      #slogan
+        = t(".slogan")
+    .grid_3
+      #language_label
+        = t(".language")
+    .grid_2.omega
+      #select_language_form
+        - if APP_CONFIG.available_locales.count > 1
+          = form_tag("/change_locale", :method => "get") do
+            = hidden_field_tag :redirect_uri, @return_to
+            = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+      
 
 #home_main
   .container_12
@@ -69,17 +72,17 @@
         %br/
         = link_to t(".code"), "http://www.github.com/sizzlelab/kassi"
         %br/
-        = link_to t(".issue_tracker"), "http://www.github.com/sizzlelab/kassi"
+        = link_to t(".issue_tracker"), "http://www.pivotaltracker.com/projects/76849"
     .grid_4
       %h3= t(".connect")
       .grid_1.alpha
         .white_corner
       .grid_3.omega
         #connect_icons
-          = link_to "#", "#", :class => "left_icon facebook"
-          = link_to "#", "#", :class => "left_icon twitter"
-          = link_to "#", "#", :class => "google_plus"
+          = link_to "#", "https://www.facebook.com/pages/Kassi/117309854407", :class => "left_icon facebook"
+          = link_to "#", "https://twitter.com/#!/kassi_eu", :class => "left_icon twitter"
+          = link_to "#", "https://plus.google.com/115623351324372170386", :class => "google_plus"
     .grid_4.omega
       #product
         = t(".product_of")
-        = link_to "Avoin Interactive Ltd.", "http://www.avoininteractive.com"
+        Avoin Interactive Ltd.
