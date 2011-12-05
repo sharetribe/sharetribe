@@ -7,6 +7,20 @@ en:
         image: "Badge picture"
         name: "Badge name"
         save_badge: "Save badge"
+    news_items:
+      index:
+        news_items: "Newest articles"
+        create_news_item: "Create an article"
+        no_news: "No news"
+      new:
+        new_news_item: "Create an article"
+        edit_news_item: "Edit article"
+        title: "Title:"
+        content: "Content:"
+        save_news_item: "Save article"
+      news_item:
+        edit_news_item: "Edit"
+        delete_news_item: "Delete"
   common:
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
@@ -300,6 +314,8 @@ en:
       offer_something: "Share with others!"
       offer_something_description: "List things and deeds you can offer to others"
       or: and
+      no_news: "No news"
+      more_news: "More news"
       or_see_what_the_others: "...or see what the others"
       recent_events: "Recent events"
       recent_offers: "What others can offer"
@@ -336,6 +352,8 @@ en:
     admin:
       admin: "Kassi admin panel"
       back_to_kassi: "Back to Kassi"
+      news_items: "News articles"
+      polls: "Polls"
     application:
       default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
       feedback: "Feedback to Kassi staff"
@@ -359,6 +377,7 @@ en:
       about: "What is Kassi?"
       how_to_use: "How to use Kassi"
       info_about_kassi: "Information about Kassi"
+      news: "News"
       register_details: "Register details"
       terms: "Terms of use"
     logged_in:
