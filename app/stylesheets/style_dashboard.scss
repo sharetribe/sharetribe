@@ -98,7 +98,7 @@ a:active {
 }
 
 #select_language_form {
-  margin-top: 18px;
+  margin-top: 20px;
   float: right;
 }
 
@@ -107,7 +107,12 @@ a:active {
   margin-top: 22px;
 }
 
-#language_label { float: right; }
+#language_switch { overflow: hidden; }
+
+#language_label { 
+  float: right;
+  margin-right: 10px;
+}
 
 #home_main {
   height: 421px;
@@ -172,14 +177,14 @@ input[type=text]:focus {
 }
 
 input[type=submit] {
-	background-color: #e77148;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(231, 113, 72)), to(rgb(210, 84, 39)));
-  background-image: -webkit-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -moz-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -o-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: -ms-linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  background-image: linear-gradient(top, rgb(231, 113, 72), rgb(210, 84, 39));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#e77148', EndColorStr='#d25427');
+	background-color: #dc7438;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(220, 116, 56)), to(rgb(212, 82, 7)));
+  background-image: -webkit-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -moz-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -o-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -ms-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
 	color: white;
 	font-size: 16px;
 	width: 124px;
@@ -192,37 +197,40 @@ input[type=submit] {
 
 input[type=submit]:active { 
   padding-top: 1px;
-  background-color: #d25427;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 84, 39)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d25427', EndColorStr='#e77148');
+  background-color: #ed9374;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+  
 }
 
 input[type=submit]:focus { 
   padding-top: 1px;
-  background-color: #d25427;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(210, 84, 39)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(210, 84, 39), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#d25427', EndColorStr='#e77148');
+  background-color: #ed9374;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+  
 }
 
 input[type=submit]:hover { 
-  background-color: #ffa348;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(255, 163, 72)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(255, 163, 72), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ffa348', EndColorStr='#e77148');
+  background-color: #ed9374;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+  
 }
 
 #thanks {
