@@ -15,7 +15,7 @@
           - if APP_CONFIG.available_locales.count > 1
             = form_tag("/change_locale", :method => "get") do
               = hidden_field_tag :redirect_uri, @return_to
-              = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
+              = select_tag 'locale', options_for_select([["English", "en"], ["Suomi", "fi"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
         #language_label
           = t(".language")
       
