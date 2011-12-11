@@ -434,31 +434,38 @@ form, input {
     font-style: italic;
     font-size: 10px;
     float: right; }
+  .homepage_sidebar_box span.option_title {
+    color: #464646; }
+  .homepage_sidebar_box span.option_percentage {
+    color: #464646; }
   .homepage_sidebar_box h3 {
     font-size: 14px;
     margin-bottom: 5px; }
-  .homepage_sidebar_box #invitation_form {
+  .homepage_sidebar_box #invitation_form, .homepage_sidebar_box #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden; }
-    .homepage_sidebar_box #invitation_form .form_field_container {
+    .homepage_sidebar_box #invitation_form .form_field_container, .homepage_sidebar_box #poll_form .form_field_container {
       margin: 0; }
-    .homepage_sidebar_box #invitation_form .label_container {
+    .homepage_sidebar_box #invitation_form .label_container, .homepage_sidebar_box #poll_form .label_container {
       margin-top: 10px; }
-    .homepage_sidebar_box #invitation_form input.text_field {
+    .homepage_sidebar_box #invitation_form input.text_field, .homepage_sidebar_box #poll_form input.text_field {
       margin: 2px 0 5px 0;
       width: 185px;
       height: 20px;
       border: 0;
       padding: 2px 5px; }
-    .homepage_sidebar_box #invitation_form label {
+    .homepage_sidebar_box #invitation_form label, .homepage_sidebar_box #poll_form label {
       font-weight: bold; }
-    .homepage_sidebar_box #invitation_form textarea {
+    .homepage_sidebar_box #invitation_form label.radiobutton, .homepage_sidebar_box #poll_form label.radiobutton {
+      float: left;
+      padding-top: 10px; }
+    .homepage_sidebar_box #invitation_form textarea, .homepage_sidebar_box #poll_form textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 60px;
+      height: 40px;
       border: 0;
-      padding: 5px; }
-    .homepage_sidebar_box #invitation_form input.send_button {
+      padding: 7px; }
+    .homepage_sidebar_box #invitation_form input.send_button, .homepage_sidebar_box #poll_form input.send_button {
       font-size: 14px;
       font-weight: bold;
       background: #765d3a;
@@ -470,14 +477,14 @@ form, input {
       width: 150px;
       height: 30px;
       margin-bottom: 5px; }
-      .homepage_sidebar_box #invitation_form input.send_button:active {
+      .homepage_sidebar_box #invitation_form input.send_button:active, .homepage_sidebar_box #poll_form input.send_button:active {
         background-color: #4d3d26;
         padding-top: 1px; }
-      .homepage_sidebar_box #invitation_form input.send_button:hover {
+      .homepage_sidebar_box #invitation_form input.send_button:hover, .homepage_sidebar_box #poll_form input.send_button:hover {
         background-color: #9f7d4e; }
-      .homepage_sidebar_box #invitation_form input.send_button:focus {
+      .homepage_sidebar_box #invitation_form input.send_button:focus, .homepage_sidebar_box #poll_form input.send_button:focus {
         background-color: #9f7d4e; }
-    .homepage_sidebar_box #invitation_form label.error {
+    .homepage_sidebar_box #invitation_form label.error, .homepage_sidebar_box #poll_form label.error {
       font-size: 13px;
       font-weight: bold;
       clear: both;
@@ -488,6 +495,9 @@ form, input {
       color: white;
       margin: 0 0 0 0;
       width: 185px; }
+
+.poll_radio_button_container {
+  overflow: hidden; }
 
 .invitation_form_hidden_parts {
   overflow: hidden; }
@@ -505,6 +515,10 @@ form, input {
     font-style: italic;
     font-size: 10px;
     float: right; }
+  .not_a_member_notification span.option_title {
+    color: #464646; }
+  .not_a_member_notification span.option_percentage {
+    color: #464646; }
 
 .homepage_sidebar_box_content {
   margin: 15px; }
@@ -3356,18 +3370,18 @@ a.handle:hover {
   #left_link_panel_admin a.selected {
     color: white; }
 
-#new_news_item_form {
+#new_news_item_form, #new_poll_form {
   background: #d1c9b4;
   border-radius: 7px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   overflow: hidden;
   padding: 20px 25px; }
-  #new_news_item_form h1 {
+  #new_news_item_form h1, #new_poll_form h1 {
     margin-left: 15px;
     float: left;
     width: 400px; }
-  #new_news_item_form label.input {
+  #new_news_item_form label.input, #new_poll_form label.input {
     font-weight: bold;
     padding: 8px 3px 0 3px;
     margin: 0;
@@ -3376,7 +3390,7 @@ a.handle:hover {
     float: left;
     width: 104px;
     line-height: 110%; }
-  #new_news_item_form label.error {
+  #new_news_item_form label.error, #new_poll_form label.error {
     font-size: 13px;
     font-weight: bold;
     clear: both;
@@ -3387,7 +3401,7 @@ a.handle:hover {
     color: white;
     margin-left: 110px;
     width: 378px; }
-  #new_news_item_form input.text_field {
+  #new_news_item_form input.text_field, #new_poll_form input.text_field {
     color: #464646;
     background: #f7f5e6;
     width: 380px;
@@ -3396,9 +3410,9 @@ a.handle:hover {
     height: 18px;
     padding: 9px 9px;
     width: 525px; }
-    #new_news_item_form input.text_field:focus {
+    #new_news_item_form input.text_field:focus, #new_poll_form input.text_field:focus {
       background: white; }
-  #new_news_item_form input.send_button {
+  #new_news_item_form input.send_button, #new_poll_form input.send_button {
     font-size: 14px;
     font-weight: bold;
     background: #765d3a;
@@ -3408,14 +3422,14 @@ a.handle:hover {
     border: 0;
     color: white;
     margin: 0 0 0 110px; }
-    #new_news_item_form input.send_button:active {
+    #new_news_item_form input.send_button:active, #new_poll_form input.send_button:active {
       background-color: #4d3d26;
       padding-top: 1px; }
-    #new_news_item_form input.send_button:hover {
+    #new_news_item_form input.send_button:hover, #new_poll_form input.send_button:hover {
       background-color: #9f7d4e; }
-    #new_news_item_form input.send_button:focus {
+    #new_news_item_form input.send_button:focus, #new_poll_form input.send_button:focus {
       background-color: #9f7d4e; }
-  #new_news_item_form textarea {
+  #new_news_item_form textarea, #new_poll_form textarea {
     color: #464646;
     background: #f7f5e6;
     width: 380px;
@@ -3424,8 +3438,34 @@ a.handle:hover {
     font-size: 12px;
     height: 80px;
     padding: 10px 5px 5px 9px; }
-    #new_news_item_form textarea:focus {
+    #new_news_item_form textarea:focus, #new_poll_form textarea:focus {
       background: white; }
+
+#new_poll_form label.input {
+  width: 140px; }
+#new_poll_form input.text_field {
+  width: 485px; }
+#new_poll_form input.option_field {
+  color: #464646;
+  background: #f7f5e6;
+  width: 380px;
+  border: 0;
+  font-size: 14px;
+  height: 18px;
+  padding: 9px 9px;
+  width: 305px; }
+  #new_poll_form input.option_field:focus {
+    background: white; }
+#new_poll_form .option_link_container {
+  overflow: hidden;
+  margin: 0 0 10px 147px;
+  font-size: 15px; }
+#new_poll_form input.send_button {
+  margin: 0 0 0 147px; }
+
+.remove_option_link {
+  padding: 8px 15px;
+  float: left; }
 
 #news_items_admin_view_title h3 {
   padding-top: 6px; }
@@ -3456,6 +3496,61 @@ a.handle:hover {
     font-size: 11px;
     padding-top: 6px;
     margin-right: 10px; }
+
+#polls_admin_view_list {
+  width: 699px;
+  border-top: 2px solid #464646;
+  padding-top: 10px;
+  overflow: hidden; }
+  #polls_admin_view_list h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0; }
+    #polls_admin_view_list h4 a {
+      color: #464646; }
+      #polls_admin_view_list h4 a:hover {
+        color: #797979;
+        text-decoration: underline; }
+      #polls_admin_view_list h4 a:active {
+        color: black;
+        text-decoration: underline; }
+  #polls_admin_view_list span.poll_author {
+    float: left;
+    padding-top: 6px;
+    font-size: 11px; }
+  #polls_admin_view_list span.poll_status_container {
+    float: left;
+    width: 100px; }
+  #polls_admin_view_list span.poll_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px; }
+
+.poll_admin_view_title {
+  overflow: hidden;
+  float: left;
+  width: 450px; }
+
+span.poll_status_open {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  color: #223f05;
+  background: #d0e2ae;
+  padding: 4px 10px;
+  margin-right: 20px; }
+
+span.poll_status_closed {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  color: #8a1f11;
+  background: #f1cecf;
+  padding: 4px 10px;
+  margin-right: 20px; }
 
 #create_news_item_link {
   margin-left: 10px;
@@ -3501,3 +3596,26 @@ a.handle:hover {
 
 .infos_tab a {
   width: 130px; }
+
+.option_result {
+  overflow: hidden;
+  margin-bottom: 2px; }
+
+span.option_title {
+  float: left; }
+
+span.option_percentage {
+  float: right; }
+
+span.option_percentage_admin_view {
+  float: right;
+  margin-right: 12px; }
+
+#polls_admin_view_answer_percentages {
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #464646;
+  margin-bottom: 5px; }
+
+.poll_answer {
+  padding: 10px; }

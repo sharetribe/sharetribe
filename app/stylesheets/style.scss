@@ -9,6 +9,8 @@ $bg_color: #f7f5e6;
 $text_color: #464646;
 $form_bg: #d1c9b4;
 $light_green_bg: #ececdb;
+$light_green_status_box: #d0e2ae;
+$light_red_status_box: #f1cecf;
 $orange: #d45207;
 $medium_brown: #765d3a;
 $dark_orange: darken($orange, 10%);
@@ -517,7 +519,9 @@ form, input {
 		font-style: italic;
 		font-size: 10px;
 		float: right;
-	}	
+	}
+	span.option_title { color: $text_color; }
+	span.option_percentage { color: $text_color; }
 }
 
 .homepage_sidebar_box {
@@ -528,7 +532,7 @@ form, input {
     font-size: 14px;
     margin-bottom: 5px;
   }
-  #invitation_form {
+  #invitation_form, #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden;
     .form_field_container { margin: 0; }
@@ -541,12 +545,16 @@ form, input {
       padding: 2px 5px;
     }
     label { font-weight: bold; }
+    label.radiobutton { 
+      float: left;
+      padding-top: 10px; 
+    }
     textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 60px;
+      height: 40px;
       border: 0;
-      padding: 5px;
+      padding: 7px;
     }
     input.send_button { 
       @include send_button;
@@ -560,6 +568,10 @@ form, input {
   		width: 185px;
   	}
   }
+}
+
+.poll_radio_button_container {
+	overflow: hidden;
 }
 
 .invitation_form_hidden_parts {
@@ -2963,7 +2975,7 @@ a.handle {
 	}
 }
 
-#new_news_item_form {
+#new_news_item_form, #new_poll_form {
   @include form;
   padding: 20px 25px;
 	h1 {
@@ -3006,6 +3018,33 @@ a.handle {
 	}
 }
 
+#new_poll_form {
+  label.input {
+    width: 140px;
+  }
+  input.text_field {
+		width: 485px;
+  }
+  input.option_field {
+    @include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		width: 305px;
+  }
+  .option_link_container {
+	  overflow: hidden;
+	  margin: 0 0 10px 147px;
+	  font-size: 15px;
+	}
+	input.send_button { margin: 0 0 0 147px };
+}
+
+.remove_option_link {
+  padding: 8px 15px;
+  float: left;
+}
+
 #news_items_admin_view_title {
   h3 {
     padding-top: 6px;
@@ -3035,6 +3074,52 @@ a.handle {
     margin-right: 10px;
   }
 }
+
+#polls_admin_view_list {
+  width: 699px;
+  border-top: 2px solid $text_color;
+  padding-top: 10px;
+  overflow: hidden;
+  h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0;
+    @include grey_link;
+  }
+  span.poll_author { 
+    float: left;
+    padding-top: 6px;
+    font-size: 11px;
+  }
+  span.poll_status_container {
+    float: left;
+    width: 100px;
+  }
+  span.poll_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px;
+  }
+}
+
+.poll_admin_view_title {
+  overflow: hidden;
+  float: left;
+  width: 450px;
+}
+
+@mixin poll_status($text_color, $background) {
+  @include rounded(5px);
+  float: left;
+  color: $text_color;
+  background: $background;
+  padding: 4px 10px;
+  margin-right: 20px;
+}
+
+span.poll_status_open { @include poll_status($dark_green, $light_green_status_box); }
+span.poll_status_closed { @include poll_status($error_text, $light_red_status_box); }
 
 #create_news_item_link {
   margin-left: 10px;
@@ -3069,4 +3154,27 @@ a.handle {
 
 .infos_tab {
   a { width: 130px; }
+}
+
+.option_result {
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+span.option_title { float: left; }
+span.option_percentage { float: right; }
+span.option_percentage_admin_view { 
+  float: right;
+  margin-right: 12px;
+}
+
+#polls_admin_view_answer_percentages {
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 2px solid $text_color;
+  margin-bottom: 5px;
+}
+
+.poll_answer {
+  padding: 10px;
 }
