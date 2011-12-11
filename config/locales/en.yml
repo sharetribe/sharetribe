@@ -21,6 +21,30 @@ en:
       news_item:
         edit_news_item: "Edit"
         delete_news_item: "Delete"
+    polls:
+      index:
+        polls: "Polls"
+        create_poll: "Create a poll"
+        no_polls: "No polls"
+      edit_poll_links:
+        close_poll: "Close"
+        open_poll: "Open"
+        edit_poll: "Edit"
+        delete_poll: "Delete"
+      new:
+        add_option: "Add option"
+        new_poll: "Create a poll"
+        edit_poll: "Edit poll"
+        title: "Title:"
+        save_poll: "Save poll"
+      new_option:
+        option: "Option"
+        remove_option: "Remove option"
+      poll_status:
+        open: "Open"
+        closed: "Closed"
+      show:
+        edit_poll: "Edit poll"
   common:
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
@@ -331,6 +355,13 @@ en:
       email: "Your friend's email address:"
       message: "A personal message:"
       send_invitation: "Send invitation"
+    poll_form:
+      poll: "Poll:"
+      comment: "Comment:"
+      answer: "Answer"
+      results: "Results"
+      poll_answer: "answer"
+      poll_answers: "answers"
     profile_info_empty_notification:
       add_your_info: "Add your contact info"
       you_have_not_added_your_info: "You have not added your contact information. Please do, so others can get in touch with you more easily. Also add a profile picture so it's easier for others to trust you."
@@ -434,6 +465,11 @@ en:
       login_failed: "Login failed. Please enter correct credentials."
       login_successful: "Welcome to Kassi, "
       logout_successful: "You have now been logged out of Kassi. Welcome again!"
+      news_item_created: "Article created"
+      news_item_creation_failed: "Article creation failed"
+      news_item_update_failed: "Article update failed"
+      news_item_updated: "Article updated"
+      news_item_deleted: "Article removed"
       offer_accepted: "Offer accepted"
       offer_closed: "Offer closed"
       offer_created_successfully: "Offer created successfully."
@@ -446,6 +482,13 @@ en:
       person_activated: "User activated"
       person_deactivated: "User deactivated"
       person_updated_successfully: "Information updated"
+      poll_answered: "Poll answered"
+      poll_could_not_be_answered: "Poll could not be answered"
+      poll_created: "Poll created"
+      poll_creation_failed: "Poll creation failed"
+      poll_update_failed: "Poll update failed"
+      poll_updated: "Poll updated"
+      poll_deleted: "Poll removed"
       read_more: "Read more!"
       registration_considered_spam: "Registration did not work, please send feedback on the left and mention \"email2 error\"."
       reply_cannot_be_empty: "You can't send an empty message"

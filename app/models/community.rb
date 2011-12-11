@@ -4,6 +4,7 @@ class Community < ActiveRecord::Base
   has_many :members, :through => :community_memberships, :source => :person, :foreign_key => :member_id
   has_many :invitations, :dependent => :destroy
   has_many :news_items
+  has_many :polls
   
   has_and_belongs_to_many :listings
   
@@ -59,6 +60,10 @@ class Community < ActiveRecord::Base
   # to the end to make Finnish translation look better.
   def name_with_separator(locale)
     (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
+  end
+  
+  def active_poll
+    polls.where(:active => true).first
   end
 
 end

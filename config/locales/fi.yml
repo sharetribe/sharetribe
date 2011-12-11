@@ -19,8 +19,30 @@ fi:
         content: "Teksti:"
         save_news_item: "Tallenna uutinen"
       news_item:
-        edit_news_item: "Edit"
-        delete_news_item: "Delete"
+        edit_news_item: "Muokkaa"
+        delete_news_item: "Poista"
+    polls:
+      index:
+        polls: "Kyselyt"
+        create_poll: "Luo uusi kysely"
+        no_polls: "Ei kyselyitä"
+      edit_poll_links:
+        close_poll: "Sulje"
+        open_poll: "Avaa"
+        edit_poll: "Muokkaa"
+        delete_poll: "Poista"
+      new:
+        add_option: "Lisää vastausvaihtoehto"
+        new_poll: "Kyselyn luonti"
+        edit_poll: "Kyselyn muokkaus"
+        title: "Otsikko:"
+        save_poll: "Tallenna kysely"
+      new_option:
+        option: "Vastausvaihtoehto"
+        remove_option: "Poista vastausvaihtoehto"
+      poll_status:
+        open: "Avoinna"
+        closed: "Suljettu"
   common:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
@@ -331,6 +353,13 @@ fi:
       email: "Kaverisi sähköpostiosoite:"
       message: "Viesti kaverillesi:"
       send_invitation: "Lähetä kutsu"
+    poll_form:
+      poll: "Kysely:"
+      comment: "Kommentti:"
+      answer: "Vastaa"
+      results: "Tulokset"
+      poll_answer: "vastaus"
+      poll_answers: "vastausta"
     profile_info_empty_notification:
       add_your_info: "Lisää tietosi"
       add_a_profile_picture: "Lisää profiilikuva"
@@ -353,7 +382,7 @@ fi:
       admin: "Kassin ylläpitonäkymä"
       back_to_kassi: "Takaisin Kassiin"
       news_items: "Uutiset"
-      polls: "Gallupit"
+      polls: "Kyselyt"
     application:
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"
@@ -451,6 +480,13 @@ fi:
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
       person_updated_successfully: "Tiedot päivitetty"
+      poll_answered: "Vastaus lähetetty"
+      poll_could_not_be_answered: "Vastauksen lähettäminen ei onnistunut"
+      poll_created: "Kysely luotu"
+      poll_creation_failed: "Kyselyn luonti epäonnistui"
+      poll_update_failed: "Kyselyn päivittäminen epäonnistui"
+      poll_updated: "Kysely päivitetty"
+      poll_deleted: "Kysely poistettu"
       read_more: "Lue lisää!"
       registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon vasemman laidan palautenapilla ja mainitse \"email2 virhe\"."
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"

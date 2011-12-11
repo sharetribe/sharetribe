@@ -67,6 +67,13 @@
       = render :partial => "invitation_form"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
   
+  - if @current_user && @current_community.active_poll
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      #poll_form
+        = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+  
   .homepage_sidebar_box
     = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
     - if @current_community.news_enabled?
