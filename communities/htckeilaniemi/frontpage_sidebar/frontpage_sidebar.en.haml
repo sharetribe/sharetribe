@@ -3,6 +3,30 @@
   
   %p
     %b
+      Car pooling campaign
+    %br
+    13.12.2011
+  
+  %p
+    Would you like to save up to thousands of euros every year? What if you could at the same time meet other people working in Keilaniemi and do good for the environment?
+  %p
+    HTC Keilaniemi wants to encourage the employees of its companies to share rides when going to work. HTC Kassi is launching a car pooling campaign starting from Monday December 12th and lasting until Wednesday December 21th. Everyone who will add at least one ridesharing offer or request to Kassi during the time of the campaign will participate in a raffle, with four product packages from Lejos and three Angry Birds plush toys from Rovio as prizes! In addition to all the added offers and requests, all accepted rides will affect your chances of winning, so go ahead and try to find people living near you who you could share a ride with.
+  %p
+    If you have so far travelled to work in your own car, now is the perfect moment to try this new social trend. You can offer a ride 
+    = link_to "here", new_listing_path(:type => "offer", :category => "rideshare")  
+    and request one here 
+    = link_to("here", new_listing_path(:type => "request", :category => "rideshare")) + "."
+    Also remember to check what others are offering and requesting. All the ride offers can be seen on the map 
+    = link_to "here", offers_on_map_path 
+    and all the requests 
+    = link_to("here", requests_on_map_path) + "."
+  %p
+    Happy ridesharing!
+    
+  .event_spacer
+  
+  %p
+    %b
       HTC Keilaniemi recycling contest
     %br
     9.11.2011
