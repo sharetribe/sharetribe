@@ -504,23 +504,23 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 	}
 }
 
- function initialize_browse_view(listing_type, listing_style, locale) {
-       $('#left_link_panel_browse').find('a').click(
-       		function() {
-            	if (listing_style == 'listing') {
-                	$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                }
-                reload_browse_view($(this), listing_type, listing_style, locale);
-            }
-       );
-	   $('#tag_cloud').find('a').click(
-		   	function() {
-		   		if (listing_style == 'listing') {
-					$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-				}
-			   	reload_browse_view($(this), listing_type,listing_style, locale);
-		   	}
-	   );
+function initialize_browse_view(listing_type, listing_style, locale) {
+  $('#left_link_panel_browse').find('a').click(
+    function() {
+      if (listing_style == 'listing') {
+        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+      }
+      reload_browse_view($(this), listing_type, listing_style, locale);
+    }
+  );
+	$('#tag_cloud').find('a').click(
+	  function() {
+		  if (listing_style == 'listing') {
+				$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+			}
+		  reload_browse_view($(this), listing_type,listing_style, locale);
+		}
+	);
 }
 
 function initialize_profile_view(badges) {
@@ -538,6 +538,19 @@ function initialize_profile_view(badges) {
 			$('#' + badge.currentTarget.id + '_target').lightbox_me({centered: true});
 		});
 	}
+}
+
+function initialize_homepage_news_items(news_item_ids) {
+  for (var i = 0; i < news_item_ids.length; i++) {
+    $('#news_item_preview_link').click(function() { 
+     $('#news_item_' + news_item_ids[i] + '_preview').hide();
+     $('#news_item_' + news_item_ids[i] + '_full').show(); 
+    });
+    $('#news_item_full_link').click(function() { 
+      $('#news_item_' + news_item_ids[i] + '_preview').show();
+      $('#news_item_' + news_item_ids[i] + '_full').hide(); 
+    });
+  }
 }
 
 function initialize_profile_feedback_view() {
