@@ -1,5 +1,10 @@
-- content_for :javascript do
-  initialize_homepage();
+- if @news_items.size > 0
+  - content_for :javascript do
+    initialize_homepage_news_items(#{array_or_string_for_javascript(@news_items.collect(&:id))});
+    initialize_homepage();
+- else
+  - content_for :javascript do
+    initialize_homepage();
 
 #teaser
   #teaser_left
