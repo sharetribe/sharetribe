@@ -542,13 +542,13 @@ function initialize_profile_view(badges) {
 
 function initialize_homepage_news_items(news_item_ids) {
   for (var i = 0; i < news_item_ids.length; i++) {
-    $('#news_item_preview_link').click(function() { 
-     $('#news_item_' + news_item_ids[i] + '_preview').hide();
-     $('#news_item_' + news_item_ids[i] + '_full').show(); 
+    $('#news_item_' + news_item_ids[i] + '_content').click(function(news_item) {
+      $('#' + news_item.currentTarget.id + '_div_preview').hide();
+      $('#' + news_item.currentTarget.id + '_div_full').show(); 
     });
-    $('#news_item_full_link').click(function() { 
-      $('#news_item_' + news_item_ids[i] + '_preview').show();
-      $('#news_item_' + news_item_ids[i] + '_full').hide(); 
+    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) { 
+      $('#' + news_item.currentTarget.id + '_preview').show();
+      $('#' + news_item.currentTarget.id + '_full').hide();
     });
   }
 }
