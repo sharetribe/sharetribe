@@ -43,6 +43,8 @@ fi:
       poll_status:
         open: "Avoinna"
         closed: "Suljettu"
+      show:
+        edit_poll: "Muokkaa kyselyä"
   common:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
