@@ -8,11 +8,12 @@ class HomepageController < ApplicationController
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
-    params[:page] = 1 unless request.xhr?
+    params[:page] = 1 unless request.xhr? 
     
     @requests = Listing.requests.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
     @offers = Listing.offers.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
-    
+        
+    # TODO This below should only be done if the count is actually shown, otherwise unnecessary.
     #If browsing Kassi unlogged, count also the number of private listings available 
     unless @current_user
       @private_listings = {}
