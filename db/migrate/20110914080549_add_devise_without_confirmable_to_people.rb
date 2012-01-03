@@ -1,4 +1,4 @@
-class AddDeviseToPeople < ActiveRecord::Migration
+class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration
   def self.up
     change_table(:people) do |t|
       
@@ -11,7 +11,7 @@ class AddDeviseToPeople < ActiveRecord::Migration
         t.trackable
       
         t.encryptable
-        t.confirmable
+        #t.confirmable
         # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
         # t.token_authenticatable
     
@@ -24,7 +24,7 @@ class AddDeviseToPeople < ActiveRecord::Migration
     add_index :people, :username,                :unique => true
     add_index :people, :email,                :unique => true
     add_index :people, :reset_password_token, :unique => true
-    add_index :people, :confirmation_token,   :unique => true
+    #add_index :people, :confirmation_token,   :unique => true
     # add_index :people, :unlock_token,         :unique => true
     # add_index :people, :authentication_token, :unique => true
   end
@@ -44,12 +44,9 @@ class AddDeviseToPeople < ActiveRecord::Migration
     remove_column :people, :current_sign_in_ip
     remove_column :people, :last_sign_in_ip
     remove_column :people, :password_salt
-    remove_column :people, :confirmation_token
-    remove_column :people, :confirmed_at
-    remove_column :people, :confirmation_sent_at
     remove_column :people, :username
     
-    remove_index :people, :confirmation_token
+
     remove_index :people, :reset_password_token
   end
 end

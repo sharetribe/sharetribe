@@ -26,6 +26,10 @@ class AddDeviseToPeople < ActiveRecord::Migration
   def self.down
     # By default, we don't want to make any assumption about how to roll back a migration when your
     # model already existed. Please edit below which fields you would like to remove in this migration.
-    raise ActiveRecord::IrreversibleMigration   
+    remove_column :people, :confirmation_token
+    remove_column :people, :confirmed_at
+    remove_column :people, :confirmation_sent_at
+    
+    remove_index :people, :confirmation_token
   end
 end
