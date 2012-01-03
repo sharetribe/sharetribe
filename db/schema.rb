@@ -1,4 +1,3 @@
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
-
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -323,37 +321,36 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+  create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                      :default => 0
-    t.string   "locale",                        :default => "fi"
+    t.integer  "is_admin",                                     :default => 0
+    t.string   "locale",                                       :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",             :default => 0
+    t.integer  "active_days_count",                            :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",             :default => 1
-    t.boolean  "active",                        :default => true
-    t.boolean  "show_real_name_to_other_users", :default => true
+    t.integer  "test_group_number",                            :default => 1
+    t.boolean  "active",                                       :default => true
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.boolean  "show_real_name_to_other_users",                :default => true
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",     :limit => 128
+    t.string   "encrypted_password",            :limit => 128
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
+    t.integer  "sign_in_count",                                :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "password_salt"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
     t.string   "given_name"
     t.string   "family_name"
   end
-  
+
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true

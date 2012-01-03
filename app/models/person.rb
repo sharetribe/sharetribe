@@ -500,11 +500,9 @@ class Person < ActiveRecord::Base
     save
   end
   
-  
   before_validation(:on => :create) do
-      self.id = UUIDTools::UUID.timestamp_create().to_s
+      self.id = UUID.timestamp_create().to_s #this is needed when using the gem UUIDTools::UUID.timestamp_create().to_s
   end
-  
   
   def password2
     if new_record?
