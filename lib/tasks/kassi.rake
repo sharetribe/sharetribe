@@ -31,10 +31,14 @@ namespace :kassi do
   
   desc "Fetches people data from ASI and stores it to Kassi DB. This is run before switching from using ASI to run Kassi without ASI"
   task :fetch_people_data_from_asi, :needs => :environment do |t, args|
+    puts "NOTE: the APP_CONFIG.use_asi MUST BE true WHEN RUNNING THIS"
     not_found_count = 0
+    `mkdir temp_profile_images`
+    
     Person.all.each do |person|
       #puts "#{person.username} #{person.given_name} #{person.family_name} #{person.email} #{person.phone_number} #{person.description}"
       print "."
+      STDOUT.flush
       
       unless person.username == "Person not found!"
         person.update_attribute(:username, person.username)
@@ -43,6 +47,12 @@ namespace :kassi do
         person.update_attribute(:description, person.description)
         person.update_attribute(:phone_number, person.phone_number)
         person.update_attribute(:email, person.email)
+        `curl  #{APP_CONFIG.asi_url}/people/#{person.id}/@avatar -o temp_profile_images/#{person.id}`
+        f = File.new("temp_profile_images/#{person.id}")
+        unless f.size == 16543 # Skip the default avatar returned by ASI
+          person.update_attribute(:image, f)
+        end
+        
       else
         not_found_count += 1
       end
@@ -51,5 +61,6 @@ namespace :kassi do
     if not_found_count > 0
       puts "#{not_found_count} PEOPLE WERE NOT FOUND FROM ASI. THEIR DATA IS NOTE IMPORTED!"
     end
+    `rm -rf temp_profile_images`
   end
 end
