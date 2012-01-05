@@ -9,7 +9,7 @@
 
     = form_tag({ :controller => "people", :action => "update_avatar", :id => @person.id }, :method => "put",  :multipart => true, :id => "avatar_form") do
       .form_field_container
-        = file_field_tag "file", :size => 30, :id => "avatar_file"
+        = file_field_tag "person[image]", :size => 30, :id => "avatar_file"
       .form_field_container
         = submit_tag t(".add_avatar_submit"), :onclick => "this.disabled=true,this.form.submit();", :class => "send_button_notifications"
   #settings_avatar_image

@@ -31,10 +31,11 @@ class SettingsController < ApplicationController
   private
   
   def add_location_to_person
-    unless @person.location
-      @person.build_location(:address => @person.street_address,:type => 'person')
-      @person.location.search_and_fill_latlng
-    end
+    # TODO (No-ASI) This looks like it's not needed. Now commented away. Remove if everything works and tests pass.
+    # unless @person.location
+    #      @person.build_location(:address => @person.street_address,:type => 'person')
+    #      @person.location.search_and_fill_latlng
+    #    end
   end
 
 end

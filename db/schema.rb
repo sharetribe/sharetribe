@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228153911) do
+ActiveRecord::Schema.define(:version => 20120105162140) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -321,7 +321,8 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :force => true do |t|
+  create_table "people", :id => false, :force => true do |t|
+	  t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                                     :default => 0
@@ -349,6 +350,12 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.string   "password_salt"
     t.string   "given_name"
     t.string   "family_name"
+    t.string   "phone_number"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
