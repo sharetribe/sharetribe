@@ -125,7 +125,7 @@ class PeopleController < ApplicationController
   end
   
   def update_avatar
-    if params[:file] && @person.update_avatar(params[:file], session[:cookie])
+    if params[:person] && params[:person][:image] && (APP_CONFIG.use_asi ? @person.update_avatar(params[:person][:image], session[:cookie]) : @person.update_attributes(params[:person]))
       flash[:notice] = :avatar_upload_successful
     else 
       flash[:error] = :avatar_upload_failed

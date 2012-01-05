@@ -142,14 +142,6 @@
       else
         return given_name(cookie)
       end
-
-      return username unless show_real_name_to_other_users
-      person_hash = get_person_hash(cookie)
-      return "Not found!" if person_hash.nil?
-      if person_hash["name"].nil? || person_hash["name"]["given_name"].blank?
-        return person_hash["username"]
-      end
-      return person_hash["name"]["given_name"]
     end
 
     def given_name(cookie=nil)

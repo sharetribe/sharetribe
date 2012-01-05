@@ -57,12 +57,20 @@ module ApplicationHelper
     haml_concat capture_haml(&block).gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) +  link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
   end
   
-  def small_avatar_thumb(person)    
-    link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
+  def small_avatar_thumb(person)
+    if APP_CONFIG.use_asi    
+      link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
+    else
+      link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
+    end
   end
   
   def large_avatar_thumb(person)
-    image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
+    if APP_CONFIG.use_asi
+      image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
+    else
+      image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
+    end
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
