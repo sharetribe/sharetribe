@@ -116,8 +116,11 @@ class PeopleController < ApplicationController
       end
 	  end
     begin
-      @person.update_attributes(params[:person], session[:cookie])
-      flash[:notice] = :person_updated_successfully
+      if @person.update_attributes(params[:person], session[:cookie])
+        flash[:notice] = :person_updated_successfully
+      else
+        flash[:error] = @person.errors.first
+      end
     rescue RestClient::RequestFailed => e
       flash[:error] = "update_error"
     end
