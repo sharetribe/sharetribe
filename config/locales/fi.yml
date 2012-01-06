@@ -64,6 +64,10 @@ fi:
         has_commented: "kommentoi"
         offer_you_follow: "seuraamaasi tarjousta"
         request_you_follow: "seuraamaasi pyyntöä"
+      listing_updated_notification:
+        has_updated: "on päivittänyt"
+        offer_you_follow: "seuraamasi tarjouksen"
+        request_you_follow: "seuraamasi pyynnön"
       comment_to_own_listing_notification:
         has_commented: "kommentoi"
         your_offer: "tarjoustasi"
