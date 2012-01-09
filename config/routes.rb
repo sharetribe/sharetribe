@@ -63,7 +63,14 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-    devise_for :people, :controllers => { :confirmations => "confirmations" }    
+    if APP_CONFIG.use_asi
+      # If using ASI use Devise only for email confirmatios
+      devise_for :people, :controllers => { :confirmations => "confirmations"}   
+    else
+      devise_for :people, :controllers => { :confirmations => "confirmations", :regstrations  => "people" } do
+        
+      end
+    end
     namespace :admin do
       resources :feedbacks
     end
