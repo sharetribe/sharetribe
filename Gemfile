@@ -43,7 +43,7 @@ gem 'russian'
 gem 'web_translate_it', '<= 1.7.4.5' # newer seems to cause "Invalid gemspec:invalid date format in specification" error
 gem 'postmark-rails'
 gem 'rails-i18n'
-gem 'devise'
+gem 'devise', '2.0.0.rc'
 gem 'uuidtools'
 
 group :test do

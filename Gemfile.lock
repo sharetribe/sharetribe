@@ -32,7 +32,6 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (3.0.1)
-    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -65,7 +64,7 @@ GEM
     delayed_job (2.1.4)
       activesupport (~> 3.0)
       daemons
-    devise (1.5.3)
+    devise (2.0.0.rc)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.0.3)
       warden (~> 1.1)
@@ -245,7 +244,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   delayed_job
-  devise
+  devise (= 2.0.0.rc)
   factory_girl_rails
   haml
   hoptoad_notifier
