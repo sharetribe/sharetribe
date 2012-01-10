@@ -2,6 +2,8 @@ require 'json'
 require 'rest_client'
 require 'httpclient'
 
+
+
 # This class represents a person (a user of Kassi).
 # Some of the person data can be stored in Aalto Social Interface (ASI) server.
 # if use_asi is set to true in config.yml some methods are loaded from asi_person.rb
@@ -15,19 +17,23 @@ class Person < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   #devise :confirmable
     
-  #if not APP_CONFIG.use_asi
+  if not APP_CONFIG.use_asi
     # Include default devise modules. Others available are:
     # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable,
-           :encryptable # to be able to use similar encrypt method as ASI
-  #end
+    devise :database_authenticatable, :registerable,
+           :recoverable, :rememberable, :trackable, :validatable
+           
+    if APP_CONFIG.crypto_helper_key.present?
+      require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
+      devise :encryptable # to be able to use similar encrypt method as ASI
+    end
+  end
   
   # Setup accessible attributes for your model (the rest are protected)
   attr_accessible :username, :email, :password, :password2, :password_confirmation, 
                   :remember_me, :consent
       
-  attr_accessor :guid, :password, :password2, :form_username,
+  attr_accessor :guid, :password2, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected
   

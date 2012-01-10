@@ -125,7 +125,8 @@ default: &default_settings
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
   
-  
+  # If you have migrated from using ASI to use standalone Kassi, you have to provide the same crypto_helper_key here for the users' old passwords to work. The default is to leave this empty and then a better encryption method will be used.
+  crypto_helper_key: 
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Kassi, you 
