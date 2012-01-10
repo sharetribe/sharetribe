@@ -1,8 +1,16 @@
 <h2>Sign in</h2>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+<% if person_signed_in? %>
+  You are signed in as <%= current_person.email %>. <%= link_to "Sign out", people_sign_out_path, :method => :delete %>.
+<% end %>
+
+<%= form_for(resource, :as => resource_name, :url => "/fi/people/sign_in") do |f| %>
+ 
+  <div><%= f.label :username %><br />
+  <%= f.text_field :username %></div>
+  
+  <!-- <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div> -->
 
   <div><%= f.label :password %><br />
   <%= f.password_field :password %></div>

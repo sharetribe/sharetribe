@@ -13,19 +13,19 @@ class Person < ActiveRecord::Base
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :confirmable
+  #devise :confirmable
     
-  if not APP_CONFIG.use_asi
+  #if not APP_CONFIG.use_asi
     # Include default devise modules. Others available are:
     # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable,
            :encryptable # to be able to use similar encrypt method as ASI
-  end
+  #end
   
   # Setup accessible attributes for your model (the rest are protected)
-  attr_accessible :username, :email, :password, :password2, :remember_me,
-                  :consent
+  attr_accessible :username, :email, :password, :password2, :password_confirmation, 
+                  :remember_me, :consent
       
   attr_accessor :guid, :password, :password2, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
@@ -79,6 +79,8 @@ class Person < ActiveRecord::Base
     
   serialize :preferences
   
+  validates_uniqueness_of :username
+  validates_uniqueness_of :email
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..12
   validates_length_of :given_name, :within => 1..20, :allow_nil => true, :allow_blank => true
@@ -98,7 +100,7 @@ class Person < ActiveRecord::Base
  
   # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
   has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
-  validates_attachment_presence :image
+  #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image,
                                       :content_type => ["image/jpeg", "image/png", "image/gif", 
@@ -434,7 +436,7 @@ class Person < ActiveRecord::Base
   end
   
   before_validation(:on => :create) do
-      self.id = UUID.timestamp_create().to_s #this is needed when using the gem UUIDTools::UUID.timestamp_create().to_s
+      self.id = UUIDTools::UUID.timestamp_create().to_s
   end
   
   # Returns conversations for the "received" and "sent" actions

@@ -206,6 +206,7 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.24)
+    uuidtools (2.1.2)
     warden (1.0.5)
       rack (>= 1.0)
     web_translate_it (1.7.3.1)
@@ -269,6 +270,7 @@ DEPENDENCIES
   sass
   selenium-webdriver (= 0.0.28)
   thinking-sphinx (= 2.0.0)
+  uuidtools
   web_translate_it (<= 1.7.4.5)
   whenever
   will_paginate (~> 3.0.pre2)
