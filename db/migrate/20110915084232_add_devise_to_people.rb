@@ -7,7 +7,16 @@ class AddDeviseToPeople < ActiveRecord::Migration
       #t.trackable
     
       # t.encryptable
-      t.confirmable
+  
+  # When updating to Devise 2.0 the old migration needs to be changed, so
+##      t.confirmable
+# becomes:
+      t.string   :confirmation_token
+      t.datetime :confirmed_at
+      t.datetime :confirmation_sent_at
+      #t.string   :unconfirmed_email # Only if using reconfirmable
+      
+      
       # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
       # t.token_authenticatable
 

@@ -322,32 +322,17 @@ ActiveRecord::Schema.define(:version => 20120105162140) do
   end
 
   create_table "people", :id => false, :force => true do |t|
-	  t.string   "id",                            :limit => 22,                   :null => false
+    t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                     :default => 0
-    t.string   "locale",                                       :default => "fi"
+    t.integer  "is_admin",                      :default => 0
+    t.string   "locale",                        :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                            :default => 0
+    t.integer  "active_days_count",             :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                            :default => 1
-    t.boolean  "active",                                       :default => true
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",                :default => true
-    t.string   "username"
-    t.string   "email"
-    t.string   "encrypted_password",            :limit => 128
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                                :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "password_salt"
+    t.integer  "test_group_number",             :default => 1
+    t.boolean  "active",                        :default => true
+    t.boolean  "show_real_name_to_other_users", :default => true
     t.string   "given_name"
     t.string   "family_name"
     t.string   "phone_number"
@@ -356,6 +341,21 @@ ActiveRecord::Schema.define(:version => 20120105162140) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password",            :default => "",   :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                 :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "password_salt"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

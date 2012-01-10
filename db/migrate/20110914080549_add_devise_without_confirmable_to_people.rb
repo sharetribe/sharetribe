@@ -5,12 +5,34 @@ class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration
         # Add username first and then other devise related stuff.
         t.string :username
         
-        t.database_authenticatable :null => true
-        t.recoverable
-        t.rememberable
-        t.trackable
+##        t.database_authenticatable :null => true
+## => becomes with Devise 2.0        
+        t.string :email
+        t.string :encrypted_password, :null => false, :default => ""
+        
+##        t.recoverable
+## => becomes with Devise 2.0        
+        t.string   :reset_password_token
+        t.datetime :reset_password_sent_at
+        
+##        t.rememberable
+## => becomes with Devise 2.0   
+        t.datetime :remember_created_at
+
+##        t.trackable
+## => becomes with Devise 2.0 
+        t.integer  :sign_in_count, :default => 0
+        t.datetime :current_sign_in_at
+        t.datetime :last_sign_in_at
+        t.string   :current_sign_in_ip
+        t.string   :last_sign_in_ip
       
-        t.encryptable
+##        t.encryptable
+## => becomes with Devise 2.0 
+        t.string :password_salt
+
+
+
         #t.confirmable
         # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
         # t.token_authenticatable
@@ -19,9 +41,9 @@ class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration
         # Uncomment below if timestamps were not included in your original model.
         # t.timestamps
         
-      end
+    end
 
-    add_index :people, :username,                :unique => true
+    add_index :people, :username,             :unique => true
     add_index :people, :email,                :unique => true
     add_index :people, :reset_password_token, :unique => true
     #add_index :people, :confirmation_token,   :unique => true
@@ -48,5 +70,7 @@ class AddDeviseWithoutConfirmableToPeople < ActiveRecord::Migration
     
 
     remove_index :people, :reset_password_token
+    remove_index :people, :email
+    remove_index :people, :username
   end
 end
