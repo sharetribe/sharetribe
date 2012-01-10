@@ -80,6 +80,12 @@
           .grid_3.alpha
             = render :file => community_file("logo_text", false)
           .grid_6.omega
+            - if person_signed_in?
+              D-ON:
+              = link_to "out", people_sign_out_path, :method => :delete
+            - else
+              D-OFF:
+              = link_to "in", "/fi/people/sign_in"
             #search
               = form_tag("/#{I18n.locale}/search", :method => "get") do
                 - one_line do              
