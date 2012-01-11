@@ -1,8 +1,7 @@
 require 'json'
 require 'rest_client'
 require 'httpclient'
-
-
+require 'uuid22'
 
 # This class represents a person (a user of Kassi).
 # Some of the person data can be stored in Aalto Social Interface (ASI) server.
@@ -442,7 +441,8 @@ class Person < ActiveRecord::Base
   end
   
   before_validation(:on => :create) do
-      self.id = UUIDTools::UUID.timestamp_create().to_s
+      self.id = UUID.timestamp_create.to_s22 
+      #self.id = UUIDTools::UUID.timestamp_create().to_s22 # GEM VERSION
   end
   
   # Returns conversations for the "received" and "sent" actions

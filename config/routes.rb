@@ -67,7 +67,11 @@ Kassi::Application.routes.draw do
       # If using ASI use Devise only for email confirmatios
       devise_for :people, :controllers => { :confirmations => "confirmations"}   
     else
-      devise_for :people
+      devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do
+        match "/:locale/signup" => "people#new", :as => :sign_up
+        match "/people/check_username_availability" => "people#check_username_availability"
+        match "/people/check_email_availability_and_validity" => "people#check_email_availability_and_validity"
+      end  
     end
     namespace :admin do
       resources :feedbacks
@@ -190,10 +194,6 @@ Kassi::Application.routes.draw do
   match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
-  
-  #temporary stuff for testing devise
-  post "/:locale/people/sign_in"    => "sessions#create"
-  delete "/:locale/people/sign_out" => "sessions#destroy", :as => :people_sign_out
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(Subdomain) do

@@ -286,7 +286,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "person[terms]") {
+			if (element.attr("name") == "terms") {
 				error.appendTo(element.parent().parent().parent().parent().parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
 			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
@@ -299,7 +299,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
-      "person[terms]": "required",
+      "terms": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" },
 			"recaptcha_response_field": {required: true, captcha: true },

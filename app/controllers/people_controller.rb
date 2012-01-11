@@ -1,4 +1,4 @@
-class PeopleController < ApplicationController
+class PeopleController < Devise::RegistrationsController
   
   include UrlHelper
   
@@ -63,9 +63,7 @@ class PeopleController < ApplicationController
       redirect_to domain + sign_up_path and return
     end
 
-    # Open an ASI Session first only for Kassi to be able to create a user
-    @session = Session.create
-    session[:cookie] = @session.cookie
+
     params[:person][:locale] =  params[:locale] || APP_CONFIG.default_locale
     params[:person][:test_group_number] = 1 + rand(4)
     
@@ -74,9 +72,25 @@ class PeopleController < ApplicationController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || !@current_community.select_whether_name_is_shown_to_everybody)
     
+    if APP_CONFIG.use_asi
+      # Open an ASI Session first only for Kassi to be able to create a user
+      @session = Session.create
+      session[:cookie] = @session.cookie
+    end
+    
     # Try to create a new person in ASI.
     begin
-      @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
+      if APP_CONFIG.use_asi
+        @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
+      else
+        # This part is copied from Devise's regstration_controller#create
+
+        build_resource
+        @person = resource
+        if @person.save
+          sign_in(resource_name, resource)
+        end
+      end
       @person.set_default_preferences
       # Make person a member of the current community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
