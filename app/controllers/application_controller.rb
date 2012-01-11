@@ -48,13 +48,13 @@ class ApplicationController < ActionController::Base
   end  
 
   def fetch_logged_in_user
-    if session[:person_id]
-      @current_user = Person.find_by_id(session[:person_id])
-      unless session[:cookie]
-        # If there is no ASI-cookie for this session, log out completely
-        clear_user_session
+      if session[:person_id]
+        @current_user = Person.find_by_id(session[:person_id])
+        if session[:cookie].blank? && APP_CONFIG.use_asi
+          # If there is no ASI-cookie for this session, log out completely
+          clear_user_session
+        end
       end
-    end
   end
   
   # A before filter for views that only users that are logged in can access
