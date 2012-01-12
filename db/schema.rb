@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111116182825) do
+ActiveRecord::Schema.define(:version => 20111228153911) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.datetime "updated_at"
   end
 
+  add_index "comments", ["listing_id"], :name => "index_comments_on_listing_id"
+
   create_table "communities", :force => true do |t|
     t.string   "name"
     t.string   "domain"
@@ -66,6 +68,8 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.integer "community_id"
     t.integer "listing_id"
   end
+
+  add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
 
   create_table "community_memberships", :force => true do |t|
     t.string   "person_id"
@@ -242,6 +246,8 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.datetime "image_updated_at"
   end
 
+  add_index "listing_images", ["listing_id"], :name => "index_listing_images_on_listing_id"
+
   create_table "listings", :force => true do |t|
     t.string   "author_id"
     t.string   "category"
@@ -266,6 +272,10 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.boolean  "delta",                   :default => true,        :null => false
     t.boolean  "open",                    :default => true
   end
+
+  add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"
+  add_index "listings", ["open"], :name => "index_listings_on_open"
+  add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
     t.float    "latitude"
@@ -315,17 +325,17 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                      :default => 0
+    t.string   "locale",                        :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",             :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                           :default => 1
-    t.boolean  "active",                                      :default => true
+    t.integer  "test_group_number",             :default => 1
+    t.boolean  "active",                        :default => true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",               :default => true
+    t.boolean  "show_real_name_to_other_users", :default => true
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
@@ -396,6 +406,8 @@ ActiveRecord::Schema.define(:version => 20111116182825) do
     t.integer "listing_id"
     t.string  "name"
   end
+
+  add_index "share_types", ["listing_id"], :name => "index_share_types_on_listing_id"
 
   create_table "smerf_forms", :force => true do |t|
     t.string   "name",                             :null => false

@@ -1,7 +1,7 @@
 class Participation < ActiveRecord::Base
   
-  belongs_to :conversation, :dependent => :destroy
-  belongs_to :person, :dependent => :destroy
+  belongs_to :conversation
+  belongs_to :person
   has_one :testimonial
   
   scope :unread, :include => :conversation, :conditions => "is_read = '0' OR conversations.status = 'pending'"
