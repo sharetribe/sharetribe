@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
+    t.boolean  "news_enabled",                              :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -297,6 +298,15 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.integer  "conversation_id"
   end
 
+  create_table "news_items", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "community_id"
+    t.string   "author_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", :force => true do |t|
     t.string   "receiver_id"
     t.string   "type"
@@ -325,17 +335,17 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
     t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                      :default => 0
-    t.string   "locale",                        :default => "fi"
+    t.integer  "is_admin",                                    :default => 0
+    t.string   "locale",                                      :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",             :default => 0
+    t.integer  "active_days_count",                           :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",             :default => 1
-    t.boolean  "active",                        :default => true
+    t.integer  "test_group_number",                           :default => 1
+    t.boolean  "active",                                      :default => true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users", :default => true
+    t.boolean  "show_real_name_to_other_users",               :default => true
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
@@ -376,6 +386,33 @@ ActiveRecord::Schema.define(:version => 20111228153911) do
   create_table "person_read_listings", :force => true do |t|
     t.string   "person_id"
     t.integer  "listing_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "poll_answers", :force => true do |t|
+    t.integer  "poll_id"
+    t.integer  "poll_option_id"
+    t.string   "answerer_id"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "poll_options", :force => true do |t|
+    t.string   "label"
+    t.integer  "poll_id"
+    t.float    "percentage", :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "polls", :force => true do |t|
+    t.string   "title"
+    t.string   "author_id"
+    t.boolean  "active",       :default => true
+    t.string   "community_id"
+    t.datetime "closed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

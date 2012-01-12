@@ -10,7 +10,7 @@ describe LocationsHelper do
       it "should return the duration in minutes and the distance in km between origin and destination" do
         results = LocationsHelper.route_duration_and_distance("Otakaari 20", "Kaironkatu 2")
         results.should be_an_instance_of(Array)
-        results[0].should be_close(22, 0.5)
+        results[0].should be_close(22, 3)
         results[1].should be_close(12.5, 0.2)
       end
     end
@@ -20,7 +20,7 @@ describe LocationsHelper do
         results = LocationsHelper.route_duration_and_distance("Otakaari 20", "Kaironkatu 2", ["ruoholahti,helsinki", "hakaniemen tori,helsinki"])
         results.should be_an_instance_of(Array)
         results[0].should be_close(30, 0.5)
-        results[1].should be_close(16.6, 0.2)
+        results[1].should be_close(16.6, 1)
       end
       
     end
