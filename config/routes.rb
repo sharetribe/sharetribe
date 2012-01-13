@@ -59,20 +59,63 @@ Kassi::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id(.:format)))'
+  # match ':controller(/:action(/:id(.:format)))
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-    if APP_CONFIG.use_asi
-      # If using ASI use Devise only for email confirmatios
-      devise_for :people, :controllers => { :confirmations => "confirmations"}   
-    else
-      devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do
-        match "/:locale/signup" => "people#new", :as => :sign_up
-        match "/people/check_username_availability" => "people#check_username_availability"
-        match "/people/check_email_availability_and_validity" => "people#check_email_availability_and_validity"
-      end  
-    end
+
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do
+      resources :people do
+        collection do
+          get :check_username_availability
+          get :check_email_availability
+          get :check_email_availability_and_validity
+          get :check_invitation_code
+          get :not_member
+        end
+        member do 
+          put :update_avatar
+          put :activate
+          put :deactivate
+        end
+        resources :listings do
+          member do
+            put :close
+          end  
+        end  
+        resources :messages, :controller => :conversations do 
+          collection do
+            get :received
+            get :sent
+            get :notifications
+          end
+          member do
+            put :accept
+            put :reject
+            put :cancel
+          end
+          resources :messages
+          resources :feedbacks, :controller => :testimonials do
+            collection do
+              put :skip
+            end  
+          end    
+        end
+        resource :settings do
+          member do
+            get :profile
+            get :avatar
+            get :account
+            get :notifications
+          end
+        end
+        resources :invitations
+        resources :badges
+        resources :testimonials
+      end
+      match "/:locale/signup" => "people#new", :as => :sign_up
+    end  
+
     namespace :admin do
       resources :feedbacks
     end
@@ -89,54 +132,7 @@ Kassi::Application.routes.draw do
       resources :images, :controller => :listing_images
       resources :comments
     end
-    resources :people do
-      collection do
-        get :check_username_availability
-        get :check_email_availability
-        get :check_email_availability_and_validity
-        get :check_invitation_code
-        get :not_member
-      end
-      member do 
-        put :update_avatar
-        put :activate
-        put :deactivate
-      end
-      resources :listings do
-        member do
-          put :close
-        end  
-      end  
-      resources :messages, :controller => :conversations do 
-        collection do
-          get :received
-          get :sent
-          get :notifications
-        end
-        member do
-          put :accept
-          put :reject
-          put :cancel
-        end
-        resources :messages
-        resources :feedbacks, :controller => :testimonials do
-          collection do
-            put :skip
-          end  
-        end    
-      end
-      resource :settings do
-        member do
-          get :profile
-          get :avatar
-          get :account
-          get :notifications
-        end
-      end
-      resources :invitations
-      resources :badges
-      resources :testimonials
-    end
+    
     resources :infos do
       collection do
         get :about
