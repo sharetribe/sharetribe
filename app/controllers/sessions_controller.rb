@@ -10,10 +10,6 @@ class SessionsController < ApplicationController
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
  
- 
-
-  
-
   def create
     # if the request came from different domain, redirects back there.
     # e.g. if using login-subdoain for logging in with https    
@@ -40,10 +36,14 @@ class SessionsController < ApplicationController
     else
       # Start a session with Devise
       
+      # In case of failure, set the message already here and clear it afterwards, if authentication worked.
+      flash[:error] = :login_failed
+      
       # Since the authentication happens in the rack layer,
       # we need to tell Devise to call the action "sessions#new"
       # in case something goes bad.
       person = authenticate_person!(:recall => "sessions#new")
+      flash[:error] = nil
       sign_in person
       @current_user = person
     end
