@@ -256,7 +256,7 @@ class ListingsController < ApplicationController
       else
         session[:return_to] = request.fullpath
         flash[:warning] = "you_must_log_in_to_view_this_content"
-        redirect_to new_session_path and return
+        redirect_to login_path and return
       end
     end
   end

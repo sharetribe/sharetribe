@@ -48,13 +48,19 @@ class ApplicationController < ActionController::Base
   end  
 
   def fetch_logged_in_user
-      if session[:person_id]
+    if APP_CONFIG.use_asi # Check session and ensure session exits for ASI
+      if session[:person_id] 
         @current_user = Person.find_by_id(session[:person_id])
-        if session[:cookie].blank? && APP_CONFIG.use_asi
+        if session[:cookie].blank?
           # If there is no ASI-cookie for this session, log out completely
           clear_user_session
         end
       end
+    else # Stand-alone Kassi uses Devise
+      if person_signed_in?
+        @current_user = current_person
+      end
+    end
   end
   
   # A before filter for views that only users that are logged in can access
@@ -62,7 +68,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
     session[:return_to] = request.fullpath
     flash[:warning] = warning_message
-    redirect_to new_session_path and return
+    redirect_to login_path and return
   end
   
   # A before filter for views that only authorized users can access
@@ -166,7 +172,7 @@ class ApplicationController < ActionController::Base
         end
       else # HTTP_REFERER is known: redirect back there with error message
          I18n.locale = params[:locale] if params[:locale]
-        flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
+        flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
         redirect_to "#{ApplicationHelper.pick_referer_domain_part_from_request(request)}/#{ I18n.locale}"
       end
       
@@ -181,7 +187,7 @@ class ApplicationController < ActionController::Base
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
     clear_user_session
-    flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), new_session_path]
+    flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
     ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
     redirect_to root_path and return
   end
