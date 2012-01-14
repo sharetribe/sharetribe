@@ -64,7 +64,8 @@ Kassi::Application.routes.draw do
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
 
-    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do    
+      get "/people/confirmation" => "confirmations#show"
       resources :people do
         collection do
           get :check_username_availability
@@ -114,6 +115,8 @@ Kassi::Application.routes.draw do
         resources :testimonials
       end
       match "/:locale/signup" => "people#new", :as => :sign_up
+      
+      
     end  
 
     namespace :admin do

@@ -32,7 +32,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       
       # This is changed from Devise's default
       flash[:error] = "confirmation_link_is_wrong_or_used"
-      redirect_to root_path
+      redirect_to :controller => "sessions", :action => "confirmation_pending"
     end
   end
   

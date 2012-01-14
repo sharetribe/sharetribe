@@ -84,7 +84,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming his account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming his account.
-  # config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 20.years # Set unreasonably high, because we use our own check for confirmation rather than Devises. So devise always let's in, but in Kassi we check that confirmation is always needed if the community requires it.
 
   # If true, requires any email changes to be confirmed (exctly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
