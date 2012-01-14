@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  #devise :confirmable
+  devise :confirmable
     
   if not APP_CONFIG.use_asi
     # Include default devise modules. Others available are:
