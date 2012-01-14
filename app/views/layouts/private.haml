@@ -1,0 +1,78 @@
+!!! 5
+!!! xml
+%html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
+  %head
+    %title 
+      Kassi
+      - if @listing && action_name.eql?("show")
+        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
+      - else
+        = "- #{@current_community.name}"
+
+    = stylesheet_link_tag 'compiled/style.css'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi', 'googlemaps'
+    = yield(:extra_javascript)
+    = csrf_meta_tag
+    :javascript
+      $(document).ready(function() { initialize_defaults("#{t('header.search_kassi')}","#{t('layouts.application.default_feedback')}", "#{I18n.locale}"); #{yield :javascript} }); 
+    
+  %body
+  
+    %noscript
+      .js_enabled
+        #no_javascript.container_24
+          = render :partial => "layouts/no_javascript"
+        
+    .wrapper
+    
+      #header.container_24
+        .grid_3
+          #logo
+            = render :file => community_file("logo", false)
+        .grid_9
+          .grid_3.alpha
+            = render :file => community_file("logo_text", false)
+          .grid_6.omega
+          .clear
+          .top_navi_form.grid_9
+            #private_community_locale_padding
+              - if available_locales.count > 1
+                .locale_select_padding
+                  = form_tag("/change_locale", :method => "get") do
+                    = hidden_field_tag :redirect_uri, @return_to
+                    = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+           
+        .grid_12
+          
+
+      #notification_container 
+        = render :partial => "layouts/notifications"
+
+      #main.container_24
+        = content_for?(:content) ? yield(:content) : yield
+
+      #bottom_spacer.container_24  
+        %br/
+        &nbsp;
+        %br/
+        &nbsp;
+        %br/
+        %br/
+
+      - if APP_CONFIG.use_google_analytics
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+        = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+        _gaq.push(['_trackPageview']);
+        _gaq.push(['_trackPageLoadTime']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        </script>
+
