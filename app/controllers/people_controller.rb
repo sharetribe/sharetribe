@@ -2,6 +2,8 @@ class PeopleController < ApplicationController
   
   include UrlHelper
   
+  layout :choose_layout
+  
   protect_from_forgery :except => :create
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
@@ -206,6 +208,14 @@ class PeopleController < ApplicationController
   end
 
   private
+  
+  def choose_layout
+    if @current_community.private && action_name.eql?("new")
+      'private'
+    else
+      'application'
+    end
+  end
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries

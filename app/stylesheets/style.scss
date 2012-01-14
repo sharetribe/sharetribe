@@ -140,9 +140,9 @@ body {
 	color: $text_color;
 }
 
-@mixin colored_title($color: $orange) {
+@mixin colored_title($color: $orange, $width: 340px) {
 	color: $color;
-	width: 340px;
+	width: $width;
 	display: block;
 	border-bottom: 6px solid $color;
 	margin-bottom: 10px;
@@ -168,12 +168,20 @@ h1 {
 	margin: 0 0 10px 0;
 }
 
-h3.orange {
-	@include colored_title;
-}
+h3.orange { @include colored_title; }
 
 h3.brown {
 	@include colored_title($medium_brown);
+	a {
+		color: $medium_brown;
+		&:hover { color: $dark_brown;};
+		&:focus { color: $dark_brown;};
+	}	
+}
+
+h3.orange_wide { @include colored_title($orange, 460px); }
+h3.brown_wide {
+	@include colored_title($medium_brown, 460px);
 	a {
 		color: $medium_brown;
 		&:hover { color: $dark_brown;};
@@ -440,6 +448,7 @@ form, input {
 }
 
 #teaser_left {
+  overflow: hidden;
 	color: $dark_brown;
 	float: left;
 	width: 475px;
@@ -448,6 +457,7 @@ form, input {
 }
 
 #teaser_right {
+  overflow: hidden;
 	color: $dark_brown;
 	float: left;
 	margin-top: 5px;
@@ -1198,6 +1208,41 @@ div.checkbox_float {
 		@include form_error_field;
 		width: 298px;
 		margin-left: 10px;
+	}
+}
+
+#frontpage_login_form {
+  overflow: hidden;
+  background: darken($teaser_bg, 8%);
+  padding: 20px;
+  @include rounded;
+  margin: 0 0 20px 30px;
+  width: 280px;
+  h2 {
+		font-weight: bold;
+		font-size: 16px;
+		margin-bottom: 15px;
+	}
+  label {
+    width: 230px;
+    height: 20px;
+		font-size: 14px;
+		font-weight: bold;
+	}
+  input.text_field {
+		font-weight: bold;
+		color: $text_color;
+		background: $bg_color;
+		width: 230px;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px;
+		border: 0;
+		&:focus { background: white; }
+	}
+	input.send_button {
+		@include send_button;
+		margin: 10px 0;
 	}
 }
 
@@ -2936,4 +2981,28 @@ a.handle {
   padding: 15px 20px 10px 20px;
   width: 655px;
   margin-bottom: 20px;
+}
+
+#private_community_locale_padding {
+  margin-top: 37px;
+}
+
+.recent_listing_sign_in_page {
+  overflow: hidden;
+  width: 450px;
+  h5 { 
+    float: left;
+    width: 350px;
+  }
+  span { float: right; }
+}
+
+.request_spacer_wide {
+  @include spacer($orange);
+  width: 460px;
+}
+
+.offer_spacer_wide {
+  @include spacer;
+  width: 460px;
 }

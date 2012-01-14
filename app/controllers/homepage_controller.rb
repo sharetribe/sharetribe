@@ -1,6 +1,8 @@
 class HomepageController < ApplicationController
 
   before_filter :save_current_path
+  
+  layout :choose_layout
 
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
@@ -23,6 +25,21 @@ class HomepageController < ApplicationController
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
+    end
+  end
+  
+  def sign_in
+    @requests = Listing.requests.visible_to(@current_user, @current_community).open.limit(3)
+    @offers = Listing.offers.visible_to(@current_user, @current_community).open.limit(3)
+  end
+  
+  private
+  
+  def choose_layout
+    if 'sign_in'.eql? action_name
+      'private'
+    else
+      'application'
     end
   end
 

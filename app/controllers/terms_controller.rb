@@ -1,5 +1,7 @@
 class TermsController < ApplicationController
   
+  layout :choose_layout
+  
   def show
     redirect_to root_path unless session[:temp_cookie]
     @current_community = Community.find(session[:temp_community_id])
@@ -34,6 +36,16 @@ class TermsController < ApplicationController
     session[:consent_changed] = nil
     flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
     redirect_to (session[:return_to] || root)
+  end
+  
+  private
+  
+  def choose_layout
+    if @current_community.private
+      'private'
+    else
+      'application'
+    end
   end
   
 end

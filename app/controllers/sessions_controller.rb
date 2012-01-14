@@ -20,7 +20,12 @@ class SessionsController < ApplicationController
                                   :password => params[:password] })
     rescue RestClient::Unauthorized => e
       flash[:error] = :login_failed
-      redirect_to domain + login_path and return
+      if current_community.private?
+        logger.info "Here"
+        redirect_to "#{domain}/#{I18n.locale}/homepage/sign_in" and return
+      else
+        redirect_to domain + login_path and return
+      end
     end
 
     session[:form_username] = nil

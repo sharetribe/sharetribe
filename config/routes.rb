@@ -66,6 +66,11 @@ Kassi::Application.routes.draw do
     namespace :admin do
       resources :feedbacks
     end
+    resources :homepage do
+      collection do
+        get :sign_in
+      end
+    end
     resources :listings do
       member do
         post :follow
