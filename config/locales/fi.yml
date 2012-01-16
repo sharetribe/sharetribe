@@ -320,6 +320,13 @@ fi:
     sign_in:
       recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
       recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
+      username: "Käyttäjätunnus"
+      password: "Salasana"
+      plus: "Lisäksi"
+      other_offer: "muu tarjous"
+      other_offers: "muuta tarjousta"
+      other_request: "muu pyyntö"
+      other_requests: "muuta pyyntöä"
   layouts:
     admin:
       admin: "Kassin ylläpitonäkymä"

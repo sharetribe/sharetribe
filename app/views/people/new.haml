@@ -2,64 +2,65 @@
 - content_for :javascript do
   initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}","#{t("people.new.captcha_was_wrong")}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
-.grid_10.prefix_7.suffix_7
-  #signup_form
-    %h2
-      = t('.sign_up')
-    = render :file => community_file("signup_information", true)
-    = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
-      = form.error_messages
-      - if @current_community.join_with_invite_only
+%div{:class => @container_class}
+  %div{:class => @grid_class}
+    #signup_form
+      %h2
+        = t('.sign_up')
+      = render :file => community_file("signup_information", true)
+      = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
+        = form.error_messages
+        - if @current_community.join_with_invite_only
+          .form_field_container
+            = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
+            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
+            = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
         .form_field_container
-          = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
-          %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
-          = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
-      .form_field_container
-        = form.label :username, t('.username'), :class => "before_description"
-        %span.tiny_description
-          = "(#{t('.visible_to_everybody')})" 
-        = form.text_field :username, :class => :text_field, :maxlength => "20"
-      .form_field_container
-        = form.label :given_name, t('.given_name'), :class => "before_description"
-        = form.text_field :given_name, :class => :text_field, :maxlength => "30"
-      .form_field_container
-        = form.label :family_name, t('.family_name'), :class => "before_description"
-        = form.text_field :family_name, :class => :text_field, :maxlength => "30"
-      - if @current_community.select_whether_name_is_shown_to_everybody
+          = form.label :username, t('.username'), :class => "before_description"
+          %span.tiny_description
+            = "(#{t('.visible_to_everybody')})" 
+          = form.text_field :username, :class => :text_field, :maxlength => "20"
+        .form_field_container
+          = form.label :given_name, t('.given_name'), :class => "before_description"
+          = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+        .form_field_container
+          = form.label :family_name, t('.family_name'), :class => "before_description"
+          = form.text_field :family_name, :class => :text_field, :maxlength => "30"
+        - if @current_community.select_whether_name_is_shown_to_everybody
+          .form_field_container
+            .signup_checkbox_container
+              .signup_checkbox_input_container
+                %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
+              .signup_checkbox_label_container
+                = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
+        .form_field_container
+          = form.label :email, t('.email'), :class => "before_description"
+          %span.tiny_description
+            = "(#{t('.visible_only_to_you')})"
+          = form.text_field :email, :class => :text_field, :maxlenght => "255"       
+        .form_field_container  
+          = form.label :password, t('.password')
+          = form.password_field :password, :class => :text_field, :maxlength => "255"
+        .form_field_container  
+          = form.label :password2, t('.password_again')
+          = form.password_field :password2, :class => :text_field, :maxlength => "255"
+        - if APP_CONFIG.use_recaptcha && @current_community.use_captcha
+          .form_field_container
+            = form.label :recaptcha, t('.enter_captcha') 
+            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_captcha_link")
+            #captcha_container
+              = recaptcha_tags :ajax => true
         .form_field_container
           .signup_checkbox_container
             .signup_checkbox_input_container
-              %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
+              %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]"}
             .signup_checkbox_label_container
-              = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
-      .form_field_container
-        = form.label :email, t('.email'), :class => "before_description"
-        %span.tiny_description
-          = "(#{t('.visible_only_to_you')})"
-        = form.text_field :email, :class => :text_field, :maxlenght => "255"       
-      .form_field_container  
-        = form.label :password, t('.password')
-        = form.password_field :password, :class => :text_field, :maxlength => "255"
-      .form_field_container  
-        = form.label :password2, t('.password_again')
-        = form.password_field :password2, :class => :text_field, :maxlength => "255"
-      - if APP_CONFIG.use_recaptcha && @current_community.use_captcha
+              = form.label :terms, t('.i_accept_the'), :class => "checkbox"
+              = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link" 
         .form_field_container
-          = form.label :recaptcha, t('.enter_captcha') 
-          %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_captcha_link")
-          #captcha_container
-            = recaptcha_tags :ajax => true
-      .form_field_container
-        .signup_checkbox_container
-          .signup_checkbox_input_container
-            %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]"}
-          .signup_checkbox_label_container
-            = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-            = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link" 
-      .form_field_container
-        = form.hidden_field :consent, :value => @current_community.consent
-        = hidden_field_tag :community, @current_community.domain
-        = submit_tag(t('.create_new_account'), :class => "send_button")
+          = form.hidden_field :consent, :value => @current_community.consent
+          = hidden_field_tag :community, @current_community.domain
+          = submit_tag(t('.create_new_account'), :class => "send_button")
 
 = render :partial => "help_texts", :collection => ["help_captcha", "terms", "help_invitation_code"], :as => :field
         

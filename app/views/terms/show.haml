@@ -2,19 +2,35 @@
   initialize_terms_form();
 
 - if session[:consent_changed]
-  .grid_10.prefix_7.suffix_7
-    #signup_form
-      .form_field_container
-        %h2
-          = t('.terms_have_changed')
-        %p
-          = t('.you_need_to_accept_new_terms')
-        %p
-          = t('.you_can_view_the_new_terms')
-          = link_to(t(".here"), "#", :id => "terms_link") + "."
-      = form_tag accept_terms_path do
+  - if @private_layout
+    .container_12
+      .grid_6.prefix_3.suffix_3
+        #signup_form
+          .form_field_container
+            %h2
+              = t('.terms_have_changed')
+            %p
+              = t('.you_need_to_accept_new_terms')
+            %p
+              = t('.you_can_view_the_new_terms')
+              = link_to(t(".here"), "#", :id => "terms_link") + "."
+          = form_tag accept_terms_path do
+            .form_field_container
+              = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
+  - else
+    .grid_10.prefix_7.suffix_7
+      #signup_form
         .form_field_container
-          = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
+          %h2
+            = t('.terms_have_changed')
+          %p
+            = t('.you_need_to_accept_new_terms')
+          %p
+            = t('.you_can_view_the_new_terms')
+            = link_to(t(".here"), "#", :id => "terms_link") + "."
+        = form_tag accept_terms_path do
+          .form_field_container
+            = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
 - else
   .grid_10.prefix_7.suffix_7
     #signup_form
