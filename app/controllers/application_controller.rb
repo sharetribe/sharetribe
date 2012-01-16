@@ -114,7 +114,14 @@ class ApplicationController < ActionController::Base
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
         return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability"].include?(action_name)
         return if "sessions".eql?(controller_name) && ["create"].include?(action_name)
-        return if "terms".eql?(controller_name)
+        if "feedbacks".eql?(controller_name) && ["create"].include?(action_name)
+          @container_class = "container_12"
+          return
+        end
+        if "terms".eql?(controller_name)
+          @private_layout = true
+          return
+        end
         redirect_to :controller => :homepage, :action => :sign_in
       else
         # Show notification "you are not a member in this community"

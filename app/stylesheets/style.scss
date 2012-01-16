@@ -179,16 +179,6 @@ h3.brown {
 	}	
 }
 
-h3.orange_wide { @include colored_title($orange, 460px); }
-h3.brown_wide {
-	@include colored_title($medium_brown, 460px);
-	a {
-		color: $medium_brown;
-		&:hover { color: $dark_brown;};
-		&:focus { color: $dark_brown;};
-	}	
-}
-
 h4 {
 	margin: 10px 20px 15px 20px;
 }
@@ -443,6 +433,11 @@ form, input {
 	padding: 20px 30px 0 30px;
 	width: 880px;
 	margin: 0 0 30px 5px;
+	overflow: hidden;
+	p { font-size: 14px;}
+}
+
+#teaser_sign_in_page {
 	overflow: hidden;
 	p { font-size: 14px;}
 }
@@ -1208,41 +1203,6 @@ div.checkbox_float {
 		@include form_error_field;
 		width: 298px;
 		margin-left: 10px;
-	}
-}
-
-#frontpage_login_form {
-  overflow: hidden;
-  background: darken($teaser_bg, 8%);
-  padding: 20px;
-  @include rounded;
-  margin: 0 0 20px 30px;
-  width: 280px;
-  h2 {
-		font-weight: bold;
-		font-size: 16px;
-		margin-bottom: 15px;
-	}
-  label {
-    width: 230px;
-    height: 20px;
-		font-size: 14px;
-		font-weight: bold;
-	}
-  input.text_field {
-		font-weight: bold;
-		color: $text_color;
-		background: $bg_color;
-		width: 230px;
-		font-size: 14px;
-		height: 18px;
-		padding: 9px;
-		border: 0;
-		&:focus { background: white; }
-	}
-	input.send_button {
-		@include send_button;
-		margin: 10px 0;
 	}
 }
 
@@ -2981,28 +2941,4 @@ a.handle {
   padding: 15px 20px 10px 20px;
   width: 655px;
   margin-bottom: 20px;
-}
-
-#private_community_locale_padding {
-  margin-top: 37px;
-}
-
-.recent_listing_sign_in_page {
-  overflow: hidden;
-  width: 450px;
-  h5 { 
-    float: left;
-    width: 350px;
-  }
-  span { float: right; }
-}
-
-.request_spacer_wide {
-  @include spacer($orange);
-  width: 460px;
-}
-
-.offer_spacer_wide {
-  @include spacer;
-  width: 460px;
 }

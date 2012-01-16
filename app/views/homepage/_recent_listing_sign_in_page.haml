@@ -1,3 +1,3 @@
-.recent_listing_sign_in_page
-  %h5= t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
+.recent_listing
+  %h3= t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
   %span= time_ago(listing.created_at)
