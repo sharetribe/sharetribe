@@ -113,7 +113,7 @@ class ApplicationController < ActionController::Base
       elsif !@current_user && @current_community.private?
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
         return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability"].include?(action_name)
-        return if "sessions".eql?(controller_name) && ["create"].include?(action_name)
+        return if "sessions".eql?(controller_name) && ["create", "request_new_password"].include?(action_name)
         if "feedbacks".eql?(controller_name) && ["create"].include?(action_name)
           @container_class = "container_12"
           return
