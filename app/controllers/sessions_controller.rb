@@ -79,7 +79,11 @@ class SessionsController < ApplicationController
     rescue RestClient::ResourceNotFound => e 
       flash[:error] = :email_not_found
     end
-    redirect_to new_session_path
+    if @current_community && @current_community.private?
+      redirect_to :controller => :homepage, :action => :sign_in
+    else
+      redirect_to new_session_path
+    end
   end
   
   # This is used if user has not confirmed her email address
