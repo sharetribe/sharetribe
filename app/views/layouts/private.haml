@@ -28,11 +28,12 @@
           a.handle { background-position: -80px 0; }
           a.handle:hover { background-position: -120px 0; }
     
-    %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
-    
   %body
   
+    = image_tag("/images/kassi_logo.png", :class => "hidden")
+  
     %noscript
+      
       .js_enabled
         #no_javascript.container_12
           = render :partial => "layouts/no_javascript_private"

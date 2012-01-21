@@ -337,3 +337,6 @@ input[type=submit]:hover {
   margin-top: 10px;
   margin-bottom: 10px;
   height: 0; }
+
+.hidden {
+  display: none; }

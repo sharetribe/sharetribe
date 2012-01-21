@@ -610,3 +610,5 @@ div.container_12, div.feedback_div {
     border: 0; }
     #error_page_feedback_form textarea:focus {
       background: white; }
+
+.hidden { display: none; }
