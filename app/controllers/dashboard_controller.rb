@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
   # A custom action for World Design Capital 
   # Helsinki 2012 special page
   def wdc
+    I18n.locale = "fi"
     @communities = Community.where(:label => "wdc")
   end
   
