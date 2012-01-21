@@ -15,6 +15,6 @@
     :javascript
       $(document).ready(function() { #{yield :javascript} });
       
-    %link{:rel => "image_src", :href => "http://#{request.host}/images/kassi_logo.png"}
   %body
+    = image_tag("/images/kassi_logo.png", :class => "hidden")
     = yield

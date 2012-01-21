@@ -385,3 +385,5 @@ input[type=submit]:hover {
 .dashboard_spacer {
   @include spacer($lighter_grey);
 }
+
+.hidden { display: none; }
