@@ -14,5 +14,7 @@
     = javascript_include_tag 'jquery-1.6.2.min', 'jquery-ui-1.8.16.custom.min.js', 'jquery.ui.selectmenu.js', 'jquery.watermark.min', 'rails', 'kassi_dashboard', 'google_analytics'
     :javascript
       $(document).ready(function() { #{yield :javascript} });
+      
+    %link{:rel => "image_src", :href => "http://#{request.host}/images/kassi_logo.png"}
   %body
     = yield
