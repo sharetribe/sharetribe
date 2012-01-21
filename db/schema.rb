@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120113091548) do
+ActiveRecord::Schema.define(:version => 20120121091558) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20120113091548) do
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
     t.boolean  "news_enabled",                              :default => false
     t.boolean  "private",                                   :default => false
+    t.string   "label"
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|

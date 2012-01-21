@@ -29,10 +29,10 @@ class HomepageController < ApplicationController
   end
   
   def sign_in
-    @requests = Listing.requests.visible_to(@current_user, @current_community).open.limit(5)
-    @total_request_count = Listing.requests.visible_to(@current_user, @current_community).open.count
-    @offers = Listing.offers.visible_to(@current_user, @current_community).open.limit(5)
-    @total_offer_count = Listing.offers.visible_to(@current_user, @current_community).open.count
+    @requests = @current_community.listings.requests.open.limit(5)
+    @total_request_count = @current_community.listings.requests.open.count
+    @offers = @current_community.listings.offers.open.limit(5)
+    @total_offer_count = @current_community.listings.offers.open.count
     @container_class = "container_12"
   end
   

@@ -110,7 +110,7 @@ class ApplicationController < ActionController::Base
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
           Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
         end
-      elsif !@current_user && @current_community.private?
+      elsif @current_community.private?
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
         return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability"].include?(action_name)
         return if "sessions".eql?(controller_name) && ["create", "request_new_password"].include?(action_name)

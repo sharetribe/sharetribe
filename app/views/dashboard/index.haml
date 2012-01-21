@@ -1,25 +1,7 @@
 - content_for :javascript do
   initialize_dashboard('#{t("dashboard.index.email_default_text")}');
-  
-#header
-  .container_12
-    .grid_2.alpha
-      #logo
-        = image_tag("/images/dashboard/kassi_logo_text.png", :alt => "Kassi")
-    .grid_5
-      #slogan
-        = t(".slogan")
-    .grid_5.omega
-      #language_switch
-        #select_language_form
-          - if APP_CONFIG.available_locales.count > 1
-            = form_tag("/change_locale", :method => "get") do
-              = hidden_field_tag :redirect_uri, @return_to
-              = select_tag 'locale', options_for_select([["English", "en"], ["Suomi", "fi"]], params[:locale]), :onchange => 'this.form.submit()', :class => 'language_select'
-        #language_label
-          = t(".language")
-      
-      
+
+= render :partial => "header"
 
 #home_main
   .container_12
@@ -48,42 +30,5 @@
           #thanks
             = t(".thanks_for_contacting_us")
             
-#home_more_info
-  .container_12
-    .grid_4.alpha
-      %h2= t(".kassi_for_your_company")
-      %p= t(".kassi_for_your_company_description")
-    .grid_4
-      %h2= t(".kassi_for_your_city")
-      %p= t(".kassi_for_your_city_description")
-    .grid_4.omega
-      %h2= t(".kassi_for_your_university")
-      %p
-        = t(".kassi_for_your_university_description")
-        = link_to t(".kassi_in_aalto_university"), "http://aalto.kassi.eu/#{I18n.locale}"
-
-#footer
-  .container_12
-    .grid_4.alpha
-      %h3= t(".resources")
-      .grid_1.alpha
-        .white_corner
-      .grid_3.omega.footer_links
-        = link_to t(".blog"), "http://www.avoinyritys.fi"
-        %br/
-        = link_to t(".code"), "http://www.github.com/sizzlelab/kassi"
-        %br/
-        = link_to t(".issue_tracker"), "http://www.pivotaltracker.com/projects/76849"
-    .grid_4
-      %h3= t(".connect")
-      .grid_1.alpha
-        .white_corner
-      .grid_3.omega
-        #connect_icons
-          = link_to "#", "https://www.facebook.com/pages/Kassi/117309854407", :class => "left_icon facebook"
-          = link_to "#", "https://twitter.com/#!/kassi_eu", :class => "left_icon twitter"
-          = link_to "#", "https://plus.google.com/115623351324372170386", :class => "google_plus"
-    .grid_4.omega
-      #product
-        = t(".product_of")
-        Avoin Interactive Ltd.
+= render :partial => "lower_middle"
+= render :partial => "footer"
