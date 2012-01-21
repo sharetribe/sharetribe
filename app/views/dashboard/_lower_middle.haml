@@ -1,0 +1,13 @@
+#home_more_info
+  .container_12
+    .grid_4.alpha
+      %h2= t("dashboard.index.kassi_for_your_company")
+      %p= t("dashboard.index.kassi_for_your_company_description")
+    .grid_4
+      %h2= t("dashboard.index.kassi_for_your_city")
+      %p= t("dashboard.index.kassi_for_your_city_description")
+    .grid_4.omega
+      %h2= t("dashboard.index.kassi_for_your_university")
+      %p
+        = t("dashboard.index.kassi_for_your_university_description")
+        = link_to t("dashboard.index.kassi_in_aalto_university"), "http://aalto.kassi.eu/#{I18n.locale}"

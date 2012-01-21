@@ -5,18 +5,19 @@
         .notification_text
           = t("layouts.notifications.#{flash[announcement]}")
 
-.grid_16.prefix_4.suffix_4
-  .grid_8.alpha
-    = render :file => community_file("logo", false)
+.grid_8.prefix_2.suffix_2
+  .grid_4.alpha
+    #logo
+      = link_to image_tag("/images/dashboard/kassi_logo_text.png", :alt => "Kassi"), :controller => :homepage, :action => :sign_in
     #error_content
       %h2= t('error_pages.no_javascript.javascript_is_disabled_in_your_browser')
       %p= t('error_pages.no_javascript.kassi_does_not_currently_work_without_javascript')
 
-  .grid_8.omega
+  .grid_4.omega
     #error_kaapo
       = image_tag "/images/kaapo/sad_kaapo_big.png", :alt => "Kaapo"
 
-.grid_12.prefix_6.suffix_6
+.grid_8.prefix_2.suffix_2
   #error_page_feedback_form
     = form_for :feedback, :url => admin_feedbacks_path, :html => { :id => "new_error_feedback" } do |form|
       - unless logged_in?

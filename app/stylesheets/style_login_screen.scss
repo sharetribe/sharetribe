@@ -543,3 +543,67 @@ a.handle {
   display:none
 }
 
+div.container_12, div.feedback_div { display: none; } 
+.js_enabled div.container_12, .js_enabled div.feedback_div { display: block; }
+
+#error { 
+	margin-top: 120px; 
+	h2 {
+		margin-bottom: 5px;
+	}
+}
+
+#error_content {
+  margin-top: 70px;
+	h2 { 
+	  line-height: 30px;
+	  margin-bottom: 20px;
+	}
+}
+
+#error_kaapo {
+  margin-top: 20px;
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+
+#error_page_feedback_form {
+	@include form;
+	margin-bottom: 30px;
+	padding: 20px;
+	overflow: hidden;
+	input.send_button {
+		@include send_button;
+		font-size: 13px;
+		margin: 20px 35px 10px 0;
+	}
+	label {
+		float: left;
+		width: 405px;
+	}
+	input.text_field {
+		float: left;
+		color: $text_color;
+		background: $bg_color;
+		width: 405px;
+		border: 0;
+		&:focus { background: white; }
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		font-weight: bold;
+		margin: 5px 0 10px 0;
+	}
+	textarea {
+		float: left;
+		margin: 5px 0 0 0;
+		width: 405px;
+		color: $text_color;
+		background: $bg_color;
+		font-size: 12px;
+		height: 80px;
+		padding: 9px 9px;
+		border: 0;
+		&:focus { background: white; }
+	}
+}

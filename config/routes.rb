@@ -162,6 +162,9 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match '/wdc' => 'dashboard#wdc'
+  match '/okl' => 'dashboard#okl'
+  match '/omakotiliitto' => 'dashboard#okl'
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
@@ -189,6 +192,7 @@ Kassi::Application.routes.draw do
   match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
+  match '/:locale/:page_type' => 'dashboard#campaign'
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(Subdomain) do

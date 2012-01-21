@@ -65,6 +65,13 @@ h2 {
   letter-spacing: 1px;
 }
 
+h2.campaign_page {
+  margin: 18px 0 5px 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
 h3 {
   margin: 20px 0 0 0;
   font-size: 22px;
@@ -114,8 +121,8 @@ a:active {
   margin-right: 10px;
 }
 
-#home_main {
-  height: 421px;
+@mixin main($height: 421px) {
+  height: $height;
   background-color: #3e6e14;
   background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, from(rgb(34, 63, 5)), to(rgb(62, 110, 20)));
   background-image: -webkit-radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
@@ -133,12 +140,34 @@ a:active {
   }
 }
 
+#home_main {
+  @include main;
+}
+
+#campaign_main {
+  @include main(833px);
+  p { 
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  p.top { margin: 45px 0 20px 0; }
+}
+
 #home_main_title {
   height: 158px;
 }
 
 #home_main_screenshot {
   height: 223px;
+}
+
+.home_main_screenshot_longer {
+  height: 326px;
+  margin-bottom: 20px;
+}
+
+#home_main_screenshot_bottom {
+  height: 289px;
 }
 
 .form_field_container {
@@ -298,5 +327,19 @@ input[type=submit]:hover {
   a { 
     font-size: 14px;
     font-weight: 400;
+  }
+}
+
+#select_community_form {
+  overflow: hidden;
+  margin-bottom: 23px;
+}
+
+#logos {
+  overflow: hidden;
+  margin-top: 20px;
+  img { 
+    float: left;
+    margin-right: 30px;
   }
 }
