@@ -1,4 +1,20 @@
 #home_more_info
+  #new_stuff.container_12
+    .grid_12.alpha
+    #new_box
+      = t("dashboard.index.new")
+    #new_text
+      = t("dashboard.index.kassi_in_use")
+      = link_to t("dashboard.index.wdc_neighborhoods"), "http://#{request.host}/#{I18n.locale}/wdc"
+      = t("dashboard.index.and_for")
+      = link_to(t("dashboard.index.okl_members"), "http://#{request.host}/#{I18n.locale}/okl") + "!"
+    .clear
+  
+  .container_12
+    .grid_12.alpha
+      .dashboard_spacer
+    .clear
+    
   .container_12
     .grid_4.alpha
       %h2= t("dashboard.index.kassi_for_your_company")

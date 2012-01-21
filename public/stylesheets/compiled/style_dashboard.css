@@ -214,7 +214,7 @@ input[type=submit]:hover {
 #home_more_info {
   overflow: hidden;
   background: #f7f5e6;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.5);
@@ -304,3 +304,36 @@ input[type=submit]:hover {
   #logos img {
     float: left;
     margin-right: 30px; }
+
+#new_stuff {
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 25px; }
+
+#new_box {
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  background-color: #223f05;
+  padding: 5px 10px;
+  color: white;
+  font-size: 18px;
+  overflow: hidden;
+  float: left; }
+
+#new_text {
+  overflow: hidden;
+  font-size: 16px;
+  float: left;
+  padding-top: 6px;
+  margin-left: 20px; }
+  #new_text a {
+    font-size: 16px;
+    font-weight: 400; }
+
+.dashboard_spacer {
+  border-top: 1px solid #939393;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 0; }
