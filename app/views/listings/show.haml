@@ -78,15 +78,7 @@
         %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
       .float_left
         = facebook_like
-        - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
-        - content_for :head do
-          %meta{ :property => "og:title", :content => @listing.title} 
-          %meta{ :property => "og:type", :content =>"website"}
-          %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
-          %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
-          %meta{ :property => "og:site_name", :content =>"Kassi: "}
-          %meta{ :property => "fb:admins", :content =>"823616678"}
-          %meta{ :property => "og:description", :content => @listing.content}
+          
         
   .clear
   

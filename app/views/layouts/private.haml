@@ -8,7 +8,14 @@
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
       - else
         = "- #{@current_community.name}"
-
+    %meta{ :property => "og:type", :content =>"website"}
+    %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
+    %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
+    %meta{ :property => "og:site_name", :content =>"Kassi"}
+    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+    %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
     = stylesheet_link_tag "themes/kassi/jquery-ui-1.8.16.custom.css"
     = stylesheet_link_tag 'ui.selectmenu.css'
     = stylesheet_link_tag 'compiled/style_login_screen.css'

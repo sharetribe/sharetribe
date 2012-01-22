@@ -8,11 +8,16 @@
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
       - else
         = "- #{@current_community.name}"
-      
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
-    %meta{ :name => "keywords", :content => t(".keywords") }
-    - if @current_community.use_fb_like
+    - if @listing && action_name.eql?("show")
+      - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
+      %meta{ :property => "og:title", :content => @listing.title} 
+      %meta{ :property => "og:type", :content =>"website"}
+      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
+      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
+      %meta{ :property => "og:site_name", :content =>"Kassi: "}
+      %meta{ :property => "fb:admins", :content =>"823616678"}
+      %meta{ :property => "og:description", :content => @listing.content}
+    - else
       %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
@@ -20,6 +25,9 @@
       %meta{ :property => "og:site_name", :content =>"Kassi"}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
       %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
+    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
+    %meta{ :name => "keywords", :content => t(".keywords") }
     = yield :head
 
     = stylesheet_link_tag 'compiled/style.css'
