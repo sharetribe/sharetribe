@@ -10,7 +10,7 @@
         = "- #{@current_community.name}"
     - if @listing && action_name.eql?("show")
       - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
-      %meta{ :property => "og:title", :content => @listing.title} 
+      %meta{ :property => "og:title", :content => "#{@listing.title} - Kassi - #{@current_community.name}"} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
       %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
