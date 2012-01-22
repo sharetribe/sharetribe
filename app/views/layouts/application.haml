@@ -16,7 +16,7 @@
       %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
       %meta{ :property => "og:site_name", :content =>"Kassi: "}
       %meta{ :property => "fb:admins", :content =>"823616678"}
-      %meta{ :property => "og:description", :content => @listing.content}
+      %meta{ :property => "og:description", :content => @listing.description}
     - else
       %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
       %meta{ :property => "og:type", :content =>"website"}
@@ -25,8 +25,7 @@
       %meta{ :property => "og:site_name", :content =>"Kassi"}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
       %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
     %meta{ :name => "keywords", :content => t(".keywords") }
     = yield :head
 
