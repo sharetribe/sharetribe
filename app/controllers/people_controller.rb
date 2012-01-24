@@ -42,6 +42,12 @@ class PeopleController < ApplicationController
     end
     domain = "http://#{with_subdomain(params[:community])}"
     
+    if params[:person][:email2].present? # Honey pot for spammerbots
+      flash[:error] = :registration_considered_spam
+      ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
+      redirect_to domain + sign_up_path and return
+    end
+    
     if @current_community.join_with_invite_only
       # Check if invitation is valid
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
@@ -80,7 +86,7 @@ class PeopleController < ApplicationController
     
     # Try to create a new person in ASI.
     begin
-      @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
+      @person = Person.create(params[:person].except(:email2), session[:cookie], @current_community.use_asi_welcome_mail?)
       @person.set_default_preferences
       # Make person a member of the current community
       membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)

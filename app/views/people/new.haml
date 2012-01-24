@@ -37,7 +37,10 @@
           = form.label :email, t('.email'), :class => "before_description"
           %span.tiny_description
             = "(#{t('.visible_only_to_you')})"
-          = form.text_field :email, :class => :text_field, :maxlenght => "255"       
+          = form.text_field :email, :class => :text_field, :maxlenght => "255"
+          - # Honey pot: hidden field to detect spammers
+          = form.label :email2, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
+          = form.text_field :email2, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2"       
         .form_field_container  
           = form.label :password, t('.password')
           = form.password_field :password, :class => :text_field, :maxlength => "255"

@@ -24,7 +24,8 @@ class Person < ActiveRecord::Base
     
   attr_accessor :guid, :password, :password2, :username, :email, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
-                :form_password2, :form_email, :consent, :show_real_name_setting_affected
+                :form_password2, :form_email, :consent, :show_real_name_setting_affected,
+                :email2
   
   attr_protected :is_admin
 
