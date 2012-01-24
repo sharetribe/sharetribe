@@ -22,7 +22,6 @@ fi:
       sell: myydään
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
-    test: ~
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
@@ -428,6 +427,7 @@ fi:
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
       person_updated_successfully: "Tiedot päivitetty"
       read_more: "Lue lisää!"
+      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon vasemman laidan palautenapilla ja mainitse \"email2 virhe\"."
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
