@@ -9,7 +9,7 @@ class Community < ActiveRecord::Base
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
-  validates_uniqueness_of :domain
+  #validates_uniqueness_of :domain
   
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
