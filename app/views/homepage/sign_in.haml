@@ -35,18 +35,18 @@
       %h2{:class => "orange_wide"}
         = t('.recent_requests')
       = render :partial => "recent_listing_sign_in_page", :collection => @requests, :as => :listing, :spacer_template => "request_spacer_wide"
-    - if @total_request_count > 5
-      .offer_spacer_wide
-      .other_listings_info
-        = t(".plus")
-        = pluralize(@total_request_count - 5, t(".other_request"), t(".other_requests"))
+      - if @total_request_count > 5
+        .offer_spacer_wide
+        .other_listings_info
+          = t(".plus")
+          = pluralize(@total_request_count - 5, t(".other_request"), t(".other_requests"))
   - if @offers.size > 0
     .grid_6.omega
       %h2{:class => "brown_wide"}
         = t('.recent_offers')
       = render :partial => "recent_listing_sign_in_page", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer_wide"
-    - if @total_offer_count > 5
-      .offer_spacer_wide
-      .other_listings_info
-        = t(".plus")
-        = pluralize(@total_offer_count - 5, t(".other_offer"), t(".other_offers"))
+      - if @total_offer_count > 5
+        .offer_spacer_wide
+        .other_listings_info
+          = t(".plus")
+          = pluralize(@total_offer_count - 5, t(".other_offer"), t(".other_offers"))
