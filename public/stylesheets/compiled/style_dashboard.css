@@ -51,6 +51,17 @@ a:hover {
 a:active {
   color: #f8792f; }
 
+a.green_part_link {
+  color: #f8792f;
+  font-size: 16px;
+  font-weight: 400; }
+  a.green_part_link:hover {
+    color: #fa9961; }
+  a.green_part_link:focus {
+     color: #fa9961; }
+  a.green_part_link:active {
+     color: #f8792f; }
+
 #header {
   height: 64px;
   background: #f7f5e6; }
@@ -300,7 +311,7 @@ input[type=submit]:hover {
 
 #logos {
   overflow: hidden;
-  margin-top: 20px; }
+  margin-top: 30px; }
   #logos img {
     float: left;
     margin-right: 30px; }
@@ -325,7 +336,7 @@ input[type=submit]:hover {
   overflow: hidden;
   font-size: 16px;
   float: left;
-  padding-top: 6px;
+  padding-top: 7px;
   margin-left: 20px; }
   #new_text a {
     font-size: 16px;

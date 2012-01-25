@@ -8,6 +8,10 @@
       %h2
         = t('.sign_up')
       = render :file => community_file("signup_information", true)
+      - if @current_community.label.eql?("okl")
+        %p
+          = t('.member_id_is_your_username')
+          = link_to t(".join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
       = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
         = form.error_messages
         - if @current_community.join_with_invite_only
@@ -16,9 +20,11 @@
             %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
             = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
         .form_field_container
-          = form.label :username, t('.username'), :class => "before_description"
-          %span.tiny_description
-            = "(#{t('.visible_to_everybody')})" 
+          - username_label = @current_community.label.eql?("okl") ? t(".member_id") : t(".username") 
+          = form.label :username, username_label, :class => "before_description"
+          - unless @current_community.label.eql?("okl")
+            %span.tiny_description
+              = "(#{t('.visible_to_everybody')})" 
           = form.text_field :username, :class => :text_field, :maxlength => "20"
         .form_field_container
           = form.label :given_name, t('.given_name'), :class => "before_description"

@@ -5,8 +5,8 @@ function initialize_dashboard(email_default_text) {
 
 function initialize_campaign_page(select_default) {
 	$('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
-	$('select.community_select').selectmenu({style: 'dropdown', width: "370px"});
-	// Remove unnecessary default "select neighborhood" option from the menu
+	$('select.community_select').selectmenu({width: "370px", maxHeight: 175, style: 'dropdown'});
+	//Remove unnecessary default "select neighborhood" option from the menu
 	$('a:contains("' + select_default + '")').eq(1).parent().remove();
 }
 

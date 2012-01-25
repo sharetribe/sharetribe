@@ -44,6 +44,7 @@ gem 'web_translate_it', '<= 1.7.4.5' # newer seems to cause "Invalid gemspec:inv
 gem 'postmark-rails'
 gem 'rails-i18n'
 gem 'devise'
+gem 'spreadsheet'
 
 group :test do
   gem "rspec-rails", "2.0.0.beta.19" #
