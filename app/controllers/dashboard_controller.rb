@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
   # Helsinki 2012 special page
   def okl
     I18n.locale = "fi"
-    @communities = Community.where(:label => "okl")
+    @communities = Community.where(:label => "okl").order("name")
   end
   
   # This is for all the custom "campaign" sites

@@ -50,10 +50,10 @@
             = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Valitse yhdistyksesi:", :class => "community_select"
       %p.bottom
         Liittyäksesi Kassiin sinun pitää kuulua
-        johonkin Omakotiliiton jäsenyhdistykseen.
-        Jos kuulut, mutta yhdistyksesi ei ole
-        vieklä listalla, ota yhteys Juha Saarimäkeen,
-        juha.saarimaki@omakotiliitto.fi. Lisätietoja Kassi-palvelusta ja sen toiminnasta saa osoitteesta
+        johonkin Omakotiliiton jäsenyhdistykseen. Jos et vielä kuulu, nyt on hyvä aika
+        = link_to "liittyä!", "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
+      %p
+        Lisätietoja Kassi-palvelusta ja sen toiminnasta saa osoitteesta
         = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
       %p
         #logos

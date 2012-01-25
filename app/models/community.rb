@@ -7,8 +7,9 @@ class Community < ActiveRecord::Base
   has_and_belongs_to_many :listings
   
   validates_length_of :name, :in => 2..50
-  validates_length_of :domain, :in => 2..30
+  validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
+  validates_uniqueness_of :domain
   
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default

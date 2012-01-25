@@ -105,6 +105,15 @@ a:active {
 	color: $light_orange;
 }
 
+a.green_part_link { 
+  color: $light_orange;
+  font-size: 16px;
+  font-weight: 400;
+  &:hover { color: $lighter_orange; }
+  &:focus { color: $lighter_orange; }
+  &:active { color: $light_orange; }
+}
+
 #header {
   height: 64px;
 	background: $bg_color;
@@ -347,7 +356,7 @@ input[type=submit]:hover {
 
 #logos {
   overflow: hidden;
-  margin-top: 20px;
+  margin-top: 30px;
   img { 
     float: left;
     margin-right: 30px;
@@ -374,7 +383,7 @@ input[type=submit]:hover {
   overflow: hidden;
   font-size: 16px;
   float: left;
-  padding-top: 6px;
+  padding-top: 7px;
   margin-left: 20px;
   a { 
     font-size: 16px;
