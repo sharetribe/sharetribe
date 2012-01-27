@@ -298,14 +298,14 @@ fi:
       more_events: "Lisää tapahtumia..."
       news: Uutiset
       offer_something: "+ Listaa taitosi ja tavarasi!"
-      offer_something_description: "Lisää muille tarjoamasi tavarat, taidot ja kyydit"
-      or: tai
+      offer_something_description: "Tarjoa muille apua, tavaroita tai kyytejä"
+      or: ja
       or_see_what_the_others: "...tai katso mitä muut"
       recent_events: "Uusimmat tapahtumat"
       recent_offers: "Mitä muut tarjoavat"
       recent_requests: "Mitä muut tarvitsevat"
       request_something: "+ Kerro mitä tarvitset!"
-      request_something_description: "Kerro muille, jos tarvitset tavaran, kyydin tai apua"
+      request_something_description: "Kerro muille, kun tarvitset apua, tavaran tai kyydin"
       requesting: tarvitsevat
       teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
@@ -603,14 +603,14 @@ fi:
       temporary_accommodations: Tilapäismajoitus
       trades: Vaihdetaan
     link_labels:
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_favor_request: "Tarjoa apua"
-      link_label_for_housing_offer: Vastaa
-      link_label_for_housing_request: Vastaa
-      link_label_for_item_offer: "Pyydä tavaraa"
-      link_label_for_item_request: "Tarjoa tavaraa"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
+      link_label_for_favor_offer: "Ota yhteyttä"
+      link_label_for_favor_request: "Ota yhteyttä"
+      link_label_for_housing_offer: "Ota yhteyttä"
+      link_label_for_housing_request: "Ota yhteyttä"
+      link_label_for_item_offer: "Ota yhteyttä"
+      link_label_for_item_request: "Ota yhteyttä"
+      link_label_for_rideshare_offer: "Ota yhteyttä"
+      link_label_for_rideshare_request: "Ota yhteyttä"
     listed_listing:
       edit: Muokkaa
     listed_listing_closed_status:
