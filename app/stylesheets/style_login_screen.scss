@@ -118,19 +118,20 @@ h2.brown_wide {
 	}	
 }
 
-a, a:visited {
+a {
+  color: white;
+	&:hover {color: white; }
+	&:active {color: white; }
+	text-decoration: none;
+}
+
+a.form {
 	color: $orange;
 	font-size: 14px;
 	text-decoration: none;
 	font-weight: 500;
-}
-
-a:hover {
-	color: $light_orange;
-}
-
-a:active {
-	color: $light_orange;
+	&:hover {color: $light_orange; }
+	&:active {color: $light_orange; }
 }
 
 p { font-size: 18px; }
@@ -142,10 +143,6 @@ p { font-size: 18px; }
 #select_language_form {
   margin-top: 29px;
   float: right;
-  a {
-  	&:hover {color: white; }
-  	&:active {color: white; }
-  }
 }
 
 #slogan, #language_label {

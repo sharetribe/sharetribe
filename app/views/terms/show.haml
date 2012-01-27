@@ -13,7 +13,7 @@
               = t('.you_need_to_accept_new_terms')
             %p
               = t('.you_can_view_the_new_terms')
-              = link_to(t(".here"), "#", :id => "terms_link") + "."
+              = link_to(t(".here"), "#", :id => "terms_link", :class => "form") + "."
           = form_tag accept_terms_path do
             .form_field_container
               = submit_tag(t('.i_accept_new_terms'), :class => "send_button_terms")
