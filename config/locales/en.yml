@@ -33,10 +33,10 @@ en:
     new:
       default_offer_message_text: "Explain what you need."
       default_request_message_text: "Explain what you are offering and under what conditions."
-      favor_offer_message_form_title: "Ask a favor from"
-      favor_offer_message_title: "Favor request: %{title}"
-      favor_request_message_form_title: "Offer a favor to"
-      favor_request_message_title: "Favor offer: %{title}"
+      favor_offer_message_form_title: "Ask help from"
+      favor_offer_message_title: "Service request: %{title}"
+      favor_request_message_form_title: "Offer help to"
+      favor_request_message_title: "Service offer: %{title}"
       housing_offer_message_form_title: "Reply to"
       housing_offer_message_title: "Reply to your listing %{title}"
       housing_request_message_form_title: "Reply to"
@@ -143,8 +143,8 @@ en:
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received on %{date}."
       you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received on %{date}."
     badge_migration_notification:
-      badge_description1: "You can earn several different badges in Kassi as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, doing favors, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
-      badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in Kassi: buy, sell, lend and borrow items, do others favors, share rides and watch your badge arsenal grow!"
+      badge_description1: "You can earn several different badges in Kassi as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, helping others, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
+      badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in Kassi: buy, sell, lend and borrow items, help others out, share rides and watch your badge arsenal grow!"
       you_have_received_badges: "You have received badges in Kassi!"
       you_have_received_badges_in_kassi: "You have earned new badges in Kassi. You can view your badges by logging in to Kassi and going to"
     common:
@@ -281,10 +281,10 @@ en:
       items_to_offer: "Goods to lend: "
       items_to_request: "Goods to borrow: "
       log_in: "log in!"
-      no_offers_visible_unless_logged_in: "No item, favor or rideshare offers visible to non-logged-in users."
-      no_open_offers_currently: "No open item, favor or rideshare offers."
-      no_open_requests_currently: "No open item, favor or rideshare requests."
-      no_requests_visible_unless_logged_in: "No item, favor or rideshare requests visible to non-logged-in users."
+      no_offers_visible_unless_logged_in: "No item, service or rideshare offers visible to non-logged-in users."
+      no_open_offers_currently: "No open item, service or rideshare offers."
+      no_open_requests_currently: "No open item, service or rideshare requests."
+      no_requests_visible_unless_logged_in: "No item, service or rideshare requests visible to non-logged-in users."
       one_private_offer_exists: "There is already <b>one offer</b>,"
       one_private_request_exists: "There is already <b>one request</b>,"
       ride_offer: "Take others' kids to their hobbies"
@@ -297,15 +297,15 @@ en:
       loading_more_content: "Loading more content"
       more_events: "More events..."
       news: News
-      offer_something: "List your items and skills!"
-      offer_something_description: "Add the items, skills and rides you can offer"
-      or: or
+      offer_something: "Share with others!"
+      offer_something_description: "List things and deeds you can offer to others"
+      or: and
       or_see_what_the_others: "...or see what the others"
       recent_events: "Recent events"
       recent_offers: "What others can offer"
       recent_requests: "What others need"
       request_something: "Tell what you need!"
-      request_something_description: "Tell others if you need an item, a ride or help"
+      request_something_description: "Tell others when you need help, an item or a ride"
       requesting: need
       teaser_text: "Kassi is a service for the %{community} community. Here you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
@@ -341,8 +341,8 @@ en:
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Give feedback on Kassi"
-      keywords: "favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, trade, exchange, buying, selling, buy, sell, giving, give, Kassi, ecological, community, online community"
-      meta_description: "Kassi is a service that helps members of associations and other communities to do each other favors, sell and lend items to each other, organize car pooling and help each other in many other ways."
+      keywords: "service, favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, trade, exchange, buying, selling, buy, sell, giving, give, Kassi, ecological, community, online community"
+      meta_description: "Kassi is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested."
@@ -353,7 +353,7 @@ en:
       received: Received
       sent: Sent
     dashboard:
-      title: "Kassi - share goods, favors and rides in your local community!"
+      title: "Kassi - share goods, services and rides in your local community!"
     infos:
       about: "What is Kassi?"
       how_to_use: "How to use Kassi"
@@ -396,8 +396,8 @@ en:
       create_one_here: "create one here"
       email_not_found: "The email you gave was not found from Kassi database."
       error_with_session: "Error with session."
-      favor_offer_message_sent: "Favor request sent successfully"
-      favor_request_message_sent: "Favor offer sent successfully"
+      favor_offer_message_sent: "Request sent successfully"
+      favor_request_message_sent: "Offer sent successfully"
       feedback_considered_spam: "Feedback not saved, due to its formatting. Try again or use the feedback forum."
       feedback_not_saved: "Feedback could not be sent."
       feedback_saved: "Thanks for your feedback!"
@@ -440,7 +440,7 @@ en:
       this_content_is_not_available_in_this_community: "This content is not available in this community."
       unknown_error: "Unknown error. Please use the feedback link to send details about what happened."
       update_error: "An error occurred when trying to update your information, please try again"
-      welcome_message: "Welcome to Kassi! Kassi is a service that helps the members of the %{community} community to do each other favors, sell and lend items to each other, organize car pooling and help each other in many other ways."
+      welcome_message: "Welcome to Kassi! Kassi is a service that helps the members of the %{community} community to sell and lend items to each other, organize car pooling and help each other in many other ways."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"
       you_are_not_authorized_to_do_this: "You are not authorized to do this"
       you_are_not_authorized_to_view_this_content: "You are not authorized to view this content"
@@ -508,7 +508,7 @@ en:
       destination:
         destination: Destination
       form_content:
-        favor: Favor
+        favor: Service
         housing: Housing
         item: Item
         offer_something: "Offer something"
@@ -548,8 +548,8 @@ en:
         comma_separate: "(comma separate)"
         tags: Tags
       title:
-        favor_you_offer: "Favor you offer"
-        favor_you_request: "Favor you need"
+        favor_you_offer: "Service you offer"
+        favor_you_request: "Service you need"
         housing_you_offer: "Housing you offer"
         housing_you_request: "Housing you need"
         item_you_offer: "Item you offer"
@@ -573,7 +573,7 @@ en:
       all_request_types: "All request types"
       category: Category
       did_not_found_what_you_were_looking_for: "Didn't find what you need?"
-      favors: Favors
+      favors: Services
       housing: Housing
       items: Items
       list_view: "List view"
@@ -590,7 +590,7 @@ en:
     left_panel_link:
       borrows: Borrowing
       buys: Buying
-      favors: Favors
+      favors: Services
       give_aways: "Giving away"
       housings: Housing
       items: Items
@@ -603,14 +603,14 @@ en:
       temporary_accommodations: "Temporary accommodation"
       trades: Trading
     link_labels:
-      link_label_for_favor_offer: "Request favor"
-      link_label_for_favor_request: "Offer your help"
-      link_label_for_housing_offer: Reply
-      link_label_for_housing_request: Reply
-      link_label_for_item_offer: "Request item"
-      link_label_for_item_request: "Offer your item"
-      link_label_for_rideshare_offer: "Request ride"
-      link_label_for_rideshare_request: "Offer a ride"
+      link_label_for_favor_offer: Contact
+      link_label_for_favor_request: Contact
+      link_label_for_housing_offer: Contact
+      link_label_for_housing_request: Contact
+      link_label_for_item_offer: Contact
+      link_label_for_item_request: Contact
+      link_label_for_rideshare_offer: Contact
+      link_label_for_rideshare_request: Contact
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -630,8 +630,8 @@ en:
       request_closed: "Request is closed"
     show:
       comments: Comments
-      favor_offer: "Favor offer"
-      favor_request: "Favor request"
+      favor_offer: "Service offer"
+      favor_request: "Service request"
       housing_offer: "Housing offer"
       housing_request: "Housing request"
       item_offer: "Item offer"
@@ -659,7 +659,7 @@ en:
       all_request_types: "All request types"
       category: Category
       did_not_found_what_you_were_looking_for: "Didn't find what you need?"
-      favors: Favors
+      favors: Services
       housing: Housing
       items: Items
       list_view: "List view"
@@ -758,11 +758,11 @@ en:
       helper_bronze: "Helper (bronze)"
       helper_bronze_description: "You have offered your help to others two times, great!"
       helper_gold: "Helper (gold)"
-      helper_gold_description: "You are always a volunteer when someone needs help. 15 favors done, superb!"
+      helper_gold_description: "You are always a volunteer when someone needs help. 15 services done, superb!"
       helper_silver: "Helper (silver)"
-      helper_silver_description: "You like to spend your time helping others: 6 favors done!"
+      helper_silver_description: "You like to spend your time helping others: 6 services done!"
       jack_of_all_trades: "Jack of all trades"
-      jack_of_all_trades_description: "You are a true multitalent! You have been participating in resource exchange in five different roles. Carry on and collect all eight: item offerer, favor offerer, ride offerer, housing offerer, item requester, favor requester, ride requester and housing requester."
+      jack_of_all_trades_description: "You are a true multitalent! You have been participating in resource exchange in five different roles. Carry on and collect all eight: item offerer, service offerer, ride offerer, housing offerer, item requester, service requester, ride requester and housing requester."
       lender_bronze: "Lender (bronze)"
       lender_bronze_description: "You have listed three items that you could lend in your profile, great!"
       lender_gold: "Lender (gold)"
@@ -792,21 +792,21 @@ en:
       taxi_stand_silver: "Taxi stand (silver)"
       taxi_stand_silver_description: "10 added rideshare offers, great! People know who to ask if they need a ride."
       volunteer_bronze: "Volunteer (bronze)"
-      volunteer_bronze_description: "You like to put your skills in use by helping others. You have three open favor offers in Kassi."
+      volunteer_bronze_description: "You like to put your skills in use by helping others. You have three open service offers in Kassi."
       volunteer_gold: "Volunteer (gold)"
-      volunteer_gold_description: "You know nothing better than helping others. You have 25 open favor offers in your profile, fabulous!"
+      volunteer_gold_description: "You know nothing better than helping others. You have 25 open service offers in your profile, fabulous!"
       volunteer_silver: "Volunteer (silver)"
-      volunteer_silver_description: "You have a lot to give to the others: you have listed 10 favors that you could do in Kassi!"
+      volunteer_silver_description: "You have a lot to give to the others: you have listed 10 services that you could do in Kassi!"
     profile_feedback:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       grade: "grade:"
       less_than_expected: "Worse than expected"
-      offered_favor: "offered a favor"
+      offered_favor: "offered help"
       offered_housing: "offered housing"
       offered_item: "offered an item"
       offered_rideshare: "offered a ride"
-      requested_favor: "requested a favor"
+      requested_favor: "requested help"
       requested_housing: "requested housing"
       requested_item: "requested an item"
       requested_rideshare: "requested a ride"
