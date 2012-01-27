@@ -40,17 +40,23 @@ h2.brown_wide {
     h2.brown_wide a:focus {
       color: #4d3d26; }
 
-a, a:visited {
+a {
+  color: white;
+  text-decoration: none; }
+  a:hover {
+    color: white; }
+  a:active {
+    color: white; }
+
+a.form {
   color: #d45207;
   font-size: 14px;
   text-decoration: none;
   font-weight: 500; }
-
-a:hover {
-  color: #f8792f; }
-
-a:active {
-  color: #f8792f; }
+  a.form:hover {
+    color: #f8792f; }
+  a.form:active {
+    color: #f8792f; }
 
 p {
   font-size: 18px; }
@@ -61,10 +67,6 @@ p {
 #select_language_form {
   margin-top: 29px;
   float: right; }
-  #select_language_form a:hover {
-    color: white; }
-  #select_language_form a:active {
-    color: white; }
 
 #slogan, #language_label {
   color: #d45207;
@@ -610,5 +612,3 @@ div.container_12, div.feedback_div {
     border: 0; }
     #error_page_feedback_form textarea:focus {
       background: white; }
-
-.hidden { display: none; }
