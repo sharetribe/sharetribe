@@ -764,6 +764,12 @@ p.description {
 #favor_form, #rideshare_form, #housing_form {
   display: none; }
 
+#listing_form_title {
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 8px 8px 8px; }
+
 #listing_type_select_icons {
   overflow: hidden; }
 

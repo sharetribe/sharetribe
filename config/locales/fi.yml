@@ -508,12 +508,14 @@ fi:
       destination:
         destination: Määränpää
       form_content:
-        favor: Palvelus
-        housing: Asuminen
-        item: Tavara
+        favor: Apua
+        housing: Asunnon
+        item: Tavaran
         offer_something: "Tarjoa jotain"
         request_something: "Pyydä jotain"
-        rideshare: Kimppakyyti
+        rideshare: Kimppakyydin
+        i_want_to_offer: "Voin tarjota muille..."
+        i_want_to_request: "Tarvitsen..."
       googlemap:
         googlemap_copy: "Päätepisteet kartalta"
         googlemap_description: Karttanäkymä

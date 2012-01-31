@@ -2,14 +2,14 @@
   initialize_private_community_homepage('#{t(".username")}','#{t(".password")}');
 
 #image_header.container_12
-  = image_tag "private_community/promo_images.png", :alt => t("homepage.index.lend_rent_help_carpool")
+  = render(:file => community_file("private_community_image_header", false))
 
 #notification_container 
   = render :partial => "layouts/notifications"
 
 #main.container_12
-  .grid_7.alpha
-    %h1= t("homepage.index.lend_rent_help_carpool")
+  #main_text.grid_7.alpha
+    %h1= render :file => community_file("teaser_welcome_text_title", true)
     %p
       = render :file => community_file("teaser_welcome_text", true), :locals => {:community_name => @current_community.name_with_separator(I18n.locale)}
   .grid_5.omega

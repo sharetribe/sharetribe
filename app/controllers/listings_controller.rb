@@ -136,7 +136,7 @@ class ListingsController < ApplicationController
   def new
     @listing = Listing.new
     @listing.listing_type = params[:type]
-    @listing.category = params[:category] || "item"
+    @listing.category = params[:category]
     if @listing.category == "rideshare"
 	    @listing.build_origin_loc(:location_type => "origin_loc")
 	    @listing.build_destination_loc(:location_type => "destination_loc")

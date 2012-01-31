@@ -134,6 +134,16 @@ a.form {
 	&:active {color: $light_orange; }
 }
 
+a.form_small {
+	color: $orange;
+	font-size: 11px;
+	text-decoration: none;
+	font-weight: 400;
+	padding-top: 3px;
+	&:hover {color: $light_orange; }
+	&:active {color: $light_orange; }
+}
+
 p { font-size: 18px; }
 
 #logo {
@@ -168,6 +178,18 @@ p { font-size: 18px; }
 #main {
   margin-top: 20px;
   overflow: hidden;
+  h1 { line-height: 45px; }
+}
+
+#main_text {
+  a {
+  	color: $orange;
+  	font-size: 18px;
+  	text-decoration: none;
+  	font-weight: 500;
+  	&:hover {color: $light_orange; }
+  	&:active {color: $light_orange; }
+  }
 }
 
 .form_field_container {

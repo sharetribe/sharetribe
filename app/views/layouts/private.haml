@@ -69,14 +69,15 @@
           #logo
             = link_to image_tag("/images/dashboard/kassi_logo_text.png", :alt => "Kassi"), :controller => :homepage, :action => :sign_in
         .grid_10.omega
-          #language_switch
-            #select_language_form
-              - if APP_CONFIG.available_locales.count > 1
-                = form_tag("/change_locale", :method => "get") do
-                  = hidden_field_tag :redirect_uri, @return_to
-                  = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
-            #language_label
-              = t("dashboard.index.language")
+          - if available_locales.size > 1
+            #language_switch
+              #select_language_form
+                - if APP_CONFIG.available_locales.count > 1
+                  = form_tag("/change_locale", :method => "get") do
+                    = hidden_field_tag :redirect_uri, @return_to
+                    = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+              #language_label
+                = t("dashboard.index.language")
 
       = yield
 
