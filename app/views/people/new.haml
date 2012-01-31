@@ -17,7 +17,7 @@
         - if @current_community.join_with_invite_only
           .form_field_container
             = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
-            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link")
+            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
             = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
         .form_field_container
           - username_label = @current_community.label.eql?("okl") ? t(".member_id") : t(".username") 

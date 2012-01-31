@@ -58,6 +58,17 @@ a.form {
   a.form:active {
     color: #f8792f; }
 
+a.form_small {
+  color: #d45207;
+  font-size: 11px;
+  text-decoration: none;
+  font-weight: 400;
+  padding-top: 3px; }
+  a.form_small:hover {
+    color: #f8792f; }
+  a.form_small:active {
+    color: #f8792f; }
+
 p {
   font-size: 18px; }
 
@@ -88,6 +99,18 @@ p {
 #main {
   margin-top: 20px;
   overflow: hidden; }
+  #main h1 {
+    line-height: 45px; }
+
+#main_text a {
+  color: #d45207;
+  font-size: 18px;
+  text-decoration: none;
+  font-weight: 500; }
+  #main_text a:hover {
+    color: #f8792f; }
+  #main_text a:active {
+    color: #f8792f; }
 
 .form_field_container {
   margin-bottom: 15px; }

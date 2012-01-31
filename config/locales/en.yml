@@ -508,12 +508,14 @@ en:
       destination:
         destination: Destination
       form_content:
-        favor: Service
-        housing: Housing
-        item: Item
+        favor: A service
+        housing: Accommodation
+        item: An item
         offer_something: "Offer something"
         request_something: "Request something"
-        rideshare: Rideshare
+        rideshare: A ride
+        i_want_to_offer: "I want to offer..."
+        i_want_to_request: "I need..."
       googlemap:
         googlemap_copy: "End Points From Map"
         googlemap_description: Mapview

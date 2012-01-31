@@ -4,8 +4,8 @@ Kassi on pikkuhuopalahtelaisten oma verkkotori, jossa asukkaat voivat auttaa toi
 = link_to("vuokraus", new_listing_path(:type => :offer, :category => :item))
 ja
 = link_to("vaihto", new_listing_path(:type => :offer, :category => :item)) + ", "
-= link_to("kyytirinkien järjestäminen", new_listing_path(:type => :offer, :category => :item))
+= link_to("kyytirinkien järjestäminen", new_listing_path(:type => :offer, :category => :rideshare))
 sekä
-= link_to("avun tarjoaminen", new_listing_path(:type => :offer, :category => :item)) + " ja "
-= link_to("pyytäminen", new_listing_path(:type => :offer, :category => :item))
+= link_to("avun tarjoaminen", new_listing_path(:type => :offer, :category => :favor)) + " ja "
+= link_to("pyytäminen", new_listing_path(:type => :request, :category => :favor))
 eri arjen tilanteisiin.
