@@ -8,6 +8,7 @@ Feature: User creates a new listing
     And I am on the home page
     When I follow "Tell what you need!"
     #And I check "Buy"  #This combined with adding an image breaks the test in a mysterious way.
+    And I follow "an item"
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I fill in "listing_tag_list" with "Tools, hammers"
@@ -24,7 +25,8 @@ Feature: User creates a new listing
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "List your items and skills!"
+    When I follow "Share with others!"
+    And I follow "an item"
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
@@ -37,13 +39,13 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "Tell what you need!"
-    And I follow "Favor"
+    And I follow "a service"
     And I should not see "Borrow"
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
     And I press "Save request"
-    Then I should see "Favor request: Massage" within "h1"
+    Then I should see "Service request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
   
   @javascript  
@@ -51,7 +53,7 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "Tell what you need!"
-    And I follow "Rideshare"
+    And I follow "a ride"
     And I fill in "listing_origin" with "Otaniemi"
     And I fill in "listing_destination" with "Turku"
     And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
@@ -73,6 +75,7 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "Tell what you need!"
+    And I follow "an item"
     And I uncheck "borrow"
     And I attach the file "spec/fixtures/i_am_not_image.txt" to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
@@ -89,7 +92,7 @@ Feature: User creates a new listing
     Given I am logged in
     And I am on the home page
     When I follow "Tell what you need!"
-    And I follow "Rideshare"
+    And I follow "a ride"
     And I fill in "Origin" with "Test"
     And I choose "valid_until_select_date"
     And I select "31" from "listing_valid_until_3i"

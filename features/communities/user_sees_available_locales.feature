@@ -13,7 +13,7 @@ Feature: User sees available locales
     Then I should see "English" within "#uniform-locale"
     Then I should see "Finnish" within "#uniform-locale"
     Then I select "English" from "locale"
-    And I should see "List your items and skills!" within "#offer_something_button"
+    And I should see "Share with others!" within "#offer_something_button"
     And I select "Finnish" from "locale"
     Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
     
@@ -23,7 +23,7 @@ Feature: User sees available locales
       | en |
     When I am on the home page
     Then I should not see selector "#locale_select_padding"
-    And I should see "List your items and skills!" within "#offer_something_button"
+    And I should see "Share with others!" within "#offer_something_button"
   
   @javascript
   Scenario: There are no locales in community settings
@@ -33,7 +33,7 @@ Feature: User sees available locales
     Then I should see "English" within "#uniform-locale"
     Then I should see "Finnish" within "#uniform-locale"
     Then I select "English" from "locale"
-    And I should see "List your items and skills!" within "#offer_something_button"
+    And I should see "Share with others!" within "#offer_something_button"
     And I select "Finnish" from "locale"
     Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   

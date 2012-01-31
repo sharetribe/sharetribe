@@ -9,7 +9,7 @@ Feature: User views a single listing
     And there is favor request with title "Massage" from "kassi_testperson1"
     And I am on the home page
     When I follow "Massage"
-    Then I should see "Favor request: Massage"
+    Then I should see "Service request: Massage"
   
   @javascript
   Scenario: User tries to view a listing restricted viewable to community members without logging in

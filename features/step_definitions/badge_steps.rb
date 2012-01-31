@@ -75,12 +75,20 @@ end
 Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with share type "([^"]*)")?$/ do |category, listing_type, share_type|
   steps %Q{ When I go to the home page }
   if listing_type.eql?("offer")
-    steps %Q{ When I follow "List your items and skills!" }
+    steps %Q{ When I follow "Share with others!" }
   else
     steps %Q{ When I follow "Tell what you need!" }
   end
+  case category
+  when "item"
+    form_category = "an item"
+  when "favor"
+    form_category = "a service"
+  when "rideshare"
+    form_category = "a ride"   
+  end
   steps %Q{ 
-    And I follow "#{category.capitalize}"
+    And I follow "#{form_category}"
     And wait for 2 seconds
   }
   if category.eql?("rideshare")

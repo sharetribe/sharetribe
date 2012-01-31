@@ -15,15 +15,14 @@ Feature: User views homepage
     And visibility of that listing is "this_community"
     When I am on the homepage
     And I should see "car spare parts"
-    And I should see "Request item"
+    And I should see "Contact"
     And I should not see "bike"
     And I should not see "saw"
     And I log in as "kassi_testperson1"
     Then I should see "saw"
     And I should see "car spare parts"
     And I should not see "bike"
-    And I should not see "Request item"
-    And I should see "Offer your item"
+    And I should see "Contact"
   
   @javascript
   Scenario: Latest requests on the homepage
@@ -86,19 +85,19 @@ Feature: User views homepage
        | person | 
        | kassi_testperson1 |
     When I am on the homepage
-    Then I should see "No item, favor or rideshare requests visible to non-logged-in users."
-    And I should see "No item, favor or rideshare offers visible to non-logged-in users."
+    Then I should see "No item, service or rideshare requests visible to non-logged-in users."
+    And I should see "No item, service or rideshare offers visible to non-logged-in users."
     When I log in as "kassi_testperson2"
-    Then I should see "No open item, favor or rideshare requests."
-    And I should see "No open item, favor or rideshare offers."
+    Then I should see "No open item, service or rideshare requests."
+    And I should see "No open item, service or rideshare offers."
     When there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
     And I am on the homepage
-    Then I should not see "No open item, favor or rideshare requests."
-    And I should see "No open item, favor or rideshare offers."
+    Then I should not see "No open item, service or rideshare requests."
+    And I should see "No open item, service or rideshare offers."
     When there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
     And I am on the homepage
-    Then I should not see "No open item, favor or rideshare requests."
-    And I should not see "No open item, favor or rideshare offers."
+    Then I should not see "No open item, service or rideshare requests."
+    And I should not see "No open item, service or rideshare offers."
   
   @javascript
   Scenario: User browses homepage when there are only private listings. He should see blank slates
