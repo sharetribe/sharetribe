@@ -11,7 +11,7 @@ Feature: User requests an item in item offer
     And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
-    When I follow "Request item"
+    When I follow "Contact"
     And I fill in "Message:" with "I want to borrow this item"
     And I press "Send the request"
     Then I should see "Item request sent successfully" within "#notifications"
@@ -26,7 +26,7 @@ Feature: User requests an item in item offer
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
     When I follow "Hammer"
-    And I follow "Request item"
+    And I follow "Contact"
     And I fill in "Message:" with "I want to borrow this item"
     And I press "Send the request"
     Then I should see "Item request sent successfully" within "#notifications"
@@ -41,7 +41,7 @@ Feature: User requests an item in item offer
     And there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
     And I am logged in as "kassi_testperson2"
     And I am on the homepage
-    When I follow "Request item"
+    When I follow "Contact"
     And I press "Send the request"
     Then I should see "This field is required." within ".error"
   
@@ -53,7 +53,7 @@ Feature: User requests an item in item offer
       | kassi_testperson2 |
     Given there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
     And I am on the homepage
-    When I follow "Request item"
+    When I follow "Contact"
     Then I should see "You must log in to Kassi to send a message to another user." within "#notifications"
     And I should see "Log in to Kassi" within "h2"
   

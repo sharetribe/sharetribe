@@ -14,7 +14,7 @@ Feature: User skips feedback
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
-    And I follow "Favor offer: Massage"
+    And I follow "Service offer: Massage"
     And I follow "Skip feedback"
     Then I should see "Feedback skipped" within "#notifications"
     And I should see "Feedback skipped" within ".conversation_status_label_links"
