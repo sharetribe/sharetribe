@@ -25,7 +25,7 @@ class DashboardController < ApplicationController
       @communities = Community.where(:label => "wdc")
       render :wdc
     when *["okl","omakotiliitto"]
-      @communities = Community.where(:label => "okl")
+      @communities = Community.where(:label => "okl").order("name")
       render :okl
     else
       @contact_request = ContactRequest.new
