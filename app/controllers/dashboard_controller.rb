@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
   # Helsinki 2012 special page
   def wdc
     I18n.locale = "fi"
-    @communities = Community.where(:label => "wdc")
+    @communities = Community.where(:label => "wdc").order("name")
   end
   
   # A custom action for World Design Capital 
@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
   def campaign
     case params[:page_type]
     when "wdc"
-      @communities = Community.where(:label => "wdc")
+      @communities = Community.where(:label => "wdc").order("name")
       render :wdc
     when *["okl","omakotiliitto"]
       @communities = Community.where(:label => "okl").order("name")
