@@ -1,3 +1,13 @@
+- if @current_community.all_users_can_add_news?
+  - if params[:news_form]
+    .grid_18
+      = render :partial => "admin/news_items/new", :locals => { :info_view => true }
+    .clear
+  - else
+    .add_news_item_button
+      = link_to t("homepage.index.add_news_item"), news_infos_path(:news_form => true), :class => "big_link"
+    .listing_spacer
+
 - if @news_items.size > 0
   = render :partial => "infos/news_item", :collection => @news_items, :spacer_template => "listings/listing_spacer"
 - else

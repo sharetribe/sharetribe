@@ -532,6 +532,8 @@ form, input {
     font-size: 14px;
     margin-bottom: 5px;
   }
+  p.text { padding: 0 20px 10px 20px; }
+  a.big_link { font-size: 16px; }
   #invitation_form, #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden;
@@ -634,6 +636,23 @@ span.news_item_more_link {
   padding-top: 10px;
   float: left;
   clear: both;
+}
+
+.add_news_item_button {
+  width: 150px;
+	a {
+		display: block;
+		font-size: 12px;
+		text-align: center;
+		font-weight: normal;
+		padding: 5px 3px;
+		color: white;
+		background: $orange;
+		@include rounded;
+		&:hover { background: lighten($orange, 15%); }
+		&:active { background: darken($orange, 10%); }
+	}
+	margin: 0 0 20px 20px;
 }
 
 .recent_listings {

@@ -15,6 +15,7 @@ en:
       new:
         new_news_item: "Create an article"
         edit_news_item: "Edit article"
+        news_news_item: "Create an article"
         title: "Title:"
         content: "Content:"
         save_news_item: "Save article"
@@ -331,6 +332,8 @@ en:
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
     index:
       are_offering: offer
+      add_news_item: "Add an article"
+      inform_others_about_events: "Latest news and events in the community."
       lend_rent_help_carpool: "Sell, lend, help, share rides"
       loading_more_content: "Loading more content"
       more_events: "More events..."

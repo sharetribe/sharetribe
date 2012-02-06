@@ -10,6 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20120208145336) do
 
   create_table "badges", :force => true do |t|
@@ -305,7 +306,6 @@ ActiveRecord::Schema.define(:version => 20120208145336) do
   create_table "news_items", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "content"
     t.integer  "community_id"
     t.string   "author_id"
     t.datetime "created_at"
