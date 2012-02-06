@@ -621,6 +621,7 @@ function initialize_private_community_homepage(username_default_text, password_d
 	$('#username').watermark(username_default_text, {className: 'default_text'});
 	$('#password').watermark(password_default_text, {className: 'default_text'});
 	$('.wrapper').addClass('js_enabled');
+}	
 	
 function initialize_admin_news_item(news_item_id) {
   $('#news_item_' + news_item_id + '_content_link').click(function() { 

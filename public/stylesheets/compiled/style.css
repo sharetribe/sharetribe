@@ -441,6 +441,10 @@ form, input {
   .homepage_sidebar_box h3 {
     font-size: 14px;
     margin-bottom: 5px; }
+  .homepage_sidebar_box p.text {
+    padding: 0 20px 10px 20px; }
+  .homepage_sidebar_box a.big_link {
+    font-size: 16px; }
   .homepage_sidebar_box #invitation_form, .homepage_sidebar_box #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden; }
@@ -568,6 +572,25 @@ span.news_item_more_link {
   padding-top: 10px;
   float: left;
   clear: both; }
+
+.add_news_item_button {
+  width: 150px;
+  margin: 0 0 20px 20px; }
+  .add_news_item_button a {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    font-weight: normal;
+    padding: 5px 3px;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    .add_news_item_button a:hover {
+      background: #f8792f; }
+    .add_news_item_button a:active {
+      background: #a33f05; }
 
 .recent_listings {
   width: 340px; }

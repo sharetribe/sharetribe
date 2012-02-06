@@ -15,6 +15,7 @@ fi:
       new:
         new_news_item: "Uutisen lisäys"
         edit_news_item: "Uutisen muokkaus"
+        news_news_item: "Uutisen lisäys"
         title: "Otsikko:"
         content: "Teksti:"
         save_news_item: "Tallenna uutinen"
@@ -331,6 +332,8 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     index:
       are_offering: tarjoavat
+      add_news_item: "Lisää uutinen"
+      inform_others_about_events: "Yhteisön uusimmat uutiset ja tapahtumat."
       lend_rent_help_carpool: "Myy, lainaa, auta, kyyditse"
       loading_more_content: "Ladataan lisää"
       more_events: "Lisää tapahtumia..."
