@@ -19,7 +19,8 @@
       %span
         &ndash;
         = link_to listing.author.given_name_or_username, listing.author
-        = time_ago(listing.created_at)
+        - if  @current_community.show_date_in_listings_list
+          = time_ago(listing.created_at)
     .float_left
       - unless current_user?(listing.author)
         = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)

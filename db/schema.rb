@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120121091558) do
+ActiveRecord::Schema.define(:version => 20120208145336) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -62,9 +62,9 @@ ActiveRecord::Schema.define(:version => 20120121091558) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
-    t.boolean  "news_enabled",                              :default => false
     t.boolean  "private",                                   :default => false
     t.string   "label"
+    t.boolean  "show_date_in_listings_list",                :default => false
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -300,15 +300,6 @@ ActiveRecord::Schema.define(:version => 20120121091558) do
     t.integer  "conversation_id"
   end
 
-  create_table "news_items", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "community_id"
-    t.string   "author_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "notifications", :force => true do |t|
     t.string   "receiver_id"
     t.string   "type"
@@ -337,20 +328,43 @@ ActiveRecord::Schema.define(:version => 20120121091558) do
     t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                      :default => 0
+    t.string   "locale",                        :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",             :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                           :default => 1
-    t.boolean  "active",                                      :default => true
+    t.integer  "test_group_number",             :default => 1
+    t.boolean  "active",                        :default => true
+    t.boolean  "show_real_name_to_other_users", :default => true
+    t.string   "given_name"
+    t.string   "family_name"
+    t.string   "phone_number"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password",            :default => "",   :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                 :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "password_salt"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",               :default => true
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
+  add_index "people", ["email"], :name => "index_people_on_email", :unique => true
+  add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
+  add_index "people", ["username"], :name => "index_people_on_username", :unique => true
 
   create_table "people_smerf_forms", :force => true do |t|
     t.string  "person_id",     :null => false
@@ -388,33 +402,6 @@ ActiveRecord::Schema.define(:version => 20120121091558) do
   create_table "person_read_listings", :force => true do |t|
     t.string   "person_id"
     t.integer  "listing_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "poll_answers", :force => true do |t|
-    t.integer  "poll_id"
-    t.integer  "poll_option_id"
-    t.string   "answerer_id"
-    t.text     "comment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "poll_options", :force => true do |t|
-    t.string   "label"
-    t.integer  "poll_id"
-    t.float    "percentage", :default => 0.0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "polls", :force => true do |t|
-    t.string   "title"
-    t.string   "author_id"
-    t.boolean  "active",       :default => true
-    t.string   "community_id"
-    t.datetime "closed_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
