@@ -18,4 +18,5 @@
     .float_right
       %span
         = link_to listing.author.given_name_or_username, listing.author
-        = time_ago(listing.created_at)
+        - if  @current_community.show_date_in_listings_list
+          = time_ago(listing.created_at)
