@@ -125,7 +125,7 @@ class PersonMailer < ActionMailer::Base
   def reply_to_contact_request(email, locale)
     @no_settings = true
     set_locale locale
-    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>")
+    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>", :reply_to => "Juho Makkonen <info@kassi.eu>")
   end
   
   # Remind users of conversations that have not been accepted or rejected
