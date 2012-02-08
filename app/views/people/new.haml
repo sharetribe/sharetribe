@@ -14,11 +14,13 @@
           = link_to t(".join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
       = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
         = form.error_messages
-        - if @current_community.join_with_invite_only
+        - if @current_community.join_with_invite_only?
           .form_field_container
             = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
             %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
             = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
+        - elsif params[:code]
+          = hidden_field_tag "invitation_code", params[:code]
         .form_field_container
           - username_label = @current_community.label.eql?("okl") ? t(".member_id") : t(".username") 
           = form.label :username, username_label, :class => "before_description"

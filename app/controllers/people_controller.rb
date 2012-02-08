@@ -29,6 +29,7 @@ class PeopleController < ApplicationController
   end
 
   def new
+    redirect_to root if logged_in?
     @person = Person.new
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
@@ -48,7 +49,7 @@ class PeopleController < ApplicationController
       redirect_to domain + sign_up_path and return
     end
     
-    if @current_community.join_with_invite_only
+    if params[:invitation_code]
       # Check if invitation is valid
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
