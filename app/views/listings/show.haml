@@ -73,11 +73,11 @@
           #single_listing_location
             = @listing.location.address
     #additional_listing_links
-      .float_left
-        = link_to(t(".share"), "http://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
+    .float_left
+      = link_to(t(".share"), "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "kassi_eu", "data-related" => "avoinyritys:Our company blog.")
         %script{:type => "text/javascript", :src => "http://platform.twitter.com/widgets.js"}
-      .float_left
-        = facebook_like
+    .float_left
+      = facebook_like
           
         
   .clear
