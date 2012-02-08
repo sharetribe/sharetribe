@@ -19,7 +19,7 @@
       %span
         &ndash;
         = link_to listing.author.given_name_or_username, listing.author
-        - if  @current_community.show_date_in_listings_list
+        - if @current_community.show_date_in_listings_list
           = time_ago(listing.created_at)
     .float_left
       - unless current_user?(listing.author)
