@@ -28,6 +28,8 @@ module NavigationHelpers
       person_badges_path(:person_id => @people[$1].id)
     when /the listing page/
       listing_path(:id => @listing.id)
+    when /^the registration page with invitation code "(.*)"$/i
+      "/en/signup?code=#{$1}"
       
     # the following are examples using path_to_pickle
 
