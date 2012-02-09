@@ -1,0 +1,22 @@
+{
+  "please_wait": "Un momento...",
+  "validation_messages": {
+    "accept": "El archivo de imagen debe estar en formato GIF, JPG o PNG.",
+    "creditcard": "Por favor, introduce un número de tarjeta de crédito válido.",
+    "date": "Por favor ingresa una fecha válida.",
+    "dateISO": "Por favor ingresa una fecha válida.",
+    "digits": "Por favor ingresa sólo dígitos.",
+    "email": "Por favor introduzca una dirección de correo electrónico válida.",
+    "equalTo": "Por favor introduzca el mismo valor nuevamente.",
+    "max": "Por favor introduzca un valor inferior o igual a  {0} .",
+    "maxlength": "Por favor introduzca no más de  {0} caracteres.",
+    "min": "Por favor introduzca un valor mayor o igual a  {0} .",
+    "minlength": "Por favor introduzca al menos  {0} carácteres.",
+    "number": "Introduzca un número válido.",
+    "range": "Por favor ingrese un valor entre  {0} y  {1} .",
+    "rangelength": null,
+    "remote": "Por favor arreglar este campo.",
+    "required": "Este campo es obligatorio",
+    "url": "Por favor ingresa una URL válida."
+  }
+}
