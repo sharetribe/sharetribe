@@ -634,7 +634,8 @@ function initialize_admin_new_news_item_form() {
   $('#new_news_item input.text_field:first').focus();
   $('#new_news_item').validate({
 		rules: {
-		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200}
+		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
+		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
 		}
 	});
 }
@@ -644,7 +645,8 @@ function initialize_admin_new_poll_form() {
   $('#new_poll input.text_field:first').focus();
   $('#new_poll').validate({
 		rules: {
-		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200}
+		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
+		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
 		}
 	});
 }

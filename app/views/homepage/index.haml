@@ -1,4 +1,4 @@
-- if @news_items.size > 0
+- if @current_community.news_enabled? && @news_items.size > 0
   - content_for :javascript do
     initialize_homepage_news_items(#{array_or_string_for_javascript(@news_items.collect(&:id))});
     initialize_homepage();
@@ -86,7 +86,7 @@
       - if @current_community.all_users_can_add_news?
         %p.text
           = t(".inform_others_about_events")
-          .add_news_item_button
+          .add_news_item_button.news_item_button_homepage_margin
             = link_to t(".add_news_item"), news_infos_path(:news_form => true)
       #news_items_homepage
         - if @news_items.size > 0
