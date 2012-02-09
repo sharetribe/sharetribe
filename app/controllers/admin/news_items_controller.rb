@@ -3,7 +3,9 @@ class Admin::NewsItemsController < ApplicationController
   layout "layouts/admin"
   
   def index
-    @news_items = @current_community.news_items.order("created_at DESC")
+    params[:page] = 1 unless request.xhr?
+    @news_items = @current_community.news_items.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_news_items") : render
   end
   
   def new
@@ -21,8 +23,13 @@ class Admin::NewsItemsController < ApplicationController
         redirect_to admin_news_items_path(:type => "news")
       end
     else
+      logger.info @news_item.errors.full_messages.inspect
       flash[:error] = "news_item_creation_failed"
-      render :action => :new
+      if params[:info_view]
+        redirect_to news_infos_path
+      else
+        render :action => :new
+      end
     end
   end
   

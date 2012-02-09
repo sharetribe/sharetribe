@@ -12,6 +12,7 @@ fi:
         news_items: "Uusimmat uutiset"
         create_news_item: "Lisää uutinen"
         no_news: "Ei uutisia"
+        loading_more_news: "Ladataan lisää uutisia"
       new:
         new_news_item: "Uutisen lisäys"
         edit_news_item: "Uutisen muokkaus"
@@ -385,6 +386,9 @@ fi:
       other_offers: "muuta tarjousta"
       other_request: "muu pyyntö"
       other_requests: "muuta pyyntöä"
+  infos:
+    news:
+      news_from_community: "Uusimmat %{community}-yhteisön uutiset"
   layouts:
     admin:
       admin: "Kassin ylläpitonäkymä"

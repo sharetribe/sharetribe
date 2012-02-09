@@ -652,8 +652,9 @@ span.news_item_more_link {
 		&:hover { background: lighten($orange, 15%); }
 		&:active { background: darken($orange, 10%); }
 	}
-	margin: 0 0 20px 20px;
 }
+
+.news_item_button_homepage_margin { margin: 0 0 20px 20px; }
 
 .recent_listings {
 	width: 340px;
@@ -3027,7 +3028,7 @@ a.handle {
 		font-size: 14px;
 		height: 18px;
 		padding: 9px 9px;
-		width: 525px;
+		width: 425px;
 	}
 	input.send_button {
 		@include send_button;
@@ -3035,7 +3036,7 @@ a.handle {
 	}
 	textarea {
 		@include new_listing_form_field;
-		width: 529px;
+		width: 429px;
 		font-size: 12px;
 		height: 80px;
 		padding: 10px 5px 5px 9px;
@@ -3203,3 +3204,25 @@ span.option_percentage_admin_view {
   padding: 10px;
 }
 
+.infos_news_header_container { 
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.infos_news_title { 
+  float: left;
+  h2 { 
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+}
+.infos_news_create_link { 
+  float: right;
+  padding-top: 9px;
+}
+
+.news_item_infos_view {
+  overflow: hidden;
+  padding-bottom: 10px;
+}

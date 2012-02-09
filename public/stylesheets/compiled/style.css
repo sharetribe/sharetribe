@@ -574,8 +574,7 @@ span.news_item_more_link {
   clear: both; }
 
 .add_news_item_button {
-  width: 150px;
-  margin: 0 0 20px 20px; }
+  width: 150px; }
   .add_news_item_button a {
     display: block;
     font-size: 12px;
@@ -591,6 +590,9 @@ span.news_item_more_link {
       background: #f8792f; }
     .add_news_item_button a:active {
       background: #a33f05; }
+
+.news_item_button_homepage_margin {
+  margin: 0 0 20px 20px; }
 
 .recent_listings {
   width: 340px; }
@@ -3438,7 +3440,7 @@ a.handle:hover {
     font-size: 14px;
     height: 18px;
     padding: 9px 9px;
-    width: 525px; }
+    width: 425px; }
     #new_news_item_form input.text_field:focus, #new_poll_form input.text_field:focus {
       background: white; }
   #new_news_item_form input.send_button, #new_poll_form input.send_button {
@@ -3463,7 +3465,7 @@ a.handle:hover {
     background: #f7f5e6;
     width: 380px;
     border: 0;
-    width: 529px;
+    width: 429px;
     font-size: 12px;
     height: 80px;
     padding: 10px 5px 5px 9px; }
@@ -3648,3 +3650,23 @@ span.option_percentage_admin_view {
 
 .poll_answer {
   padding: 10px; }
+
+.infos_news_header_container {
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.infos_news_title {
+  float: left; }
+  .infos_news_title h2 {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    padding: 0; }
+
+.infos_news_create_link {
+  float: right;
+  padding-top: 9px; }
+
+.news_item_infos_view {
+  overflow: hidden;
+  padding-bottom: 10px; }
