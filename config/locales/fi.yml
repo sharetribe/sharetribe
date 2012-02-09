@@ -16,7 +16,7 @@ fi:
       new:
         new_news_item: "Uutisen lisäys"
         edit_news_item: "Uutisen muokkaus"
-        news_news_item: "Uutisen lisäys"
+        index_news_item: "Uutisen lisäys"
         title: "Otsikko:"
         content: "Teksti:"
         save_news_item: "Tallenna uutinen"
@@ -386,9 +386,6 @@ fi:
       other_offers: "muuta tarjousta"
       other_request: "muu pyyntö"
       other_requests: "muuta pyyntöä"
-  infos:
-    news:
-      news_from_community: "Uusimmat %{community}-yhteisön uutiset"
   layouts:
     admin:
       admin: "Kassin ylläpitonäkymä"
@@ -532,6 +529,7 @@ fi:
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
+      you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
     profile_extras_header:
@@ -749,6 +747,11 @@ fi:
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     please_comment: Kommentoi
+  news_items:
+    index:
+      news_from_community: "Uusimmat %{community}-yhteisön uutiset"
+    news_item:
+      delete_news_item: "Poista uutinen"
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"

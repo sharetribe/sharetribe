@@ -16,7 +16,7 @@ en:
       new:
         new_news_item: "Create an article"
         edit_news_item: "Edit article"
-        news_news_item: "Create an article"
+        index_news_item: "Create an article"
         title: "Title:"
         content: "Content:"
         save_news_item: "Save article"
@@ -529,6 +529,7 @@ en:
       you_must_log_in_to_view_this_content: "You must log in to view this content"
       you_must_log_in_to_view_your_inbox: "You must log in to Kassi to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to Kassi to view your settings."
+      you_must_log_in_to_add_news_item: "You must log in to Kassi to add a new article."
       you_need_to_confirm_your_account_first: "You need to confirm your account first."
       you_unfollowed_listing: "You are no longer following this listing"
     profile_extras_header:
@@ -746,6 +747,11 @@ en:
       search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
     please_comment: Comment
+  news_items:
+    index:
+      news_from_community: "Latest news from %{community} community"
+    news_item:
+      delete_news_item: "Remove article"
   people:
     badge_description:
       badge_achieved_at: "Badge achieved "
