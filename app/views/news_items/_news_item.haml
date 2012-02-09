@@ -8,3 +8,6 @@
     %p
       - text_with_line_breaks do
         = news_item.content
+    - if @current_user.has_admin_rights_in?(@current_community) || current_user?(news_item.author)
+      %p
+        = link_to t(".delete_news_item"), news_item_path(:id => news_item.id, :type => "news"), :method => :delete

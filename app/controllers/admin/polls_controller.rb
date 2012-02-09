@@ -2,6 +2,8 @@ class Admin::PollsController < ApplicationController
   
   layout "layouts/admin"
   
+  before_filter :ensure_is_admin
+  
   def index
     @polls = @current_community.polls.order("created_at DESC")
   end
