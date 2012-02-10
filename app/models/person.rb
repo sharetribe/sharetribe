@@ -75,6 +75,11 @@ class Person < ActiveRecord::Base
     
   serialize :preferences
   
+  before_validation(:on => :create) do
+    #self.id may already be correct in this point so use ||=
+    self.id ||= self.guid
+  end
+  
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)
     conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
@@ -130,11 +135,6 @@ class Person < ActiveRecord::Base
   def initialize(params={})
     self.guid = params[:id] #store GUID to temporary attribute
     super(params)
-  end
-  
-  def after_initialize
-    #self.id may already be correct in this point so use ||=
-    self.id ||= self.guid
   end
   
   def self.search(query)
