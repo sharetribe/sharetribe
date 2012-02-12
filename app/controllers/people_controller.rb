@@ -72,7 +72,7 @@ class PeopleController < Devise::RegistrationsController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || !@current_community.select_whether_name_is_shown_to_everybody)
     
-    if APP_CONFIG.use_asi
+    if use_asi?
       # Open an ASI Session first only for Kassi to be able to create a user
       @session = Session.create
       session[:cookie] = @session.cookie
@@ -80,7 +80,7 @@ class PeopleController < Devise::RegistrationsController
     
     # Try to create a new person in ASI.
     begin
-      if APP_CONFIG.use_asi
+      if use_asi?
         @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
       else
         # This part is copied from Devise's regstration_controller#create
@@ -142,7 +142,7 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def update_avatar
-    if params[:person] && params[:person][:image] && (APP_CONFIG.use_asi ? @person.update_avatar(params[:person][:image], session[:cookie]) : @person.update_attributes(params[:person]))
+    if params[:person] && params[:person][:image] && (use_asi? ? @person.update_avatar(params[:person][:image], session[:cookie]) : @person.update_attributes(params[:person]))
       flash[:notice] = :avatar_upload_successful
     else 
       flash[:error] = :avatar_upload_failed

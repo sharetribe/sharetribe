@@ -5,7 +5,7 @@
 # Because the delays in the http requests, we use some caching to store the
 # results of the ASI-requests.
 
-#if APP_CONFIG.use_asi #only override the methods if ASI is used.
+#if use_asi? #only override the methods if ASI is used.
 
   #class AsiPerson < Person
   module AsiPerson
@@ -13,89 +13,124 @@
     PERSON_HASH_CACHE_EXPIRE_TIME = 15.minutes
     PERSON_NAME_CACHE_EXPIRE_TIME = 3.hours
     
-    # Create a new person to ASI and Kassi.
-    def Person.create(params, cookie, asi_welcome_mail = false)
-      # Try to create the person to ASI
-      person_hash = {:person => params.slice(:username, :password, :email, :consent), :welcome_email => asi_welcome_mail}
-      response = PersonConnection.create_person(person_hash, cookie)
-
-      # Pick id from the response (same id in kassi and ASI DBs)
-      params[:id] = response["entry"]["id"]
-
-      # Because ASI now associates the used cookie to a session for the newly created user
-      # Change the KassiCookie to nil if it was used (because now it is no more an app-only cookie) 
-      Session.update_kassi_cookie   if  (cookie == Session.kassi_cookie)    
-
-      # Add name information for the person to ASI 
-      params["given_name"] = params["given_name"].slice(0, 28)
-      params["family_name"] = params["family_name"].slice(0, 28)
-      Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
-      PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number, :consent, :confirmed_at, :show_real_name_to_other_users), params[:id], cookie)
-      # Create locally with less attributes 
-      super(params.except(:username, :email, "name", :terms, :consent))
+    def self.included(base) # :nodoc:
+      base.extend ClassMethods
     end
+
+    module ClassMethods
+    
+    
+      def asi_methods_loaded?
+        return true
+      end
+         
+      # Create a new person to ASI and Kassi.
+      def create(params, cookie, asi_welcome_mail = false)
+        # Try to create the person to ASI
+        person_hash = {:person => params.slice(:username, :password, :email, :consent), :welcome_email => asi_welcome_mail}
+        response = PersonConnection.create_person(person_hash, cookie)
+
+        # Pick id from the response (same id in kassi and ASI DBs)
+        params[:id] = response["entry"]["id"]
+
+        # Because ASI now associates the used cookie to a session for the newly created user
+        # Change the KassiCookie to nil if it was used (because now it is no more an app-only cookie) 
+        Session.update_kassi_cookie   if  (cookie == Session.kassi_cookie)    
+
+        # Add name information for the person to ASI 
+        params["given_name"] = params["given_name"].slice(0, 28)
+        params["family_name"] = params["family_name"].slice(0, 28)
+        Person.remove_root_level_fields(params, "name", ["given_name", "family_name"])  
+        PersonConnection.put_attributes(params.except(:username, :email, :password, :password2, :locale, :terms, :id, :test_group_number, :consent, :confirmed_at, :show_real_name_to_other_users), params[:id], cookie)
+        # Create locally with less attributes 
+        super(params.except(:username, :email, "name", :terms, :consent, :password))
+      end
+      
+      # Creates a record to local DB with given id
+      # Should be used only with ids that exist also in ASI
+      def add_to_kassi_db(id)
+        person = Person.new({:id => id })
+
+        if person.save!
+          return person
+        else
+          return nil
+          logger.error { "Error storing person to Kassi DB with ID: #{id}" }
+        end
+      end
+      
+      def search(query)
+        cookie = Session.kassi_cookie
+        begin
+          person_hash = PersonConnection.search(query, cookie)
+        rescue RestClient::ResourceNotFound => e
+          #Could not find person with that id in ASI Database!
+          return nil
+        end  
+        return person_hash
+      end
+
+      def search_by_phone_number(number)
+        cookie = Session.kassi_cookie
+        begin
+          person_hash = PersonConnection.search_by_phone_number(number, cookie)
+        rescue RestClient::ResourceNotFound => e
+          #Could not find person with that id in ASI Database!
+          return nil
+        end  
+        return person_hash["entry"][0]
+      end
+
+      def username_available?(username, cookie=Session.kassi_cookie)
+        resp = PersonConnection.availability({:username => username}, cookie)
+        if resp["entry"] && resp["entry"][0]["username"] && resp["entry"][0]["username"] == "unavailable"
+          return false
+        else
+          return true
+        end
+      end
+
+      def email_available?(email, cookie=Session.kassi_cookie)
+        resp = PersonConnection.availability({:email => email}, cookie)
+        if resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable"
+          return false
+        else
+          return true
+        end
+      end
+      
+      # Takes a person hash from ASI and extracts ids from it
+      # into an array.
+      def get_person_ids(person_hash)
+        return nil if person_hash.nil?
+        person_hash["entry"].collect { |person| person["id"] }
+      end
+
+      # Methods to simplify the cache access
+      def cache_fetch(id,cookie)
+        #PersonConnection.get_person(id, cookie)
+        Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
+      end
+
+      def cache_write(person_hash,id,cookie)
+        Rails.cache.write(cache_key(id,cookie), person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
+      end
+
+      def cache_delete(id,cookie)
+        Rails.cache.delete(cache_key(id,cookie))
+      end
+      
+      # Returns those people who are also kassi users
+      def find_kassi_users_by_ids(ids)
+        Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')")
+      end
+      
+    end #end the module ClassMethods  
     
     # Using GUID string as primary key and id requires little fixing like this
     def initialize(params={})
       self.guid = params[:id] #store GUID to temporary attribute
       super(params)
-    end
-  
-    def after_initialize
-      #self.id may already be correct in this point so use ||=
-      self.id ||= self.guid
-    end
-    
-    # Creates a record to local DB with given id
-    # Should be used only with ids that exist also in ASI
-    def Person.add_to_kassi_db(id)
-      person = Person.new({:id => id })
-      if person.save
-        return person
-      else
-        return nil
-        logger.error { "Error storing person to Kassi DB with ID: #{id}" }
-      end
-    end
-
-    def Person.search(query)
-      cookie = Session.kassi_cookie
-      begin
-        person_hash = PersonConnection.search(query, cookie)
-      rescue RestClient::ResourceNotFound => e
-        #Could not find person with that id in ASI Database!
-        return nil
-      end  
-      return person_hash
-    end
-
-    def Person.search_by_phone_number(number)
-      cookie = Session.kassi_cookie
-      begin
-        person_hash = PersonConnection.search_by_phone_number(number, cookie)
-      rescue RestClient::ResourceNotFound => e
-        #Could not find person with that id in ASI Database!
-        return nil
-      end  
-      return person_hash["entry"][0]
-    end
-
-    def Person.username_available?(username, cookie=Session.kassi_cookie)
-      resp = PersonConnection.availability({:username => username}, cookie)
-      if resp["entry"] && resp["entry"][0]["username"] && resp["entry"][0]["username"] == "unavailable"
-        return false
-      else
-        return true
-      end
-    end
-
-    def Person.email_available?(email, cookie=Session.kassi_cookie)
-      resp = PersonConnection.availability({:email => email}, cookie)
-      if resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable"
-        return false
-      else
-        return true
-      end
     end
 
     def username(cookie=nil)
@@ -280,11 +315,6 @@
       Person.get_person_ids(get_friends(cookie))
     end
 
-    # Returns those people who are also kassi users
-    def Person.find_kassi_users_by_ids(ids)
-      Person.find_by_sql("SELECT * FROM people WHERE id IN ('" + ids.join("', '") + "')")
-    end
-
     def add_as_friend(friend_id, cookie)
       PersonConnection.add_as_friend(friend_id, self.id, cookie)
     end
@@ -378,7 +408,7 @@
       cookie = Session.kassi_cookie if cookie.nil?
 
       begin
-        person_hash = Person.cache_fetch(id,cookie)
+        person_hash = self.class.cache_fetch(id,cookie)
       rescue RestClient::ResourceNotFound => e
         #Could not find person with that id in ASI Database!
         return nil
@@ -393,26 +423,7 @@
       return person_hash["connection"]
     end
 
-    # Takes a person hash from ASI and extracts ids from it
-    # into an array.
-    def Person.get_person_ids(person_hash)
-      return nil if person_hash.nil?
-      person_hash["entry"].collect { |person| person["id"] }
-    end
-
-    # Methods to simplify the cache access
-    def Person.cache_fetch(id,cookie)
-      #PersonConnection.get_person(id, cookie)
-      Rails.cache.fetch(cache_key(id,cookie), :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME) {PersonConnection.get_person(id, cookie)}
-    end
-
-    def Person.cache_write(person_hash,id,cookie)
-      Rails.cache.write(cache_key(id,cookie), person_hash, :expires_in => PERSON_HASH_CACHE_EXPIRE_TIME)
-    end
-
-    def Person.cache_delete(id,cookie)
-      Rails.cache.delete(cache_key(id,cookie))
-    end
+    
     
   end
 #end

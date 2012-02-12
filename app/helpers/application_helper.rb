@@ -1,5 +1,7 @@
 module ApplicationHelper
   
+  @@use_asi_in_this_test = true
+  
   # Removes whitespaces from HAML expressions
   def one_line(&block)
     haml_concat capture_haml(&block).gsub("\n", '')
@@ -58,7 +60,7 @@ module ApplicationHelper
   end
   
   def small_avatar_thumb(person)
-    if APP_CONFIG.use_asi    
+    if use_asi?    
       link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
     else
       link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
@@ -66,7 +68,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    if APP_CONFIG.use_asi
+    if use_asi?
       image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
     else
       image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
@@ -139,6 +141,22 @@ module ApplicationHelper
   
   def facebook_like
     content_tag :iframe, nil, :src => "http://www.facebook.com/plugins/like.php?locale=#{I18n.locale}_#{I18n.locale.to_s.upcase}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=true&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 120, :height => 20
+  end
+  
+  def self.use_asi?
+    unless Rails.env == "test"
+      return APP_CONFIG.use_asi
+    else
+      return @@use_asi_in_this_test
+    end  
+  end
+  
+  def use_asi?
+    ApplicationHelper.use_asi?
+  end
+  
+  def use_asi_in_this_test=(value)
+    @@use_asi_in_this_test = value
   end
   
   def self.random_sting(length=6)

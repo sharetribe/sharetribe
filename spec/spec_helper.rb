@@ -1,3 +1,26 @@
+# A script to test if spec_helper is loaded multiple times (which would slow down the tests)
+if $LOADED_FEATURES.grep(/spec\/spec_helper\.rb/).any?
+  begin
+    raise "foo"
+  rescue => e
+    puts <<-MSG
+  ===================================================
+  It looks like spec_helper.rb has been loaded
+  multiple times. Normalize the require to:
+
+    require "spec/spec_helper"
+
+  Things like File.join and File.expand_path will
+  cause it to be loaded multiple times.
+
+  Loaded this time from:
+
+    #{e.backtrace.join("\n    ")}
+  ===================================================
+    MSG
+  end
+end
+
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
 ENV["RAILS_ENV"] ||= 'test'
@@ -29,29 +52,6 @@ end
 require File.expand_path('../../test/helper_modules', __FILE__)
 include TestHelpers
 
-# def get_test_person_and_session(username="kassi_testperson1")
-#   session = nil
-#   test_person = nil
-#   
-#   #frist try loggin in to cos
-#   begin
-#     session = Session.create({:username => username, :password => "testi" })
-#     #try to find in kassi database
-#     test_person = Person.find(session.person_id)
-# 
-#   rescue RestClient::Request::Unauthorized => e
-#     #if not found, create completely new
-#     session = Session.create
-#     test_person = Person.create({ :username => username, 
-#                     :password => "testi", 
-#                     :email => "#{username}@example.com"},
-#                      session.headers["Cookie"])
-#                      
-#   rescue ActiveRecord::RecordNotFound  => e
-#     test_person = Person.add_to_kassi_db(session.person_id)
-#   end
-#   return [test_person, session]
-# end
 
 def uploaded_file(filename, content_type)
   t = Tempfile.new(filename)
@@ -64,4 +64,8 @@ def uploaded_file(filename, content_type)
     define_method(:content_type) {content_type}
   end
   return t
+end
+
+RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
 end

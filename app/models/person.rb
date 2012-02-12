@@ -14,9 +14,9 @@ class Person < ActiveRecord::Base
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :confirmable
+  #devise :confirmable
     
-  if not APP_CONFIG.use_asi
+  if not ApplicationHelper::use_asi?
     # Include default devise modules. Others available are:
     # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
@@ -84,24 +84,25 @@ class Person < ActiveRecord::Base
     
   serialize :preferences
   
-  validates_uniqueness_of :username
-  validates_uniqueness_of :email
-  validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
-  validates_length_of :username, :within => 3..12
-  validates_length_of :given_name, :within => 1..20, :allow_nil => true, :allow_blank => true
-  validates_length_of :family_name, :within => 1..20, :allow_nil => true, :allow_blank => true
-  validates_length_of :email, :maximum => 255
+  if not ApplicationHelper::use_asi?
+    validates_uniqueness_of :username
+    validates_uniqueness_of :email
+    validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
+    validates_length_of :username, :within => 3..20
+    validates_length_of :given_name, :within => 1..20, :allow_nil => true, :allow_blank => true
+    validates_length_of :family_name, :within => 1..20, :allow_nil => true, :allow_blank => true
+    validates_length_of :email, :maximum => 255
 
-  validates_format_of :username,
-                       :with => /^[A-Z0-9_]*$/i
+    validates_format_of :username,
+                         :with => /^[A-Z0-9_]*$/i
 
-  validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
-                       :allow_blank => true,
-                       :allow_nil => true
+    validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
+                         :allow_blank => true,
+                         :allow_nil => true
 
-  validates_format_of :email,
-                       :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
- 
+    validates_format_of :email,
+                         :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+  
  
   # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
   has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
@@ -111,13 +112,54 @@ class Person < ActiveRecord::Base
                                       :content_type => ["image/jpeg", "image/png", "image/gif", 
                                         "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
  
+    before_validation(:on => :create) do
+      self.id = UUID.timestamp_create.to_s22 
+      #self.id = UUIDTools::UUID.timestamp_create().to_s22 # GEM VERSION
+    end
+ 
+  else # this is only needed if ASI is in use
+  
+    before_validation(:on => :create) do
+      #self.id may already be correct in this point so use ||=
+      self.id ||= self.guid
+    end
+    
+  end
   
   # This module contains the methods that are used to store used data on Kassi's database.
   # If ASI server is used, this module is not loaded, but AsiPerson module is loaded instead.
   module LocalPerson
+    
+    def self.included(base) # :nodoc:
+      base.extend ClassMethods
+    end
+
+    module ClassMethods  
       
+      def asi_methods_loaded?
+        return false
+      end
 
+      def username_available?(username, cookie=nil)
+         if Person.find_by_username(username).present?
+           return false
+         else
+           return true
+         end
+       end
 
+       def email_available?(email, cookie=nil)
+         if Person.find_by_email(email).present?
+           return false
+         else
+           return true
+         end
+       end
+    
+    end #end the module ClassMethods
+    
+    
+    
     
          # 
          # PERSON_HASH_CACHE_EXPIRE_TIME = 15.minutes
@@ -191,21 +233,7 @@ class Person < ActiveRecord::Base
          #  end
          # 
          
-         def Person.username_available?(username, cookie=nil)
-           if Person.find_by_username(username).present?
-             return false
-           else
-             return true
-           end
-         end
-
-         def Person.email_available?(email, cookie=nil)
-           if Person.find_by_email(email).present?
-             return false
-           else
-             return true
-           end
-         end
+         
          
          # 
          #  def username(cookie=nil)
@@ -301,6 +329,10 @@ class Person < ActiveRecord::Base
          
          def email(cookie=nil)
            super()
+         end
+         
+         def set_email(email, cookie=nil)
+           update_attributes({:email => email})
          end
          
 
@@ -438,11 +470,6 @@ class Person < ActiveRecord::Base
          #  end
          #     
     
-  end
-  
-  before_validation(:on => :create) do
-      self.id = UUID.timestamp_create.to_s22 
-      #self.id = UUIDTools::UUID.timestamp_create().to_s22 # GEM VERSION
   end
   
   # Returns conversations for the "received" and "sent" actions
@@ -594,7 +621,7 @@ class Person < ActiveRecord::Base
   end
   
   # If ASI is in use, methods are loaded from AsiPerson, otherwise from LocalPersonMethods which is defined in this file
-  if APP_CONFIG.use_asi
+  if ApplicationHelper.use_asi?
     include AsiPerson
   else
     include LocalPerson
