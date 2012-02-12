@@ -11,6 +11,11 @@ class PeopleController < Devise::RegistrationsController
   before_filter :person_belongs_to_current_community, :only => :show
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
+  if ApplicationHelper.use_asi?
+    # We don't use devise's authentication with ASI
+    skip_filter :authenticate_scope! 
+  end
+  
   helper_method :show_closed?
   
   def index
