@@ -1,14 +1,14 @@
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("username", :with => (person ? person : "kassi_testperson1"))
-  fill_in("password", :with => "testi")
+  fill_in("person[username]", :with => (person ? person : "kassi_testperson1"))
+  fill_in("person[password]", :with => "testi")
   click_button("Log in")
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("username", :with => (person ? person : "kassi_testperson1"))
-  fill_in("password", :with => "testi")
+  fill_in("person[username]", :with => (person ? person : "kassi_testperson1"))
+  fill_in("person[password]", :with => "testi")
   click_button("Log in")
 end
 
@@ -97,11 +97,11 @@ Given /^I already have an OtaSizzle account$/ do
 end
 
 When /^I fill in username with my OtaSizzle username$/ do
-  fill_in("username", :with => @username)
+  fill_in("person_username", :with => @username)
 end
 
 When /^I fill in password with my OtaSizzle password$/ do
-  fill_in("password", :with => @password)
+  fill_in("person_password", :with => @password)
 end
 
 Given /^"([^"]*)" has admin rights$/ do |username|

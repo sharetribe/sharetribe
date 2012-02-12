@@ -3,6 +3,10 @@ require 'spec_helper'
 describe PeopleController do
   fixtures :communities
   
+  before(:each) do
+    @request.env["devise.mapping"] = Devise.mappings[:person]
+  end
+  
   describe "#create" do
     it "should tell ASI to skip welcome mail if that's in the community's settings" do
       

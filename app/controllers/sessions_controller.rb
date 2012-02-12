@@ -21,8 +21,9 @@ class SessionsController < ApplicationController
 
     session[:form_username] = params[:person][:username]
     
-    if APP_CONFIG.use_asi
+    if use_asi?
       # Start a session with ASI
+      
       begin
         @session = Session.create({ :username => params[:person][:username], 
           :password => params[:person][:password] })
@@ -33,6 +34,8 @@ class SessionsController < ApplicationController
         flash[:error] = :login_failed
         redirect_to domain + login_path and return
       end
+      
+      
     else
       # Start a session with Devise
       
@@ -62,7 +65,7 @@ class SessionsController < ApplicationController
       redirect_to domain + terms_path and return
     end
     
-    if APP_CONFIG.use_asi
+    if use_asi?
       session[:cookie] = @session.cookie
       session[:person_id] = @session.person_id 
     else
@@ -82,7 +85,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if APP_CONFIG.use_asi
+    if use_asi?
       Session.destroy(session[:cookie]) if session[:cookie]
     else
       sign_out

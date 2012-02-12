@@ -4,7 +4,7 @@ describe Invitation do
   
   describe "#create" do
     it "generates a code automatically" do
-      i = Invitation.new
+      i = Invitation.create
       i.code.should_not be_nil
       i.code.length.should == 6
     end

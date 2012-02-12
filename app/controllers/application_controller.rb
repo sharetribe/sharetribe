@@ -48,7 +48,7 @@ class ApplicationController < ActionController::Base
   end  
 
   def fetch_logged_in_user
-    if APP_CONFIG.use_asi # Check session and ensure session exits for ASI
+    if use_asi? # Check session and ensure session exits for ASI
       if session[:person_id] 
         @current_user = Person.find_by_id(session[:person_id])
         if session[:cookie].blank?
