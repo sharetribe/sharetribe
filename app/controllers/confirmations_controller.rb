@@ -10,7 +10,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   def create
     self.resource = resource_class.send_confirmation_instructions(params[resource_name])
 
-    if successful_and_sane?(resource)
+    if successfully_sent?(resource)
       set_flash_message(:notice, :send_instructions) if is_navigational_format?
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
       redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default

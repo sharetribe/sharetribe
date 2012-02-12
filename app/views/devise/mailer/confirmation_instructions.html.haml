@@ -4,7 +4,7 @@
   = t("emails.confirmation_instructions.welcome_to_kassi") 
 %p
   = t("emails.confirmation_instructions.need_to_confirm")
-  = link_to t("emails.confirmation_instructions.confirmation_link_text"), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+  = link_to t("emails.confirmation_instructions.confirmation_link_text"), confirmation_url(:confirmation_token => @resource.confirmation_token)
 
 %p
   = t("emails.confirmation_instructions.confirmation_instructions_signature").html_safe

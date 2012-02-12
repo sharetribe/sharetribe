@@ -65,7 +65,9 @@ Kassi::Application.routes.draw do
   scope "(/:locale)" do
 
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do  
-       
+      # this match needs to be before the general resources to have more priority
+      get "/people/confirmation" => "confirmations#show", :as => :confirmation
+      
       resources :people do
         collection do
           get :check_username_availability
@@ -116,7 +118,6 @@ Kassi::Application.routes.draw do
       end
       
       # List few specific routes here for Devise to understand those
-      get "/people/confirmation" => "confirmations#show"
       match "/signup" => "people#new", :as => :sign_up 
       match "/people/:id/:type" => "people#show", :as => :person_listings    
       
