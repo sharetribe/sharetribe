@@ -14,7 +14,7 @@ class Person < ActiveRecord::Base
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  #devise :confirmable
+  devise :confirmable
     
   if not ApplicationHelper::use_asi?
     # Include default devise modules. Others available are:
@@ -89,8 +89,8 @@ class Person < ActiveRecord::Base
     validates_uniqueness_of :email
     validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
     validates_length_of :username, :within => 3..20
-    validates_length_of :given_name, :within => 1..20, :allow_nil => true, :allow_blank => true
-    validates_length_of :family_name, :within => 1..20, :allow_nil => true, :allow_blank => true
+    validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+    validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
     validates_length_of :email, :maximum => 255
 
     validates_format_of :username,
