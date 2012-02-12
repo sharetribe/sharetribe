@@ -66,7 +66,6 @@ Kassi::Application.routes.draw do
 
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"} do  
        
-      get "/people/confirmation" => "confirmations#show"
       resources :people do
         collection do
           get :check_username_availability
@@ -115,7 +114,11 @@ Kassi::Application.routes.draw do
         resources :badges
         resources :testimonials
       end
-     match "/signup" => "people#new", :as => :sign_up      
+      
+      # List few specific routes here for Devise to understand those
+      get "/people/confirmation" => "confirmations#show"
+      match "/signup" => "people#new", :as => :sign_up 
+      match "/people/:id/:type" => "people#show", :as => :person_listings    
       
     end  
 
@@ -174,7 +177,6 @@ Kassi::Application.routes.draw do
   match "/:locale/requests" => "listings#requests", :as => :requests
   match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
   match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
-  match "/:locale/people/:id/:type" => "people#show", :as => :person_listings
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
