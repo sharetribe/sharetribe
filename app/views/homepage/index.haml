@@ -79,25 +79,14 @@
         = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
   
-  .homepage_sidebar_box
-    = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-    - if @current_community.news_enabled?
-      %h4{:class => "news"}= t(".news")
-      - if @current_community.all_users_can_add_news?
-        %p.text
-          = t(".inform_others_about_events")
-          .add_news_item_button.news_item_button_homepage_margin
-            = link_to t(".add_news_item"), news_items_path(:news_form => true)
-      #news_items_homepage
-        - if @news_items.size > 0
-          - if @current_community.all_users_can_add_news?
-            .event_spacer
-          = render :partial => "news_item", :collection => @news_items, :spacer_template => "event_spacer"
-          - if @news_item_count > 2
-            .event_spacer
-            %p= link_to t(".more_news"), news_items_path, :class => "big_link"
-        - else 
-          %p= t(".no_news")
-    - else
+  - if @current_community.news_enabled?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :partial => "news_items"
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+    
+  - if @current_community.custom_frontpage_sidebar?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       = render :file => community_file("frontpage_sidebar", true)
-    = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
