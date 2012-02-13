@@ -94,3 +94,9 @@ end
 Factory.define :invitation do |c|
   c.community_id 1
 end
+
+Factory.define :news_item do |n|
+  n.title "A new event in our community"
+  n.content "More information about this amazing event."
+  n.author { |author| author.association(:person) }
+end  
