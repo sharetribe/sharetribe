@@ -12,7 +12,7 @@ class TermsController < ApplicationController
       @current_community = Community.find(session[:temp_community_id])
       @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
       @current_community_membership.update_attribute(:consent, @current_community.consent) 
-    else
+    else 
       # This situation can occur when the users clicks the back button
       # of the browser after accepting new terms, returns to the acceptance
       # form and clicks the accept button again. In that case an error page is shown.
@@ -27,7 +27,12 @@ class TermsController < ApplicationController
       @current_user.update_attribute(:locale, (params[:locale] || APP_CONFIG.default_locale))
       @current_user.communities << @current_community
     end
-    session[:cookie] = session[:temp_cookie]
+    
+    if use_asi?
+      session[:cookie] = session[:temp_cookie] 
+    else
+      sign_in @current_user
+    end
     session[:person_id] = session[:temp_person_id]
     session[:temp_cookie] = session[:temp_person_id] = nil
     session[:temp_community_id] = nil

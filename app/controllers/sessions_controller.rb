@@ -39,7 +39,8 @@ class SessionsController < ApplicationController
     else
       # Start a session with Devise
       
-      # In case of failure, set the message already here and clear it afterwards, if authentication worked.
+      # In case of failure, set the message already here and 
+      # clear it afterwards, if authentication worked.
       flash[:error] = :login_failed
       
       # Since the authentication happens in the rack layer,
@@ -47,8 +48,8 @@ class SessionsController < ApplicationController
       # in case something goes bad.
       person = authenticate_person!(:recall => "sessions#new")
       flash[:error] = nil
-      sign_in person
       @current_user = person
+      sign_in @current_user
     end
 
     session[:form_username] = nil
@@ -56,10 +57,18 @@ class SessionsController < ApplicationController
     # TODO: Should check here if the user is a member of current community
     
     unless @current_user && current_community.consent.eql?(@current_user.consent(current_community))
-      # The user has succesfully logged in, but is not found in Kassi DB
-      # Existing Sizzle user's first login in Kassi
-      session[:temp_cookie] = @session.cookie
-      session[:temp_person_id] = @session.person_id
+      # The user has succesfully logged in, but is not found in Kassi DB (Existing Sizzle user's first login in Kassi)
+      # Or the terms of service version has been changed
+      # --> We show the terms of service and acceptance is needed to proceed.
+      if use_asi?
+        session[:temp_cookie] = @session.cookie
+        session[:temp_person_id] = @session.person_id
+      else
+        sign_out @current_user
+        session[:temp_cookie] = "pending acceptance of new terms"
+        session[:temp_person_id] =  @current_user.id
+        
+      end
       session[:temp_community_id] = current_community.id
       session[:consent_changed] = true if @current_user
       redirect_to domain + terms_path and return
@@ -69,6 +78,7 @@ class SessionsController < ApplicationController
       session[:cookie] = @session.cookie
       session[:person_id] = @session.person_id 
     else
+      
       session[:person_id] = current_person.id
     end
 
@@ -102,12 +112,16 @@ class SessionsController < ApplicationController
   end
   
   def request_new_password
-    begin
-      RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
-      # RestClient.post("#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
-      flash[:notice] = :password_recovery_sent
-    rescue RestClient::ResourceNotFound => e 
-      flash[:error] = :email_not_found
+    if ase_asi?
+      begin
+        RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
+        # RestClient.post("#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
+        flash[:notice] = :password_recovery_sent
+      rescue RestClient::ResourceNotFound => e 
+        flash[:error] = :email_not_found
+      end
+    else
+      
     end
     redirect_to login_path
   end
