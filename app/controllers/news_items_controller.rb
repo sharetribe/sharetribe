@@ -36,7 +36,7 @@ class NewsItemsController < ApplicationController
   
   def destroy
     news_item = NewsItem.find(params[:id])
-    redirect_to news_items_path and return unless current_user?(news_item.author)
+    redirect_to news_items_path and return unless current_user?(news_item.author) || @current_user.has_admin_rights_in?(@current_community)
     news_item.destroy
     flash[:notice] = "news_item_deleted"
     redirect_to news_items_path
