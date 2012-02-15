@@ -36,4 +36,6 @@ Feature: User views news items
     Then I should see "A new event in our community"
     And I should not see "Add an article"
     When anyone can add news items in community "test"
+    And I am on the infos page
+    And I follow "News"
     Then I should see "Add an article"

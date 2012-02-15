@@ -11,11 +11,11 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the signup page/
-      signup_path
+      '/en/signup'
     when /the requests page/
-      requests_path
+      '/en/requests'
     when /the offers page/
-      offers_path 
+      '/en/offers' 
     when /the edit listing page/
       edit_listing_path(:id => @listing.id) 
     when /^the give feedback path of "(.*)"$/i
@@ -25,11 +25,11 @@ module NavigationHelpers
     when /^the profile page of "(.*)"$/i
       person_path(:id => @people[$1].id)
     when /^the badges page of "(.*)"$/i
-      person_badges_path(:person_id => @people[].id)
+      person_badges_path(:person_id => @people[$1].id)
     when /the listing page/
       listing_path(:id => @listing.id)
     when /^the registration page with invitation code "(.*)"$/i
-      signup_path(:code => $1)
+      "/en/signup?code=#{$1}"
     when /the infos page/
       about_infos_path
     when /the news page/
