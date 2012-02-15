@@ -7,9 +7,6 @@
       %h1
         = t(".edit_#{@listing.listing_type}")
         = @listing.title
-      - unless @listing.closed?
-        #new_listing_form_close_link
-          = link_to t("listings.edit_links.close_#{@listing.listing_type}"), close_person_listing_path(@current_user, @listing), :method => :put
     
     #listing_required_fields_description
       = t("common.fields_that_are_mandatory")
