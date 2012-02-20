@@ -121,7 +121,11 @@ class ApplicationController < ActionController::Base
         if "terms".eql?(controller_name)
           @private_layout = true
           return
-        end
+        end        
+        # must call set locale here as it would be otherwise skipped 
+        # and the redirect could go to wrong (default) locale
+        set_locale 
+
         redirect_to :controller => :homepage, :action => :sign_in
       else
         # Show notification "you are not a member in this community"
