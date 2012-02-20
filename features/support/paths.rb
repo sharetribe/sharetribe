@@ -12,6 +12,10 @@ module NavigationHelpers
       '/'
     when /the signup page/
       '/en/signup'
+    when /the private community sign in page/
+      '/en/homepage/sign_in'
+    when /the finnish private community sign in page/
+      '/fi/homepage/sign_in'  
     when /the requests page/
       '/en/requests'
     when /the offers page/
