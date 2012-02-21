@@ -1,6 +1,7 @@
 fi:
   errors:
     messages:
+      expired: "on vanhentunut, ole hyvä ja pyydä uusi"
       not_found: "ei löytynyt"
       already_confirmed: "on jo vahvistettu, yritä kirjautua sisään uudelleen"
       not_locked: "ei ollut lukittu"
@@ -10,11 +11,12 @@ fi:
 
   devise:
     failure:
+      already_authenticated: 'Olet jo kirjautunut sisään.'
       unauthenticated: 'Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.'
       unconfirmed: 'Sinun täytyy vahvistaa tunnuksesi ennen kuin voit jatkaa.'
       locked: 'Tunnuksesi on lukittu.'
-      invalid: 'Epäkelpo sähköpostiosoite tai salasana.'
-      invalid_token: 'Epäkelpo autentikaatiopoletti.'
+      invalid: 'Virheellinen sähköpostiosoite tai salasana.'
+      invalid_token: 'Virheellinen valtuutusavain.'
       timeout: 'Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.'
       inactive: 'Tunnustasi ei ole vielä aktivoitu.'
     sessions:
@@ -23,17 +25,24 @@ fi:
     passwords:
       send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon.'
       updated: 'Salasanasi on nyt vaihdettu. Olet kirjautuneena sisälle.'
+      updated_not_active: 'Salasanasi on vaihdettu.'
+      send_paranoid_instructions: "Olemme lähettäneet sähköpostiisi ohjeet salasanan vaihtamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme."
     confirmations:
       send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.'
+      send_paranoid_instructions: 'Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi aktivoimiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme.'
       confirmed: 'Tunnuksesi on nyt vahvistettu.'
     registrations:
       signed_up: 'Tervetuloa! Rekisteröintisi onnistui.'
-      inactive_signed_up: 'Rekisteröintisi onnistui. Emme kuitenkaan voineet kirjata sinua sisään koska tunnuksesi on %{reason}.'
-      updated: 'Tunnuksesi on päivitetty.'
+      signed_up_but_unconfirmed: 'Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti.'
+      signed_up_but_inactive: 'Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu.'
+      signed_up_but_locked: 'Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu.'
+      updated: 'Käyttäjätietosi on päivitetty.'
+      update_needs_confirmation: "Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi."
       destroyed: 'Näkemiin! Tunnuksesi on nyt poistettu. Toivottavasti näemme sinut vielä uudelleen.'
     unlocks:
       send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon.'
       unlocked: 'Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle.'
+      send_paranoid_instructions: 'Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi lukituksen poistamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme.'
     omniauth_callbacks:
       success: 'Onnistuneesti valtuutettu käyttäen palvelua %{kind}.'
       failure: 'Valtuutus käyttäen palvelua %{kind} epäonnistui, koska "%{reason}".'

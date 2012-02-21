@@ -1,0 +1,12 @@
+%p
+  = t("emails.common.hey", :name => @resource.given_name_or_username)
+%p
+  = t("emails.confirmation_instructions.welcome_to_kassi") 
+%p
+  = t("emails.confirmation_instructions.need_to_confirm")
+  = link_to t("emails.confirmation_instructions.confirmation_link_text"), confirmation_url(:confirmation_token => @resource.confirmation_token, :locale => I18n.locale)
+
+%p
+  = t("emails.common.thanks")
+  %br/
+  = t("emails.common.kassi_team")
