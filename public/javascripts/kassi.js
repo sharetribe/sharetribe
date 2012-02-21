@@ -431,6 +431,23 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	});	
 }
 
+function initialize_reset_password_form() {
+	var password_form_id = "#person_new"
+	$(password_form_id).validate({
+		errorClass: "error_account",
+		errorPlacement: function(error, element) {
+			error.insertAfter(element);
+		},
+		rules: {
+			"person[password]": { required: true, minlength: 4 },
+			"person[password_confirmation]": { required: true, minlength: 4, equalTo: "#person_password" }
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(password_form_id, form, "false", locale);
+		}
+	});	
+}
+
 function reload_browse_view(link, listing_type, listing_style, locale) {
 	type = link.attr("name").split("_")[0];
 	title = link.attr("name").split("_")[1];

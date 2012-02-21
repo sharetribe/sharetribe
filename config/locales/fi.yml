@@ -142,14 +142,13 @@ fi:
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
-      kassi_team: Kassitiimi
+      kassi_team: Kassi-tiimi
       thanks: "Terveisin,"
       want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
     confirmation_instructions:
       welcome_to_kassi: "Tervetuloa Kassiin!"
       need_to_confirm: "Ennen kuin aloitat käytön, sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
       confirmation_link_text: "Varmista tunnukseni"
-      confirmation_instructions_signature: "Terveisin,<br/>Kassi-tiimi"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -211,6 +210,9 @@ fi:
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
+    reset_password_instructions:
+      change_my_password: "Vaihda salasanani"
+      reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi Kassi-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä Kassi-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
@@ -844,6 +846,7 @@ fi:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
       request_new_password: "Pyydä uusi salasana"
+      change_your_password: "Vaihda salasanasi"
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa Kassiin!"
       check_your_email: "Tarkista sähköpostisi"

@@ -152,7 +152,6 @@ en:
       welcome_to_kassi: "Welcome to Kassi!"
       need_to_confirm: "Before you start using Kassi, you must confirm your email address with the following link:"
       confirmation_link_text: "Confirm my account"
-      confirmation_instructions_signature: "Best regards,<br/>The Kassi Team"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
@@ -214,6 +213,9 @@ en:
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in Kassi!"
+    reset_password_instructions:
+      change_my_password: "Change my password"
+      reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the Kassi service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
@@ -847,6 +849,7 @@ en:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
       request_new_password: "Request new password"
+      change_your_password: "Change your password"
     confirmation_pending:
       welcome_to_kassi: "Welcome to Kassi!"
       check_your_email: "Check your inbox"
