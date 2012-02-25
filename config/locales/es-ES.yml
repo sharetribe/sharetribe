@@ -1,4 +1,4 @@
-es:
+es-ES:
   admin:
     badges:
       index:
@@ -7,10 +7,51 @@ es:
         image: "Imagen de medalla"
         name: "Nombre de la medalla"
         save_badge: "Guardar medalla"
+    news_items:
+      index:
+        news_items: ~
+        create_news_item: ~
+        no_news: ~
+        loading_more_news: ~
+      new:
+        new_news_item: ~
+        edit_news_item: ~
+        index_news_item: ~
+        title: ~
+        content: ~
+        save_news_item: ~
+      news_item:
+        edit_news_item: ~
+        delete_news_item: ~
+    polls:
+      index:
+        polls: ~
+        create_poll: ~
+        no_polls: ~
+      edit_poll_links:
+        close_poll: ~
+        open_poll: ~
+        edit_poll: ~
+        delete_poll: ~
+      new:
+        add_option: ~
+        new_poll: ~
+        edit_poll: ~
+        title: ~
+        save_poll: ~
+      new_option:
+        option: ~
+        remove_option: ~
+      poll_status:
+        open: ~
+        closed: ~
+      show:
+        edit_poll: ~
   common:
     cancel: Cancelar
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
+    password: Contraseña
     share_types:
       borrow: préstamos
       buy: comprar
@@ -22,6 +63,7 @@ es:
       sell: Vender
       temporary_accommodation: "Alojamiento temporal"
       trade: Intercambiar
+    username: "Nombre de usuario"
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -295,10 +337,14 @@ es:
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     index:
       are_offering: oferta
+      add_news_item: ~
+      inform_others_about_events: ~
       lend_rent_help_carpool: "Vende, regala o ayuda a otros! Comparte trayectos!"
       loading_more_content: "Cargando más contenidos"
       more_events: "Más eventos..."
       news: Noticias
+      no_news: ~
+      more_news: ~
       offer_something: "Comparte con los demás!"
       offer_something_description: "Haz una lista de las cosas y favores que puedes ofrecer a los demás"
       or: "y"
@@ -317,18 +363,26 @@ es:
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
+    news_item:
+      show_less: ~
+      show_more: ~
+    poll_form:
+      poll: ~
+      comment: ~
+      answer: ~
+      results: ~
+      poll_answer: ~
+      poll_answers: ~
     profile_info_empty_notification:
       add_your_info: "Agregar su información de contacto"
+      add_a_profile_picture: ~
       you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor házlo, de modo que otros puedan ponerse más fácilmente en contacto con usted."
       add_your_info_link: "Agregar su información ahora"
-      add_a_profile_picture: ~
     recent_listing:
       please_offer: Oferta
     sign_in:
       recent_offers: "Que están ofreciendo sus miembros en este momento"
       recent_requests: "Qué necesitan los usuarios en este momento"
-      username: ~
-      password: Contraseña
       plus: "...plus"
       other_offer: "otra oferta"
       other_offers: "otras ofertas"
@@ -338,6 +392,8 @@ es:
     admin:
       admin: "Panel de administración de Kassi"
       back_to_kassi: "Volver a Kassi"
+      news_items: ~
+      polls: ~
     application:
       default_feedback: "Sugiere una nueva aplicación, reporta un error, dános tu opinión acerca del servicio, o simplemente deja una nota diciendo hola!"
       feedback: "Sugerencia al equipo de Kassi"
@@ -361,6 +417,7 @@ es:
       about: "Qués es Kassi?"
       how_to_use: "Cómo usar Kassi"
       info_about_kassi: "Información acerca de Kassi"
+      news: ~
       register_details: "Detalles de registro"
       terms: "Término de uso"
     logged_in:
@@ -417,6 +474,11 @@ es:
       login_failed: "Falló el inicio de sesión. Por favor ingrese correctamente las credenciales."
       login_successful: "Bienvenido a Kassi, "
       logout_successful: "Ahora se encuentra registrado en Kassi. ¡Bienvenido nuevamente!"
+      news_item_created: ~
+      news_item_creation_failed: ~
+      news_item_update_failed: ~
+      news_item_updated: ~
+      news_item_deleted: ~
       offer_accepted: "Oferta aceptada"
       offer_closed: "Oferta cerrada"
       offer_created_successfully: "Oferta creada satisfactoriamente"
@@ -429,6 +491,13 @@ es:
       person_activated: "Usuario activado"
       person_deactivated: "Usuario desactivado"
       person_updated_successfully: "Información actualizada"
+      poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
+      poll_update_failed: ~
+      poll_updated: ~
+      poll_deleted: ~
       read_more: "Leer más!"
       registration_considered_spam: "El registro no funcionó, por favor envíanos tu comentario y menciona \"email2 error\"."
       reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
@@ -451,16 +520,18 @@ es:
       you_cannot_reply_to_a_closed_request: "No puede responder a una solicitud cerrada"
       you_cannot_reply_to_your_own_offer: "No puede responder a su propia oferta"
       you_cannot_reply_to_your_own_request: "No puede responder a su misma solicitud"
+      you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
-      you_must_log_in_to_invite_new_users: "Debe iniciar sesión para invitar a nuevos usuarios a Kassi"
       you_must_log_in_to_create_new_offer: "Debe iniciar su sesión en Kassi para crear una nueva oferta. Si no tiene una cuenta puede"
       you_must_log_in_to_create_new_request: "Debe iniciar su sesión en Kassi para crear una nueva solicitud. Si no tiene una cuenta puede"
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
+      you_must_log_in_to_invite_new_users: "Debe iniciar sesión para invitar a nuevos usuarios a Kassi"
       you_must_log_in_to_send_a_comment: "Debe iniciar su sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debe iniciar su sesión en Kassi para enviar un mensaje a otro usuario"
       you_must_log_in_to_view_this_content: "Debe iniciar su sesión para ver este contenido"
       you_must_log_in_to_view_your_inbox: "Debe iniciar su sesión en Kassi para revisar su bandeja de entrada"
       you_must_log_in_to_view_your_settings: "Debe registrarse en Kassi para ver su configuración"
+      you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_unfollowed_listing: ~
     profile_extras_header:
@@ -656,45 +727,13 @@ es:
       time: Hora
       times: veces
       times_viewed: Visto
-  mapview:
-    index:
-      all_categories: "Todas las categorías"
-      all_offer_types: "Todos los tipos de ofertas"
-      all_request_types: "Todos los tipos de solicitudes"
-      category: Categoría
-      did_not_found_what_you_were_looking_for: "No encontraste lo que necesitabas?"
-      favors: Servicios
-      housing: Alojamiento
-      items: Artículos
-      list_view: "Vista de lista"
-      map_view: "Vista de mapa"
-      offer_something: "Hazlo saber a los demás!"
-      offer_type: "Tipo de oferta"
-      offers: Ofertas
-      request_something: "Solicita algo!"
-      request_type: "Tipo de solicitud"
-      requests: Solicitudes
-      rideshare: "Traslado compartido"
-      search_verb: Buscar
-      you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
-    please_comment: Comentario
   people:
-    badge_description:
-      badge_achieved_at: "Medalla obtenida "
-      you_do_not_yet_have_this_badge: "La medalla no ha sido lograda."
-    edit_links:
-      activate: Activar
-      deactivate: Desactivar
-    help_texts:
-      badges_description_title: Medallas
-      feedback_description_title: Sugerencia
-      help_captcha_title: "¿Eres humano?"
-      terms_title: "Términos de uso de Kassi"
-      help_invitation_code_title: "Necesitas una invitación para unirte a"
-    inactive_notification:
-      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
-      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
     new:
+      password: "Contraseña:"
+      username: "Nombre de usuario:"
+      member_id: "Número de identificación"
+      member_id_is_your_username: ~
+      join_here: "Ingresa aquí."
       address_validator: "No se encontró la ubicación."
       captcha_incorrect: "Error de comprobación de reCAPTCHA. Por favor escriba las palabras que aparecen en el recuadro siguiente."
       captcha_was_wrong: "Texto captcha incorrecto."
@@ -706,22 +745,32 @@ es:
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto la"
+      invalid_invitation_code: "El código de invitación no es válido."
+      invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
-      password: "Contraseña:"
       password_again: "Confirme contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de Kassi"
       sign_up: "Crear una nueva cuenta en Kassi"
       terms: "Términos de uso"
-      username: "Nombre de usuario:"
-      member_id: "Número de identificación"
-      member_id_is_your_username: ~
-      join_here: "Ingresa aquí."
       username_is_in_use: "El nombre de usuario ingresado ya está en uso."
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
-      invitation_code: "Código de invitación:"
-      invalid_invitation_code: "El código de invitación no es válido."
+    badge_description:
+      badge_achieved_at: "Medalla obtenida "
+      you_do_not_yet_have_this_badge: "La medalla no ha sido lograda."
+    edit_links:
+      activate: Activar
+      deactivate: Desactivar
+    help_texts:
+      badges_description_title: Medallas
+      feedback_description_title: Sugerencia
+      help_captcha_title: "¿Eres humano?"
+      help_invitation_code_title: "Necesitas una invitación para unirte a"
+      terms_title: "Términos de uso de Kassi"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
+      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
     not_member:
       explanation_text: "Usted actualmente se encuentra en la comunidad de %{community}. Intentó ver el perfil de un usuario que pertenece a otra comunidad. Actualmente, Kassi no permite que usted ingrese a distintas comunidades simultáneamente, por lo que no puede acceder al perfil de este usuario a través de la comunidad de %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Esta opción estará disponible pronto en el sitio."
       read_more_about_kassi_communities: "Lea más sobre las comunidades de Kassi"
@@ -848,24 +897,45 @@ es:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "Qué son estos?"
-  search:
-    show:
-      all_results: "Todos los resultados"
-      loading_more_search_results: "Cargar más resultados de búsqueda"
+  mapview:
+    index:
+      all_categories: "Todas las categorías"
+      all_offer_types: "Todos los tipos de ofertas"
+      all_request_types: "Todos los tipos de solicitudes"
+      category: Categoría
+      did_not_found_what_you_were_looking_for: "No encontraste lo que necesitabas?"
+      favors: Servicios
+      housing: Alojamiento
+      items: Artículos
+      list_view: "Vista de lista"
+      map_view: "Vista de mapa"
+      offer_something: "Hazlo saber a los demás!"
+      offer_type: "Tipo de oferta"
       offers: Ofertas
+      request_something: "Solicita algo!"
+      request_type: "Tipo de solicitud"
       requests: Solicitudes
-      search: Buscar
-      search_results: "Resultados de búsqueda"
-      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
-      search_verb: buscar
+      rideshare: "Traslado compartido"
+      search_verb: Buscar
+      you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
+    please_comment: Comentario
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   sessions:
     new:
+      password: Contraseña
+      username: "Nombre de usuario"
       create_new_account: "Crear una cuenta nueva"
       i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
       login: "Iniciar sesión"
       login_to_kassi: "Iniciar sesión en Kassi"
-      password: Contraseña
-      username: "Nombre de usuario"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -880,15 +950,15 @@ es:
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
   settings:
     account:
+      password: "Contraseña:"
+      username: "Nombre de usuario:"
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
       email: "Dirección de correo electrónico:"
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
-      password: "Contraseña:"
       save: Guardar
       these_fields_are_shown_only_to_you: ~
-      username: "Nombre de usuario:"
     avatar:
       add_avatar_submit: "Guardar imagen"
       update_profile_picture: "Actualizar imagen de perfil"
@@ -919,6 +989,16 @@ es:
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
     save_information: "Guardar Información"
+  search:
+    show:
+      all_results: "Todos los resultados"
+      loading_more_search_results: "Cargar más resultados de búsqueda"
+      offers: Ofertas
+      requests: Solicitudes
+      search: Buscar
+      search_results: "Resultados de búsqueda"
+      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
+      search_verb: buscar
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~
