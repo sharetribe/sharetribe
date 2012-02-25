@@ -128,14 +128,20 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def update
+    
 	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
 	  end
+	  
     begin
       if @person.update_attributes(params[:person], session[:cookie])
+        if params[:person][:password] && !use_asi?
+          #if password changed Devise needs a new sign in.
+          sign_in @person, :bypass => true
+        end
         flash[:notice] = :person_updated_successfully
       else
         flash[:error] = @person.errors.first

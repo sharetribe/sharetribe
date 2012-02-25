@@ -434,7 +434,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 function initialize_reset_password_form() {
 	var password_form_id = "#person_new"
 	$(password_form_id).validate({
-		errorClass: "error_account",
 		errorPlacement: function(error, element) {
 			error.insertAfter(element);
 		},
