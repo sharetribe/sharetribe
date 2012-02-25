@@ -112,7 +112,7 @@ class SessionsController < ApplicationController
   end
   
   def request_new_password
-    if ase_asi?
+    if use_asi?
       begin
         RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
         # RestClient.post("#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
