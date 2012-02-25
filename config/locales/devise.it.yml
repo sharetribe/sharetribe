@@ -1,0 +1,60 @@
+# Italian translation for Devise 2.0
+# Date: 2012-02-16
+# Author: mcanato
+# Note: Thanks to dn2k (https://gist.github.com/443837) for the first translation
+
+it:
+  errors:
+    messages:
+      expired: "è scaduto, si prega di richiederne uno nuovo"
+      not_found: "non trovato"
+      already_confirmed: "è stato già confermato, prova ad effettuare un nuovo accesso"
+      not_locked: "non era bloccato"
+      not_saved:
+        one: "Non posso salvare questo %{resource}: 1 errore"
+        other: "Non posso salvare questo %{resource}: %{count} errori."
+
+  devise:
+    failure:
+      already_authenticated: "Hai già effettuato l'accesso."
+      unauthenticated: "Devi accedere o registrarti per continuare."
+      unconfirmed: "Devi confermare il tuo account per continuare."
+      locked: "Il tuo account è bloccato."
+      invalid: "Indirizzo email o password non validi."
+      invalid_token: "Codice di autenticazione non valido."
+      timeout: "Sessione scaduta, accedere nuovamente per continuare."
+      inactive: "Il tuo account non è stato ancora attivato."
+    sessions:
+      signed_in: "Accesso effettuato con successo."
+      signed_out: "Sei uscito correttamente."
+    passwords:
+      send_instructions: "Entro qualche minuto riceverai un messaggio email con le istruzioni per reimpostare la tua password."
+      updated: "La tua password è stata cambiata. Ora sei collegato."
+      updated_not_active: "La tua password è stata cambiata."
+      send_paranoid_instructions: "Se la tua email esiste nel nostro database, entro qualche minuto riceverai un messaggio email contentente un link per il ripristino della password"
+    confirmations:
+      send_instructions: "Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto."
+      send_paranoid_instructions: "Se la tua e-mail esiste nel nostro database, entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo account."
+      confirmed: "Il tuo account è stato correttamente confermato. Ora sei collegato."
+    registrations:
+      signed_up: "Benvenuto! Ti sei registrato correttamente."
+      signed_up_but_unconfirmed: "Ti sei registrato correttamente. Tuttavia non puoi effettuare l'accesso perchè il tuo account è da confermare. Per favore apri il link che hai ricevuto tramite email per attivare il tuo account."
+      signed_up_but_inactive: "Ti sei registrato correttamente. Tuttavia non puoi effettuare l'accesso perchè il tuo account non è stato ancora attivato."
+      signed_up_but_locked: "Ti sei registrato correttamente. Tuttavia non puoi effettuare l'accesso perchè il tuo account è bloccato."
+      updated: "Il tuo account è stato aggiornato."
+      update_needs_confirmation: "Il tuo account è stato aggiornato, tuttavia è necessario verificare il tuo nuovo indirizzo email. Entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo nuovo indirizzo email."
+      destroyed: "Arrivederci! L'account è stato cancellato. Speriamo di rivederci presto."
+    unlocks:
+      send_instructions: "Entro qualche minuto Riceverai un messaggio email con le istruzioni per sbloccare il tuo account."
+      unlocked: "Il tuo account è stato correttamente sbloccato. Ora sei collegato."
+      send_paranoid_instructions: "Se la tua email esiste nel nostro database, entro qualche minuto riceverai un messaggio email con le istruzioni per sbloccare il tuo account."
+    omniauth_callbacks:
+      success: "Autorizzato con successo dall'account %{kind}."
+      failure: 'Non è stato possibile autorizzarti da %{kind} perchè "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: "Istruzioni per la conferma"
+      reset_password_instructions:
+        subject: "Istruzioni per reimpostare la password"
+      unlock_instructions:
+        subject: "Istruzioni per sbloccare l'account"
