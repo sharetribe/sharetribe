@@ -51,6 +51,7 @@ fi:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
+    password: Salasana
     share_types:
       borrow: lainataan
       buy: ostetaan
@@ -62,6 +63,7 @@ fi:
       sell: myydään
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
+    username: Käyttäjätunnus
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
@@ -379,8 +381,6 @@ fi:
     sign_in:
       recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
       recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
-      username: "Käyttäjätunnus"
-      password: "Salasana"
       plus: "Lisäksi"
       other_offer: "muu tarjous"
       other_offers: "muuta tarjousta"
@@ -752,6 +752,10 @@ fi:
       news_from_community: "Uusimmat %{community}-yhteisön uutiset"
     news_item:
       delete_news_item: "Poista uutinen"
+  okl:
+    member_id: "Jäsennumero"
+    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut Kassiin. Jos et ole vielä Omakotiliiton jäsen,"
+    join_here: "liity tästä."
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
@@ -783,15 +787,10 @@ fi:
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      password: "Salasana:"
       password_again: "Salasana uudelleen:"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus Kassiin"
       terms: käyttöehdot
-      username: "Käyttäjätunnus:"
-      member_id: "Jäsennumero:"
-      member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut Kassiin. Jos et ole vielä Omakotiliiton jäsen,"
-      join_here: "liity tästä."
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
@@ -938,8 +937,6 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään Kassiin"
-      password: Salasana
-      username: Käyttäjätunnus
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
@@ -959,10 +956,8 @@ fi:
       email: "Sähköpostiosoite:"
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
-      password: "Salasana:"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
-      username: "Käyttäjätunnus:"
     avatar:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"
