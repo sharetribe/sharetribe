@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_private_community_homepage('#{t(".username")}','#{t(".password")}');
+  initialize_private_community_homepage('#{username_label}','#{t("common.password")}');
 
 #image_header.container_12
   = render(:file => community_file("private_community_image_header", false))

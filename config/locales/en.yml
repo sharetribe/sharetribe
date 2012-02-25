@@ -51,6 +51,7 @@ en:
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
+    password: Password
     share_types:
       borrow: borrowing
       buy: buying
@@ -62,6 +63,7 @@ en:
       sell: selling
       temporary_accommodation: "temporary accommodation"
       trade: trading
+    username: Username
     what_is_this: "What's this?"
   conversations:
     index:
@@ -379,8 +381,6 @@ en:
     sign_in:
       recent_offers: "What members are offering right now"
       recent_requests: "What members need right now"
-      username: "Username"
-      password: "Password"
       plus: "...plus"
       other_offer: "other offer"
       other_offers: "other offers"
@@ -752,6 +752,10 @@ en:
       news_from_community: "Latest news from %{community} community"
     news_item:
       delete_news_item: "Remove article"
+  okl:
+    member_id: "Member id"
+    member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join Kassi. Your member id is also your username that you will need when logging in to Kassi. If you are not a member of Omakotiliitto yet, you can"
+    join_here: "join here."
   people:
     badge_description:
       badge_achieved_at: "Badge achieved "
@@ -781,15 +785,10 @@ en:
       given_name: "Given name:"
       i_accept_the: "I accept the"
       not_required: ", not required"
-      password: "Password:"
       password_again: "Confirm password:"
       show_my_name_to_others: "Show my real name to other Kassi users"
       sign_up: "Create a new account in Kassi"
       terms: "terms of use"
-      username: "Username:"
-      member_id: "Member id:"
-      member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join Kassi. Your member id is also your username that you will need when logging in to Kassi. If you are not a member of Omakotiliitto yet, you can"
-      join_here: "join here."
       username_is_in_use: "The username you gave is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and community admin"
@@ -938,8 +937,6 @@ en:
       i_forgot_my_password: "I forgot my username or password"
       login: "Log in"
       login_to_kassi: "Log in to Kassi"
-      password: Password
-      username: Username
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
@@ -959,10 +956,8 @@ en:
       email: "Email address:"
       new_email: "New email address"
       new_password: "New password"
-      password: "Password:"
       save: Save
       these_fields_are_shown_only_to_you: "Username is shown in your profile unless you have given your name. Other information is only shown to you."
-      username: "Username:"
     avatar:
       add_avatar_submit: "Save picture"
       update_profile_picture: "Update profile picture"

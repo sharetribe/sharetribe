@@ -10,8 +10,8 @@
       = render :file => community_file("signup_information", true)
       - if @current_community.label.eql?("okl")
         %p
-          = t('.member_id_is_your_username')
-          = link_to t(".join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
+          = t('okl.member_id_is_your_username')
+          = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
       = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
         = form.error_messages
         - if @current_community.join_with_invite_only?
@@ -21,9 +21,8 @@
             = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
         - elsif params[:code]
           = hidden_field_tag "invitation_code", params[:code]
-        .form_field_container
-          - username_label = @current_community.label.eql?("okl") ? t(".member_id") : t(".username") 
-          = form.label :username, username_label, :class => "before_description"
+        .form_field_container 
+          = form.label :username, (username_label + ":"), :class => "before_description"
           - unless @current_community.label.eql?("okl")
             %span.tiny_description
               = "(#{t('.visible_to_everybody')})" 
@@ -50,7 +49,7 @@
           = form.label :email2, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
           = form.text_field :email2, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2"       
         .form_field_container  
-          = form.label :password, t('.password')
+          = form.label :password, t('common.password') + ":"
           = form.password_field :password, :class => :text_field, :maxlength => "255"
         .form_field_container  
           = form.label :password2, t('.password_again')
