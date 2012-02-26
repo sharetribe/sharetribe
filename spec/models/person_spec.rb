@@ -149,12 +149,7 @@ describe Person do
   
   context "When ASI is not used but Person is stored only in Kassi DB" do
      before(:all) do
-        ApplicationHelper.use_asi_in_this_test = false
-        
-        #Unload & reload the person class to be sure that is loaded without ASI methods
-        Object.send(:remove_const, 'Person')
-        load 'person.rb'
-        FactoryGirl.reload
+        reload_person_set_ASI_usage_to(false)
         
         #These will be created only once for the whole example group
         @test_person, @session = get_test_person_and_session
@@ -162,7 +157,7 @@ describe Person do
       end
       
       after(:all) do
-        ApplicationHelper.use_asi_in_this_test = true
+        reload_person_set_ASI_usage_to(true)
       end
 
       it "should be valid" do
