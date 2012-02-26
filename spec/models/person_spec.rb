@@ -152,14 +152,21 @@ describe Person do
         ApplicationHelper.use_asi_in_this_test = false
         
         #Unload & reload the person class to be sure that is loaded without ASI methods
-        Object.send(:remove_const, 'Person') 
+        Object.send(:remove_const, 'Person')
         load 'person.rb'
+        FactoryGirl.reload
         
         #These will be created only once for the whole example group
         @test_person, @session = get_test_person_and_session
+        
+      end
+      
+      after(:all) do
+        ApplicationHelper.use_asi_in_this_test = true
       end
 
       it "should be valid" do
+        @test_person.class.should == Person
         @test_person.should_not be_nil
         @test_person.should be_valid
       end
@@ -176,7 +183,8 @@ describe Person do
             :password => "testi", 
             :email => "#{username}@example.com",
             "given_name" => "Tero",
-            "family_name" => "Turari"})
+            "family_name" => "Turari",
+            "confirmed_at" => Time.now})
           Person.find(p.id).should_not be_nil
           p.username.should == username
         end

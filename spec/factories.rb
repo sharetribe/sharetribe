@@ -1,8 +1,22 @@
+Factory.sequence :username do |n|
+  "kassi_testperson#{n}" 
+end
+
+Factory.sequence :email do |n|
+  "kassi_testperson#{n}@example.com" 
+end
+
 Factory.define :person do |p|
   p.id "dMF4WsJ7Kr3BN6ab9B7ckF"
   p.is_admin 1
   p.locale "en"
   p.test_group_number 4
+  p.confirmed_at Time.now
+  if not ApplicationHelper::use_asi?
+    p.username { |u| u.username = Factory.next(:username) }
+    p.password "testi"
+    p.email { |e| e.email = Factory.next(:email) }
+  end
 end  
 
 Factory.define :share_type do |s|
