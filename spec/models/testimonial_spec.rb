@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Testimonial do
   
+  before(:all) do
+    ApplicationHelper.use_asi_in_this_test = true
+  end
+  
   before(:each) do
     @testimonial = Factory.build(:testimonial)
   end

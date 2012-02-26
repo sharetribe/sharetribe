@@ -144,7 +144,7 @@ module ApplicationHelper
   end
   
   def self.use_asi?
-    unless Rails.env == "test"
+    unless Rails.env.test?
       return APP_CONFIG.use_asi
     else
       return @@use_asi_in_this_test

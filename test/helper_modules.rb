@@ -45,12 +45,11 @@ module TestHelpers
     else # No ASI just Kassi DB in use
       test_person = Person.find_by_username(username)
       unless test_person.present?
-        test_person = Person.new({ :username => username, 
+        test_person = Factory.build(:person, { :username => username, 
                         :password => "testi", 
                         :email => "#{username}@example.com",
                         :given_name => "Test",
                         :family_name => "Person"})
-        test_person.save!
       end
     end
     
