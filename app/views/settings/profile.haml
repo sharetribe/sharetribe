@@ -2,7 +2,7 @@
   initialize_update_profile_info_form('#{I18n.locale}','#{@person.id.to_s}', '#{t('address_validator')}', #{@current_community.real_name_required?});
 
 - content_for :extra_javascript do
-  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
 #person_settings_form
   #settings_form_description

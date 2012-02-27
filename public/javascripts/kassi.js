@@ -1,88 +1,90 @@
 // Custom Javascript functions for Kassi
 // Add custom validation methods
-$.validator.
-	addMethod( "accept", 
-		function(value, element, param) {
-			return value.match(new RegExp(/(\.jpe?g|\.gif|\.png|^$)/i));
-		}
-	);
-	
-$.validator.
-	addMethod( "valid_username", 
-		function(value, element, param) {
-			return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
-		}
-	);
-	
-$.validator.	
-	addMethod("min_date", 
-		function(value, element, is_rideshare) {
-			if (is_rideshare == "true") {
-				return get_datetime_from_datetime_select() > new Date();
-			} else {
-				return get_date_from_date_select() > new Date();
-			}
-	 	}
-	);
+function add_validator_methods() {
+  $.validator.
+  	addMethod( "accept", 
+  		function(value, element, param) {
+  			return value.match(new RegExp(/(\.jpe?g|\.gif|\.png|^$)/i));
+  		}
+  	);
 
-$.validator.	
-	addMethod("max_date", 
-		function(value, element, is_rideshare) {
-			var current_time = new Date();
-			maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),23,59,59);
-			if (is_rideshare == "true") {
-				// alert ("Datetime select: " + get_datetime_from_datetime_select() + "\n Max date: " + maximum_date);
-				//alert ("Max date: " + maximum_date);
-				return get_datetime_from_datetime_select() < maximum_date;
-			} else {
-				return get_date_from_date_select() < maximum_date;
-			}
-	 	}
-	);	
+  $.validator.
+  	addMethod( "valid_username", 
+  		function(value, element, param) {
+  			return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
+  		}
+  	);
 
-$.validator.
-  addMethod( "captcha", 
-  	function(value, element, param) {	  
-  	  challengeField = $("input#recaptcha_challenge_field").val();
-      responseField = $("input#recaptcha_response_field").val();
+  $.validator.	
+  	addMethod("min_date", 
+  		function(value, element, is_rideshare) {
+  			if (is_rideshare == "true") {
+  				return get_datetime_from_datetime_select() > new Date();
+  			} else {
+  				return get_date_from_date_select() > new Date();
+  			}
+  	 	}
+  	);
 
-      var resp = $.ajax({
-            type: "GET",
-            url: "signup/check_captcha",
-            data: "recaptcha_challenge_field=" + challengeField + "&amp;recaptcha_response_field=" + responseField,
-            async: false
-      }).responseText;
+  $.validator.	
+  	addMethod("max_date", 
+  		function(value, element, is_rideshare) {
+  			var current_time = new Date();
+  			maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),23,59,59);
+  			if (is_rideshare == "true") {
+  				// alert ("Datetime select: " + get_datetime_from_datetime_select() + "\n Max date: " + maximum_date);
+  				//alert ("Max date: " + maximum_date);
+  				return get_datetime_from_datetime_select() < maximum_date;
+  			} else {
+  				return get_date_from_date_select() < maximum_date;
+  			}
+  	 	}
+  	);	
 
-      if (resp == "success")
-      {
-        return true;
+  $.validator.
+    addMethod( "captcha", 
+    	function(value, element, param) {	  
+    	  challengeField = $("input#recaptcha_challenge_field").val();
+        responseField = $("input#recaptcha_response_field").val();
+
+        var resp = $.ajax({
+              type: "GET",
+              url: "signup/check_captcha",
+              data: "recaptcha_challenge_field=" + challengeField + "&amp;recaptcha_response_field=" + responseField,
+              async: false
+        }).responseText;
+
+        if (resp == "success")
+        {
+          return true;
+        }
+          else
+        {
+          Recaptcha.reload();
+          return false;
+        }
       }
-        else
-      {
-        Recaptcha.reload();
-        return false;
-      }
-    }
-  );
+    );
 
-$.validator.	
-	addMethod("required_when_not_neutral_feedback", 
-		function(value, element, param) {
-			if (value == "") {
-				var radioButtonArray = new Array("1", "2", "4", "5"); 
-				for (var i = 0; i < radioButtonArray.length; i++) {
-				  if ($('#grade-' + radioButtonArray[i]).is(':checked')) {
-						return false;
-					}
-				}
-			}
-			return true; 
-	 	}
-	);
-
+  $.validator.	
+  	addMethod("required_when_not_neutral_feedback", 
+  		function(value, element, param) {
+  			if (value == "") {
+  				var radioButtonArray = new Array("1", "2", "4", "5"); 
+  				for (var i = 0; i < radioButtonArray.length; i++) {
+  				  if ($('#grade-' + radioButtonArray[i]).is(':checked')) {
+  						return false;
+  					}
+  				}
+  			}
+  			return true; 
+  	 	}
+  	);
+}
 
 // Initialize code that is needed for every view
 function initialize_defaults(default_text, feedback_default_text, locale) {
+  add_validator_methods();
   translate_validation_messages(locale);
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
@@ -518,23 +520,23 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 	}
 }
 
- function initialize_browse_view(listing_type, listing_style, locale) {
-       $('#left_link_panel_browse').find('a').click(
-       		function() {
-            	if (listing_style == 'listing') {
-                	$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-                }
-                reload_browse_view($(this), listing_type, listing_style, locale);
-            }
-       );
-	   $('#tag_cloud').find('a').click(
-		   	function() {
-		   		if (listing_style == 'listing') {
-					$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
-				}
-			   	reload_browse_view($(this), listing_type,listing_style, locale);
-		   	}
-	   );
+function initialize_browse_view(listing_type, listing_style, locale) {
+  $('#left_link_panel_browse').find('a').click(
+    function() {
+      if (listing_style == 'listing') {
+        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+      }
+      reload_browse_view($(this), listing_type, listing_style, locale);
+    }
+  );
+	$('#tag_cloud').find('a').click(
+	  function() {
+		  if (listing_style == 'listing') {
+				$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+			}
+		  reload_browse_view($(this), listing_type,listing_style, locale);
+		}
+	);
 }
 
 function initialize_profile_view(badges) {
@@ -554,6 +556,19 @@ function initialize_profile_view(badges) {
 	}
 }
 
+function initialize_homepage_news_items(news_item_ids) {
+  for (var i = 0; i < news_item_ids.length; i++) {
+    $('#news_item_' + news_item_ids[i] + '_content').click(function(news_item) {
+      $('#' + news_item.currentTarget.id + '_div_preview').hide();
+      $('#' + news_item.currentTarget.id + '_div_full').show(); 
+    });
+    $('#news_item_' + news_item_ids[i] + '_content_div').click(function(news_item) { 
+      $('#' + news_item.currentTarget.id + '_preview').show();
+      $('#' + news_item.currentTarget.id + '_full').hide();
+    });
+  }
+}
+
 function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
 }
@@ -568,6 +583,17 @@ function initialize_homepage() {
     });
   });
   $('div.invitation_form_hidden_parts').slideUp('fast');
+  $('#poll_answer_poll_option_id_value15').focus(function() {
+    alert("Focus here!");
+    // $('div.invitation_form_hidden_parts').slideDown('fast');
+    // $(document).bind('focusin.poll_form_hidden_parts click.poll_form_hidden_parts',function(e) {
+    //   if ($(e.target).closest('.poll_form_hidden_parts, .poll_answer[poll_option_id]').length) return;
+    //   $(document).unbind('.example');
+    //   $('div.poll_form_hidden_parts').slideUp('fast');
+    // });
+  });
+  $('div.poll_form_hidden_parts').slideUp('fast');
+  $("input[type=radio]").uniform();
   auto_resize_text_areas();
   var form_id = "#new_invitation"
 	$(form_id).validate({
@@ -577,6 +603,66 @@ function initialize_homepage() {
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "true", locale);
+		}
+	});
+}
+
+
+function initialize_private_community_defaults(locale, feedback_default_text) {
+  add_validator_methods();
+  translate_validation_messages(locale);
+  $('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
+  $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
+	// Make sure that Kassi cannot be used if js is disabled
+	$('.wrapper').addClass('js_enabled');
+	initialize_feedback_tab();
+	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
+	var form_id = "#new_feedback";
+	$(form_id).validate({
+		rules: {
+		  "feedback[email]": {required: false, email: true},
+			"feedback[content]": {required: true, minlength: 1}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, "true", locale);
+		}
+	});
+}
+
+function initialize_private_community_homepage(username_default_text, password_default_text) {
+  $('#password_forgotten_link').click(function() { 
+		$('#password_forgotten').slideToggle('fast'); 
+		$('input.request_password').focus();
+	});
+	$('#username').watermark(username_default_text, {className: 'default_text'});
+	$('#password').watermark(password_default_text, {className: 'default_text'});
+	$('.wrapper').addClass('js_enabled');
+}	
+	
+function initialize_admin_news_item(news_item_id) {
+  $('#news_item_' + news_item_id + '_content_link').click(function() { 
+		$('#news_item_' + news_item_id + '_content').slideToggle('fast'); 
+	});
+}
+
+function initialize_admin_new_news_item_form() {
+  auto_resize_text_areas();
+  $('#new_news_item input.text_field:first').focus();
+  $('#new_news_item').validate({
+		rules: {
+		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
+		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
+		}
+	});
+}
+
+function initialize_admin_new_poll_form() {
+  auto_resize_text_areas();
+  $('#new_poll input.text_field:first').focus();
+  $('#new_poll').validate({
+		rules: {
+		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
+		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
 		}
 	});
 }

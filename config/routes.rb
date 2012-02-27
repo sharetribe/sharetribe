@@ -119,17 +119,33 @@ Kassi::Application.routes.draw do
         resources :invitations
         resources :badges
         resources :testimonials
+        resources :poll_answers
       end
       
       # List few specific routes here for Devise to understand those
-      match "/signup" => "people#new", :as => :sign_up
-      
+      match "/signup" => "people#new", :as => :sign_up    
       match "/people/:id/:type" => "people#show", :as => :person_listings    
       
     end  
 
     namespace :admin do
       resources :feedbacks
+      resources :news_items
+      resources :polls do
+        collection do
+          get :add_option
+          get :remove_option
+        end
+        member do
+          put :open
+          put :close
+        end
+      end
+    end
+    resources :homepage do
+      collection do
+        get :sign_in
+      end
     end
     resources :listings do
       member do
@@ -144,13 +160,13 @@ Kassi::Application.routes.draw do
       resources :images, :controller => :listing_images
       resources :comments
     end
-    
     resources :infos do
       collection do
         get :about
         get :how_to_use
         get :terms
         get :register_details
+        get :news
       end  
     end
     resource :terms do
@@ -172,9 +188,14 @@ Kassi::Application.routes.draw do
         get :thank_you
       end
     end
+    resources :news_items
   end
   
   # Some non-RESTful mappings
+  match '/wdc' => 'dashboard#wdc'
+  match '/okl' => 'dashboard#okl'
+  match '/omakotiliitto' => 'dashboard#okl'
+  match '/:locale/admin' => 'admin/news_items#index', :as => :admin
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
   match "/:locale/load" => "listings#load", :as => :load
@@ -201,6 +222,7 @@ Kassi::Application.routes.draw do
   match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
+  match '/:locale/:page_type' => 'dashboard#campaign'
   
   # Inside this constraits are the routes that are used when request has subdomain other than www
   constraints(Subdomain) do

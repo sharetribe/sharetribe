@@ -8,28 +8,31 @@
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
       - else
         = "- #{@current_community.name}"
-      
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
-    %meta{ :name => "description", :content => render(:file => community_file("fb_graph_description", false)) }
-    %meta{ :name => "keywords", :content => t(".keywords") }
-    - if @current_community.use_fb_like
+    - if @listing && action_name.eql?("show")
+      - fb_image = @listing.listing_images.empty? ? "images/kassi_logo.png" : @listing.listing_images.first.image.url(:medium)
+      %meta{ :property => "og:title", :content => "#{@listing.title} - Kassi - #{@current_community.name}"} 
+      %meta{ :property => "og:type", :content =>"website"}
+      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
+      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
+      %meta{ :property => "og:site_name", :content =>"Kassi: "}
+      %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+      %meta{ :property => "og:description", :content => @listing.description}
+    - else
       %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
-      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
+      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
       %meta{ :property => "og:site_name", :content =>"Kassi"}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-      %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", false))}
+      %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
+    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
+    %meta{ :name => "keywords", :content => t(".keywords") }
     = yield :head
 
     = stylesheet_link_tag 'compiled/style.css'
     = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'kassi', 'googlemaps'
     = yield(:extra_javascript)
     = csrf_meta_tag
-    -# This is massi code. The following Google Maps script is commented out, because it breaks the current map view implementation in listings (map view uses v3, this is v2)
-    -#%script{:type => "text/javascript", :src => "http://maps.google.com/maps?file=api&language=#{I18n.locale}&amp;v=2&amp;sensor=true&amp;key=ABQIAAAAqR1Q4UcLVyWMJCu_JfCH9RSD9HsicHLqIi5udBOQF6HPeU542xSLJ0YZbGFwTBf1a8EO2OM3LUbrmA"}
-    -# This is team d code, also causes the same problem than mentioned above?
-    -# %script{:type => "text/javascript", :src => "http://maps.google.com/maps/api/js?file=api&language=#{I18n.locale}&amp;v=2&amp;sensor=false"}
     :javascript
       $(document).ready(function() { initialize_defaults("#{t('header.search_kassi')}","#{t('layouts.application.default_feedback')}", "#{I18n.locale}"); #{yield :javascript} });
     
@@ -42,6 +45,8 @@
         %style{:type => "text/css"}
           a.handle { background-position: -80px 0; }
           a.handle:hover { background-position: -120px 0; }  
+    
+    %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
     
   %body
   
@@ -94,7 +99,7 @@
                   = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
             - elsif @current_community.use_fb_like
               .fb_like_padding
-                = "<iframe src=\"http://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe              
+                = "<iframe src=\"https://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe              
         .grid_12
           = render :partial => "layouts/logged_in"
           .clear

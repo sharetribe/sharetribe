@@ -14,7 +14,7 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     Then I should see "Messages" within "h1"
-    And I should see "Favor offer: Massage" within "h3"
+    And I should see "Service offer: Massage" within "h3"
     And I should see "Received" within ".inbox_tab_selected"
     And I should see "Sent" within ".inbox_tab_unselected"
     And I should see "Test message" within "span"
@@ -31,7 +31,7 @@ Feature: User checks inbox
     When I follow "Messages"
     And I follow "Sent"
     Then I should see "Messages" within "h1"
-    And I should see "Favor offer: Massage" within "h3"
+    And I should see "Service offer: Massage" within "h3"
     And I should see "Test message" within "span"
   
   @javascript
@@ -44,8 +44,8 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
-    And I follow "Favor offer: Massage"
-    Then I should see "Favor offer: Massage" within "h2"
+    And I follow "Service offer: Massage"
+    Then I should see "Service offer: Massage" within "h2"
   
   @javascript
   Scenario: Viewing received messages when there are multiple messages from different senders
@@ -68,7 +68,7 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     Then I should see "Reply to massage" within ".unread"
-    And I should see "Favor offer: Massage" within "h3"
+    And I should see "Service offer: Massage" within "h3"
     And I should not see "Another test" within ".unread"
     And I should not see "Test1"
     And I should not see "Test2"
@@ -102,7 +102,7 @@ Feature: User checks inbox
     When I follow "Messages"
     And I follow "Sent"
     Then I should see "Ok"
-    And I should see "Favor offer: Massage" within "h3"
+    And I should see "Service offer: Massage" within "h3"
     And I should not see "Another test"
     And I should not see "Test1"
     And I should see "Test2"

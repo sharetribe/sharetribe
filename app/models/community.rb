@@ -3,12 +3,15 @@ class Community < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy 
   has_many :members, :through => :community_memberships, :source => :person, :foreign_key => :member_id
   has_many :invitations, :dependent => :destroy
+  has_many :news_items
+  has_many :polls
   
   has_and_belongs_to_many :listings
   
   validates_length_of :name, :in => 2..50
-  validates_length_of :domain, :in => 2..30
+  validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
+  #validates_uniqueness_of :domain
   
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
@@ -57,6 +60,10 @@ class Community < ActiveRecord::Base
   # to the end to make Finnish translation look better.
   def name_with_separator(locale)
     (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
+  end
+  
+  def active_poll
+    polls.where(:active => true).first
   end
 
 end

@@ -15,7 +15,7 @@
         = t('.hi')
       = link_to @current_user.given_name_or_username, @current_user, :class => "left", :id => "profile", :title => t(".go_to_your_profile_page")
       - if @current_user.is_admin?
-        = link_to t(".admin"), "#"
+        = link_to t(".admin"), admin_path(:type => "news")
         |
       = link_to t('.logout'), logout_path
 - else

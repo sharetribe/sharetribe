@@ -6,7 +6,7 @@
     = t(".these_fields_are_shown_only_to_you")
   .settings_account_row 
     .settings_account_row_title
-      = t(".username")
+      = username_label + ":"
     .settings_account_row_content
       .settings_form_padding
         = @person.username
@@ -27,7 +27,7 @@
       = link_to t(".change"), "#", :id => "account_email_link"
   .settings_account_bottom_row    
     .settings_account_row_title
-      = t(".password")
+      = t("common.password") + ":"
     .settings_account_row_content
       #account_password_content
         .settings_form_padding_password

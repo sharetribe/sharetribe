@@ -1,6 +1,8 @@
 class HomepageController < ApplicationController
 
   before_filter :save_current_path
+  
+  layout :choose_layout
 
   def index
     @events = ["Event 1", "Event 2", "Event 3"]
@@ -23,6 +25,29 @@ class HomepageController < ApplicationController
     
     if request.xhr? # checks if AJAX request
       render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
+    else
+      if @current_community.news_enabled?
+        @news_items = @current_community.news_items.order("created_at DESC").limit(2)
+        @news_item_count = @current_community.news_items.count
+      end  
+    end
+  end
+  
+  def sign_in
+    @requests = @current_community.listings.requests.open.limit(5)
+    @total_request_count = @current_community.listings.requests.open.count
+    @offers = @current_community.listings.offers.open.limit(5)
+    @total_offer_count = @current_community.listings.offers.open.count
+    @container_class = "container_12"
+  end
+  
+  private
+  
+  def choose_layout
+    if 'sign_in'.eql? action_name
+      'private'
+    else
+      'application'
     end
   end
 

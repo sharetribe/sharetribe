@@ -11,11 +11,15 @@ module NavigationHelpers
     when /the home\s?page/
       '/'
     when /the signup page/
-      '/en/signup' 
+      '/en/signup'
+    when /the private community sign in page/
+      '/en/homepage/sign_in'
+    when /the finnish private community sign in page/
+      '/fi/homepage/sign_in'  
     when /the requests page/
       '/en/requests'
     when /the offers page/
-      '/en/offers'  
+      '/en/offers' 
     when /the edit listing page/
       edit_listing_path(:id => @listing.id) 
     when /^the give feedback path of "(.*)"$/i
@@ -28,6 +32,12 @@ module NavigationHelpers
       person_badges_path(:person_id => @people[$1].id)
     when /the listing page/
       listing_path(:id => @listing.id)
+    when /^the registration page with invitation code "(.*)"$/i
+      "/en/signup?code=#{$1}"
+    when /the infos page/
+      about_infos_path
+    when /the news page/
+      news_items_path
       
     # the following are examples using path_to_pickle
 

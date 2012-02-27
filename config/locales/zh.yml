@@ -7,10 +7,51 @@ zh:
         image: 徽章图片
         name: 徽章名称
         save_badge: 保存徽章
+    news_items:
+      index:
+        news_items: ~
+        create_news_item: ~
+        no_news: ~
+        loading_more_news: ~
+      new:
+        new_news_item: ~
+        edit_news_item: ~
+        index_news_item: ~
+        title: ~
+        content: ~
+        save_news_item: ~
+      news_item:
+        edit_news_item: ~
+        delete_news_item: ~
+    polls:
+      index:
+        polls: ~
+        create_poll: ~
+        no_polls: ~
+      edit_poll_links:
+        close_poll: ~
+        open_poll: ~
+        edit_poll: ~
+        delete_poll: ~
+      new:
+        add_option: ~
+        new_poll: ~
+        edit_poll: ~
+        title: ~
+        save_poll: ~
+      new_option:
+        option: ~
+        remove_option: ~
+      poll_status:
+        open: ~
+        closed: ~
+      show:
+        edit_poll: ~
   common:
     cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
+    password: 密码
     share_types:
       borrow: 借入
       buy: 购买
@@ -22,6 +63,7 @@ zh:
       sell: 出售中
       temporary_accommodation: 临时租房
       trade: 交易
+    username: 用户名
     what_is_this: 这是什么？
   conversations:
     index:
@@ -53,11 +95,24 @@ zh:
       send_a_new_message: 发送一条新消息
       send_offer_message: ~
       send_request_message: ~
+      this_message_is_private: "此消息为您和%{person}之间的悄悄话"
       title: 名称
     notifications:
       badgenotification:
         see_all_your_badges: 查看所有的徽章
         you_have_earned_badge: 您已获得该徽章
+      comment_to_followed_listing_notification:
+        has_commented: 已评论
+        offer_you_follow: ~
+        request_you_follow: ~
+      listing_updated_notification:
+        has_updated: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      comment_to_own_listing_notification:
+        has_commented: ~
+        your_offer: ~
+        your_request: ~
       loading_more_notifications: 载入更多提醒
       no_notifications: 没有提醒
       testimonialnotification:
@@ -69,7 +124,7 @@ zh:
       in_response_to_request: 响应请求
       offer_sent_by: 发送请求的人为
       offer_sent_to: 提议发送给
-      request_sent_by: "...发送的提议"
+      request_sent_by: 提议发送自
       request_sent_to: 请求发送至...
       send_reply: 发送回复
       write_a_reply: 回复：
@@ -90,23 +145,34 @@ zh:
       reject_request: 拒绝请求
   dashboard:
     index:
-      aalto_community_url: "http://aalto.kassi.eu/en"
-      avoinyritys_url: "http://www.avoinyritys.fi/english/"
-      bubble_text_line_1: 支付！
-      bubble_text_line_2: 转发！
-      description: Kassi可以帮助社区成员们互惠互利！买卖东西，搭顺风车，借个东西等等等等，还有很多你暂时想不到的许多许多！！
+      slogan: ~
+      create_your_own: ~
+      sharing_website: ~
+      main_description: ~
+      kassi_for_your_company: ~
+      kassi_for_your_company_description: ~
+      kassi_for_your_city: ~
+      kassi_for_your_city_description: ~
+      kassi_for_your_university: ~
+      kassi_for_your_university_description: ~
+      kassi_in_aalto_university: ~
+      want_kassi_for_your_community: ~
       email_default_text: 你的邮箱地址
-      get_to_know_the_aalto_community: 探索阿尔托大学kassi社区！！
-      get_to_know_the_avoin_yritys_blog: 看看我们的博客！
-      kassi_in_facebook: Kassi在Facebook的地址
-      kassi_in_twitter: Kassi在Twitter哦！
-      or_contact_by_email: 或者也可以通过邮箱接收更新：
       send: 发送！
-      thank_you: 谢谢！
-      thank_you_for_contacting: "感谢您与我们联系，我们会尽快予以答复。您也可以通过电子邮件联系我们：info (aet) kassi.eu"
-      want_to_know_how_kassi_works: 想知道Kassi是如何运作的么？
-      want_to_know_more_about_us: 想了解更多关于我们的理念？
-      want_to_use_kassi_in_your_association: 想在您的社区中使用Kassi?
+      or_drop_us_a_line: ~
+      thanks_for_contacting_us: ~
+      resources: ~
+      connect: 连接
+      blog: 博客
+      code: 代码
+      issue_tracker: ~
+      product_of: ~
+      language: ~
+      new: ~
+      kassi_in_use: ~
+      wdc_neighborhoods: ~
+      and_for: ~
+      okl_members: ~
   emails:
     accept_reminder:
       offer_accusative: 提议
@@ -130,10 +196,10 @@ zh:
       thanks: 谢谢！
       want_to_control_emails: 想要管理来自Kassi的邮件？
     confirmation_instructions:
-      confirmation_instructions_signature: ~
-      confirmation_link_text: ~
-      need_to_confirm: ~
-      welcome_to_kassi: ~
+      welcome_to_kassi: 欢迎来到Kassi！
+      need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
+      confirmation_link_text: 确认账号
+      confirmation_instructions_signature: 此致敬礼，<br/>Kassi团队
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了您关于%{listing}的请求"
       has_accepted_your_request: ~
@@ -145,6 +211,13 @@ zh:
       your_offer_was_rejected: 您的提议被拒绝
       your_request_was_accepted: 您的请求已被接受
       your_request_was_rejected: 您的请求被拒绝
+    invitation_to_kassi:
+      hi: Hi！
+      you_have_been_invited_to_kassi: "%{inviter}邀请您使用%{community}社区的Kassi服务"
+      info_about_kassi: Kassi给人们提供了一个网上平台。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。
+      here_is_a_message_from: "这是一条来自%{inviter}的私人信息："
+      you_can_join_kassi_using_invitation_code: "这是您注册服务所需的邀请码：%{code}"
+      join_kassi_in: 您可以在此加入Kassi
     new_badge:
       you_can_view_all_your_badges_in: 浏览您的所有的徽章
       you_have_achieved_a_badge: "您在Kassi赢取了新的徽章'%{badge_name}' ！"
@@ -153,6 +226,9 @@ zh:
       has_commented_your_request_in_kassi: "%{author}评论了您的请求%{listing}"
       you_can_reply_to_comment_in: 您可以在此浏览所有的评论并回复
       you_have_a_new_comment: "%{author} 对您的留言发表了评论"
+      listing_you_follow_has_a_new_comment: ~
+      has_commented_offer_you_follow_in_kassi: ~
+      has_commented_request_you_follow_in_kassi: ~
     new_message:
       conversation_title: ~
       do_not_reply_to_this_email: 注意：请表直接回复此邮件。请使用上述回复链接。
@@ -163,25 +239,30 @@ zh:
       has_given_you_feedback_in_kassi: "%{name}在Kassi给您了反馈"
       you_can_give_feedback_to: "您可以在此给%{name}反馈"
       you_can_view_all_your_feedback_in: 您可以在此浏览您收到的所有反馈
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: ~
+      has_updated_offer_you_follow_in_kassi: ~
+      has_updated_request_you_follow_in_kassi: ~
+      you_can_view_the_changes_in: ~
     newsletter:
-      a_request: ~
-      add: ~
-      an_offer: ~
-      check_everything_that_others_are: ~
-      could_you_offer_something: ~
-      hi: ~
+      weekly_news_from_kassi: ~
+      hi: "Hi %{name},"
+      update_on_what_is_happening: ~
       newest_offers: ~
       newest_requests: ~
+      could_you_offer_something: ~
+      add: 添加
+      an_offer: ~
+      a_request: 一个请求
+      to_kassi: ~
+      check_everything_that_others_are: ~
       offering: ~
       requesting: ~
       text_version_text: ~
-      to_kassi: ~
-      update_on_what_is_happening: ~
-      weekly_news_from_kassi: ~
     reply_to_contact_request:
       thank_you_for_your_interest: 感谢您对Kassi的兴趣！
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来活的更多的徽章。"
+      feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
       you_have_not_given_feedback_yet: "您尚未评价%{name} 参与的活动'%{event}'。记得评价%{given_name} 在活动中的表现。"
   error_messages:
@@ -254,10 +335,14 @@ zh:
       some_private_requests_exist: "已有<b>%{number_of_listings} 请求</b>,"
     index:
       are_offering: 提议
+      add_news_item: ~
+      inform_others_about_events: ~
       lend_rent_help_carpool: 出售，出租，帮助，拼车
       loading_more_content: 正在载入更多内容
       more_events: 更多事件……
       news: 新闻
+      no_news: ~
+      more_news: ~
       offer_something: 列出您的物品和技能!
       offer_something_description: 添加您能提供的物品，技能和顺风车
       or: 或者
@@ -271,15 +356,45 @@ zh:
       teaser_text: "Kassi是针对 %{community} 社区的服务。在这里您可以租售或赠送物品，提供或请求帮助，拼车。您能出借某些东西或者帮助他人么？"
       tell_it_here: 在这里说出来！
       welcome_to_new_kassi: 欢迎来到新Kassi!
+    invitation_form:
+      invite_your_friends: 邀请朋友加入Kassi
+      email: 朋友的Email地址
+      message: 一条私人消息：
+      send_invitation: 发送邀请
+    news_item:
+      show_less: ~
+      show_more: ~
+    poll_form:
+      poll: ~
+      comment: ~
+      answer: ~
+      results: ~
+      poll_answer: ~
+      poll_answers: ~
+    profile_info_empty_notification:
+      add_your_info: 添加联系信息
+      add_a_profile_picture: ~
+      you_have_not_added_your_info: 您尚未添加联系方式。请添加联系方式以方便他人更方便的联系您。
+      add_your_info_link: 现在添加个人信息
     recent_listing:
       please_offer: 提议
+    sign_in:
+      recent_offers: ~
+      recent_requests: ~
+      plus: ~
+      other_offer: ~
+      other_offers: ~
+      other_request: ~
+      other_requests: ~
   layouts:
     admin:
       admin: Kassi控制面板
       back_to_kassi: 回到Kassi
+      news_items: ~
+      polls: ~
     application:
       default_feedback: 有任何意见，建议，或者程序漏洞需要提交
-      feedback: 给Kassi员工反馈
+      feedback: 向Kassi员工发送反馈
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
       give_feedback: 给Kassi反馈
@@ -300,6 +415,7 @@ zh:
       about: 什么是Kassi？
       how_to_use: 如何使用Kassi
       info_about_kassi: 关于Kassi
+      news: ~
       register_details: 注册详细信息
       terms: 使用条款
     logged_in:
@@ -324,15 +440,15 @@ zh:
       logout: 注销
       notifications: 通知
       requests: 加好友请求
-      settings: ~
+      settings: 设置
       sign_up: 注册
     notifications:
-      account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
       avatar_upload_failed: 头像上传失败。请使用.png，.jpg或者.gif文件。
       avatar_upload_successful: 头像上传成功！
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
-      confirmation_link_is_wrong_or_used: ~
+      confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       create_new_offer: 出售其他物品
       create_new_request: 请求其他物品
       create_one_here: 在此创建
@@ -347,12 +463,20 @@ zh:
       feedback_skipped: 无评价
       housing_offer_message_sent: 信息发送成功
       housing_request_message_sent: 信息发送成功
+      invitation_cannot_be_sent: 邀请未被发出
+      invitation_sent: 邀请成功发出
+      inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
       item_offer_message_sent: 物品请求发送成功
       item_request_message_sent: 提议成功发送
       login_again: 请重新登录。
       login_failed: 登录失败，请输入正确的用户凭证
       login_successful: "欢迎来到Kassi, "
       logout_successful: 您已登出Kassi，欢迎再次使用！
+      news_item_created: ~
+      news_item_creation_failed: ~
+      news_item_update_failed: ~
+      news_item_updated: ~
+      news_item_deleted: ~
       offer_accepted: 被接受的提议
       offer_closed: 已关闭的提议
       offer_created_successfully: 提议成功！
@@ -362,10 +486,18 @@ zh:
       only_listing_author_can_close_a_listing: 仅作者可以关闭列表
       only_listing_author_can_edit_a_listing: 仅作者可以编辑列表
       password_recovery_sent: 更改密码的说明已发送至您的电子邮箱。
-      person_activated: ~
-      person_deactivated: ~
+      person_activated: 用户已激活
+      person_deactivated: 用户已停用
       person_updated_successfully: 信息已更新
+      poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
+      poll_update_failed: ~
+      poll_updated: ~
+      poll_deleted: ~
       read_more: 阅读更多！
+      registration_considered_spam: ~
       reply_cannot_be_empty: 您不能发送空白信息
       reply_sent: 回复发送成功
       request_accepted: 您的请求已被接受
@@ -375,10 +507,10 @@ zh:
       request_updated_successfully: 已成功更新请求
       rideshare_offer_message_sent: 搭车请求已发送
       rideshare_request_message_sent: 提议已经成功提交
-      this_content_is_not_available_in_this_community: ~
+      this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
-      welcome_message: ~
+      welcome_message: "欢迎来到Kassi！Kassi给来自%{community}社区的人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。"
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
@@ -386,16 +518,20 @@ zh:
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
       you_cannot_reply_to_your_own_offer: 您不能回应自己的提议
       you_cannot_reply_to_your_own_request: 您不能回复自己的请求
+      you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
       you_must_log_in_to_create_new_offer: 请登录以完成提议。如果您没有账户，您可以
       you_must_log_in_to_create_new_request: 请登录以完成请求。如果您没有账户，您可以
       you_must_log_in_to_give_feedback: 您必须登录以评价
+      you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
       you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
       you_must_log_in_to_send_a_message: 您必须登录Kassi以向其他用户发送信息
       you_must_log_in_to_view_this_content: 您必须登录以查看此内容
       you_must_log_in_to_view_your_inbox: 您必须登录Kassi以查看您的收件箱
       you_must_log_in_to_view_your_settings: 您必须登录Kassi以查看您的设置
-      you_need_to_confirm_your_account_first: ~
+      you_must_log_in_to_add_news_item: ~
+      you_need_to_confirm_your_account_first: 您需要先确认账户
+      you_unfollowed_listing: 您不再关注此列表
     profile_extras_header:
       back_to_profile_of_person: 回到用户个人资料
       badges: 徽章
@@ -408,7 +544,7 @@ zh:
       settings: 设置
   listings:
     bubble_listing_not_visible:
-      listing_not_visible: ~
+      listing_not_visible: 您无权查看此列表。
     comment_form:
       log_in: 登录
       send_comment: 发送评论
@@ -417,6 +553,7 @@ zh:
       you_cannot_send_a_new_comment_because_offer_is_closed: 这个提议已经关闭，您不能发表评论。
       you_cannot_send_a_new_comment_because_request_is_closed: 这个请求已经关闭，您不能发表评论。
       you_must: 您必须
+      subscribe_to_comments: 若有新评论或更新，通知我
     edit:
       edit_offer: 编辑提议
       edit_request: 编辑请求
@@ -427,6 +564,10 @@ zh:
       edit_request: 编辑请求
       reopen_offer: 重新激活提议
       reopen_request: 重新打开请求
+    follow_links:
+      follow: 关注此列表
+      unfollow: 不再关注此列表
+      follow_description: 关注列表后，您会获得来自此列表的新评论和更新。
     form:
       departure_time:
         at: 在
@@ -440,10 +581,12 @@ zh:
       form_content:
         favor: 提供帮助
         housing: 租房
-        item: ~
+        item: 物品
         offer_something: 列出您的物品和技能!
         request_something: 说出你的需要！
         rideshare: 拼车
+        i_want_to_offer: ~
+        i_want_to_request: ~
       googlemap:
         googlemap_copy: 地图上的终点
         googlemap_description: 查看地图
@@ -580,70 +723,52 @@ zh:
       share_types_request: 请求类型
       tags: 标签
       time: 时间
-      times: ~
+      times: 次数
       times_viewed: 已阅
-  mapview:
-    index:
-      all_categories: 全部分类
-      all_offer_types: 所有提议类型
-      all_request_types: 所有请求类型
-      category: 分类
-      did_not_found_what_you_were_looking_for: 没找到您需要的？
-      favors: 帮助
-      housing: 租房
-      items: 项目
-      list_view: 列表视图
-      map_view: 地图视图
-      offer_something: 让其他人知道
-      offer_type: 提议类型
-      offers: 提议
-      request_something: 说出你的需要！
-      request_type: 请求类型
-      requests: 请求
-      rideshare: 拼车
-      search_verb: 搜索
-      you_have_something_others_do_not: 想卖点什么？
-    please_comment: 评论
   people:
-    badge_description:
-      badge_achieved_at: "已获得的徽章 "
-      you_do_not_yet_have_this_badge: 徽章尚未获得。
-    edit_links:
-      activate: ~
-      deactivate: ~
-    help_texts:
-      badges_description_title: 徽章
-      feedback_description_title: 反馈
-      help_captcha_title: 你是人类么？
-      help_invitation_code_title: ~
-      terms_title: Kassi使用条款
-    inactive_notification:
-      inactive_description: ~
-      this_person_is_not_active_in_kassi: ~
     new:
+      password: 密码：
+      username: 用户名：
+      member_id: ~
+      member_id_is_your_username: ~
+      join_here: ~
       address_validator: 未发现地点
       captcha_incorrect: 验证码错误。请输入下图中显示的单词
       captcha_was_wrong: 验证码错误
       create_new_account: 创建账户
       email: 电子邮件地址：
       email_is_in_use: 此邮箱已使用。
-      email_is_in_use_or_not_allowed: ~
+      email_is_in_use_or_not_allowed: 此Email不允许在此社区使用或已被注册。请使用与社区相关的Email地址（详细说明见上）。如果您仍然不能注册，请点击左侧链接填写反馈。
       enter_captcha: 我是一个人类：
       family_name: 姓：
       given_name: 名：
       i_accept_the: 我接受
-      invalid_invitation_code: ~
-      invitation_code: ~
+      invalid_invitation_code: 邀请码无效。
+      invitation_code: 邀请码：
       not_required: ，不要求
-      password: 密码：
       password_again: 确认密码：
+      show_my_name_to_others: 对其他Kassi用户显示真实姓名
       sign_up: 在Kassi新建账户
       terms: 使用条款
-      username: 用户名：
       username_is_in_use: 此用户名已被使用。
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
+    badge_description:
+      badge_achieved_at: "已获得的徽章 "
+      you_do_not_yet_have_this_badge: 徽章尚未获得。
+    edit_links:
+      activate: 激活
+      deactivate: 停用
+    help_texts:
+      badges_description_title: 徽章
+      feedback_description_title: 反馈
+      help_captcha_title: 你是人类么？
+      help_invitation_code_title: 您需要被邀请才能加入
+      terms_title: Kassi使用条款
+    inactive_notification:
+      this_person_is_not_active_in_kassi: 此用户处于冻结状态
+      inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
     not_member:
       explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
       read_more_about_kassi_communities: 阅读更多关于Kassi社区
@@ -687,7 +812,7 @@ zh:
       helper_gold_description: 有求必应！您已经帮助别人15次了，超级给力！
       helper_silver: 银质雷锋勋章
       helper_silver_description: 把有限的时间投入到无限的为人民服务中去。。。您已经帮助别人6次了。
-      jack_of_all_trades: ~
+      jack_of_all_trades: 全能冠军
       jack_of_all_trades_description: 多项全能！您已经在交易中扮演过5种角色。看看能不能凑齐8种：提供物品，提供帮助，提供顺风车，提供住房，需求物品，需求帮助，需求顺风车，需求住房。
       lender_bronze: 铜质共产勋章
       lender_bronze_description: 您已经借出过3项物品。太好了！
@@ -695,206 +820,245 @@ zh:
       lender_gold_description: 您只差和别人穿一条裤子了。您已经借出过25项物品。服了！
       lender_silver: 银质共产奖章
       lender_silver_description: 您家大业大啊！您已经借出过10件物品。
-      listing_freak_bronze: ~
-      listing_freak_bronze_description: ~
-      listing_freak_gold: ~
-      listing_freak_gold_description: ~
-      listing_freak_silver: ~
-      listing_freak_silver_description: ~
-      moneymaker_bronze: ~
-      moneymaker_bronze_description: ~
-      moneymaker_gold: ~
-      moneymaker_gold_description: ~
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
-      rookie: ~
-      rookie_description: ~
-      santa: ~
-      santa_description: ~
-      taxi_stand_bronze: ~
-      taxi_stand_bronze_description: ~
-      taxi_stand_gold: ~
-      taxi_stand_gold_description: ~
-      taxi_stand_silver: ~
-      taxi_stand_silver_description: ~
-      volunteer_bronze: ~
-      volunteer_bronze_description: ~
-      volunteer_gold: ~
-      volunteer_gold_description: ~
-      volunteer_silver: ~
-      volunteer_silver_description: ~
+      listing_freak_bronze: 刷屏狂人（铜牌）
+      listing_freak_bronze_description: 您目前有5个开放的交易/请求。真棒！您柜子里或技能栏里还有能帮助他人的东西么？
+      listing_freak_gold: 刷屏狂人（金牌）
+      listing_freak_gold_description: 40个开放交易/请求，太神了！你是Kassi最活跃的用户之一。
+      listing_freak_silver: 刷屏狂人（银牌）
+      listing_freak_silver_description: 20个开放交易/请求，干得好！您真是一个活跃的用户。
+      moneymaker_bronze: 印钞机（铜牌）
+      moneymaker_bronze_description: Kassi也是赚钱的好地方！您刚刚成功的出售或出租了两件物品。
+      moneymaker_gold: 印钞机（金牌）
+      moneymaker_gold_description: 成功出售或出租了15样物品！Kassi为您和您的顾客创造了完美的平台。
+      moneymaker_silver: 印钞机（银牌）
+      moneymaker_silver_description: Kassi给你带来一份不错的额外收入。已出售或出租物品成功6次。
+      rookie: 新手
+      rookie_description: 您第一次在Kassi进行买卖。
+      santa: 圣诞老人
+      santa_description: 圣诞快乐。您已成功在12月出售或出租一项商品
+      taxi_stand_bronze: 出租车站（铜牌）
+      taxi_stand_bronze_description: 您提供了三次拼车。
+      taxi_stand_gold: 出租车站（金牌）
+      taxi_stand_gold_description: 随叫随到。提供了25次拼车，真棒！
+      taxi_stand_silver: 出租车站（银牌）
+      taxi_stand_silver_description: 提供10次拼车，好耶！人们需要搭车的时候知道该找谁。
+      volunteer_bronze: 志愿者（铜牌）
+      volunteer_bronze_description: 您喜欢发挥特长帮助别人。您已提供了3次帮助。
+      volunteer_gold: 志愿者（金牌）
+      volunteer_gold_description: "您知道没有什么比帮助别人更好的了。 您已经提供了25次帮助。太棒了！"
+      volunteer_silver: 志愿者（银牌）
+      volunteer_silver_description: 您能帮到别人很多。您已经提供了10次帮助。
     profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
-      grade: ~
-      less_than_expected: ~
-      offered_favor: ~
-      offered_housing: ~
-      offered_item: ~
-      offered_rideshare: ~
-      requested_favor: ~
-      requested_housing: ~
-      requested_item: ~
-      requested_rideshare: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      as_expected: 符合期望
+      exceeded_expectations: 比期望的好很多
+      grade: 评分：
+      less_than_expected: 比期望的差
+      offered_favor: 提供帮助
+      offered_housing: 提供住房
+      offered_item: 提供商品
+      offered_rideshare: 提供拼车
+      requested_favor: 请求帮助
+      requested_housing: 请求住房
+      requested_item: 请求商品
+      requested_rideshare: 请求拼车
+      slightly_better_than_expected: 比期望的略好
+      slightly_less_than_expected: 比期望的略差
     profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
-      show_also_closed: ~
-      show_only_open: ~
+      loading_more_offers: 加载更多提供
+      loading_more_requests: 加载更多请求
+      offers: 提供
+      requests: 请求
+      show_also_closed: 显示已关闭的交易
+      show_only_open: 仅显示开放交易
     show:
-      about_me: ~
-      address: ~
-      as_expected: ~
-      badges: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
-      feedback_average: ~
-      hide_description: ~
-      joined_this_community: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_badges: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      what_are_these: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
+      about_me: 关于我：
+      add_description: 说说你自己
+      add_location: 添加地点
+      add_phone_number: 添加手机号码
+      address: 地点：
+      as_expected: 符合期望
+      badges: 徽章
+      edit_profile_info: 编辑您的资料
+      exceeded_expectations: 超过预期
+      feedback_average: 平均评价：
+      hide_description: 显示更少
+      joined_this_community: 已加入这个社区
+      was_last_seen: 被看见
+      was_invited_by: 被邀请
+      as_invited_by: ~
+      less_than_expected: 比期望的差
+      phone_number: 电话号码：
+      show_all_badges: 显示所有徽章
+      show_all_feedback: 显示所有评价
+      show_all_testimonials: 显示所有评价
+      show_full_description: 显示更多
+      slightly_better_than_expected: 超过预期
+      slightly_less_than_expected: 比期望的差
+      what_are_these: 这些是什么？
+  mapview:
+    index:
+      all_categories: 全部分类
+      all_offer_types: 所有提议类型
+      all_request_types: 所有请求类型
+      category: 分类
+      did_not_found_what_you_were_looking_for: 没找到您需要的？
+      favors: 帮助
+      housing: 租房
+      items: 项目
+      list_view: 列表视图
+      map_view: 地图视图
+      offer_something: 让其他人知道
+      offer_type: 提议类型
+      offers: 提议
+      request_something: 说出你的需要！
+      request_type: 请求类型
+      requests: 请求
+      rideshare: 拼车
+      search_verb: 搜索
+      you_have_something_others_do_not: 想卖点什么？
+    please_comment: 评论
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   sessions:
-    confirmation_pending:
-      account_conrimation_instructions: ~
-      check_your_email: ~
-      get_started: ~
-      getting_started_instructions: ~
-      resend_confirmation_instructions: ~
-      welcome_to_kassi: ~
     new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-      password: ~
-      username: ~
+      password: 密码
+      username: 用户名
+      create_new_account: 创建新账户
+      i_forgot_my_password: 忘记用户名或密码
+      login: 登录
+      login_to_kassi: 登录
     password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
+      email: E-mail
+      password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
+      request_new_password: 请求新密码
+    confirmation_pending:
+      welcome_to_kassi: 欢迎来到Kassi！
+      check_your_email: 查看您的收件箱
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      get_started: 开始使用Kassi
+      getting_started_instructions: ~
+      resend_confirmation_instructions: 再次发送确认信
   settings:
     account:
-      change: ~
-      confirm_new_password: ~
-      email: ~
-      new_email: ~
-      new_password: ~
-      password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
-      username: ~
+      password: 密码：
+      username: 用户名：
+      change: 修改
+      confirm_new_password: 确认新密码
+      email: "Email 地址"
+      new_email: 新Email地址
+      new_password: 新密码
+      save: 保存
+      these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
     avatar:
-      add_avatar_submit: ~
-      update_profile_picture: ~
+      add_avatar_submit: 保存图片
+      update_profile_picture: 更新头像
     notifications:
-      email_about_accept_reminders: ~
-      email_about_new_badges: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
-      email_about_weekly_events: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
+      i_want_to_get_email_notification_when: 寄给我一封Email通知当…
+      newsletters: 简报
+      email_about_accept_reminders: …我忘记确认一个活动
+      email_about_new_badges: …我获得一个新徽章
+      email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
+      email_about_new_messages: …有人发给我一条消息
+      email_about_new_received_testimonials: …有人给我了一条评价
+      email_about_testimonial_reminders: …我忘记评价一个活动
+      email_about_weekly_events: 每周发送给我一封Email让我知道在Kassi有什么新鲜事
+      email_when_conversation_accepted: …有人接受了您的商品或请求
+      email_when_conversation_rejected: …有人拒绝了您的商品或请求
     profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
-      phone_number: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
-    save_information: ~
+      about_you: 关于你：
+      city: 城市：
+      family_name: 姓：
+      given_name: 名：
+      location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
+      phone_number: 电话号码：
+      postal_code: 邮政编码：
+      profile_page: 在您的个人信息页面
+      profilemap: 地图
+      street_address: 地点：
+      these_fields_are_shown_in_your: 此信息对所有Kassi用户可见
+      visible_to_everybody: 所有人可见
+      visible_to_registered_users: 对已登录用户可见
+    save_information: 保存信息
+  search:
+    show:
+      all_results: 所有结果
+      loading_more_search_results: 加载更多搜索结果
+      offers: 提供
+      requests: 请求
+      search: 搜索
+      search_results: 搜索结果
+      search_returned_no_results: 没有发现符合要求的结果
+      search_verb: 搜索
   sms:
-    category_not_supported: ~
-    check_the_offer_in_kassi: ~
-    listing_created: ~
+    category_not_supported: 此分类尚不支持短消息
+    check_the_offer_in_kassi: "查看%{listing_url}的商品"
+    listing_created: 感谢您的信息，一条新列表以添加至Kassi。
     offer: ~
-    or_check_the_offer_in_kassi: ~
-    parsing_error: ~
-    pay: ~
-    payment_delivered: ~
-    potential_ride_share_offer: ~
+    or_check_the_offer_in_kassi: "或者查看商品%{listing_url}"
+    parsing_error: 不能理解信息内容。请查看帮助并重试。
+    pay: 支付
+    payment_delivered: "%{amount}欧已支付至%{receiver}。您将会通过手机账单支付%{amount_plus_commission}欧，包括支付款和服务费。"
+    potential_ride_share_offer: "%{author_name}提供拼车服务。地点从%{origin}到%{destination}。出发时间：%{start_time}。"
     request: ~
-    rideshare: ~
-    you_can_call_him_at: ~
-    you_can_pay_gas_money_to_driver: ~
+    rideshare: 拼车
+    you_can_call_him_at: "您可以联系司机，电话：%{phone_number}"
+    you_can_pay_gas_money_to_driver: "如需支付油钱，请回复'Kassi pay %{driver} Xe'，其中X为需支付数额。支付款和5%的服务费将会计算进您的电话账单。"
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: 有标签
+      without_tag: 无标签
   terms:
     show:
-      accept_terms: ~
-      here: ~
-      i_accept_new_terms: ~
-      i_accept_terms: ~
-      terms: ~
-      terms_have_changed: ~
-      you_can_view_the_new_terms: ~
-      you_need_to_accept: ~
-      you_need_to_accept_new_terms: ~
+      accept_terms: 接受Kassi的使用条款
+      here: 这里
+      i_accept_new_terms: 我接受新的条款
+      i_accept_terms: 我接受条款
+      terms: Kassi使用条款
+      terms_have_changed: 使用条款发生改变
+      you_can_view_the_new_terms: 您可以查看新的条款
+      you_need_to_accept: 欢迎来到Kassi！这是您第一次使用此服务。在开始前您必须接受
+      you_need_to_accept_new_terms: Kassi使用条款以改变。您必须接受新条款以继续使用Kassi。新条款诣在在研究项目结束后继续保持服务。
   testimonials:
     index:
-      all_testimonials: ~
-      feedback_altogether: ~
-      loading_more_testimonials: ~
-      no_testimonials: ~
+      all_testimonials: 所有评价
+      feedback_altogether: 评价全部 
+      loading_more_testimonials: 载入更多评价
+      no_testimonials: 无收到的评价
     new:
-      as_expected: ~
-      exceeded_expectations: ~
-      give_feedback_to: ~
-      grade: ~
-      less_than_expected: ~
-      send_feedback: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-      textual_feedback: ~
+      as_expected: 符合期望
+      exceeded_expectations: 比期望的好很多
+      give_feedback_to: "对%{person}发表评价"
+      grade: 服务评估
+      less_than_expected: 比期望的差
+      send_feedback: 发送评价
+      slightly_better_than_expected: 比期望的略好
+      slightly_less_than_expected: 比期望的略差
+      textual_feedback: 文本评价
     testimonial:
-      from_user: ~
-      to_user: ~
+      from_user: 来自
+      to_user: 对
   time:
     formats:
-      short: ~
-      shorter: ~
-      sms: ~
+      short: "%e %b %Y  %H:%M"
+      shorter: "%e %b %H:%M"
+      sms: "%e %b %H:%M"
   timestamps:
-    day_ago: ~
-    days_ago: ~
-    hour_ago: ~
-    hours_ago: ~
-    minute_ago: ~
-    minutes_ago: ~
-    month_ago: ~
-    months_ago: ~
-    seconds_ago: ~
-    year_ago: ~
-    years_ago: ~
+    day_ago: 天前
+    days_ago: 天前
+    hour_ago: 小时前
+    hours_ago: 小时前
+    minute_ago: 分钟前
+    minutes_ago: 分钟前
+    month_ago: 月前
+    months_ago: 月前
+    seconds_ago: 秒前
+    year_ago: 年前
+    years_ago: 年前

@@ -125,7 +125,7 @@ class PersonMailer < ActionMailer::Base
   def reply_to_contact_request(email, locale)
     @no_settings = true
     set_locale locale
-    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>")
+    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>", :reply_to => "Juho Makkonen <info@kassi.eu>")
   end
   
   # Remind users of conversations that have not been accepted or rejected
@@ -156,8 +156,9 @@ class PersonMailer < ActionMailer::Base
     @invitation = invitation
     set_locale @invitation.inviter.locale
     @url = host ? "http://#{host}/#{@invitation.inviter.locale}/signup?code=#{@invitation.code}" : "test_url"
+    @url += "&private_community=true" if @invitation.community.private?
     subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
-    mail(:to => @invitation.email, :subject => subject)
+    mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end
   
   def self.deliver_newsletters

@@ -1,0 +1,25 @@
+#footer
+  .container_12
+    .grid_4.alpha
+      %h3= t("dashboard.index.resources")
+      .grid_1.alpha
+        .white_corner
+      .grid_3.omega.footer_links
+        = link_to t("dashboard.index.blog"), "http://www.avoinyritys.fi"
+        %br/
+        = link_to t("dashboard.index.code"), "http://www.github.com/sizzlelab/kassi"
+        %br/
+        = link_to t("dashboard.index.issue_tracker"), "http://www.pivotaltracker.com/projects/76849"
+    .grid_4
+      %h3= t("dashboard.index.connect")
+      .grid_1.alpha
+        .white_corner
+      .grid_3.omega
+        #connect_icons
+          = link_to "#", "https://www.facebook.com/pages/Kassi/117309854407", :class => "left_icon facebook"
+          = link_to "#", "https://twitter.com/#!/kassi_eu", :class => "left_icon twitter"
+          = link_to "#", "https://plus.google.com/115623351324372170386", :class => "google_plus"
+    .grid_4.omega
+      #product
+        = t("dashboard.index.product_of")
+        Avoin Interactive Ltd.

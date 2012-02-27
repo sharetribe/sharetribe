@@ -1,0 +1,4 @@
+.recent_listing
+  %h3= t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
+  - if  @current_community.show_date_in_listings_list
+    %span= time_ago(listing.created_at)

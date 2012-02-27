@@ -24,7 +24,7 @@ describe RessiEvent do
       rescue Errno::ECONNREFUSED => e
         puts "No connection to RESSI (optional) at #{APP_CONFIG.ressi_url}"
       rescue NoMethodError => e
-              puts "Ressi event error (#{e.class}) #{APP_CONFIG.ressi_url}, #{e.message}. This can happen if Ressi server is not available. You don't need to worry about this, unless specifically testing Ressi now."
+        puts "Ressi event error (#{e.class}) #{APP_CONFIG.ressi_url}, #{e.message}. This can happen if Ressi server is not available. You don't need to worry about this, unless specifically testing Ressi now."
       end
 
     end

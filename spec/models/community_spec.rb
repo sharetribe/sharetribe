@@ -26,7 +26,7 @@ describe Community do
     @community.should_not be_valid
     @community.domain = "a"
     @community.should_not be_valid
-    @community.domain = "a" * 31
+    @community.domain = "a" * 51
     @community.should_not be_valid
     @community.domain = "´?%"
     @community.should_not be_valid

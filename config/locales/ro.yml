@@ -2,111 +2,177 @@ ro:
   admin:
     badges:
       index:
-        add_new_badge: ~
-        existing_badges: ~
-        image: ~
-        name: ~
-        save_badge: ~
+        add_new_badge: "Adaugă etichetă nouă"
+        existing_badges: "Etichete disponibile"
+        image: "Poză etichetă"
+        name: "Nume etichetă"
+        save_badge: "Salvează eticheta"
+    news_items:
+      index:
+        news_items: ~
+        create_news_item: ~
+        no_news: ~
+        loading_more_news: ~
+      new:
+        new_news_item: ~
+        edit_news_item: ~
+        index_news_item: ~
+        title: ~
+        content: ~
+        save_news_item: ~
+      news_item:
+        edit_news_item: ~
+        delete_news_item: ~
+    polls:
+      index:
+        polls: ~
+        create_poll: ~
+        no_polls: ~
+      edit_poll_links:
+        close_poll: ~
+        open_poll: ~
+        edit_poll: ~
+        delete_poll: ~
+      new:
+        add_option: ~
+        new_poll: ~
+        edit_poll: ~
+        title: ~
+        save_poll: ~
+      new_option:
+        option: ~
+        remove_option: ~
+      poll_status:
+        open: ~
+        closed: ~
+      show:
+        edit_poll: ~
   common:
-    cancel: ~
-    fields_that_are_mandatory: ~
-    or: ~
+    cancel: Anulează
+    fields_that_are_mandatory: "Campurile cu stea (*) sunt obligatorii."
+    or: sau
+    password: ~
     share_types:
-      borrow: ~
-      buy: ~
-      give_away: ~
-      lend: ~
-      receive: ~
-      rent: ~
-      rent_out: ~
-      sell: ~
-      temporary_accommodation: ~
-      trade: ~
-    what_is_this: ~
+      borrow: imprumutare
+      buy: cumpărare
+      give_away: oferire
+      lend: împrumut
+      receive: gratuit
+      rent: inchiriere
+      rent_out: "de dat spre închiriere"
+      sell: "de vânzare"
+      temporary_accommodation: "găzduire temporară"
+      trade: negociere
+    username: ~
+    what_is_this: "Ce înseamnă asta?"
   conversations:
     index:
-      loading_more_messages: ~
-      message_partitive: ~
-      messages_partitive: ~
-      no_received_messages: ~
-      no_sent_messages: ~
+      loading_more_messages: "Se încarcă mai multe mesaje"
+      message_partitive: mesaj
+      messages_partitive: mesaje
+      no_received_messages: "Nici un mesaj primit"
+      no_sent_messages: "Nici un mesaj trimis"
     new:
-      default_offer_message_text: ~
-      default_request_message_text: ~
-      favor_offer_message_form_title: ~
-      favor_offer_message_title: ~
-      favor_request_message_form_title: ~
-      favor_request_message_title: ~
-      housing_offer_message_form_title: ~
+      default_offer_message_text: "Explică ce ai nevoie"
+      default_request_message_text: "Explică ce oferi si in ce conditii"
+      favor_offer_message_form_title: "Cere o favoare de la"
+      favor_offer_message_title: "Cerere favoare: %{title}"
+      favor_request_message_form_title: "Oferă o favoare pentru"
+      favor_request_message_title: "Ofertă favoare: %{title}"
+      housing_offer_message_form_title: Răspunde
       housing_offer_message_title: ~
       housing_request_message_form_title: ~
       housing_request_message_title: ~
-      item_offer_message_form_title: ~
+      item_offer_message_form_title: "Cere un produs de la"
       item_offer_message_title: ~
-      item_request_message_form_title: ~
-      item_request_message_title: ~
-      message: ~
-      rideshare_offer_message_form_title: ~
+      item_request_message_form_title: "Oferă un produs pentru"
+      item_request_message_title: "Ofertă produs: %{title}"
+      message: Mesaj
+      rideshare_offer_message_form_title: "Cere un drum cu mașina de la"
       rideshare_offer_message_title: ~
-      rideshare_request_message_form_title: ~
+      rideshare_request_message_form_title: "Oferă un drum cu mașina pentru"
       rideshare_request_message_title: ~
-      send_a_new_message: ~
+      send_a_new_message: "Trimite un mesaj nou"
       send_offer_message: ~
       send_request_message: ~
-      title: ~
+      this_message_is_private: ~
+      title: Titlu
     notifications:
       badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
-      loading_more_notifications: ~
-      no_notifications: ~
+        see_all_your_badges: "Vezi toate etichetele"
+        you_have_earned_badge: "Ai castigat ecticheta"
+      comment_to_followed_listing_notification:
+        has_commented: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      listing_updated_notification:
+        has_updated: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      comment_to_own_listing_notification:
+        has_commented: ~
+        your_offer: ~
+        your_request: ~
+      loading_more_notifications: "Se incarca mai multe notificari"
+      no_notifications: "Nici o notificare"
       testimonialnotification:
-        give_feedback_to: ~
-        has_given_you_feedback_on_event: ~
-        see_all_the_feedback_you_have_received: ~
+        give_feedback_to: "Ofera feedback pentru %{name}"
+        has_given_you_feedback_on_event: "ti-a oferit feedback pentru eveniment"
+        see_all_the_feedback_you_have_received: "vezi toate feedback-urile primite"
     show:
-      in_response_to_offer: ~
-      in_response_to_request: ~
-      offer_sent_by: ~
-      offer_sent_to: ~
-      request_sent_by: ~
-      request_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      in_response_to_offer: "despre oferta"
+      in_response_to_request: "ca raspuns la cerere"
+      offer_sent_by: "Cereri trimise de"
+      offer_sent_to: "Oferta trimisa pentru"
+      request_sent_by: "Oferta trimisa de"
+      request_sent_to: "Cerere trimisa catre"
+      send_reply: "Trimite raspuns"
+      write_a_reply: "Scrie un răspuns"
     status:
-      feedback_given: ~
-      feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
-      request_accepted: ~
-      request_rejected: ~
+      feedback_given: "Feedback oferit"
+      feedback_skipped: "Feedback omis"
+      give_feedback: "Oferă feedback"
+      offer_accepted: "Oferă acceptată"
+      offer_rejected: "Ofertă respinsă"
+      request_accepted: "Cerere acceptată"
+      request_rejected: "Cerere refuzată"
       skip_feedback: ~
       waiting_confirmation_from_listing_author: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Acceptă ofertă"
+      accept_request: "Acceptă cerere"
+      reject_offer: "Respinge ofertă"
+      reject_request: "Respinge cerere"
   dashboard:
     index:
-      aalto_community_url: ~
-      avoinyritys_url: ~
-      bubble_text_line_1: ~
-      bubble_text_line_2: ~
-      description: ~
-      email_default_text: ~
-      get_to_know_the_aalto_community: ~
-      get_to_know_the_avoin_yritys_blog: ~
-      kassi_in_facebook: ~
-      kassi_in_twitter: ~
-      or_contact_by_email: ~
+      slogan: ~
+      create_your_own: ~
+      sharing_website: ~
+      main_description: ~
+      kassi_for_your_company: ~
+      kassi_for_your_company_description: ~
+      kassi_for_your_city: ~
+      kassi_for_your_city_description: ~
+      kassi_for_your_university: ~
+      kassi_for_your_university_description: ~
+      kassi_in_aalto_university: ~
+      want_kassi_for_your_community: ~
+      email_default_text: "Adresa ta de e-mail"
       send: ~
-      thank_you: ~
-      thank_you_for_contacting: ~
-      want_to_know_how_kassi_works: ~
-      want_to_know_more_about_us: ~
-      want_to_use_kassi_in_your_association: ~
+      or_drop_us_a_line: ~
+      thanks_for_contacting_us: ~
+      resources: ~
+      connect: ~
+      blog: ~
+      code: ~
+      issue_tracker: ~
+      product_of: ~
+      language: ~
+      new: ~
+      kassi_in_use: ~
+      wdc_neighborhoods: ~
+      and_for: ~
+      okl_members: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -129,6 +195,11 @@ ro:
       kassi_team: ~
       thanks: ~
       want_to_control_emails: ~
+    confirmation_instructions:
+      welcome_to_kassi: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
+      confirmation_instructions_signature: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -140,6 +211,13 @@ ro:
       your_offer_was_rejected: ~
       your_request_was_accepted: ~
       your_request_was_rejected: ~
+    invitation_to_kassi:
+      hi: ~
+      you_have_been_invited_to_kassi: ~
+      info_about_kassi: ~
+      here_is_a_message_from: ~
+      you_can_join_kassi_using_invitation_code: ~
+      join_kassi_in: ~
     new_badge:
       you_can_view_all_your_badges_in: ~
       you_have_achieved_a_badge: ~
@@ -148,7 +226,11 @@ ro:
       has_commented_your_request_in_kassi: ~
       you_can_reply_to_comment_in: ~
       you_have_a_new_comment: ~
+      listing_you_follow_has_a_new_comment: ~
+      has_commented_offer_you_follow_in_kassi: ~
+      has_commented_request_you_follow_in_kassi: ~
     new_message:
+      conversation_title: ~
       do_not_reply_to_this_email: ~
       has_sent_you_a_message_in_kassi: ~
       you_can_reply_to_message_in: ~
@@ -157,6 +239,26 @@ ro:
       has_given_you_feedback_in_kassi: ~
       you_can_give_feedback_to: ~
       you_can_view_all_your_feedback_in: ~
+    new_update_to_listing:
+      listing_you_follow_has_been_updated: ~
+      has_updated_offer_you_follow_in_kassi: ~
+      has_updated_request_you_follow_in_kassi: ~
+      you_can_view_the_changes_in: ~
+    newsletter:
+      weekly_news_from_kassi: ~
+      hi: ~
+      update_on_what_is_happening: ~
+      newest_offers: ~
+      newest_requests: ~
+      could_you_offer_something: ~
+      add: ~
+      an_offer: ~
+      a_request: ~
+      to_kassi: ~
+      check_everything_that_others_are: ~
+      offering: ~
+      requesting: ~
+      text_version_text: ~
     reply_to_contact_request:
       thank_you_for_your_interest: ~
     testimonial_reminder:
@@ -187,17 +289,17 @@ ro:
     no_javascript:
       javascript_is_disabled_in_your_browser: ~
       kassi_does_not_currently_work_without_javascript: ~
-      send_feedback: ~
-      your_feedback_to_admins: ~
-    send: ~
-    your_email_address: ~
+      send_feedback: "Trimite feedback"
+      your_feedback_to_admins: "Feedback-ul tau pentru administratori"
+    send: Trimite
+    your_email_address: "Adresa ta de e-mail"
   header:
     about: ~
-    community: ~
-    home: ~
-    mobile_version: ~
-    offers: ~
-    requests: ~
+    community: Comunitate
+    home: Acasa
+    mobile_version: "Versiune pentru mobil"
+    offers: Oferte
+    requests: Cereri
     search_kassi: ~
   homepage:
     additional_private_listings_slate:
@@ -214,13 +316,13 @@ ro:
       examples_of_what_you_could_request_to_others: ~
       favor_offer_list: ~
       favor_request_list: ~
-      favors_to_offer: ~
-      favors_to_request: ~
+      favors_to_offer: "Ajutor: "
+      favors_to_request: "Ajutor: "
       item_offer_list: ~
       item_request_list: ~
       items_to_offer: ~
       items_to_request: ~
-      log_in: ~
+      log_in: conecteaza-te!
       no_offers_visible_unless_logged_in: ~
       no_open_offers_currently: ~
       no_open_requests_currently: ~
@@ -232,14 +334,18 @@ ro:
       some_private_offers_exist: ~
       some_private_requests_exist: ~
     index:
-      are_offering: ~
+      are_offering: oferta
+      add_news_item: ~
+      inform_others_about_events: ~
       lend_rent_help_carpool: ~
       loading_more_content: ~
       more_events: ~
-      news: ~
+      news: Stiri
+      no_news: ~
+      more_news: ~
       offer_something: ~
       offer_something_description: ~
-      or: ~
+      or: sau
       or_see_what_the_others: ~
       recent_events: ~
       recent_offers: ~
@@ -250,12 +356,42 @@ ro:
       teaser_text: ~
       tell_it_here: ~
       welcome_to_new_kassi: ~
+    invitation_form:
+      invite_your_friends: ~
+      email: ~
+      message: ~
+      send_invitation: ~
+    news_item:
+      show_less: ~
+      show_more: ~
+    poll_form:
+      poll: ~
+      comment: ~
+      answer: ~
+      results: ~
+      poll_answer: ~
+      poll_answers: ~
+    profile_info_empty_notification:
+      add_your_info: ~
+      add_a_profile_picture: ~
+      you_have_not_added_your_info: ~
+      add_your_info_link: ~
     recent_listing:
-      please_offer: ~
+      please_offer: Oferta
+    sign_in:
+      recent_offers: ~
+      recent_requests: ~
+      plus: ~
+      other_offer: ~
+      other_offers: ~
+      other_request: ~
+      other_requests: ~
   layouts:
     admin:
       admin: ~
       back_to_kassi: ~
+      news_items: ~
+      polls: ~
     application:
       default_feedback: ~
       feedback: ~
@@ -269,47 +405,50 @@ ro:
       to_see_what_others_have_suggested: ~
       your_email_address: ~
     conversations:
-      messages: ~
-      notifications: ~
-      received: ~
-      sent: ~
+      messages: Mesaje
+      notifications: Notificări
+      received: Primite
+      sent: Trimise
     dashboard:
       title: ~
     infos:
-      about: ~
-      how_to_use: ~
-      info_about_kassi: ~
+      about: "Ce este Kassi?"
+      how_to_use: "Cum să folosești Kassi"
+      info_about_kassi: "Informații despre Kassi"
+      news: ~
       register_details: ~
       terms: ~
     logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Salut
+      login: Conectează-te
+      logout: Deconectează-te
+      notifications: Notificări
+      requests: "Cereri prietenie"
       settings: ~
-      sign_up: ~
+      sign_up: "Creează cont"
     logged_in_messages_icon:
-      messages: ~
+      messages: Mesaje
     logged_in_notifications_icon:
-      notifications: ~
+      notifications: Notificări
     mobile_logged_in:
-      admin: ~
-      go_to_your_profile_page: ~
-      hi: ~
-      login: ~
-      logout: ~
-      notifications: ~
-      requests: ~
+      admin: Admin
+      go_to_your_profile_page: Profil
+      hi: Salut
+      login: Conectare
+      logout: Deconectare
+      notifications: Notificari
+      requests: "Cereri prietenie"
       settings: ~
-      sign_up: ~
+      sign_up: Înregistrare
     notifications:
+      account_creation_succesful_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: ~
       avatar_upload_successful: ~
       comment_cannot_be_empty: ~
-      comment_sent: ~
+      comment_sent: "Comentariu trimis"
+      confirmation_link_is_wrong_or_used: ~
       create_new_offer: ~
       create_new_request: ~
       create_one_here: ~
@@ -324,12 +463,20 @@ ro:
       feedback_skipped: ~
       housing_offer_message_sent: ~
       housing_request_message_sent: ~
+      invitation_cannot_be_sent: ~
+      invitation_sent: ~
+      inviting_new_users_is_not_allowed_in_this_community: ~
       item_offer_message_sent: ~
       item_request_message_sent: ~
       login_again: ~
       login_failed: ~
       login_successful: ~
       logout_successful: ~
+      news_item_created: ~
+      news_item_creation_failed: ~
+      news_item_update_failed: ~
+      news_item_updated: ~
+      news_item_deleted: ~
       offer_accepted: ~
       offer_closed: ~
       offer_created_successfully: ~
@@ -339,8 +486,18 @@ ro:
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
       password_recovery_sent: ~
+      person_activated: ~
+      person_deactivated: ~
       person_updated_successfully: ~
+      poll_answered: ~
+      poll_could_not_be_answered: ~
+      poll_created: ~
+      poll_creation_failed: ~
+      poll_update_failed: ~
+      poll_updated: ~
+      poll_deleted: ~
       read_more: ~
+      registration_considered_spam: ~
       reply_cannot_be_empty: ~
       reply_sent: ~
       request_accepted: ~
@@ -350,6 +507,7 @@ ro:
       request_updated_successfully: ~
       rideshare_offer_message_sent: ~
       rideshare_request_message_sent: ~
+      this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
       welcome_message: ~
@@ -360,15 +518,20 @@ ro:
       you_cannot_reply_to_a_closed_request: ~
       you_cannot_reply_to_your_own_offer: ~
       you_cannot_reply_to_your_own_request: ~
+      you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
       you_must_log_in_to_create_new_offer: ~
       you_must_log_in_to_create_new_request: ~
       you_must_log_in_to_give_feedback: ~
+      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: ~
       you_must_log_in_to_send_a_message: ~
       you_must_log_in_to_view_this_content: ~
       you_must_log_in_to_view_your_inbox: ~
       you_must_log_in_to_view_your_settings: ~
+      you_must_log_in_to_add_news_item: ~
+      you_need_to_confirm_your_account_first: ~
+      you_unfollowed_listing: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -380,6 +543,8 @@ ro:
       profile: ~
       settings: ~
   listings:
+    bubble_listing_not_visible:
+      listing_not_visible: ~
     comment_form:
       log_in: ~
       send_comment: ~
@@ -388,6 +553,7 @@ ro:
       you_cannot_send_a_new_comment_because_offer_is_closed: ~
       you_cannot_send_a_new_comment_because_request_is_closed: ~
       you_must: ~
+      subscribe_to_comments: ~
     edit:
       edit_offer: ~
       edit_request: ~
@@ -398,10 +564,16 @@ ro:
       edit_request: ~
       reopen_offer: ~
       reopen_request: ~
+    follow_links:
+      follow: ~
+      unfollow: ~
+      follow_description: ~
     form:
       departure_time:
         at: ~
         departure_time: ~
+      departure_time_radio_buttons:
+        repeated: ~
       description:
         detailed_description: ~
       destination:
@@ -413,6 +585,8 @@ ro:
         offer_something: ~
         request_something: ~
         rideshare: ~
+        i_want_to_offer: ~
+        i_want_to_request: ~
       googlemap:
         googlemap_copy: ~
         googlemap_description: ~
@@ -551,58 +725,50 @@ ro:
       time: ~
       times: ~
       times_viewed: ~
-  mapview:
-    index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
   people:
-    badge_description:
-      badge_achieved_at: ~
-      you_do_not_yet_have_this_badge: ~
-    help_texts:
-      badges_description_title: ~
-      feedback_description_title: ~
-      help_captcha_title: ~
-      terms_title: ~
     new:
+      password: ~
+      username: ~
+      member_id: ~
+      member_id_is_your_username: ~
+      join_here: ~
       address_validator: ~
       captcha_incorrect: ~
       captcha_was_wrong: ~
       create_new_account: ~
       email: ~
       email_is_in_use: ~
+      email_is_in_use_or_not_allowed: ~
       enter_captcha: ~
       family_name: ~
       given_name: ~
       i_accept_the: ~
+      invalid_invitation_code: ~
+      invitation_code: ~
       not_required: ~
-      password: ~
       password_again: ~
+      show_my_name_to_others: ~
       sign_up: ~
       terms: ~
-      username: ~
       username_is_in_use: ~
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
+    badge_description:
+      badge_achieved_at: ~
+      you_do_not_yet_have_this_badge: ~
+    edit_links:
+      activate: ~
+      deactivate: ~
+    help_texts:
+      badges_description_title: ~
+      feedback_description_title: ~
+      help_captcha_title: ~
+      help_invitation_code_title: ~
+      terms_title: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
@@ -706,6 +872,9 @@ ro:
       show_only_open: ~
     show:
       about_me: ~
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
       address: ~
       as_expected: ~
       badges: ~
@@ -714,6 +883,9 @@ ro:
       feedback_average: ~
       hide_description: ~
       joined_this_community: ~
+      was_last_seen: ~
+      was_invited_by: ~
+      as_invited_by: ~
       less_than_expected: ~
       phone_number: ~
       show_all_badges: ~
@@ -723,6 +895,98 @@ ro:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       what_are_these: ~
+  mapview:
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      search_verb: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
+  sessions:
+    new:
+      password: ~
+      username: ~
+      create_new_account: ~
+      i_forgot_my_password: ~
+      login: ~
+      login_to_kassi: ~
+    password_forgotten:
+      email: ~
+      password_recovery_instructions: ~
+      request_new_password: ~
+    confirmation_pending:
+      welcome_to_kassi: "Bine ați venit la Kassi!"
+      check_your_email: ~
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      get_started: ~
+      getting_started_instructions: "După ce ați confirmat contul, este o idee bună sa adăugați o fotografie la <a href=\"%{profile_url}\"> profilul dumnveavoastră</a> și să completați alte detalii, sau puteți continua direct spre portal adăugând o <a href=\"/en/listings/new/offer\"> ofertă </a> despre ceva ce puteți împrumuta, închiria, vinde sau face pentru ceilalți. Sau dacă aveți nevoie de un lucru ori de ajutor, scrieți o<a href=\"/en/listings/new/request\"> cerere </a>."
+      resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
+  settings:
+    account:
+      password: ~
+      username: ~
+      change: ~
+      confirm_new_password: ~
+      email: ~
+      new_email: ~
+      new_password: ~
+      save: ~
+      these_fields_are_shown_only_to_you: ~
+    avatar:
+      add_avatar_submit: ~
+      update_profile_picture: ~
+    notifications:
+      i_want_to_get_email_notification_when: ~
+      newsletters: ~
+      email_about_accept_reminders: ~
+      email_about_new_badges: ~
+      email_about_new_comments_to_own_listing: ~
+      email_about_new_messages: ~
+      email_about_new_received_testimonials: ~
+      email_about_testimonial_reminders: ~
+      email_about_weekly_events: ~
+      email_when_conversation_accepted: ~
+      email_when_conversation_rejected: ~
+    profile:
+      about_you: ~
+      city: ~
+      family_name: ~
+      given_name: ~
+      location_description: ~
+      phone_number: ~
+      postal_code: ~
+      profile_page: ~
+      profilemap: ~
+      street_address: ~
+      these_fields_are_shown_in_your: ~
+      visible_to_everybody: ~
+      visible_to_registered_users: ~
+    save_information: ~
   search:
     show:
       all_results: ~
@@ -733,56 +997,6 @@ ro:
       search_results: ~
       search_returned_no_results: ~
       search_verb: ~
-  sessions:
-    new:
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-      password: ~
-      username: ~
-    password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
-  settings:
-    account:
-      change: ~
-      confirm_new_password: ~
-      email: ~
-      new_email: ~
-      new_password: ~
-      password: ~
-      save: ~
-      these_fields_are_shown_only_to_you: ~
-      username: ~
-    avatar:
-      add_avatar_submit: ~
-      update_profile_picture: ~
-    notifications:
-      email_about_accept_reminders: ~
-      email_about_new_badges: ~
-      email_about_new_comments_to_own_listing: ~
-      email_about_new_messages: ~
-      email_about_new_received_testimonials: ~
-      email_about_testimonial_reminders: ~
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
-      i_want_to_get_email_notification_when: ~
-    profile:
-      about_you: ~
-      city: ~
-      family_name: ~
-      given_name: ~
-      phone_number: ~
-      postal_code: ~
-      profile_page: ~
-      profilemap: ~
-      street_address: ~
-      these_fields_are_shown_in_your: ~
-      visible_to_everybody: ~
-      visible_to_registered_users: ~
-    save_information: ~
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~

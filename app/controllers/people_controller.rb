@@ -2,6 +2,8 @@ class PeopleController < Devise::RegistrationsController
   
   include UrlHelper
   
+  layout :choose_layout
+  
   protect_from_forgery :except => :create
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
@@ -32,7 +34,10 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def new
+    redirect_to root if logged_in?
     @person = Person.new
+    @container_class = params[:private_community] ? "container_12" : "container_24"
+    @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
   end
 
   def create
@@ -43,7 +48,13 @@ class PeopleController < Devise::RegistrationsController
     end
     domain = "http://#{with_subdomain(params[:community])}"
     
-    if @current_community.join_with_invite_only
+    if params[:person][:email2].present? # Honey pot for spammerbots
+      flash[:error] = :registration_considered_spam
+      ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
+      redirect_to domain + sign_up_path and return
+    end
+    
+    if params[:invitation_code]
       # Check if invitation is valid
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
@@ -86,7 +97,7 @@ class PeopleController < Devise::RegistrationsController
     # Try to create a new person in ASI.
     begin
       if use_asi?
-        @person = Person.create(params[:person], session[:cookie], @current_community.use_asi_welcome_mail?)
+        @person = Person.create(params[:person].except(:email2), session[:cookie], @current_community.use_asi_welcome_mail?)
       else
         # This part is copied from Devise's regstration_controller#create
 
@@ -234,6 +245,14 @@ class PeopleController < Devise::RegistrationsController
   end
 
   private
+  
+  def choose_layout
+    if @current_community.private && action_name.eql?("new")
+      'private'
+    else
+      'application'
+    end
+  end
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries

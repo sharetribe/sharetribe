@@ -18,6 +18,7 @@ $lighter_orange: lighten($orange, 25%);
 $dark_brown: darken($medium_brown, 12%);
 $light_brown: lighten($medium_brown, 12%);
 $light_grey: lighten($text_color, 20%);
+$lighter_grey: lighten($text_color, 30%);
 $yellow: #fdf4bc;
 $dark_green: #223f05;
 $lighter_green: #3e6714;
@@ -39,6 +40,15 @@ $lighter_green: #3e6714;
 	color: transparent;
 	&:hover { background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + "_lighter.png") no-repeat };
 }
+
+@mixin spacer($color: $text_color, $type: solid) {
+	border-top: 1px $type $color;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	height: 0;
+}
+
 
 /* Actual stuff */
 
@@ -65,6 +75,13 @@ h2 {
   letter-spacing: 1px;
 }
 
+h2.campaign_page {
+  margin: 18px 0 5px 0;
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}
+
 h3 {
   margin: 20px 0 0 0;
   font-size: 22px;
@@ -86,6 +103,15 @@ a:hover {
 
 a:active {
 	color: $light_orange;
+}
+
+a.green_part_link { 
+  color: $light_orange;
+  font-size: 16px;
+  font-weight: 400;
+  &:hover { color: $lighter_orange; }
+  &:focus { color: $lighter_orange; }
+  &:active { color: $light_orange; }
 }
 
 #header {
@@ -114,8 +140,8 @@ a:active {
   margin-right: 10px;
 }
 
-#home_main {
-  height: 421px;
+@mixin main($height: 421px) {
+  height: $height;
   background-color: #3e6e14;
   background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, from(rgb(34, 63, 5)), to(rgb(62, 110, 20)));
   background-image: -webkit-radial-gradient(50% 0%, rgb(62, 110, 20), rgb(34, 63, 5));
@@ -133,12 +159,34 @@ a:active {
   }
 }
 
+#home_main {
+  @include main;
+}
+
+#campaign_main {
+  @include main(833px);
+  p { 
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  p.top { margin: 45px 0 20px 0; }
+}
+
 #home_main_title {
   height: 158px;
 }
 
 #home_main_screenshot {
   height: 223px;
+}
+
+.home_main_screenshot_longer {
+  height: 326px;
+  margin-bottom: 20px;
+}
+
+#home_main_screenshot_bottom {
+  height: 289px;
 }
 
 .form_field_container {
@@ -242,7 +290,7 @@ input[type=submit]:hover {
 #home_more_info {
   overflow: hidden;
   background: $bg_color;
-  padding-bottom: 20px;
+  padding-bottom: 25px;
   box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
@@ -300,3 +348,51 @@ input[type=submit]:hover {
     font-weight: 400;
   }
 }
+
+#select_community_form {
+  overflow: hidden;
+  margin-bottom: 23px;
+}
+
+#logos {
+  overflow: hidden;
+  margin-top: 30px;
+  img { 
+    float: left;
+    margin-right: 30px;
+  }
+}
+
+#new_stuff {
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+#new_box {
+  @include rounded(7px);
+  background-color: $dark_green;
+  padding: 5px 10px;
+  color: white;
+  font-size: 18px;
+  overflow: hidden;
+  float: left;
+}
+
+#new_text {
+  overflow: hidden;
+  font-size: 16px;
+  float: left;
+  padding-top: 7px;
+  margin-left: 20px;
+  a { 
+    font-size: 16px;
+    font-weight: 400; 
+  }
+}
+
+.dashboard_spacer {
+  @include spacer($lighter_grey);
+}
+
+.hidden { display: none; }
