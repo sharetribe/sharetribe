@@ -2,50 +2,50 @@ class ApplicationController < ActionController::Base
   include UrlHelper, ApplicationHelper
   protect_from_forgery
   layout 'application'
-  
+
   before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending]
-  
+
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
-  
+
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
   before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load
-    
+
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
-  
+
   helper_method :root, :logged_in?, :current_user?
-  
+
   def set_locale
     locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
-    
+
     if locale.blank? && @current_community
       locale = @current_community.default_locale
     end
-      
+
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
     else
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
-    
-    # A hack to get the path where the user is 
+
+    # A hack to get the path where the user is
     # redirected after the locale is changed
     new_path = request.fullpath.clone
     new_path.slice!("/#{params[:locale]}")
     new_path.slice!(0,1) if new_path =~ /^\//
     @return_to = new_path
   end
-  
+
   # Adds locale to all links
   def default_url_options(options={})
     { :locale => I18n.locale }
   end
-  
+
   #Creates a URL for root path (i18n breaks root_path helper)
   def root
     "#{request.protocol}#{request.host_with_port}/#{params[:locale]}"
-  end  
+  end
 
   def fetch_logged_in_user
     if use_asi? # Check session and ensure session exits for ASI
@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-  
+
   # A before filter for views that only users that are logged in can access
   def ensure_logged_in(warning_message)
     return if logged_in?
@@ -70,7 +70,7 @@ class ApplicationController < ActionController::Base
     flash[:warning] = warning_message
     redirect_to login_path and return
   end
-  
+
   # A before filter for views that only authorized users can access
   def ensure_authorized(error_message)
     if logged_in?
@@ -78,37 +78,37 @@ class ApplicationController < ActionController::Base
       return if current_user?(@person)
       flash[:error] = error_message
       redirect_to root and return
-    end  
+    end
   end
-  
+
   def logged_in?
     ! @current_user.nil?
   end
-  
+
   def current_user?(person)
     @current_user ? @current_user.id.eql?(person.id) : false
   end
-  
+
   # Saves current path so that the user can be
   # redirected back to that path when needed.
   def save_current_path
     session[:return_to_content] = request.fullpath
   end
-  
+
   def fetch_community
     # if in dashboard, no community to fetch, just return
     return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
-        
+
     # if form posted to login-domain, pick community domain from origin url
     login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
     if login_subdomain && request.subdomain == login_subdomain
       fetch_community_for_login_domain
       return
     end
-    
+
     # Redirect to root if trying to do a non-dashboard action in dashboard domain
     redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
-    
+
     # Otherwise pick the domain normally from the request subdomain
     if @current_community = Community.find_by_domain(request.subdomain)
       if @current_user && @current_user.communities.include?(@current_community)
@@ -116,6 +116,23 @@ class ApplicationController < ActionController::Base
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
           Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
         end
+      elsif @current_community.private?
+        return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
+        return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability", "check_invitation_code"].include?(action_name)
+        return if "sessions".eql?(controller_name) && ["create", "request_new_password"].include?(action_name)
+        if "feedbacks".eql?(controller_name) && ["create"].include?(action_name)
+          @container_class = "container_12"
+          return
+        end
+        if "terms".eql?(controller_name)
+          @private_layout = true
+          return
+        end        
+        # must call set locale here as it would be otherwise skipped 
+        # and the redirect could go to wrong (default) locale
+        set_locale 
+
+        redirect_to :controller => :homepage, :action => :sign_in
       else
         # Show notification "you are not a member in this community"
       end
@@ -123,7 +140,7 @@ class ApplicationController < ActionController::Base
       redirect_to root_url(:subdomain => "www")
     end
   end
-  
+
   def check_email_confirmation
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
@@ -132,27 +149,27 @@ class ApplicationController < ActionController::Base
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
-  
+
   def set_default_url_for_mailer
-    url = community_url(request.host_with_port, @current_community)    
+    url = community_url(request.host_with_port, @current_community)
     ActionMailer::Base.default_url_options = {:host => url}
   end
-  
+
   def person_belongs_to_current_community
     @person = Person.find(params[:person_id] || params[:id])
     redirect_to not_member_people_path and return unless @person.communities.include?(@current_community)
   end
-  
+
   private
 
   # If request comes to login domain that is common to all communities, the community cannot be fetched directly from the subdomain
   # There are also possible error cases, if wrong requests come to login domain.
   # It's meant for only POST requests to sessions or people, i.e. the requests that may contain passwords and thus better be https
   def fetch_community_for_login_domain
-    
+
     # check if the request is allowed to login domain. Only POST to people or sessions.
     unless ["sessions", "people"].include?(controller_name) && request.method == "POST"
-      
+
       # If referer is blank, impossible to return to right community.
       if ApplicationHelper.pick_referer_domain_part_from_request(request).blank?
         # Detect if request came to non people/session controller with longer request path than just locale
@@ -171,15 +188,13 @@ class ApplicationController < ActionController::Base
           render "public/501.html", :layout => false and return
         end
       else # HTTP_REFERER is known: redirect back there with error message
-         I18n.locale = params[:locale] if params[:locale]
+        I18n.locale = params[:locale] if params[:locale]
         flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
         redirect_to "#{ApplicationHelper.pick_referer_domain_part_from_request(request)}/#{ I18n.locale}"
       end
-      
+
     end
-    
-    
-    
+
     origin_subdomain = params[:community] || ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
     @current_community = Community.find_by_domain(origin_subdomain)
   end
@@ -191,24 +206,24 @@ class ApplicationController < ActionController::Base
     ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
     redirect_to root_path and return
   end
-  
+
   def clear_user_session
     @current_user = session[:person_id] = session[:cookie] = nil
   end
-  
-  # this generates the event_id that will be used in 
+
+  # this generates the event_id that will be used in
   # requests to cos during this kassi-page view only
   def generate_event_id
-    RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"  
+    RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
     # The event id is generated here and stored for the duration of this request.
-    # The option above stores it to thread which should work fine on mongrel    
+    # The option above stores it to thread which should work fine on mongrel
   end
-  
+
   def log_to_ressi
-    
+
     # These are the fields that are currently stored in Ressi, so no need to store others
     relevant_header_fields = ["HTTP_USER_AGENT","REQUEST_URI", "HTTP_REFERER"]
-    
+
     CachedRessiEvent.create do |e|
       e.user_id           = @current_user ? @current_user.id : nil
       e.application_id    = "acm-TkziGr3z9Tab_ZvnhG"
@@ -223,7 +238,7 @@ class ApplicationController < ActionController::Base
           e.parameters    = params.inspect.gsub('=>', ':')
         else  #normal case
           e.parameters    = request.filtered_parameters.to_json
-        end  
+        end
       rescue JSON::GeneratorError => error
         e.parameters      = ["There was error in genarating the JSON from the parameters."].to_json
       end
@@ -234,19 +249,19 @@ class ApplicationController < ActionController::Base
       end.to_json
     end
   end
-  
+
   def ensure_is_admin
     unless @current_user && @current_user.is_admin?
       flash[:error] = "only_kassi_administrators_can_access_this_area"
       redirect_to root and return
     end
   end
-  
+
   def fetch_translations
     WebTranslateIt.fetch_translations
   end
-  
-  # returns the request_url_with_port in a way that the community subdomain is switched to be the 
+
+  # returns the request_url_with_port in a way that the community subdomain is switched to be the
   # first part of the request
   # This method is used to ensure that using the community subdomain and not the login subdomain
   def  community_url(request_url_with_port, community)

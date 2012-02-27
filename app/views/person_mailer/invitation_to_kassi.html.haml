@@ -21,10 +21,10 @@
     - text_with_line_breaks do
       = @invitation.message
 
-= t("emails.invitation_to_kassi.you_can_join_kassi_using_invitation_code", :code => @invitation.code)
-
-%br/
-%br/
+- if @invitation.community.join_with_invite_only?
+  = t("emails.invitation_to_kassi.you_can_join_kassi_using_invitation_code", :code => @invitation.code)
+  %br/
+  %br/
 
 = t("emails.invitation_to_kassi.join_kassi_in")
 = link_to(@url, @url)

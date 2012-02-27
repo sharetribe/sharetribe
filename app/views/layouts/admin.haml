@@ -1,23 +1,11 @@
-!!! 5
-!!! xml
-%html{html_attrs(I18n.locale)}
-  %head
-    %title 
-      = t(".admin")
+= content_for :content do
+  #admin_page.grid_24
+    %h1= t(".admin")
+    .grid_6.alpha
+      #left_link_panel_admin
+        = link_to t(".news_items"), admin_news_items_path(:type => "news"), :class => ((params[:type] && params[:type].eql?("news")) ? "selected" : "unselected")
+        = link_to t(".polls"), admin_polls_path(:type => "polls"), :class => ((params[:type] && params[:type].eql?("polls")) ? "selected" : "unselected")
+    .grid_18.omega
+      = yield
 
-    = stylesheet_link_tag 'compiled/style.css'
-    
-  %body
-    .js_enabled
-      .container_24
-        .grid_21
-          #logo
-            #logo_image
-              = t(".admin")
-        .grid_3
-          .admin_top_navi_link
-            = link_to t(".back_to_kassi"), root
-        .clear
-        .grid_24
-          #admin_content
-            = yield
+= render :file => 'layouts/application'

@@ -9,6 +9,8 @@ $bg_color: #f7f5e6;
 $text_color: #464646;
 $form_bg: #d1c9b4;
 $light_green_bg: #ececdb;
+$light_green_status_box: #d0e2ae;
+$light_red_status_box: #f1cecf;
 $orange: #d45207;
 $medium_brown: #765d3a;
 $dark_orange: darken($orange, 10%);
@@ -140,9 +142,9 @@ body {
 	color: $text_color;
 }
 
-@mixin colored_title($color: $orange) {
+@mixin colored_title($color: $orange, $width: 340px) {
 	color: $color;
-	width: 340px;
+	width: $width;
 	display: block;
 	border-bottom: 6px solid $color;
 	margin-bottom: 10px;
@@ -168,9 +170,7 @@ h1 {
 	margin: 0 0 10px 0;
 }
 
-h3.orange {
-	@include colored_title;
-}
+h3.orange { @include colored_title; }
 
 h3.brown {
 	@include colored_title($medium_brown);
@@ -439,7 +439,13 @@ form, input {
 	p { font-size: 14px;}
 }
 
+#teaser_sign_in_page {
+	overflow: hidden;
+	p { font-size: 14px;}
+}
+
 #teaser_left {
+  overflow: hidden;
 	color: $dark_brown;
 	float: left;
 	width: 475px;
@@ -448,6 +454,7 @@ form, input {
 }
 
 #teaser_right {
+  overflow: hidden;
 	color: $dark_brown;
 	float: left;
 	margin-top: 5px;
@@ -489,7 +496,7 @@ form, input {
 	padding-top: 5px;
 	margin-left: 20px;
 	float: left;
-	width: 125px;
+	width: 130px;
 	font-size: 11px;
 	color: $medium_brown;
 }
@@ -512,7 +519,9 @@ form, input {
 		font-style: italic;
 		font-size: 10px;
 		float: right;
-	}	
+	}
+	span.option_title { color: $text_color; }
+	span.option_percentage { color: $text_color; }
 }
 
 .homepage_sidebar_box {
@@ -523,7 +532,9 @@ form, input {
     font-size: 14px;
     margin-bottom: 5px;
   }
-  #invitation_form {
+  p.text { padding: 0 20px 10px 20px; }
+  a.big_link { font-size: 16px; }
+  #invitation_form, #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden;
     .form_field_container { margin: 0; }
@@ -536,12 +547,16 @@ form, input {
       padding: 2px 5px;
     }
     label { font-weight: bold; }
+    label.radiobutton { 
+      float: left;
+      padding-top: 10px; 
+    }
     textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 60px;
+      height: 40px;
       border: 0;
-      padding: 5px;
+      padding: 7px;
     }
     input.send_button { 
       @include send_button;
@@ -555,6 +570,10 @@ form, input {
   		width: 185px;
   	}
   }
+}
+
+.poll_radio_button_container {
+	overflow: hidden;
 }
 
 .invitation_form_hidden_parts {
@@ -611,6 +630,31 @@ form, input {
 .more_events_link {
 	padding: 20px 0;
 }
+
+span.news_item_more_link {
+  margin-left: 10px;
+  padding-top: 10px;
+  float: left;
+  clear: both;
+}
+
+.add_news_item_button {
+  width: 150px;
+	a {
+		display: block;
+		font-size: 12px;
+		text-align: center;
+		font-weight: normal;
+		padding: 5px 3px;
+		color: white;
+		background: $orange;
+		@include rounded;
+		&:hover { background: lighten($orange, 15%); }
+		&:active { background: darken($orange, 10%); }
+	}
+}
+
+.news_item_button_homepage_margin { margin: 0 0 20px 20px; }
 
 .recent_listings {
 	width: 340px;
@@ -817,6 +861,12 @@ p.description {
 	display: none;
 }
 
+#listing_form_title {
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 8px 8px 8px;
+}
 
 #listing_type_select_icons {
 	overflow: hidden;
@@ -1397,11 +1447,6 @@ a.edit_profile {
 	padding-bottom: 5px;
 	@include home_button($orange);
 	width: 248px;
-	img {
-		vertical-align: -25%;
-		margin-right: 7px;
-		display: inline;
-	}	
 }
 
 #edit_info_link {
@@ -2871,9 +2916,7 @@ a.handle {
 	background: $form_bg;
 	margin: 20px 10px 0 0;
 	padding: 5px;
-	h4 {
-		margin: 0 0 10px 0;
-	}
+	h4 { margin: 10px 0 10px 35px; }
 }
 
 #feedback_type_description_list {
@@ -2936,4 +2979,250 @@ a.handle {
   padding: 15px 20px 10px 20px;
   width: 655px;
   margin-bottom: 20px;
+}
+
+#news_items_homepage {
+  
+  p {
+		margin: 20px;
+	} 
+}
+
+#left_link_panel_admin {
+	@include left_link_panel("arrows", 28px);
+	a {
+		color: $orange;
+		font-size: 13px;
+		padding: 5px 10px 4px 10px;
+	}
+	a.selected {
+		color: white;
+	}
+}
+
+#new_news_item_form, #new_poll_form {
+  @include form;
+  padding: 20px 25px;
+	h1 {
+		margin-left: 15px;
+		float: left;
+		width: 400px;
+	}
+	label.input {
+		font-weight: bold;
+		padding: 8px 3px 0 3px;
+		margin: 0;
+		font-size: 14px;
+		font-weight: bold;
+		float: left;
+		width: 104px;
+		line-height: 110%;
+	}
+	label.error {
+		@include form_error_field;
+		margin-left: 110px;
+		width: 378px;
+	}
+	input.text_field {
+		@include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		width: 425px;
+	}
+	input.send_button {
+		@include send_button;
+		margin: 0 0 0 110px;
+	}
+	textarea {
+		@include new_listing_form_field;
+		width: 429px;
+		font-size: 12px;
+		height: 80px;
+		padding: 10px 5px 5px 9px;
+	}
+}
+
+#new_poll_form {
+  label.input {
+    width: 140px;
+  }
+  input.text_field {
+		width: 485px;
+  }
+  input.option_field {
+    @include new_listing_form_field;
+		font-size: 14px;
+		height: 18px;
+		padding: 9px 9px;
+		width: 305px;
+  }
+  .option_link_container {
+	  overflow: hidden;
+	  margin: 0 0 10px 147px;
+	  font-size: 15px;
+	}
+	input.send_button { margin: 0 0 0 147px };
+}
+
+.remove_option_link {
+  padding: 8px 15px;
+  float: left;
+}
+
+#news_items_admin_view_title {
+  h3 {
+    padding-top: 6px;
+  }
+}
+
+#news_items_admin_view_list {
+  width: 699px;
+  border-top: 2px solid $text_color;
+  padding-top: 10px;
+  overflow: hidden;
+  h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0;
+    @include grey_link;
+  }
+  span.news_item_author { 
+    float: left;
+    padding-top: 6px;
+    font-size: 11px;
+  }
+  span.news_item_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px;
+  }
+}
+
+#polls_admin_view_list {
+  width: 699px;
+  border-top: 2px solid $text_color;
+  padding-top: 10px;
+  overflow: hidden;
+  h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0;
+    @include grey_link;
+  }
+  span.poll_author { 
+    float: left;
+    padding-top: 6px;
+    font-size: 11px;
+  }
+  span.poll_status_container {
+    float: left;
+    width: 100px;
+  }
+  span.poll_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px;
+  }
+}
+
+.poll_admin_view_title {
+  overflow: hidden;
+  float: left;
+  width: 450px;
+}
+
+@mixin poll_status($text_color, $background) {
+  @include rounded(5px);
+  float: left;
+  color: $text_color;
+  background: $background;
+  padding: 4px 10px;
+  margin-right: 20px;
+}
+
+span.poll_status_open { @include poll_status($dark_green, $light_green_status_box); }
+span.poll_status_closed { @include poll_status($error_text, $light_red_status_box); }
+
+#create_news_item_link {
+  margin-left: 10px;
+	padding-bottom: 5px;
+	@include home_button($orange);
+	width: 208px;
+}
+
+.news_item_admin_view {
+  overflow: hidden;
+  padding: 5px;
+}
+
+.news_item_admin_view_header {
+  overflow: hidden;
+  width: 100%;
+}
+
+.news_item_admin_view_content {
+  display: none;
+  p { 
+    padding-top: 5px; 
+    margin: 0;
+  }
+}
+
+#no_news_found {
+	margin: 5px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.infos_tab {
+  a { width: 130px; }
+}
+
+.option_result {
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+span.option_title { float: left; }
+span.option_percentage { float: right; }
+span.option_percentage_admin_view { 
+  float: right;
+  margin-right: 12px;
+}
+
+#polls_admin_view_answer_percentages {
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 2px solid $text_color;
+  margin-bottom: 5px;
+}
+
+.poll_answer {
+  padding: 10px;
+}
+
+.infos_news_header_container { 
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.infos_news_title { 
+  float: left;
+  h2 { 
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    padding: 0;
+  }
+}
+.infos_news_create_link { 
+  float: right;
+  padding-top: 9px;
+}
+
+.news_item_infos_view {
+  overflow: hidden;
+  padding-bottom: 10px;
 }

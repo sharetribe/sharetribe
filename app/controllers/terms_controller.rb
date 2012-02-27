@@ -1,5 +1,7 @@
 class TermsController < ApplicationController
   
+  layout :choose_layout
+  
   def show
     redirect_to root_path unless session[:temp_cookie]
     @current_community = Community.find(session[:temp_community_id])
@@ -11,8 +13,9 @@ class TermsController < ApplicationController
       @current_user = Person.find_by_id(session[:temp_person_id])
       @current_community = Community.find(session[:temp_community_id])
       @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-      @current_community_membership.update_attribute(:consent, @current_community.consent) 
-    else 
+      @current_community_membership.update_attribute(:consent, @current_community.consent)
+      @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
+    else
       # This situation can occur when the users clicks the back button
       # of the browser after accepting new terms, returns to the acceptance
       # form and clicks the accept button again. In that case an error page is shown.
@@ -39,6 +42,16 @@ class TermsController < ApplicationController
     session[:consent_changed] = nil
     flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
     redirect_to (session[:return_to] || root)
+  end
+  
+  private
+  
+  def choose_layout
+    if @current_community.private
+      'private'
+    else
+      'application'
+    end
   end
   
 end

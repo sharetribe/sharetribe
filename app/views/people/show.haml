@@ -2,7 +2,7 @@
   initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").limit(6).collect(&:name))});
 
 - content_for :extra_javascript do
-  = javascript_include_tag "http://maps.google.com/maps/api/js?sensor=true"
+  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
   
 .grid_6
   = large_avatar_thumb(@person)

@@ -7,10 +7,51 @@ fi:
         image: "Merkin kuva"
         name: "Merkin nimi"
         save_badge: "Tallenna ansiomerkki"
+    news_items:
+      index:
+        news_items: "Uusimmat uutiset"
+        create_news_item: "Lisää uutinen"
+        no_news: "Ei uutisia"
+        loading_more_news: "Ladataan lisää uutisia"
+      new:
+        new_news_item: "Uutisen lisäys"
+        edit_news_item: "Uutisen muokkaus"
+        index_news_item: "Uutisen lisäys"
+        title: "Otsikko:"
+        content: "Teksti:"
+        save_news_item: "Tallenna uutinen"
+      news_item:
+        edit_news_item: "Muokkaa"
+        delete_news_item: "Poista"
+    polls:
+      index:
+        polls: "Kyselyt"
+        create_poll: "Luo uusi kysely"
+        no_polls: "Ei kyselyitä"
+      edit_poll_links:
+        close_poll: "Sulje"
+        open_poll: "Avaa"
+        edit_poll: "Muokkaa"
+        delete_poll: "Poista"
+      new:
+        add_option: "Lisää vastausvaihtoehto"
+        new_poll: "Kyselyn luonti"
+        edit_poll: "Kyselyn muokkaus"
+        title: "Otsikko:"
+        save_poll: "Tallenna kysely"
+      new_option:
+        option: "Vastausvaihtoehto"
+        remove_option: "Poista vastausvaihtoehto"
+      poll_status:
+        open: "Avoinna"
+        closed: "Suljettu"
+      show:
+        edit_poll: "Muokkaa kyselyä"
   common:
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
+    password: Salasana
     share_types:
       borrow: lainataan
       buy: ostetaan
@@ -22,7 +63,7 @@ fi:
       sell: myydään
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
-    test: ~
+    username: Käyttäjätunnus
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
@@ -64,6 +105,10 @@ fi:
         has_commented: "kommentoi"
         offer_you_follow: "seuraamaasi tarjousta"
         request_you_follow: "seuraamaasi pyyntöä"
+      listing_updated_notification:
+        has_updated: "on päivittänyt"
+        offer_you_follow: "seuraamasi tarjouksen"
+        request_you_follow: "seuraamasi pyynnön"
       comment_to_own_listing_notification:
         has_commented: "kommentoi"
         your_offer: "tarjoustasi"
@@ -123,6 +168,11 @@ fi:
       issue_tracker: "Tehtävänhallinta"
       product_of: "Kassia tekee"
       language: "Kieli:"
+      new: "UUTTA!"
+      kassi_in_use: "Kassi käytössä muutamissa"
+      wdc_neighborhoods: "Helsingin ja Lahden kaupunginosissa"
+      and_for: "sekä"
+      okl_members: "Suomen Omakotiliiton jäsenyhdistyksissä"
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
@@ -287,19 +337,23 @@ fi:
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     index:
       are_offering: tarjoavat
+      add_news_item: "Lisää uutinen"
+      inform_others_about_events: "Yhteisön uusimmat uutiset ja tapahtumat."
       lend_rent_help_carpool: "Myy, lainaa, auta, kyyditse"
       loading_more_content: "Ladataan lisää"
       more_events: "Lisää tapahtumia..."
-      news: Uutiset
+      news: "Uutiset"
+      no_news: "Ei uutisia"
+      more_news: "Lisää uutisia"
       offer_something: "+ Listaa taitosi ja tavarasi!"
-      offer_something_description: "Lisää muille tarjoamasi tavarat, taidot ja kyydit"
-      or: tai
+      offer_something_description: "Tarjoa muille apua, tavaroita tai kyytejä"
+      or: ja
       or_see_what_the_others: "...tai katso mitä muut"
       recent_events: "Uusimmat tapahtumat"
       recent_offers: "Mitä muut tarjoavat"
       recent_requests: "Mitä muut tarvitsevat"
       request_something: "+ Kerro mitä tarvitset!"
-      request_something_description: "Kerro muille, jos tarvitset tavaran, kyydin tai apua"
+      request_something_description: "Kerro muille, kun tarvitset apua, tavaran tai kyydin"
       requesting: tarvitsevat
       teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
@@ -309,16 +363,37 @@ fi:
       email: "Kaverisi sähköpostiosoite:"
       message: "Viesti kaverillesi:"
       send_invitation: "Lähetä kutsu"
+    news_item:
+      show_less: "Näytä vähemmän"
+      show_more: "Näytä lisää"
+    poll_form:
+      poll: "Kysely:"
+      comment: "Kommentti:"
+      answer: "Vastaa"
+      results: "Tulokset"
+      poll_answer: "vastaus"
+      poll_answers: "vastausta"
     profile_info_empty_notification:
       add_your_info: "Lisää tietosi"
-      you_have_not_added_your_info: "Et ole lisännyt Kassiin yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä."
+      add_a_profile_picture: "Lisää profiilikuva"
+      you_have_not_added_your_info: "Et ole lisännyt Kassiin yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
       add_your_info_link: "Lisää tietosi Kassiin" 
     recent_listing:
       please_offer: Tarjoa
+    sign_in:
+      recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
+      recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
+      plus: "Lisäksi"
+      other_offer: "muu tarjous"
+      other_offers: "muuta tarjousta"
+      other_request: "muu pyyntö"
+      other_requests: "muuta pyyntöä"
   layouts:
     admin:
       admin: "Kassin ylläpitonäkymä"
       back_to_kassi: "Takaisin Kassiin"
+      news_items: "Uutiset"
+      polls: "Kyselyt"
     application:
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"
@@ -342,6 +417,7 @@ fi:
       about: "Mikä Kassi?"
       how_to_use: "Näin Kassi toimii"
       info_about_kassi: "Tietoa Kassista"
+      news: "Uutiset"
       register_details: Rekisteriseloste
       terms: Käyttöehdot
     logged_in:
@@ -398,6 +474,11 @@ fi:
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       login_successful: "Tervetuloa Kassiin, "
       logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
+      news_item_created: "Uutinen luotu"
+      news_item_creation_failed: "Uutisen luominen epäonnistui"
+      news_item_update_failed: "Uutisen muokkaus epäonnistui"
+      news_item_updated: "Uutinen tallennettu"
+      news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
       offer_closed: "Tarjous suljettu"
       offer_created_successfully: "Tarjous tallennettu."
@@ -410,7 +491,15 @@ fi:
       person_activated: "Käyttäjä aktivoitu"
       person_deactivated: "Käyttäjä muutettu epäaktiiviseksi"
       person_updated_successfully: "Tiedot päivitetty"
+      poll_answered: "Vastaus lähetetty"
+      poll_could_not_be_answered: "Vastauksen lähettäminen ei onnistunut"
+      poll_created: "Kysely luotu"
+      poll_creation_failed: "Kyselyn luonti epäonnistui"
+      poll_update_failed: "Kyselyn päivittäminen epäonnistui"
+      poll_updated: "Kysely päivitetty"
+      poll_deleted: "Kysely poistettu"
       read_more: "Lue lisää!"
+      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon vasemman laidan palautenapilla ja mainitse \"email2 virhe\"."
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
@@ -442,6 +531,7 @@ fi:
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
+      you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
     profile_extras_header:
@@ -491,12 +581,14 @@ fi:
       destination:
         destination: Määränpää
       form_content:
-        favor: Palvelus
-        housing: Asuminen
-        item: Tavara
+        favor: Apua
+        housing: Asunnon
+        item: Tavaran
         offer_something: "Tarjoa jotain"
         request_something: "Pyydä jotain"
-        rideshare: Kimppakyyti
+        rideshare: Kimppakyydin
+        i_want_to_offer: "Voin tarjota muille..."
+        i_want_to_request: "Tarvitsen..."
       googlemap:
         googlemap_copy: "Päätepisteet kartalta"
         googlemap_description: Karttanäkymä
@@ -586,14 +678,14 @@ fi:
       temporary_accommodations: Tilapäismajoitus
       trades: Vaihdetaan
     link_labels:
-      link_label_for_favor_offer: "Pyydä palvelusta"
-      link_label_for_favor_request: "Tarjoa apua"
-      link_label_for_housing_offer: Vastaa
-      link_label_for_housing_request: Vastaa
-      link_label_for_item_offer: "Pyydä tavaraa"
-      link_label_for_item_request: "Tarjoa tavaraa"
-      link_label_for_rideshare_offer: "Pyydä kyytiä"
-      link_label_for_rideshare_request: "Tarjoa kyytiä"
+      link_label_for_favor_offer: "Ota yhteyttä"
+      link_label_for_favor_request: "Ota yhteyttä"
+      link_label_for_housing_offer: "Ota yhteyttä"
+      link_label_for_housing_request: "Ota yhteyttä"
+      link_label_for_item_offer: "Ota yhteyttä"
+      link_label_for_item_request: "Ota yhteyttä"
+      link_label_for_rideshare_offer: "Ota yhteyttä"
+      link_label_for_rideshare_request: "Ota yhteyttä"
     listed_listing:
       edit: Muokkaa
     listed_listing_closed_status:
@@ -657,6 +749,15 @@ fi:
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     please_comment: Kommentoi
+  news_items:
+    index:
+      news_from_community: "Uusimmat %{community}-yhteisön uutiset"
+    news_item:
+      delete_news_item: "Poista uutinen"
+  okl:
+    member_id: "Jäsennumero"
+    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut Kassiin. Jos et ole vielä Omakotiliiton jäsen,"
+    join_here: "liity tästä."
   people:
     badge_description:
       badge_achieved_at: "Kassimerkki ansaittu"
@@ -688,12 +789,10 @@ fi:
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      password: "Salasana:"
       password_again: "Salasana uudelleen:"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus Kassiin"
       terms: käyttöehdot
-      username: "Käyttäjätunnus:"
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
@@ -840,8 +939,6 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään Kassiin"
-      password: Salasana
-      username: Käyttäjätunnus
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
@@ -851,6 +948,7 @@ fi:
       welcome_to_kassi: "Tervetuloa Kassiin!"
       check_your_email: "Tarkista sähköpostisi"
       account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän Kassi-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä Kassi-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos Kassin käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän Kassi-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos Kassin käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
       get_started: "Alkuun pääseminen"
       getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä Kassiin <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
@@ -861,10 +959,8 @@ fi:
       email: "Sähköpostiosoite:"
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
-      password: "Salasana:"
       save: Tallenna
       these_fields_are_shown_only_to_you: "Käyttäjätunnus näytetään profiilissasi, jos et ole syöttänyt nimeäsi. Muut tiedot näytetään vain sinulle."
-      username: "Käyttäjätunnus:"
     avatar:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"

@@ -36,11 +36,15 @@ Given /^users can invite new users to join community "([^"]*)"$/ do |community|
 end
 
 Given /^there is an invitation for community "([^"]*)" with code "([^"]*)"(?: with (\d+) usages left)?$/ do |community, code, usages_left|
-  inv = Invitation.new(:community => Community.find_by_domain(community), :code => code)
+  inv = Invitation.new(:community => Community.find_by_domain(community), :code => code, :inviter_id => @people.first[1].id)
   inv.usages_left = usages_left if usages_left.present?
   inv.save
 end
 
 Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, usages|
   Invitation.find_by_code(code).usages_left.should == usages.to_i
+end
+
+Given /^community "([^"]*)" is private$/ do |community|
+  community = Community.find_by_domain(community).update_attribute(:private, true)
 end

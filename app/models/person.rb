@@ -34,9 +34,11 @@ class Person < ActiveRecord::Base
       
   attr_accessor :guid, :password2, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
-                :form_password2, :form_email, :consent, :show_real_name_setting_affected
+                :form_password2, :form_email, :consent, :show_real_name_setting_affected,
+                :email2
 
   attr_writer :password
+
   
   attr_protected :is_admin
 
@@ -61,10 +63,12 @@ class Person < ActiveRecord::Base
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges, :dependent => :destroy 
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
-  has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id"
+  has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
+  has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
+  has_many :answered_polls, :through => :poll_answers, :source => :poll
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
@@ -86,6 +90,7 @@ class Person < ActiveRecord::Base
     
   serialize :preferences
   
+
   if not ApplicationHelper::use_asi?
     validates_uniqueness_of :username
     validates_uniqueness_of :email
@@ -94,6 +99,7 @@ class Person < ActiveRecord::Base
     validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
     validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
     validates_length_of :email, :maximum => 255
+
 
     validates_format_of :username,
                          :with => /^[A-Z0-9_]*$/i
@@ -104,7 +110,7 @@ class Person < ActiveRecord::Base
 
     validates_format_of :email,
                          :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
-  
+ 
  
   # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
   has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
@@ -127,6 +133,8 @@ class Person < ActiveRecord::Base
     end
     
   end
+  
+  
   
   # This module contains the methods that are used to store used data on Kassi's database.
   # If ASI server is used, this module is not loaded, but AsiPerson module is loaded instead.
@@ -473,6 +481,9 @@ class Person < ActiveRecord::Base
          #     
     
   end
+  
+  # Below start the methods that are used for Person class not depending on if ASI is in use or not.
+  
   
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)

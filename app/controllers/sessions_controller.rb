@@ -32,7 +32,11 @@ class SessionsController < ApplicationController
           end
       rescue RestClient::Unauthorized => e
         flash[:error] = :login_failed
-        redirect_to domain + login_path and return
+        if current_community.private?
+          redirect_to "#{domain}/#{I18n.locale}/homepage/sign_in" and return
+        else
+          redirect_to domain + login_path and return
+        end
       end
       
       
@@ -46,7 +50,11 @@ class SessionsController < ApplicationController
       # Since the authentication happens in the rack layer,
       # we need to tell Devise to call the action "sessions#new"
       # in case something goes bad.
-      person = authenticate_person!(:recall => "sessions#new")
+      if current_community.private?
+        person = authenticate_person!(:recall => "homepage#sign_in")
+      else
+        person = authenticate_person!(:recall => "sessions#new")
+      end
       flash[:error] = nil
       @current_user = person
       sign_in @current_user
@@ -123,7 +131,12 @@ class SessionsController < ApplicationController
     else
       
     end
-    redirect_to login_path
+
+    if @current_community && @current_community.private?
+      redirect_to :controller => :homepage, :action => :sign_in
+    else
+      redirect_to login_path
+    end
   end
   
   # This is used if user has not confirmed her email address

@@ -344,7 +344,13 @@ form, input {
   #teaser p {
     font-size: 14px; }
 
+#teaser_sign_in_page {
+  overflow: hidden; }
+  #teaser_sign_in_page p {
+    font-size: 14px; }
+
 #teaser_left {
+  overflow: hidden;
   color: #4d3d26;
   float: left;
   width: 475px;
@@ -353,6 +359,7 @@ form, input {
     font-size: 32px; }
 
 #teaser_right {
+  overflow: hidden;
   color: #4d3d26;
   float: left;
   margin-top: 5px; }
@@ -404,7 +411,7 @@ form, input {
   padding-top: 5px;
   margin-left: 20px;
   float: left;
-  width: 125px;
+  width: 130px;
   font-size: 11px;
   color: #765d3a; }
 
@@ -427,31 +434,42 @@ form, input {
     font-style: italic;
     font-size: 10px;
     float: right; }
+  .homepage_sidebar_box span.option_title {
+    color: #464646; }
+  .homepage_sidebar_box span.option_percentage {
+    color: #464646; }
   .homepage_sidebar_box h3 {
     font-size: 14px;
     margin-bottom: 5px; }
-  .homepage_sidebar_box #invitation_form {
+  .homepage_sidebar_box p.text {
+    padding: 0 20px 10px 20px; }
+  .homepage_sidebar_box a.big_link {
+    font-size: 16px; }
+  .homepage_sidebar_box #invitation_form, .homepage_sidebar_box #poll_form {
     margin: 15px 15px 15px 15px;
     overflow: hidden; }
-    .homepage_sidebar_box #invitation_form .form_field_container {
+    .homepage_sidebar_box #invitation_form .form_field_container, .homepage_sidebar_box #poll_form .form_field_container {
       margin: 0; }
-    .homepage_sidebar_box #invitation_form .label_container {
+    .homepage_sidebar_box #invitation_form .label_container, .homepage_sidebar_box #poll_form .label_container {
       margin-top: 10px; }
-    .homepage_sidebar_box #invitation_form input.text_field {
+    .homepage_sidebar_box #invitation_form input.text_field, .homepage_sidebar_box #poll_form input.text_field {
       margin: 2px 0 5px 0;
       width: 185px;
       height: 20px;
       border: 0;
       padding: 2px 5px; }
-    .homepage_sidebar_box #invitation_form label {
+    .homepage_sidebar_box #invitation_form label, .homepage_sidebar_box #poll_form label {
       font-weight: bold; }
-    .homepage_sidebar_box #invitation_form textarea {
+    .homepage_sidebar_box #invitation_form label.radiobutton, .homepage_sidebar_box #poll_form label.radiobutton {
+      float: left;
+      padding-top: 10px; }
+    .homepage_sidebar_box #invitation_form textarea, .homepage_sidebar_box #poll_form textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 60px;
+      height: 40px;
       border: 0;
-      padding: 5px; }
-    .homepage_sidebar_box #invitation_form input.send_button {
+      padding: 7px; }
+    .homepage_sidebar_box #invitation_form input.send_button, .homepage_sidebar_box #poll_form input.send_button {
       font-size: 14px;
       font-weight: bold;
       background: #765d3a;
@@ -463,14 +481,14 @@ form, input {
       width: 150px;
       height: 30px;
       margin-bottom: 5px; }
-      .homepage_sidebar_box #invitation_form input.send_button:active {
+      .homepage_sidebar_box #invitation_form input.send_button:active, .homepage_sidebar_box #poll_form input.send_button:active {
         background-color: #4d3d26;
         padding-top: 1px; }
-      .homepage_sidebar_box #invitation_form input.send_button:hover {
+      .homepage_sidebar_box #invitation_form input.send_button:hover, .homepage_sidebar_box #poll_form input.send_button:hover {
         background-color: #9f7d4e; }
-      .homepage_sidebar_box #invitation_form input.send_button:focus {
+      .homepage_sidebar_box #invitation_form input.send_button:focus, .homepage_sidebar_box #poll_form input.send_button:focus {
         background-color: #9f7d4e; }
-    .homepage_sidebar_box #invitation_form label.error {
+    .homepage_sidebar_box #invitation_form label.error, .homepage_sidebar_box #poll_form label.error {
       font-size: 13px;
       font-weight: bold;
       clear: both;
@@ -481,6 +499,9 @@ form, input {
       color: white;
       margin: 0 0 0 0;
       width: 185px; }
+
+.poll_radio_button_container {
+  overflow: hidden; }
 
 .invitation_form_hidden_parts {
   overflow: hidden; }
@@ -498,6 +519,10 @@ form, input {
     font-style: italic;
     font-size: 10px;
     float: right; }
+  .not_a_member_notification span.option_title {
+    color: #464646; }
+  .not_a_member_notification span.option_percentage {
+    color: #464646; }
 
 .homepage_sidebar_box_content {
   margin: 15px; }
@@ -541,6 +566,33 @@ form, input {
 
 .more_events_link {
   padding: 20px 0; }
+
+span.news_item_more_link {
+  margin-left: 10px;
+  padding-top: 10px;
+  float: left;
+  clear: both; }
+
+.add_news_item_button {
+  width: 150px; }
+  .add_news_item_button a {
+    display: block;
+    font-size: 12px;
+    text-align: center;
+    font-weight: normal;
+    padding: 5px 3px;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    .add_news_item_button a:hover {
+      background: #f8792f; }
+    .add_news_item_button a:active {
+      background: #a33f05; }
+
+.news_item_button_homepage_margin {
+  margin: 0 0 20px 20px; }
 
 .recent_listings {
   width: 340px; }
@@ -756,6 +808,12 @@ p.description {
 
 #favor_form, #rideshare_form, #housing_form {
   display: none; }
+
+#listing_form_title {
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 8px 8px 8px; }
 
 #listing_type_select_icons {
   overflow: hidden; }
@@ -1582,10 +1640,6 @@ a.edit_profile {
       background: #f8792f; }
     #request_listing_link a:active {
       background: #a33f05; }
-  #request_listing_link img {
-    vertical-align: -25%;
-    margin-right: 7px;
-    display: inline; }
 
 #edit_info_link {
   margin-top: 15px;
@@ -3263,7 +3317,7 @@ a.handle:hover {
   margin: 20px 10px 0 0;
   padding: 5px; }
   #feedback_type_descriptions h4 {
-    margin: 0 0 10px 0; }
+    margin: 10px 0 10px 35px; }
 
 #feedback_type_description_list {
   overflow: hidden;
@@ -3315,3 +3369,304 @@ a.handle:hover {
   padding: 15px 20px 10px 20px;
   width: 655px;
   margin-bottom: 20px; }
+
+#news_items_homepage p {
+  margin: 20px; }
+
+#left_link_panel_admin {
+  margin-top: 10px;
+  width: 218px; }
+  #left_link_panel_admin a {
+    font-weight: normal;
+    display: block;
+    width: 198px;
+    color: #d45207;
+    font-size: 11px;
+    padding: 4px 10px 4px 10px;
+    margin-bottom: 2px; }
+    #left_link_panel_admin a:hover {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -28px no-repeat; }
+    #left_link_panel_admin a:focus {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -28px no-repeat; }
+    #left_link_panel_admin a:active {
+      background: #f7f5e6 url("/images/left_panel_arrows.png") 0 -56px no-repeat;
+      color: #464646; }
+  #left_link_panel_admin a.selected {
+    background: #f7f5e6 url("/images/left_panel_arrows.png") 0 0 no-repeat;
+    color: #464646; }
+  #left_link_panel_admin a {
+    color: #d45207;
+    font-size: 13px;
+    padding: 5px 10px 4px 10px; }
+  #left_link_panel_admin a.selected {
+    color: white; }
+
+#new_news_item_form, #new_poll_form {
+  background: #d1c9b4;
+  border-radius: 7px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  overflow: hidden;
+  padding: 20px 25px; }
+  #new_news_item_form h1, #new_poll_form h1 {
+    margin-left: 15px;
+    float: left;
+    width: 400px; }
+  #new_news_item_form label.input, #new_poll_form label.input {
+    font-weight: bold;
+    padding: 8px 3px 0 3px;
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    float: left;
+    width: 104px;
+    line-height: 110%; }
+  #new_news_item_form label.error, #new_poll_form label.error {
+    font-size: 13px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 110px;
+    width: 378px; }
+  #new_news_item_form input.text_field, #new_poll_form input.text_field {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    font-size: 14px;
+    height: 18px;
+    padding: 9px 9px;
+    width: 425px; }
+    #new_news_item_form input.text_field:focus, #new_poll_form input.text_field:focus {
+      background: white; }
+  #new_news_item_form input.send_button, #new_poll_form input.send_button {
+    font-size: 14px;
+    font-weight: bold;
+    background: #765d3a;
+    width: 200px;
+    height: 40px;
+    padding: 0;
+    border: 0;
+    color: white;
+    margin: 0 0 0 110px; }
+    #new_news_item_form input.send_button:active, #new_poll_form input.send_button:active {
+      background-color: #4d3d26;
+      padding-top: 1px; }
+    #new_news_item_form input.send_button:hover, #new_poll_form input.send_button:hover {
+      background-color: #9f7d4e; }
+    #new_news_item_form input.send_button:focus, #new_poll_form input.send_button:focus {
+      background-color: #9f7d4e; }
+  #new_news_item_form textarea, #new_poll_form textarea {
+    color: #464646;
+    background: #f7f5e6;
+    width: 380px;
+    border: 0;
+    width: 429px;
+    font-size: 12px;
+    height: 80px;
+    padding: 10px 5px 5px 9px; }
+    #new_news_item_form textarea:focus, #new_poll_form textarea:focus {
+      background: white; }
+
+#new_poll_form label.input {
+  width: 140px; }
+#new_poll_form input.text_field {
+  width: 485px; }
+#new_poll_form input.option_field {
+  color: #464646;
+  background: #f7f5e6;
+  width: 380px;
+  border: 0;
+  font-size: 14px;
+  height: 18px;
+  padding: 9px 9px;
+  width: 305px; }
+  #new_poll_form input.option_field:focus {
+    background: white; }
+#new_poll_form .option_link_container {
+  overflow: hidden;
+  margin: 0 0 10px 147px;
+  font-size: 15px; }
+#new_poll_form input.send_button {
+  margin: 0 0 0 147px; }
+
+.remove_option_link {
+  padding: 8px 15px;
+  float: left; }
+
+#news_items_admin_view_title h3 {
+  padding-top: 6px; }
+
+#news_items_admin_view_list {
+  width: 699px;
+  border-top: 2px solid #464646;
+  padding-top: 10px;
+  overflow: hidden; }
+  #news_items_admin_view_list h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0; }
+    #news_items_admin_view_list h4 a {
+      color: #464646; }
+      #news_items_admin_view_list h4 a:hover {
+        color: #797979;
+        text-decoration: underline; }
+      #news_items_admin_view_list h4 a:active {
+        color: black;
+        text-decoration: underline; }
+  #news_items_admin_view_list span.news_item_author {
+    float: left;
+    padding-top: 6px;
+    font-size: 11px; }
+  #news_items_admin_view_list span.news_item_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px; }
+
+#polls_admin_view_list {
+  width: 699px;
+  border-top: 2px solid #464646;
+  padding-top: 10px;
+  overflow: hidden; }
+  #polls_admin_view_list h4 {
+    float: left;
+    font-size: 16px;
+    margin: 0 20px 0 0; }
+    #polls_admin_view_list h4 a {
+      color: #464646; }
+      #polls_admin_view_list h4 a:hover {
+        color: #797979;
+        text-decoration: underline; }
+      #polls_admin_view_list h4 a:active {
+        color: black;
+        text-decoration: underline; }
+  #polls_admin_view_list span.poll_author {
+    float: left;
+    padding-top: 6px;
+    font-size: 11px; }
+  #polls_admin_view_list span.poll_status_container {
+    float: left;
+    width: 100px; }
+  #polls_admin_view_list span.poll_admin_links {
+    float: right;
+    font-size: 11px;
+    padding-top: 6px;
+    margin-right: 10px; }
+
+.poll_admin_view_title {
+  overflow: hidden;
+  float: left;
+  width: 450px; }
+
+span.poll_status_open {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  color: #223f05;
+  background: #d0e2ae;
+  padding: 4px 10px;
+  margin-right: 20px; }
+
+span.poll_status_closed {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  color: #8a1f11;
+  background: #f1cecf;
+  padding: 4px 10px;
+  margin-right: 20px; }
+
+#create_news_item_link {
+  margin-left: 10px;
+  padding-bottom: 5px;
+  width: 225px;
+  float: left;
+  margin-bottom: 10px;
+  width: 208px; }
+  #create_news_item_link a {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    font-weight: normal;
+    padding: 10px 0;
+    color: white;
+    background: #d45207;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px; }
+    #create_news_item_link a:hover {
+      background: #f8792f; }
+    #create_news_item_link a:active {
+      background: #a33f05; }
+
+.news_item_admin_view {
+  overflow: hidden;
+  padding: 5px; }
+
+.news_item_admin_view_header {
+  overflow: hidden;
+  width: 100%; }
+
+.news_item_admin_view_content {
+  display: none; }
+  .news_item_admin_view_content p {
+    padding-top: 5px;
+    margin: 0; }
+
+#no_news_found {
+  margin: 5px;
+  font-size: 14px;
+  font-weight: bold; }
+
+.infos_tab a {
+  width: 130px; }
+
+.option_result {
+  overflow: hidden;
+  margin-bottom: 2px; }
+
+span.option_title {
+  float: left; }
+
+span.option_percentage {
+  float: right; }
+
+span.option_percentage_admin_view {
+  float: right;
+  margin-right: 12px; }
+
+#polls_admin_view_answer_percentages {
+  overflow: hidden;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #464646;
+  margin-bottom: 5px; }
+
+.poll_answer {
+  padding: 10px; }
+
+.infos_news_header_container {
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+.infos_news_title {
+  float: left; }
+  .infos_news_title h2 {
+    font-size: 18px;
+    margin: 10px 0 0 0;
+    padding: 0; }
+
+.infos_news_create_link {
+  float: right;
+  padding-top: 9px; }
+
+.news_item_infos_view {
+  overflow: hidden;
+  padding-bottom: 10px; }

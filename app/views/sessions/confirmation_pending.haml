@@ -7,7 +7,10 @@
       = t("sessions.confirmation_pending.check_your_email")
     
     %p
-      = t("sessions.confirmation_pending.account_conrimation_instructions", :community_name => @current_community.name).html_safe
+      - if @current_community.allowed_emails
+        = t("sessions.confirmation_pending.account_conrimation_instructions", :community_name => @current_community.name).html_safe
+      - else
+        = t("sessions.confirmation_pending.account_confirmation_instructions_any_email", :community_name => @current_community.name).html_safe
       
     %b
       = t("sessions.confirmation_pending.get_started")

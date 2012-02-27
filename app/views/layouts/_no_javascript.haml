@@ -7,6 +7,7 @@
 
 .grid_16.prefix_4.suffix_4
   .grid_8.alpha
+    = render :file => community_file("logo", false)
     #error_content
       %h2= t('error_pages.no_javascript.javascript_is_disabled_in_your_browser')
       %p= t('error_pages.no_javascript.kassi_does_not_currently_work_without_javascript')
