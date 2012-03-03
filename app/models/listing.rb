@@ -188,14 +188,12 @@ class Listing < ActiveRecord::Base
   
   def given_share_type_is_one_of_valid_share_types
     if ["favor", "rideshare"].include?(category)
-      errors.add(:share_types, errors.generate_message(:share_types, :must_be_nil)) unless share_types.empty?
+      errors.add(:share_types, errors.generate_message(:share_types, :must_be_nil)) unless share_type.nil?
     elsif share_types.empty?
       errors.add(:share_types, errors.generate_message(:share_types, :blank)) 
     elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
-      share_types.each do |test_type|
-        unless VALID_SHARE_TYPES[listing_type][category].include?(test_type.name)
-          errors.add(:share_types, errors.generate_message(:share_types, :inclusion))
-        end   
+      unless VALID_SHARE_TYPES[listing_type][category].include?(share_type)
+        errors.add(:share_types, errors.generate_message(:share_types, :inclusion))
       end
     end  
   end

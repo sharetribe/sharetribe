@@ -52,6 +52,7 @@ en:
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
     password: Password
+    username: Username
     share_types:
       borrow: borrowing
       buy: buying
@@ -63,7 +64,7 @@ en:
       sell: selling
       temporary_accommodation: "temporary accommodation"
       trade: trading
-    username: Username
+      trade: swapping
     what_is_this: "What's this?"
   conversations:
     index:
@@ -214,7 +215,7 @@ en:
     invitation_to_kassi:
       hi: "Hi!"
       you_have_been_invited_to_kassi: "%{inviter} has invited you to use the Kassi web service of the %{community} community."
-      info_about_kassi: "Kassi is a service where the members of the community can, for example, lend, trade and sell goods, share rides and help each other out in several ways."
+      info_about_kassi: "Kassi is a service where the members of the community can, for example, lend, swap and sell goods, share rides and help each other out in several ways."
       here_is_a_message_from: "Here is a personal message from %{inviter}:"
       you_can_join_kassi_using_invitation_code: "Here is an invitation code you need to join the service: %{code}"
       join_kassi_in: "You can join Kassi at"
@@ -268,7 +269,7 @@ en:
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
-      share_type: "You must check at least one of the boxes above."
+      share_type: "You must select one."
       valid_until: "This date must be between current time and one year from now."
     testimonials:
       you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."
@@ -398,7 +399,7 @@ en:
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Give feedback on Kassi"
-      keywords: "service, favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, trade, exchange, buying, selling, buy, sell, giving, give, Kassi, ecological, community, online community"
+      keywords: "service, favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, Kassi, ecological, community, online community"
       meta_description: "Kassi is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
@@ -605,6 +606,7 @@ en:
         save_offer: "Save offer"
         save_request: "Save request"
       share_type:
+        select: "Select"
         borrow: Borrow
         buy: Buy
         give_away: "Give away"
@@ -616,7 +618,7 @@ en:
         request_type: "Request type"
         sell: Sell
         temporary_accommodation: Temporary
-        trade: Trade
+        trade: Swap
       tag_list:
         comma_separate: "(comma separate)"
         tags: Tags
@@ -674,7 +676,7 @@ en:
       rideshares: Rideshare
       sells: Selling
       temporary_accommodations: "Temporary accommodation"
-      trades: Trading
+      trades: Swapping
     link_labels:
       link_label_for_favor_offer: Contact
       link_label_for_favor_request: Contact

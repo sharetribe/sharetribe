@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210171827) do
+ActiveRecord::Schema.define(:version => 20120303113202) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -277,6 +277,7 @@ ActiveRecord::Schema.define(:version => 20120210171827) do
     t.datetime "valid_until"
     t.boolean  "delta",                   :default => true,        :null => false
     t.boolean  "open",                    :default => true
+    t.string   "share_type"
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

@@ -268,7 +268,7 @@ fi:
   error_messages:
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
-      share_type: "Sinun pitää valita ainakin yksi ylläolevista."
+      share_type: "Valitse yksi vaihtoehdoista."
       valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
@@ -605,6 +605,7 @@ fi:
         save_offer: "Tallenna tarjous"
         save_request: "Tallenna pyyntö"
       share_type:
+        select: "Valitse"
         borrow: Lainaa
         buy: Osta
         give_away: Anna

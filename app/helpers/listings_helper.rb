@@ -49,6 +49,10 @@ module ListingsHelper
     end  
   end
   
+  def share_type_array
+    Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].sort { |a,b| a <=> b }.collect { |st| [t(".#{st}"), st] }
+  end
+  
   def visibility_array
     array = []
     Listing::VALID_VISIBILITIES.each do |visibility|
