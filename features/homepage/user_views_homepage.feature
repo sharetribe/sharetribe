@@ -119,6 +119,20 @@ Feature: User views homepage
      Then I should not see "bike parts"
      And I should see "There are already 2 requests, but those are visible only to registered members."
   
+  @javascript
+  @pending
+  Scenario: User views event feed
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+      | kassi_testperson2 |
+      | kassi_testperson3 |
+    And I log in as "kassi_testperson1"
+    And system processes jobs
+    Then I should not see "logged in to Kassi."
+    When event
+    Then outcome
+  
   
   @pending
   Scenario: Latest transactions on the homepage
