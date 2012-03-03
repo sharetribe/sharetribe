@@ -11,7 +11,7 @@ Feature: Driver browses requested car pooling routes
       | kassi_testperson2 |
     And there is rideshare request from "tkk" to "kamppi" by "kassi_testperson1"
     And there is rideshare request from "Oulu" to "Helsinki" by "kassi_testperson2"
-    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend,trade"
+    And there is item offer with title "axe" from "kassi_testperson2" and with share type "lend"
     And I am on the requests page
     When I follow "Rideshare"
     Then I should see "tkk - kamppi"
