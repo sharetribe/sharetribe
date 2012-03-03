@@ -15,7 +15,7 @@ Factory.define :listing do |l|
   l.author { |author| author.association(:person) }
   l.listing_type "request"
   l.category "item"
-  l.share_types { |st| [st.association(:share_type), st.association(:share_type, :name => "buy")] }
+  l.share_type "buy"
   l.tag_list("tools, hammers")
   l.valid_until 3.months.from_now
   l.times_viewed 0

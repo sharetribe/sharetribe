@@ -19,8 +19,7 @@
     
 #listing_content_side.grid_16
   #listing_center.grid_9.alpha
-    %h1
-      #{t(".#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}
+    %h1= @listing.share_type ? listed_listing_title(@listing) : (t(".#{@listing.category}_#{@listing.listing_type}") + ": #{@listing.title}")
     - if @listing.category == "rideshare" && @listing.valid_until
       %p
         %strong
@@ -30,21 +29,12 @@
         = @listing.description.blank? ? t(".no_description") : @listing.description
     
     #share_types_and_tags
-      - unless @listing.share_types.empty? && @listing.tag_list.empty?    
-        - unless @listing.tag_list.empty?
-          %strong
-            = t(".tags") + ":"
-          - @listing.tag_list.collect do |tag| 
-            = tag + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
-        - unless @listing.share_types.empty? || @listing.tag_list.empty?
-          %br/
-        - unless @listing.share_types.empty?
-          %strong
-            = t(".share_types_#{@listing.listing_type}") + ":"
-          - @listing.share_types.collect do |st| 
-            = t("common.share_types.#{st.name}")  + ((st.name.eql?(@listing.share_types.last.name)) ? "" : ", ")
-        - unless @listing.share_types.empty? && @listing.tag_list.empty?
-          %br/
+      - unless @listing.tag_list.empty?    
+        %strong
+          = t(".tags") + ":"
+        - @listing.tag_list.collect do |tag| 
+          = tag + ((tag.eql?(@listing.tag_list.last)) ? "" : ", ")
+        %br/
       %strong
         = t(".times_viewed") + ":"
       = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times")) 
