@@ -1,9 +1,8 @@
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
-  share_types = share_type ? share_type.split(",").collect { |st| Factory(:share_type, :name => st) } : []
   @listing = Factory(:listing, :listing_type => type, 
                                :category => category,
                                :title => title,
-                               :share_types => share_types,
+                               :share_type => share_type,
                                :author => (@people && @people[author] ? @people[author] : Person.first),
                                :communities => [Community.find_by_domain("test")]
                                )
@@ -30,7 +29,7 @@ Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]
                                :destination => destination,
                                :author => @people[author],
                                :communities => [Community.find_by_domain("test")],
-                               :share_types => []
+                               :share_type => nil
                                )
 end
 

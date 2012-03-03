@@ -606,18 +606,18 @@ fi:
         save_request: "Tallenna pyyntö"
       share_type:
         select: "Valitse"
-        borrow: Lainaa
-        buy: Osta
-        give_away: Anna
-        lend: Lainaa
+        borrow: Lainataan
+        buy: Ostetaan
+        give_away: Annetaan
+        lend: Lainataan
         offer_type: Tarjoustapa
-        receive: "Ota vastaan"
-        rent: Vuokraa
-        rent_out: Vuokraa
+        receive: "Otetaan vastaan"
+        rent: Vuokrataan
+        rent_out: Vuokrataan
         request_type: Pyyntötapa
-        sell: Myy
+        sell: Myydään
         temporary_accommodation: Tilapäismajoitus
-        trade: Vaihda
+        trade: Vaihdetaan
       tag_list:
         comma_separate: "(erota pilkulla)"
         tags: Avainsanat

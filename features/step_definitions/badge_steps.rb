@@ -101,12 +101,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
     steps %Q{ And I fill in "listing_title" with "Test" }
   end
   if share_type
-    steps %Q{ And I uncheck "lend" }
-    share_type.split(",").each do |st|
-      steps %Q{
-        And I check "#{st}"
-      }
-    end
+    steps %Q{ And I select "#{st}" }
   end
   steps %Q{
     And I press "Save #{listing_type}"
