@@ -848,6 +848,31 @@ nl:
       moneymaker_bronze_description: "Jij bent nu ook tot inzien gekomen dat Kassi jou portomonnee kan spekken! Je hebt al 2 items succesvol verkocht of verhuurt in Kassi."
       moneymaker_gold: "Zakenman (goud)"
       moneymaker_gold_description: "15 verkochte of verhuurde items met positieve feedback! Kassi is een perfecte handel voor zowel jou en de mensen die van je kopen of huren!"
+    show:
+      slightly_less_than_expected: "Minder dan verwacht"
+      what_are_these: "Wat zijn dit?"
+      as_expected: "Zoals verwacht"
+      badges: Badges
+      edit_profile_info: "Wijzig profile"
+      exceeded_expectations: "Verwachtingen overtroffen"
+      feedback_average: "Feedback gemiddelde:"
+      hide_description: "Laat minder zien"
+      joined_this_community: ~
+      was_last_seen: ~
+      was_invited_by: ~
+      as_invited_by: ~
+      less_than_expected: "Minder dan verwacht"
+      phone_number: "Telefoon nummer:"
+      show_all_badges: "Laat alle badges zien"
+      show_all_feedback: "Laat alle feedback zien"
+      show_all_testimonials: "Laat alle feedback zien"
+      show_full_description: "Laat meer zien"
+      about_me: "Over mij:"
+      slightly_better_than_expected: "Verwachtingen overtroffen"
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: "Adres:"
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
@@ -870,31 +895,6 @@ nl:
       requests: Verzoeken
       show_also_closed: "Laat ook gesloten zien"
       show_only_open: "Laat alleen open zien"
-    show:
-      about_me: "Over mij:"
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: "Adres:"
-      as_expected: "Zoals verwacht"
-      badges: Badges
-      edit_profile_info: "Wijzig profile"
-      exceeded_expectations: "Verwachtingen overtroffen"
-      feedback_average: "Feedback gemiddelde:"
-      hide_description: "Laat minder zien"
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
-      as_invited_by: ~
-      less_than_expected: "Minder dan verwacht"
-      phone_number: "Telefoon nummer:"
-      show_all_badges: "Laat alle badges zien"
-      show_all_feedback: "Laat alle feedback zien"
-      show_all_testimonials: "Laat alle feedback zien"
-      show_full_description: "Laat meer zien"
-      slightly_better_than_expected: "Verwachtingen overtroffen"
-      slightly_less_than_expected: "Minder dan verwacht"
-      what_are_these: "Wat zijn dit?"
   mapview:
     index:
       all_categories: ~
@@ -926,6 +926,36 @@ nl:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
+  search:
+    show:
+      all_results: "Alle resultaten"
+      loading_more_search_results: "Meer zoekresultaten aan het laden"
+      offers: Aanbod
+      requests: Verzoeken
+      search: Zoek
+      search_results: Zoekresultaten
+      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
+      search_verb: Zoek
+  sessions:
+    confirmation_pending:
+      account_conrimation_instructions: ~
+      check_your_email: ~
+      get_started: ~
+      getting_started_instructions: ~
+      resend_confirmation_instructions: ~
+      welcome_to_kassi: ~
+      account_confirmation_instructions_any_email: ~
+    new:
+      create_new_account: "Maak een nieuwe account aan"
+      i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
+      login: "Log in"
+      login_to_kassi: "Log in Kassi"
+      password: Wachtwoord
+      username: Gebruikersnaam
+    password_forgotten:
+      email: Email
+      password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
+      request_new_password: "Nieuw wachtwoord aanvragen"
   settings:
     account:
       change: Wijzig
@@ -981,20 +1011,29 @@ nl:
     rideshare: ride|rideshare
     you_can_call_him_at: "Je kunt de bestuurder bellen op %{phone_number}"
     you_can_pay_gas_money_to_driver: "Om brandstof-kosten te betalen, antwoord 'kassi betaal %{driver} Xe' waar X het bedrag is. Het bedrag + 5% commissie staat in je telefoonrekening."
-  search:
-    show:
-      all_results: "Alle resultaten"
-      loading_more_search_results: "Meer zoekresultaten aan het laden"
-      offers: Aanbod
-      requests: Verzoeken
-      search: Zoek
-      search_results: Zoekresultaten
-      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
-      search_verb: Zoek
   tag_cloud:
     tag_used:
       with_tag: ~
       without_tag: ~
+  testimonials:
+    new:
+      give_feedback_to: "Geef feedback aan %{person}"
+      grade: Waardering
+      less_than_expected: "Minder dan verwacht"
+      send_feedback: "Stuur feedback"
+      slightly_better_than_expected: "Iets beter dan verwacht"
+      slightly_less_than_expected: "Iets Minder dan verwacht"
+      textual_feedback: "Op- of aanmerkingen"
+      as_expected: "Zoals verwacht"
+      exceeded_expectations: "Veel beter dan verwacht"
+    testimonial:
+      from_user: van
+      to_user: naar
+    index:
+      all_testimonials: "Alle feedback"
+      feedback_altogether: "Algemene feedback: "
+      loading_more_testimonials: "Meer feedback aan het laden"
+      no_testimonials: "Geen ontvangen feedback."
   terms:
     show:
       accept_terms: "Kassi gebruiksvoorwaarden accepteren"
@@ -1006,45 +1045,6 @@ nl:
       you_can_view_the_new_terms: "Je kunt de nieuwe voorwaarden zien"
       you_need_to_accept: "Welkom bij Kassi! Dit lijkt de eerste keer dat je gebruikt maakt van deze service. Voordat je aan de slag kunt moet je eerst accepteren de"
       you_need_to_accept_new_terms: "De Kassi gebruiksvoorwaarden zijn gewijzigd. Deze moeten door jou geaccepteerd worden om gebruik te kunnen blijven maken van Kassi. The nieuwe voorwaarden zijn bedoeld voor het onderhoud van de service nadat het onderzoeks project is beïndigd."
-  sessions:
-    new:
-      create_new_account: "Maak een nieuwe account aan"
-      i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
-      login: "Log in"
-      login_to_kassi: "Log in Kassi"
-      password: Wachtwoord
-      username: Gebruikersnaam
-    password_forgotten:
-      email: Email
-      password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
-      request_new_password: "Nieuw wachtwoord aanvragen"
-    confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
-      get_started: ~
-      getting_started_instructions: ~
-      resend_confirmation_instructions: ~
-  testimonials:
-    index:
-      all_testimonials: "Alle feedback"
-      feedback_altogether: "Algemene feedback: "
-      loading_more_testimonials: "Meer feedback aan het laden"
-      no_testimonials: "Geen ontvangen feedback."
-    new:
-      as_expected: "Zoals verwacht"
-      exceeded_expectations: "Veel beter dan verwacht"
-      give_feedback_to: "Geef feedback aan %{person}"
-      grade: Waardering
-      less_than_expected: "Minder dan verwacht"
-      send_feedback: "Stuur feedback"
-      slightly_better_than_expected: "Iets beter dan verwacht"
-      slightly_less_than_expected: "Iets Minder dan verwacht"
-      textual_feedback: "Op- of aanmerkingen"
-    testimonial:
-      from_user: van
-      to_user: naar
   time:
     formats:
       short: "%e %b %Y at %H:%M"

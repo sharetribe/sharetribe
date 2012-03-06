@@ -766,41 +766,7 @@ el:
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του Kassi"
-    inactive_notification:
-      this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο Kassi"
-      inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το Kassi. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
-    not_member:
-      explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το Kassi δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
-      read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες Kassi"
-      this_user_does_not_belong_to_this_community: "Αυτός ο χρήστης δεν συμμετέχει στην κοινότητα \"%{community}\""
     profile_badge:
-      active_member_bronze: "Ενεργό μέλος (χάλκινο)"
-      active_member_bronze_description: "Αυτή ήταν η τρίτη συναλλαγή στην οποία συμμετείχες στο Kassi! Φοβερό ξεκίνημα, συνέχισε έτσι!"
-      active_member_gold: "Ενεργό μέλος (χρυσό)"
-      active_member_gold_description: "Φανταστικό! Έχεις κάνει 25 συναλλαγές στο Kassi! Είσαι VIP εδώ. Γίνονται πολλά χάρη σε άτομα σαν και σένα. Ευχαριστούμε πολύ!"
-      active_member_silver: "Ενεργό μέλος (ασημένιο)"
-      active_member_silver_description: "Συγχαρητήρια για την 10η συναλλαγή σου στο Kassi! Συμβαίνουν πολλά χάρη σε σένα. Τέλεια!"
-      chauffer_bronze: "Σωφέρ (χάλκινο)"
-      chauffer_bronze_description: "Έχεις συνταξιδέψει δύο φορές με άλλους χρήστες. Μπράβο σου!"
-      chauffer_gold: "Σωφέρ (χρυσό)"
-      chauffer_gold_description: "Έχεις προσφέρει το όχημά σου 15 φορές! Προτιμάς να συνταξιδεύεις όσο είναι δυνατό. Πολύ καλά κάνεις, η μητέρα φύση σε ευχαριστεί!"
-      chauffer_silver: "Σωφέρ (ασημένιο)"
-      chauffer_silver_description: "Έχεις συνταξιδέψει με άλλους σε 6 διαδρομές. Μπράβο σου! Σου αρέσει να έχεις παρέα όταν οδηγείς."
-      commentator_bronze: "Σχολιαστής (χάλκινο)"
-      commentator_bronze_description: "Σου αρέσει να κουβεντιάζεις με άλλους. Έχεις σχολιάσει τρεις φορές σε καταχωρήσεις στο Kassi."
-      commentator_gold: "Σχολιαστής (χρυσό)"
-      commentator_gold_description: "30 σχόλια! Νιώθεις σαν στο σπίτι σου εδώ. Είσαι διατεθιμένος να γνωρίσεις άλλους και να κουβεντιάσετε."
-      commentator_silver: "Σχολιαστής (ασημένιο)"
-      commentator_silver_description: "10 σχόλια στο Kassi! Συμμετέχεις ενεργά σε συζητήσεις με άλλους χρήστες."
-      enthusiast_bronze: "Ενθουσιασμένος (χάλκινο)"
-      enthusiast_bronze_description: "Συνδέθηκες στο Kassi πέντε διαφορετικές ημέρες. Φαίνεται ότι πάει να γίνει το στέκι σου!"
-      enthusiast_gold: "Ενθουσιασμένος (χρυσό)"
-      enthusiast_gold_description: "Δεν μπορείς να κρατηθείς μακριά από το Kassi: το έχεις επισκεφτεί 100 διαφορετικές μέρες!"
-      enthusiast_silver: "Ενθουσιασμένος (ασημένιο)"
-      enthusiast_silver_description: "Το Kassi είναι στην καθημερινότητά σου: ήδη το έχεις επισκεφτεί 30 φορές!"
-      first_transaction: "Πρώτη συναλλαγή"
-      first_transaction_description: "Συγχαρητήρια για την πρώτη σου συναλλαγή στο Kassi! Ένα αίτημα ή μία προσφορά σου έγινε δεκτή και έχει ολοκληρωθεί."
-      generous_bronze: "Γενναιόδωρος/η (χάλκινο)"
       generous_bronze_description: "Έχεις δανείσει ή χαρίσει δύο πράγματά σου. Μπράβο!"
       generous_gold: "Γενναιόδωρος/η (χρυσό)"
       generous_gold_description: "Ότι είναι δικό σου ανήκει και στους άλλους. Μπράβο! Έχεις δανείσει ή χαρίσει 15 πράγματά σου."
@@ -832,45 +798,55 @@ el:
       moneymaker_gold_description: "Έχεις πουλήσει ή ενοικιάσει 15 αντικείμενα για τα οποία έλαβες θετική κριτική! Το Kassi είναι μια εξαιρετική επιχείρηση για σένα και τους ανθρώπους που αγοράζουν ή νοικιάζουν από σένα!"
       moneymaker_silver: "Εισοδηματίας (ασημένιο)"
       moneymaker_silver_description: "Το Kassi συμβάλλει στο εισόδημά σου. Έχεις πουλήσει ή ενοικιάσει έξι αντικείμενα και έλαβες θετική κριτική γι' αυτά!"
+      active_member_bronze: "Ενεργό μέλος (χάλκινο)"
       rookie: Αρχάριος
+      active_member_bronze_description: "Αυτή ήταν η τρίτη συναλλαγή στην οποία συμμετείχες στο Kassi! Φοβερό ξεκίνημα, συνέχισε έτσι!"
       rookie_description: "Καταχώρησες στο Kassi την πρώτη σου προσφορά ή αίτημα. Καλή αρχή!"
+      active_member_gold: "Ενεργό μέλος (χρυσό)"
       santa: "Άγιος Βασίλης"
+      active_member_gold_description: "Φανταστικό! Έχεις κάνει 25 συναλλαγές στο Kassi! Είσαι VIP εδώ. Γίνονται πολλά χάρη σε άτομα σαν και σένα. Ευχαριστούμε πολύ!"
       santa_description: "\"Άγιος Βασίλης έρχεται...\" Έχεις προσφέρει τουλάχιστον ένα αντικείμενο μέσα στο Δεκέμβριο."
+      active_member_silver: "Ενεργό μέλος (ασημένιο)"
       taxi_stand_bronze: "Πιάτσα ταξί (χάλκινο)"
+      active_member_silver_description: "Συγχαρητήρια για την 10η συναλλαγή σου στο Kassi! Συμβαίνουν πολλά χάρη σε σένα. Τέλεια!"
       taxi_stand_bronze_description: "Μπράβο, έχεις προσφέρει το όχημά σου στο Kassi για τρεις διαφορετικές διαδρομές."
+      chauffer_bronze: "Σωφέρ (χάλκινο)"
       taxi_stand_gold: "Πιάτσα ταξί (χρυσό)"
+      chauffer_bronze_description: "Έχεις συνταξιδέψει δύο φορές με άλλους χρήστες. Μπράβο σου!"
       taxi_stand_gold_description: "Είσαι πανέτοιμος, πάντα πρόθυμος να συνταξιδέψεις με άλλους. Έχεις προσφέρει 25 διαδρομές στο Kassi. Τέλεια!"
+      chauffer_gold: "Σωφέρ (χρυσό)"
       taxi_stand_silver: "Πιάτσα ταξί (ασημένιο)"
+      chauffer_gold_description: "Έχεις προσφέρει το όχημά σου 15 φορές! Προτιμάς να συνταξιδεύεις όσο είναι δυνατό. Πολύ καλά κάνεις, η μητέρα φύση σε ευχαριστεί!"
       taxi_stand_silver_description: "Καταχώρησες 10 διαδρομές στο Kassi. Μπράβο! Όλοι ξέρουν σε ποιον να απευθυνθούν όταν θέλουν να πεταχτούν κάπου."
+      chauffer_silver: "Σωφέρ (ασημένιο)"
       volunteer_bronze: "Εθελοντής (χάλκινο)"
+      chauffer_silver_description: "Έχεις συνταξιδέψει με άλλους σε 6 διαδρομές. Μπράβο σου! Σου αρέσει να έχεις παρέα όταν οδηγείς."
       volunteer_bronze_description: "Σου αρέσει να χρησιμοποιείς τις ικανότητές σου για να βοηθάς άλλους. Έχεις στο Kassi τρεις ανοιχτές προσφορές για βοήθεια."
+      commentator_bronze: "Σχολιαστής (χάλκινο)"
       volunteer_gold: "Εθελοντής (χρυσό)"
+      commentator_bronze_description: "Σου αρέσει να κουβεντιάζεις με άλλους. Έχεις σχολιάσει τρεις φορές σε καταχωρήσεις στο Kassi."
       volunteer_gold_description: "Είσαι εξαιρετικός στο να βοηθάς τους άλλους. Έχεις στο προφίλ σου 25 ανοιχτές προσφορές για βοήθεια. Μπράβο!"
+      commentator_gold: "Σχολιαστής (χρυσό)"
       volunteer_silver: "Εθελοντής (ασημένιο)"
+      commentator_gold_description: "30 σχόλια! Νιώθεις σαν στο σπίτι σου εδώ. Είσαι διατεθιμένος να γνωρίσεις άλλους και να κουβεντιάσετε."
       volunteer_silver_description: "Μπορείς να προσφέρεις πολλά: έχεις καταχωρήσει 10 χάρες που θα μπορούσες να κάνεις στο Kassi!"
-    profile_feedback:
-      as_expected: "Όπως το περίμενα"
-      exceeded_expectations: "Πολύ καλύτερα από ότι περίμενα"
-      grade: "βαθμός:"
-      less_than_expected: "Χειρότερα από το αναμενόμενο"
-      offered_favor: "έκανε μια χάρη"
-      offered_housing: "πρόσφερε στέγαση"
-      offered_item: "πρόσφερε ένα αντικείμενο"
-      offered_rideshare: "πρόσφερε το όχημά του/της"
-      requested_favor: "ζήτησε μια χάρη"
-      requested_housing: "ζήτησε στέγαση"
-      requested_item: "ζήτησε ένα αντικείμενο"
-      requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
-      slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
-      slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
-    profile_listings:
-      loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
-      loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
-      offers: Προσφορές
-      requests: Αιτήματα
-      show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
-      show_only_open: "Εμφάνισε μόνο ανοιχτές καταχωρήσεις"
+      commentator_silver: "Σχολιαστής (ασημένιο)"
+      commentator_silver_description: "10 σχόλια στο Kassi! Συμμετέχεις ενεργά σε συζητήσεις με άλλους χρήστες."
+      enthusiast_bronze: "Ενθουσιασμένος (χάλκινο)"
+      enthusiast_bronze_description: "Συνδέθηκες στο Kassi πέντε διαφορετικές ημέρες. Φαίνεται ότι πάει να γίνει το στέκι σου!"
+      enthusiast_gold: "Ενθουσιασμένος (χρυσό)"
+      enthusiast_gold_description: "Δεν μπορείς να κρατηθείς μακριά από το Kassi: το έχεις επισκεφτεί 100 διαφορετικές μέρες!"
+      enthusiast_silver: "Ενθουσιασμένος (ασημένιο)"
+      enthusiast_silver_description: "Το Kassi είναι στην καθημερινότητά σου: ήδη το έχεις επισκεφτεί 30 φορές!"
+      first_transaction: "Πρώτη συναλλαγή"
+      first_transaction_description: "Συγχαρητήρια για την πρώτη σου συναλλαγή στο Kassi! Ένα αίτημα ή μία προσφορά σου έγινε δεκτή και έχει ολοκληρωθεί."
+      generous_bronze: "Γενναιόδωρος/η (χάλκινο)"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο Kassi"
+      inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το Kassi. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
     show:
+      slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
+      what_are_these: "Τι είναι αυτά;"
       about_me: "Σχετικά με μένα:"
       add_description: "Γράψε κάτι για τον εαυτό σου"
       add_location: Τοποθεσία
@@ -893,8 +869,32 @@ el:
       show_all_testimonials: "Εμφάνιση όλων των σχολίων"
       show_full_description: Περισσότερα...
       slightly_better_than_expected: "Ξεπέρασε τις προσδοκίες"
-      slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
-      what_are_these: "Τι είναι αυτά;"
+    not_member:
+      explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το Kassi δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
+      read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες Kassi"
+      this_user_does_not_belong_to_this_community: "Αυτός ο χρήστης δεν συμμετέχει στην κοινότητα \"%{community}\""
+    profile_feedback:
+      as_expected: "Όπως το περίμενα"
+      exceeded_expectations: "Πολύ καλύτερα από ότι περίμενα"
+      grade: "βαθμός:"
+      less_than_expected: "Χειρότερα από το αναμενόμενο"
+      offered_favor: "έκανε μια χάρη"
+      offered_housing: "πρόσφερε στέγαση"
+      offered_item: "πρόσφερε ένα αντικείμενο"
+      offered_rideshare: "πρόσφερε το όχημά του/της"
+      requested_favor: "ζήτησε μια χάρη"
+      requested_housing: "ζήτησε στέγαση"
+      requested_item: "ζήτησε ένα αντικείμενο"
+      requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
+      slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
+      slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
+    profile_listings:
+      loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
+      loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
+      offers: Προσφορές
+      requests: Αιτήματα
+      show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
+      show_only_open: "Εμφάνισε μόνο ανοιχτές καταχωρήσεις"
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"
@@ -926,67 +926,6 @@ el:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
-  sessions:
-    new:
-      password: Κωδικός
-      username: "Όνομα χρήστη"
-      create_new_account: "Δημιούργησε λογαριασμό"
-      i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
-      login: Σύνδεση
-      login_to_kassi: "Συνδέσου στο Kassi"
-    password_forgotten:
-      email: Email
-      password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
-      request_new_password: "Ζήτησε νέο κωδικό"
-    confirmation_pending:
-      welcome_to_kassi: "Καλωσήρθες στο Kassi!"
-      check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
-      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το Kassi με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα Kassi.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του Kassi απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το Kassi!"
-      account_confirmation_instructions_any_email: ~
-      get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
-      getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
-      resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
-  settings:
-    account:
-      password: "Κωδικός:"
-      username: "Όνομα χρήστη:"
-      change: Αλλαγή
-      confirm_new_password: "Επιβεβαίωση κωδικού"
-      email: "Ηλεκτρονική διεύθυνση:"
-      new_email: "Νέα ηλεκτρονική διεύθυνση"
-      new_password: "Νέος κωδικός"
-      save: Αποθήκευση
-      these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σου εκτός αν έχεις δώσει το πραγματικό σου όνομα. Οι υπόλοιπες πληροφορίες εμφανίζονται μόνο σε σένα."
-    avatar:
-      add_avatar_submit: "Αποθήκευση εικόνας"
-      update_profile_picture: "Αλλαγή της εικόνας προφίλ"
-    notifications:
-      i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
-      newsletters: Newsletters
-      email_about_accept_reminders: "έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
-      email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
-      email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
-      email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
-      email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
-      email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
-      email_about_weekly_events: "Στείλε μου ένα email κάθε βδομάδα με το τι συμβαίνει στο Kassi"
-      email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
-      email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
-    profile:
-      about_you: "Σχετικά με σένα:"
-      city: "Πόλη:"
-      family_name: "Επώνυμο:"
-      given_name: "Όνομα:"
-      location_description: "Μπορείς να συμπληρώσεις είτε την ακριβή τοποθεσία σου είτε μόνο τον ταχυδρομικό σου κωδικό. Παρακαλούμε να συμπληρώσεις τουλάχιστον τον ταχυδρομικό σου κωδικό. Μπορείς επίσης να διαλέξεις μια τοποθεσία στο χάρτη."
-      phone_number: "Αριθμός τηλεφώνου:"
-      postal_code: "Ταχυδρομικός κώδικας:"
-      profile_page: "στη σελίδα του προφίλ σου"
-      profilemap: "Προβολή χάρτη"
-      street_address: "Περιοχή:"
-      these_fields_are_shown_in_your: "Αυτές οι πληροφορίες είναι ορατές σε όλους τους χρήστες του Kassi"
-      visible_to_everybody: "ορατό σε όλους"
-      visible_to_registered_users: "ορατό στους χρήστες που έχουν συνδεθεί"
-    save_information: Αποθήκευση
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -997,6 +936,67 @@ el:
       search_results: "Αποτελέσματα αναζήτησης"
       search_returned_no_results: "Η αναζήτησή σου δεν επέστρεψε αποτελέσματα."
       search_verb: Αναζήτηση
+  sessions:
+    confirmation_pending:
+      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το Kassi με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα Kassi.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του Kassi απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το Kassi!"
+      check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
+      get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
+      getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
+      resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
+      welcome_to_kassi: "Καλωσήρθες στο Kassi!"
+      account_confirmation_instructions_any_email: ~
+    new:
+      create_new_account: "Δημιούργησε λογαριασμό"
+      i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
+      login: Σύνδεση
+      login_to_kassi: "Συνδέσου στο Kassi"
+      password: Κωδικός
+      username: "Όνομα χρήστη"
+    password_forgotten:
+      email: Email
+      password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
+      request_new_password: "Ζήτησε νέο κωδικό"
+  settings:
+    account:
+      change: Αλλαγή
+      confirm_new_password: "Επιβεβαίωση κωδικού"
+      email: "Ηλεκτρονική διεύθυνση:"
+      new_email: "Νέα ηλεκτρονική διεύθυνση"
+      new_password: "Νέος κωδικός"
+      password: "Κωδικός:"
+      save: Αποθήκευση
+      these_fields_are_shown_only_to_you: "Το όνομα χρήστη εμφανίζεται στο προφίλ σου εκτός αν έχεις δώσει το πραγματικό σου όνομα. Οι υπόλοιπες πληροφορίες εμφανίζονται μόνο σε σένα."
+      username: "Όνομα χρήστη:"
+    avatar:
+      add_avatar_submit: "Αποθήκευση εικόνας"
+      update_profile_picture: "Αλλαγή της εικόνας προφίλ"
+    notifications:
+      email_about_accept_reminders: "έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
+      email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
+      email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
+      email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
+      email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
+      email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
+      email_about_weekly_events: "Στείλε μου ένα email κάθε βδομάδα με το τι συμβαίνει στο Kassi"
+      email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
+      email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
+      i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
+      newsletters: Newsletters
+    profile:
+      about_you: "Σχετικά με σένα:"
+      city: "Πόλη:"
+      family_name: "Επώνυμο:"
+      given_name: "Όνομα:"
+      phone_number: "Αριθμός τηλεφώνου:"
+      postal_code: "Ταχυδρομικός κώδικας:"
+      profile_page: "στη σελίδα του προφίλ σου"
+      profilemap: "Προβολή χάρτη"
+      street_address: "Περιοχή:"
+      these_fields_are_shown_in_your: "Αυτές οι πληροφορίες είναι ορατές σε όλους τους χρήστες του Kassi"
+      visible_to_everybody: "ορατό σε όλους"
+      visible_to_registered_users: "ορατό στους χρήστες που έχουν συνδεθεί"
+      location_description: "Μπορείς να συμπληρώσεις είτε την ακριβή τοποθεσία σου είτε μόνο τον ταχυδρομικό σου κωδικό. Παρακαλούμε να συμπληρώσεις τουλάχιστον τον ταχυδρομικό σου κωδικό. Μπορείς επίσης να διαλέξεις μια τοποθεσία στο χάρτη."
+    save_information: Αποθήκευση
   sms:
     category_not_supported: "Αυτή η κατηγορία δεν υποστηρίζεται ακόμη από sms."
     check_the_offer_in_kassi: "Δες αυτή την προσφορά στο Kassi: %{listing_url}"

@@ -768,41 +768,7 @@ es-ES:
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de Kassi"
-    inactive_notification:
-      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
-      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
-    not_member:
-      explanation_text: "Usted actualmente se encuentra en la comunidad de %{community}. Intentó ver el perfil de un usuario que pertenece a otra comunidad. Actualmente, Kassi no permite que usted ingrese a distintas comunidades simultáneamente, por lo que no puede acceder al perfil de este usuario a través de la comunidad de %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Esta opción estará disponible pronto en el sitio."
-      read_more_about_kassi_communities: "Lea más sobre las comunidades de Kassi"
-      this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad de %{community}"
     profile_badge:
-      active_member_bronze: "Miembro activo (bronce)"
-      active_member_bronze_description: "Este fue el tercer intercambio en el cual participas en Kassi! Asomobroso comienzo, continúa así!"
-      active_member_gold: "Miembro activo (oro)"
-      active_member_gold_description: "25 intercambios en Kassi, asombroso! Eres un miembro VIP de Kassi. Personas como tú hacen que el servicio funcione excelente. Muchas gracias!"
-      active_member_silver: "Miembro activo (plata)"
-      active_member_silver_description: "Felicitaciones en tu 10 intercambio en Kassi! Muchas cosas están ocurriendo en nuestro servicio gracias a ti. Genial!"
-      chauffer_bronze: "Chofer (bronce)"
-      chauffer_bronze_description: "Haz ofrecido dos traslados a otros usuarios, buen trabajo!"
-      chauffer_gold: "Chofer (oro)"
-      chauffer_gold_description: "Ya van 15 traslados ofrecidos! Tú preferiste compartir tus viajes y así reducir las emisiones contaminantes ¡La madre naturaleza te lo agradecerá!"
-      chauffer_silver: "Chofer (plata)"
-      chauffer_silver_description: "6 traslados ofrecidos, super! Disfrutarás de compañía mientras manejas."
-      commentator_bronze: "Comentarista (bronce)"
-      commentator_bronze_description: "Le gusta conversar con los demás usuarios. Ha dejado tres comentarios en listados de Kassi."
-      commentator_gold: "Comentarista (oro)"
-      commentator_gold_description: "30 comentarios! Te sientes como en casa en la comunidad de Kassi. Esperas conocer gente nueva y poder conversar con ellos."
-      commentator_silver: "Comentarista (plata)"
-      commentator_silver_description: "10 comentarios! Participas activamente en las conversaciones con otros usuarios de Kassi."
-      enthusiast_bronze: "Entusiasta (bronce)"
-      enthusiast_bronze_description: "Has visitado Kassi en 5 días diferentes. Estás en camino de convertirte en un miembro regular."
-      enthusiast_gold: "Entusiasta (oro)"
-      enthusiast_gold_description: "Usted no puede mantenerse alejado de Kassi: ha visitado el sitio en cien ocasiones diferentes!"
-      enthusiast_silver: "Entusiasta (plata)"
-      enthusiast_silver_description: "Kassi forma parte de su rutina diaria: ya tiene 30 visitas en el servicio."
-      first_transaction: "Primer evento"
-      first_transaction_description: "Felicidades en tu primer intercambio en Kassi! Una de sus solicitudes u ofertas ha sido aceptada y confirmada como trato hecho."
-      generous_bronze: "Generoso (bronce)"
       generous_bronze_description: "Usted ha prestado o regalado dos de sus productos. Bien por usted!"
       generous_gold: "Generoso (oro)"
       generous_gold_description: "Lo que es suyo también es de los demás! Usted ha prestado o regalado 15 artículos, sorprendente!"
@@ -834,45 +800,55 @@ es-ES:
       moneymaker_gold_description: ~
       moneymaker_silver: ~
       moneymaker_silver_description: ~
+      active_member_bronze: "Miembro activo (bronce)"
       rookie: ~
+      active_member_bronze_description: "Este fue el tercer intercambio en el cual participas en Kassi! Asomobroso comienzo, continúa así!"
       rookie_description: ~
+      active_member_gold: "Miembro activo (oro)"
       santa: ~
+      active_member_gold_description: "25 intercambios en Kassi, asombroso! Eres un miembro VIP de Kassi. Personas como tú hacen que el servicio funcione excelente. Muchas gracias!"
       santa_description: ~
+      active_member_silver: "Miembro activo (plata)"
       taxi_stand_bronze: ~
+      active_member_silver_description: "Felicitaciones en tu 10 intercambio en Kassi! Muchas cosas están ocurriendo en nuestro servicio gracias a ti. Genial!"
       taxi_stand_bronze_description: ~
+      chauffer_bronze: "Chofer (bronce)"
       taxi_stand_gold: ~
+      chauffer_bronze_description: "Haz ofrecido dos traslados a otros usuarios, buen trabajo!"
       taxi_stand_gold_description: ~
+      chauffer_gold: "Chofer (oro)"
       taxi_stand_silver: ~
+      chauffer_gold_description: "Ya van 15 traslados ofrecidos! Tú preferiste compartir tus viajes y así reducir las emisiones contaminantes ¡La madre naturaleza te lo agradecerá!"
       taxi_stand_silver_description: ~
+      chauffer_silver: "Chofer (plata)"
       volunteer_bronze: ~
+      chauffer_silver_description: "6 traslados ofrecidos, super! Disfrutarás de compañía mientras manejas."
       volunteer_bronze_description: ~
+      commentator_bronze: "Comentarista (bronce)"
       volunteer_gold: "Voluntario (oro)"
+      commentator_bronze_description: "Le gusta conversar con los demás usuarios. Ha dejado tres comentarios en listados de Kassi."
       volunteer_gold_description: ~
+      commentator_gold: "Comentarista (oro)"
       volunteer_silver: "Voluntario (plata)"
+      commentator_gold_description: "30 comentarios! Te sientes como en casa en la comunidad de Kassi. Esperas conocer gente nueva y poder conversar con ellos."
       volunteer_silver_description: ~
-    profile_feedback:
-      as_expected: "Lo esperado"
-      exceeded_expectations: "Mucho mejor de lo esperado"
-      grade: "puntaje:"
-      less_than_expected: "Peor de lo esperado"
-      offered_favor: "Ofreció ayuda"
-      offered_housing: "Ofreció alojamiento"
-      offered_item: "Ofreció un producto"
-      offered_rideshare: "Ofreció un traslado"
-      requested_favor: "Solicitó ayuda"
-      requested_housing: "Solicitó alojamiento"
-      requested_item: "Solicitó un producto"
-      requested_rideshare: "Solicitó un trayecto de traslado"
-      slightly_better_than_expected: "Un poco mejor de lo esperado"
-      slightly_less_than_expected: "Un poco peor de lo esperado"
-    profile_listings:
-      loading_more_offers: "Cargando más ofertas"
-      loading_more_requests: "Cargando más solicitudes"
-      offers: Ofertas
-      requests: Solicitudes
-      show_also_closed: "Mostrar como cerrada"
-      show_only_open: "Mostrar como abierta"
+      commentator_silver: "Comentarista (plata)"
+      commentator_silver_description: "10 comentarios! Participas activamente en las conversaciones con otros usuarios de Kassi."
+      enthusiast_bronze: "Entusiasta (bronce)"
+      enthusiast_bronze_description: "Has visitado Kassi en 5 días diferentes. Estás en camino de convertirte en un miembro regular."
+      enthusiast_gold: "Entusiasta (oro)"
+      enthusiast_gold_description: "Usted no puede mantenerse alejado de Kassi: ha visitado el sitio en cien ocasiones diferentes!"
+      enthusiast_silver: "Entusiasta (plata)"
+      enthusiast_silver_description: "Kassi forma parte de su rutina diaria: ya tiene 30 visitas en el servicio."
+      first_transaction: "Primer evento"
+      first_transaction_description: "Felicidades en tu primer intercambio en Kassi! Una de sus solicitudes u ofertas ha sido aceptada y confirmada como trato hecho."
+      generous_bronze: "Generoso (bronce)"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
+      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
     show:
+      slightly_less_than_expected: "Peor de lo esperado"
+      what_are_these: "Qué son estos?"
       about_me: "Acerca de mí:"
       add_description: "Di algo sobre ti"
       add_location: "Agregar ubicación"
@@ -895,8 +871,32 @@ es-ES:
       show_all_testimonials: "Mostrar todos los comentarios"
       show_full_description: "Ver más"
       slightly_better_than_expected: "Ha superado las expectativas"
-      slightly_less_than_expected: "Peor de lo esperado"
-      what_are_these: "Qué son estos?"
+    not_member:
+      explanation_text: "Usted actualmente se encuentra en la comunidad de %{community}. Intentó ver el perfil de un usuario que pertenece a otra comunidad. Actualmente, Kassi no permite que usted ingrese a distintas comunidades simultáneamente, por lo que no puede acceder al perfil de este usuario a través de la comunidad de %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Esta opción estará disponible pronto en el sitio."
+      read_more_about_kassi_communities: "Lea más sobre las comunidades de Kassi"
+      this_user_does_not_belong_to_this_community: "El usuario no pertenece a la comunidad de %{community}"
+    profile_feedback:
+      as_expected: "Lo esperado"
+      exceeded_expectations: "Mucho mejor de lo esperado"
+      grade: "puntaje:"
+      less_than_expected: "Peor de lo esperado"
+      offered_favor: "Ofreció ayuda"
+      offered_housing: "Ofreció alojamiento"
+      offered_item: "Ofreció un producto"
+      offered_rideshare: "Ofreció un traslado"
+      requested_favor: "Solicitó ayuda"
+      requested_housing: "Solicitó alojamiento"
+      requested_item: "Solicitó un producto"
+      requested_rideshare: "Solicitó un trayecto de traslado"
+      slightly_better_than_expected: "Un poco mejor de lo esperado"
+      slightly_less_than_expected: "Un poco peor de lo esperado"
+    profile_listings:
+      loading_more_offers: "Cargando más ofertas"
+      loading_more_requests: "Cargando más solicitudes"
+      offers: Ofertas
+      requests: Solicitudes
+      show_also_closed: "Mostrar como cerrada"
+      show_only_open: "Mostrar como abierta"
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -928,67 +928,6 @@ es-ES:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
-  sessions:
-    new:
-      password: Contraseña
-      username: "Nombre de usuario"
-      create_new_account: "Crear una cuenta nueva"
-      i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
-      login: "Iniciar sesión"
-      login_to_kassi: "Iniciar sesión en Kassi"
-    password_forgotten:
-      email: Email
-      password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
-      request_new_password: "Solicitar nueva contraseña"
-    confirmation_pending:
-      welcome_to_kassi: "Bienvenido a Kassi!"
-      check_your_email: "Revise su bandeja de entrada"
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
-      get_started: "Comenzar con Kassi"
-      getting_started_instructions: ~
-      resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
-  settings:
-    account:
-      password: "Contraseña:"
-      username: "Nombre de usuario:"
-      change: Cambiar
-      confirm_new_password: "Confirmar nueva contraseña"
-      email: "Dirección de correo electrónico:"
-      new_email: "Nieva Dirección de Correo Electrónico"
-      new_password: "Nueva contraseña"
-      save: Guardar
-      these_fields_are_shown_only_to_you: ~
-    avatar:
-      add_avatar_submit: "Guardar imagen"
-      update_profile_picture: "Actualizar imagen de perfil"
-    notifications:
-      i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
-      newsletters: Boletines
-      email_about_accept_reminders: "...He olvidado aceptar un evento"
-      email_about_new_badges: "...He obtenido una nueva medalla"
-      email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
-      email_about_new_messages: ".. .alguien me envía un mensaje"
-      email_about_new_received_testimonials: ".. .alguien me da sugerencias"
-      email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
-      email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en Kassi"
-      email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
-      email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
-    profile:
-      about_you: "Acerca de usted:"
-      city: "Ciudad:"
-      family_name: "Apellido:"
-      given_name: "Nombre:"
-      location_description: ~
-      phone_number: "Número de teléfono:"
-      postal_code: "Código postal:"
-      profile_page: "en su página de perfil"
-      profilemap: "Vista de mapa"
-      street_address: "Ubicación:"
-      these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de Kassi"
-      visible_to_everybody: "visible para todo el mundo"
-      visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
-    save_information: "Guardar Información"
   search:
     show:
       all_results: "Todos los resultados"
@@ -999,6 +938,67 @@ es-ES:
       search_results: "Resultados de búsqueda"
       search_returned_no_results: "Su búsqueda no ha obtenido resultados."
       search_verb: buscar
+  sessions:
+    confirmation_pending:
+      account_conrimation_instructions: ~
+      check_your_email: "Revise su bandeja de entrada"
+      get_started: "Comenzar con Kassi"
+      getting_started_instructions: ~
+      resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
+      welcome_to_kassi: "Bienvenido a Kassi!"
+      account_confirmation_instructions_any_email: ~
+    new:
+      create_new_account: "Crear una cuenta nueva"
+      i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
+      login: "Iniciar sesión"
+      login_to_kassi: "Iniciar sesión en Kassi"
+      password: Contraseña
+      username: "Nombre de usuario"
+    password_forgotten:
+      email: Email
+      password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
+      request_new_password: "Solicitar nueva contraseña"
+  settings:
+    account:
+      change: Cambiar
+      confirm_new_password: "Confirmar nueva contraseña"
+      email: "Dirección de correo electrónico:"
+      new_email: "Nieva Dirección de Correo Electrónico"
+      new_password: "Nueva contraseña"
+      password: "Contraseña:"
+      save: Guardar
+      these_fields_are_shown_only_to_you: ~
+      username: "Nombre de usuario:"
+    avatar:
+      add_avatar_submit: "Guardar imagen"
+      update_profile_picture: "Actualizar imagen de perfil"
+    notifications:
+      email_about_accept_reminders: "...He olvidado aceptar un evento"
+      email_about_new_badges: "...He obtenido una nueva medalla"
+      email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
+      email_about_new_messages: ".. .alguien me envía un mensaje"
+      email_about_new_received_testimonials: ".. .alguien me da sugerencias"
+      email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
+      email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en Kassi"
+      email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
+      email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
+      newsletters: Boletines
+    profile:
+      about_you: "Acerca de usted:"
+      city: "Ciudad:"
+      family_name: "Apellido:"
+      given_name: "Nombre:"
+      phone_number: "Número de teléfono:"
+      postal_code: "Código postal:"
+      profile_page: "en su página de perfil"
+      profilemap: "Vista de mapa"
+      street_address: "Ubicación:"
+      these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de Kassi"
+      visible_to_everybody: "visible para todo el mundo"
+      visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
+      location_description: ~
+    save_information: "Guardar Información"
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~
@@ -1017,6 +1017,25 @@ es-ES:
     tag_used:
       with_tag: ~
       without_tag: ~
+  testimonials:
+    new:
+      give_feedback_to: "Da una sugerencia a %{person}"
+      grade: "Evaluación del rendimiento"
+      less_than_expected: "Peor de lo esperado"
+      send_feedback: "Enviar sugerencia"
+      slightly_better_than_expected: "Un poco mejor de lo esperado"
+      slightly_less_than_expected: "Un poco peor de lo esperado"
+      textual_feedback: "Sugerencia textual"
+      as_expected: "Lo esperado"
+      exceeded_expectations: "Mucho mejor de lo esperado"
+    testimonial:
+      from_user: Desde
+      to_user: a
+    index:
+      all_testimonials: "Todas las sugerencias"
+      feedback_altogether: "Votos en total: "
+      loading_more_testimonials: "Leer más testimonios"
+      no_testimonials: "No hay sugerencias recibidas."
   terms:
     show:
       accept_terms: "Aceptar términos de uso de Kassi"
@@ -1028,25 +1047,6 @@ es-ES:
       you_can_view_the_new_terms: "Usted puede ver los nuevos términos"
       you_need_to_accept: "Bienvenido a Kassi! Al parecer esta es la primera vez que utiliza el servicio. Antes de comenzar debe aceptar primero los"
       you_need_to_accept_new_terms: "Los términos de uso de Kassi han cambiado. Es necesario que usted acepte los nuevos términos para poder continuar utilizando Kassi. Lo nuevos términos intentan permitir seguir haciendo uso del servicio una vez finalizado el proyecto de investigación que lo originó."
-  testimonials:
-    index:
-      all_testimonials: "Todas las sugerencias"
-      feedback_altogether: "Votos en total: "
-      loading_more_testimonials: "Leer más testimonios"
-      no_testimonials: "No hay sugerencias recibidas."
-    new:
-      as_expected: "Lo esperado"
-      exceeded_expectations: "Mucho mejor de lo esperado"
-      give_feedback_to: "Da una sugerencia a %{person}"
-      grade: "Evaluación del rendimiento"
-      less_than_expected: "Peor de lo esperado"
-      send_feedback: "Enviar sugerencia"
-      slightly_better_than_expected: "Un poco mejor de lo esperado"
-      slightly_less_than_expected: "Un poco peor de lo esperado"
-      textual_feedback: "Sugerencia textual"
-    testimonial:
-      from_user: Desde
-      to_user: a
   time:
     formats:
       short: ~
