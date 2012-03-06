@@ -774,22 +774,40 @@ sw:
       read_more_about_kassi_communities: ~
       this_user_does_not_belong_to_this_community: ~
     profile_badge:
+      moneymaker_silver: ~
+      moneymaker_silver_description: ~
       active_member_bronze: ~
+      rookie: ~
       active_member_bronze_description: ~
+      rookie_description: ~
       active_member_gold: ~
+      santa: ~
       active_member_gold_description: ~
+      santa_description: ~
       active_member_silver: ~
+      taxi_stand_bronze: ~
       active_member_silver_description: ~
+      taxi_stand_bronze_description: ~
       chauffer_bronze: ~
+      taxi_stand_gold: ~
       chauffer_bronze_description: ~
+      taxi_stand_gold_description: ~
       chauffer_gold: ~
+      taxi_stand_silver: ~
       chauffer_gold_description: ~
+      taxi_stand_silver_description: ~
       chauffer_silver: ~
+      volunteer_bronze: ~
       chauffer_silver_description: ~
+      volunteer_bronze_description: ~
       commentator_bronze: ~
+      volunteer_gold: ~
       commentator_bronze_description: ~
+      volunteer_gold_description: ~
       commentator_gold: ~
+      volunteer_silver: ~
       commentator_gold_description: ~
+      volunteer_silver_description: ~
       commentator_silver: ~
       commentator_silver_description: ~
       enthusiast_bronze: ~
@@ -830,24 +848,6 @@ sw:
       moneymaker_bronze_description: ~
       moneymaker_gold: ~
       moneymaker_gold_description: ~
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
-      rookie: ~
-      rookie_description: ~
-      santa: ~
-      santa_description: ~
-      taxi_stand_bronze: ~
-      taxi_stand_bronze_description: ~
-      taxi_stand_gold: ~
-      taxi_stand_gold_description: ~
-      taxi_stand_silver: ~
-      taxi_stand_silver_description: ~
-      volunteer_bronze: ~
-      volunteer_bronze_description: ~
-      volunteer_gold: ~
-      volunteer_gold_description: ~
-      volunteer_silver: ~
-      volunteer_silver_description: ~
     profile_feedback:
       as_expected: ~
       exceeded_expectations: ~
@@ -926,43 +926,21 @@ sw:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
-  sessions:
-    new:
-      password: ~
-      username: ~
-      create_new_account: ~
-      i_forgot_my_password: ~
-      login: ~
-      login_to_kassi: ~
-    password_forgotten:
-      email: ~
-      password_recovery_instructions: ~
-      request_new_password: ~
-    confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
-      get_started: ~
-      getting_started_instructions: ~
-      resend_confirmation_instructions: ~
   settings:
     account:
-      password: ~
-      username: ~
       change: ~
       confirm_new_password: ~
       email: ~
       new_email: ~
       new_password: ~
+      password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
+      username: ~
     avatar:
       add_avatar_submit: ~
       update_profile_picture: ~
     notifications:
-      i_want_to_get_email_notification_when: ~
-      newsletters: ~
       email_about_accept_reminders: ~
       email_about_new_badges: ~
       email_about_new_comments_to_own_listing: ~
@@ -972,12 +950,13 @@ sw:
       email_about_weekly_events: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
+      i_want_to_get_email_notification_when: ~
+      newsletters: ~
     profile:
       about_you: ~
       city: ~
       family_name: ~
       given_name: ~
-      location_description: ~
       phone_number: ~
       postal_code: ~
       profile_page: ~
@@ -986,17 +965,8 @@ sw:
       these_fields_are_shown_in_your: ~
       visible_to_everybody: ~
       visible_to_registered_users: ~
+      location_description: ~
     save_information: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~
@@ -1011,6 +981,16 @@ sw:
     rideshare: ~
     you_can_call_him_at: ~
     you_can_pay_gas_money_to_driver: ~
+  search:
+    show:
+      all_results: ~
+      loading_more_search_results: ~
+      offers: ~
+      requests: ~
+      search: ~
+      search_results: ~
+      search_returned_no_results: ~
+      search_verb: ~
   tag_cloud:
     tag_used:
       with_tag: ~
@@ -1026,6 +1006,26 @@ sw:
       you_can_view_the_new_terms: ~
       you_need_to_accept: ~
       you_need_to_accept_new_terms: ~
+  sessions:
+    new:
+      create_new_account: ~
+      i_forgot_my_password: ~
+      login: ~
+      login_to_kassi: ~
+      password: ~
+      username: ~
+    password_forgotten:
+      email: ~
+      password_recovery_instructions: ~
+      request_new_password: ~
+    confirmation_pending:
+      welcome_to_kassi: ~
+      check_your_email: ~
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      get_started: ~
+      getting_started_instructions: ~
+      resend_confirmation_instructions: ~
   testimonials:
     index:
       all_testimonials: ~

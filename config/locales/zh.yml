@@ -774,22 +774,40 @@ zh:
       read_more_about_kassi_communities: 阅读更多关于Kassi社区
       this_user_does_not_belong_to_this_community: "此用户不属于%{community} 社区"
     profile_badge:
+      moneymaker_silver: 印钞机（银牌）
+      moneymaker_silver_description: Kassi给你带来一份不错的额外收入。已出售或出租物品成功6次。
       active_member_bronze: 活跃用户（铜牌）
+      rookie: 新手
       active_member_bronze_description: 恭喜您！您已经完成了三个交换事件。再接再厉！
+      rookie_description: 您第一次在Kassi进行买卖。
       active_member_gold: 活跃用户（金牌）
+      santa: 圣诞老人
       active_member_gold_description: 在Kassi里的第25次交换，太棒了！您现在是Kassi里的VIP。人们喜欢你因为你让活动继续下去。多谢！
+      santa_description: 圣诞快乐。您已成功在12月出售或出租一项商品
       active_member_silver: 活跃用户（银牌）
+      taxi_stand_bronze: 出租车站（铜牌）
       active_member_silver_description: 恭喜您！您已经完成了十个交换事件。感谢您为大家作出的贡献！您太给力了！
+      taxi_stand_bronze_description: 您提供了三次拼车。
       chauffer_bronze: 司机（铜牌）
+      taxi_stand_gold: 出租车站（金牌）
       chauffer_bronze_description: 您为其他用户提供了两次顺风车，好样的！
+      taxi_stand_gold_description: 随叫随到。提供了25次拼车，真棒！
       chauffer_gold: 司机（金牌）
+      taxi_stand_silver: 出租车站（银牌）
       chauffer_gold_description: 十五次顺风车！只要可能您就拼车。好样的，大自然母亲感谢您！
+      taxi_stand_silver_description: 提供10次拼车，好耶！人们需要搭车的时候知道该找谁。
       chauffer_silver: 司机（银牌）
+      volunteer_bronze: 志愿者（铜牌）
       chauffer_silver_description: 六次顺风车，好耶！您很享受开车的时候身边有个伴儿
+      volunteer_bronze_description: 您喜欢发挥特长帮助别人。您已提供了3次帮助。
       commentator_bronze: 评论员（铜牌）
+      volunteer_gold: 志愿者（金牌）
       commentator_bronze_description: 您喜欢和别的用户进行讨论。您已经Kassi里的列表发表了3次评论。
+      volunteer_gold_description: "您知道没有什么比帮助别人更好的了。 您已经提供了25次帮助。太棒了！"
       commentator_gold: 评论员（金牌）
+      volunteer_silver: 志愿者（银牌）
       commentator_gold_description: 30个评论！您在Kassi社区如鱼得水。您渴望遇见陌生人并与之讨论。
+      volunteer_silver_description: 您能帮到别人很多。您已经提供了10次帮助。
       commentator_silver: 评论员（银牌）
       commentator_silver_description: 10条评论！您在Kassi用户间的讨论里很活跃
       enthusiast_bronze: 铜质热心勋章
@@ -830,24 +848,6 @@ zh:
       moneymaker_bronze_description: Kassi也是赚钱的好地方！您刚刚成功的出售或出租了两件物品。
       moneymaker_gold: 印钞机（金牌）
       moneymaker_gold_description: 成功出售或出租了15样物品！Kassi为您和您的顾客创造了完美的平台。
-      moneymaker_silver: 印钞机（银牌）
-      moneymaker_silver_description: Kassi给你带来一份不错的额外收入。已出售或出租物品成功6次。
-      rookie: 新手
-      rookie_description: 您第一次在Kassi进行买卖。
-      santa: 圣诞老人
-      santa_description: 圣诞快乐。您已成功在12月出售或出租一项商品
-      taxi_stand_bronze: 出租车站（铜牌）
-      taxi_stand_bronze_description: 您提供了三次拼车。
-      taxi_stand_gold: 出租车站（金牌）
-      taxi_stand_gold_description: 随叫随到。提供了25次拼车，真棒！
-      taxi_stand_silver: 出租车站（银牌）
-      taxi_stand_silver_description: 提供10次拼车，好耶！人们需要搭车的时候知道该找谁。
-      volunteer_bronze: 志愿者（铜牌）
-      volunteer_bronze_description: 您喜欢发挥特长帮助别人。您已提供了3次帮助。
-      volunteer_gold: 志愿者（金牌）
-      volunteer_gold_description: "您知道没有什么比帮助别人更好的了。 您已经提供了25次帮助。太棒了！"
-      volunteer_silver: 志愿者（银牌）
-      volunteer_silver_description: 您能帮到别人很多。您已经提供了10次帮助。
     profile_feedback:
       as_expected: 符合期望
       exceeded_expectations: 比期望的好很多
@@ -926,43 +926,21 @@ zh:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
-  sessions:
-    new:
-      password: 密码
-      username: 用户名
-      create_new_account: 创建新账户
-      i_forgot_my_password: 忘记用户名或密码
-      login: 登录
-      login_to_kassi: 登录
-    password_forgotten:
-      email: E-mail
-      password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
-      request_new_password: 请求新密码
-    confirmation_pending:
-      welcome_to_kassi: 欢迎来到Kassi！
-      check_your_email: 查看您的收件箱
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
-      get_started: 开始使用Kassi
-      getting_started_instructions: ~
-      resend_confirmation_instructions: 再次发送确认信
   settings:
     account:
-      password: 密码：
-      username: 用户名：
       change: 修改
       confirm_new_password: 确认新密码
       email: "Email 地址"
       new_email: 新Email地址
       new_password: 新密码
+      password: 密码：
       save: 保存
       these_fields_are_shown_only_to_you: 除非提供了您的真实姓名，否则用户名将会被显示在个人信息页面中。其他信息只对您可见。
+      username: 用户名：
     avatar:
       add_avatar_submit: 保存图片
       update_profile_picture: 更新头像
     notifications:
-      i_want_to_get_email_notification_when: 寄给我一封Email通知当…
-      newsletters: 简报
       email_about_accept_reminders: …我忘记确认一个活动
       email_about_new_badges: …我获得一个新徽章
       email_about_new_comments_to_own_listing: …有人评论了您的商品或请求
@@ -972,12 +950,13 @@ zh:
       email_about_weekly_events: 每周发送给我一封Email让我知道在Kassi有什么新鲜事
       email_when_conversation_accepted: …有人接受了您的商品或请求
       email_when_conversation_rejected: …有人拒绝了您的商品或请求
+      i_want_to_get_email_notification_when: 寄给我一封Email通知当…
+      newsletters: 简报
     profile:
       about_you: 关于你：
       city: 城市：
       family_name: 姓：
       given_name: 名：
-      location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
       phone_number: 电话号码：
       postal_code: 邮政编码：
       profile_page: 在您的个人信息页面
@@ -986,17 +965,8 @@ zh:
       these_fields_are_shown_in_your: 此信息对所有Kassi用户可见
       visible_to_everybody: 所有人可见
       visible_to_registered_users: 对已登录用户可见
+      location_description: 您可以选择提供您的准确住址或仅仅提供邮政编码。请至少填写邮政编码。您也可以通过地图选择一个地点。
     save_information: 保存信息
-  search:
-    show:
-      all_results: 所有结果
-      loading_more_search_results: 加载更多搜索结果
-      offers: 提供
-      requests: 请求
-      search: 搜索
-      search_results: 搜索结果
-      search_returned_no_results: 没有发现符合要求的结果
-      search_verb: 搜索
   sms:
     category_not_supported: 此分类尚不支持短消息
     check_the_offer_in_kassi: "查看%{listing_url}的商品"
@@ -1011,6 +981,16 @@ zh:
     rideshare: 拼车
     you_can_call_him_at: "您可以联系司机，电话：%{phone_number}"
     you_can_pay_gas_money_to_driver: "如需支付油钱，请回复'Kassi pay %{driver} Xe'，其中X为需支付数额。支付款和5%的服务费将会计算进您的电话账单。"
+  search:
+    show:
+      all_results: 所有结果
+      loading_more_search_results: 加载更多搜索结果
+      offers: 提供
+      requests: 请求
+      search: 搜索
+      search_results: 搜索结果
+      search_returned_no_results: 没有发现符合要求的结果
+      search_verb: 搜索
   tag_cloud:
     tag_used:
       with_tag: 有标签
@@ -1026,6 +1006,26 @@ zh:
       you_can_view_the_new_terms: 您可以查看新的条款
       you_need_to_accept: 欢迎来到Kassi！这是您第一次使用此服务。在开始前您必须接受
       you_need_to_accept_new_terms: Kassi使用条款以改变。您必须接受新条款以继续使用Kassi。新条款诣在在研究项目结束后继续保持服务。
+  sessions:
+    new:
+      create_new_account: 创建新账户
+      i_forgot_my_password: 忘记用户名或密码
+      login: 登录
+      login_to_kassi: 登录
+      password: 密码
+      username: 用户名
+    password_forgotten:
+      email: E-mail
+      password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
+      request_new_password: 请求新密码
+    confirmation_pending:
+      welcome_to_kassi: 欢迎来到Kassi！
+      check_your_email: 查看您的收件箱
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      get_started: 开始使用Kassi
+      getting_started_instructions: ~
+      resend_confirmation_instructions: 再次发送确认信
   testimonials:
     index:
       all_testimonials: 所有评价

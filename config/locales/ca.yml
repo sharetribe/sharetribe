@@ -768,41 +768,7 @@ ca:
       help_captcha_title: ~
       help_invitation_code_title: ~
       terms_title: ~
-    inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
-    not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
     profile_badge:
-      active_member_bronze: ~
-      active_member_bronze_description: ~
-      active_member_gold: ~
-      active_member_gold_description: ~
-      active_member_silver: ~
-      active_member_silver_description: ~
-      chauffer_bronze: ~
-      chauffer_bronze_description: ~
-      chauffer_gold: ~
-      chauffer_gold_description: ~
-      chauffer_silver: ~
-      chauffer_silver_description: ~
-      commentator_bronze: ~
-      commentator_bronze_description: ~
-      commentator_gold: ~
-      commentator_gold_description: ~
-      commentator_silver: ~
-      commentator_silver_description: ~
-      enthusiast_bronze: ~
-      enthusiast_bronze_description: ~
-      enthusiast_gold: ~
-      enthusiast_gold_description: ~
-      enthusiast_silver: ~
-      enthusiast_silver_description: ~
-      first_transaction: ~
-      first_transaction_description: ~
-      generous_bronze: ~
       generous_bronze_description: ~
       generous_gold: ~
       generous_gold_description: ~
@@ -834,45 +800,55 @@ ca:
       moneymaker_gold_description: ~
       moneymaker_silver: ~
       moneymaker_silver_description: ~
+      active_member_bronze: ~
       rookie: ~
+      active_member_bronze_description: ~
       rookie_description: ~
+      active_member_gold: ~
       santa: ~
+      active_member_gold_description: ~
       santa_description: ~
+      active_member_silver: ~
       taxi_stand_bronze: ~
+      active_member_silver_description: ~
       taxi_stand_bronze_description: ~
+      chauffer_bronze: ~
       taxi_stand_gold: ~
+      chauffer_bronze_description: ~
       taxi_stand_gold_description: ~
+      chauffer_gold: ~
       taxi_stand_silver: ~
+      chauffer_gold_description: ~
       taxi_stand_silver_description: ~
+      chauffer_silver: ~
       volunteer_bronze: ~
+      chauffer_silver_description: ~
       volunteer_bronze_description: ~
+      commentator_bronze: ~
       volunteer_gold: ~
+      commentator_bronze_description: ~
       volunteer_gold_description: ~
+      commentator_gold: ~
       volunteer_silver: ~
+      commentator_gold_description: ~
       volunteer_silver_description: ~
-    profile_feedback:
-      as_expected: ~
-      exceeded_expectations: ~
-      grade: ~
-      less_than_expected: ~
-      offered_favor: ~
-      offered_housing: ~
-      offered_item: ~
-      offered_rideshare: ~
-      requested_favor: ~
-      requested_housing: ~
-      requested_item: ~
-      requested_rideshare: ~
-      slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
-    profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
-      show_also_closed: ~
-      show_only_open: ~
+      commentator_silver: ~
+      commentator_silver_description: ~
+      enthusiast_bronze: ~
+      enthusiast_bronze_description: ~
+      enthusiast_gold: ~
+      enthusiast_gold_description: ~
+      enthusiast_silver: ~
+      enthusiast_silver_description: ~
+      first_transaction: ~
+      first_transaction_description: ~
+      generous_bronze: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
     show:
+      slightly_less_than_expected: ~
+      what_are_these: ~
       about_me: ~
       add_description: ~
       add_location: ~
@@ -895,8 +871,32 @@ ca:
       show_all_testimonials: ~
       show_full_description: ~
       slightly_better_than_expected: ~
+    not_member:
+      explanation_text: ~
+      read_more_about_kassi_communities: ~
+      this_user_does_not_belong_to_this_community: ~
+    profile_feedback:
+      as_expected: ~
+      exceeded_expectations: ~
+      grade: ~
+      less_than_expected: ~
+      offered_favor: ~
+      offered_housing: ~
+      offered_item: ~
+      offered_rideshare: ~
+      requested_favor: ~
+      requested_housing: ~
+      requested_item: ~
+      requested_rideshare: ~
+      slightly_better_than_expected: ~
       slightly_less_than_expected: ~
-      what_are_these: ~
+    profile_listings:
+      loading_more_offers: ~
+      loading_more_requests: ~
+      offers: ~
+      requests: ~
+      show_also_closed: ~
+      show_only_open: ~
   mapview:
     index:
       all_categories: ~
@@ -928,10 +928,18 @@ ca:
     member_id: ~
     member_id_is_your_username: ~
     join_here: ~
+  search:
+    show:
+      all_results: ~
+      loading_more_search_results: ~
+      offers: ~
+      requests: ~
+      search: ~
+      search_results: ~
+      search_returned_no_results: ~
+      search_verb: ~
   sessions:
     new:
-      password: ~
-      username: ~
       create_new_account: ~
       i_forgot_my_password: ~
       login: ~
@@ -941,17 +949,15 @@ ca:
       password_recovery_instructions: ~
       request_new_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
       account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
+      check_your_email: ~
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      welcome_to_kassi: ~
   settings:
     account:
-      password: ~
-      username: ~
       change: ~
       confirm_new_password: ~
       email: ~
@@ -959,9 +965,10 @@ ca:
       new_password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
+    avatar:
+      add_avatar_submit: ~
+      update_profile_picture: ~
     notifications:
-      email_when_conversation_accepted: ~
-      email_when_conversation_rejected: ~
       i_want_to_get_email_notification_when: ~
       newsletters: ~
       email_about_accept_reminders: ~
@@ -971,6 +978,8 @@ ca:
       email_about_new_received_testimonials: ~
       email_about_testimonial_reminders: ~
       email_about_weekly_events: ~
+      email_when_conversation_accepted: ~
+      email_when_conversation_rejected: ~
     profile:
       about_you: ~
       city: ~
@@ -986,19 +995,6 @@ ca:
       visible_to_everybody: ~
       visible_to_registered_users: ~
     save_information: ~
-    avatar:
-      add_avatar_submit: ~
-      update_profile_picture: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~
