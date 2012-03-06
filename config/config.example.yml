@@ -1,11 +1,15 @@
 default: &default_settings
   
-  # The domain where you are running Kassi.
+  # If you want to make logins work accross different subdomains you should put here the domain where you are running Kassi.
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
-  # The session cookies will apply for the whole domain 
+  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
+  # If you use domain aliases e.g. kassi.eu & kassi.cl, leave this empty.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "kassi.eu" for example
-  domain: "lvh.me:3000"
+  domain:
+  
+  # If you use weekly emails, you can specify here which domain is used in the links 
+  weekly_email_domain: "lvh.me:3000"
   
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
