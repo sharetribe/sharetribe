@@ -65,5 +65,27 @@ class Community < ActiveRecord::Base
   def active_poll
     polls.where(:active => true).first
   end
+  
+  def set_email_confirmation_on_and_send_mail_to_existing_users
+    # If email confirmation is already active, do nothing
+    return if self.email_confirmation == true
+    
+    self.email_confirmation = true
+    save
+    
+    original_locale = I18n.locale
+    
+    #Store host to global variable to be able to use this from console
+    $host = "#{self.domain}.#{APP_CONFIG.weekly_email_domain}"
+    
+    members.all.each do |member|
+      member.confirmed_at = nil
+      member.save
+      I18n.locale = member.locale
+      member.send_confirmation_instructions
+      
+    end
+    I18n.locale = original_locale
+  end
 
 end
