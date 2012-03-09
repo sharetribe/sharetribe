@@ -294,6 +294,15 @@ en:
       your_feedback_to_admins: "Your feedback to admins"
     send: Send
     your_email_address: "Your email address"
+  event_feed_events:
+    join:
+      joined_kassi: "joined Kassi"
+    login:
+      logged_in_to_kassi: "logged in to Kassi"
+    comment:
+      commented: "commented"
+      offer_partitive: "offer"
+      request_partitive: "request"
   header:
     about: "About Kassi"
     community: Community
@@ -334,6 +343,8 @@ en:
       ride_request: "A ride to work"
       some_private_offers_exist: "There are already <b>%{number_of_listings} offers</b>,"
       some_private_requests_exist: "There are already <b>%{number_of_listings} requests</b>,"
+    event_feed:
+      latest_events: "What's going on"
     index:
       are_offering: offer
       add_news_item: "Add an article"

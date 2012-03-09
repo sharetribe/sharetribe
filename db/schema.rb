@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120303152837) do
+ActiveRecord::Schema.define(:version => 20120303172713) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -123,6 +123,18 @@ ActiveRecord::Schema.define(:version => 20120303152837) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "event_feed_events", :force => true do |t|
+    t.string   "person1_id"
+    t.string   "person2_id"
+    t.string   "community_id"
+    t.integer  "eventable_id"
+    t.string   "eventable_type"
+    t.string   "category"
+    t.boolean  "members_only",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"

@@ -5,7 +5,11 @@ class HomepageController < ApplicationController
   layout :choose_layout
 
   def index
-    @events = ["Event 1", "Event 2", "Event 3"]
+    if @current_user && @current_user.member_of?(@current_community)
+      @event_feed_events = @current_community.event_feed_events.limit(5).order("id DESC")
+    else
+      @event_feed_events = @current_community.event_feed_events.non_members_only.limit(5).order("id DESC")
+    end
     listings_per_page = 15
     
     # If requesting a specific page on non-ajax request, we'll ignore that

@@ -293,6 +293,34 @@ fi:
       your_feedback_to_admins: "Palautteesi ylläpidolle"
     send: Lähetä
     your_email_address: Sähköpostiosoitteesi
+  event_feed_events:
+    join:
+      joined_kassi: "liittyi Kassiin"
+    login:
+      logged_in_to_kassi: "kirjautui sisään Kassiin"
+    comment:
+      commented: "kommentoi"
+      offer_partitive: "tarjousta"
+      request_partitive: "pyyntöä"
+    accept:
+      borrow_item: "lainasi tavaran"
+      buy_item: "myi tavaran"
+      buy_housing: "osti asunnon"
+      give_away_item: "antoi tavaran"
+      lend_item: "lainasi tavaran"
+      receive_item: "antoi tavaran"
+      rent_item: "vuokrasi tavaran"
+      rent_housing: "vuokrasi asunnon" 
+      rent_out_item: "vuokrasi tavaran"
+      rent_out_housing: "vuokrasi asunnon"
+      sell_item: "myi tavaran"
+      sell_housing: "myi asunnon"
+      temporary_accommodation_housing: "tarjosi tilapäismajoituksen"
+      trade_item: "vaihtoi tavaran"
+      favor: "tarjosi palveluksen"
+      ride: "sopi kimppakyydistä"
+      with: "käyttäjän"
+      rideshare_with_person: "kanssa"
   header:
     about: "Tietoa Kassista"
     community: Yhteisö
@@ -333,6 +361,8 @@ fi:
       ride_request: "Kyyti töihin"
       some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
+    event_feed:
+      latest_events: "Mitä Kassissa tapahtuu"
     index:
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
