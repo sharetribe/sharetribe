@@ -109,7 +109,7 @@ class PeopleController < ApplicationController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    PersonMailer.new_member_notification(@person, params[:community], params[:person][:email]).deliver if @current_community.email_admins_about_new_members
+    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email]))
     
     if @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"

@@ -120,19 +120,59 @@ Feature: User views homepage
      And I should see "There are already 2 requests, but those are visible only to registered members."
   
   @javascript
-  @pending
   Scenario: User views event feed
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
-      | kassi_testperson3 |
+    When I am on the homepage
+    And I should not see "Latest events"
+    When I go to the signup page
+    And I fill in "Username:" with random username
+    And I fill in "Given name:" with "Chuck"
+    And I fill in "Family name:" with "The Man"
+    And I fill in "Password:" with "test"
+    And I fill in "Confirm password:" with "test"
+    And I fill in "Email address:" with random email
+    And I check "person_terms"
+    And I press "Create account"
+    And the system processes jobs
+    Then I should not see "Chuck joined Kassi."
+    And I follow "Logout"
     And I log in as "kassi_testperson1"
-    And system processes jobs
+    And the system processes jobs
     Then I should not see "logged in to Kassi."
-    When event
-    Then outcome
-  
+    When there is item offer with title "hammer" from "kassi_testperson2" and with share type "lend"
+    And visibility of that listing is "everybody"
+    And I go to the homepage
+    And I follow "hammer"
+    And I fill in "comment_content" with "Test comment"
+    And I press "Send comment"
+    And the system processes jobs
+    And I go to the homepage
+    Then I should see "Chuck joined Kassi"
+    And I should see "logged in to Kassi"
+    And I should see "commented offer hammer"
+    When I follow "Contact"
+    And I fill in "Message:" with "I want to borrow this item"
+    And I press "Send the request"
+    And I follow "Logout"
+    And I log in as "kassi_testperson2"
+    When I follow "Messages"
+    And I follow "Accept"
+    And I go to the home page
+    And the system processes jobs
+    Then I should see "agreed to lend hammer to"
+    When there is item offer with title "power drill" from "kassi_testperson2" and with share type "lend"
+    And visibility of that listing is "this_community"
+    And I follow "power drill"
+    And I fill in "comment_content" with "Test comment"
+    And I press "Send comment"
+    And the system processes jobs
+    And I follow "Logout"
+    Then I should not see "commented offer 'power drill'"
+    When I log in as "kassi_testperson1"
+    Then I should see "commented offer 'power drill'"
   
   @pending
   Scenario: Latest transactions on the homepage
