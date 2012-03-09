@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   
-  def index
+  def index  
+    I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?
     @contact_request = ContactRequest.new
   end
   

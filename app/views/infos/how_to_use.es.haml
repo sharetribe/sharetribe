@@ -2,12 +2,12 @@
  
 %p 
   ¿Tienes tus propias herramientas, equipamiento deportivo, divertidos disfraces u otros artículos que no usas a menudo y que podrías prestar, vender o hasta regalar a otros? ¿Eres bueno reparando bicicletas, arreglando ropa o paseando perros? ¿Estarías dispuesto de llevar a alguien a su trabajo en tu auto, con tal de compartir el gasto en bencina? ¿Tienes algún apartamento que esté esperando a alguien para ser arrendado?  
-  = link_to "Add information about all these to Kassi", new_request_path(:type => "offer") 
+  = link_to "Añade información sobre todo esto en Kassi", new_request_path(:type => "offer") 
   ¡y experimenta el placer de ayudar a tus cercanos! 
  
 %p 
   También recuerda que  
-  = link_to("check what other people need at the moment", requests_path) + "." 
+  = link_to("puedes ver qué necesita la gente en estos momentos", requests_path) + "." 
   Quizás tú puedas ofrecer algo que alguien lo esté necesitando. 
  
 %p 
@@ -16,22 +16,22 @@
 %h3 ¡Hazle saber a la gente de tu comunidad qué es lo que necesitas! 
  
 %p 
-  Ya sea que necesites un artículo, favor, traslado o arrendar un apartamento, todo eso lo puedes encontrar usando Kassi 
-  = link_to("search", search_path) + "." 
+  Ya sea que necesites un artículo, favor, traslado o arrendar un apartamento, todo eso lo puedes encontrar usando 
+  = link_to("el buscador de Kassi", search_path) + "." 
   También puedes 
-  = link_to("browse open offers", offers_path) + "." 
+  = link_to("buscar ofertas disponibles", offers_path) + "." 
  
 %p 
   Si alguien está ofreciendo algo que tú necesitas en Kassi, puedes hacer click en el link de "Solicitud" o "Respuesta"de esa oferta y enviarle un mensaje gratis a la persona que creó la oferta usando el formulario que se abrirá. Después de eso, sólo necesitas esperar a que el "ofertante" acepte tu solicitud. Tú puedes acordar los detalles del intercambio por medio del servicio de mensajes de Kassi. Automáticamente recibirás un e-mail que te notificará de los nuevos mensajes y las ofertas o solicitudes aceptadas. Además, no hay necesidad de que reveles tu dirección de correo electrónico a tu contraparte, a menos que lo desees. Puedes ver todos tus mensajes recibidos y enviados, más las solicitudes que aún no tienen respuesta o fueron rechazadas, en el 
   - if logged_in? 
-    = link_to("messages view", person_messages_path(:person_id => @current_user.id)) + "," 
+    = link_to("buzón de mensajes", person_messages_path(:person_id => @current_user.id)) + "," 
   - else  
     messages view, 
   al que siempre podrás acceder haciendo click en el ícono del sobre que aparece al tope de cada página, luego de haberte registrado en Kassi. 
  
 %p 
   Si no pudiste encontrar lo que buscabas, puedes 
-  = link_to("create an open request", new_request_path(:type => "request")) + "," 
+  = link_to("crear una solicitud", new_request_path(:type => "request")) + "," 
   donde describes qué es lo que necesitas. Esta solicitud se mostrará a los otros usuarios de Kassi. Es muy probable que alguien ofrezca justo lo que tú necesitas. 
    
 %h3 Consejos 
