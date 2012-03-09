@@ -140,4 +140,7 @@ module ApplicationHelper
     return random_string
   end
   
+  def username_label
+    @current_community.label.eql?("okl") ? t("okl.member_id") : t("common.username")
+  end
 end
