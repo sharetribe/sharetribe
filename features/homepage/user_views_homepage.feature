@@ -160,19 +160,20 @@ Feature: User views homepage
     And I log in as "kassi_testperson2"
     When I follow "Messages"
     And I follow "Accept"
-    And I go to the home page
     And the system processes jobs
+    And I go to the home page
     Then I should see "agreed to lend hammer to"
     When there is item offer with title "power drill" from "kassi_testperson2" and with share type "lend"
     And visibility of that listing is "this_community"
+    And I am on the home page
     And I follow "power drill"
     And I fill in "comment_content" with "Test comment"
     And I press "Send comment"
     And the system processes jobs
     And I follow "Logout"
-    Then I should not see "commented offer 'power drill'"
+    Then I should not see "commented offer power drill"
     When I log in as "kassi_testperson1"
-    Then I should see "commented offer 'power drill'"
+    Then I should see "commented offer power drill"
   
   @pending
   Scenario: Latest transactions on the homepage

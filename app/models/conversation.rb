@@ -96,7 +96,7 @@ class Conversation < ActiveRecord::Base
   end
   
   def requester
-    participants.each { |p| return p if listing.requester?(p) }
+    participants.each { |p| return p unless listing.offerer?(p) }
   end
 
 end
