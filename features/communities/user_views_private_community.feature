@@ -3,18 +3,21 @@ Feature: User views private community
   As a private community admin
   I want that unlogged users see only the login page when a browsing private communitiy
   
-  Scenario: user arrives to the root path of a private community
-    Given community "test" is private
+  Scenario: User arrives to the root path of a private community
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    And community "test" is private
     And I am not logged in
-    And the test community has following available locales:
-      | locale |
-      | fi |
     When I go to the homepage #assume getting redirected
-    Then I should be on the finnish private community sign in page
-    And I should see "Voisitko lainata muille tavaroita"
+    Then I should be on the english private community sign in page
+    Then I should not see "Requests"
+    And I should see "Create a new account"
+    When I log in to this private community as "kassi_testperson1"
+    Then I should not see "Create a new account"
+    And I should see "Requests"
     
-  
-  Scenario: user arrives to other paths in the private community
+  Scenario: User arrives to other paths in the private community
     Given community "test" is private
     And I am not logged in
     When I go to the offers page
@@ -25,7 +28,8 @@ Feature: User views private community
     Then I should be on the private community sign in page
     When I go to the news page
     Then I should be on the private community sign in page
-    
+  
+  
     
   
   
