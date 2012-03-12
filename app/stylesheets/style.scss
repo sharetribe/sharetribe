@@ -1447,6 +1447,15 @@ a.edit_profile {
 	padding-bottom: 5px;
 	@include home_button($orange);
 	width: 248px;
+	img {
+		vertical-align: -25%;
+		margin-right: 7px;
+		display: inline;
+	}
+}
+
+.request_listing_link_label {
+	display: inline;
 }
 
 #edit_info_link {
@@ -1459,10 +1468,6 @@ a.edit_profile {
 		margin-right: 7px;
 		display: inline;
 	}
-}
-
-.request_listing_link_label {
-	display: inline;
 }
 
 #single_listing_location {
