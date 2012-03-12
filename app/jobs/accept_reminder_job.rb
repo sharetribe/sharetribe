@@ -9,7 +9,7 @@ class AcceptReminderJob < Struct.new(:conversation_id, :last_message_id, :host)
           PersonMailer.accept_reminder(conversation, recipient, host).deliver
         end
       end
-      Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, last_message_id, host), 0, 1.weeks.from_now)
+      Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, last_message_id, host), :priority => 0, :run_at => 1.weeks.from_now)
     end
   end
   

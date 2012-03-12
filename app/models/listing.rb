@@ -249,16 +249,9 @@ class Listing < ActiveRecord::Base
     type.eql?("offer") ? "request" : "offer"
   end
   
-  # Returns the role of a person participating in an exchange
-  # related to this listing: offerer or requester
+  # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
-  end
-  
-  # Returns the role of a person participating in an exchange
-  # related to this listing: offerer or requester
-  def offerer?(person)
-    (listing_type.eql?("request") && author.eql?(person)) || (listing_type.eql?("offer") && !author.eql?(person))
   end
   
   def selling_or_renting?

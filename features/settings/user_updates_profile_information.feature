@@ -10,6 +10,7 @@ Feature: User updates profile information
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     When I follow "Settings"
+    And show me the page
     And I fill in "Given name:" with "Test"
     And I fill in "Family name:" with "Dude"
     And I fill in "Location:" with "Broadway"

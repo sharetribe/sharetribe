@@ -294,6 +294,26 @@ fi:
     send: Lähetä
     your_email_address: Sähköpostiosoitteesi
   event_feed_events:
+    accept:
+      has_accepted_lend_item: "lainasi tavaran"
+      has_accepted_borrow_item: "lainasi tavaran"
+      has_accepted_rent_out_item: "vuokrasi tavaran"
+      has_accepted_rent_item: "vuokrasi tavaran"
+      has_accepted_give_away_item: "antoi tavaran"
+      has_accepted_receive_item: "antoi tavaran"
+      has_accepted_sell_item: "myi tavaran"
+      has_accepted_buy_item: "myi tavaran"
+      has_accepted_trade_item: "vaihtoi tavaran"
+      has_accepted_temporary_accommodation_housing: "tarjosi tilapäismajoituksen"
+      has_accepted_sell_housing: "myi asunnon"
+      has_accepted_buy_housing: "myi asunnon"
+      has_accepted_rent_out_housing: "vuokrasi asunnon"
+      has_accepted_rent_housing: "vuokrasi asunnon"
+      has_accepted_favor: "tarjosi palveluksen"
+      has_accepted_rideshare: "sopi kyydistä"
+      to: "käyttäjälle"
+      with: "käyttäjän"
+      rideshare_with_person: "kanssa"
     join:
       joined_kassi: "liittyi Kassiin"
     login:
@@ -302,25 +322,6 @@ fi:
       commented: "kommentoi"
       offer_partitive: "tarjousta"
       request_partitive: "pyyntöä"
-    accept:
-      borrow_item: "lainasi tavaran"
-      buy_item: "myi tavaran"
-      buy_housing: "osti asunnon"
-      give_away_item: "antoi tavaran"
-      lend_item: "lainasi tavaran"
-      receive_item: "antoi tavaran"
-      rent_item: "vuokrasi tavaran"
-      rent_housing: "vuokrasi asunnon" 
-      rent_out_item: "vuokrasi tavaran"
-      rent_out_housing: "vuokrasi asunnon"
-      sell_item: "myi tavaran"
-      sell_housing: "myi asunnon"
-      temporary_accommodation_housing: "tarjosi tilapäismajoituksen"
-      trade_item: "vaihtoi tavaran"
-      favor: "tarjosi palveluksen"
-      ride: "sopi kimppakyydistä"
-      with: "käyttäjän"
-      rideshare_with_person: "kanssa"
   header:
     about: "Tietoa Kassista"
     community: Yhteisö
