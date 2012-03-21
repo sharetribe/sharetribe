@@ -7,7 +7,7 @@ else
   domain = ""
 end
 
-Rails.application.config.session_store :cookie_store, :key => '_kassi_session', :domain => domain, :expire_after => 1.years
+Rails.application.config.session_store :cookie_store, :key => 'kassi_session', :domain => domain, :expire_after => 1.years
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
