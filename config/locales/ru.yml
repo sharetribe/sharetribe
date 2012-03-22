@@ -341,10 +341,10 @@ ru:
       loading_more_content: "Загрузить больше"
       more_events: Больше...
       news: Новости
-      no_news: ~
-      more_news: ~
       offer_something: "Перечислите вещи и услуги, которые можете предложить!"
+      no_news: ~
       offer_something_description: "Добавьте вещи, услуги или поездки, которые вы можете предложить"
+      more_news: ~
       or: или
       or_see_what_the_others: "...или посмотрите,"
       recent_events: "Недавние события"
@@ -726,34 +726,6 @@ ru:
       times: раз(а)
       times_viewed: Просмотрено
   people:
-    new:
-      password: "Пароль:"
-      username: "Имя пользователя:"
-      member_id: "Идентификатор:"
-      member_id_is_your_username: "Вы должны дать свой идентификатор Omakotiliitto (jäsennumero), для того, чтобы присоединиться к Kassi. Ваш идентификатор является также вашим именем пользователя, которое потребуется для входа в Kassi. Если вы не являетесь членом Omakotiliitto, вы можете"
-      join_here: "присоединиться здесь."
-      address_validator: "Местоположение не найдено."
-      captcha_incorrect: "Проверка на ввод символов не пройдена. Введите символы с картинки в форму ниже."
-      captcha_was_wrong: "Неверно введены символы с картинки."
-      create_new_account: Зарегистрироваться
-      email: "Адрес электронной почты:"
-      email_is_in_use: "Этот адрес электронной почты уже используется."
-      email_is_in_use_or_not_allowed: "Этот адрес электронной почты недопустим, либо уже используется. Пожалуйста, используйте адрес электронной почты, ассоциированный с этим сообществом, если таковой у вас есть. Если вы всё равно не можете осуществить вход, свяжитесь с нами, используя форму обратной связи слева."
-      enter_captcha: "Я - человек:"
-      family_name: "Фамилия:"
-      given_name: "Настоящее имя:"
-      i_accept_the: "Я согласен с"
-      invalid_invitation_code: "Код приглашения недействителен."
-      invitation_code: "Код приглашения:"
-      not_required: ", не обязательно"
-      password_again: "Подтвердить пароль:"
-      show_my_name_to_others: "Показывать моё настоящее имя"
-      sign_up: "Зарегистрироваться в Kassi"
-      terms: "условиями использования"
-      username_is_in_use: "Это имя пользователя занято."
-      username_is_invalid: "Имя пользователя некорректно. Можно использовать только буквы, цифры и знак подчёркивания."
-      visible_only_to_you: "видимо только вам"
-      visible_to_everybody: "видимо для всех"
     badge_description:
       badge_achieved_at: "Значок заработан "
       you_do_not_yet_have_this_badge: "Значок пока не заработан."
@@ -769,45 +741,50 @@ ru:
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
       inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
+    new:
+      address_validator: "Местоположение не найдено."
+      captcha_incorrect: "Проверка на ввод символов не пройдена. Введите символы с картинки в форму ниже."
+      captcha_was_wrong: "Неверно введены символы с картинки."
+      create_new_account: Зарегистрироваться
+      email: "Адрес электронной почты:"
+      email_is_in_use: "Этот адрес электронной почты уже используется."
+      email_is_in_use_or_not_allowed: "Этот адрес электронной почты недопустим, либо уже используется. Пожалуйста, используйте адрес электронной почты, ассоциированный с этим сообществом, если таковой у вас есть. Если вы всё равно не можете осуществить вход, свяжитесь с нами, используя форму обратной связи слева."
+      enter_captcha: "Я - человек:"
+      family_name: "Фамилия:"
+      given_name: "Настоящее имя:"
+      i_accept_the: "Я согласен с"
+      not_required: ", не обязательно"
+      password_again: "Подтвердить пароль:"
+      show_my_name_to_others: "Показывать моё настоящее имя"
+      sign_up: "Зарегистрироваться в Kassi"
+      terms: "условиями использования"
+      username_is_in_use: "Это имя пользователя занято."
+      username_is_invalid: "Имя пользователя некорректно. Можно использовать только буквы, цифры и знак подчёркивания."
+      visible_only_to_you: "видимо только вам"
+      visible_to_everybody: "видимо для всех"
+      invitation_code: "Код приглашения:"
+      invalid_invitation_code: "Код приглашения недействителен."
     not_member:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
       this_user_does_not_belong_to_this_community: "Этот пользователь не принадлежит к сообществу %{community}"
     profile_badge:
-      moneymaker_silver: "Торговец (серебро)"
-      moneymaker_silver_description: "Kassi даёт неплохую добавку к вашим доходам. Шесть проданных или отданных в аренду вещей и шесть положительных отзывов."
       active_member_bronze: "Активный пользователь (бронза)"
-      rookie: Новобранец
-      active_member_bronze_description: "Это было третье событие на Kassi, в котором вы участвовали! Отличный старт, не останавливайтесь на этом!"
-      rookie_description: "Вы добавили свое первое предложение или запрос на Kassi. Поехали!"
-      active_member_gold: "Активный пользователь (золото)"
-      santa: "Дед Мороз"
-      active_member_gold_description: "25 событие на Kassi, великолепно! Вы очень важная персона на этом сервисе. Благодаря таким как вы сервис продолжает развиваться. Огромное спасибо!"
-      santa_description: "Счастливого Нового Года! Вы отдали как минимум одну вещь в декабре."
-      active_member_silver: "Активный пользователь (серебро)"
-      taxi_stand_bronze: "Таксист (бронза)"
-      active_member_silver_description: "Поздравляем с десятым событием на Kassi! Благодаря вам многое у нас меняется в лучшую сторону!"
-      taxi_stand_bronze_description: "Вы добавили три предложения поездки на Kassi."
-      chauffer_bronze: "Шофёр (бронза)"
-      taxi_stand_gold: "Таксист (золото)"
-      chauffer_bronze_description: "Два предложения поездок, отлично!"
-      taxi_stand_gold_description: "Вы всегда готовы предложить помощь с подвозкой для других. 25 предложений поездок, превосходно!"
-      chauffer_gold: "Шофёр (золото)"
-      taxi_stand_silver: "Таксист (серебро)"
       chauffer_gold_description: "15 предложений поездок! Вы предпочитаете совместно использовать автомобиль тогда, когда это только возможно. Так и надо, Природа скажет вам спасибо!"
-      taxi_stand_silver_description: "10 предложений поездок, отлично! Люди знают, к кому обратиться, если им требуется подвозка."
-      chauffer_silver: "Шофёр (серебро)"
-      volunteer_bronze: "Волонтёр (бронза)"
+      active_member_bronze_description: "Это было третье событие на Kassi, в котором вы участвовали! Отличный старт, не останавливайтесь на этом!"
+      active_member_gold: "Активный пользователь (золото)"
+      active_member_gold_description: "25 событие на Kassi, великолепно! Вы очень важная персона на этом сервисе. Благодаря таким как вы сервис продолжает развиваться. Огромное спасибо!"
+      active_member_silver: "Активный пользователь (серебро)"
       chauffer_silver_description: "6 предложений поездок, супер! Судя по всему, вам нравится ездить в компании."
-      volunteer_bronze_description: "Вам нравится когда ваши умения и навыки помогают другим. У вас три активных предложения услуг на Kassi."
+      active_member_silver_description: "Поздравляем с десятым событием на Kassi! Благодаря вам многое у нас меняется в лучшую сторону!"
+      chauffer_bronze: "Шофёр (бронза)"
       commentator_bronze: "Комментатор (бронза)"
-      volunteer_gold: "Волонтёр (золото)"
+      chauffer_bronze_description: "Два предложения поездок, отлично!"
+      chauffer_gold: "Шофёр (золото)"
       commentator_bronze_description: "Вам нравится общаться с другими пользователями. Вы оставили три комментария в Kassi."
-      volunteer_gold_description: "Вы не знаете лучшего занятия, чем помощь другим людям. У вас 25 активных предложений услуг, невероятно!"
+      chauffer_silver: "Шофёр (серебро)"
       commentator_gold: "Комментатор (золото)"
-      volunteer_silver: "Волонтёр (серебро)"
       commentator_gold_description: "30 комментариев! В сообществе Kassi вы как дома. Вам нравится знакомиться с новыми людьми и общаться с ними."
-      volunteer_silver_description: "Вы можете многим помочь другим: у вас 10 предложений услуг на Kassi!"
       commentator_silver: "Комментатор (серебро)"
       commentator_silver_description: "10 комментариев! Вы активный участник обсуждений с другими пользователями Kassi."
       enthusiast_bronze: "Энтузиаст (бронза)"
@@ -848,31 +825,24 @@ ru:
       moneymaker_bronze_description: "Вы поняли, что Kassi можно использовать и для заработка! Успешно продано или отдано в аренду две вещи."
       moneymaker_gold: "Торговец (золото)"
       moneymaker_gold_description: "15 проданных или отданных в аренду вещей, и все с положительными отзывами! Kassi отличная бизнес-площадка для вас и людей, берущих в аренду или покупающих у вас вещи!"
-    show:
-      slightly_less_than_expected: "Немного хуже, чем ожидалось"
-      what_are_these: "Что это?"
-      hide_description: Меньше
-      joined_this_community: "Зарегистрирован с"
-      was_last_seen: "…последний раз заходил"
-      was_invited_by: "...был приглашён"
-      as_invited_by: ~
-      less_than_expected: "Хуже чем ожидалось"
-      phone_number: "Телефон:"
-      show_all_badges: "Показать все значки"
-      show_all_feedback: "Показать все отзывы"
-      show_all_testimonials: "Показать все отзывы"
-      show_full_description: Больше
-      about_me: "Обо мне:"
-      slightly_better_than_expected: "Немного лучше чем ожидалось"
-      add_description: "Расскажите немного о себе"
-      add_location: "Добавьте местоположение"
-      add_phone_number: "Добавить номер телефона"
-      address: "Адрес:"
-      as_expected: "Как ожидалось"
-      badges: Значки
-      edit_profile_info: "Редактировать профиль"
-      exceeded_expectations: "Намного лучше, чем ожидалось"
-      feedback_average: "Отзывы в среднем:"
+      moneymaker_silver: "Торговец (серебро)"
+      moneymaker_silver_description: "Kassi даёт неплохую добавку к вашим доходам. Шесть проданных или отданных в аренду вещей и шесть положительных отзывов."
+      rookie: Новобранец
+      rookie_description: "Вы добавили свое первое предложение или запрос на Kassi. Поехали!"
+      santa: "Дед Мороз"
+      santa_description: "Счастливого Нового Года! Вы отдали как минимум одну вещь в декабре."
+      taxi_stand_bronze: "Таксист (бронза)"
+      taxi_stand_bronze_description: "Вы добавили три предложения поездки на Kassi."
+      taxi_stand_gold: "Таксист (золото)"
+      taxi_stand_gold_description: "Вы всегда готовы предложить помощь с подвозкой для других. 25 предложений поездок, превосходно!"
+      taxi_stand_silver: "Таксист (серебро)"
+      taxi_stand_silver_description: "10 предложений поездок, отлично! Люди знают, к кому обратиться, если им требуется подвозка."
+      volunteer_bronze: "Волонтёр (бронза)"
+      volunteer_bronze_description: "Вам нравится когда ваши умения и навыки помогают другим. У вас три активных предложения услуг на Kassi."
+      volunteer_gold: "Волонтёр (золото)"
+      volunteer_gold_description: "Вы не знаете лучшего занятия, чем помощь другим людям. У вас 25 активных предложений услуг, невероятно!"
+      volunteer_silver: "Волонтёр (серебро)"
+      volunteer_silver_description: "Вы можете многим помочь другим: у вас 10 предложений услуг на Kassi!"
     profile_feedback:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
@@ -895,6 +865,31 @@ ru:
       requests: Запросы
       show_also_closed: "Показывать закрытые"
       show_only_open: "Показывать только открытые"
+    show:
+      about_me: "Обо мне:"
+      add_description: "Расскажите немного о себе"
+      add_location: "Добавьте местоположение"
+      add_phone_number: "Добавить номер телефона"
+      address: "Адрес:"
+      as_expected: "Как ожидалось"
+      badges: Значки
+      edit_profile_info: "Редактировать профиль"
+      exceeded_expectations: "Намного лучше, чем ожидалось"
+      feedback_average: "Отзывы в среднем:"
+      hide_description: Меньше
+      joined_this_community: "Зарегистрирован с"
+      was_last_seen: "…последний раз заходил"
+      was_invited_by: "...был приглашён"
+      as_invited_by: ~
+      less_than_expected: "Хуже чем ожидалось"
+      phone_number: "Телефон:"
+      show_all_badges: "Показать все значки"
+      show_all_feedback: "Показать все отзывы"
+      show_all_testimonials: "Показать все отзывы"
+      show_full_description: Больше
+      slightly_better_than_expected: "Немного лучше чем ожидалось"
+      slightly_less_than_expected: "Немного хуже, чем ожидалось"
+      what_are_these: "Что это?"
   mapview:
     index:
       all_categories: "Все категории"
@@ -950,8 +945,6 @@ ru:
       i_forgot_my_password: "Я забыл пароль"
       login: Войти
       login_to_kassi: "Зайти в Kassi"
-      password: Пароль
-      username: "Имя пользователя"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
@@ -963,10 +956,8 @@ ru:
       email: "Адрес электронной почты:"
       new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
-      password: "Пароль:"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
-      username: "Имя пользователя:"
     avatar:
       add_avatar_submit: Сохранить
       update_profile_picture: "Обновить картинку"
@@ -1018,22 +1009,22 @@ ru:
   testimonials:
     new:
       give_feedback_to: "Оставить отзыв о/об %{person}"
+      as_expected: "Как ожидалось"
       grade: "Оценка события"
+      exceeded_expectations: "Намного лучше, чем ожидалось"
       less_than_expected: "Хуже, чем ожидалось"
       send_feedback: "Отправить отзыв"
       slightly_better_than_expected: "Лучше, чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       textual_feedback: "Текст отзыва"
-      as_expected: "Как ожидалось"
-      exceeded_expectations: "Намного лучше, чем ожидалось"
-    testimonial:
-      from_user: от
-      to_user: для
     index:
       all_testimonials: "Все отзывы"
       feedback_altogether: "Все отзывы: "
       loading_more_testimonials: "Загрузка отзывов"
       no_testimonials: "Отзывов нет."
+    testimonial:
+      from_user: от
+      to_user: для
   terms:
     show:
       accept_terms: "Согласие с условиями использования Kassi"

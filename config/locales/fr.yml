@@ -341,10 +341,10 @@ fr:
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
       news: Actualités
-      no_news: ~
-      more_news: ~
       offer_something: "Listez vos articles et vos compétences !"
+      no_news: ~
       offer_something_description: "Ajouter les articles, compétences et covoiturages que vous pouvez proposer"
+      more_news: ~
       or: ou
       or_see_what_the_others: "... ou voir ce que les autres"
       recent_events: "Evénements les plus récents"
@@ -726,34 +726,6 @@ fr:
       times: fois
       times_viewed: Vu
   people:
-    new:
-      password: "Mot de passe :"
-      username: "Nom d'utilisateur :"
-      member_id: ~
-      member_id_is_your_username: ~
-      join_here: ~
-      address_validator: "Emplacement inconnu."
-      captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
-      captcha_was_wrong: "Texte Captcha incorrecte."
-      create_new_account: "Créer un compte utilisateur"
-      email: "Adresse email :"
-      email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
-      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
-      enter_captcha: "Je suis un être humain :"
-      family_name: "Nom de famille :"
-      given_name: "Prénom :"
-      i_accept_the: "J'accepte les"
-      invalid_invitation_code: "Le code d'invitation n'est pas valide."
-      invitation_code: "Code d'invitation :"
-      not_required: ", pas demandé"
-      password_again: "Confirmer le mot de passe :"
-      show_my_name_to_others: ~
-      sign_up: "Créer un nouveau compte sur Kassi"
-      terms: "conditions d'utilisation"
-      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
-      username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
-      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
-      visible_to_everybody: "visible à tout le monde"
     badge_description:
       badge_achieved_at: "Badge obtenu "
       you_do_not_yet_have_this_badge: "Le badge n'a pas encore été obtenu."
@@ -769,46 +741,50 @@ fr:
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
       inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
+    new:
+      address_validator: "Emplacement inconnu."
+      captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
+      captcha_was_wrong: "Texte Captcha incorrecte."
+      create_new_account: "Créer un compte utilisateur"
+      email: "Adresse email :"
+      email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
+      email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
+      enter_captcha: "Je suis un être humain :"
+      family_name: "Nom de famille :"
+      given_name: "Prénom :"
+      i_accept_the: "J'accepte les"
+      not_required: ", pas demandé"
+      password_again: "Confirmer le mot de passe :"
+      show_my_name_to_others: ~
+      sign_up: "Créer un nouveau compte sur Kassi"
+      terms: "conditions d'utilisation"
+      username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
+      username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
+      visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
+      visible_to_everybody: "visible à tout le monde"
+      invitation_code: "Code d'invitation :"
+      invalid_invitation_code: "Le code d'invitation n'est pas valide."
     not_member:
       explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, Kassi ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
       read_more_about_kassi_communities: "En savoir plus sur les communautés Kassi"
       this_user_does_not_belong_to_this_community: "Cet utilisateur ne fait pas partie de la communauté %{community}"
     profile_badge:
-      moneymaker_silver: "Homme d'affaires (argent)"
-      moneymaker_silver_description: "Kassi vous permet d'augmenter vos revenus. Six articles vendus ou loués avec avis positif."
       active_member_bronze: "Membre actif (bronze)"
-      rookie: Débutant
-      active_member_bronze_description: "Vous venez de participer à une transaction pour la troisième fois sur Kassi ! Excellent démarrage, continuez !"
-      rookie_description: "Vous venez d'ajouter votre première demande ou offre sur Kassi. C'est un bon début !"
-      active_member_gold: "Membre actif (or)"
-      santa: "Père Noël"
-      active_member_gold_description: "Super ! Vous venez d'effectuer votre 25ème transaction sur Kassi. Vous êtes désormais un VIP sur Kassi. C'est grâce à des gens comme vous que les choses évoluent. Merci beaucoup !"
-      santa_description: "Ho, ho, ho, y a-t-il des enfants sages ici ? Vous avez donné au moins un article à un autre utilisateur au cours du mois de décembre."
-      active_member_silver: "Membre actif (argent)"
-      taxi_stand_bronze: "Taxi (bronze)"
-      active_member_silver_description: "Félicitations pour votre 10ème transaction sur Kassi ! Il se passe beaucoup de choses dans ce service grâce à vous. Génial !"
-      taxi_stand_bronze_description: "Vous avez proposé trois covoiturages sur Kassi."
-      chauffer_bronze: "Conducteur (bronze)"
-      taxi_stand_gold: "Taxi (or)"
-      chauffer_bronze_description: "Vous avez proposé deux transports à d'autres utilisateurs, bravo !"
-      taxi_stand_gold_description: "Vous êtes toujours là pour proposer des transports à vos concitoyens. 25 offres de covoiturage, formidable !"
-      chauffer_gold: "Conducteur (or)"
-      taxi_stand_silver: "Taxi (argent)"
       chauffer_gold_description: "15 covoiturages effectués ! Vous êtes un vrai pro. Vous êtes sur la bonne voie, la planète vous en remercie !"
-      taxi_stand_silver_description: "Dix offres de covoiturage, super ! Les gens savent qu'ils peuvent se tourner vers vous pour leurs déplacements."
-      chauffer_silver: "Conducteur (argent)"
-      moneymaker_gold_description: "15 articles vendus ou loués avec avis positif ! Kassi est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
-      volunteer_bronze: "Bénévole (bronze)"
+      active_member_bronze_description: "Vous venez de participer à une transaction pour la troisième fois sur Kassi ! Excellent démarrage, continuez !"
+      active_member_gold: "Membre actif (or)"
+      active_member_gold_description: "Super ! Vous venez d'effectuer votre 25ème transaction sur Kassi. Vous êtes désormais un VIP sur Kassi. C'est grâce à des gens comme vous que les choses évoluent. Merci beaucoup !"
+      active_member_silver: "Membre actif (argent)"
       chauffer_silver_description: "6 covoiturages proposés, super ! On est mieux à plusieurs dans une voiture."
-      volunteer_bronze_description: "Vous souhaitez faire profiter les autres de vos compétences. Vous avez trois offres de service ouvertes sur Kassi."
+      active_member_silver_description: "Félicitations pour votre 10ème transaction sur Kassi ! Il se passe beaucoup de choses dans ce service grâce à vous. Génial !"
+      chauffer_bronze: "Conducteur (bronze)"
       commentator_bronze: "Commentateur (bronze)"
-      volunteer_gold: "Bénévole (or)"
+      chauffer_bronze_description: "Vous avez proposé deux transports à d'autres utilisateurs, bravo !"
+      chauffer_gold: "Conducteur (or)"
       commentator_bronze_description: "Vous aimez bien discuter avec les autres utilisateurs. Vous avez fait trois commentaires sur Kassi."
-      volunteer_gold_description: "Aider les autres est votre passe-temps préféré. Vous avez listé dans votre profil 25 offres de service différentes, génial !"
+      chauffer_silver: "Conducteur (argent)"
       commentator_gold: "Commentateur (or)"
-      volunteer_silver: "Bénévole (argent)"
       commentator_gold_description: "30 commentaires ! La communauté Kassi, c'est un peu votre deuxième chez vous. Vous prenez du plaisir à communiquer."
-      volunteer_silver_description: "Vous avez beaucoup à donner aux autres : vous avez déjà listé 10 offres de services !"
       commentator_silver: "Commentateur (argent)"
       commentator_silver_description: "10 commentaires ! Vous participez activement aux discussions avec d'autres utilisateurs de Kassi"
       enthusiast_bronze: "Enthousiaste (bronze)"
@@ -848,31 +824,25 @@ fr:
       moneymaker_bronze: "Homme d'affaires (bronze)"
       moneymaker_bronze_description: "Vous avez compris que sur Kassi, on peut aussi gagner beaucoup d'argent ! Vous avez vendu ou loué deux articles avec succès sur Kassi."
       moneymaker_gold: "Homme d'affaires (or)"
-    show:
-      slightly_less_than_expected: "Ne correspondait pas à mes attentes"
-      what_are_these: "Qu'est-ce que c'est ?"
-      about_me: "Qui suis-je :"
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: "Adresse :"
-      as_expected: "Correspondait à mes attentes"
-      badges: Badges
-      edit_profile_info: "Modifier profil"
-      exceeded_expectations: "Dépassait mes attentes"
-      feedback_average: "Moyenne des évaluations :"
-      hide_description: "Montrer moins"
-      joined_this_community: "A rejoint la communauté le"
-      was_last_seen: ~
-      was_invited_by: ~
-      as_invited_by: ~
-      less_than_expected: "Ne correspondait pas à mes attentes"
-      phone_number: "Numéro de téléphone :"
-      show_all_badges: "Montrer tous les badges Kassi"
-      show_all_feedback: "Montrer tous les avis"
-      show_all_testimonials: "Montrer tous les commentaires"
-      show_full_description: "Montrer plus"
-      slightly_better_than_expected: "Dépassait mes attentes"
+      moneymaker_gold_description: "15 articles vendus ou loués avec avis positif ! Kassi est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
+      moneymaker_silver: "Homme d'affaires (argent)"
+      moneymaker_silver_description: "Kassi vous permet d'augmenter vos revenus. Six articles vendus ou loués avec avis positif."
+      rookie: Débutant
+      rookie_description: "Vous venez d'ajouter votre première demande ou offre sur Kassi. C'est un bon début !"
+      santa: "Père Noël"
+      santa_description: "Ho, ho, ho, y a-t-il des enfants sages ici ? Vous avez donné au moins un article à un autre utilisateur au cours du mois de décembre."
+      taxi_stand_bronze: "Taxi (bronze)"
+      taxi_stand_bronze_description: "Vous avez proposé trois covoiturages sur Kassi."
+      taxi_stand_gold: "Taxi (or)"
+      taxi_stand_gold_description: "Vous êtes toujours là pour proposer des transports à vos concitoyens. 25 offres de covoiturage, formidable !"
+      taxi_stand_silver: "Taxi (argent)"
+      taxi_stand_silver_description: "Dix offres de covoiturage, super ! Les gens savent qu'ils peuvent se tourner vers vous pour leurs déplacements."
+      volunteer_bronze: "Bénévole (bronze)"
+      volunteer_bronze_description: "Vous souhaitez faire profiter les autres de vos compétences. Vous avez trois offres de service ouvertes sur Kassi."
+      volunteer_gold: "Bénévole (or)"
+      volunteer_gold_description: "Aider les autres est votre passe-temps préféré. Vous avez listé dans votre profil 25 offres de service différentes, génial !"
+      volunteer_silver: "Bénévole (argent)"
+      volunteer_silver_description: "Vous avez beaucoup à donner aux autres : vous avez déjà listé 10 offres de services !"
     profile_feedback:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
@@ -895,6 +865,31 @@ fr:
       requests: Demandes
       show_also_closed: "Montrer aussi les fermées"
       show_only_open: "Montrer seulement les offres et demandes en cours"
+    show:
+      about_me: "Qui suis-je :"
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: "Adresse :"
+      as_expected: "Correspondait à mes attentes"
+      badges: Badges
+      edit_profile_info: "Modifier profil"
+      exceeded_expectations: "Dépassait mes attentes"
+      feedback_average: "Moyenne des évaluations :"
+      hide_description: "Montrer moins"
+      joined_this_community: "A rejoint la communauté le"
+      was_last_seen: ~
+      was_invited_by: ~
+      as_invited_by: ~
+      less_than_expected: "Ne correspondait pas à mes attentes"
+      phone_number: "Numéro de téléphone :"
+      show_all_badges: "Montrer tous les badges Kassi"
+      show_all_feedback: "Montrer tous les avis"
+      show_all_testimonials: "Montrer tous les commentaires"
+      show_full_description: "Montrer plus"
+      slightly_better_than_expected: "Dépassait mes attentes"
+      slightly_less_than_expected: "Ne correspondait pas à mes attentes"
+      what_are_these: "Qu'est-ce que c'est ?"
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -950,8 +945,6 @@ fr:
       i_forgot_my_password: "J’ai oublié mon mot de passe"
       login: "Se connecter"
       login_to_kassi: "Se connecter à Kassi"
-      password: "Mot de passe"
-      username: "Nom d'utilisateur"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Donner votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
@@ -963,10 +956,8 @@ fr:
       email: "Adresse email :"
       new_email: "Nouvelle adresse email"
       new_password: "Nouveau mot de passe"
-      password: "Mot de passe :"
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Les autres informations ne sont montrées qu'à vous."
-      username: "Nom d'utilisateur :"
     avatar:
       add_avatar_submit: "Sauvegarder image"
       update_profile_picture: "Mettre à jour l'image de profil"
@@ -1018,22 +1009,22 @@ fr:
   testimonials:
     new:
       give_feedback_to: "Donner un avis pour %{person}"
+      as_expected: "Correspondait à mes attentes"
       grade: "Estimation des activités d'un utilisateur"
+      exceeded_expectations: "Dépassait complètement mes attentes"
       less_than_expected: "Ne correspondait pas du tout à mes attentes"
       send_feedback: "Envoyer avis"
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Description textuelle"
-      as_expected: "Correspondait à mes attentes"
-      exceeded_expectations: "Dépassait complètement mes attentes"
-    testimonial:
-      from_user: par
-      to_user: à
     index:
       all_testimonials: "Tous les commentaires"
       feedback_altogether: "Evaluations globalement : "
       loading_more_testimonials: "Chargement de plus de commentaires"
       no_testimonials: "Pas d'avis reçu."
+    testimonial:
+      from_user: par
+      to_user: à
   terms:
     show:
       accept_terms: "Accepter les conditions d'utilisation de Kassi"

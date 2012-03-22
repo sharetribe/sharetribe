@@ -341,10 +341,10 @@ it:
       loading_more_content: ~
       more_events: ~
       news: ~
-      no_news: ~
-      more_news: ~
       offer_something: ~
+      no_news: ~
       offer_something_description: ~
+      more_news: ~
       or: ~
       or_see_what_the_others: ~
       recent_events: ~
@@ -726,34 +726,6 @@ it:
       times: ~
       times_viewed: ~
   people:
-    new:
-      password: ~
-      username: ~
-      member_id: ~
-      member_id_is_your_username: ~
-      join_here: ~
-      address_validator: ~
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
-      email_is_in_use_or_not_allowed: ~
-      enter_captcha: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
-      password_again: ~
-      show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
     badge_description:
       badge_achieved_at: ~
       you_do_not_yet_have_this_badge: ~
@@ -769,45 +741,50 @@ it:
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
+    new:
+      address_validator: ~
+      captcha_incorrect: ~
+      captcha_was_wrong: ~
+      create_new_account: ~
+      email: ~
+      email_is_in_use: ~
+      email_is_in_use_or_not_allowed: ~
+      enter_captcha: ~
+      family_name: ~
+      given_name: ~
+      i_accept_the: ~
+      not_required: ~
+      password_again: ~
+      show_my_name_to_others: ~
+      sign_up: ~
+      terms: ~
+      username_is_in_use: ~
+      username_is_invalid: ~
+      visible_only_to_you: ~
+      visible_to_everybody: ~
+      invitation_code: ~
+      invalid_invitation_code: ~
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
       this_user_does_not_belong_to_this_community: ~
     profile_badge:
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
       active_member_bronze: ~
-      rookie: ~
-      active_member_bronze_description: ~
-      rookie_description: ~
-      active_member_gold: ~
-      santa: ~
-      active_member_gold_description: ~
-      santa_description: ~
-      active_member_silver: ~
-      taxi_stand_bronze: ~
-      active_member_silver_description: ~
-      taxi_stand_bronze_description: ~
-      chauffer_bronze: ~
-      taxi_stand_gold: ~
-      chauffer_bronze_description: ~
-      taxi_stand_gold_description: ~
-      chauffer_gold: ~
-      taxi_stand_silver: ~
       chauffer_gold_description: ~
-      taxi_stand_silver_description: ~
-      chauffer_silver: ~
-      volunteer_bronze: ~
+      active_member_bronze_description: ~
+      active_member_gold: ~
+      active_member_gold_description: ~
+      active_member_silver: ~
       chauffer_silver_description: ~
-      volunteer_bronze_description: ~
+      active_member_silver_description: ~
+      chauffer_bronze: ~
       commentator_bronze: ~
-      volunteer_gold: ~
+      chauffer_bronze_description: ~
+      chauffer_gold: ~
       commentator_bronze_description: ~
-      volunteer_gold_description: ~
+      chauffer_silver: ~
       commentator_gold: ~
-      volunteer_silver: ~
       commentator_gold_description: ~
-      volunteer_silver_description: ~
       commentator_silver: ~
       commentator_silver_description: ~
       enthusiast_bronze: ~
@@ -848,31 +825,24 @@ it:
       moneymaker_bronze_description: ~
       moneymaker_gold: ~
       moneymaker_gold_description: ~
-    show:
-      slightly_less_than_expected: ~
-      what_are_these: ~
-      add_phone_number: ~
-      address: ~
-      as_expected: ~
-      badges: ~
-      edit_profile_info: ~
-      exceeded_expectations: ~
-      feedback_average: ~
-      hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
-      as_invited_by: ~
-      less_than_expected: ~
-      phone_number: ~
-      show_all_badges: ~
-      show_all_feedback: ~
-      show_all_testimonials: ~
-      show_full_description: ~
-      about_me: ~
-      slightly_better_than_expected: ~
-      add_description: ~
-      add_location: ~
+      moneymaker_silver: ~
+      moneymaker_silver_description: ~
+      rookie: ~
+      rookie_description: ~
+      santa: ~
+      santa_description: ~
+      taxi_stand_bronze: ~
+      taxi_stand_bronze_description: ~
+      taxi_stand_gold: ~
+      taxi_stand_gold_description: ~
+      taxi_stand_silver: ~
+      taxi_stand_silver_description: ~
+      volunteer_bronze: ~
+      volunteer_bronze_description: ~
+      volunteer_gold: ~
+      volunteer_gold_description: ~
+      volunteer_silver: ~
+      volunteer_silver_description: ~
     profile_feedback:
       as_expected: ~
       exceeded_expectations: ~
@@ -895,6 +865,31 @@ it:
       requests: ~
       show_also_closed: ~
       show_only_open: ~
+    show:
+      about_me: ~
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: ~
+      as_expected: ~
+      badges: ~
+      edit_profile_info: ~
+      exceeded_expectations: ~
+      feedback_average: ~
+      hide_description: ~
+      joined_this_community: ~
+      was_last_seen: ~
+      was_invited_by: ~
+      as_invited_by: ~
+      less_than_expected: ~
+      phone_number: ~
+      show_all_badges: ~
+      show_all_feedback: ~
+      show_all_testimonials: ~
+      show_full_description: ~
+      slightly_better_than_expected: ~
+      slightly_less_than_expected: ~
+      what_are_these: ~
   mapview:
     index:
       all_categories: ~
@@ -950,8 +945,6 @@ it:
       i_forgot_my_password: ~
       login: ~
       login_to_kassi: ~
-      password: ~
-      username: ~
     password_forgotten:
       email: ~
       password_recovery_instructions: ~
@@ -963,10 +956,8 @@ it:
       email: ~
       new_email: ~
       new_password: ~
-      password: ~
       save: ~
       these_fields_are_shown_only_to_you: ~
-      username: ~
     avatar:
       add_avatar_submit: ~
       update_profile_picture: ~
@@ -1018,22 +1009,22 @@ it:
   testimonials:
     new:
       give_feedback_to: ~
+      as_expected: ~
       grade: ~
+      exceeded_expectations: ~
       less_than_expected: ~
       send_feedback: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       textual_feedback: ~
-      as_expected: ~
-      exceeded_expectations: ~
-    testimonial:
-      from_user: ~
-      to_user: ~
     index:
       all_testimonials: ~
       feedback_altogether: ~
       loading_more_testimonials: ~
       no_testimonials: ~
+    testimonial:
+      from_user: ~
+      to_user: ~
   terms:
     show:
       accept_terms: ~
