@@ -125,6 +125,9 @@ default: &default_settings
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
   
+  # If you need for some reason change the session key used in cookies, you can do it here.
+  # Normally no need to touch this.
+  session_key:
   
   
   # Below it is possible to specify different settings for different

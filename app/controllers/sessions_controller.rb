@@ -5,6 +5,12 @@ class SessionsController < ApplicationController
   
   skip_filter :check_email_confirmation
   
+  # For unknown reason (related to cookie key probably, since that was changed recently),
+  # logging in seems to cause a lot of trouble with invalid authenticity token.
+  # Switching the check off for this controller as this doesn't allow any serious CSRF damage to be made
+  # (it's what authenticity token is preventing)
+  skip_before_filter :verify_authenticity_token 
+  
   def create
     # if the request came from different domain, redirects back there.
     # e.g. if using login-subdoain for logging in with https    

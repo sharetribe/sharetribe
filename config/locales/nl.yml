@@ -341,10 +341,10 @@ nl:
       loading_more_content: "Laad meer inhoud"
       more_events: "Meer evenementen..."
       news: Nieuws
-      no_news: ~
-      more_news: ~
       offer_something: "Noem jou items en vaardigheden!"
+      no_news: ~
       offer_something_description: "Voeg de items, vaardigheden en ritten toe die jij kan aanbieden"
+      more_news: ~
       or: of
       or_see_what_the_others: "...of kijk wat de anderen"
       recent_events: "Recente evenementen"
@@ -726,34 +726,6 @@ nl:
       times: keer
       times_viewed: Gezien
   people:
-    new:
-      password: "Wachtwoord:"
-      username: "Gebruikersnaam:"
-      member_id: ~
-      member_id_is_your_username: ~
-      join_here: ~
-      address_validator: ~
-      captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
-      captcha_was_wrong: "Captcha tekst was verkeerd."
-      create_new_account: "Creeer account"
-      email: "Email adres:"
-      email_is_in_use: "Het email adres is al in gebruik."
-      email_is_in_use_or_not_allowed: ~
-      enter_captcha: "Ik ben een mens:"
-      family_name: "Familie naam:"
-      given_name: "Naam:"
-      i_accept_the: "Ik accepteer de"
-      invalid_invitation_code: ~
-      invitation_code: ~
-      not_required: ~
-      password_again: "Bevestig wachtwoord:"
-      show_my_name_to_others: ~
-      sign_up: "Creeer een nieuw account in Kassi"
-      terms: gebruiksvoorwaarden
-      username_is_in_use: "De gebruikersnaam is al in gebruik."
-      username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
-      visible_only_to_you: ~
-      visible_to_everybody: ~
     badge_description:
       badge_achieved_at: "Badge behaald "
       you_do_not_yet_have_this_badge: "Badge is nog niet behaald."
@@ -769,45 +741,50 @@ nl:
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
+    new:
+      address_validator: ~
+      captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
+      captcha_was_wrong: "Captcha tekst was verkeerd."
+      create_new_account: "Creeer account"
+      email: "Email adres:"
+      email_is_in_use: "Het email adres is al in gebruik."
+      email_is_in_use_or_not_allowed: ~
+      enter_captcha: "Ik ben een mens:"
+      family_name: "Familie naam:"
+      given_name: "Naam:"
+      i_accept_the: "Ik accepteer de"
+      not_required: ~
+      password_again: "Bevestig wachtwoord:"
+      show_my_name_to_others: ~
+      sign_up: "Creeer een nieuw account in Kassi"
+      terms: gebruiksvoorwaarden
+      username_is_in_use: "De gebruikersnaam is al in gebruik."
+      username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
+      visible_only_to_you: ~
+      visible_to_everybody: ~
+      invitation_code: ~
+      invalid_invitation_code: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Kassi steunt op dit moment niet het zien van meerdere gemeenschappen, dus je kunt toegang tot dit profiel krijgen door de %{community} gemeenschap. We werken aan een optie waar je meerdere gemeenschappen tegelijk kunt hebben. These optie zal later aan de service worden toegevoegd."
       read_more_about_kassi_communities: "Lees meer over de Kassi gemeenschappen"
       this_user_does_not_belong_to_this_community: "Deze gebruiker is niet lid van de %{community} gemeenschap"
     profile_badge:
-      moneymaker_silver: "Zakenman (zilver)"
-      moneymaker_silver_description: "Kassi geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
       active_member_bronze: "Actief lid (brons)"
-      rookie: Rookie
-      active_member_bronze_description: "Dit was de 3e uitwisseling waaraan jij hebt deelgenomen in Kassi! Geweldige start, ga zo door!"
-      rookie_description: "Je hebt een aanbieding of verzoek toegevoegd in Kassi voor de 1e keer. Daar ga je!"
-      active_member_gold: "Actief lid (goud)"
-      santa: Kerstman
-      active_member_gold_description: "25e uitwisseling in Kassi, dit is geweldig! Jij bent een VIP in Kassi. Het zijn mensen zoals jij die de website draaiende houden. Hartstikke bedankt!"
-      santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
-      active_member_silver: "Actief lid (zilver)"
-      taxi_stand_bronze: "Taxi stand (brons)"
-      active_member_silver_description: "Gefeliciteerd met je 10e uitwisseling in Kassi! Er is veel gebeurd in deze service dankzij jou. Fantastisch!"
-      taxi_stand_bronze_description: "Je hebt 3 aangeboden liften toegevoegd aan Kassi."
-      chauffer_bronze: "Chauffeur (brons)"
-      taxi_stand_gold: "Taxi stand (goud)"
-      chauffer_bronze_description: "Jij hebt 2 liften aangeboden voor andere Kassi-gebruikers, mooi werk!"
-      taxi_stand_gold_description: "Jij staat altijd klaar voor anderen, klaar om ze een lift te geven. 25 aangeboden liften, fantastisch!"
-      chauffer_gold: "Chauffeur (goud)"
-      taxi_stand_silver: "Taxi stand (zilver)"
       chauffer_gold_description: "15 aangeboden liften! Jij verkiest car pooling als het mogelijk is. Dat is een super instelling, moeder natuur bedankt je van harte!"
-      taxi_stand_silver_description: "10 aangeboden liften toegevoegd, wat goed zeg! Mensen weten wie ze moeten vragen als ze een lift nodig hebben!"
-      chauffer_silver: "Chauffeur (zilver)"
-      volunteer_bronze: "Vrijwilliger (brons)"
+      active_member_bronze_description: "Dit was de 3e uitwisseling waaraan jij hebt deelgenomen in Kassi! Geweldige start, ga zo door!"
+      active_member_gold: "Actief lid (goud)"
+      active_member_gold_description: "25e uitwisseling in Kassi, dit is geweldig! Jij bent een VIP in Kassi. Het zijn mensen zoals jij die de website draaiende houden. Hartstikke bedankt!"
+      active_member_silver: "Actief lid (zilver)"
       chauffer_silver_description: "6 aangeboden liften, fantastisch! Jij houdt wel van goed gezelschap tijdens het rijden."
-      volunteer_bronze_description: "Jij gebruikt graag je talenten om andere mensen te helpen. Je hebt al 3 open gunsten aangeboden in Kassi."
+      active_member_silver_description: "Gefeliciteerd met je 10e uitwisseling in Kassi! Er is veel gebeurd in deze service dankzij jou. Fantastisch!"
+      chauffer_bronze: "Chauffeur (brons)"
       commentator_bronze: "Mensen-mens (brons)"
-      volunteer_gold: "Vrijwilliger (goud)"
+      chauffer_bronze_description: "Jij hebt 2 liften aangeboden voor andere Kassi-gebruikers, mooi werk!"
+      chauffer_gold: "Chauffeur (goud)"
       commentator_bronze_description: "Jij discusseert graag met andere gebruikers. Je hebt al 3 berichten achtergelaten in Kassi."
-      volunteer_gold_description: "Jij kan niet anders dan andere mensen helpen. Je hebt 25 open gunsten aangeboden in je profiel, geweldig!"
+      chauffer_silver: "Chauffeur (zilver)"
       commentator_gold: "Mensen-mens (goud)"
-      volunteer_silver: "Vrijwilliger (zilver)"
       commentator_gold_description: "30 berichten! Jij voelt je thuis in de Kassi gemeenschap. Jij staat te trappelen om nieuwe mensen te ontmoeten en met hen te discusseren."
-      volunteer_silver_description: "Jij hebt veel te geven aan anderen: je hebt al 10 gunsten aangeboden in Kassi!"
       commentator_silver: "Mensen-mens (zilver)"
       commentator_silver_description: "10 berichten! Jij neemt actief deel aan gesprekken en discussies met andere Kassi gebruikers!"
       enthusiast_bronze: "Enthousiasteling (brons)"
@@ -848,31 +825,24 @@ nl:
       moneymaker_bronze_description: "Jij bent nu ook tot inzien gekomen dat Kassi jou portomonnee kan spekken! Je hebt al 2 items succesvol verkocht of verhuurt in Kassi."
       moneymaker_gold: "Zakenman (goud)"
       moneymaker_gold_description: "15 verkochte of verhuurde items met positieve feedback! Kassi is een perfecte handel voor zowel jou en de mensen die van je kopen of huren!"
-    show:
-      slightly_less_than_expected: "Minder dan verwacht"
-      what_are_these: "Wat zijn dit?"
-      as_expected: "Zoals verwacht"
-      badges: Badges
-      edit_profile_info: "Wijzig profile"
-      exceeded_expectations: "Verwachtingen overtroffen"
-      feedback_average: "Feedback gemiddelde:"
-      hide_description: "Laat minder zien"
-      joined_this_community: ~
-      was_last_seen: ~
-      was_invited_by: ~
-      as_invited_by: ~
-      less_than_expected: "Minder dan verwacht"
-      phone_number: "Telefoon nummer:"
-      show_all_badges: "Laat alle badges zien"
-      show_all_feedback: "Laat alle feedback zien"
-      show_all_testimonials: "Laat alle feedback zien"
-      show_full_description: "Laat meer zien"
-      about_me: "Over mij:"
-      slightly_better_than_expected: "Verwachtingen overtroffen"
-      add_description: ~
-      add_location: ~
-      add_phone_number: ~
-      address: "Adres:"
+      moneymaker_silver: "Zakenman (zilver)"
+      moneymaker_silver_description: "Kassi geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
+      rookie: Rookie
+      rookie_description: "Je hebt een aanbieding of verzoek toegevoegd in Kassi voor de 1e keer. Daar ga je!"
+      santa: Kerstman
+      santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
+      taxi_stand_bronze: "Taxi stand (brons)"
+      taxi_stand_bronze_description: "Je hebt 3 aangeboden liften toegevoegd aan Kassi."
+      taxi_stand_gold: "Taxi stand (goud)"
+      taxi_stand_gold_description: "Jij staat altijd klaar voor anderen, klaar om ze een lift te geven. 25 aangeboden liften, fantastisch!"
+      taxi_stand_silver: "Taxi stand (zilver)"
+      taxi_stand_silver_description: "10 aangeboden liften toegevoegd, wat goed zeg! Mensen weten wie ze moeten vragen als ze een lift nodig hebben!"
+      volunteer_bronze: "Vrijwilliger (brons)"
+      volunteer_bronze_description: "Jij gebruikt graag je talenten om andere mensen te helpen. Je hebt al 3 open gunsten aangeboden in Kassi."
+      volunteer_gold: "Vrijwilliger (goud)"
+      volunteer_gold_description: "Jij kan niet anders dan andere mensen helpen. Je hebt 25 open gunsten aangeboden in je profiel, geweldig!"
+      volunteer_silver: "Vrijwilliger (zilver)"
+      volunteer_silver_description: "Jij hebt veel te geven aan anderen: je hebt al 10 gunsten aangeboden in Kassi!"
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
@@ -895,6 +865,31 @@ nl:
       requests: Verzoeken
       show_also_closed: "Laat ook gesloten zien"
       show_only_open: "Laat alleen open zien"
+    show:
+      about_me: "Over mij:"
+      add_description: ~
+      add_location: ~
+      add_phone_number: ~
+      address: "Adres:"
+      as_expected: "Zoals verwacht"
+      badges: Badges
+      edit_profile_info: "Wijzig profile"
+      exceeded_expectations: "Verwachtingen overtroffen"
+      feedback_average: "Feedback gemiddelde:"
+      hide_description: "Laat minder zien"
+      joined_this_community: ~
+      was_last_seen: ~
+      was_invited_by: ~
+      as_invited_by: ~
+      less_than_expected: "Minder dan verwacht"
+      phone_number: "Telefoon nummer:"
+      show_all_badges: "Laat alle badges zien"
+      show_all_feedback: "Laat alle feedback zien"
+      show_all_testimonials: "Laat alle feedback zien"
+      show_full_description: "Laat meer zien"
+      slightly_better_than_expected: "Verwachtingen overtroffen"
+      slightly_less_than_expected: "Minder dan verwacht"
+      what_are_these: "Wat zijn dit?"
   mapview:
     index:
       all_categories: ~
@@ -950,8 +945,6 @@ nl:
       i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
       login: "Log in"
       login_to_kassi: "Log in Kassi"
-      password: Wachtwoord
-      username: Gebruikersnaam
     password_forgotten:
       email: Email
       password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
@@ -963,10 +956,8 @@ nl:
       email: "Email adres:"
       new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
-      password: "Wachtwoord:"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
-      username: "Gebruikersnaam:"
     avatar:
       add_avatar_submit: "Foto opslaan"
       update_profile_picture: "Update profiel foto"
@@ -1018,22 +1009,22 @@ nl:
   testimonials:
     new:
       give_feedback_to: "Geef feedback aan %{person}"
+      as_expected: "Zoals verwacht"
       grade: Waardering
+      exceeded_expectations: "Veel beter dan verwacht"
       less_than_expected: "Minder dan verwacht"
       send_feedback: "Stuur feedback"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets Minder dan verwacht"
       textual_feedback: "Op- of aanmerkingen"
-      as_expected: "Zoals verwacht"
-      exceeded_expectations: "Veel beter dan verwacht"
-    testimonial:
-      from_user: van
-      to_user: naar
     index:
       all_testimonials: "Alle feedback"
       feedback_altogether: "Algemene feedback: "
       loading_more_testimonials: "Meer feedback aan het laden"
       no_testimonials: "Geen ontvangen feedback."
+    testimonial:
+      from_user: van
+      to_user: naar
   terms:
     show:
       accept_terms: "Kassi gebruiksvoorwaarden accepteren"
