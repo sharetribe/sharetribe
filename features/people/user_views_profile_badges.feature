@@ -20,6 +20,7 @@ Feature: User views profile badges
     And I am logged in as "kassi_testperson1"
     When I follow "Tell what you need!"
     And I follow "an item"
+    And I select "Borrowing" from "listing_share_type"
     And I fill in "listing_title" with "Hammer"
     And I press "Save request"
     And the system processes jobs
