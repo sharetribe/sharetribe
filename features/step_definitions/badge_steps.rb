@@ -105,7 +105,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
     steps %Q{ And I fill in "listing_title" with "Test" }
   end
   if share_type
-    steps %Q{ And I select "#{st}" }
+    steps %Q{ And I select "#{share_type.capitalize}ing" from "listing_share_type"}
   end
   steps %Q{
     And I press "Save #{listing_type}"
