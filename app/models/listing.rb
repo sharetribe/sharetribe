@@ -31,6 +31,8 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :communities
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
   
+  has_many :share_types
+  
   attr_accessor :current_community_id
   
   scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
