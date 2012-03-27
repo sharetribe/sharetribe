@@ -1,6 +1,16 @@
 if APP_CONFIG.use_hoptoad
   HoptoadNotifier.configure do |config|
-    config.api_key = 'ea9c77b4d7eb6ae2b42e793fd64b3b28'
+    config.api_key = APP_CONFIG.hoptoad_api_key
+    config.ignore_only  =  ["AbstractController::ActionNotFound",
+                            "ActiveRecord::RecordNotFound",
+                            "ActionController::RoutingError",
+                            #"ActionController::InvalidAuthenticityToken",
+                            "ActionController::UnknownAction",
+                            #"CGI::Session::CookieStore::TamperedWithCookie"
+                            ]
+    # The erros above are the defaults (from https://github.com/airbrake/airbrake)
+    # commented few out to see how often they happen
+    
     # config.http_open_timeout = 60
     # config.http_read_timeout = 60
   end
