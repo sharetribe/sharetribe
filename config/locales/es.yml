@@ -146,8 +146,8 @@ es:
   dashboard:
     index:
       slogan: "Un mercado en línea para tu comunidad."
-      create_your_own: "Configura tu comunidad"
-      sharing_website: "¡Y COMIENZA A COMPARTIR!"
+      create_your_own: "Crea tu espacio"
+      sharing_website: "PARA COMPARTIR!"
       main_description: "Crea un espacio donde los miembros de tu comunidad puedan compartir bienes, servicios, traslados o paseos en un entorno local de confianza."
       kassi_for_your_company: "Kassi para tu empresa"
       kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? Kassi es la solución para ti."
@@ -407,8 +407,8 @@ es:
     profile_info_empty_notification:
       add_your_info: "Agrega tu información de contacto"
       you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor hazlo, de modo que para los demás sea más fácil ponerse en contacto contigo. Asimismo, añade una foto de perfil para que te puedan reconocer los otros usuarios."
-      add_a_profile_picture: "Añade una imagen de perfil"
       add_your_info_link: "Agregar tu información ahora"
+      add_a_profile_picture: "Añade una imagen de perfil"
     recent_listing:
       please_offer: Oferta
     sign_in:
@@ -500,71 +500,71 @@ es:
       invitation_sent: "Invitación enviada satisfactoriamente"
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de Kassi"
       item_offer_message_sent: "Solicitud de artículo enviada correctamente"
+      poll_created: "Encuesta creada"
       item_request_message_sent: "Oferta de producto enviada correctamente"
+      poll_creation_failed: "Error en la creación de la encuesta"
       login_again: "Por favor, vuelve a iniciar la sesión"
+      poll_update_failed: "Error en la actualización de la encuesta"
       login_failed: "Falló el inicio de sesión. Por favor ingresa correctamente los datos."
       login_successful: "Bienvenido a Kassi, "
       logout_successful: "Ahora ya estás registrado en Kassi. ¡Bienvenido nuevamente!"
       news_item_created: "Artículo creado"
       news_item_creation_failed: "Error en el artículo creado"
+      reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
       news_item_update_failed: "Error en la actualización del artículo"
+      reply_sent: "Respuesta enviada satisfactoriamente"
       news_item_updated: "Artículo actualizado"
+      request_accepted: "Solicitud aceptada"
       news_item_deleted: "Artículo eliminado"
+      request_closed: "Solicitud cerrada"
       offer_accepted: "Oferta aceptada"
+      request_created_successfully: "Solicitud creada satisfactoriamente"
       offer_closed: "Oferta cerrada"
+      request_rejected: "Solicitud rechazada"
       offer_created_successfully: "Oferta creada satisfactoriamente"
+      request_updated_successfully: "Solicitud actualizada satisfactoriamente"
       offer_rejected: "Oferta rechazada"
+      rideshare_offer_message_sent: "Solicitud de traslado enviada satisfactoriamente"
       offer_updated_successfully: "Oferta actualizada correctamente"
+      rideshare_request_message_sent: "Oferta de traslado enviada satisfactoriamente"
       only_kassi_administrators_can_access_this_area: "Sólo los administradores de Kassi pueden acceder a esta área"
+      this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
       only_listing_author_can_close_a_listing: "Sólo el creador de una lista puede cerrarla"
+      unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       only_listing_author_can_edit_a_listing: "Sólo el creador de una lista puede editarla"
+      update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
       password_recovery_sent: "Las instrucciones para modificar tu contraseña han sido enviadas a tu correo electrónico."
+      welcome_message: "¡Bienvenido a Kassi! Kassi es un servicio que ayuda a los miembros de la comunidad %{community} a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos y a cooperar mutuamente de diferentes formas."
       person_activated: "Usuario activado"
+      you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
       person_deactivated: "Usuario desactivado"
+      you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       person_updated_successfully: "Información actualizada"
+      you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
       poll_answered: "Encuesta contestada"
       poll_could_not_be_answered: "La encuesta no pudo ser contestada"
-      poll_created: "Encuesta creada"
-      poll_creation_failed: "Error en la creación de la encuesta"
-      poll_update_failed: "Error en la actualización de la encuesta"
       poll_updated: "Encuesta actualizada"
       poll_deleted: "Encuesta eliminada"
       read_more: "¡Lee más!"
       registration_considered_spam: "El registro no funcionó, por favor envíanos tu comentario y menciona \"email2 error\"."
-      reply_cannot_be_empty: "No puedes enviar un mensaje vacío"
-      reply_sent: "Respuesta enviada satisfactoriamente"
-      request_accepted: "Solicitud aceptada"
-      request_closed: "Solicitud cerrada"
-      request_created_successfully: "Solicitud creada satisfactoriamente"
-      request_rejected: "Solicitud rechazada"
-      request_updated_successfully: "Solicitud actualizada satisfactoriamente"
-      rideshare_offer_message_sent: "Solicitud de traslado enviada satisfactoriamente"
-      rideshare_request_message_sent: "Oferta de traslado enviada satisfactoriamente"
-      this_content_is_not_available_in_this_community: "Este contenido no está disponible en esta comunidad."
-      unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
-      update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
-      welcome_message: "¡Bienvenido a Kassi! Kassi es un servicio que ayuda a los miembros de la comunidad %{community} a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos y a cooperar mutuamente de diferentes formas."
-      you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
-      you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
-      you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
-      you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
-      you_cannot_reply_to_a_closed_request: "No puedes responder a una solicitud cerrada"
-      you_cannot_reply_to_your_own_offer: "No puedes responder a tu propia oferta"
-      you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
-      you_followed_listing: "Ahora estás siguiendo este listado"
-      you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a Kassi"
-      you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
-      you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en Kassi para crear una nueva solicitud. Si no tienes una cuenta puedes"
-      you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
-      you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
-      you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en Kassi para enviar un mensaje a otro usuario"
       you_must_log_in_to_view_this_content: "Debes iniciar tu sesión para ver este contenido"
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en Kassi para revisar tu bandeja de entrada"
       you_must_log_in_to_view_your_settings: "Debes registrarte en Kassi para ver tu configuración"
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en Kassi para añadir un nuevo artículo"
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
+      you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
+      you_cannot_reply_to_a_closed_request: "No puedes responder a una solicitud cerrada"
+      you_cannot_reply_to_your_own_offer: "No puedes responder a tu propia oferta"
+      you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
+      you_followed_listing: "Ahora estás siguiendo este listado"
+      you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
+      you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
+      you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en Kassi para crear una nueva solicitud. Si no tienes una cuenta puedes"
+      you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
+      you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
+      you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en Kassi para enviar un mensaje a otro usuario"
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -588,8 +588,8 @@ es:
       you_must: "Tú deberías"
       subscribe_to_comments: "Notifícame los nuevos comentarios y actualizaciones"
     edit:
-      edit_offer: "Editar oferta"
       edit_request: "Editar solicitud"
+      edit_offer: "Editar oferta"
     edit_links:
       close_offer: "Cerrar oferta"
       close_request: "Cerrar solicitud"
@@ -638,7 +638,6 @@ es:
         save_offer: "Guardar oferta"
         save_request: "Guardar solicitud"
       share_type:
-        select: ~
         borrow: Prestar
         buy: Comprar
         give_away: Regalar
@@ -646,11 +645,12 @@ es:
         offer_type: "Tipo de oferta"
         receive: "Tomar gratis"
         rent: Alquiler
-        rent_out: Arrienda
         request_type: "Tipo de solicitud"
         sell: Vender
         temporary_accommodation: Temporal
         trade: Intercambio
+        select: ~
+        rent_out: Arrienda
       tag_list:
         comma_separate: "(separado por comas)"
         tags: Etiquetas
@@ -966,6 +966,14 @@ es:
       search_returned_no_results: "La búsqueda no ha generado resultados."
       search_verb: buscar
   sessions:
+    confirmation_pending:
+      account_conrimation_instructions: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Este correo de verificación está hecho para asegurar que todos los miembros realmente pertenecen a esta comunidad (<b>%{community_name}</b>). Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
+      check_your_email: "Revisa tu bandeja de entrada"
+      welcome_to_kassi: "¡Bienvenido a Kassi!"
+      account_confirmation_instructions_any_email: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
+      get_started: "Comenzar con Kassi"
+      getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
+      resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
     new:
       create_new_account: "Crear una cuenta nueva"
       i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
@@ -975,14 +983,6 @@ es:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
       request_new_password: "Solicitar nueva contraseña"
-    confirmation_pending:
-      welcome_to_kassi: "¡Bienvenido a Kassi!"
-      check_your_email: "Revisa tu bandeja de entrada"
-      account_conrimation_instructions: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Este correo de verificación está hecho para asegurar que todos los miembros realmente pertenecen a esta comunidad (<b>%{community_name}</b>). Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
-      account_confirmation_instructions_any_email: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
-      get_started: "Comenzar con Kassi"
-      getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
-      resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
   settings:
     account:
       change: Cambiar
@@ -996,8 +996,6 @@ es:
       add_avatar_submit: "Guardar imagen"
       update_profile_picture: "Actualizar imagen de perfil"
     notifications:
-      i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
-      newsletters: Boletines
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
@@ -1007,12 +1005,13 @@ es:
       email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en Kassi"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
+      newsletters: Boletines
     profile:
       about_you: "Acerca de ti:"
       city: "Ciudad:"
       family_name: "Apellido:"
       given_name: "Nombre:"
-      location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
       phone_number: "Número de teléfono:"
       postal_code: "Código postal:"
       profile_page: "en tu página de perfil"
@@ -1021,6 +1020,7 @@ es:
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de Kassi"
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible para los usuarios que han iniciado sesión"
+      location_description: "Puedes dar tu ubicación exacta o sólo tu código postal. Por favor añade al menos tu código postal. También puedes elegir una localización desde el mapa."
     save_information: "Guardar Información"
   sms:
     category_not_supported: "Esta categoría todavía no es soportada por SMS."
@@ -1040,17 +1040,6 @@ es:
     tag_used:
       with_tag: "Con etiqueta"
       without_tag: "Sin etiqueta"
-  terms:
-    show:
-      accept_terms: "Aceptar los términos de uso de Kassi"
-      here: Aquí
-      i_accept_new_terms: "Acepto los nuevos términos"
-      i_accept_terms: "Acepto los términos"
-      terms: "Términos de uso de Kassi"
-      terms_have_changed: "Los términos de uso han cambiado"
-      you_can_view_the_new_terms: "Puedes ver los nuevos términos"
-      you_need_to_accept: "¡Bienvenido a Kassi! Al parecer esta es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
-      you_need_to_accept_new_terms: "Los términos de uso de Kassi han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando Kassi. Lo nuevos términos de uso intentan permitir seguir haciendo uso del servicio una vez finalizado el proyecto de investigación que lo originó."
   testimonials:
     index:
       all_testimonials: "Todas las sugerencias"
@@ -1070,6 +1059,17 @@ es:
     testimonial:
       from_user: Desde
       to_user: a
+  terms:
+    show:
+      accept_terms: "Aceptar los términos de uso de Kassi"
+      here: Aquí
+      i_accept_new_terms: "Acepto los nuevos términos"
+      i_accept_terms: "Acepto los términos"
+      terms: "Términos de uso de Kassi"
+      terms_have_changed: "Los términos de uso han cambiado"
+      you_can_view_the_new_terms: "Puedes ver los nuevos términos"
+      you_need_to_accept: "¡Bienvenido a Kassi! Al parecer esta es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
+      you_need_to_accept_new_terms: "Los términos de uso de Kassi han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando Kassi. Lo nuevos términos de uso intentan permitir seguir haciendo uso del servicio una vez finalizado el proyecto de investigación que lo originó."
   time:
     formats:
       short: "%e %b %Y al %H:%M"
