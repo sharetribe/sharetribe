@@ -28,7 +28,7 @@ class Admin::PollsController < ApplicationController
   
   def create
     @poll = Poll.new(params[:poll])
-    @current_community.active_poll.update_attribute(:active, false)
+    @current_community.active_poll.update_attribute(:active, false) if @current_community.active_poll
     if @poll.save
       flash[:notice] = "poll_created"
       redirect_to admin_polls_path(:type => "polls")
