@@ -50,7 +50,7 @@ default: &default_settings
   recaptcha_public_key: 'enter_your_own_key_here'
   recaptcha_private_key: 'enter_your_own_key_here'  
 
-  # You can use Hoptoad to track errors if you want.
+  # You can use Airbrake (formerly hoptoad) to track errors if you want.
   # You need to register an account and get an API key from hoptoadapp.com 
   use_hoptoad: false
   hoptoad_api_key: 'your_own_api_key_here'
@@ -127,7 +127,7 @@ default: &default_settings
   
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
-  session_key:
+  session_key: _kassi_session
   
   
   # Below it is possible to specify different settings for different

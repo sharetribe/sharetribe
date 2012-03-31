@@ -90,9 +90,26 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_community
+    #logger.info "COOKIE KEYS: #{cookies.keys.to_yaml}"
     # if in dashboard, no community to fetch, just return
     return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
-
+    
+    # There is a bug/feature in IE which also sends the top level cookie while user is in community
+    # subdomain, and Rails has preference on that over the subdomain cookie.
+    # To avoid that messing up the session, we delete the top level cookie if user visits a subdomain
+    # and the toplevel domain cookie is not the preferred cookie method set in config.yml
+    # if APP_CONFIG.domain.blank? && request.subdomain.present?
+    #       top_level_domain = request.host.split(".",2)[1]   # returns e.g. ".kassi.eu"
+    #       top_level_domain_with_leading_dot = "." + top_level_domain
+    #       cookie_key = Rails.application.config.session_options[:key]
+    #       cookies.delete cookie_key, :domain => top_level_domain
+    #       cookies.delete cookie_key, :domain => top_level_domain_with_leading_dot
+    # 
+    #       #these are here for legacy reasons. Old long-life time cookies cause problems if not cleared.
+    #       cookies.delete :_kassi_session, :domain => top_level_domain_with_leading_dot
+    #       cookies.delete :kassi_session, :domain => top_level_domain_with_leading_dot
+    #     end
+    
     # if form posted to login-domain, pick community domain from origin url
     login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
     if login_subdomain && request.subdomain == login_subdomain
