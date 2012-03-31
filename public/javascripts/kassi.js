@@ -652,6 +652,15 @@ function initialize_admin_new_poll_form() {
 	});
 }
 
+function initialize_new_community_membership_form() {
+  $("input[type=checkbox]").uniform();
+  $('#new_community_membership').validate({
+		rules: {
+		  "community_membership[consent]": {required: true}
+		}
+	});	  
+}
+
 function set_textarea_maxlength() {
   var ignore = [8,9,13,33,34,35,36,37,38,39,40,46];
   var eventName = 'keypress';

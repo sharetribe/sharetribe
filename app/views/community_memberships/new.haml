@@ -1,0 +1,21 @@
+- content_for :javascript do
+  initialize_new_community_membership_form();
+
+.grid_10.prefix_7.suffix_7
+  #login_form
+    %h2
+      = t('.join_community', :community => @current_community.name)
+    %p
+      = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
+    = form_for @community_membership do |form|
+      .form_field_container
+        .signup_checkbox_container
+          .signup_checkbox_input_container
+            %input{:type => "checkbox", :id => "community_membership_consent", :style => "opacity: 0;", :name => "community_membership[consent]"}
+          .signup_checkbox_label_container
+            = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
+            = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
+      .form_field_container
+        = hidden_field :community_id, @current_community.id
+        = hidden_field :person_id, @current_user.id
+        = submit_tag(t('.join_community_button'), :class => "send_button")

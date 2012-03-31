@@ -144,6 +144,11 @@ en:
       accept_request: "Accept request"
       reject_offer: "Reject offer"
       reject_request: "Reject request"
+  community_memberships:
+    new:
+      join_community: "Join community '%{community}'"
+      you_are_not_a_member_of_this_community: "You are not yet a member of Kassi community '%{community}'. You can join this community with your existing account by clicking 'Join this community' below."
+      join_community_button: "Join community"
   dashboard:
     index:
       slogan: "An online marketplace for your community."

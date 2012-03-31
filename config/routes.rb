@@ -80,8 +80,11 @@ Kassi::Application.routes.draw do
     resources :homepage do
       collection do
         get :sign_in
+        get :not_member
+        post :join
       end
     end
+    resources :community_memberships
     resources :listings do
       member do
         post :follow
