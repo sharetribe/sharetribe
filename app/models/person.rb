@@ -594,7 +594,8 @@ class Person < ActiveRecord::Base
   end
   
   def is_admin_of?(community)
-    community_memberships.find_by_community_id(community.id).admin?
+    community_membership = community_memberships.find_by_community_id(community.id)
+    community_membership && community_membership.admin?
   end
   
   def has_admin_rights_in?(community)
