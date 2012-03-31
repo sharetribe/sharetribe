@@ -4,10 +4,10 @@
 if APP_CONFIG.domain
   domain = APP_CONFIG.domain.split(":")[0]
 else
-  domain = ""
+  domain = nil
 end
 
-session_key = APP_CONFIG.session_key || 'kassi_session'
+session_key = APP_CONFIG.session_key || '_kassi_session'
 
 Rails.application.config.session_store :cookie_store, :key => session_key, :domain => domain, :expire_after => 1.years
 
