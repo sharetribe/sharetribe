@@ -103,6 +103,7 @@ Kassi::Application.routes.draw do
         get :check_username_availability
         get :check_email_availability
         get :check_email_availability_and_validity
+        get :check_email_validity
         get :check_invitation_code
         get :not_member
       end

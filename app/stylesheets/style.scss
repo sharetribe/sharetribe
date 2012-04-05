@@ -3228,3 +3228,8 @@ span.option_percentage_admin_view {
   overflow: hidden;
   padding-bottom: 10px;
 }
+
+input.resend_email_confirmation_button {
+	@include send_button;
+	width: 300px;
+}

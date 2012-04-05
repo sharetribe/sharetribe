@@ -105,16 +105,23 @@ class ApplicationController < ActionController::Base
 
     # Otherwise pick the domain normally from the request subdomain
     if @current_community = Community.find_by_domain(request.subdomain)
-      if @current_user && (@current_user.communities.include?(@current_community) || @current_user.is_admin?)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
-          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+      if @current_user
+        if (@current_user.communities.include?(@current_community) || @current_user.is_admin?)
+          @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+          unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
+            Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+          end
+        elsif @current_user
+          return if "community_memberships".eql?(controller_name)
+          return if controller_name.eql?("sessions") && action_name.eql?("destroy")
+          if "people".eql?(controller_name) && ["check_email_validity", "check_invitation_code"].include?(action_name)
+            return
+          else
+            logger.info "Controller: #{controller_name} Action: #{action_name}"
+          end
+          redirect_to new_community_membership_path
         end
-      elsif @current_user && !@current_community.join_with_invite_only?
-        return if "community_memberships".eql?(controller_name)
-        redirect_to new_community_membership_path
       elsif @current_community.private?
-        logger.info "Current user: #{@current_user}"
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
         return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability", "check_invitation_code"].include?(action_name)
         return if "sessions".eql?(controller_name) && ["create", "request_new_password"].include?(action_name)

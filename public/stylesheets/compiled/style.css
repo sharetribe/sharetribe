@@ -3674,3 +3674,21 @@ span.option_percentage_admin_view {
 .news_item_infos_view {
   overflow: hidden;
   padding-bottom: 10px; }
+
+input.resend_email_confirmation_button {
+  font-size: 14px;
+  font-weight: bold;
+  background: #765d3a;
+  width: 200px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  color: white;
+  width: 300px; }
+  input.resend_email_confirmation_button:active {
+    background-color: #4d3d26;
+    padding-top: 1px; }
+  input.resend_email_confirmation_button:hover {
+    background-color: #9f7d4e; }
+  input.resend_email_confirmation_button:focus {
+    background-color: #9f7d4e; }

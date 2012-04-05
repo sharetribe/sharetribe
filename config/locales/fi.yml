@@ -143,6 +143,17 @@ fi:
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
       reject_request: "Hylkää pyyntö"
+  community_memberships:
+    new:
+      join_community: "Liittyminen yhteisöön '%{community}'"
+      you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus Kassissa, mutta et vielä ole Kassi-yhteisön '%{community}' jäsen."
+      you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on jokin seuraavista: %{email_endings}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin allaolevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
+      log_out: "kirjautua ulos"
+      join_community_button: "Liity yhteisöön"
   dashboard:
     index:
       slogan: "Yhteisösi markkinapaikka verkossa."
@@ -475,6 +486,7 @@ fi:
       sign_up: "Luo uusi tunnus"
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
       avatar_upload_successful: "Profiilikuva päivitetty"
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
@@ -551,6 +563,7 @@ fi:
       you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
+      you_are_now_member: "Yhteisöön liittyminen onnistui."
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
@@ -558,11 +571,13 @@ fi:
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
       you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
+      you_must_log_in_to_view_this_page: "Sinun pitää kirjautua sivun nähdäksesi pyytämäsi sivun"
       you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
       you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
       you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
+      joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
       badges: Kassimerkit

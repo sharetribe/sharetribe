@@ -652,12 +652,27 @@ function initialize_admin_new_poll_form() {
 	});
 }
 
-function initialize_new_community_membership_form() {
+function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $("input[type=checkbox]").uniform();
+  $('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
+  $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
   $('#new_community_membership').validate({
+    errorPlacement: function(error, element) {
+			if (element.attr("name") == "community_membership[consent]") {
+				error.appendTo(element.parent().parent().parent().parent().parent());
+			} else {
+			  error.insertAfter(element);
+			}
+		},
 		rules: {
-		  "community_membership[consent]": {required: true}
-		}
+		  "community_membership[email]": {required: true, email: true, remote: "/people/check_email_validity"},
+		  "community_membership[consent]": {required: true},
+		  "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
+		},
+		messages: {
+			"community_membership[email]": { remote: email_invalid_message },
+			"invitation_code": { remote: invalid_invitation_code_message }
+		},
 	});	  
 }
 
