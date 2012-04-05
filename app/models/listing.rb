@@ -59,7 +59,7 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy", "temporary_accommodation"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "this_community"]
+  VALID_VISIBILITIES = ["everybody", "this_community", "communities"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities

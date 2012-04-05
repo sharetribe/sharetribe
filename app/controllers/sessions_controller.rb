@@ -37,9 +37,7 @@ class SessionsController < ApplicationController
     
     if @session.person_id  # if not app-only-session and person found in cos
       @current_user = Person.find_by_id(@session.person_id)
-      logger.info "Here we are00"
       if @current_user && @current_user.communities.include?(@current_community) || @current_user.is_admin?
-        logger.info "Here we are0"
         unless current_community.consent.eql?(@current_user.consent(current_community))
           # The user has succesfully logged in, but is not found in Kassi DB
           # Existing Sizzle user's first login in Kassi
@@ -49,18 +47,15 @@ class SessionsController < ApplicationController
           session[:consent_changed] = true if @current_user
           redirect_to domain + terms_path and return
         end
-        logger.info "Here we are1"
       end
     end
     
     session[:cookie] = @session.cookie
     session[:person_id] = @session.person_id
-    logger.info "Session person id: #{session[:person_id]}"
       
-    flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
     @current_user.update_attribute(:active, true) unless @current_user.active?
     if @current_user.communities.include?(@current_community) || @current_user.is_admin?
-      logger.info "Here we are2"
+      flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
       EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless @current_user.is_admin?
       if session[:return_to]
         redirect_to domain + session[:return_to]
@@ -69,9 +64,6 @@ class SessionsController < ApplicationController
         redirect_to domain + root_path
       end
     else
-      logger.info "Here we are3"
-      logger.info "Current user: #{@current_user.name}"
-      logger.info "Current domain: #{domain}"
       redirect_to domain + new_community_membership_path
     end
   end
