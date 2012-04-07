@@ -136,7 +136,7 @@ el:
       offer_rejected: "Η προσφορά απορρίφθηκε"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_rejected: "Το αίτημα απορρίφθηκε"
-      skip_feedback: "Παρέλειψε την κριτική"
+      skip_feedback: "Παράλειψε την κριτική"
       waiting_confirmation_from_listing_author: "Αναμονή επιβεβαίωσης από τον συγγραφέα της καταχώρησης"
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
@@ -293,6 +293,35 @@ el:
       your_feedback_to_admins: "Τα σχόλιά σου στους διαχειριστές"
     send: Αποστολή
     your_email_address: "Η ηλεκτρονική σου διεύθυνση"
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_temporary_accommodation_housing: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+      to: ~
+      with: ~
+      rideshare_with_person: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
   header:
     about: Βοήθεια
     community: Κοινότητα
@@ -333,6 +362,8 @@ el:
       ride_request: "Να σε πάει κάποιος στη δουλειά ή στη σχολή"
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
+    event_feed:
+      latest_events: ~
     index:
       are_offering: προσφέρουν
       add_news_item: ~
@@ -341,10 +372,10 @@ el:
       loading_more_content: "Εμφάνιση περισσότερων καταχωρήσεων"
       more_events: Περισσότερα...
       news: Νέα
-      offer_something: "Γράψε τι μπορείς να προσφέρεις!"
       no_news: ~
-      offer_something_description: "Aντικείμενα, δεξιότητες, διαδρομές με αυτοκίνητο"
       more_news: ~
+      offer_something: "Γράψε τι μπορείς να προσφέρεις!"
+      offer_something_description: "Aντικείμενα, δεξιότητες, διαδρομές με αυτοκίνητο"
       or: ή
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
@@ -605,6 +636,7 @@ el:
         save_offer: "Αποθήκευση προσφοράς"
         save_request: "Αποθήκευση αιτήματος"
       share_type:
+        select: ~
         borrow: Δανεισμός
         buy: Αγορά
         give_away: Δωρεά
@@ -722,9 +754,40 @@ el:
       share_types_offer: "Τύπος προσφοράς"
       share_types_request: "Τύπος αιτήματος"
       tags: Ετικέτες
-      time: ώρα
+      time: φορά
       times: φορές
       times_viewed: Διαβάστηκε
+  mapview:
+    index:
+      all_categories: "Όλες οι κατηγορίες"
+      all_offer_types: "Όλοι οι τύποι προσφορών"
+      all_request_types: "Όλοι οι τύποι αιτημάτων"
+      category: Κατηγορία
+      did_not_found_what_you_were_looking_for: "Δεν βρήκες αυτό που χρειάζεσαι;"
+      favors: Χάρες
+      housing: Διαμονή
+      items: Αντικείμενα
+      list_view: "Προβολή σε λίστα"
+      map_view: "Προβολή στο χάρτη"
+      offer_something: "Πες το!"
+      offer_type: "Τύπος προσφοράς"
+      offers: Προσφορές
+      request_something: "Ζήτησέ το!"
+      request_type: "Τύπος αιτήματος"
+      requests: Αιτήματα
+      rideshare: Οτοστόπ
+      search_verb: Ψάξε
+      you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
+    please_comment: Σχολίασε
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   people:
     badge_description:
       badge_achieved_at: "Η κονκάρδα κερδίθηκε στις "
@@ -753,6 +816,8 @@ el:
       family_name: "Επώνυμο:"
       given_name: "Όνομα:"
       i_accept_the: "Αποδέχομαι τους"
+      invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
+      invitation_code: "Κωδικός πρόσκλησης:"
       not_required: ", δεν απαιτείται"
       password_again: "Επιβεβαίωση κωδικού:"
       show_my_name_to_others: "Εμφάνισε το πραγματικό μου όνομα στους άλλους χρήστες του Kassi"
@@ -762,27 +827,25 @@ el:
       username_is_invalid: "Το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
       visible_only_to_you: "ορατό μόνο σε σένα και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατές σε όλους"
-      invitation_code: "Κωδικός πρόσκλησης:"
-      invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
     not_member:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το Kassi δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
       read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες Kassi"
       this_user_does_not_belong_to_this_community: "Αυτός ο χρήστης δεν συμμετέχει στην κοινότητα \"%{community}\""
     profile_badge:
       active_member_bronze: "Ενεργό μέλος (χάλκινο)"
-      chauffer_gold_description: "Έχεις προσφέρει το όχημά σου 15 φορές! Προτιμάς να συνταξιδεύεις όσο είναι δυνατό. Πολύ καλά κάνεις, η μητέρα φύση σε ευχαριστεί!"
       active_member_bronze_description: "Αυτή ήταν η τρίτη συναλλαγή στην οποία συμμετείχες στο Kassi! Φοβερό ξεκίνημα, συνέχισε έτσι!"
       active_member_gold: "Ενεργό μέλος (χρυσό)"
       active_member_gold_description: "Φανταστικό! Έχεις κάνει 25 συναλλαγές στο Kassi! Είσαι VIP εδώ. Γίνονται πολλά χάρη σε άτομα σαν και σένα. Ευχαριστούμε πολύ!"
       active_member_silver: "Ενεργό μέλος (ασημένιο)"
-      chauffer_silver_description: "Έχεις συνταξιδέψει με άλλους σε 6 διαδρομές. Μπράβο σου! Σου αρέσει να έχεις παρέα όταν οδηγείς."
       active_member_silver_description: "Συγχαρητήρια για την 10η συναλλαγή σου στο Kassi! Συμβαίνουν πολλά χάρη σε σένα. Τέλεια!"
       chauffer_bronze: "Σωφέρ (χάλκινο)"
-      commentator_bronze: "Σχολιαστής (χάλκινο)"
       chauffer_bronze_description: "Έχεις συνταξιδέψει δύο φορές με άλλους χρήστες. Μπράβο σου!"
       chauffer_gold: "Σωφέρ (χρυσό)"
-      commentator_bronze_description: "Σου αρέσει να κουβεντιάζεις με άλλους. Έχεις σχολιάσει τρεις φορές σε καταχωρήσεις στο Kassi."
+      chauffer_gold_description: "Έχεις προσφέρει το όχημά σου 15 φορές! Προτιμάς να συνταξιδεύεις όσο είναι δυνατό. Πολύ καλά κάνεις, η μητέρα φύση σε ευχαριστεί!"
       chauffer_silver: "Σωφέρ (ασημένιο)"
+      chauffer_silver_description: "Έχεις συνταξιδέψει με άλλους σε 6 διαδρομές. Μπράβο σου! Σου αρέσει να έχεις παρέα όταν οδηγείς."
+      commentator_bronze: "Σχολιαστής (χάλκινο)"
+      commentator_bronze_description: "Σου αρέσει να κουβεντιάζεις με άλλους. Έχεις σχολιάσει τρεις φορές σε καταχωρήσεις στο Kassi."
       commentator_gold: "Σχολιαστής (χρυσό)"
       commentator_gold_description: "30 σχόλια! Νιώθεις σαν στο σπίτι σου εδώ. Είσαι διατεθιμένος να γνωρίσεις άλλους και να κουβεντιάσετε."
       commentator_silver: "Σχολιαστής (ασημένιο)"
@@ -890,37 +953,6 @@ el:
       slightly_better_than_expected: "Ξεπέρασε τις προσδοκίες"
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
       what_are_these: "Τι είναι αυτά;"
-  mapview:
-    index:
-      all_categories: "Όλες οι κατηγορίες"
-      all_offer_types: "Όλοι οι τύποι προσφορών"
-      all_request_types: "Όλοι οι τύποι αιτημάτων"
-      category: Κατηγορία
-      did_not_found_what_you_were_looking_for: "Δεν βρήκες αυτό που χρειάζεσαι;"
-      favors: Χάρες
-      housing: Διαμονή
-      items: Αντικείμενα
-      list_view: "Προβολή σε λίστα"
-      map_view: "Προβολή στο χάρτη"
-      offer_something: "Πες το!"
-      offer_type: "Τύπος προσφοράς"
-      offers: Προσφορές
-      request_something: "Ζήτησέ το!"
-      request_type: "Τύπος αιτήματος"
-      requests: Αιτήματα
-      rideshare: Οτοστόπ
-      search_verb: Ψάξε
-      you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
-    please_comment: Σχολίασε
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
-  okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -932,14 +964,6 @@ el:
       search_returned_no_results: "Η αναζήτησή σου δεν επέστρεψε αποτελέσματα."
       search_verb: Αναζήτηση
   sessions:
-    confirmation_pending:
-      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το Kassi με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα Kassi.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του Kassi απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το Kassi!"
-      check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
-      get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
-      getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
-      resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
-      welcome_to_kassi: "Καλωσήρθες στο Kassi!"
-      account_confirmation_instructions_any_email: ~
     new:
       create_new_account: "Δημιούργησε λογαριασμό"
       i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
@@ -949,6 +973,14 @@ el:
       email: Email
       password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
       request_new_password: "Ζήτησε νέο κωδικό"
+    confirmation_pending:
+      welcome_to_kassi: "Καλωσήρθες στο Kassi!"
+      check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
+      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το Kassi με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα Kassi.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του Kassi απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το Kassi!"
+      account_confirmation_instructions_any_email: ~
+      get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
+      getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
+      resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
   settings:
     account:
       change: Αλλαγή
@@ -962,6 +994,8 @@ el:
       add_avatar_submit: "Αποθήκευση εικόνας"
       update_profile_picture: "Αλλαγή της εικόνας προφίλ"
     notifications:
+      i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
+      newsletters: Newsletters
       email_about_accept_reminders: "έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
       email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
       email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
@@ -971,13 +1005,12 @@ el:
       email_about_weekly_events: "Στείλε μου ένα email κάθε βδομάδα με το τι συμβαίνει στο Kassi"
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
-      i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
-      newsletters: Newsletters
     profile:
       about_you: "Σχετικά με σένα:"
       city: "Πόλη:"
       family_name: "Επώνυμο:"
       given_name: "Όνομα:"
+      location_description: "Μπορείς να συμπληρώσεις είτε την ακριβή τοποθεσία σου είτε μόνο τον ταχυδρομικό σου κωδικό. Παρακαλούμε να συμπληρώσεις τουλάχιστον τον ταχυδρομικό σου κωδικό. Μπορείς επίσης να διαλέξεις μια τοποθεσία στο χάρτη."
       phone_number: "Αριθμός τηλεφώνου:"
       postal_code: "Ταχυδρομικός κώδικας:"
       profile_page: "στη σελίδα του προφίλ σου"
@@ -986,7 +1019,6 @@ el:
       these_fields_are_shown_in_your: "Αυτές οι πληροφορίες είναι ορατές σε όλους τους χρήστες του Kassi"
       visible_to_everybody: "ορατό σε όλους"
       visible_to_registered_users: "ορατό στους χρήστες που έχουν συνδεθεί"
-      location_description: "Μπορείς να συμπληρώσεις είτε την ακριβή τοποθεσία σου είτε μόνο τον ταχυδρομικό σου κωδικό. Παρακαλούμε να συμπληρώσεις τουλάχιστον τον ταχυδρομικό σου κωδικό. Μπορείς επίσης να διαλέξεις μια τοποθεσία στο χάρτη."
     save_information: Αποθήκευση
   sms:
     category_not_supported: "Αυτή η κατηγορία δεν υποστηρίζεται ακόμη από sms."
@@ -1006,25 +1038,6 @@ el:
     tag_used:
       with_tag: "Με ετικέτα"
       without_tag: "Χωρίς ετικέτα"
-  testimonials:
-    new:
-      give_feedback_to: "Κάνε κριτική για τον/την %{person}"
-      as_expected: "Όπως ήταν αναμενόμενο"
-      grade: Αξιολόγηση
-      exceeded_expectations: "Πολύ καλύτερα από το αναμενόμενο"
-      less_than_expected: "Χειρότερα από το αναμενόμενο"
-      send_feedback: "Αποστολή σχολίων"
-      slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
-      slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
-      textual_feedback: "Κριτική με κείμενο"
-    index:
-      all_testimonials: "Εμφάνιση όλης της κριτικής"
-      feedback_altogether: "Κριτική συνολικά: "
-      loading_more_testimonials: "Εμφάνιση περισσότερων σχολίων"
-      no_testimonials: "Δεν έχει δωθεί κριτική."
-    testimonial:
-      from_user: "από τον/την"
-      to_user: στον/στην
   terms:
     show:
       accept_terms: "Αποδοχή των όρων χρήσης του Kassi"
@@ -1036,6 +1049,25 @@ el:
       you_can_view_the_new_terms: "Μπορείς να δεις τους νέους όρους"
       you_need_to_accept: "Καλωσήρθες στο Kassi! Απ' ότι φαίνεται αυτή είναι η πρώτη φορά που χρησιμοποιείς την υπηρεσία. Πριν ξεκινήσεις θα πρέπει πρώτα να αποδεχτείς τους"
       you_need_to_accept_new_terms: "Οι όροι χρήσης του Kassi έχουν αλλάξει. Θα πρέπει πρώτα να αποδεχτείς τους νέους όρους για να συνεχίσεις στο Kassi. Οι νέοι όροι έχουν σκοπό να διασφαλίσουν τη συνέχεια της υπηρεσίας αφού το ερευνητικό έργο θα έχει ολοκληρωθεί."
+  testimonials:
+    index:
+      all_testimonials: "Εμφάνιση όλης της κριτικής"
+      feedback_altogether: "Κριτική συνολικά: "
+      loading_more_testimonials: "Εμφάνιση περισσότερων σχολίων"
+      no_testimonials: "Δεν έχει δωθεί κριτική."
+    new:
+      as_expected: "Όπως ήταν αναμενόμενο"
+      exceeded_expectations: "Πολύ καλύτερα από το αναμενόμενο"
+      give_feedback_to: "Κάνε κριτική για τον/την %{person}"
+      grade: Αξιολόγηση
+      less_than_expected: "Χειρότερα από το αναμενόμενο"
+      send_feedback: "Αποστολή σχολίων"
+      slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
+      slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
+      textual_feedback: "Κριτική με κείμενο"
+    testimonial:
+      from_user: "από τον/την"
+      to_user: στον/στην
   time:
     formats:
       short: "%e %b %Y στις %H:%M"
