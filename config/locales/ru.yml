@@ -9,33 +9,33 @@ ru:
         save_badge: "Сохранить значок"
     news_items:
       index:
-        news_items: ~
-        create_news_item: ~
-        no_news: ~
-        loading_more_news: ~
+        news_items: "Новые статьи"
+        create_news_item: "Создание статьи"
+        no_news: "Пока нет новостей."
+        loading_more_news: "Загрузить больше новостей"
       new:
-        new_news_item: ~
-        edit_news_item: ~
-        index_news_item: ~
-        title: ~
-        content: ~
-        save_news_item: ~
+        new_news_item: "Создание статьи"
+        edit_news_item: "Редактирование статьи"
+        index_news_item: "Создание статьи"
+        title: "Заголовок:"
+        content: "Содержимое:"
+        save_news_item: "Сохранить статью"
       news_item:
-        edit_news_item: ~
-        delete_news_item: ~
+        edit_news_item: Изменить
+        delete_news_item: Удалить
     polls:
       index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
+        polls: Опросы
+        create_poll: "Создайте новый опрос"
+        no_polls: "Нет опросов"
       edit_poll_links:
-        close_poll: ~
-        open_poll: ~
-        edit_poll: ~
-        delete_poll: ~
+        close_poll: Закрыть
+        open_poll: Открыть
+        edit_poll: Изменить
+        delete_poll: Удалить
       new:
         add_option: ~
-        new_poll: ~
+        new_poll: "Создать опрос"
         edit_poll: ~
         title: ~
         save_poll: ~
@@ -43,8 +43,8 @@ ru:
         option: ~
         remove_option: ~
       poll_status:
-        open: ~
-        closed: ~
+        open: Открытый
+        closed: Закрытый
       show:
         edit_poll: ~
   common:
@@ -293,6 +293,35 @@ ru:
       your_feedback_to_admins: "Обратная связь с администрацией"
     send: Отправить
     your_email_address: "Ваш адрес электронной почты"
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: "согласился отдать"
+      has_accepted_sell_item: "согласился продать"
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_temporary_accommodation_housing: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+      to: ~
+      with: ~
+      rideshare_with_person: ~
+    join:
+      joined_kassi: "присоединился к Kassi"
+    login:
+      logged_in_to_kassi: "зашёл в Kassi"
+    comment:
+      commented: прокомментировал
+      offer_partitive: предложил
+      request_partitive: запросил
   header:
     about: "О Kassi"
     community: Сообщество
@@ -333,18 +362,20 @@ ru:
       ride_request: "Поездка на работу"
       some_private_offers_exist: "Уже есть <b>%{number_of_listings} предложений</b>,"
       some_private_requests_exist: "Уже есть <b>%{number_of_listings} запросов</b>,"
+    event_feed:
+      latest_events: "Последние действия"
     index:
       are_offering: "что предлагают"
-      add_news_item: ~
+      add_news_item: "Добавить статью"
       inform_others_about_events: ~
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
       loading_more_content: "Загрузить больше"
       more_events: Больше...
       news: Новости
+      no_news: "Нет новостей"
+      more_news: "Ещё новости"
       offer_something: "Перечислите вещи и услуги, которые можете предложить!"
-      no_news: ~
       offer_something_description: "Добавьте вещи, услуги или поездки, которые вы можете предложить"
-      more_news: ~
       or: или
       or_see_what_the_others: "...или посмотрите,"
       recent_events: "Недавние события"
@@ -365,12 +396,12 @@ ru:
       show_less: ~
       show_more: ~
     poll_form:
-      poll: ~
-      comment: ~
+      poll: "Опрос:"
+      comment: "Комментарий:"
       answer: ~
-      results: ~
-      poll_answer: ~
-      poll_answers: ~
+      results: Результаты
+      poll_answer: ответ
+      poll_answers: ответов
     profile_info_empty_notification:
       add_your_info: "Добавьте контактную информацию"
       add_a_profile_picture: "Добавьте изображение профиля"
@@ -391,7 +422,7 @@ ru:
       admin: "Администрирование Kassi"
       back_to_kassi: "Вернуться в Kassi"
       news_items: ~
-      polls: ~
+      polls: Опросы
     application:
       default_feedback: "Предложите новую функцию, сообщите об ошибке, выразите своё мнение о сервисе, либо просто скажите нам «Привет»!"
       feedback: "Отзыв команде Kassi"
@@ -415,7 +446,7 @@ ru:
       about: "Что такое Kassi?"
       how_to_use: "Как пользоваться?"
       info_about_kassi: "Информация о Kassi"
-      news: ~
+      news: Новости
       register_details: "Регистр данных"
       terms: Условия
     logged_in:
@@ -472,11 +503,11 @@ ru:
       login_failed: "Не удалось войти. Проверьте правильность введённых данных."
       login_successful: "Добро пожаловать в Kassi, "
       logout_successful: "Вы только что вышли из Kassi. Заходите ещё!"
-      news_item_created: ~
+      news_item_created: "Статья создана"
       news_item_creation_failed: ~
       news_item_update_failed: ~
-      news_item_updated: ~
-      news_item_deleted: ~
+      news_item_updated: "Статья обновлена"
+      news_item_deleted: "Статья удалена"
       offer_accepted: "Предложение подтверждено"
       offer_closed: "Предложение закрыто"
       offer_created_successfully: "Предложение успешно создано."
@@ -491,11 +522,11 @@ ru:
       person_updated_successfully: "Информация обновлена"
       poll_answered: ~
       poll_could_not_be_answered: ~
-      poll_created: ~
+      poll_created: "Опрос создан"
       poll_creation_failed: ~
       poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_updated: "Опрос обновлён"
+      poll_deleted: "Опрос удалён"
       read_more: "Узнать больше!"
       registration_considered_spam: "Регистрация не работает, пожалуйста присылайте отзывы из окошка в левой части, в письме упомяните «email2 error»."
       reply_cannot_be_empty: "Нельзя отправить пустое сообщение"
@@ -518,7 +549,7 @@ ru:
       you_cannot_reply_to_a_closed_request: "Вы не можете ответить на закрытый запрос"
       you_cannot_reply_to_your_own_offer: "Вы не можете ответить на собственное предложение"
       you_cannot_reply_to_your_own_request: "Вы не можете ответить на собственный запрос"
-      you_followed_listing: ~
+      you_followed_listing: "Вы следите за этим листингом"
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_must_log_in_to_create_new_offer: "Для того, чтобы создать новое предложение, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
       you_must_log_in_to_create_new_request: "Для того, чтобы создать новый запрос, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
@@ -605,6 +636,7 @@ ru:
         save_offer: "Сохранить предложение"
         save_request: "Сохранить запрос"
       share_type:
+        select: Выбрать
         borrow: "На время"
         buy: Куплю
         give_away: Отдам
@@ -725,6 +757,37 @@ ru:
       time: раз
       times: раз(а)
       times_viewed: Просмотрено
+  mapview:
+    index:
+      all_categories: "Все категории"
+      all_offer_types: "Все типы предложений"
+      all_request_types: "Все типы запросов"
+      category: Категория
+      did_not_found_what_you_were_looking_for: "Не нашли то, что хотели?"
+      favors: Услуги
+      housing: Проживание
+      items: Вещи
+      list_view: "В виде списка"
+      map_view: "В виде карты"
+      offer_something: "Пусть другие узнают!"
+      offer_type: "Тип предложения"
+      offers: Предложения
+      request_something: "Запросить что-нибудь!"
+      request_type: "Тип запроса"
+      requests: Запросы
+      rideshare: "Совместная поездка"
+      search_verb: Поиск
+      you_have_something_others_do_not: "Можете предложить что-нибудь?"
+    please_comment: Комментарий
+  news_items:
+    index:
+      news_from_community: "Последние новости сообщества %{community}"
+    news_item:
+      delete_news_item: "Удалить статью"
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   people:
     badge_description:
       badge_achieved_at: "Значок заработан "
@@ -753,6 +816,8 @@ ru:
       family_name: "Фамилия:"
       given_name: "Настоящее имя:"
       i_accept_the: "Я согласен с"
+      invalid_invitation_code: "Код приглашения недействителен."
+      invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
       password_again: "Подтвердить пароль:"
       show_my_name_to_others: "Показывать моё настоящее имя"
@@ -762,27 +827,25 @@ ru:
       username_is_invalid: "Имя пользователя некорректно. Можно использовать только буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
-      invitation_code: "Код приглашения:"
-      invalid_invitation_code: "Код приглашения недействителен."
     not_member:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
       this_user_does_not_belong_to_this_community: "Этот пользователь не принадлежит к сообществу %{community}"
     profile_badge:
       active_member_bronze: "Активный пользователь (бронза)"
-      chauffer_gold_description: "15 предложений поездок! Вы предпочитаете совместно использовать автомобиль тогда, когда это только возможно. Так и надо, Природа скажет вам спасибо!"
       active_member_bronze_description: "Это было третье событие на Kassi, в котором вы участвовали! Отличный старт, не останавливайтесь на этом!"
       active_member_gold: "Активный пользователь (золото)"
       active_member_gold_description: "25 событие на Kassi, великолепно! Вы очень важная персона на этом сервисе. Благодаря таким как вы сервис продолжает развиваться. Огромное спасибо!"
       active_member_silver: "Активный пользователь (серебро)"
-      chauffer_silver_description: "6 предложений поездок, супер! Судя по всему, вам нравится ездить в компании."
       active_member_silver_description: "Поздравляем с десятым событием на Kassi! Благодаря вам многое у нас меняется в лучшую сторону!"
       chauffer_bronze: "Шофёр (бронза)"
-      commentator_bronze: "Комментатор (бронза)"
       chauffer_bronze_description: "Два предложения поездок, отлично!"
       chauffer_gold: "Шофёр (золото)"
-      commentator_bronze_description: "Вам нравится общаться с другими пользователями. Вы оставили три комментария в Kassi."
+      chauffer_gold_description: "15 предложений поездок! Вы предпочитаете совместно использовать автомобиль тогда, когда это только возможно. Так и надо, Природа скажет вам спасибо!"
       chauffer_silver: "Шофёр (серебро)"
+      chauffer_silver_description: "6 предложений поездок, супер! Судя по всему, вам нравится ездить в компании."
+      commentator_bronze: "Комментатор (бронза)"
+      commentator_bronze_description: "Вам нравится общаться с другими пользователями. Вы оставили три комментария в Kassi."
       commentator_gold: "Комментатор (золото)"
       commentator_gold_description: "30 комментариев! В сообществе Kassi вы как дома. Вам нравится знакомиться с новыми людьми и общаться с ними."
       commentator_silver: "Комментатор (серебро)"
@@ -890,37 +953,6 @@ ru:
       slightly_better_than_expected: "Немного лучше чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       what_are_these: "Что это?"
-  mapview:
-    index:
-      all_categories: "Все категории"
-      all_offer_types: "Все типы предложений"
-      all_request_types: "Все типы запросов"
-      category: Категория
-      did_not_found_what_you_were_looking_for: "Не нашли то, что хотели?"
-      favors: Услуги
-      housing: Проживание
-      items: Вещи
-      list_view: "В виде списка"
-      map_view: "В виде карты"
-      offer_something: "Пусть другие узнают!"
-      offer_type: "Тип предложения"
-      offers: Предложения
-      request_something: "Запросить что-нибудь!"
-      request_type: "Тип запроса"
-      requests: Запросы
-      rideshare: "Совместная поездка"
-      search_verb: Поиск
-      you_have_something_others_do_not: "Можете предложить что-нибудь?"
-    please_comment: Комментарий
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
-  okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
   search:
     show:
       all_results: "Все результаты"
@@ -932,14 +964,6 @@ ru:
       search_returned_no_results: "Поиск не дал результатов."
       search_verb: Поиск
   sessions:
-    confirmation_pending:
-      account_conrimation_instructions: "В скором времени, вы получите письмо от Kassi, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу Kassi.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
-      check_your_email: "Проверьте ваш почтовый ящик"
-      get_started: "Начало работы с Kassi"
-      getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
-      resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
-      welcome_to_kassi: "Добро пожаловать в Kassi!"
-      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от Kassi со ссылкой, по которой нужно перейти для получения доступа к этому сообществу.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
     new:
       create_new_account: "Создать новую учётную запись"
       i_forgot_my_password: "Я забыл пароль"
@@ -949,6 +973,14 @@ ru:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
       request_new_password: "Запросить новый пароль"
+    confirmation_pending:
+      welcome_to_kassi: "Добро пожаловать в Kassi!"
+      check_your_email: "Проверьте ваш почтовый ящик"
+      account_conrimation_instructions: "В скором времени, вы получите письмо от Kassi, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу Kassi.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
+      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от Kassi со ссылкой, по которой нужно перейти для получения доступа к этому сообществу.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
+      get_started: "Начало работы с Kassi"
+      getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
+      resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
   settings:
     account:
       change: Изменить
@@ -962,6 +994,8 @@ ru:
       add_avatar_submit: Сохранить
       update_profile_picture: "Обновить картинку"
     notifications:
+      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
+      newsletters: "Новостная рассылка"
       email_about_accept_reminders: "...я забыл принять решение по событию"
       email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
@@ -971,13 +1005,12 @@ ru:
       email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на Kassi"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
-      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
-      newsletters: "Новостная рассылка"
     profile:
       about_you: "О вас:"
       city: "Город:"
       family_name: "Фамилия:"
       given_name: "Имя:"
+      location_description: "Вы можете ввести либо своё точное местоположение, либо почтовый индекс. Укажите как минимум свой индекс. Точное местоположение можно задать с помощью карты."
       phone_number: "Номер телефона:"
       postal_code: "Индекс:"
       profile_page: "на странице вашего профиля"
@@ -986,7 +1019,6 @@ ru:
       these_fields_are_shown_in_your: "Эта информация видна всем пользователям Kassi"
       visible_to_everybody: "видимо для всех"
       visible_to_registered_users: "видимо только для зарегистрированных пользователей"
-      location_description: "Вы можете ввести либо своё точное местоположение, либо почтовый индекс. Укажите как минимум свой индекс. Точное местоположение можно задать с помощью карты."
     save_information: Сохранить
   sms:
     category_not_supported: "SMS для этой категории ещё не поддерживается."
@@ -1006,25 +1038,6 @@ ru:
     tag_used:
       with_tag: "С меткой"
       without_tag: "Без метки"
-  testimonials:
-    new:
-      give_feedback_to: "Оставить отзыв о/об %{person}"
-      as_expected: "Как ожидалось"
-      grade: "Оценка события"
-      exceeded_expectations: "Намного лучше, чем ожидалось"
-      less_than_expected: "Хуже, чем ожидалось"
-      send_feedback: "Отправить отзыв"
-      slightly_better_than_expected: "Лучше, чем ожидалось"
-      slightly_less_than_expected: "Немного хуже, чем ожидалось"
-      textual_feedback: "Текст отзыва"
-    index:
-      all_testimonials: "Все отзывы"
-      feedback_altogether: "Все отзывы: "
-      loading_more_testimonials: "Загрузка отзывов"
-      no_testimonials: "Отзывов нет."
-    testimonial:
-      from_user: от
-      to_user: для
   terms:
     show:
       accept_terms: "Согласие с условиями использования Kassi"
@@ -1036,6 +1049,25 @@ ru:
       you_can_view_the_new_terms: "Вы можете ознакомиться с новыми условиями"
       you_need_to_accept: "Приветствуем вас в Kassi! Судя по всему, вы в первый раз используете этот сервис. Перед началом использования вы должны принять"
       you_need_to_accept_new_terms: "Условия использования Kassi были изменены. Вы должны принять новые условия для того, чтобы продолжать использовать Kassi. Новые условия использования определяют порядок работы сервиса после окончания исследовательского проекта."
+  testimonials:
+    index:
+      all_testimonials: "Все отзывы"
+      feedback_altogether: "Все отзывы: "
+      loading_more_testimonials: "Загрузка отзывов"
+      no_testimonials: "Отзывов нет."
+    new:
+      as_expected: "Как ожидалось"
+      exceeded_expectations: "Намного лучше, чем ожидалось"
+      give_feedback_to: "Оставить отзыв о/об %{person}"
+      grade: "Оценка события"
+      less_than_expected: "Хуже, чем ожидалось"
+      send_feedback: "Отправить отзыв"
+      slightly_better_than_expected: "Лучше, чем ожидалось"
+      slightly_less_than_expected: "Немного хуже, чем ожидалось"
+      textual_feedback: "Текст отзыва"
+    testimonial:
+      from_user: от
+      to_user: для
   time:
     formats:
       short: "%e %b %Y в %H:%M"
