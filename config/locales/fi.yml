@@ -21,18 +21,18 @@ fi:
         content: "Teksti:"
         save_news_item: "Tallenna uutinen"
       news_item:
-        edit_news_item: "Muokkaa"
-        delete_news_item: "Poista"
+        edit_news_item: Muokkaa
+        delete_news_item: Poista
     polls:
       index:
-        polls: "Kyselyt"
+        polls: Kyselyt
         create_poll: "Luo uusi kysely"
         no_polls: "Ei kyselyitä"
       edit_poll_links:
-        close_poll: "Sulje"
-        open_poll: "Avaa"
-        edit_poll: "Muokkaa"
-        delete_poll: "Poista"
+        close_poll: Sulje
+        open_poll: Avaa
+        edit_poll: Muokkaa
+        delete_poll: Poista
       new:
         add_option: "Lisää vastausvaihtoehto"
         new_poll: "Kyselyn luonti"
@@ -40,11 +40,11 @@ fi:
         title: "Otsikko:"
         save_poll: "Tallenna kysely"
       new_option:
-        option: "Vastausvaihtoehto"
+        option: Vastausvaihtoehto
         remove_option: "Poista vastausvaihtoehto"
       poll_status:
-        open: "Avoinna"
-        closed: "Suljettu"
+        open: Avoinna
+        closed: Suljettu
       show:
         edit_poll: "Muokkaa kyselyä"
   common:
@@ -102,7 +102,7 @@ fi:
         see_all_your_badges: "Katso kaikki kassimerkkisi"
         you_have_earned_badge: "Olet ansainnut kassimerkin"
       comment_to_followed_listing_notification:
-        has_commented: "kommentoi"
+        has_commented: kommentoi
         offer_you_follow: "seuraamaasi tarjousta"
         request_you_follow: "seuraamaasi pyyntöä"
       listing_updated_notification:
@@ -110,9 +110,9 @@ fi:
         offer_you_follow: "seuraamasi tarjouksen"
         request_you_follow: "seuraamasi pyynnön"
       comment_to_own_listing_notification:
-        has_commented: "kommentoi"
-        your_offer: "tarjoustasi"
-        your_request: "pyyntöäsi"
+        has_commented: kommentoi
+        your_offer: tarjoustasi
+        your_request: pyyntöäsi
       loading_more_notifications: "Ladataan lisää tiedotteita"
       no_notifications: "Ei tiedotteita."
       testimonialnotification:
@@ -154,25 +154,21 @@ fi:
       kassi_for_your_city: "KASSI KAUPUNGILLE"
       kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? Kassin avulla saavutat kaiken tämän."
       kassi_for_your_university: "KASSI KORKEAKOULULLE"
-      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile Kassia ja huomaa muutos! Tutustu "
-      kassi_in_aalto_university: "Aalto-yliopiston kassiyhteisöön!"
+      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile Kassia ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
       want_kassi_for_your_community: "Haluatko Kassin yhteisösi käyttöön?"
-      email_default_text: "Sähköpostiosoitteesi"
-      send: "Lähetä!"
+      email_default_text: Sähköpostiosoitteesi
+      send: Lähetä!
       or_drop_us_a_line: "...tai ota yhteyttä:"
       thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman kassiyhteisön."
-      resources: "RESURSSIT"
-      connect: "YHTEYS"
-      blog: "Blogi"
-      code: "Koodi"
-      issue_tracker: "Tehtävänhallinta"
+      resources: RESURSSIT
+      connect: YHTEYS
+      blog: Blogi
+      code: Koodi
+      issue_tracker: Tehtävänhallinta
       product_of: "Kassia tekee"
       language: "Kieli:"
-      new: "UUTTA!"
-      kassi_in_use: "Kassi käytössä muutamissa"
-      wdc_neighborhoods: "Helsingin ja Lahden kaupunginosissa"
-      and_for: "sekä"
-      okl_members: "Suomen Omakotiliiton jäsenyhdistyksissä"
+      new: UUTTA!
+      new_text: "Kassi käytössä muutamissa <a href=\"http://www.kassi.eu/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.kassi.eu/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
@@ -212,7 +208,7 @@ fi:
       your_request_was_accepted: "Pyyntösi hyväksyttiin"
       your_request_was_rejected: "Pyyntösi hylättiin"
     invitation_to_kassi:
-      hi: "Hei!"
+      hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} Kassi-verkkopalvelua."
       info_about_kassi: "Kassi on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
       here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
@@ -251,13 +247,13 @@ fi:
       newest_offers: "Muun muassa näitä tarjotaan:"
       newest_requests: "Muun muassa näitä tarvitaan"
       could_you_offer_something: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota?"
-      add: "Lisää"
-      an_offer: "tarjous"
-      a_request: "pyyntö"
-      to_kassi: "Kassiin"
+      add: Lisää
+      an_offer: tarjous
+      a_request: pyyntö
+      to_kassi: Kassiin
       check_everything_that_others_are: "katso mitä muut"
-      offering: "tarjoavat"
-      requesting: "pyytävät"
+      offering: tarjoavat
+      requesting: pyytävät
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
@@ -311,17 +307,17 @@ fi:
       has_accepted_rent_housing: "vuokrasi asunnon"
       has_accepted_favor: "tarjosi palveluksen"
       has_accepted_rideshare: "sopi kyydistä"
-      to: "käyttäjälle"
-      with: "käyttäjän"
-      rideshare_with_person: "kanssa"
+      to: käyttäjälle
+      with: käyttäjän
+      rideshare_with_person: kanssa
     join:
       joined_kassi: "liittyi Kassiin"
     login:
       logged_in_to_kassi: "kirjautui sisään Kassiin"
     comment:
-      commented: "kommentoi"
-      offer_partitive: "tarjousta"
-      request_partitive: "pyyntöä"
+      commented: kommentoi
+      offer_partitive: tarjousta
+      request_partitive: pyyntöä
   header:
     about: "Tietoa Kassista"
     community: Yhteisö
@@ -371,7 +367,7 @@ fi:
       lend_rent_help_carpool: "Myy, lainaa, auta, kyyditse"
       loading_more_content: "Ladataan lisää"
       more_events: "Lisää tapahtumia..."
-      news: "Uutiset"
+      news: Uutiset
       no_news: "Ei uutisia"
       more_news: "Lisää uutisia"
       offer_something: "+ Listaa taitosi ja tavarasi!"
@@ -398,21 +394,21 @@ fi:
     poll_form:
       poll: "Kysely:"
       comment: "Kommentti:"
-      answer: "Vastaa"
-      results: "Tulokset"
-      poll_answer: "vastaus"
-      poll_answers: "vastausta"
+      answer: Vastaa
+      results: Tulokset
+      poll_answer: vastaus
+      poll_answers: vastausta
     profile_info_empty_notification:
       add_your_info: "Lisää tietosi"
       add_a_profile_picture: "Lisää profiilikuva"
       you_have_not_added_your_info: "Et ole lisännyt Kassiin yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
-      add_your_info_link: "Lisää tietosi Kassiin" 
+      add_your_info_link: "Lisää tietosi Kassiin"
     recent_listing:
       please_offer: Tarjoa
     sign_in:
       recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
       recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
-      plus: "Lisäksi"
+      plus: Lisäksi
       other_offer: "muu tarjous"
       other_offers: "muuta tarjousta"
       other_request: "muu pyyntö"
@@ -421,8 +417,8 @@ fi:
     admin:
       admin: "Kassin ylläpitonäkymä"
       back_to_kassi: "Takaisin Kassiin"
-      news_items: "Uutiset"
-      polls: "Kyselyt"
+      news_items: Uutiset
+      polls: Kyselyt
     application:
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"
@@ -446,7 +442,7 @@ fi:
       about: "Mikä Kassi?"
       how_to_use: "Näin Kassi toimii"
       info_about_kassi: "Tietoa Kassista"
-      news: "Uutiset"
+      news: Uutiset
       register_details: Rekisteriseloste
       terms: Käyttöehdot
     logged_in:
@@ -617,7 +613,7 @@ fi:
         request_something: "Pyydä jotain"
         rideshare: Kimppakyydin
         i_want_to_offer: "Voin tarjota muille..."
-        i_want_to_request: "Tarvitsen..."
+        i_want_to_request: Tarvitsen...
       googlemap:
         googlemap_copy: "Päätepisteet kartalta"
         googlemap_description: Karttanäkymä
@@ -636,7 +632,7 @@ fi:
         save_offer: "Tallenna tarjous"
         save_request: "Tallenna pyyntö"
       share_type:
-        select: "Valitse"
+        select: Valitse
         borrow: Lainataan
         buy: Ostetaan
         give_away: Annetaan
@@ -785,7 +781,7 @@ fi:
     news_item:
       delete_news_item: "Poista uutinen"
   okl:
-    member_id: "Jäsennumero"
+    member_id: Jäsennumero
     member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut Kassiin. Jos et ole vielä Omakotiliiton jäsen,"
     join_here: "liity tästä."
   people:
@@ -793,7 +789,7 @@ fi:
       badge_achieved_at: "Kassimerkki ansaittu"
       you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
     edit_links:
-      activate: "Aktivoi"
+      activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
       badges_description_title: Kassimerkit
@@ -943,7 +939,7 @@ fi:
       joined_this_community: "...liittyi tähän yhteisöön"
       was_last_seen: "...oli viimeksi aktiivinen"
       was_invited_by: "...liittyi yhteisöön käyttäjän"
-      as_invited_by: "kutsumana"
+      as_invited_by: kutsumana
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
       show_all_badges: "Näytä kaikki kassimerkit"
@@ -995,7 +991,7 @@ fi:
       update_profile_picture: "Profiilikuvan päivitys"
     notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
-      newsletters: "Uutiskirjeet"
+      newsletters: Uutiskirjeet
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_new_badges: "...olen ansainnut uuden kassimerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"

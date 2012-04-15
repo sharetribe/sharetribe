@@ -1036,9 +1036,12 @@ ca:
     rideshare: "Compartir cotxe"
     you_can_call_him_at: "Pots trucar al conductor a %{phone_number}"
     you_can_pay_gas_money_to_driver: "Per a pagar els diners de la benzina a  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
+  tag_cloud:
+    tag_used:
+      with_tag: "Amb etiqueta"
+      without_tag: "Sense etiqueta"
   terms:
     show:
-      you_need_to_accept_new_terms: "Els termes d'ús de Kassi han canviat. És necessari que acceptis els nous termes d'ús per a continuar utilitzant Kassi. Els nous termes d'ús permeten seguir fent ús del servei un cop ha finalitzat el projecte d'investigació que el va originar."
       accept_terms: "Accepto els termes d'ús"
       here: Aquí
       i_accept_new_terms: "Accepto els nous termes d'ús"
@@ -1047,15 +1050,7 @@ ca:
       terms_have_changed: "Els termes d'ús han canviat"
       you_can_view_the_new_terms: "Pots veure els nous termes d'ús"
       you_need_to_accept: "Benvingut a Kassi! Aquest és el primer cop que utilitzes el servei. Abans de començar has d'acceptar els"
-  tag_cloud:
-    tag_used:
-      with_tag: "Amb etiqueta"
-      without_tag: "Sense etiqueta"
-  time:
-    formats:
-      short: "%e %b %Y al %H:%M"
-      shorter: "%e %b al %H:%M"
-      sms: "%e %b al %H:%M"
+      you_need_to_accept_new_terms: "Els termes d'ús de Kassi han canviat. És necessari que acceptis els nous termes d'ús per a continuar utilitzant Kassi. Els nous termes d'ús permeten seguir fent ús del servei un cop ha finalitzat el projecte d'investigació que el va originar."
   testimonials:
     index:
       all_testimonials: "Tots els testimonis"
@@ -1075,6 +1070,11 @@ ca:
     testimonial:
       from_user: "Des de"
       to_user: a
+  time:
+    formats:
+      short: "%e %b %Y al %H:%M"
+      shorter: "%e %b al %H:%M"
+      sms: "%e %b al %H:%M"
   timestamps:
     day_ago: "fa un dia"
     days_ago: "dies enrere"

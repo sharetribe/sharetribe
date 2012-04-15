@@ -154,8 +154,7 @@ es:
       kassi_for_your_city: "Kassi en tu ciudad"
       kassi_for_your_city_description: "¿Quieres transformar tu barrio o comunidad en un lugar donde las personas se conozcan y puedan ponerse en contacto entre ellas cada vez que lo necesiten? ¿Quieres ayudar a las personas a mejorar sus vidas? Kassi te ayudará a lograr esto."
       kassi_for_your_university: "Kassi para tu universidad"
-      kassi_for_your_university_description: "¿Quieres un ambiente más ameno en tu campus, donde todos se conozcan y compartan entre sí? ¿Quieres ayudar a tus compañeros a ahorrar tiempo, dinero y contribuir con el medioambiente? ¡Prueba Kassi y nota el cambio! Un buen ejemplo:"
-      kassi_in_aalto_university: "Kassi en la Universidad Aalto"
+      kassi_for_your_university_description: "¿Quieres un ambiente más ameno en tu campus, donde todos se conozcan y compartan entre sí? ¿Quieres ayudar a tus compañeros a ahorrar tiempo, dinero y contribuir con el medioambiente? ¡Prueba Kassi y nota el cambio! Un buen ejemplo: <a href=\"http://aalto.kassi.eu/en\">Kassi en la Universidad Aalto</a>"
       want_kassi_for_your_community: "¿Quieres ocupar Kassi en tu comunidad?"
       email_default_text: "Tu dirección email"
       send: Enviar!
@@ -169,10 +168,7 @@ es:
       product_of: "Kassi es un producto de"
       language: "Idioma:"
       new: ¡NUEVO!
-      kassi_in_use: "Actualmente Kassi está disponible para"
-      wdc_neighborhoods: "vecindarios en Helsinki y Lahti"
-      and_for: "y para"
-      okl_members: "miembros de Suomen Omakotiliitto"
+      new_text: "Actualmente Kassi está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -297,33 +293,33 @@ es:
     your_email_address: "Tu dirección email"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
-      to: ~
-      with: ~
+      has_accepted_lend_item: "acordó en prestar"
+      has_accepted_borrow_item: "acordó en prestar"
+      has_accepted_rent_out_item: "acordó en arrendar"
+      has_accepted_rent_item: "acordó en arrendar"
+      has_accepted_give_away_item: "acordó en dar"
+      has_accepted_receive_item: "acordó en dar"
+      has_accepted_sell_item: "acordó en vender"
+      has_accepted_buy_item: "acordó en vender"
+      has_accepted_trade_item: "acordó en intercambiar"
+      has_accepted_temporary_accommodation_housing: "acordó en ofrecer"
+      has_accepted_sell_housing: "acordó en vender"
+      has_accepted_buy_housing: "acordó en vender"
+      has_accepted_rent_out_housing: "acordó en arrendar"
+      has_accepted_rent_housing: "acordó en arrendar"
+      has_accepted_favor: "acordó en ofrecer"
+      has_accepted_rideshare: "acordó compartir un viaje"
+      to: hacia
+      with: con
       rideshare_with_person: ~
     join:
-      joined_kassi: ~
+      joined_kassi: "se unió a Kassi"
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "se registró en Kassi"
     comment:
-      commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      commented: comentó
+      offer_partitive: oferta
+      request_partitive: solicitud
   header:
     about: "Acerca de Kassi"
     community: Comunidad
@@ -365,7 +361,7 @@ es:
       some_private_offers_exist: "Ya existen <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
     event_feed:
-      latest_events: ~
+      latest_events: "Qué está pasando"
     index:
       are_offering: Ofertas
       add_news_item: "Añadir un artículo"
@@ -617,7 +613,7 @@ es:
         item: algo
         offer_something: "Ofrecer algo"
         request_something: "Pedir algo"
-        rideshare: "un paseo"
+        rideshare: "un viaje"
         i_want_to_offer: "Quiero ofrecer..."
         i_want_to_request: Necesito...
       googlemap:
@@ -638,7 +634,7 @@ es:
         save_offer: "Guardar oferta"
         save_request: "Guardar solicitud"
       share_type:
-        select: ~
+        select: Seleccionar
         borrow: Prestar
         buy: Comprar
         give_away: Regalar

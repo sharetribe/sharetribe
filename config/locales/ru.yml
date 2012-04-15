@@ -34,19 +34,19 @@ ru:
         edit_poll: Изменить
         delete_poll: Удалить
       new:
-        add_option: ~
+        add_option: "Добавить вариант"
         new_poll: "Создать опрос"
-        edit_poll: ~
-        title: ~
-        save_poll: ~
+        edit_poll: "Редактировать опрос"
+        title: "Название:"
+        save_poll: "Сохранить опрос"
       new_option:
         option: ~
-        remove_option: ~
+        remove_option: "Удалить вариант"
       poll_status:
         open: Открытый
         closed: Закрытый
       show:
-        edit_poll: ~
+        edit_poll: "Редактировать опрос"
   common:
     cancel: Отмена
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
@@ -367,7 +367,7 @@ ru:
     index:
       are_offering: "что предлагают"
       add_news_item: "Добавить статью"
-      inform_others_about_events: ~
+      inform_others_about_events: "Последние новости и события в сообществе."
       lend_rent_help_carpool: "Прокат, обмен, помощь, совместные поездки"
       loading_more_content: "Загрузить больше"
       more_events: Больше...
@@ -393,12 +393,12 @@ ru:
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
     news_item:
-      show_less: ~
-      show_more: ~
+      show_less: Меньше
+      show_more: Больше
     poll_form:
       poll: "Опрос:"
       comment: "Комментарий:"
-      answer: ~
+      answer: Ответ
       results: Результаты
       poll_answer: ответ
       poll_answers: ответов
@@ -560,7 +560,7 @@ ru:
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в Kassi."
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
-      you_must_log_in_to_add_news_item: ~
+      you_must_log_in_to_add_news_item: "Вы должны авторизоваться, чтобы добавить новую статью."
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
     profile_extras_header:
