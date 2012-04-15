@@ -146,7 +146,7 @@ el:
   dashboard:
     index:
       slogan: "Ένα διαδικτυακό παζάρι για την κοινότητά σου."
-      create_your_own: "Δημιουργήστε τη δική σας"
+      create_your_own: "Δημιουργήστε μία"
       sharing_website: "ΚΟΙΝΟΤΗΤΑ KASSI"
       main_description: "Δημιουργήστε ένα χώρο όπου τα μέλη της κοινότητά σας μπορούν να μοιράζονται αντικείμενα και υπηρεσίες σε ένα ασφαλές περιβάλλον."
       kassi_for_your_company: "ΤΟ KASSI ΓΙΑ ΤΗΝ ΕΠΙΧΕΙΡΗΣΗ ΣΟΥ"
@@ -155,12 +155,12 @@ el:
       kassi_for_your_city_description: ~
       kassi_for_your_university: "ΤΟ KASSI ΓΙΑ ΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ ΣΟΥ"
       kassi_for_your_university_description: ~
-      kassi_in_aalto_university: "Το Kassi στο Πανεπιστήμιο του Aalto"
+      kassi_in_aalto_university: "Το Kassi στο Πανεπιστήμιο Aalto, Ελσίνκι"
       want_kassi_for_your_community: "Θα ήθελες το Kassi για την κοινότητά σου;"
       email_default_text: "Η ηλεκτρονική σου διεύθυνση"
       send: Αποστολή!
       or_drop_us_a_line: "... ή επικοινώνησε μαζί μας:"
-      thanks_for_contacting_us: "Ευχαριστούμε που επικοινώνησες μαζί μας! Σύντομα θα σου στείλουμε περισσότερες πληροφορίες για το πως να δημιουργήσεις μία κοινότητα Kassi."
+      thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σου σύντομα!"
       resources: ΠΕΡΙΣΣΟΤΕΡΑ
       connect: ΔΙΚΤΥΩΣΗ
       blog: Blog
@@ -168,11 +168,11 @@ el:
       issue_tracker: "Issue tracker"
       product_of: "Το Kassi είναι ένα προϊόν του"
       language: "Γλώσσα:"
-      new: ~
-      kassi_in_use: ~
-      wdc_neighborhoods: ~
-      and_for: ~
-      okl_members: ~
+      new: NEW!
+      kassi_in_use: "Το Kassi είναι τώρα διαθέσιμο"
+      wdc_neighborhoods: "στις γειτονιές του Helsinki και του Lahti"
+      and_for: "και για"
+      okl_members: "μέλη του Suomen Omakotiliitto"
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -250,7 +250,7 @@ el:
       update_on_what_is_happening: "Ρίξε μια ματιά στο τι συμβαίνει στην κοινότητα \"%{community}\" αυτή τη στιγμή."
       newest_offers: "Τι προσφέρουν κάποιοι στο Kassi"
       newest_requests: "Τι χρειάζονται κάποιοι στο Kassi"
-      could_you_offer_something: "Μπορείς να μοιραστείς κάτι που χρειάζονται άλλοι; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος;"
+      could_you_offer_something: "Μπορείς να προσφέρεις κάτι που ίσως χρειάζεται κάποιος; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος;"
       add: Πρόσθεσε
       an_offer: "μία προσφορά"
       a_request: "ένα αίτημα"
@@ -258,7 +258,7 @@ el:
       check_everything_that_others_are: "δες οι υπόλοιποι τι"
       offering: προσφέρουν
       requesting: χρειάζονται
-      text_version_text: "Μήπως έχεις κάτι που χρειάζεται κάποιος άλλος; Ή μήπως χρειάζεσαι κάτι που το έχει κάποιος άλλος; Πρόσθεσε μια προσφορά ή ένα αίτημα ή δες τι προσφέρουν ή χρειάζονται οι άλλοι στο %{url}"
+      text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Σε ευχαριστούμε για το ενδιαφέρον σου στο Kassi!"
     testimonial_reminder:
@@ -374,13 +374,13 @@ el:
       news: Νέα
       no_news: ~
       more_news: ~
-      offer_something: "Γράψε τι μπορείς να προσφέρεις!"
-      offer_something_description: "Aντικείμενα, δεξιότητες, διαδρομές με αυτοκίνητο"
+      offer_something: "Πρόσφερε κάτι!"
+      offer_something_description: "Aντικείμενα, βοήθειά, διαδρομές με το όχημά σου"
       or: ή
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
       recent_offers: "Τι προσφέρουν άλλοι"
-      recent_requests: "Τι χρειάζονται άλλοι"
+      recent_requests: "Τι χρειάζονται κάποιοι"
       request_something: "Γράψε τι χρειάζεσαι!"
       request_something_description: "Βιβλία, βοήθεια για κάτι, να σε πάνε κάπου"
       requesting: χρειάζονται
