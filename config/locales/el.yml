@@ -146,18 +146,17 @@ el:
   dashboard:
     index:
       slogan: "Ένα διαδικτυακό παζάρι για την κοινότητά σου."
-      create_your_own: "Δημιουργήστε μία"
+      create_your_own: "Δημιούργησε μία"
       sharing_website: "ΚΟΙΝΟΤΗΤΑ KASSI"
-      main_description: "Δημιουργήστε ένα χώρο όπου τα μέλη της κοινότητά σας μπορούν να μοιράζονται αντικείμενα και υπηρεσίες σε ένα ασφαλές περιβάλλον."
-      kassi_for_your_company: "ΤΟ KASSI ΓΙΑ ΤΗΝ ΕΠΙΧΕΙΡΗΣΗ ΣΟΥ"
-      kassi_for_your_company_description: ~
+      main_description: "Δημιούργησε ένα μέρος όπου τα μέλη της κοινότητά σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
+      kassi_for_your_company: "ΤΟ KASSI ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
+      kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το Kassi στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους ενώ ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
       kassi_for_your_city: "ΤΟ KASSI ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: "ΤΟ KASSI ΓΙΑ ΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ ΣΟΥ"
-      kassi_for_your_university_description: ~
-      kassi_in_aalto_university: "Το Kassi στο Πανεπιστήμιο Aalto, Ελσίνκι"
-      want_kassi_for_your_community: "Θα ήθελες το Kassi για την κοινότητά σου;"
-      email_default_text: "Η ηλεκτρονική σου διεύθυνση"
+      kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το Kassi μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
+      kassi_for_your_university: "ΤΟ KASSI ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
+      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να γλιτώνουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το Kassi! Δείτε για παράδειγμα, <a href=\"http://upatras.kassi.eu/el\">το Kassi στο Πανεπιστήμιο Πατρών</a>"
+      want_kassi_for_your_community: "Θα ήθελες το Kassi στην κοινότητά σου;"
+      email_default_text: "Ηλεκτρονική διεύθυνση"
       send: Αποστολή!
       or_drop_us_a_line: "... ή επικοινώνησε μαζί μας:"
       thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σου σύντομα!"
@@ -166,13 +165,10 @@ el:
       blog: Blog
       code: Κώδικας
       issue_tracker: "Issue tracker"
-      product_of: "Το Kassi είναι ένα προϊόν του"
+      product_of: "Το Kassi είναι ένα προϊόν της"
       language: "Γλώσσα:"
       new: NEW!
-      kassi_in_use: "Το Kassi είναι τώρα διαθέσιμο"
-      wdc_neighborhoods: "στις γειτονιές του Helsinki και του Lahti"
-      and_for: "και για"
-      okl_members: "μέλη του Suomen Omakotiliitto"
+      new_text: "Τo Kassi είναι τώρα διαθέσιμο για <a href=\"http://upatras.kassi.eu/el\">την κοινότητα του Πανεπιστημίου Πατρών</a>"
   emails:
     accept_reminder:
       offer_accusative: προσφορά
