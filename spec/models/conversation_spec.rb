@@ -21,7 +21,7 @@ describe Conversation do
   end  
   
   it "should not be valid with a too long title" do
-    @conversation.title = "a" * 101
+    @conversation.title = "a" * 121
     @conversation.should_not be_valid
   end
   
