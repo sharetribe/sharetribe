@@ -97,6 +97,7 @@ Feature: User creates a new account
     And I check "person_terms"
     And I press "Create account"
     Then I should see my username
+    And I should not see "Testmanno"
     And I should not see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
   

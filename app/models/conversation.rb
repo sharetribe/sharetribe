@@ -9,7 +9,7 @@ class Conversation < ActiveRecord::Base
   
   VALID_STATUSES = ["pending", "accepted", "rejected"]
   
-  validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
   
   def self.unread_count(person_id)
