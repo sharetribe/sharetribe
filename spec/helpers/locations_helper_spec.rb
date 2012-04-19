@@ -19,7 +19,7 @@ describe LocationsHelper do
       it "should return the sum of durations and distances when whole route is traveled." do
         results = LocationsHelper.route_duration_and_distance("Otakaari 20", "Kaironkatu 2", ["ruoholahti,helsinki", "hakaniemen tori,helsinki"])
         results.should be_an_instance_of(Array)
-        results[0].should be_close(29, 1.5)
+        results[0].should be_close(30, 4)
         results[1].should be_close(16.6, 1)
       end
       
