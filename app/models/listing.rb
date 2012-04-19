@@ -66,7 +66,7 @@ class Listing < ActiveRecord::Base
   after_create :check_possible_matches
   
   validates_presence_of :author_id
-  validates_length_of :title, :in => 2..100, :allow_nil => false
+  validates_length_of :title, :in => 2..90, :allow_nil => false
   validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :listing_type, :in => VALID_TYPES
