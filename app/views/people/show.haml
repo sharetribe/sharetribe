@@ -37,6 +37,8 @@
         = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
       .profile_testimonials_link_to_all
         = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
+  - if @current_community.settings && @current_community.settings["use_trustcloud"]
+    = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}\"></script>".html_safe
         
         
 .grid_18
