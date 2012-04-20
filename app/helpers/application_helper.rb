@@ -1,4 +1,29 @@
 module ApplicationHelper
+
+  # Override translate method (or t method) to insert some variables that are always available for translations
+  def translate(key, options = {})
+    # insert here the variables
+    options.merge!(:service_name => service_name) unless options.key?(:service_name)
+    
+    # above are the inserted variables and otherwise the functionality below is straitgh from: 
+    # http://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html
+    
+    options.merge!(:rescue_format => :html) unless options.key?(:rescue_format)
+    if html_safe_translation_key?(key)
+      html_safe_options = options.dup
+      options.except(*I18n::RESERVED_KEYS).each do |name, value|
+        unless name == :count && value.is_a?(Numeric)
+          html_safe_options[name] = ERB::Util.html_escape(value.to_s)
+        end
+      end
+      translation = I18n.translate(scope_key_by_partial(key), html_safe_options)
+  
+      translation.respond_to?(:html_safe) ? translation.html_safe : translation
+    else
+      I18n.translate(scope_key_by_partial(key), options)
+    end
+  end
+  alias :t :translate
   
   # Removes whitespaces from HAML expressions
   def one_line(&block)
@@ -142,5 +167,13 @@ module ApplicationHelper
   
   def username_label
     @current_community.label.eql?("okl") ? t("okl.member_id") : t("common.username")
+  end
+  
+  def service_name
+    if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
+      return @current_community.settings["service_name"]
+    else
+      return APP_CONFIG.service_name
+    end
   end
 end
