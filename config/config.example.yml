@@ -129,6 +129,10 @@ default: &default_settings
   # Normally no need to touch this.
   session_key: _kassi_session
   
+  # Global Service name
+  # If you want to call this service with different name on this server, you can specify it here
+  # This can also be set community specific in community.settings["service_name"]
+  global_service_name: Kassi
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Kassi, you 

@@ -1,29 +1,4 @@
 module ApplicationHelper
-
-  # Override translate method (or t method) to insert some variables that are always available for translations
-  def translate(key, options = {})
-    # insert here the variables
-    options.merge!(:service_name => service_name) unless options.key?(:service_name)
-    
-    # above are the inserted variables and otherwise the functionality below is straitgh from: 
-    # http://api.rubyonrails.org/classes/ActionView/Helpers/TranslationHelper.html
-    
-    options.merge!(:rescue_format => :html) unless options.key?(:rescue_format)
-    if html_safe_translation_key?(key)
-      html_safe_options = options.dup
-      options.except(*I18n::RESERVED_KEYS).each do |name, value|
-        unless name == :count && value.is_a?(Numeric)
-          html_safe_options[name] = ERB::Util.html_escape(value.to_s)
-        end
-      end
-      translation = I18n.translate(scope_key_by_partial(key), html_safe_options)
-  
-      translation.respond_to?(:html_safe) ? translation.html_safe : translation
-    else
-      I18n.translate(scope_key_by_partial(key), options)
-    end
-  end
-  alias :t :translate
   
   # Removes whitespaces from HAML expressions
   def one_line(&block)
@@ -173,7 +148,35 @@ module ApplicationHelper
     if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
       return @current_community.settings["service_name"]
     else
-      return APP_CONFIG.service_name
+      return APP_CONFIG.global_service_name || "Kassi"
     end
   end
+  
+  # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
+  def self.store_community_service_name_to_thread(name)
+    Thread.current[:current_community_service_name] = name
+  end
+  
+  # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
+  # If called without host information, set's the server default
+  def self.store_community_service_name_to_thread_from_host(host=nil)
+      ser_name = APP_CONFIG.global_service_name || "Kassi"
+      
+      if host.present?
+        community_domain = host.split(".")[0] #pick the subdomain part
+        community = Community.find_by_domain(community_domain)
+      
+        # if community has it's own setting, dig it out here
+        if community && community.settings && community.settings["service_name"].present?
+          ser_name = community.settings["service_name"]
+        end
+      end
+      
+      store_community_service_name_to_thread(ser_name)
+    end
+    
+  def self.fetch_community_service_name_from_thread
+    Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Kassi"
+  end
+  
 end
