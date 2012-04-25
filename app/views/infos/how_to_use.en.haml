@@ -2,7 +2,7 @@
 
 %p
   Do you own tools, sports equipment, funny costumes or other items that you do not use often and could easily lend to others, or even sell or give them away? Are you good at fixing bikes, sewing or perhaps eager to walk dogs? Would you be willing to give a ride to somebody for some gas money when travelling to work? Do you have an apartment waiting for someone to rent it? 
-  = link_to "Add information about all these to Kassi", new_request_path(:type => "offer")
+  = link_to "Add information about all these to #{service_name}", new_request_path(:type => "offer")
   and experience the joy of helping your fellow man!
 
 %p
@@ -11,28 +11,28 @@
   Maybe you can offer something that someone is currently requesting.
 
 %p
-  Kassi aims to bring together people who need something and who can offer something. They can then freely discuss on the methods of exchange. This means that you sell, rent and trade or give, lend and help others for free.
+  #{service_name} aims to bring together people who need something and who can offer something. They can then freely discuss on the methods of exchange. This means that you sell, rent and trade or give, lend and help others for free.
 
 %h3 Ask others what you need
 
 %p
-  Whether you need an item, a favor, a ride or an apartment, they can all be found using Kassi's useful
+  Whether you need an item, a favor, a ride or an apartment, they can all be found using #{service_name}'s useful
   = link_to("search", search_path) + "."
   You can also
   = link_to("browse open offers", offers_path) + "."
 
 %p
-  If somebody is already offering what you need in Kassi, you can click the "request" or "reply" link in that offer and send a free message to the person who created the offer using the form that opens up. After that you only need to wait for the recipient of the message to accept your request. You can agree on the details of the exchange by Kassi's messaging functionality. You will get an automatic email notification from all new messages and accepted requests and offers. Thus, there's no need for you to reveal your email address to the other party unless you wish to do so. You can view all your received and sent messages and accepted, rejected and pending requests and offers in the
+  If somebody is already offering what you need in #{service_name}, you can click the "request" or "reply" link in that offer and send a free message to the person who created the offer using the form that opens up. After that you only need to wait for the recipient of the message to accept your request. You can agree on the details of the exchange by #{service_name}'s messaging functionality. You will get an automatic email notification from all new messages and accepted requests and offers. Thus, there's no need for you to reveal your email address to the other party unless you wish to do so. You can view all your received and sent messages and accepted, rejected and pending requests and offers in the
   - if logged_in?
     = link_to("messages view", person_messages_path(:person_id => @current_user.id)) + ","
   - else 
     messages view,
-  which you can always access by clicking the envelope icon on the top of each page, when you have logged in to Kassi.
+  which you can always access by clicking the envelope icon on the top of each page, when you have logged in to #{service_name}.
 
 %p
   If you did not find what you are looking for, you can
   = link_to("create an open request", new_request_path(:type => "request")) + ","
-  where you describe what you need. This request will be shown to all other Kassi users. It is very likely that somebody can offer just the thing you need.
+  where you describe what you need. This request will be shown to all other #{service_name} users. It is very likely that somebody can offer just the thing you need.
   
 %h3 Tips
 
@@ -54,7 +54,7 @@
 -if APP_CONFIG.use_sms
   %h3 Ridesharing with SMS
   
-  %p Ridesharing offers and requests can be added also with sms. It can be a handy way to check available rides on the move or announce your driving plans when walking towards your car. Kassi will inform the offer author by sms if the number is in the profile in the international form (e.g. +358501234567), when matching offers are found in Kassi.
+  %p Ridesharing offers and requests can be added also with sms. It can be a handy way to check available rides on the move or announce your driving plans when walking towards your car. #{service_name} will inform the offer author by sms if the number is in the profile in the international form (e.g. +358501234567), when matching offers are found in #{service_name}.
 
   %p
     Before posting offers or requests with sms you have to have added your mobile phone number
@@ -68,7 +68,7 @@
     %li kassi ride offer somestreet20 Helsinki 18:30 still place for two in the car
     %li kassi ride request railwaystation,h채meenlinna Tampere 14:00
   
-  %p Currently Kassi separates all parts by spaces, so write addres numbers or other clarifications without space, to correct results. Kassi will search for matching request and offers based on the locations given.
+  %p Currently #{service_name} separates all parts by spaces, so write addres numbers or other clarifications without space, to correct results. #{service_name} will search for matching request and offers based on the locations given.
   
   %p The time is expected to be within next 24 hours, but it is possible to write exact date if you want, e.g. 24.11.2010-17:30.
   

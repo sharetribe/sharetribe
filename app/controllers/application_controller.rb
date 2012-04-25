@@ -122,6 +122,10 @@ class ApplicationController < ActionController::Base
 
     # Otherwise pick the domain normally from the request subdomain
     if @current_community = Community.find_by_domain(request.subdomain)
+      
+      #Store to thread the service_name used by current community, so that it can be included in all translations
+      ApplicationHelper.store_community_service_name_to_thread(service_name)
+       
       if @current_user && @current_user.communities.include?(@current_community)
         @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
