@@ -52,6 +52,7 @@ ca:
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
+    username: Usuari
     share_types:
       borrow: prèstecs
       buy: comprar
@@ -63,7 +64,6 @@ ca:
       sell: Vendre
       temporary_accommodation: "Allotjament temporal"
       trade: Intercanviar
-    username: Usuari
     what_is_this: "Què és això?"
   conversations:
     index:
@@ -370,11 +370,11 @@ ca:
       loading_more_content: "S'estan carregant més continguts"
       more_events: "Més esdeveniments"
       news: Notícies
-      no_news: "No hi ha cap notícia"
-      more_news: "Més notícies"
       offer_something: Ofereix!
       offer_something_description: "Fes una llista de les coses i favors que pots oferir"
       or: i
+      no_news: "No hi ha cap notícia"
+      more_news: "Més notícies"
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
       recent_offers: "El que la gent ofereix"
@@ -402,9 +402,9 @@ ca:
       poll_answers: respostes
     profile_info_empty_notification:
       add_your_info: "Afegeix la teva informació de contacte"
-      add_a_profile_picture: "Afegeix una fotografia de perfil"
       you_have_not_added_your_info: "No has afegit informació de contacte. Si us plau fes-ho, així serà més fàcil que els altres contactin amb tu. Afegeix també una imatge de perfil per a que et puguin reconèixer."
       add_your_info_link: "Afegeix la teva informació ara"
+      add_a_profile_picture: "Afegeix una fotografia de perfil"
     recent_listing:
       please_offer: Oferta
     sign_in:
@@ -549,10 +549,10 @@ ca:
       you_cannot_reply_to_your_own_request: "No pots respondre a la teva pròpia sol·licitud"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
+      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
       you_must_log_in_to_create_new_offer: "Inicia sessió per a crear una nova oferta. Si no tens compte pots"
       you_must_log_in_to_create_new_request: "Inicia sessió per a crear una nova sol·licitud. Si no tens compte pots"
       you_must_log_in_to_give_feedback: "Iniciar sessió per a fer una suggerència"
-      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
       you_must_log_in_to_send_a_comment: "Iniciar sessió per a comentar"
       you_must_log_in_to_send_a_message: "Iniciar sessió per a enviar un missatge a un usuari"
       you_must_log_in_to_view_this_content: "Iniciar sessió per a veure el contingut"
@@ -797,8 +797,8 @@ ca:
       badges_description_title: Medalles
       feedback_description_title: Suggeriment
       help_captcha_title: "Ets una persona?"
-      help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de Kassi"
+      help_invitation_code_title: "Necessites una invitació per unir-te a"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
@@ -814,8 +814,6 @@ ca:
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"
-      invalid_invitation_code: "El codi d'invitació no és vàlid"
-      invitation_code: "Codi d'invitació:"
       not_required: ", no és necessari"
       password_again: "Confirma la contrasenya:"
       show_my_name_to_others: "Mostra el meu nom real als altres usuaris"
@@ -825,6 +823,8 @@ ca:
       username_is_invalid: "El nom d'usuari no és vàlid. Els caràcters permesos són lletres, números i guió baix."
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
+      invitation_code: "Codi d'invitació:"
+      invalid_invitation_code: "El codi d'invitació no és vàlid"
     not_member:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"

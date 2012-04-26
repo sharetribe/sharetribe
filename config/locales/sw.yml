@@ -52,6 +52,7 @@ sw:
     fields_that_are_mandatory: "Sehemu zilizo na alama ya nyota(*) ni lazima kujazwa"
     or: au
     password: ~
+    username: ~
     share_types:
       borrow: kuazimwa
       buy: kununua
@@ -63,7 +64,6 @@ sw:
       sell: kuuza
       temporary_accommodation: ~
       trade: ~
-    username: ~
     what_is_this: "Nini hii?"
   conversations:
     index:
@@ -368,11 +368,11 @@ sw:
       loading_more_content: ~
       more_events: ~
       news: ~
-      no_news: ~
-      more_news: ~
       offer_something: ~
       offer_something_description: ~
       or: ~
+      no_news: ~
+      more_news: ~
       or_see_what_the_others: ~
       recent_events: ~
       recent_offers: ~
@@ -400,9 +400,9 @@ sw:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
-      add_a_profile_picture: ~
       you_have_not_added_your_info: ~
       add_your_info_link: ~
+      add_a_profile_picture: ~
     recent_listing:
       please_offer: ~
     sign_in:
@@ -547,10 +547,10 @@ sw:
       you_cannot_reply_to_your_own_request: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
+      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_create_new_offer: ~
       you_must_log_in_to_create_new_request: ~
       you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: ~
       you_must_log_in_to_send_a_message: ~
       you_must_log_in_to_view_this_content: ~
@@ -795,8 +795,8 @@ sw:
       badges_description_title: ~
       feedback_description_title: ~
       help_captcha_title: ~
-      help_invitation_code_title: ~
       terms_title: ~
+      help_invitation_code_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
@@ -812,8 +812,6 @@ sw:
       family_name: ~
       given_name: ~
       i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
       not_required: ~
       password_again: ~
       show_my_name_to_others: ~
@@ -823,6 +821,8 @@ sw:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
+      invitation_code: ~
+      invalid_invitation_code: ~
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~

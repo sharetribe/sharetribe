@@ -2,7 +2,7 @@ fr:
   admin:
     badges:
       index:
-        add_new_badge: "Ajouter nouveau badge"
+        add_new_badge: "Ajouter un nouveau badge"
         existing_badges: "Badges existants"
         image: "Image de badge"
         name: "Nom de badge"
@@ -52,6 +52,7 @@ fr:
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
     password: "Mot de passe"
+    username: "Nom d'utilisateur"
     share_types:
       borrow: "à emprunter"
       buy: "à acheter"
@@ -63,7 +64,6 @@ fr:
       sell: "à vendre"
       temporary_accommodation: "hébergement temporaire"
       trade: "à échanger"
-    username: "Nom d'utilisateur"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
@@ -368,11 +368,11 @@ fr:
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
       news: Actualités
-      no_news: ~
-      more_news: ~
       offer_something: "Listez vos articles et vos compétences !"
       offer_something_description: "Ajouter les articles, compétences et covoiturages que vous pouvez proposer"
       or: ou
+      no_news: ~
+      more_news: ~
       or_see_what_the_others: "... ou voir ce que les autres"
       recent_events: "Evénements les plus récents"
       recent_offers: "Ce que proposent les autres"
@@ -400,9 +400,9 @@ fr:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
-      add_a_profile_picture: ~
       you_have_not_added_your_info: ~
       add_your_info_link: ~
+      add_a_profile_picture: ~
     recent_listing:
       please_offer: Offrir
     sign_in:
@@ -547,10 +547,10 @@ fr:
       you_cannot_reply_to_your_own_request: "Vous ne pouvez pas répondre à votre propre demande"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
+      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_create_new_offer: "Vous devez être connecté à Kassi pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_create_new_request: "Vous devez être connecté à Kassi pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
-      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à Kassi pour envoyer un message à un autre utilisateur."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
@@ -795,8 +795,8 @@ fr:
       badges_description_title: Badges
       feedback_description_title: Commentaires
       help_captcha_title: "Etes-vous humain ?"
-      help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de Kassi"
+      help_invitation_code_title: "Il vous faut une invitation pour participer"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
       inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
@@ -812,8 +812,6 @@ fr:
       family_name: "Nom de famille :"
       given_name: "Prénom :"
       i_accept_the: "J'accepte les"
-      invalid_invitation_code: "Le code d'invitation n'est pas valide."
-      invitation_code: "Code d'invitation :"
       not_required: ", pas demandé"
       password_again: "Confirmer le mot de passe :"
       show_my_name_to_others: ~
@@ -823,6 +821,8 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
       visible_to_everybody: "visible à tout le monde"
+      invitation_code: "Code d'invitation :"
+      invalid_invitation_code: "Le code d'invitation n'est pas valide."
     not_member:
       explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, Kassi ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
       read_more_about_kassi_communities: "En savoir plus sur les communautés Kassi"

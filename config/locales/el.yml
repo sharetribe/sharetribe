@@ -52,6 +52,7 @@ el:
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
     password: Κωδικός
+    username: "Όνομα χρήστη:"
     share_types:
       borrow: δανεισμός
       buy: αγορά
@@ -63,7 +64,6 @@ el:
       sell: πώληση
       temporary_accommodation: "προσωρινή φιλοξενία"
       trade: ανταλλαγή
-    username: "Όνομα χρήστη:"
     what_is_this: "Τι είναι αυτό;"
   conversations:
     index:
@@ -368,11 +368,11 @@ el:
       loading_more_content: "Εμφάνιση περισσότερων καταχωρήσεων"
       more_events: Περισσότερα...
       news: Νέα
-      no_news: ~
-      more_news: ~
       offer_something: "Πρόσφερε κάτι!"
       offer_something_description: "Aντικείμενα, βοήθειά, διαδρομές με το όχημά σου"
       or: ή
+      no_news: ~
+      more_news: ~
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
       recent_offers: "Τι προσφέρουν άλλοι"
@@ -400,9 +400,9 @@ el:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: "Γράψε τα στοιχεία επικοινωνίας σου"
-      add_a_profile_picture: ~
       you_have_not_added_your_info: "Δεν έχεις συμπληρώσει τα στοιχεία επικοινωνίας σου. Καλύτερα να τα συμπληρώσεις ώστε οι άλλοι χρήστες να μπορούν να έρθουν σε επαφή μαζί σου πιο εύκολα. Επίσης, αν βάλεις μια φωτογραφία σου στο προφίλ σου, θα σε εμπιστεύονται πιο εύκολα."
       add_your_info_link: "Πρόσθεσε πληροφορίες για σένα"
+      add_a_profile_picture: ~
     recent_listing:
       please_offer: Προσφορά
     sign_in:
@@ -547,10 +547,10 @@ el:
       you_cannot_reply_to_your_own_request: "Δεν μπορείς να απαντήσεις στο δικό σου αίτημα"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
+      you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο Kassi"
       you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να δημιουργήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο Kassi για να δημιουργήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείς για να κάνεις κριτική"
-      you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο Kassi"
       you_must_log_in_to_send_a_comment: "Πρέπει να συνδεθείς για να σχολιάσεις"
       you_must_log_in_to_send_a_message: "Πρέπει να συνδεθείς στο Kassi για να στείλεις μήνυμα σε άλλο χρήστη."
       you_must_log_in_to_view_this_content: "Θα πρέπει να συνδεθείς για να δεις αυτό το περιεχόμενο"
@@ -795,8 +795,8 @@ el:
       badges_description_title: Κονκάρδες
       feedback_description_title: Κριτική
       help_captcha_title: "Είσαι όντως άνθρωπος;"
-      help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του Kassi"
+      help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο Kassi"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το Kassi. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
@@ -812,8 +812,6 @@ el:
       family_name: "Επώνυμο:"
       given_name: "Όνομα:"
       i_accept_the: "Αποδέχομαι τους"
-      invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
-      invitation_code: "Κωδικός πρόσκλησης:"
       not_required: ", δεν απαιτείται"
       password_again: "Επιβεβαίωση κωδικού:"
       show_my_name_to_others: "Εμφάνισε το πραγματικό μου όνομα στους άλλους χρήστες του Kassi"
@@ -823,6 +821,8 @@ el:
       username_is_invalid: "Το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
       visible_only_to_you: "ορατό μόνο σε σένα και το διαχειριστή της κοινότητας"
       visible_to_everybody: "ορατές σε όλους"
+      invitation_code: "Κωδικός πρόσκλησης:"
+      invalid_invitation_code: "Ο κωδικός της πρόσκλησης δεν είναι έγκυρος."
     not_member:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το Kassi δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
       read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες Kassi"
