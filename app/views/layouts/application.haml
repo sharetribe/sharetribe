@@ -2,6 +2,7 @@
 !!! xml
 %html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
   %head
+    = render :partial => "layouts/kissmetrics"
     %title 
       Kassi
       - if @listing && action_name.eql?("show")
