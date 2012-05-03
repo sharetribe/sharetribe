@@ -320,7 +320,7 @@ en:
       offer_partitive: "offer"
       request_partitive: "request"
   header:
-    about: About %{service_name}
+    about: About
     community: Community
     home: Home
     mobile_version: "Mobile version"
@@ -440,8 +440,8 @@ en:
     dashboard:
       title: "%{service_name} - share goods, services and rides in your local community!"
     infos:
-      about: "What is %{service_name}?"
-      how_to_use: "How to use %{service_name}"
+      about: "What is it"
+      how_to_use: "How to use"
       info_about_kassi: "Information about %{service_name}"
       news: "News"
       register_details: "Register details"
