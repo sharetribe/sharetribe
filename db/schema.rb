@@ -10,8 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20120210171827) do
+ActiveRecord::Schema.define(:version => 20120303172713) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -69,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120210171827) do
     t.boolean  "all_users_can_add_news",                    :default => false
     t.boolean  "show_date_in_listings_list",                :default => false
     t.boolean  "custom_frontpage_sidebar",                  :default => true
+    t.boolean  "event_feed_enabled",                        :default => true
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -123,6 +123,18 @@ ActiveRecord::Schema.define(:version => 20120210171827) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
+
+  create_table "event_feed_events", :force => true do |t|
+    t.string   "person1_id"
+    t.string   "person2_id"
+    t.string   "community_id"
+    t.integer  "eventable_id"
+    t.string   "eventable_type"
+    t.string   "category"
+    t.boolean  "members_only",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "favors", :force => true do |t|
     t.string   "owner_id"
@@ -278,6 +290,7 @@ ActiveRecord::Schema.define(:version => 20120210171827) do
     t.datetime "valid_until"
     t.boolean  "delta",                   :default => true,        :null => false
     t.boolean  "open",                    :default => true
+    t.string   "share_type"
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

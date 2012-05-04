@@ -9,7 +9,7 @@ class Conversation < ActiveRecord::Base
   
   VALID_STATUSES = ["pending", "accepted", "rejected"]
   
-  validates_length_of :title, :in => 1..100, :allow_nil => false
+  validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
   
   def self.unread_count(person_id)
@@ -80,12 +80,10 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
   
-  def change_status(new_status, current_user, request)
+  def change_status(new_status, current_user, current_community, request)
     update_attribute(:status, new_status)
     participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
-    if other_party(current_user).should_receive?("email_when_conversation_#{new_status}")
-      PersonMailer.conversation_status_changed(self, request.host).deliver
-    end      
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id, request.host)) 
   end
   
   def has_feedback_from_all_participants?
@@ -95,6 +93,10 @@ class Conversation < ActiveRecord::Base
   
   def offerer
     participants.each { |p| return p if listing.offerer?(p) }
+  end
+  
+  def requester
+    participants.each { |p| return p unless listing.offerer?(p) }
   end
 
 end

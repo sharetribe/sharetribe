@@ -69,30 +69,17 @@ describe Listing do
   end
   
   it "is only valid if the share type corresponds with the category" do
-    @listing.share_types.clear 
+    @listing.share_type = nil
     @listing.should_not be_valid
     Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
     Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
     [
-      ["request", "item", ["test"]],
-      ["request", "item", ["buy", "test"]],
-      ["request", "item", ["sell"]],
-      ["request", "item", ["buy", "sell"]],
-      ["request", "favor", ["buy", "borrow"]],
-      ["request", "rideshare", ["sell"]],
-      ["request", "housing", ["test"]],
-      ["request", "housing", ["buy", "test"]],
-      ["request", "housing", ["borrow"]],
-      ["request", "housing", ["sell"]],
-      ["request", "housing", ["buy", "sell"]],
-      ["offer", "item", ["test"]],
-      ["offer", "item", ["sell", "test"]],
-      ["offer", "item", ["buy"]],
-      ["offer", "item", ["buy", "sell"]],
-      ["offer", "housing", ["test"]],
-      ["offer", "housing", ["sell", "test"]],
-      ["offer", "housing", ["lend"]],
-      ["offer", "housing", ["lend", "sell"]]
+      ["request", "item", "test"],
+      ["request", "favor", "borrow"],
+      ["request", "rideshare", "sell"],
+      ["request", "housing", "test"],
+      ["offer", "item", "test"],
+      ["offer", "housing", "test"]
     ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
   end
 
@@ -115,8 +102,7 @@ describe Listing do
   
     before(:each) do
       @listing.listing_type = "offer"
-      @listing.share_types.clear
-      ["sell", "lend"].each { |st| @listing.share_types.build(:name => st) }
+      @listing.share_type = "lend"
     end
     
     it "should be valid when there is no valid until" do
@@ -130,7 +116,7 @@ describe Listing do
   context "with category 'rideshare'" do
     
     before(:each) do
-      @listing.share_types = []
+      @listing.share_type = nil
       @listing.category = "rideshare"
       @listing.origin = "Otaniemi"
       @listing.destination = "Turku"
@@ -171,7 +157,7 @@ describe Listing do
     end
     
     it "is not valid with share type" do
-      @listing.share_types.build(:name => "buy")
+      @listing.share_type = "buy"
       @listing.should_not be_valid
     end  
     
@@ -319,15 +305,10 @@ describe Listing do
   
   private
   
-  def set_share_type(listing)
-    
-  end
-  
   def valid_with_share_types
-    @listing.share_types.clear
     if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
       Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |st|
-        @listing.share_types.build(:name => st)
+        @listing.share_type = st
         @listing.should be_valid
       end
     end  
@@ -339,13 +320,10 @@ describe Listing do
     valid_with_share_types
   end
   
-  def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_types)
+  def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
     @listing.listing_type = listing_type
     @listing.category = category
-    @listing.share_types.clear
-    share_types.each do |st|
-      @listing.share_types.build(:name => st)
-    end
+    @listing.share_type = share_type
     @listing.should_not be_valid
   end
   

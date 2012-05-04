@@ -98,15 +98,14 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
       And wait for 2 seconds
     }
   else
+    if ["item", "housing"].include?(category)
+      steps %Q{ And I select "Selling" from "listing_share_type" } if listing_type.eql?("offer")
+      steps %Q{ And I select "Buying" from "listing_share_type" } if listing_type.eql?("request")
+    end
     steps %Q{ And I fill in "listing_title" with "Test" }
   end
   if share_type
-    steps %Q{ And I uncheck "lend" }
-    share_type.split(",").each do |st|
-      steps %Q{
-        And I check "#{st}"
-      }
-    end
+    steps %Q{ And I select "#{share_type.capitalize}ing" from "listing_share_type"}
   end
   steps %Q{
     And I press "Save #{listing_type}"

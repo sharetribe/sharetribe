@@ -80,11 +80,8 @@ class ConversationsController < ApplicationController
   end
   
   def change_status(status)
-    @conversation.change_status(status, @current_user, request)
+    @conversation.change_status(status, @current_user, @current_community, request)
     flash.now[:notice] = "#{@conversation.discussion_type}_#{status}"
-    if status.eql?("accepted")
-      Delayed::Job.enqueue(ConversationAcceptedJob.new(@conversation.id, request.host))
-    end
     respond_to do |format|
       format.html { render :action => :show }
       format.js { render :layout => false }

@@ -155,7 +155,6 @@ es-ES:
       kassi_for_your_city_description: "Quieres transformar tu barrio o comunidad en un lugar donde las personas se conocen y se pueden poner en contacto entre ellas cuando necesitan algo? Quieres incentivar a las personas a mejorar sus vidas? Kassi te ayudará a lograr esto."
       kassi_for_your_university: "Kassi para tu universidad"
       kassi_for_your_university_description: "Quieres crear un ambiente en tu campus donde las personas se conozcan y puedan confiar entre ellas? Quieres ayudar a los estudiantes y el personal a ahorrar tiempo, dinero y contribuir al medioambiente? Prueba Kassi y percibe el cambio! Un ejemplo:"
-      kassi_in_aalto_university: ~
       want_kassi_for_your_community: "Quieres a Kassi para tu comunidad?"
       email_default_text: "Tu dirección email"
       send: Enviar!
@@ -169,10 +168,7 @@ es-ES:
       product_of: "Kassi es un producto de"
       language: "Idioma:"
       new: NUEVO!
-      kassi_in_use: "Kassi se encuentra ahora disponible para"
-      wdc_neighborhoods: ~
-      and_for: "y para"
-      okl_members: ~
+      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -295,6 +291,35 @@ es-ES:
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
     your_email_address: "Tu dirección email"
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_temporary_accommodation_housing: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+      to: ~
+      with: ~
+      rideshare_with_person: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
   header:
     about: "Acerca de Kassi"
     community: Comunidad
@@ -335,6 +360,8 @@ es-ES:
       ride_request: "Un trayecto al trabajo"
       some_private_offers_exist: "Ya existen <b>%{number_of_listings} ofertas</b>,"
       some_private_requests_exist: "Ya existen <b>%{number_of_listings} solicitudes</b>,"
+    event_feed:
+      latest_events: ~
     index:
       are_offering: oferta
       add_news_item: ~
@@ -607,6 +634,7 @@ es-ES:
         save_offer: "Guardar oferta"
         save_request: "Guardar solicitud"
       share_type:
+        select: ~
         borrow: Prestar
         buy: Comprar
         give_away: Regalar
@@ -727,13 +755,54 @@ es-ES:
       time: Hora
       times: veces
       times_viewed: Visto
+  mapview:
+    index:
+      all_categories: "Todas las categorías"
+      all_offer_types: "Todos los tipos de ofertas"
+      all_request_types: "Todos los tipos de solicitudes"
+      category: Categoría
+      did_not_found_what_you_were_looking_for: "No encontraste lo que necesitabas?"
+      favors: Servicios
+      housing: Alojamiento
+      items: Artículos
+      list_view: "Vista de lista"
+      map_view: "Vista de mapa"
+      offer_something: "Hazlo saber a los demás!"
+      offer_type: "Tipo de oferta"
+      offers: Ofertas
+      request_something: "Solicita algo!"
+      request_type: "Tipo de solicitud"
+      requests: Solicitudes
+      rideshare: "Traslado compartido"
+      search_verb: Buscar
+      you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
+    please_comment: Comentario
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   people:
+    badge_description:
+      badge_achieved_at: "Medalla obtenida "
+      you_do_not_yet_have_this_badge: "La medalla no ha sido lograda."
+    edit_links:
+      activate: Activar
+      deactivate: Desactivar
+    help_texts:
+      badges_description_title: Medallas
+      feedback_description_title: Sugerencia
+      help_captcha_title: "¿Eres humano?"
+      help_invitation_code_title: "Necesitas una invitación para unirte a"
+      terms_title: "Términos de uso de Kassi"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
+      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
     new:
-      password: "Contraseña:"
-      username: "Nombre de usuario:"
-      member_id: "Número de identificación"
-      member_id_is_your_username: ~
-      join_here: "Ingresa aquí."
       address_validator: "No se encontró la ubicación."
       captcha_incorrect: "Error de comprobación de reCAPTCHA. Por favor escriba las palabras que aparecen en el recuadro siguiente."
       captcha_was_wrong: "Texto captcha incorrecto."
@@ -756,21 +825,6 @@ es-ES:
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
-    badge_description:
-      badge_achieved_at: "Medalla obtenida "
-      you_do_not_yet_have_this_badge: "La medalla no ha sido lograda."
-    edit_links:
-      activate: Activar
-      deactivate: Desactivar
-    help_texts:
-      badges_description_title: Medallas
-      feedback_description_title: Sugerencia
-      help_captcha_title: "¿Eres humano?"
-      help_invitation_code_title: "Necesitas una invitación para unirte a"
-      terms_title: "Términos de uso de Kassi"
-    inactive_notification:
-      this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
-      inactive_description: "Este usuario ha dejado de utilizar Kassi. No puede ponerse en contacto con él, hacerle sugerencias o comentar sus peticiones."
     not_member:
       explanation_text: "Usted actualmente se encuentra en la comunidad de %{community}. Intentó ver el perfil de un usuario que pertenece a otra comunidad. Actualmente, Kassi no permite que usted ingrese a distintas comunidades simultáneamente, por lo que no puede acceder al perfil de este usuario a través de la comunidad de %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Esta opción estará disponible pronto en el sitio."
       read_more_about_kassi_communities: "Lea más sobre las comunidades de Kassi"
@@ -897,41 +951,18 @@ es-ES:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "Qué son estos?"
-  mapview:
-    index:
-      all_categories: "Todas las categorías"
-      all_offer_types: "Todos los tipos de ofertas"
-      all_request_types: "Todos los tipos de solicitudes"
-      category: Categoría
-      did_not_found_what_you_were_looking_for: "No encontraste lo que necesitabas?"
-      favors: Servicios
-      housing: Alojamiento
-      items: Artículos
-      list_view: "Vista de lista"
-      map_view: "Vista de mapa"
-      offer_something: "Hazlo saber a los demás!"
-      offer_type: "Tipo de oferta"
+  search:
+    show:
+      all_results: "Todos los resultados"
+      loading_more_search_results: "Cargar más resultados de búsqueda"
       offers: Ofertas
-      request_something: "Solicita algo!"
-      request_type: "Tipo de solicitud"
       requests: Solicitudes
-      rideshare: "Traslado compartido"
-      search_verb: Buscar
-      you_have_something_others_do_not: "Tienes algo que quieres ofertar?"
-    please_comment: Comentario
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
-  okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
+      search: Buscar
+      search_results: "Resultados de búsqueda"
+      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
+      search_verb: buscar
   sessions:
     new:
-      password: Contraseña
-      username: "Nombre de usuario"
       create_new_account: "Crear una cuenta nueva"
       i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
       login: "Iniciar sesión"
@@ -950,8 +981,6 @@ es-ES:
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
   settings:
     account:
-      password: "Contraseña:"
-      username: "Nombre de usuario:"
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
       email: "Dirección de correo electrónico:"
@@ -989,16 +1018,6 @@ es-ES:
       visible_to_everybody: "visible para todo el mundo"
       visible_to_registered_users: "visible a los usuarios que han iniciado sesión"
     save_information: "Guardar Información"
-  search:
-    show:
-      all_results: "Todos los resultados"
-      loading_more_search_results: "Cargar más resultados de búsqueda"
-      offers: Ofertas
-      requests: Solicitudes
-      search: Buscar
-      search_results: "Resultados de búsqueda"
-      search_returned_no_results: "Su búsqueda no ha obtenido resultados."
-      search_verb: buscar
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~

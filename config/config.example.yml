@@ -1,11 +1,15 @@
 default: &default_settings
   
-  # The domain where you are running Kassi.
+  # If you want to make logins work accross different subdomains you should put here the domain where you are running Kassi.
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
-  # The session cookies will apply for the whole domain 
+  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
+  # If you use domain aliases e.g. kassi.eu & kassi.cl, leave this empty.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "kassi.eu" for example
-  domain: "lvh.me:3000"
+  domain:
+  
+  # If you use weekly emails, you can specify here which domain is used in the links 
+  weekly_email_domain: "lvh.me:3000"
   
   # Login url. This can be a separate address for loggin in. For example
   # a subdomain with https. It's recommended to use https here, so passwords
@@ -50,7 +54,7 @@ default: &default_settings
   recaptcha_public_key: 'enter_your_own_key_here'
   recaptcha_private_key: 'enter_your_own_key_here'  
 
-  # You can use Hoptoad to track errors if you want.
+  # You can use Airbrake (formerly hoptoad) to track errors if you want.
   # You need to register an account and get an API key from hoptoadapp.com 
   use_hoptoad: false
   hoptoad_api_key: 'your_own_api_key_here'
@@ -125,8 +129,18 @@ default: &default_settings
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
   
+
   # If you have migrated from using ASI to use standalone Kassi, you have to provide the same crypto_helper_key here for the users' old passwords to work. The default is to leave this empty and then a better encryption method will be used.
   crypto_helper_key: 
+
+  # If you need for some reason change the session key used in cookies, you can do it here.
+  # Normally no need to touch this.
+  session_key: _kassi_session
+  
+  # Global Service name
+  # If you want to call this service with different name on this server, you can specify it here
+  # This can also be set community specific in community.settings["service_name"]
+  global_service_name: Kassi
   
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Kassi, you 

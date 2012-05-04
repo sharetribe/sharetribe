@@ -80,6 +80,7 @@ function add_validator_methods() {
   			return true; 
   	 	}
   	);
+
 }
 
 // Initialize code that is needed for every view
@@ -127,7 +128,7 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, checkbox_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
 	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
@@ -162,8 +163,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "listing[share_type_attributes][]") {
-				error.appendTo(element.parent().parent().parent().parent().parent().parent());
+			if (element.attr("name") == "listing[share_type]") {
+				error.appendTo(element.parent().parent());
 			} else if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
 				error.appendTo(element.parent().parent());
 			} else if (element.attr("name") == "listing[valid_until(1i)]") {
@@ -181,7 +182,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[title]": {required: true},
 			"listing[origin]": {required: rs, address_validator: true},
 			"listing[destination]": {required: rs, address_validator: true},
-			"listing[share_type_attributes][]": {required: true, minlength: 1},
+			"listing[share_type]": {required: true},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
 			"listing[valid_until(4i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -190,7 +191,7 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, check
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[share_type_attributes][]": { required: checkbox_message },
+			"listing[share_type]": { required: share_type_message },
 			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
 			"listing[valid_until(2i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },

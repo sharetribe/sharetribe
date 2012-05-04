@@ -1,0 +1,15 @@
+- listing = event_feed_event.eventable.listing
+= link_to event_feed_event.person1.given_name_or_username, event_feed_event.person1
+- if listing.share_type
+  = t(".has_accepted_#{listing.share_type}_#{listing.category}")
+- else
+  = t(".has_accepted_#{listing.category}")
+= link_to("#{event_feed_event.eventable.listing.title}", event_feed_event.eventable.listing)
+- if listing.category.eql?("rideshare") || (listing.share_type && listing.share_type.eql?("trade"))
+  = t(".with")
+- else
+  = t(".to")
+= link_to event_feed_event.person2.given_name_or_username, event_feed_event.person2
+- if listing.category.eql?("rideshare")
+  = t(".rideshare_with_person")
+= time_ago(event_feed_event.created_at) + "."
