@@ -99,8 +99,9 @@ class PeopleController < Devise::RegistrationsController
       if use_asi?
         @person = Person.create(params[:person].except(:email2), session[:cookie], @current_community.use_asi_welcome_mail?)
       else
+        params["person"].delete(:terms) #remove terms part which confuses Devise
+        
         # This part is copied from Devise's regstration_controller#create
-
         build_resource
         @person = resource
         if @person.save

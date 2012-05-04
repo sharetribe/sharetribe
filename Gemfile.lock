@@ -32,7 +32,6 @@ GEM
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (3.0.1)
-    bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -127,7 +126,7 @@ GEM
     newrelic_rpm (3.1.1)
     nokogiri (1.4.4)
     nokogiri (1.4.4-x86-mingw32)
-    orm_adapter (0.0.5)
+    orm_adapter (0.0.7)
     paperclip (2.3.8)
       activerecord
       activesupport
@@ -210,7 +209,7 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.31)
-    warden (1.1.0)
+    warden (1.1.1)
       rack (>= 1.0)
     web_translate_it (1.7.3.1)
       multipart-post (~> 1.1.0)

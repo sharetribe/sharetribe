@@ -1,6 +1,6 @@
 module ApplicationHelper
   
-  @@use_asi_in_this_test = true
+  @@use_asi_in_this_test = false
   
   # Removes whitespaces from HAML expressions
   def one_line(&block)

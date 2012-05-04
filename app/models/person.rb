@@ -37,8 +37,6 @@ class Person < ActiveRecord::Base
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected,
                 :email2
 
-  attr_writer :password
-
   
   attr_protected :is_admin
 
@@ -269,13 +267,13 @@ class Person < ActiveRecord::Base
              return username
            end
          end
-         
+
          def name(cookie=nil)
            # We rather return the username than blank if no name is set
            return username unless show_real_name_to_other_users
            return name_or_username(cookie)
          end
-         
+
          def given_name_or_username(cookie=nil)
            if given_name.present? && show_real_name_to_other_users
              return given_name
@@ -303,9 +301,9 @@ class Person < ActiveRecord::Base
          #    end
          #  end
          # 
-         #  def set_given_name(name, cookie)
-         #    update_attributes({:name => {:given_name => name } }, cookie)
-         #  end
+         def set_given_name(name, cookie=nil)
+           update_attributes({:given_name => name })
+         end
          # 
          #  def family_name(cookie=nil)
          #    if new_record?
