@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     if @comment.save
       flash.now[:comment_notice] = "comment_sent"
-      Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, request.host))
+      Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, @current_community.id, request.host))
     else
       flash[:error] = "comment_cannot_be_empty"
     end

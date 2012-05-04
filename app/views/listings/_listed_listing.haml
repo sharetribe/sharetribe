@@ -7,7 +7,7 @@
       %div{:class => "listing_image_#{listing.category}"}
         =  link_to "#", listing_path(listing), :title => title
   .listed_listing_text
-    %h5= link_to (params[:q] ? title : listing.title), listing
+    %h5= link_to listed_listing_title(listing), listing
     %div{:id => "listed_listing_closed_status_container_#{listing.id.to_s}"}
       = render :partial => "listings/listed_listing_closed_status", :locals => { :listing => listing }
     %p{:class => "description"}

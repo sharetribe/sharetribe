@@ -608,6 +608,10 @@ class Person < ActiveRecord::Base
     (phone_number.nil? || phone_number.blank?) && (description.nil? || description.blank?) && location.nil?
   end
   
+  def member_of?(community)
+    community.members.include?(self)
+  end
+  
   private
   
   # This method constructs a key to be used in caching.

@@ -1,10 +1,14 @@
+- if $host
+  - link = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => $host)
+- else
+  - link = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
 %p
   = t("emails.common.hey", :name => @resource.given_name_or_username)
 %p
   = t("emails.confirmation_instructions.welcome_to_kassi") 
 %p
   = t("emails.confirmation_instructions.need_to_confirm")
-  = link_to t("emails.confirmation_instructions.confirmation_link_text"), confirmation_url(:confirmation_token => @resource.confirmation_token, :locale => I18n.locale)
+  = link_to t("emails.confirmation_instructions.confirmation_link_text"), link
 
 %p
   = t("emails.common.thanks")

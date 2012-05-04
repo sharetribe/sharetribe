@@ -52,6 +52,7 @@ it:
     fields_that_are_mandatory: ~
     or: ~
     password: ~
+    username: ~
     share_types:
       borrow: ~
       buy: ~
@@ -63,7 +64,6 @@ it:
       sell: ~
       temporary_accommodation: ~
       trade: ~
-    username: ~
     what_is_this: ~
   conversations:
     index:
@@ -155,7 +155,6 @@ it:
       kassi_for_your_city_description: ~
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
-      kassi_in_aalto_university: ~
       want_kassi_for_your_community: ~
       email_default_text: ~
       send: ~
@@ -169,10 +168,7 @@ it:
       product_of: ~
       language: ~
       new: ~
-      kassi_in_use: ~
-      wdc_neighborhoods: ~
-      and_for: ~
-      okl_members: ~
+      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -293,6 +289,35 @@ it:
       your_feedback_to_admins: ~
     send: ~
     your_email_address: ~
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_temporary_accommodation_housing: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+      to: ~
+      with: ~
+      rideshare_with_person: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
   header:
     about: ~
     community: ~
@@ -333,6 +358,8 @@ it:
       ride_request: ~
       some_private_offers_exist: ~
       some_private_requests_exist: ~
+    event_feed:
+      latest_events: ~
     index:
       are_offering: ~
       add_news_item: ~
@@ -341,11 +368,11 @@ it:
       loading_more_content: ~
       more_events: ~
       news: ~
-      no_news: ~
-      more_news: ~
       offer_something: ~
       offer_something_description: ~
       or: ~
+      no_news: ~
+      more_news: ~
       or_see_what_the_others: ~
       recent_events: ~
       recent_offers: ~
@@ -373,9 +400,9 @@ it:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
-      add_a_profile_picture: ~
       you_have_not_added_your_info: ~
       add_your_info_link: ~
+      add_a_profile_picture: ~
     recent_listing:
       please_offer: ~
     sign_in:
@@ -520,10 +547,10 @@ it:
       you_cannot_reply_to_your_own_request: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
+      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_create_new_offer: ~
       you_must_log_in_to_create_new_request: ~
       you_must_log_in_to_give_feedback: ~
-      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: ~
       you_must_log_in_to_send_a_message: ~
       you_must_log_in_to_view_this_content: ~
@@ -605,6 +632,7 @@ it:
         save_offer: ~
         save_request: ~
       share_type:
+        select: ~
         borrow: ~
         buy: ~
         give_away: ~
@@ -725,13 +753,54 @@ it:
       time: ~
       times: ~
       times_viewed: ~
+  mapview:
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      search_verb: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   people:
+    badge_description:
+      badge_achieved_at: ~
+      you_do_not_yet_have_this_badge: ~
+    edit_links:
+      activate: ~
+      deactivate: ~
+    help_texts:
+      badges_description_title: ~
+      feedback_description_title: ~
+      help_captcha_title: ~
+      terms_title: ~
+      help_invitation_code_title: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
     new:
-      password: ~
-      username: ~
-      member_id: ~
-      member_id_is_your_username: ~
-      join_here: ~
       address_validator: ~
       captcha_incorrect: ~
       captcha_was_wrong: ~
@@ -743,8 +812,6 @@ it:
       family_name: ~
       given_name: ~
       i_accept_the: ~
-      invalid_invitation_code: ~
-      invitation_code: ~
       not_required: ~
       password_again: ~
       show_my_name_to_others: ~
@@ -754,21 +821,8 @@ it:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
-    badge_description:
-      badge_achieved_at: ~
-      you_do_not_yet_have_this_badge: ~
-    edit_links:
-      activate: ~
-      deactivate: ~
-    help_texts:
-      badges_description_title: ~
-      feedback_description_title: ~
-      help_captcha_title: ~
-      help_invitation_code_title: ~
-      terms_title: ~
-    inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
+      invitation_code: ~
+      invalid_invitation_code: ~
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
@@ -895,41 +949,18 @@ it:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       what_are_these: ~
-  mapview:
-    index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
+  search:
+    show:
+      all_results: ~
+      loading_more_search_results: ~
       offers: ~
-      request_something: ~
-      request_type: ~
       requests: ~
-      rideshare: ~
+      search: ~
+      search_results: ~
+      search_returned_no_results: ~
       search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
-  okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
   sessions:
     new:
-      password: ~
-      username: ~
       create_new_account: ~
       i_forgot_my_password: ~
       login: ~
@@ -948,8 +979,6 @@ it:
       resend_confirmation_instructions: ~
   settings:
     account:
-      password: ~
-      username: ~
       change: ~
       confirm_new_password: ~
       email: ~
@@ -987,16 +1016,6 @@ it:
       visible_to_everybody: ~
       visible_to_registered_users: ~
     save_information: ~
-  search:
-    show:
-      all_results: ~
-      loading_more_search_results: ~
-      offers: ~
-      requests: ~
-      search: ~
-      search_results: ~
-      search_returned_no_results: ~
-      search_verb: ~
   sms:
     category_not_supported: ~
     check_the_offer_in_kassi: ~

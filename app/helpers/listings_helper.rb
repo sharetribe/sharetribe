@@ -41,12 +41,8 @@ module ListingsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
-  def share_type_checkbox_checked?(share_type)
-    if @listing.new_record?
-      params[:share_type].eql?(share_type) || (@listing.default_share_type?(share_type) && !params[:share_type])
-    else  
-      @listing.has_share_type?(share_type)
-    end  
+  def share_type_array
+    Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].sort { |a,b| a <=> b }.collect { |st| [t(".#{st}"), st] }
   end
   
   def visibility_array
@@ -59,6 +55,10 @@ module ListingsHelper
       end
     end
     return array  
+  end
+  
+  def listed_listing_title(listing)
+    listing.share_type? ? (t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}") : listing.title
   end
   
 end

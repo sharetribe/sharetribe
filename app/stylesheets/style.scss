@@ -1447,6 +1447,15 @@ a.edit_profile {
 	padding-bottom: 5px;
 	@include home_button($orange);
 	width: 248px;
+	img {
+		vertical-align: -25%;
+		margin-right: 7px;
+		display: inline;
+	}
+}
+
+.request_listing_link_label {
+	display: inline;
 }
 
 #edit_info_link {
@@ -1459,10 +1468,6 @@ a.edit_profile {
 		margin-right: 7px;
 		display: inline;
 	}
-}
-
-.request_listing_link_label {
-	display: inline;
 }
 
 #single_listing_location {
@@ -2450,7 +2455,7 @@ div.container_24, div.feedback_div { display: none; }
 
 .welcome_text {
 	p {
-		margin: 20px;
+		margin: 10px 20px;
 	}	
 }
 
@@ -2982,10 +2987,7 @@ a.handle {
 }
 
 #news_items_homepage {
-  
-  p {
-		margin: 20px;
-	} 
+  p { margin: 10px 20px; } 
 }
 
 #left_link_panel_admin {

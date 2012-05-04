@@ -626,3 +626,15 @@ div.container_12, div.feedback_div { display: none; }
 		&:focus { background: white; }
 	}
 }
+
+.hidden { display: none; }
+
+#additional_info p { 
+  font-size: 14px;
+  a { font-size: 14px; } 
+}
+
+#read_more_link_container {
+  a { font-size: 14px; }
+  margin-bottom: 10px;
+}

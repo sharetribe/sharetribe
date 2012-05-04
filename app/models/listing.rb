@@ -23,8 +23,6 @@ class Listing < ActiveRecord::Base
   
   has_many :comments
   
-  has_many :share_types
-  
   has_one :location, :dependent => :destroy
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
   has_one :destination_loc, :class_name => "Location", :conditions => ['location_type = ?', 'destination_loc'], :dependent => :destroy
@@ -33,10 +31,12 @@ class Listing < ActiveRecord::Base
   has_and_belongs_to_many :communities
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
   
+  has_many :share_types
+  
   attr_accessor :current_community_id
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images, :share_types ], :order => "listings.created_at DESC"
+  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
+  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
@@ -66,7 +66,7 @@ class Listing < ActiveRecord::Base
   after_create :check_possible_matches
   
   validates_presence_of :author_id
-  validates_length_of :title, :in => 2..100, :allow_nil => false
+  validates_length_of :title, :in => 2..90, :allow_nil => false
   validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
   validates_length_of :description, :maximum => 5000, :allow_nil => true
   validates_inclusion_of :listing_type, :in => VALID_TYPES
@@ -156,11 +156,6 @@ class Listing < ActiveRecord::Base
       ")
   end
   
-  def share_type_attributes=(attributes)
-    share_types.clear
-    attributes.each { |name| share_types.build(:name => name) } if attributes
-  end
-  
   def downcase_tags
     tag_list.each { |t| t.downcase! }
   end
@@ -182,22 +177,16 @@ class Listing < ActiveRecord::Base
     end  
   end
   
-  def default_share_type?(share_type)
-    share_type.eql?(Listing::VALID_SHARE_TYPES[listing_type][category].first)
-  end
-  
   def given_share_type_is_one_of_valid_share_types
     if ["favor", "rideshare"].include?(category)
-      errors.add(:share_types, errors.generate_message(:share_types, :must_be_nil)) unless share_types.empty?
-    elsif share_types.empty?
-      errors.add(:share_types, errors.generate_message(:share_types, :blank)) 
-    elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
-      share_types.each do |test_type|
-        unless VALID_SHARE_TYPES[listing_type][category].include?(test_type.name)
-          errors.add(:share_types, errors.generate_message(:share_types, :inclusion))
-        end   
-      end
-    end  
+       errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil)) unless share_type.nil?
+     elsif share_type.nil?
+       errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
+     elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
+       unless VALID_SHARE_TYPES[listing_type][category].include?(share_type)
+         errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
+       end
+     end  
   end
   
   def self.unique_share_types(listing_type)
@@ -236,7 +225,7 @@ class Listing < ActiveRecord::Base
     end
     listings = where(conditions)
     if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.joins(:share_types).where(['name IN (?)', params[:share_type]]).group('share_types.listing_id')
+      listings = listings.where(['share_type IN (?)', params[:share_type]])
     end
     if params[:tag]
       listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
@@ -257,17 +246,12 @@ class Listing < ActiveRecord::Base
   def closed?
     !open? || (valid_until && valid_until < DateTime.now)
   end
-  
-  def has_share_type?(share_type)
-    !share_types.find_by_name(share_type).nil?
-  end
-  
+
   def self.opposite_type(type)
     type.eql?("offer") ? "request" : "offer"
   end
   
-  # Returns the role of a person participating in an exchange
-  # related to this listing: offerer or requester
+  # Returns true if the given person is offerer and false if requester
   def offerer?(person)
     (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
   end
@@ -282,12 +266,8 @@ class Listing < ActiveRecord::Base
   
   def does_not_have_any_of_share_types?(sts)
     return_value = true
-    sts.each { |st| return_value = false if share_type_names.include?(st) }
+    sts.each { |st| return_value = false if share_type.eql?(st) }
     return return_value
-  end
-  
-  def share_type_names
-    share_types.collect(&:name)
   end
   
   # If listing is an offer, a discussion about the listing

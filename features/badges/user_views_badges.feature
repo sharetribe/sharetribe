@@ -83,15 +83,15 @@ Feature: User views badges
   Scenario: User views listing freak badge
     Given I should see badge "listing_freak_bronze_medium_gray"
     And I should not see badge "listing_freak_bronze_medium"
-    When I have "4" item request listings
+    When I have "4" favor request listings
     And I create a new item request listing
     Then I get the badge "listing_freak_bronze"
     And I should not see badge "listing_freak_silver_medium"
-    When I have "14" item request listings
+    When I have "14" favor request listings
     And I create a new item request listing
     Then I get the badge "listing_freak_silver"
     And I should not see badge "listing_freak_gold_medium"
-    When I have "19" item request listings
+    When I have "19" favor request listings with share type "buy"
     And I create a new item request listing
     Then I get the badge "listing_freak_gold"
   
@@ -188,17 +188,17 @@ Feature: User views badges
   Scenario: User views generous badge
     Given I should see badge "generous_bronze_medium_gray"
     And I should not see badge "generous_bronze_medium"
-    And I have "1" testimonial with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
+    And I have "1" testimonial with grade "0.5" from category "item" as "offerer" with share type "lend"
     And I should not see badge "generous_bronze_medium"
     When I get "1" testimonial with grade "As expected" from category "item" with share type "give_away"
     Then I get the badge "generous_bronze"
     And I should not see badge "generous_silver_medium"
-    When I have "3" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
-    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend,give_away"
+    When I have "3" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend"
     Then I get the badge "generous_silver"
     And I should not see badge "generous_gold_medium"
-    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend,give_away"
-    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend,give_away"
+    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "lend"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "lend"
     Then I get the badge "generous_gold"
     
   @badge
@@ -215,8 +215,8 @@ Feature: User views badges
     And I get "1" testimonial with grade "As expected" from category "item" with share type "rent_out"
     Then I get the badge "moneymaker_silver"
     And I should not see badge "moneymaker_gold_medium"
-    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "sell,rent_out"
-    And I get "1" testimonial with grade "As expected" from category "item" with share type "sell,rent_out"
+    When I have "8" testimonials with grade "0.5" from category "item" as "offerer" with share type "sell"
+    And I get "1" testimonial with grade "As expected" from category "item" with share type "sell"
     Then I get the badge "moneymaker_gold"
   
   @badge
@@ -242,10 +242,10 @@ Feature: User views badges
     Given I should see badge "lender_bronze_medium_gray"
     And I should not see badge "lender_bronze_medium"
     When I have "2" item offer listings with share type "lend"
-    And I create a new item offer listing with share type "lend,sell"
+    And I create a new item offer listing with share type "lend"
     Then I get the badge "lender_bronze"
     And I should not see badge "lender_silver_medium"
-    When I have "6" item offer listings with share type "lend,give_away"
+    When I have "6" item offer listings with share type "lend"
     And I create a new item offer listing with share type "lend"
     Then I get the badge "lender_silver"
     And I should not see badge "lender_gold_medium"

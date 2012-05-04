@@ -155,7 +155,6 @@ nl:
       kassi_for_your_city_description: ~
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
-      kassi_in_aalto_university: ~
       want_kassi_for_your_community: ~
       email_default_text: "Jou email adres"
       send: Verzend!
@@ -169,10 +168,7 @@ nl:
       product_of: ~
       language: ~
       new: ~
-      kassi_in_use: ~
-      wdc_neighborhoods: ~
-      and_for: ~
-      okl_members: ~
+      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -293,6 +289,35 @@ nl:
       your_feedback_to_admins: ~
     send: ~
     your_email_address: ~
+  event_feed_events:
+    accept:
+      has_accepted_lend_item: ~
+      has_accepted_borrow_item: ~
+      has_accepted_rent_out_item: ~
+      has_accepted_rent_item: ~
+      has_accepted_give_away_item: ~
+      has_accepted_receive_item: ~
+      has_accepted_sell_item: ~
+      has_accepted_buy_item: ~
+      has_accepted_trade_item: ~
+      has_accepted_temporary_accommodation_housing: ~
+      has_accepted_sell_housing: ~
+      has_accepted_buy_housing: ~
+      has_accepted_rent_out_housing: ~
+      has_accepted_rent_housing: ~
+      has_accepted_favor: ~
+      has_accepted_rideshare: ~
+      to: ~
+      with: ~
+      rideshare_with_person: ~
+    join:
+      joined_kassi: ~
+    login:
+      logged_in_to_kassi: ~
+    comment:
+      commented: ~
+      offer_partitive: ~
+      request_partitive: ~
   header:
     about: "Over Kassi"
     community: Gemeenschap
@@ -333,6 +358,8 @@ nl:
       ride_request: "Een rit naar het werk"
       some_private_offers_exist: "Er zijn al <b>%{number_of_listings} aanbiedingen</b>,"
       some_private_requests_exist: "Er zijn al <b>%{number_of_listings} verzoeken</b>,"
+    event_feed:
+      latest_events: ~
     index:
       are_offering: aanbod
       add_news_item: ~
@@ -605,6 +632,7 @@ nl:
         save_offer: "Sla aanbod op"
         save_request: "Sla verzoek op"
       share_type:
+        select: ~
         borrow: Leen
         buy: Koop
         give_away: "Geef weg"
@@ -725,13 +753,54 @@ nl:
       time: tijd
       times: keer
       times_viewed: Gezien
+  mapview:
+    index:
+      all_categories: ~
+      all_offer_types: ~
+      all_request_types: ~
+      category: ~
+      did_not_found_what_you_were_looking_for: ~
+      favors: ~
+      housing: ~
+      items: ~
+      list_view: ~
+      map_view: ~
+      offer_something: ~
+      offer_type: ~
+      offers: ~
+      request_something: ~
+      request_type: ~
+      requests: ~
+      rideshare: ~
+      search_verb: ~
+      you_have_something_others_do_not: ~
+    please_comment: ~
+  news_items:
+    index:
+      news_from_community: ~
+    news_item:
+      delete_news_item: ~
+  okl:
+    member_id: ~
+    member_id_is_your_username: ~
+    join_here: ~
   people:
+    badge_description:
+      badge_achieved_at: "Badge behaald "
+      you_do_not_yet_have_this_badge: "Badge is nog niet behaald."
+    edit_links:
+      activate: ~
+      deactivate: ~
+    help_texts:
+      badges_description_title: Badges
+      feedback_description_title: Feedback
+      help_captcha_title: "Ben je mens?"
+      help_invitation_code_title: ~
+      terms_title: "Kassi gebruiksvoorwaarden"
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
     new:
-      password: "Wachtwoord:"
-      username: "Gebruikersnaam:"
-      member_id: ~
-      member_id_is_your_username: ~
-      join_here: ~
       address_validator: ~
       captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
       captcha_was_wrong: "Captcha tekst was verkeerd."
@@ -754,60 +823,27 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
       visible_only_to_you: ~
       visible_to_everybody: ~
-    badge_description:
-      badge_achieved_at: "Badge behaald "
-      you_do_not_yet_have_this_badge: "Badge is nog niet behaald."
-    edit_links:
-      activate: ~
-      deactivate: ~
-    help_texts:
-      badges_description_title: Badges
-      feedback_description_title: Feedback
-      help_captcha_title: "Ben je mens?"
-      help_invitation_code_title: ~
-      terms_title: "Kassi gebruiksvoorwaarden"
-    inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Kassi steunt op dit moment niet het zien van meerdere gemeenschappen, dus je kunt toegang tot dit profiel krijgen door de %{community} gemeenschap. We werken aan een optie waar je meerdere gemeenschappen tegelijk kunt hebben. These optie zal later aan de service worden toegevoegd."
       read_more_about_kassi_communities: "Lees meer over de Kassi gemeenschappen"
       this_user_does_not_belong_to_this_community: "Deze gebruiker is niet lid van de %{community} gemeenschap"
     profile_badge:
-      moneymaker_silver: "Zakenman (zilver)"
-      moneymaker_silver_description: "Kassi geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
       active_member_bronze: "Actief lid (brons)"
-      rookie: Rookie
       active_member_bronze_description: "Dit was de 3e uitwisseling waaraan jij hebt deelgenomen in Kassi! Geweldige start, ga zo door!"
-      rookie_description: "Je hebt een aanbieding of verzoek toegevoegd in Kassi voor de 1e keer. Daar ga je!"
       active_member_gold: "Actief lid (goud)"
-      santa: Kerstman
       active_member_gold_description: "25e uitwisseling in Kassi, dit is geweldig! Jij bent een VIP in Kassi. Het zijn mensen zoals jij die de website draaiende houden. Hartstikke bedankt!"
-      santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
       active_member_silver: "Actief lid (zilver)"
-      taxi_stand_bronze: "Taxi stand (brons)"
       active_member_silver_description: "Gefeliciteerd met je 10e uitwisseling in Kassi! Er is veel gebeurd in deze service dankzij jou. Fantastisch!"
-      taxi_stand_bronze_description: "Je hebt 3 aangeboden liften toegevoegd aan Kassi."
       chauffer_bronze: "Chauffeur (brons)"
-      taxi_stand_gold: "Taxi stand (goud)"
       chauffer_bronze_description: "Jij hebt 2 liften aangeboden voor andere Kassi-gebruikers, mooi werk!"
-      taxi_stand_gold_description: "Jij staat altijd klaar voor anderen, klaar om ze een lift te geven. 25 aangeboden liften, fantastisch!"
       chauffer_gold: "Chauffeur (goud)"
-      taxi_stand_silver: "Taxi stand (zilver)"
       chauffer_gold_description: "15 aangeboden liften! Jij verkiest car pooling als het mogelijk is. Dat is een super instelling, moeder natuur bedankt je van harte!"
-      taxi_stand_silver_description: "10 aangeboden liften toegevoegd, wat goed zeg! Mensen weten wie ze moeten vragen als ze een lift nodig hebben!"
       chauffer_silver: "Chauffeur (zilver)"
-      volunteer_bronze: "Vrijwilliger (brons)"
       chauffer_silver_description: "6 aangeboden liften, fantastisch! Jij houdt wel van goed gezelschap tijdens het rijden."
-      volunteer_bronze_description: "Jij gebruikt graag je talenten om andere mensen te helpen. Je hebt al 3 open gunsten aangeboden in Kassi."
       commentator_bronze: "Mensen-mens (brons)"
-      volunteer_gold: "Vrijwilliger (goud)"
       commentator_bronze_description: "Jij discusseert graag met andere gebruikers. Je hebt al 3 berichten achtergelaten in Kassi."
-      volunteer_gold_description: "Jij kan niet anders dan andere mensen helpen. Je hebt 25 open gunsten aangeboden in je profiel, geweldig!"
       commentator_gold: "Mensen-mens (goud)"
-      volunteer_silver: "Vrijwilliger (zilver)"
       commentator_gold_description: "30 berichten! Jij voelt je thuis in de Kassi gemeenschap. Jij staat te trappelen om nieuwe mensen te ontmoeten en met hen te discusseren."
-      volunteer_silver_description: "Jij hebt veel te geven aan anderen: je hebt al 10 gunsten aangeboden in Kassi!"
       commentator_silver: "Mensen-mens (zilver)"
       commentator_silver_description: "10 berichten! Jij neemt actief deel aan gesprekken en discussies met andere Kassi gebruikers!"
       enthusiast_bronze: "Enthousiasteling (brons)"
@@ -848,6 +884,24 @@ nl:
       moneymaker_bronze_description: "Jij bent nu ook tot inzien gekomen dat Kassi jou portomonnee kan spekken! Je hebt al 2 items succesvol verkocht of verhuurt in Kassi."
       moneymaker_gold: "Zakenman (goud)"
       moneymaker_gold_description: "15 verkochte of verhuurde items met positieve feedback! Kassi is een perfecte handel voor zowel jou en de mensen die van je kopen of huren!"
+      moneymaker_silver: "Zakenman (zilver)"
+      moneymaker_silver_description: "Kassi geeft je een leuke extraatje naast je inkomen. 6 verkochte of verhuurde items met positieve feedback! Ga zo door!"
+      rookie: Rookie
+      rookie_description: "Je hebt een aanbieding of verzoek toegevoegd in Kassi voor de 1e keer. Daar ga je!"
+      santa: Kerstman
+      santa_description: "Ho ho ho en Gelukkig Kerstfeest! Je hebt tenminste één item weggegeven in December."
+      taxi_stand_bronze: "Taxi stand (brons)"
+      taxi_stand_bronze_description: "Je hebt 3 aangeboden liften toegevoegd aan Kassi."
+      taxi_stand_gold: "Taxi stand (goud)"
+      taxi_stand_gold_description: "Jij staat altijd klaar voor anderen, klaar om ze een lift te geven. 25 aangeboden liften, fantastisch!"
+      taxi_stand_silver: "Taxi stand (zilver)"
+      taxi_stand_silver_description: "10 aangeboden liften toegevoegd, wat goed zeg! Mensen weten wie ze moeten vragen als ze een lift nodig hebben!"
+      volunteer_bronze: "Vrijwilliger (brons)"
+      volunteer_bronze_description: "Jij gebruikt graag je talenten om andere mensen te helpen. Je hebt al 3 open gunsten aangeboden in Kassi."
+      volunteer_gold: "Vrijwilliger (goud)"
+      volunteer_gold_description: "Jij kan niet anders dan andere mensen helpen. Je hebt 25 open gunsten aangeboden in je profiel, geweldig!"
+      volunteer_silver: "Vrijwilliger (zilver)"
+      volunteer_silver_description: "Jij hebt veel te geven aan anderen: je hebt al 10 gunsten aangeboden in Kassi!"
     profile_feedback:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
@@ -895,37 +949,34 @@ nl:
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
-  mapview:
-    index:
-      all_categories: ~
-      all_offer_types: ~
-      all_request_types: ~
-      category: ~
-      did_not_found_what_you_were_looking_for: ~
-      favors: ~
-      housing: ~
-      items: ~
-      list_view: ~
-      map_view: ~
-      offer_something: ~
-      offer_type: ~
-      offers: ~
-      request_something: ~
-      request_type: ~
-      requests: ~
-      rideshare: ~
-      search_verb: ~
-      you_have_something_others_do_not: ~
-    please_comment: ~
-  news_items:
-    index:
-      news_from_community: ~
-    news_item:
-      delete_news_item: ~
-  okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
+  search:
+    show:
+      all_results: "Alle resultaten"
+      loading_more_search_results: "Meer zoekresultaten aan het laden"
+      offers: Aanbod
+      requests: Verzoeken
+      search: Zoek
+      search_results: Zoekresultaten
+      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
+      search_verb: Zoek
+  sessions:
+    new:
+      create_new_account: "Maak een nieuwe account aan"
+      i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
+      login: "Log in"
+      login_to_kassi: "Log in Kassi"
+    password_forgotten:
+      email: Email
+      password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
+      request_new_password: "Nieuw wachtwoord aanvragen"
+    confirmation_pending:
+      welcome_to_kassi: ~
+      check_your_email: ~
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
+      get_started: ~
+      getting_started_instructions: ~
+      resend_confirmation_instructions: ~
   settings:
     account:
       change: Wijzig
@@ -933,14 +984,14 @@ nl:
       email: "Email adres:"
       new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
-      password: "Wachtwoord:"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
-      username: "Gebruikersnaam:"
     avatar:
       add_avatar_submit: "Foto opslaan"
       update_profile_picture: "Update profiel foto"
     notifications:
+      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
+      newsletters: ~
       email_about_accept_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
@@ -950,13 +1001,12 @@ nl:
       email_about_weekly_events: ~
       email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
       email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
-      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
-      newsletters: ~
     profile:
       about_you: "Over jou:"
       city: "Stad:"
       family_name: "Achternaam*:"
       given_name: "Voornaam*:"
+      location_description: ~
       phone_number: "Telefoon nummer:"
       postal_code: "Post code:"
       profile_page: "op je profielpagina"
@@ -965,7 +1015,6 @@ nl:
       these_fields_are_shown_in_your: "Deze informatie is zichtbaar voor alle Kassi gebruikers"
       visible_to_everybody: ~
       visible_to_registered_users: ~
-      location_description: ~
     save_information: "Informatie opslaan"
   sms:
     category_not_supported: "Deze catogorie wordt nog niet gesteund door sms."
@@ -981,16 +1030,6 @@ nl:
     rideshare: ride|rideshare
     you_can_call_him_at: "Je kunt de bestuurder bellen op %{phone_number}"
     you_can_pay_gas_money_to_driver: "Om brandstof-kosten te betalen, antwoord 'kassi betaal %{driver} Xe' waar X het bedrag is. Het bedrag + 5% commissie staat in je telefoonrekening."
-  search:
-    show:
-      all_results: "Alle resultaten"
-      loading_more_search_results: "Meer zoekresultaten aan het laden"
-      offers: Aanbod
-      requests: Verzoeken
-      search: Zoek
-      search_results: Zoekresultaten
-      search_returned_no_results: "Je zoekopdracht heeft geen resultaten opgeleverd."
-      search_verb: Zoek
   tag_cloud:
     tag_used:
       with_tag: ~
@@ -1006,26 +1045,6 @@ nl:
       you_can_view_the_new_terms: "Je kunt de nieuwe voorwaarden zien"
       you_need_to_accept: "Welkom bij Kassi! Dit lijkt de eerste keer dat je gebruikt maakt van deze service. Voordat je aan de slag kunt moet je eerst accepteren de"
       you_need_to_accept_new_terms: "De Kassi gebruiksvoorwaarden zijn gewijzigd. Deze moeten door jou geaccepteerd worden om gebruik te kunnen blijven maken van Kassi. The nieuwe voorwaarden zijn bedoeld voor het onderhoud van de service nadat het onderzoeks project is beïndigd."
-  sessions:
-    new:
-      create_new_account: "Maak een nieuwe account aan"
-      i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
-      login: "Log in"
-      login_to_kassi: "Log in Kassi"
-      password: Wachtwoord
-      username: Gebruikersnaam
-    password_forgotten:
-      email: Email
-      password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
-      request_new_password: "Nieuw wachtwoord aanvragen"
-    confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
-      get_started: ~
-      getting_started_instructions: ~
-      resend_confirmation_instructions: ~
   testimonials:
     index:
       all_testimonials: "Alle feedback"
