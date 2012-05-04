@@ -302,7 +302,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
-      "terms": "required",
+      "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" },
 			"recaptcha_response_field": {required: true, captcha: true },

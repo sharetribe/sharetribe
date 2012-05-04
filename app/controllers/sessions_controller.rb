@@ -129,7 +129,13 @@ class SessionsController < ApplicationController
         flash[:error] = :email_not_found
       end
     else
-      
+      if Person.find_by_email(params[:email])
+        #Call devise based method
+        resource = Person.send_reset_password_instructions(params)
+        flash[:notice] = :password_recovery_sent
+      else
+        flash[:error] = :email_not_found
+      end
     end
 
     if @current_community && @current_community.private?
