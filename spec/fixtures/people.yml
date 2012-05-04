@@ -9,8 +9,9 @@ one:
   email: kassi_testperson1@example.com
   encrypted_password: 64ae669314a3fb4b514fa5607ef28d3e1c1937a486e3f04f758270913de4faf5
   password_salt: vGpGrfvaOhp3
-    
-  
+  confirmed_at: "2012-05-04 18:17:04"
+  given_name: Kassi
+  family_name: Testperson1
 
 two: 
   id: df0LOkLS4r3yF-aby-BSxS 
@@ -21,3 +22,6 @@ two:
   email: kassi_testperson2@example.com
   encrypted_password: 72bf5831e031cbcf2e226847677fccd6d8ec6fe0673549a60abb5fd05f726462
   password_salt: zXklAGLwt7Cu
+  confirmed_at: "2012-05-04 18:17:04"
+  given_name: Kassi
+  family_name: Testperson2

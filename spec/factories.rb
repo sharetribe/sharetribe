@@ -1,9 +1,9 @@
 Factory.sequence :username do |n|
-  "kassi_testperson#{n}" 
+  "kassi_tester#{n}" 
 end
 
 Factory.sequence :email do |n|
-  "kassi_testperson#{n}@example.com" 
+  "kassi_tester#{n}@example.com" 
 end
 
 Factory.define :person do |p|
