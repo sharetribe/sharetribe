@@ -111,7 +111,7 @@ When /^I fill in password with my OtaSizzle password$/ do
   fill_in("password", :with => @password)
 end
 
-Given /^"([^"]*)" has admin rights$/ do |username|
+Given /^"([^"]*)" is superadmin$/ do |username|
   @people[username].update_attribute(:is_admin, true)
 end
 

@@ -40,5 +40,3 @@ Feature: User views a single listing
   
   
   
-  
-  

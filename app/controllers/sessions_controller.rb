@@ -37,8 +37,8 @@ class SessionsController < ApplicationController
     
     if @session.person_id  # if not app-only-session and person found in cos
       @current_user = Person.find_by_id(@session.person_id)
-      if @current_user && @current_user.communities.include?(@current_community) || @current_user.is_admin?
-        unless current_community.consent.eql?(@current_user.consent(current_community))
+      if @current_user && @current_user.communities.include?(@current_community)
+        unless current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?
           # The user has succesfully logged in, but is not found in Kassi DB
           # Existing Sizzle user's first login in Kassi
           session[:temp_cookie] = @session.cookie
