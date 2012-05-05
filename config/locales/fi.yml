@@ -564,6 +564,7 @@ fi:
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       you_are_now_member: "Yhteisöön liittyminen onnistui."
+      you_are_already_member: "Olet liittynyt tähän Kassi-yhteisöön jo aiemmin. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
@@ -831,6 +832,8 @@ fi:
       family_name: "Sukunimi:"
       given_name: "Etunimi:"
       i_accept_the: Hyväksyn
+      if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain Kassi-yhteisössä voit"
+      join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"

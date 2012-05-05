@@ -106,12 +106,12 @@ class ApplicationController < ActionController::Base
     # Otherwise pick the domain normally from the request subdomain
     if @current_community = Community.find_by_domain(request.subdomain)
       if @current_user
-        if (@current_user.communities.include?(@current_community) || @current_user.is_admin?)
+        if @current_user.communities.include?(@current_community)
           @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
           unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
             Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
           end
-        elsif @current_user
+        elsif @current_user && !@current_user.is_admin?
           return if "community_memberships".eql?(controller_name)
           return if controller_name.eql?("sessions") && action_name.eql?("destroy")
           if "people".eql?(controller_name) && ["check_email_validity", "check_invitation_code"].include?(action_name)
