@@ -636,7 +636,7 @@ el:
         borrow: Δανεισμός
         buy: Αγορά
         give_away: Δωρεά
-        lend: Ενοικίαση
+        lend: Δανεισμός
         offer_type: "Τύπος προσφοράς"
         receive: Δωρεάν
         rent: Ενοικίαση
@@ -660,7 +660,7 @@ el:
       valid_until_radio_buttons:
         for_the_time_being: "Επ' αόριστον"
       visibility:
-        communities: "Όλες τις κοινότητες Kassi που συμμετέχω"
+        communities: "Όλες τις κοινότητες %{service_name} στις οποίες συμμετέχω"
         everybody: "Όλους τους χρήστες του διαδικτύου"
         this_community: "Μόνο στα μέλη της κοινότητας \"%{community}\""
         visibility: "Ορατό σε"
@@ -674,7 +674,7 @@ el:
       all_request_types: "Όλοι οι τύποι αιτημάτων"
       category: Κατηγορία
       did_not_found_what_you_were_looking_for: "Δεν βρήκες αυτό που χρειάζεσαι;"
-      favors: Χάρες
+      favors: Βοήθεια
       housing: Διαμονή
       items: Αντικείμενα
       list_view: "Προβολή λίστας"
@@ -691,7 +691,7 @@ el:
     left_panel_link:
       borrows: Δανεισμοί
       buys: Αγορές
-      favors: Χάρες
+      favors: Βοήθεια
       give_aways: Δωρεές
       housings: Διαμονή
       items: Αντικείμενα
