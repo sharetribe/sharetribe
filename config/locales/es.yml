@@ -52,7 +52,6 @@ es:
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
-    username: "Nombre de usuario"
     share_types:
       borrow: préstamos
       buy: comprando
@@ -64,6 +63,7 @@ es:
       sell: Venta
       temporary_accommodation: "Alojamiento temporal"
       trade: Intercambiar
+    username: "Nombre de usuario"
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -145,9 +145,9 @@ es:
       reject_request: "Rechazar solicitud"
   dashboard:
     index:
-      slogan: "Un mercado en línea para tu comunidad."
+      slogan: "Un sitio exclusivo para compartir"
       create_your_own: "Crea tu espacio"
-      sharing_website: "PARA COMPARTIR!"
+      sharing_website: "PARA COMPARTIR"
       main_description: "Kassi es un servicio web hecho exclusivamente para que compartas con tu comunidad."
       kassi_for_your_company: "Kassi para tu empresa"
       kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? Kassi es la solución para ti."
