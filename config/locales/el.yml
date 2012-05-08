@@ -148,7 +148,7 @@ el:
       slogan: "Ένα διαδικτυακό παζάρι για την κοινότητά σου."
       create_your_own: "Δημιούργησε μία"
       sharing_website: "ΚΟΙΝΟΤΗΤΑ KASSI"
-      main_description: "Δημιούργησε ένα μέρος όπου τα μέλη της κοινότητά σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
+      main_description: "Δημιούργησε ένα μέρος όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
       kassi_for_your_company: "ΤΟ KASSI ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
       kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το Kassi στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους ενώ ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
       kassi_for_your_city: "ΤΟ KASSI ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
@@ -167,8 +167,8 @@ el:
       issue_tracker: "Issue tracker"
       product_of: "Το Kassi είναι ένα προϊόν της"
       language: "Γλώσσα:"
-      new: NEW!
-      new_text: "Τo Kassi είναι τώρα διαθέσιμο για <a href=\"http://upatras.kassi.eu/el\">την κοινότητα του Πανεπιστημίου Πατρών</a>"
+      new: ΝΕΟ!
+      new_text: "Τo Kassi είναι τώρα διαθέσιμο για την <a href=\"http://upatras.kassi.eu/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -297,25 +297,25 @@ el:
       has_accepted_rent_item: ~
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
+      has_accepted_sell_item: "συμφώνησε να πουλήσει"
+      has_accepted_buy_item: "συμφώνησε να αγοράσει"
+      has_accepted_trade_item: "συμφώνησε να ανταλλάξει"
+      has_accepted_temporary_accommodation_housing: "συμφώνησε να προσφέρει"
+      has_accepted_sell_housing: "συμφώνησε να πουλήσει"
+      has_accepted_buy_housing: "συμφώνησε να αγοράσει"
+      has_accepted_rent_out_housing: "συμφώνησε να νοικιάσει"
+      has_accepted_rent_housing: "συμφώνησε να νοικιάσει"
+      has_accepted_favor: "συμφώνησε να προσφέρει"
+      has_accepted_rideshare: "συμφώνησε να συνταξιδέψει με τον/την"
+      to: στο
+      with: με
+      rideshare_with_person: "δέχτηκε να συνταξιδέψει με τον/την"
     join:
-      joined_kassi: ~
+      joined_kassi: "γράφτηκε στο %{service_name}"
     login:
-      logged_in_to_kassi: ~
+      logged_in_to_kassi: "συνδέθηκε στο %{service_name}"
     comment:
-      commented: ~
+      commented: σχολίασε
       offer_partitive: ~
       request_partitive: ~
   header:
@@ -359,7 +359,7 @@ el:
       some_private_offers_exist: "Υπάρχουν ήδη <b>%{number_of_listings} προσφορές</b>"
       some_private_requests_exist: "Υπάρχουν ήδη  <b>%{number_of_listings} αιτήματα</b>"
     event_feed:
-      latest_events: ~
+      latest_events: "Τι νέα;"
     index:
       are_offering: προσφέρουν
       add_news_item: ~
@@ -402,17 +402,17 @@ el:
       add_your_info: "Γράψε τα στοιχεία επικοινωνίας σου"
       you_have_not_added_your_info: "Δεν έχεις συμπληρώσει τα στοιχεία επικοινωνίας σου. Καλύτερα να τα συμπληρώσεις ώστε οι άλλοι χρήστες να μπορούν να έρθουν σε επαφή μαζί σου πιο εύκολα. Επίσης, αν βάλεις μια φωτογραφία σου στο προφίλ σου, θα σε εμπιστεύονται πιο εύκολα."
       add_your_info_link: "Πρόσθεσε πληροφορίες για σένα"
-      add_a_profile_picture: ~
+      add_a_profile_picture: "Προσθήκη φωτογραφίας προφίλ"
     recent_listing:
       please_offer: Προσφορά
     sign_in:
-      recent_offers: ~
-      recent_requests: ~
+      recent_offers: "Τι προσφέρουν τώρα τα μέλη της κοινότητας"
+      recent_requests: "Τι χρειάζονται τώρα τα μέλη της κοινότητας"
       plus: ~
-      other_offer: ~
-      other_offers: ~
-      other_request: ~
-      other_requests: ~
+      other_offer: "άλλη προσφορά"
+      other_offers: "άλλες προσφορές"
+      other_request: "άλλο αίτημα"
+      other_requests: "άλλα αιτήματα"
   layouts:
     admin:
       admin: "Διαχείριση του Kassi"
@@ -524,7 +524,7 @@ el:
       poll_updated: ~
       poll_deleted: ~
       read_more: "Διάβασε περισσότερα!"
-      registration_considered_spam: ~
+      registration_considered_spam: "Η εγγραφή δεν λειτούργησε κανονικά. Παρακαλούμε, ενημέρωσέ μας από το κουμπί \"Feedback\" στα αριστερά και ανέφερέ μας το σφάλμα \"email2 error\"."
       reply_cannot_be_empty: "Δεν γίνεται να στείλεις κενό μήνυμα"
       reply_sent: "Η απάντηση εστάλη επιτυχώς"
       request_accepted: "Το αίτημα έγινε δεκτό"
@@ -600,20 +600,20 @@ el:
         at: Στις
         departure_time: Αναχώρηση
       departure_time_radio_buttons:
-        repeated: "Επαναλαμβανόμενο (γράψε λεπτομέρειες παρακάτω)"
+        repeated: "Επαναλαμβανόμενο - πρόσθεσε λεπτομέρειες στην περιγραφή"
       description:
         detailed_description: "Αναλυτική περιγραφή"
       destination:
         destination: Προορισμός
       form_content:
-        favor: Χάρη
-        housing: Διαμονή
-        item: Αντικείμενα
+        favor: βοήθεια
+        housing: διαμονή
+        item: "ένα αντικείμενο"
         offer_something: "Πρόσφερε κάτι"
-        request_something: "Ζήτησε κάτι"
-        rideshare: "Βρες συνταξιδιώτη"
-        i_want_to_offer: ~
-        i_want_to_request: ~
+        request_something: "Ζήτα κάτι"
+        rideshare: "να συνταξιδέψω"
+        i_want_to_offer: "Θέλω να προσφέρω..."
+        i_want_to_request: Χρειάζομαι...
       googlemap:
         googlemap_copy: "Τελικά σημεία από το χάρτη"
         googlemap_description: "Προβολή του χάρτη"
@@ -632,7 +632,7 @@ el:
         save_offer: "Αποθήκευση προσφοράς"
         save_request: "Αποθήκευση αιτήματος"
       share_type:
-        select: ~
+        select: Επιλογή
         borrow: Δανεισμός
         buy: Αγορά
         give_away: Δωρεά
@@ -649,8 +649,8 @@ el:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
       title:
-        favor_you_offer: "Χάρη που προσφέρεις"
-        favor_you_request: "Χάρη που χρειάζεσαι"
+        favor_you_offer: "Βοήθεια που προσφέρεις"
+        favor_you_request: "Βοήθεια που χρειάζεσαι"
         housing_you_offer: "Διαμονή που προσφέρεις"
         housing_you_request: "Διαμονή που χρειάζεσαι"
         item_you_offer: "Αντικείμενο που προσφέρεις"
