@@ -190,3 +190,15 @@ Feature: User views homepage
     When I scroll to the bottom of the page
     And wait for 2 seconds
     Then I should see "course books"
+    
+  @javascript
+  Scenario: Superadmin views a community he is not a member of
+    Given there are following users:
+      | person | 
+      | kassi_testperson1 |
+    When I am logged in as "kassi_testperson1"
+    And I move to community "test2"
+    And "kassi_testperson1" is superadmin
+    And I am on the home page
+    Then I should not see "Join community"
+    And I should see "What others need"

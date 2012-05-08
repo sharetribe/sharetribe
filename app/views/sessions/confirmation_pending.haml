@@ -22,6 +22,6 @@
         = form.hidden_field :email, :value => @current_user.email
         = form.hidden_field :id, :value => @current_user.id
 
-        = form.submit t("sessions.confirmation_pending.resend_confirmation_instructions")
+        = form.submit t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button"
       
      

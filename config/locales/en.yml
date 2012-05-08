@@ -143,6 +143,17 @@ en:
       accept_request: "Accept request"
       reject_offer: "Reject offer"
       reject_request: "Reject request"
+  community_memberships:
+    new:
+      join_community: "Join community '%{community}'"
+      you_are_not_a_member_of_this_community: "You have a user account in Kassi, but you are not yet a member of Kassi community '%{community}'."
+      you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
+      you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below."
+      you_can_join_email_confirmation_multiple_addresses: "To join this community you need to have a valid email address that ends with one of the following: %{email_endings}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join this community' below."
+      you_can_join_with_invite_only: "You have to have an invitation from another member to join this community. If you have an invitation code, you can join this community by typing the code to the field below, accepting the terms of use of this community and clicking 'Join community' below."
+      if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
+      log_out: "log out"
+      join_community_button: "Join community"
   dashboard:
     index:
       slogan: "An online marketplace for your community."
@@ -474,6 +485,7 @@ en:
       sign_up: "Sign up"
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
       avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
       avatar_upload_successful: "Avatar upload succesful"
       comment_cannot_be_empty: "Comment cannot be empty"
@@ -552,6 +564,8 @@ en:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       you_must_log_in_to_create_new_offer: "You must log in to %{service_name} to create a new offer. If you don't have an account you can"
       you_must_log_in_to_create_new_request: "You must log in to %{service_name} to create a new request. If you don't have an account you can"
+      you_are_now_member: "You have successfully joined this community"
+      you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
       you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
       you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
@@ -560,8 +574,10 @@ en:
       you_must_log_in_to_view_your_inbox: "You must log in to %{service_name} to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
+      you_must_log_in_to_view_this_page: "You must log in to view this page"
       you_need_to_confirm_your_account_first: "You need to confirm your account first."
       you_unfollowed_listing: "You are no longer following this listing"
+      joining_community_failed: "Joining this community failed"
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges
@@ -817,6 +833,8 @@ en:
       i_accept_the: "I accept the"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code:"
+      if_you_already_have_account_you_can: "If you already have an account in another Kassi community you can"
+      join_with_your_existing_account: "join this community with your existing account"
       not_required: ", not required"
       password_again: "Confirm password:"
       show_my_name_to_others: "Show my real name to other %{service_name} users"

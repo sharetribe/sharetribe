@@ -38,6 +38,7 @@ class HomepageController < ApplicationController
   end
   
   def sign_in
+    redirect_to root_path unless @current_community.private?
     @requests = @current_community.listings.requests.open.limit(5)
     @total_request_count = @current_community.listings.requests.open.count
     @offers = @current_community.listings.offers.open.limit(5)

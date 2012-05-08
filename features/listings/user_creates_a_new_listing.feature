@@ -101,3 +101,21 @@ Feature: User creates a new listing
     And I press "Save request"
     Then I should see "This field is required." within ".error"
     And I should see "Departure time must be between current time and one year from now." within ".error"  
+
+  @javascript
+  Scenario: User creates a listing and sees it in another community
+    Given there are following users:
+      | person | 
+      | kassi_testperson3 |
+    And there is item request with title "Hammer" from "kassi_testperson3" and with share type "buy"
+    And I am on the homepage
+    Then I should see "Hammer"
+    When I move to community "test2"
+    And I am on the homepage
+    Then I should not see "Hammer"
+    And I log in as "kassi_testperson3"
+    And I check "community_membership_consent"
+    And I press "Join community"
+    And the system processes jobs
+    And I am on the homepage
+    Then I should see "Hammer"
