@@ -11,7 +11,7 @@ class NewsItemsController < ApplicationController
     if params[:news_form] && !logged_in?
       session[:return_to] = request.fullpath
       flash[:warning] = "you_must_log_in_to_add_news_item"
-      redirect_to new_session_path and return
+      redirect_to login_path and return
     end
     params[:page] = 1 unless request.xhr?
     @news_items = @current_community.news_items.order("created_at DESC").paginate(:per_page => 10, :page => params[:page])

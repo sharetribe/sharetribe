@@ -3,11 +3,11 @@ Then /^I should see badge with alt text "([^\"]*)"$/ do | alt_text |
 end
 
 Then /^I should see badge "(.+)"$/ do |badge|
-  find("img[src='/images/badges/#{badge}.png']").nil?.should == false
+  find("img[src='/images/badges/#{badge}.png']").should_not be_nil
 end
 
 Then /^I should not see badge "(.+)"$/ do |badge|
-  find("img[src='/images/badges/#{badge}.png']").nil?.should == true
+  find("img[src='/images/badges/#{badge}.png']").should be_nil
 end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
@@ -122,7 +122,7 @@ end
 
 When /^I have commented that listing "(.+)" times$/ do |amount|
   amount.to_i.times do
-    Factory(:comment)
+    Factory(:comment, :author => @people["kassi_testperson1"])
   end  
 end
 

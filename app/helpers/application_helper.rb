@@ -1,6 +1,6 @@
 module ApplicationHelper
   
-  @@use_asi_in_this_test = false
+  @@use_asi_in_this_test = (ENV["KASSI_TESTS_WITH_ASI"] == "true")
   
   # Removes whitespaces from HAML expressions
   def one_line(&block)
