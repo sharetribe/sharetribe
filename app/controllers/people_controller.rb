@@ -48,7 +48,7 @@ class PeopleController < Devise::RegistrationsController
     end
     domain = "http://#{with_subdomain(params[:community])}"
     
-    if params[:person][:email2].present? # Honey pot for spammerbots
+    if params[:person][:email_confirmation].present? # Honey pot for spammerbots
       flash[:error] = :registration_considered_spam
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to domain + sign_up_path and return
@@ -97,7 +97,7 @@ class PeopleController < Devise::RegistrationsController
     # Try to create a new person in ASI.
     begin
       if use_asi?
-        @person = Person.create(params[:person].except(:email2), session[:cookie], @current_community.use_asi_welcome_mail?)
+        @person = Person.create(params[:person].except(:email_confirmation), session[:cookie], @current_community.use_asi_welcome_mail?)
       else
         params["person"].delete(:terms) #remove terms part which confuses Devise
         

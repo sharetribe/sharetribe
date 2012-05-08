@@ -21,18 +21,18 @@ en:
         content: "Content:"
         save_news_item: "Save article"
       news_item:
-        edit_news_item: "Edit"
-        delete_news_item: "Delete"
+        edit_news_item: Edit
+        delete_news_item: Delete
     polls:
       index:
-        polls: "Polls"
+        polls: Polls
         create_poll: "Create a poll"
         no_polls: "No polls"
       edit_poll_links:
-        close_poll: "Close"
-        open_poll: "Open"
-        edit_poll: "Edit"
-        delete_poll: "Delete"
+        close_poll: Close
+        open_poll: Open
+        edit_poll: Edit
+        delete_poll: Delete
       new:
         add_option: "Add option"
         new_poll: "Create a poll"
@@ -40,11 +40,11 @@ en:
         title: "Title:"
         save_poll: "Save poll"
       new_option:
-        option: "Option"
+        option: Option
         remove_option: "Remove option"
       poll_status:
-        open: "Open"
-        closed: "Closed"
+        open: Open
+        closed: Closed
       show:
         edit_poll: "Edit poll"
   common:
@@ -52,7 +52,6 @@ en:
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
     password: Password
-    username: Username
     share_types:
       borrow: borrowing
       buy: buying
@@ -63,8 +62,8 @@ en:
       rent_out: "renting out"
       sell: selling
       temporary_accommodation: "temporary accommodation"
-      trade: trading
       trade: swapping
+    username: Username
     what_is_this: "What's this?"
   conversations:
     index:
@@ -158,17 +157,17 @@ en:
       kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Kassi and perceive the change! An example: <a href=\"http://aalto.kassi.eu/en\">Kassi in Aalto University</a>"
       want_kassi_for_your_community: "Want Kassi for your community?"
       email_default_text: "Your email address"
-      send: "Send!"
+      send: Send!
       or_drop_us_a_line: "...or drop us a line:"
       thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a Kassi community soon."
-      resources: "RESOURCES"
-      connect: "CONNECT"
-      blog: "Blog"
-      code: "Code"
+      resources: RESOURCES
+      connect: CONNECT
+      blog: Blog
+      code: Code
       issue_tracker: "Issue tracker"
       product_of: "Kassi is a product of"
       language: "Language:"
-      new: "NEW!"
+      new: NEW!
       new_text: "Kassi now available for <a href=\"http://www.kassi.eu/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
   emails:
     accept_reminder:
@@ -209,7 +208,7 @@ en:
       your_request_was_accepted: "Your request was accepted"
       your_request_was_rejected: "Your request was rejected"
     invitation_to_kassi:
-      hi: "Hi!"
+      hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to use the %{service_name} web service of the %{community} community."
       info_about_kassi: "%{service_name} is a service where the members of the community can, for example, lend, swap and sell goods, share rides and help each other out in several ways."
       here_is_a_message_from: "Here is a personal message from %{inviter}:"
@@ -248,13 +247,13 @@ en:
       newest_offers: "What people currently offer to others"
       newest_requests: "What people currently need"
       could_you_offer_something: "Could you share something that others might need? Or do you need something that others might have?"
-      add: "Add"
+      add: Add
       an_offer: "an offer"
       a_request: "a request"
       to_kassi: "to %{service_name}"
       check_everything_that_others_are: "check everything that the others are"
-      offering: "offering"
-      requesting: "requesting"
+      offering: offering
+      requesting: requesting
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
@@ -311,17 +310,17 @@ en:
       has_accepted_rent_housing: "agreed to rent"
       has_accepted_favor: "agreed to offer"
       has_accepted_rideshare: "agreed on sharing a ride"
-      to: "to"
-      with: "with"
-      rideshare_with_person: ""
+      to: to
+      with: with
+      rideshare_with_person: ~
     join:
       joined_kassi: "joined %{service_name}"
     login:
       logged_in_to_kassi: "logged in to %{service_name}"
     comment:
-      commented: "commented"
-      offer_partitive: "offer"
-      request_partitive: "request"
+      commented: commented
+      offer_partitive: offer
+      request_partitive: request
   header:
     about: About
     community: Community
@@ -372,11 +371,11 @@ en:
       loading_more_content: "Loading more content"
       more_events: "More events..."
       news: News
+      no_news: "No news"
+      more_news: "More news"
       offer_something: "Share with others!"
       offer_something_description: "List things and deeds you can offer to others"
       or: and
-      no_news: "No news"
-      more_news: "More news"
       or_see_what_the_others: "...or see what the others"
       recent_events: "Recent events"
       recent_offers: "What others can offer"
@@ -398,15 +397,15 @@ en:
     poll_form:
       poll: "Poll:"
       comment: "Comment:"
-      answer: "Answer"
-      results: "Results"
-      poll_answer: "answer"
-      poll_answers: "answers"
+      answer: Answer
+      results: Results
+      poll_answer: answer
+      poll_answers: answers
     profile_info_empty_notification:
       add_your_info: "Add your contact info"
-      you_have_not_added_your_info: "You have not added your contact information. Please do, so others can get in touch with you more easily. Also add a profile picture so it's easier for others to trust you."
-      add_your_info_link: "Add your info now" 
       add_a_profile_picture: "Add a profile picture"
+      you_have_not_added_your_info: "You have not added your contact information. Please do, so others can get in touch with you more easily. Also add a profile picture so it's easier for others to trust you."
+      add_your_info_link: "Add your info now"
     recent_listing:
       please_offer: Offer
     sign_in:
@@ -422,7 +421,7 @@ en:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"
       news_items: "News articles"
-      polls: "Polls"
+      polls: Polls
     application:
       default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
       feedback: "Feedback to %{service_name} staff"
@@ -446,7 +445,7 @@ en:
       about: "What is it"
       how_to_use: "How to use"
       info_about_kassi: "Information about %{service_name}"
-      news: "News"
+      news: News
       register_details: "Register details"
       terms: "Terms of use"
     logged_in:
@@ -551,10 +550,10 @@ en:
       you_cannot_reply_to_your_own_request: "You cannot reply to your own request"
       you_followed_listing: "You are now following this listing"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
-      you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
       you_must_log_in_to_create_new_offer: "You must log in to %{service_name} to create a new offer. If you don't have an account you can"
       you_must_log_in_to_create_new_request: "You must log in to %{service_name} to create a new request. If you don't have an account you can"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
+      you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
       you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
       you_must_log_in_to_send_a_message: "You must log in to %{service_name} to send a message to another user."
       you_must_log_in_to_view_this_content: "You must log in to view this content"
@@ -610,12 +609,12 @@ en:
       destination:
         destination: Destination
       form_content:
-        favor: a service
+        favor: "a service"
         housing: accommodation
-        item: an item
+        item: "an item"
         offer_something: "Offer something"
         request_something: "Request something"
-        rideshare: a ride
+        rideshare: "a ride"
         i_want_to_offer: "I want to offer..."
         i_want_to_request: "I need..."
       googlemap:
@@ -636,7 +635,7 @@ en:
         save_offer: "Save offer"
         save_request: "Save request"
       share_type:
-        select: "Select"
+        select: Select
         borrow: Borrowing
         buy: Buying
         give_away: "Giving away"
@@ -793,14 +792,14 @@ en:
       badge_achieved_at: "Badge achieved "
       you_do_not_yet_have_this_badge: "Badge has not yet been achieved."
     edit_links:
-      activate: "Activate"
-      deactivate: "Deactivate"
+      activate: Activate
+      deactivate: Deactivate
     help_texts:
       badges_description_title: Badges
       feedback_description_title: Feedback
       help_captcha_title: "Are you human?"
-      terms_title: "%{service_name} terms of use"
       help_invitation_code_title: "You need an invite to join"
+      terms_title: "%{service_name} terms of use"
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
@@ -816,6 +815,8 @@ en:
       family_name: "Family name:"
       given_name: "Given name:"
       i_accept_the: "I accept the"
+      invalid_invitation_code: "The invitation code is not valid."
+      invitation_code: "Invitation code:"
       not_required: ", not required"
       password_again: "Confirm password:"
       show_my_name_to_others: "Show my real name to other %{service_name} users"
@@ -825,8 +826,6 @@ en:
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and community admin"
       visible_to_everybody: "visible to everybody"
-      invitation_code: "Invitation code:"
-      invalid_invitation_code: "The invitation code is not valid."
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. %{service_name} does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
       read_more_about_kassi_communities: "Read more about %{service_name} communities"
@@ -943,7 +942,7 @@ en:
       joined_this_community: "...joined this community"
       was_last_seen: "...was last seen"
       was_invited_by: "...was invited by"
-      as_invited_by: ""
+      as_invited_by: ~
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_badges: "Show all badges"
@@ -996,7 +995,7 @@ en:
       update_profile_picture: "Update profile picture"
     notifications:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
-      newsletters: "Newsletters"
+      newsletters: Newsletters
       email_about_accept_reminders: "...I have forgotten to accept an event"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
