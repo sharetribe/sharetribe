@@ -3,6 +3,7 @@ Feature: Otasizzle user logs in
   As a person who has created an OtaSizzle account in another OtaSizzle service but has not logged in to Kassi before
   I want to log in to Kassi for the first time
   
+  @only_with_asi
   Scenario: User logs in and accepts the terms
     Given I already have an OtaSizzle account
     And I am on the home page
@@ -14,7 +15,8 @@ Feature: Otasizzle user logs in
     And I press "I accept the terms"
     And I should see "Welcome to Kassi" within "#notifications"
     And I should see "Logout"
-  
+
+  @only_with_asi  
   Scenario: User logs in but does not accept the terms
     Given I already have an OtaSizzle account
     And I am on the home page
