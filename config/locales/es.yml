@@ -52,7 +52,6 @@ es:
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
-    username: "Nombre de usuario"
     share_types:
       borrow: préstamos
       buy: comprando
@@ -64,6 +63,7 @@ es:
       sell: Venta
       temporary_accommodation: "Alojamiento temporal"
       trade: Intercambiar
+    username: "Nombre de usuario"
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -145,9 +145,9 @@ es:
       reject_request: "Rechazar solicitud"
   dashboard:
     index:
-      slogan: "Un mercado en línea para tu comunidad."
+      slogan: "Un sitio exclusivo para compartir"
       create_your_own: "Crea tu espacio"
-      sharing_website: "PARA COMPARTIR!"
+      sharing_website: "PARA COMPARTIR"
       main_description: "Kassi es un servicio web hecho exclusivamente para que compartas con tu comunidad."
       kassi_for_your_company: "Kassi para tu empresa"
       kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? Kassi es la solución para ti."
@@ -370,11 +370,11 @@ es:
       loading_more_content: "Cargando más contenidos"
       more_events: "Más eventos..."
       news: Noticias
+      no_news: "No hay novedades"
+      more_news: "Más novedades"
       offer_something: "¡Comparte con los demás!"
       offer_something_description: "Haz una lista de las cosas y favores que puedes ofrecer a los demás"
       or: "y"
-      no_news: "No hay novedades"
-      more_news: "Más novedades"
       or_see_what_the_others: "...o revisa lo que publicaron los demás en"
       recent_events: "Eventos recientes"
       recent_offers: "Lo que los demás pueden ofrecer"
@@ -402,9 +402,9 @@ es:
       poll_answers: respuestas
     profile_info_empty_notification:
       add_your_info: "Agrega tu información de contacto"
+      add_a_profile_picture: "Añade una imagen de perfil"
       you_have_not_added_your_info: "No has añadido tu información de contacto. Por favor hazlo, de modo que para los demás sea más fácil ponerse en contacto contigo. Asimismo, añade una foto de perfil para que te puedan reconocer los otros usuarios."
       add_your_info_link: "Agregar tu información ahora"
-      add_a_profile_picture: "Añade una imagen de perfil"
     recent_listing:
       please_offer: Oferta
     sign_in:
@@ -549,10 +549,10 @@ es:
       you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
       you_followed_listing: "Ahora estás siguiendo este listado"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
-      you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a Kassi"
       you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
       you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en Kassi para crear una nueva solicitud. Si no tienes una cuenta puedes"
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
+      you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a Kassi"
       you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en Kassi para enviar un mensaje a otro usuario"
       you_must_log_in_to_view_this_content: "Debes iniciar tu sesión para ver este contenido"
@@ -797,8 +797,8 @@ es:
       badges_description_title: Medallas
       feedback_description_title: Sugerencia
       help_captcha_title: "¿Eres humano?"
-      terms_title: "Términos de uso de Kassi"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
+      terms_title: "Términos de uso de Kassi"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
       inactive_description: "Este usuario ha dejado de utilizar Kassi. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
@@ -814,6 +814,8 @@ es:
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto la"
+      invalid_invitation_code: "El código de invitación no es válido."
+      invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
       password_again: "Confirma la contraseña:"
       show_my_name_to_others: "Mostrar mi nombre real a otros usuarios de Kassi"
@@ -823,8 +825,6 @@ es:
       username_is_invalid: "Nombre de usuario no válido. Los caracteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente para ti y el administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
-      invitation_code: "Código de invitación:"
-      invalid_invitation_code: "El código de invitación no es válido."
     not_member:
       explanation_text: "Actualmente perteneces a la comunidad %{community}. Intentaste ver el perfil de un usuario que pertenece a otra comunidad. Por el momento Kassi no permite que puedas ingresar a distintas comunidades simultáneamente, por lo que no puedes acceder al perfil de este usuario a través de la comunidad %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Pronto estará disponible. ¡Gracias por tu comprensión!"
       read_more_about_kassi_communities: "Lee más sobre las comunidades de Kassi"
