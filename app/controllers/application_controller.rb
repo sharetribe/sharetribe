@@ -132,10 +132,21 @@ class ApplicationController < ActionController::Base
       #Store to thread the service_name used by current community, so that it can be included in all translations
       ApplicationHelper.store_community_service_name_to_thread(service_name)
        
-      if @current_user && @current_user.communities.include?(@current_community)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
-          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+      if @current_user
+        if @current_user.communities.include?(@current_community)
+          @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+          unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
+            Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+          end
+        elsif @current_user && !@current_user.is_admin?
+          return if "community_memberships".eql?(controller_name)
+          return if controller_name.eql?("sessions") && action_name.eql?("destroy")
+          if "people".eql?(controller_name) && ["check_email_validity", "check_invitation_code"].include?(action_name)
+            return
+          else
+            logger.info "Controller: #{controller_name} Action: #{action_name}"
+          end
+          redirect_to new_community_membership_path
         end
       elsif @current_community.private?
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
@@ -152,10 +163,7 @@ class ApplicationController < ActionController::Base
         # must call set locale here as it would be otherwise skipped 
         # and the redirect could go to wrong (default) locale
         set_locale 
-
         redirect_to :controller => :homepage, :action => :sign_in
-      else
-        # Show notification "you are not a member in this community"
       end
     else
       redirect_to root_url(:subdomain => "www")

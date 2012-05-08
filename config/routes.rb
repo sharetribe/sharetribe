@@ -71,12 +71,13 @@ Kassi::Application.routes.draw do
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
-      
+           
       resources :people do
         collection do
           get :check_username_availability
           get :check_email_availability
           get :check_email_availability_and_validity
+          get :check_email_validity
           get :check_invitation_code
           get :not_member
         end
@@ -145,8 +146,11 @@ Kassi::Application.routes.draw do
     resources :homepage do
       collection do
         get :sign_in
+        get :not_member
+        post :join
       end
     end
+    resources :community_memberships
     resources :listings do
       member do
         post :follow
@@ -160,6 +164,7 @@ Kassi::Application.routes.draw do
       resources :images, :controller => :listing_images
       resources :comments
     end
+
     resources :infos do
       collection do
         get :about

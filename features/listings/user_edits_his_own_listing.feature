@@ -81,7 +81,7 @@ Feature: User edits his own listing
       | kassi_testperson2 |
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"
     And I am logged in as "kassi_testperson2"
-    And "kassi_testperson2" has admin rights
+    And "kassi_testperson2" is superadmin
     When I follow "Hammer"
     And I follow "Edit request"
     And I fill in "listing_title" with "Sledgehammer"

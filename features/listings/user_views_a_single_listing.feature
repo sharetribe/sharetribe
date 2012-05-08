@@ -29,9 +29,14 @@ Feature: User views a single listing
     When I go to the listing page
     Then I should see "This content is not available in this community."
   
-  
-  
-  
+  @javascript
+  Scenario: User belogns to multiple communities, adds listing in one and sees it in another
+    Given I am not logged in
+    And there is favor request with title "Massage" from "kassi_testperson1"
+    And visibility of that listing is "this_community"
+    And I am on the home page
+    When I go to the listing page
+    Then I should see "You must log in to view this content"
   
   
   
