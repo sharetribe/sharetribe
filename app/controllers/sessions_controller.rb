@@ -37,16 +37,15 @@ class SessionsController < ApplicationController
     
     if @session.person_id  # if not app-only-session and person found in cos
       @current_user = Person.find_by_id(@session.person_id)
-      if @current_user && @current_user.communities.include?(@current_community)
-        unless current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?
-          # The user has succesfully logged in, but is not found in Kassi DB
-          # Existing Sizzle user's first login in Kassi
-          session[:temp_cookie] = @session.cookie
-          session[:temp_person_id] = @session.person_id
-          session[:temp_community_id] = current_community.id
-          session[:consent_changed] = true if @current_user
-          redirect_to domain + terms_path and return
-        end
+      unless @current_user && (!@current_user.communities.include?(@current_community) || current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?)
+        # Either the user has succesfully logged in, but is not found in Kassi DB
+        # (xisting OtaSizzle user's first login in Kassi) or the user is a member
+        # of this community but the terms of use have changed.
+        session[:temp_cookie] = @session.cookie
+        session[:temp_person_id] = @session.person_id
+        session[:temp_community_id] = current_community.id
+        session[:consent_changed] = true if @current_user
+        redirect_to domain + terms_path and return
       end
     end
     
@@ -56,7 +55,7 @@ class SessionsController < ApplicationController
     @current_user.update_attribute(:active, true) unless @current_user.active?
     if @current_user.communities.include?(@current_community) || @current_user.is_admin?
       flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
-      EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless @current_user.is_admin?
+      EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
         redirect_to domain + session[:return_to]
         session[:return_to] = nil
