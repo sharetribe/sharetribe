@@ -260,6 +260,13 @@ describe Person do
             end
 
           end
+          
+          describe "devise valid_password?" do
+            it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
+              Factory(:person).valid_password?('testi').should be_true
+              Factory(:person).valid_password?('something_else').should_not be_true
+            end
+          end
 
         end
 

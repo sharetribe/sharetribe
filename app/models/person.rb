@@ -110,11 +110,11 @@ class Person < ActiveRecord::Base
                          :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
  
  
-  # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
-  has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
-  #validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
-  validates_attachment_content_type :image,
+    # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
+    has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
+    #validates_attachment_presence :image
+    validates_attachment_size :image, :less_than => 5.megabytes
+    validates_attachment_content_type :image,
                                       :content_type => ["image/jpeg", "image/png", "image/gif", 
                                         "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
  
