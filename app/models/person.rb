@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable
            
-    if APP_CONFIG.crypto_helper_key.present?
+    if APP_CONFIG.use_asi_encryptor
       require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
       devise :encryptable # to be able to use similar encrypt method as ASI
     end
