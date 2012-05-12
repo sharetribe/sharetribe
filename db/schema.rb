@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(:version => 20120303172713) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
-    t.boolean  "news_enabled",                              :default => false
     t.boolean  "private",                                   :default => false
     t.string   "label"
-    t.boolean  "all_users_can_add_news",                    :default => false
     t.boolean  "show_date_in_listings_list",                :default => false
+    t.boolean  "news_enabled",                              :default => false
+    t.boolean  "all_users_can_add_news",                    :default => false
     t.boolean  "custom_frontpage_sidebar",                  :default => true
     t.boolean  "event_feed_enabled",                        :default => true
   end
@@ -350,14 +350,13 @@ ActiveRecord::Schema.define(:version => 20120303172713) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+  create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                      :default => 0
+    t.string   "locale",                        :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",             :default => 0
     t.datetime "last_page_load_date"
     t.integer  "test_group_number",             :default => 1
     t.boolean  "active",                        :default => true
