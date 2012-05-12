@@ -163,7 +163,7 @@ Devise.setup do |config|
   # :authlogic_sha512 (then you should set stretches above to 20 for default behavior)
   # and :restful_authentication_sha1 (then you should set stretches to 10, and copy
   # REST_AUTH_SITE_KEY to pepper)
-  if APP_CONFIG.crypto_helper_key.present?
+  if APP_CONFIG.use_asi_encryptor
     config.encryptor = :asi
   end
 
