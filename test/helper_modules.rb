@@ -83,13 +83,4 @@ module TestHelpers
     @request.host = "#{subdomain}.lvh.me"
   end
   
-  def reload_person_set_ASI_usage_to(asi_in_use)
-    ApplicationHelper.use_asi_in_this_test = asi_in_use
-    
-    #Unload & reload the person class to be sure that is loaded without ASI methods
-    Object.send(:remove_const, 'Person')
-    load 'person.rb'
-    FactoryGirl.reload    
-  end
-  
 end

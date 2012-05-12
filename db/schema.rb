@@ -350,7 +350,8 @@ ActiveRecord::Schema.define(:version => 20120303172713) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :force => true do |t|
+  create_table "people", :id => false, :force => true do |t|
+    t.string   "id",                            :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                      :default => 0
