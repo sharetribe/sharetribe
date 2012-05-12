@@ -14,7 +14,8 @@ class CommunityMembershipsController < ApplicationController
   
   def create
     @community_membership = CommunityMembership.new(params[:community_membership])
-    if @community_membership.save
+    # Temporary prevention to join communities with email restrictions, until we get multiple confirmed emails per account.
+    if !@current_community.allowed_emails.present? && @community_membership.save
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       flash[:notice] = "you_are_now_member"
       redirect_to root 

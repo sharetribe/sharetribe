@@ -140,7 +140,8 @@ class ApplicationController < ActionController::Base
           end
         elsif @current_user && !@current_user.is_admin?
           return if "community_memberships".eql?(controller_name)
-          return if controller_name.eql?("sessions") && action_name.eql?("destroy")
+          return if "confirmations".eql?(controller_name)
+          return if controller_name.eql?("sessions") && (action_name.eql?("destroy") || action_name.eql?("confirmation_pending"))
           if "people".eql?(controller_name) && ["check_email_validity", "check_invitation_code"].include?(action_name)
             return
           else
