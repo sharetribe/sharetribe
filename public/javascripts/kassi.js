@@ -289,7 +289,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "terms") {
+			if (element.attr("name") == "person[terms]") {
 				error.appendTo(element.parent().parent().parent().parent().parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
 			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
