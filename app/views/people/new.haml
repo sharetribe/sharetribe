@@ -12,9 +12,10 @@
         %p
           = t('okl.member_id_is_your_username')
           = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
-      %p
-        = t(".if_you_already_have_account_you_can")
-        = link_to(t(".join_with_your_existing_account"), new_community_membership_path, :class => "form") + "."
+      - if not use_asi?
+        %p
+          = t(".if_you_already_have_account_you_can")
+          = link_to(t(".join_with_your_existing_account"), new_community_membership_path, :class => "form") + "."
       = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
         = form.error_messages
         - if @current_community.join_with_invite_only?
