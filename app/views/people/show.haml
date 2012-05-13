@@ -37,7 +37,7 @@
         = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
       .profile_testimonials_link_to_all
         = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
-  - if @current_community.settings && @current_community.settings["use_trustcloud"]
+  - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
     = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}\"></script>".html_safe
         
         
@@ -101,9 +101,7 @@
         = time_ago(@community_membership.last_page_load_date)
       - if @community_membership.invitation && @community_membership.invitation.inviter
         %br/
-        = t(".was_invited_by")
-        = link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter
-        = t(".as_invited_by")
+        = t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
     - if logged_in? && @person.location && @person.location.address != ""
       #googlemap
         = render :partial => "googlemap"
