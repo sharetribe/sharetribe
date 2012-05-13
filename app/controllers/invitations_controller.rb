@@ -29,7 +29,7 @@ class InvitationsController < ApplicationController
   private
   
   def users_can_invite_new_users
-    unless @current_community.users_can_invite_new_users
+    unless @current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community)
       flash[:error] = "inviting_new_users_is_not_allowed_in_this_community"
       redirect_to root and return
     end

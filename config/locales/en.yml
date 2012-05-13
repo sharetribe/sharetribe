@@ -146,7 +146,7 @@ en:
   community_memberships:
     new:
       join_community: "Join community '%{community}'"
-      you_are_not_a_member_of_this_community: "You have a user account in Kassi, but you are not yet a member of Kassi community '%{community}'."
+      you_are_not_a_member_of_this_community: "You have a user account in %{service_name}, but you are not yet a member of %{service_name} community '%{community}'."
       you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
       you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below."
       you_can_join_email_confirmation_multiple_addresses: "To join this community you need to have a valid email address that ends with one of the following: %{email_endings}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join this community' below."
@@ -271,7 +271,7 @@ en:
       thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Change my password"
-      reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the Kassi service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
+      reset_password_instructions: "<p>You have indicated that you have forgotten either your password or username in the %{service_name} service.</p><p>Your username is: %{username}</p><p>If you need to reset your password, click the following link: %{password_reset_link}</p><br/><p>If you didn't request this, please ignore this email. Your password won't change until you access the link above and create a new one.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
@@ -834,7 +834,7 @@ en:
       i_accept_the: "I accept the"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code:"
-      if_you_already_have_account_you_can: "If you already have an account in another Kassi community you can"
+      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can"
       join_with_your_existing_account: "join this community with your existing account"
       not_required: ", not required"
       password_again: "Confirm password:"
