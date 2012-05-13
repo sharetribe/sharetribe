@@ -305,31 +305,28 @@ fi:
     your_email_address: Sähköpostiosoitteesi
   event_feed_events:
     accept:
-      has_accepted_lend_item: "lainasi tavaran"
-      has_accepted_borrow_item: "lainasi tavaran"
-      has_accepted_rent_out_item: "vuokrasi tavaran"
-      has_accepted_rent_item: "vuokrasi tavaran"
-      has_accepted_give_away_item: "antoi tavaran"
-      has_accepted_receive_item: "antoi tavaran"
-      has_accepted_sell_item: "myi tavaran"
-      has_accepted_buy_item: "myi tavaran"
-      has_accepted_trade_item: "vaihtoi tavaran"
-      has_accepted_temporary_accommodation_housing: "tarjosi tilapäismajoituksen"
-      has_accepted_sell_housing: "myi asunnon"
-      has_accepted_buy_housing: "myi asunnon"
-      has_accepted_rent_out_housing: "vuokrasi asunnon"
-      has_accepted_rent_housing: "vuokrasi asunnon"
-      has_accepted_favor: "tarjosi palveluksen"
-      has_accepted_rideshare: "sopi kyydistä"
-      to: käyttäjälle
-      with: käyttäjän
-      rideshare_with_person: kanssa
+      has_accepted_lend_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_borrow_item: "%{offerer_name} lainasi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_rent_out_item: "%{offerer_name} vuokrasi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_rent_item: "%{offerer_name} vuokrasi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_give_away_item: "%{offerer_name} antoi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_receive_item: "%{offerer_name} antoi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_sell_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_buy_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_trade_item: "%{offerer_name} vaihtoi tavaran %{listing_title} käyttäjän %{requester_name} kanssa"
+      has_accepted_temporary_accommodation_housing: " %{offerer_name} tarjosi tilapäismajoituksen %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_sell_housing: "%{offerer_name} myi asunnon %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_buy_housing: "%{offerer_name} myi asunnon %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_rent_out_housing: "%{offerer_name} vuokrasi asunnon %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_rent_housing: "%{offerer_name} vuokrasi asunnon %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_favor: "%{offerer_name} tarjosi palveluksen %{listing_title} käyttäjälle %{requester_name}"
+      has_accepted_rideshare: "%{offerer_name} sopi kyydistä %{listing_title} käyttäjän %{requester_name} kanssa"
     join:
       joined_kassi: "liittyi Kassiin"
     login:
       logged_in_to_kassi: "kirjautui sisään Kassiin"
     comment:
-      commented: kommentoi
+      commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title}"
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
@@ -959,8 +956,7 @@ fi:
       hide_description: "Vähemmän tekstiä"
       joined_this_community: "...liittyi tähän yhteisöön"
       was_last_seen: "...oli viimeksi aktiivinen"
-      was_invited_by: "...liittyi yhteisöön käyttäjän"
-      as_invited_by: kutsumana
+      was_invited_by: "...liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
       show_all_badges: "Näytä kaikki kassimerkit"

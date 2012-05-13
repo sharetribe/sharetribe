@@ -306,31 +306,28 @@ en:
     your_email_address: "Your email address"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "agreed to lend"
-      has_accepted_borrow_item: "agreed to lend"
-      has_accepted_rent_out_item: "agreed to rent"
-      has_accepted_rent_item: "agreed to rent"
-      has_accepted_give_away_item: "agreed to give"
-      has_accepted_receive_item: "agreed to give"
-      has_accepted_sell_item: "agreed to sell"
-      has_accepted_buy_item: "agreed to sell"
-      has_accepted_trade_item: "agreed to swap"
-      has_accepted_temporary_accommodation_housing: "agreed to offer"
-      has_accepted_sell_housing: "agreed to sell"
-      has_accepted_buy_housing: "agreed to sell"
-      has_accepted_rent_out_housing: "agreed to rent"
-      has_accepted_rent_housing: "agreed to rent"
-      has_accepted_favor: "agreed to offer"
-      has_accepted_rideshare: "agreed on sharing a ride"
-      to: to
-      with: with
-      rideshare_with_person: ~
+      has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name}"
+      has_accepted_borrow_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name}"
+      has_accepted_rent_out_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
+      has_accepted_rent_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
+      has_accepted_give_away_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name}"
+      has_accepted_receive_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name}"
+      has_accepted_sell_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
+      has_accepted_buy_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
+      has_accepted_trade_item: "%{offerer_name} agreed to swap %{listing_title} with %{requester_name}"
+      has_accepted_temporary_accommodation_housing: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name}"
+      has_accepted_sell_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
+      has_accepted_buy_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
+      has_accepted_rent_out_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
+      has_accepted_rent_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
+      has_accepted_favor: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name}"
+      has_accepted_rideshare: "%{offerer_name} agreed on sharing a ride %{listing_title} with %{requester_name}"
     join:
       joined_kassi: "joined %{service_name}"
     login:
       logged_in_to_kassi: "logged in to %{service_name}"
     comment:
-      commented: commented
+      commented: "%{commenter_name} commented %{listing_type} %{listing_title}"
       offer_partitive: offer
       request_partitive: request
   header:
@@ -960,8 +957,7 @@ en:
       hide_description: "Show less"
       joined_this_community: "...joined this community"
       was_last_seen: "...was last seen"
-      was_invited_by: "...was invited by"
-      as_invited_by: ~
+      was_invited_by: "...was invited by %{inviter_name}"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_badges: "Show all badges"
