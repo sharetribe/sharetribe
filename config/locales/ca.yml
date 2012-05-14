@@ -52,7 +52,6 @@ ca:
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
-    username: Usuari
     share_types:
       borrow: prèstecs
       buy: comprar
@@ -64,6 +63,7 @@ ca:
       sell: Vendre
       temporary_accommodation: "Allotjament temporal"
       trade: Intercanviar
+    username: Usuari
     what_is_this: "Què és això?"
   conversations:
     index:
@@ -143,6 +143,18 @@ ca:
       accept_request: "Acceptar sol·licitud"
       reject_offer: "Rebutjar oferta"
       reject_request: "Rebutjar la sol·licitud"
+  community_memberships:
+    new:
+      join_community: ~
+      you_are_not_a_member_of_this_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      joining_to_mail_restricted_communities_not_yet_supported: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
   dashboard:
     index:
       slogan: "Un mercat en línia per a la seva comunitat."
@@ -185,17 +197,17 @@ ca:
       badge_description2: "Una persona que posseeix moltes medalles és un usuari actiu i recomanat pels usuaris. Sigues un usuari actiu: compra, ven, regala i presta articles, ajuda als demés, comparteix viatges i veuràs s'acumulen les medalles!"
       you_have_received_badges: "Has rebut medalles!"
       you_have_received_badges_in_kassi: "Has rebut noves medalles! Pots veure-les iniciant sessió"
+    confirmation_instructions:
+      confirmation_instructions_signature: "Salutacions cordials,<br/>L'equip de Kassi"
+      welcome_to_kassi: "Benvingut a Kassi!"
+      need_to_confirm: "Abans d'utilitzar Kassi has de confirmar el teu correu electrònic al següent enllaç:"
+      confirmation_link_text: "Confirmar el meu compte"
     common:
       check_your_settings: "Revisa la teva configuració"
       hey: "Hola %{name},"
       kassi_team: "L'equip de Kassi"
       thanks: "Gràcies,"
       want_to_control_emails: "Vol controlar els correus electrònics que reps de Kassi?"
-    confirmation_instructions:
-      welcome_to_kassi: "Benvingut a Kassi!"
-      need_to_confirm: "Abans d'utilitzar Kassi has de confirmar el teu correu electrònic al següent enllaç:"
-      confirmation_link_text: "Confirmar el meu compte"
-      confirmation_instructions_signature: "Salutacions cordials,<br/>L'equip de Kassi"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
@@ -257,6 +269,9 @@ ca:
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Gràcies pel teu interès amb Kassi!"
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Els suggeriments són públics i estan disponibles per a tots els usuaris. Basant-se en els comentaris i suggeriments els usuaris poden jutjar, o saber, si %{name} és una persona fiable. Recorda sempre fer suggeriments o comentaris als esdeveniments. Recorda que, també, és necessari rebre comentaris positius per obtenir medalles."
       remember_to_give_feedback_to: "Recordatori: Recorda fer un suggeriment a %{name}"
@@ -299,8 +314,11 @@ ca:
       has_accepted_rent_item: ~
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
+      to: ~
       has_accepted_sell_item: ~
+      with: ~
       has_accepted_buy_item: ~
+      rideshare_with_person: ~
       has_accepted_trade_item: ~
       has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
@@ -309,9 +327,6 @@ ca:
       has_accepted_rent_housing: ~
       has_accepted_favor: ~
       has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
     join:
       joined_kassi: ~
     login:
@@ -370,11 +385,11 @@ ca:
       loading_more_content: "S'estan carregant més continguts"
       more_events: "Més esdeveniments"
       news: Notícies
+      no_news: "No hi ha cap notícia"
+      more_news: "Més notícies"
       offer_something: Ofereix!
       offer_something_description: "Fes una llista de les coses i favors que pots oferir"
       or: i
-      no_news: "No hi ha cap notícia"
-      more_news: "Més notícies"
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
       recent_offers: "El que la gent ofereix"
@@ -402,9 +417,9 @@ ca:
       poll_answers: respostes
     profile_info_empty_notification:
       add_your_info: "Afegeix la teva informació de contacte"
+      add_a_profile_picture: "Afegeix una fotografia de perfil"
       you_have_not_added_your_info: "No has afegit informació de contacte. Si us plau fes-ho, així serà més fàcil que els altres contactin amb tu. Afegeix també una imatge de perfil per a que et puguin reconèixer."
       add_your_info_link: "Afegeix la teva informació ara"
-      add_a_profile_picture: "Afegeix una fotografia de perfil"
     recent_listing:
       please_offer: Oferta
     sign_in:
@@ -473,6 +488,7 @@ ca:
       sign_up: Registre
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte creat correctament. A continuació hauràs de confirmar la teva adreça de correu electrònic."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "No s'ha pogut carregar l'avatar. Recordi que la foto ha de ser un arxiu .png, .jpg o .gif."
       avatar_upload_successful: "L'avatar s'ha actualitzat amb èxit."
       comment_cannot_be_empty: "Els comentaris no poden restar buits."
@@ -549,18 +565,22 @@ ca:
       you_cannot_reply_to_your_own_request: "No pots respondre a la teva pròpia sol·licitud"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
-      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
+      you_are_now_member: ~
+      you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Inicia sessió per a crear una nova oferta. Si no tens compte pots"
       you_must_log_in_to_create_new_request: "Inicia sessió per a crear una nova sol·licitud. Si no tens compte pots"
       you_must_log_in_to_give_feedback: "Iniciar sessió per a fer una suggerència"
+      you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
       you_must_log_in_to_send_a_comment: "Iniciar sessió per a comentar"
       you_must_log_in_to_send_a_message: "Iniciar sessió per a enviar un missatge a un usuari"
       you_must_log_in_to_view_this_content: "Iniciar sessió per a veure el contingut"
+      you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: "Iniciar sessió per a revisar la safata d'entrada"
       you_must_log_in_to_view_your_settings: "Iniciar sessió per a veure la teva configuració"
       you_must_log_in_to_add_news_item: "Has d'iniciar sesió per afegir un nou article"
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
+      joining_community_failed: ~
     profile_extras_header:
       back_to_profile_of_person: "Torna al perfil d'usuari"
       badges: Medalles
@@ -797,8 +817,8 @@ ca:
       badges_description_title: Medalles
       feedback_description_title: Suggeriment
       help_captcha_title: "Ets una persona?"
-      terms_title: "Termes d'ús de Kassi"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
+      terms_title: "Termes d'ús de Kassi"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
@@ -814,6 +834,10 @@ ca:
       family_name: "Cognoms:"
       given_name: "Nom:"
       i_accept_the: "Accepto la"
+      if_you_already_have_account_you_can: ~
+      join_with_your_existing_account: ~
+      invalid_invitation_code: "El codi d'invitació no és vàlid"
+      invitation_code: "Codi d'invitació:"
       not_required: ", no és necessari"
       password_again: "Confirma la contrasenya:"
       show_my_name_to_others: "Mostra el meu nom real als altres usuaris"
@@ -823,8 +847,6 @@ ca:
       username_is_invalid: "El nom d'usuari no és vàlid. Els caràcters permesos són lletres, números i guió baix."
       visible_only_to_you: "visible només per a tu i l'administrador de la comunitat"
       visible_to_everybody: "Visible per a tothom"
-      invitation_code: "Codi d'invitació:"
-      invalid_invitation_code: "El codi d'invitació no és vàlid"
     not_member:
       explanation_text: "Actualment pertanys a la comunitat %{community}. Has intentat veure el perfil d'un usuari que pertany a una altra comunitat. De moment Kassi no permet que puguis ingressar en diverses comunitats simultàniament. Estem treballant en una opció que permeti accedir a més d'una comunitat al mateix temps. Aviat estarà disponible!"
       read_more_about_kassi_communities: "Llegir més sobre les comunitats Kassi"
@@ -941,7 +963,6 @@ ca:
       joined_this_community: "...es va unir a la comunitat"
       was_last_seen: "...va ser vist per última vegada"
       was_invited_by: "...va ser convidat per"
-      as_invited_by: "Mostra qui t'ha convidat"
       less_than_expected: "Pitjor de l'esperat"
       phone_number: "Número de telèfon"
       show_all_badges: "Mostra totes les medalles"
@@ -971,6 +992,7 @@ ca:
       email: "Correu electrònic"
       password_recovery_instructions: "Escriu el teu correu electrònic per enviar-te el nom d'usuari i les instruccions per a realitzar el canvi de contrasenya."
       request_new_password: "Sol·licitar nova contrasenya"
+      change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: "Benvingut a Kassi!"
       check_your_email: "Revisa la safata d'entrada"

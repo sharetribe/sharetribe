@@ -197,16 +197,17 @@ fi:
       badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
       you_have_received_badges: "Olet saanut kassimerkkejä!"
       you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
+    confirmation_instructions:
+      confirmation_instructions_signature: "Terveisin,<br/>Kassi-tiimi"
+      welcome_to_kassi: "Tervetuloa Kassiin!"
+      need_to_confirm: "Ennen kuin aloitat käytön, sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
+      confirmation_link_text: "Varmista tunnukseni"
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
       kassi_team: Kassi-tiimi
       thanks: "Terveisin,"
       want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
-    confirmation_instructions:
-      welcome_to_kassi: "Tervetuloa Kassiin!"
-      need_to_confirm: "Ennen kuin aloitat käytön, sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
-      confirmation_link_text: "Varmista tunnukseni"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -311,8 +312,11 @@ fi:
       has_accepted_rent_item: "%{offerer_name} vuokrasi tavaran %{listing_title} käyttäjälle %{requester_name}"
       has_accepted_give_away_item: "%{offerer_name} antoi tavaran %{listing_title} käyttäjälle %{requester_name}"
       has_accepted_receive_item: "%{offerer_name} antoi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      to: käyttäjälle
       has_accepted_sell_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      with: käyttäjän
       has_accepted_buy_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name}"
+      rideshare_with_person: kanssa
       has_accepted_trade_item: "%{offerer_name} vaihtoi tavaran %{listing_title} käyttäjän %{requester_name} kanssa"
       has_accepted_temporary_accommodation_housing: " %{offerer_name} tarjosi tilapäismajoituksen %{listing_title} käyttäjälle %{requester_name}"
       has_accepted_sell_housing: "%{offerer_name} myi asunnon %{listing_title} käyttäjälle %{requester_name}"
@@ -943,6 +947,7 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
+      as_invited_by: kutsumana
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
       add_location: "Lisää sijainti"
