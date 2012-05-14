@@ -143,6 +143,18 @@ ru:
       accept_request: "Принять запрос"
       reject_offer: "Отклонить предложение"
       reject_request: "Отклонить запрос"
+  community_memberships:
+    new:
+      join_community: "Присоединяйтесь к сообществу '%{community}'"
+      you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в Kassi, но вы не являетесь членом сообщества '%{community}'."
+      you_can_join: "Вы можете присоединиться к этому сообществу, приняв условия использования и нажав кнопку \"Присоединиться\" ниже."
+      you_can_join_email_confirmation: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на %{email_ending}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
+      you_can_join_email_confirmation_multiple_addresses: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на что-либо из списка: %{email_endings}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
+      you_can_join_with_invite_only: "Для вступления в это сообщество, вам необходимо иметь код приглашения от кого-либо из членов сообщества. Вы сможете присоединиться к сообществу, введя код приглашения в поле ниже, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
+      joining_to_mail_restricted_communities_not_yet_supported: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: Присоединиться
   dashboard:
     index:
       slogan: "Виртуальная рыночная площадь для вашего сообщества."
@@ -185,17 +197,17 @@ ru:
       badge_description2: "Пользователь, обладающий большим количеством значков как правило является активным, надёжным и вызывающим симпатию у других пользователей. Будьте активны в Kassi: покупайте, продавайте, давайте напрокат, оказывайте другие услуги, используйте совместно транспортные средства, и будьте уверены, ваш список наград будет быстро расти!"
       you_have_received_badges: "Вы получили значок в Kassi!"
       you_have_received_badges_in_kassi: "Вы заработали новые значки в Kassi. Чтобы увидеть их, войдите в Kassi под своим именем и паролем и перейдите в"
+    confirmation_instructions:
+      confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда Kassi"
+      welcome_to_kassi: "Добро пожаловать в Kassi!"
+      need_to_confirm: "Перед началом использования Касси, вы должны подтвердить свой адрес электронной почты, используя следующую ссылку:"
+      confirmation_link_text: "Подтвердить мой счёт"
     common:
       check_your_settings: "Проверьте настройки"
       hey: "Привет, %{name}!"
       kassi_team: "Команда Kassi"
       thanks: "Спасибо,"
       want_to_control_emails: "Хотите настроить получение писем от Kassi?"
-    confirmation_instructions:
-      welcome_to_kassi: "Добро пожаловать в Kassi!"
-      need_to_confirm: "Перед началом использования Касси, вы должны подтвердить свой адрес электронной почты, используя следующую ссылку:"
-      confirmation_link_text: "Подтвердить мой счёт"
-      confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда Kassi"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -257,6 +269,9 @@ ru:
       text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
+    reset_password_instructions:
+      change_my_password: "Изменить пароль"
+      reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Отзывы являются публичными и видны всем пользователям. Основываясь на отзывах, другие пользователи могут сделать вывод о том, стоит ли доверять %{name} и иметь с ним общие дела. Таким образом, оставлять отзывы после событий, это всегда хорошо. Не забывайте делать это сами и просите о том же тех, кто участвовал в вашем событии. Кроме того, положительные отзывы требуются для получения большинства значков."
       remember_to_give_feedback_to: "Напоминание: не забудьте оставить отзыв о %{name}"
@@ -297,8 +312,11 @@ ru:
       has_accepted_rent_item: ~
       has_accepted_give_away_item: ~
       has_accepted_receive_item: "согласился отдать"
+      to: ~
       has_accepted_sell_item: "согласился продать"
+      with: ~
       has_accepted_buy_item: ~
+      rideshare_with_person: ~
       has_accepted_trade_item: ~
       has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
@@ -307,9 +325,6 @@ ru:
       has_accepted_rent_housing: ~
       has_accepted_favor: ~
       has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
     join:
       joined_kassi: "присоединился к Kassi"
     login:
@@ -417,7 +432,7 @@ ru:
     admin:
       admin: "Администрирование Kassi"
       back_to_kassi: "Вернуться в Kassi"
-      news_items: ~
+      news_items: "Новостные статьи"
       polls: Опросы
     application:
       default_feedback: "Предложите новую функцию, сообщите об ошибке, выразите своё мнение о сервисе, либо просто скажите нам «Привет»!"
@@ -471,6 +486,7 @@ ru:
       sign_up: Регистрация
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Учётная запись создана успешно. Теперь вам нужно подтвердить свой адрес электронной почты."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
       avatar_upload_successful: "Загрузка аватара успешна"
       comment_cannot_be_empty: "Комментарий не может быть пустым"
@@ -500,8 +516,8 @@ ru:
       login_successful: "Добро пожаловать в Kassi, "
       logout_successful: "Вы только что вышли из Kassi. Заходите ещё!"
       news_item_created: "Статья создана"
-      news_item_creation_failed: ~
-      news_item_update_failed: ~
+      news_item_creation_failed: "Ошибка при создании статьи"
+      news_item_update_failed: "Ошибка при обновлении статьи"
       news_item_updated: "Статья обновлена"
       news_item_deleted: "Статья удалена"
       offer_accepted: "Предложение подтверждено"
@@ -547,6 +563,8 @@ ru:
       you_cannot_reply_to_your_own_request: "Вы не можете ответить на собственный запрос"
       you_followed_listing: "Вы следите за этим листингом"
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
+      you_are_now_member: "Вы успешно присоединилась к этому сообществу"
+      you_are_already_member: "Вы уже являетесь членом этого сообщества %{service_name}. С возвращением!"
       you_must_log_in_to_create_new_offer: "Для того, чтобы создать новое предложение, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
       you_must_log_in_to_create_new_request: "Для того, чтобы создать новый запрос, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
@@ -554,11 +572,13 @@ ru:
       you_must_log_in_to_send_a_comment: "Вы должны войти, чтобы оставить новый комментарий"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны авторизоваться."
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
+      you_must_log_in_to_view_this_page: "Вам необходимо зарегистрироваться для просмотра этой страницы"
       you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в Kassi."
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
       you_must_log_in_to_add_news_item: "Вы должны авторизоваться, чтобы добавить новую статью."
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
+      joining_community_failed: "Ошибка при вступлении в сообщество"
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -781,7 +801,7 @@ ru:
     news_item:
       delete_news_item: "Удалить статью"
   okl:
-    member_id: ~
+    member_id: Идентификатор
     member_id_is_your_username: ~
     join_here: ~
   people:
@@ -812,6 +832,8 @@ ru:
       family_name: "Фамилия:"
       given_name: "Настоящее имя:"
       i_accept_the: "Я согласен с"
+      if_you_already_have_account_you_can: "Если вы уже зарегистрированы в другом сообществе Kassi, вы можете"
+      join_with_your_existing_account: "присоединиться к этому сообществу с помощью существующей учетной записи"
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
@@ -925,6 +947,7 @@ ru:
       show_also_closed: "Показывать закрытые"
       show_only_open: "Показывать только открытые"
     show:
+      as_invited_by: ""
       about_me: "Обо мне:"
       add_description: "Расскажите немного о себе"
       add_location: "Добавьте местоположение"
@@ -939,7 +962,6 @@ ru:
       joined_this_community: "Зарегистрирован с"
       was_last_seen: "…последний раз заходил"
       was_invited_by: "...был приглашён"
-      as_invited_by: ~
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
       show_all_badges: "Показать все значки"
@@ -969,6 +991,7 @@ ru:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
       request_new_password: "Запросить новый пароль"
+      change_your_password: "Смена пароля"
     confirmation_pending:
       welcome_to_kassi: "Добро пожаловать в Kassi!"
       check_your_email: "Проверьте ваш почтовый ящик"
@@ -1017,10 +1040,6 @@ ru:
       visible_to_registered_users: "видимо только для зарегистрированных пользователей"
     save_information: Сохранить
   sms:
-    category_not_supported: "SMS для этой категории ещё не поддерживается."
-    check_the_offer_in_kassi: "Просмотреть предложение в Kassi: %{listing_url}"
-    listing_created: "Спасибо за сообщение, листинг добавлен в Kassi."
-    offer: ^offer$|^o$
     or_check_the_offer_in_kassi: "или просмотреть предложение %{listing_url}"
     parsing_error: "Невозможно определить формат сообщения. Проверьте, всё ли вы делаете правильно и попробуйте ещё раз."
     pay: pay|payment
@@ -1030,6 +1049,10 @@ ru:
     rideshare: ride|rideshare
     you_can_call_him_at: "Вы можете связаться с водителем по телефону %{phone_number}"
     you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
+    category_not_supported: "SMS для этой категории ещё не поддерживается."
+    check_the_offer_in_kassi: "Просмотреть предложение в Kassi: %{listing_url}"
+    listing_created: "Спасибо за сообщение, листинг добавлен в Kassi."
+    offer: ^offer$|^o$
   tag_cloud:
     tag_used:
       with_tag: "С меткой"

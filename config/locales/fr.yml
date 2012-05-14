@@ -52,7 +52,6 @@ fr:
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
     password: "Mot de passe"
-    username: "Nom d'utilisateur"
     share_types:
       borrow: "à emprunter"
       buy: "à acheter"
@@ -64,6 +63,7 @@ fr:
       sell: "à vendre"
       temporary_accommodation: "hébergement temporaire"
       trade: "à échanger"
+    username: "Nom d'utilisateur"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
@@ -143,6 +143,18 @@ fr:
       accept_request: "Accepter demande"
       reject_offer: "Rejeter offre"
       reject_request: "Rejeter demande"
+  community_memberships:
+    new:
+      join_community: ~
+      you_are_not_a_member_of_this_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      joining_to_mail_restricted_communities_not_yet_supported: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
   dashboard:
     index:
       slogan: ~
@@ -185,17 +197,17 @@ fr:
       badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'articles, rendez service, faites du covoiturage et collectionnez toute la série des badges Kassi !"
       you_have_received_badges: "Vous avez obtenu des badges sur Kassi !"
       you_have_received_badges_in_kassi: "Vous avez gagné des badges sur Kassi. Pour visionner les badges obtenus, connectez-vous sur Kassi et allez à"
+    confirmation_instructions:
+      confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de Kassi"
+      welcome_to_kassi: "Bienvenue sur Kassi !"
+      need_to_confirm: "Avant de commencer à utiliser Kassi, vous devez confirmer votre adresse email avec le lien suivant :"
+      confirmation_link_text: "Confirmer mon inscription"
     common:
       check_your_settings: "Vérifiez vos paramètres"
       hey: "Bonjour %{name},"
       kassi_team: "L'équipe de Kassi"
       thanks: "Merci,"
       want_to_control_emails: "Vous souhaitez contrôler les emails que vous recevez de Kassi?"
-    confirmation_instructions:
-      welcome_to_kassi: "Bienvenue sur Kassi !"
-      need_to_confirm: "Avant de commencer à utiliser Kassi, vous devez confirmer votre adresse email avec le lien suivant :"
-      confirmation_link_text: "Confirmer mon inscription"
-      confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de Kassi"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre concernant la demande %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande concernant l'offre %{listing}"
@@ -257,6 +269,9 @@ fr:
       text_version_text: "Pourriez-vous partager quelque chose dont les autres auraient besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ? Ajoutez une offre ou une demande ou vérifiez tout ce que les autres offrent ou demandent en ce moment à %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à Kassi !"
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Les avis sont publics et visibles à tous les autres utilisateurs. En fonction des avis reçus, les autres utilisateurs peuvent décider de faire ou pas confiance à %{name} et d'engager des transactions avec cette personne. Il est donc important de toujours donner un avis à la fin de chaque transaction et de rappeler aux autres participants de vous en donner un. C'est également grâce aux avis positifs que vous obtiendrez la plupart des badges."
       remember_to_give_feedback_to: "Rappel : n'oubliez pas de donner un avis pour %{name}"
@@ -307,9 +322,6 @@ fr:
       has_accepted_rent_housing: ~
       has_accepted_favor: ~
       has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
     join:
       joined_kassi: ~
     login:
@@ -368,11 +380,11 @@ fr:
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
       news: Actualités
+      no_news: ~
+      more_news: ~
       offer_something: "Listez vos articles et vos compétences !"
       offer_something_description: "Ajouter les articles, compétences et covoiturages que vous pouvez proposer"
       or: ou
-      no_news: ~
-      more_news: ~
       or_see_what_the_others: "... ou voir ce que les autres"
       recent_events: "Evénements les plus récents"
       recent_offers: "Ce que proposent les autres"
@@ -400,9 +412,9 @@ fr:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: ~
+      add_a_profile_picture: ~
       you_have_not_added_your_info: ~
       add_your_info_link: ~
-      add_a_profile_picture: ~
     recent_listing:
       please_offer: Offrir
     sign_in:
@@ -471,6 +483,7 @@ fr:
       sign_up: S'inscrire
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Chargement d'avatar a échoué. Formats de photo acceptés : .png, .jpg ou .gif."
       avatar_upload_successful: "Téléchargement d'avatar réussi."
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
@@ -547,18 +560,22 @@ fr:
       you_cannot_reply_to_your_own_request: "Vous ne pouvez pas répondre à votre propre demande"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
-      you_must_log_in_to_invite_new_users: ~
+      you_are_now_member: ~
+      you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Vous devez être connecté à Kassi pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_create_new_request: "Vous devez être connecté à Kassi pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
+      you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
       you_must_log_in_to_send_a_message: "Vous devez vous connecter à Kassi pour envoyer un message à un autre utilisateur."
       you_must_log_in_to_view_this_content: "Vous devez vous connecter pour voir ce contenu"
+      you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: "Vous devez vous connecter à Kassi pour consulter votre boîte de réception."
       you_must_log_in_to_view_your_settings: "Vous devez vous connecter à Kassi pour afficher vos paramètres."
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription."
       you_unfollowed_listing: ~
+      joining_community_failed: ~
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil d'utilisateur"
       badges: Badges
@@ -795,8 +812,8 @@ fr:
       badges_description_title: Badges
       feedback_description_title: Commentaires
       help_captcha_title: "Etes-vous humain ?"
-      terms_title: "Conditions d'utilisation de Kassi"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
+      terms_title: "Conditions d'utilisation de Kassi"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
       inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
@@ -812,6 +829,10 @@ fr:
       family_name: "Nom de famille :"
       given_name: "Prénom :"
       i_accept_the: "J'accepte les"
+      if_you_already_have_account_you_can: ~
+      join_with_your_existing_account: ~
+      invalid_invitation_code: "Le code d'invitation n'est pas valide."
+      invitation_code: "Code d'invitation :"
       not_required: ", pas demandé"
       password_again: "Confirmer le mot de passe :"
       show_my_name_to_others: ~
@@ -821,8 +842,6 @@ fr:
       username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
       visible_to_everybody: "visible à tout le monde"
-      invitation_code: "Code d'invitation :"
-      invalid_invitation_code: "Le code d'invitation n'est pas valide."
     not_member:
       explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, Kassi ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
       read_more_about_kassi_communities: "En savoir plus sur les communautés Kassi"
@@ -939,7 +958,6 @@ fr:
       joined_this_community: "A rejoint la communauté le"
       was_last_seen: ~
       was_invited_by: ~
-      as_invited_by: ~
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone :"
       show_all_badges: "Montrer tous les badges Kassi"
@@ -969,6 +987,7 @@ fr:
       email: Email
       password_recovery_instructions: "Donner votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
       request_new_password: Envoyer
+      change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: "Bienvenue sur Kassi !"
       check_your_email: "Voir vos messages"

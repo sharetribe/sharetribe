@@ -143,6 +143,18 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+  community_memberships:
+    new:
+      join_community: "Únete a la comunidad de '%{community}'"
+      you_are_not_a_member_of_this_community: "Tienes una cuenta de usuario en %%{service_name}{service_name}, pero todavía no eres miembro de %{service_name} la comunidad '%{community}'."
+      you_can_join: "Puedes unirte a esta comunidad aceptando los términos de uso y haciendo click en \"Únete a la comunidad\" más abajo."
+      you_can_join_email_confirmation: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con %{email_ending}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
+      you_can_join_email_confirmation_multiple_addresses: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con uno de los siguientes formatos: %{email_endings}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
+      you_can_join_with_invite_only: "Tienes que tener una invitación de otro usuario para unirte a esta comunidad. Si tienes un código de invitación, puedes unirte a esta comunidad escribiendo el código en el campo de más abajo , aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
+      joining_to_mail_restricted_communities_not_yet_supported: "Esta comunidad esta restringida por una cuenta de e-mail que debes tener y, además, todavía no es posible unirse a múltiples comunidades con restricciones de e-mail. Pronto añadiremos esta opción, pero por el momento deberás cerrar la sesión y crear una cuenta separada para esta comunidad."
+      if_want_to_view_content: "Si quieres ver el contenido de esta comunidad sin unirte a ella, necesitas"
+      log_out: "cerrar sesión"
+      join_community_button: "Unirse a la comunidad"
   dashboard:
     index:
       slogan: "Un sitio exclusivo para compartir"
@@ -185,17 +197,17 @@ es:
       badge_description2: "Una persona que posee bastantes medallas es un usuario activo y recomendado por los otros usuarios. ¡Así que empieza a participar activamente en tu comunidad Kassi: compra, vende, regala y presta artículos, ayuda a los demás, comparte tus traslados y verás como tus medallas se empezarán a ir acumulando!"
       you_have_received_badges: "¡Has recibido medallas en Kassi!"
       you_have_received_badges_in_kassi: "¡Has obtenido nuevas medallas en Kassi! Puedes ver tus medallas ingresando en Kassi"
-    common:
-      check_your_settings: "Revisa tu configuración"
-      hey: "Hola %{name},"
-      kassi_team: "El equipo de Kassi"
-      thanks: "Gracias,"
-      want_to_control_emails: "Quieres controlar qué correos recibes de Kassi?"
     confirmation_instructions:
+      confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de Kassi"
       welcome_to_kassi: "¡Bienvenido a Kassi!"
       need_to_confirm: "Antes de empezar a utilizar Kassi, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
-      confirmation_instructions_signature: "Saludos cordiales,<br/>El Equipo de Kassi"
+    common:
+      check_your_settings: "Revisa tu configuración"
+      hey: "Hola %{name},"
+      kassi_team: "El equipo %{service_name}"
+      thanks: "Gracias,"
+      want_to_control_emails: "Quieres controlar qué correos recibes de Kassi?"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
@@ -257,6 +269,9 @@ es:
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "¡Gracias por tu interés en Kassi!"
+    reset_password_instructions:
+      change_my_password: "Cambiar mi contraseña"
+      reset_password_instructions: "<p>Has indicado que has olvidado tu contraseña o tu nombre de usuario en el %{service_name} servicio.</p><p>Tu nombre de usuario es: %{username}</p><p>Si necesitas restablecer tu contraseña, haz click en el siguiente enlace: %{password_reset_link}</p><br/><p>Si no solicitaste esto, por favor ignora este e-mail. Tu contraseña no cambiará hasta que accedas al enlace de más arriba y crees una nueva.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Las sugerencias son públicas y están a disposición de todos los usuarios. Basándose en los comentarios y sugerencias los usuarios pueden juzgar o saber si %{name} es una persona confiable y si es con quien se desean contactar. Por eso, no olvides ingresar recomendaciones o comentarios en los eventos, ya que así también recuerdas a los demás para que te den sugerencias. Ten en cuenta que es necesario recibir comentarios positivos para obtener medallas."
       remember_to_give_feedback_to: "Recordatorio: Recuerda hacer una sugerencia a %{name}"
@@ -299,8 +314,11 @@ es:
       has_accepted_rent_item: "acordó en arrendar"
       has_accepted_give_away_item: "acordó en dar"
       has_accepted_receive_item: "acordó en dar"
+      to: hacia
       has_accepted_sell_item: "acordó en vender"
+      with: con
       has_accepted_buy_item: "acordó en vender"
+      rideshare_with_person: ~
       has_accepted_trade_item: "acordó en intercambiar"
       has_accepted_temporary_accommodation_housing: "acordó en ofrecer"
       has_accepted_sell_housing: "acordó en vender"
@@ -309,9 +327,6 @@ es:
       has_accepted_rent_housing: "acordó en arrendar"
       has_accepted_favor: "acordó en ofrecer"
       has_accepted_rideshare: "acordó compartir un viaje"
-      to: hacia
-      with: con
-      rideshare_with_person: ~
     join:
       joined_kassi: "se unió a Kassi"
     login:
@@ -473,6 +488,7 @@ es:
       sign_up: Registrarse
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Ahora eres parte de esta comunidad. A continuación necesitas confirmar tu dirección e-mail."
       avatar_upload_failed: "Falló la actualización del avatar. Recuerda que la foto debe ser un archivo .png, .jpg o .gif"
       avatar_upload_successful: "Actualización del avatar exitosa."
       comment_cannot_be_empty: "Comentarios no pueden estar vacíos."
@@ -549,6 +565,8 @@ es:
       you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
       you_followed_listing: "Ahora estás siguiendo este listado"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
+      you_are_now_member: "Te has unido exitosamente a esta comunidad"
+      you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. ¡Bienvenido otra vez!"
       you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
       you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en Kassi para crear una nueva solicitud. Si no tienes una cuenta puedes"
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
@@ -556,11 +574,13 @@ es:
       you_must_log_in_to_send_a_comment: "Debes iniciar tu sesión para enviar un nuevo comentario"
       you_must_log_in_to_send_a_message: "Debes iniciar tu sesión en Kassi para enviar un mensaje a otro usuario"
       you_must_log_in_to_view_this_content: "Debes iniciar tu sesión para ver este contenido"
+      you_must_log_in_to_view_this_page: "Tienes que iniciar sesión para ver esta página"
       you_must_log_in_to_view_your_inbox: "Debes iniciar tu sesión en Kassi para revisar tu bandeja de entrada"
       you_must_log_in_to_view_your_settings: "Debes registrarte en Kassi para ver tu configuración"
       you_must_log_in_to_add_news_item: "Debes iniciar sesión en Kassi para añadir un nuevo artículo"
       you_need_to_confirm_your_account_first: "Deberás confirmar tu cuenta primero."
       you_unfollowed_listing: "Ya no estás siguiendo este anuncio"
+      joining_community_failed: "Error al unirte a esta comunidad"
     profile_extras_header:
       back_to_profile_of_person: "Volver al perfil del usuario"
       badges: Medallas
@@ -814,6 +834,8 @@ es:
       family_name: "Apellido:"
       given_name: "Nombre:"
       i_accept_the: "Acepto la"
+      if_you_already_have_account_you_can: "Si ya tienes una cuenta en otra %{service_name} comunidad puedes"
+      join_with_your_existing_account: "únete a esta comunidad con tu cuenta existente"
       invalid_invitation_code: "El código de invitación no es válido."
       invitation_code: "Código de invitación:"
       not_required: ", no es necesario"
@@ -941,7 +963,6 @@ es:
       joined_this_community: "...se sumó a esta comunidad"
       was_last_seen: "...fue visto por última vez"
       was_invited_by: "...fue invitado por"
-      as_invited_by: ~
       less_than_expected: "Peor de lo esperado"
       phone_number: "Número de teléfono:"
       show_all_badges: "Mostrar todas las medallas"
@@ -971,6 +992,7 @@ es:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
       request_new_password: "Solicitar nueva contraseña"
+      change_your_password: "Cambia tu contraseña"
     confirmation_pending:
       welcome_to_kassi: "¡Bienvenido a Kassi!"
       check_your_email: "Revisa tu bandeja de entrada"

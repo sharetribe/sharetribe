@@ -52,7 +52,6 @@ zh:
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
     password: 密码
-    username: 用户名
     share_types:
       borrow: 借入
       buy: 购买
@@ -64,6 +63,7 @@ zh:
       sell: 出售中
       temporary_accommodation: 临时租房
       trade: 交易
+    username: 用户名
     what_is_this: 这是什么？
   conversations:
     index:
@@ -143,6 +143,18 @@ zh:
       accept_request: 接受请求
       reject_offer: 拒绝提议
       reject_request: 拒绝请求
+  community_memberships:
+    new:
+      join_community: ~
+      you_are_not_a_member_of_this_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      joining_to_mail_restricted_communities_not_yet_supported: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
   dashboard:
     index:
       slogan: ~
@@ -185,17 +197,17 @@ zh:
       badge_description2: ~
       you_have_received_badges: 您在Kassi中赢得了徽章！
       you_have_received_badges_in_kassi: 您在Kassi中赢得了新的徽章。您可以登陆浏览您的所有徽章或者继续
+    confirmation_instructions:
+      confirmation_instructions_signature: 此致敬礼，<br/>Kassi团队
+      welcome_to_kassi: 欢迎来到Kassi！
+      need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
+      confirmation_link_text: 确认账号
     common:
       check_your_settings: 查看您的设置
       hey: "Hi %{name},"
       kassi_team: Kassi团队
       thanks: 谢谢！
       want_to_control_emails: 想要管理来自Kassi的邮件？
-    confirmation_instructions:
-      welcome_to_kassi: 欢迎来到Kassi！
-      need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
-      confirmation_link_text: 确认账号
-      confirmation_instructions_signature: 此致敬礼，<br/>Kassi团队
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了您关于%{listing}的请求"
       has_accepted_your_request: ~
@@ -257,6 +269,9 @@ zh:
       text_version_text: ~
     reply_to_contact_request:
       thank_you_for_your_interest: 感谢您对Kassi的兴趣！
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "评价是对其他用户公开的。其他用户可根据评价来判断 %{name} 是否值得信赖。所以，记得评价别人发起的活动，也提醒别人评价您发起的活动。您需要正面的评价来获得更多的徽章。"
       remember_to_give_feedback_to: "提醒：记得给%{name} 评价"
@@ -307,9 +322,6 @@ zh:
       has_accepted_rent_housing: ~
       has_accepted_favor: ~
       has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
     join:
       joined_kassi: ~
     login:
@@ -368,11 +380,11 @@ zh:
       loading_more_content: 正在载入更多内容
       more_events: 更多事件……
       news: 新闻
+      no_news: ~
+      more_news: ~
       offer_something: 列出您的物品和技能!
       offer_something_description: 添加您能提供的物品，技能和顺风车
       or: 或者
-      no_news: ~
-      more_news: ~
       or_see_what_the_others: 或者看看其他的……
       recent_events: 最近的事件
       recent_offers: 其他人能提供什么
@@ -400,9 +412,9 @@ zh:
       poll_answers: ~
     profile_info_empty_notification:
       add_your_info: 添加联系信息
+      add_a_profile_picture: ~
       you_have_not_added_your_info: 您尚未添加联系方式。请添加联系方式以方便他人更方便的联系您。
       add_your_info_link: 现在添加个人信息
-      add_a_profile_picture: ~
     recent_listing:
       please_offer: 提议
     sign_in:
@@ -471,6 +483,7 @@ zh:
       sign_up: 注册
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: 头像上传失败。请使用.png，.jpg或者.gif文件。
       avatar_upload_successful: 头像上传成功！
       comment_cannot_be_empty: 评论不能为空
@@ -547,18 +560,22 @@ zh:
       you_cannot_reply_to_your_own_request: 您不能回复自己的请求
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
-      you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
+      you_are_now_member: ~
+      you_are_already_member: ~
       you_must_log_in_to_create_new_offer: 请登录以完成提议。如果您没有账户，您可以
       you_must_log_in_to_create_new_request: 请登录以完成请求。如果您没有账户，您可以
       you_must_log_in_to_give_feedback: 您必须登录以评价
+      you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
       you_must_log_in_to_send_a_comment: 您必须登录才能发表评论
       you_must_log_in_to_send_a_message: 您必须登录Kassi以向其他用户发送信息
       you_must_log_in_to_view_this_content: 您必须登录以查看此内容
+      you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: 您必须登录Kassi以查看您的收件箱
       you_must_log_in_to_view_your_settings: 您必须登录Kassi以查看您的设置
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: 您需要先确认账户
       you_unfollowed_listing: 您不再关注此列表
+      joining_community_failed: ~
     profile_extras_header:
       back_to_profile_of_person: 回到用户个人资料
       badges: 徽章
@@ -795,8 +812,8 @@ zh:
       badges_description_title: 徽章
       feedback_description_title: 反馈
       help_captcha_title: 你是人类么？
-      terms_title: Kassi使用条款
       help_invitation_code_title: 您需要被邀请才能加入
+      terms_title: Kassi使用条款
     inactive_notification:
       this_person_is_not_active_in_kassi: 此用户处于冻结状态
       inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
@@ -812,6 +829,10 @@ zh:
       family_name: 姓：
       given_name: 名：
       i_accept_the: 我接受
+      if_you_already_have_account_you_can: ~
+      join_with_your_existing_account: ~
+      invalid_invitation_code: 邀请码无效。
+      invitation_code: 邀请码：
       not_required: ，不要求
       password_again: 确认密码：
       show_my_name_to_others: 对其他Kassi用户显示真实姓名
@@ -821,8 +842,6 @@ zh:
       username_is_invalid: 用户名格式不正确。请使用字母，数字以及下划线。
       visible_only_to_you: 只有您和社区管理员可见
       visible_to_everybody: 所有人可见
-      invitation_code: 邀请码：
-      invalid_invitation_code: 邀请码无效。
     not_member:
       explanation_text: "您现在属于%{community} 社区。您试图查看另一个社区的用户资料。Kassi现在并不支持多重社区身份，所以您可以通过%{community} 社区查看这个用户的资料。我们正在努力实现多重社区身份，以后的更新将会完善这个功能。"
       read_more_about_kassi_communities: 阅读更多关于Kassi社区
@@ -939,7 +958,6 @@ zh:
       joined_this_community: 已加入这个社区
       was_last_seen: 被看见
       was_invited_by: 被邀请
-      as_invited_by: ~
       less_than_expected: 比期望的差
       phone_number: 电话号码：
       show_all_badges: 显示所有徽章
@@ -969,6 +987,7 @@ zh:
       email: E-mail
       password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
       request_new_password: 请求新密码
+      change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: 欢迎来到Kassi！
       check_your_email: 查看您的收件箱

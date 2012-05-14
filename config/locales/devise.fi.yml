@@ -8,48 +8,87 @@ fi:
       not_saved:
         one: "1 virhe esti %{resource} tallentamisen:"
         other: "%{count} virhettä esti %{resource} tallentamisen:"
-
   devise:
+    shared:
+      sign_in: ~
+      sign_up: ~
+      forgot_password: ~
+      didnt_receive_confirmation_instructions?: ~
+      didnt_receive_unlock_instructions?: ~
+      sign_in_with_omniauth: ~
     failure:
-      already_authenticated: 'Olet jo kirjautunut sisään.'
-      unauthenticated: 'Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa.'
-      unconfirmed: 'Sinun täytyy vahvistaa tunnuksesi ennen kuin voit jatkaa.'
-      locked: 'Tunnuksesi on lukittu.'
-      invalid: 'Virheellinen sähköpostiosoite tai salasana.'
-      invalid_token: 'Virheellinen valtuutusavain.'
-      timeout: 'Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi.'
-      inactive: 'Tunnustasi ei ole vielä aktivoitu.'
-    sessions:
-      signed_in: 'Sisäänkirjautuminen onnistui.'
-      signed_out: 'Uloskirjautuminen onnistui.'
+      already_authenticated: "Olet jo kirjautunut sisään."
+      unauthenticated: "Sinun pitää kirjautua sisään tai rekisteröityä ennen kuin voit jatkaa."
+      unconfirmed: "Sinun täytyy vahvistaa tunnuksesi ennen kuin voit jatkaa."
+      locked: "Tunnuksesi on lukittu."
+      invalid: "Virheellinen sähköpostiosoite tai salasana."
+      invalid_token: "Virheellinen valtuutusavain."
+      timeout: "Istuntosi on vanhentunut, ole hyvä ja kirjaudu sisään jatkaaksesi."
+      inactive: "Tunnustasi ei ole vielä aktivoitu."
     passwords:
-      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon.'
-      updated: 'Salasanasi on nyt vaihdettu. Olet kirjautuneena sisälle.'
-      updated_not_active: 'Salasanasi on vaihdettu.'
+      updated_not_active: "Salasanasi on vaihdettu."
       send_paranoid_instructions: "Olemme lähettäneet sähköpostiisi ohjeet salasanan vaihtamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme."
+      change_your_password: ~
+      new_password: ~
+      confirm_new_password: ~
+      change_my_password: ~
+      send_reset_password_instructions: ~
+      send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon."
+      updated: "Salasanasi on nyt vaihdettu. Olet kirjautuneena sisälle."
+    sessions:
+      signed_in: "Sisäänkirjautuminen onnistui."
+      signed_out: "Uloskirjautuminen onnistui."
     confirmations:
-      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen.'
-      send_paranoid_instructions: 'Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi aktivoimiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme.'
-      confirmed: 'Tunnuksesi on nyt vahvistettu.'
+      send_paranoid_instructions: "Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi aktivoimiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme."
+      resend_instructions: ~
+      send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet tunnuksen vahvistamiseen."
+      confirmed: "Tunnuksesi on nyt vahvistettu."
     registrations:
-      signed_up: 'Tervetuloa! Rekisteröintisi onnistui.'
-      signed_up_but_unconfirmed: 'Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti.'
-      signed_up_but_inactive: 'Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu.'
-      signed_up_but_locked: 'Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu.'
-      updated: 'Käyttäjätietosi on päivitetty.'
+      signed_up_but_unconfirmed: "Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa käyttäjätilisi. Ole hyvä ja vahvista käyttäjätilisi saamiesi ohjeiden mukaisesti."
+      signed_up_but_inactive: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu."
+      signed_up_but_locked: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu."
+      reasons:
+        inactive: ~
+        unconfirmed: ~
+        locked: ~
       update_needs_confirmation: "Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi."
-      destroyed: 'Näkemiin! Tunnuksesi on nyt poistettu. Toivottavasti näemme sinut vielä uudelleen.'
+      signed_up: "Tervetuloa! Rekisteröintisi onnistui."
+      edit: ~
+      leave_blank: ~
+      current_password_label: ~
+      update: ~
+      unhappy: ~
+      cancel_my_account: ~
+      confirm: ~
+      back: ~
+      inactive_signed_up: ~
+      updated: "Käyttäjätietosi on päivitetty."
+      destroyed: "Näkemiin! Tunnuksesi on nyt poistettu. Toivottavasti näemme sinut vielä uudelleen."
+    oauth_callbacks:
+      success: ~
+      failure: ~
     unlocks:
-      send_instructions: 'Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon.'
-      unlocked: 'Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle.'
-      send_paranoid_instructions: 'Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi lukituksen poistamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme.'
+      send_paranoid_instructions: "Olemme lähettäneet sähköpostiisi ohjeet käyttäjätilisi lukituksen poistamiseksi, mikäli antamasi sähköpostiosoite löytyy tietokannastamme."
+      resend_instructions: ~
+      send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon."
+      unlocked: "Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle."
     omniauth_callbacks:
-      success: 'Onnistuneesti valtuutettu käyttäen palvelua %{kind}.'
-      failure: 'Valtuutus käyttäen palvelua %{kind} epäonnistui, koska "%{reason}".'
+      success: "Onnistuneesti valtuutettu käyttäen palvelua %{kind}."
+      failure: "Valtuutus käyttäen palvelua %{kind} epäonnistui, koska \"%{reason}\"."
     mailer:
+      hello: ~
+      welcome: ~
+      confirm: ~
+      change: ~
+      someone_requested: ~
+      please_ignore: ~
+      password_wont_change: ~
+      locked: ~
+      click_to_unlock: ~
+      unlock: ~
       confirmation_instructions:
-        subject: 'Vahvistusohjeet'
+        subject: Vahvistusohjeet
       reset_password_instructions:
-        subject: 'Ohjeet salasanan vaihtoon'
+        subject: "Ohjeet salasanan vaihtoon"
       unlock_instructions:
-        subject: 'Ohjeet tunnuksen lukituksen poistoon'
+        subject: "Ohjeet tunnuksen lukituksen poistoon"

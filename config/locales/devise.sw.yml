@@ -1,10 +1,10 @@
-nl:
+sw:
   errors:
     messages:
       expired: ~
-      not_found: "niet gevonden"
-      already_confirmed: "is reeds bevestigd"
-      not_locked: "is niet gesloten"
+      not_found: ~
+      already_confirmed: ~
+      not_locked: ~
       not_saved:
         one: ~
         other: ~
@@ -18,13 +18,13 @@ nl:
       sign_in_with_omniauth: ~
     failure:
       already_authenticated: ~
-      unauthenticated: "Je dient in te loggen of je in te schrijven."
-      unconfirmed: "Je dient eerst je account te bevestigen."
-      locked: "Je account is gelocked."
-      invalid: "Ongeldig e-mail of wachtwoord."
-      invalid_token: "Invalide authenticiteit token."
-      timeout: "Je sessie is verlopen, log a.u.b. opnieuw in."
-      inactive: "Je account is nog niet geactiveerd."
+      unauthenticated: ~
+      unconfirmed: ~
+      locked: ~
+      invalid: ~
+      invalid_token: ~
+      timeout: ~
+      inactive: ~
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: ~
@@ -33,16 +33,16 @@ nl:
       confirm_new_password: ~
       change_my_password: ~
       send_reset_password_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten."
-      updated: "Je wachtwoord is gewijzigd. Je bent nu ingelogd."
+      send_instructions: ~
+      updated: ~
     sessions:
-      signed_in: "Je bent succesvol ingelogd."
-      signed_out: "Je bent succesvol uitgelogd."
+      signed_in: ~
+      signed_out: ~
     confirmations:
       send_paranoid_instructions: ~
       resend_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan bevestigen."
-      confirmed: "Je account is bevestigd."
+      send_instructions: ~
+      confirmed: ~
     registrations:
       signed_up_but_unconfirmed: ~
       signed_up_but_inactive: ~
@@ -52,7 +52,7 @@ nl:
         unconfirmed: ~
         locked: ~
       update_needs_confirmation: ~
-      signed_up: "Je bent inschreven."
+      signed_up: ~
       edit: ~
       leave_blank: ~
       current_password_label: ~
@@ -62,16 +62,16 @@ nl:
       confirm: ~
       back: ~
       inactive_signed_up: ~
-      updated: "Je account gegevens zijn opgeslagen."
-      destroyed: "Je account is verwijderd, wellicht tot ziens!"
+      updated: ~
+      destroyed: ~
     oauth_callbacks:
       success: ~
       failure: ~
     unlocks:
       send_paranoid_instructions: ~
       resend_instructions: ~
-      send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan un-locken."
-      unlocked: "Je account is ge-unlocked. Je kan nu weer inloggen."
+      send_instructions: ~
+      unlocked: ~
     omniauth_callbacks:
       success: ~
       failure: ~
@@ -87,8 +87,8 @@ nl:
       click_to_unlock: ~
       unlock: ~
       confirmation_instructions:
-        subject: Bevestiging
+        subject: ~
       reset_password_instructions:
-        subject: "Wachtwoord resetten"
+        subject: ~
       unlock_instructions:
-        subject: "Unlock instructies"
+        subject: ~

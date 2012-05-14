@@ -143,6 +143,18 @@ nl:
       accept_request: "Accepteer verzoek"
       reject_offer: "Sla aanbod af"
       reject_request: "Sla verzoek af"
+  community_memberships:
+    new:
+      join_community: ~
+      you_are_not_a_member_of_this_community: ~
+      you_can_join: ~
+      you_can_join_email_confirmation: ~
+      you_can_join_email_confirmation_multiple_addresses: ~
+      you_can_join_with_invite_only: ~
+      joining_to_mail_restricted_communities_not_yet_supported: ~
+      if_want_to_view_content: ~
+      log_out: ~
+      join_community_button: ~
   dashboard:
     index:
       slogan: ~
@@ -185,17 +197,17 @@ nl:
       badge_description2: "Een persoon met veel badges is waarschijnlijk actief, betrouwbaar en aardig gevonden door andere gebruikers. Dus wees actief in Kassi: Koop, verkoop, leen en leen spullen uit, doe anderen een gunst, deel ritten en zie je badge arsenaal groeien!"
       you_have_received_badges: "Je hebt een nieuwe badge ontvangen!"
       you_have_received_badges_in_kassi: "Je hebt een nieuwe badge verdiend in Kassi. Je kan je badges zien als je gaat naar"
+    confirmation_instructions:
+      confirmation_instructions_signature: ~
+      welcome_to_kassi: ~
+      need_to_confirm: ~
+      confirmation_link_text: ~
     common:
       check_your_settings: "Controleer uw instellingen"
       hey: "Hi %{name},"
       kassi_team: "Het Kassi Team"
       thanks: "Bedankt,"
       want_to_control_emails: "Wilt u beheren welke emails u ontvangt van Kassi?"
-    confirmation_instructions:
-      welcome_to_kassi: ~
-      need_to_confirm: ~
-      confirmation_link_text: ~
-      confirmation_instructions_signature: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} heeft uw aanbod geaccepteerd, betreffende het verzoek %{listing}"
       has_accepted_your_request: "%{accepter} heeft uw verzoek geaccepteerd, betreffende het aanbod %{listing}"
@@ -257,6 +269,9 @@ nl:
       text_version_text: ~
     reply_to_contact_request:
       thank_you_for_your_interest: ~
+    reset_password_instructions:
+      change_my_password: ~
+      reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Feedback is openbaar en zichtbaar voor alle andere gebruikers. Met de feedback kunnen gebruikers beslissen of %{name} betrouwbaar is en of het iemand is waar ze mee willen handelen. Het is dus goed om altijd feedback te geven aan evenementen, en herinner anderen om jou feedback te geven. Je hebt positieve feedback nodig om de meeste badges te verdienen."
       remember_to_give_feedback_to: "Herinnering: vergeet niet om feedback te geven aan %{name}"
@@ -297,7 +312,9 @@ nl:
       has_accepted_rent_item: ~
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
+      to: ~
       has_accepted_sell_item: ~
+      with: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
       has_accepted_temporary_accommodation_housing: ~
@@ -307,9 +324,6 @@ nl:
       has_accepted_rent_housing: ~
       has_accepted_favor: ~
       has_accepted_rideshare: ~
-      to: ~
-      with: ~
-      rideshare_with_person: ~
     join:
       joined_kassi: ~
     login:
@@ -471,6 +485,7 @@ nl:
       sign_up: ~
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Avatar upload is mislukt. Vergeet niet dat de foto een .png, .jpg or .gif - bestand moet zijn."
       avatar_upload_successful: "Avatar upload succesvol"
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
@@ -547,6 +562,8 @@ nl:
       you_cannot_reply_to_your_own_request: "Je kan niet reageren op je eigen verzoek"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
+      you_are_now_member: ~
+      you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Je moet ingelogd zijn om een nieuw aanbod te maken. Als je nog geen account hebt kun je er"
       you_must_log_in_to_create_new_request: "Je moet ingelogd zijn om ee nieuw verzoek te maken. Als je nog geen account hebt kun je er"
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
@@ -554,11 +571,13 @@ nl:
       you_must_log_in_to_send_a_comment: "Je moet inloggen om een nieuwe reactie te versturen"
       you_must_log_in_to_send_a_message: "Je moet ingelogd zijn om een bericht te sturen naar een andere gebruiker."
       you_must_log_in_to_view_this_content: "Je moet inloggen om deze inhoud te zien"
+      you_must_log_in_to_view_this_page: ~
       you_must_log_in_to_view_your_inbox: "Je moet ingelogd zijn om je inbox te zien."
       you_must_log_in_to_view_your_settings: ~
       you_must_log_in_to_add_news_item: ~
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
+      joining_community_failed: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -812,6 +831,8 @@ nl:
       family_name: "Familie naam:"
       given_name: "Naam:"
       i_accept_the: "Ik accepteer de"
+      if_you_already_have_account_you_can: ~
+      join_with_your_existing_account: ~
       invalid_invitation_code: ~
       invitation_code: ~
       not_required: ~
@@ -939,7 +960,6 @@ nl:
       joined_this_community: ~
       was_last_seen: ~
       was_invited_by: ~
-      as_invited_by: ~
       less_than_expected: "Minder dan verwacht"
       phone_number: "Telefoon nummer:"
       show_all_badges: "Laat alle badges zien"
@@ -969,6 +989,7 @@ nl:
       email: Email
       password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
       request_new_password: "Nieuw wachtwoord aanvragen"
+      change_your_password: ~
     confirmation_pending:
       welcome_to_kassi: ~
       check_your_email: ~
