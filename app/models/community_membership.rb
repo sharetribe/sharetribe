@@ -1,7 +1,7 @@
 class CommunityMembership < ActiveRecord::Base
   
   belongs_to :person
-  belongs_to :community
+  belongs_to :community, :counter_cache => :members_count
   belongs_to :invitation
   
   attr_accessor :email

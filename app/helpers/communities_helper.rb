@@ -1,0 +1,2 @@
+module CommunitiesHelper
+end
