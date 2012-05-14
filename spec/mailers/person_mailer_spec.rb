@@ -14,8 +14,7 @@ describe PersonMailer do
 
   it "should send email about a new message" do
     @conversation = Factory(:conversation)
-    @conversation.participants << @test_person2
-    @conversation.participants << @test_person
+    @conversation.participants = [@test_person2, @test_person]
     @message = Factory(:message)
     @message.conversation = @conversation
     @message.save
