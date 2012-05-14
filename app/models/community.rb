@@ -6,6 +6,7 @@ class Community < ActiveRecord::Base
   has_many :news_items
   has_many :polls
   has_many :event_feed_events
+  has_one :location, :dependent => :destroy
   
   has_and_belongs_to_many :listings
   
