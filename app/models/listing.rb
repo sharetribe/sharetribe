@@ -20,8 +20,8 @@ class Listing < ActiveRecord::Base
   accepts_nested_attributes_for :listing_images, :reject_if => lambda { |t| t['image'].blank? }
   
   has_many :conversations
-  
-  has_many :comments
+  has_many :notifications, :as => :notifiable, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   
   has_one :location, :dependent => :destroy
   has_one :origin_loc, :class_name => "Location", :conditions => ['location_type = ?', 'origin_loc'], :dependent => :destroy
