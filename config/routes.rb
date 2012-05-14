@@ -150,6 +150,7 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
+    resources :communities
     resources :community_memberships
     resources :listings do
       member do

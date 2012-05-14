@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120514001557) do
+ActiveRecord::Schema.define(:version => 20120514050302) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20120514001557) do
     t.boolean  "all_users_can_add_news",                    :default => false
     t.boolean  "custom_frontpage_sidebar",                  :default => true
     t.boolean  "event_feed_enabled",                        :default => true
+    t.integer  "members_count",                             :default => 0
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|

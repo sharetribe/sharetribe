@@ -1,0 +1,12 @@
+- content_for :extra_javascript do
+  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
+  -#= javascript_include_tag "https://code.google.com/apis/gears/gears_init.js"
+  -#= javascript_include_tag 'markerclusterer.js'
+
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() { initialize_communities_map(); });
+
+= t(".communities_on_map")
+
+#map-canvas{:style => "width: 900px; height: 500px"}
