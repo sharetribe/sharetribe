@@ -59,13 +59,32 @@
   = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
   
 .grid_6
-  
+
   - if @current_user && @current_user.profile_info_empty?
     .homepage_sidebar_box
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       = render :partial => "profile_info_empty_notification"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-  
+
+  - if @current_community.custom_frontpage_sidebar?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :file => community_file("frontpage_sidebar", true)
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+
+  - if @current_community.news_enabled?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :partial => "news_items"
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+
+  - if @current_user && @current_community.active_poll
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      #poll_form
+        = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+
   - if @current_user && (@current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community))
     .homepage_sidebar_box
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
@@ -77,22 +96,4 @@
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       = render :partial => "event_feed"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-  
-  - if @current_user && @current_community.active_poll
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      #poll_form
-        = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-  
-  - if @current_community.news_enabled?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :partial => "news_items"
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
     
-  - if @current_community.custom_frontpage_sidebar?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :file => community_file("frontpage_sidebar", true)
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
