@@ -308,31 +308,28 @@ es:
     your_email_address: "Tu dirección email"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "acordó en prestar"
-      has_accepted_borrow_item: "acordó en prestar"
-      has_accepted_rent_out_item: "acordó en arrendar"
-      has_accepted_rent_item: "acordó en arrendar"
-      has_accepted_give_away_item: "acordó en dar"
-      has_accepted_receive_item: "acordó en dar"
-      to: hacia
-      has_accepted_sell_item: "acordó en vender"
-      with: con
-      has_accepted_buy_item: "acordó en vender"
-      rideshare_with_person: ~
-      has_accepted_trade_item: "acordó en intercambiar"
-      has_accepted_temporary_accommodation_housing: "acordó en ofrecer"
-      has_accepted_sell_housing: "acordó en vender"
-      has_accepted_buy_housing: "acordó en vender"
-      has_accepted_rent_out_housing: "acordó en arrendar"
-      has_accepted_rent_housing: "acordó en arrendar"
-      has_accepted_favor: "acordó en ofrecer"
-      has_accepted_rideshare: "acordó compartir un viaje"
+      has_accepted_lend_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} acordó en prestar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} acordó en arrendar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} acordó en arrendar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} acordó en dar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} acordó en dar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} acordó en vender %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} acordó en vender %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} acordó en intercambiar %{listing_title} con %{requester_name} %{time_ago}."
+      has_accepted_temporary_accommodation_housing: "%{offerer_name} acordó en ofrecer %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} acordó en vender %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} acordó en vender %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} acordó en arrendar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} acordó en arrendar %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} acordó en ofrecer %{listing_title} hacia %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} acordó compartir un viaje %{listing_title} con %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "se unió a Kassi"
+      joined_kassi: "se unió a %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "se registró en Kassi"
+      logged_in_to_kassi: "se registró en %{service_name} %{time_ago}."
     comment:
-      commented: comentó
+      commented: "%{commenter_name} comentó %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: oferta
       request_partitive: solicitud
   header:
