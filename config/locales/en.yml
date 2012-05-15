@@ -306,28 +306,28 @@ en:
     your_email_address: "Your email address"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name}"
-      has_accepted_borrow_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name}"
-      has_accepted_rent_out_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
-      has_accepted_rent_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
-      has_accepted_give_away_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name}"
-      has_accepted_receive_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name}"
-      has_accepted_sell_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
-      has_accepted_buy_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
-      has_accepted_trade_item: "%{offerer_name} agreed to swap %{listing_title} with %{requester_name}"
-      has_accepted_temporary_accommodation_housing: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name}"
-      has_accepted_sell_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
-      has_accepted_buy_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name}"
-      has_accepted_rent_out_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
-      has_accepted_rent_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name}"
-      has_accepted_favor: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name}"
-      has_accepted_rideshare: "%{offerer_name} agreed on sharing a ride %{listing_title} with %{requester_name}"
+      has_accepted_lend_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} agreed to lend %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} agreed to give %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} agreed to swap %{listing_title} with %{requester_name} %{time_ago}."
+      has_accepted_temporary_accommodation_housing: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} agreed on sharing a ride %{listing_title} with %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "joined %{service_name}"
+      joined_kassi: "joined %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "logged in to %{service_name}"
+      logged_in_to_kassi: "logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented %{listing_type} %{listing_title}"
+      commented: "%{commenter_name} commented %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:
