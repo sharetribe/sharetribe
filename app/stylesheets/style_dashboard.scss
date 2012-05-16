@@ -76,7 +76,7 @@ $lighter_green: #3e6714;
   color: white;
 	font-size: 18px;
 	font-weight: 500;
-  padding: 15px 20px;
+  padding: 15px 30px;
 	border: 0px;
 	cursor: pointer;
 	&:active {
@@ -149,7 +149,7 @@ h2 {
 h2.new_tribe {
   font-family: 'Droid Sans', Georgia, Times, serif;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 18px;
   color: white;
   margin-bottom: 0;
@@ -211,7 +211,7 @@ a.green_part_link {
 }
 
 #logo {
-  margin-top: 12px;
+  margin-top: 14px;
 }
 
 #select_language_form {
@@ -506,11 +506,18 @@ div.community_category {
 #login_form, #signup_form {
   @include form;
   text-align: left;
-  .send_button { @include form_button; }
+  .send_button { 
+    @include form_button;
+  }
   h2 {
     color: white;
-    margin-top: 0;
+    margin: 0 0 15px 0;
     font-size: 22px;
+  }
+  .text {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
 }
 
