@@ -65,6 +65,31 @@ en:
       trade: swapping
     username: Username
     what_is_this: "What's this?"
+  communities:
+    new:
+      create_a_tribe_in_a_minute: "Create a new tribe in a minute"
+      welcome_now_create_your_tribe: "Welcome Juho! Now you can create your tribe."
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below:"
+      company: "Company"
+      university: "University"
+      town: "Town"
+      congregation: "Congregation"
+      association: "Association"
+      neighborhood: "Neighborhood"
+      apartment_building: "Apartment building"
+      other: "Other"
+    new_tribe_form:
+      name_of_your_tribe: "Name of your tribe"
+      web_address_of_your_tribe: "Web address of your tribe"
+      slogan_of_your_tribe: "Slogan of your tribe"
+      describe_your_tribe: "Describe your tribe: what is the purpose of the community"
+      create_your_tribe: "Create your tribe!"
+    signup_form:
+      create_an_account: "Create an account"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to Sharetribe below or"
+      log_in_with_your_existing_account: "log in with your existing account"
   conversations:
     index:
       loading_more_messages: "Loading more messages"
@@ -157,16 +182,22 @@ en:
       join_community_button: "Join community"
   dashboard:
     index:
-      slogan: "An online marketplace for your community."
+      get_started: "GET STARTED NOW!"
+      browse_communities_around_you: "join a tribe near you"
+      slogan: "Share with your community."
       create_your_own: "Create your own"
       sharing_website: "SHARING WEBSITE"
-      main_description: "Set up a space where the members of your community can share goods, services and rides in a trusted local environment."
-      kassi_for_your_company: "KASSI FOR YOUR COMPANY"
-      kassi_for_your_company_description: "Want to make your company more social and connected? Want to help your employees meet each other? Want to cut your emissions and become a greener enterprise? Kassi is the solution for you."
-      kassi_for_your_city: "KASSI FOR YOUR CITY"
-      kassi_for_your_city_description: "Want to transform your neighborhoods to village communities where people know each other and help each other out when needed? Want to empower your citizens to improve their lives? Kassi will help you achieve all that."
-      kassi_for_your_university: "KASSI FOR YOUR UNIVERSITY"
-      kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Kassi and perceive the change! An example: <a href=\"http://aalto.kassi.eu/en\">Kassi in Aalto University</a>"
+      main_description: "Set up a space where the members of your community can share goods, services, rides and spaces in a trusted local environment. It's free and only takes a minute to do!"
+      want_to_know_more: "Want to know more?"
+      take_a_tour: "Take a tour!"
+      why_you_really_should_have_a_tribe: "Why you really should have a tribe"
+      kassi_for_your_company: "...FOR YOUR COMPANY"
+      kassi_for_your_company_description: "Want to help your employees connect with each other? Want to cut your emissions and become a greener enterprise? Want to save costs in travel, parking and furniture use? Sharetribe is the solution for you."
+      kassi_for_your_city: "...FOR YOUR CITY"
+      kassi_for_your_city_description: "Want to transform the neighborhoods of your city to village communities where people share with each other? Want to empower your citizens to improve their lives? Sharetribe will help you achieve that."
+      kassi_for_your_university: "...FOR YOUR UNIVERSITY"
+      kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Sharetribe and perceive the change!"
+      an_example: "An example"
       want_kassi_for_your_community: "Want Kassi for your community?"
       email_default_text: "Your email address"
       send: Send!
@@ -177,7 +208,7 @@ en:
       blog: Blog
       code: Code
       issue_tracker: "Issue tracker"
-      product_of: "Kassi is a product of"
+      product_of: "Sharetribe is a product of"
       language: "Language:"
       new: NEW!
       new_text: "Kassi now available for <a href=\"http://www.kassi.eu/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"

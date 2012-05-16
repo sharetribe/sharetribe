@@ -1,0 +1,13 @@
+- content_for :javascript do
+  initialize_login_form();
+
+= render :partial => "dashboard/header"
+
+#new_tribe_form_main
+  .container_12
+    .grid_6.prefix_3.suffix_3
+      = render :partial => "sessions/new"
+     
+= render :partial => "dashboard/footer"
+
+

@@ -167,14 +167,14 @@ module ApplicationHelper
   end
   
   def username_label
-    @current_community.label.eql?("okl") ? t("okl.member_id") : t("common.username")
+    (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id") : t("common.username")
   end
   
   def service_name
     if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
       return @current_community.settings["service_name"]
     else
-      return APP_CONFIG.global_service_name || "Kassi"
+      return APP_CONFIG.global_service_name || "Sharetribe"
     end
   end
   

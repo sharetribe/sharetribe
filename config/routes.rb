@@ -150,8 +150,8 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
-    resources :communities
-    resources :community_memberships
+    resources :tribes, :controller => :communities
+    resources :community_memberships, :as => :tribe_memberships
     resources :listings do
       member do
         post :follow
@@ -198,6 +198,8 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match '/:locale/tour' => "dashboard#tour", :as => :tour
+  match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
   match '/wdc' => 'dashboard#wdc'
   match '/okl' => 'dashboard#okl'
   match '/omakotiliitto' => 'dashboard#okl'

@@ -53,10 +53,10 @@ fi:
     or: tai
     password: Salasana
     share_types:
-      borrow: lainataan
+      borrow: "halutaan lainata"
       buy: ostetaan
       give_away: annetaan
-      lend: lainataan
+      lend: "annetaan lainaan"
       receive: "otetaan vastaan"
       rent: vuokrataan
       rent_out: vuokrataan
@@ -157,6 +157,8 @@ fi:
       join_community_button: "Liity yhteisöön"
   dashboard:
     index:
+      get_started: "ALOITA TÄSTÄ!"
+      browse_communities_around_you: "liity lähellä olevaan yhteisöön"
       slogan: "Yhteisösi markkinapaikka verkossa."
       create_your_own: "Luo yhteisöllesi"
       sharing_website: "OMA VERKKOTORI"
@@ -650,10 +652,10 @@ fi:
         save_request: "Tallenna pyyntö"
       share_type:
         select: Valitse
-        borrow: Lainataan
+        borrow: "Halutaan lainata"
         buy: Ostetaan
         give_away: Annetaan
-        lend: Lainataan
+        lend: "Annetaan lainaan"
         offer_type: Tarjoustapa
         receive: "Otetaan vastaan"
         rent: Vuokrataan
@@ -706,13 +708,13 @@ fi:
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
     left_panel_link:
-      borrows: Lainataan
+      borrows: "Halutaan lainata"
       buys: Ostetaan
       favors: Palvelukset
       give_aways: Annetaan
       housings: Asunnot
       items: Tavarat
-      lends: Lainataan
+      lends: "Annetaan lainaan"
       receives: "Otetaan vastaan"
       rent_outs: Vuokrataan
       rents: Vuokrataan
