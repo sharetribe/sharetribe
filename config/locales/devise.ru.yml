@@ -11,13 +11,6 @@ ru:
         one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: "Вы уже вошли в систему."
       unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
@@ -30,11 +23,6 @@ ru:
     passwords:
       updated_not_active: "Ваш пароль изменен."
       send_paranoid_instructions: "Если ваш адрес e-mail есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ""
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
       updated: "Ваш пароль изменён. Теперь вы вошли в систему."
     sessions:
@@ -42,7 +30,6 @@ ru:
       signed_out: "Выход из системы выполнен."
     confirmations:
       send_paranoid_instructions: "Если ваш адрес e-mail есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
-      resend_instructions: ""
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
       confirmed: "Ваша учётная запись подтверждена. Теперь вы вошли в систему."
     registrations:
@@ -55,39 +42,16 @@ ru:
         locked: заблокирована
       update_needs_confirmation: ~
       signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
-      edit: ""
-      leave_blank: ""
-      current_password_label: ""
-      update: ""
-      unhappy: ""
-      cancel_my_account: ""
-      confirm: ""
-      back: ""
-      inactive_signed_up: "Добро пожаловать! Вы успешно зарегистрировались. Но пока вы не можете войти в систему, т.к. ваша учётная запись %{reason}."
       updated: "Ваша учётная запись изменена."
       destroyed: "До свидания! Ваша учётная запись удалена. Надеемся снова увидеть вас."
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: "Если ваша учётная запись существует, то в течение нескольких минут вы получите письмо с инструкциями по её разблокировке."
-      resend_instructions: ""
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по разблокировке вашей учётной записи."
       unlocked: "Ваша учётная запись разблокирована. Теперь вы вошли в систему."
     omniauth_callbacks:
       success: "Вход в систему выполнен с учётной записью из %{kind}."
       failure: "Вы не можете войти в систему с учётной записью из %{kind}, т.к. \"%{reason}\"."
     mailer:
-      hello: ""
-      welcome: ""
-      confirm: ""
-      change: ""
-      someone_requested: ""
-      please_ignore: ""
-      password_wont_change: ""
-      locked: ""
-      click_to_unlock: ""
-      unlock: ""
       confirmation_instructions:
         subject: "Инструкции по подтверждению учётной записи"
       reset_password_instructions:

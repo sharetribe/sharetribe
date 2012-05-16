@@ -1038,10 +1038,6 @@ nl:
       visible_to_registered_users: ~
     save_information: "Informatie opslaan"
   sms:
-    category_not_supported: "Deze catogorie wordt nog niet gesteund door sms."
-    check_the_offer_in_kassi: "Controleer het aanbod in Kassi: %{listing_url}"
-    listing_created: "Bedankt for je bericht, een listing is nu toegevoegd aan Kassi."
-    offer: ^offer$|^o$
     or_check_the_offer_in_kassi: "of controleer het aanbod %{listing_url}"
     parsing_error: "De inhoud van het bericht is niet begrepen. Lees de instructies en probeer het opnieuw."
     pay: pay|payment
@@ -1051,6 +1047,10 @@ nl:
     rideshare: ride|rideshare
     you_can_call_him_at: "Je kunt de bestuurder bellen op %{phone_number}"
     you_can_pay_gas_money_to_driver: "Om brandstof-kosten te betalen, antwoord 'kassi betaal %{driver} Xe' waar X het bedrag is. Het bedrag + 5% commissie staat in je telefoonrekening."
+    category_not_supported: "Deze catogorie wordt nog niet gesteund door sms."
+    check_the_offer_in_kassi: "Controleer het aanbod in Kassi: %{listing_url}"
+    listing_created: "Bedankt for je bericht, een listing is nu toegevoegd aan Kassi."
+    offer: ^offer$|^o$
   tag_cloud:
     tag_used:
       with_tag: ~

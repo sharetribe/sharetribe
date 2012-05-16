@@ -28,7 +28,6 @@ en:
       signed_out: "Signed out successfully."
     confirmations:
       send_paranoid_instructions: "If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes."
-      resend_instructions: ~
       send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
       confirmed: "Your account was successfully confirmed."
     registrations:
@@ -36,16 +35,15 @@ en:
       signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
       signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
       reasons:
-        inactive: 'inactive'
-        unconfirmed: 'unconfirmed'
-        locked: 'locked'
+        inactive: inactive
+        unconfirmed: unconfirmed
+        locked: locked
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address."
       signed_up: "Welcome! You have signed up successfully."
       updated: "You updated your account successfully."
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
     unlocks:
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions about how to unlock it in a few minutes."
-      resend_instructions: ~
       send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
     omniauth_callbacks:

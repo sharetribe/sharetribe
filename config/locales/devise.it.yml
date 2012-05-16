@@ -9,13 +9,6 @@ it:
         one: "Non posso salvare questo %{resource}: 1 errore"
         other: "Non posso salvare questo %{resource}: %{count} errori."
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: "Hai già effettuato l'accesso."
       unauthenticated: "Devi accedere o registrarti per continuare."
@@ -28,11 +21,6 @@ it:
     passwords:
       updated_not_active: "La tua password è stata cambiata."
       send_paranoid_instructions: "Se la tua email esiste nel nostro database, entro qualche minuto riceverai un messaggio email contentente un link per il ripristino della password"
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: "Entro qualche minuto riceverai un messaggio email con le istruzioni per reimpostare la tua password."
       updated: "La tua password è stata cambiata. Ora sei collegato."
     sessions:
@@ -40,7 +28,6 @@ it:
       signed_out: "Sei uscito correttamente."
     confirmations:
       send_paranoid_instructions: "Se la tua e-mail esiste nel nostro database, entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo account."
-      resend_instructions: ~
       send_instructions: "Riceverai un messaggio email con le istruzioni per confermare il tuo account entro qualche minuto."
       confirmed: "Il tuo account è stato correttamente confermato. Ora sei collegato."
     registrations:
@@ -53,39 +40,16 @@ it:
         locked: ~
       update_needs_confirmation: "Il tuo account è stato aggiornato, tuttavia è necessario verificare il tuo nuovo indirizzo email. Entro qualche minuto riceverai un messaggio email con le istruzioni per confermare il tuo nuovo indirizzo email."
       signed_up: "Benvenuto! Ti sei registrato correttamente."
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: ~
       updated: "Il tuo account è stato aggiornato."
       destroyed: "Arrivederci! L'account è stato cancellato. Speriamo di rivederci presto."
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: "Se la tua email esiste nel nostro database, entro qualche minuto riceverai un messaggio email con le istruzioni per sbloccare il tuo account."
-      resend_instructions: ~
       send_instructions: "Entro qualche minuto Riceverai un messaggio email con le istruzioni per sbloccare il tuo account."
       unlocked: "Il tuo account è stato correttamente sbloccato. Ora sei collegato."
     omniauth_callbacks:
       success: "Autorizzato con successo dall'account %{kind}."
       failure: "Non è stato possibile autorizzarti da %{kind} perchè \"%{reason}\"."
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: "Istruzioni per la conferma"
       reset_password_instructions:

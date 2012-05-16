@@ -1038,10 +1038,6 @@ es:
       visible_to_registered_users: "visible para los usuarios que han iniciado sesión"
     save_information: "Guardar Información"
   sms:
-    category_not_supported: "Esta categoría todavía no es soportada por SMS."
-    check_the_offer_in_kassi: "Mira la oferta en Kassi: %{listing_url}"
-    listing_created: "Gracias por tu mensaje, el listado se agrega ahora a Kassi."
-    offer: "^ ofrece$ | ^ o$"
     or_check_the_offer_in_kassi: "o mira la oferta %{listing_url}"
     parsing_error: "No se pudo comprender el contenido del mensaje. Por favor consulta las instrucciones y prueba nuevamente."
     pay: Pagar
@@ -1051,6 +1047,10 @@ es:
     rideshare: "Traslado compartido"
     you_can_call_him_at: "Puedes llamar al conductor al %{phone_number}"
     you_can_pay_gas_money_to_driver: "Para pagar dinero por bencina, responde ' pago de kassi  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
+    category_not_supported: "Esta categoría todavía no es soportada por SMS."
+    check_the_offer_in_kassi: "Mira la oferta en Kassi: %{listing_url}"
+    listing_created: "Gracias por tu mensaje, el listado se agrega ahora a Kassi."
+    offer: "^ ofrece$ | ^ o$"
   tag_cloud:
     tag_used:
       with_tag: "Con etiqueta"

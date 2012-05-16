@@ -9,13 +9,6 @@ nl:
         one: ~
         other: ~
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: ~
       unauthenticated: "Je dient in te loggen of je in te schrijven."
@@ -28,11 +21,6 @@ nl:
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: ~
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: "Je ontvangt via e-mail instructies hoe je je wachtwoord moet resetten."
       updated: "Je wachtwoord is gewijzigd. Je bent nu ingelogd."
     sessions:
@@ -40,7 +28,6 @@ nl:
       signed_out: "Je bent succesvol uitgelogd."
     confirmations:
       send_paranoid_instructions: ~
-      resend_instructions: ~
       send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan bevestigen."
       confirmed: "Je account is bevestigd."
     registrations:
@@ -53,39 +40,16 @@ nl:
         locked: ~
       update_needs_confirmation: ~
       signed_up: "Je bent inschreven."
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: ~
       updated: "Je account gegevens zijn opgeslagen."
       destroyed: "Je account is verwijderd, wellicht tot ziens!"
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: ~
-      resend_instructions: ~
       send_instructions: "Je ontvangt via e-mail instructies hoe je je account kan un-locken."
       unlocked: "Je account is ge-unlocked. Je kan nu weer inloggen."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: Bevestiging
       reset_password_instructions:
