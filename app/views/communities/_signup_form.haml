@@ -1,7 +1,7 @@
 %h1.new_tribe= t(".create_an_account")
 %h2.new_tribe
   = t(".to_create_a_tribe_you_must_first_create_sharetribe_account")
-  = link_to t(".log_in_with_your_existing_account"), dashboard_login_path, :class => "green_part_link"
+  = link_to(t(".log_in_with_your_existing_account"), dashboard_login_path, :class => "green_part_link") + "."
 .grid_6.prefix_3.suffix_3
   #signup_form
     = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|

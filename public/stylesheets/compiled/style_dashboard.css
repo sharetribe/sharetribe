@@ -37,7 +37,7 @@ h2 {
 h2.new_tribe {
   font-family: 'Droid Sans', Georgia, Times, serif;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 18px;
   color: white;
   margin-bottom: 0; }
@@ -93,7 +93,7 @@ a.green_part_link {
   background: #f7f5e6; }
 
 #logo {
-  margin-top: 12px; }
+  margin-top: 14px; }
 
 #select_language_form {
   margin-top: 20px;
@@ -275,7 +275,7 @@ div.get_started {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border: 0px;
     cursor: pointer;
     font-size: 26px;
@@ -338,7 +338,7 @@ div.community_category {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border: 0px;
     cursor: pointer;
     font-size: 22px;
@@ -534,7 +534,7 @@ div.community_category {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border: 0px;
     cursor: pointer; }
     #new_tribe_form .form_button:active {
@@ -592,7 +592,7 @@ div.community_category {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border: 0px;
     cursor: pointer; }
     #login_form .form_button:active, #signup_form .form_button:active {
@@ -640,7 +640,7 @@ div.community_category {
     color: white;
     font-size: 18px;
     font-weight: 500;
-    padding: 15px 20px;
+    padding: 15px 30px;
     border: 0px;
     cursor: pointer; }
     #login_form .send_button:active, #signup_form .send_button:active {
@@ -672,8 +672,12 @@ div.community_category {
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   #login_form h2, #signup_form h2 {
     color: white;
-    margin-top: 0;
+    margin: 0 0 15px 0;
     font-size: 22px; }
+  #login_form .text, #signup_form .text {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 10px; }
 
 .unwanted_text_field {
   display: none; }

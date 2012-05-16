@@ -16,7 +16,7 @@
       = submit_tag(t('.login'), :class => "send_button")
     .form_field_container
       .links
-        = link_to t('.create_new_account'), sign_up_path, :class => "green_part_link"
+        = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
         %br/
         = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
   #password_forgotten

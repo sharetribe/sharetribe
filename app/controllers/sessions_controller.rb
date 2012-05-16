@@ -50,10 +50,14 @@ class SessionsController < ApplicationController
       # Since the authentication happens in the rack layer,
       # we need to tell Devise to call the action "sessions#new"
       # in case something goes bad.
-      if current_community.private?
-        person = authenticate_person!(:recall => "homepage#sign_in")
+      if current_community
+        if current_community.private?
+          person = authenticate_person!(:recall => "homepage#sign_in")
+        else
+          person = authenticate_person!(:recall => "sessions#new")
+        end
       else
-        person = authenticate_person!(:recall => "sessions#new")
+        person = authenticate_person!(:recall => "dashboard#login")
       end
       flash[:error] = nil
       @current_user = person

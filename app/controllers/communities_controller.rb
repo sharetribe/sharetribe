@@ -39,7 +39,8 @@ class CommunitiesController < ApplicationController
   def new
     @community = Community.new
     @person = Person.new
-    @community.category = params[:category]
+    session[:community_category] = params[:category] if params[:category]
+    @community.category = session[:community_category]
     
     respond_to do |format|
       format.html # new.html.erb
