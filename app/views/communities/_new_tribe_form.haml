@@ -1,5 +1,5 @@
 %h1.new_tribe= t(".create_a_tribe_in_a_minute")
-%h2.new_tribe= t(".welcome_now_create_your_tribe")
+%h2.new_tribe= t(".welcome_now_create_your_tribe", :name => @current_user.given_name_or_username)
 .grid_8.prefix_2.suffix_2
   #new_tribe_form
     = form_for @community, :url => tribes_path do |form|

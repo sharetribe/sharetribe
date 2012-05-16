@@ -67,8 +67,6 @@ en:
     what_is_this: "What's this?"
   communities:
     new:
-      create_a_tribe_in_a_minute: "Create a new tribe in a minute"
-      welcome_now_create_your_tribe: "Welcome Juho! Now you can create your tribe."
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below:"
@@ -81,6 +79,8 @@ en:
       apartment_building: "Apartment building"
       other: "Other"
     new_tribe_form:
+      create_a_tribe_in_a_minute: "Create a new tribe in a minute"
+      welcome_now_create_your_tribe: "Welcome %{name}! Now you can create your tribe."
       name_of_your_tribe: "Name of your tribe"
       web_address_of_your_tribe: "Web address of your tribe"
       slogan_of_your_tribe: "Slogan of your tribe"
