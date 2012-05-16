@@ -11,17 +11,6 @@ class CommunitiesController < ApplicationController
       format.html #show the communities map
     end
   end
-  
-  # GET /communities
-  # GET /communities.xml
-  def index
-    @communities = Community.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @communities }
-    end
-  end
 
   # GET /communities/1
   # GET /communities/1.xml
