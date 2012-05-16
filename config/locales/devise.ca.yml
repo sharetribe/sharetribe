@@ -9,13 +9,6 @@ ca:
         one: "1 error ha evitat que %{resource} es pugui desar:"
         other: "%{count} errors han evitat que %{resource} es pugui desar:"
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: "Ja estàs identificat."
       unauthenticated: "Has d'iniciar sessió o bé registrar-te abans de continuar."
@@ -28,11 +21,6 @@ ca:
     passwords:
       updated_not_active: "La teva contrasenya ha estat canviada correctament."
       send_paranoid_instructions: "Si la teva adreça electrònica existeix a la base de dades, rebràs un correu electrònic amb un enllaç per reestablir la contrasenya."
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com restablir la teva contrasenya."
       updated: "La teva contrasenya ha estat canviada correctament. S'ha iniciat la sessió."
     sessions:
@@ -40,7 +28,6 @@ ca:
       signed_out: "Sessió tancada correctament."
     confirmations:
       send_paranoid_instructions: "Si la teva adreça electrònica existeix a la base de dades, rebràs un correu electrònic amb instruccions sobre com confirmar el teu compte."
-      resend_instructions: ~
       send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com confirmar el teu compte."
       confirmed: "El teu compte ha estat confirmat correctament.  S'ha iniciat la sessió."
     registrations:
@@ -53,39 +40,16 @@ ca:
         locked: bloquejat
       update_needs_confirmation: ~
       signed_up: "Has estat registrat correctament."
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: "Has estat registrat correctament. Tanmateix, no hem pogut processar el teu compte perquẻ %{reason}."
       updated: "Has actualitzat el teu compte correctament."
       destroyed: "Adéu! El teu compte ha estat cancel·lat correctament. Esperem tornar-te a veure!"
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: "Si el teu compte existeix, rebràs un correu electrònic amb instruccions sobre com desbloquejar-lo."
-      resend_instructions: ~
       send_instructions: "En breu rebràs un correu electrònic amb instruccions sobre com desbloquejar el teu compte."
       unlocked: "El teu compte ha estat desbloquejat correctament. S'ha iniciat la sessió."
     omniauth_callbacks:
       success: "Autoritzat satisfactoriament el compte des de %{kind}."
       failure: "No hem pogut autoritzar el compte des de %{kind} perquè \"%{reason}\"."
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: "Instruccions de confirmació"
       reset_password_instructions:

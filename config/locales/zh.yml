@@ -312,7 +312,9 @@ zh:
       has_accepted_rent_item: ~
       has_accepted_give_away_item: ~
       has_accepted_receive_item: ~
+      to: ~
       has_accepted_sell_item: ~
+      with: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
       has_accepted_temporary_accommodation_housing: ~
@@ -1036,10 +1038,6 @@ zh:
       visible_to_registered_users: 对已登录用户可见
     save_information: 保存信息
   sms:
-    category_not_supported: 此分类尚不支持短消息
-    check_the_offer_in_kassi: "查看%{listing_url}的商品"
-    listing_created: 感谢您的信息，一条新列表以添加至Kassi。
-    offer: ~
     or_check_the_offer_in_kassi: "或者查看商品%{listing_url}"
     parsing_error: 不能理解信息内容。请查看帮助并重试。
     pay: 支付
@@ -1049,6 +1047,10 @@ zh:
     rideshare: 拼车
     you_can_call_him_at: "您可以联系司机，电话：%{phone_number}"
     you_can_pay_gas_money_to_driver: "如需支付油钱，请回复'Kassi pay %{driver} Xe'，其中X为需支付数额。支付款和5%的服务费将会计算进您的电话账单。"
+    category_not_supported: 此分类尚不支持短消息
+    check_the_offer_in_kassi: "查看%{listing_url}的商品"
+    listing_created: 感谢您的信息，一条新列表以添加至Kassi。
+    offer: ~
   tag_cloud:
     tag_used:
       with_tag: 有标签

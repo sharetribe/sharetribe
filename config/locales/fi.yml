@@ -944,7 +944,6 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
-      as_invited_by: kutsumana
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
       add_location: "Lisää sijainti"
@@ -1037,10 +1036,6 @@ fi:
       visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
     save_information: "Tallenna tiedot"
   sms:
-    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
-    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
-    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
-    offer: ^tarjous$|^t$
     or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"
     parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
     pay: maksa|maksu
@@ -1050,6 +1045,10 @@ fi:
     rideshare: kyyti
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
     you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
+    category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
+    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
+    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
+    offer: ^tarjous$|^t$
   tag_cloud:
     tag_used:
       with_tag: Avainsanalla

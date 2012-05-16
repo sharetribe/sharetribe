@@ -9,13 +9,6 @@ es-ES:
         one: "1 error evitó guardar este %{resource}:"
         other: "%{count} errores evitaron guardar este %{resource}:"
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: "Ya estás conectado."
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
@@ -28,11 +21,6 @@ es-ES:
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un enlace para recuperar tu contraseña en tu correo"
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en poco minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     sessions:
@@ -40,7 +28,6 @@ es-ES:
       signed_out: "Has salido correctamente."
     confirmations:
       send_paranoid_instructions: "Si tu email ya existe en nuestra base de datos, recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
-      resend_instructions: ~
       send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en poco minutos."
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
     registrations:
@@ -53,39 +40,16 @@ es-ES:
         locked: ~
       update_needs_confirmation: ~
       signed_up: "¡Bienvenido! Te has registrado correctamente."
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: "Te has registrado correctamente. Sin embargo, no estás conectado todavía porque tu cuenta está %{reason}."
       updated: "Has actualizado tu cuenta correctamente."
       destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos verte pronto."
-    oauth_callbacks:
-      success: "Has sido autorizado satisfactoriamente de la cuenta %{kind}."
-      failure: "No has sido autorizado en la cuenta %{kind} porque \"%{reason}\"."
     unlocks:
       send_paranoid_instructions: "Si tu cuenta existe, recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
-      resend_instructions: ~
       send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: "Instrucciones de confirmación"
       reset_password_instructions:

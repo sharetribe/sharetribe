@@ -152,9 +152,9 @@ el:
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
       joining_to_mail_restricted_communities_not_yet_supported: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      if_want_to_view_content: "Αν θες να δεις το περιεχόμενο αυτής της κοινότητας χωρίς να συμμετέχεις σε αυτή, πρέπει να"
+      log_out: αποσυνδεθείς
+      join_community_button: "Συμμετοχή στην κοινότητα"
   dashboard:
     index:
       slogan: "Ένα διαδικτυακό παζάρι για την κοινότητά σου."
@@ -270,7 +270,7 @@ el:
     reply_to_contact_request:
       thank_you_for_your_interest: "Σε ευχαριστούμε για το ενδιαφέρον σου στο Kassi!"
     reset_password_instructions:
-      change_my_password: "Αλλαγή του κωδικού μου"
+      change_my_password: "Αλλαγή του κωδικού πρόσβασής μου"
       reset_password_instructions: "<p>Δήλωσες ότι έχεις ξεχάσει το όνομα χρήστη ή τον κωδικό σου στο Kassi.</p><p>Το όνομα χρήστη είναι: %{username}</p><p>Αν θέλεις να επαναφέρεις τον κωδικό σου κάνε κλικ στον παρακάτω σύνδεσμο: %{password_reset_link}</p><br/><p>Αν δεν το ζήτησες εσύ αυτό, παρακαλούμε να αγνοήσεις αυτό το μήνυμα. Ο κωδικός σου δεν θα αλλάξει μέχρι να κάνεις κλικ στον παραπάνω σύνδεσμο και να δημιουργήσεις νέο κωδικό.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Η κριτική είναι δημόσια και φαίνεται στους άλλους χρήστες. Βασιζόμενοι σε αυτή οι άλλοι χρήστες μπορούν να κρίνουν αν ο/η %{name} είναι αξιόπιστο άτομο και αν θέλουν να έχουν συναλλαγές μαζί του. Γι' αυτό, καλό είναι να θυμάσαι πάντα να κάνεις κριτική και να υπενθυμίζεις σε αυτούς με τους οποίους αλληλεπιδράς να σχολιάζουν κι αυτοί για σένα. Για να κερδίσεις τις περισσότερες κονκάρδες πρέπει να έχεις καλά σχόλια."
@@ -306,28 +306,30 @@ el:
     your_email_address: "Η ηλεκτρονική σου διεύθυνση"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "συμφώνησε να δανείσει"
-      has_accepted_borrow_item: "συμφώνησε να δανείσει"
-      has_accepted_rent_out_item: "συμφώνησε να νοικιάσει"
-      has_accepted_rent_item: "συμφώνησε να νοικιάσει"
-      has_accepted_give_away_item: "συμφώνησε να δώσει"
-      has_accepted_receive_item: "συμφώνησε να δώσει"
-      has_accepted_sell_item: "συμφώνησε να πουλήσει"
-      has_accepted_buy_item: "συμφώνησε να αγοράσει"
-      has_accepted_trade_item: "συμφώνησε να ανταλλάξει"
-      has_accepted_temporary_accommodation_housing: "συμφώνησε να προσφέρει"
-      has_accepted_sell_housing: "συμφώνησε να πουλήσει"
-      has_accepted_buy_housing: "συμφώνησε να πουλήσει"
-      has_accepted_rent_out_housing: "συμφώνησε να νοικιάσει"
-      has_accepted_rent_housing: "συμφώνησε να νοικιάσει"
-      has_accepted_favor: "συμφώνησε να προσφέρει"
-      has_accepted_rideshare: "συμφώνησε να συνταξιδέψει με τον/την"
+      has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_borrow_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_rent_out_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_rent_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_give_away_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_receive_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      to: στο
+      has_accepted_sell_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      with: με
+      has_accepted_buy_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_trade_item: "Ο/Η %{offerer_name} συμφώνησε να ανταλλάξει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_temporary_accommodation_housing: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_sell_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_buy_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_rent_out_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_rent_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} πριν από %{time_ago}."
     join:
-      joined_kassi: "γράφτηκε στο %{service_name}"
+      joined_kassi: "γράφτηκε στο Kassi πριν από %{time_ago}."
     login:
-      logged_in_to_kassi: "συνδέθηκε στο %{service_name}"
+      logged_in_to_kassi: "συνδέθηκε στο Kassi πριν από %{time_ago}."
     comment:
-      commented: σχολίασε
+      commented: "Ο/Η %{commenter_name} σχολίασε στο \"%{listing_title}\" πριν από %{time_ago}."
       offer_partitive: προσφορά
       request_partitive: αίτημα
   header:
@@ -482,7 +484,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
-      account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός δημιουργήθηκε επιτυχώς. Τώρα θα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
+      account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός σου δημιουργήθηκε επιτυχώς. Τώρα θα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Είσαι πια μέλος αυτής της κοινότητας. Τώρα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
       avatar_upload_failed: "Η μεταφόρτωση της εικόνας προφίλ απέτυχε. Θυμήσου ότι η φωτογραφία πρέπει να είναι αρχείο .png ή .jpg ή .gif."
       avatar_upload_successful: "Η μεταφόρτωση της εικόνας προφίλ ήταν επιτυχής"
@@ -490,24 +492,24 @@ el:
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       create_new_offer: "Πρόσφερε κάτι άλλο"
-      create_new_request: "Ζήτησε κάτι άλλο"
+      create_new_request: "Ζήτα κάτι άλλο"
       create_one_here: "δημιουργήσεις ένα εδώ"
       email_not_found: "Το email που έδωσες δεν βρέθηκε στη βάση δεδομένων του Kassi."
       error_with_session: "Σφάλμα με τη συνεδρία."
       favor_offer_message_sent: "Το αίτημα στάλθηκε επιτυχώς"
       favor_request_message_sent: "Η προσφορά στάλθηκε επιτυχώς"
-      feedback_considered_spam: "Η ανατροφοδότηση δεν αποθηκεύτηκε, λόγω της μορφοποίησής της. Προσπάθησε ξανά ή χρησιμοποίησε την περιοχή σχολίων."
-      feedback_not_saved: "Η ανατροφοδότηση δεν μπόρεσε να σταλεί."
+      feedback_considered_spam: "Τα σχόλιά σου δεν αποθηκεύτηκαν λόγω της μορφοποίησής τους. Προσπάθησε ξανά ή εναλλακτικά χρησιμοποίησε την περιοχή σχολίων."
+      feedback_not_saved: "Τα σχόλιά σου δεν μπόρεσαν να σταλούν."
       feedback_saved: "Ευχαριστούμε για τα σχόλιά σου!"
       feedback_sent_to: "Η κριτική δώθηκε στον/στην"
       feedback_skipped: "Η κριτική παραλείφθηκε"
-      housing_offer_message_sent: "Το μήνυμα εστάλη με επιτυχία"
-      housing_request_message_sent: "Το μήνυμα εστάλη με επιτυχία"
+      housing_offer_message_sent: "Το μήνυμα εστάλη"
+      housing_request_message_sent: "Το μήνυμα εστάλη"
       invitation_cannot_be_sent: "Η πρόσκληση δεν μπόρεσε να σταλεί"
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
-      item_offer_message_sent: "Το αίτημα για το αντικείμενο εστάλη επιτυχώς"
-      item_request_message_sent: "Η προσφορά του αντικειμένου σου εστάλη επιτυχώς"
+      item_offer_message_sent: "Το αίτημα σου εστάλη"
+      item_request_message_sent: "Η προσφορά σου εστάλη"
       login_again: "Παρακαλούμε, συνδέσου ξανά."
       login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώσε τα σωστά στοιχεία."
       login_successful: "Καλωσήρθες στο Kassi,"
@@ -519,16 +521,16 @@ el:
       news_item_deleted: "Το άρθρο καταργήθηκε"
       offer_accepted: "Η προσφορά έγινε δεκτή"
       offer_closed: "Η προσφορά έκλεισε"
-      offer_created_successfully: "Η προσφορά δημιουργήθηκε επιτυχώς."
+      offer_created_successfully: "Η προσφορά δημιουργήθηκε."
       offer_rejected: "Η προσφορά απορρίφθηκε"
-      offer_updated_successfully: "Η προσφορά ενημερώθηκε επιτυχώς"
+      offer_updated_successfully: "Η προσφορά ενημερώθηκε"
       only_kassi_administrators_can_access_this_area: "Μόνο οι διαχειριστές του Kassi έχουν πρόσβαση σε αυτό το σημείο"
       only_listing_author_can_close_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την κλείσει."
       only_listing_author_can_edit_a_listing: "Μόνο ο δημιουργός μιας καταχώρησης μπορεί να την επεξεργαστεί."
       password_recovery_sent: "Έχουν σταλεί στο email σου οδηγίες για να αλλάξεις τον κωδικό σου."
       person_activated: "Ο χρήστης ενεργοποιήθηκε"
       person_deactivated: "Ο χρήστης απενεργοποιήθηκε"
-      person_updated_successfully: "Οι πληροφορίες ενημερώθηκαν"
+      person_updated_successfully: "Τα στοιχεία σου ενημερώθηκαν"
       poll_answered: "Η απάντηση καταχωρήθηκε"
       poll_could_not_be_answered: "Η απάντηση δεν μπόρεσε να καταχωρηθεί"
       poll_created: "Η δημοσκόπηση δημιουργήθηκε"
@@ -539,16 +541,16 @@ el:
       read_more: "Διάβασε περισσότερα!"
       registration_considered_spam: "Η εγγραφή δεν λειτούργησε κανονικά. Παρακαλούμε, ενημέρωσέ μας από το κουμπί \"Feedback\" στα αριστερά και ανέφερέ μας το σφάλμα \"email2 error\"."
       reply_cannot_be_empty: "Δεν γίνεται να στείλεις κενό μήνυμα"
-      reply_sent: "Η απάντηση εστάλη επιτυχώς"
+      reply_sent: "Η απάντηση σου εστάλη"
       request_accepted: "Το αίτημα έγινε δεκτό"
       request_closed: "Το αίτημα έκλεισε"
-      request_created_successfully: "Το αίτημα δημιουργήθηκε με επιτυχία."
+      request_created_successfully: "Το αίτημα σου καταχωρήθηκε."
       request_rejected: "Το αίτημα απορρίφθηκε"
-      request_updated_successfully: "Το αίτημα ενημερώθηκε με επιτυχία"
-      rideshare_offer_message_sent: "Το αίτημα να συνταξιδέψεις εστάλη επιτυχώς"
-      rideshare_request_message_sent: "Η προσφορά να συνταξιδέψεις εστάλη επιτυχώς"
+      request_updated_successfully: "Το αίτημα ενημερώθηκε"
+      rideshare_offer_message_sent: "Το αίτημα να συνταξιδέψεις εστάλη"
+      rideshare_request_message_sent: "Η προσφορά να συνταξιδέψεις εστάλη"
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
-      unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων για να μας στείλεις λεπτομέρειες για το τι συνέβη."
+      unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων (Feedback) για να μας στείλεις λεπτομέρειες για το τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σου, παρακαλούμε προσπάθησε ξανά"
       welcome_message: "Καλωσήρθες στο Kassi! Το Kassi είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
@@ -558,21 +560,21 @@ el:
       you_cannot_reply_to_a_closed_request: "Δεν μπορείς να απαντήσεις σε ένα αίτημα που έχει κλείσει"
       you_cannot_reply_to_your_own_offer: "Δεν μπορείς να απαντήσεις στη δική σου προσφορά"
       you_cannot_reply_to_your_own_request: "Δεν μπορείς να απαντήσεις στο δικό σου αίτημα"
-      you_followed_listing: "Τώρα παρακολουθείς αυτή την καταχώρηση"
+      you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
-      you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας %{service_name}. Καλωσόρισες ξανά!"
-      you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να δημιουργήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
-      you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο Kassi για να δημιουργήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
+      you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας Kassi. Καλωσόρισες ξανά!"
+      you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
+      you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείς για να κάνεις κριτική"
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο Kassi"
       you_must_log_in_to_send_a_comment: "Πρέπει να συνδεθείς για να σχολιάσεις"
       you_must_log_in_to_send_a_message: "Πρέπει να συνδεθείς στο Kassi για να στείλεις μήνυμα σε άλλο χρήστη."
-      you_must_log_in_to_view_this_content: "Θα πρέπει να συνδεθείς για να δεις αυτό το περιεχόμενο"
+      you_must_log_in_to_view_this_content: "Πρέπει να συνδεθείς για να δεις αυτό το περιεχόμενο"
       you_must_log_in_to_view_this_page: "Πρέπει να συνδεθείς για να δεις αυτή τη σελίδα"
       you_must_log_in_to_view_your_inbox: "Πρέπει να συνδεθείς στο Kassi για να δεις τα εισερχόμενα μηνύματά σου."
       you_must_log_in_to_view_your_settings: "Πρέπει να συνδεθείς στο Kassi για να δεις τις ρυθμίσεις σου."
-      you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείς στο %{service_name} για να προσθέσεις ένα άρθρο."
+      you_must_log_in_to_add_news_item: "Πρέπει να συνδεθείς στο Kassi για να προσθέσεις ένα άρθρο."
       you_need_to_confirm_your_account_first: "Πρέπει πρώτα να επιβεβαιώσεις το λογαριασμό σου."
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
       joining_community_failed: "Η εγγραφή σε αυτή την κοινότητα απέτυχε"
@@ -1011,7 +1013,7 @@ el:
     notifications:
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
       newsletters: Newsletters
-      email_about_accept_reminders: "έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
+      email_about_accept_reminders: "... έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
       email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
       email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
       email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
@@ -1036,10 +1038,6 @@ el:
       visible_to_registered_users: "ορατό στους χρήστες που έχουν συνδεθεί"
     save_information: Αποθήκευση
   sms:
-    category_not_supported: "Αυτή η κατηγορία δεν υποστηρίζεται ακόμη από sms."
-    check_the_offer_in_kassi: "Δες αυτή την προσφορά στο Kassi: %{listing_url}"
-    listing_created: "Ευχαριστούμε για το μήνυμα, τώρα γίνεται η καταχώρηση στο Kassi."
-    offer: ^προσφορά$|^π$
     or_check_the_offer_in_kassi: "ή δες την προσφορά \"%{listing_url}\""
     parsing_error: "Το μήνυμα δεν ήταν κατανοητό. Παρακαλούμε έλεγξε τις οδηγίες και προσπάθησε πάλι."
     pay: πλήρωσε|πληρωμή
@@ -1049,6 +1047,10 @@ el:
     rideshare: διαδρομή|συνταξίδεψε
     you_can_call_him_at: "Μπορείς να καλέσεις τον οδηγό στο %{phone_number}"
     you_can_pay_gas_money_to_driver: "Για να συνεισφέρεις στη βενζίνα απάντησε με μήνυμα \"Kassi πλήρωσε στον %{driver} Χe\" όπου Χ είναι το ποσό που θέλεις να στείλεις. Το ποσό + 5% προμήθεια θα χρεωθεί στο λογαριασμό σου."
+    category_not_supported: "Αυτή η κατηγορία δεν υποστηρίζεται ακόμη από sms."
+    check_the_offer_in_kassi: "Δες αυτή την προσφορά στο Kassi: %{listing_url}"
+    listing_created: "Ευχαριστούμε για το μήνυμα, τώρα γίνεται η καταχώρηση στο Kassi."
+    offer: ^προσφορά$|^π$
   tag_cloud:
     tag_used:
       with_tag: "Με ετικέτα"

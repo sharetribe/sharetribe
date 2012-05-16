@@ -6,16 +6,9 @@ el:
       already_confirmed: "έχει ήδη επιβεβαιωθεί, παρακαλούμε δοκίμασε να συνδεθείς"
       not_locked: "δεν ήταν κλειδωμένο"
       not_saved:
-        one: "1 σφάλμα εμπόδισε την αποθήκευση αυτής της %{resource}:"
-        other: "%{count} σφάλματα εμπόδισαν την αποθήκευση αυτής της %{resource}:"
+        one: "1 σφάλμα εμπόδισε την αποθήκευση αυτού του %{resource}:"
+        other: "%{count} σφάλματα εμπόδισαν την αποθήκευση αυτού του %{resource}:"
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: "Είσαι ήδη συνδεδεμένος."
       unauthenticated: "Πρέπει να συνδεθείς ή να εγγραφείς πριν συνεχίσεις."
@@ -28,11 +21,6 @@ el:
     passwords:
       updated_not_active: "Ο κωδικός σου άλλαξε επιτυχώς."
       send_paranoid_instructions: "Εάν η ηλεκτρονική σου διεύθυνση υπάρχει στη βάση δεδομένων μας, θα λάβεις στο ηλεκτρονικό σου ταχυδρομείο ένα σύνδεσμο για να επαναφέρεις τον κωδικό σου."
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: "Σε λίγα λεπτά θα λάβεις ένα email με οδηγίες για το πως να επαναφέρεις τον κωδικό πρόσβασης σου."
       updated: "Ο κωδικός σου άλλαξε με επιτυχία και έχεις συνδεθεί."
     sessions:
@@ -40,7 +28,6 @@ el:
       signed_out: "Αποσυνδέθηκες επιτυχώς."
     confirmations:
       send_paranoid_instructions: "Αν η ηλεκτρονική σου διεύθυνση υπάρχει στη βάση δεδομένων μας, θα λάβεις σύντομα στο ηλεκτρονικό σου ταχυδρομείο ένα σύνδεσμο για να επιβεβαιώσεις το λογαριασμό σου."
-      resend_instructions: ~
       send_instructions: "Σε λίγα λεπτά θα λάβεις ένα email με οδηγίες για το πώς να επιβεβαιώσεις τον λογαριασμό σου."
       confirmed: "Ο λογαριασμός σου επιβεβαιώθηκε επιτυχώς."
     registrations:
@@ -48,44 +35,21 @@ el:
       signed_up_but_inactive: "Η εγγραφή σου έγινε με επιτυχία. Ωστόσο δεν γίνεται να συνδεθείς γιατί ο λογαριασμός σου δεν έχει ενεργοποιηθεί ακόμα."
       signed_up_but_locked: "Η εγγραφή σου έγινε με επιτυχία. Ωστόσο, δεν γίνεται να συνδεθείς γιατί ο λογαριασμός σου είναι κλειδωμένος."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
+        inactive: ανενεργός
+        unconfirmed: "μη επιβεβαιωμένος"
+        locked: κλειδωμένος
       update_needs_confirmation: "Ενημέρωσες το λογαριασμό σου με επιτυχία αλλά χρειάζεται να επιβεβαιώσουμε τη νέα ηλεκτρονική σου διεύθυνση. Παρακαλούμε, έλεγξε το email σου και κάνε κλικ στο σύνδεσμο επιβεβαίωσης για να ολοκληρώσεις τη διαδικασία."
       signed_up: "Καλωσόρισες! Έχεις συνδεθεί επιτυχώς."
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: ~
       updated: "Ενημέρωσες το λογαριασμό σου με επιτυχία."
       destroyed: "Ο λογαριασμός σου ακυρώθηκε επιτυχώς. Ελπίζουμε να τα ξαναπούμε σύντομα!"
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: "Αν έχεις ήδη λογαριασμό θα λάβεις σύντομα ένα email με οδηγίες για το πως να τον ξεκλειδώσεις."
-      resend_instructions: ~
       send_instructions: "Σε μερικά λεπτά θα λάβεις ένα email με οδηγίες για το πως να ξεκλειδώσεις το λογαριασμό σου."
       unlocked: "Ο λογαριασμός σου ξεκλειδώθηκε με επιτυχία. Παρακαλούμε, συνδέσου για να συνεχίσεις."
     omniauth_callbacks:
       success: "Επιβεβαιώθηκε ο λογαριασμός σου τύπου %{kind}."
       failure: "Δεν μπορέσαμε να επιβεβαιώσουμε τον %{kind} λογαριασμό σου λόγω \"%{reason}\"."
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: "Οδηγίες επιβεβαίωσης"
       reset_password_instructions:

@@ -10,13 +10,6 @@ ro:
         few: ~
         other: ~
   devise:
-    shared:
-      sign_in: ~
-      sign_up: ~
-      forgot_password: ~
-      didnt_receive_confirmation_instructions?: ~
-      didnt_receive_unlock_instructions?: ~
-      sign_in_with_omniauth: ~
     failure:
       already_authenticated: ~
       unauthenticated: ~
@@ -29,11 +22,6 @@ ro:
     passwords:
       updated_not_active: ~
       send_paranoid_instructions: ~
-      change_your_password: ~
-      new_password: ~
-      confirm_new_password: ~
-      change_my_password: ~
-      send_reset_password_instructions: ~
       send_instructions: ~
       updated: ~
     sessions:
@@ -41,7 +29,6 @@ ro:
       signed_out: ~
     confirmations:
       send_paranoid_instructions: ~
-      resend_instructions: ~
       send_instructions: ~
       confirmed: ~
     registrations:
@@ -54,39 +41,16 @@ ro:
         locked: ~
       update_needs_confirmation: ~
       signed_up: ~
-      edit: ~
-      leave_blank: ~
-      current_password_label: ~
-      update: ~
-      unhappy: ~
-      cancel_my_account: ~
-      confirm: ~
-      back: ~
-      inactive_signed_up: ~
       updated: ~
       destroyed: ~
-    oauth_callbacks:
-      success: ~
-      failure: ~
     unlocks:
       send_paranoid_instructions: ~
-      resend_instructions: ~
       send_instructions: ~
       unlocked: ~
     omniauth_callbacks:
       success: ~
       failure: ~
     mailer:
-      hello: ~
-      welcome: ~
-      confirm: ~
-      change: ~
-      someone_requested: ~
-      please_ignore: ~
-      password_wont_change: ~
-      locked: ~
-      click_to_unlock: ~
-      unlock: ~
       confirmation_instructions:
         subject: ~
       reset_password_instructions:
