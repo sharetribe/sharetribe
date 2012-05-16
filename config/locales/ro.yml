@@ -1036,10 +1036,6 @@ ro:
       visible_to_registered_users: ~
     save_information: ~
   sms:
-    category_not_supported: ~
-    check_the_offer_in_kassi: ~
-    listing_created: ~
-    offer: ~
     or_check_the_offer_in_kassi: ~
     parsing_error: ~
     pay: ~
@@ -1049,6 +1045,10 @@ ro:
     rideshare: ~
     you_can_call_him_at: ~
     you_can_pay_gas_money_to_driver: ~
+    category_not_supported: ~
+    check_the_offer_in_kassi: ~
+    listing_created: ~
+    offer: ~
   tag_cloud:
     tag_used:
       with_tag: ~
