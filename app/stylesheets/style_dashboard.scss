@@ -49,6 +49,68 @@ $lighter_green: #3e6714;
 	height: 0;
 }
 
+@mixin form {
+  @include rounded(10px);
+  background-color: rgba(0,0,0,0.1);
+  margin: 40px 0 70px 0;
+  padding: 35px 40px 15px 40px;
+  overflow: hidden;
+  .form_button {
+    @include form_button;
+  }
+}
+
+@mixin form_button {
+  font-family: 'Droid Serif', Georgia, Times, serif;
+  @include rounded(7px);
+  text-align: center;
+  display: block;
+  background-color: #dc7438;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(220, 116, 56)), to(rgb(212, 82, 7)));
+  background-image: -webkit-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -moz-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -o-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: -ms-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  background-image: linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+  color: white;
+	font-size: 18px;
+	font-weight: 500;
+  padding: 15px 20px;
+	border: 0px;
+	cursor: pointer;
+	&:active {
+    background-color: #ed9374;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+    background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+	}
+	&:focus {
+    background-color: #ed9374;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+    background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+	}
+	&:hover {
+	  background-color: #ed9374;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
+    background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
+	}
+}
+
 
 /* Actual stuff */
 
@@ -58,16 +120,25 @@ body {
 }
 
 h1 {
-  font-size: 50px;
+  font-family: 'Droid Sans', Georgia, Times, serif;
+  font-size: 52px;
   margin-top: 40px;
   color: white;
-  font-weight: 500;
+  font-weight: bold;
   text-shadow: 1px 1px 3px $text_color;
-  line-height: 56px;
+  line-height: 60px;
   span.indentation { margin-left: 30px; }
 }
 
+h1.new_tribe { 
+  font-family: 'Droid Serif', Georgia, Times, serif;
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 0; 
+}
+
 h2 {
+  font-family: 'Droid Serif', Georgia, Times, serif;
   margin: 30px 0 5px 0;
   font-size: 18px;
   font-weight: 300;
@@ -75,7 +146,17 @@ h2 {
   letter-spacing: 1px;
 }
 
+h2.new_tribe {
+  font-family: 'Droid Sans', Georgia, Times, serif;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 0;
+}
+
 h2.campaign_page {
+  font-family: 'Droid Serif', Georgia, Times, serif;
   margin: 18px 0 5px 0;
   font-size: 20px;
   font-weight: 400;
@@ -83,18 +164,28 @@ h2.campaign_page {
 }
 
 h3 {
-  margin: 20px 0 0 0;
-  font-size: 22px;
-  letter-spacing: 5px;
+  font-family: 'Droid Serif', Georgia, Times, serif;
+  margin: 30px 0 0 0;
+  font-size: 20px;
+  letter-spacing: 4px;
   color: white;
   font-weight: 200;
+}
+
+h4 {
+  font-family: 'Droid Serif', Georgia, Times, serif;
+  margin: 30px 0 0 0;
+  font-size: 36px;
+  font-weight: 200;
+  color: $lighter_green;
+  letter-spacing: 1px;
 }
 
 a, a:visited {
 	color: $yellow;
 	font-size: 14px;
 	text-decoration: none;
-	font-weight: 300;
+	font-weight: 500;
 }
 
 a:hover {
@@ -105,9 +196,9 @@ a:active {
 	color: $light_orange;
 }
 
-a.green_part_link { 
+a.green_part_link {
   color: $light_orange;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   &:hover { color: $lighter_orange; }
   &:focus { color: $lighter_orange; }
@@ -120,7 +211,7 @@ a.green_part_link {
 }
 
 #logo {
-  margin-top: 17px;
+  margin-top: 12px;
 }
 
 #select_language_form {
@@ -152,8 +243,19 @@ a.green_part_link {
   -moz-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
-  p {
-    margin: 58px 0 55px 0;
+  p.intro {
+    margin: 46px 0 45px 0;
+    font-size: 18px;
+    color: white;
+  }
+  p.browse { 
+    margin-top: 5px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+  }
+  p.tour {
+    margin-top: 26px;
     font-size: 18px;
     color: white;
   }
@@ -170,6 +272,12 @@ a.green_part_link {
     margin: 10px 0;
   }
   p.top { margin: 45px 0 20px 0; }
+}
+
+#new_tribe_form_main {
+  @include main;
+  height: 100%;
+  overflow: hidden;
 }
 
 #home_main_title {
@@ -191,7 +299,7 @@ a.green_part_link {
 
 .form_field_container {
   overflow: hidden;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   span.email {
     float: left; 
     color: white; 
@@ -210,75 +318,68 @@ label.dashboard {
 	font-size: 22px;
 }
 
-input[type=text] {
-	height: 34px;
-	width: 224px;
+input[type=text], input[type=password] {
+	height: 44px;
+	width: 524px;
 	float: left;
 	border: 0;
-	padding: 3px 10px;
-	font-size: 15px;
+	padding: 3px 12px;
+	font-size: 18px;
 	background: $bg_color;
 }
 
-input[type=text]:focus { 
+input[type=text]:focus, input[type=password]:focus { 
 	background: white; 
 }
 
-input[type=submit] {
-	background-color: #dc7438;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(220, 116, 56)), to(rgb(212, 82, 7)));
-  background-image: -webkit-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
-  background-image: -moz-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
-  background-image: -o-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
-  background-image: -ms-linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
-  background-image: linear-gradient(top, rgb(220, 116, 56), rgb(212, 82, 7));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
-	color: white;
-	font-size: 16px;
-	width: 124px;
-	height: 40px;
-	border: 0px;
-	margin-left: 12px;
-	cursor: pointer;
-	@include rounded(7px);
+textarea {
+	width: 524px;
+	height: 200px;
+	float: left;
+	border: 0;
+	padding: 12px;
+	font-size: 18px;
+	background: $bg_color;
 }
 
-input[type=submit]:active { 
-  padding-top: 1px;
-  background-color: #ed9374;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
-  
+textarea:focus { 
+	background: white; 
 }
 
-input[type=submit]:focus { 
-  padding-top: 1px;
-  background-color: #ed9374;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
-  
+label {
+  color: white;
+  font-size: 18px;
+  padding-bottom: 10px;
 }
 
-input[type=submit]:hover { 
-  background-color: #ed9374;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(237, 147, 116)), to(rgb(231, 113, 72)));
-  background-image: -webkit-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -moz-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -o-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: -ms-linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  background-image: linear-gradient(top, rgb(237, 147, 116), rgb(231, 113, 72));
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148');
-  
+div.get_started {
+  width: 100%;
+  cursor: pointer;
+	a { 
+	  @include form_button;
+	  font-size: 26px;
+  	font-weight: 500;
+    padding: 15px 20px;
+	}
+}
+
+div#community_categories { 
+  overflow: hidden; 
+  margin: 30px 0 60px 20px;
+}
+
+div.community_category {
+  width: 300px;
+  cursor: pointer;
+  @include rounded(10px);
+  float: left;
+	a {
+	  @include form_button;
+	  font-size: 22px;
+  	font-weight: 500;
+    padding: 15px 20px;
+    margin: 10px;
+	}
 }
 
 #thanks {
@@ -290,14 +391,13 @@ input[type=submit]:hover {
 #home_more_info {
   overflow: hidden;
   background: $bg_color;
-  padding-bottom: 25px;
+  padding-bottom: 35px;
   box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   -moz-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   -webkit-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   -khtml-box-shadow: 0 0 8px 1px rgba(0,0,0,0.5);
   a { 
     color: $orange;
-    font-weight: bold;
     &:hover { color: $light_orange; }
     &:focus { color: $light_orange; }
     &:active { color: $dark_orange; }
@@ -318,7 +418,7 @@ input[type=submit]:hover {
   width: 59px;
   border-top: 1px solid white;
   border-right: 1px solid white;
-  margin: 5px 0 20px 0;
+  margin: 5px 0 40px 0;
 }
 
 .footer_links {
@@ -339,7 +439,7 @@ input[type=submit]:hover {
 }
 
 #product {
-  margin-top: 24px;
+  margin-top: 34px;
   color: white;
   font-size: 14px;
   font-weight: 400;
@@ -396,3 +496,28 @@ input[type=submit]:hover {
 }
 
 .hidden { display: none; }
+
+/* Creating a new tribe */
+
+#new_tribe_form {
+  @include form;
+}
+
+#login_form, #signup_form {
+  @include form;
+  text-align: left;
+  .send_button { @include form_button; }
+  h2 {
+    color: white;
+    margin-top: 0;
+    font-size: 22px;
+  }
+}
+
+.unwanted_text_field {
+  display:none
+}
+
+#password_forgotten {
+	display: none;
+}

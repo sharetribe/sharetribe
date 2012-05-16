@@ -98,7 +98,7 @@ class ApplicationController < ActionController::Base
   def fetch_community
     #logger.info "COOKIE KEYS: #{cookies.keys.to_yaml}"
     # if in dashboard, no community to fetch, just return
-    return if ["contact_requests", "dashboard", "i18n"].include?(controller_name)
+    return if ["contact_requests", "dashboard", "i18n", "communities"].include?(controller_name) || params[:dashboard_login]
     
     # There is a bug/feature in IE which also sends the top level cookie while user is in community
     # subdomain, and Rails has preference on that over the subdomain cookie.
@@ -147,7 +147,7 @@ class ApplicationController < ActionController::Base
           else
             logger.info "Controller: #{controller_name} Action: #{action_name}"
           end
-          redirect_to new_community_membership_path
+          redirect_to new_tribe_membership_path
         end
       elsif @current_community.private?
         return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)

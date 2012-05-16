@@ -97,7 +97,7 @@ class SessionsController < ApplicationController
         redirect_to domain + root_path
       end
     else
-      redirect_to domain + new_community_membership_path
+      redirect_to domain + new_tribe_membership_path
     end
   end
 

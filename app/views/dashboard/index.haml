@@ -15,20 +15,15 @@
       #home_main_screenshot
         = image_tag("/images/dashboard/kassi_homepage_screenshot.png", :alt => "This is what a Kassi community looks like")
     .grid_5.omega
-      %p
+      %p.intro
         = t(".main_description")
-      = form_for @contact_request do |form|
-        .form_field_container
-          = form.label :email, t(".want_kassi_for_your_community"), :class => "dashboard"
-        .form_field_container
-          = form.text_field :email, :class => "text_field"
-          = form.submit t(".send")
-        .form_field_container
-          %span.email= t(".or_drop_us_a_line")
-          = image_tag("/images/dashboard/kassi_email_address.png", :alt => "Our email address", :class => "email")
-        - if session[:contact_request_sent]
-          #thanks
-            = t(".thanks_for_contacting_us")
-            
+      .get_started
+        = link_to t(".get_started"), new_tribe_path, :class => "get_started"
+      %p.browse
+        = "..." + t("common.or")
+        = link_to(t(".browse_communities_around_you"), tribes_path, :class => "green_part_link")
+      %p.tour
+        = t(".want_to_know_more")
+        = link_to t(".take_a_tour"), tour_path, :class => "green_part_link"
 = render :partial => "lower_middle"
 = render :partial => "footer"

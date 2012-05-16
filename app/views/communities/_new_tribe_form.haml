@@ -1,0 +1,19 @@
+%h1.new_tribe= t(".create_a_tribe_in_a_minute")
+%h2.new_tribe= t(".welcome_now_create_your_tribe")
+.grid_8.prefix_2.suffix_2
+  #new_tribe_form
+    = form_for @community, :url => tribes_path do |form|
+      .form_field_container
+        = form.label :name, t(".name_of_your_tribe")
+        = form.text_field :name
+      .form_field_container
+        = form.label :domain, t(".web_address_of_your_tribe")
+        = form.text_field :domain
+      .form_field_container
+        = form.label :domain, t(".slogan_of_your_tribe")
+        = form.text_field :slogan
+      .form_field_container
+        = form.label :description, t(".describe_your_tribe")
+        = form.text_area :description
+      .form_field_container
+        = form.submit t(".create_your_tribe"), :class => "form_button"
