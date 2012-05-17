@@ -1036,10 +1036,6 @@ fr:
       visible_to_registered_users: "visible aux utilisateurs connectés"
     save_information: "Sauvegarder informations"
   sms:
-    category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
-    check_the_offer_in_kassi: "Voir l'offre sur Kassi : %{listing_url}"
-    listing_created: "Merci pour votre message, une annonce vient d'être ajouté sur Kassi."
-    offer: ^offre$|^o$
     or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
     parsing_error: "Impossible de comprendre le contenu du message. Veuillez relire les instructions et réessayer."
     pay: payer|paiement
@@ -1049,6 +1045,10 @@ fr:
     rideshare: transport|covoiturage
     you_can_call_him_at: "Vous pouvez téléphoner au conducteur au %{phone_number}"
     you_can_pay_gas_money_to_driver: "Pour participer aux frais d'essence, répondre 'kassi payer %{driver} Xe' où X est le montant. Le montant + une commission de 5% seront ajoutés à votre facture téléphonique."
+    category_not_supported: "Cette catégorie n'est pas encore supportée par les sms."
+    check_the_offer_in_kassi: "Voir l'offre sur Kassi : %{listing_url}"
+    listing_created: "Merci pour votre message, une annonce vient d'être ajouté sur Kassi."
+    offer: ^offre$|^o$
   tag_cloud:
     tag_used:
       with_tag: "Avec tag"
