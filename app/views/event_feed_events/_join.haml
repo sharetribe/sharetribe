@@ -1,2 +1,1 @@
-= link_to event_feed_event.person1.given_name_or_username, event_feed_event.person1
-= t(".joined_kassi", :time_ago => time_ago(event_feed_event.created_at))
+= t(".joined_kassi", :name => (link_to event_feed_event.person1.given_name_or_username, event_feed_event.person1), :time_ago => time_ago(event_feed_event.created_at)).html_safe
