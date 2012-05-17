@@ -173,10 +173,9 @@ en:
       join_community: "Join community '%{community}'"
       you_are_not_a_member_of_this_community: "You have a user account in %{service_name}, but you are not yet a member of %{service_name} community '%{community}'."
       you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
-      you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below."
+      you_can_join_email_confirmation: "To join this community you need to have a valid email address that ends with %{email_ending}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join community' below, and confirming your email."
       you_can_join_email_confirmation_multiple_addresses: "To join this community you need to have a valid email address that ends with one of the following: %{email_endings}. You can join by filling in your email address, accepting the terms of use of this community and clicking 'Join this community' below."
       you_can_join_with_invite_only: "You have to have an invitation from another member to join this community. If you have an invitation code, you can join this community by typing the code to the field below, accepting the terms of use of this community and clicking 'Join community' below."
-      joining_to_mail_restricted_communities_not_yet_supported: "This community is restricted by email account that you need to have, and joining multiple communities with email restriction is not yet supported. We will add the support soon, but for now you'll need to log out and create a separate account for this community."
       if_want_to_view_content: "If you want to view the content in this community without joining it you need to"
       log_out: "log out"
       join_community_button: "Join community"
@@ -231,7 +230,7 @@ en:
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
-      need_to_confirm: "Before you start using %{service_name}, you must confirm your email address with the following link:"
+      need_to_confirm: "You need to confirm your email address by clicking the following link:"
       confirmation_link_text: "Confirm my account"
     common:
       check_your_settings: "Check your settings"
@@ -520,6 +519,7 @@ en:
       comment_cannot_be_empty: "Comment cannot be empty"
       comment_sent: "Comment sent"
       confirmation_link_is_wrong_or_used: "The confirmation link is already used or otherwise broken. Try logging in, or send feedback if the problem persists."
+      additional_email_confirmed: "The email you entered is now confirmed. You can now join the community by entering it again."
       create_new_offer: "Offer something else"
       create_new_request: "Request something else"
       create_one_here: "create one here"
@@ -604,7 +604,7 @@ en:
       you_must_log_in_to_view_your_inbox: "You must log in to %{service_name} to view your inbox."
       you_must_log_in_to_view_your_settings: "You must log in to %{service_name} to view your settings."
       you_must_log_in_to_add_news_item: "You must log in to %{service_name} to add a new article."
-      you_need_to_confirm_your_account_first: "You need to confirm your account first."
+      you_need_to_confirm_your_account_first: "You need to confirm your email first."
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
     profile_extras_header:

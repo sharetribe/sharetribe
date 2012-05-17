@@ -205,4 +205,20 @@ module ApplicationHelper
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Kassi"
   end
   
+  def email_allowed_for_community?(email, community)
+    allowed = false
+    allowed_array = community.allowed_emails.split(",")
+    
+    allowed_array.each do |allowed_domain_or_address|
+      allowed_domain_or_address.strip!
+      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
+      if email =~ /#{allowed_domain_or_address}$/
+        allowed = true
+        break
+      end
+    end
+    
+    return allowed
+  end
+  
 end

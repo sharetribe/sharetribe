@@ -51,6 +51,7 @@ class Person < ActiveRecord::Base
            :class_name => "Listing", 
            :conditions => { :listing_type => "request" },
            :order => "id DESC"
+  has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   
@@ -156,7 +157,7 @@ class Person < ActiveRecord::Base
        end
 
        def email_available?(email, cookie=nil)
-         if Person.find_by_email(email).present?
+         if Person.find_by_email(email).present? || Email.find_by_address(email).present?
            return false
          else
            return true
@@ -367,6 +368,24 @@ class Person < ActiveRecord::Base
   
   def member_of?(community)
     community.members.include?(self)
+  end
+  
+  def has_email?(address)
+    self.email == address || Email.find_by_address_and_person_id(address, self.id)
+  end
+  
+  def has_valid_email_for_community?(community)
+    allowed = false
+    
+    #check primary email
+    allowed = true if email_allowed_for_community?(self.email, community)
+    
+    #check additional confirmed emails
+    self.emails.select{|e| e.confirmed_at.present?}.each do |e|
+      allowed = true if email_allowed_for_community?(e.address, community)
+    end
+    
+    return allowed
   end
   
   private

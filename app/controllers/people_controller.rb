@@ -185,7 +185,7 @@ class PeopleController < Devise::RegistrationsController
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = email_allowed?(params[:person][:email], @current_community)
+      available = email_allowed_for_community?(params[:person][:email], @current_community)
     end
     
     if available
@@ -201,7 +201,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks only that email is not already in use
   def check_email_availability
     # check if it's already in use
-    if @current_user && (@current_user.email == params[:person][:email])
+    if @current_user && (@current_user.email == params[:person][:email] || Email.find_by_address_and_person_id(params[:person][:email], @current_user.id) )
       # Current user's own email should not be shown as unavailable
       available = true
     else
@@ -217,7 +217,7 @@ class PeopleController < Devise::RegistrationsController
   def check_email_validity
     valid = true
     if @current_community.allowed_emails.present?
-      valid = email_allowed?(params[:community_membership][:email], @current_community)
+      valid = email_allowed_for_community?(params[:community_membership][:email], @current_community)
     end
     logger.info "Valid: #{valid}"
     respond_to do |format|
@@ -298,22 +298,6 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false 
       }
     end
-  end
-  
-  def email_allowed?(email, community)
-    allowed = false
-    allowed_array = community.allowed_emails.split(",")
-    
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    
-    return allowed
   end
   
 end
