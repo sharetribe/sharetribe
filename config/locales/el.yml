@@ -63,7 +63,7 @@ el:
       sell: πώληση
       temporary_accommodation: "προσωρινή φιλοξενία"
       trade: ανταλλαγή
-    username: "Όνομα χρήστη:"
+    username: "Όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
   conversations:
     index:
@@ -194,7 +194,7 @@ el:
       you_have_not_yet_accepted_or_rejected_request: "Ακόμα δεν έχεις αποδεχτεί ή απορρίψει το αίτημα '%{title}' που έλαβες στις %{date}."
     badge_migration_notification:
       badge_description1: "Μπορείς να κερδίσεις διάφορες κονκάρδες στο Kassi ως αναγνώριση της συνεισφοράς σου στην κοινότητα. Κερδίζεις κονκάρδες από ενέργειες όπως το να καταχωρείς νέες προσφορές ή αιτήματα, σχολιάζοντας στο περιεχόμενο άλλων, πραγματοποιώντας οποιεσδήποτε συναλλαγές (πώληση και αγορά αντικειμένων, κάνοντας χάρες, βρίσκοντας συνταξιδιώτες κλπ.) και γενικά με το να είσαι ενεργός χρήστης του Kassi. Βέβαια, κερδίζεις κονκάρδες μόνο από τις συναλλαγές για τις οποίες έλαβες θετικά σχόλια."
-      badge_description2: "Ένα άτομο με πολλές κονκάρδες είναι πιθανότατα ενεργό, αξιόπιστο και αρεστό σε άλλους χρήστες. Γι' αυτό να είσαι δραστήριος στο Kassi: αγόρασε, πούλα και δανείσου αντικείμενα, κάνε χάρες σε άλλους, συνταξίδεψε και δες τη συλλογή των κονκάρδων σου να μεγαλώνει!"
+      badge_description2: "Ένα άτομο με πολλές κονκάρδες είναι πιθανότατα ενεργό, αξιόπιστο και αρεστό σε άλλους χρήστες. Γι' αυτό να είσαι δραστήριος στο Kassi: αγόρασε, πούλα και δανείσου αντικείμενα, πρόσφερε βοήθεια σε άλλους, συνταξίδεψε και δες τη συλλογή των κονκάρδων σου να μεγαλώνει!"
       you_have_received_badges: "Έχεις λάβει κονκάρδες στο Kassi!"
       you_have_received_badges_in_kassi: "Κέρδισες νέες κονκάρδες στο Kassi. Μπορείς να δεις τις κονκάρδες σου αφού συνδεθείς στο Kassi και πας στο"
     confirmation_instructions:
@@ -312,9 +312,7 @@ el:
       has_accepted_rent_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_give_away_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_receive_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      to: στο
       has_accepted_sell_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      with: με
       has_accepted_buy_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_trade_item: "Ο/Η %{offerer_name} συμφώνησε να ανταλλάξει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_temporary_accommodation_housing: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
@@ -325,9 +323,9 @@ el:
       has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} πριν από %{time_ago}."
     join:
-      joined_kassi: "γράφτηκε στο Kassi πριν από %{time_ago}."
+      joined_kassi: "Ο/Η %{name} γράφτηκε στο Kassi πριν από %{time_ago}."
     login:
-      logged_in_to_kassi: "συνδέθηκε στο Kassi πριν από %{time_ago}."
+      logged_in_to_kassi: "Ο/Η %{name} συνδέθηκε στο Kassi πριν από %{time_ago}."
     comment:
       commented: "Ο/Η %{commenter_name} σχολίασε στο \"%{listing_title}\" πριν από %{time_ago}."
       offer_partitive: προσφορά
@@ -422,7 +420,7 @@ el:
     sign_in:
       recent_offers: "Τι προσφέρουν τώρα τα μέλη της κοινότητας"
       recent_requests: "Τι χρειάζονται τώρα τα μέλη της κοινότητας"
-      plus: ~
+      plus: "... και ακόμη"
       other_offer: "άλλη προσφορά"
       other_offers: "άλλες προσφορές"
       other_request: "άλλο αίτημα"
@@ -800,9 +798,9 @@ el:
     news_item:
       delete_news_item: "Αφαίρεση άρθρου"
   okl:
-    member_id: ~
-    member_id_is_your_username: ~
-    join_here: ~
+    member_id: ""
+    member_id_is_your_username: ""
+    join_here: ""
   people:
     badge_description:
       badge_achieved_at: "Η κονκάρδα κερδίθηκε στις "
@@ -1091,14 +1089,14 @@ el:
       shorter: "%e %b στις %H:%M"
       sms: "%e %b στις %H:%M"
   timestamps:
-    day_ago: "μέρα πριν"
-    days_ago: "μέρες πριν"
-    hour_ago: "ώρα πριν"
-    hours_ago: "ώρες πριν"
-    minute_ago: "λεπτό πριν"
-    minutes_ago: "λεπτά πριν"
-    month_ago: "μήνα πριν"
-    months_ago: "μήνες πριν"
-    seconds_ago: "δευτερόλεπτα πριν"
-    year_ago: "χρόνο πριν"
-    years_ago: "χρόνια πριν"
+    day_ago: μέρα
+    days_ago: μέρες
+    hour_ago: ώρα
+    hours_ago: ώρες
+    minute_ago: λεπτό
+    minutes_ago: λεπτά
+    month_ago: μήνα
+    months_ago: μήνες
+    seconds_ago: δευτερόλεπτα
+    year_ago: χρόνο
+    years_ago: χρόνια
