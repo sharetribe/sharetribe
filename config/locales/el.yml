@@ -323,9 +323,9 @@ el:
       has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} πριν από %{time_ago}."
     join:
-      joined_kassi: "γράφτηκε στο Kassi πριν από %{time_ago}."
+      joined_kassi: "Ο/Η %{name} γράφτηκε στο Kassi πριν από %{time_ago}."
     login:
-      logged_in_to_kassi: "συνδέθηκε στο Kassi πριν από %{time_ago}."
+      logged_in_to_kassi: "Ο/Η %{name} συνδέθηκε στο Kassi πριν από %{time_ago}."
     comment:
       commented: "Ο/Η %{commenter_name} σχολίασε στο \"%{listing_title}\" πριν από %{time_ago}."
       offer_partitive: προσφορά
@@ -798,7 +798,7 @@ el:
     news_item:
       delete_news_item: "Αφαίρεση άρθρου"
   okl:
-    member_id: ~
+    member_id: ""
     member_id_is_your_username: ""
     join_here: ""
   people:
