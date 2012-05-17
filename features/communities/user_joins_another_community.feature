@@ -43,7 +43,7 @@ Feature: User joins another community
     And I should see "What others need"
   
   @javascript
-  Scenario: User joins another community that accepts only certain email addressses
+  Scenario: User joins another community that accepts only certain email addresses
     Given there are following users:
       | person | 
       | kassi_testperson3 |
@@ -62,3 +62,6 @@ Feature: User joins another community
     When I fill in "Email address:" with "random@gmail.com"
     And I press "Join community"
     Then I should see "Please confirm your email address"
+    When I confirm the email "random@gmail.com"
+    And I press "Join community"
+    Then I should see "You have successfully joined this community"

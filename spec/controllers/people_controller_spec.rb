@@ -2,9 +2,56 @@ require 'spec_helper'
 
 describe PeopleController do
   fixtures :communities
+  fixtures :people
+  
   before(:each) do
     @request.env["devise.mapping"] = Devise.mappings[:person]
   end
+  
+  # First general tests and then ASI / No-ASI specific ones
+  
+  describe "#check_email_availability" do
+    it "should return available if email not in use" do
+      @request.host = "test.lvh.me"
+      get :check_email_availability,  {:person => {:email => "totally_random_email_not_in_use@example.com"}, :format => :json}
+      response.body.should == "true"
+    end
+    
+    if not use_asi?
+      
+      it "should return unavailable if email is in use" do
+        @request.host = "test.lvh.me"
+        person, session = get_test_person_and_session
+        person.update_attribute(:email, "test@example.com")
+
+
+        puts Person.email_available?("test@example.com")
+        get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+        response.body.should == "false"
+
+        Email.create(:person_id => person.id, :address => "test2@example.com")
+        get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+        response.body.should == "false"  
+      end
+      
+      it "should return available for user's own adress" do
+        @request.host = "test.lvh.me"
+
+        person, session = get_test_person_and_session
+        sign_in person
+      
+        person.update_attribute(:email, "test@example.com")
+        get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+        response.body.should == "true"
+        
+        Email.create(:person_id => person.id, :address => "test2@example.com")
+        get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+        response.body.should == "true"
+      end
+      
+    end
+  end
+  
   
   if (use_asi?)
     context "When ASI is used as the storage for Person data" do

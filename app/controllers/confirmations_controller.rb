@@ -28,8 +28,18 @@ class ConfirmationsController < Devise::ConfirmationsController
       sign_in(resource_name, resource)
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
-      #respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
+      #check if this confirmation code mathces to additional emails
+      if e = Email.find_by_confirmation_token(params[:confirmation_token])
+        e.confirmed_at = Time.now
+        e.confirmation_token = nil
+        e.save
+        flash[:notice] = "additional_email_confirmed"
+        
+        # This redirect expects that additional emails are only added when joining a community that requires it
+        redirect_to :controller => "community_memberships", :action => "new" and return
+      end
       
+      #respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
       # This is changed from Devise's default
       flash[:error] = "confirmation_link_is_wrong_or_used"
       if @current_user
