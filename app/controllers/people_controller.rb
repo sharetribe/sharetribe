@@ -131,7 +131,9 @@ class PeopleController < Devise::RegistrationsController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email]))
+    #Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email]))
+    # No need for separate job when joining Kassi. At least not currently, as all the task relate to joining community.
+    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host))
     
     if @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
