@@ -353,7 +353,7 @@ en:
       has_accepted_favor: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} agreed on sharing a ride %{listing_title} with %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "%{name} joined %{service_name} %{time_ago}."
+      joined_kassi: "%{name} joined %{community_name} %{service_name} %{time_ago}."
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:

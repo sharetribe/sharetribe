@@ -52,11 +52,11 @@ Feature: Facebook connect
   Scenario: Facebook connect to log in when the accounts are already linked
     Given there are following users:
       | person | facebook_id | given_name |
-      | kassi_testperson3 | 597013691 | Markuz |
+      | marko | 597013691 | Marko |
     Given I am on the home page
     When I follow "facebook_connect"
     Then I should see "Successfully authorized from Facebook account"
-    And I should see "Markuz"
+    And I should see "Marko"
    
   Scenario: User connects to FB but cancels the linking
     Given I am on the home page
