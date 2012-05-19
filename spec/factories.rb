@@ -104,6 +104,7 @@ Factory.define :community_membership do |c|
   c.association :community
   c.association :person
   c.admin false
+  c.consent "test_consent0.1"
 end
 
 Factory.define :contact_request do |c|

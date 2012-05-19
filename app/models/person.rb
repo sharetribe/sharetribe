@@ -239,6 +239,7 @@ class Person < ActiveRecord::Base
     
     def picture_from_url(url)
       self.image = open(url)
+      self.save
     end
     
     def store_picture_from_facebook()

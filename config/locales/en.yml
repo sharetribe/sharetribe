@@ -1015,9 +1015,12 @@ en:
       login: "Log in"
       login_to_kassi: "Log in to %{service_name}"
       connect_your_facebook_to_kassi: "Connect your Facebook account to %{service_name}"
-      log_in_to_link_account: "If you already have a %{service_name} account, log in to link it with the Facebook account (%{email})."
+      facebook_account: "Facebook account:"
+      log_in_to_link_account: "If you already have a %{service_name} account, log in to link it with your Facebook account."
       you_can_also_create_new_account: "If you don't have an account in Kassi, %{accont_creation_link} to create one with your Facebook login."
       account_creation_link_text: "click here"
+      cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
+      facebook_cancel_link_text: "cancel"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
