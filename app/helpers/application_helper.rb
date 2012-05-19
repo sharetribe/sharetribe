@@ -221,4 +221,10 @@ module ApplicationHelper
     return allowed
   end
   
+  # returns the locale part from url.
+  # e.g. from "kassi.eu/es/listings" returns es
+  def exctract_locale_from_url(url)
+    url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
+  end
+  
 end

@@ -25,3 +25,6 @@
         = link_to t('.sign_up'), sign_up_path, :title => t('.sign_up')
       .login_tab.float_right
         = link_to t('.login'), login_path, :title => t('.login')
+      - if APP_CONFIG.fb_connect_id && ! use_asi?
+        .facebook_connect.float_right
+          = link_to(image_tag("/images/icons/facebook-connect.png", {:alt => "Facebook Connect", :class => "facebook_connect"}), person_omniauth_authorize_path(:facebook))
