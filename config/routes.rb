@@ -71,6 +71,7 @@ Kassi::Application.routes.draw do
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
+      match "/people/sign_up" => redirect("/%{locale}/login")
            
       resources :people do
         collection do
@@ -80,6 +81,7 @@ Kassi::Application.routes.draw do
           get :check_email_validity
           get :check_invitation_code
           get :not_member
+          get :cancel
           post :create_facebook_based
         end
         member do 

@@ -1,0 +1,91 @@
+@only_without_asi
+Feature: Facebook connect
+  In order to connect to Kassi with existing Facebook account
+  As a user
+  I want to do Facebook connect to link the accounts
+  
+  Scenario: Facebook connect first time, with same email in Kassi DB
+    Given there are following users:
+      | person     | given_name | email | 
+      | facebooker | Mircos     | markus@example.com |
+    Then user "facebooker" should have "image_file_size" with value "nil"
+    Given I am on the home page
+    When I follow "facebook_connect"
+    Then I should see "Successfully authorized from Facebook account"
+    And I should see "Mircos"
+    And user "facebooker" should not have "image_file_size" with value "nil"
+    
+  
+  Scenario: Facebook connect with different email in Kassi DB
+    Given there are following users:
+      | person | given_name |
+      | facebooker | Marcos |
+    Then user "facebooker" should have "image_file_size" with value "nil"
+    Given I am on the home page
+    When I follow "facebook_connect"
+    Then I should see "Connect your Facebook account"
+    When I fill in "person_username" with "facebooker"
+    And I fill in "person_password" with "testi"
+    And I press "Log in" 
+    Then I should see "Welcome to Kassi"
+    And I should see "Marcos"
+    And user "facebooker" should have "facebook_id" with value "597013691"
+    And user "facebooker" should not have "image_file_size" with value "nil"
+  
+  Scenario: Facebook connect first time, without existing account in Kassi
+    Given I am on the home page
+    When I follow "facebook_connect"
+    Then I should see "Connect your Facebook account"
+    And I should see "Markus Sugarberg"
+    When I follow "click here"
+    Then I should see "Join community 'Test'"
+    When I check "community_membership_consent"
+    And I press "Join community"
+    Then I should see "successfully joined this community"
+    And I should see "Markus"
+    And user "sharer123" should have "given_name" with value "Markus"
+    And user "sharer123" should have "family_name" with value "Sugarberg"
+    And user "sharer123" should have "email" with value "markus@example.com"
+    And user "sharer123" should have "facebook_id" with value "597013691"
+    And user "sharer123" should not have "image_file_size" with value "nil"
+  
+  Scenario: Facebook connect to log in when the accounts are already linked
+    Given there are following users:
+      | person | facebook_id | given_name |
+      | kassi_testperson3 | 597013691 | Markuz |
+    Given I am on the home page
+    When I follow "facebook_connect"
+    Then I should see "Successfully authorized from Facebook account"
+    And I should see "Markuz"
+   
+  Scenario: User connects to FB but cancels the linking
+    Given I am on the home page
+    When I follow "facebook_connect"
+    Then I should see "Connect your Facebook account"
+    And I should see "Markus Sugarberg"
+    When I follow "cancel"
+    Then I should not see "Markus"
+    When I follow "Log in"
+    Then I should not see "Connect your Facebook account"
+    And I should not see "Sugarberg"
+    And I should see "Log in to Kassi"
+    
+  Scenario: The facebook login doesn't succeed
+    Given I am on the home page
+    And there will be and error in my Facebook login
+    When I follow "facebook_connect"
+    Then I should see "Could not authorize you from Facebook"
+  
+  
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  

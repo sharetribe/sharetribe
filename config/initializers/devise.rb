@@ -205,7 +205,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   require "omniauth-facebook"
-  config.omniauth :facebook, APP_CONFIG.fb_connect_id, APP_CONFIG.fb_connect_secret, { :display => 'popup' }
+  config.omniauth :facebook, APP_CONFIG.fb_connect_id, APP_CONFIG.fb_connect_secret #, { :display => 'popup' }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

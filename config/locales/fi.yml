@@ -986,9 +986,12 @@ fi:
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään Kassiin"
       connect_your_facebook_to_kassi: "Yhdistä Facebook tili Kassiin"
-      log_in_to_link_account: "Jos sinulla on jo tunnus Kassissa, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin (%{email})."
+      facebook_account: "Facebook tili:"
+      log_in_to_link_account: "Jos sinulla on jo tunnus Kassissa, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
       you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta Kassissa, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
+      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
+      facebook_cancel_link_text: "voit perua yhdistämisen"
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."

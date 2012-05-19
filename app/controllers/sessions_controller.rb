@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     @facebook_merge = session["devise.facebook_data"].present?
     if @facebook_merge
       @facebook_email = session["devise.facebook_data"]["email"]
-      @facebook_name = session["devise.facebook_data"]["given_name"]
+      @facebook_name = "#{session["devise.facebook_data"]["given_name"]} #{session["devise.facebook_data"]["family_name"]}"
     end
   end
  
@@ -186,6 +186,15 @@ class SessionsController < ApplicationController
       session["devise.facebook_data"] = facebook_data
       redirect_to :action => :new
     end
+  end
+  
+  # Callback from Omniauth failures
+  def failure    
+    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    error_message = params[:error_reason] || "login error"
+    kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
+    flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
+    redirect_to root
   end
   
   # This is used if user has not confirmed her email address

@@ -48,7 +48,7 @@ fi:
       unlocked: "Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle."
     omniauth_callbacks:
       success: "%{kind}-kirjautumien onnistui."
-      failure: "Kirjautuminen käyttäen palvelua %{kind} epäonnistui, koska \"%{reason}\"."
+      failure: "Kirjautuminen %{kind}-tunnuksella epäonnistui, syynä \"%{reason}\"."
     mailer:
       confirmation_instructions:
         subject: Vahvistusohjeet
