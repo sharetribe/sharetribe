@@ -47,8 +47,8 @@ fi:
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet tunnuksesi lukituksen poistoon."
       unlocked: "Tunnuksesi on nyt avattu. Olet kirjautuneena sisälle."
     omniauth_callbacks:
-      success: "Onnistuneesti valtuutettu käyttäen palvelua %{kind}."
-      failure: "Valtuutus käyttäen palvelua %{kind} epäonnistui, koska \"%{reason}\"."
+      success: "%{kind}-kirjautumien onnistui."
+      failure: "Kirjautuminen käyttäen palvelua %{kind} epäonnistui, koska \"%{reason}\"."
     mailer:
       confirmation_instructions:
         subject: Vahvistusohjeet

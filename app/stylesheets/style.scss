@@ -357,6 +357,11 @@ form, input {
 		&:focus { background: $light_orange; }
 		&:active { background: $dark_orange; }
 	}
+	
+}
+
+.facebook_connect {
+  margin-right: 4px;
 }
 
 #top_spacer {
@@ -1180,6 +1185,9 @@ div.checkbox_float {
 	input.send_button_terms {
 		@include send_button;
 		width: 250px;
+	}
+	img.facebook_login {
+	  margin: 23px 0 0 10px;
 	}
 	label {
 		margin: 10px;

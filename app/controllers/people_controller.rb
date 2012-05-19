@@ -54,11 +54,13 @@ class PeopleController < Devise::RegistrationsController
       redirect_to domain + sign_up_path and return
     end
     
-    if params[:invitation_code]
-      # Check if invitation is valid
+    if @current_community.join_with_invite_only? || params[:invitation_code]
+
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
-        # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
+        # abort user creation if invitation is not usable. 
+        # (This actually should not happen since the code is checked with javascript)
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
+        
         # TODO: if this ever happens, should change the message to something else than "unknown error"
         flash[:error] = :unknown_error
         redirect_to domain + sign_up_path and return
@@ -66,7 +68,7 @@ class PeopleController < Devise::RegistrationsController
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
       end
     end
-    
+        
     @person = Person.new
     if APP_CONFIG.use_recaptcha && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
@@ -137,6 +139,34 @@ class PeopleController < Devise::RegistrationsController
     else
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
+  end
+  
+  def create_facebook_based
+    username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
+    
+    person_hash = {
+      :username => username,
+      :given_name => session["devise.facebook_data"]["given_name"],
+      :family_name => session["devise.facebook_data"]["family_name"],
+      :email => session["devise.facebook_data"]["email"],
+      :facebook_id => session["devise.facebook_data"]["id"],
+      :locale => I18n.locale,
+      :test_group_number => 1 + rand(4),
+      :confirmed_at => Time.now,  # We trust that Facebook has already confirmed these and save the user few clicks
+      :password => Devise.friendly_token[0,20]
+    }
+    @person = Person.create!(person_hash)
+    @person.set_default_preferences
+
+    @person.store_picture_from_facebook
+    
+
+    session[:person_id] = @person.id    
+    sign_in(resource_name, @person)
+    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    
+    # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    redirect_to :controller => :community_memberships, :action => :new
   end
   
   def update

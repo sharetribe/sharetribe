@@ -14,6 +14,20 @@ class CommunityMembershipsController < ApplicationController
   
   def create
     @community_membership = CommunityMembership.new(params[:community_membership])
+        
+    if @current_community.join_with_invite_only? || params[:invitation_code]
+      unless Invitation.code_usable?(params[:invitation_code], @current_community)
+        # abort user creation if invitation is not usable. 
+        # (This actually should not happen since the code is checked with javascript)
+        ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the CommunityMembershipsController", "Invitation code error")
+        
+        # TODO: if this ever happens, should change the message to something else than "unknown error"
+        flash[:error] = :unknown_error
+        render :action => :new and return
+      else
+        invitation = Invitation.find_by_code(params[:invitation_code].upcase)
+      end
+    end
     
     # If community requires certain email address and user doesn't have it confirmed.
     # Send confirmation for that.
@@ -40,8 +54,14 @@ class CommunityMembershipsController < ApplicationController
     end
     
     
+    @community_membership.invitation = invitation if invitation.present?
+
     # This is reached only if requirements are fulfilled
     if @community_membership.save
+      
+      # If invite was used, reduce usages left
+      invitation.use_once! if invitation.present?
+      
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       flash[:notice] = "you_are_now_member"
       redirect_to root 
