@@ -12,6 +12,7 @@ require "open-uri"
 class Person < ActiveRecord::Base
 
   include ErrorsHelper
+  include ApplicationHelper
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable

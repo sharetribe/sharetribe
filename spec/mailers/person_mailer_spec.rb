@@ -36,8 +36,7 @@ describe PersonMailer do
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = Factory(:conversation)
-    @conversation.participants << @test_person2
-    @conversation.participants << @test_person
+     @conversation.participants = [@test_person2, @test_person]
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
