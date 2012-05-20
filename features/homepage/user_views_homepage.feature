@@ -137,7 +137,7 @@ Feature: User views homepage
     And I check "person_terms"
     And I press "Create account"
     And the system processes jobs
-    Then I should not see "Chuck joined Kassi."
+    Then I should not see "Chuck joined Test Kassi"
     And I follow "Logout"
     And I log in as "kassi_testperson1"
     And the system processes jobs
@@ -150,7 +150,7 @@ Feature: User views homepage
     And I press "Send comment"
     And the system processes jobs
     And I go to the homepage
-    Then I should see "Chuck joined Kassi"
+    Then I should see "Chuck joined Test Kassi"
     And I should see "logged in to Kassi"
     And I should see "commented offer hammer"
     When I follow "Contact"
