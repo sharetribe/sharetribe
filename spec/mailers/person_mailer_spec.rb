@@ -36,8 +36,7 @@ describe PersonMailer do
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = Factory(:conversation)
-    @conversation.participants << @test_person2
-    @conversation.participants << @test_person
+     @conversation.participants = [@test_person2, @test_person]
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
@@ -101,7 +100,8 @@ describe PersonMailer do
   it "should send email to community admins of new feedback if that setting is on" do
     @feedback = Factory(:feedback)
     @community = Factory(:community, :feedback_to_admin => 1)
-    CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :admin => 1)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [APP_CONFIG.feedback_mailer_recipients, @test_person.email], email.to
@@ -124,10 +124,12 @@ describe PersonMailer do
   
   it "should send email to community admins of new member if wanted" do
     @community = Factory(:community, :email_admins_about_new_members => 1)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@test_person.email], email.to
-    assert_equal "New member in Test Kassi", email.subject
+    assert_equal "New member in #{@community.name} Kassi", email.subject
   end
 
 end

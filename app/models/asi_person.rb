@@ -89,8 +89,9 @@ module AsiPerson
     end
 
     def email_available?(email, cookie=Session.kassi_cookie)
+      
       resp = PersonConnection.availability({:email => email}, cookie)
-      if resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable"
+      if (resp["entry"] && resp["entry"][0]["email"] && resp["entry"][0]["email"] == "unavailable") ||  Email.find_by_address(email).present?
         return false
       else
         return true

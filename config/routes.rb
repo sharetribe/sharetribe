@@ -64,13 +64,14 @@ Kassi::Application.routes.draw do
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
 
-    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"}, :path_names => { :sign_in => 'login'} do  
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} do  
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
       match "/people/login" => "sessions#new" #this is kind of duplicate, but helps to cope with devises defaults
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
+      match "/people/sign_up" => redirect("/%{locale}/login")
            
       resources :people do
         collection do
@@ -80,6 +81,8 @@ Kassi::Application.routes.draw do
           get :check_email_validity
           get :check_invitation_code
           get :not_member
+          get :cancel
+          post :create_facebook_based
         end
         member do 
           put :update_avatar

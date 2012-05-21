@@ -846,3 +846,18 @@ function translate_validation_messages(locale) {
     });
   });
 }
+
+//FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup
+// Didn't work now, but I leave here to make things faster if want to invesetigate more.
+
+// function popupCenter(url, width, height, name) {
+//   var left = (screen.width/2)-(width/2);
+//   var top = (screen.height/2)-(height/2);
+//   return window.open(url, name, "menubar=no,toolbar=no,status=no,width="+width+",height="+height+",toolbar=no,left="+left+",top="+top);
+// }
+// 
+// $("a.popup").click(function(e) {
+//   alert("HOE");
+//   popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
+//   e.stopPropagation(); return false;
+// });
