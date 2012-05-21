@@ -1,6 +1,5 @@
 class AccountCreatedJob < Struct.new(:person_id, :community_id, :email)
   
-  
   # This before hook should be included in all Jobs to make sure that the service_name is 
   # correct as it's stored in the thread and the same thread handles many different communities
   # if the job doesn't have host parameter, should call the method with nil, to set the default service_name
@@ -11,10 +10,11 @@ class AccountCreatedJob < Struct.new(:person_id, :community_id, :email)
   
   
   def perform
-    community = Community.find(community_id)
-    person = Person.find(person_id)
-    PersonMailer.new_member_notification(person, community.domain, email).deliver if community.email_admins_about_new_members?
-    EventFeedEvent.create(:person1_id => person.id, :community_id => community.id, :category => "join")
+    # These things happen now in community_joined. But keeping this here, in case we add tasks to account creation later.
+    # community = Community.find(community_id)
+    # person = Person.find(person_id)
+    # PersonMailer.new_member_notification(person, community.domain, email).deliver if community.email_admins_about_new_members?
+    # EventFeedEvent.create(:person1_id => person.id, :community_id => community.id, :category => "join")
   end
   
 end

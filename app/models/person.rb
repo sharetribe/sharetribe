@@ -2,6 +2,7 @@ require 'json'
 require 'rest_client'
 require 'httpclient'
 require 'uuid22'
+require "open-uri"
 
 # This class represents a person (a user of Kassi).
 # Some of the person data can be stored in Aalto Social Interface (ASI) server.
@@ -11,6 +12,7 @@ require 'uuid22'
 class Person < ActiveRecord::Base
 
   include ErrorsHelper
+  include ApplicationHelper
 
   # Include devise module confirmable always. Others depend on if ASI is used or not
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -18,9 +20,10 @@ class Person < ActiveRecord::Base
     
   if not ApplicationHelper::use_asi?
     # Include default devise modules. Others available are:
-    # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+    # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
     devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable
+           :recoverable, :rememberable, :trackable, 
+           :validatable, :omniauthable
            
     if APP_CONFIG.use_asi_encryptor
       require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
@@ -51,6 +54,7 @@ class Person < ActiveRecord::Base
            :class_name => "Listing", 
            :conditions => { :listing_type => "request" },
            :order => "id DESC"
+  has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   
@@ -168,7 +172,7 @@ class Person < ActiveRecord::Base
        end
 
        def email_available?(email, cookie=nil)
-         if Person.find_by_email(email).present?
+         if Person.find_by_email(email).present? || Email.find_by_address(email).present?
            return false
          else
            return true
@@ -244,7 +248,18 @@ class Person < ActiveRecord::Base
 
         super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
       end
-    end 
+    end
+    
+    def picture_from_url(url)
+      self.image = open(url)
+      self.save
+    end
+    
+    def store_picture_from_facebook()
+      if self.facebook_id
+        self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
+      end
+    end
   end
   
   
@@ -379,6 +394,68 @@ class Person < ActiveRecord::Base
   
   def member_of?(community)
     community.members.include?(self)
+  end
+  
+  def has_email?(address)
+    self.email == address || Email.find_by_address_and_person_id(address, self.id).present?
+  end
+  
+  def has_valid_email_for_community?(community)
+    allowed = false
+    
+    #check primary email
+    allowed = true if email_allowed_for_community?(self.email, community)
+    
+    #check additional confirmed emails
+    self.emails.select{|e| e.confirmed_at.present?}.each do |e|
+      allowed = true if email_allowed_for_community?(e.address, community)
+    end
+    
+    return allowed
+  end
+  
+  def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
+    data = facebook_data.extra.raw_info
+    
+    # find if already made facebook connection
+    if user = self.find_by_facebook_id(data.id)
+      user
+    elsif user = logged_in_user || self.find_by_email(data.email)
+      # make connection automatically based on email
+      user.update_attribute(:facebook_id, data.id)
+      if user.image_file_size.nil?
+        user.store_picture_from_facebook
+      end
+      user 
+    else 
+      nil
+    end
+  end
+  
+  # Override the default finder to find also based on additional emails
+  def self.find_by_email(*args)
+    person = super(*args)
+    
+    if person.nil?
+      # look for additional emails
+      email = Email.find_by_address(*args)
+      if email
+        person = email.person
+      end
+    end
+    
+    return person
+  end
+  
+  # returns the same if its available, otherwise "same1", "same2" etc.
+  def self.available_username_based_on(initial_name)
+    current_name = initial_name
+    i = 1
+    while self.find_by_username(current_name) do
+      current_name = "#{initial_name}#{i}"
+      i += 1
+    end
+    return current_name
   end
   
   private

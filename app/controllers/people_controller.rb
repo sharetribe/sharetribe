@@ -55,11 +55,13 @@ class PeopleController < Devise::RegistrationsController
       redirect_to error_redirect_path and return
     end
     
-    if params[:invitation_code]
-      # Check if invitation is valid
+    if @current_community.join_with_invite_only? || params[:invitation_code]
+
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
-        # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
+        # abort user creation if invitation is not usable. 
+        # (This actually should not happen since the code is checked with javascript)
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
+        
         # TODO: if this ever happens, should change the message to something else than "unknown error"
         flash[:error] = :unknown_error
         redirect_to error_redirect_path and return
@@ -67,7 +69,7 @@ class PeopleController < Devise::RegistrationsController
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
       end
     end
-    
+        
     @person = Person.new
     if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
@@ -132,7 +134,7 @@ class PeopleController < Devise::RegistrationsController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email])) if @current_community
+    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
     
     if !@current_community
       redirect_to domain + new_tribe_path
@@ -142,6 +144,34 @@ class PeopleController < Devise::RegistrationsController
     else
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
+  end
+  
+  def create_facebook_based
+    username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
+    
+    person_hash = {
+      :username => username,
+      :given_name => session["devise.facebook_data"]["given_name"],
+      :family_name => session["devise.facebook_data"]["family_name"],
+      :email => session["devise.facebook_data"]["email"],
+      :facebook_id => session["devise.facebook_data"]["id"],
+      :locale => I18n.locale,
+      :test_group_number => 1 + rand(4),
+      :confirmed_at => Time.now,  # We trust that Facebook has already confirmed these and save the user few clicks
+      :password => Devise.friendly_token[0,20]
+    }
+    @person = Person.create!(person_hash)
+    @person.set_default_preferences
+
+    @person.store_picture_from_facebook
+    
+
+    session[:person_id] = @person.id    
+    sign_in(resource_name, @person)
+    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    
+    # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    redirect_to :controller => :community_memberships, :action => :new
   end
   
   def update
@@ -190,7 +220,7 @@ class PeopleController < Devise::RegistrationsController
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = email_allowed?(params[:person][:email], @current_community)
+      available = email_allowed_for_community?(params[:person][:email], @current_community)
     end
     
     if available
@@ -206,7 +236,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks only that email is not already in use
   def check_email_availability
     # check if it's already in use
-    if @current_user && (@current_user.email == params[:person][:email])
+    if @current_user && (@current_user.email == params[:person][:email] || Email.find_by_address_and_person_id(params[:person][:email], @current_user.id) )
       # Current user's own email should not be shown as unavailable
       available = true
     else
@@ -222,7 +252,7 @@ class PeopleController < Devise::RegistrationsController
   def check_email_validity
     valid = true
     if @current_community.allowed_emails.present?
-      valid = email_allowed?(params[:community_membership][:email], @current_community)
+      valid = email_allowed_for_community?(params[:community_membership][:email], @current_community)
     end
     logger.info "Valid: #{valid}"
     respond_to do |format|
@@ -308,22 +338,6 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false 
       }
     end
-  end
-  
-  def email_allowed?(email, community)
-    allowed = false
-    allowed_array = community.allowed_emails.split(",")
-    
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    
-    return allowed
   end
   
 end

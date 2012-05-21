@@ -148,10 +148,9 @@ fi:
       join_community: "Liittyminen yhteisöön '%{community}'"
       you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus Kassissa, mutta et vielä ole Kassi-yhteisön '%{community}' jäsen."
       you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
+      you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot, klikkaamalla alareunasta 'Liity yhteisöön' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
       you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on jokin seuraavista: %{email_endings}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       you_can_join_with_invite_only: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla kutsu joltakin toiselta yhteisön jäseneltä. Jos sinulla on kutsukoodi, voit liittyä tähän yhteisöön kirjoittamalla koodin allaolevaan kenttään, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
-      joining_to_mail_restricted_communities_not_yet_supported: "Tähän yhteisöön liittyminen on rajatettu tietyille sähköpostiosoitteille, ja valitettavasti liittyminen useampaan sähköpostirajattuun yhteisöön samalla tunnuksella ei vielä ole mahdolista. Voit luoda uuden tunnuksen tätä yhteisöä varten kirjautumalla ulos ja rekisteröitymällä normaalisti."
       if_want_to_view_content: "Jos haluat nähdä mitä yhteisössä tapahtuu liittymättä siihen sinun täytyy"
       log_out: "kirjautua ulos"
       join_community_button: "Liity yhteisöön"
@@ -202,7 +201,7 @@ fi:
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>Kassi-tiimi"
       welcome_to_kassi: "Tervetuloa Kassiin!"
-      need_to_confirm: "Ennen kuin aloitat käytön, sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
       confirmation_link_text: "Varmista tunnukseni"
     common:
       check_your_settings: "Tarkista asetuksesi"
@@ -325,9 +324,9 @@ fi:
       has_accepted_favor: "%{offerer_name} tarjosi palveluksen %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} sopi kyydistä %{listing_title} käyttäjän %{requester_name} kanssa %{time_ago}."
     join:
-      joined_kassi: "liittyi Kassiin %{time_ago}."
+      joined_kassi: "%{name} liittyi %{community_name} Kassiin %{time_ago}."
     login:
-      logged_in_to_kassi: "kirjautui sisään Kassiin %{time_ago}."
+      logged_in_to_kassi: "%{name} kirjautui sisään Kassiin %{time_ago}."
     comment:
       commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: tarjousta
@@ -491,6 +490,7 @@ fi:
       comment_cannot_be_empty: "Et voi lähettää tyhjää kommenttia"
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
+      additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu. Voit liittyä tähän yhteisöön syöttämällä vahvistetun osoitteen uudestaan."
       create_new_offer: "Tarjoa jotain muuta"
       create_new_request: "Pyydä jotain muuta"
       create_one_here: "luoda uuden"
@@ -985,6 +985,13 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään Kassiin"
+      connect_your_facebook_to_kassi: "Yhdistä Facebook tili Kassiin"
+      facebook_account: "Facebook tili:"
+      log_in_to_link_account: "Jos sinulla on jo tunnus Kassissa, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
+      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta Kassissa, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
+      account_creation_link_text: "klikkaa tästä"
+      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
+      facebook_cancel_link_text: "voit perua yhdistämisen"
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."

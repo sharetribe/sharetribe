@@ -6,6 +6,8 @@ class CommunityMembership < ActiveRecord::Base
   
   attr_accessor :email
   
+  attr_protected :admin
+  
   before_create :set_last_page_load_date_to_current_time
   
   validate :person_can_join_community_only_once, :on => :create

@@ -10,6 +10,14 @@ class SessionsController < ApplicationController
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
  
+  def new
+    @facebook_merge = session["devise.facebook_data"].present?
+    if @facebook_merge
+      @facebook_email = session["devise.facebook_data"]["email"]
+      @facebook_name = "#{session["devise.facebook_data"]["given_name"]} #{session["devise.facebook_data"]["family_name"]}"
+    end
+  end
+ 
   def create
     # if the request came from different domain, redirects back there.
     # e.g. if using login-subdoain for logging in with https    
@@ -64,7 +72,18 @@ class SessionsController < ApplicationController
       end
       flash[:error] = nil
       @current_user = person
+      
+      # Store Facebook ID and picture if connecting with FB
+      if session["devise.facebook_data"]
+        @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"]) 
+        # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
+        if @current_user.image_file_size.nil?
+          @current_user.store_picture_from_facebook
+        end
+      end
+      
       sign_in @current_user
+
     end
 
     session[:form_username] = nil
@@ -151,6 +170,36 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path
     end
+  end
+  
+  def facebook
+    @person = Person.find_for_facebook_oauth(request.env["omniauth.auth"], @current_user)
+
+    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    
+    if @person
+      flash[:notice] = t("devise.omniauth_callbacks.success", :kind => "Facebook")
+      sign_in_and_redirect @person, :event => :authentication
+    else
+      data = request.env["omniauth.auth"].extra.raw_info
+      facebook_data = {"email" => data.email,
+                       "given_name" => data.first_name,
+                       "family_name" => data.last_name,
+                       "username" => data.username,
+                       "id"  => data.id}
+
+      session["devise.facebook_data"] = facebook_data
+      redirect_to :action => :new
+    end
+  end
+  
+  # Callback from Omniauth failures
+  def failure    
+    I18n.locale = exctract_locale_from_url(request.env['omniauth.origin']) if request.env['omniauth.origin']
+    error_message = params[:error_reason] || "login error"
+    kind = env["omniauth.error.strategy"].name.to_s || "Facebook"
+    flash[:error] = t("devise.omniauth_callbacks.failure",:kind => kind.humanize, :reason => error_message.humanize)
+    redirect_to root
   end
   
   # This is used if user has not confirmed her email address

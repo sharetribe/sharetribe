@@ -242,6 +242,9 @@ form, input {
   .login_tab a:active {
     background: #a33f05; }
 
+.facebook_connect {
+  margin-right: 4px; }
+
 #top_spacer {
   height: 20px; }
 
@@ -1287,6 +1290,8 @@ div.checkbox_float {
       background-color: #9f7d4e; }
     #login_form input.send_button_terms:focus, #new_message_form input.send_button_terms:focus, #signup_form input.send_button_terms:focus {
       background-color: #9f7d4e; }
+  #login_form img.facebook_login, #new_message_form img.facebook_login, #signup_form img.facebook_login {
+    margin: 23px 0 0 10px; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
     font-size: 14px;
