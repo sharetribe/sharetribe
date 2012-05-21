@@ -35,7 +35,7 @@ class Person < ActiveRecord::Base
   attr_accessor :guid, :password2, :form_username,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected,
-                :email_confirmation
+                :email_confirmation, :community_category
 
   
   attr_protected :is_admin
@@ -85,6 +85,8 @@ class Person < ActiveRecord::Base
     # "email_when_new_feedback_on_transaction",
     # "email_when_new_listing_from_friend"
   ] 
+  
+  PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
     
   serialize :preferences
   
@@ -109,6 +111,7 @@ class Person < ActiveRecord::Base
     validates_format_of :email,
                          :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
  
+    validate :community_email_type_is_correct
  
     # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
     has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
@@ -129,6 +132,15 @@ class Person < ActiveRecord::Base
       self.id ||= self.guid
     end
     
+  end
+  
+  def community_email_type_is_correct
+    if ["university", "community"].include? community_category
+      email_ending = email.split('@')[1]
+      if PERSONAL_EMAIL_ENDINGS.include? email_ending
+        errors.add(:email, "This looks like a non-organization email address. Remember to use the email of your organization.")
+      end
+    end
   end
   
   

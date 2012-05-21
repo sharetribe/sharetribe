@@ -38,9 +38,13 @@ class CommunitiesController < ApplicationController
   # GET /communities/new.xml
   def new
     @community = Community.new
+    @community.community_memberships.build
+    unless @community.location
+      @community.build_location(:address => @community.address, :type => 'community')
+      @community.location.search_and_fill_latlng
+    end
     @person = Person.new
     session[:community_category] = params[:category] if params[:category]
-    @community.category = session[:community_category]
     
     respond_to do |format|
       format.html # new.html.erb
@@ -56,17 +60,17 @@ class CommunitiesController < ApplicationController
   # POST /communities
   # POST /communities.xml
   def create
+    params[:community][:location][:address] = params[:community][:address] if params[:community][:address]
+    location = Location.new(params[:community][:location])
+    params[:community].delete(:location)
+    params[:community].delete(:address)
+    logger.info params.inspect
     @community = Community.new(params[:community])
-
-    respond_to do |format|
-      if @community.save
-        format.html { redirect_to(@community, :notice => 'Community was successfully created.') }
-        format.xml  { render :xml => @community, :status => :created, :location => @community }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
-      end
-    end
+    @community.save
+    location.community = @community
+    location.save
+    session[:community_category] = nil
+    render :action => :new
   end
 
   # PUT /communities/1
@@ -94,6 +98,12 @@ class CommunitiesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(communities_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def check_domain_availability
+    respond_to do |format|
+      format.json { render :json => Community.domain_available?(params[:community][:domain]) }
     end
   end
   

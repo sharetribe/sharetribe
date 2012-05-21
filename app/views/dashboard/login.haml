@@ -5,7 +5,11 @@
 
 #new_tribe_form_main
   .container_12
-    .grid_6.prefix_3.suffix_3
+    - if flash[:error]
+      #error_box.grid_12.alpha.omega
+        = t("layouts.notifications.#{flash[:error]}")
+      .clear
+    .grid_6.prefix_3.suffix_3.alpha.omega
       = render :partial => "sessions/new"
      
 = render :partial => "dashboard/footer"

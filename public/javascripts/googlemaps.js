@@ -38,10 +38,13 @@ addMethod("address_validator",
     var elem_prefix ="";
     if (pref[0].match("person"))
       elem_prefix = "person";
+    else if (pref[0].match("community"))
+      elem_prefix = "community";
     else
       elem_prefix = pref[0] + "_" + pref[1];
 
     var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
+
     if(emptyfield != "")
       check = true;
     else
@@ -166,6 +169,9 @@ function manually_validate(formhint) {
   if (rray[0].match("person")) {
     form_id += "person_settings_form";
     _element += "person_street_address";
+  } else if (rray[0].match("community")) {
+    form_id += "new_tribe_form";
+    _element += "community_address";
   } else if (rray[0].match("listing")) {
     form_id += "new_listing_form";
     if (rray[1].match("origin")) {
@@ -455,7 +461,7 @@ function addCommunityMarkers() {
 	});
 }
 
-function initialize_listing_map(type) {
+function initialize_listing_map(type, community_location_lat, community_location_lon) {
   listing_type = type;
   infowindow = new google.maps.InfoWindow();
   directionsService = new google.maps.DirectionsService();
@@ -469,8 +475,12 @@ function initialize_listing_map(type) {
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   
+  // First try the default location of the community if it has one
+  if (community_location_lat != null) {
+    initialLocation = new google.maps.LatLng(community_location_lat,community_location_lon);
+    map.setCenter(initialLocation);
   // Try W3C Geolocation (Preferred)
-  if(navigator.geolocation) {
+  } else if(navigator.geolocation) {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);

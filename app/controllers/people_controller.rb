@@ -41,17 +41,18 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
-    # if the request came from different domain, redirects back there.
-    # e.g. if using login-subdoain for registering in with https    
-    if params["community"].blank?
-      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
+    if @current_community
+      domain = "http://#{with_subdomain(params[:community])}"
+      error_redirect_path = domain + sign_up_path
+    else
+      domain = "http://www.#{[request.domain, request.port_string].join}"
+      error_redirect_path = domain + sign_up_path + "?dashboard_login=true"
     end
-    domain = "http://#{with_subdomain(params[:community])}"
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
       flash[:error] = :registration_considered_spam
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
     
     if params[:invitation_code]
@@ -61,14 +62,14 @@ class PeopleController < Devise::RegistrationsController
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
         # TODO: if this ever happens, should change the message to something else than "unknown error"
         flash[:error] = :unknown_error
-        redirect_to domain + sign_up_path and return
+        redirect_to error_redirect_path and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
       end
     end
     
     @person = Person.new
-    if APP_CONFIG.use_recaptcha && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
+    if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if Captha responses with error, show message to user
@@ -76,7 +77,7 @@ class PeopleController < Devise::RegistrationsController
       # TODO: if this ever happens, should change the message to something else than "unknown error"
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
 
 
@@ -84,9 +85,9 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:test_group_number] = 1 + rand(4)
     
     # skip email confirmation unless it's required in this community
-    params[:person][:confirmed_at] =  (@current_community.email_confirmation ? nil : Time.now)
+    params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
-    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || !@current_community.select_whether_name_is_shown_to_everybody)
+    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
     
     if use_asi?
       # Open an ASI Session first only for Kassi to be able to create a user
@@ -110,9 +111,11 @@ class PeopleController < Devise::RegistrationsController
       end
       @person.set_default_preferences
       # Make person a member of the current community
-      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
-      membership.invitation = invitation if invitation.present?
-      membership.save!
+      if @current_community
+        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+        membership.invitation = invitation if invitation.present?
+        membership.save!
+      end
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.
@@ -121,7 +124,7 @@ class PeopleController < Devise::RegistrationsController
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
@@ -129,9 +132,11 @@ class PeopleController < Devise::RegistrationsController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email]))
+    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email])) if @current_community
     
-    if @current_community.email_confirmation
+    if !@current_community
+      redirect_to domain + new_tribe_path
+    elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
@@ -232,6 +237,11 @@ class PeopleController < Devise::RegistrationsController
     end
   end
   
+  # Checks that the email address used is not a personal email
+  # if joining to a university/company tribe.
+  def check_email_not_personal
+    
+  end
   
   def show_closed?
     params[:closed] && params[:closed].eql?("true")

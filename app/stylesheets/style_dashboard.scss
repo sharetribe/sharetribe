@@ -53,15 +53,20 @@ $lighter_green: #3e6714;
   @include rounded(10px);
   background-color: rgba(0,0,0,0.1);
   margin: 40px 0 70px 0;
-  padding: 35px 40px 15px 40px;
+  padding: 35px 40px 25px 40px;
   overflow: hidden;
   .form_button {
     @include form_button;
   }
+  label.error {
+		@include form_error_field;
+		margin-left: 0;
+		width: 524px;
+	}
 }
 
 @mixin form_button {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   @include rounded(7px);
   text-align: center;
   display: block;
@@ -111,16 +116,49 @@ $lighter_green: #3e6714;
 	}
 }
 
+@mixin form_error_field {
+	font-size: 16px;
+	font-weight: bold;
+	clear: both;
+	float: left;
+	margin: 5px 0 0 170px;
+	padding: 14px 10px 5px 10px;
+	background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+	color: white;
+}
+
+@mixin hidden_div($width: 300px) {
+	@include rounded;
+	width: $width;
+	padding: 10px 10px 15px 10px;
+	background: $bg_color;
+	display: none;
+	overflow: hidden;
+	h3 {
+		font-size: 14px;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@mixin hidden_title($width: 200px) {
+	float: left;
+	width: $width;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px 0 0 20px;
+}
+
 
 /* Actual stuff */
 
 body {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   background: $medium_brown;
   color: $text_color; 
 }
 
 h1 {
-  font-family: 'Droid Sans', Georgia, Times, serif;
   font-size: 52px;
   margin-top: 40px;
   color: white;
@@ -131,14 +169,14 @@ h1 {
 }
 
 h1.new_tribe { 
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   text-align: center;
   font-size: 40px;
   margin-bottom: 0; 
 }
 
 h2 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 5px 0;
   font-size: 18px;
   font-weight: 300;
@@ -147,7 +185,7 @@ h2 {
 }
 
 h2.new_tribe {
-  font-family: 'Droid Sans', Georgia, Times, serif;
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
   margin-top: 5px;
   font-size: 18px;
@@ -156,7 +194,7 @@ h2.new_tribe {
 }
 
 h2.campaign_page {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 18px 0 5px 0;
   font-size: 20px;
   font-weight: 400;
@@ -164,7 +202,7 @@ h2.campaign_page {
 }
 
 h3 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 20px;
   letter-spacing: 4px;
@@ -173,7 +211,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 36px;
   font-weight: 200;
@@ -203,6 +241,14 @@ a.green_part_link {
   &:hover { color: $lighter_orange; }
   &:focus { color: $lighter_orange; }
   &:active { color: $light_orange; }
+}
+
+p.form {
+  clear: both;
+  color: white;
+  padding: 5px 0 10px 0;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 #header {
@@ -299,7 +345,7 @@ a.green_part_link {
 
 .form_field_container {
   overflow: hidden;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   span.email {
     float: left; 
     color: white; 
@@ -311,6 +357,11 @@ a.green_part_link {
     margin-left: 5px;
     padding-top: 4px;
   }
+}
+
+.form_field_container_taller {
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 label.dashboard {
@@ -326,6 +377,12 @@ input[type=text], input[type=password] {
 	padding: 3px 12px;
 	font-size: 18px;
 	background: $bg_color;
+}
+
+input[type=text].domain_field {
+  width: 264px;
+  float: left;
+  margin: 0 15px;
 }
 
 input[type=text]:focus, input[type=password]:focus { 
@@ -503,6 +560,14 @@ div.community_category {
   @include form;
 }
 
+div.domain_container { overflow: hidden; }
+span.domain {
+  padding-top: 10px;
+  float: left;
+  color: white;
+  font-size: 22px;
+}
+
 #login_form, #signup_form {
   @include form;
   text-align: left;
@@ -519,6 +584,11 @@ div.community_category {
     font-size: 14px;
     margin-bottom: 10px;
   }
+  label.error {
+		@include form_error_field;
+		margin-left: 0;
+		width: 360px;
+	}
 }
 
 .unwanted_text_field {
@@ -527,4 +597,74 @@ div.community_category {
 
 #password_forgotten {
 	display: none;
+}
+
+#error_box {
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 880px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+div.show_tribe_link {
+  width: 100%;
+  cursor: pointer;
+  @include rounded(10px);
+  float: left;
+	a {
+	  @include form_button;
+	  font-size: 22px;
+  	font-weight: 500;
+    padding: 15px 20px;
+    margin: 30px 0 50px 0;
+	}
+}
+
+#new_community_map_canvas {
+  margin-top: 5px;
+  width: 540px; 
+  height: 200px;
+  float: left;
+}
+
+.signup_checkbox_container {
+	overflow: hidden;
+}
+
+.signup_checkbox_input_container {
+	margin-right: 10px;
+	float: left;
+}
+
+.signup_checkbox_label_container {
+	margin-top: 4px;
+	float: left;
+}
+
+.hidden_description_terms {
+	@include hidden_div(500px);
+}
+
+.hidden_content {
+	clear: both;
+	padding: 12px 20px 0 20px;
+}
+
+.hidden_title { @include hidden_title; }
+.hidden_title_wide { @include hidden_title(300px); }
+
+.close_link {
+	float: right;
+	width: 18px;
+	height: 18px;
+	a {
+	  color: $orange;
+		font-size: 16px;
+		font-weight: bold;
+		text-align: center;
+		display: block;
+	}	
 }
