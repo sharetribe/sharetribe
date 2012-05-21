@@ -16,6 +16,8 @@ class Community < ActiveRecord::Base
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
   validates_uniqueness_of :domain
+  validates_length_of :slogan, :in => 2..100
+  validates_length_of :description, :in => 2..500
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   
   # The settings hash contains some community specific settings:
@@ -23,6 +25,10 @@ class Community < ActiveRecord::Base
   # asi_welcome_mail: boolean that tells if ASI should send the welcome mail to newly registered user. Default is false.
     
   serialize :settings, Hash
+  
+  def address
+    location ? location.address : nil
+  end
   
   def default_locale
     if settings && !settings["locales"].blank?
@@ -91,6 +97,15 @@ class Community < ActiveRecord::Base
       
     end
     I18n.locale = original_locale
+  end
+  
+  # Makes the creator of the community a member and an admin
+  def admin_attributes=(attributes)
+    community_memberships.build(attributes)
+  end
+  
+  def self.domain_available?(domain)
+    ! find_by_domain(domain).present?
   end
 
 end

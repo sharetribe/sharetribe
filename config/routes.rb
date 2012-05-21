@@ -150,7 +150,11 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
-    resources :tribes, :controller => :communities
+    resources :tribes, :controller => :communities do
+      collection do 
+        get :check_domain_availability
+      end
+    end
     resources :community_memberships, :as => :tribe_memberships
     resources :listings do
       member do

@@ -6,11 +6,11 @@
 /* Mixins */
 /* Actual stuff */
 body {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   background: #765d3a;
   color: #464646; }
 
 h1 {
-  font-family: 'Droid Sans', Georgia, Times, serif;
   font-size: 52px;
   margin-top: 40px;
   color: white;
@@ -21,13 +21,13 @@ h1 {
     margin-left: 30px; }
 
 h1.new_tribe {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   text-align: center;
   font-size: 40px;
   margin-bottom: 0; }
 
 h2 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 5px 0;
   font-size: 18px;
   font-weight: 300;
@@ -35,7 +35,7 @@ h2 {
   letter-spacing: 1px; }
 
 h2.new_tribe {
-  font-family: 'Droid Sans', Georgia, Times, serif;
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
   margin-top: 5px;
   font-size: 18px;
@@ -43,14 +43,14 @@ h2.new_tribe {
   margin-bottom: 0; }
 
 h2.campaign_page {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 18px 0 5px 0;
   font-size: 20px;
   font-weight: 400;
   color: white; }
 
 h3 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 20px;
   letter-spacing: 4px;
@@ -58,7 +58,7 @@ h3 {
   font-weight: 200; }
 
 h4 {
-  font-family: 'Droid Serif', Georgia, Times, serif;
+  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 36px;
   font-weight: 200;
@@ -87,6 +87,13 @@ a.green_part_link {
      color: #fa9961; }
   a.green_part_link:active {
      color: #f8792f; }
+
+p.form {
+  clear: both;
+  color: white;
+  padding: 5px 0 10px 0;
+  font-size: 14px;
+  line-height: 18px; }
 
 #header {
   height: 64px;
@@ -210,7 +217,7 @@ a.green_part_link {
 
 .form_field_container {
   overflow: hidden;
-  margin-bottom: 20px; }
+  margin-bottom: 15px; }
   .form_field_container span.email {
     float: left;
     color: white;
@@ -220,6 +227,10 @@ a.green_part_link {
     float: left;
     margin-left: 5px;
     padding-top: 4px; }
+
+.form_field_container_taller {
+  overflow: hidden;
+  margin-bottom: 20px; }
 
 label.dashboard {
   color: white;
@@ -233,6 +244,11 @@ input[type=text], input[type=password] {
   padding: 3px 12px;
   font-size: 18px;
   background: #f7f5e6; }
+
+input[type=text].domain_field {
+  width: 264px;
+  float: left;
+  margin: 0 15px; }
 
 input[type=text]:focus, input[type=password]:focus {
   background: white; }
@@ -258,7 +274,7 @@ div.get_started {
   width: 100%;
   cursor: pointer; }
   div.get_started a {
-    font-family: 'Droid Serif', Georgia, Times, serif;
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -321,7 +337,7 @@ div.community_category {
   -webkit-border-radius: 10px;
   float: left; }
   div.community_category a {
-    font-family: 'Droid Serif', Georgia, Times, serif;
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -514,10 +530,10 @@ div.community_category {
   -webkit-border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
   margin: 40px 0 70px 0;
-  padding: 35px 40px 15px 40px;
+  padding: 35px 40px 25px 40px;
   overflow: hidden; }
   #new_tribe_form .form_button {
-    font-family: 'Droid Serif', Georgia, Times, serif;
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -564,6 +580,26 @@ div.community_category {
       background-image: -ms-linear-gradient(top, #ed9374, #e77148);
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+  #new_tribe_form label.error {
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 0;
+    width: 524px; }
+
+div.domain_container {
+  overflow: hidden; }
+
+span.domain {
+  padding-top: 10px;
+  float: left;
+  color: white;
+  font-size: 22px; }
 
 #login_form, #signup_form {
   border-radius: 10px;
@@ -571,11 +607,11 @@ div.community_category {
   -webkit-border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.1);
   margin: 40px 0 70px 0;
-  padding: 35px 40px 15px 40px;
+  padding: 35px 40px 25px 40px;
   overflow: hidden;
   text-align: left; }
   #login_form .form_button, #signup_form .form_button {
-    font-family: 'Droid Serif', Georgia, Times, serif;
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -622,8 +658,19 @@ div.community_category {
       background-image: -ms-linear-gradient(top, #ed9374, #e77148);
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+  #login_form label.error, #signup_form label.error {
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 0;
+    width: 524px; }
   #login_form .send_button, #signup_form .send_button {
-    font-family: 'Droid Serif', Georgia, Times, serif;
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -678,9 +725,149 @@ div.community_category {
     color: white;
     font-size: 14px;
     margin-bottom: 10px; }
+  #login_form label.error, #signup_form label.error {
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 0;
+    width: 360px; }
 
 .unwanted_text_field {
   display: none; }
 
 #password_forgotten {
   display: none; }
+
+#error_box {
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  width: 880px;
+  margin-top: 20px;
+  text-align: center; }
+
+div.show_tribe_link {
+  width: 100%;
+  cursor: pointer;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  float: left; }
+  div.show_tribe_link a {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    padding: 15px 20px;
+    margin: 30px 0 50px 0; }
+    div.show_tribe_link a:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    div.show_tribe_link a:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    div.show_tribe_link a:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+
+#new_community_map_canvas {
+  margin-top: 5px;
+  width: 540px;
+  height: 200px;
+  float: left; }
+
+.signup_checkbox_container {
+  overflow: hidden; }
+
+.signup_checkbox_input_container {
+  margin-right: 10px;
+  float: left; }
+
+.signup_checkbox_label_container {
+  margin-top: 4px;
+  float: left; }
+
+.hidden_description_terms {
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  width: 500px;
+  padding: 10px 10px 15px 10px;
+  background: #f7f5e6;
+  display: none;
+  overflow: hidden; }
+  .hidden_description_terms h3 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0; }
+
+.hidden_content {
+  clear: both;
+  padding: 12px 20px 0 20px; }
+
+.hidden_title {
+  float: left;
+  width: 200px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0 0 20px; }
+
+.hidden_title_wide {
+  float: left;
+  width: 300px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px 0 0 20px; }
+
+.close_link {
+  float: right;
+  width: 18px;
+  height: 18px; }
+  .close_link a {
+    color: #d45207;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    display: block; }

@@ -48,6 +48,9 @@ en:
       show:
         edit_poll: "Edit poll"
   common:
+    default_community_slogan: "Lend, help, share"
+    default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces. You can let others now what you could offer to them and get help when needed."
+    default_description: ""
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
@@ -66,7 +69,10 @@ en:
     username: Username
     what_is_this: "What's this?"
   communities:
-    new:
+    done:
+      done: "Done!"
+      tribe_created_successfully: "You have successfully created your tribe."
+      go_to_your_tribe: "Go to your tribe"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below."
@@ -80,16 +86,32 @@ en:
       other: "Other"
     new_tribe_form:
       create_a_tribe_in_a_minute: "Create a new tribe in a minute"
-      welcome_now_create_your_tribe: "Welcome %{name}! Now you can create your tribe."
+      welcome_now_create_your_tribe: "Welcome %{name}! Go ahead and create your tribe."
       name_of_your_tribe: "Name of your tribe"
       web_address_of_your_tribe: "Web address of your tribe"
       slogan_of_your_tribe: "Slogan of your tribe"
       describe_your_tribe: "Describe your tribe: what is the purpose of the community"
       create_your_tribe: "Create your tribe!"
+      domain_invalid: "The domain can only contain alphabets, numbers, underscores or hyphens."
+      domain_taken: "This tribe exists already. You have to pick another domain name."
+      address: "Location of your tribe"
+      location_description: ""
     signup_form:
-      create_an_account: "Create an account"
+      create_an_account: "Create an account for yourself"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to Sharetribe below or"
       log_in_with_your_existing_account: "log in with your existing account"
+      your_email: "Your email address"
+      your_university_email: "Your university email address"
+      your_company_email: "Your company email address"
+      you_need_to_confirm: "To create a tribe for your %{tribe_type} you need to confirm your %{tribe_type} email address."
+      pick_username: "Pick a username"
+      your_given_name: "Your given name"
+      your_family_name: "Your family name"
+      your_password: "Pick a password"
+      confirm_your_password: "Confirm your password"
+      email_in_use_message: "There is already an account in %{service_name} with this email address. If you already have an account, you can %{log_in_link}."
+      invalid_email_ending_message: "This looks like a personal email. You need to sign up with your %{community_category} email."
+      log_in_here: "log in here"
   conversations:
     index:
       loading_more_messages: "Loading more messages"
