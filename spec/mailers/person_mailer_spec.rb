@@ -20,8 +20,8 @@ describe PersonMailer do
     @message.save
     email = PersonMailer.new_message_notification(@message).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
-    assert_equal "You have a new message in Kassi", email.subject
+    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal "You have a new message in Sharetribe", email.subject
   end
   
   it "should send email about a new comment to own listing" do
@@ -30,8 +30,8 @@ describe PersonMailer do
     recipient = @comment.listing.author
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [recipient.email], email.to unless recipient.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
-    assert_equal "Teppo Testaaja has commented your listing in Kassi", email.subject
+    assert_equal [recipient.email], email.to unless recipient.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal "Teppo Testaaja has commented your listing in Sharetribe", email.subject
   end
   
   it "should send email about an accepted and rejected offer or request" do
@@ -42,13 +42,13 @@ describe PersonMailer do
     @conversation.update_attribute(:status, "accepted")
     email = PersonMailer.conversation_status_changed(@conversation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
     assert_equal "Your offer was accepted", email.subject
     
     @conversation.update_attribute(:status, "rejected")
     email = PersonMailer.conversation_status_changed(@conversation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
     assert_equal "Your offer was rejected", email.subject
   end
   
@@ -56,8 +56,8 @@ describe PersonMailer do
     @badge = Factory(:badge)
     email = PersonMailer.new_badge(@badge).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
-    assert_equal "You have achieved a badge 'Rookie' in Kassi!", email.subject
+    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
   end
   
   it "should send email about a new testimonial" do
@@ -70,8 +70,8 @@ describe PersonMailer do
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
     email = PersonMailer.new_testimonial(@testimonial).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
-    assert_equal "Teppo Testaaja has given you feedback in Kassi", email.subject
+    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal "Teppo Testaaja has given you feedback in Sharetribe", email.subject
   end
   
   it "should remind about testimonial" do
@@ -85,7 +85,7 @@ describe PersonMailer do
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@participation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Kassi account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
     assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
   end
   
@@ -119,7 +119,7 @@ describe PersonMailer do
     email = PersonMailer.reply_to_contact_request(@contact_request.email, "en").deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@contact_request.email], email.to
-    assert_equal "Thank you for your interest in Kassi!", email.subject
+    assert_equal "Thank you for your interest in Sharetribe!", email.subject
   end
   
   it "should send email to community admins of new member if wanted" do

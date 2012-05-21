@@ -55,7 +55,7 @@ class PeopleController < Devise::RegistrationsController
       redirect_to error_redirect_path and return
     end
     
-    if @current_community.join_with_invite_only? || params[:invitation_code]
+    if @current_community && @current_community.join_with_invite_only? || params[:invitation_code]
 
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
@@ -137,6 +137,7 @@ class PeopleController < Devise::RegistrationsController
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
     
     if !@current_community
+      logger.info "Redirecting to #{domain + new_tribe_path}"
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
