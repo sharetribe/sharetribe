@@ -98,6 +98,9 @@ end
 Factory.define :community do |c|
   c.name { |d| d.domain = Factory.next(:domain) }
   c.domain { |d| d.domain = Factory.next(:domain) }
+  c.slogan "Test slogan"
+  c.description "Test description"
+  c.category "other"
 end
 
 Factory.define :community_membership do |c|
