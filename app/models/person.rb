@@ -394,6 +394,11 @@ class Person < ActiveRecord::Base
     end
   end
   
+  def self.email_all_users(subject, mail_content, default_locale="en", verbose=false)
+    puts "Sending mail to every #{Person.count} users in the service" if verbose
+    PersonMailer.deliver_open_content_messages(Person.all, subject, mail_content, default_locale, verbose)
+  end
+  
   # If ASI is in use, methods are loaded from AsiPerson, otherwise from LocalPersonMethods which is defined in this file
   if ApplicationHelper.use_asi?
     include AsiPerson
