@@ -16,8 +16,8 @@ class Community < ActiveRecord::Base
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
   validates_uniqueness_of :domain
-  validates_length_of :slogan, :in => 2..100
-  validates_length_of :description, :in => 2..500
+  validates_length_of :slogan, :in => 2..100, :allow_nil => true
+  validates_length_of :description, :in => 2..500, :allow_nil => true
   validates_inclusion_of :category, :in => VALID_CATEGORIES
   
   # The settings hash contains some community specific settings:
@@ -25,6 +25,8 @@ class Community < ActiveRecord::Base
   # asi_welcome_mail: boolean that tells if ASI should send the welcome mail to newly registered user. Default is false.
     
   serialize :settings, Hash
+  
+  attr_accessor :terms
   
   def address
     location ? location.address : nil

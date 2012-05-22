@@ -23,7 +23,6 @@
         = "..." + t("common.or")
         = link_to(t(".browse_communities_around_you"), tribes_path, :class => "green_part_link")
       %p.tour
-        = t(".want_to_know_more")
-        = link_to t(".take_a_tour"), tour_path, :class => "green_part_link"
+        = t(".want_to_know_more", :read_our_faq_link => link_to(t(".read_our_faq"), faq_path, :class => "green_part_link"), :contact_us_link => link_to(t(".contact_us"), "mailto:info@sharetribe.com", :class => "green_part_link")).html_safe
 = render :partial => "lower_middle"
 = render :partial => "footer"

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{t("communities.signup_form.email_in_use_message", :log_in_link => link_to(t("communities.signup_form.log_in_here"), dashboard_login_path))}", "#{t("communities.signup_form.invalid_email_ending_message", :community_category => session[:community_category])}", "#{community_email_restricted?}");
+  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{t("communities.signup_form.email_in_use_message", :log_in_link => link_to(t("communities.signup_form.log_in_here").html_safe, dashboard_login_path))}", "#{t("communities.signup_form.invalid_email_ending_message", :community_category => session[:community_category])}", "#{community_email_restricted?}");
 
 .grid_12.alpha.omega
   %h1.new_tribe= t(".create_an_account")
@@ -44,4 +44,4 @@
         = form.hidden_field :community_category, :value => session[:community_category]
         = submit_tag(t('people.new.create_new_account'), :class => "send_button")
         
-= render :partial => "people/help_texts", :collection => ["terms"], :as => :field
+= render :partial => "people/help_texts", :collection => ["terms"], :as => :field 

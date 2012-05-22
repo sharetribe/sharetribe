@@ -137,7 +137,7 @@ class PeopleController < Devise::RegistrationsController
     Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
     
     if !@current_community
-      logger.info "Redirecting to #{domain + new_tribe_path}"
+      session[:consent] = APP_CONFIG.consent
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
@@ -268,12 +268,6 @@ class PeopleController < Devise::RegistrationsController
     end
   end
   
-  # Checks that the email address used is not a personal email
-  # if joining to a university/company tribe.
-  def check_email_not_personal
-    
-  end
-  
   def show_closed?
     params[:closed] && params[:closed].eql?("true")
   end
@@ -302,7 +296,7 @@ class PeopleController < Devise::RegistrationsController
   private
   
   def choose_layout
-    if @current_community.private && action_name.eql?("new")
+    if @current_community && @current_community.private && action_name.eql?("new")
       'private'
     else
       'application'

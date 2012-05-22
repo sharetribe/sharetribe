@@ -35,12 +35,22 @@
       .form_field_container_taller
         = form.label :description, t(".describe_your_tribe")
         = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description"))
+      - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
+        = form.hidden_field :terms, :value => "true"
+      - else
+        .form_field_container
+          .signup_checkbox_container
+            .signup_checkbox_input_container
+              %input{:type => "checkbox", :id => "community_terms", :style => "opacity: 0;", :name => "community[terms]"}
+            .signup_checkbox_label_container
+              = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
+              = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "green_part_link"
       .form_field_container_taller
         = fields_for "community[admin_attributes]", CommunityMembership.new do |admin_form|
           = admin_form.hidden_field :person_id, :value => @current_user.id
           = admin_form.hidden_field :admin, :value => true
-          = admin_form.hidden_field :consent, :value => "KASSI_CO1.0"
-        = form.hidden_field :consent, :value => "KASSI_CO1.0"
+          = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
+        = form.hidden_field :consent, :value => APP_CONFIG.consent
         = form.hidden_field :category, :value => session[:community_category]
         = form.fields_for :location do |loc|
           = loc.hidden_field :address, :value => @community.location.address
@@ -49,3 +59,5 @@
           = loc.hidden_field :longitude, :value => @community.location.longitude
           = loc.hidden_field :location_type, :value => "community"
         = form.submit t(".create_your_tribe"), :class => "form_button"
+
+= render :partial => "people/help_texts", :collection => ["terms"], :as => :field 

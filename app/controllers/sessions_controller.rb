@@ -19,11 +19,7 @@ class SessionsController < ApplicationController
   end
  
   def create
-    # if the request came from different domain, redirects back there.
-    # e.g. if using login-subdoain for logging in with https    
-    if params["community"].blank?
-      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
-    end
+ 
     if current_community = Community.find_by_domain(params[:community])
       domain = "http://#{with_subdomain(current_community.domain)}"
     else
@@ -113,7 +109,10 @@ class SessionsController < ApplicationController
     end
     
     @current_user.update_attribute(:active, true) unless @current_user.active?
-    if @current_user.communities.include?(@current_community) || @current_user.is_admin?
+    
+    if not @current_community
+      redirect_to domain + new_tribe_path
+    elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
       flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
       EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
@@ -122,10 +121,8 @@ class SessionsController < ApplicationController
       else
         redirect_to domain + root_path
       end
-    elsif @current_community
-      redirect_to domain + new_tribe_membership_path
     else
-      redirect_to domain + new_tribe_path
+      redirect_to domain + new_tribe_membership_path
     end
   end
 
