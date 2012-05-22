@@ -161,6 +161,48 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end
   
+  # This method can send any plain text mail where subject and mail contents are given in parameters.
+  # Only thing added to contents is "Hi (user's name),"
+  def open_content_message(recipient, subject, mail_content, default_locale="en")
+    @no_settings = true
+    @recipient = recipient
+    @subject = subject
+    if @recipient.locale == "ca" || @recipient.locale == "es-ES"
+      if mail_content["es"].present?
+        # special change for ca and es-ES 
+        # because those probably don't have separate texts in neaer future
+        # but we probably have spanish, so it makes more sense as fallback than english.
+        default_locale = "es"
+      end
+    end
+    
+    # Set mail contents, which can be a string or hash containing contents for many languages
+    # For example:
+    # {"en" => {"subject" => "changes coming", "body" => "We're doing new stuff\nCheck it out at..."}, "fi" => {etc.}}    
+    if mail_content.class == String
+      @mail_content = mail_content
+    elsif mail_content.class == Hash
+      if mail_content[@recipient.locale].present?
+        @mail_content = mail_content[@recipient.locale]["body"]
+        @subject = mail_content[@recipient.locale]["subject"]
+        set_locale @recipient.locale
+      elsif default_locale && mail_content[default_locale].present?
+        @mail_content = mail_content[default_locale]["body"]
+        @subject = mail_content[default_locale]["subject"]
+        set_locale default_locale
+      else
+        throw "No content with user's locale #{recipient.locale}, and no working default provided."
+      end    
+    else
+      throw "Unknown type for mail_content"
+    end
+
+    # disable escaping since this is currently always coming from trusted source.
+    @mail_content = @mail_content.html_safe
+    
+    mail(:to => @recipient.email, :subject => @subject)
+  end
+  
   def self.deliver_newsletters
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
@@ -176,8 +218,27 @@ class PersonMailer < ActionMailer::Base
         end
       end
     end
-  end
+  end  
   
+  def self.deliver_open_content_messages(people_array, subject, mail_content, default_locale="en", verbose=false)
+    people_array.each do |person|
+      if person.active # only send mail to people whose profile is active
+        begin
+          PersonMailer.open_content_message(person, subject, mail_content, default_locale).deliver
+        rescue Exception => e
+          ApplicationHelper.send_error_notification("Error sending open content email: #{e.message}", e.class)
+        end
+        if verbose #main intention of this is to get feedback while sending mass emails from console.
+          print "."; STDOUT.flush
+        end
+      else
+        print "s" if verbose # (skipped)
+      end
+    end
+    puts "\nSending mails finished" if verbose
+    
+  end
+
   private
   
   def set_up_recipient(recipient, host=nil)

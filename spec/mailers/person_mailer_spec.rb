@@ -130,4 +130,102 @@ describe PersonMailer do
     assert_equal "New member in Test Kassi", email.subject
   end
 
+  describe "#deliver_open_content_messages" do
+    
+    it "sends the mail to everyone on the list" do
+      message = <<-MESSAGE
+        New stuff in the service.
+        
+        Got check it out at http://example.com!
+      MESSAGE
+      
+      people = [@test_person, @test_person2]
+      PersonMailer.deliver_open_content_messages(people, "News", message)
+      
+      
+      ActionMailer::Base.deliveries.size.should == 2
+      
+      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
+      ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
+      ActionMailer::Base.deliveries[0].subject.should == "News"
+      ActionMailer::Base.deliveries[1].subject.should == "News"
+      ActionMailer::Base.deliveries[0].body.include?("check it out").should be_true
+      ActionMailer::Base.deliveries[1].body.include?("http://example.com").should be_true
+    end
+    
+    it "uses right recipient locale if content is an array" do
+      content = {
+        "en"=>{
+          "body"=>"We're doing new stuff\nCheck it out at...", 
+          "subject"=>"changes coming"}, 
+        "fi"=>{
+          "body"=>"uutta tulossa\njepa.",
+          "subject"=>"uudistuksia"},
+      }
+      
+      @test_person2.update_attribute(:locale, "fi")
+      @test_person3 = Factory(:person, :locale => "es")
+      people = [@test_person, @test_person2, @test_person3]
+      
+      PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
+      
+      ActionMailer::Base.deliveries.size.should == 3
+      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
+      ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
+      ActionMailer::Base.deliveries[2].to.include?(@test_person3.email).should be_true
+      ActionMailer::Base.deliveries[0].subject.should == "changes coming"
+      ActionMailer::Base.deliveries[1].subject.should == "uudistuksia"
+      ActionMailer::Base.deliveries[2].subject.should == "changes coming"      
+      ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_true
+      ActionMailer::Base.deliveries[1].body.include?("uutta tulossa").should be_true
+      ActionMailer::Base.deliveries[2].body.include?("new stuff").should be_true
+      
+      
+    end
+    
+    it "skips inactive users" do
+      message = "Just a short email"
+
+      @test_person2.update_attribute(:active, false)
+      people = [@test_person, @test_person2]
+      PersonMailer.deliver_open_content_messages(people, "News", message)
+
+      ActionMailer::Base.deliveries.size.should == 1
+
+      ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
+      ActionMailer::Base.deliveries[0].subject.should == "News"
+      ActionMailer::Base.deliveries[0].body.include?("Just a short email").should be_true
+    end
+    
+    it "falls back to spanish from catalonian locale" do
+       content = {
+          "en"=>{
+            "body"=>"We're doing new stuff\nCheck it out at...", 
+            "subject"=>"changes coming"}, 
+          "es"=>{
+            "body"=>"nuevas cosas\nmuy buenas!",
+            "subject"=>"Ahorro ahora!"},
+        }
+
+        @test_person2.update_attribute(:locale, "ru")
+        @test_person2.update_attribute(:locale, "es")
+        @test_person3 = Factory(:person, :locale => "ca")
+        people = [@test_person, @test_person2, @test_person3]
+
+        PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
+
+        ActionMailer::Base.deliveries.size.should == 3
+        ActionMailer::Base.deliveries[0].to.include?(@test_person.email).should be_true
+        ActionMailer::Base.deliveries[1].to.include?(@test_person2.email).should be_true
+        ActionMailer::Base.deliveries[2].to.include?(@test_person3.email).should be_true
+        ActionMailer::Base.deliveries[0].subject.should == "changes coming"
+        ActionMailer::Base.deliveries[1].subject.should == "Ahorro ahora!"
+        ActionMailer::Base.deliveries[2].subject.should == "Ahorro ahora!"      
+        ActionMailer::Base.deliveries[0].body.include?("Check it out").should be_true
+        ActionMailer::Base.deliveries[1].body.include?("nuevas cosas").should be_true
+        ActionMailer::Base.deliveries[2].body.include?("muy buenas").should be_true
+      
+    end
+    
+  end
 end
