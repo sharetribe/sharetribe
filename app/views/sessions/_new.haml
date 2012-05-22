@@ -29,7 +29,7 @@
         - if @current_community
           = hidden_field_tag :community, @current_community.domain
         = submit_tag(t('.login'), :class => "send_button")
-        - if APP_CONFIG.fb_connect_id && ! use_asi?
+        - if APP_CONFIG.fb_connect_id && ! use_asi? && @current_community
           - unless @facebook_merge
             = link_to(image_tag("/images/icons/facebook-connect.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(:facebook)) 
       .form_field_container

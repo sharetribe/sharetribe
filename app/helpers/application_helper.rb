@@ -139,6 +139,12 @@ module ApplicationHelper
     end
   end
   
+  def community_file?(type, with_locale=false)
+    locale_string = with_locale ? ".#{I18n.locale}" : ""
+    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}.haml"
+    File.exists?(file_path)
+  end
+  
   def facebook_like
     content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{I18n.locale}_#{I18n.locale.to_s.upcase}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=true&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 120, :height => 20
   end

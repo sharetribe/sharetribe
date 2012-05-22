@@ -9,8 +9,10 @@
   :javascript
     $(document).ready(function() { initialize_communities_map(); });
 
-= t(".communities_on_map")
-
-#map-canvas{:style => "width: 900px; height: 500px"}
+#browse_tribes_main
+  .container_12
+    .grid_12.alpha.omega
+      %h1.browse= t(".find_your_local_tribe")
+      #map-canvas
 
 = render :partial => "dashboard/footer"

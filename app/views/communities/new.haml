@@ -4,13 +4,16 @@
   .container_12
     - if @community.new_record?
       - if session[:community_category]
-        - if @current_user
-          = render :partial => "new_tribe_form"
+        - if session[:pricing_plan]
+          - if @current_user
+            = render :partial => "new_tribe_form"
+          - else
+            = render :partial => "signup_form"
         - else
-          = render :partial => "signup_form"
+          = render :partial => "select_pricing_plan"
       - else
         = render :partial => "select_tribe_category_form"
     - else
       = render :partial => "done"
-     
+
 = render :partial => "dashboard/footer"

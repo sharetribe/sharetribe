@@ -156,6 +156,10 @@ default: &default_settings
   # environments. If you are not developing or testing Kassi, you 
   # don't need to change those
   # ----------------------------------------------------------------
+  
+  # The default consent (terms of use) all the communities will use.
+  # It's just a string that tells the version of the consent.
+  consent: "SHARETRIBE1.O"
 
 production:
   <<: *default_settings

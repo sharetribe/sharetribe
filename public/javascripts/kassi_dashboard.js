@@ -52,11 +52,17 @@ function initialize_campaign_page(select_default) {
 }
 
 function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message) {
+  auto_resize_text_areas();
+  $('input.text_field:first').focus();
+  $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
+	$("input[type=checkbox]").uniform();
   var form_id = "#new_community"
   $(form_id).validate({
     errorPlacement: function(error, element) {
 			if (element.attr("name") == "community[domain]") {
 				error.appendTo(element.parent());
+			} else if (element.attr("name") == "community[terms]") {
+  				error.appendTo(element.parent().parent().parent().parent().parent());
 			} else {
 			  error.insertAfter(element);
 			}
@@ -67,6 +73,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
 			"community[slogan]": {required: true, minlength: 2, maxlength: 100},
 			"community[description]": {required: true, minlength: 2, maxlength: 500},
 			"community[address]": {required: true, address_validator: true},
+			"community[terms]": "required"
 		},
 		messages: {
 			"community[domain]": { valid_domain: invalid_domain_message, remote: domain_in_use_message },
@@ -80,6 +87,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, invalid_email_ending_message, valid_email_ending_required) {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
+	$('input.text_field:first').focus();
 	var form_id = "#new_person"
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
@@ -92,10 +100,10 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 			}	
 		},
 		rules: {
-      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true},
+      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability?dashboard_login=true"},
       "person[given_name]": {required: true, maxlength: 30},
       "person[family_name]": {required: true, maxlength: 30},
-      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required},
+      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: "/people/check_email_availability?dashboard_login=true"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
@@ -114,33 +122,4 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 function open_url(url) {
   window.location = url;
   return false;
-}
-
-function disable_and_submit(form_id, form, ajax, locale) {
-	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
-	jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
-	  $(form_id + ' input[type=submit]').val(json.please_wait);
-	});
-	if (ajax == "true") {
-		$(form).ajaxSubmit();
-	} else {
-  	form.submit();
-	}	
-}
-
-function auto_resize_text_areas() {
-	$('textarea').autoResize({
-	    // On resize:
-	    onResize : function() {
-	        $(this).css({opacity:0.8});
-	    },
-	    // After resize:
-	    animateCallback : function() {
-	        $(this).css({opacity:1});
-	    },
-	    // Quite slow animation:
-	    animateDuration : 300
-	    // More extra space:
-	});
-	$('textarea').keydown();
 }

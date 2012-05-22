@@ -405,7 +405,7 @@ function addCommunityMarkers() {
   markerContents = [];
   markers = [];
   
-  var request_path = '/en/communities'
+  var request_path = '/en/tribes'
   $.getJSON(request_path, {dataType: "json"}, function(data) {	
     var data_arr = data.data;
     console.log(data);
