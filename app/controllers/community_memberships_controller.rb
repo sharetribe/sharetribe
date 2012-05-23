@@ -4,6 +4,10 @@ class CommunityMembershipsController < ApplicationController
     controller.ensure_logged_in("you_must_log_in_to_view_this_page")
   end
   
+  skip_filter :dashboard_only
+  skip_filter :single_community_only, :only => :create
+  skip_filter :cannot_access_without_joining
+  
   def new
     if @current_user.communities.include?(@current_community)
       flash[:notice] = "you_are_already_member"

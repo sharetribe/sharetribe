@@ -8,6 +8,8 @@ class TestimonialsController < ApplicationController
   before_filter :ensure_feedback_not_given, :except => :index
   before_filter :person_belongs_to_current_community, :only => :index
   
+  skip_filter :dashboard_only
+  
   def index
     @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
     @grade_amounts = @person.grade_amounts

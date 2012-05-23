@@ -1,5 +1,7 @@
 class InvitationsController < ApplicationController
   
+  skip_filter :dashboard_only
+  
   before_filter :only => :create do |controller|
     controller.ensure_logged_in "you_must_log_in_to_invite_new_user"
   end

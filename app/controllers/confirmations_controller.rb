@@ -1,6 +1,8 @@
 class ConfirmationsController < Devise::ConfirmationsController
   
-  skip_filter :check_email_confirmation
+  skip_filter :check_email_confirmation, :cannot_access_without_joining
+  skip_filter :dashboard_only
+  skip_filter :single_community_only, :only => :create
   
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and

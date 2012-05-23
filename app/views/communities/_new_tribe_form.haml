@@ -58,7 +58,7 @@
             = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :category, :value => session[:community_category]
-          = form.hidden_field :settings, :value => {"locales"=>[session[:community_locale]]}
+          = hidden_field_tag :community_locale, session[:community_locale]
           = form.fields_for :location do |loc|
             = loc.hidden_field :address, :value => @community.location.address
             = loc.hidden_field :google_address, :value => @community.location.google_address

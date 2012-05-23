@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   
+  skip_filter :single_community_only
+  
   def index  
     I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?
     session[:community_category] = session[:pricing_plan] = session[:community_locale] = nil
