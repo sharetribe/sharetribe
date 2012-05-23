@@ -200,8 +200,9 @@ fi:
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>Kassi-tiimi"
       welcome_to_kassi: "Tervetuloa Kassiin!"
-      need_to_confirm: "Ennen kuin aloitat käytön, sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
       confirmation_link_text: "Varmista tunnukseni"
+      turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
@@ -492,6 +493,7 @@ fi:
       create_new_offer: "Tarjoa jotain muuta"
       create_new_request: "Pyydä jotain muuta"
       create_one_here: "luoda uuden"
+      email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
       error_with_session: "Virhe istunnon käsittelyssä."
       favor_offer_message_sent: "Palveluspyyntö lähetetty"
@@ -825,7 +827,8 @@ fi:
       create_new_account: "Luo tunnus"
       email: "Sähköpostiosoite:"
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun olevan tämän yhteisön jäsen (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
+      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
+      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       enter_captcha: "Olen ihminen:"
       family_name: "Sukunimi:"
       given_name: "Etunimi:"
@@ -997,6 +1000,8 @@ fi:
       get_started: "Alkuun pääseminen"
       getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä Kassiin <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
+      your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
+      change_email: Vaihda?
   settings:
     account:
       change: Vaihda

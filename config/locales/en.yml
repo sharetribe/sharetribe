@@ -200,8 +200,9 @@ en:
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
-      need_to_confirm: "Before you start using %{service_name}, you must confirm your email address with the following link:"
+      need_to_confirm: "You need to confirm your email address by clicking the following link:"
       confirmation_link_text: "Confirm my account"
+      turning_on_confirmations_in_this_community: "We are starting to use email confirmations in this %{service_name} community."
     common:
       check_your_settings: "Check your settings"
       hey: "Hi %{name},"
@@ -492,6 +493,7 @@ en:
       create_new_offer: "Offer something else"
       create_new_request: "Request something else"
       create_one_here: "create one here"
+      email_confirmation_sent_to_new_address: "Email confirmation is now sent to the new address."
       email_not_found: "The email you gave was not found from %{service_name} database."
       error_with_session: "Error with session."
       favor_offer_message_sent: "Request sent successfully"
@@ -826,6 +828,7 @@ en:
       email: "Email address:"
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback by clicking the link on the left."
+      email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback by clicking the link on the left."
       enter_captcha: "I'm a human:"
       family_name: "Family name:"
       given_name: "Given name:"

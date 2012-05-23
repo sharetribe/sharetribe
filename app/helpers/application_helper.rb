@@ -186,6 +186,13 @@ module ApplicationHelper
     end
   end
   
+  def email_not_accepted_message
+    if @current_community.allowed_emails.present?
+      t("people.new.email_is_in_use_or_not_allowed") 
+    else
+      t("people.new.email_is_in_use")
+    end
+  end
   # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
   def self.store_community_service_name_to_thread(name)
     Thread.current[:current_community_service_name] = name
