@@ -200,7 +200,7 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    mail(:to => @recipient.email, :subject => @subject)
+    mail(:to => @recipient.email, :subject => @subject, :delivery_method => :sendmail)
   end
   
   def self.deliver_newsletters
@@ -220,9 +220,10 @@ class PersonMailer < ActionMailer::Base
     end
   end  
   
-  def self.deliver_open_content_messages(people_array, subject, mail_content, default_locale="en", verbose=false)
+  def self.deliver_open_content_messages(people_array, subject, mail_content, default_locale="en", verbose=false, addresses_to_skip=[])
     people_array.each do |person|
-      if person.active # only send mail to people whose profile is active
+      # only send mail to people whose profile is active and not asked to be skipped
+      if person.active && ! addresses_to_skip.include?(person.email)
         begin
           PersonMailer.open_content_message(person, subject, mail_content, default_locale).deliver
         rescue Exception => e
