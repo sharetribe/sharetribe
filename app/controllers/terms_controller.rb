@@ -23,11 +23,9 @@ class TermsController < ApplicationController
       # of the browser after accepting new terms, returns to the acceptance
       # form and clicks the accept button again. In that case an error page is shown.
       unless session[:temp_person_id]
-        logger.info "No temp person id"
         ApplicationHelper.send_error_notification("User tried to accept the new terms again. Showing an error page.", "Duplicate-acceptance-of-terms error", params) 
         render :file => "public/404.html", :layout => false and return
       end
-      logger.info "Term person id found"
       @current_user = Person.add_to_kassi_db(session[:temp_person_id])
       @current_user.set_default_preferences
       @current_user.update_attribute(:locale, (params[:locale] || APP_CONFIG.default_locale))

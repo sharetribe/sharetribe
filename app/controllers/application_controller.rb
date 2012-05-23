@@ -103,14 +103,12 @@ class ApplicationController < ActionController::Base
   
   # Before filter for actions that are only allowed on dashboard
   def dashboard_only
-    logger.info "This is a dashboard only action"
     return if controller_name.eql?("passwords")
     redirect_to root and return unless on_dashboard?
   end
   
   # Before filter for actions that are only allowed on a single community
   def single_community_only
-    logger.info "This is a single community only action"
     return if controller_name.eql?("passwords")
     redirect_to root and return if on_dashboard?
   end
@@ -118,14 +116,11 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     unless on_dashboard?
-      logger.info "Trying to fetch community"
       # Otherwise pick the domain normally from the request subdomain
       if @current_community = Community.find_by_domain(request.subdomain)
-        logger.info "Community found"
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
-        logger.info "Community not found"
         # No community found with this domain, so redirecting to dashboard.
         redirect_to root_url(:subdomain => "www")
       end
@@ -134,10 +129,8 @@ class ApplicationController < ActionController::Base
   
   # Before filter to make sure non logged in users cannot access private communities
   def not_public_in_private_community
-    logger.info "Checking private community situation"
     return if controller_name.eql?("passwords")
     if @current_community && @current_community.private? && !@current_user
-      logger.info "This action is not public in this private community, redirecting."
       @container_class = "container_12"
       @private_layout = true
       set_locale 
@@ -148,23 +141,18 @@ class ApplicationController < ActionController::Base
   # Before filter to check if current user is the member of this community
   # and if so, find the membership
   def fetch_community_membership
-    logger.info "Trying to fetch community membership"
     if @current_user
       if @current_user.communities.include?(@current_community)
-        logger.info "Community membership found"
         @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
           Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
         end
-      else
-        logger.info "This user is not a member of this community"
       end
     end
   end
   
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    logger.info "Redirecting to new membership form"
     if @current_user
       redirect_to new_tribe_membership_path unless on_dashboard? || @current_community_membership || @current_user.is_admin?
     end
