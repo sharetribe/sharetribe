@@ -1,5 +1,3 @@
-- email_not_accepted_message = @current_community.allowed_emails.present? ? t("people.new.email_is_in_use_or_not_allowed") : t("people.new.email_is_in_use")
-
 - content_for :javascript do
   initialize_new_community_membership_form("#{t("people.new.email_is_in_use_or_not_allowed")}",#{@current_community.join_with_invite_only?}, "#{t("people.new.invalid_invitation_code")}");
 

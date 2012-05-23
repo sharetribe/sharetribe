@@ -150,6 +150,12 @@ class PeopleController < Devise::RegistrationsController
       end
 	  end
 	  
+	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
+	  if params["request_new_email_confirmation"] && ! email_allowed?(params[:person][:email], @current_community)
+	    flash[:error] = t("people.new.email_not_allowed")
+	    redirect_to :back and return
+    end
+	  
     begin
       if @person.update_attributes(params[:person], session[:cookie])
         if params[:person][:password] && !use_asi?
@@ -157,6 +163,12 @@ class PeopleController < Devise::RegistrationsController
           sign_in @person, :bypass => true
         end
         flash[:notice] = :person_updated_successfully
+        
+        # Send new confirmation email, if was changing for that 
+        if params["request_new_email_confirmation"]
+            @person.send_confirmation_instructions
+            flash[:notice] = :email_confirmation_sent_to_new_address
+        end
       else
         flash[:error] = @person.errors.first
       end
@@ -164,12 +176,8 @@ class PeopleController < Devise::RegistrationsController
       flash[:error] = "update_error"
     end
     
-    # Send new confirmation email, if needed
-    if params["request_new_email_confirmation"]
-      
-    end
-    
     redirect_to :back
+    
   end
   
   def update_avatar

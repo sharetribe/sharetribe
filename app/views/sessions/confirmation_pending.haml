@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_confirmation_pending_form();
+  initialize_confirmation_pending_form("#{email_not_accepted_message}");
 
 
 .grid_10.prefix_7.suffix_7
@@ -27,9 +27,9 @@
         = form.hidden_field :id, :value => @current_user.id
 
         = form.submit t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button"
-    -# <br /><br />
-    -# = t(".your_current_email_is", :email => @current_user.email).html_safe
-    -# = link_to t('.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
-    -# #password_forgotten
-    -#   = render :partial => "sessions/change_mistyped_email"
+    <br /><br />
+    = t(".your_current_email_is", :email => @current_user.email).html_safe
+    = link_to t('.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
+    #password_forgotten
+      = render :partial => "sessions/change_mistyped_email"
      
