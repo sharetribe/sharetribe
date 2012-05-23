@@ -27,7 +27,7 @@ Kaikki vanhat xxx.kassi.eu -muotoiset osoitteet säilyvät edelleen toiminnassa.
 
 
 Terveisin,
-Nykyinen Kassi-tiimi, tuleva Sharetribe-tiimi"
+Nykyinen Kassi-tiimi, tuleva Sharetribe-tiimi
 MESSAGE
 
 es_subject = "Chau Kassi, bienvenido Sharetribe"
