@@ -2,6 +2,8 @@ class CommunitiesController < ApplicationController
   
   layout 'dashboard'
   
+  skip_filter :single_community_only
+  
   respond_to :html, :json
   
   def index
@@ -57,6 +59,8 @@ class CommunitiesController < ApplicationController
     params[:community].delete(:address)
     logger.info params.inspect
     @community = Community.new(params[:community])
+    @community.settings = {"locales"=>["#{params[:community_locale]}"]}
+    logger.info @community.inspect
     @community.save
     location.community = @community
     location.save

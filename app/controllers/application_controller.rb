@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
-  before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending]
 
   # after filter would be more logical, but then log would be skipped when action cache is hit.
@@ -94,81 +94,79 @@ class ApplicationController < ActionController::Base
   def save_current_path
     session[:return_to_content] = request.fullpath
   end
-
+  
+  # If we are not in a single community defined by a subdomain,
+  # we are on dashboard
+  def on_dashboard?
+    ["", "www"].include?(request.subdomain)
+  end
+  
+  # Before filter for actions that are only allowed on dashboard
+  def dashboard_only
+    logger.info "This is a dashboard only action"
+    return if controller_name.eql?("passwords")
+    redirect_to root and return unless on_dashboard?
+  end
+  
+  # Before filter for actions that are only allowed on a single community
+  def single_community_only
+    logger.info "This is a single community only action"
+    return if controller_name.eql?("passwords")
+    redirect_to root and return if on_dashboard?
+  end
+  
+  # Before filter to get the current community
   def fetch_community
-    #logger.info "COOKIE KEYS: #{cookies.keys.to_yaml}"
-    # if in dashboard, no community to fetch, just return
-    return if ["contact_requests", "dashboard", "i18n", "communities"].include?(controller_name) || params[:dashboard_login]
-    
-    # There is a bug/feature in IE which also sends the top level cookie while user is in community
-    # subdomain, and Rails has preference on that over the subdomain cookie.
-    # To avoid that messing up the session, we delete the top level cookie if user visits a subdomain
-    # and the toplevel domain cookie is not the preferred cookie method set in config.yml
-    # if APP_CONFIG.domain.blank? && request.subdomain.present?
-    #       top_level_domain = request.host.split(".",2)[1]   # returns e.g. ".kassi.eu"
-    #       top_level_domain_with_leading_dot = "." + top_level_domain
-    #       cookie_key = Rails.application.config.session_options[:key]
-    #       cookies.delete cookie_key, :domain => top_level_domain
-    #       cookies.delete cookie_key, :domain => top_level_domain_with_leading_dot
-    # 
-    #       #these are here for legacy reasons. Old long-life time cookies cause problems if not cleared.
-    #       cookies.delete :_kassi_session, :domain => top_level_domain_with_leading_dot
-    #       cookies.delete :kassi_session, :domain => top_level_domain_with_leading_dot
-    #     end
-    
-    # if form posted to login-domain, pick community domain from origin url
-    login_subdomain = APP_CONFIG.login_domain[/([^\.\/]+)\./,1] if APP_CONFIG.login_domain
-    if login_subdomain && request.subdomain == login_subdomain
-      fetch_community_for_login_domain
-      return
-    end
-
-    # Redirect to root if trying to do a non-dashboard action in dashboard domain
-    redirect_to root_url(:subdomain => false) and return if ["", "www"].include?(request.subdomain)
-
-    # Otherwise pick the domain normally from the request subdomain
-    if @current_community = Community.find_by_domain(request.subdomain)
-      
-      #Store to thread the service_name used by current community, so that it can be included in all translations
-      ApplicationHelper.store_community_service_name_to_thread(service_name)
-       
-      if @current_user
-        if @current_user.communities.include?(@current_community)
-          @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
-          unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
-            Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
-          end
-        elsif @current_user && !@current_user.is_admin?
-          return if "community_memberships".eql?(controller_name)
-          return if "confirmations".eql?(controller_name)
-          return if controller_name.eql?("sessions") && (action_name.eql?("destroy") || action_name.eql?("confirmation_pending"))
-          if "people".eql?(controller_name) && ["check_email_validity", "check_invitation_code"].include?(action_name)
-            return
-          else
-            logger.info "Controller: #{controller_name} Action: #{action_name}"
-          end
-          redirect_to new_tribe_membership_path
-        end
-      elsif @current_community.private?
-        return if "homepage".eql?(controller_name) && "sign_in".eql?(action_name)
-        return if "people".eql?(controller_name) && ["new", "create", "check_username_availability", "check_email_availability_and_validity", "check_email_availability", "check_invitation_code"].include?(action_name)
-        return if "sessions".eql?(controller_name) && ["create", "request_new_password"].include?(action_name)
-        return if "passwords".eql?(controller_name) && ["edit", "update"].include?(action_name)
-        if "feedbacks".eql?(controller_name) && ["create"].include?(action_name)
-          @container_class = "container_12"
-          return
-        end
-        if "terms".eql?(controller_name)
-          @private_layout = true
-          return
-        end        
-        # must call set locale here as it would be otherwise skipped 
-        # and the redirect could go to wrong (default) locale
-        set_locale 
-        redirect_to :controller => :homepage, :action => :sign_in
+    unless on_dashboard?
+      logger.info "Trying to fetch community"
+      # Otherwise pick the domain normally from the request subdomain
+      if @current_community = Community.find_by_domain(request.subdomain)
+        logger.info "Community found"
+        # Store to thread the service_name used by current community, so that it can be included in all translations
+        ApplicationHelper.store_community_service_name_to_thread(service_name)
+      else
+        logger.info "Community not found"
+        # No community found with this domain, so redirecting to dashboard.
+        redirect_to root_url(:subdomain => "www")
       end
-    else
-      redirect_to root_url(:subdomain => "www")
+    end
+  end
+  
+  # Before filter to make sure non logged in users cannot access private communities
+  def not_public_in_private_community
+    logger.info "Checking private community situation"
+    return if controller_name.eql?("passwords")
+    if @current_community && @current_community.private? && !@current_user
+      logger.info "This action is not public in this private community, redirecting."
+      @container_class = "container_12"
+      @private_layout = true
+      set_locale 
+      redirect_to :controller => :homepage, :action => :sign_in
+    end
+  end
+  
+  # Before filter to check if current user is the member of this community
+  # and if so, find the membership
+  def fetch_community_membership
+    logger.info "Trying to fetch community membership"
+    if @current_user
+      if @current_user.communities.include?(@current_community)
+        logger.info "Community membership found"
+        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+        unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
+          Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
+        end
+      else
+        logger.info "This user is not a member of this community"
+      end
+    end
+  end
+  
+  # Before filter to direct a logged-in non-member to join tribe form
+  def cannot_access_without_joining
+    logger.info "Redirecting to new membership form"
+    if @current_user
+      redirect_to new_tribe_membership_path unless on_dashboard? || @current_community_membership || @current_user.is_admin?
     end
   end
 
@@ -192,43 +190,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  # If request comes to login domain that is common to all communities, the community cannot be fetched directly from the subdomain
-  # There are also possible error cases, if wrong requests come to login domain.
-  # It's meant for only POST requests to sessions or people, i.e. the requests that may contain passwords and thus better be https
-  def fetch_community_for_login_domain
-
-    # check if the request is allowed to login domain. Only POST to people or sessions.
-    unless ["sessions", "people"].include?(controller_name) && request.method == "POST"
-
-      # If referer is blank, impossible to return to right community.
-      if ApplicationHelper.pick_referer_domain_part_from_request(request).blank?
-        # Detect if request came to non people/session controller with longer request path than just locale
-        if ! ["sessions", "people"].include?(controller_name) && request.headers["REQUEST_PATH"] && request.headers["REQUEST_PATH"].length > 4
-          # This can be the case if people click links in old emails that have the login.kassi.eu/... url
-          # Temporarily, to keep the old links working, we change this now to aalto.
-          # In the future, this should just render an error probably.
-          # Because only session related actions should be posted to login-url
-          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url, redirecting to aalto.kassi.eu#{request.headers["REQUEST_PATH"]}", "Login-domain-redirect error", params)
-          redirect_to "http://aalto.kassi.eu#{request.headers["REQUEST_PATH"]}" and return
-          # TODO: Change this to be an error case instead of Aalto specific redirection.
-        else
-          # Otherwise just display error. We do not know from which community the user came from (no HTTP_REFERER) so we show
-          # an error page without links and user has to click back in the browser
-          ApplicationHelper.send_error_notification("Got a wrong request (from #{ApplicationHelper.pick_referer_domain_part_from_request(request)}) to login-url. Showing error page.}", "Login-domain error", params.merge({:request_path => request.headers["REQUEST_PATH"]}))
-          render "public/501.html", :layout => false and return
-        end
-      else # HTTP_REFERER is known: redirect back there with error message
-        I18n.locale = params[:locale] if params[:locale]
-        flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
-        redirect_to "#{ApplicationHelper.pick_referer_domain_part_from_request(request)}/#{ I18n.locale}"
-      end
-
-    end
-
-    origin_subdomain = params[:community] || ApplicationHelper.pick_referer_domain_part_from_request(request)[/\/\/([^\.]+)\./, 1]
-    @current_community = Community.find_by_domain(origin_subdomain)
-  end
 
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out

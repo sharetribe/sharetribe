@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
   include UrlHelper
   
   skip_filter :check_email_confirmation
+  skip_filter :dashboard_only
+  skip_filter :single_community_only, :only => [ :create ]
+  skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
   
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
@@ -140,7 +144,7 @@ class SessionsController < ApplicationController
   
   def index
     # this is not in use in Kassi, but bots seem to try the url so implementing this to avoid errors
-   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
   end
   
   def request_new_password

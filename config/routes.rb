@@ -197,11 +197,6 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
-    resources :contact_requests do
-      collection do
-        get :thank_you
-      end
-    end
     resources :news_items
   end
   

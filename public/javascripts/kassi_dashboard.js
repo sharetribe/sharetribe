@@ -107,10 +107,10 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 			}	
 		},
 		rules: {
-      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability?dashboard_login=true"},
+      "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
       "person[given_name]": {required: true, maxlength: 30},
       "person[family_name]": {required: true, maxlength: 30},
-      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: "/people/check_email_availability?dashboard_login=true"},
+      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: "/people/check_email_availability"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }

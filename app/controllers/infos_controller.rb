@@ -1,6 +1,6 @@
 class InfosController < ApplicationController
   
-  skip_filter :check_email_confirmation
+  skip_filter :check_email_confirmation, :dashboard_only
   
   def about
   end
