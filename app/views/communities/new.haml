@@ -6,7 +6,7 @@
       - if session[:community_category]
         - if session[:pricing_plan]
           - if @current_user
-            = render :partial => "new_tribe_form"
+            = render :partial => "new_tribe_form_wrapper"
           - else
             = render :partial => "signup_form"
         - else

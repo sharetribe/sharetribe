@@ -51,8 +51,15 @@ function initialize_campaign_page(select_default) {
 	$('a:contains("' + select_default + '")').eq(1).parent().remove();
 }
 
-function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message) {
+function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message, select_default) {
   auto_resize_text_areas();
+  $('select.community_language_select').selectmenu({width: "540px", maxHeight: 175, style: 'dropdown'});
+  //Remove unnecessary default option from the select tribe language menu
+  if ($('a:contains("' + select_default + '")').eq(1).length < 1) {
+    $('a:contains("' + select_default + '")').parent().remove();
+  } else {
+    $('a:contains("' + select_default + '")').eq(1).parent().remove();
+  }
   $('input.text_field:first').focus();
   $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();

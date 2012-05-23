@@ -35,10 +35,11 @@ class CommunitiesController < ApplicationController
     @person = Person.new
     session[:community_category] = params[:category] if params[:category]
     session[:pricing_plan] = params[:pricing_plan] if params[:pricing_plan]
+    session[:community_locale] = params[:community_locale] if params[:community_locale]
     
     respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @community }
+      format.html
+      format.js {render :layout => false}
     end
   end
 
@@ -59,7 +60,7 @@ class CommunitiesController < ApplicationController
     @community.save
     location.community = @community
     location.save
-    session[:community_category] = session[:pricing_plan] = nil
+    session[:community_category] = session[:pricing_plan] = session[:community_locale] = nil
     render :action => :new
   end
 
