@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
   before_filter :fetch_logged_in_user, :fetch_community, :set_locale, :generate_event_id, :set_default_url_for_mailer
-  before_filter :check_email_confirmation, :except => [ :confirmation_pending]
+  before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
   # after filter would be more logical, but then log would be skipped when action cache is hit.
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
