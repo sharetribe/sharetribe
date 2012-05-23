@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_new_tribe_form("#{I18n.locale}","#{t("communities.new_tribe_form.domain_invalid")}","#{t("communities.new_tribe_form.domain_taken")}");
+  initialize_new_tribe_form("#{I18n.locale}","#{t("communities.new_tribe_form.domain_invalid")}","#{t("communities.new_tribe_form.domain_taken")}", "#{t("communities.new_tribe_form.select_main_language_of_your_tribe")}");
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
@@ -10,54 +10,62 @@
 .clear
 .grid_8.prefix_2.suffix_2.alpha.omega
   #new_tribe_form
-    = form_for @community, :url => tribes_path do |form|
-      .form_field_container_taller
-        = form.label :name, t(".name_of_your_tribe")
-        = form.text_field :name, :maxlength => "50"
-      .form_field_container_taller
-        = form.label :domain, t(".web_address_of_your_tribe")
-        .domain_container
-          %span.domain= "http://"
-          = form.text_field :domain, :maxlength => "50", :class => "domain_field"
-          %span.domain= ".sharetribe.com"
-      .form_field_container_taller
-        = form.label :slogan, t(".slogan_of_your_tribe")
-        = form.text_field :slogan, :maxlength => "100", :value => (@community.slogan || t("common.default_community_slogan"))
-      .form_field_container_taller
-        = form.label :address, t(".address"), :class => "input"
-        = form.text_field :address, :class => "text_field", :onkeyup => "timed_input(this)"
-        #new_community_map_canvas.map
-          :javascript
-            source = document.getElementById("community_address");
-            $(document).ready(function(){
-              googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true);
-              });
-      .form_field_container_taller
-        = form.label :description, t(".describe_your_tribe")
-        = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description"))
-      - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
-        = form.hidden_field :terms, :value => "true"
-      - else
-        .form_field_container
-          .signup_checkbox_container
-            .signup_checkbox_input_container
-              %input{:type => "checkbox", :id => "community_terms", :style => "opacity: 0;", :name => "community[terms]"}
-            .signup_checkbox_label_container
-              = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
-              = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "green_part_link"
-      .form_field_container_taller
-        = fields_for "community[admin_attributes]", CommunityMembership.new do |admin_form|
-          = admin_form.hidden_field :person_id, :value => @current_user.id
-          = admin_form.hidden_field :admin, :value => true
-          = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
-        = form.hidden_field :consent, :value => APP_CONFIG.consent
-        = form.hidden_field :category, :value => session[:community_category]
-        = form.fields_for :location do |loc|
-          = loc.hidden_field :address, :value => @community.location.address
-          = loc.hidden_field :google_address, :value => @community.location.google_address
-          = loc.hidden_field :latitude, :value => @community.location.latitude
-          = loc.hidden_field :longitude, :value => @community.location.longitude
-          = loc.hidden_field :location_type, :value => "community"
-        = form.submit t(".create_your_tribe"), :class => "form_button"
+    .form_field_container_taller
+      .language= t(".language")
+      = form_tag(new_tribe_path, :method => "get", :remote => true) do
+        .div{:style => "font-size: 20px"}
+          = select_tag "community_locale", options_for_select([["English", "en"], ["Suomi", "fi"], ["Español", "es"], ["Ελληνικά", "el"]], session[:community_locale]), :include_blank => t(".select_main_language_of_your_tribe"), :onchange => 'this.form.submit()', :class => 'community_language_select'
+    - if session[:community_locale]
+      = form_for @community, :url => tribes_path do |form|
+        .form_field_container_taller
+          = form.label :name, t(".name_of_your_tribe")
+          = form.text_field :name, :maxlength => "50"
+        .form_field_container_taller
+          = form.label :domain, t(".web_address_of_your_tribe")
+          .domain_container
+            %span.domain= "http://"
+            = form.text_field :domain, :maxlength => "50", :class => "domain_field"
+            %span.domain= ".sharetribe.com"
+        .form_field_container_taller
+          = form.label :slogan, t(".slogan_of_your_tribe")
+          = form.text_field :slogan, :maxlength => "100", :value => (@community.slogan || t("common.default_community_slogan", :locale => (session[:community_locale] || "en")))
+        .form_field_container_taller
+          = form.label :address, t(".address"), :class => "input"
+          = form.text_field :address, :class => "text_field", :onkeyup => "timed_input(this)"
+          #new_community_map_canvas.map
+            :javascript
+              source = document.getElementById("community_address");
+              $(document).ready(function(){
+                googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true);
+                });
+        .form_field_container_taller
+          = form.label :description, t(".describe_your_tribe")
+          = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en")))
+        - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
+          = form.hidden_field :terms, :value => "true"
+        - else
+          .form_field_container
+            .signup_checkbox_container
+              .signup_checkbox_input_container
+                %input{:type => "checkbox", :id => "community_terms", :style => "opacity: 0;", :name => "community[terms]"}
+              .signup_checkbox_label_container
+                = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
+                = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "green_part_link"
+        .form_field_container_taller
+          = fields_for "community[admin_attributes]", CommunityMembership.new do |admin_form|
+            = admin_form.hidden_field :person_id, :value => @current_user.id
+            = admin_form.hidden_field :admin, :value => true
+            = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
+          = form.hidden_field :consent, :value => APP_CONFIG.consent
+          = form.hidden_field :category, :value => session[:community_category]
+          = form.hidden_field :settings, :value => {"locales"=>[session[:community_locale]]}
+          = form.fields_for :location do |loc|
+            = loc.hidden_field :address, :value => @community.location.address
+            = loc.hidden_field :google_address, :value => @community.location.google_address
+            = loc.hidden_field :latitude, :value => @community.location.latitude
+            = loc.hidden_field :longitude, :value => @community.location.longitude
+            = loc.hidden_field :location_type, :value => "community"
+          = form.submit t(".create_your_tribe"), :class => "form_button"
 
-= render :partial => "people/help_texts", :collection => ["terms"], :as => :field 
+- if @community.settings
+  = render :partial => "people/help_texts", :collection => ["terms"], :as => :field 

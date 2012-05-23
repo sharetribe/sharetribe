@@ -86,9 +86,7 @@
               = render :file => community_file("logo_text", false)
             - elsif available_locales.count > 1
               .locale_select_padding
-                = form_tag("/change_locale", :method => "get") do
-                  = hidden_field_tag :redirect_uri, @return_to
-                  = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+                = render :partial => "layouts/locale_select"
             - elsif @current_community.use_fb_like
               .fb_like_padding
                 = "<iframe src=\"https://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe 
@@ -100,9 +98,7 @@
                 = submit_tag("s", :class => "search_button")
           - if community_file?("logo_text", false) && available_locales.count > 1
             .locale_select_padding_lower
-              = form_tag("/change_locale", :method => "get") do
-                = hidden_field_tag :redirect_uri, @return_to
-                = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+              = render :partial => "layouts/locale_select"
         .grid_12
           = render :partial => "layouts/logged_in"
           .clear

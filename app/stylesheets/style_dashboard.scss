@@ -455,11 +455,11 @@ div.get_started {
 
 div#community_categories { 
   overflow: hidden; 
-  margin: 30px 0 60px 20px;
+  margin: 30px 0 60px 0;
 }
 
 div.community_category {
-  width: 300px;
+  width: 310px;
   cursor: pointer;
   @include rounded(10px);
   float: left;
@@ -724,4 +724,11 @@ p.okl { color: white; }
     font-size: 22px;
     margin-bottom: 10px;
   }
+}
+
+div.language {
+  color: white;
+  font-size: 18px;
+  padding-bottom: 3px;
+  width: 100%;
 }

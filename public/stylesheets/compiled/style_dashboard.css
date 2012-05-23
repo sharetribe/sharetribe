@@ -354,10 +354,10 @@ div.get_started {
 
 div#community_categories {
   overflow: hidden;
-  margin: 30px 0 60px 20px; }
+  margin: 30px 0 60px 0; }
 
 div.community_category {
-  width: 300px;
+  width: 310px;
   cursor: pointer;
   border-radius: 10px;
   -moz-border-radius: 10px;
@@ -1053,3 +1053,9 @@ p.okl {
       background-image: -ms-linear-gradient(top, #ed9374, #e77148);
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+
+div.language {
+  color: white;
+  font-size: 18px;
+  padding-bottom: 3px;
+  width: 100%; }

@@ -1,18 +1,20 @@
-%h1.new_tribe= t(".select_your_plan")
-%h2.new_tribe= t(".pick_one_of_the_options_below")
+.grid_12.alpha.omega
+  %h1.new_tribe= t(".select_your_plan")
+  %h2.new_tribe= t(".pick_one_of_the_options_below")
+.clear
 .grid_4.alpha
   .pricing_column
     %h3.pricing= t(".free_plan")
     %ul
+      %li= t(".no_charge")
       %li= t(".max_100_members")
-      %li= t(".no_support")
     = link_to t(".create_for_free"), new_tribe_path(:pricing_plan => "free")
 .grid_4
   .pricing_column
     %h3.pricing= t(".premium_plan")
     %ul
+      %li= t(".euros_per_month_premium")
       %li= t(".max_500_members")
-      %li= t(".support_included")
     = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium")
 .grid_4.omega
   .pricing_column

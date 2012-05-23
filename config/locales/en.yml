@@ -81,7 +81,7 @@ en:
       create_for_free: "Create your free tribe"
       contact_us: "Contact us"
       free_plan: "Free plan"
-      max_100_members: "Max 100 members"
+      max_100_members: "Max. 100 members"
       create_for_free: "Create for free"
       premium_plan: "Premium plan"
       max_500_members: "Max. 500 members"
@@ -89,8 +89,8 @@ en:
       professional_plan: "Professional plan"
       unlimited_members: "Unlimited members"
       intranet_integration: "Intranet integration"
-      no_support: "No customer support"
-      support_included: "Customer support included"
+      no_charge: "Free of charge"
+      euros_per_month_premium: "150 euros per month"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below."
@@ -114,6 +114,8 @@ en:
       domain_taken: "This tribe exists already. You have to pick another domain name."
       address: "Location of your tribe"
       location_description: ""
+      select_main_language_of_your_tribe: "Select the main language of your tribe"
+      language: "Language"
     signup_form:
       create_an_account: "Create an account for yourself"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to Sharetribe below or"
