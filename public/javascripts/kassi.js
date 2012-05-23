@@ -128,6 +128,13 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
+function initialize_confirmation_pending_form() {
+	$('#mistyped_email_link').click(function() { 
+		$('#password_forgotten').slideToggle('fast'); 
+		$('input.email').focus();
+	});
+}
+
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
 	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
 	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });

@@ -182,6 +182,7 @@ Kassi::Application.routes.draw do
     resources :sessions do
       collection do
         post :request_new_password
+        post :change_mistyped_email
       end
     end  
     resources :consent
