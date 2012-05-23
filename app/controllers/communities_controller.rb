@@ -57,10 +57,8 @@ class CommunitiesController < ApplicationController
     location = Location.new(params[:community][:location])
     params[:community].delete(:location)
     params[:community].delete(:address)
-    logger.info params.inspect
     @community = Community.new(params[:community])
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
-    logger.info @community.inspect
     @community.save
     location.community = @community
     location.save

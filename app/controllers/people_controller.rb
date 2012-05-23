@@ -255,14 +255,12 @@ class PeopleController < Devise::RegistrationsController
     if @current_community.allowed_emails.present?
       valid = email_allowed_for_community?(params[:community_membership][:email], @current_community)
     end
-    logger.info "Valid: #{valid}"
     respond_to do |format|
       format.json { render :json => valid }
     end
   end
   
   def check_invitation_code
-    logger.info "Here"
     respond_to do |format|
       format.json { render :json => Invitation.code_usable?(params[:invitation_code], @current_community) }
     end
