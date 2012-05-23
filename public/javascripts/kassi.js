@@ -128,27 +128,27 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_confirmation_pending_form(email_in_use_message) {
+function initialize_confirmation_pending_form(locale, email_in_use_message) {
 	$('#mistyped_email_link').click(function() { 
 		$('#password_forgotten').slideToggle('fast'); 
 		$('input.email').focus();
 	});
 	var form_id = "#change_mistyped_email_form"
-	$(form_id).validate({
-		errorPlacement: function(error, element) {
-				error.insertAfter(element);
-		},
-		rules: {
-      "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"}
-		},
-		messages: {
-			"person[email]": { remote: email_in_use_message }
-		},
-		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
-		submitHandler: function(form) {
-      disable_and_submit(form_id, form, "false", locale);  
-		}
-	});
+  $(form_id).validate({
+   errorPlacement: function(error, element) {
+       error.insertAfter(element);
+   },
+   rules: {
+        "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"}
+   },
+   messages: {
+     "person[email]": { remote: email_in_use_message }
+   },
+   onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
+   submitHandler: function(form) {
+        disable_and_submit(form_id, form, "false", locale);  
+   }
+  });
 }
 
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
