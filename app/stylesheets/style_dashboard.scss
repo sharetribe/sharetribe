@@ -338,10 +338,24 @@ li {
     font-size: 18px;
     color: white;
   }
+  div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white;
+  }
+  div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
+    color: white;
+  }
 }
 
 #home_main {
   @include main;
+}
+
+#faq {
+  @include main(1700px);
 }
 
 #campaign_main {
