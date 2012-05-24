@@ -47,6 +47,11 @@ default: &default_settings
   # the language dropdown menu work more logically.
   available_locales: [["English", "en"], ["Suomi", "fi"], ["Pусский", "ru"]]
   
+  # Facebook Connect
+  # If you want to use Facebook connect, enter the credentials here
+  fb_connect_id:
+  fb_connect_secret:
+  
   # reCAPTChA is used to avoid bots registering accounts
   # You need to register your domain at https://www.google.com/recaptcha
   # to get the keys
@@ -151,6 +156,10 @@ default: &default_settings
   # environments. If you are not developing or testing Kassi, you 
   # don't need to change those
   # ----------------------------------------------------------------
+  
+  # The default consent (terms of use) all the communities will use.
+  # It's just a string that tells the version of the consent.
+  consent: "SHARETRIBE1.O"
 
 production:
   <<: *default_settings

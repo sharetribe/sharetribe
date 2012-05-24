@@ -2,7 +2,7 @@ class Admin::PollsController < ApplicationController
   
   layout "layouts/admin"
   
-  before_filter :ensure_is_admin
+  before_filter :ensure_is_admin, :ensure_polls_enabled
   
   def index
     @polls = @current_community.polls.order("created_at DESC")
@@ -99,6 +99,10 @@ class Admin::PollsController < ApplicationController
         render :open, :layout => false 
       }
     end
+  end
+  
+  def ensure_polls_enabled
+    redirect_to admin_news_items_path unless @current_community.polls_enabled?
   end
   
 end

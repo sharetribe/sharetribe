@@ -1,13 +1,7 @@
 /*
- * Copyright (C) 1999-2009 Jive Software. All rights reserved.
- *
- * This software is the proprietary information of Jive Software. Use is subject to license terms.
- */
-
-/*
 * $ lightbox_me
 * By: Buck Wilson
-* Version : 2.2
+* Version : 2.3
 *
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -31,18 +25,20 @@
 
             var
                 opts = $.extend({}, $.fn.lightbox_me.defaults, options),
-                $overlay = $('div.' + opts.classPrefix + '_overlay'),
+                $overlay = $(),
                 $self = $(this),
-                $iframe = $('iframe#lb_iframe'),
+                $iframe = $('<iframe id="foo" style="z-index: ' + (opts.zIndex + 1) + ';border: none; margin: 0; padding: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0; filter: mask();"/>'),
                 ie6 = ($.browser.msie && $.browser.version < 7);
-            
-            if ($overlay.length > 0) {
-                $overlay[0].removeModal(); // if the overlay exists, then a modal probably exists. Ditch it!
-            } else {
-                $overlay =  $('<div class="' + opts.classPrefix + '_overlay" style="display:none;"/>'); // otherwise just create an all new overlay. 
-            }
 
-            $iframe = ($iframe.length > 0) ? $iframe : $iframe = $('<iframe id="lb_iframe" style="z-index: ' + (opts.zIndex + 1) + '; display: none; border: none; margin: 0; padding: 0; position: absolute; width: 100%; height: 100%; top: 0; left: 0;"/>');
+            if (opts.showOverlay) {
+                //check if there's an existing overlay, if so, make subequent ones clear
+               var $currentOverlays = $(".js_lb_overlay:visible");
+                if ($currentOverlays.length > 0){
+                    $overlay = $('<div class="lb_overlay_clear js_lb_overlay"/>');
+                } else {
+                    $overlay = $('<div class="' + opts.classPrefix + '_overlay js_lb_overlay"/>');
+                }
+            }
 
             /*----------------------------------------------------
                DOM Building
@@ -52,34 +48,43 @@
                 $iframe.attr('src', src);
                 $('body').append($iframe);
             } // iframe shim for ie6, to hide select elements
-            $('body').append($self).append($overlay);
+            $('body').append($self.hide()).append($overlay);
+
 
             /*----------------------------------------------------
-               CSS stuffs
+               Overlay CSS stuffs
             ---------------------------------------------------- */
 
-            // set css of the modal'd window
-
-            setSelfPosition();
-            $self.css({left: '50%', marginLeft: ($self.outerWidth() / 2) * -1,  zIndex: (opts.zIndex + 3) });
-
             // set css of the overlay
-
-            setOverlayHeight(); // pulled this into a function because it is called on window resize.
-            $overlay.css({ position: 'absolute', width: '100%', top: 0, left: 0, right: 0, bottom: 0, zIndex: (opts.zIndex + 2) })
-                    .css(opts.overlayCSS);
+            if (opts.showOverlay) {
+                setOverlayHeight(); // pulled this into a function because it is called on window resize.
+                $overlay.css({ position: 'absolute', width: '100%', top: 0, left: 0, right: 0, bottom: 0, zIndex: (opts.zIndex + 2), display: 'none' });
+				if (!$overlay.hasClass('lb_overlay_clear')){
+                	$overlay.css(opts.overlayCSS);
+                }
+            }
 
             /*----------------------------------------------------
                Animate it in.
             ---------------------------------------------------- */
-
-            if ($overlay.is(":hidden")) {
+               //
+            if (opts.showOverlay) {
                 $overlay.fadeIn(opts.overlaySpeed, function() {
-                    $self[opts.appearEffect](opts.lightboxSpeed, function() { setOverlayHeight(); opts.onLoad()});
+                    setSelfPosition();
+                    $self[opts.appearEffect](opts.lightboxSpeed, function() { setOverlayHeight(); setSelfPosition(); opts.onLoad()});
                 });
             } else {
-                $self[opts.appearEffect](opts.lightboxSpeed, function() { setOverlayHeight(); opts.onLoad()});
+                setSelfPosition();
+                $self[opts.appearEffect](opts.lightboxSpeed, function() { opts.onLoad()});
             }
+
+            /*----------------------------------------------------
+               Hide parent if parent specified (parentLightbox should be jquery reference to any parent lightbox)
+            ---------------------------------------------------- */
+            if (opts.parentLightbox) {
+                opts.parentLightbox.fadeOut(200);
+            }
+
 
             /*----------------------------------------------------
                Bind Events
@@ -87,65 +92,63 @@
 
             $(window).resize(setOverlayHeight)
                      .resize(setSelfPosition)
-                     .scroll(setSelfPosition)
-                     .keypress(observeEscapePress);
-            $self.find(opts.closeSelector).add($overlay).click(function() { if(opts.closeClick){ removeModal(true); return false;} });
+                     .scroll(setSelfPosition);
+                     
+            $(window).bind('keyup.lightbox_me', observeKeyPress);
+                     
+            if (opts.closeClick) {
+                $overlay.click(function(e) { closeLightbox(); e.preventDefault; });
+            }
+            $self.delegate(opts.closeSelector, "click", function(e) {
+                closeLightbox(); e.preventDefault();
+            });
+            $self.bind('close', closeLightbox);
+            $self.bind('reposition', setSelfPosition);
 
             
-            $self.bind('close', function() { removeModal(true) });
-            $self.bind('resize', setSelfPosition);
-            $overlay[0].removeModal = removeModal;
 
-            /*----------------------------------------------------------------------------------------------------------------------------------------
-              ---------------------------------------------------------------------------------------------------------------------------------------- */
+            /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+              -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
 
             /*----------------------------------------------------
                Private Functions
             ---------------------------------------------------- */
 
+            /* Remove or hide all elements */
+            function closeLightbox() {
+                var s = $self[0].style;
+                if (opts.destroyOnClose) {
+                    $self.add($overlay).remove();
+                } else {
+                    $self.add($overlay).hide();
+                }
 
-            function removeModal(removeO) {
-                // fades & removes modal, then unbinds events
-                $self[opts.disappearEffect](opts.lightboxDisappearSpeed, function() {
-                    
-                    if (removeO) {
-                      removeOverlay();  
-                    } 
-                    
-                    opts.destroyOnClose ? $self.remove() : $self.hide()
-                    
-                    
-                    $self.find(opts.closeSelector).unbind('click');
-                    $self.unbind('close');
-                    $self.unbind('resize');
-                    $(window).unbind('scroll', setSelfPosition);
-                    $(window).unbind('resize', setSelfPosition);
-                    
-                    
-                });
+                //show the hidden parent lightbox
+                if (opts.parentLightbox) {
+                    opts.parentLightbox.fadeIn(200);
+                }
+
+                $iframe.remove();
+                
+				// clean up events.
+                $self.undelegate(opts.closeSelector, "click");
+
+                $(window).unbind('reposition', setOverlayHeight);
+                $(window).unbind('reposition', setSelfPosition);
+                $(window).unbind('scroll', setSelfPosition);
+                $(window).unbind('keyup.lightbox_me');
+                if (ie6)
+                    s.removeExpression('top');
+                opts.onClose();
             }
-            
-            
-            function removeOverlay() {
-                // fades & removes overlay, then unbinds events
-                $overlay.fadeOut(opts.overlayDisappearSpeed, function() {
-                    $(window).unbind('resize', setOverlayHeight);
 
-                    $overlay.remove();
-                    $overlay.unbind('click');
-                    
-                    
-                    opts.onClose();
 
-                })
+            /* Function to bind to the window to observe the escape/enter key press */
+            function observeKeyPress(e) {
+                if((e.keyCode == 27 || (e.DOM_VK_ESCAPE == 27 && e.which==0)) && opts.closeEsc) closeLightbox();
             }
-            
 
-
-            /* Function to bind to the window to observe the escape key press */
-            function observeEscapePress(e) {
-                if((e.keyCode == 27 || (e.DOM_VK_ESCAPE == 27 && e.which==0)) && opts.closeEsc) removeModal(true);
-            }
 
             /* Set the height of the overlay
                     : if the document height is taller than the window, then set the overlay height to the document height.
@@ -154,11 +157,16 @@
             function setOverlayHeight() {
                 if ($(window).height() < $(document).height()) {
                     $overlay.css({height: $(document).height() + 'px'});
+                     $iframe.css({height: $(document).height() + 'px'}); 
                 } else {
                     $overlay.css({height: '100%'});
-                    if (ie6) {$('html,body').css('height','100%'); } // ie6 hack for height: 100%; TODO: handle this in IE7
+                    if (ie6) {
+                        $('html,body').css('height','100%');
+                        $iframe.css('height', '100%');
+                    } // ie6 hack for height: 100%; TODO: handle this in IE7
                 }
             }
+
 
             /* Set the position of the modal'd window ($self)
                     : if $self is taller than the window, then make it absolutely positioned
@@ -167,13 +175,27 @@
             function setSelfPosition() {
                 var s = $self[0].style;
 
+                // reset CSS so width is re-calculated for margin-left CSS
+                $self.css({left: '50%', marginLeft: ($self.outerWidth() / 2) * -1,  zIndex: (opts.zIndex + 3) });
+
+
+                /* we have to get a little fancy when dealing with height, because lightbox_me
+                    is just so fancy.
+                 */
+
+                // if the height of $self is bigger than the window and self isn't already position absolute
                 if (($self.height() + 80  >= $(window).height()) && ($self.css('position') != 'absolute' || ie6)) {
+
+                    // we are going to make it positioned where the user can see it, but they can still scroll
+                    // so the top offset is based on the user's scroll position.
                     var topOffset = $(document).scrollTop() + 40;
                     $self.css({position: 'absolute', top: topOffset + 'px', marginTop: 0})
                     if (ie6) {
                         s.removeExpression('top');
                     }
                 } else if ($self.height()+ 80  < $(window).height()) {
+                    //if the height is less than the window height, then we're gonna make this thing position: fixed.
+                    // in ie6 we're gonna fake it.
                     if (ie6) {
                         s.position = 'absolute';
                         if (opts.centered) {
@@ -189,24 +211,24 @@
                         } else {
                             $self.css({ position: 'fixed'}).css(opts.modalCSS);
                         }
+
                     }
                 }
             }
-        });
-    };
 
+        });
+
+
+
+    };
 
     $.fn.lightbox_me.defaults = {
 
-        // animation when appears
+        // animation
         appearEffect: "fadeIn",
-        overlaySpeed: 300,
-        lightboxSpeed: "fast",
-        
-        // animation when dissapears
-        disappearEffect: "fadeOut",
-        overlayDisappearSpeed: 300,
-        lightboxDisappearSpeed: "fast",
+        appearEase: "",
+        overlaySpeed: 250,
+        lightboxSpeed: 300,
 
         // close
         closeSelector: ".close",
@@ -215,6 +237,8 @@
 
         // behavior
         destroyOnClose: false,
+        showOverlay: true,
+        parentLightbox: false,
 
         // callbacks
         onLoad: function() {},
@@ -225,8 +249,6 @@
         zIndex: 999,
         centered: false,
         modalCSS: {top: '40px'},
-        overlayCSS: {background: 'black', opacity: .6}
+        overlayCSS: {background: 'black', opacity: .3}
     }
-
-
 })(jQuery);

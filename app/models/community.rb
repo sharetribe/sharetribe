@@ -6,19 +6,31 @@ class Community < ActiveRecord::Base
   has_many :news_items
   has_many :polls
   has_many :event_feed_events
+  has_one :location, :dependent => :destroy
   
   has_and_belongs_to_many :listings
+  
+  VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
   
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
   validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
-  #validates_uniqueness_of :domain
+  validates_uniqueness_of :domain
+  validates_length_of :slogan, :in => 2..100, :allow_nil => true
+  validates_length_of :description, :in => 2..500, :allow_nil => true
+  validates_inclusion_of :category, :in => VALID_CATEGORIES
   
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
   # asi_welcome_mail: boolean that tells if ASI should send the welcome mail to newly registered user. Default is false.
     
   serialize :settings, Hash
+  
+  attr_accessor :terms
+  
+  def address
+    location ? location.address : nil
+  end
   
   def default_locale
     if settings && !settings["locales"].blank?
@@ -92,6 +104,15 @@ class Community < ActiveRecord::Base
   def email_all_members(subject, mail_content, default_locale="en", verbose=false)
     puts "Sending mail to all #{members.count} members in community: #{self.name}" if verbose
     PersonMailer.deliver_open_content_messages(members.all, subject, mail_content, default_locale, verbose)
+  end
+
+  # Makes the creator of the community a member and an admin
+  def admin_attributes=(attributes)
+    community_memberships.build(attributes)
+  end
+  
+  def self.domain_available?(domain)
+    ! find_by_domain(domain).present?
   end
 
 end

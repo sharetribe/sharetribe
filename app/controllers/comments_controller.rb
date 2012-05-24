@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   end
   
   before_filter :ensure_authorized_to_comment
+  skip_filter :dashboard_only
   
   def create
     if @comment.save

@@ -1,10 +1,12 @@
 class CommunityMembership < ActiveRecord::Base
   
   belongs_to :person
-  belongs_to :community
+  belongs_to :community, :counter_cache => :members_count
   belongs_to :invitation
   
   attr_accessor :email
+  
+  attr_protected :admin
   
   before_create :set_last_page_load_date_to_current_time
   

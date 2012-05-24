@@ -17,6 +17,7 @@ class ConversationsController < ApplicationController
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
+  skip_filter :dashboard_only
   
   def index
     redirect_to received_person_messages_path(:person_id => @current_user.id)

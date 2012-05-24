@@ -1,8 +1,15 @@
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
-  visit login_path(:locale => :en)
-  fill_in("person[username]", :with => (person ? person : "kassi_testperson1"))
-  fill_in("person[password]", :with => "testi")
-  click_button("Log in")
+  username = person || "kassi_testperson1"
+  if use_asi?
+    visit login_path(:locale => :en)
+    fill_in("person[username]", :with => username)
+    fill_in("person[password]", :with => "testi")
+    click_button("Log in")
+  else
+    person = Person.find_by_username(username) || Factory(:person, :username => username)
+    login_as(person, :scope => :person)
+    visit root_path(:locale => :en)
+  end
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
@@ -42,6 +49,10 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
   @test_person.set_phone_number(phone_number, @session.cookie)
 end
 
+Given /^there will be and error in my Facebook login$/ do 
+  OmniAuth.config.mock_auth[:facebook] = :access_denied
+end
+
 When /^I enter correct credentials$/ do
   # This is hard to replicate with Devise & Warden, so just skip as this is not widely used
   if use_asi?
@@ -64,8 +75,10 @@ Given /^there are following users:$/ do |person_table|
     cookie = (use_asi? ? @hash_session.cookie : nil)
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, cookie)
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
-      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id)
+      CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent)
     #end
+    attributes_to_update = hash.except('person','person_id')
+    @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?
     @people[hash['person']] = @hash_person
   end
 end
@@ -151,4 +164,13 @@ Then /^I should not see my username$/ do
   else
     assert page.has_no_content?(Person.order("created_at").last.username)
   end
+end
+
+Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ do |username, verb, attribute, value|
+  user = Person.find_by_username(username)
+  user.should_not be_nil
+  verb = verb.gsub(" ", "_")
+  value = nil if value == "nil"
+  user.send(attribute).send(verb) == value
+  
 end

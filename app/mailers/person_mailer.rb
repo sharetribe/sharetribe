@@ -138,6 +138,16 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
   
+  # The initial email confirmation is sent by Devise, but if people enter additional emails, confirm them with this method
+  # using the same template
+  def additional_email_confirmation(email, host)
+    @no_settings = true
+    @resource = email.person
+    @confirmation_token = email.confirmation_token
+    @host = host
+    mail(:to => email.address, :subject => t("devise.mailer.confirmation_instructions.subject"), :template_path => 'devise/mailer', :template_name => 'confirmation_instructions')
+  end
+  
   def newsletter(recipient, community)
     @community = community
     @recipient = recipient

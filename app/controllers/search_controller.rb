@@ -1,5 +1,7 @@
 class SearchController < ApplicationController
-
+  
+  skip_filter :dashboard_only
+  
   def show
     @query = params[:q]
     if @query

@@ -19,6 +19,8 @@ class ListingsController < ApplicationController
     controller.ensure_current_user_is_listing_author "only_listing_author_can_edit_a_listing"
   end
   
+  skip_filter :dashboard_only
+  
   def index
     redirect_to root
   end

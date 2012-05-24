@@ -107,7 +107,6 @@ describe Listing do
     
     it "should be valid when there is no valid until" do
       @listing.valid_until = nil
-      puts "Errors: #{@listing.errors.full_messages}" unless @listing.valid?
       @listing.should be_valid
     end 
   

@@ -139,6 +139,12 @@ module ApplicationHelper
     end
   end
   
+  def community_file?(type, with_locale=false)
+    locale_string = with_locale ? ".#{I18n.locale}" : ""
+    file_path = "communities/#{@current_community.domain}/#{type}/#{type}#{locale_string}.haml"
+    File.exists?(file_path)
+  end
+  
   def facebook_like
     
     loc = case I18n.locale
@@ -175,14 +181,14 @@ module ApplicationHelper
   end
   
   def username_label
-    @current_community.label.eql?("okl") ? t("okl.member_id") : t("common.username")
+    (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id") : t("common.username")
   end
   
   def service_name
     if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
       return @current_community.settings["service_name"]
     else
-      return APP_CONFIG.global_service_name || "Kassi"
+      return APP_CONFIG.global_service_name || "Sharetribe"
     end
   end
   
@@ -218,6 +224,28 @@ module ApplicationHelper
     
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Kassi"
+  end
+  
+  def email_allowed_for_community?(email, community)
+    allowed = false
+    allowed_array = community.allowed_emails.split(",")
+    
+    allowed_array.each do |allowed_domain_or_address|
+      allowed_domain_or_address.strip!
+      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
+      if email =~ /#{allowed_domain_or_address}$/
+        allowed = true
+        break
+      end
+    end
+    
+    return allowed
+  end
+  
+  # returns the locale part from url.
+  # e.g. from "kassi.eu/es/listings" returns es
+  def exctract_locale_from_url(url)
+    url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
   end
   
 end

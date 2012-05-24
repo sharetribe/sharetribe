@@ -1,8 +1,10 @@
 class DashboardController < ApplicationController
   
+  skip_filter :single_community_only
+  
   def index  
     I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?
-    @contact_request = ContactRequest.new
+    session[:community_category] = session[:pricing_plan] = session[:community_locale] = nil
   end
   
   # A custom action for World Design Capital 

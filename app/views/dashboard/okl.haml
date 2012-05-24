@@ -25,13 +25,13 @@
       #home_main_screenshot_bottom
         = image_tag("/images/dashboard/kassi_map_screenshot.png", :alt => "This is what a Kassi community looks like")
     .grid_5.omega
-      %p.top
+      %p.okl.top
         Suomen Omakotiliitto tarjoaa jäsenyhdistyksilleen
         maksuttoman palvelun, jossa asukkaat
         voivat helposti ostaa, vuokrata ja lainata
         toisilleen tavaroita, järjestää kimppakyyti-
         rinkejä sekä auttaa toisiaan eri tavoin.
-      %p
+      %p.okl
         Lojuuko pihallasi rakennusprojektista yli
         jääneitä tarvikkeita, sorakasa tai muuta
         ylimääräistä josta haluaisit päästä eroon?
@@ -48,14 +48,14 @@
           = hidden_field_tag :redirect_uri, @return_to
           %div{:style => "font-size: 18px"}
             = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Valitse yhdistyksesi:", :class => "community_select"
-      %p.bottom
+      %p.okl.bottom
         Liittyäksesi Kassiin sinun pitää kuulua
         johonkin Omakotiliiton jäsenyhdistykseen. Jos et vielä kuulu, nyt on hyvä aika
         = link_to "liittyä!", "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
-      %p
+      %p.okl
         Lisätietoja Kassi-palvelusta ja sen toiminnasta saa osoitteesta
         = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
-      %p
+      %p.okl
         #logos
           = image_tag("/images/dashboard/okl_logo.png", :alt => "Suomen Omakotiliitto")
 = render :partial => "lower_middle"
