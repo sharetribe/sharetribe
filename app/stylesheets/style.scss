@@ -221,7 +221,7 @@ form, input {
 }
 
 #logo {
-	margin-top: 7px;
+	margin-top: 12px;
 }
 
 #logo_link {
@@ -302,7 +302,10 @@ form, input {
 }
 
 .locale_select_padding {
-	margin: 13px 0 0 5px;
+	margin-top: 4px;
+}
+.locale_select_padding_lower {
+  margin: 13px 5px;
 }
 
 .fb_like_padding {
@@ -357,6 +360,11 @@ form, input {
 		&:focus { background: $light_orange; }
 		&:active { background: $dark_orange; }
 	}
+	
+}
+
+.facebook_connect {
+  margin-right: 4px;
 }
 
 #top_spacer {
@@ -450,7 +458,10 @@ form, input {
 	float: left;
 	width: 475px;
 	margin: 0 30px 5px 0;
-	h1 { font-size: 32px; }
+	h1 { 
+	  font-size: 32px;
+	  line-height: 36px;
+	}
 }
 
 #teaser_right {
@@ -1180,6 +1191,9 @@ div.checkbox_float {
 	input.send_button_terms {
 		@include send_button;
 		width: 250px;
+	}
+	img.facebook_login {
+	  margin: 23px 0 0 10px;
 	}
 	label {
 		margin: 10px;

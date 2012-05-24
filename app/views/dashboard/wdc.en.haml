@@ -17,9 +17,9 @@
       #home_main_screenshot_bottom
         = image_tag("/images/dashboard/kassi_map_screenshot.png", :alt => "This is what a Kassi community looks like")
     .grid_5.omega
-      %p.top
+      %p.top.okl
         Could neighborhoods of big cities be communities where people know each other, do things together and help each other out in various situations? "From Neighborhoods to Village Communities" is a project that aims to create this spirit to neighborhoods in Helsinki and Lahti with help of modern web technology.
-      %p
+      %p.okl
         The project will focus in three neighborhoods in both cities: Kallio, Pikku Huopalahti and Pitäjänmäki in Helsinki and Ankkuri, Karisto and Mukkula in Lahti. Each district gets their own Kassi web community where residents can lend, rent, buy and swap stuff, share rides and help each other out in various ways.
       %h2.campaign_page
         Join your neighborhood community!
@@ -28,10 +28,10 @@
           = hidden_field_tag :redirect_uri, @return_to
           %div{:style => "font-size: 18px"}
             = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Select your neighborhood:", :class => "community_select"
-      %p.bottom
+      %p.bottom.okl
         "From Neighborhoods to Village Communities" project is a part of the World Design Capital Helsinki 2012 and Helsinki 200 years as capital celebrations. Aalto University is responsible for the project and Avoin Interactive Oy will handle practical matters. More information:
         = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
-      %p
+      %p.okl
         #logos
           = image_tag("/images/dashboard/wdc_logo.png", :alt => "World Design Capital Helsinki 2012")
           = image_tag("/images/dashboard/helsinki200v_logo.png", :alt => "World Design Capital Helsinki 2012")

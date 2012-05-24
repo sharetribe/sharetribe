@@ -1,5 +1,7 @@
 class ListingImagesController < ApplicationController
   
+  skip_filter :dashboard_only
+  
   def destroy
     @listing_image = ListingImage.find(params[:id]).destroy
     @listing_image_id = @listing_image.id.to_s

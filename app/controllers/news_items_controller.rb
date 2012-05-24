@@ -6,6 +6,8 @@ class NewsItemsController < ApplicationController
     controller.ensure_logged_in "you_must_log_in_to_add_news_item"
   end
   
+  skip_filter :dashboard_only
+  
   def index
     redirect_to about_infos_path and return unless @current_community.news_enabled
     if params[:news_form] && !logged_in?

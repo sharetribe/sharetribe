@@ -3,6 +3,7 @@ include BadgesHelper
 class BadgesController < ApplicationController
 
   before_filter :person_belongs_to_current_community
+  skip_filter :dashboard_only
 
   def index
     redirect_to person_testimonials_path(:person_id => @person.id) unless @person.badges_visible_to?(@current_user)

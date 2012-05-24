@@ -1,5 +1,7 @@
 class PollAnswersController < ApplicationController
   
+  skip_filter :dashboard_only
+  
   def create
     @poll_answer = PollAnswer.new(params[:poll_answer])
     if @poll_answer.save

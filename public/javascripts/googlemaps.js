@@ -38,10 +38,13 @@ addMethod("address_validator",
     var elem_prefix ="";
     if (pref[0].match("person"))
       elem_prefix = "person";
+    else if (pref[0].match("community"))
+      elem_prefix = "community";
     else
       elem_prefix = pref[0] + "_" + pref[1];
 
     var emptyfield = $('input[id$="latitude"][id^='+elem_prefix+']').attr("value") || "";
+
     if(emptyfield != "")
       check = true;
     else
@@ -166,6 +169,9 @@ function manually_validate(formhint) {
   if (rray[0].match("person")) {
     form_id += "person_settings_form";
     _element += "person_street_address";
+  } else if (rray[0].match("community")) {
+    form_id += "new_tribe_form";
+    _element += "community_address";
   } else if (rray[0].match("listing")) {
     form_id += "new_listing_form";
     if (rray[1].match("origin")) {
@@ -375,7 +381,87 @@ function updateEditTextBoxes() {
   manually_validate("listing_origin");
 }
 
-function initialize_listing_map(type) {
+function initialize_communities_map() {
+  infowindow = new google.maps.InfoWindow();
+  helsinki = new google.maps.LatLng(60.2, 24.9);
+  flagMarker = new google.maps.Marker();
+  var myOptions = {
+    zoom: 2,
+    center: new google.maps.LatLng(20, 15),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+  
+  
+  //map.setCenter(initialLocation);
+  google.maps.event.addDomListener(window, 'load', addCommunityMarkers);
+  //google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
+}
+
+function addCommunityMarkers() {
+  // Test requesting location data
+  // Now the request_path needs to also have a query string with the wanted parameters
+  
+  markerContents = [];
+  markers = [];
+  
+  var request_path = '/en/tribes'
+  $.getJSON(request_path, {dataType: "json"}, function(data) {	
+    var data_arr = data.data;
+    console.log(data);
+    //alert(data_arr);
+      
+    for (i in data_arr) {
+      (function() {
+        var entry = data_arr[i];
+        markerContents[i] = entry["id"];
+        console.log(entry["latitude"], entry["longitude"])
+        if (entry["latitude"]) {
+          var location;
+          location = new google.maps.LatLng(entry["latitude"], entry["longitude"]);
+          var marker = new google.maps.Marker({
+            position: location,
+            title: entry["name"],
+            map: map,
+            icon: '/favicon.ico'
+          });
+          markers.push(marker);
+          markersArr.push(marker);
+
+
+          var ind = i;
+          google.maps.event.addListener(marker, 'click', function() {
+            infowindow.close();
+            //directionsDisplay.setMap(null);
+            //flagMarker.setOptions({map:null});
+            if (showingMarker==marker.getTitle()) {
+              showingMarker = "";
+            } else {
+              showingMarker = marker.getTitle();
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 110px; padding-top: 0px;'><h5>" +
+                entry["name"] + "</h5><div style='text-align: left'>Members: " +
+                entry["members_count"] + "<br />Languages: " +
+                entry["settings"]["locales"] + "<br />Description: coming soon</div><a href=\"http://" +
+                entry["domain"] + ".lvh.me:3000\">t(Join this community)</a></div></div>");
+              infowindow.open(map,marker);
+              // $.get('/en/communities/'+entry["id"], function(data) {
+              //   $('#map_bubble').html(data);
+              // });
+            }
+          });
+          google.maps.event.addListener(infowindow, 'closeclick', function() {
+            showingMarker = "";
+          });
+        }
+      })();
+    }
+      // markerCluster = new MarkerClusterer(map, markers, markerContents, infowindow, showingMarker, {
+      //   imagePath: '/images/map_icons/group_'+listing_type});
+
+	});
+}
+
+function initialize_listing_map(type, community_location_lat, community_location_lon) {
   listing_type = type;
   infowindow = new google.maps.InfoWindow();
   directionsService = new google.maps.DirectionsService();
@@ -389,8 +475,12 @@ function initialize_listing_map(type) {
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
   
+  // First try the default location of the community if it has one
+  if (community_location_lat != null) {
+    initialLocation = new google.maps.LatLng(community_location_lat,community_location_lon);
+    map.setCenter(initialLocation);
   // Try W3C Geolocation (Preferred)
-  if(navigator.geolocation) {
+  } else if(navigator.geolocation) {
     browserSupportFlag = true;
     navigator.geolocation.getCurrentPosition(function(position) {
       initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);

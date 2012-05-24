@@ -4,20 +4,31 @@ class SessionsController < ApplicationController
   include UrlHelper
   
   skip_filter :check_email_confirmation
+  skip_filter :dashboard_only
+  skip_filter :single_community_only, :only => [ :create ]
+  skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
+  skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
   
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
  
-  def create
-    # if the request came from different domain, redirects back there.
-    # e.g. if using login-subdoain for logging in with https    
-    if params["community"].blank?
-      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
+  def new
+    @facebook_merge = session["devise.facebook_data"].present?
+    if @facebook_merge
+      @facebook_email = session["devise.facebook_data"]["email"]
+      @facebook_name = "#{session["devise.facebook_data"]["given_name"]} #{session["devise.facebook_data"]["family_name"]}"
     end
-    current_community = Community.find_by_domain(params[:community])
-    domain = "http://#{with_subdomain(current_community.domain)}"
+  end
+ 
+  def create
+ 
+    if current_community = Community.find_by_domain(params[:community])
+      domain = "http://#{with_subdomain(current_community.domain)}"
+    else
+      domain = "http://www.#{[request.domain, request.port_string].join}"
+    end
 
     session[:form_username] = params[:person][:username]
     
@@ -50,14 +61,29 @@ class SessionsController < ApplicationController
       # Since the authentication happens in the rack layer,
       # we need to tell Devise to call the action "sessions#new"
       # in case something goes bad.
-      if current_community.private?
-        person = authenticate_person!(:recall => "homepage#sign_in")
+      if current_community
+        if current_community.private?
+          person = authenticate_person!(:recall => "homepage#sign_in")
+        else
+          person = authenticate_person!(:recall => "sessions#new")
+        end
       else
-        person = authenticate_person!(:recall => "sessions#new")
+        person = authenticate_person!(:recall => "dashboard#login")
       end
       flash[:error] = nil
       @current_user = person
+      
+      # Store Facebook ID and picture if connecting with FB
+      if session["devise.facebook_data"]
+        @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"]) 
+        # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
+        if @current_user.image_file_size.nil?
+          @current_user.store_picture_from_facebook
+        end
+      end
+      
       sign_in @current_user
+
     end
 
     session[:form_username] = nil
@@ -87,7 +113,10 @@ class SessionsController < ApplicationController
     end
     
     @current_user.update_attribute(:active, true) unless @current_user.active?
-    if @current_user.communities.include?(@current_community) || @current_user.is_admin?
+    
+    if not @current_community
+      redirect_to domain + new_tribe_path
+    elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
       flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
       EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
@@ -97,7 +126,7 @@ class SessionsController < ApplicationController
         redirect_to domain + root_path
       end
     else
-      redirect_to domain + new_community_membership_path
+      redirect_to domain + new_tribe_membership_path
     end
   end
 
@@ -115,7 +144,7 @@ class SessionsController < ApplicationController
   
   def index
     # this is not in use in Kassi, but bots seem to try the url so implementing this to avoid errors
-   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
   end
   
   def request_new_password
@@ -142,10 +171,6 @@ class SessionsController < ApplicationController
     else
       redirect_to login_path
     end
-  end
-  
-  def change_mistyped_email
-    
   end
   
   def facebook

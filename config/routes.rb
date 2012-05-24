@@ -64,13 +64,14 @@ Kassi::Application.routes.draw do
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
 
-    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people"}, :path_names => { :sign_in => 'login'} do  
+    devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} do  
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
       match "/people/login" => "sessions#new" #this is kind of duplicate, but helps to cope with devises defaults
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
+      match "/people/sign_up" => redirect("/%{locale}/login")
            
       resources :people do
         collection do
@@ -80,6 +81,8 @@ Kassi::Application.routes.draw do
           get :check_email_validity
           get :check_invitation_code
           get :not_member
+          get :cancel
+          post :create_facebook_based
         end
         member do 
           put :update_avatar
@@ -150,7 +153,13 @@ Kassi::Application.routes.draw do
         post :join
       end
     end
-    resources :community_memberships
+    resources :tribes, :controller => :communities do
+      collection do 
+        get :check_domain_availability
+        get :change_form_language
+      end
+    end
+    resources :community_memberships, :as => :tribe_memberships
     resources :listings do
       member do
         post :follow
@@ -189,15 +198,12 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
-    resources :contact_requests do
-      collection do
-        get :thank_you
-      end
-    end
     resources :news_items
   end
   
   # Some non-RESTful mappings
+  match '/:locale/faq' => "dashboard#faq", :as => :faq
+  match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login
   match '/wdc' => 'dashboard#wdc'
   match '/okl' => 'dashboard#okl'
   match '/omakotiliitto' => 'dashboard#okl'

@@ -1,4 +1,7 @@
 class SmsController < ApplicationController
+  
+  skip_filter :dashboard_only
+  
   class SmsParseError < StandardError
     attr_accessor :sms_id
     attr_accessor :sms_text

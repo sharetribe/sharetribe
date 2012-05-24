@@ -6,6 +6,11 @@ Factory.sequence :email do |n|
   "kassi_tester#{n}@example.com" 
 end
 
+Factory.sequence :domain do |n|
+  "kassi_testcommunity_#{n}" 
+end
+
+
 Factory.define :person do |p|
   p.id "dMF4WsJ7Kr3BN6ab9B7ckF"
   p.is_admin 0
@@ -91,14 +96,18 @@ Factory.define :notification do |n|
 end
 
 Factory.define :community do |c|
-  c.name "Test"
-  c.domain "test"
+  c.name { |d| d.domain = Factory.next(:domain) }
+  c.domain { |d| d.domain = Factory.next(:domain) }
+  c.slogan "Test slogan"
+  c.description "Test description"
+  c.category "other"
 end
 
 Factory.define :community_membership do |c|
   c.association :community
   c.association :person
   c.admin false
+  c.consent "test_consent0.1"
 end
 
 Factory.define :contact_request do |c|

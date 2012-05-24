@@ -14,6 +14,11 @@ class PeopleController < Devise::RegistrationsController
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
+  skip_filter :dashboard_only
+  skip_filter :single_community_only, :only => [ :create, :check_username_availability, :check_email_availability ]
+  skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_invitation_code]
+  skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
+
   
   if ApplicationHelper.use_asi?
     # We don't use devise's authentication with ASI
@@ -43,34 +48,32 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
-    # if the request came from different domain, redirects back there.
-    # e.g. if using login-subdoain for registering in with https    
-    if params["community"].blank?
-      ApplicationHelper.send_error_notification("Got login request, but origin community is blank! Can't redirect back.", "Errors that should never happen")
-    end
-    domain = "http://#{with_subdomain(params[:community])}"
+    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "http://www.#{[request.domain, request.port_string].join}"
+    error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
       flash[:error] = :registration_considered_spam
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
     
-    if params[:invitation_code]
-      # Check if invitation is valid
+    if @current_community && @current_community.join_with_invite_only? || params[:invitation_code]
+
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
-        # abort user creation if invitation is not usable. (This actually should not happen since the code is checked with javascript)
+        # abort user creation if invitation is not usable. 
+        # (This actually should not happen since the code is checked with javascript)
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
+        
         # TODO: if this ever happens, should change the message to something else than "unknown error"
         flash[:error] = :unknown_error
-        redirect_to domain + sign_up_path and return
+        redirect_to error_redirect_path and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
       end
     end
-    
+        
     @person = Person.new
-    if APP_CONFIG.use_recaptcha && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
+    if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
       # This should not actually ever happen if all the checks work at Kassi's end.
       # Anyway if Captha responses with error, show message to user
@@ -78,7 +81,7 @@ class PeopleController < Devise::RegistrationsController
       # TODO: if this ever happens, should change the message to something else than "unknown error"
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
 
 
@@ -86,9 +89,9 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:test_group_number] = 1 + rand(4)
     
     # skip email confirmation unless it's required in this community
-    params[:person][:confirmed_at] =  (@current_community.email_confirmation ? nil : Time.now)
+    params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
-    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || !@current_community.select_whether_name_is_shown_to_everybody)
+    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
     
     if use_asi?
       # Open an ASI Session first only for Kassi to be able to create a user
@@ -112,9 +115,11 @@ class PeopleController < Devise::RegistrationsController
       end
       @person.set_default_preferences
       # Make person a member of the current community
-      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
-      membership.invitation = invitation if invitation.present?
-      membership.save!
+      if @current_community
+        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+        membership.invitation = invitation if invitation.present?
+        membership.save!
+      end
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
       # This should not actually ever happen if all the checks work at Kassi's end.
@@ -123,7 +128,7 @@ class PeopleController < Devise::RegistrationsController
       # Also notify admins that this kind of error happened.
       flash[:error] = :unknown_error
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
-      redirect_to domain + sign_up_path and return
+      redirect_to error_redirect_path and return
     end
     session[:person_id] = @person.id
     flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
@@ -131,14 +136,45 @@ class PeopleController < Devise::RegistrationsController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(AccountCreatedJob.new(@person.id, @current_community.id, params[:person][:email]))
+    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
     
-    if @current_community.email_confirmation
+    if !@current_community
+      session[:consent] = APP_CONFIG.consent
+      redirect_to domain + new_tribe_path
+    elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
+  end
+  
+  def create_facebook_based
+    username = Person.available_username_based_on(session["devise.facebook_data"]["username"])
+    
+    person_hash = {
+      :username => username,
+      :given_name => session["devise.facebook_data"]["given_name"],
+      :family_name => session["devise.facebook_data"]["family_name"],
+      :email => session["devise.facebook_data"]["email"],
+      :facebook_id => session["devise.facebook_data"]["id"],
+      :locale => I18n.locale,
+      :test_group_number => 1 + rand(4),
+      :confirmed_at => Time.now,  # We trust that Facebook has already confirmed these and save the user few clicks
+      :password => Devise.friendly_token[0,20]
+    }
+    @person = Person.create!(person_hash)
+    @person.set_default_preferences
+
+    @person.store_picture_from_facebook
+    
+
+    session[:person_id] = @person.id    
+    sign_in(resource_name, @person)
+    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    
+    # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    redirect_to :controller => :community_memberships, :action => :new
   end
   
   def update
@@ -201,7 +237,7 @@ class PeopleController < Devise::RegistrationsController
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = email_allowed?(params[:person][:email], @current_community)
+      available = email_allowed_for_community?(params[:person][:email], @current_community)
     end
     
     if available
@@ -217,7 +253,7 @@ class PeopleController < Devise::RegistrationsController
   # this checks only that email is not already in use
   def check_email_availability
     # check if it's already in use
-    if @current_user && (@current_user.email == params[:person][:email])
+    if @current_user && (@current_user.email == params[:person][:email] || Email.find_by_address_and_person_id(params[:person][:email], @current_user.id) )
       # Current user's own email should not be shown as unavailable
       available = true
     else
@@ -233,21 +269,18 @@ class PeopleController < Devise::RegistrationsController
   def check_email_validity
     valid = true
     if @current_community.allowed_emails.present?
-      valid = email_allowed?(params[:community_membership][:email], @current_community)
+      valid = email_allowed_for_community?(params[:community_membership][:email], @current_community)
     end
-    logger.info "Valid: #{valid}"
     respond_to do |format|
       format.json { render :json => valid }
     end
   end
   
   def check_invitation_code
-    logger.info "Here"
     respond_to do |format|
       format.json { render :json => Invitation.code_usable?(params[:invitation_code], @current_community) }
     end
   end
-  
   
   def show_closed?
     params[:closed] && params[:closed].eql?("true")
@@ -277,7 +310,7 @@ class PeopleController < Devise::RegistrationsController
   private
   
   def choose_layout
-    if @current_community.private && action_name.eql?("new")
+    if @current_community && @current_community.private && action_name.eql?("new")
       'private'
     else
       'application'

@@ -1,0 +1,44 @@
+#login_form
+  - if @facebook_merge
+    %h2
+      = t('.connect_your_facebook_to_kassi')
+    %p
+      = t(".facebook_account", :name => @facebook_name, :email => @facebook_email )
+      <br />
+      = "#{@facebook_name} (#{@facebook_email})"
+    %p
+      = t('.log_in_to_link_account')
+      <br />
+      = t('.you_can_also_create_new_account', :accont_creation_link => link_to(t(".account_creation_link_text"), create_facebook_based_people_path, :method => :post)).html_safe
+      <br />
+      = t(".cancle_facebook_connect", :cancel_link => link_to(t(".facebook_cancel_link_text"), cancel_person_registration_path)).html_safe
+  - else
+    %h2
+      = t('.login_to_kassi')
+    = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
+      .form_field_container
+        %label{:for => "username"}
+          = username_label + ":"
+        = text_field_tag "person[username]", nil, :value => session[:form_username], :class => :text_field 
+      .form_field_container  
+        %label{:for => "password"}
+          = t('common.password') + ":"
+        = password_field_tag "person[password]", nil, :class => :text_field  
+      .form_field_container
+        - if @current_community
+          = hidden_field_tag :community, @current_community.domain
+        = submit_tag(t('.login'), :class => "send_button")
+        - if APP_CONFIG.fb_connect_id && ! use_asi? && @current_community
+          - unless @facebook_merge
+            = link_to(image_tag("/images/icons/facebook-connect.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(:facebook)) 
+      .form_field_container
+        .links
+          - unless @facebook_merge
+            = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"
+            %br/
+          = link_to t('.i_forgot_my_password'), "#", :id => "password_forgotten_link", :class => "green_part_link"
+    #password_forgotten
+      = render :partial => "sessions/password_forgotten"
+
+
+  

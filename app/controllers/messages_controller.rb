@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
   
+  skip_filter :dashboard_only
+  
   before_filter do |controller|
     controller.ensure_logged_in "you_must_log_in_to_send_a_message"
     controller.ensure_authorized "you_are_not_authorized_to_do_this"
