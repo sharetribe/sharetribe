@@ -59,6 +59,7 @@ class CommunitiesController < ApplicationController
     params[:community].delete(:address)
     @community = Community.new(params[:community])
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
+    @community.email_confirmation = true
     @community.save
     location.community = @community
     location.save
