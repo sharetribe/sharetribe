@@ -317,6 +317,8 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def email_allowed?(email, community)
+    return true if community.allowed_emails.nil?
+    
     allowed = false
     allowed_array = community.allowed_emails.split(",")
     
