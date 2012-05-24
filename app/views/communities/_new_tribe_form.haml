@@ -67,5 +67,5 @@
             = loc.hidden_field :location_type, :value => "community"
           = form.submit t(".create_your_tribe"), :class => "form_button"
 
-- if @community.settings
+- if session[:community_locale]
   = render :partial => "people/help_texts", :collection => ["terms"], :as => :field 

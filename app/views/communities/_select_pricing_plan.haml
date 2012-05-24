@@ -13,7 +13,7 @@
   .pricing_column
     %h3.pricing= t(".premium_plan")
     %ul
-      %li= t(".euros_per_month_premium")
+      %li= t(".euros_per_month_premium", :price => (community_email_restricted? ? "150" : "75"))
       %li= t(".max_500_members")
     = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium")
 .grid_4.omega

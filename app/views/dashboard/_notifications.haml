@@ -1,0 +1,6 @@
+- [:notice, :warning, :error].each do |notification|
+  - if flash[notification]
+    .container_12
+      .grid_12.alpha.omega
+        %div{:id => "#{notification}_box"}
+          = t("layouts.notifications.#{flash[notification]}")

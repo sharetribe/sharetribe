@@ -131,7 +131,6 @@ class PeopleController < Devise::RegistrationsController
       redirect_to error_redirect_path and return
     end
     session[:person_id] = @person.id
-    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
     
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
@@ -140,11 +139,13 @@ class PeopleController < Devise::RegistrationsController
     
     if !@current_community
       session[:consent] = APP_CONFIG.consent
+      session[:unconfirmed_email] = @person.email
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
+      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
@@ -187,7 +188,7 @@ class PeopleController < Devise::RegistrationsController
 	  end
 	  
 	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
-	  if params["request_new_email_confirmation"] && ! email_allowed?(params[:person][:email], @current_community)
+	  if params["request_new_email_confirmation"] && ! @current_community.email_allowed?(params[:person][:email])
 	    flash[:error] = t("people.new.email_not_allowed")
 	    redirect_to :back and return
     end
@@ -237,7 +238,7 @@ class PeopleController < Devise::RegistrationsController
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = email_allowed_for_community?(params[:person][:email], @current_community)
+      available = @current_community.email_allowed?(params[:person][:email], @current_community)
     end
     
     if available
@@ -269,7 +270,7 @@ class PeopleController < Devise::RegistrationsController
   def check_email_validity
     valid = true
     if @current_community.allowed_emails.present?
-      valid = email_allowed_for_community?(params[:community_membership][:email], @current_community)
+      valid = @current_community.email_allowed?(params[:community_membership][:email])
     end
     respond_to do |format|
       format.json { render :json => valid }
@@ -330,7 +331,6 @@ class PeopleController < Devise::RegistrationsController
     end
   end
   
-  
   def change_active_status(status)
     @person = Person.find(params[:id])
     #@person.update_attribute(:active, 0)
@@ -347,24 +347,6 @@ class PeopleController < Devise::RegistrationsController
         render :layout => false 
       }
     end
-  end
-  
-  def email_allowed?(email, community)
-    return true if community.allowed_emails.nil?
-    
-    allowed = false
-    allowed_array = community.allowed_emails.split(",")
-    
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    
-    return allowed
   end
   
 end

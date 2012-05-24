@@ -115,5 +115,30 @@ class Community < ActiveRecord::Base
     reserved_names = %w{ www wiki mail calendar doc docs admin dashboard translate alpha beta gamma test developer community tribe git partner partners global sharetribe share dev st aalto ospn kassi video photos fi fr cl gr us usa}
     ! (reserved_names.include?(domain) || find_by_domain(domain).present?)
   end
+  
+  def self.find_by_email_ending(email)
+    Community.all.each do |community|
+      return community if community.allowed_emails && community.email_allowed?(email)
+    end
+    return nil
+  end
+  
+  def email_allowed?(email)
+    Community.find_by_email_ending
+  end
+  
+  def self.email_allowed?(email)
+    allowed = false
+    allowed_array = allowed_emails.split(",")
+    allowed_array.each do |allowed_domain_or_address|
+      allowed_domain_or_address.strip!
+      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
+      if email =~ /#{allowed_domain_or_address}$/
+        allowed = true
+        break
+      end
+    end
+    return allowed
+  end
 
 end

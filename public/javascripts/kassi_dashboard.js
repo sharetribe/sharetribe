@@ -126,6 +126,10 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	});	
 }
 
+function initialize_enter_organization_email_form(default_text) {
+  $('input.organization_email').watermark(default_text, {className: 'default_text'});
+}
+
 function open_url(url) {
   window.location = url;
   return false;

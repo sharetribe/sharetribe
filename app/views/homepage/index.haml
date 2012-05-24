@@ -66,12 +66,6 @@
       = render :partial => "profile_info_empty_notification"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
-  - if @current_community.custom_frontpage_sidebar?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :file => community_file("frontpage_sidebar", true)
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
   - if @current_community.event_feed_enabled? && @current_community.event_feed_events.size > 2
     .homepage_sidebar_box
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
@@ -97,3 +91,8 @@
       = render :partial => "invitation_form"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
+  - if @current_community.custom_frontpage_sidebar?
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      = render :file => community_file("frontpage_sidebar", true)
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }

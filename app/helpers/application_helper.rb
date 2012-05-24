@@ -193,7 +193,7 @@ module ApplicationHelper
   end
   
   def email_not_accepted_message
-    if @current_community.allowed_emails.present?
+    if @current_community && @current_community.allowed_emails.present?
       t("people.new.email_is_in_use_or_not_allowed") 
     else
       t("people.new.email_is_in_use")
@@ -224,22 +224,6 @@ module ApplicationHelper
     
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Kassi"
-  end
-  
-  def email_allowed_for_community?(email, community)
-    allowed = false
-    allowed_array = community.allowed_emails.split(",")
-    
-    allowed_array.each do |allowed_domain_or_address|
-      allowed_domain_or_address.strip!
-      allowed_domain_or_address.gsub!('.', '\.') #change . to be \. to only match a dot, not any char
-      if email =~ /#{allowed_domain_or_address}$/
-        allowed = true
-        break
-      end
-    end
-    
-    return allowed
   end
   
   # returns the locale part from url.

@@ -79,13 +79,13 @@ h4 {
   letter-spacing: 1px; }
 
 a, a:visited {
-  color: #fdf4bc;
+  color: white;
   font-size: 14px;
   text-decoration: none;
   font-weight: 500; }
 
 a:hover {
-  color: white; }
+  color: #fdf4bc; }
 
 a:active {
   color: #f8792f; }
@@ -334,6 +334,11 @@ input[type=text].domain_field {
   width: 264px;
   float: left;
   margin: 0 15px; }
+
+input[type=text].organization_email {
+  width: 360px;
+  margin-top: 3px;
+  float: left; }
 
 input[type=text]:focus, input[type=password]:focus {
   background: white; }
@@ -833,7 +838,14 @@ span.domain {
   color: white;
   font-size: 16px;
   padding: 10px 20px;
-  width: 880px;
+  margin-top: 20px;
+  text-align: center; }
+
+#notice_box {
+  background-color: #a2f152;
+  color: #223f05;
+  font-size: 16px;
+  padding: 10px 20px;
   margin-top: 20px;
   text-align: center; }
 
@@ -1125,3 +1137,244 @@ div.language {
   font-size: 18px;
   padding-bottom: 3px;
   width: 100%; }
+
+#organization_email_form {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 40px 0 70px 0;
+  padding: 35px 40px 25px 40px;
+  overflow: hidden;
+  overflow: hidden; }
+  #organization_email_form .form_button {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer; }
+    #organization_email_form .form_button:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #organization_email_form .form_button:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #organization_email_form .form_button:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+  #organization_email_form label.error {
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 0;
+    width: 524px; }
+  #organization_email_form .send_button {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer;
+    float: left;
+    margin-left: 15px; }
+    #organization_email_form .send_button:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #organization_email_form .send_button:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #organization_email_form .send_button:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+
+#confirmation_pending_form {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 40px 0 70px 0;
+  padding: 35px 40px 25px 40px;
+  overflow: hidden;
+  overflow: hidden; }
+  #confirmation_pending_form .form_button {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer; }
+    #confirmation_pending_form .form_button:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #confirmation_pending_form .form_button:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #confirmation_pending_form .form_button:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+  #confirmation_pending_form label.error {
+    font-size: 16px;
+    font-weight: bold;
+    clear: both;
+    float: left;
+    margin: 5px 0 0 170px;
+    padding: 14px 10px 5px 10px;
+    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    color: white;
+    margin-left: 0;
+    width: 524px; }
+  #confirmation_pending_form p {
+    color: white;
+    font-size: 16px; }
+    #confirmation_pending_form p a {
+      font-size: 16px; }
+  #confirmation_pending_form input.resend_email_confirmation_button, #confirmation_pending_form input.send_button {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer; }
+    #confirmation_pending_form input.resend_email_confirmation_button:active, #confirmation_pending_form input.send_button:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #confirmation_pending_form input.resend_email_confirmation_button:focus, #confirmation_pending_form input.send_button:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    #confirmation_pending_form input.resend_email_confirmation_button:hover, #confirmation_pending_form input.send_button:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
