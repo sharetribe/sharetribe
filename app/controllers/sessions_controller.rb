@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   
   skip_filter :check_email_confirmation
   skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => [ :create ]
+  skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
   skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
   
@@ -165,8 +165,10 @@ class SessionsController < ApplicationController
         flash[:error] = :email_not_found
       end
     end
-
-    if @current_community && @current_community.private?
+    
+    if on_dashboard?
+      redirect_to dashboard_login_path
+    elsif @current_community && @current_community.private?
       redirect_to :controller => :homepage, :action => :sign_in
     else
       redirect_to login_path

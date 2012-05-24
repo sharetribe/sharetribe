@@ -400,15 +400,20 @@ class Person < ActiveRecord::Base
     self.email == address || Email.find_by_address_and_person_id(address, self.id).present?
   end
   
+  def has_confirmed_email?(address)
+    additional_email = Email.find_by_address(address)
+    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at?)
+  end
+  
   def has_valid_email_for_community?(community)
     allowed = false
     
     #check primary email
-    allowed = true if email_allowed_for_community?(self.email, community)
+    allowed = true if community.email_allowed?(self.email)
     
     #check additional confirmed emails
     self.emails.select{|e| e.confirmed_at.present?}.each do |e|
-      allowed = true if email_allowed_for_community?(e.address, community)
+      allowed = true if community.email_allowed?(e.address)
     end
     
     return allowed

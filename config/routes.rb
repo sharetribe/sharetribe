@@ -157,6 +157,8 @@ Kassi::Application.routes.draw do
       collection do 
         get :check_domain_availability
         get :change_form_language
+        post :set_organization_email
+        post :confirm_organization_email
       end
     end
     resources :community_memberships, :as => :tribe_memberships

@@ -2,7 +2,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   skip_filter :check_email_confirmation, :cannot_access_without_joining
   skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => :create
+  skip_filter :single_community_only
   
   # This is directly copied from Devise::ConfirmationsController
   # to be able to handle better the situations of resending confirmation and
@@ -13,9 +13,14 @@ class ConfirmationsController < Devise::ConfirmationsController
     self.resource = resource_class.send_confirmation_instructions(params[resource_name])
 
     if successfully_sent?(resource)
-      set_flash_message(:notice, :send_instructions) if is_navigational_format?
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
-      redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
+      if on_dashboard?
+        flash[:notice] = "send_instructions"
+        redirect_to new_tribe_path
+      else
+        set_flash_message(:notice, :send_instructions) if is_navigational_format?
+        redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
+      end
     else
       respond_with_navigational(resource){ render_with_scope :new }
     end
@@ -35,17 +40,25 @@ class ConfirmationsController < Devise::ConfirmationsController
         e.confirmed_at = Time.now
         e.confirmation_token = nil
         e.save
-        flash[:notice] = "additional_email_confirmed"
         
         # This redirect expects that additional emails are only added when joining a community that requires it
-        redirect_to :controller => "community_memberships", :action => "new" and return
+        if on_dashboard?
+          redirect_to new_tribe_path and return
+        else
+          flash[:notice] = "additional_email_confirmed"
+          redirect_to :controller => "community_memberships", :action => "new" and return
+        end
       end
       
       #respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
       # This is changed from Devise's default
       flash[:error] = "confirmation_link_is_wrong_or_used"
       if @current_user
-        redirect_to :controller => "sessions", :action => "confirmation_pending"
+        if on_dashboard?
+          redirect_to new_tribe_path
+        else
+          redirect_to :controller => "sessions", :action => "confirmation_pending"
+        end
       else
         redirect_to :root
       end

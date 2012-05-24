@@ -235,14 +235,14 @@ h4 {
 }
 
 a, a:visited {
-	color: $yellow;
+	color: white;
 	font-size: 14px;
 	text-decoration: none;
 	font-weight: 500;
 }
 
 a:hover {
-	color: white;
+	color: $yellow;
 }
 
 a:active {
@@ -430,6 +430,12 @@ input[type=text].domain_field {
   width: 264px;
   float: left;
   margin: 0 15px;
+}
+
+input[type=text].organization_email {
+  width: 360px;
+  margin-top: 3px;
+  float: left;
 }
 
 input[type=text]:focus, input[type=password]:focus { 
@@ -651,7 +657,15 @@ span.domain {
   color: white;
   font-size: 16px;
   padding: 10px 20px;
-  width: 880px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#notice_box {
+  background-color: lighten($dark_green, 50%);
+  color: $dark_green;
+  font-size: 16px;
+  padding: 10px 20px;
   margin-top: 20px;
   text-align: center;
 }
@@ -745,4 +759,25 @@ div.language {
   font-size: 18px;
   padding-bottom: 3px;
   width: 100%;
+}
+
+#organization_email_form {
+  @include form;
+  overflow: hidden;
+  .send_button { 
+    @include form_button;
+    float: left;
+    margin-left: 15px;
+  }
+}
+
+#confirmation_pending_form {
+  @include form;
+  overflow: hidden;
+  p {
+    color: white;
+    font-size: 16px;
+    a { font-size: 16px;}
+  }
+  input.resend_email_confirmation_button, input.send_button { @include form_button; }
 }

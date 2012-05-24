@@ -12,4 +12,9 @@ class Email < ActiveRecord::Base
       self.confirmation_token ||= ActiveSupport::SecureRandom.base64(12)
     end
   end
+  
+  def self.confirmed?(email)
+    Email.find_by_address(email).confirmed_at.present?
+  end
+  
 end
