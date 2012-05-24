@@ -24,11 +24,7 @@ class CommunitiesController < ApplicationController
   # GET /communities/1.xml
   def show
     @community = Community.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @community }
-    end
+    render :partial => "map_bubble"
   end
 
   # GET /communities/new

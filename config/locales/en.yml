@@ -69,6 +69,8 @@ en:
     username: Username
     what_is_this: "What's this?"
   communities:
+    map_bubble:
+      view_tribe: "View tribe"
     email_confirmation_pending:
       confirmation_pending: "Please confirm your email address"
     enter_organization_email:
@@ -83,8 +85,8 @@ en:
       go_to_your_tribe: "Go to your tribe"
     index:
       find_your_local_tribe: "Find your local tribe"
-      or_start_your_own: "Or %{start_your_own_tribe_link}!"
-      start_your_own_tribe_link: "start your own"
+      or_start_your_own: "...or %{start_your_own_tribe_link}"
+      start_your_own_tribe_link: "start your own!"
     select_pricing_plan:
       select_your_plan: "Select your plan"
       pick_one_of_the_options_below: "Pick one of the options below."
