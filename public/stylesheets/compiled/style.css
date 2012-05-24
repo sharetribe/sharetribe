@@ -3182,6 +3182,12 @@ a.handle:hover {
   background: #ececdb;
   padding: 10px 0 10px 10px; }
 
+.profile_trustcloud {
+  overflow: visible;
+  width: 208px;
+  background: #ececdb;
+  padding: 10px 5px 10px 5px; }
+
 .profile_badge {
   float: left;
   margin-right: 8px; }
@@ -3701,3 +3707,21 @@ input.resend_email_confirmation_button {
     background-color: #9f7d4e; }
   input.resend_email_confirmation_button:focus {
     background-color: #9f7d4e; }
+
+/* Trustcloud's Trustcard colors*/
+/* Light Color */
+.tc-trustcard a.tc-t {
+  color: #44731b; }
+
+a.tc-claim.tc-t, a.tc-claim.tc-t:visited, .tc-badge.tc-t {
+  background-color: #44731b; }
+
+.tc-banner path.tc-t {
+  fill: #44731b; }
+
+/* Dark Color */
+.tc-trustcard .tc-tooltip.tc-t {
+  background: #2f5707; }
+
+.tc-trustcard .tc-tooltip.tc-t::after {
+  border-top-color: #2f5707; }

@@ -550,6 +550,7 @@ function initialize_profile_view(badges) {
 		$('#profile_description_full').hide(); 
 	});
 	$('#badges_description_link').click(function() { $('#badges_description').lightbox_me({centered: true}); });
+	$('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
 	for (var i = 0; i < badges.length; i++) {
 		$('#' + badges[i] + '_description_link').click(function(badge) {
 			$('#' + badge.currentTarget.id + '_target').lightbox_me({centered: true});

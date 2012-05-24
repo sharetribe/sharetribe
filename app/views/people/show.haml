@@ -9,6 +9,15 @@
   - if @current_user && @current_user.is_admin?
     #edit_links
       = render :partial => "edit_links"
+  - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
+    .profile_trustcloud_header.profile_badges_header
+      = t('.trustcloud')
+      &nbsp;
+      = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
+    .profile_trustcloud
+      = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}\"></script>".html_safe
+      = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
+  
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
     .profile_badges_header
       = "#{t('.badges')} (#{@person.badges.size})"
@@ -37,9 +46,6 @@
         = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
       .profile_testimonials_link_to_all
         = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
-  - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
-    = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}\"></script>".html_safe
-        
         
 .grid_18
   #inactive_notification
