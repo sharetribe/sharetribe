@@ -423,7 +423,7 @@ function addCommunityMarkers() {
             position: location,
             title: entry["name"],
             map: map,
-            icon: '/favicon.ico'
+            icon: '/images/dashboard/map_icons/tribe.png'
           });
           markers.push(marker);
           markersArr.push(marker);
@@ -438,15 +438,11 @@ function addCommunityMarkers() {
               showingMarker = "";
             } else {
               showingMarker = marker.getTitle();
-              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 110px; padding-top: 0px;'><h5>" +
-                entry["name"] + "</h5><div style='text-align: left'>Members: " +
-                entry["members_count"] + "<br />Languages: " +
-                entry["settings"]["locales"] + "<br />Description: coming soon</div><a href=\"http://" +
-                entry["domain"] + ".lvh.me:3000\">t(Join this community)</a></div></div>");
+              infowindow.setContent("<div id='map_bubble'><div style='text-align: center; width: 360px; height: 70px; padding-top: 25px;'><img src='/images/ajax-loader-grey.gif'></div></div>");
               infowindow.open(map,marker);
-              // $.get('/en/communities/'+entry["id"], function(data) {
-              //   $('#map_bubble').html(data);
-              // });
+              $.get('/en/tribes/'+entry["id"], function(data) {
+                $('#map_bubble').html(data);
+              });
             }
           });
           google.maps.event.addListener(infowindow, 'closeclick', function() {

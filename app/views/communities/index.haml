@@ -14,6 +14,6 @@
     .grid_12.alpha.omega
       %h1.browse= t(".find_your_local_tribe")
       #map-canvas
-      %h1.browse= t(".or_start_your_own", :start_your_own_tribe_link => link_to(t(".start_your_own_tribe_link"), new_tribe_path)).html_safe
+      %h2.browse= t(".or_start_your_own", :start_your_own_tribe_link => link_to(t(".start_your_own_tribe_link"), new_tribe_path, :class => "green_part_link")).html_safe
 
 = render :partial => "dashboard/footer"

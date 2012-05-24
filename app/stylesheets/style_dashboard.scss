@@ -23,6 +23,10 @@ $yellow: #fdf4bc;
 $dark_green: #223f05;
 $lighter_green: #3e6714;
 
+/* Fonts */
+$sans_font: 'Droid Sans', Helvetica, Georgia, Times, serif;
+
+
 /* Mixins */
 
 @mixin rounded($radius: 15px) {
@@ -200,6 +204,14 @@ h2.new_tribe {
   margin-bottom: 0;
 }
 
+h2.browse {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin: 0 0 50px 0;
+  font-size: 18px;
+  color: white;
+}
+
 h2.campaign_page {
   font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 18px 0 5px 0;
@@ -223,6 +235,15 @@ h3.pricing {
   font-size: 25px;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+h3.map_bubble {
+  margin: 0;
+  color: $text_color;
+  font-size: 24px;
+  width: 190px;
+  float: left;
+  line-height: 30px;
 }
 
 h4 {
@@ -739,7 +760,7 @@ p.okl { color: white; }
 }
 
 #map-canvas {
-  margin: 20px 0 80px 0;
+  margin: 20px 0 40px 0;
   width: 100%;
   height: 500px;
 }
@@ -780,4 +801,26 @@ div.language {
     a { font-size: 16px;}
   }
   input.resend_email_confirmation_button, input.send_button { @include form_button; }
+}
+
+.map_bubble_header {
+  overflow: hidden;
+  width: 340px;
+}
+
+.map_bubble_link {
+  a {
+    @include form_button;
+    padding: 5px;
+    font-family: $sans_font;
+  }
+  padding: 0;
+  width: 150px;
+  float: right;
+}
+
+p.map_bubble {
+  padding-top: 10px;
+  width: 340px;
+  font-style:italic;
 }

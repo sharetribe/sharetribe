@@ -3,6 +3,7 @@
 @import url('../960.css');
 @import url('../uniform.kassi.css');
 /* Colors */
+/* Fonts */
 /* Mixins */
 /* Actual stuff */
 body {
@@ -48,6 +49,13 @@ h2.new_tribe {
   color: white;
   margin-bottom: 0; }
 
+h2.browse {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin: 0 0 50px 0;
+  font-size: 18px;
+  color: white; }
+
 h2.campaign_page {
   font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
   margin: 18px 0 5px 0;
@@ -69,6 +77,14 @@ h3.pricing {
   font-size: 25px;
   font-weight: bold;
   letter-spacing: 1px; }
+
+h3.map_bubble {
+  margin: 0;
+  color: #464646;
+  font-size: 24px;
+  width: 190px;
+  float: left;
+  line-height: 30px; }
 
 h4 {
   font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
@@ -1009,7 +1025,7 @@ p.okl {
     color: white; }
 
 #map-canvas {
-  margin: 20px 0 80px 0;
+  margin: 20px 0 40px 0;
   width: 100%;
   height: 500px; }
 
@@ -1378,3 +1394,67 @@ div.language {
       background-image: -ms-linear-gradient(top, #ed9374, #e77148);
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+
+.map_bubble_header {
+  overflow: hidden;
+  width: 340px; }
+
+.map_bubble_link {
+  padding: 0;
+  width: 150px;
+  float: right; }
+  .map_bubble_link a {
+    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    text-align: center;
+    display: block;
+    background-color: #dc7438;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#dc7438), to(#d45207));
+    background-image: -webkit-linear-gradient(top, #dc7438, #d45207);
+    background-image: -moz-linear-gradient(top, #dc7438, #d45207);
+    background-image: -o-linear-gradient(top, #dc7438, #d45207);
+    background-image: -ms-linear-gradient(top, #dc7438, #d45207);
+    background-image: linear-gradient(top, #dc7438, #d45207);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#dc7438', EndColorStr='#d45207');
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 15px 30px;
+    border: 0px;
+    cursor: pointer;
+    padding: 5px;
+    font-family: "Droid Sans", Helvetica, Georgia, Times, serif; }
+    .map_bubble_link a:active {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    .map_bubble_link a:focus {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+    .map_bubble_link a:hover {
+      background-color: #ed9374;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));
+      background-image: -webkit-linear-gradient(top, #ed9374, #e77148);
+      background-image: -moz-linear-gradient(top, #ed9374, #e77148);
+      background-image: -o-linear-gradient(top, #ed9374, #e77148);
+      background-image: -ms-linear-gradient(top, #ed9374, #e77148);
+      background-image: linear-gradient(top, #ed9374, #e77148);
+      filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
+
+p.map_bubble {
+  padding-top: 10px;
+  width: 340px;
+  font-style: italic; }
