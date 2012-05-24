@@ -169,6 +169,48 @@ li {
     margin-top: 26px;
     font-size: 18px;
     color: white; }
+  #home_main div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #home_main div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
+    color: white; }
+
+#faq {
+  height: 1700px;
+  background-color: #3e6e14;
+  background-image: -webkit-gradient(radial, 50% 100%, 100, 50% -50%, 100, from(#223f05), to(#3e6e14));
+  background-image: -webkit-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: -moz-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: -ms-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: radial-gradient(50% 0%, #3e6e14, #223f05);
+  box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
+  #faq p.intro {
+    margin: 46px 0 45px 0;
+    font-size: 18px;
+    color: white; }
+  #faq p.browse {
+    margin-top: 5px;
+    color: white;
+    font-size: 18px;
+    text-align: center; }
+  #faq p.tour {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #faq div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #faq div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
+    color: white; }
 
 #campaign_main {
   height: 833px;
@@ -194,6 +236,14 @@ li {
   #campaign_main p.tour {
     margin-top: 26px;
     font-size: 18px;
+    color: white; }
+  #campaign_main div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #campaign_main div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
     color: white; }
   #campaign_main p {
     font-size: 16px;
@@ -227,6 +277,14 @@ li {
   #new_tribe_form_main p.tour {
     margin-top: 26px;
     font-size: 18px;
+    color: white; }
+  #new_tribe_form_main div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #new_tribe_form_main div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
     color: white; }
 
 #home_main_title {
@@ -928,6 +986,14 @@ p.okl {
   #browse_tribes_main p.tour {
     margin-top: 26px;
     font-size: 18px;
+    color: white; }
+  #browse_tribes_main div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #browse_tribes_main div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
     color: white; }
 
 #map-canvas {

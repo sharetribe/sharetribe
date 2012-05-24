@@ -112,7 +112,8 @@ class Community < ActiveRecord::Base
   end
   
   def self.domain_available?(domain)
-    ! find_by_domain(domain).present?
+    reserved_names = %w{ www wiki mail calendar doc docs admin dashboard translate alpha beta gamma test developer community tribe git partner partners global sharetribe share dev st aalto ospn kassi video photos fi fr cl gr us usa}
+    ! (reserved_names.include?(domain) || find_by_domain(domain).present?)
   end
 
 end

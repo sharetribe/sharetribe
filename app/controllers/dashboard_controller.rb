@@ -21,6 +21,10 @@ class DashboardController < ApplicationController
     @communities = Community.where(:label => "okl").order("name")
   end
   
+  def faq
+    
+  end
+  
   # This is for all the custom "campaign" sites
   def campaign
     case params[:page_type]
