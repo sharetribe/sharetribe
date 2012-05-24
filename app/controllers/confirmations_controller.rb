@@ -35,7 +35,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       sign_in(resource_name, resource)
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
-      #check if this confirmation code mathces to additional emails
+      #check if this confirmation code matches to additional emails
       if e = Email.find_by_confirmation_token(params[:confirmation_token])
         e.confirmed_at = Time.now
         e.confirmation_token = nil

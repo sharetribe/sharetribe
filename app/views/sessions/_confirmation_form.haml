@@ -16,11 +16,14 @@
 %p
   = form_for(Person, :as => "person", :url => confirmation_path("person"), :html => { :method => :post }) do |form|
     .form_field_container
-      = form.hidden_field :email, :value => @current_user.email
-      = form.hidden_field :id, :value => @current_user.id
+      - if @current_community
+        = form.hidden_field :email, :value => @current_user.email
+      - else
+        = form.hidden_field :email, :value => session[:unconfirmed_email]
+        = form.hidden_field :id, :value => @current_user.id
       = form.submit t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button"
 %p
-  = t("sessions.confirmation_pending.your_current_email_is", :email => @current_user.email).html_safe
+  = t("sessions.confirmation_pending.your_current_email_is", :email => session[:unconfirmed_email]).html_safe
   = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
 #password_forgotten
   = render :partial => "sessions/change_mistyped_email"
