@@ -8,13 +8,15 @@
     %ul
       %li= t(".no_charge")
       %li= t(".max_100_members")
+      <br />
     = link_to t(".create_for_free"), new_tribe_path(:pricing_plan => "free")
 .grid_4
   .pricing_column
     %h3.pricing= t(".premium_plan")
     %ul
       %li= t(".euros_per_month_premium", :price => (community_email_restricted? ? "150" : "75"))
-      %li= t(".max_500_members")
+      %li= t(".care_free_user_support")
+      %li= t(".max_500_members")      
     = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium")
 .grid_4.omega
   .pricing_column
@@ -22,4 +24,7 @@
     %ul
       %li= t(".unlimited_members")
       %li= t(".intranet_integration")
+      %li= t(".custom_domain")
     = link_to t(".contact_us"), "mailto:sales@sharetribe.com"
+.grid_12.alpha.omega
+  %h2.new_tribe= t(".you_can_change_and_cancel")
