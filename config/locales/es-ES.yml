@@ -50,8 +50,8 @@ es-ES:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    default_description: ~
     cancel: Cancelar
+    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -68,84 +68,6 @@ es-ES:
       trade: Intercambiar
     username: "Nombre de usuario"
     what_is_this: "Qué es esto?"
-  communities:
-    map_bubble:
-      view_tribe: ~
-    email_confirmation_pending:
-      confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-    index:
-      find_your_local_tribe: ~
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
-    select_pricing_plan:
-      select_your_plan: ~
-      pick_one_of_the_options_below: ~
-      create_for_free: ~
-      contact_us: ~
-      free_plan: ~
-      max_100_members: ~
-      premium_plan: ~
-      max_500_members: ~
-      care_free_user_support: ~
-      create_your_tribe: ~
-      professional_plan: ~
-      unlimited_members: ~
-      intranet_integration: ~
-      no_charge: ~
-      euros_per_month_premium: ~
-      custom_domain: ~
-      you_can_change_and_cancel: ~
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
-      company: ~
-      university: ~
-      town: ~
-      congregation: ~
-      association: ~
-      neighborhood: ~
-      apartment_building: ~
-      other: ~
-    new_tribe_form:
-      create_a_tribe_in_a_minute: ~
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
-      domain_invalid: ~
-      domain_taken: ~
-      address: ~
-      location_description: ~
-      select_main_language_of_your_tribe: ~
-      language: ~
-    signup_form:
-      create_an_account: ~
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: ~
-      your_university_email: ~
-      your_company_email: ~
-      you_need_to_confirm: ~
-      pick_username: ~
-      your_given_name: ~
-      your_family_name: ~
-      your_password: ~
-      confirm_your_password: ~
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: ~
   conversations:
     index:
       loading_more_messages: "Cargando más mensajes"
@@ -224,6 +146,84 @@ es-ES:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      care_free_user_support: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: ~
@@ -243,17 +243,12 @@ es-ES:
       create_your_own: "Crea el tuyo"
       sharing_website: "SITIO WEB PARA COMPARTIR"
       main_description: "Configurar un espacio donde los miembros de tu comunidad puedan compartir bienes, servicios y traslados o paseos en un entorno local de confianza."
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
       kassi_for_your_company: "Kassi para su empresa"
       kassi_for_your_company_description: "Quieres que tu compañía esté socialmente más conectada? Quieres ayudar a tus trabajadores a conocerse entre ellos? Quieres reducir las emisiones y transformarte en una empresa sustentable? Kassi es la solución para ti."
       kassi_for_your_city: "Kassi en tu ciudad"
       kassi_for_your_city_description: "Quieres transformar tu barrio o comunidad en un lugar donde las personas se conocen y se pueden poner en contacto entre ellas cuando necesitan algo? Quieres incentivar a las personas a mejorar sus vidas? Kassi te ayudará a lograr esto."
       kassi_for_your_university: "Kassi para tu universidad"
       kassi_for_your_university_description: "Quieres crear un ambiente en tu campus donde las personas se conozcan y puedan confiar entre ellas? Quieres ayudar a los estudiantes y el personal a ahorrar tiempo, dinero y contribuir al medioambiente? Prueba Kassi y percibe el cambio! Un ejemplo:"
-      an_example: ~
       want_kassi_for_your_community: "Quieres a Kassi para tu comunidad?"
       email_default_text: "Tu dirección email"
       send: Enviar!
@@ -267,12 +262,17 @@ es-ES:
       product_of: "Kassi es un producto de"
       language: "Idioma:"
       new: NUEVO!
+      new_text: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
-      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -531,12 +531,12 @@ es-ES:
       feedback: "Sugerencia al equipo de Kassi"
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Sugerencia
-      formerly_known_as_kassi: ~
       give_feedback: "Da una sugerencia en Kassi"
       keywords: "Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
       meta_description: "Kassi es un servicio que ayuda a los miembros de asociaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o ayudar a si mismos de múltiples formas."
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
+      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."
       your_email_address: "Tu dirección email (no obligatorio)"
     conversations:
@@ -578,7 +578,6 @@ es-ES:
       settings: Opciones
       sign_up: Registrarse
     notifications:
-      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Falló la actualización del avatar. Recuerda que la foto debe ser un archivo  .png, .jpg or .gif ."
@@ -587,7 +586,6 @@ es-ES:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
-      additional_email_confirmed_dashboard: ~
       create_new_offer: "Ofrece algo más"
       create_new_request: "Solicita algo adicional"
       create_one_here: "Crea uno aquí"
@@ -654,6 +652,7 @@ es-ES:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No está autorizado para dar sugerencias en este evento."
       you_are_not_authorized_to_do_this: "No está autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No está autorizado para ver este contenido"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "No puede responder a una oferta cerrada"
       you_cannot_reply_to_a_closed_request: "No puede responder a una solicitud cerrada"
       you_cannot_reply_to_your_own_offer: "No puede responder a su propia oferta"
@@ -663,6 +662,7 @@ es-ES:
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Debe iniciar su sesión en Kassi para crear una nueva oferta. Si no tiene una cuenta puede"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Debe iniciar su sesión en Kassi para crear una nueva solicitud. Si no tiene una cuenta puede"
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debe iniciar sesión para invitar a nuevos usuarios a Kassi"
@@ -1070,8 +1070,8 @@ es-ES:
       show_full_description: "Ver más"
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
-      trustcloud: ~
       what_are_these: "Qué son estos?"
+      trustcloud: ~
   search:
     show:
       all_results: "Todos los resultados"
@@ -1101,14 +1101,18 @@ es-ES:
       request_new_password: "Solicitar nueva contraseña"
       change_your_password: ~
     confirmation_pending:
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      welcome_to_kassi: "Bienvenido a Kassi!"
+      check_your_email: "Revise su bandeja de entrada"
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
       get_started: "Comenzar con Kassi"
       getting_started_instructions: ~
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: ~
       change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Cambiar

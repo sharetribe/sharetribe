@@ -167,25 +167,25 @@ fr:
       start_your_own_tribe_link: "créez la votre !"
     select_pricing_plan:
       select_your_plan: "Choisissez votre offre"
-      pick_one_of_the_options_below: "Choisissez une des options ci-dessous."
-      create_for_free: "Créer gratuitement"
-      contact_us: "Contactez nous"
+      pick_one_of_the_options_below: "Sélectionnez une des options ci-dessous."
+      create_for_free: "Créer votre tribu gratuitement"
+      contact_us: "Nous contacter"
       free_plan: "Offre gratuite"
-      max_100_members: "100 membres maximum"
+      max_100_members: "Jusqu'à 100 membres"
       premium_plan: "Offre premium"
-      max_500_members: "500 membres maximum"
-      care_free_user_support: ~
+      max_500_members: "Jusqu'à 500 membres"
+      care_free_user_support: "Support utilisateur"
       create_your_tribe: "Créer votre tribu"
       professional_plan: "Offre pro"
       unlimited_members: "Nombre illimité de membres"
       intranet_integration: "Intégration à votre intranet"
-      no_charge: "Entièrement Gratuit"
+      no_charge: "Entièrement gratuit"
       euros_per_month_premium: "150 euros par mois"
       custom_domain: "Nom de domaine personnalisé"
       you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez vous créer ?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Tout d'abord, dites nous quelle type de communauté vous représentez en choisissant une proposition ci-dessous."
+      what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez-vous créer ?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Pour commencer, dites nous quelle type de communauté vous représentez."
       company: Entreprise
       university: Université
       town: Ville
@@ -239,7 +239,7 @@ fr:
     index:
       get_started: "LANCEZ VOUS !"
       browse_communities_around_you: "rejoignez une tribu près de vous"
-      slogan: "Un marché en ligne pour votre communauté."
+      slogan: "Partagez autour de vous."
       create_your_own: "Créez votre"
       sharing_website: "SITE DE PARTAGE"
       main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des trajets dans un esprit de confiance."
@@ -255,7 +255,7 @@ fr:
       or_drop_us_a_line: "... ou laissez nous un message :"
       thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre communauté %{service_name} très bientôt."
       resources: RESSOURCES
-      connect: CONNECTION
+      connect: "RETROUVEZ NOUS"
       blog: Blog
       code: Code
       issue_tracker: "Gestionnaire de tickets"
@@ -268,11 +268,11 @@ fr:
       contact_us: "contactez nous"
       why_you_really_should_have_a_tribe: "Pourquoi vous devriez vraiment avoir une tribu"
       an_example: "Un exemple :"
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
+      home: Accueil
+      faq: FAQ
+      browse_tribes: "Parcourir les tribus"
+      pricing: Tarifs
+      contact: Contact
   emails:
     accept_reminder:
       offer_accusative: offre
@@ -526,15 +526,15 @@ fr:
       polls: Sondages
     application:
       default_feedback: "Proposer une nouvelle fonctionnalité, signaler un bug, donnez votre opinion sur le service ou laissez-nous juste un mot pour dire bonjour !"
-      feedback: "Vos commentaires à l'équipe de %{service_name}"
+      feedback: "Vos commentaires pour l'équipe de %{service_name}"
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaires
       give_feedback: "Faites vos commentaires sur %{service_name}"
-      keywords: "%{service_name}, service, article, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
+      keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
       meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
       or_check_our: "...ou consultez notre"
       send_feedback_to_admin: "Envoyer commentaires"
-      formerly_known_as_kassi: ~
+      formerly_known_as_kassi: "anciennement Kassi"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré."
       your_email_address: "Votre adresse email (non-obligatoire)"
     conversations:
@@ -605,7 +605,7 @@ fr:
       item_offer_message_sent: "Demande d'article envoyée avec succès"
       item_request_message_sent: "Offre d'article envoyée avec succès"
       login_again: "Merci de vous reconnecter."
-      login_failed: "Échec de connexion. Veuillez saisir les identifiants correctes."
+      login_failed: "Échec de la connexion. Veuillez saisir les identifiants corrects."
       login_successful: "Bienvenue sur %{service_name}, "
       logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue à nouveau !"
       news_item_created: "Article créé"
@@ -621,7 +621,7 @@ fr:
       only_kassi_administrators_can_access_this_area: "Seuls les administrateurs de %{service_name} peuvent accéder à ce domaine"
       only_listing_author_can_close_a_listing: "Seul l'auteur de l'annonce peur la fermer"
       only_listing_author_can_edit_a_listing: "Seul l'annonce de liste peut la modifier"
-      password_recovery_sent: "Instructions pour changer votre mot de passe ont été envoyées à votre adresse email."
+      password_recovery_sent: "Les instructions pour réinitialiser votre mot de passe ont été envoyées à votre adresse email."
       person_activated: "Utilisateur activé"
       person_deactivated: "Utilisateur désactivé"
       person_updated_successfully: "Informations mises à jour"
@@ -941,7 +941,7 @@ fr:
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
-      username_is_invalid: "Nom d'utilisateur incorrecte. Les caractères permis sont les lettres, les chiffres et le tiret bas."
+      username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
       visible_to_everybody: "visible à tout le monde"
     not_member:
@@ -1095,7 +1095,7 @@ fr:
       facebook_cancel_link_text: annuler
     password_forgotten:
       email: Email
-      password_recovery_instructions: "Donner votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
+      password_recovery_instructions: "Entrez votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
       request_new_password: Envoyer
       change_your_password: "Changer votre mot de passe"
     confirmation_pending:
@@ -1114,12 +1114,12 @@ fr:
   settings:
     account:
       change: Changer
-      confirm_new_password: "Confirmer nouveau mot de passe"
+      confirm_new_password: "Confirmez votre nouveau mot de passe"
       email: "Adresse email :"
       new_email: "Nouvelle adresse email"
-      new_password: "Nouveau mot de passe"
+      new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
-      these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Les autres informations ne sont montrées qu'à vous."
+      these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
     avatar:
       add_avatar_submit: "Sauvegarder image"
       update_profile_picture: "Mettre à jour l'image de profil"
