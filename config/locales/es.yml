@@ -110,7 +110,7 @@ es:
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Primero cuéntanos que tipo de comunidad representas seleccionando una de las siguientes opciones."
       company: Compañía
       university: Universidad
-      town: ~
+      town: Comuna
       congregation: Congregación
       association: Asociación
       neighborhood: Vecindario
@@ -118,12 +118,12 @@ es:
       other: Otra
     new_tribe_form:
       create_a_tribe_in_a_minute: "Crea una nueva tribu en un minuto"
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
+      welcome_now_create_your_tribe: "¡Bienvenido %{name}! Sigue adelante y crea tu tribu."
+      name_of_your_tribe: "Nombre de tu tribu"
+      web_address_of_your_tribe: "Dirección web de tu tribu"
+      slogan_of_your_tribe: "Lema de tu tribu"
+      describe_your_tribe: "Describe tu tribu: cuál es el propósito de la comunidad"
+      create_your_tribe: "¡Crea tu tribu!"
       domain_invalid: ~
       domain_taken: ~
       address: ~
