@@ -174,12 +174,15 @@ zh:
       max_100_members: ~
       premium_plan: ~
       max_500_members: ~
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
       unlimited_members: ~
       intranet_integration: ~
       no_charge: ~
       euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
@@ -638,20 +641,20 @@ zh:
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
       welcome_message: "欢迎来到Kassi！Kassi给来自%{community}社区的人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。"
-      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
       you_cannot_reply_to_your_own_offer: 您不能回应自己的提议
       you_cannot_reply_to_your_own_request: 您不能回复自己的请求
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
-      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: 请登录以完成提议。如果您没有账户，您可以
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: 请登录以完成请求。如果您没有账户，您可以
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
@@ -904,6 +907,8 @@ zh:
       help_captcha_title: 你是人类么？
       help_invitation_code_title: 您需要被邀请才能加入
       terms_title: Kassi使用条款
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: 此用户处于冻结状态
       inactive_description: 此用户已停用。您不能联系此用户或评价他们的商品列表。
@@ -1058,6 +1063,7 @@ zh:
       slightly_better_than_expected: 超过预期
       slightly_less_than_expected: 比期望的差
       what_are_these: 这些是什么？
+      trustcloud: ~
   search:
     show:
       all_results: 所有结果

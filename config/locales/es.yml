@@ -174,12 +174,15 @@ es:
       max_100_members: ~
       premium_plan: ~
       max_500_members: ~
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
       unlimited_members: ~
       intranet_integration: ~
       no_charge: ~
       euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
@@ -640,20 +643,20 @@ es:
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
       welcome_message: "¡Bienvenido a Kassi! Kassi es un servicio que ayuda a los miembros de la comunidad %{community} a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos y a cooperar mutuamente de diferentes formas."
-      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
       you_cannot_reply_to_a_closed_request: "No puedes responder a una solicitud cerrada"
       you_cannot_reply_to_your_own_offer: "No puedes responder a tu propia oferta"
       you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
       you_followed_listing: "Ahora estás siguiendo este listado"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
-      additional_email_confirmed_dashboard: ~
       you_are_now_member: "Te has unido exitosamente a esta comunidad"
       you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. ¡Bienvenido otra vez!"
       you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en Kassi para crear una nueva solicitud. Si no tienes una cuenta puedes"
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a Kassi"
@@ -906,6 +909,8 @@ es:
       help_captcha_title: "¿Eres humano?"
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de Kassi"
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en Kassi"
       inactive_description: "Este usuario ha dejado de utilizar Kassi. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
@@ -1060,6 +1065,7 @@ es:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "¿Qué son estos?"
+      trustcloud: ~
   search:
     show:
       all_results: "Todos los resultados"

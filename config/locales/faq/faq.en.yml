@@ -2,10 +2,10 @@ en:
   dashboard:
     faq:
       faq_title: FAQ
-      new_tribe_link: "link"
+      new_tribe_link: link
       tribes_map_link: "all over the world"
       translations_link: "current status of translations"
-      github_link: "Github"
+      github_link: Github
       q1: "What is Sharetribe?"
       a1: "Sharetribe is a network of “tribes”, online communities where you can share goods, services, rides and spaces in a local, trusted environment. You can create a tribe for your university campus, your company, your neighborhood, your association, your sports club, your congregation, you name it!"
       q2: "What can you share in Sharetribe?"
@@ -28,4 +28,3 @@ en:
       a9: "Sharetribe is currently available in English, Spanish, Finnish, Greek, French, Russian and Catalan and will be translated into more languages in the future. You can check the %{translations_link}. If you need Sharetribe in a particular language or would like to help us translate our service send us an e-mail at language@sharetribe.com!"
       q10: "Is Sharetribe Open Source?"
       a10: "Yes. Sharetribe is licensed on a free MIT license. You can download the code from %{github_link} and use it any way you will. Please contact us if you have any questions related to developing on top of Sharetribe code.</p><p>Our vision is to develop the best platform for local resource sharing and we believe that the best way to achieve this goal is to open the source and make it possible for interested developer to add new customizations to the code and thus make Sharetribe a more versatile tool for different sharing needs. The developer community is still very young, but we encourage you to join and share your work. Or if you just want to get the code and install a Sharetribe server for free, that's ok too."
-      

@@ -174,12 +174,15 @@ fr:
       max_100_members: "100 membres maximum"
       premium_plan: "Offre premium"
       max_500_members: "500 membres maximum"
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: "Offre pro"
       unlimited_members: "Nombre illimité de membres"
       intranet_integration: "Intégration à votre intranet"
       no_charge: "Entièrement Gratuit"
       euros_per_month_premium: "150 euros par mois"
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Tout d'abord, dites nous quelle type de communauté vous représentez en choisissant une proposition ci-dessous."
@@ -638,20 +641,20 @@ fr:
       unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
       welcome_message: "Bienvenue sur Kassi ! Kassi est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
-      send_instructions: "Vous allez recevoir un email vous expliquant comment ré-initialiser votre mot de passe dans quelques minutes."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
+      send_instructions: "Vous allez recevoir un email vous expliquant comment ré-initialiser votre mot de passe dans quelques minutes."
       you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre fermée"
       you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande fermée"
       you_cannot_reply_to_your_own_offer: "Vous ne pouvez pas répondre à votre propre offre"
       you_cannot_reply_to_your_own_request: "Vous ne pouvez pas répondre à votre propre demande"
       you_followed_listing: "Vous suivez désormais cette annonce"
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
-      additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
       you_are_now_member: "Vous avez rejoint cette communauté"
       you_are_already_member: "Vous êtes déjà membre de la communauté %{service_name}. Bon retour !"
       you_must_log_in_to_create_new_offer: "Vous devez être connecté à Kassi pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
+      additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
       you_must_log_in_to_create_new_request: "Vous devez être connecté à Kassi pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
@@ -904,6 +907,8 @@ fr:
       help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de Kassi"
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
       inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
@@ -1058,6 +1063,7 @@ fr:
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
+      trustcloud: ~
   search:
     show:
       all_results: "Tous les résultats"

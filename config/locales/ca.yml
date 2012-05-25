@@ -174,12 +174,15 @@ ca:
       max_100_members: ~
       premium_plan: ~
       max_500_members: ~
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
       unlimited_members: ~
       intranet_integration: ~
       no_charge: ~
       euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
@@ -640,20 +643,20 @@ ca:
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error quan durant l'actualització de la informació, si us plau intenta-ho de nou."
       welcome_message: "Benvingut a Kassi! Un servei que ajuda als membres de la comunitat %{community} a vendre i prestar-se articles entre ells, organitzar trajectes compartits i ajudar-se mútuament de diverses formes!"
-      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No tens autorització per donar suggeriments en aquest esdeveniment."
       you_are_not_authorized_to_do_this: "No tens autorització per dur a terme aquesta acció."
       you_are_not_authorized_to_view_this_content: "No tens autorització per veure aquest contingut"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "No pots respondre a una oferta finalitzada"
       you_cannot_reply_to_a_closed_request: "No pots respondre a una sol·licitud tancada"
       you_cannot_reply_to_your_own_offer: "No pots respondre a la teva pròpia oferta"
       you_cannot_reply_to_your_own_request: "No pots respondre a la teva pròpia sol·licitud"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
-      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Inicia sessió per a crear una nova oferta. Si no tens compte pots"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Inicia sessió per a crear una nova sol·licitud. Si no tens compte pots"
       you_must_log_in_to_give_feedback: "Iniciar sessió per a fer una suggerència"
       you_must_log_in_to_invite_new_users: "Cal que inicis sessió per convida a nous usuaris"
@@ -906,6 +909,8 @@ ca:
       help_captcha_title: "Ets una persona?"
       help_invitation_code_title: "Necessites una invitació per unir-te a"
       terms_title: "Termes d'ús de Kassi"
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
@@ -1060,6 +1065,7 @@ ca:
       slightly_better_than_expected: "Ha superat les expectatives"
       slightly_less_than_expected: "Pitjor de l'esperat"
       what_are_these: "Què són aquests?"
+      trustcloud: ~
   search:
     show:
       all_results: "Tots els resultats"
