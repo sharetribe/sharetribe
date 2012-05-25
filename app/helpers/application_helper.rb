@@ -223,7 +223,27 @@ module ApplicationHelper
     end
     
   def self.fetch_community_service_name_from_thread
-    Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Kassi"
+    Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
+  end
+  
+  def self.service_name_other_forms(name)
+    forms_hash = case name
+      when "Sharetribe" then {
+        :illative => "Sharetribeen",
+        :genetive => "Sharetriben",
+        :inessive => "Sharetribessa",
+        :elative => "Sharetribesta",
+        :partitive => "Sharetribea"
+        }
+      when "Kassi" then {
+        :illative => "Kassiin",
+        :genetive => "Kassin",
+        :inessive => "Kassissa",
+        :elative => "Kassista",
+        :partitive => "Kassia"
+        }
+      else nil
+    end
   end
   
   # returns the locale part from url.
