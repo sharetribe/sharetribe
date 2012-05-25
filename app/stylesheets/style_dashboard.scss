@@ -207,13 +207,10 @@ h2.new_tribe {
 h2.new_tribe_bottom {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
-  margin-top: 0;
-  margin-bottom: 50px;
+  margin: 0 0 50px 0;
   font-size: 18px;
   color: white;
-  margin-bottom: 0;
 }
-
 
 h2.browse {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
@@ -785,6 +782,7 @@ p.okl { color: white; }
 
 .pricing_column {
   @include form;
+  margin-bottom: 30px;
   padding: 20px 25px;
   a { 
     @include form_button;
