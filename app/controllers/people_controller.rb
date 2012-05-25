@@ -18,7 +18,7 @@ class PeopleController < Devise::RegistrationsController
   skip_filter :single_community_only, :only => [ :create, :check_username_availability, :check_email_availability ]
   skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_invitation_code]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
-
+  skip_filter :single_community_only, :only  => [:check_email_availability_and_validity, :update]
   
   if ApplicationHelper.use_asi?
     # We don't use devise's authentication with ASI
@@ -188,7 +188,7 @@ class PeopleController < Devise::RegistrationsController
 	  end
 	  
 	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
-	  if params["request_new_email_confirmation"] && ! @current_community.email_allowed?(params[:person][:email])
+	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
 	    flash[:error] = t("people.new.email_not_allowed")
 	    redirect_to :back and return
     end
@@ -234,6 +234,11 @@ class PeopleController < Devise::RegistrationsController
   
   #This checks also that email is allowed for this community
   def check_email_availability_and_validity
+    
+    # If asked from dashboard, only check availability
+    return check_email_availability if @current_community.nil?
+    
+    
     available = true
     
     #first check if the community allows this email

@@ -176,11 +176,11 @@ fi:
       max_500_members: "Max. 500 jäsentä"
       care_free_user_support: "Huoleton käyttäjätuki"
       create_your_tribe: "Luo yhteisö"
-      professional_plan: "Pro paketti"
+      professional_plan: "Mukautuva paketti"
       unlimited_members: "Rajoittamaton jäsenmäärä"
       intranet_integration: "Intranet integrointi"
       no_charge: Ilmainen
-      euros_per_month_premium: ~
+      euros_per_month_premium: "%{price} euroa kuukaudessa (sis. ALV)"
       custom_domain: "oma domain-nimi"
       you_can_change_and_cancel: "Voit vaihtaa tai perua valittun paketin milloin vain."
     select_tribe_category_form:
@@ -211,9 +211,9 @@ fi:
     signup_form:
       create_an_account: "Luo tunnus itsellesi"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Voit luoda uuden tunnuksen %{service_name_illative} alta tai"
-      log_in_with_your_existing_account: "Kirjaudu sisään olemassa olevalla tunnuksella"
+      log_in_with_your_existing_account: "kirjaudu sisään olemassa olevalla tunnuksella"
       your_email: Sähköpostiosoitteesi
-      your_university_email: Yliopiston sähköpostiosoitteesi
+      your_university_email: "Yliopiston sähköpostiosoitteesi"
       your_company_email: Yrityssähköpostisi
       you_need_to_confirm: "Luodaksesi %{tribe_type}-yhteisön sinun täytää vahvistaa %{tribe_type}sähköpostiosoitteesi."
       pick_username: "Valitse käyttäjätunnus"
