@@ -142,16 +142,21 @@ li {
   height: 64px;
   background: #f7f5e6; }
 
+#logo_container {
+  overflow: hidden; }
+
 #logo {
-  margin-top: 14px; }
+  margin-top: 14px;
+  float: left; }
 
 #select_language_form {
   margin-top: 20px;
   float: right; }
 
-#slogan, #language_label {
+#slogan {
   color: #d45207;
-  margin-top: 22px; }
+  margin: 24px 0 0 20px;
+  float: left; }
 
 #language_switch {
   overflow: hidden; }
@@ -173,7 +178,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
   #home_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #home_main p.browse {
@@ -207,7 +212,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
   #faq p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #faq p.browse {
@@ -241,7 +246,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
   #campaign_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #campaign_main p.browse {
@@ -282,7 +287,7 @@ li {
   height: 100%;
   overflow: hidden; }
   #new_tribe_form_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #new_tribe_form_main p.browse {
@@ -304,10 +309,10 @@ li {
     color: white; }
 
 #home_main_title {
-  height: 158px; }
+  height: 163px; }
 
 #home_main_screenshot {
-  height: 223px; }
+  height: 218px; }
 
 .home_main_screenshot_longer {
   height: 326px;
@@ -1003,7 +1008,7 @@ p.okl {
   height: 100%;
   overflow: hidden; }
   #browse_tribes_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #browse_tribes_main p.browse {
@@ -1458,3 +1463,13 @@ p.map_bubble {
   padding-top: 10px;
   width: 340px;
   font-style: italic; }
+
+#header_links {
+  overflow: hidden; }
+  #header_links a {
+    font-size: 18px;
+    color: #3c6e09;
+    float: right;
+    margin: 18px 20px 0 0; }
+    #header_links a:hover {
+      color: #559e0c; }
