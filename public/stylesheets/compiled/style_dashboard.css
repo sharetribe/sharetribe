@@ -49,6 +49,13 @@ h2.new_tribe {
   color: white;
   margin-bottom: 0; }
 
+h2.new_tribe_bottom {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin: 0 0 50px 0;
+  font-size: 18px;
+  color: white; }
+
 h2.browse {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
@@ -142,16 +149,21 @@ li {
   height: 64px;
   background: #f7f5e6; }
 
+#logo_container {
+  overflow: hidden; }
+
 #logo {
-  margin-top: 14px; }
+  margin-top: 14px;
+  float: left; }
 
 #select_language_form {
   margin-top: 20px;
   float: right; }
 
-#slogan, #language_label {
+#slogan {
   color: #d45207;
-  margin-top: 22px; }
+  margin: 24px 0 0 20px;
+  float: left; }
 
 #language_switch {
   overflow: hidden; }
@@ -173,7 +185,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
   #home_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #home_main p.browse {
@@ -195,7 +207,7 @@ li {
     color: white; }
 
 #faq {
-  height: 1700px;
+  height: 421px;
   background-color: #3e6e14;
   background-image: -webkit-gradient(radial, 50% 100%, 100, 50% -50%, 100, from(#223f05), to(#3e6e14));
   background-image: -webkit-radial-gradient(50% 0%, #3e6e14, #223f05);
@@ -205,9 +217,12 @@ li {
   box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
-  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
+  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 20px; }
   #faq p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #faq p.browse {
@@ -241,7 +256,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
   #campaign_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #campaign_main p.browse {
@@ -282,7 +297,7 @@ li {
   height: 100%;
   overflow: hidden; }
   #new_tribe_form_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #new_tribe_form_main p.browse {
@@ -304,10 +319,10 @@ li {
     color: white; }
 
 #home_main_title {
-  height: 158px; }
+  height: 163px; }
 
 #home_main_screenshot {
-  height: 223px; }
+  height: 218px; }
 
 .home_main_screenshot_longer {
   height: 326px;
@@ -1003,7 +1018,7 @@ p.okl {
   height: 100%;
   overflow: hidden; }
   #browse_tribes_main p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white; }
   #browse_tribes_main p.browse {
@@ -1037,6 +1052,7 @@ p.okl {
   margin: 40px 0 70px 0;
   padding: 35px 40px 25px 40px;
   overflow: hidden;
+  margin-bottom: 30px;
   padding: 20px 25px; }
   .pricing_column .form_button {
     font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
@@ -1458,3 +1474,24 @@ p.map_bubble {
   padding-top: 10px;
   width: 340px;
   font-style: italic; }
+
+#header_links {
+  overflow: hidden; }
+  #header_links a {
+    font-size: 18px;
+    color: #3c6e09;
+    float: right;
+    margin: 18px 20px 0 0; }
+    #header_links a:hover {
+      color: #559e0c; }
+
+.faq a {
+  color: #f8792f;
+  font-size: 14px;
+  font-weight: 400; }
+  .faq a:hover {
+    color: #fa9961; }
+  .faq a:focus {
+     color: #fa9961; }
+  .faq a:active {
+     color: #f8792f; }

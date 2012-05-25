@@ -10,14 +10,17 @@
 #faq
   .container_12
     .grid_12.alpha.omega
-      %h1.browse= t(".faq_title")
-      - for i in 1..number_of_faq_questions
-        .faq_question
-          %p.faq
-            = "#{i}. " + t(".q#{i}", faq_links).html_safe
-        .faq_answer
-          %p.faq
-            = t(".a#{i}", faq_links).html_safe
+      %h1.new_tribe.browse= t(".faq_title")
+    .clear
+    .grid_8.prefix_2.suffix_2.alpha.omega
+      #new_tribe_form
+        - for i in 1..number_of_faq_questions
+          .faq_question
+            %p.faq
+              = "#{i}. " + t(".q#{i}", faq_links).html_safe
+          .faq_answer
+            %p.faq
+              = t(".a#{i}", faq_links).html_safe
       
       
 
