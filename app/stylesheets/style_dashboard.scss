@@ -204,6 +204,17 @@ h2.new_tribe {
   margin-bottom: 0;
 }
 
+h2.new_tribe_bottom {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 0;
+}
+
+
 h2.browse {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
@@ -380,7 +391,10 @@ li {
 }
 
 #faq {
-  @include main(1700px);
+  @include main;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 20px;
 }
 
 #campaign_main {
@@ -838,4 +852,16 @@ p.map_bubble {
     float: right;
     margin: 18px 20px 0 0;
   }
+}
+
+.faq {
+  a {
+    color: $light_orange;
+    font-size: 14px;
+    font-weight: 400;
+    &:hover { color: $lighter_orange; }
+    &:focus { color: $lighter_orange; }
+    &:active { color: $light_orange; }
+  }
+  
 }
