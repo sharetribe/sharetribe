@@ -114,14 +114,6 @@ describe PersonMailer do
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
   end
   
-  it "should send email to the contact request receiver" do
-    @contact_request = Factory(:contact_request)
-    email = PersonMailer.reply_to_contact_request(@contact_request.email, "en").deliver
-    assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@contact_request.email], email.to
-    assert_equal "Thank you for your interest in Sharetribe!", email.subject
-  end
-  
   it "should send email to community admins of new member if wanted" do
     @community = Factory(:community, :email_admins_about_new_members => 1)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
