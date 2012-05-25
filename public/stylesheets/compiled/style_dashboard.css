@@ -49,6 +49,15 @@ h2.new_tribe {
   color: white;
   margin-bottom: 0; }
 
+h2.new_tribe_bottom {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 50px;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 0; }
+
 h2.browse {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
@@ -200,7 +209,7 @@ li {
     color: white; }
 
 #faq {
-  height: 1700px;
+  height: 421px;
   background-color: #3e6e14;
   background-image: -webkit-gradient(radial, 50% 100%, 100, 50% -50%, 100, from(#223f05), to(#3e6e14));
   background-image: -webkit-radial-gradient(50% 0%, #3e6e14, #223f05);
@@ -210,7 +219,10 @@ li {
   box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
-  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5); }
+  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 20px; }
   #faq p.intro {
     margin: 46px 0 50px 0;
     font-size: 18px;
@@ -1473,3 +1485,14 @@ p.map_bubble {
     margin: 18px 20px 0 0; }
     #header_links a:hover {
       color: #559e0c; }
+
+.faq a {
+  color: #f8792f;
+  font-size: 14px;
+  font-weight: 400; }
+  .faq a:hover {
+    color: #fa9961; }
+  .faq a:focus {
+     color: #fa9961; }
+  .faq a:active {
+     color: #f8792f; }

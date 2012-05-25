@@ -27,6 +27,10 @@ class DashboardController < ApplicationController
     
   end
   
+  def pricing
+    
+  end
+  
   # This is for all the custom "campaign" sites
   def campaign
     case params[:page_type]

@@ -15,6 +15,6 @@
               = select_tag 'locale', options_for_select([["English", "en"], ["Suomi", "fi"], ["Español", "es"], ["Français", "fr"], ["Ελληνικά", "el"]], I18n.locale), :onchange => 'this.form.submit()', :class => 'language_select'
         #header_links
           = link_to t("dashboard.index.contact"), "mailto:info@sharetribe.com"
-          = link_to t("dashboard.index.pricing"), "#"
-          = link_to t("dashboard.index.faq"), "#"
+          = link_to t("dashboard.index.pricing"), pricing_path
+          = link_to t("dashboard.index.faq"), faq_path
           = link_to t("dashboard.index.home"), root
