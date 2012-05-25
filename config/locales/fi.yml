@@ -102,8 +102,8 @@ fi:
       title: Otsikko
     notifications:
       badgenotification:
-        see_all_your_badges: "Katso kaikki kassimerkkisi"
-        you_have_earned_badge: "Olet ansainnut kassimerkin"
+        see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
+        you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
       comment_to_followed_listing_notification:
         has_commented: kommentoi
         offer_you_follow: "seuraamaasi tarjousta"
@@ -227,7 +227,7 @@ fi:
   community_memberships:
     new:
       join_community: "Liittyminen yhteisöön '%{community}'"
-      you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus Kassissa, mutta et vielä ole Kassi-yhteisön '%{community}' jäsen."
+      you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus %{service_name_inessive}, mutta et vielä ole %{service_name}-yhteisön '%{community}' jäsen."
       you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
       you_can_join_email_confirmation: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on %{email_ending}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot, klikkaamalla alareunasta 'Liity yhteisöön' -nappia ja klikkaamalla saapuvassa sähköpostissa olevaa vahvistuslinkkiä."
       you_can_join_email_confirmation_multiple_addresses: "Jotta voisit liittyä tähän yhteisöön, sinulla pitää olla voimassaoleva sähköpostiosoite, jonka pääte on jokin seuraavista: %{email_endings}. Voit liittyä yhteisöön täyttämällä alla olevaan kenttään sähköpostiosoitteesi, hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
@@ -242,14 +242,14 @@ fi:
       slogan: "Yhteisösi markkinapaikka verkossa."
       create_your_own: "Luo yhteisöllesi"
       sharing_website: "OMA VERKKOTORI"
-      main_description: "Kassi on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
-      kassi_for_your_company: "KASSI YRITYKSELLE"
-      kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? Kassi on ratkaisu sinulle."
-      kassi_for_your_city: "KASSI KAUPUNGILLE"
-      kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? Kassin avulla saavutat kaiken tämän."
-      kassi_for_your_university: "KASSI KORKEAKOULULLE"
-      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile Kassia ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
-      want_kassi_for_your_community: "Haluatko Kassin yhteisösi käyttöön?"
+      main_description: "%{service_name} on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
+      kassi_for_your_company: "SHARETRIBE YRITYKSELLE"
+      kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? %{service_name} on ratkaisu sinulle."
+      kassi_for_your_city: "SHARETRIBE KAUPUNGILLE"
+      kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? %{service_name_genetive} avulla saavutat kaiken tämän."
+      kassi_for_your_university: "SHARETRIBE KORKEAKOULULLE"
+      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
+      want_kassi_for_your_community: "Haluatko %{service_name_genetive} yhteisösi käyttöön?"
       email_default_text: Sähköpostiosoitteesi
       send: Lähetä!
       or_drop_us_a_line: "...tai ota yhteyttä:"
@@ -259,10 +259,10 @@ fi:
       blog: Blogi
       code: Koodi
       issue_tracker: Tehtävänhallinta
-      product_of: "Kassia tekee"
+      product_of: "%{service_name_partitive} tekee"
       language: "Kieli:"
       new: UUTTA!
-      new_text: "Kassi käytössä muutamissa <a href=\"http://www.kassi.eu/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.kassi.eu/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
+      new_text: "%{service_name} käytössä muutamissa <a href=\"http://www.kassi.eu/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.kassi.eu/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
       want_to_know_more: ~
       read_our_faq: ~
       contact_us: ~
@@ -271,7 +271,7 @@ fi:
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
-      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille Kassin käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös kassimerkkien saaminen edellyttää hyvän palautteen saamista."
+      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille %{service_name_genetive} käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös %{service_name}-merkkien saaminen edellyttää hyvän palautteen saamista."
       remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
       remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
       request_accusative: pyynnön
@@ -280,22 +280,22 @@ fi:
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
     badge_migration_notification:
-      badge_description1: "Voit ansaita Kassissa erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
-      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko kassimerkkisarja!"
-      you_have_received_badges: "Olet saanut kassimerkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia kassimerkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
+      badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
+      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko %{service_name}-merkkisarja!"
+      you_have_received_badges: "Olet saanut %{service_name}-merkkejä!"
+      you_have_received_badges_in_kassi: "Olet ansainnut uusia %{service_name}-merkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
     confirmation_instructions:
-      confirmation_instructions_signature: "Terveisin,<br/>Kassi-tiimi"
-      welcome_to_kassi: "Tervetuloa Kassiin!"
+      confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
+      welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
       confirmation_link_text: "Varmista tunnukseni"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
-      kassi_team: Kassi-tiimi
+      kassi_team: %{service_name}-tiimi
       thanks: "Terveisin,"
-      want_to_control_emails: "Mistä kaikesta haluat Kassin lähettävän sinulle sähköpostimuistutuksen?"
+      want_to_control_emails: "Mistä kaikesta haluat %{service_name_genetive} lähettävän sinulle sähköpostimuistutuksen?"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -309,30 +309,30 @@ fi:
       your_request_was_rejected: "Pyyntösi hylättiin"
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} Kassi-verkkopalvelua."
-      info_about_kassi: "Kassi on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} %{service_name}-verkkopalvelua."
+      info_about_kassi: "%{service_name} on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
       here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
       you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
       join_kassi_in: "Voit liittyä palveluun osoitteessa"
     new_badge:
-      you_can_view_all_your_badges_in: "Voit nähdä kaikki kassimerkkisi osoitteessa"
-      you_have_achieved_a_badge: "Olet ansainnut kassimerkin '%{badge_name}'!"
+      you_can_view_all_your_badges_in: "Voit nähdä kaikki %{service_name}-merkkisi osoitteessa"
+      you_have_achieved_a_badge: "Olet ansainnut %{service_name}-merkin '%{badge_name}'!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
       you_can_reply_to_comment_in: "Voit nähdä ilmoituksesi kommentit ja jättää uuden kommentin osoitteessa"
-      you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi Kassissa"
-      listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta Kassissa"
+      you_have_a_new_comment: "%{author} on kommentoinut ilmoitustasi %{service_name_inessive}"
+      listing_you_follow_has_a_new_comment: "%{author} on kommentoinut seuraamaasi ilmoitusta %{service_name_inessive}"
       has_commented_offer_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi pyyntöä %{listing}"
       has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
       do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
-      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin Kassissa:"
+      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}:"
       you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
-      you_have_a_new_message: "Sinulle on uusi viesti Kassissa"
+      you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
     new_testimonial:
-      has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta Kassissa"
+      has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
       you_can_give_feedback_to: "Voit antaa palautetta käyttäjälle %{name} osoitteessa"
       you_can_view_all_your_feedback_in: "Voit nähdä kaikki saamasi palautteet osoitteessa"
     new_update_to_listing:
@@ -350,18 +350,18 @@ fi:
       add: Lisää
       an_offer: tarjous
       a_request: pyyntö
-      to_kassi: Kassiin
+      to_kassi: %{service_name_illative}
       check_everything_that_others_are: "katso mitä muut"
       offering: tarjoavat
       requesting: pyytävät
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
     reply_to_contact_request:
-      thank_you_for_your_interest: "Kiitos kiinnostuksestasi Kassia kohtaan!"
+      thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name_partitive} kohtaan!"
     reset_password_instructions:
       change_my_password: "Vaihda salasanani"
-      reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi Kassi-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä Kassi-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
+      reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi %{service_name}-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä %{service_name}-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien kassimerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
+      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien %{service_name}-merkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
   error_messages:
@@ -373,11 +373,11 @@ fi:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
       you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
   error_pages:
-    back_to_kassi_front_page: "Takaisin Kassin etusivulle"
+    back_to_kassi_front_page: "Takaisin %{service_name_genetive} etusivulle"
     error_404:
       if_you_believe: "Jos arvelet, että osoite on oikein ja sillä pitäisi saada näkyviin sisältöä, auta meitä paikallistamaan virhe kertomalla alla olevalla lomakkeella, mikä osoite on kyseessä, ja mitä kyseisellä sivulla pitäisi näkyä."
       page_can_not_be_found: "Sivua ei löydy!"
-      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy Kassista. Oletko varma, että kirjoitit osoitteen oikein?"
+      page_you_requested_can_not_be_found: "Haluamaasi osoitetta ei löydy %{service_name_elative}. Oletko varma, että kirjoitit osoitteen oikein?"
     error_404_title: "sivua ei löydy"
     error_500:
       help_us_find_the_problem: "Voit auttaa virheiden etsinnässä kertomalla alla olevalla lomakkeella, missä tilanteessa virhe ilmeni."
@@ -387,7 +387,7 @@ fi:
     error_description: "Virheen kuvaus"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
-      kassi_does_not_currently_work_without_javascript: "Kassi ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää Kassia ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
     send: Lähetä
@@ -411,21 +411,21 @@ fi:
       has_accepted_favor: "%{offerer_name} tarjosi palveluksen %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} sopi kyydistä %{listing_title} käyttäjän %{requester_name} kanssa %{time_ago}."
     join:
-      joined_kassi: "%{name} liittyi %{community_name} Kassiin %{time_ago}."
+      joined_kassi: "%{name} liittyi %{community_name} %{service_name_illative} %{time_ago}."
     login:
-      logged_in_to_kassi: "%{name} kirjautui sisään Kassiin %{time_ago}."
+      logged_in_to_kassi: "%{name} kirjautui sisään %{service_name_illative}%{time_ago}."
     comment:
       commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
-    about: "Tietoa Kassista"
+    about: "Tietoa %{service_name_elative}"
     community: Yhteisö
     home: Etusivu
     mobile_version: Mobiiliversio
     offers: Tarjotaan
     requests: Tarvitaan
-    search_kassi: "Hae Kassista"
+    search_kassi: "Hae %{service_name_elative}"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
@@ -459,7 +459,7 @@ fi:
       some_private_offers_exist: "Palvelussa on jo <b>%{number_of_listings} tarjousta</b>,"
       some_private_requests_exist: "Palvelussa on jo <b>%{number_of_listings} pyyntöä</b>,"
     event_feed:
-      latest_events: "Mitä Kassissa tapahtuu"
+      latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
@@ -480,11 +480,11 @@ fi:
       request_something: "+ Kerro mitä tarvitset!"
       request_something_description: "Kerro muille, kun tarvitset apua, tavaran tai kyydin"
       requesting: tarvitsevat
-      teaser_text: "Kassi on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
+      teaser_text: "%{service_name} on %{community}-yhteisön oma palvelu, jossa voit lainata, vuokrata, antaa ja myydä tavaroita, auttaa ja pyytää apua tai järjestää kimppakyytejä. Voisitko lainata muille tavaroita tai auttaa heitä?"
       tell_it_here: "Kerro se täällä!"
-      welcome_to_new_kassi: "Kassi on uudistunut!"
+      welcome_to_new_kassi: "%{service_name} on uudistunut!"
     invitation_form:
-      invite_your_friends: "Kutsu kaverisi Kassiin!"
+      invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
       email: "Kaverisi sähköpostiosoite:"
       message: "Viesti kaverillesi:"
       send_invitation: "Lähetä kutsu"
@@ -501,8 +501,8 @@ fi:
     profile_info_empty_notification:
       add_your_info: "Lisää tietosi"
       add_a_profile_picture: "Lisää profiilikuva"
-      you_have_not_added_your_info: "Et ole lisännyt Kassiin yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
-      add_your_info_link: "Lisää tietosi Kassiin"
+      you_have_not_added_your_info: "Et ole lisännyt %{service_name_illative} yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
+      add_your_info_link: "Lisää tietosi %{service_name_illative}"
     recent_listing:
       please_offer: Tarjoa
     sign_in:
@@ -515,8 +515,8 @@ fi:
       other_requests: "muuta pyyntöä"
   layouts:
     admin:
-      admin: "Kassin ylläpitonäkymä"
-      back_to_kassi: "Takaisin Kassiin"
+      admin: "%{service_name_genetive} ylläpitonäkymä"
+      back_to_kassi: "Takaisin %{service_name_illative}"
       news_items: Uutiset
       polls: Kyselyt
     application:
@@ -524,9 +524,9 @@ fi:
       feedback: "Palaute ylläpidolle"
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
-      give_feedback: "Anna palautetta Kassista"
+      give_feedback: "Anna palautetta %{service_name_elative}"
       keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
-      meta_description: "Kassi on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
+      meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
@@ -537,11 +537,11 @@ fi:
       received: Saapuneet
       sent: Lähetetyt
     dashboard:
-      title: "Kassi - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
+      title: "%{service_name} - jaa tavaroita, palveluksia ja kyytejä paikallisyhteisössäsi!"
     infos:
-      about: "Mikä Kassi?"
-      how_to_use: "Näin Kassi toimii"
-      info_about_kassi: "Tietoa Kassista"
+      about: "Mikä %{service_name}?"
+      how_to_use: "Näin %{service_name} toimii"
+      info_about_kassi: "Tietoa %{service_name_elative}"
       news: Uutiset
       register_details: Rekisteriseloste
       terms: Käyttöehdot
@@ -582,7 +582,7 @@ fi:
       create_new_request: "Pyydä jotain muuta"
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
-      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt Kassin tietokannasta."
+      email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt %{service_name_genetive} tietokannasta."
       error_with_session: "Virhe istunnon käsittelyssä."
       favor_offer_message_sent: "Palveluspyyntö lähetetty"
       favor_request_message_sent: "Palvelustarjous lähetetty"
@@ -600,8 +600,8 @@ fi:
       item_request_message_sent: "Tavaratarjous lähetetty"
       login_again: "Kirjaudu uudestaan."
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
-      login_successful: "Tervetuloa Kassiin, "
-      logout_successful: "Olet kirjautunut ulos Kassista. Tervetuloa uudestaan!"
+      login_successful: "Tervetuloa %{service_name_illative}, "
+      logout_successful: "Olet kirjautunut ulos %{service_name_elative}. Tervetuloa uudestaan!"
       news_item_created: "Uutinen luotu"
       news_item_creation_failed: "Uutisen luominen epäonnistui"
       news_item_update_failed: "Uutisen muokkaus epäonnistui"
@@ -612,7 +612,7 @@ fi:
       offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
-      only_kassi_administrators_can_access_this_area: "Vain Kassin ylläpitäjillä on pääsy tähän sisältöön"
+      only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
       only_listing_author_can_edit_a_listing: "Vain ilmoituksen laatija voi muokata ilmoitusta."
       password_recovery_sent: "Ohjeet salasanan vaihtamiseen on lähetetty sähköpostiisi."
@@ -637,10 +637,10 @@ fi:
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
       rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
       rideshare_request_message_sent: "Kyytitarjous lähetetty"
-      this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä Kassiyhteisöstä."
+      this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
-      welcome_message: "Tervetuloa Kassiin! Kassi on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
+      welcome_message: "Tervetuloa %{service_name_illative}! %{service_name} on palvelu, jonka avulla %{community}-yhteisön jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
       you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
@@ -652,25 +652,25 @@ fi:
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       you_are_now_member: "Yhteisöön liittyminen onnistui."
-      you_are_already_member: "Olet liittynyt tähän Kassi-yhteisöön jo aiemmin. Tervetuloa takaisin!"
-      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
+      you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
+      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
+      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
-      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään Kassiin, jotta voisit lähettää viestin toiselle käyttäjälle."
+      you_must_log_in_to_send_a_message: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit lähettää viestin toiselle käyttäjälle."
       you_must_log_in_to_view_this_content: "Pyytämäsi sisältö on näkyvissä ainoastaan kirjautuneille käyttäjille"
       you_must_log_in_to_view_this_page: "Sinun pitää kirjautua sivun nähdäksesi pyytämäsi sivun"
-      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä uusimmat viestisi."
-      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään Kassiin, jotta voit nähdä asetuksesi."
-      you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään Kassiin, jotta voisit luoda uuden uutisen."
+      you_must_log_in_to_view_your_inbox: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä uusimmat viestisi."
+      you_must_log_in_to_view_your_settings: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voit nähdä asetuksesi."
+      you_must_log_in_to_add_news_item: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden uutisen."
       you_need_to_confirm_your_account_first: "Sinun täytyy varmistaa sähköpostiosoitteesi ennen kuin voit jatkaa."
       you_unfollowed_listing: "Ilmoituksen seuraaminen lopetettu"
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      badges: Kassimerkit
+      badges: %{service_name}-merkit
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
@@ -892,26 +892,26 @@ fi:
       delete_news_item: "Poista uutinen"
   okl:
     member_id: Jäsennumero
-    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut Kassiin. Jos et ole vielä Omakotiliiton jäsen,"
+    member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
     join_here: "liity tästä."
   people:
     badge_description:
-      badge_achieved_at: "Kassimerkki ansaittu"
-      you_do_not_yet_have_this_badge: "Kassimerkkiä ei ole vielä ansaittu."
+      badge_achieved_at: "%{service_name}-merkki ansaittu"
+      you_do_not_yet_have_this_badge: "%{service_name}-merkkiä ei ole vielä ansaittu."
     edit_links:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: Kassimerkit
+      badges_description_title: %{service_name}-merkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
-      terms_title: "Kassin käyttöehdot"
+      terms_title: "%{service_name_genetive} käyttöehdot"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
     inactive_notification:
-      this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen Kassissa"
-      inactive_description: "Tämä käyttäjä on lopettanut Kassin käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
+      this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name_inessive}"
+      inactive_description: "Tämä käyttäjä on lopettanut %{service_name_genetive} käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
     new:
       address_validator: "Sijaintia ei löytynyt."
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
@@ -925,29 +925,29 @@ fi:
       family_name: "Sukunimi:"
       given_name: "Etunimi:"
       i_accept_the: Hyväksyn
-      if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain Kassi-yhteisössä voit"
+      if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä voit"
       join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
       password_again: "Salasana uudelleen:"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
-      sign_up: "Luo uusi tunnus Kassiin"
+      sign_up: "Luo uusi tunnus %{service_name_illative}"
       terms: käyttöehdot
       username_is_in_use: "Antamasi käyttäjätunnus on jo käytössä."
       username_is_invalid: "Käyttäjätunnus ei kelpaa. Sallitut merkit ovat kirjaimet a-z, numerot ja alaviiva."
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
     not_member:
-      explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen Kassin käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. Kassi ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia Kassiyhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
-      read_more_about_kassi_communities: "Lue lisää Kassin yhteisöistä"
+      explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen %{service_name_genetive} käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. %{service_name} ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia %{service_name}-yhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
+      read_more_about_kassi_communities: "Lue lisää %{service_name_genetive} yhteisöistä"
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
     profile_badge:
-      active_member_bronze: "Kassiaktiivi (pronssi)"
-      active_member_bronze_description: "Tämä oli jo kolmas tapahtumasi Kassissa! Sinusta on selvästi kuoriutumassa todellinen aktiivi. Jatka samaan malliin!"
-      active_member_gold: "Kassiaktiivi (kulta)"
-      active_member_gold_description: "Kahdeskymmenesviides tapahtuma Kassissa, mahtavaa! Kuulut kassiaktiivien terävimpään kärkeen. Sinunlaisesi pitävät palvelun pyörät pyörimässä. Kiitos ja kumarrus!"
-      active_member_silver: "Kassiaktiivi (hopea)"
+      active_member_bronze: "Aktiivi (pronssi)"
+      active_member_bronze_description: "Tämä oli jo kolmas tapahtumasi %{service_name_inessive}! Sinusta on selvästi kuoriutumassa todellinen aktiivi. Jatka samaan malliin!"
+      active_member_gold: "Aktiivi (kulta)"
+      active_member_gold_description: "Kahdeskymmenesviides tapahtuma %{service_name_inessive}, mahtavaa! Kuulut kassiaktiivien terävimpään kärkeen. Sinunlaisesi pitävät palvelun pyörät pyörimässä. Kiitos ja kumarrus!"
+      active_member_silver: "Aktiivi (hopea)"
       active_member_silver_description: "Onneksi olkoon kymmenennen tapahtumasi johdosta! Sinun ansiostasi tavarat ja palvelukset kiertävät tehokkaasti. Hienoa!"
       chauffer_bronze: "Kuski (pronssi)"
       chauffer_bronze_description: "Olet antanut jo kaksi kertaa kyydin toiselle käyttäjälle, hienoa!"
@@ -956,17 +956,17 @@ fi:
       chauffer_silver: "Kuski (hopea)"
       chauffer_silver_description: "6 tarjottua kyytiä, mainiota! Otat mielelläsi kyytiin matkaseuraa ollessasi autolla liikenteessä."
       commentator_bronze: "Kommentaattori (pronssi)"
-      commentator_bronze_description: "Keskustelet mielelläsi muiden Kassin käyttäjien kanssa. Olet jättänyt kolme kommenttia Kassissa oleviin pyyntöihin ja tarjouksiin."
+      commentator_bronze_description: "Keskustelet mielelläsi muiden %{service_name_genetive} käyttäjien kanssa. Olet jättänyt kolme kommenttia %{service_name_inessive} oleviin pyyntöihin ja tarjouksiin."
       commentator_gold: "Kommentaattori (kulta)"
-      commentator_gold_description: "30 kommenttia jätetty! Liikut Kassin yhteisössä kuin kotonasi, tutustut innokkaasti uusiin ihmisiin ja vaihdat ajatuksia näiden kanssa."
+      commentator_gold_description: "30 kommenttia jätetty! Liikut %{service_name_genetive} yhteisössä kuin kotonasi, tutustut innokkaasti uusiin ihmisiin ja vaihdat ajatuksia näiden kanssa."
       commentator_silver: "Kommentaattori (hopea)"
       commentator_silver_description: "10 kommenttia jätetty! Olet aktiivinen keskustelija."
       enthusiast_bronze: "Innokas (pronssi)"
-      enthusiast_bronze_description: "Olet käyttänyt Kassia jo viitenä päivänä. Sinusta alkaa pikku hiljaa tulla Kassin vakioasiakas."
+      enthusiast_bronze_description: "Olet käyttänyt %{service_name_partitive} jo viitenä päivänä. Sinusta alkaa pikku hiljaa tulla %{service_name_genetive} vakioasiakas."
       enthusiast_gold: "Innokas (kulta)"
-      enthusiast_gold_description: "Et malta pysyä poissa Kassista: olet käynyt palvelussa jo satana päivänä!"
+      enthusiast_gold_description: "Et malta pysyä poissa %{service_name_elative}: olet käynyt palvelussa jo satana päivänä!"
       enthusiast_silver: "Innokas (hopea)"
-      enthusiast_silver_description: "Kassi on osa päivittäistä elämänrytmiäsi: käyntikertoja on takana jo kuukauden päivät."
+      enthusiast_silver_description: "%{service_name} on osa päivittäistä elämänrytmiäsi: käyntikertoja on takana jo kuukauden päivät."
       first_transaction: "Ensimmäinen tapahtuma"
       first_transaction_description: "Onnea ensimmäisen tapahtumasi johdosta! Ensimmäinen hyväksytty pyyntösi tai tarjouksesi on vahvistettu ja siitä on annettu palautetta."
       generous_bronze: "Antelias (pronssi)"
@@ -984,35 +984,35 @@ fi:
       jack_of_all_trades: Jokapaikanhöylä
       jack_of_all_trades_description: "Olet todellinen monitaituri! Olet ollut mukana resurssinvaihdoissa viidessä eri roolissa. Jatka samaan malliin ja kerää kaikki kahdeksan: tavaroiden tarjoaja, palvelusten tarjoaja, kyytien tarjoaja, asunnontarjoaja, tavaroiden tarvitsija, palveluksentarvitsija, kyydintarvitsija ja asunnontarvitsija."
       lender_bronze: "Lainaaja (pronssi)"
-      lender_bronze_description: "Olet asettanut kolme tavaraa lainattavaksi Kassiin, mainiota!"
+      lender_bronze_description: "Olet asettanut kolme tavaraa lainattavaksi %{service_name_illative}, mainiota!"
       lender_gold: "Lainaaja (kulta)"
       lender_gold_description: "Antaisit lähimmäisellesi vaikka paidan päältäsi. Olet listannut 25 tavaraa, jotka voisit lainata muille, mahtavaa!"
       lender_silver: "Lainaaja (hopea)"
-      lender_silver_description: "Kaapeissasi on paljon tavaroita, jotka voisit hyvin jakaa muiden kanssa: olet asettanut jo 10 lainatavaraa tarjolle Kassiin."
+      lender_silver_description: "Kaapeissasi on paljon tavaroita, jotka voisit hyvin jakaa muiden kanssa: olet asettanut jo 10 lainatavaraa tarjolle %{service_name_illative}."
       listing_freak_bronze: "Ilmoittaja (pronssi)"
-      listing_freak_bronze_description: "Sinulla on viisi avointa pyyntöä ja/tai tarjousta listattuna Kassiin. Hienoa! Löytyisikö kaapistasi tai taitovalikoimastasi vielä jotakin, mistä olisi iloa muille?"
+      listing_freak_bronze_description: "Sinulla on viisi avointa pyyntöä ja/tai tarjousta listattuna %{service_name_illative}. Hienoa! Löytyisikö kaapistasi tai taitovalikoimastasi vielä jotakin, mistä olisi iloa muille?"
       listing_freak_gold: "Ilmoittaja (kulta)"
-      listing_freak_gold_description: "40 avointa pyyntöä ja/tai tarjousta, mahtavaa! Lukeudut Kassin ahkerimpien sisällöntuottajien joukkoon."
+      listing_freak_gold_description: "40 avointa pyyntöä ja/tai tarjousta, mahtavaa! Lukeudut %{service_name_genetive} ahkerimpien sisällöntuottajien joukkoon."
       listing_freak_silver: "Ilmoittaja (hopea)"
       listing_freak_silver_description: "20 avointa pyyntöä ja/tai tarjousta, kiitettävää listausaktiivisuutta!"
       moneymaker_bronze: "Tienaaja (pronssi)"
-      moneymaker_bronze_description: "Kassissa voi ansaita myös rahaa! Olet myynyt tai vuokrannut jo kaksi tavaraa."
+      moneymaker_bronze_description: "%{service_name_inessive} voi ansaita myös rahaa! Olet myynyt tai vuokrannut jo kaksi tavaraa."
       moneymaker_gold: "Tienaaja (kulta)"
-      moneymaker_gold_description: "15 myytyä tai vuokrattua tavaraa! Kassi on sinulle todella hyvä bisnes!"
+      moneymaker_gold_description: "15 myytyä tai vuokrattua tavaraa! %{service_name} on sinulle todella hyvä bisnes!"
       moneymaker_silver: "Tienaaja (hopea)"
-      moneymaker_silver_description: "Saat Kassista mukavan lisän tienesteihisi. Jo kuusi myytyä tai vuokrattua tavaraa."
+      moneymaker_silver_description: "Saat %{service_name_elative} mukavan lisän tienesteihisi. Jo kuusi myytyä tai vuokrattua tavaraa."
       rookie: Tulokas
-      rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen Kassiin. Tästä se lähtee!"
+      rookie_description: "Olet lisännyt ensimmäistä kertaa pyynnön tai tarjouksen %{service_name_illative}. Tästä se lähtee!"
       santa: Joulupukki
       santa_description: "Onkos täällä kilttejä lapsia? Olet lahjoittanut vähintään yhden tavaran toiselle käyttäjälle joulukuussa."
       taxi_stand_bronze: "Taksitolppa (pronssi)"
-      taxi_stand_bronze_description: "Olet laittanut kolme kertaa kyytitarjouksen Kassiin."
+      taxi_stand_bronze_description: "Olet laittanut kolme kertaa kyytitarjouksen %{service_name_illative}."
       taxi_stand_gold: "Taksitolppa (kulta)"
       taxi_stand_gold_description: "Päivystät jatkuvasti valmiina tarjoamaan kyytejä kanssaihmisillesi. 25 kyytitarjousta, upeaa!"
       taxi_stand_silver: "Taksitolppa (hopea)"
       taxi_stand_silver_description: "Kymmenen kyytitarjousta, hienoa! Ihmiset tietävät, että sinun puoleesi kannattaa kääntyä, jos on vailla kyytiä."
       volunteer_bronze: "Vapaaehtoinen (pronssi)"
-      volunteer_bronze_description: "Haluat päästä hyödyntämään osaamistasi auttamalla muita. Sinulla on kolme avointa palvelustarjousta Kassissa."
+      volunteer_bronze_description: "Haluat päästä hyödyntämään osaamistasi auttamalla muita. Sinulla on kolme avointa palvelustarjousta %{service_name_inessive}."
       volunteer_gold: "Vapaaehtoinen (kulta)"
       volunteer_gold_description: "Et tiedä mitään parempaa kuin muiden auttaminen. Olet listannut profiiliisi 25 eri palvelustarjousta, hienoa!"
       volunteer_silver: "Vapaaehtoinen (hopea)"
@@ -1046,7 +1046,7 @@ fi:
       add_phone_number: "Lisää puhelinnumero"
       address: "Osoite:"
       as_expected: "Vastasi odotuksia"
-      badges: Kassimerkit
+      badges: %{service_name}-merkit
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
       feedback_average: "Palautteiden keskiarvo:"
@@ -1056,7 +1056,7 @@ fi:
       was_invited_by: "...liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
-      show_all_badges: "Näytä kaikki kassimerkit"
+      show_all_badges: "Näytä kaikki %{service_name}-merkit"
       show_all_feedback: "Näytä kaikki palautteet"
       show_all_testimonials: "Näytä kaikki palautteet"
       show_full_description: "Näytä koko teksti"
@@ -1079,11 +1079,11 @@ fi:
       create_new_account: "Luo uusi tunnus"
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
-      login_to_kassi: "Kirjaudu sisään Kassiin"
-      connect_your_facebook_to_kassi: "Yhdistä Facebook tili Kassiin"
+      login_to_kassi: "Kirjaudu sisään %{service_name_illative}"
+      connect_your_facebook_to_kassi: "Yhdistä Facebook tili %{service_name_illative}"
       facebook_account: "Facebook tili:"
-      log_in_to_link_account: "Jos sinulla on jo tunnus Kassissa, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
-      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta Kassissa, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
+      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
+      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
       facebook_cancel_link_text: "voit perua yhdistämisen"
@@ -1093,12 +1093,12 @@ fi:
       request_new_password: "Pyydä uusi salasana"
       change_your_password: "Vaihda salasanasi"
     confirmation_pending:
-      welcome_to_kassi: "Tervetuloa Kassiin!"
+      welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       check_your_email: "Tarkista sähköpostisi"
-      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän Kassi-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä Kassi-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos Kassin käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
-      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän Kassi-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos Kassin käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
       get_started: "Alkuun pääseminen"
-      getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä Kassiin <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
+      getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä %{service_name_illative} <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
@@ -1121,12 +1121,12 @@ fi:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
-      email_about_new_badges: "...olen ansainnut uuden kassimerkin"
+      email_about_new_badges: "...olen ansainnut uuden %{service_name}-merkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä Kassissa tapahtuu"
+      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä %{service_name_inessive} tapahtuu"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
     profile:
@@ -1140,7 +1140,7 @@ fi:
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
       street_address: "Sijainti:"
-      these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille Kassin käyttäjille"
+      these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name_genetive} käyttäjille"
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
     save_information: "Tallenna tiedot"
@@ -1149,14 +1149,14 @@ fi:
     parsing_error: "Viestin tulkinta epäonnistui. Tarkista viestin muotoon liittyvät ohjeet ja yritä uudestaan."
     pay: maksa|maksu
     payment_delivered: "Maksettu käyttäjälle %{receiver} %{amount} euroa. Maksu + välityspalkkio on lisätty puhelinlaskuusi summalla %{amount_plus_commission} euroa."
-    potential_ride_share_offer: "%{author_name} tarjoaa Kassissa kyytiä välille %{origin} - %{destination} %{start_time}."
+    potential_ride_share_offer: "%{author_name} tarjoaa %{service_name_inessive} kyytiä välille %{origin} - %{destination} %{start_time}."
     request: ^pyyntö$|^p$
     rideshare: kyyti
     you_can_call_him_at: "Voit soittaa hänelle: %{phone_number}"
     you_can_pay_gas_money_to_driver: "Voit maksaa bensarahaa lähettämällä 'kassi maksa %{driver} Xe', missä X on maksettava summa. Tuo summa + 5% komissio lisätään puhelinlaskuusi."
     category_not_supported: "Tähän kategoriaan ei vielä voi ilmoittaa tekstiviestillä."
-    check_the_offer_in_kassi: "Katso tarjous Kassissa: %{listing_url}"
-    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty Kassiin."
+    check_the_offer_in_kassi: "Katso tarjous %{service_name_inessive}: %{listing_url}"
+    listing_created: "Kiitos viestistä, ilmoituksesi on nyt lisätty %{service_name_illative}."
     offer: ^tarjous$|^t$
   tag_cloud:
     tag_used:
@@ -1164,15 +1164,15 @@ fi:
       without_tag: "Ilman avainsanaa"
   terms:
     show:
-      accept_terms: "Kassin käyttöehtojen hyväksyminen"
+      accept_terms: "%{service_name_genetive} käyttöehtojen hyväksyminen"
       here: täällä
       i_accept_new_terms: "Hyväksyn uudet käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"
-      terms: "Kassin käyttöehdot"
+      terms: "%{service_name_genetive} käyttöehdot"
       terms_have_changed: "Käyttöehdot ovat muuttuneet"
       you_can_view_the_new_terms: "Voit nähdä uudet ehdot"
-      you_need_to_accept: "Tervetuloa Kassiin! Tämä näyttäisi olevan ensimmäinen kerta, kun käytät palvelua. Ennen käytön aloittamista sinun täytyy vielä hyväksyä"
-      you_need_to_accept_new_terms: "Kassin käyttöehdot ovat muuttuneet. Sinun täytyy hyväksyä uudet ehdot, jotta voit jatkaa palvelun käyttöä. Uusien ehtojen tarkoituksena on mahdollistaa palvelun ylläpito tutkimusprojektin loppumisen jälkeen."
+      you_need_to_accept: "Tervetuloa %{service_name_illative}! Tämä näyttäisi olevan ensimmäinen kerta, kun käytät palvelua. Ennen käytön aloittamista sinun täytyy vielä hyväksyä"
+      you_need_to_accept_new_terms: "%{service_name_genetive} käyttöehdot ovat muuttuneet. Sinun täytyy hyväksyä uudet ehdot, jotta voit jatkaa palvelun käyttöä. Uusien ehtojen tarkoituksena on mahdollistaa palvelun ylläpito tutkimusprojektin loppumisen jälkeen."
   testimonials:
     index:
       all_testimonials: "Kaikki palautteet"
