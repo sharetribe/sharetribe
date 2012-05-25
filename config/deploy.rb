@@ -5,7 +5,7 @@ require 'bundler/capistrano'
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
 set :application, "kassi"
-set :repository,  "git://github.com/sizzlelab/kassi.git"
+set :repository,  "git://github.com/sharetribe/sharetribe.git"
 set :user, "kassi"  # The server's user for deploys
 ssh_options[:forward_agent] = true
 
