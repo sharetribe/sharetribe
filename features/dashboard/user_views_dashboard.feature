@@ -1,5 +1,5 @@
 Feature: User views dashboard
-  In order to read stuff about Kassi
+  In order to read stuff about Sharetribe
   As a user
   I want to be able to view the dashboard
   

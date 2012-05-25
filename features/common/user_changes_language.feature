@@ -1,5 +1,5 @@
 Feature: User changes language
-  In order to view the Kassi UI in a different language
+  In order to view the Sharetribe UI in a different language
   As a person who speaks that language
   I want to be able to change language
 

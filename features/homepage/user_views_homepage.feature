@@ -1,5 +1,5 @@
 Feature: User views homepage
-  In order to see the latest activity in Kassi
+  In order to see the latest activity in Sharetribe
   As a user
   I want see latest offers, requests and transactions on the home page
   
@@ -137,11 +137,11 @@ Feature: User views homepage
     And I check "person_terms"
     And I press "Create account"
     And the system processes jobs
-    Then I should not see "Chuck joined Test Kassi"
+    Then I should not see "Chuck joined Test Sharetribe"
     And I follow "Logout"
     And I log in as "kassi_testperson1"
     And the system processes jobs
-    Then I should not see "logged in to Kassi."
+    Then I should not see "logged in to Sharetribe."
     When there is item offer with title "hammer" from "kassi_testperson2" and with share type "lend"
     And visibility of that listing is "everybody"
     And I go to the homepage
@@ -150,8 +150,8 @@ Feature: User views homepage
     And I press "Send comment"
     And the system processes jobs
     And I go to the homepage
-    Then I should see "Chuck joined Test Kassi"
-    And I should see "logged in to Kassi"
+    Then I should see "Chuck joined Test Sharetribe"
+    And I should see "logged in to Sharetribe"
     And I should see "commented offer hammer"
     When I follow "Contact"
     And I fill in "Message:" with "I want to borrow this item"

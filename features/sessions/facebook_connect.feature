@@ -1,10 +1,10 @@
 @only_without_asi
 Feature: Facebook connect
-  In order to connect to Kassi with existing Facebook account
+  In order to connect to Sharetribe with existing Facebook account
   As a user
   I want to do Facebook connect to link the accounts
   
-  Scenario: Facebook connect first time, with same email in Kassi DB
+  Scenario: Facebook connect first time, with same email in Sharetribe DB
     Given there are following users:
       | person     | given_name | email | 
       | facebooker | Mircos     | markus@example.com |
@@ -16,7 +16,7 @@ Feature: Facebook connect
     And user "facebooker" should not have "image_file_size" with value "nil"
     
   
-  Scenario: Facebook connect with different email in Kassi DB
+  Scenario: Facebook connect with different email in Sharetribe DB
     Given there are following users:
       | person | given_name |
       | facebooker | Marcos |
@@ -27,12 +27,12 @@ Feature: Facebook connect
     When I fill in "person_username" with "facebooker"
     And I fill in "person_password" with "testi"
     And I press "Log in" 
-    Then I should see "Welcome to Kassi"
+    Then I should see "Welcome to Sharetribe"
     And I should see "Marcos"
     And user "facebooker" should have "facebook_id" with value "597013691"
     And user "facebooker" should not have "image_file_size" with value "nil"
   
-  Scenario: Facebook connect first time, without existing account in Kassi
+  Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
     When I follow "facebook_connect"
     Then I should see "Connect your Facebook account"
@@ -68,7 +68,7 @@ Feature: Facebook connect
     When I follow "Log in"
     Then I should not see "Connect your Facebook account"
     And I should not see "Sugarberg"
-    And I should see "Log in to Kassi"
+    And I should see "Log in to Sharetribe"
     
   Scenario: The facebook login doesn't succeed
     Given I am on the home page

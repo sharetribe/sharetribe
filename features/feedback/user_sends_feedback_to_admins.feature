@@ -8,7 +8,7 @@ Feature: User sends feedback to admins
     Given I am on the home page
     When I follow "Feedback"
     And I fill in "Your email address" with "test@example.com"
-    And I fill in "Feedback to Kassi staff" with "Feedback"
+    And I fill in "Feedback to Sharetribe staff" with "Feedback"
     And I press "Send feedback"
     Then I should see "Thanks for your feedback!" within "#notifications"
   
@@ -17,7 +17,7 @@ Feature: User sends feedback to admins
     Given I am logged in
     When I follow "Feedback"
     And I should not see "Your email"
-    And I fill in "Feedback to Kassi staff" with "Feedback"
+    And I fill in "Feedback to Sharetribe staff" with "Feedback"
     And I press "Send feedback"
     Then I should see "Thanks for your feedback!" within "#notifications"
   
@@ -34,11 +34,11 @@ Feature: User sends feedback to admins
   Scenario: Trying to send a spam link
     Given I am logged in
     When I follow "Feedback"
-    And I fill in "Feedback to Kassi staff" with "[url=testi"
+    And I fill in "Feedback to Sharetribe staff" with "[url=testi"
     And I press "Send feedback"
     Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".error"
     When I follow "Feedback"
-    And I fill in "Feedback to Kassi staff" with "<a href="
+    And I fill in "Feedback to Sharetribe staff" with "<a href="
     And I press "Send feedback"
     Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".error"
   

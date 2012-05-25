@@ -121,7 +121,7 @@ Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do 
   end
 end
 
-# Adds a test person to ASI but not in Kassi
+# Adds a test person to ASI but not in Sharetribe
 Given /^I already have an OtaSizzle account$/ do
   cookie = Session.create.cookie
   @username = generate_random_username

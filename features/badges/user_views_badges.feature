@@ -1,5 +1,5 @@
 Feature: User views badges
-  In order to view what achievements I have accomplished in Kassi
+  In order to view what achievements I have accomplished in Sharetribe
   As a user
   I want to be able to view my badges
   

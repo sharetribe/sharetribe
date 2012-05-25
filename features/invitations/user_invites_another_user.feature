@@ -1,7 +1,7 @@
 Feature: User joins invite only community
-  In order to get critical mass to Kassi
+  In order to get critical mass to Sharetribe
   As a user in a community
-  I want to invite my friend in this Kassi community
+  I want to invite my friend in this Sharetribe community
   
   @javascript
   Scenario: User invites another user successfully

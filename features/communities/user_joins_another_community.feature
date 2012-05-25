@@ -1,7 +1,7 @@
 Feature: User joins another community
   In order to be able to post listings simultaneously to multiple communities
   As a user
-  I want to be able to join more than one Kassi community with my user account
+  I want to be able to join more than one Sharetribe community with my user account
   
   @javascript
   Scenario: User joins another community
