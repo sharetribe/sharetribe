@@ -48,7 +48,10 @@ it:
       show:
         edit_poll: ~
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: ~
+    default_description: ~
     fields_that_are_mandatory: ~
     or: ~
     password: ~
@@ -143,6 +146,81 @@ it:
       accept_request: ~
       reject_offer: ~
       reject_request: ~
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: ~
@@ -151,12 +229,13 @@ it:
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      joining_to_mail_restricted_communities_not_yet_supported: ~
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: ~
       create_your_own: ~
       sharing_website: ~
@@ -181,6 +260,11 @@ it:
       language: ~
       new: ~
       new_text: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -202,6 +286,7 @@ it:
       welcome_to_kassi: ~
       need_to_confirm: ~
       confirmation_link_text: ~
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: ~
       hey: ~
@@ -489,9 +574,11 @@ it:
       comment_cannot_be_empty: ~
       comment_sent: ~
       confirmation_link_is_wrong_or_used: ~
+      additional_email_confirmed: ~
       create_new_offer: ~
       create_new_request: ~
       create_one_here: ~
+      email_confirmation_sent_to_new_address: ~
       email_not_found: ~
       error_with_session: ~
       favor_offer_message_sent: ~
@@ -551,6 +638,7 @@ it:
       unknown_error: ~
       update_error: ~
       welcome_message: ~
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
@@ -560,6 +648,7 @@ it:
       you_cannot_reply_to_your_own_request: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: ~
@@ -758,6 +847,7 @@ it:
       offer: ~
       offer_author: ~
       offer_created: ~
+      qr_code: ~
       request: ~
       request_author: ~
       request_created: ~
@@ -825,6 +915,7 @@ it:
       email: ~
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
+      email_not_allowed: ~
       enter_captcha: ~
       family_name: ~
       given_name: ~
@@ -983,6 +1074,13 @@ it:
       i_forgot_my_password: ~
       login: ~
       login_to_kassi: ~
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: ~
       password_recovery_instructions: ~
@@ -996,6 +1094,11 @@ it:
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: ~

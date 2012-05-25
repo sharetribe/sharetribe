@@ -48,7 +48,10 @@ es:
       show:
         edit_poll: "Editar encuesta"
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: Cancelar
+    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -143,6 +146,81 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: "Únete a la comunidad de '%{community}'"
@@ -151,12 +229,13 @@ es:
       you_can_join_email_confirmation: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con %{email_ending}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
       you_can_join_email_confirmation_multiple_addresses: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con uno de los siguientes formatos: %{email_endings}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
       you_can_join_with_invite_only: "Tienes que tener una invitación de otro usuario para unirte a esta comunidad. Si tienes un código de invitación, puedes unirte a esta comunidad escribiendo el código en el campo de más abajo , aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
-      joining_to_mail_restricted_communities_not_yet_supported: "Esta comunidad esta restringida por una cuenta de e-mail que debes tener y, además, todavía no es posible unirse a múltiples comunidades con restricciones de e-mail. Pronto añadiremos esta opción, pero por el momento deberás cerrar la sesión y crear una cuenta separada para esta comunidad."
       if_want_to_view_content: "Si quieres ver el contenido de esta comunidad sin unirte a ella, necesitas"
       log_out: "cerrar sesión"
       join_community_button: "Unirse a la comunidad"
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: "Un sitio exclusivo para compartir"
       create_your_own: "Crea tu espacio"
       sharing_website: "PARA COMPARTIR"
@@ -181,6 +260,11 @@ es:
       language: "Idioma:"
       new: ¡NUEVO!
       new_text: "Actualmente Kassi está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -202,6 +286,7 @@ es:
       welcome_to_kassi: "¡Bienvenido a Kassi!"
       need_to_confirm: "Antes de empezar a utilizar Kassi, deberás confirmar tu dirección de correo electrónico con el siguiente link:"
       confirmation_link_text: "Confirmar mi cuenta"
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Revisa tu configuración"
       hey: "Hola %{name},"
@@ -491,9 +576,11 @@ es:
       comment_cannot_be_empty: "Comentarios no pueden estar vacíos."
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
+      additional_email_confirmed: ~
       create_new_offer: "Ofrece algo más"
       create_new_request: "Solicita algo adicional"
       create_one_here: "Crea uno aquí"
+      email_confirmation_sent_to_new_address: ~
       email_not_found: "No se encontró la dirección de correo en la base de datos de Kassi."
       error_with_session: "Error con la sesión."
       favor_offer_message_sent: "Solicitud enviada satisfactoriamente."
@@ -553,6 +640,7 @@ es:
       unknown_error: "Error desconocido. Por favor utiliza el link de sugerencias para darnos detalles de lo sucedido."
       update_error: "Un error ha ocurrido mientras se actualizaba la información, por favor inténtalo de nuevo."
       welcome_message: "¡Bienvenido a Kassi! Kassi es un servicio que ayuda a los miembros de la comunidad %{community} a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos y a cooperar mutuamente de diferentes formas."
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
@@ -562,6 +650,7 @@ es:
       you_cannot_reply_to_your_own_request: "No puedes responder a tu misma solicitud"
       you_followed_listing: "Ahora estás siguiendo este listado"
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: "Te has unido exitosamente a esta comunidad"
       you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. ¡Bienvenido otra vez!"
       you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en Kassi para crear una nueva oferta. Si no tienes una cuenta puedes"
@@ -760,6 +849,7 @@ es:
       offer: Oferta
       offer_author: "Ofertado por"
       offer_created: "Oferta creada"
+      qr_code: "Código QR"
       request: Solicitud
       request_author: "Solicitud realizada por"
       request_created: "Solicitud creada"
@@ -827,6 +917,7 @@ es:
       email: "Dirección de correo electrónico:"
       email_is_in_use: "El mail ingresado ya se encuentra registrado."
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
+      email_not_allowed: ~
       enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"
@@ -985,6 +1076,13 @@ es:
       i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
       login: "Iniciar sesión"
       login_to_kassi: "Iniciar sesión en Kassi"
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -998,6 +1096,11 @@ es:
       get_started: "Comenzar con Kassi"
       getting_started_instructions: "Cuando hayas confirmado tu cuenta, es una buena idea añadir una imagen a tu <a href=\"%{profile_url}\">perfil</a> y rellenar es resto de los datos, o puedes ir directo a la acción añadiendo un <a href=\"/en/listings/new/offer\">offer</a> sobre algo que puedas prestar, arrendar, vender o hacer por los demás. Si necesitas un artículo en específico o ayuda con el algo, publica en <a href=\"/en/listings/new/request\">request</a>."
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Cambiar

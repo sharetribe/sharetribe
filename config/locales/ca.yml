@@ -48,7 +48,10 @@ ca:
       show:
         edit_poll: "Edita l'enquesta"
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: Cancelar
+    default_description: ~
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
@@ -143,6 +146,81 @@ ca:
       accept_request: "Acceptar sol·licitud"
       reject_offer: "Rebutjar oferta"
       reject_request: "Rebutjar la sol·licitud"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: ~
@@ -151,12 +229,13 @@ ca:
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      joining_to_mail_restricted_communities_not_yet_supported: ~
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: "Un mercat en línia per a la seva comunitat."
       create_your_own: "Crea el seu espai"
       sharing_website: "LLOC WEB PER A COMPARTIR"
@@ -181,6 +260,11 @@ ca:
       language: "Llengua:"
       new: NOU!
       new_text: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -202,6 +286,7 @@ ca:
       welcome_to_kassi: "Benvingut a Kassi!"
       need_to_confirm: "Abans d'utilitzar Kassi has de confirmar el teu correu electrònic al següent enllaç:"
       confirmation_link_text: "Confirmar el meu compte"
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Revisa la teva configuració"
       hey: "Hola %{name},"
@@ -491,9 +576,11 @@ ca:
       comment_cannot_be_empty: "Els comentaris no poden restar buits."
       comment_sent: "Comentari enviat"
       confirmation_link_is_wrong_or_used: "L'enllaç de confirmació ja s'ha utilitzat o s'ha trencat. Intenta iniciar sessió o contacta amb nosaltres si el problema continua."
+      additional_email_confirmed: ~
       create_new_offer: "Ofereixi alguna cosa més"
       create_new_request: "Demano alguna cosa més"
       create_one_here: "Crear-ne un aquí"
+      email_confirmation_sent_to_new_address: ~
       email_not_found: "No s'ha trobat el correu electrònic dins de la base de dades de Kassi"
       error_with_session: "Error amb la sessió."
       favor_offer_message_sent: "Sol·licitud enviada satisfactòriament."
@@ -553,6 +640,7 @@ ca:
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error quan durant l'actualització de la informació, si us plau intenta-ho de nou."
       welcome_message: "Benvingut a Kassi! Un servei que ajuda als membres de la comunitat %{community} a vendre i prestar-se articles entre ells, organitzar trajectes compartits i ajudar-se mútuament de diverses formes!"
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No tens autorització per donar suggeriments en aquest esdeveniment."
       you_are_not_authorized_to_do_this: "No tens autorització per dur a terme aquesta acció."
       you_are_not_authorized_to_view_this_content: "No tens autorització per veure aquest contingut"
@@ -562,6 +650,7 @@ ca:
       you_cannot_reply_to_your_own_request: "No pots respondre a la teva pròpia sol·licitud"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Inicia sessió per a crear una nova oferta. Si no tens compte pots"
@@ -760,7 +849,7 @@ ca:
       offer: Oferta
       offer_author: "Oferit per"
       offer_created: "Oferta creada"
-      qr_code: "codi QR"
+      qr_code: "Codi QR"
       request: Sol·licitud
       request_author: "Sol·licitud realitzada per"
       request_created: "Sol·licitud creada"
@@ -828,6 +917,7 @@ ca:
       email: "Correu electrònic"
       email_is_in_use: "Aquest correu ja està registrat"
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si us plau, utilitza una adreça que estigui associada amb aquesta comunitat. Si encara tens problemes per accedir, envia'ns un comentari utilitzant el botó de \"Feedback\" de l'esquerra."
+      email_not_allowed: ~
       enter_captcha: "Sóc un ser humà"
       family_name: "Cognoms:"
       given_name: "Nom:"
@@ -986,6 +1076,13 @@ ca:
       i_forgot_my_password: "Recuperar usuari o contrasenya"
       login: "Inicia sessió"
       login_to_kassi: "Inicia sessió a Kassi"
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: "Correu electrònic"
       password_recovery_instructions: "Escriu el teu correu electrònic per enviar-te el nom d'usuari i les instruccions per a realitzar el canvi de contrasenya."
@@ -999,6 +1096,11 @@ ca:
       get_started: "Comença amb Kassi"
       getting_started_instructions: "Quan hagis confirmat el teu compte és una bona idea afegir una imatge al teu  <a href=\"%{profile_url}\">perfil</a> i omplir la resta de dades, o pots anar directe a l'acció afegint una <a href=\"/en/listings/new/offer\">oferta</a> sobre alguna cosa que pots prestar, llogar, vendre o fer per la resta. Si necessites un article específic, o ajuda amb alguna cosa, publica una <a href=\"/en/listings/new/request\">sol·licitud</a>."
       resend_confirmation_instructions: "Reenviament de les instruccions de confirmació"
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Canviar

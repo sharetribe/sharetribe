@@ -48,7 +48,10 @@ zh:
       show:
         edit_poll: ~
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: 取消
+    default_description: ~
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
     password: 密码
@@ -143,6 +146,81 @@ zh:
       accept_request: 接受请求
       reject_offer: 拒绝提议
       reject_request: 拒绝请求
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: ~
@@ -151,12 +229,13 @@ zh:
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      joining_to_mail_restricted_communities_not_yet_supported: ~
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: ~
       create_your_own: ~
       sharing_website: ~
@@ -181,6 +260,11 @@ zh:
       language: ~
       new: ~
       new_text: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: 提议
@@ -202,6 +286,7 @@ zh:
       welcome_to_kassi: 欢迎来到Kassi！
       need_to_confirm: 开始使用Kassi前，您必须通过以下链接确认您的Email地址：
       confirmation_link_text: 确认账号
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: 查看您的设置
       hey: "Hi %{name},"
@@ -489,9 +574,11 @@ zh:
       comment_cannot_be_empty: 评论不能为空
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
+      additional_email_confirmed: ~
       create_new_offer: 出售其他物品
       create_new_request: 请求其他物品
       create_one_here: 在此创建
+      email_confirmation_sent_to_new_address: ~
       email_not_found: 无法在Kassi中找到您所提供的邮箱地址
       error_with_session: 内容错误
       favor_offer_message_sent: 请求帮助已成功发送
@@ -551,6 +638,7 @@ zh:
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
       welcome_message: "欢迎来到Kassi！Kassi给来自%{community}社区的人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。"
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
@@ -560,6 +648,7 @@ zh:
       you_cannot_reply_to_your_own_request: 您不能回复自己的请求
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: 请登录以完成提议。如果您没有账户，您可以
@@ -758,6 +847,7 @@ zh:
       offer: 提议
       offer_author: 提议来自
       offer_created: 提议成功！
+      qr_code: ~
       request: 请求
       request_author: 请求来自
       request_created: 已成功创建请求
@@ -825,6 +915,7 @@ zh:
       email: 电子邮件地址：
       email_is_in_use: 此邮箱已使用。
       email_is_in_use_or_not_allowed: 此Email不允许在此社区使用或已被注册。请使用与社区相关的Email地址（详细说明见上）。如果您仍然不能注册，请点击左侧链接填写反馈。
+      email_not_allowed: ~
       enter_captcha: 我是一个人类：
       family_name: 姓：
       given_name: 名：
@@ -983,6 +1074,13 @@ zh:
       i_forgot_my_password: 忘记用户名或密码
       login: 登录
       login_to_kassi: 登录
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: E-mail
       password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
@@ -996,6 +1094,11 @@ zh:
       get_started: 开始使用Kassi
       getting_started_instructions: ~
       resend_confirmation_instructions: 再次发送确认信
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: 修改
