@@ -1152,14 +1152,14 @@ ca:
     pay: Pagar
     payment_delivered: "Pagament de %{amount} euros s'entrega a  %{receiver}. Pagaràs  %{amount_plus_commission} euros a la teva factura de telèfon."
     potential_ride_share_offer: "%{author_name} ofereix un trasllat desde %{origin} fins a %{destination} %{start_time}."
-    request: "^ sol·licita$ | ^ r$"
-    rideshare: "Compartir cotxe"
-    you_can_call_him_at: "Pots trucar al conductor a %{phone_number}"
-    you_can_pay_gas_money_to_driver: "Per a pagar els diners de la benzina a  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
     category_not_supported: "Aquesta categoria encara no està suportada per SMS."
+    request: "^ sol·licita$ | ^ r$"
     check_the_offer_in_kassi: "Mira la oferta a Kassi: %{listing_url}"
+    rideshare: "Compartir cotxe"
     listing_created: "Gràcies pel teu missatge, el llistat s'agrega ara a Kassi"
+    you_can_call_him_at: "Pots trucar al conductor a %{phone_number}"
     offer: "^ ofereix$ | ^ o$"
+    you_can_pay_gas_money_to_driver: "Per a pagar els diners de la benzina a  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
   tag_cloud:
     tag_used:
       with_tag: "Amb etiqueta"

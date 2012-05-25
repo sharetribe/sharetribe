@@ -293,7 +293,7 @@ fi:
     common:
       check_your_settings: "Tarkista asetuksesi"
       hey: "Hei %{name},"
-      kassi_team: %{service_name}-tiimi
+      kassi_team: "%{service_name}-tiimi"
       thanks: "Terveisin,"
       want_to_control_emails: "Mistä kaikesta haluat %{service_name_genetive} lähettävän sinulle sähköpostimuistutuksen?"
     conversation_status_changed:
@@ -350,7 +350,7 @@ fi:
       add: Lisää
       an_offer: tarjous
       a_request: pyyntö
-      to_kassi: %{service_name_illative}
+      to_kassi: "%{service_name_illative}"
       check_everything_that_others_are: "katso mitä muut"
       offering: tarjoavat
       requesting: pyytävät
@@ -670,7 +670,7 @@ fi:
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      badges: %{service_name}-merkit
+      badges: "%{service_name}-merkit"
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
@@ -902,7 +902,7 @@ fi:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: %{service_name}-merkit
+      badges_description_title: "%{service_name}-merkit"
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
@@ -1046,7 +1046,7 @@ fi:
       add_phone_number: "Lisää puhelinnumero"
       address: "Osoite:"
       as_expected: "Vastasi odotuksia"
-      badges: %{service_name}-merkit
+      badges: "%{service_name}-merkit"
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
       feedback_average: "Palautteiden keskiarvo:"
