@@ -50,8 +50,8 @@ ru:
   common:
     default_community_slogan: ~
     default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Сообщите что Вы можете предложить и в чём нуждаетесь сами."
-    default_description: ~
     cancel: Отмена
+    default_description: ~
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
     or: или
     password: Пароль
@@ -68,84 +68,6 @@ ru:
       trade: обменяю
     username: "Имя пользователя"
     what_is_this: "Что это?"
-  communities:
-    map_bubble:
-      view_tribe: "Просмотреть сообщество"
-    email_confirmation_pending:
-      confirmation_pending: "Подтвердите свой адрес электронной почты"
-    enter_organization_email:
-      enter_your_organization_email: "Введите вашу электронную почту %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "Только люди с проверенным %{community_category} адресом электронной почты могут присоединиться к этому сообществу."
-      continue: Продолжить
-      tribe_exists: "Сообщество существует!"
-      this_tribe_exists_already: "Это сообщество уже существует! Вы хотите присоединиться к нему?"
-    done:
-      done: Готово!
-      tribe_created_successfully: "Вы успешно создали своё сообщество."
-      go_to_your_tribe: "Перейти в сообщество"
-    index:
-      find_your_local_tribe: "Найти местное сообщество"
-      or_start_your_own: "...или %{start_your_own_tribe_link}"
-      start_your_own_tribe_link: "создайте своё!"
-    select_pricing_plan:
-      select_your_plan: "Выберите ваш план"
-      pick_one_of_the_options_below: "Выберите один из вариантов ниже."
-      create_for_free: "Создать бесплатно"
-      contact_us: "Свяжитесь с нами"
-      free_plan: "Бесплатный план"
-      max_100_members: "Макс. 100 участников"
-      premium_plan: Премиум-план
-      max_500_members: "Макс. 500 участников"
-      care_free_user_support: ~
-      create_your_tribe: "Создайте своё сообщество"
-      professional_plan: "Профессиональный план"
-      unlimited_members: "Неограниченное число участников"
-      intranet_integration: "Интеграция локальной сети"
-      no_charge: Бесплатно
-      euros_per_month_premium: "%{price} евро в месяц"
-      custom_domain: "Пользовательский домен"
-      you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете из списка ниже."
-      company: Компания
-      university: Университет
-      town: Город
-      congregation: Конгрегация
-      association: Ассоциация
-      neighborhood: Соседство
-      apartment_building: Общежитие
-      other: Прочее
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Создайте новое сообщество за минуту"
-      welcome_now_create_your_tribe: "Добро пожаловать, %{name}! Теперь создайте своё сообщество."
-      name_of_your_tribe: "Имя вашего сообщества"
-      web_address_of_your_tribe: "Адрес вашего сообщества в Интернете"
-      slogan_of_your_tribe: "Девиз вашего сообщества"
-      describe_your_tribe: "Опишите сообщество: какова цель его существования?"
-      create_your_tribe: "Создайте своё сообщество!"
-      domain_invalid: "Имя домена может содержать только буквы, цифры, знак подчеркивания и дефис."
-      domain_taken: "Это сообщество уже существует. Вам нужно выбрать другое имя домена."
-      address: "Местоположение вашего сообщества"
-      location_description: ~
-      select_main_language_of_your_tribe: "Выберите основной язык вашего сообщества"
-      language: Язык
-    signup_form:
-      create_an_account: "Создайте учётную запись для себя"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для Sharetribe ниже или"
-      log_in_with_your_existing_account: "войти в систему с помощью существующей учётной записи"
-      your_email: "Электронная почта"
-      your_university_email: "Университетская электронная почта"
-      your_company_email: "Электронная почта в компании"
-      you_need_to_confirm: "Для создания сообщества для вашего %{tribe_type} вам необходимо подтвердить ваш %{tribe_type} адрес электронной почты."
-      pick_username: "Выберите имя пользователя"
-      your_given_name: "Ваше имя"
-      your_family_name: "Ваша фамилия"
-      your_password: Пароль
-      confirm_your_password: "Подтвердить пароль"
-      email_in_use_message: "Учётная запись с этим адресом электронной почты уже существует в %{service_name} . Если у вас уже есть аккаунт, вы можете войти с его помощью по ссылке выше."
-      invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
-      log_in_here: войти
   conversations:
     index:
       loading_more_messages: "Загрузка сообщений"
@@ -224,6 +146,84 @@ ru:
       accept_request: "Принять запрос"
       reject_offer: "Отклонить предложение"
       reject_request: "Отклонить запрос"
+  communities:
+    map_bubble:
+      view_tribe: "Просмотреть сообщество"
+    email_confirmation_pending:
+      confirmation_pending: "Подтвердите свой адрес электронной почты"
+    enter_organization_email:
+      enter_your_organization_email: "Введите вашу электронную почту %{community_category}"
+      only_people_with_verified_email_address_can_join_your_tribe: "Только люди с проверенным %{community_category} адресом электронной почты могут присоединиться к этому сообществу."
+      continue: Продолжить
+      tribe_exists: "Сообщество существует!"
+      this_tribe_exists_already: "Это сообщество уже существует! Вы хотите присоединиться к нему?"
+    done:
+      done: Готово!
+      tribe_created_successfully: "Вы успешно создали своё сообщество."
+      go_to_your_tribe: "Перейти в сообщество"
+    index:
+      find_your_local_tribe: "Найти местное сообщество"
+      or_start_your_own: "...или %{start_your_own_tribe_link}"
+      start_your_own_tribe_link: "создайте своё!"
+    select_pricing_plan:
+      select_your_plan: "Выберите ваш план"
+      pick_one_of_the_options_below: "Выберите один из вариантов ниже."
+      create_for_free: "Создать бесплатно"
+      contact_us: "Свяжитесь с нами"
+      free_plan: "Бесплатный план"
+      max_100_members: "Макс. 100 участников"
+      premium_plan: Премиум-план
+      max_500_members: "Макс. 500 участников"
+      care_free_user_support: ~
+      create_your_tribe: "Создайте своё сообщество"
+      professional_plan: "Профессиональный план"
+      unlimited_members: "Неограниченное число участников"
+      intranet_integration: "Интеграция локальной сети"
+      no_charge: Бесплатно
+      euros_per_month_premium: "%{price} евро в месяц"
+      custom_domain: "Пользовательский домен"
+      you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете из списка ниже."
+      company: Компания
+      university: Университет
+      town: Город
+      congregation: Конгрегация
+      association: Ассоциация
+      neighborhood: Соседство
+      apartment_building: Общежитие
+      other: Прочее
+    new_tribe_form:
+      create_a_tribe_in_a_minute: "Создайте новое сообщество за минуту"
+      welcome_now_create_your_tribe: "Добро пожаловать, %{name}! Теперь создайте своё сообщество."
+      name_of_your_tribe: "Имя вашего сообщества"
+      web_address_of_your_tribe: "Адрес вашего сообщества в Интернете"
+      slogan_of_your_tribe: "Девиз вашего сообщества"
+      describe_your_tribe: "Опишите сообщество: какова цель его существования?"
+      create_your_tribe: "Создайте своё сообщество!"
+      domain_invalid: "Имя домена может содержать только буквы, цифры, знак подчеркивания и дефис."
+      domain_taken: "Это сообщество уже существует. Вам нужно выбрать другое имя домена."
+      address: "Местоположение вашего сообщества"
+      location_description: ~
+      select_main_language_of_your_tribe: "Выберите основной язык вашего сообщества"
+      language: Язык
+    signup_form:
+      create_an_account: "Создайте учётную запись для себя"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для Sharetribe ниже или"
+      log_in_with_your_existing_account: "войти в систему с помощью существующей учётной записи"
+      your_email: "Электронная почта"
+      your_university_email: "Университетская электронная почта"
+      your_company_email: "Электронная почта в компании"
+      you_need_to_confirm: "Для создания сообщества для вашего %{tribe_type} вам необходимо подтвердить ваш %{tribe_type} адрес электронной почты."
+      pick_username: "Выберите имя пользователя"
+      your_given_name: "Ваше имя"
+      your_family_name: "Ваша фамилия"
+      your_password: Пароль
+      confirm_your_password: "Подтвердить пароль"
+      email_in_use_message: "Учётная запись с этим адресом электронной почты уже существует в %{service_name} . Если у вас уже есть аккаунт, вы можете войти с его помощью по ссылке выше."
+      invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
+      log_in_here: войти
   community_memberships:
     new:
       join_community: "Присоединяйтесь к сообществу '%{community}'"
@@ -243,17 +243,12 @@ ru:
       create_your_own: "Создайте свой"
       sharing_website: "САЙТ ДЛЯ ОБМЕНА"
       main_description: "Создайте место, где члены вашего сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия."
-      want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
-      read_our_faq: "Прочтите наш FAQ"
-      contact_us: "свяжитесь с нами напрямую"
-      why_you_really_should_have_a_tribe: "Зачем вам сообщество"
       kassi_for_your_company: "KASSI ДЛЯ ВАШЕЙ КОМПАНИИ"
       kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Kassi - это предложение для вас."
       kassi_for_your_city: "KASSI ДЛЯ ВАШЕГО ГОРОДА"
       kassi_for_your_city_description: "Хотите, чтобы в вашем населенном пункте установились добрососедские отношения между жителями и люди помогали друг другу? Хотите, чтобы уровень жизни населения улучшался? Kassi поможет вам достичь этого."
       kassi_for_your_university: "KASSI ДЛЯ ТВОЕГО УНИВЕРСИТЕТА"
       kassi_for_your_university_description: "Хотите создать активное студенческое сообщество, в котором люди знают и доверяют друг другу? Хотите помочь студентам и преподавателям сохранить их время, деньги и помочь окружающей среде? Попробуйте Kassi и ощутите перемены! Пример сообщества Kassi:"
-      an_example: Пример
       want_kassi_for_your_community: "Хотите использовать Kassi в своём сообществе?"
       email_default_text: "Электронная почта"
       send: Отправить!
@@ -267,12 +262,17 @@ ru:
       product_of: "Kassi - это продукт"
       language: "Язык:"
       new: Новость!
+      new_text: "Kassi теперь доступна для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
+      want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
+      read_our_faq: "Прочтите наш FAQ"
+      contact_us: "свяжитесь с нами напрямую"
+      why_you_really_should_have_a_tribe: "Зачем вам сообщество"
+      an_example: Пример
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
-      new_text: "Kassi теперь доступна для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
   emails:
     accept_reminder:
       offer_accusative: предложение
@@ -529,12 +529,12 @@ ru:
       feedback: "Отзыв команде Kassi"
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
-      formerly_known_as_kassi: ~
       give_feedback: "Написать отзыв о Kassi"
       keywords: "услуга, вещи, совместное использование автомобилей, проживание, жилье, приют, помощь, помогать, предлагать, предложение, требуется, сдавать, обменяться, купить, продать, отдать, отдать бесплатно, Kassi, Касси, сообщество, он-лайн сообщество"
       meta_description: "Kassi - это сервис, который помогает людям обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       or_check_our: "...или зайдите на наш"
       send_feedback_to_admin: "Отправить отзыв"
+      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
     conversations:
@@ -576,7 +576,6 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
-      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Учётная запись создана успешно. Теперь вам нужно подтвердить свой адрес электронной почты."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Теперь вы являетесь членом этого сообщества. Далее вам необходимо подтвердить свой адрес электронной почты."
       avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
@@ -585,7 +584,6 @@ ru:
       comment_sent: "Комментарий отправлен"
       confirmation_link_is_wrong_or_used: "Ссылка для подтверждения уже была использована, либо неправильна. Попробуйте войти в систему, или отправьте отзыв, если проблема повторяется."
       additional_email_confirmed: "Адрес электронной почты, указанный вами теперь подтверждено. Теперь вы можете присоединиться к сообществу, введя его еще раз."
-      additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       create_new_offer: "Предложить ещё что-нибудь"
       create_new_request: "Запросить ещё что-нибудь"
       create_one_here: "создать её"
@@ -652,6 +650,7 @@ ru:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
       you_cannot_reply_to_a_closed_offer: "Вы не можете ответить на закрытое предложение"
       you_cannot_reply_to_a_closed_request: "Вы не можете ответить на закрытый запрос"
       you_cannot_reply_to_your_own_offer: "Вы не можете ответить на собственное предложение"
@@ -661,6 +660,7 @@ ru:
       you_are_now_member: "Вы успешно присоединилась к этому сообществу"
       you_are_already_member: "Вы уже являетесь членом этого сообщества %{service_name}. С возвращением!"
       you_must_log_in_to_create_new_offer: "Для того, чтобы создать новое предложение, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
+      additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       you_must_log_in_to_create_new_request: "Для того, чтобы создать новый запрос, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в Kassi"
@@ -1068,8 +1068,8 @@ ru:
       show_full_description: Больше
       slightly_better_than_expected: "Немного лучше чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
-      trustcloud: TrustCloud
       what_are_these: "Что это?"
+      trustcloud: TrustCloud
   search:
     show:
       all_results: "Все результаты"
@@ -1099,14 +1099,18 @@ ru:
       request_new_password: "Запросить новый пароль"
       change_your_password: "Смена пароля"
     confirmation_pending:
-      confirm_your_email: "Подтвердить электронную почту"
-      account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
-      account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
+      welcome_to_kassi: "Добро пожаловать в Kassi!"
+      check_your_email: "Проверьте ваш почтовый ящик"
+      account_conrimation_instructions: "В скором времени, вы получите письмо от Kassi, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу Kassi.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
+      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от Kassi со ссылкой, по которой нужно перейти для получения доступа к этому сообществу.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
       get_started: "Начало работы с Kassi"
       getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
       resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
       your_current_email_is: "Ваша электронная почта: %{email} ."
       change_email: Изменить
+      confirm_your_email: "Подтвердить электронную почту"
+      account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
+      account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
   settings:
     account:
       change: Изменить

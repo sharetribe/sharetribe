@@ -22,7 +22,7 @@ fr:
       updated_not_active: "Votre mot de passe a bien été changé."
       send_paranoid_instructions: "Si nous trouvons bien votre email dans notre base de données, vous recevrez un lien pour récupérer votre mot de mail"
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants"
-      updated: "Votre mot de passe a été édité avec succès, vous êtes maintenant connecté"
+      updated: "Votre mot de passe a été modifié avec succès, vous êtes maintenant connecté."
     sessions:
       signed_in: Connecté.
       signed_out: Déconnecté.
@@ -53,6 +53,6 @@ fr:
       confirmation_instructions:
         subject: "Instructions de confirmation"
       reset_password_instructions:
-        subject: "Instructions pour changer le mot de passe"
+        subject: "Instructions pour réinitialiser votre mot de passe"
       unlock_instructions:
         subject: "Instructions pour déverrouiller le compte"
