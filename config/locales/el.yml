@@ -48,7 +48,10 @@ el:
       show:
         edit_poll: Επεξεργασία
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: Άκυρο
+    default_description: ~
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
     password: Κωδικός
@@ -143,6 +146,81 @@ el:
       accept_request: "Αποδοχή αιτήματος"
       reject_offer: "Απόρριψη προσφοράς"
       reject_request: "Απόρριψη αιτήματος"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: "Εγγραφή στην κοινότητα %{community}"
@@ -151,12 +229,13 @@ el:
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      joining_to_mail_restricted_communities_not_yet_supported: ~
       if_want_to_view_content: "Αν θες να δεις το περιεχόμενο αυτής της κοινότητας χωρίς να συμμετέχεις σε αυτή, πρέπει να"
       log_out: αποσυνδεθείς
       join_community_button: "Συμμετοχή στην κοινότητα"
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: "Ένα διαδικτυακό παζάρι για την κοινότητά σου."
       create_your_own: "Δημιούργησε μία"
       sharing_website: "ΚΟΙΝΟΤΗΤΑ KASSI"
@@ -181,6 +260,11 @@ el:
       language: "Γλώσσα:"
       new: ΝΕΟ!
       new_text: "Τo Kassi είναι τώρα διαθέσιμο για την <a href=\"http://upatras.kassi.eu/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -202,6 +286,7 @@ el:
       welcome_to_kassi: "Καλωσήρθες στο Kassi!"
       need_to_confirm: "Πριν αρχίσεις να χρησιμοποιείς το Kassi θα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση χρησιμοποιώντας τον παρακάτω σύνδεσμο:"
       confirmation_link_text: "Επιβεβαίωσε το λογαριασμό μου"
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Έλεγξε τις ρυθμίσεις σου"
       hey: "Γεια σου %{name},"
@@ -320,7 +405,7 @@ el:
       has_accepted_buy_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rent_out_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rent_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
+      has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει τη βοήθεια %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} πριν από %{time_ago}."
     join:
       joined_kassi: "Ο/Η %{name} γράφτηκε στο Kassi πριν από %{time_ago}."
@@ -489,9 +574,11 @@ el:
       comment_cannot_be_empty: "Το σχόλιο δεν μπορεί να είναι κενό"
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
+      additional_email_confirmed: ~
       create_new_offer: "Πρόσφερε κάτι άλλο"
       create_new_request: "Ζήτα κάτι άλλο"
       create_one_here: "δημιουργήσεις ένα εδώ"
+      email_confirmation_sent_to_new_address: ~
       email_not_found: "Το email που έδωσες δεν βρέθηκε στη βάση δεδομένων του Kassi."
       error_with_session: "Σφάλμα με τη συνεδρία."
       favor_offer_message_sent: "Το αίτημα στάλθηκε επιτυχώς"
@@ -551,6 +638,7 @@ el:
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων (Feedback) για να μας στείλεις λεπτομέρειες για το τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σου, παρακαλούμε προσπάθησε ξανά"
       welcome_message: "Καλωσήρθες στο Kassi! Το Kassi είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
@@ -560,6 +648,7 @@ el:
       you_cannot_reply_to_your_own_request: "Δεν μπορείς να απαντήσεις στο δικό σου αίτημα"
       you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας Kassi. Καλωσόρισες ξανά!"
       you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
@@ -758,6 +847,7 @@ el:
       offer: Προσφορά
       offer_author: "Προσφέρεται από τον/την"
       offer_created: "Δημιουργήθηκε στις"
+      qr_code: ~
       request: Αίτημα
       request_author: "Ζητήθηκε από τον/την"
       request_created: "Δημιουργήθηκε στις"
@@ -825,6 +915,7 @@ el:
       email: "Διεύθυνση email:"
       email_is_in_use: "Το email που έδωσες χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποίησε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δες τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείς να συνδεθείς επικοινώνησε μαζί μας πατώντας το κουμπί ανατροφοδότησης στα αριστερά."
+      email_not_allowed: ~
       enter_captcha: "Είμαι άνθρωπος:"
       family_name: "Επώνυμο:"
       given_name: "Όνομα:"
@@ -983,6 +1074,13 @@ el:
       i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
       login: Σύνδεση
       login_to_kassi: "Συνδέσου στο Kassi"
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
@@ -996,6 +1094,11 @@ el:
       get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
       getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
+      your_current_email_is: ~
+      change_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Αλλαγή

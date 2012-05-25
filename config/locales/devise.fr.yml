@@ -1,7 +1,7 @@
 fr:
   errors:
     messages:
-      expired: ~
+      expired: "a expiré, demandez en un nouveau s'il vous plaît"
       not_found: "n'a pas été trouvé(e)"
       already_confirmed: "a déjà été validé(e)"
       not_locked: "n'était pas verrouillé(e)"
@@ -19,31 +19,31 @@ fr:
       timeout: "Votre session est expirée, veuillez vous reconnecter pour continuer."
       inactive: "Votre compte n'est pas encore activé."
     passwords:
-      updated_not_active: ~
-      send_paranoid_instructions: ~
+      updated_not_active: "Votre mot de passe a bien été changé."
+      send_paranoid_instructions: "Si nous trouvons bien votre email dans notre base de données, vous recevrez un lien pour récupérer votre mot de mail"
       send_instructions: "Vous allez recevoir les instructions de réinitialisation du mot de passe dans quelques instants"
       updated: "Votre mot de passe a été édité avec succès, vous êtes maintenant connecté"
     sessions:
       signed_in: Connecté.
       signed_out: Déconnecté.
     confirmations:
-      send_paranoid_instructions: ~
+      send_paranoid_instructions: "Si nous trouvons bien votre email dans notre base de données, vous recevez dans quelques minutes des informations pour confirmer votre compte."
       send_instructions: "Vous allez recevoir les instructions nécessaires à la confirmation de votre compte dans quelques minutes"
       confirmed: "Votre compte a été validé, vous êtes maintenant connecté"
     registrations:
-      signed_up_but_unconfirmed: ~
-      signed_up_but_inactive: ~
-      signed_up_but_locked: ~
+      signed_up_but_unconfirmed: "Un email contenant un lien de confirmation vient de vous être envoyé. Cliquez le pour activer votre compte."
+      signed_up_but_inactive: "Vous êtes bien inscrit. Cependant, vous n'êtes pas connecté car votre compte n'est pas encore activé."
+      signed_up_but_locked: "Vous êtes bien inscrit. Cependant, vous n'êtes pas connecté car votre compte est bloqué."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
-      update_needs_confirmation: ~
+        inactive: inactif
+        unconfirmed: "non confirmé"
+        locked: bloqué
+      update_needs_confirmation: "Vous avez bien mis à jour votre compte mais nous devons valider votre nouvelle adresse email. Allez voir vos emails et cliquez sur le lien de validation pour la confirmer."
       signed_up: "Bienvenu, vous êtes connecté"
       updated: "Votre compte a été modifié avec succès."
       destroyed: "Votre compte a été supprimé avec succès. Nous espérons vous revoir bientôt."
     unlocks:
-      send_paranoid_instructions: ~
+      send_paranoid_instructions: "Si votre compte existe bien, vous allez recevoir dans quelques minutes les instructions pour débloquer votre compte."
       send_instructions: "Vous allez recevoir les instructions nécessaires au déblocage de votre compte dans quelques instants"
       unlocked: "Votre compte a été débloqué avec succès, vous êtes maintenant connecté."
     omniauth_callbacks:

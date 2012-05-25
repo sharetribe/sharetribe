@@ -48,7 +48,10 @@ nl:
       show:
         edit_poll: ~
   common:
+    default_community_slogan: ~
+    default_community_description: ~
     cancel: Annuleren
+    default_description: ~
     fields_that_are_mandatory: "Velden die gemarkeerd zijn met (*) zijn verplicht."
     or: of
     password: Wachtwoord
@@ -143,6 +146,81 @@ nl:
       accept_request: "Accepteer verzoek"
       reject_offer: "Sla aanbod af"
       reject_request: "Sla verzoek af"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: ~
+      tribe_created_successfully: ~
+      go_to_your_tribe: ~
+    index:
+      find_your_local_tribe: ~
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: ~
+      pick_one_of_the_options_below: ~
+      create_for_free: ~
+      contact_us: ~
+      free_plan: ~
+      max_100_members: ~
+      premium_plan: ~
+      max_500_members: ~
+      create_your_tribe: ~
+      professional_plan: ~
+      unlimited_members: ~
+      intranet_integration: ~
+      no_charge: ~
+      euros_per_month_premium: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: ~
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
+      company: ~
+      university: ~
+      town: ~
+      congregation: ~
+      association: ~
+      neighborhood: ~
+      apartment_building: ~
+      other: ~
+    new_tribe_form:
+      create_a_tribe_in_a_minute: ~
+      welcome_now_create_your_tribe: ~
+      name_of_your_tribe: ~
+      web_address_of_your_tribe: ~
+      slogan_of_your_tribe: ~
+      describe_your_tribe: ~
+      create_your_tribe: ~
+      domain_invalid: ~
+      domain_taken: ~
+      address: ~
+      location_description: ~
+      select_main_language_of_your_tribe: ~
+      language: ~
+    signup_form:
+      create_an_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: ~
+      your_email: ~
+      your_university_email: ~
+      your_company_email: ~
+      you_need_to_confirm: ~
+      pick_username: ~
+      your_given_name: ~
+      your_family_name: ~
+      your_password: ~
+      confirm_your_password: ~
+      email_in_use_message: ~
+      invalid_email_ending_message: ~
+      log_in_here: ~
   community_memberships:
     new:
       join_community: ~
@@ -151,12 +229,13 @@ nl:
       you_can_join_email_confirmation: ~
       you_can_join_email_confirmation_multiple_addresses: ~
       you_can_join_with_invite_only: ~
-      joining_to_mail_restricted_communities_not_yet_supported: ~
       if_want_to_view_content: ~
       log_out: ~
       join_community_button: ~
   dashboard:
     index:
+      get_started: ~
+      browse_communities_around_you: ~
       slogan: ~
       create_your_own: ~
       sharing_website: ~
@@ -181,6 +260,11 @@ nl:
       language: ~
       new: ~
       new_text: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
+      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -202,6 +286,7 @@ nl:
       welcome_to_kassi: ~
       need_to_confirm: ~
       confirmation_link_text: ~
+      turning_on_confirmations_in_this_community: ~
     common:
       check_your_settings: "Controleer uw instellingen"
       hey: "Hi %{name},"
@@ -489,9 +574,11 @@ nl:
       comment_cannot_be_empty: "Reactie kan niet leeg zijn"
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: ~
+      additional_email_confirmed: ~
       create_new_offer: "Biedt iets anders aan"
       create_new_request: "Verzoek iets anders"
       create_one_here: "hier één maken"
+      email_confirmation_sent_to_new_address: ~
       email_not_found: "De email die je gaf, was niet gevonden in de Kassi database."
       error_with_session: "Fout in sessie."
       favor_offer_message_sent: "Gunst verzoek is succesvol verzonden"
@@ -551,6 +638,7 @@ nl:
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
       welcome_message: "Welkom bij Kassi! Kassi is een service die leden van de %{community} gemeenschap helpt om elkaar te helpen met gunsten, verkopen en lenen aan anderen, organiseren van carpoolen en op vele anderen manieren."
+      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
@@ -560,6 +648,7 @@ nl:
       you_cannot_reply_to_your_own_request: "Je kan niet reageren op je eigen verzoek"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
+      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Je moet ingelogd zijn om een nieuw aanbod te maken. Als je nog geen account hebt kun je er"
@@ -758,6 +847,7 @@ nl:
       offer: Aanbod
       offer_author: "Aangeboden door"
       offer_created: "Aanbod aangemaakt"
+      qr_code: ~
       request: Verzoek
       request_author: "Aangevraagd door"
       request_created: "Verzoek aangemaakt"
@@ -825,6 +915,7 @@ nl:
       email: "Email adres:"
       email_is_in_use: "Het email adres is al in gebruik."
       email_is_in_use_or_not_allowed: ~
+      email_not_allowed: ~
       enter_captcha: "Ik ben een mens:"
       family_name: "Familie naam:"
       given_name: "Naam:"
@@ -949,20 +1040,20 @@ nl:
       add_location: ~
       add_phone_number: ~
       address: "Adres:"
-      as_expected: "Zoals verwacht"
-      badges: Badges
-      edit_profile_info: "Wijzig profile"
-      exceeded_expectations: "Verwachtingen overtroffen"
-      feedback_average: "Feedback gemiddelde:"
-      hide_description: "Laat minder zien"
-      joined_this_community: ~
       was_last_seen: ~
+      as_expected: "Zoals verwacht"
       was_invited_by: ~
+      badges: Badges
       less_than_expected: "Minder dan verwacht"
+      edit_profile_info: "Wijzig profile"
       phone_number: "Telefoon nummer:"
+      exceeded_expectations: "Verwachtingen overtroffen"
       show_all_badges: "Laat alle badges zien"
+      feedback_average: "Feedback gemiddelde:"
       show_all_feedback: "Laat alle feedback zien"
+      hide_description: "Laat minder zien"
       show_all_testimonials: "Laat alle feedback zien"
+      joined_this_community: ~
       show_full_description: "Laat meer zien"
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
@@ -983,19 +1074,27 @@ nl:
       i_forgot_my_password: "Ik ben mijn wachtwoord vergeten"
       login: "Log in"
       login_to_kassi: "Log in Kassi"
+      connect_your_facebook_to_kassi: ~
+      facebook_account: ~
+      log_in_to_link_account: ~
+      you_can_also_create_new_account: ~
+      account_creation_link_text: ~
+      cancle_facebook_connect: ~
+      facebook_cancel_link_text: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
       request_new_password: "Nieuw wachtwoord aanvragen"
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
+      your_current_email_is: ~
+      change_email: ~
   settings:
     account:
       change: Wijzig
