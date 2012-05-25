@@ -159,10 +159,10 @@ fr:
       this_tribe_exists_already: ~
     done:
       done: "Terminé !"
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
+      tribe_created_successfully: "Vous venez de créer votre tribu avec succès."
+      go_to_your_tribe: "Aller dans votre tribu"
     index:
-      find_your_local_tribe: ~
+      find_your_local_tribe: "Trouvez une tribu proche"
       or_start_your_own: "Ou %{start_your_own_tribe_link} !"
       start_your_own_tribe_link: "Créez la votre !"
     select_pricing_plan:
@@ -175,7 +175,7 @@ fr:
       premium_plan: "Offre premium"
       max_500_members: "500 membres maximum"
       care_free_user_support: ~
-      create_your_tribe: ~
+      create_your_tribe: "Créer votre tribu"
       professional_plan: "Offre pro"
       unlimited_members: "Nombre illimité de membres"
       intranet_integration: "Intégration à votre intranet"
@@ -184,7 +184,7 @@ fr:
       custom_domain: ~
       you_can_change_and_cancel: ~
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
+      what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez vous créer ?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Tout d'abord, dites nous quelle type de communauté vous représentez en choisissant une proposition ci-dessous."
       company: Entreprise
       university: Université
@@ -195,18 +195,18 @@ fr:
       apartment_building: "Immeuble, lotissement"
       other: Autre
     new_tribe_form:
-      create_a_tribe_in_a_minute: ~
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
+      create_a_tribe_in_a_minute: "Créer une tribu en un instant"
+      welcome_now_create_your_tribe: "Bienvenue, %{name} ! C'est parti, créez votre tribu."
+      name_of_your_tribe: "Nom de votre tribu"
+      web_address_of_your_tribe: "Adresse internet de votre tribu"
+      slogan_of_your_tribe: "Slogan de votre tribu"
+      describe_your_tribe: "Décrivez votre tribu : quel est sa raison d'être ?"
+      create_your_tribe: "Créer votre tribu !"
       domain_invalid: "Le domaine ne peut contenir que des lettres, des nombres, des tirets bas (\"_\") et des tirets hauts (\"-\")."
-      domain_taken: ~
-      address: ~
+      domain_taken: "Cette tribu existe déjà. Vous devez choisir un autre nom."
+      address: "Emplacement de votre tribu"
       location_description: ~
-      select_main_language_of_your_tribe: ~
+      select_main_language_of_your_tribe: "Choisissez la langue de votre tribu"
       language: Langue
     signup_form:
       create_an_account: "Créer votre compte personnel"
@@ -215,7 +215,7 @@ fr:
       your_email: "Votre adresse email"
       your_university_email: "Votre adresse email universitaire"
       your_company_email: "Votre adresse email d'entreprise"
-      you_need_to_confirm: ~
+      you_need_to_confirm: "Pour créer une tribu pour votre %{tribe_type}, vous devez confirmer votre adresse email %{tribe_type}."
       pick_username: "Choisissez un nom d'utilisateur"
       your_given_name: "Votre prénom"
       your_family_name: "Votre nom de famille"
@@ -238,7 +238,7 @@ fr:
   dashboard:
     index:
       get_started: "LANCEZ VOUS !"
-      browse_communities_around_you: ~
+      browse_communities_around_you: "rejoindre une tribu près de vous"
       slogan: "Un marché en ligne pour votre communauté."
       create_your_own: "Créer le votre"
       sharing_website: "SITE DE PARTAGE"
@@ -266,7 +266,7 @@ fr:
       want_to_know_more: "Envie d'en savoir plus ? %{read_our_faq_link} ou %{contact_us_link}"
       read_our_faq: "Lire notre FAQ"
       contact_us: "contactez nous"
-      why_you_really_should_have_a_tribe: ~
+      why_you_really_should_have_a_tribe: "Pourquoi vous devriez vraiment avoir une tribu"
       an_example: "Un example"
   emails:
     accept_reminder:

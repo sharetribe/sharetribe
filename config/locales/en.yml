@@ -255,11 +255,11 @@ en:
       kassi_for_your_university: "...FOR YOUR UNIVERSITY"
       kassi_for_your_university_description: "Want to create a lively campus environment where people know and trust each other? Want to help your students and staff save their time, money, and the environment? Try out Sharetribe and perceive the change!"
       an_example: "An example"
-      want_kassi_for_your_community: "Want Kassi for your community?"
+      want_kassi_for_your_community: "Want %{service_name} for your community?"
       email_default_text: "Your email address"
       send: Send!
       or_drop_us_a_line: "...or drop us a line:"
-      thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a Kassi community soon."
+      thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a %{service_name} community soon."
       resources: RESOURCES
       connect: CONNECT
       blog: Blog
@@ -268,12 +268,12 @@ en:
       product_of: "Sharetribe is a product of"
       language: "Language:"
       new: NEW!
-      new_text: "Kassi now available for <a href=\"http://www.kassi.eu/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
       home: "Home"
       faq: "FAQ"
       browse_tribes: "Browse tribes"
       pricing: "Pricing"
       contact: "Contact"
+      new_text: "%{service_name} now available for <a href=\"http://www.kassi.eu/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
   emails:
     accept_reminder:
       offer_accusative: offer
@@ -1089,7 +1089,7 @@ en:
       connect_your_facebook_to_kassi: "Connect your Facebook account to %{service_name}"
       facebook_account: "Facebook account:"
       log_in_to_link_account: "If you already have a %{service_name} account, log in to link it with your Facebook account."
-      you_can_also_create_new_account: "If you don't have an account in Kassi, %{accont_creation_link} to create one with your Facebook login."
+      you_can_also_create_new_account: "If you don't have an account in %{service_name}, %{accont_creation_link} to create one with your Facebook login."
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: "cancel"
