@@ -148,23 +148,23 @@ fr:
       reject_request: "Rejeter demande"
   communities:
     map_bubble:
-      view_tribe: ~
+      view_tribe: "Voir la tribu"
     email_confirmation_pending:
       confirmation_pending: "Merci de confirmer votre adresse email"
     enter_organization_email:
       enter_your_organization_email: "Entrez votre email %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: ~
+      only_people_with_verified_email_address_can_join_your_tribe: "Seules les personnes avec une adresse email %{community_category} valide peuvent rejoindre cette tribu."
       continue: Continuer
       tribe_exists: ~
-      this_tribe_exists_already: ~
+      this_tribe_exists_already: "Cette tribu existe déjà. Voulez vous la rejoindre ?"
     done:
       done: "Terminé !"
       tribe_created_successfully: "Vous venez de créer votre tribu avec succès."
       go_to_your_tribe: "Aller dans votre tribu"
     index:
-      find_your_local_tribe: "Trouvez une tribu proche"
-      or_start_your_own: "Ou %{start_your_own_tribe_link} !"
-      start_your_own_tribe_link: "Créez la votre !"
+      find_your_local_tribe: "Trouvez une tribu proche de vous"
+      or_start_your_own: "... ou %{start_your_own_tribe_link}"
+      start_your_own_tribe_link: "créez la votre !"
     select_pricing_plan:
       select_your_plan: "Choisissez votre offre"
       pick_one_of_the_options_below: "Choisissez une des options ci-dessous."
@@ -181,8 +181,8 @@ fr:
       intranet_integration: "Intégration à votre intranet"
       no_charge: "Entièrement Gratuit"
       euros_per_month_premium: "150 euros par mois"
-      custom_domain: ~
-      you_can_change_and_cancel: ~
+      custom_domain: "Nom de domaine personnalisé"
+      you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez vous créer ?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Tout d'abord, dites nous quelle type de communauté vous représentez en choisissant une proposition ci-dessous."
@@ -238,17 +238,17 @@ fr:
   dashboard:
     index:
       get_started: "LANCEZ VOUS !"
-      browse_communities_around_you: "rejoindre une tribu près de vous"
+      browse_communities_around_you: "rejoignez une tribu près de vous"
       slogan: "Un marché en ligne pour votre communauté."
-      create_your_own: "Créer le votre"
+      create_your_own: "Créez votre"
       sharing_website: "SITE DE PARTAGE"
-      main_description: "Mettez en place un environnement où les membres de votre communauté peuvent partager des objets, des services, des trajets dans une ambiance de confiance."
-      kassi_for_your_company: "KASSI POUR VOTRE ENTREPRISE"
+      main_description: "Mettez facilement en place un service où les membres de votre tribu pourront partager des objets, des services, des trajets dans un esprit de confiance."
+      kassi_for_your_company: "...POUR VOTRE ENTREPRISE"
       kassi_for_your_company_description: "Envie de rendre votre entreprise plus sociale et connectée ? Envie d'aider les employés à mieux se connaître les uns les autres ? Envie de réduire votre empreinte écologique et devenir une entreprise plus verte ? Kassi est la solution."
-      kassi_for_your_city: "KASSI POUR VOTRE VILLE"
-      kassi_for_your_city_description: "Envie de créer autour de vous des communautés où les gens se connaissent et s'aident mutuellement ? Envie de donner les moyens aux gens d'améliorer leur vie ? Kassi va vous y aider."
-      kassi_for_your_university: "KASSI POUR VOTRE UNIVERSITÉ"
-      kassi_for_your_university_description: "Envie de rendre votre campus un lieu animé où les gens se connaissent et se font confiance ? Envie d'aider les étudiants et le personnel à économiser du temps, de l'argent et la planète ? Essayez Kassi !"
+      kassi_for_your_city: "...POUR VOTRE QUARTIER"
+      kassi_for_your_city_description: "Envie de créer, autour de vous, des groupes où les gens se connaissent et s'aident mutuellement ? Envie de leur donner les moyens d'améliorer leurs vies quotidiennes ? Kassi va vous y aider."
+      kassi_for_your_university: "...POUR VOTRE UNIVERSITÉ"
+      kassi_for_your_university_description: "Envie de faire de votre campus un lieu animé où les gens se connaissent et se font confiance ? Envie d'aider les étudiants et le personnel à économiser du temps, de l'argent et l'environnement ? Essayez Kassi !"
       want_kassi_for_your_community: "Envie d'avoir Kassi pour votre communauté ?"
       email_default_text: "Votre adresse email"
       send: "Envoyer !"
@@ -264,10 +264,15 @@ fr:
       new: "NOUVEAU !"
       new_text: "Kassi est désormais accessible pour <a href=\"http://www.kassi.eu/en/wdc\">les voisinages d'Helsinki et Lahti</a> et pour <a href=\"http://www.kassi.eu/en/okl\">les membres de SuomenOmakotiliitto</a> !"
       want_to_know_more: "Envie d'en savoir plus ? %{read_our_faq_link} ou %{contact_us_link}"
-      read_our_faq: "Lire notre FAQ"
+      read_our_faq: "Lisez notre FAQ"
       contact_us: "contactez nous"
       why_you_really_should_have_a_tribe: "Pourquoi vous devriez vraiment avoir une tribu"
-      an_example: "Un example"
+      an_example: "Un exemple"
+      home: ~
+      faq: ~
+      browse_tribes: ~
+      pricing: ~
+      contact: ~
   emails:
     accept_reminder:
       offer_accusative: offre
@@ -907,8 +912,8 @@ fr:
       help_captcha_title: "Etes-vous humain ?"
       help_invitation_code_title: "Il vous faut une invitation pour participer"
       terms_title: "Conditions d'utilisation de Kassi"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
+      trustcloud_description_title: TrustCloud
+      trustcloud_description_text: "<p>TrustCloud est un service en ligne qui aide à quantifier le niveau de confiance d'une personne parmi différents sites web. Il donne un score (de 1 à 1000) calculé sur l'activité en ligne d'une personne. Ce score augmente par exemple en ayant de bons avis sur eBay ou en ayant de nombreuses relations sur Facebook. Vous pouvez cliquer sur chaque carte pour en savoir plus.</p><p>TrustCloud est utilisé pour apporter aider à certifier que quelqu'un derrière un profil est bien celui qu'il dit être et non un autre.</p><p>Vous pouvez demander votre TrustCard si vous le souhaitez en <a href='https://trustcloud.com/claim'>vous inscrivant sur TrustCloud</a> avec la même adresse email que vous avez utilisé sur %{service_name}. Ce n'est pas obligatoire, mais nous vous le recommandons puisque cela va améliorer votre crédibilité et faciliter votre rencontre dans la communauté.</p><p>Pour le moment, les actions dans %{service_name} n'affecte pas votre TrustScore, mais nous allons le rendre possible très bientôt.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur Kassi"
       inactive_description: "Cet utilisateur a arrêté d'utiliser Kassi. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
@@ -1063,7 +1068,7 @@ fr:
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
-      trustcloud: ~
+      trustcloud: TrustCloud
   search:
     show:
       all_results: "Tous les résultats"

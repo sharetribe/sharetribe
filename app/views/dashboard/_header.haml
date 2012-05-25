@@ -1,12 +1,12 @@
 #header
   .container_12
-    .grid_5.alpha
+    .grid_7.alpha
       #logo_container
         #logo
           = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Kassi"), root
         #slogan
           = t("dashboard.index.slogan")
-    .grid_7.omega
+    .grid_5.omega
       #language_switch
         #select_language_form
           - if APP_CONFIG.available_locales.count > 1

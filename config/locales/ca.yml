@@ -268,6 +268,11 @@ ca:
       contact_us: ~
       why_you_really_should_have_a_tribe: ~
       an_example: ~
+      home: ~
+      faq: ~
+      browse_tribes: ~
+      pricing: ~
+      contact: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -531,6 +536,7 @@ ca:
       meta_description: "Kassi és un servei que ajuda als membres d'associacions i altres comunitats a vendre i prestar-se articles entre ells, organitzar trajectes compartits o ajudar-los de diverses formes."
       or_check_our: "...o comprova el nostre"
       send_feedback_to_admin: "Enviar suggeriment"
+      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "per veure els suggeriments d'altres usuaris."
       your_email_address: "Correu electrònic (no obligatori)"
     conversations:
@@ -1152,14 +1158,14 @@ ca:
     pay: Pagar
     payment_delivered: "Pagament de %{amount} euros s'entrega a  %{receiver}. Pagaràs  %{amount_plus_commission} euros a la teva factura de telèfon."
     potential_ride_share_offer: "%{author_name} ofereix un trasllat desde %{origin} fins a %{destination} %{start_time}."
-    category_not_supported: "Aquesta categoria encara no està suportada per SMS."
     request: "^ sol·licita$ | ^ r$"
-    check_the_offer_in_kassi: "Mira la oferta a Kassi: %{listing_url}"
     rideshare: "Compartir cotxe"
-    listing_created: "Gràcies pel teu missatge, el llistat s'agrega ara a Kassi"
     you_can_call_him_at: "Pots trucar al conductor a %{phone_number}"
-    offer: "^ ofereix$ | ^ o$"
     you_can_pay_gas_money_to_driver: "Per a pagar els diners de la benzina a  %{driver} Xe' donde x es la cantidad. La cantidad + 5% de comisión irá en tu factura de teléfono."
+    category_not_supported: "Aquesta categoria encara no està suportada per SMS."
+    check_the_offer_in_kassi: "Mira la oferta a Kassi: %{listing_url}"
+    listing_created: "Gràcies pel teu missatge, el llistat s'agrega ara a Kassi"
+    offer: "^ ofereix$ | ^ o$"
   tag_cloud:
     tag_used:
       with_tag: "Amb etiqueta"
