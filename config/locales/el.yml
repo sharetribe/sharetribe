@@ -50,8 +50,8 @@ el:
   common:
     default_community_slogan: "Δάνεισε, βοήθα, μοιράσου"
     default_community_description: ~
-    cancel: Άκυρο
     default_description: ~
+    cancel: Άκυρο
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
     password: Κωδικός
@@ -68,84 +68,6 @@ el:
       trade: ανταλλαγή
     username: "Όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
-  conversations:
-    index:
-      loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
-      message_partitive: μήνυμα
-      messages_partitive: μηνύματα
-      no_received_messages: "Κανένα εισερχόμενο μήνυμα"
-      no_sent_messages: "Κανένα απεσταλμένο μήνυμα"
-    new:
-      default_offer_message_text: "Εξήγησε τι χρειάζεσαι."
-      default_request_message_text: "Εξήγησε τι προσφέρεις και με ποιους όρους."
-      favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
-      favor_offer_message_title: "Χάρη: %{title}"
-      favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
-      favor_request_message_title: "Χάρη: %{title}"
-      housing_offer_message_form_title: "Απάντησε στον/στην"
-      housing_offer_message_title: "Απάντηση στην αγγελία σου %{title}"
-      housing_request_message_form_title: "Απάντησε στον/στην"
-      housing_request_message_title: "Απάντηση στην αγγελία σου %{title}"
-      item_offer_message_form_title: "Ζήτησε ένα αντικείμενο από τον/την"
-      item_offer_message_title: "Αίτημα: %{title}"
-      item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
-      item_request_message_title: "Προσφορά: %{title}"
-      message: Μήνυμα
-      rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
-      rideshare_offer_message_title: "Πάρε με μαζί σου στο %{title}"
-      rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
-      rideshare_request_message_title: "Πάμε μαζί στο %{title}"
-      send_a_new_message: "Αποστολή νέου μηνύματος"
-      send_offer_message: "Στείλε την προσφορά"
-      send_request_message: "Στείλε το αίτημα"
-      this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
-      title: Τίτλος
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Δες όλες τις κονκάρδες σου"
-        you_have_earned_badge: "Κέρδισες την κονκάρδα"
-      comment_to_followed_listing_notification:
-        has_commented: "έχει σχολιάσει"
-        offer_you_follow: "μία προσφορά που παρακολουθείς"
-        request_you_follow: "ένα αίτημα που παρακολουθείς"
-      listing_updated_notification:
-        has_updated: "έχει ενημερώσει"
-        offer_you_follow: "μία προσφορά που παρακολουθείς"
-        request_you_follow: "ένα αίτημα που παρακολουθείς"
-      comment_to_own_listing_notification:
-        has_commented: "έχει σχολιάσει"
-        your_offer: "την προσφορά σου"
-        your_request: "το αίτημά σου"
-      loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
-      no_notifications: "Καμία ειδοποίηση."
-      testimonialnotification:
-        give_feedback_to: "Κάνε κριτική για τον/την %{name}"
-        has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
-        see_all_the_feedback_you_have_received: "δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
-    show:
-      in_response_to_offer: "σχετικά με την προσφορά"
-      in_response_to_request: "σε απάντηση του αιτήματος"
-      offer_sent_by: "Ζητήθηκε από τον/την"
-      offer_sent_to: "Προσφέρθηκε στον/στην"
-      request_sent_by: "Ζητήθηκε από τον/την"
-      request_sent_to: "Ζητήθηκε από τον/την"
-      send_reply: Αποστολή
-      write_a_reply: "Απάντησε:"
-    status:
-      feedback_given: "Δόθηκε κριτική"
-      feedback_skipped: "Η κριτική παραλείφθηκε"
-      give_feedback: "Κάνε κριτική"
-      offer_accepted: "Η προσφορά έγινε δεκτή"
-      offer_rejected: "Η προσφορά απορρίφθηκε"
-      request_accepted: "Το αίτημα έγινε δεκτό"
-      request_rejected: "Το αίτημα απορρίφθηκε"
-      skip_feedback: "Παράλειψε την κριτική"
-      waiting_confirmation_from_listing_author: "Αναμονή επιβεβαίωσης από τον συγγραφέα της καταχώρησης"
-    status_link:
-      accept_offer: "Αποδοχή προσφοράς"
-      accept_request: "Αποδοχή αιτήματος"
-      reject_offer: "Απόρριψη προσφοράς"
-      reject_request: "Απόρριψη αιτήματος"
   communities:
     map_bubble:
       view_tribe: ~
@@ -224,6 +146,84 @@ el:
       email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχεις ήδη λογαριασμό, μπορείς να συνδεθείς χρησιμοποιώντας τον παραπάνω σύνδεσμο."
       invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείς με ένα email που να σχετίζεται με το/την %{community_category} σου."
       log_in_here: "συνδεθείς εδώ"
+  conversations:
+    index:
+      loading_more_messages: "Εμφάνιση περισσότερων μηνυμάτων"
+      message_partitive: μήνυμα
+      messages_partitive: μηνύματα
+      no_received_messages: "Κανένα εισερχόμενο μήνυμα"
+      no_sent_messages: "Κανένα απεσταλμένο μήνυμα"
+    new:
+      default_offer_message_text: "Εξήγησε τι χρειάζεσαι."
+      default_request_message_text: "Εξήγησε τι προσφέρεις και με ποιους όρους."
+      favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
+      favor_offer_message_title: "Χάρη: %{title}"
+      favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
+      favor_request_message_title: "Χάρη: %{title}"
+      housing_offer_message_form_title: "Απάντησε στον/στην"
+      housing_offer_message_title: "Απάντηση στην αγγελία σου %{title}"
+      housing_request_message_form_title: "Απάντησε στον/στην"
+      housing_request_message_title: "Απάντηση στην αγγελία σου %{title}"
+      item_offer_message_form_title: "Ζήτησε ένα αντικείμενο από τον/την"
+      item_offer_message_title: "Αίτημα: %{title}"
+      item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
+      item_request_message_title: "Προσφορά: %{title}"
+      message: Μήνυμα
+      rideshare_offer_message_form_title: "Κάνε οτοστόπ στον/στην"
+      rideshare_offer_message_title: "Πάρε με μαζί σου στο %{title}"
+      rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
+      rideshare_request_message_title: "Πάμε μαζί στο %{title}"
+      send_a_new_message: "Αποστολή νέου μηνύματος"
+      send_offer_message: "Στείλε την προσφορά"
+      send_request_message: "Στείλε το αίτημα"
+      this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
+      title: Τίτλος
+    notifications:
+      badgenotification:
+        see_all_your_badges: "Δες όλες τις κονκάρδες σου"
+        you_have_earned_badge: "Κέρδισες την κονκάρδα"
+      comment_to_followed_listing_notification:
+        has_commented: "έχει σχολιάσει"
+        offer_you_follow: "μία προσφορά που παρακολουθείς"
+        request_you_follow: "ένα αίτημα που παρακολουθείς"
+      listing_updated_notification:
+        has_updated: "έχει ενημερώσει"
+        offer_you_follow: "μία προσφορά που παρακολουθείς"
+        request_you_follow: "ένα αίτημα που παρακολουθείς"
+      comment_to_own_listing_notification:
+        has_commented: "έχει σχολιάσει"
+        your_offer: "την προσφορά σου"
+        your_request: "το αίτημά σου"
+      loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
+      no_notifications: "Καμία ειδοποίηση."
+      testimonialnotification:
+        give_feedback_to: "Κάνε κριτική για τον/την %{name}"
+        has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
+        see_all_the_feedback_you_have_received: "δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
+    show:
+      in_response_to_offer: "σχετικά με την προσφορά"
+      in_response_to_request: "σε απάντηση του αιτήματος"
+      offer_sent_by: "Ζητήθηκε από τον/την"
+      offer_sent_to: "Προσφέρθηκε στον/στην"
+      request_sent_by: "Ζητήθηκε από τον/την"
+      request_sent_to: "Ζητήθηκε από τον/την"
+      send_reply: Αποστολή
+      write_a_reply: "Απάντησε:"
+    status:
+      feedback_given: "Δόθηκε κριτική"
+      feedback_skipped: "Η κριτική παραλείφθηκε"
+      give_feedback: "Κάνε κριτική"
+      offer_accepted: "Η προσφορά έγινε δεκτή"
+      offer_rejected: "Η προσφορά απορρίφθηκε"
+      request_accepted: "Το αίτημα έγινε δεκτό"
+      request_rejected: "Το αίτημα απορρίφθηκε"
+      skip_feedback: "Παράλειψε την κριτική"
+      waiting_confirmation_from_listing_author: "Αναμονή επιβεβαίωσης από τον συγγραφέα της καταχώρησης"
+    status_link:
+      accept_offer: "Αποδοχή προσφοράς"
+      accept_request: "Αποδοχή αιτήματος"
+      reject_offer: "Απόρριψη προσφοράς"
+      reject_request: "Απόρριψη αιτήματος"
   community_memberships:
     new:
       join_community: "Εγγραφή στην κοινότητα %{community}"
@@ -243,12 +243,17 @@ el:
       create_your_own: "Δημιούργησε μία"
       sharing_website: "ΚΟΙΝΟΤΗΤΑ KASSI"
       main_description: "Δημιούργησε ένα μέρος όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
+      want_to_know_more: "Θες να μάθεις περισσότερα; %{read_our_faq_link} ή %{contact_us_link}."
+      read_our_faq: "Διάβασε τις συχνές ερωτήσεις"
+      contact_us: "επικοινώνησε μαζί μας"
+      why_you_really_should_have_a_tribe: "Γιατί είναι καλό πρέπει να έχεις μια κοινότητα"
       kassi_for_your_company: "ΤΟ KASSI ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
       kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το Kassi στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους ενώ ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
       kassi_for_your_city: "ΤΟ KASSI ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το Kassi μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
       kassi_for_your_university: "ΤΟ KASSI ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
       kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να γλιτώνουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το Kassi! Δείτε για παράδειγμα, <a href=\"http://upatras.kassi.eu/el\">το Kassi στο Πανεπιστήμιο Πατρών</a>"
+      an_example: "Για παράδειγμα"
       want_kassi_for_your_community: "Θα ήθελες το Kassi στην κοινότητά σου;"
       email_default_text: "Ηλεκτρονική διεύθυνση"
       send: Αποστολή!
@@ -262,17 +267,12 @@ el:
       product_of: "Το Kassi είναι ένα προϊόν της"
       language: "Γλώσσα:"
       new: ΝΕΟ!
-      new_text: "Τo Kassi είναι τώρα διαθέσιμο για την <a href=\"http://upatras.kassi.eu/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
-      want_to_know_more: "Θες να μάθεις περισσότερα; %{read_our_faq_link} ή %{contact_us_link}."
-      read_our_faq: "Διάβασε τις συχνές ερωτήσεις"
-      contact_us: "επικοινώνησε μαζί μας"
-      why_you_really_should_have_a_tribe: "Γιατί είναι καλό πρέπει να έχεις μια κοινότητα"
-      an_example: "Για παράδειγμα:"
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
+      new_text: "Τo Kassi είναι τώρα διαθέσιμο για την <a href=\"http://upatras.kassi.eu/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -529,6 +529,7 @@ el:
       feedback: "Σχόλια προς το προσωπικό του Kassi"
       feedback_forum: "περιοχή σχολίων"
       feedback_handle: Ανατροφοδότηση
+      formerly_known_as_kassi: ~
       give_feedback: "Πες τη γνώμη σου για το Kassi"
       keywords: "χάρη, αντικείμενο, συνοδήγηση, συνεπιβατισμός, οτοστόπ, διαμονή, στέγαση, βοήθεια, προσφορά, ζήτηση, αίτημα, ενοικίαση, εκμίσθωση, ανταλλαγή, παζάρι, αγορά, πώληση, αγοράζω, πουλάω, δίνω, χαρίζω, Kassi, οικολογικό, κοινότητα, δικτυακή κοινότητα"
       meta_description: "Το Kassi είναι μια υπηρεσία που βοηθά μέλη διαφόρων κοινοτήτων να ανταλλάζουν χάρες, να πωλούν και να ενοικιάζουν αντικείμενα, να κανονίζουν να συνταξιδέψουν και να αλληλοβοηθούνται με πολλούς διαφορετικούς τρόπους."
@@ -575,6 +576,7 @@ el:
       settings: Ρυθμίσεις
       sign_up: Εγγραφή
     notifications:
+      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Ο λογαριασμός σου δημιουργήθηκε επιτυχώς. Τώρα θα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Είσαι πια μέλος αυτής της κοινότητας. Τώρα πρέπει να επιβεβαιώσεις την ηλεκτρονική σου διεύθυνση."
       avatar_upload_failed: "Η μεταφόρτωση της εικόνας προφίλ απέτυχε. Θυμήσου ότι η φωτογραφία πρέπει να είναι αρχείο .png ή .jpg ή .gif."
@@ -583,6 +585,7 @@ el:
       comment_sent: "Το σχόλιο εστάλη"
       confirmation_link_is_wrong_or_used: "Ο σύνδεσμος επιβεβαίωσης έχει χρησιμοποιηθεί ήδη ή δεν λειτουργεί για κάποιο άλλο λόγο. Προσπάθησε να συνδεθείς ή επικοινώνησε μαζί μας αν το πρόβλημα παραμένει."
       additional_email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σου επιβεβαιώθηκε. Τώρα μπορείς να την χρησιμοποιήσεις για να γραφτείς στην κοινότητα."
+      additional_email_confirmed_dashboard: ~
       create_new_offer: "Πρόσφερε κάτι άλλο"
       create_new_request: "Ζήτα κάτι άλλο"
       create_one_here: "δημιουργήσεις ένα εδώ"
@@ -649,7 +652,6 @@ el:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
-      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Δεν μπορείς να απαντήσεις σε μία προσφορά που έχει κλείσει"
       you_cannot_reply_to_a_closed_request: "Δεν μπορείς να απαντήσεις σε ένα αίτημα που έχει κλείσει"
       you_cannot_reply_to_your_own_offer: "Δεν μπορείς να απαντήσεις στη δική σου προσφορά"
@@ -659,7 +661,6 @@ el:
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας Kassi. Καλωσόρισες ξανά!"
       you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
-      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείς για να κάνεις κριτική"
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο Kassi"
@@ -1067,8 +1068,8 @@ el:
       show_full_description: Περισσότερα...
       slightly_better_than_expected: "Ξεπέρασε τις προσδοκίες"
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
-      what_are_these: "Τι είναι αυτά;"
       trustcloud: ~
+      what_are_these: "Τι είναι αυτά;"
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -1098,18 +1099,14 @@ el:
       request_new_password: "Ζήτησε νέο κωδικό"
       change_your_password: "Άλλαξε τον κωδικό σου"
     confirmation_pending:
-      welcome_to_kassi: "Καλωσήρθες στο Kassi!"
-      check_your_email: "Δες τα εισερχόμενα στο ηλεκτρονικό ταχυδρομείο σου."
-      account_conrimation_instructions: "Σύντομα θα λάβεις ένα μήνυμα ηλεκτρονικού ταχυδρομείου από το Kassi με ένα σύνδεσμο τον οποίο πρέπει να πατήσεις για να αποκτήσεις πρόσβαση σε αυτή την κοινότητα Kassi.</p><p>Αυτός ο έλεγχος γίνεται για να είναι σίγουρο ότι όλα τα μέλη ανήκουν πραγματικά σε αυτή την κοινότητα (<b>%{community_name}</b>). Αυτό δημιουργεί ένα πιο ασφαλές περιβάλλον για να μοιράζεσαι.</p><p>Αν έχεις κάποιο πρόβλημα στη χρήση του Kassi απλά κάνε κλικ στο κουμπί <a href=\"#\" id=\"give_feedback_link\">\"Ανατροφοδότηση\"</a> στα αριστερά και πες το μας. Επίσης παρακαλούμε να μας πεις τις προτάσεις σου για το Kassi!"
-      account_confirmation_instructions_any_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
       get_started: "Ξεκίνα να χρησιμοποιείς το Kassi"
       getting_started_instructions: "Όταν θα έχεις επιβεβαιώσει το λογαριασμό σου, είναι καλή ιδέα να βάλεις μια φωτογραφία στο <a href=\"%{profile_url}\">προφίλ</a> σου και να συμπληρώσεις και άλλες πληροφορίες για σένα, ή μπορείς κατευθείαν να προσθέσεις μια <a href=\"/en/listings/new/offer\">προσφορά</a> σχετικά με κάτι που θα μπορούσες να δανείσεις, να πουλήσεις, να ενοικιάσεις ή να κάνεις για κάποιον άλλο. Ή, αν χρειάζεσαι κάτι συγκεκριμένο μπορείς να καταχωρήσεις ένα <a href=\"/en/listings/new/request\">αίτημα</a>."
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
       your_current_email_is: "Η ηλεκτρονική σου διεύθυνση είναι %{email}."
       change_email: Αλλαγή
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Αλλαγή

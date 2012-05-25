@@ -50,8 +50,8 @@ ro:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Anulează
     default_description: ~
+    cancel: Anulează
     fields_that_are_mandatory: "Campurile cu stea (*) sunt obligatorii."
     or: sau
     password: ~
@@ -68,84 +68,6 @@ ro:
       trade: negociere
     username: ~
     what_is_this: "Ce înseamnă asta?"
-  conversations:
-    index:
-      loading_more_messages: "Se încarcă mai multe mesaje"
-      message_partitive: mesaj
-      messages_partitive: mesaje
-      no_received_messages: "Nici un mesaj primit"
-      no_sent_messages: "Nici un mesaj trimis"
-    new:
-      default_offer_message_text: "Explică ce ai nevoie"
-      default_request_message_text: "Explică ce oferi si in ce conditii"
-      favor_offer_message_form_title: "Cere o favoare de la"
-      favor_offer_message_title: "Cerere favoare: %{title}"
-      favor_request_message_form_title: "Oferă o favoare pentru"
-      favor_request_message_title: "Ofertă favoare: %{title}"
-      housing_offer_message_form_title: Răspunde
-      housing_offer_message_title: ~
-      housing_request_message_form_title: ~
-      housing_request_message_title: ~
-      item_offer_message_form_title: "Cere un produs de la"
-      item_offer_message_title: ~
-      item_request_message_form_title: "Oferă un produs pentru"
-      item_request_message_title: "Ofertă produs: %{title}"
-      message: Mesaj
-      rideshare_offer_message_form_title: "Cere un drum cu mașina de la"
-      rideshare_offer_message_title: ~
-      rideshare_request_message_form_title: "Oferă un drum cu mașina pentru"
-      rideshare_request_message_title: ~
-      send_a_new_message: "Trimite un mesaj nou"
-      send_offer_message: ~
-      send_request_message: ~
-      this_message_is_private: ~
-      title: Titlu
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Vezi toate etichetele"
-        you_have_earned_badge: "Ai castigat ecticheta"
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: "Se incarca mai multe notificari"
-      no_notifications: "Nici o notificare"
-      testimonialnotification:
-        give_feedback_to: "Ofera feedback pentru %{name}"
-        has_given_you_feedback_on_event: "ti-a oferit feedback pentru eveniment"
-        see_all_the_feedback_you_have_received: "vezi toate feedback-urile primite"
-    show:
-      in_response_to_offer: "despre oferta"
-      in_response_to_request: "ca raspuns la cerere"
-      offer_sent_by: "Cereri trimise de"
-      offer_sent_to: "Oferta trimisa pentru"
-      request_sent_by: "Oferta trimisa de"
-      request_sent_to: "Cerere trimisa catre"
-      send_reply: "Trimite raspuns"
-      write_a_reply: "Scrie un răspuns"
-    status:
-      feedback_given: "Feedback oferit"
-      feedback_skipped: "Feedback omis"
-      give_feedback: "Oferă feedback"
-      offer_accepted: "Oferă acceptată"
-      offer_rejected: "Ofertă respinsă"
-      request_accepted: "Cerere acceptată"
-      request_rejected: "Cerere refuzată"
-      skip_feedback: ~
-      waiting_confirmation_from_listing_author: ~
-    status_link:
-      accept_offer: "Acceptă ofertă"
-      accept_request: "Acceptă cerere"
-      reject_offer: "Respinge ofertă"
-      reject_request: "Respinge cerere"
   communities:
     map_bubble:
       view_tribe: ~
@@ -224,6 +146,84 @@ ro:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+  conversations:
+    index:
+      loading_more_messages: "Se încarcă mai multe mesaje"
+      message_partitive: mesaj
+      messages_partitive: mesaje
+      no_received_messages: "Nici un mesaj primit"
+      no_sent_messages: "Nici un mesaj trimis"
+    new:
+      default_offer_message_text: "Explică ce ai nevoie"
+      default_request_message_text: "Explică ce oferi si in ce conditii"
+      favor_offer_message_form_title: "Cere o favoare de la"
+      favor_offer_message_title: "Cerere favoare: %{title}"
+      favor_request_message_form_title: "Oferă o favoare pentru"
+      favor_request_message_title: "Ofertă favoare: %{title}"
+      housing_offer_message_form_title: Răspunde
+      housing_offer_message_title: ~
+      housing_request_message_form_title: ~
+      housing_request_message_title: ~
+      item_offer_message_form_title: "Cere un produs de la"
+      item_offer_message_title: ~
+      item_request_message_form_title: "Oferă un produs pentru"
+      item_request_message_title: "Ofertă produs: %{title}"
+      message: Mesaj
+      rideshare_offer_message_form_title: "Cere un drum cu mașina de la"
+      rideshare_offer_message_title: ~
+      rideshare_request_message_form_title: "Oferă un drum cu mașina pentru"
+      rideshare_request_message_title: ~
+      send_a_new_message: "Trimite un mesaj nou"
+      send_offer_message: ~
+      send_request_message: ~
+      this_message_is_private: ~
+      title: Titlu
+    notifications:
+      badgenotification:
+        see_all_your_badges: "Vezi toate etichetele"
+        you_have_earned_badge: "Ai castigat ecticheta"
+      comment_to_followed_listing_notification:
+        has_commented: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      listing_updated_notification:
+        has_updated: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      comment_to_own_listing_notification:
+        has_commented: ~
+        your_offer: ~
+        your_request: ~
+      loading_more_notifications: "Se incarca mai multe notificari"
+      no_notifications: "Nici o notificare"
+      testimonialnotification:
+        give_feedback_to: "Ofera feedback pentru %{name}"
+        has_given_you_feedback_on_event: "ti-a oferit feedback pentru eveniment"
+        see_all_the_feedback_you_have_received: "vezi toate feedback-urile primite"
+    show:
+      in_response_to_offer: "despre oferta"
+      in_response_to_request: "ca raspuns la cerere"
+      offer_sent_by: "Cereri trimise de"
+      offer_sent_to: "Oferta trimisa pentru"
+      request_sent_by: "Oferta trimisa de"
+      request_sent_to: "Cerere trimisa catre"
+      send_reply: "Trimite raspuns"
+      write_a_reply: "Scrie un răspuns"
+    status:
+      feedback_given: "Feedback oferit"
+      feedback_skipped: "Feedback omis"
+      give_feedback: "Oferă feedback"
+      offer_accepted: "Oferă acceptată"
+      offer_rejected: "Ofertă respinsă"
+      request_accepted: "Cerere acceptată"
+      request_rejected: "Cerere refuzată"
+      skip_feedback: ~
+      waiting_confirmation_from_listing_author: ~
+    status_link:
+      accept_offer: "Acceptă ofertă"
+      accept_request: "Acceptă cerere"
+      reject_offer: "Respinge ofertă"
+      reject_request: "Respinge cerere"
   community_memberships:
     new:
       join_community: ~
@@ -243,12 +243,17 @@ ro:
       create_your_own: ~
       sharing_website: ~
       main_description: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
       kassi_for_your_company: ~
       kassi_for_your_company_description: ~
       kassi_for_your_city: ~
       kassi_for_your_city_description: ~
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
+      an_example: ~
       want_kassi_for_your_community: ~
       email_default_text: "Adresa ta de e-mail"
       send: ~
@@ -262,17 +267,12 @@ ro:
       product_of: ~
       language: ~
       new: ~
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
+      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -529,6 +529,7 @@ ro:
       feedback: ~
       feedback_forum: ~
       feedback_handle: ~
+      formerly_known_as_kassi: ~
       give_feedback: ~
       keywords: ~
       meta_description: ~
@@ -575,6 +576,7 @@ ro:
       settings: ~
       sign_up: Înregistrare
     notifications:
+      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: ~
@@ -583,6 +585,7 @@ ro:
       comment_sent: "Comentariu trimis"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
+      additional_email_confirmed_dashboard: ~
       create_new_offer: ~
       create_new_request: ~
       create_one_here: ~
@@ -649,7 +652,6 @@ ro:
       you_are_not_allowed_to_give_feedback_on_this_transaction: ~
       you_are_not_authorized_to_do_this: ~
       you_are_not_authorized_to_view_this_content: ~
-      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: ~
       you_cannot_reply_to_a_closed_request: ~
       you_cannot_reply_to_your_own_offer: ~
@@ -659,7 +661,6 @@ ro:
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: ~
-      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: ~
       you_must_log_in_to_give_feedback: ~
       you_must_log_in_to_invite_new_users: ~
@@ -1067,8 +1068,8 @@ ro:
       show_full_description: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
-      what_are_these: ~
       trustcloud: ~
+      what_are_these: ~
   search:
     show:
       all_results: ~
@@ -1098,18 +1099,14 @@ ro:
       request_new_password: ~
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: "Bine ați venit la Kassi!"
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
       get_started: ~
       getting_started_instructions: "După ce ați confirmat contul, este o idee bună sa adăugați o fotografie la <a href=\"%{profile_url}\"> profilul dumnveavoastră</a> și să completați alte detalii, sau puteți continua direct spre portal adăugând o <a href=\"/en/listings/new/offer\"> ofertă </a> despre ceva ce puteți împrumuta, închiria, vinde sau face pentru ceilalți. Sau dacă aveți nevoie de un lucru ori de ajutor, scrieți o<a href=\"/en/listings/new/request\"> cerere </a>."
       resend_confirmation_instructions: "Retrimite instrucțiunile de confirmare"
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: ~

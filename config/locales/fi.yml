@@ -50,8 +50,8 @@ fi:
   common:
     default_community_slogan: "Lainaa, auta, jaa"
     default_community_description: "%{service_name}ssa yhteisön jäsenet voivat jakaa tavaroita, palveluita ja kyytejä. Voit kertoa muille mitä voisit tarjota heille ja pyytää apua kun tarvitset sitä."
-    cancel: Peruuta
     default_description: ~
+    cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
     password: Salasana
@@ -68,84 +68,6 @@ fi:
       trade: vaihdetaan
     username: Käyttäjätunnus
     what_is_this: "Mitä tämä tarkoittaa?"
-  conversations:
-    index:
-      loading_more_messages: "Ladataan lisää viestejä"
-      message_partitive: viesti
-      messages_partitive: viestiä
-      no_received_messages: "Ei vastaanotettuja viestejä"
-      no_sent_messages: "Ei lähetettyjä viestejä"
-    new:
-      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
-      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
-      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
-      favor_offer_message_title: "Palveluspyyntö: %{title}"
-      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
-      favor_request_message_title: "Palvelustarjous: %{title}"
-      housing_offer_message_form_title: "Vastaa käyttäjälle"
-      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
-      housing_request_message_form_title: "Vastaa käyttäjälle"
-      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
-      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
-      item_offer_message_title: "Tavarapyyntö: %{title}"
-      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
-      item_request_message_title: "Tavaratarjous: %{title}"
-      message: Viesti
-      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
-      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
-      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
-      rideshare_request_message_title: "Kyytitarjous: %{title}"
-      send_a_new_message: "Lähetä viesti"
-      send_offer_message: "Lähetä tarjous"
-      send_request_message: "Lähetä pyyntö"
-      this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä."
-      title: Otsikko
-    notifications:
-      badgenotification:
-        see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
-        you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
-      comment_to_followed_listing_notification:
-        has_commented: kommentoi
-        offer_you_follow: "seuraamaasi tarjousta"
-        request_you_follow: "seuraamaasi pyyntöä"
-      listing_updated_notification:
-        has_updated: "on päivittänyt"
-        offer_you_follow: "seuraamasi tarjouksen"
-        request_you_follow: "seuraamasi pyynnön"
-      comment_to_own_listing_notification:
-        has_commented: kommentoi
-        your_offer: tarjoustasi
-        your_request: pyyntöäsi
-      loading_more_notifications: "Ladataan lisää tiedotteita"
-      no_notifications: "Ei tiedotteita."
-      testimonialnotification:
-        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
-        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
-        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
-    show:
-      in_response_to_offer: tarjouksesta
-      in_response_to_request: "vastauksena pyyntöön"
-      offer_sent_by: "Pyynnön lähetti"
-      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
-      request_sent_by: "Tarjouksen lähetti"
-      request_sent_to: "Tarjous lähetetty käyttäjälle"
-      send_reply: "Lähetä viesti"
-      write_a_reply: "Kirjoita vastaus:"
-    status:
-      feedback_given: "Palaute annettu"
-      feedback_skipped: "Palaute ohitettu"
-      give_feedback: "Anna palautetta"
-      offer_accepted: "Tarjous hyväksytty"
-      offer_rejected: "Tarjous hylätty"
-      request_accepted: "Pyyntö hyväksytty"
-      request_rejected: "Pyyntö hylätty"
-      skip_feedback: "Ohita palaute"
-      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
-    status_link:
-      accept_offer: "Hyväksy tarjous"
-      accept_request: "Hyväksy pyyntö"
-      reject_offer: "Hylkää tarjous"
-      reject_request: "Hylkää pyyntö"
   communities:
     map_bubble:
       view_tribe: ~
@@ -224,6 +146,84 @@ fi:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+  conversations:
+    index:
+      loading_more_messages: "Ladataan lisää viestejä"
+      message_partitive: viesti
+      messages_partitive: viestiä
+      no_received_messages: "Ei vastaanotettuja viestejä"
+      no_sent_messages: "Ei lähetettyjä viestejä"
+    new:
+      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
+      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
+      favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
+      favor_offer_message_title: "Palveluspyyntö: %{title}"
+      favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
+      favor_request_message_title: "Palvelustarjous: %{title}"
+      housing_offer_message_form_title: "Vastaa käyttäjälle"
+      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
+      housing_request_message_form_title: "Vastaa käyttäjälle"
+      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
+      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
+      item_offer_message_title: "Tavarapyyntö: %{title}"
+      item_request_message_form_title: "Tarjoa tavara käyttäjälle"
+      item_request_message_title: "Tavaratarjous: %{title}"
+      message: Viesti
+      rideshare_offer_message_form_title: "Pyydä kyytiä käyttäjältä"
+      rideshare_offer_message_title: "Kyytipyyntö: %{title}"
+      rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
+      rideshare_request_message_title: "Kyytitarjous: %{title}"
+      send_a_new_message: "Lähetä viesti"
+      send_offer_message: "Lähetä tarjous"
+      send_request_message: "Lähetä pyyntö"
+      this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä."
+      title: Otsikko
+    notifications:
+      badgenotification:
+        see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
+        you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
+      comment_to_followed_listing_notification:
+        has_commented: kommentoi
+        offer_you_follow: "seuraamaasi tarjousta"
+        request_you_follow: "seuraamaasi pyyntöä"
+      listing_updated_notification:
+        has_updated: "on päivittänyt"
+        offer_you_follow: "seuraamasi tarjouksen"
+        request_you_follow: "seuraamasi pyynnön"
+      comment_to_own_listing_notification:
+        has_commented: kommentoi
+        your_offer: tarjoustasi
+        your_request: pyyntöäsi
+      loading_more_notifications: "Ladataan lisää tiedotteita"
+      no_notifications: "Ei tiedotteita."
+      testimonialnotification:
+        give_feedback_to: "Anna palautetta käyttäjälle %{name}"
+        has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
+        see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
+    show:
+      in_response_to_offer: tarjouksesta
+      in_response_to_request: "vastauksena pyyntöön"
+      offer_sent_by: "Pyynnön lähetti"
+      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
+      request_sent_by: "Tarjouksen lähetti"
+      request_sent_to: "Tarjous lähetetty käyttäjälle"
+      send_reply: "Lähetä viesti"
+      write_a_reply: "Kirjoita vastaus:"
+    status:
+      feedback_given: "Palaute annettu"
+      feedback_skipped: "Palaute ohitettu"
+      give_feedback: "Anna palautetta"
+      offer_accepted: "Tarjous hyväksytty"
+      offer_rejected: "Tarjous hylätty"
+      request_accepted: "Pyyntö hyväksytty"
+      request_rejected: "Pyyntö hylätty"
+      skip_feedback: "Ohita palaute"
+      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
+    status_link:
+      accept_offer: "Hyväksy tarjous"
+      accept_request: "Hyväksy pyyntö"
+      reject_offer: "Hylkää tarjous"
+      reject_request: "Hylkää pyyntö"
   community_memberships:
     new:
       join_community: "Liittyminen yhteisöön '%{community}'"
@@ -243,12 +243,17 @@ fi:
       create_your_own: "Luo yhteisöllesi"
       sharing_website: "OMA VERKKOTORI"
       main_description: "%{service_name} on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
       kassi_for_your_company: "SHARETRIBE YRITYKSELLE"
       kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? %{service_name} on ratkaisu sinulle."
       kassi_for_your_city: "SHARETRIBE KAUPUNGILLE"
       kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? %{service_name_genetive} avulla saavutat kaiken tämän."
       kassi_for_your_university: "SHARETRIBE KORKEAKOULULLE"
       kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
+      an_example: ~
       want_kassi_for_your_community: "Haluatko %{service_name_genetive} yhteisösi käyttöön?"
       email_default_text: Sähköpostiosoitteesi
       send: Lähetä!
@@ -262,12 +267,12 @@ fi:
       product_of: "%{service_name_partitive} tekee"
       language: "Kieli:"
       new: UUTTA!
+      home: ~
+      faq: ~
+      browse_tribes: ~
+      pricing: ~
+      contact: ~
       new_text: "%{service_name} käytössä muutamissa <a href=\"http://www.kassi.eu/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.kassi.eu/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
@@ -524,6 +529,7 @@ fi:
       feedback: "Palaute ylläpidolle"
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
+      formerly_known_as_kassi: ~
       give_feedback: "Anna palautetta %{service_name_elative}"
       keywords: "%{service_name}, Kassi, palvelus, tavara, kimppakyyti, asuminen, pyydetään, tarjotaan, lainataan, vuokrataan, vaihdetaan, ostetaan, myydään, annetaa, lahjoitetaan, annetaan, ekologisuus, yhteisö, verkkoyhteisö"
       meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
@@ -570,6 +576,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."
@@ -578,6 +585,7 @@ fi:
       comment_sent: "Kommentti lähetetty"
       confirmation_link_is_wrong_or_used: "Vahvistuslinkki on jo käytetty tai siinä on jokin vika. Yritä kirjautua sisään tai lähetä palautetta jos ongelma ei ratkea."
       additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu. Voit liittyä tähän yhteisöön syöttämällä vahvistetun osoitteen uudestaan."
+      additional_email_confirmed_dashboard: ~
       create_new_offer: "Tarjoa jotain muuta"
       create_new_request: "Pyydä jotain muuta"
       create_one_here: "luoda uuden"
@@ -644,7 +652,6 @@ fi:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
       you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
-      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
       you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
       you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
@@ -654,7 +661,6 @@ fi:
       you_are_now_member: "Yhteisöön liittyminen onnistui."
       you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
-      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
@@ -1062,8 +1068,8 @@ fi:
       show_full_description: "Näytä koko teksti"
       slightly_better_than_expected: "Ylitti odotukset"
       slightly_less_than_expected: "Ei vastannut odotuksia"
-      what_are_these: "Mitä nämä ovat?"
       trustcloud: ~
+      what_are_these: "Mitä nämä ovat?"
   search:
     show:
       all_results: Kaikista
@@ -1093,18 +1099,14 @@ fi:
       request_new_password: "Pyydä uusi salasana"
       change_your_password: "Vaihda salasanasi"
     confirmation_pending:
-      welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      check_your_email: "Tarkista sähköpostisi"
-      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
-      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
       get_started: "Alkuun pääseminen"
       getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä %{service_name_illative} <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Vaihda
