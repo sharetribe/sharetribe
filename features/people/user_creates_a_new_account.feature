@@ -30,7 +30,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "The username you gave is already in use." within ".error"
+    Then I should see "This username is already in use." within ".error"
   
   @javascript  
   Scenario: Trying to create account with invalid username 
