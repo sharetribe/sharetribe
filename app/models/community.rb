@@ -123,11 +123,10 @@ class Community < ActiveRecord::Base
     return nil
   end
   
-  def email_allowed?(email)
-    Community.find_by_email_ending
-  end
   
-  def self.email_allowed?(email)
+  def email_allowed?(email)
+    return true unless allowed_emails.present?
+    
     allowed = false
     allowed_array = allowed_emails.split(",")
     allowed_array.each do |allowed_domain_or_address|
