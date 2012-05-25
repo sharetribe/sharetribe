@@ -174,12 +174,15 @@ el:
       max_100_members: ~
       premium_plan: ~
       max_500_members: ~
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
       unlimited_members: ~
       intranet_integration: ~
       no_charge: ~
       euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
@@ -638,20 +641,20 @@ el:
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων (Feedback) για να μας στείλεις λεπτομέρειες για το τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σου, παρακαλούμε προσπάθησε ξανά"
       welcome_message: "Καλωσήρθες στο Kassi! Το Kassi είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
-      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
       you_are_not_authorized_to_do_this: "Δεν έχεις δικαίωμα να το κάνεις αυτό"
       you_are_not_authorized_to_view_this_content: "Δεν έχεις δικαίωμα να δεις αυτό το περιεχόμενο"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Δεν μπορείς να απαντήσεις σε μία προσφορά που έχει κλείσει"
       you_cannot_reply_to_a_closed_request: "Δεν μπορείς να απαντήσεις σε ένα αίτημα που έχει κλείσει"
       you_cannot_reply_to_your_own_offer: "Δεν μπορείς να απαντήσεις στη δική σου προσφορά"
       you_cannot_reply_to_your_own_request: "Δεν μπορείς να απαντήσεις στο δικό σου αίτημα"
       you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
-      additional_email_confirmed_dashboard: ~
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας Kassi. Καλωσόρισες ξανά!"
       you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο Kassi για να καταχωρήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείς για να κάνεις κριτική"
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο Kassi"
@@ -904,6 +907,8 @@ el:
       help_captcha_title: "Είσαι όντως άνθρωπος;"
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του Kassi"
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο Kassi"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το Kassi. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
@@ -1058,6 +1063,7 @@ el:
       slightly_better_than_expected: "Ξεπέρασε τις προσδοκίες"
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
       what_are_these: "Τι είναι αυτά;"
+      trustcloud: ~
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"

@@ -174,12 +174,15 @@ nl:
       max_100_members: ~
       premium_plan: ~
       max_500_members: ~
+      care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
       unlimited_members: ~
       intranet_integration: ~
       no_charge: ~
       euros_per_month_premium: ~
+      custom_domain: ~
+      you_can_change_and_cancel: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
@@ -638,20 +641,20 @@ nl:
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
       welcome_message: "Welkom bij Kassi! Kassi is een service die leden van de %{community} gemeenschap helpt om elkaar te helpen met gunsten, verkopen en lenen aan anderen, organiseren van carpoolen en op vele anderen manieren."
-      send_instructions: ~
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
       you_cannot_reply_to_your_own_offer: "Je kan niet reageren op je eigen aanbod"
       you_cannot_reply_to_your_own_request: "Je kan niet reageren op je eigen verzoek"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
-      additional_email_confirmed_dashboard: ~
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Je moet ingelogd zijn om een nieuw aanbod te maken. Als je nog geen account hebt kun je er"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Je moet ingelogd zijn om ee nieuw verzoek te maken. Als je nog geen account hebt kun je er"
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
       you_must_log_in_to_invite_new_users: ~
@@ -904,6 +907,8 @@ nl:
       help_captcha_title: "Ben je mens?"
       help_invitation_code_title: ~
       terms_title: "Kassi gebruiksvoorwaarden"
+      trustcloud_description_title: ~
+      trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
@@ -1040,24 +1045,25 @@ nl:
       add_location: ~
       add_phone_number: ~
       address: "Adres:"
-      was_last_seen: ~
       as_expected: "Zoals verwacht"
-      was_invited_by: ~
       badges: Badges
-      less_than_expected: "Minder dan verwacht"
       edit_profile_info: "Wijzig profile"
-      phone_number: "Telefoon nummer:"
       exceeded_expectations: "Verwachtingen overtroffen"
-      show_all_badges: "Laat alle badges zien"
       feedback_average: "Feedback gemiddelde:"
-      show_all_feedback: "Laat alle feedback zien"
       hide_description: "Laat minder zien"
-      show_all_testimonials: "Laat alle feedback zien"
       joined_this_community: ~
+      was_last_seen: ~
+      was_invited_by: ~
+      less_than_expected: "Minder dan verwacht"
+      phone_number: "Telefoon nummer:"
+      show_all_badges: "Laat alle badges zien"
+      show_all_feedback: "Laat alle feedback zien"
+      show_all_testimonials: "Laat alle feedback zien"
       show_full_description: "Laat meer zien"
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
+      trustcloud: ~
   search:
     show:
       all_results: "Alle resultaten"
@@ -1087,14 +1093,18 @@ nl:
       request_new_password: "Nieuw wachtwoord aanvragen"
       change_your_password: ~
     confirmation_pending:
+      welcome_to_kassi: ~
+      check_your_email: ~
+      account_conrimation_instructions: ~
+      account_confirmation_instructions_any_email: ~
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
+      your_current_email_is: ~
+      change_email: ~
       confirm_your_email: ~
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
-      your_current_email_is: ~
-      change_email: ~
   settings:
     account:
       change: Wijzig
