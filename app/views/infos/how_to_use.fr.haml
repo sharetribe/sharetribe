@@ -2,7 +2,7 @@
 
 %p 
   Possédez-vous des outils, des équipements sportifs, des déguisements ou d'autres objets dont vous ne vous servez pas souvent et que vous pourriez facilement prêter voire vendre ou donner ? Savez-vous réparer des vélos, coudre ou aimez-vous peut-être promener des chiens ? Seriez-vous d'accord pour conduire quelqu'un à son travail en échange d'un peu d'argent pour l'essence ? Avez-vous un appartement en attente d'un locataire ?
-  = link_to "Ajouter ces informations sur Kassi", new_request_path(:type => "offer") 
+  = link_to "Ajouter ces informations sur #{service_name}", new_request_path(:type => "offer") 
   et éprouvez le plaisir d'aider les autres !
 
 %p 
@@ -11,28 +11,28 @@
   Peut-être êtes-vous en mesure de proposer quelque chose que les autres recherchent actuellement.
 
 %p 
-  Kassi a pour objectif de mettre en lien ceux qui ont besoin de quelque chose et ceux qui ont quelque chose à offrir. Ils peuvent ensuite se mettre d'accord sur les méthodes d'échange. Cela signifie que vous pouvez vendre, louer, échanger ou donner, prêter et aider les autres gratuitement.
+  #{service_name} a pour objectif de mettre en lien ceux qui ont besoin de quelque chose et ceux qui ont quelque chose à offrir. Ils peuvent ensuite se mettre d'accord sur les méthodes d'échange. Cela signifie que vous pouvez vendre, louer, échanger ou donner, prêter et aider les autres gratuitement.
 
 %h3 Demandez aux autres ce dont vous avez besoin
 
 %p 
   Que vous ayez besoin d'un objet, d'un service, d'un transport ou d'un appartement, vous pouvez les trouver grâce à la
   = link_to("recherche", search_path)
-  pratique de Kassi. Vous pouvez également  
+  pratique de #{service_name}. Vous pouvez également  
   = link_to("consulter les offres ouvertes", offers_path) + "." 
 
 %p 
-  Si quelqu'un propose déjà sur Kassi ce dont vous avez besoin, vous pouvez cliquer sur "demander" ou "répondre" sur l'offre en question et envoyer gratuitement un message à la personne qui a créé l'offre en utilisant le formulaire qui s'ouvre. Après cela, vous n'avez plus qu'à attendre que le destinataire du message accepte votre demande. Vous pouvez vous mettre d'accord sur les détails de l'échange en utilisant la messagerie de Kassi. Vous recevrez automatiquement un email de notification pour tous vos nouveaux messages et offres ou demandes acceptées. Ainsi, vous n'êtes pas obligé de dévoiler votre adresse électronique aux autres utilisateurs, à moins que vous ne le souhaitiez. Vous pouvez visionner les messages reçus et envoyés, ainsi que les demandes et offres acceptées, rejetées et en cours dans   
+  Si quelqu'un propose déjà sur #{service_name} ce dont vous avez besoin, vous pouvez cliquer sur "demander" ou "répondre" sur l'offre en question et envoyer gratuitement un message à la personne qui a créé l'offre en utilisant le formulaire qui s'ouvre. Après cela, vous n'avez plus qu'à attendre que le destinataire du message accepte votre demande. Vous pouvez vous mettre d'accord sur les détails de l'échange en utilisant la messagerie de #{service_name}. Vous recevrez automatiquement un email de notification pour tous vos nouveaux messages et offres ou demandes acceptées. Ainsi, vous n'êtes pas obligé de dévoiler votre adresse électronique aux autres utilisateurs, à moins que vous ne le souhaitiez. Vous pouvez visionner les messages reçus et envoyés, ainsi que les demandes et offres acceptées, rejetées et en cours dans   
   - if logged_in? 
     = link_to("messagerie", person_messages_path(:person_id => @current_user.id)) + "," 
   - else 
     messagerie,
-  où vous pouvez accéder en cliquant sur l'image d'enveloppe en haut de chaque page lorsque vous êtes connecté sur Kassi.
+  où vous pouvez accéder en cliquant sur l'image d'enveloppe en haut de chaque page lorsque vous êtes connecté sur #{service_name}.
 
 %p 
   Si vous n'avez pas trouvé ce que vous cherchez, vous pouvez
   = link_to("créer une demande ouverte", new_request_path(:type => "request")) + "," 
-  dans laquelle vous décrivez ce dont vous avez besoin. Cette demande sera montrée à tous les autres utilisateurs de Kassi. Il est probable que quelqu'un pourra vous proposer exactement ce que vous cherchez.
+  dans laquelle vous décrivez ce dont vous avez besoin. Cette demande sera montrée à tous les autres utilisateurs de #{service_name}. Il est probable que quelqu'un pourra vous proposer exactement ce que vous cherchez.
 
 %h3 Conseils 
 
@@ -54,7 +54,7 @@
 - if APP_CONFIG.use_sms 
   %h3 Covoiturage avec SMS 
   
-  %p Les offres et demandes de covoiturage peuvent être ajoutées avec des sms. Cela peut être une façon pratique de vérifier si des transports disponibles sont en cours ou faire connaître le trajet que vous allez faire lorsque vous avancez vers votre véhicule. Kassi informera l'auteur de l'offre si d'autres offres correspondantes sont trouvées sur Kassi, à condition que le numéro de téléphone soit en format international (p.e. +33612345678).
+  %p Les offres et demandes de covoiturage peuvent être ajoutées avec des sms. Cela peut être une façon pratique de vérifier si des transports disponibles sont en cours ou faire connaître le trajet que vous allez faire lorsque vous avancez vers votre véhicule. #{service_name} informera l'auteur de l'offre si d'autres offres correspondantes sont trouvées sur #{service_name}, à condition que le numéro de téléphone soit en format international (p.e. +33612345678).
 
   %p 
     Avant de pouvoir poster des offres ou demandes par sms, vous devez avoir ajouté votre numéro de portable
@@ -68,7 +68,7 @@
     %li kassi offre transport 20rueX Paris 18:30 encore deux places dans la voiture 
     %li kassi demande transport gare,Valence Lyon 14:00 
    
-  %p Actuellement Kassi sépare tout les mots par des espaces, écrivez donc les numéros d'adresses et autres précisions sans espace afin d'obtenir des résultats corrects. Kassi cherchera des demandes et offres correspondantes dans les emplacements donnés.
+  %p Actuellement #{service_name} sépare tout les mots par des espaces, écrivez donc les numéros d'adresses et autres précisions sans espace afin d'obtenir des résultats corrects. #{service_name} cherchera des demandes et offres correspondantes dans les emplacements donnés.
 
   %p L'heure de départ est présumée dans les 24 heures, mais vous pouvez également indiquer la date souhaitée, p.e. 24.11.2010-17:30. 
 

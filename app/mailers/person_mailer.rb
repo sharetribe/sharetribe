@@ -121,13 +121,6 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Kassi")
   end
   
-  # Automatic reply to people who try to contact us via Dashboard
-  def reply_to_contact_request(email, locale)
-    @no_settings = true
-    set_locale locale
-    mail(:to => email, :subject => t("emails.reply_to_contact_request.thank_you_for_your_interest"), :from => "Juho Makkonen <info@kassi.eu>", :reply_to => "Juho Makkonen <info@kassi.eu>")
-  end
-  
   # Remind users of conversations that have not been accepted or rejected
   def accept_reminder(conversation, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
