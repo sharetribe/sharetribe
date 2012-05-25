@@ -50,8 +50,8 @@ nl:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    cancel: Annuleren
     default_description: ~
+    cancel: Annuleren
     fields_that_are_mandatory: "Velden die gemarkeerd zijn met (*) zijn verplicht."
     or: of
     password: Wachtwoord
@@ -68,84 +68,6 @@ nl:
       trade: ruilen
     username: Gebruikersnaam
     what_is_this: "Wat is dit?"
-  conversations:
-    index:
-      loading_more_messages: "Laad meer berichten"
-      message_partitive: bericht
-      messages_partitive: berichten
-      no_received_messages: "Geen ontvangen berichten"
-      no_sent_messages: "Geen verzonden berichten"
-    new:
-      default_offer_message_text: "Leg uit wat je nodig hebt."
-      default_request_message_text: "Let uit wat je aanbied en onder welke voorwaarden."
-      favor_offer_message_form_title: "Vraag om een gunst van"
-      favor_offer_message_title: "Gunst verzoek: %{title}"
-      favor_request_message_form_title: "Bied een gunst aan"
-      favor_request_message_title: "Gunst aanbod: %{title}"
-      housing_offer_message_form_title: "Beantwoord aan"
-      housing_offer_message_title: "Beantwoord jou lijst %{title}"
-      housing_request_message_form_title: "Beantwoord aan"
-      housing_request_message_title: "Beantwoord jou lijst %{title}"
-      item_offer_message_form_title: "Vraag om een item van"
-      item_offer_message_title: "Item verzoek: %{title}"
-      item_request_message_form_title: "Bied een item aan"
-      item_request_message_title: "Item aanbod: %{title}"
-      message: Bericht
-      rideshare_offer_message_form_title: "Vraag om een rit van"
-      rideshare_offer_message_title: "Rit verzoek: %{title}"
-      rideshare_request_message_form_title: "Bied een rit aan"
-      rideshare_request_message_title: "Rit aanbod: %{title}"
-      send_a_new_message: "Verstuur een nieuw bericht"
-      send_offer_message: "Verstuur het verzoek"
-      send_request_message: "Verstuur het aanbod"
-      this_message_is_private: ~
-      title: Titel
-    notifications:
-      badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
-      comment_to_followed_listing_notification:
-        has_commented: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: "Laad meer notificaties"
-      no_notifications: "Geen notificaties"
-      testimonialnotification:
-        give_feedback_to: ~
-        has_given_you_feedback_on_event: ~
-        see_all_the_feedback_you_have_received: ~
-    show:
-      in_response_to_offer: "over aanbod"
-      in_response_to_request: "als reactie op verzoek"
-      offer_sent_by: "Verzoek verstuurd door"
-      offer_sent_to: "Offer sent to"
-      request_sent_by: "Aanbod verstuurd door"
-      request_sent_to: "Verzoek gestuurd naar"
-      send_reply: "Stuur antwoord"
-      write_a_reply: "Schrijf een antwoord:"
-    status:
-      feedback_given: "Feedback gegeven"
-      feedback_skipped: "Feedback overgeslagen"
-      give_feedback: "Geef feedback"
-      offer_accepted: "Aanbod geaccepteerd"
-      offer_rejected: "Aanbod geweigerd"
-      request_accepted: "Verzoek geaccepteerd"
-      request_rejected: "Verzoek geweigerd"
-      skip_feedback: "Sla feedback over"
-      waiting_confirmation_from_listing_author: "Wacht bevestiging van auteur"
-    status_link:
-      accept_offer: "Accepteer aanbod"
-      accept_request: "Accepteer verzoek"
-      reject_offer: "Sla aanbod af"
-      reject_request: "Sla verzoek af"
   communities:
     map_bubble:
       view_tribe: ~
@@ -224,6 +146,84 @@ nl:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+  conversations:
+    index:
+      loading_more_messages: "Laad meer berichten"
+      message_partitive: bericht
+      messages_partitive: berichten
+      no_received_messages: "Geen ontvangen berichten"
+      no_sent_messages: "Geen verzonden berichten"
+    new:
+      default_offer_message_text: "Leg uit wat je nodig hebt."
+      default_request_message_text: "Let uit wat je aanbied en onder welke voorwaarden."
+      favor_offer_message_form_title: "Vraag om een gunst van"
+      favor_offer_message_title: "Gunst verzoek: %{title}"
+      favor_request_message_form_title: "Bied een gunst aan"
+      favor_request_message_title: "Gunst aanbod: %{title}"
+      housing_offer_message_form_title: "Beantwoord aan"
+      housing_offer_message_title: "Beantwoord jou lijst %{title}"
+      housing_request_message_form_title: "Beantwoord aan"
+      housing_request_message_title: "Beantwoord jou lijst %{title}"
+      item_offer_message_form_title: "Vraag om een item van"
+      item_offer_message_title: "Item verzoek: %{title}"
+      item_request_message_form_title: "Bied een item aan"
+      item_request_message_title: "Item aanbod: %{title}"
+      message: Bericht
+      rideshare_offer_message_form_title: "Vraag om een rit van"
+      rideshare_offer_message_title: "Rit verzoek: %{title}"
+      rideshare_request_message_form_title: "Bied een rit aan"
+      rideshare_request_message_title: "Rit aanbod: %{title}"
+      send_a_new_message: "Verstuur een nieuw bericht"
+      send_offer_message: "Verstuur het verzoek"
+      send_request_message: "Verstuur het aanbod"
+      this_message_is_private: ~
+      title: Titel
+    notifications:
+      badgenotification:
+        see_all_your_badges: ~
+        you_have_earned_badge: ~
+      comment_to_followed_listing_notification:
+        has_commented: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      listing_updated_notification:
+        has_updated: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      comment_to_own_listing_notification:
+        has_commented: ~
+        your_offer: ~
+        your_request: ~
+      loading_more_notifications: "Laad meer notificaties"
+      no_notifications: "Geen notificaties"
+      testimonialnotification:
+        give_feedback_to: ~
+        has_given_you_feedback_on_event: ~
+        see_all_the_feedback_you_have_received: ~
+    show:
+      in_response_to_offer: "over aanbod"
+      in_response_to_request: "als reactie op verzoek"
+      offer_sent_by: "Verzoek verstuurd door"
+      offer_sent_to: "Offer sent to"
+      request_sent_by: "Aanbod verstuurd door"
+      request_sent_to: "Verzoek gestuurd naar"
+      send_reply: "Stuur antwoord"
+      write_a_reply: "Schrijf een antwoord:"
+    status:
+      feedback_given: "Feedback gegeven"
+      feedback_skipped: "Feedback overgeslagen"
+      give_feedback: "Geef feedback"
+      offer_accepted: "Aanbod geaccepteerd"
+      offer_rejected: "Aanbod geweigerd"
+      request_accepted: "Verzoek geaccepteerd"
+      request_rejected: "Verzoek geweigerd"
+      skip_feedback: "Sla feedback over"
+      waiting_confirmation_from_listing_author: "Wacht bevestiging van auteur"
+    status_link:
+      accept_offer: "Accepteer aanbod"
+      accept_request: "Accepteer verzoek"
+      reject_offer: "Sla aanbod af"
+      reject_request: "Sla verzoek af"
   community_memberships:
     new:
       join_community: ~
@@ -243,12 +243,17 @@ nl:
       create_your_own: ~
       sharing_website: ~
       main_description: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
       kassi_for_your_company: ~
       kassi_for_your_company_description: ~
       kassi_for_your_city: ~
       kassi_for_your_city_description: ~
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
+      an_example: ~
       want_kassi_for_your_community: ~
       email_default_text: "Jou email adres"
       send: Verzend!
@@ -262,12 +267,12 @@ nl:
       product_of: ~
       language: ~
       new: ~
+      home: ~
+      faq: ~
+      browse_tribes: ~
+      pricing: ~
+      contact: ~
       new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -524,6 +529,7 @@ nl:
       feedback: "Feedback aan Kassi personeel"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
+      formerly_known_as_kassi: ~
       give_feedback: "Geef feedback aan kassi"
       keywords: "Gunst, item, rit, carpoolen, wonen, behuizing, accomodatie, help, hulp, aanbod, verzoek, huur, ruil, koop, verkoop, kopen, verkopen, geef, geven, weggeven, Kassi, ecologisch, gemeenschap, online gemeenschap"
       meta_description: "Kassi is een service die leden van verenigingen en anderen gemeenschappen helpt om elkaar te helpen met gunsten, verkopen en lenen van spullen, het organiseren van carpoolen en met vele anderen dingen."
@@ -570,6 +576,7 @@ nl:
       settings: ~
       sign_up: ~
     notifications:
+      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Avatar upload is mislukt. Vergeet niet dat de foto een .png, .jpg or .gif - bestand moet zijn."
@@ -578,6 +585,7 @@ nl:
       comment_sent: "Reactie verstuurd"
       confirmation_link_is_wrong_or_used: ~
       additional_email_confirmed: ~
+      additional_email_confirmed_dashboard: ~
       create_new_offer: "Biedt iets anders aan"
       create_new_request: "Verzoek iets anders"
       create_one_here: "hier één maken"
@@ -644,7 +652,6 @@ nl:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Je hebt geen toestemming om feedback te geven over dit evenement"
       you_are_not_authorized_to_do_this: "Je hebt geen toestemming om dit te doen"
       you_are_not_authorized_to_view_this_content: "Je hebt geen toestemming om deze inhoud te zien"
-      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
       you_cannot_reply_to_your_own_offer: "Je kan niet reageren op je eigen aanbod"
@@ -654,7 +661,6 @@ nl:
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: "Je moet ingelogd zijn om een nieuw aanbod te maken. Als je nog geen account hebt kun je er"
-      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Je moet ingelogd zijn om ee nieuw verzoek te maken. Als je nog geen account hebt kun je er"
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
       you_must_log_in_to_invite_new_users: ~
@@ -1062,8 +1068,8 @@ nl:
       show_full_description: "Laat meer zien"
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
-      what_are_these: "Wat zijn dit?"
       trustcloud: ~
+      what_are_these: "Wat zijn dit?"
   search:
     show:
       all_results: "Alle resultaten"
@@ -1093,18 +1099,14 @@ nl:
       request_new_password: "Nieuw wachtwoord aanvragen"
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: ~
-      check_your_email: ~
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
       get_started: ~
       getting_started_instructions: ~
       resend_confirmation_instructions: ~
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Wijzig

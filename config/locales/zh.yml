@@ -50,8 +50,8 @@ zh:
   common:
     default_community_slogan: ~
     default_community_description: ~
-    cancel: 取消
     default_description: ~
+    cancel: 取消
     fields_that_are_mandatory: 标有星号（*）的为必填项。
     or: 或
     password: 密码
@@ -68,84 +68,6 @@ zh:
       trade: 交易
     username: 用户名
     what_is_this: 这是什么？
-  conversations:
-    index:
-      loading_more_messages: 载入更多消息
-      message_partitive: 消息
-      messages_partitive: 消息
-      no_received_messages: 没有新消息
-      no_sent_messages: 没有已发送消息
-    new:
-      default_offer_message_text: 说明你需要神马
-      default_request_message_text: 说明你在何种条件下提供何种服务
-      favor_offer_message_form_title: 向...索请一个帮助
-      favor_offer_message_title: "帮助请求：%{title}"
-      favor_request_message_form_title: 向...提供帮助
-      favor_request_message_title: "已有帮助：%{title}"
-      housing_offer_message_form_title: 回复
-      housing_offer_message_title: "回复所有%{title}"
-      housing_request_message_form_title: 回复
-      housing_request_message_title: "回复所有%{title}"
-      item_offer_message_form_title: 想要一个物品
-      item_offer_message_title: "物品请求：%{title}"
-      item_request_message_form_title: 向...提供一个物品
-      item_request_message_title: "已有物品：%{title}"
-      message: 消息
-      rideshare_offer_message_form_title: 想要搭顺风车
-      rideshare_offer_message_title: "搭顺风车请求：%{title}"
-      rideshare_request_message_form_title: 提供顺风车
-      rideshare_request_message_title: "已有顺风车：%{title}"
-      send_a_new_message: 发送一条新消息
-      send_offer_message: ~
-      send_request_message: ~
-      this_message_is_private: "此消息为您和%{person}之间的悄悄话"
-      title: 名称
-    notifications:
-      badgenotification:
-        see_all_your_badges: 查看所有的徽章
-        you_have_earned_badge: 您已获得该徽章
-      comment_to_followed_listing_notification:
-        has_commented: 已评论
-        offer_you_follow: ~
-        request_you_follow: ~
-      listing_updated_notification:
-        has_updated: ~
-        offer_you_follow: ~
-        request_you_follow: ~
-      comment_to_own_listing_notification:
-        has_commented: ~
-        your_offer: ~
-        your_request: ~
-      loading_more_notifications: 载入更多提醒
-      no_notifications: 没有提醒
-      testimonialnotification:
-        give_feedback_to: "评价%{name}"
-        has_given_you_feedback_on_event: 基于事件...的评价
-        see_all_the_feedback_you_have_received: 查看您获得的所有评价
-    show:
-      in_response_to_offer: 关于提议
-      in_response_to_request: 响应请求
-      offer_sent_by: 发送请求的人为
-      offer_sent_to: 提议发送给
-      request_sent_by: 提议发送自
-      request_sent_to: 请求发送至...
-      send_reply: 发送回复
-      write_a_reply: 回复：
-    status:
-      feedback_given: 已发送反馈
-      feedback_skipped: 跳过的反馈
-      give_feedback: 发送反馈
-      offer_accepted: 已接受的提议
-      offer_rejected: 已拒绝的提议
-      request_accepted: 已接受的请求
-      request_rejected: 已拒绝的请求
-      skip_feedback: 跳过反馈
-      waiting_confirmation_from_listing_author: 等待发布者的确认
-    status_link:
-      accept_offer: 接受提议
-      accept_request: 接受请求
-      reject_offer: 拒绝提议
-      reject_request: 拒绝请求
   communities:
     map_bubble:
       view_tribe: ~
@@ -224,6 +146,84 @@ zh:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+  conversations:
+    index:
+      loading_more_messages: 载入更多消息
+      message_partitive: 消息
+      messages_partitive: 消息
+      no_received_messages: 没有新消息
+      no_sent_messages: 没有已发送消息
+    new:
+      default_offer_message_text: 说明你需要神马
+      default_request_message_text: 说明你在何种条件下提供何种服务
+      favor_offer_message_form_title: 向...索请一个帮助
+      favor_offer_message_title: "帮助请求：%{title}"
+      favor_request_message_form_title: 向...提供帮助
+      favor_request_message_title: "已有帮助：%{title}"
+      housing_offer_message_form_title: 回复
+      housing_offer_message_title: "回复所有%{title}"
+      housing_request_message_form_title: 回复
+      housing_request_message_title: "回复所有%{title}"
+      item_offer_message_form_title: 想要一个物品
+      item_offer_message_title: "物品请求：%{title}"
+      item_request_message_form_title: 向...提供一个物品
+      item_request_message_title: "已有物品：%{title}"
+      message: 消息
+      rideshare_offer_message_form_title: 想要搭顺风车
+      rideshare_offer_message_title: "搭顺风车请求：%{title}"
+      rideshare_request_message_form_title: 提供顺风车
+      rideshare_request_message_title: "已有顺风车：%{title}"
+      send_a_new_message: 发送一条新消息
+      send_offer_message: ~
+      send_request_message: ~
+      this_message_is_private: "此消息为您和%{person}之间的悄悄话"
+      title: 名称
+    notifications:
+      badgenotification:
+        see_all_your_badges: 查看所有的徽章
+        you_have_earned_badge: 您已获得该徽章
+      comment_to_followed_listing_notification:
+        has_commented: 已评论
+        offer_you_follow: ~
+        request_you_follow: ~
+      listing_updated_notification:
+        has_updated: ~
+        offer_you_follow: ~
+        request_you_follow: ~
+      comment_to_own_listing_notification:
+        has_commented: ~
+        your_offer: ~
+        your_request: ~
+      loading_more_notifications: 载入更多提醒
+      no_notifications: 没有提醒
+      testimonialnotification:
+        give_feedback_to: "评价%{name}"
+        has_given_you_feedback_on_event: 基于事件...的评价
+        see_all_the_feedback_you_have_received: 查看您获得的所有评价
+    show:
+      in_response_to_offer: 关于提议
+      in_response_to_request: 响应请求
+      offer_sent_by: 发送请求的人为
+      offer_sent_to: 提议发送给
+      request_sent_by: 提议发送自
+      request_sent_to: 请求发送至...
+      send_reply: 发送回复
+      write_a_reply: 回复：
+    status:
+      feedback_given: 已发送反馈
+      feedback_skipped: 跳过的反馈
+      give_feedback: 发送反馈
+      offer_accepted: 已接受的提议
+      offer_rejected: 已拒绝的提议
+      request_accepted: 已接受的请求
+      request_rejected: 已拒绝的请求
+      skip_feedback: 跳过反馈
+      waiting_confirmation_from_listing_author: 等待发布者的确认
+    status_link:
+      accept_offer: 接受提议
+      accept_request: 接受请求
+      reject_offer: 拒绝提议
+      reject_request: 拒绝请求
   community_memberships:
     new:
       join_community: ~
@@ -243,12 +243,17 @@ zh:
       create_your_own: ~
       sharing_website: ~
       main_description: ~
+      want_to_know_more: ~
+      read_our_faq: ~
+      contact_us: ~
+      why_you_really_should_have_a_tribe: ~
       kassi_for_your_company: ~
       kassi_for_your_company_description: ~
       kassi_for_your_city: ~
       kassi_for_your_city_description: ~
       kassi_for_your_university: ~
       kassi_for_your_university_description: ~
+      an_example: ~
       want_kassi_for_your_community: ~
       email_default_text: 你的邮箱地址
       send: 发送！
@@ -262,17 +267,12 @@ zh:
       product_of: ~
       language: ~
       new: ~
-      new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
+      new_text: ~
   emails:
     accept_reminder:
       offer_accusative: 提议
@@ -529,6 +529,7 @@ zh:
       feedback: 向Kassi员工发送反馈
       feedback_forum: 反馈论坛
       feedback_handle: 反馈
+      formerly_known_as_kassi: ~
       give_feedback: 给Kassi反馈
       keywords: 帮助，出售物品，顺风车，合用汽车，住房，租房，帮忙，提议，请求，出租，交易，交换，买入，卖出，买，卖，给予，赠送，Kassi，环保，社区，网上社区
       meta_description: Kassi给人们提供了一个网上社区平台服务。用户可以通过Kassi买卖物品，合用汽车，或者以各种方式彼此帮助。
@@ -575,6 +576,7 @@ zh:
       settings: 设置
       sign_up: 注册
     notifications:
+      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: 账号创建成功。下一步，您需要确认您的Email地址。
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: 头像上传失败。请使用.png，.jpg或者.gif文件。
@@ -583,6 +585,7 @@ zh:
       comment_sent: 评论已发送
       confirmation_link_is_wrong_or_used: 确认链接以被使用或失效。请尝试登录，如果问题依然存在请发送反馈。
       additional_email_confirmed: ~
+      additional_email_confirmed_dashboard: ~
       create_new_offer: 出售其他物品
       create_new_request: 请求其他物品
       create_one_here: 在此创建
@@ -649,7 +652,6 @@ zh:
       you_are_not_allowed_to_give_feedback_on_this_transaction: 您没有对此事件发表评价的权限
       you_are_not_authorized_to_do_this: 您没有权限进行此操作
       you_are_not_authorized_to_view_this_content: 您没有查看此内容的权限
-      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
       you_cannot_reply_to_your_own_offer: 您不能回应自己的提议
@@ -659,7 +661,6 @@ zh:
       you_are_now_member: ~
       you_are_already_member: ~
       you_must_log_in_to_create_new_offer: 请登录以完成提议。如果您没有账户，您可以
-      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: 请登录以完成请求。如果您没有账户，您可以
       you_must_log_in_to_give_feedback: 您必须登录以评价
       you_must_log_in_to_invite_new_users: 您必须登录以邀请新用户
@@ -1067,8 +1068,8 @@ zh:
       show_full_description: 显示更多
       slightly_better_than_expected: 超过预期
       slightly_less_than_expected: 比期望的差
-      what_are_these: 这些是什么？
       trustcloud: ~
+      what_are_these: 这些是什么？
   search:
     show:
       all_results: 所有结果
@@ -1098,18 +1099,14 @@ zh:
       request_new_password: 请求新密码
       change_your_password: ~
     confirmation_pending:
-      welcome_to_kassi: 欢迎来到Kassi！
-      check_your_email: 查看您的收件箱
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
       get_started: 开始使用Kassi
       getting_started_instructions: ~
       resend_confirmation_instructions: 再次发送确认信
       your_current_email_is: ~
       change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: 修改
