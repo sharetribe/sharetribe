@@ -1,28 +1,28 @@
 Feature: User requests a ride
   In order to get from place A to B a cheap and environmentally friendly way
-  As a carless Kassi-user
+  As a carless Sharetribe-user
   I want to be able to ask if there is anyone driving the same way that could pick me up
   
   @pending
   Scenario: Requesting ridesharing by SMS
     Given I want to get somewhere
-    When I send SMS "request tkk taik 14:00" to Kassi
-    Then A request for ridesharing from "tkk" to "taik" starting at "14:00" should be added to Kassi
+    When I send SMS "request tkk taik 14:00" to Sharetribe
+    Then A request for ridesharing from "tkk" to "taik" starting at "14:00" should be added to Sharetribe
   
   @pending
   Scenario: Offering ridesharing from current location by SMS
     Given I want to get somewhere
-    And my phone location can be requested by Kassi
-    When I send SMS "request hse 9:30" to Kassi
-    Then A request for ridesharing from my current location to "hse" starting at "9:30" should be added to Kassi
+    And my phone location can be requested by Sharetribe
+    When I send SMS "request hse 9:30" to Sharetribe
+    Then A request for ridesharing from my current location to "hse" starting at "9:30" should be added to Sharetribe
   
   @pending
   Scenario: Offering ridesharing from current location by SMS and starting right now
     Given I want to get somewhere
     And I want to start about now
-    And my phone location can be requested by Kassi
-    When I send SMS "request hse" to Kassi
-    Then A request for ridesharing from my current location to "hse" starting at current time should be added to Kassi
+    And my phone location can be requested by Sharetribe
+    When I send SMS "request hse" to Sharetribe
+    Then A request for ridesharing from my current location to "hse" starting at current time should be added to Sharetribe
   
   @pending
   Scenario: Matching potential driver is found

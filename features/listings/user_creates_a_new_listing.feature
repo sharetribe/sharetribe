@@ -68,8 +68,8 @@ Feature: User creates a new listing
     Given I am not logged in
     And I am on the home page
     When I follow "Tell what you need!"
-    Then I should see "You must log in to Kassi to create a new request." within "#notifications"
-    And I should see "Log in to Kassi" within "h2"
+    Then I should see "You must log in to Sharetribe to create a new request." within "#notifications"
+    And I should see "Log in to Sharetribe" within "h2"
 
   @javascript
   Scenario: Trying to create a new item request with insufficient information

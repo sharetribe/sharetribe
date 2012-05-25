@@ -1,5 +1,5 @@
 Feature: User accepts new terms
-  In order to confirm that I have read and accept new Kassi terms and conditions
+  In order to confirm that I have read and accept new Sharetribe terms and conditions
   As a user
   I want to be able to accept new terms
 
@@ -10,7 +10,7 @@ Feature: User accepts new terms
     When I log in as "kassi_testperson2"
     Then I should see "Terms of use have changed"
     When I press "I accept the new terms"
-    Then I should see "Welcome to Kassi"
+    Then I should see "Welcome to Sharetribe"
     And I should not see "Log in"
   
   @javascript

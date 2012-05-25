@@ -54,8 +54,8 @@ Feature: User requests an item in item offer
     Given there is item offer with title "Hammer" from "kassi_testperson1" and with share type "lend"
     And I am on the homepage
     When I follow "Contact"
-    Then I should see "You must log in to Kassi to send a message to another user." within "#notifications"
-    And I should see "Log in to Kassi" within "h2"
+    Then I should see "You must log in to Sharetribe to send a message to another user." within "#notifications"
+    And I should see "Log in to Sharetribe" within "h2"
   
   
   

@@ -1,5 +1,5 @@
 Feature: User browses listings
-  In order to find out what kind of offers and requests there are available in Kassi
+  In order to find out what kind of offers and requests there are available in Sharetribe
   As a person who needs something or has something
   I want to be able to browse offers and requests
 

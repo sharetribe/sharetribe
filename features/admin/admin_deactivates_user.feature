@@ -9,15 +9,15 @@ Feature: Admin deactivates user
     And I am logged in as "kassi_testperson1"
     And I am on the home page
     When I follow "profile"
-    And I should not see "This user is no longer active in Kassi"
+    And I should not see "This user is no longer active in Sharetribe"
     And I should see "sledgehammer"
     When I follow "Deactivate"
-    Then I should see "This user is no longer active in Kassi"
+    Then I should see "This user is no longer active in Sharetribe"
     And I should see "User deactivated"
     When I follow "profile"
     Then I should not see "sledgehammer"
     When I follow "Activate"
-    Then I should not see "This user is no longer active in Kassi"
+    Then I should not see "This user is no longer active in Sharetribe"
     And I should see "User activated"
 
   @javascript
@@ -29,15 +29,15 @@ Feature: Admin deactivates user
     And I am logged in as "kassi_testperson1"
     And I am on the home page
     When I follow "profile"
-    And I should not see "This user is no longer active in Kassi"
+    And I should not see "This user is no longer active in Sharetribe"
     And I should see "sledgehammer"
     When I follow "Deactivate"
-    Then I should see "This user is no longer active in Kassi"
+    Then I should see "This user is no longer active in Sharetribe"
     And I should not see "Deactivate"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "profile"
-    Then I should not see "This user is no longer active in Kassi"
+    Then I should not see "This user is no longer active in Sharetribe"
     And I should see "Deactivate"
   
   Scenario: A person who is not admin tries to deactivate a user

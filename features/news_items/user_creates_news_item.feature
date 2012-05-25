@@ -32,7 +32,7 @@ Feature: User creates news item
     And anyone can add news items in community "test"
     And I am on the home page
     When I follow "Add an article"
-    Then I should see "You must log in to Kassi to add a new article."
+    Then I should see "You must log in to Sharetribe to add a new article."
   
   
   

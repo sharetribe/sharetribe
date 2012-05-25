@@ -1,5 +1,5 @@
 Feature: User changes password
-  In order to change my password Kassi
+  In order to change my password Sharetribe
   As a user
   I want to be able to change my password
 

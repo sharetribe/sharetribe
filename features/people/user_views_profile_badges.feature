@@ -1,5 +1,5 @@
 Feature: User views profile badges
-  In order to view what achievements I have accomplished in Kassi
+  In order to view what achievements I have accomplished in Sharetribe
   As a user
   I want to be able to view my badges in my profile page
 
@@ -29,7 +29,7 @@ Feature: User views profile badges
     And I should see badge with alt text "Rookie"
     And I should see "1" within "#logged_in_notifications_icon"
     When I follow "rookie_description_link"
-    Then I should see "You have added an offer or a request in Kassi for the first time. Here we go!"
+    Then I should see "You have added an offer or a request in Sharetribe for the first time. Here we go!"
     When I follow "notifications_link"
     Then I should see "You have earned the badge Rookie!"
     And I should not see "1" within "#logged_in_notifications_icon"

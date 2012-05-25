@@ -1,7 +1,7 @@
 Feature: Create listing with sms
-  In order to add listings to Kassi quickly with basic phone
+  In order to add listings to Sharetribe quickly with basic phone
   As a user
-  I want to be able to type the details in the message and send it to Kassi and get is published as listing
+  I want to be able to type the details in the message and send it to Sharetribe and get is published as listing
   
   @wip
   @pending

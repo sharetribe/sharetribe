@@ -19,7 +19,7 @@ Feature: User requests new password
     And I follow "I forgot my username or password"
     And I fill in "Email:" with "some random string"
     And I press "Request new password"
-    Then I should see "The email you gave was not found from Kassi database." within ".error"
+    Then I should see "The email you gave was not found from Sharetribe database." within ".error"
   
   
   

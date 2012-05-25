@@ -1,5 +1,5 @@
 Feature: User views terms
-  In order to check what terms I am accepting when I register to Kassi
+  In order to check what terms I am accepting when I register to Sharetribe
   As a user
   I want to be able to 
 

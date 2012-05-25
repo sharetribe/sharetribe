@@ -1,5 +1,5 @@
 Feature: User changes notification settings
-  In order to start or stop getting email notifications about various events in Kassi
+  In order to start or stop getting email notifications about various events in Sharetribe
   As a user
   I want to be able to change my notification settings
 

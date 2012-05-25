@@ -1,4 +1,4 @@
-Feature: User views info about kassi
+Feature: User views info about sharetribe
   In order to find information about the service
   As a new user
   I want to be able to read about Kassi
@@ -6,12 +6,12 @@ Feature: User views info about kassi
   Scenario: User views about page
     Given I am on the home page
     When I follow "About"
-    Then I should see "Information about Kassi" within "h1"
+    Then I should see "Information about Sharetribe" within "h1"
     And I should see "What is it" within ".inbox_tab_selected"
     And I should see "How to use" within ".inbox_tab_unselected"
     And I should see "Terms of use" within ".inbox_tab_unselected"
     And I should see "Register details" within ".inbox_tab_unselected"
-    And I should see "Who is Kassi for?" within "h3"
+    And I should see "Who is Sharetribe for?" within "h3"
   
   Scenario: User views terms page
     Given I am on the home page

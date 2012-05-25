@@ -15,15 +15,15 @@ Feature: Driver offers a ride
     Scenario: Offering ridesharing starting right now by SMS
       Given I am planning to drive somewhere
       And I want to start about now
-      When I send SMS "tkk taik" to Kassi
-      Then An offer for shared ride from "tkk" to "taik" starting at current time should be added to Kassi
+      When I send SMS "tkk taik" to Sharetribe
+      Then An offer for shared ride from "tkk" to "taik" starting at current time should be added to Sharetribe
   
     @pending
     Scenario: Offering ridesharing from current location by SMS
       Given I am planning to drive somewhere
-      And my phone location can be requested by Kassi
-      When I send SMS "hse 9:30" to Kassi
-      Then An offer for shared ride from my current location to "hse" starting at "9:30" should be added to Kassi
+      And my phone location can be requested by Sharetribe
+      When I send SMS "hse 9:30" to Sharetribe
+      Then An offer for shared ride from my current location to "hse" starting at "9:30" should be added to Sharetribe
   
     @pending
     Scenario: Matching potential passenger is found (phone number)

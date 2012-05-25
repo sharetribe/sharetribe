@@ -114,7 +114,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   }
 end
 
-When /^I have visited Kassi on "(.+)" different days$/ do |amount|
+When /^I have visited Sharetribe on "(.+)" different days$/ do |amount|
   @people["kassi_testperson1"].active_days_count = amount
   @people["kassi_testperson1"].last_page_load_date = DateTime.now - 1.month
   @people["kassi_testperson1"].save

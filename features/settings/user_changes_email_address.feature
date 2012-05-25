@@ -1,5 +1,5 @@
 Feature: User changes email address
-  In order to change the email address associated with me in Kassi
+  In order to change the email address associated with me in Sharetribe
   As a user
   I want to be able to change my email address
   

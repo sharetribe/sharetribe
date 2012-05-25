@@ -1,7 +1,7 @@
 Feature: User browses offered rides
   In order to get from place A to B a cheap and environmentally friendly way
-  As a carless Kassi-user
-  I want to check if someone is offering ridesharing in Kassi for the same route that I'm going to take
+  As a carless Sharetribe-user
+  I want to check if someone is offering ridesharing in Sharetribe for the same route that I'm going to take
   
   @javascript
   Scenario: Browsing all ridesharing offers

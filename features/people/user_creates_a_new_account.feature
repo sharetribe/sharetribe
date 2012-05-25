@@ -1,7 +1,7 @@
 Feature: User creates a new account
-  In order to log in to Kassi
-  As a person who does not have an account in Kassi
-  I want to create a new account in Kassi
+  In order to log in to Sharetribe
+  As a person who does not have an account in Sharetribe
+  I want to create a new account in Sharetribe
   
   @javascript  
   Scenario: Creating a new account successfully
@@ -15,7 +15,7 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Kassi, Testmanno!" within "#notifications"
+    Then I should see "Welcome to Sharetribe, Testmanno!" within "#notifications"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
   
@@ -78,7 +78,7 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Kassi" within "#notifications"
+    Then I should see "Welcome to Sharetribe" within "#notifications"
   
   @javascript  
   Scenario: Creating a new account without allowing to show real name
