@@ -82,8 +82,9 @@
         .grid_6
           #logo
             = render :file => community_file("logo", false)
-            - if community_file?("logo_text", false)
-              = render :file => community_file("logo_text", false)
+            - if true #community_file?("logo_text", false)
+              - logo_text = render :file => community_file("logo_text", false)
+              = logo_text
             - elsif available_locales.count > 1
               .locale_select_padding
                 = render :partial => "layouts/locale_select"
@@ -96,7 +97,7 @@
               - one_line do              
                 = text_field_tag("q", params[:q], :class => "search_field")
                 = submit_tag("s", :class => "search_button")
-          - if community_file?("logo_text", false) && available_locales.count > 1
+          - if logo_text && available_locales.count > 1
             .locale_select_padding_lower
               = render :partial => "layouts/locale_select"
         .grid_12
