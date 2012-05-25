@@ -204,6 +204,14 @@ h2.new_tribe {
   margin-bottom: 0;
 }
 
+h2.new_tribe_bottom {
+  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  text-align: center;
+  margin: 0 0 50px 0;
+  font-size: 18px;
+  color: white;
+}
+
 h2.browse {
   font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
   text-align: center;
@@ -310,8 +318,11 @@ li {
 	background: $bg_color;
 }
 
+#logo_container { overflow: hidden; }
+
 #logo {
   margin-top: 14px;
+  float: left;
 }
 
 #select_language_form {
@@ -319,9 +330,10 @@ li {
   float: right;
 }
 
-#slogan, #language_label {
+#slogan {
   color: $orange;
-  margin-top: 22px;
+  margin: 24px 0 0 20px;
+  float: left;
 }
 
 #language_switch { overflow: hidden; }
@@ -344,7 +356,7 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   p.intro {
-    margin: 46px 0 45px 0;
+    margin: 46px 0 50px 0;
     font-size: 18px;
     color: white;
   }
@@ -376,7 +388,10 @@ li {
 }
 
 #faq {
-  @include main(1700px);
+  @include main;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 20px;
 }
 
 #campaign_main {
@@ -395,11 +410,11 @@ li {
 }
 
 #home_main_title {
-  height: 158px;
+  height: 163px;
 }
 
 #home_main_screenshot {
-  height: 223px;
+  height: 218px;
 }
 
 .home_main_screenshot_longer {
@@ -767,6 +782,7 @@ p.okl { color: white; }
 
 .pricing_column {
   @include form;
+  margin-bottom: 30px;
   padding: 20px 25px;
   a { 
     @include form_button;
@@ -823,4 +839,27 @@ p.map_bubble {
   padding-top: 10px;
   width: 340px;
   font-style:italic;
+}
+
+#header_links {
+  overflow: hidden;
+  a {
+    font-size: 18px;
+    color: lighten($dark_green, 10%);
+    &:hover { color: lighten($dark_green, 20%); }
+    float: right;
+    margin: 18px 20px 0 0;
+  }
+}
+
+.faq {
+  a {
+    color: $light_orange;
+    font-size: 14px;
+    font-weight: 400;
+    &:hover { color: $lighter_orange; }
+    &:focus { color: $lighter_orange; }
+    &:active { color: $light_orange; }
+  }
+  
 }
