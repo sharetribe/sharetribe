@@ -4,6 +4,8 @@ class Admin::NewsItemsController < ApplicationController
   
   before_filter :ensure_is_admin
   
+  skip_filter :dashboard_only
+  
   def index
     params[:page] = 1 unless request.xhr?
     @news_items = @current_community.news_items.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
