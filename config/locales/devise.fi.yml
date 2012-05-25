@@ -35,9 +35,9 @@ fi:
       signed_up_but_inactive: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi on aktivoitu."
       signed_up_but_locked: "Olet rekisteröitynyt onnistuneesti. Voit aloittaa palvelun käytön, kunhan käyttäjätilisi lukitus on poistettu."
       reasons:
-        inactive: ~
-        unconfirmed: ~
-        locked: ~
+        inactive: epäaktiivinen
+        unconfirmed: vahvistamaton
+        locked: lukittu
       update_needs_confirmation: "Käyttäjätietosi on päivitetty onnistuneesti, mutta uusi sähköpostiosoitteesi pitää vielä vahvistaa. Olemme lähettäneet sähköpostiisi ohjeet, joiden avulla voit vahvistaa uuden osoitteesi."
       signed_up: "Tervetuloa! Rekisteröintisi onnistui."
       updated: "Käyttäjätietosi on päivitetty."

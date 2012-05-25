@@ -176,13 +176,15 @@ en:
       max_500_members: "Max. 500 members"
       care_free_user_support: "Care-free user support"
       create_your_tribe: "Create your tribe"
-      professional_plan: "Professional plan"
+      professional_plan: "Customizable plan"
       unlimited_members: "Unlimited members"
       intranet_integration: "Intranet integration"
       no_charge: "Free of charge"
-      euros_per_month_premium: "%{price} euros per month (incl. VAT)"
+      euros_per_month_premium: "%{price} euros/month (incl. VAT)"
       custom_domain: "Custom domain"
+      we_help_you_get_started: "We help to start the community"
       you_can_change_and_cancel: "You can change or cancel the plan later at any time."
+      discounts_available_for_non_profits: "We have 50% discount for non-profit organizations"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "What kind of tribe do you want to create?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "First tell us what kind of community you represent by selecting one from below."
@@ -210,7 +212,7 @@ en:
       language: Language
     signup_form:
       create_an_account: "Create an account for yourself"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to Sharetribe below or"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to %{service_name} below or"
       log_in_with_your_existing_account: "log in with your existing account"
       your_email: "Your email address"
       your_university_email: "Your university email address"
@@ -268,9 +270,6 @@ en:
       contact_us: "contact us directly"
       why_you_really_should_have_a_tribe: "Why you really should have a tribe"
       an_example: "An example:"
-      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe of HTC Keilaniemi</a>"
-      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
       home: Home
       faq: FAQ
       browse_tribes: "Browse tribes"
