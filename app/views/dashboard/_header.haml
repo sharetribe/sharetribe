@@ -1,17 +1,20 @@
 #header
   .container_12
-    .grid_3.alpha
-      #logo
-        = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Kassi"), root
-    .grid_4
-      #slogan
-        
-    .grid_5.omega
+    .grid_5.alpha
+      #logo_container
+        #logo
+          = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Kassi"), root
+        #slogan
+          = t("dashboard.index.slogan")
+    .grid_7.omega
       #language_switch
         #select_language_form
           - if APP_CONFIG.available_locales.count > 1
             = form_tag("/change_locale", :method => "get") do
               = hidden_field_tag :redirect_uri, @return_to
               = select_tag 'locale', options_for_select([["English", "en"], ["Suomi", "fi"], ["Español", "es"], ["Français", "fr"], ["Ελληνικά", "el"]], I18n.locale), :onchange => 'this.form.submit()', :class => 'language_select'
-        #language_label
-          = t("dashboard.index.language")
+        #header_links
+          = link_to t("dashboard.index.contact"), "mailto:info@sharetribe.com"
+          = link_to t("dashboard.index.pricing"), "#"
+          = link_to t("dashboard.index.faq"), "#"
+          = link_to t("dashboard.index.home"), root

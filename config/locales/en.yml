@@ -49,7 +49,7 @@ en:
         edit_poll: "Edit poll"
   common:
     default_community_slogan: "Lend, help, share"
-    default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces. You can let others now what you could offer to them and get help when needed."
+    default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces. You can let others know what you could offer to them and get help when needed."
     default_description: ""
     cancel: Cancel
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
@@ -269,6 +269,11 @@ en:
       language: "Language:"
       new: NEW!
       new_text: "Kassi now available for <a href=\"http://www.kassi.eu/en/wdc\">neighborhoods in Helsinki and Lahti</a> and for <a href=\"http://www.kassi.eu/en/okl\">members of Suomen Omakotiliitto</a>!"
+      home: "Home"
+      faq: "FAQ"
+      browse_tribes: "Browse tribes"
+      pricing: "Pricing"
+      contact: "Contact"
   emails:
     accept_reminder:
       offer_accusative: offer
