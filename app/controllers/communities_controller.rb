@@ -65,6 +65,7 @@ class CommunitiesController < ApplicationController
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
     @community.email_confirmation = true
     @community.save
+    @community.community_memberships.first.update_attribute(:admin, true) #make creator an admin
     location.community = @community
     location.save
     clear_session_variables
