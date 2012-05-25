@@ -117,8 +117,8 @@ Feature: User checks inbox
       | kassi_testperson1 |
     And I am not logged in
     When I try to go to inbox of "kassi_testperson1"
-    Then I should see "You must log in to Kassi to view your inbox." within "#notifications"
-    And I should see "Log in to Kassi" within "h2"
+    Then I should see "You must log in to Sharetribe to view your inbox." within "#notifications"
+    And I should see "Log in to Sharetribe" within "h2"
   
   @javascript
   Scenario: Trying to view somebody else's inbox
