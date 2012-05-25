@@ -148,82 +148,82 @@ fi:
       reject_request: "Hylkää pyyntö"
   communities:
     map_bubble:
-      view_tribe: ~
+      view_tribe: "Näytä yhteisö"
     email_confirmation_pending:
-      confirmation_pending: ~
+      confirmation_pending: "Ole hyvä ja vahvista sähköpostiosoitteesi"
     enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
+      enter_your_organization_email: "Kirjoita %{community_category}sähköpostisi"
+      only_people_with_verified_email_address_can_join_your_tribe: "Vain ihmiset, joilla on varmistettu %{community_category}sähköposti, voivat liittyä tähän yhteisöön."
+      continue: Jatka
+      tribe_exists: "Yhteisö on jo olemassa!"
+      this_tribe_exists_already: "Yhteisö on jo olemassa! Haluatko liittyä siihen?"
     done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
+      done: Valmis!
+      tribe_created_successfully: "Olet onnistuneesti luonut uuden yhteisön."
+      go_to_your_tribe: "Siirry yhteisön sivulle"
     index:
-      find_your_local_tribe: ~
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
+      find_your_local_tribe: "Löydä paikallinen yhteisösi"
+      or_start_your_own: "...tai %{start_your_own_tribe_link}"
+      start_your_own_tribe_link: "aloita oma!"
     select_pricing_plan:
-      select_your_plan: ~
-      pick_one_of_the_options_below: ~
-      create_for_free: ~
-      contact_us: ~
-      free_plan: ~
-      max_100_members: ~
-      premium_plan: ~
-      max_500_members: ~
-      care_free_user_support: ~
-      create_your_tribe: ~
-      professional_plan: ~
-      unlimited_members: ~
-      intranet_integration: ~
-      no_charge: ~
+      select_your_plan: "Valitse paketti"
+      pick_one_of_the_options_below: "Valitse yksi alla olevista vaihtoehdoista."
+      create_for_free: "Aloita ilmaiseksi"
+      contact_us: "Ota yhteyttä"
+      free_plan: "Ilmainen paketti"
+      max_100_members: "Max. 100 jäsentä"
+      premium_plan: Palvelupaketti
+      max_500_members: "Max. 500 jäsentä"
+      care_free_user_support: "Huoleton käyttäjätuki"
+      create_your_tribe: "Luo yhteisö"
+      professional_plan: "Pro paketti"
+      unlimited_members: "Rajoittamaton jäsenmäärä"
+      intranet_integration: "Intranet integrointi"
+      no_charge: Ilmainen
       euros_per_month_premium: ~
-      custom_domain: ~
-      you_can_change_and_cancel: ~
+      custom_domain: "oma domain-nimi"
+      you_can_change_and_cancel: "Voit vaihtaa tai perua valittun paketin milloin vain."
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
-      company: ~
-      university: ~
-      town: ~
-      congregation: ~
-      association: ~
-      neighborhood: ~
-      apartment_building: ~
-      other: ~
+      what_kind_of_tribe_do_you_want_to_create: "Millaisen yhteisön haluat luoda?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Jos olet luomassa jakamistyhteisöä olemassa olevalle porukalle, valitse sopivin tyyppi alta."
+      company: Yritys
+      university: Yliopisto
+      town: Kaupunki
+      congregation: Seurakunta
+      association: Yhdistys
+      neighborhood: Kaupunginosa
+      apartment_building: Taloyhtiö
+      other: Muu
     new_tribe_form:
-      create_a_tribe_in_a_minute: ~
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
-      domain_invalid: ~
-      domain_taken: ~
-      address: ~
+      create_a_tribe_in_a_minute: "Aloita uusi yhteisö minuutissa"
+      welcome_now_create_your_tribe: "Tervetuloa %{name}! Aloita oman yhteisön luominen."
+      name_of_your_tribe: "Yhteisön nimi"
+      web_address_of_your_tribe: "Yhteisön nettiosoite"
+      slogan_of_your_tribe: "Yhteisön iskulause"
+      describe_your_tribe: "Kuvaile yhteisösi: mikä on yhteisön tarkoitus"
+      create_your_tribe: "Luo yhteisö!"
+      domain_invalid: "Domain nimessä saa olla vain kirjaimia, numeroita ja väli- ja alaviivoja."
+      domain_taken: "Nimi on jo varattu. Koeta valita toinen nimi."
+      address: "Yhteisön sijainti"
       location_description: ~
-      select_main_language_of_your_tribe: ~
-      language: ~
+      select_main_language_of_your_tribe: "Valitse yhteisön ensisijainen kieli"
+      language: Kieli
     signup_form:
-      create_an_account: ~
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: ~
-      your_university_email: ~
-      your_company_email: ~
-      you_need_to_confirm: ~
-      pick_username: ~
-      your_given_name: ~
-      your_family_name: ~
-      your_password: ~
-      confirm_your_password: ~
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: ~
+      create_an_account: "Luo tunnus itsellesi"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "Voit luoda uuden tunnuksen %{service_name_illative} alta tai"
+      log_in_with_your_existing_account: "Kirjaudu sisään olemassa olevalla tunnuksella"
+      your_email: Sähköpostiosoitteesi
+      your_university_email: Yliopiston sähköpostiosoitteesi
+      your_company_email: Yrityssähköpostisi
+      you_need_to_confirm: "Luodaksesi %{tribe_type}-yhteisön sinun täytää vahvistaa %{tribe_type}sähköpostiosoitteesi."
+      pick_username: "Valitse käyttäjätunnus"
+      your_given_name: Etunimi
+      your_family_name: Sukunimi
+      your_password: "Valitse salasana"
+      confirm_your_password: "Varmista salasana"
+      email_in_use_message: "%{service_name_inessive} on jo tunnus tällä sähköpostiosoitteella. Jos sinulla on jo tunnus voit kirjautua sisään ylempänä olevasta linkistä. "
+      invalid_email_ending_message: "Osoite vaikuttaa henkilökohtaiselta sähköpostilta. Sinun täytyy kirjautua %{community_category}sähköpostiosoitteella"
+      log_in_here: "kirjaudu sisään tästä"
   community_memberships:
     new:
       join_community: "Liittyminen yhteisöön '%{community}'"
@@ -243,11 +243,11 @@ fi:
       create_your_own: "Luo yhteisöllesi"
       sharing_website: "OMA VERKKOTORI"
       main_description: "%{service_name} on yhteisösi oma kanava, jonka avulla ihmiset voivat jakaa tavaroita, palveluita ja kyytejä paikallisessa luotetussa ympäristössä."
-      kassi_for_your_company: "SHARETRIBE YRITYKSELLE"
+      kassi_for_your_company: "...YRITYKSESSÄSI"
       kassi_for_your_company_description: "Haluatko tehdä yrityksestäsi yhteisöllisemmän? Haluatko auttaa työntekijöitäsi kohtaamaan toisensa ja vaihtamaan hiljaista tietoa? Haluatko vähentää yrityksesi päästöjä? %{service_name} on ratkaisu sinulle."
-      kassi_for_your_city: "SHARETRIBE KAUPUNGILLE"
+      kassi_for_your_city: "...KAUPUNGISSASI"
       kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? %{service_name_genetive} avulla saavutat kaiken tämän."
-      kassi_for_your_university: "SHARETRIBE KORKEAKOULULLE"
+      kassi_for_your_university: "...KORKEAKOULUSSASI"
       kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
       want_kassi_for_your_community: "Haluatko %{service_name_genetive} yhteisösi käyttöön?"
       email_default_text: Sähköpostiosoitteesi
@@ -263,16 +263,16 @@ fi:
       language: "Kieli:"
       new: UUTTA!
       new_text: "%{service_name} käytössä muutamissa <a href=\"http://www.kassi.eu/fi/wdc\">Helsingin ja Lahden kaupunginosissa</a> sekä <a href=\"http://www.kassi.eu/fi/okl\">Suomen Omakotiliiton jäsenyhdistyksissä</a>!"
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
+      want_to_know_more: "Haluatko tietää lisää? %{read_our_faq_link} tai %{contact_us_link}."
+      read_our_faq: "Lue FAQ"
+      contact_us: "Ota yhteyttä"
+      why_you_really_should_have_a_tribe: "Miksi sinäkin tarvitset yhteisön jossa jakaa..."
+      an_example: "Esimerkki:"
+      home: Etusivu
+      faq: FAQ
+      browse_tribes: "Selaa yhteisöjä"
+      pricing: Hinta
+      contact: Yhteys
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
@@ -534,7 +534,7 @@ fi:
       meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
-      formerly_known_as_kassi: ~
+      formerly_known_as_kassi: "aiemmin nimellä Kassi"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
     conversations:
@@ -650,7 +650,7 @@ fi:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Sinulla ei ole oikeuksia antaa palautetta tästä tapahtumasta"
       you_are_not_authorized_to_do_this: "Sinulla ei ole oikeuksia tähän operaatioon"
       you_are_not_authorized_to_view_this_content: "Sinulla ei ole oikeuksia tähän sisältöön"
-      send_instructions: ~
+      send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon."
       you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
       you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
       you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
@@ -660,7 +660,7 @@ fi:
       you_are_now_member: "Yhteisöön liittyminen onnistui."
       you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
-      additional_email_confirmed_dashboard: ~
+      additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."
       you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
@@ -913,7 +913,7 @@ fi:
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
       terms_title: "%{service_name_genetive} käyttöehdot"
-      trustcloud_description_title: ~
+      trustcloud_description_title: TrustCloud
       trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name_inessive}"
@@ -1069,7 +1069,7 @@ fi:
       slightly_better_than_expected: "Ylitti odotukset"
       slightly_less_than_expected: "Ei vastannut odotuksia"
       what_are_these: "Mitä nämä ovat?"
-      trustcloud: ~
+      trustcloud: TrustCloud
   search:
     show:
       all_results: Kaikista
@@ -1108,9 +1108,9 @@ fi:
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
       your_current_email_is: "Nykyinen osoitteesi: <strong>%{email}</strong>"
       change_email: Vaihda?
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      confirm_your_email: "Ole hyvä ja vahvista sähköpostiosoitteesi"
+      account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit aloittaa %{service_name_genetive} käytön."
+      account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
   settings:
     account:
       change: Vaihda

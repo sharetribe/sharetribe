@@ -125,27 +125,27 @@ es:
       describe_your_tribe: "Describe tu tribu: cuál es el propósito de la comunidad"
       create_your_tribe: "¡Crea tu tribu!"
       domain_invalid: ~
-      domain_taken: ~
-      address: ~
+      domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
+      address: "Ubicación de tu tribu"
       location_description: ~
-      select_main_language_of_your_tribe: ~
-      language: ~
+      select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
+      language: Idioma
     signup_form:
-      create_an_account: ~
+      create_an_account: "Crea una cuenta para ti"
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: ~
-      your_university_email: ~
-      your_company_email: ~
-      you_need_to_confirm: ~
-      pick_username: ~
-      your_given_name: ~
-      your_family_name: ~
-      your_password: ~
-      confirm_your_password: ~
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: ~
+      log_in_with_your_existing_account: "Inicia sesión con tu cuenta existente"
+      your_email: "Tu dirección e-mail"
+      your_university_email: "Tu dirección e-mail universitario"
+      your_company_email: "Tu dirección e-mail de la compañía"
+      you_need_to_confirm: "Para crear una tribu para tu %{tribe_type} necesitas confirmar tu dirección e-mail %{tribe_type}."
+      pick_username: "Elige un nombre de usuario"
+      your_given_name: "Tu nombre"
+      your_family_name: "Tu apellido"
+      your_password: "Elige una contraseña"
+      confirm_your_password: "Confirma tu contraseña"
+      email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
+      invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
+      log_in_here: "inicia sesión aquí"
   conversations:
     index:
       loading_more_messages: "Cargando más mensajes"
@@ -237,16 +237,16 @@ es:
       join_community_button: "Unirse a la comunidad"
   dashboard:
     index:
-      get_started: ~
-      browse_communities_around_you: ~
+      get_started: "¡COMIENZA AHORA!"
+      browse_communities_around_you: "únete a una tribu cercana"
       slogan: "Un sitio exclusivo para compartir"
       create_your_own: "Crea tu espacio"
       sharing_website: "PARA COMPARTIR"
       main_description: "%{service_name} es un servicio web hecho exclusivamente para que compartas con tu comunidad."
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
+      want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
+      read_our_faq: "Lee nuestras preguntas frecuentes"
+      contact_us: "contáctanos directamente"
+      why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
       kassi_for_your_company: "%{service_name} para tu empresa"
       kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? %{service_name} es la solución para ti."
       kassi_for_your_city: "%{service_name} en tu ciudad"
@@ -586,7 +586,7 @@ es:
       comment_cannot_be_empty: "Comentarios no pueden estar vacíos."
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
-      additional_email_confirmed: ~
+      additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
       additional_email_confirmed_dashboard: ~
       create_new_offer: "Ofrece algo más"
       create_new_request: "Solicita algo adicional"
@@ -1088,13 +1088,13 @@ es:
       i_forgot_my_password: "Olvidé mi nombre de usuario o contraseña"
       login: "Iniciar sesión"
       login_to_kassi: "Iniciar sesión en %{service_name}"
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
+      connect_your_facebook_to_kassi: "Conecta tu cuenta de Facebook a %{service_name}"
+      facebook_account: "Cuenta de Facebook:"
+      log_in_to_link_account: "Si ya tienes una cuenta en %{service_name}, inicia sesión para vincularla con tu cuenta de Facebook."
       you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      account_creation_link_text: "haz clic aquí"
+      cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
+      facebook_cancel_link_text: cancelar
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."

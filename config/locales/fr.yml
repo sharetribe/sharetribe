@@ -86,9 +86,9 @@ fr:
       housing_offer_message_title: "Répondre à votre annonce %{title}"
       housing_request_message_form_title: "Répondre à"
       housing_request_message_title: "Répondre à votre annonce %{title}"
-      item_offer_message_form_title: "Demander un article à"
-      item_offer_message_title: "Demande d'article : %{title}"
-      item_request_message_form_title: "Offrir un article à"
+      item_offer_message_form_title: "Demander un objet à"
+      item_offer_message_title: "Demande d'objet : %{title}"
+      item_request_message_form_title: "Offrir un objet à"
       item_request_message_title: "Offre d'article : %{title}"
       message: Message
       rideshare_offer_message_form_title: "Demander un transport à"
@@ -155,7 +155,7 @@ fr:
       enter_your_organization_email: "Entrez votre email %{community_category}"
       only_people_with_verified_email_address_can_join_your_tribe: "Seules les personnes avec une adresse email %{community_category} valide peuvent rejoindre cette tribu."
       continue: Continuer
-      tribe_exists: ~
+      tribe_exists: "La tribu existe !"
       this_tribe_exists_already: "Cette tribu existe déjà. Voulez vous la rejoindre ?"
     done:
       done: "Terminé !"
@@ -168,7 +168,7 @@ fr:
     select_pricing_plan:
       select_your_plan: "Choisissez votre offre"
       pick_one_of_the_options_below: "Sélectionnez une des options ci-dessous."
-      create_for_free: "Créer votre tribu gratuitement"
+      create_for_free: "Créer votre tribu"
       contact_us: "Nous contacter"
       free_plan: "Offre gratuite"
       max_100_members: "Jusqu'à 100 membres"
@@ -286,7 +286,7 @@ fr:
       you_have_not_yet_accepted_or_rejected_request: "Vous n'avez pas encore accepté ou rejeté la demande '%{title}' reçue le %{date}."
     badge_migration_notification:
       badge_description1: "Sur %{service_name}, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage, etc...) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu un avis positif."
-      badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'articles, rendez service, faites du covoiturage et collectionnez toute la série des badges %{service_name} !"
+      badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'objets, rendez service, faites du covoiturage et collectionnez toute la série des badges %{service_name} !"
       you_have_received_badges: "Vous avez obtenu des badges sur %{service_name} !"
       you_have_received_badges_in_kassi: "Vous avez gagné des badges sur %{service_name}. Pour visionner les badges obtenus, connectez-vous sur %{service_name} et allez sur"
     confirmation_instructions:
@@ -453,10 +453,10 @@ fr:
       items_to_offer: "Articles à prêter : "
       items_to_request: "Articles à emprunter : "
       log_in: "connectez-vous !"
-      no_offers_visible_unless_logged_in: "Aucune offre d'article, de service ou de covoiturage visible aux utilisateurs non-enregistrés."
-      no_open_offers_currently: "Aucune offre d'article, de service ou de covoiturage en cours."
-      no_open_requests_currently: "Aucune demande d'article, de service ou de covoiturage en cours."
-      no_requests_visible_unless_logged_in: "Aucune demande d'article, de service ou de covoiturage visible aux utilisateurs non-enregistrés."
+      no_offers_visible_unless_logged_in: "Aucune offre d'objet, de service ou de covoiturage n'est visible aux utilisateurs non connectés."
+      no_open_offers_currently: "Aucune offre d'objet, de service ou de covoiturage en cours."
+      no_open_requests_currently: "Aucune demande d'objet, de service ou de covoiturage en cours."
+      no_requests_visible_unless_logged_in: "Aucune demande d'objet, de service ou de covoiturage visible aux utilisateurs non connectés."
       one_private_offer_exists: "Il y a déjà <b>une offre</b>,"
       one_private_request_exists: "Il y a déjà <b>une demande</b>,"
       ride_offer: "Accompagner les enfants des autres à leurs activités"
@@ -475,7 +475,7 @@ fr:
       news: Actualités
       no_news: "Pas d'actualités"
       more_news: "Plus d'actualités"
-      offer_something: "Listez vos articles et vos compétences !"
+      offer_something: "Listez vos objets et vos compétences !"
       offer_something_description: "Ajoutez des objets, compétences, etc que vous pouvez proposer"
       or: ou
       or_see_what_the_others: "... ou voir ce que les autres"
@@ -485,7 +485,7 @@ fr:
       request_something: "Dites ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
       requesting: demandent
-      teaser_text: "%{service_name} est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des articles, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
+      teaser_text: "%{service_name} est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de %{service_name} !"
     invitation_form:
@@ -506,7 +506,7 @@ fr:
     profile_info_empty_notification:
       add_your_info: "Ajoutez vos informations de contact"
       add_a_profile_picture: "Ajouter une image de profil"
-      you_have_not_added_your_info: "Vous n'avez pas ajouté d'informations de contact. N'hésitez pas à le faire afin que les autres membres puisse vous joindre facilement. Vous pouvez également ajouter une photo de vous : il sera plus simple de vous faire confiance."
+      you_have_not_added_your_info: "Vous n'avez pas ajouté d'informations de contact. N'hésitez pas à le faire afin que les autres membres puissent vous joindre facilement. Vous pouvez également ajouter une photo de vous : il sera ainsi plus simple de vous faire confiance."
       add_your_info_link: "Ajoutez vos informations maintenant"
     recent_listing:
       please_offer: Offrir
@@ -531,7 +531,7 @@ fr:
       feedback_handle: Commentaires
       give_feedback: "Faites vos commentaires sur %{service_name}"
       keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
-      meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
+      meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
       or_check_our: "...ou consultez notre"
       send_feedback_to_admin: "Envoyer commentaires"
       formerly_known_as_kassi: "anciennement Kassi"
@@ -602,8 +602,8 @@ fr:
       invitation_cannot_be_sent: "L'invitation n'a pas pu être envoyée"
       invitation_sent: "L'invitation a été envoyée"
       inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé dans la communauté %{service_name}"
-      item_offer_message_sent: "Demande d'article envoyée avec succès"
-      item_request_message_sent: "Offre d'article envoyée avec succès"
+      item_offer_message_sent: "Demande d'objet envoyée avec succès"
+      item_request_message_sent: "Offre d'objet envoyée avec succès"
       login_again: "Merci de vous reconnecter."
       login_failed: "Échec de la connexion. Veuillez saisir les identifiants corrects."
       login_successful: "Bienvenue sur %{service_name}, "
@@ -646,7 +646,7 @@ fr:
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible à cette communauté."
       unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
-      welcome_message: "Bienvenue sur %{service_name} ! %{service_name} est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des articles, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
+      welcome_message: "Bienvenue sur %{service_name} ! %{service_name} est un service qui aide les membres de la communauté %{community} à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de beaucoup d'autres façons."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Vous n'êtes pas autorisé à donner un avis sur cet événement"
       you_are_not_authorized_to_do_this: "Vous n'êtes pas autorisé à faire ceci"
       you_are_not_authorized_to_view_this_content: "Vous n'êtes pas autorisé à voir ce contenu"
@@ -768,8 +768,8 @@ fr:
         favor_you_request: "Service dont vous avez besoin"
         housing_you_offer: "Logement que vous proposez"
         housing_you_request: "Logement dont vous avez besoin"
-        item_you_offer: "Article que vous proposez"
-        item_you_request: "Article dont vous avez besoin"
+        item_you_offer: "Objet que vous proposez"
+        item_you_request: "Objet dont vous avez besoin"
       valid_until:
         valid_until: "Date d'expiration"
       valid_until_radio_buttons:
@@ -791,7 +791,7 @@ fr:
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
       housing: Logement
-      items: Articles
+      items: Objets
       list_view: "Vue en liste"
       map_view: "Afficher le plan"
       offer_something: "Parlez-en aux autres !"
@@ -809,7 +809,7 @@ fr:
       favors: Services
       give_aways: "A donner"
       housings: Logement
-      items: Articles
+      items: Objets
       lends: "A prêter"
       receives: "A accepter gratuitement"
       rent_outs: "A louer"
@@ -823,8 +823,8 @@ fr:
       link_label_for_favor_request: "Proposer votre aide"
       link_label_for_housing_offer: Répondre
       link_label_for_housing_request: Répondre
-      link_label_for_item_offer: "Demander cet article"
-      link_label_for_item_request: "Offrir un article"
+      link_label_for_item_offer: "Demander cet objet"
+      link_label_for_item_request: "Proposer cet objet"
       link_label_for_rideshare_offer: "Demander un transport"
       link_label_for_rideshare_request: "Proposer un transport"
     listed_listing:
@@ -850,7 +850,7 @@ fr:
       favor_request: "Demande de service"
       housing_offer: "Offre de logement"
       housing_request: "Demande de logement"
-      item_offer: "Offre d'article"
+      item_offer: "Offre d'objet"
       item_request: "Demande d'article"
       no_description: "Pas de description"
       offer: Offre
@@ -878,7 +878,7 @@ fr:
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
       housing: Logement
-      items: Articles
+      items: Objets
       list_view: "Vue en liste"
       map_view: Plan
       offer_something: "Parlez-en à d'autres !"
@@ -976,7 +976,7 @@ fr:
       first_transaction: "Premier événement"
       first_transaction_description: "Félicitations pour votre première transaction sur %{service_name} ! Une de vos demandes ou offres a été acceptée et confirmée comme effectuée."
       generous_bronze: "Généreux (bronze)"
-      generous_bronze_description: "Vous avez prêté ou donné deux de vos articles. Bravo !"
+      generous_bronze_description: "Vous avez prêté ou donné deux de vos objets. Bravo !"
       generous_gold: "Généreux (or)"
       generous_gold_description: "Ce qui est à vous est à tout le monde. Vous avez prêté ou donné 15 articles, c'est formidable !"
       generous_silver: "Généreux (argent)"
@@ -1002,15 +1002,15 @@ fr:
       listing_freak_silver: "Amateur d'annonces (argent)"
       listing_freak_silver_description: "20 offres et/ou demandes ouvertes, bravo ! Vous êtes vraiment un annonceur actif."
       moneymaker_bronze: "Homme d'affaires (bronze)"
-      moneymaker_bronze_description: "Vous avez compris que sur %{service_name}, on peut aussi gagner beaucoup d'argent ! Vous avez vendu ou loué deux articles avec succès sur %{service_name}."
+      moneymaker_bronze_description: "Vous avez compris que sur %{service_name}, on peut aussi gagner beaucoup d'argent ! Vous avez vendu ou loué deux objets avec succès sur %{service_name}."
       moneymaker_gold: "Homme d'affaires (or)"
-      moneymaker_gold_description: "15 articles vendus ou loués avec avis positif ! %{service_name} est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
+      moneymaker_gold_description: "15 objets vendus ou loués avec avis positif ! %{service_name} est une affaire qui marche bien aussi bien pour vous que pour les gens à qui vous vendez ou louez !"
       moneymaker_silver: "Homme d'affaires (argent)"
-      moneymaker_silver_description: "%{service_name} vous permet d'augmenter vos revenus. Six articles vendus ou loués avec avis positif."
+      moneymaker_silver_description: "%{service_name} vous permet d'augmenter vos revenus. Six objets vendus ou loués avec avis positif."
       rookie: Débutant
       rookie_description: "Vous venez d'ajouter votre première demande ou offre sur %{service_name}. C'est un bon début !"
       santa: "Père Noël"
-      santa_description: "Ho, ho, ho, y a-t-il des enfants sages ici ? Vous avez donné au moins un article à un autre utilisateur au cours du mois de décembre."
+      santa_description: "Ho, ho, ho, bonnes fêtes de fin d'année ! Vous avez donné au moins un objet à un autre utilisateur au cours du mois de décembre."
       taxi_stand_bronze: "Taxi (bronze)"
       taxi_stand_bronze_description: "Vous avez proposé trois covoiturages sur %{service_name}."
       taxi_stand_gold: "Taxi (or)"
@@ -1030,11 +1030,11 @@ fr:
       less_than_expected: "Ne correspondait pas du tout à mes attentes"
       offered_favor: "a rendu service"
       offered_housing: "a proposé un logement"
-      offered_item: "a proposé un article"
+      offered_item: "a proposé un objet"
       offered_rideshare: "a proposé un transport"
       requested_favor: "a reçu un service"
       requested_housing: "a demandé un logement"
-      requested_item: "a reçu un article"
+      requested_item: "a reçu un objet"
       requested_rideshare: "a demandé un transport"
       slightly_better_than_expected: "Un peu mieux que ce à quoi je m'attendais"
       slightly_less_than_expected: "Un peu moins bien que ce à quoi je m'attendais"
