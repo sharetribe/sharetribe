@@ -238,7 +238,7 @@ class PeopleController < Devise::RegistrationsController
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = @current_community.email_allowed?(params[:person][:email], @current_community)
+      available = @current_community.email_allowed?(params[:person][:email])
     end
     
     if available
