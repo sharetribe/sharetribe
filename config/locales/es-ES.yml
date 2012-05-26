@@ -183,8 +183,8 @@ es-ES:
       no_charge: ~
       euros_per_month_premium: ~
       custom_domain: ~
-      we_help_you_get_started: ~
       you_can_change_and_cancel: ~
+      we_help_you_get_started: ~
       discounts_available_for_non_profits: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
@@ -542,9 +542,9 @@ es-ES:
       meta_description: "Kassi es un servicio que ayuda a los miembros de asociaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o ayudar a si mismos de múltiples formas."
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
-      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."
       your_email_address: "Tu dirección email (no obligatorio)"
+      formerly_known_as_kassi: ~
     conversations:
       messages: Mensajes
       notifications: Notificaciones
@@ -1144,6 +1144,7 @@ es-ES:
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
     profile:
+      about_you: "Acerca de usted:"
       city: "Ciudad:"
       family_name: "Apellido:"
       given_name: "Nombre:"
@@ -1152,7 +1153,6 @@ es-ES:
       postal_code: "Código postal:"
       profile_page: "en su página de perfil"
       profilemap: "Vista de mapa"
-      about_you: "Acerca de usted:"
       street_address: "Ubicación:"
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de Kassi"
       visible_to_everybody: "visible para todo el mundo"

@@ -183,8 +183,8 @@ ru:
       no_charge: Бесплатно
       euros_per_month_premium: "%{price} евро в месяц"
       custom_domain: "Пользовательский домен"
-      we_help_you_get_started: ~
       you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
+      we_help_you_get_started: ~
       discounts_available_for_non_profits: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
@@ -540,9 +540,9 @@ ru:
       meta_description: "Kassi - это сервис, который помогает людям обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       or_check_our: "...или зайдите на наш"
       send_feedback_to_admin: "Отправить отзыв"
-      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
+      formerly_known_as_kassi: ~
     conversations:
       messages: Сообщения
       notifications: Оповещения
@@ -897,10 +897,22 @@ ru:
       search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
+  news_items:
+    index:
+      news_from_community: "Последние новости сообщества %{community}"
+    news_item:
+      delete_news_item: "Удалить статью"
+  okl:
+    member_id: Идентификатор
+    member_id_is_your_username: ~
+    join_here: ~
   people:
+    badge_description:
+      badge_achieved_at: "Значок заработан "
+      you_do_not_yet_have_this_badge: "Значок пока не заработан."
     edit_links:
-      deactivate: Отключить
       activate: Активировать
+      deactivate: Отключить
     help_texts:
       badges_description_title: Значки
       feedback_description_title: Отзывы
@@ -909,9 +921,6 @@ ru:
       terms_title: "Условия использования Kassi"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: ~
-    badge_description:
-      badge_achieved_at: "Значок заработан "
-      you_do_not_yet_have_this_badge: "Значок пока не заработан."
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
       inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
@@ -1067,15 +1076,6 @@ ru:
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       what_are_these: "Что это?"
       trustcloud: TrustCloud
-  news_items:
-    index:
-      news_from_community: "Последние новости сообщества %{community}"
-    news_item:
-      delete_news_item: "Удалить статью"
-  okl:
-    member_id: Идентификатор
-    member_id_is_your_username: ~
-    join_here: ~
   search:
     show:
       all_results: "Все результаты"

@@ -183,8 +183,8 @@ nl:
       no_charge: ~
       euros_per_month_premium: ~
       custom_domain: ~
-      we_help_you_get_started: ~
       you_can_change_and_cancel: ~
+      we_help_you_get_started: ~
       discounts_available_for_non_profits: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: ~
@@ -540,9 +540,9 @@ nl:
       meta_description: "Kassi is een service die leden van verenigingen en anderen gemeenschappen helpt om elkaar te helpen met gunsten, verkopen en lenen van spullen, het organiseren van carpoolen en met vele anderen dingen."
       or_check_our: "...of bekijk onze"
       send_feedback_to_admin: "Verstuur feedback"
-      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben."
       your_email_address: "Jou email adres (niet verplicht)"
+      formerly_known_as_kassi: ~
     conversations:
       messages: Berichten
       notifications: Notificaties
@@ -1126,7 +1126,12 @@ nl:
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
+    avatar:
+      add_avatar_submit: "Foto opslaan"
+      update_profile_picture: "Update profiel foto"
     notifications:
+      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
+      newsletters: ~
       email_about_accept_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
@@ -1135,12 +1140,7 @@ nl:
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_about_weekly_events: ~
       email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
-      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
       email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
-      newsletters: ~
-    avatar:
-      add_avatar_submit: "Foto opslaan"
-      update_profile_picture: "Update profiel foto"
     profile:
       about_you: "Over jou:"
       city: "Stad:"
