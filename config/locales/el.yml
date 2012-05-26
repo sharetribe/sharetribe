@@ -182,7 +182,9 @@ el:
       no_charge: "Χωρίς χρέωση"
       euros_per_month_premium: "%{price} ευρώ το μήνα"
       custom_domain: "Επιλογή ηλεκτρονικής διεύθυνσης (domain)"
+      we_help_you_get_started: ~
       you_can_change_and_cancel: "Μπορείς να αλλάξεις ή να ακυρώσεις αυτό το σχέδιο οποιαδήποτε στιγμή."
+      discounts_available_for_non_profits: ~
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Τι κοινότητα θέλεις να δημιουργήσεις;"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πες μας τι είδους κοινότητα αντιπροσωπεύεις επιλέγοντας ένα από τα παρακάτω."
@@ -238,17 +240,17 @@ el:
   dashboard:
     index:
       get_started: "ΞΕΚΙΝΑ ΕΔΩ!"
-      browse_communities_around_you: "γράψου σε μία κοινότητα κοντά σε σένα"
+      browse_communities_around_you: "γράψου σε μια κοινότητα κοντά σε σένα"
       slogan: "Μοιράσου πόρους μέσα στην κοινότητά σου."
       create_your_own: "Δημιούργησε ένα"
       sharing_website: SHARETRIBE
-      main_description: "Δημιούργησε ένα μέρος όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
+      main_description: "Δημιούργησε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
       kassi_for_your_company: "ΤΟ SHARETRIBE ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
       kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους ενώ ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
       kassi_for_your_city: "ΤΟ SHARETRIBE ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
       kassi_for_your_university: "ΤΟ SHARETRIBE ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
-      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να γλιτώνουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}! Δείτε για παράδειγμα, <a href=\"http://upatras.sharetribe.com/el\">το %{service_name} στο Πανεπιστήμιο Πατρών</a>"
+      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να γλιτώνουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
       want_kassi_for_your_community: "Θα ήθελες το %{service_name} στην κοινότητά σου;"
       email_default_text: "Ηλεκτρονική διεύθυνση"
       send: Αποστολή!
