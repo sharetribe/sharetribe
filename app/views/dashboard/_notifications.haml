@@ -4,7 +4,7 @@
       .grid_12.alpha.omega
         %div{:id => "#{notification}_box"}
           -# Try to detect if already translated string
-          - if flash[notification].include?("_")
+          - if flash[notification].class == Symbol || flash[notification].include?("_")
             = t("layouts.notifications.#{flash[notification]}")
           - else
             = flash[notification]
