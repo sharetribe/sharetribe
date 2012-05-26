@@ -77,16 +77,17 @@ describe PeopleController do
           username = generate_random_username
           post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
         end
-    
-        it "redirects back to original community's domain" do
-          PersonConnection.should_receive(:create_person).and_return({"entry" => {"id" => "dfskh3r29wefhsdifh"}})  
-          PersonConnection.should_receive(:put_attributes).and_return({"entry" => {}})  
-      
-          @request.host = "login.lvh.me"
-          username = generate_random_username
-          post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-          response.should redirect_to "http://test.lvh.me/?locale=en"
-        end
+
+        # No more using login domain
+        # it "redirects back to original community's domain" do
+        #   PersonConnection.should_receive(:create_person).and_return({"entry" => {"id" => "dfskh3r29wefhsdifh"}})  
+        #   PersonConnection.should_receive(:put_attributes).and_return({"entry" => {}})  
+        #       
+        #   @request.host = "login.lvh.me"
+        #   username = generate_random_username
+        #   post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
+        #   response.should redirect_to "http://test.lvh.me/?locale=en"
+        # end
       end
     end
   end
