@@ -22,8 +22,9 @@
         = form.hidden_field :email, :value => session[:unconfirmed_email]
         = form.hidden_field :id, :value => @current_user.id
       = form.submit t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button"
-%p
-  = t("sessions.confirmation_pending.your_current_email_is", :email => session[:unconfirmed_email]).html_safe
-  = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
-#password_forgotten
-  = render :partial => "sessions/change_mistyped_email"
+- unless on_dashboard?
+  %p
+    = t("sessions.confirmation_pending.your_current_email_is", :email => session[:unconfirmed_email]).html_safe
+    = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
+  #password_forgotten
+    = render :partial => "sessions/change_mistyped_email"
