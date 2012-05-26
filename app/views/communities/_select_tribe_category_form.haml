@@ -6,4 +6,4 @@
   #community_categories
     - Community::VALID_CATEGORIES.each do |category|
       .community_category
-        = link_to t(".#{category}"), new_tribe_path(:category => category)
+        = link_to t(".#{category}"), new_tribe_path(:category => category), :id => "select_#{category}_community", :class => "community_category_link"
