@@ -160,8 +160,8 @@ en:
     done:
       done: Done!
       tribe_created_successfully: "You have successfully created your tribe."
-      we_will_contact_you_about_invoicing: "We will contact you later by email about invoicing."
       go_to_your_tribe: "Go to your tribe"
+      we_will_contact_you_about_invoicing: "We will contact you later by email about invoicing."
     index:
       find_your_local_tribe: "Find your local tribe"
       or_start_your_own: "...or %{start_your_own_tribe_link}"
@@ -276,6 +276,9 @@ en:
       browse_tribes: "Browse tribes"
       pricing: Pricing
       contact: Contact
+      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
+      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe of HTC Keilaniemi</a>"
+      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       offer_accusative: offer

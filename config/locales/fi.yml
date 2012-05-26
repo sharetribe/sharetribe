@@ -251,7 +251,7 @@ fi:
       kassi_for_your_city: "...KAUPUNGISSASI"
       kassi_for_your_city_description: "Haluatko tehdä kaupunginosistasi kukoistavia kyläyhteisöjä, joissa ihmiset tuntevat naapurinsa ja auttavat toisiaan tarpeen tullen? Haluatko auttaa ihmisiä parantamaan elinolosuhteitaan itse? %{service_name_genetive} avulla saavutat kaiken tämän."
       kassi_for_your_university: "...KORKEAKOULUSSASI"
-      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos! Tutustu <a href=\"http://aalto.kassi.eu/fi\">Aalto-yliopiston kassiyhteisöön!</a>"
+      kassi_for_your_university_description: "Haluatko luoda eloisan kampusympäristön, jossa ihmiset tuntevat toisensa ja luottavat toisiinsa? Haluatko auttaa opiskelijoita ja henkilökuntaa säästämään aikaa, rahaa ja luontoa? Kokeile %{service_name_partitive} ja huomaa muutos!"
       want_kassi_for_your_community: "Haluatko %{service_name_genetive} yhteisösi käyttöön?"
       email_default_text: Sähköpostiosoitteesi
       send: Lähetä!
@@ -276,6 +276,9 @@ fi:
       browse_tribes: "Selaa yhteisöjä"
       pricing: Hinta
       contact: Yhteys
+      university_example_link: "<a href=\"http://aalto.sharetribe.com/fi\">Aalto-yliopiston Sharetribe </a>"
+      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/fi\">HTC Keilaniemen Sharetribe </a>"
+      city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
       offer_accusative: tarjouksen

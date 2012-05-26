@@ -161,6 +161,7 @@ nl:
       done: ~
       tribe_created_successfully: ~
       go_to_your_tribe: ~
+      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: ~
       or_start_your_own: ~
@@ -1206,14 +1207,14 @@ nl:
       shorter: "%e %b at %H:%M"
       sms: "%e %b at %H:%M"
   timestamps:
-    day_ago: "dag geleden"
-    days_ago: "dagen geleden"
-    hour_ago: "uur geleden"
-    hours_ago: "uren geleden"
-    minute_ago: "minuut geleden"
     minutes_ago: "minuten geleden"
     month_ago: "maand geleden"
     months_ago: "maanden geleden"
+    day_ago: "dag geleden"
     seconds_ago: "secondes geleden"
+    days_ago: "dagen geleden"
     year_ago: "jaar geleden"
+    hour_ago: "uur geleden"
     years_ago: "jaren geleden"
+    hours_ago: "uren geleden"
+    minute_ago: "minuut geleden"
