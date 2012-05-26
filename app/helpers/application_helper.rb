@@ -145,6 +145,12 @@ module ApplicationHelper
     File.exists?(file_path)
   end
   
+  # If we are not in a single community defined by a subdomain,
+  # we are on dashboard
+  def on_dashboard?
+    ["", "www"].include?(request.subdomain)
+  end
+  
   def facebook_like
     
     loc = case I18n.locale

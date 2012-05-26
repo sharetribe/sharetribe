@@ -97,12 +97,6 @@ class ApplicationController < ActionController::Base
     session[:return_to_content] = request.fullpath
   end
   
-  # If we are not in a single community defined by a subdomain,
-  # we are on dashboard
-  def on_dashboard?
-    ["", "www"].include?(request.subdomain)
-  end
-  
   # Before filter for actions that are only allowed on dashboard
   def dashboard_only
     return if controller_name.eql?("passwords")
