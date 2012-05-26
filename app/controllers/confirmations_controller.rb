@@ -15,7 +15,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     if successfully_sent?(resource)
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
       if on_dashboard?
-        flash[:notice] = "send_instructions"
+        flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
         redirect_to new_tribe_path
       else
         set_flash_message(:notice, :send_instructions) if is_navigational_format?
@@ -33,7 +33,11 @@ class ConfirmationsController < Devise::ConfirmationsController
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_navigational_format?
       sign_in(resource_name, resource)
-      respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
+      if on_dashboard?
+        redirect_to new_tribe_path
+      else
+        respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
+      end
     else
       #check if this confirmation code matches to additional emails
       if e = Email.find_by_confirmation_token(params[:confirmation_token])

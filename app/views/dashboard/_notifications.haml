@@ -3,4 +3,8 @@
     .container_12
       .grid_12.alpha.omega
         %div{:id => "#{notification}_box"}
-          = t("layouts.notifications.#{flash[notification]}")
+          -# Try to detect if already translated string
+          - if flash[notification].include?("_")
+            = t("layouts.notifications.#{flash[notification]}")
+          - else
+            = flash[notification]
