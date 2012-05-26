@@ -9,7 +9,7 @@
     = form_tag({ :action => :set_organization_email, :controller => :communities }) do
       .form_field_container
         = text_field_tag "email", "", :class => "organization_email"
-        = submit_tag t(".continue"), :class => "send_button", :maxlenght => "255"
+        = submit_tag t(".continue"), :class => "send_button", :maxlenght => "255", :id => "submit_organizational_email"
         
         
 
