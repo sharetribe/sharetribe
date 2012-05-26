@@ -148,7 +148,7 @@ module ApplicationHelper
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
-    ["", "www"].include?(request.subdomain)
+    ["", "www","dashboardtranslate"].include?(request.subdomain)
   end
   
   def facebook_like
@@ -213,7 +213,7 @@ module ApplicationHelper
   # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
   # If called without host information, set's the server default
   def self.store_community_service_name_to_thread_from_host(host=nil)
-      ser_name = APP_CONFIG.global_service_name || "Kassi"
+      ser_name = APP_CONFIG.global_service_name || "Sharetribe"
       
       if host.present?
         community_domain = host.split(".")[0] #pick the subdomain part
