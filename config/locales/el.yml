@@ -180,11 +180,11 @@ el:
       unlimited_members: "Χωρίς όριο μελών"
       intranet_integration: "Intranet integration"
       no_charge: "Χωρίς χρέωση"
-      euros_per_month_premium: "%{price} ευρώ το μήνα"
+      euros_per_month_premium: "%{price} ευρώ/μήνα (περιλαμβάνει ΦΠΑ)"
       custom_domain: "Επιλογή ηλεκτρονικής διεύθυνσης (domain)"
-      we_help_you_get_started: ~
+      we_help_you_get_started: "Προσφέρουμε βοήθεια για να ξεκινήσει η κοινότητα"
       you_can_change_and_cancel: "Μπορείς να αλλάξεις ή να ακυρώσεις αυτό το σχέδιο οποιαδήποτε στιγμή."
-      discounts_available_for_non_profits: ~
+      discounts_available_for_non_profits: "Για μη-κερδοσκοπικούς οργανισμούς έχουμε 50% έκπτωση"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Τι κοινότητα θέλεις να δημιουργήσεις;"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πες μας τι είδους κοινότητα αντιπροσωπεύεις επιλέγοντας ένα από τα παρακάτω."
@@ -198,11 +198,11 @@ el:
       other: "Κάτι άλλο"
     new_tribe_form:
       create_a_tribe_in_a_minute: "Δημιούργησε μια νέα κοινότητα μέσα σε ένα λεπτό"
-      welcome_now_create_your_tribe: "Καλωσόρισες %{name}! Δημιούργησε την κοινότητά σου."
-      name_of_your_tribe: "Όνομα της κοινότητάς"
+      welcome_now_create_your_tribe: "Καλωσόρισες %{name}, δημιούργησε την κοινότητά σου."
+      name_of_your_tribe: "Όνομα της κοινότητας"
       web_address_of_your_tribe: "Ηλεκτρονική διεύθυνση της κοινότητας"
-      slogan_of_your_tribe: "Σλόγκαν της κοινότητας"
-      describe_your_tribe: "Γράψε μια περιγραφή: ποιος είναι ο στόχος της κοινότητάς σου"
+      slogan_of_your_tribe: "Σλόγκαν (θα φαίνεται στην αρχική σελίδα)"
+      describe_your_tribe: "Γράψε μια περιγραφή: ποιος είναι ο στόχος της κοινότητας"
       create_your_tribe: "Δημιούργησε την κοινότητά σου!"
       domain_invalid: "Η ηλεκτρονική διεύθυνση επιτρέπεται να περιέχει μόνο γράμματα, αριθμούς, παύλες και κάτω παύλες."
       domain_taken: "Αυτή η κοινότητα υπάρχει ήδη. Πρέπει να διαλέξεις μια άλλη διεύθυνση."
@@ -269,7 +269,7 @@ el:
       read_our_faq: "Διάβασε τις συχνές ερωτήσεις"
       contact_us: "επικοινώνησε μαζί μας"
       why_you_really_should_have_a_tribe: "Πραγματικά αξίζει να έχεις μια κοινότητα"
-      an_example: "Για παράδειγμα"
+      an_example: "Ένα παράδειγμα:"
       home: Αρχή
       faq: FAQ
       browse_tribes: ~
@@ -536,7 +536,7 @@ el:
       meta_description: "Το %{service_name} είναι μια υπηρεσία που βοηθά μέλη διαφόρων κοινοτήτων να ανταλλάζουν χάρες, να πωλούν και να ενοικιάζουν αντικείμενα, να κανονίζουν να συνταξιδέψουν και να αλληλοβοηθούνται με πολλούς διαφορετικούς τρόπους."
       or_check_our: "... ή δες την"
       send_feedback_to_admin: "Αποστολή σχολίων"
-      formerly_known_as_kassi: "γνωστό μέχρι τώρα ως \"Kassi\""
+      formerly_known_as_kassi: "πρώην \"Kassi\""
       to_see_what_others_have_suggested: "για να δεις τι έχουν προτείνει οι άλλοι χρήστες."
       your_email_address: "Η ηλεκτρονική σου διεύθυνση (προαιρετική)"
     conversations:
@@ -1071,7 +1071,7 @@ el:
       slightly_better_than_expected: "Ξεπέρασε τις προσδοκίες"
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
       what_are_these: "Τι είναι αυτά;"
-      trustcloud: ~
+      trustcloud: TrustCloud
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
