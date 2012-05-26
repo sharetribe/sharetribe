@@ -50,8 +50,8 @@ es:
   common:
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
-    default_description: ~
     cancel: Cancelar
+    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -68,84 +68,6 @@ es:
       trade: Intercambiar
     username: "Nombre de usuario"
     what_is_this: "Qué es esto?"
-  communities:
-    map_bubble:
-      view_tribe: ~
-    email_confirmation_pending:
-      confirmation_pending: ~
-    enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
-    done:
-      done: Hecho!
-      tribe_created_successfully: "Has creado correctamente tu tribu."
-      go_to_your_tribe: "Ve a tu tribu"
-    index:
-      find_your_local_tribe: "Encuentra tu tribu"
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
-    select_pricing_plan:
-      select_your_plan: "Selecciona tu plan"
-      pick_one_of_the_options_below: "Elige una de las opciones a continuación."
-      create_for_free: "Crear gratis"
-      contact_us: Contáctanos
-      free_plan: "Plan gratuito"
-      max_100_members: "Máx. 100 usuarios"
-      premium_plan: "Plan Premium"
-      max_500_members: "Máx. 500 usuarios"
-      care_free_user_support: ~
-      create_your_tribe: "Crea tu tribu"
-      professional_plan: "Plan Profesional"
-      unlimited_members: "Usuarios ilimitados"
-      intranet_integration: "Integración de intranet"
-      no_charge: "Sin cargos"
-      euros_per_month_premium: "%{price} euros por mes"
-      custom_domain: ~
-      you_can_change_and_cancel: ~
-    select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "¿Qué tipo de tribu quieres crear?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Primero cuéntanos que tipo de comunidad representas seleccionando una de las siguientes opciones."
-      company: Compañía
-      university: Universidad
-      town: Comuna
-      congregation: Congregación
-      association: Asociación
-      neighborhood: Vecindario
-      apartment_building: Condominio
-      other: Otra
-    new_tribe_form:
-      create_a_tribe_in_a_minute: "Crea una nueva tribu en un minuto"
-      welcome_now_create_your_tribe: "¡Bienvenido %{name}! Sigue adelante y crea tu tribu."
-      name_of_your_tribe: "Nombre de tu tribu"
-      web_address_of_your_tribe: "Dirección web de tu tribu"
-      slogan_of_your_tribe: "Lema de tu tribu"
-      describe_your_tribe: "Describe tu tribu: cuál es el propósito de la comunidad"
-      create_your_tribe: "¡Crea tu tribu!"
-      domain_invalid: ~
-      domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
-      address: "Ubicación de tu tribu"
-      location_description: ~
-      select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
-      language: Idioma
-    signup_form:
-      create_an_account: "Crea una cuenta para ti"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: "Inicia sesión con tu cuenta existente"
-      your_email: "Tu dirección e-mail"
-      your_university_email: "Tu dirección e-mail universitario"
-      your_company_email: "Tu dirección e-mail de la compañía"
-      you_need_to_confirm: "Para crear una tribu para tu %{tribe_type} necesitas confirmar tu dirección e-mail %{tribe_type}."
-      pick_username: "Elige un nombre de usuario"
-      your_given_name: "Tu nombre"
-      your_family_name: "Tu apellido"
-      your_password: "Elige una contraseña"
-      confirm_your_password: "Confirma tu contraseña"
-      email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
-      invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
-      log_in_here: "inicia sesión aquí"
   conversations:
     index:
       loading_more_messages: "Cargando más mensajes"
@@ -224,6 +146,86 @@ es:
       accept_request: "Aceptar solicitud"
       reject_offer: "Rechazar oferta"
       reject_request: "Rechazar solicitud"
+  communities:
+    map_bubble:
+      view_tribe: ~
+    email_confirmation_pending:
+      confirmation_pending: ~
+    enter_organization_email:
+      enter_your_organization_email: ~
+      only_people_with_verified_email_address_can_join_your_tribe: ~
+      continue: ~
+      tribe_exists: ~
+      this_tribe_exists_already: ~
+    done:
+      done: Hecho!
+      tribe_created_successfully: "Has creado correctamente tu tribu."
+      go_to_your_tribe: "Ve a tu tribu"
+    index:
+      find_your_local_tribe: "Encuentra tu tribu"
+      or_start_your_own: ~
+      start_your_own_tribe_link: ~
+    select_pricing_plan:
+      select_your_plan: "Selecciona tu plan"
+      pick_one_of_the_options_below: "Elige una de las opciones a continuación."
+      create_for_free: "Crear gratis"
+      contact_us: Contáctanos
+      free_plan: "Plan gratuito"
+      max_100_members: "Máx. 100 usuarios"
+      premium_plan: "Plan Premium"
+      max_500_members: "Máx. 500 usuarios"
+      care_free_user_support: ~
+      create_your_tribe: "Crea tu tribu"
+      professional_plan: "Plan Profesional"
+      unlimited_members: "Usuarios ilimitados"
+      intranet_integration: "Integración de intranet"
+      no_charge: "Sin cargos"
+      euros_per_month_premium: "%{price} euros por mes"
+      custom_domain: ~
+      we_help_you_get_started: ~
+      you_can_change_and_cancel: ~
+      discounts_available_for_non_profits: ~
+    select_tribe_category_form:
+      what_kind_of_tribe_do_you_want_to_create: "¿Qué tipo de tribu quieres crear?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Primero cuéntanos que tipo de comunidad representas seleccionando una de las siguientes opciones."
+      company: Compañía
+      university: Universidad
+      town: Comuna
+      congregation: Congregación
+      association: Asociación
+      neighborhood: Vecindario
+      apartment_building: Condominio
+      other: Otra
+    new_tribe_form:
+      create_a_tribe_in_a_minute: "Crea una nueva tribu en un minuto"
+      welcome_now_create_your_tribe: "¡Bienvenido %{name}! Sigue adelante y crea tu tribu."
+      name_of_your_tribe: "Nombre de tu tribu"
+      web_address_of_your_tribe: "Dirección web de tu tribu"
+      slogan_of_your_tribe: "Lema de tu tribu"
+      describe_your_tribe: "Describe tu tribu: cuál es el propósito de la comunidad"
+      create_your_tribe: "¡Crea tu tribu!"
+      domain_invalid: ~
+      domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
+      address: "Ubicación de tu tribu"
+      location_description: ~
+      select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
+      language: Idioma
+    signup_form:
+      create_an_account: "Crea una cuenta para ti"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      log_in_with_your_existing_account: "Inicia sesión con tu cuenta existente"
+      your_email: "Tu dirección e-mail"
+      your_university_email: "Tu dirección e-mail universitario"
+      your_company_email: "Tu dirección e-mail de la compañía"
+      you_need_to_confirm: "Para crear una tribu para tu %{tribe_type} necesitas confirmar tu dirección e-mail %{tribe_type}."
+      pick_username: "Elige un nombre de usuario"
+      your_given_name: "Tu nombre"
+      your_family_name: "Tu apellido"
+      your_password: "Elige una contraseña"
+      confirm_your_password: "Confirma tu contraseña"
+      email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
+      invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
+      log_in_here: "inicia sesión aquí"
   community_memberships:
     new:
       join_community: "Únete a la comunidad de '%{community}'"
@@ -243,17 +245,12 @@ es:
       create_your_own: "Crea tu espacio"
       sharing_website: "PARA COMPARTIR"
       main_description: "%{service_name} es un servicio web hecho exclusivamente para que compartas con tu comunidad."
-      want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
-      read_our_faq: "Lee nuestras preguntas frecuentes"
-      contact_us: "contáctanos directamente"
-      why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
       kassi_for_your_company: "%{service_name} para tu empresa"
       kassi_for_your_company_description: "¿Quieres que tu compañía esté socialmente más conectada? ¿Quieres ayudar a tus trabajadores a que compartan entre ellos? ¿Quieres reducir las emisiones contaminantes y transformarte en una empresa sustentable? %{service_name} es la solución para ti."
       kassi_for_your_city: "%{service_name} en tu ciudad"
       kassi_for_your_city_description: "¿Quieres transformar tu barrio o comunidad en un lugar donde las personas se conozcan y puedan ponerse en contacto entre ellas cada vez que lo necesiten? ¿Quieres ayudar a las personas a mejorar sus vidas? %{service_name} te ayudará a lograr esto."
       kassi_for_your_university: "%{service_name} para tu universidad"
       kassi_for_your_university_description: "¿Quieres un ambiente más ameno en tu campus, donde todos se conozcan y compartan entre sí? ¿Quieres ayudar a tus compañeros a ahorrar tiempo, dinero y contribuir con el medioambiente? ¡Prueba %{service_name} y nota el cambio! Un buen ejemplo: <a href=\"http://aalto.sharetribe.com/en\">%{service_name} en la Universidad Aalto</a>"
-      an_example: ~
       want_kassi_for_your_community: "¿Quieres ocupar %{service_name} en tu comunidad?"
       email_default_text: "Tu dirección email"
       send: Enviar!
@@ -267,12 +264,17 @@ es:
       product_of: "%{service_name} es un producto de"
       language: "Idioma:"
       new: ¡NUEVO!
+      new_text: "Actualmente %{service_name} está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
+      want_to_know_more: "¿Quieres saber más? %{read_our_faq_link} o %{contact_us_link}."
+      read_our_faq: "Lee nuestras preguntas frecuentes"
+      contact_us: "contáctanos directamente"
+      why_you_really_should_have_a_tribe: "Porqué deberías tener una tribu"
+      an_example: ~
       home: ~
       faq: ~
       browse_tribes: ~
       pricing: ~
       contact: ~
-      new_text: "Actualmente %{service_name} está disponible para <a href=\"http://www.kassi.eu/en/wdc\">vecindarios en Helsinki y Lahti</a> y para <a href=\"http://www.kassi.eu/en/okl\">miembros de Suomen Omakotiliitto</a>!"
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -531,12 +533,12 @@ es:
       feedback: "Sugerencia al equipo de %{service_name}"
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Sugerencia
-      formerly_known_as_kassi: ~
       give_feedback: "Da una sugerencia en %{service_name}"
       keywords: "%{service_name}, Servicio, favor, artículo, trayecto compartido, autos prestados, hospedaje, alojamiento, ayuda, ayudando, oferta, solicitud, arrendar, comerciar, intercambiar, comprando, vendiendo, comprar, vender, regalando, dar, Kassi, ecológico, comunidad, comunidad online"
       meta_description: "%{service_name} es un servicio que ayuda a los miembros de agrupaciones y otras comunidades a vender y prestarse artículos entre ellos, organizar trayectos de traslado compartidos o a cooperarse mutuamente de múltiples formas."
       or_check_our: "...o revisa nuestro"
       send_feedback_to_admin: "Enviar sugerencia"
+      formerly_known_as_kassi: ~
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."
       your_email_address: "Tu dirección email (no obligatorio)"
     conversations:
@@ -578,7 +580,6 @@ es:
       settings: Opciones
       sign_up: Registrarse
     notifications:
-      send_instructions: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Ahora eres parte de esta comunidad. A continuación necesitas confirmar tu dirección e-mail."
       avatar_upload_failed: "Falló la actualización del avatar. Recuerda que la foto debe ser un archivo .png, .jpg o .gif"
@@ -587,7 +588,6 @@ es:
       comment_sent: "Comentario enviado"
       confirmation_link_is_wrong_or_used: "El link de confirmación ya ha sido usado o se ha roto en el enlace. Intenta iniciar sesión o escríbenos si el problema persiste."
       additional_email_confirmed: "El e-mail que ingresaste está confirmado. Puedes entrar a la comunidad ingresando nuevamente."
-      additional_email_confirmed_dashboard: ~
       create_new_offer: "Ofrece algo más"
       create_new_request: "Solicita algo adicional"
       create_one_here: "Crea uno aquí"
@@ -654,6 +654,7 @@ es:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "No estás autorizado para dar sugerencias en este evento."
       you_are_not_authorized_to_do_this: "No estás autorizado para realizar esta acción."
       you_are_not_authorized_to_view_this_content: "No estás autorizado para ver este contenido"
+      send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "No puedes responder a una oferta cerrada"
       you_cannot_reply_to_a_closed_request: "No puedes responder a una solicitud cerrada"
       you_cannot_reply_to_your_own_offer: "No puedes responder a tu propia oferta"
@@ -663,6 +664,7 @@ es:
       you_are_now_member: "Te has unido exitosamente a esta comunidad"
       you_are_already_member: "Ya eres miembro de esta %{service_name} comunidad. ¡Bienvenido otra vez!"
       you_must_log_in_to_create_new_offer: "Debes iniciar tu sesión en %{service_name} para crear una nueva oferta. Si no tienes una cuenta puedes"
+      additional_email_confirmed_dashboard: ~
       you_must_log_in_to_create_new_request: "Debes iniciar tu sesión en %{service_name} para crear una nueva solicitud. Si no tienes una cuenta puedes"
       you_must_log_in_to_give_feedback: "Debes iniciar tu sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debes iniciar sesión para invitar a nuevos usuarios a %{service_name}"
@@ -1070,8 +1072,8 @@ es:
       show_full_description: "Ver más"
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
-      trustcloud: ~
       what_are_these: "¿Qué son estos?"
+      trustcloud: ~
   search:
     show:
       all_results: "Todos los resultados"
@@ -1101,11 +1103,8 @@ es:
       request_new_password: "Solicitar nueva contraseña"
       change_your_password: "Cambia tu contraseña"
     confirmation_pending:
-      confirm_your_email: ~
       welcome_to_kassi: "¡Bienvenido a Kassi!"
-      account_confirmation_instructions: ~
       check_your_email: "Revisa tu bandeja de entrada"
-      account_confirmation_instructions_dashboard: ~
       account_conrimation_instructions: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Este correo de verificación está hecho para asegurar que todos los miembros realmente pertenecen a esta comunidad (<b>%{community_name}</b>). Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
       account_confirmation_instructions_any_email: "Pronto recibirás un correo electrónico de Kassi con un link en el que tendrás que hacer click para conseguir el acceso a esta comunidad Kassi.</p><p>Esto crea un ambiente seguro para compartir.</p><p>Si tienes cualquier problema usando Kassi, sólo haz click en el <a href=\"#\" id=\"give_feedback_link\">feedback</a> a la izquierda e indícanos que está funcionando mal. ¡Son bienvenidas las ideas que nos ayuden a mejorar el servicio!"
       get_started: "Comenzar con %{service_name}"
@@ -1113,6 +1112,9 @@ es:
       resend_confirmation_instructions: "Reenvío de instrucciones de confirmación"
       your_current_email_is: "Tu e-mail es %{email}."
       change_email: Cambiar
+      confirm_your_email: ~
+      account_confirmation_instructions: ~
+      account_confirmation_instructions_dashboard: ~
   settings:
     account:
       change: Cambiar
