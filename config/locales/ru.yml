@@ -276,6 +276,9 @@ ru:
       browse_tribes: ~
       pricing: ~
       contact: ~
+      university_example_link: ~
+      company_example_link: ~
+      city_example_link: ~
   emails:
     accept_reminder:
       offer_accusative: предложение
@@ -894,22 +897,10 @@ ru:
       search_verb: Поиск
       you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
-  news_items:
-    index:
-      news_from_community: "Последние новости сообщества %{community}"
-    news_item:
-      delete_news_item: "Удалить статью"
-  okl:
-    member_id: Идентификатор
-    member_id_is_your_username: ~
-    join_here: ~
   people:
-    badge_description:
-      badge_achieved_at: "Значок заработан "
-      you_do_not_yet_have_this_badge: "Значок пока не заработан."
     edit_links:
-      activate: Активировать
       deactivate: Отключить
+      activate: Активировать
     help_texts:
       badges_description_title: Значки
       feedback_description_title: Отзывы
@@ -918,6 +909,9 @@ ru:
       terms_title: "Условия использования Kassi"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: ~
+    badge_description:
+      badge_achieved_at: "Значок заработан "
+      you_do_not_yet_have_this_badge: "Значок пока не заработан."
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
       inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
@@ -1073,6 +1067,15 @@ ru:
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       what_are_these: "Что это?"
       trustcloud: TrustCloud
+  news_items:
+    index:
+      news_from_community: "Последние новости сообщества %{community}"
+    news_item:
+      delete_news_item: "Удалить статью"
+  okl:
+    member_id: Идентификатор
+    member_id_is_your_username: ~
+    join_here: ~
   search:
     show:
       all_results: "Все результаты"
@@ -1123,21 +1126,21 @@ ru:
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
+    avatar:
+      add_avatar_submit: Сохранить
+      update_profile_picture: "Обновить картинку"
     notifications:
+      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
+      newsletters: "Новостная рассылка"
+      email_about_accept_reminders: "...я забыл принять решение по событию"
+      email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
       email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на Kassi"
-      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
-      newsletters: "Новостная рассылка"
-      email_about_accept_reminders: "...я забыл принять решение по событию"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
-      email_about_new_badges: "...я получил новый значок"
-    avatar:
-      add_avatar_submit: Сохранить
-      update_profile_picture: "Обновить картинку"
     profile:
       about_you: "О вас:"
       city: "Город:"

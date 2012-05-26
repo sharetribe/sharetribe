@@ -276,6 +276,9 @@ nl:
       browse_tribes: ~
       pricing: ~
       contact: ~
+      university_example_link: ~
+      company_example_link: ~
+      city_example_link: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -1123,12 +1126,7 @@ nl:
       new_password: "Nieuw wachtwoord"
       save: Opslaan
       these_fields_are_shown_only_to_you: "Gebruikersnaam is zichtbaar in je profiel tenzij je je naam hebt opgegeven. Overige informatie is alleen zichtbaar voor jou."
-    avatar:
-      add_avatar_submit: "Foto opslaan"
-      update_profile_picture: "Update profiel foto"
     notifications:
-      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
-      newsletters: ~
       email_about_accept_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
@@ -1137,7 +1135,12 @@ nl:
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
       email_about_weekly_events: ~
       email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
+      i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
       email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
+      newsletters: ~
+    avatar:
+      add_avatar_submit: "Foto opslaan"
+      update_profile_picture: "Update profiel foto"
     profile:
       about_you: "Over jou:"
       city: "Stad:"
@@ -1207,14 +1210,14 @@ nl:
       shorter: "%e %b at %H:%M"
       sms: "%e %b at %H:%M"
   timestamps:
+    day_ago: "dag geleden"
+    days_ago: "dagen geleden"
+    hour_ago: "uur geleden"
+    hours_ago: "uren geleden"
+    minute_ago: "minuut geleden"
     minutes_ago: "minuten geleden"
     month_ago: "maand geleden"
     months_ago: "maanden geleden"
-    day_ago: "dag geleden"
     seconds_ago: "secondes geleden"
-    days_ago: "dagen geleden"
     year_ago: "jaar geleden"
-    hour_ago: "uur geleden"
     years_ago: "jaren geleden"
-    hours_ago: "uren geleden"
-    minute_ago: "minuut geleden"

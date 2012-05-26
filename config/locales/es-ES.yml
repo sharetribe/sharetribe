@@ -276,6 +276,9 @@ es-ES:
       browse_tribes: ~
       pricing: ~
       contact: ~
+      university_example_link: ~
+      company_example_link: ~
+      city_example_link: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -1141,7 +1144,6 @@ es-ES:
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
     profile:
-      about_you: "Acerca de usted:"
       city: "Ciudad:"
       family_name: "Apellido:"
       given_name: "Nombre:"
@@ -1150,6 +1152,7 @@ es-ES:
       postal_code: "Código postal:"
       profile_page: "en su página de perfil"
       profilemap: "Vista de mapa"
+      about_you: "Acerca de usted:"
       street_address: "Ubicación:"
       these_fields_are_shown_in_your: "Esta información se encuentra disponible para todos los usuarios de Kassi"
       visible_to_everybody: "visible para todo el mundo"

@@ -636,8 +636,8 @@ function initialize_private_community_homepage(username_default_text, password_d
 		$('#password_forgotten').slideToggle('fast'); 
 		$('input.request_password').focus();
 	});
-	$('#username').watermark(username_default_text, {className: 'default_text'});
-	$('#password').watermark(password_default_text, {className: 'default_text'});
+	$('#person_username').watermark(username_default_text, {className: 'default_text'});
+	$('#person_password').watermark(password_default_text, {className: 'default_text'});
 	$('.wrapper').addClass('js_enabled');
 }	
 	
