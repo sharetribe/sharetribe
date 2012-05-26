@@ -65,7 +65,7 @@
             = loc.hidden_field :latitude, :value => @community.location.latitude
             = loc.hidden_field :longitude, :value => @community.location.longitude
             = loc.hidden_field :location_type, :value => "community"
-          = form.submit t(".create_your_tribe"), :class => "form_button"
+          = form.submit t(".create_your_tribe"), :class => "form_button", :id => "create_community_button"
 
 - if session[:community_locale]
   = render :partial => "people/help_texts", :collection => ["terms"], :as => :field 
