@@ -161,6 +161,7 @@ ru:
       done: Готово!
       tribe_created_successfully: "Вы успешно создали своё сообщество."
       go_to_your_tribe: "Перейти в сообщество"
+      we_will_contact_you_about_invoicing: ~
     index:
       find_your_local_tribe: "Найти местное сообщество"
       or_start_your_own: "...или %{start_your_own_tribe_link}"
@@ -1122,21 +1123,21 @@ ru:
       new_password: "Новый пароль"
       save: Сохранить
       these_fields_are_shown_only_to_you: "Если вы не сообщили ваше реальное имя, в вашем профиле будет отображаться выбранное вами имя пользователя. Остальная информация будет доступна только вам."
-    avatar:
-      add_avatar_submit: Сохранить
-      update_profile_picture: "Обновить картинку"
     notifications:
-      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
-      newsletters: "Новостная рассылка"
-      email_about_accept_reminders: "...я забыл принять решение по событию"
-      email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
       email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на Kassi"
+      i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
+      newsletters: "Новостная рассылка"
+      email_about_accept_reminders: "...я забыл принять решение по событию"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
+      email_about_new_badges: "...я получил новый значок"
+    avatar:
+      add_avatar_submit: Сохранить
+      update_profile_picture: "Обновить картинку"
     profile:
       about_you: "О вас:"
       city: "Город:"

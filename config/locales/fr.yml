@@ -161,6 +161,7 @@ fr:
       done: "Terminé !"
       tribe_created_successfully: "Vous venez de créer votre tribu avec succès."
       go_to_your_tribe: "Aller dans votre tribu"
+      we_will_contact_you_about_invoicing: "Nous allons vous contacter rapidement par email à propos de nos tarifs."
     index:
       find_your_local_tribe: "Trouvez une tribu proche de vous"
       or_start_your_own: "... ou %{start_your_own_tribe_link}"
@@ -182,9 +183,9 @@ fr:
       no_charge: "Entièrement gratuit"
       euros_per_month_premium: "150 euros par mois"
       custom_domain: "Nom de domaine personnalisé"
-      we_help_you_get_started: ~
+      we_help_you_get_started: "Nous rapprochons vos équipes"
       you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
-      discounts_available_for_non_profits: ~
+      discounts_available_for_non_profits: "Tarif réduit de 50% pour les groupes à but non lucratif"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez-vous créer ?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Pour commencer, dites nous quelle type de communauté vous représentez."
@@ -213,7 +214,7 @@ fr:
     signup_form:
       create_an_account: "Créer votre compte personnel"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Vous pouvez créer un nouveau compte sur Sharetribe ci-dessous ou bien"
-      log_in_with_your_existing_account: "Se connecter avec votre compte"
+      log_in_with_your_existing_account: "vous connecter avec votre compte"
       your_email: "Votre adresse email"
       your_university_email: "Votre adresse email universitaire"
       your_company_email: "Votre adresse email d'entreprise"
@@ -295,7 +296,7 @@ fr:
       confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
       need_to_confirm: "Avant de commencer à utiliser %{service_name}, vous devez confirmer votre adresse email avec le lien suivant :"
-      confirmation_link_text: "Confirmer mon inscription"
+      confirmation_link_text: "confirmer mon inscription"
       turning_on_confirmations_in_this_community: "Nous commençons à utiliser les email de confirmations dans cette communauté de %{service_name}."
     common:
       check_your_settings: "Vérifiez vos paramètres"
