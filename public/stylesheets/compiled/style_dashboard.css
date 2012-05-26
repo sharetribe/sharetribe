@@ -969,7 +969,13 @@ div.show_tribe_link {
   .hidden_description_terms h3 {
     font-size: 14px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    color: black; }
+  .hidden_description_terms h4 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black; }
 
 .hidden_content {
   clear: both;
