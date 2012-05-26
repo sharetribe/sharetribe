@@ -160,8 +160,8 @@ fi:
     done:
       done: Valmis!
       tribe_created_successfully: "Olet onnistuneesti luonut uuden yhteisön."
-      we_will_contact_you_about_invoicing: "Otamme myöhemmin yhteyttä laskutukseen liittyen."
       go_to_your_tribe: "Siirry yhteisön sivulle"
+      we_will_contact_you_about_invoicing: "Otamme myöhemmin yhteyttä laskutukseen liittyen."
     index:
       find_your_local_tribe: "Löydä paikallinen yhteisösi"
       or_start_your_own: "...tai %{start_your_own_tribe_link}"
@@ -183,9 +183,9 @@ fi:
       no_charge: Ilmainen
       euros_per_month_premium: "%{price} euroa/kk (sis. ALV)"
       custom_domain: "oma domain-nimi"
-      we_help_you_get_started: "Autamme porukan kokoamisessa"
       you_can_change_and_cancel: "Voit vaihtaa tai perua valittun paketin milloin vain."
-      discounts_available_for_non_profits: ~
+      we_help_you_get_started: "Autamme porukan kokoamisessa"
+      discounts_available_for_non_profits: "Tarjoamme 50% alennuksen voittoa tavoittelemattomille yhdistyksille"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Millaisen yhteisön haluat luoda?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Jos olet luomassa jakamistyhteisöä olemassa olevalle porukalle, valitse sopivin tyyppi alta."
@@ -540,9 +540,9 @@ fi:
       meta_description: "%{service_name} on verkkopalvelu, jonka avulla yhdistysten ja muiden yhteisöjen jäsenet voivat tehdä toisilleen palveluksia, ostaa, myydä ja lainata tavaroita, järjestää kimppakyytejä sekä paljon muuta."
       or_check_our: "...tai tarkista"
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
-      formerly_known_as_kassi: "aiemmin nimellä Kassi"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
+      formerly_known_as_kassi: "aiemmin nimellä Kassi"
     conversations:
       messages: Viestit
       notifications: Tiedotteet
@@ -920,7 +920,7 @@ fi:
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
       terms_title: "%{service_name_genetive} käyttöehdot"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p>TrustCloud on Internet-palvelu, joka auttaa mittaamaan henkilöiden luotettavuutta erilaisissa jakamispalveluissa. TrustCloud antaa pistemäärän (1-1000) perustuen henkilön toimintaan eri palveluissa. Pistemäärä kasvattaa muilta saatu hyvä palaute, omien tietojen kertominen avoimesti, sekä suuri määrä yhteyksiä esim. Facebookissa. TrustCard-korttia klikkaamalla näet lisätietoja kustakin kortista.</p><p>TrustCloud on käytössä Kassissa tuomassa lisävarmistusta sille, että henkilö esiintyy omana itsenään, ei piiloudu tekaistun identiteetin taakse.</p><p>Voit rekisteröidä oman TrustCard-kortin, jos haluat, <a href='https://trustcloud.com/claim'>rekisteröitymällä TrustCloudiin</a> samalla email osoitteella, kuin sinulla on %{service_name_inessive}. TrustCloudin käyttö on täysin vapaaehtoista, mutta suosittelemme rekisteröitymistä, sillä se lisää luotettavuuttasi muiden silmissä, ja todennäköisesti siten helpottaa avun löytämistä.</p><p>Toimintasi %{service_name_inessive} ei vielä vaikuta TrustCloud-pisteisiisi, mutta tulevaisuudessa on tarkoitus, että %{service_name}-palautteetkin vaikuttavat.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name_inessive}"
       inactive_description: "Tämä käyttäjä on lopettanut %{service_name_genetive} käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
