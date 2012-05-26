@@ -9,7 +9,7 @@
       %li= t(".no_charge")
       %li= t(".max_100_members")
       <br />
-    = link_to t(".create_for_free"), new_tribe_path(:pricing_plan => "free")
+    = link_to t(".create_for_free"), new_tribe_path(:pricing_plan => "free"), :id => "free_plan_link", :class => "pricing_plan_selection"
 .grid_4
   .pricing_column
     %h3.pricing= t(".premium_plan")
@@ -17,7 +17,7 @@
       %li= t(".euros_per_month_premium", :price => (session[:community_category].nil? || ["university","company"].include?(session[:community_category]) ? "150" : "75")) + (session[:community_category] ? "" : "*")
       %li= t(".care_free_user_support")
       %li= t(".max_500_members")      
-    = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium")
+    = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium"), :id => "premium_plan_link", :class => "pricing_plan_selection"
 .grid_4.omega
   .pricing_column
     %h3.pricing= t(".professional_plan")
@@ -26,7 +26,7 @@
       %li= t(".intranet_integration")
       %li= t(".custom_domain")
       %li= t(".we_help_you_get_started")
-    = link_to t(".contact_us"), "mailto:sales@sharetribe.com"
+    = link_to t(".contact_us"), "mailto:sales@sharetribe.com", :id => "pricing_page_contact_link", :class => "pricing_plan_selection"
 .clear
 .grid_12.alpha.omega
   %h2.new_tribe_bottom= ("#{t(".you_can_change_and_cancel")}" + (session[:community_category] ? "" : "<br />*#{t(".discounts_available_for_non_profits")}")).html_safe
