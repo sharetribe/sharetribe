@@ -118,7 +118,7 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @person = person
     @email = email
-    mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Kassi")
+    mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Sharetribe")
   end
   
   # Remind users of conversations that have not been accepted or rejected
