@@ -101,6 +101,5 @@ after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
 after "deploy:restart", "delayed_job:restart"
 
-require 'config/boot'
-require 'hoptoad_notifier/capistrano'
-
+require './config/boot'
+require 'airbrake/capistrano'

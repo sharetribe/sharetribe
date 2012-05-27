@@ -29,6 +29,9 @@ GEM
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     acts-as-taggable-on (2.0.6)
+    airbrake (3.0.9)
+      activesupport
+      builder
     arel (1.0.1)
       activesupport (~> 3.0.0)
     bcrypt-ruby (3.0.1)
@@ -92,9 +95,6 @@ GEM
     haml (3.0.25)
     hashie (1.2.0)
     highline (1.6.1)
-    hoptoad_notifier (2.4.6)
-      activesupport
-      builder
     httpauth (0.1)
     httpclient (2.1.6.1)
     i18n (0.4.2)
@@ -259,6 +259,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  airbrake
   capistrano
   capybara (= 0.3.9)
   cucumber (= 0.8.5)
@@ -268,7 +269,6 @@ DEPENDENCIES
   devise (= 2.0.0.rc)
   factory_girl_rails
   haml
-  hoptoad_notifier
   httpclient
   json
   launchy

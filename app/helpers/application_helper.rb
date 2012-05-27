@@ -110,8 +110,13 @@ module ApplicationHelper
   end
   
   def self.send_error_notification(message, error_class="Special Error", parameters={})
-    if APP_CONFIG.use_hoptoad
-      HoptoadNotifier.notify(:error_class => error_class, :error_message => message, :parameters => parameters)
+    if APP_CONFIG.use_airbrake
+      Airbrake.notify(
+        :error_class      => error_class,
+        :error_message    => message,
+        :backtrace        => $@,
+        :environment_name => ENV['RAILS_ENV'],
+        :parameters       => parameters)
     end
     Rails.logger.error "#{error_class}: #{message}"
   end
