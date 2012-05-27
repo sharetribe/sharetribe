@@ -140,9 +140,9 @@ describe SmsHelper do
     describe "#send" do
       it "should send the given text as sms to given number" do
           RestClient.should_receive(:post).with(/http:\/\/api.medialab.sonera.fi\/iw\/rest\/messaging\/sms/, 
-            /"address" : "358501234567", "message" : "running tests of Kassi"/, 
+            /"address" : "358501234567", "message" : "running tests of Sharetribe"/, 
             {:content_type => 'application/json'}).and_return(true)
-          SmsHelper.send("running tests of Kassi", "358501234567")
+          SmsHelper.send("running tests of Sharetribe", "358501234567")
         end
     end
   

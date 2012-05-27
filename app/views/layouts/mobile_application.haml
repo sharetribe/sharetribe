@@ -3,7 +3,7 @@
 %html{html_attrs(I18n.locale)}
   %head
     %title 
-      Kassi
+      #{service_name}
       - if @listing && action_name.eql?("show")
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
         
@@ -29,7 +29,7 @@
       #header.container_24
         .grid_6
           #logo
-            = link_to image_tag("/images/kassi_logo.png"), root, :title => "Kassi"
+            = link_to image_tag("/images/kassi_logo.png"), root, :title => "#{service_name}"
         .grid_17
           = render :partial => "layouts/mobile_logged_in"
           .clear

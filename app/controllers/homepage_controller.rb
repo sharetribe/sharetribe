@@ -23,7 +23,7 @@ class HomepageController < ApplicationController
     @offers = Listing.offers.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
         
     # TODO This below should only be done if the count is actually shown, otherwise unnecessary.
-    #If browsing Kassi unlogged, count also the number of private listings available 
+    #If browsing Sharetribe unlogged, count also the number of private listings available 
     unless @current_user
       @private_listings = {}
       @private_listings["request"] = Listing.requests.open.private_to_community(@current_community).count

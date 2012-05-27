@@ -25,7 +25,7 @@ describe ApplicationController do
       response.should redirect_to("/")
     end
     
-    it "logs the user out from Kassi" do
+    it "logs the user out from Sharetribe" do
       get :index
       session[:person_id].should be_nil
       session[:cookie].should be_nil

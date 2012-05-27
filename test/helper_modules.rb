@@ -57,7 +57,7 @@ module TestHelpers
         test_person = Person.add_to_kassi_db(session.person_id)
       end
     
-    else # No ASI just Kassi DB in use
+    else # No ASI just Sharetribe DB in use
       test_person = Person.find_by_username(username)
       unless test_person.present?
         test_person = Factory.build(:person, { :username => username, 

@@ -94,7 +94,7 @@ describe PeopleController do
   
   if not (use_asi?)
     puts "The tests for person_controller without ASI are not done."
-    # context "When ASI is not used but Person is stored only in Kassi DB" do
+    # context "When ASI is not used but Person is stored only in Sharetribe DB" do
     #  
     #   before(:all) do
     #       reload_person_set_ASI_usage_to(false)

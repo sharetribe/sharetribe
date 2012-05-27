@@ -4,7 +4,7 @@
   %head
     = render :partial => "layouts/kissmetrics"
     %title 
-      Kassi
+      #{service_name}
       - if @listing && action_name.eql?("show")
         = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
       - else
@@ -12,7 +12,7 @@
     %meta{ :property => "og:type", :content =>"website"}
     %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
     %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/kassi_logo.png"}
-    %meta{ :property => "og:site_name", :content =>"Kassi"}
+    %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
     %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
@@ -68,7 +68,7 @@
       #header.container_12
         .grid_2.alpha
           #logo
-            = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Kassi"), :controller => :homepage, :action => :sign_in
+            = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "#{service_name}"), :controller => :homepage, :action => :sign_in
         .grid_10.omega
           - if available_locales.size > 1
             #language_switch

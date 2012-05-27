@@ -4,11 +4,11 @@ describe RestHelper do
   
   if use_asi? # These tests only make sense when using ASI
     context "Session is no more valid" do
-      context "Kassi-cookie is invalid" do
-        it "should create new Kassi-cookie and repeat the request" do
+      context "Sharetribe-cookie is invalid" do
+        it "should create new Sharetribe-cookie and repeat the request" do
           @test_person, @session = get_test_person_and_session
         
-          # Generate a cookie and make it look like it would have been the Kassi-cookie stored in cache
+          # Generate a cookie and make it look like it would have been the Sharetribe-cookie stored in cache
           #cookie = Session.kassi_cookie
           cookie = {"_trunk_session" => "NotAVeryValidCookie_JustForTesting"}
           Session.set_kassi_cookie(cookie)
@@ -16,7 +16,7 @@ describe RestHelper do
         
           response = RestHelper.make_request(:get, "#{APP_CONFIG.asi_url}/people/#{@test_person.id}/@self", {:cookies => cookie})
         
-          #The Kassi-cookie should now been noted as invalid and renewed
+          #The Sharetribe-cookie should now been noted as invalid and renewed
           new_cookie = Session.kassi_cookie
           new_cookie.should_not == cookie
         

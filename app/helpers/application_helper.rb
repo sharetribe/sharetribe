@@ -190,12 +190,20 @@ module ApplicationHelper
     (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id") : t("common.username")
   end
   
-  def service_name
+  def service_name(form=nil)
     if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
-      return @current_community.settings["service_name"]
+      service_name = @current_community.settings["service_name"]
     else
-      return APP_CONFIG.global_service_name || "Sharetribe"
+      service_name = APP_CONFIG.global_service_name || "Sharetribe"
     end
+    if form #check if special form of the name is required
+      service_name = ApplicationHelper.service_name_other_forms(service_name)[form.to_sym]
+    end
+    return service_name
+  end
+  
+  def service_name_illative
+    ApplicationHelper.service_name_other_forms
   end
   
   def email_not_accepted_message
@@ -251,6 +259,7 @@ module ApplicationHelper
       else nil
     end
   end
+
   
   # returns the locale part from url.
   # e.g. from "kassi.eu/es/listings" returns es

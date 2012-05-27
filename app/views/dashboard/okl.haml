@@ -5,7 +5,7 @@
   .container_12
     .grid_2.alpha
       #logo
-        = image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Kassi")
+        = image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Sharetribe")
     .grid_5
       #slogan
         = t("dashboard.index.slogan")
@@ -21,9 +21,9 @@
           %span.indentation
             OMA VERKKOTORI
       .home_main_screenshot_longer
-        = image_tag("/images/dashboard/sharetribe_homepage_screenshot.png", :alt => "This is what a Kassi community looks like")
+        = image_tag("/images/dashboard/sharetribe_homepage_screenshot.png", :alt => "This is what a Sharetribe community looks like")
       #home_main_screenshot_bottom
-        = image_tag("/images/dashboard/kassi_map_screenshot.png", :alt => "This is what a Kassi community looks like")
+        = image_tag("/images/dashboard/kassi_map_screenshot.png", :alt => "This is what a Sharetribe community looks like")
     .grid_5.omega
       %p.okl.top
         Suomen Omakotiliitto tarjoaa jäsenyhdistyksilleen
@@ -40,7 +40,7 @@
         joita voisit lainata muille? Osaisitko auttaa 
         tietokoneongelmissa, oletko hyvä kokoamaan
         huonekaluja tai lenkittäisitkö mieluusit naapurin 
-        koiraa? Lisää näistä kaikista tieto Kassiin!
+        koiraa? Lisää näistä kaikista tieto Sharetribeen!
       %h2.campaign_page
         Liity yhdistyksesi yhteisöön!
       #select_community_form
@@ -49,11 +49,11 @@
           %div{:style => "font-size: 18px"}
             = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Valitse yhdistyksesi:", :class => "community_select"
       %p.okl.bottom
-        Liittyäksesi Kassiin sinun pitää kuulua
+        Liittyäksesi Sharetribeen sinun pitää kuulua
         johonkin Omakotiliiton jäsenyhdistykseen. Jos et vielä kuulu, nyt on hyvä aika
         = link_to "liittyä!", "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
       %p.okl
-        Lisätietoja Kassi-palvelusta ja sen toiminnasta saa osoitteesta
+        Lisätietoja Sharetribe-palvelusta ja sen toiminnasta saa osoitteesta
         = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
       %p.okl
         #logos
