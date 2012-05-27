@@ -17,6 +17,8 @@ Factory.define :person do |p|
   p.locale "en"
   p.test_group_number 4
   p.confirmed_at Time.now
+  p.given_name "Proto"
+  p.family_name "Testro"
   if not ApplicationHelper::use_asi?
     p.username { |u| u.username = Factory.next(:username) }
     p.password "testi"
