@@ -1,5 +1,5 @@
 # This file overrides some methdos of the Person class
-# if this Kassi installation uses ASI server to store person data.
+# if this Sharetribe installation uses ASI server to store person data.
 
 # Information is stored in ASI that is accessed via PersonConnection class.
 # Because the delays in the http requests, we use some caching to store the
@@ -22,7 +22,7 @@ module AsiPerson
       return true
     end
        
-    # Create a new person to ASI and Kassi.
+    # Create a new person to ASI and Sharetribe.
     def create(params, cookie, asi_welcome_mail = false)
       # Try to create the person to ASI
       person_hash = {:person => params.slice(:username, :password, :email, :consent), :welcome_email => asi_welcome_mail}
@@ -32,7 +32,7 @@ module AsiPerson
       params[:id] = response["entry"]["id"]
 
       # Because ASI now associates the used cookie to a session for the newly created user
-      # Change the KassiCookie to nil if it was used (because now it is no more an app-only cookie) 
+      # Change the SharetribeCookie to nil if it was used (because now it is no more an app-only cookie) 
       Session.update_kassi_cookie   if  (cookie == Session.kassi_cookie)    
 
       # Add name information for the person to ASI 
@@ -53,7 +53,7 @@ module AsiPerson
         return person
       else
         return nil
-        logger.error { "Error storing person to Kassi DB with ID: #{id}" }
+        logger.error { "Error storing person to Sharetribe DB with ID: #{id}" }
       end
     end
     
@@ -365,7 +365,7 @@ module AsiPerson
       # (we can do this only for the current sessions, so the other users will see the old info for the PERSON_HASH_CACHE_EXPIRE_TIME
       Person.cache_delete(id, cookie)
       Person.cache_delete(id, nil) # also the delete the data fetched and cached without a cookie
-      Person.cache_delete(id, Session.kassi_cookie) # also the delete the data fetched and cached with the Kassi's (app only) cookie
+      Person.cache_delete(id, Session.kassi_cookie) # also the delete the data fetched and cached with the Sharetribe's (app only) cookie
       # Expire also the name_caches every time, because it's hard to detecet changes in names if they are changed to empty
       Rails.cache.delete("person_name/#{self.id}")
       Rails.cache.delete("person_given_name/#{self.id}")

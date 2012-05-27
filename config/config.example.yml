@@ -1,6 +1,6 @@
 default: &default_settings
   
-  # If you want to make logins work accross different subdomains you should put here the domain where you are running Kassi.
+  # If you want to make logins work accross different subdomains you should put here the domain where you are running Sharetribe.
   # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
   # The community subdomains will be added to this top domain.
   # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
@@ -17,7 +17,7 @@ default: &default_settings
   # If this is empty, will use the same domain for login
   login_domain: 
   
-  # Kassi can use an Aalto Social Interface server to store userinformation
+  # Sharetribe can use an Aalto Social Interface server to store userinformation
   # If you want to use an ASI server set this to true and specify server address and password below.
   use_asi: true
   
@@ -30,7 +30,7 @@ default: &default_settings
 
   # These are the credentials used to log on to ASI server. 
   # The defaults will work for
-  # OtaSizzle's test server, an can be used for testing Kassi.
+  # OtaSizzle's test server, an can be used for testing Sharetribe.
   asi_app_name: kassi_testing
   asi_app_password: kassi_tester
 
@@ -38,7 +38,7 @@ default: &default_settings
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
   # This setting here is the server wide default, and it's used if no community specific setting is found.
   default_locale: en
-  # Available locales (languages) of the user interface. This is the list of all the possible locales on this Kassi server.
+  # Available locales (languages) of the user interface. This is the list of all the possible locales on this Sharetribe server.
   # Some communities may have shorter list but not longer.
   # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
   # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
@@ -72,23 +72,23 @@ default: &default_settings
   ressi_timeout: 5
   ressi_upload_hour: 1
   
-  # Mail delivery method for mails sent by Kassi
-  # Kassi can send mails via sendmail or Postmark (postmarkapp.com)
+  # Mail delivery method for mails sent by Sharetribe
+  # Sharetribe can send mails via sendmail or Postmark (postmarkapp.com)
   # The default is sendmail. If using postmark, uncomment and enter your API key.
   mail_delivery_method: sendmail
   #postmark_api_key:
 
-  # This will be the from field in the mails sent from Kassi
+  # This will be the from field in the mails sent from Sharetribe
   kassi_mail_from_address: "noreply-kassi@example.com"
   
-  # The address where the notifications of feedbacks from Kassi UI are sent
+  # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
 
-  # If you want to get mail notification of errors that happen in Kassi
+  # If you want to get mail notification of errors that happen in Sharetribe
   # you can specify it here. Otherwise leave to be false.
   use_error_mailer: false
   error_mailer_recipients: 'admins@example.com'
-  error_mailer_from_address: 'Error Mailer <KassiErrors@example.com>'
+  error_mailer_from_address: 'Error Mailer <SharetribeErrors@example.com>'
   
   # Google Analytics can be used to track traffic on the site
   # If set to true you need to obtain your own API key for analytics
@@ -129,7 +129,7 @@ default: &default_settings
   journey_planner_username:
   journey_planner_password:  
   
-  # If you want to force Kassi to show mobile view even when accessed with normal desktop browser, set this to true
+  # If you want to force Sharetribe to show mobile view even when accessed with normal desktop browser, set this to true
   # Useful only for mobile development
   force_mobile_ui: false
   
@@ -138,7 +138,7 @@ default: &default_settings
   # To make this work you also need config/translation.yml with wti credentials.
   update_translations_on_every_page_load: false
   
-  # If you have migrated from using ASI to use standalone Kassi,
+  # If you have migrated from using ASI to use standalone Sharetribe,
   # You should set this to true to use ASI based password encryption
   # otherwise leave blank
   use_asi_encryptor: 
@@ -150,10 +150,10 @@ default: &default_settings
   # Global Service name
   # If you want to call this service with different name on this server, you can specify it here
   # This can also be set community specific in community.settings["service_name"]
-  global_service_name: Kassi
+  global_service_name: Sharetribe
   
   # Below it is possible to specify different settings for different
-  # environments. If you are not developing or testing Kassi, you 
+  # environments. If you are not developing or testing Sharetribe, you 
   # don't need to change those
   # ----------------------------------------------------------------
   

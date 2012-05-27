@@ -38,11 +38,11 @@ class SmsController < ApplicationController
           "Varmista että puhelinnumerosi on tallennettu profiiliisi ja yritä uudestaan. (#{message[:phone_number]}) Make sure that phone number is stored in your profile.") and return
       end
       
-      # Make sure that the person is also in Kassi Database
+      # Make sure that the person is also in Sharetribe Database
       author = Person.find_by_id(author_hash["id"])
       if author.nil?
         delete_message_and_render_error(message, 
-          "Kirjaudu Kassiin ainakin kerran, ennen kuin lähetät viestiä. You have to log in Kassi at least once before sumbiting an SMS.") and return
+          "Kirjaudu Sharetribeen ainakin kerran, ennen kuin lähetät viestiä. You have to log in Sharetribe at least once before sumbiting an SMS.") and return
       end
       
       # At this point we can know the preferred language of the user.

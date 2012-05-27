@@ -29,7 +29,7 @@ describe Person do
       end
   
       describe "#create" do
-        it "should create a person in ASI and Kassi DB" do
+        it "should create a person in ASI and Sharetribe DB" do
           username = generate_random_username
           p = Person.create({:username => username, 
             :password => "testi", 
@@ -40,7 +40,7 @@ describe Person do
           p.username.should == username
         end
     
-        it "should not store anything to Kassi DB if ASI request failed" do
+        it "should not store anything to Sharetribe DB if ASI request failed" do
           username = generate_random_username
           lambda {
             p = nil
@@ -149,7 +149,7 @@ describe Person do
     
   
   if not (use_asi?)
-    context "When ASI is not used but Person is stored only in Kassi DB" do
+    context "When ASI is not used but Person is stored only in Sharetribe DB" do
        before(:all) do
           #reload_person_set_ASI_usage_to(false)
         
@@ -174,7 +174,7 @@ describe Person do
         end
 
         describe "#create" do
-          it "should create a person in Kassi DB" do
+          it "should create a person in Sharetribe DB" do
             username = generate_random_username
             p = Person.create!({:username => username, 
               :password => "testi", 
@@ -186,7 +186,7 @@ describe Person do
             p.username.should == username
           end
 
-          it "should not store anything to Kassi DB if creation failed for invalid data" do
+          it "should not store anything to Sharetribe DB if creation failed for invalid data" do
             username = generate_random_username
             lambda {
               p = nil

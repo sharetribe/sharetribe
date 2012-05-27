@@ -4,7 +4,7 @@ require 'httpclient'
 require 'uuid22'
 require "open-uri"
 
-# This class represents a person (a user of Kassi).
+# This class represents a person (a user of Sharetribe).
 # Some of the person data can be stored in Aalto Social Interface (ASI) server.
 # if use_asi is set to true in config.yml some methods are loaded from asi_person.rb
 
@@ -149,7 +149,7 @@ class Person < ActiveRecord::Base
   
   
   # # ***********************************************************************************
-  # This module contains the methods that are used to store used data on Kassi's database.
+  # This module contains the methods that are used to store used data on Sharetribe's database.
   # If ASI server is used, this module is not loaded, but AsiPerson module is loaded instead.
   module LocalPerson
     
@@ -292,7 +292,7 @@ class Person < ActiveRecord::Base
     end
   end
 
-  # Returns true if the person has global admin rights in Kassi.
+  # Returns true if the person has global admin rights in Sharetribe.
   def is_admin?
     is_admin == 1
   end

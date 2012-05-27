@@ -58,7 +58,7 @@ class ApplicationController < ActionController::Base
           clear_user_session
         end
       end
-    else # Stand-alone Kassi uses Devise
+    else # Stand-alone Sharetribe uses Devise
       if person_signed_in?
         @current_user = current_person
       end
@@ -188,7 +188,7 @@ class ApplicationController < ActionController::Base
   end
 
   # this generates the event_id that will be used in
-  # requests to cos during this kassi-page view only
+  # requests to cos during this Sharetribe-page view only
   def generate_event_id
     RestHelper.event_id = "#{EventIdHelper.generate_event_id(params)}_#{Time.now.to_f}"
     # The event id is generated here and stored for the duration of this request.

@@ -89,8 +89,8 @@ class SessionsController < ApplicationController
     session[:form_username] = nil
     
     unless @current_user && (!@current_user.communities.include?(@current_community) || current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?)
-      # Either the user has succesfully logged in, but is not found in Kassi DB
-      # (Existing OtaSizzle user's first login in Kassi) or the user is a member
+      # Either the user has succesfully logged in, but is not found in Sharetribe DB
+      # (Existing OtaSizzle user's first login in Sharetribe) or the user is a member
       # of this community but the terms of use have changed.
       if use_asi?
         session[:temp_cookie] = @session.cookie
@@ -143,7 +143,7 @@ class SessionsController < ApplicationController
   end
   
   def index
-    # this is not in use in Kassi, but bots seem to try the url so implementing this to avoid errors
+    # this is not in use in Sharetribe, but bots seem to try the url so implementing this to avoid errors
     render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
   end
   

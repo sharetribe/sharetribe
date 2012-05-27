@@ -9,7 +9,7 @@ class Session
   attr_accessor :cookie
   attr_reader   :person_id
   
-  @@kassi_cookie = nil # a cookie stored for a general App-only session for Kassi
+  @@kassi_cookie = nil # a cookie stored for a general App-only session for Sharetribe
   @@session_uri = "#{APP_CONFIG.ssl_asi_url}/session"
   KASSI_COOKIE_CACHE_KEY = "kassi_cookie"
   
@@ -59,7 +59,7 @@ class Session
     Session.destroy(@cookie)
   end
   
-  #a general app-only session cookie that maintains an open session to ASI for Kassi
+  #a general app-only session cookie that maintains an open session to ASI for Sharetribe
   #Stored in cache to have the same cookie available between pageloads
   def self.kassi_cookie
     if @@kassi_cookie.nil?
@@ -70,7 +70,7 @@ class Session
   
   #this method can be called, if kassi_cookie is not valid anymore
   def self.update_kassi_cookie
-    Rails.logger.debug "Updating Kassi-cookie from ASI"
+    Rails.logger.debug "Updating Sharetribe-cookie from ASI"
     @@kassi_cookie = Session.create.cookie
     Rails.cache.write(KASSI_COOKIE_CACHE_KEY, @@kassi_cookie)
     return @@kassi_cookie

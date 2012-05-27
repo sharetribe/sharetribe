@@ -1,4 +1,4 @@
-// Custom Javascript functions for Kassi
+// Custom Javascript functions for Sharetribe
 // Add custom validation methods
 function add_validator_methods() {
   $.validator.
@@ -90,7 +90,7 @@ function initialize_defaults(default_text, feedback_default_text, locale) {
 	$('input.search_field').watermark(default_text, {className: 'default_text'});
 	$("select.language_select").uniform();
 	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
-	// Make sure that Kassi cannot be used if js is disabled
+	// Make sure that Sharetribe cannot be used if js is disabled
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
@@ -615,7 +615,7 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
   translate_validation_messages(locale);
   $('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
   $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
-	// Make sure that Kassi cannot be used if js is disabled
+	// Make sure that Sharetribe cannot be used if js is disabled
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});

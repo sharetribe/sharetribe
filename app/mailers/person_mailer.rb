@@ -84,8 +84,8 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.testimonial_reminder.remember_to_give_feedback_to", :name => @other_party.name))
   end
   
-  # Used to send notification to Kassi admins when somebody
-  # gives feedback on Kassi
+  # Used to send notification to Sharetribe admins when somebody
+  # gives feedback on Sharetribe
   def new_feedback(feedback, current_community)
     @no_settings = true
     @feedback = feedback
@@ -104,12 +104,12 @@ class PersonMailer < ActionMailer::Base
     mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
   end
   
-  # Used to send notification to Kassi admins when somebody
+  # Used to send notification to Sharetribe admins when somebody
   # wants to contact them through the form in the dashboard
   def contact_request_notification(email)
     @no_settings = true
     @email = email
-    subject = "Uusi yhteydenottopyyntö #{APP_CONFIG.server_name}-Kassista"
+    subject = "New contact requests from #{APP_CONFIG.server_name}-Sharetribe"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   

@@ -77,7 +77,7 @@ describe SmsController do
         response.body.should =~ /make sure.*phone number is stored in /i
       end
       
-      it "replies with instructive help, when sender is not in Kassi database yet." do
+      it "replies with instructive help, when sender is not in Sharetribe database yet." do
         
         response = kassi_receives_message("ride offer tkk taik 14:00", "358504545454", "id_that_does_not_exist_in_kassi_db")
         response.body.should =~ /log in.*Kassi.*before/

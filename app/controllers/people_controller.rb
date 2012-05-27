@@ -28,7 +28,7 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
   
   def index
-    # this is not yet in use in this version of Kassi, but old URLs point here so implement this to avoid errors
+    # this is not yet in use in this version of Sharetribe, but old URLs point here so implement this to avoid errors
    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
   end
   
@@ -75,7 +75,7 @@ class PeopleController < Devise::RegistrationsController
     @person = Person.new
     if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
-      # This should not actually ever happen if all the checks work at Kassi's end.
+      # This should not actually ever happen if all the checks work at Sharetribe's end.
       # Anyway if Captha responses with error, show message to user
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
@@ -94,7 +94,7 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
     
     if use_asi?
-      # Open an ASI Session first only for Kassi to be able to create a user
+      # Open an ASI Session first only for Sharetribe to be able to create a user
       @session = Session.create
       session[:cookie] = @session.cookie
     end
@@ -122,7 +122,7 @@ class PeopleController < Devise::RegistrationsController
       end
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
-      # This should not actually ever happen if all the checks work at Kassi's end.
+      # This should not actually ever happen if all the checks work at Sharetribe's end.
       # Anyway if ASI responses with error, show message to user
       # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.

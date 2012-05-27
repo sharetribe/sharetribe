@@ -4,7 +4,7 @@ module CacheHelper
   
   # Constants for expire times
   
-  # used for things that are stored completely on Kassi db
+  # used for things that are stored completely on Sharetribe db
   KASSI_DATA_CACHE_EXPIRE_TIME = 4.hours
   
   # used for things that are stored in COS db and can be changed without notice

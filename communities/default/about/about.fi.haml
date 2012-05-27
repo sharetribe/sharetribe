@@ -1,24 +1,24 @@
-%h3 Mikä Kassi on?
+%h3 Mikä #{service_name} on?
 
 %p 
-  Kassi helpottaa tavaroiden lainaamista, ostoa ja myyntiä, palvelusten tekemistä, kimppakyytien organisointia ja muuta paikallisyhteisön sisäistä resurssivaihtoa. Kassin käyttäjät voivat tarjota muille palvelun välityksellä tavaroita, palveluksia, kyytejä ja asuntoja ja vastaavasti pyytää näitä muilta käyttäjiltä. 
+  #{service_name} helpottaa tavaroiden lainaamista, ostoa ja myyntiä, palvelusten tekemistä, kimppakyytien organisointia ja muuta paikallisyhteisön sisäistä resurssivaihtoa. #{service_name(:genetive)} käyttäjät voivat tarjota muille palvelun välityksellä tavaroita, palveluksia, kyytejä ja asuntoja ja vastaavasti pyytää näitä muilta käyttäjiltä. 
   
 %p  
   Palvelun tarkoituksena on muodostaa yhteisön sisäinen tavara- ja palvelushakemisto, ja vähentää näin tarvetta ostaa uusia tavaroita ja palveluita yhteisön ulkopuolelta. Palvelun käyttö säästää siis käyttäjänsä aikaa ja rahaa sekä luontoa. Samalla tutustuu myös kätevästi uusiin ihmisiin.
 
-%h3 Kenelle Kassi on tarkoitettu?
+%h3 Kenelle #{service_name} on tarkoitettu?
 
 %p
-  Kassi on paikallisyhteisöille kuten kampuksille, kunnille, yrityksille ja yhdistyksille tarkoitettu verkkopalvelu. Tällä hetkellä selaat tahon #{@current_community.name.capitalize} käytössä olevaa kassiyhteisöä.
+  #{service_name} on paikallisyhteisöille kuten kampuksille, kunnille, yrityksille ja yhdistyksille tarkoitettu verkkopalvelu. Tällä hetkellä selaat tahon #{@current_community.name.capitalize} käytössä olevaa kassiyhteisöä.
 
 %p
-  Haluaisitko Kassin oman koulusi, kuntasi, yrityksesi tai yhdistyksesi käyttöön? Lue lisää osoitteesta
+  Haluaisitko #{service_name(:genetive)} oman koulusi, kuntasi, yrityksesi tai yhdistyksesi käyttöön? Lue lisää osoitteesta
   = link_to "http://www.kassi.eu", "http://www.kassi.eu"
   ja jätä sähköpostiosoitteesi sivustolla olevalla lomakkeella, jos haluat lisätietoja palvelusta.
 
-%h3 Kuka on Kassin takana?
+%h3 Kuka on #{service_name(:genetive)} takana?
 
 %p
-  Kassi on kehitetty osana Aalto-yliopiston 
+  #{service_name} on kehitetty osana Aalto-yliopiston 
   = link_to("OtaSizzle-tutkimusprojektia", "http://sizl.org") + "."
   Palvelun kehityksestä vastaavat tutkijat Antti Virolainen ja Juho Makkonen. Palvelua koskevia kysymyksiä ja palautetta voi lähettää osoitteeseen info (aet) kassi.eu tai suoraan molempien henkilökohtaiseen sähköpostiosoitteeseen (etunimi.sukunimi@kassi.eu).
