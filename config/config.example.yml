@@ -59,10 +59,10 @@ default: &default_settings
   recaptcha_public_key: 'enter_your_own_key_here'
   recaptcha_private_key: 'enter_your_own_key_here'  
 
-  # You can use Airbrake (formerly hoptoad) to track errors if you want.
-  # You need to register an account and get an API key from hoptoadapp.com 
-  use_hoptoad: false
-  hoptoad_api_key: 'your_own_api_key_here'
+  # You can use Airbrake to track errors if you want.
+  # You need to register an account and get an API key from airbrake.io 
+  use_airbrake: false
+  airbrake_api_key: 'your_own_api_key_here'
 
   # Ressi is Researcher's Interface for logged data
   # If you don't need it just leave it to false

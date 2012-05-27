@@ -424,7 +424,7 @@ fi:
     join:
       joined_kassi: "%{name} liittyi %{community_name} %{service_name_illative} %{time_ago}."
     login:
-      logged_in_to_kassi: "%{name} kirjautui sisään %{service_name_illative}%{time_ago}."
+      logged_in_to_kassi: "%{name} kirjautui sisään %{service_name_illative} %{time_ago}."
     comment:
       commented: "%{commenter_name} kommentoi %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: tarjousta

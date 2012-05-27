@@ -33,7 +33,7 @@ gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
 gem 'recaptcha'
-gem 'hoptoad_notifier'
+gem "airbrake"
 gem 'passenger'
 gem 'delayed_job'
 gem 'win32console', :platforms => [:mswin, :mingw]
