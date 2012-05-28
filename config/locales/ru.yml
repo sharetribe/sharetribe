@@ -40,7 +40,7 @@ ru:
         title: "Название:"
         save_poll: "Сохранить опрос"
       new_option:
-        option: ~
+        option: Вариант
         remove_option: "Удалить вариант"
       poll_status:
         open: Открытый
@@ -48,7 +48,7 @@ ru:
       show:
         edit_poll: "Редактировать опрос"
   common:
-    default_community_slogan: ~
+    default_community_slogan: "Сотрудничайте, делитесь и помогайте"
     default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Сообщите что Вы можете предложить и в чём нуждаетесь сами."
     cancel: Отмена
     default_description: ~
@@ -161,7 +161,7 @@ ru:
       done: Готово!
       tribe_created_successfully: "Вы успешно создали своё сообщество."
       go_to_your_tribe: "Перейти в сообщество"
-      we_will_contact_you_about_invoicing: ~
+      we_will_contact_you_about_invoicing: "Мы свяжемся с вами позже по вопросу выставления счёта."
     index:
       find_your_local_tribe: "Найти местное сообщество"
       or_start_your_own: "...или %{start_your_own_tribe_link}"
@@ -175,7 +175,7 @@ ru:
       max_100_members: "Макс. 100 участников"
       premium_plan: Премиум-план
       max_500_members: "Макс. 500 участников"
-      care_free_user_support: ~
+      care_free_user_support: "Заботливая поддержка пользователей"
       create_your_tribe: "Создайте своё сообщество"
       professional_plan: "Профессиональный план"
       unlimited_members: "Неограниченное число участников"
@@ -184,8 +184,8 @@ ru:
       euros_per_month_premium: "%{price} евро в месяц"
       custom_domain: "Пользовательский домен"
       you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: ~
+      we_help_you_get_started: "Мы помогаем людям объединяться"
+      discounts_available_for_non_profits: "Для некоммерческих организаций действует 50% скидка"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете из списка ниже."
@@ -271,14 +271,14 @@ ru:
       contact_us: "свяжитесь с нами напрямую"
       why_you_really_should_have_a_tribe: "Зачем вам сообщество"
       an_example: Пример
-      home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
+      home: Главная
+      faq: FAQ
+      browse_tribes: "Просмотреть сообщества"
+      pricing: Цены
+      contact: Связь
+      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe в университете Аальто</a>"
+      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe в HTC Keilaniemi</a>"
+      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe в Каллио, Хельсинки</a>"
   emails:
     accept_reminder:
       offer_accusative: предложение
@@ -542,7 +542,7 @@ ru:
       send_feedback_to_admin: "Отправить отзыв"
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
-      formerly_known_as_kassi: ~
+      formerly_known_as_kassi: "ранее известный как Kassi"
     conversations:
       messages: Сообщения
       notifications: Оповещения
@@ -631,11 +631,11 @@ ru:
       person_activated: "Пользователь активирован"
       person_deactivated: "Пользователь отключен"
       person_updated_successfully: "Информация обновлена"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
+      poll_answered: "Голос оставлен"
+      poll_could_not_be_answered: "Нельзя ответить на опрос"
       poll_created: "Опрос создан"
-      poll_creation_failed: ~
-      poll_update_failed: ~
+      poll_creation_failed: "Ошибка при создании опроса"
+      poll_update_failed: "Ошибка при обновлении опроса"
       poll_updated: "Опрос обновлён"
       poll_deleted: "Опрос удалён"
       read_more: "Узнать больше!"
@@ -880,10 +880,15 @@ ru:
       all_categories: "Все категории"
       all_offer_types: "Все типы предложений"
       all_request_types: "Все типы запросов"
+      request_type: "Тип запроса"
       category: Категория
+      requests: Запросы
       did_not_found_what_you_were_looking_for: "Не нашли то, что хотели?"
+      rideshare: "Совместная поездка"
       favors: Услуги
+      search_verb: Поиск
       housing: Проживание
+      you_have_something_others_do_not: "Можете предложить что-нибудь?"
       items: Вещи
       list_view: "В виде списка"
       map_view: "В виде карты"
@@ -891,11 +896,6 @@ ru:
       offer_type: "Тип предложения"
       offers: Предложения
       request_something: "Запросить что-нибудь!"
-      request_type: "Тип запроса"
-      requests: Запросы
-      rideshare: "Совместная поездка"
-      search_verb: Поиск
-      you_have_something_others_do_not: "Можете предложить что-нибудь?"
     please_comment: Комментарий
   news_items:
     index:
@@ -905,7 +905,7 @@ ru:
   okl:
     member_id: Идентификатор
     member_id_is_your_username: ~
-    join_here: ~
+    join_here: присоединиться.
   people:
     badge_description:
       badge_achieved_at: "Значок заработан "
@@ -920,7 +920,7 @@ ru:
       help_invitation_code_title: "Для того, чтобы присоединиться требуется приглашение"
       terms_title: "Условия использования Kassi"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p>TrustCloud является онлайн-сервисом, который помогает \"измерить\"  надёжность пользователя с помощью других сервисов. В зависимости от активности пользователя в интернете, ему присваивается рейтинг TrustScore (1-1000). Рейтинг увеличивается, например, при получении положительных отзывов на аукционе eBay, либо при наличии множества связей в Facebook. Щёлкните каждую карточку для получения более подробной информации.</p><p>TrustCloud используется для получения  большей уверенности, в том, что человек за учётной записью является реальным и не прячется за выдуманной личностью.</p><p>Вы можете получить свою карточку TrustCard, <a href='https://trustcloud.com/claim'>зарегистрировавшись на TrustCloud</a> с тем же адресом электронной почты, который вы использовали при регистрации на %{service_name}. Это совершенно необязательно, но мы рекомендуем получить свою учётную запись TrustCard, так как это повысит ваш авторитет и скорее всего упростит общение с другими членами сообщества.</p><p>Ваши действия в %{service_name} пока ещё не влияют на ваш рейтинг TrustScore, но мы планируем сделать это возможным в будущем.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
       inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
@@ -932,7 +932,7 @@ ru:
       email: "Адрес электронной почты:"
       email_is_in_use: "Этот адрес электронной почты уже используется."
       email_is_in_use_or_not_allowed: "Этот адрес электронной почты недопустим, либо уже используется. Пожалуйста, используйте адрес электронной почты, ассоциированный с этим сообществом, если таковой у вас есть. Если вы всё равно не можете осуществить вход, свяжитесь с нами, используя форму обратной связи слева."
-      email_not_allowed: ~
+      email_not_allowed: "Такая электронная почта недопустима для регистрации в этом сообществе. Используйте почтовый адрес, ассоциированный с данным сообществом. Если у вас всё равно не получается авторизоваться, свяжитесь с нами, нажав на ссылку слева."
       enter_captcha: "Я - человек:"
       family_name: "Фамилия:"
       given_name: "Настоящее имя:"
