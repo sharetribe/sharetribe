@@ -557,16 +557,6 @@ en:
       news: News
       register_details: "Register details"
       terms: "Terms of use"
-    mobile_logged_in:
-      admin: Admin
-      go_to_your_profile_page: Profile
-      hi: Hi
-      login: Login
-      logout: Logout
-      notifications: Notifications
-      requests: "Friend requests"
-      settings: Settings
-      sign_up: "Sign up"
     logged_in:
       admin: Admin
       go_to_your_profile_page: Profile
@@ -577,6 +567,20 @@ en:
       requests: "Friend requests"
       settings: Settings
       sign_up: "Create account"
+    logged_in_messages_icon:
+      messages: Messages
+    logged_in_notifications_icon:
+      notifications: Notifications
+    mobile_logged_in:
+      admin: Admin
+      go_to_your_profile_page: Profile
+      hi: Hi
+      login: Login
+      logout: Logout
+      notifications: Notifications
+      requests: "Friend requests"
+      settings: Settings
+      sign_up: "Sign up"
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
@@ -676,10 +680,6 @@ en:
       you_need_to_confirm_your_account_first: "You need to confirm your email first."
       you_unfollowed_listing: "You are no longer following this listing"
       joining_community_failed: "Joining this community failed"
-    logged_in_messages_icon:
-      messages: Messages
-    logged_in_notifications_icon:
-      notifications: Notifications
     profile_extras_header:
       back_to_profile_of_person: "Back to user's profile"
       badges: Badges

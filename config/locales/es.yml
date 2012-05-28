@@ -161,7 +161,7 @@ es:
       done: Hecho!
       tribe_created_successfully: "Has creado correctamente tu tribu."
       go_to_your_tribe: "Ve a tu tribu"
-      we_will_contact_you_about_invoicing: ~
+      we_will_contact_you_about_invoicing: "Te contactaremos prontamente por e-mail sobre la facturación correspondiente."
     index:
       find_your_local_tribe: "Encuentra tu tribu"
       or_start_your_own: "...o %{start_your_own_tribe_link}"
@@ -184,8 +184,8 @@ es:
       euros_per_month_premium: "%{price} euros por mes"
       custom_domain: "Dominio personalizado"
       you_can_change_and_cancel: "Puedes cambiar o cancelar el plan en cualquier momento."
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: ~
+      we_help_you_get_started: "Ayudamos a reunir a la gente"
+      discounts_available_for_non_profits: "Tenemos un 50% de descuento para organizaciones sin fines de lucro"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "¿Qué tipo de tribu quieres crear?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Primero cuéntanos que tipo de comunidad representas seleccionando una de las siguientes opciones."
@@ -213,7 +213,10 @@ es:
       language: Idioma
     signup_form:
       create_an_account: "Crea una cuenta para ti"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
+      to_create_a_tribe_you_must_first_create_sharetribe_account: |-
+          Puedes crear una nueva cuenta en %{service_name} a continuación, o
+
+          You can either create a new account to %{service_name} below or
       log_in_with_your_existing_account: "Inicia sesión con tu cuenta existente"
       your_email: "Tu dirección e-mail"
       your_university_email: "Tu dirección e-mail universitario"
@@ -230,7 +233,7 @@ es:
   community_memberships:
     new:
       join_community: "Únete a la comunidad de '%{community}'"
-      you_are_not_a_member_of_this_community: "Tienes una cuenta de usuario en %%{service_name}{service_name}, pero todavía no eres miembro de %{service_name} la comunidad '%{community}'."
+      you_are_not_a_member_of_this_community: "Tienes una cuenta de usuario en %{service_name}, pero todavía no eres miembro de la comunidad '%{community}' de %{service_name}."
       you_can_join: "Puedes unirte a esta comunidad aceptando los términos de uso y haciendo click en \"Únete a la comunidad\" más abajo."
       you_can_join_email_confirmation: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con %{email_ending}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
       you_can_join_email_confirmation_multiple_addresses: "Para unirte a esta comunidad necesitas una dirección válida de e-mail que termine con uno de los siguientes formatos: %{email_endings}. Puedes unirte completando el campo con tu dirección e-mail, aceptando los términos de uso de esta comunidad y haciendo click en \"Únete a la comunidad\" más abajo."
@@ -276,9 +279,9 @@ es:
       browse_tribes: "Buscar tribus"
       pricing: Precio
       contact: Contacto
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
+      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe para la Universidad Aalto</a>"
+      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe para HTC Keilaniemi</a>"
+      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe para Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -922,7 +925,7 @@ es:
       help_invitation_code_title: "Necesitas una invitación para unirte a"
       terms_title: "Términos de uso de %{service_name}"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p> TrustCloud es un servicio en línea que ayuda a medir la integridad de una persona a través de varios servicios que están en línea. Genera un TrustScore (de 1 a 1000) basado en la actividad de la persona en la web. Por ejemplo, el puntaje se incrementa al recibir una buena evaluación en eBay o al tener muchas conexiones en Facebook. Puedes hacer clic en cada tarjeta para más detalles.</p><p>TrustCloud es usado para dar más confianza de que la persona tras el perfil es real y no se esconde tras una identidad falsificada.</p><p> Si quieres, puedes solicitar tu propia TrustCard por medio de <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> con la misma dirección e-mail que registraste en %{service_name}. Esto es completamente opcional, pero te recomendamos pedir tu TrustCard, la que te ayudará a mejorar tu credibilidad y, probablemente, hará más fácil hacer tratos con los demás miembros de esta comunidad. </p><p>Las actividades en %{service_name} no afectan tu TrustScore, pero estamos planeando integrarlo en el futuro.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en %{service_name}"
       inactive_description: "Este usuario ha dejado de utilizar %{service_name}. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
