@@ -921,24 +921,27 @@ nl:
       terms_title: "Kassi gebruiksvoorwaarden"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
+    inactive_notification:
+      this_person_is_not_active_in_kassi: ~
+      inactive_description: ~
     new:
+      address_validator: ~
+      captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
+      captcha_was_wrong: "Captcha tekst was verkeerd."
+      create_new_account: "Creeer account"
+      email: "Email adres:"
+      email_is_in_use: "Het email adres is al in gebruik."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
       enter_captcha: "Ik ben een mens:"
       family_name: "Familie naam:"
       given_name: "Naam:"
       i_accept_the: "Ik accepteer de"
-      address_validator: ~
       if_you_already_have_account_you_can: ~
-      captcha_incorrect: "reCAPTCHA check mislukt. Schrijf de worden in het blok hieronder alstublieft."
       join_with_your_existing_account: ~
-      captcha_was_wrong: "Captcha tekst was verkeerd."
       invalid_invitation_code: ~
-      create_new_account: "Creeer account"
       invitation_code: ~
-      email: "Email adres:"
       not_required: ~
-      email_is_in_use: "Het email adres is al in gebruik."
       password_again: "Bevestig wachtwoord:"
       show_my_name_to_others: ~
       sign_up: "Creeer een nieuw account in Kassi"
@@ -947,9 +950,6 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
       visible_only_to_you: ~
       visible_to_everybody: ~
-    inactive_notification:
-      this_person_is_not_active_in_kassi: ~
-      inactive_description: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Kassi steunt op dit moment niet het zien van meerdere gemeenschappen, dus je kunt toegang tot dit profiel krijgen door de %{community} gemeenschap. We werken aan een optie waar je meerdere gemeenschappen tegelijk kunt hebben. These optie zal later aan de service worden toegevoegd."
       read_more_about_kassi_communities: "Lees meer over de Kassi gemeenschappen"
