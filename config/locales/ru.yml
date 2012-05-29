@@ -177,11 +177,11 @@ ru:
       max_500_members: "Макс. 500 участников"
       care_free_user_support: "Заботливая поддержка пользователей"
       create_your_tribe: "Создайте своё сообщество"
-      professional_plan: "Профессиональный план"
+      professional_plan: "Настраиваемый план"
       unlimited_members: "Неограниченное число участников"
       intranet_integration: "Интеграция локальной сети"
       no_charge: Бесплатно
-      euros_per_month_premium: "%{price} евро в месяц"
+      euros_per_month_premium: "%{price} евро в месяц (вкл. НДС)"
       custom_domain: "Пользовательский домен"
       you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
       we_help_you_get_started: "Мы помогаем людям объединяться"
@@ -230,7 +230,7 @@ ru:
   community_memberships:
     new:
       join_community: "Присоединяйтесь к сообществу '%{community}'"
-      you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в Kassi, но вы не являетесь членом сообщества '%{community}'."
+      you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в %{service_name}, но вы не являетесь членом сообщества '%{community}'."
       you_can_join: "Вы можете присоединиться к этому сообществу, приняв условия использования и нажав кнопку \"Присоединиться\" ниже."
       you_can_join_email_confirmation: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на %{email_ending}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
       you_can_join_email_confirmation_multiple_addresses: "Для вступления в это сообщество, вам необходимо иметь работающий почтовый адрес, заканчивающийся на что-либо из списка: %{email_endings}. Вы сможете присоединиться к сообществу, введя свой адрес электронной почты, приняв условия использования этого сообщества и нажав кнопку \"Присоединиться\", расположенную ниже."
@@ -240,37 +240,37 @@ ru:
       join_community_button: Присоединиться
   dashboard:
     index:
-      get_started: "НАЧНИТЕ ПРЯМО СЕЙЧАС!"
+      get_started: "НАЧНИТЕ СЕЙЧАС!"
       browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
-      slogan: "Виртуальная рыночная площадь для вашего сообщества."
-      create_your_own: "Создайте свой"
-      sharing_website: "САЙТ ДЛЯ ОБМЕНА"
-      main_description: "Создайте место, где члены вашего сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия."
-      kassi_for_your_company: "KASSI ДЛЯ ВАШЕЙ КОМПАНИИ"
-      kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Kassi - это предложение для вас."
-      kassi_for_your_city: "KASSI ДЛЯ ВАШЕГО ГОРОДА"
+      slogan: "Виртуальный рынок вашего сообщества."
+      create_your_own: "Создайте своё"
+      sharing_website: СООБЩЕСТВО
+      main_description: "Создайте место, где члены сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия."
+      kassi_for_your_company: "…ДЛЯ ВАШЕЙ КОМПАНИИ"
+      kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Sharetribe — это предложение для вас."
+      kassi_for_your_city: "…ДЛЯ ВАШЕГО ГОРОДА"
       kassi_for_your_city_description: "Хотите, чтобы в вашем населенном пункте установились добрососедские отношения между жителями и люди помогали друг другу? Хотите, чтобы уровень жизни населения улучшался? Kassi поможет вам достичь этого."
-      kassi_for_your_university: "KASSI ДЛЯ ТВОЕГО УНИВЕРСИТЕТА"
-      kassi_for_your_university_description: "Хотите создать активное студенческое сообщество, в котором люди знают и доверяют друг другу? Хотите помочь студентам и преподавателям сохранить их время, деньги и помочь окружающей среде? Попробуйте Kassi и ощутите перемены! Пример сообщества Kassi:"
-      want_kassi_for_your_community: "Хотите использовать Kassi в своём сообществе?"
+      kassi_for_your_university: "…ДЛЯ ВАШЕГО УНИВЕРСИТЕТА"
+      kassi_for_your_university_description: "Хотите создать активное студенческое сообщество, в котором люди знают и доверяют друг другу? Хотите помочь студентам и преподавателям сохранить их время, деньги и помочь окружающей среде? Попробуйте Sharetribe и ощутите перемены!"
+      want_kassi_for_your_community: "Хотите использовать %{service_name} в своём сообществе?"
       email_default_text: "Электронная почта"
       send: Отправить!
       or_drop_us_a_line: "...или напишите нам пару строк:"
-      thanks_for_contacting_us: "Спасибо за то что связались с нами! Скоро вы получите информацию о том, как создать своё сообщество Kassi."
+      thanks_for_contacting_us: "Спасибо за то что связались с нами! Скоро вы получите информацию о том, как создать своё сообщество %{service_name}."
       resources: РЕСУРСЫ
       connect: СВЯЗЬ
       blog: Блог
       code: Код
       issue_tracker: Баг-трекер
-      product_of: "Kassi - это продукт"
+      product_of: "Sharetribe — это продукт"
       language: "Язык:"
       new: Новость!
-      new_text: "Kassi теперь доступна для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
+      new_text: "%{service_name} теперь доступен для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
       want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
       read_our_faq: "Прочтите наш FAQ"
       contact_us: "свяжитесь с нами напрямую"
       why_you_really_should_have_a_tribe: "Зачем вам сообщество"
-      an_example: Пример
+      an_example: "Пример:"
       home: Главная
       faq: FAQ
       browse_tribes: "Просмотреть сообщества"
@@ -291,22 +291,22 @@ ru:
       you_have_not_yet_accepted_or_rejected_offer: "Вы всё ещё не приняли решение по предложению '%{title}', полученному вами %{date}."
       you_have_not_yet_accepted_or_rejected_request: "Вы всё ещё не приняли решение по запросу '%{title}', полученному вами %{date}."
     badge_migration_notification:
-      badge_description1: "На Kassi вы можете заработать несколько разных значков, которые будут говорить о вашей активности в той или иной области. Вы будете получать значки при выполнении таких действий, как добавление новых запросов или предложений, комментировании листингов других пользователей, от всех видов обмена, таких, как продажа и прокат вещей, предоставление своих услуг, помощь с поездками на автомобиле и т.д., и просто, как активный пользователь сервиса. Примите во внимание, что значки вы получаете только за те события, по окончании которых вы получили положительный отзыв."
-      badge_description2: "Пользователь, обладающий большим количеством значков как правило является активным, надёжным и вызывающим симпатию у других пользователей. Будьте активны в Kassi: покупайте, продавайте, давайте напрокат, оказывайте другие услуги, используйте совместно транспортные средства, и будьте уверены, ваш список наград будет быстро расти!"
-      you_have_received_badges: "Вы получили значок в Kassi!"
-      you_have_received_badges_in_kassi: "Вы заработали новые значки в Kassi. Чтобы увидеть их, войдите в Kassi под своим именем и паролем и перейдите в"
+      badge_description1: "В %{service_name} вы можете заработать несколько разных значков, которые будут говорить о вашей активности в той или иной области. Вы будете получать значки при выполнении таких действий, как добавление новых запросов или предложений, комментировании листингов других пользователей, от всех видов обмена, таких, как продажа и прокат вещей, предоставление своих услуг, помощь с поездками на автомобиле и т.д., и просто, как активный пользователь сервиса. Примите во внимание, что значки вы получаете только за те события, по окончании которых вы получили положительный отзыв."
+      badge_description2: "Пользователь, обладающий большим количеством значков как правило является активным, надёжным и вызывающим симпатию у других пользователей. Будьте активны в %{service_name}: покупайте, продавайте, давайте напрокат, оказывайте другие услуги, используйте совместно транспортные средства, и будьте уверены, ваш список наград будет быстро расти!"
+      you_have_received_badges: "Вы получили значок на %{service_name}!"
+      you_have_received_badges_in_kassi: "Вы заработали новые значки в %{service_name}. Чтобы увидеть их, войдите в %{service_name} под своим именем и паролем и перейдите в"
     confirmation_instructions:
-      confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда Kassi"
-      welcome_to_kassi: "Добро пожаловать в Kassi!"
-      need_to_confirm: "Перед началом использования Касси, вы должны подтвердить свой адрес электронной почты, используя следующую ссылку:"
+      confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда %{service_name}"
+      welcome_to_kassi: "Добро пожаловать в %{service_name}!"
+      need_to_confirm: "Вы должны подтвердить свой адрес электронной почты, используя следующую ссылку:"
       confirmation_link_text: "Подтвердить мой счёт"
       turning_on_confirmations_in_this_community: "Мы начинаем использовать подтверждение электронной почты в этом  %{service_name} сообществе."
     common:
       check_your_settings: "Проверьте настройки"
       hey: "Привет, %{name}!"
-      kassi_team: "Команда Kassi"
+      kassi_team: "Команда %{service_name}"
       thanks: "Спасибо,"
-      want_to_control_emails: "Хотите настроить получение писем от Kassi?"
+      want_to_control_emails: "Хотите настроить получение писем от %{service_name}?"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -320,11 +320,11 @@ ru:
       your_request_was_rejected: "Ваш запрос был отклонён"
     invitation_to_kassi:
       hi: Привет!
-      you_have_been_invited_to_kassi: "%{inviter} пригласил вас присоединиться к сервису Kassi сообщества %{community}"
-      info_about_kassi: "Kassi — это место, где участники сообщества могут, например, обмениваться, покупать и продавать вещи, совместно использовать транспортные средства и вообще помогать друг другу различными способами."
+      you_have_been_invited_to_kassi: "%{inviter} пригласил вас присоединиться к сервису %{service_name} сообщества %{community}"
+      info_about_kassi: "%{service_name} — это место, где участники сообщества могут, например, обмениваться, покупать и продавать вещи, совместно использовать транспортные средства и вообще помогать друг другу различными способами."
       here_is_a_message_from: "Для вас есть личное сообщение от %{inviter}:"
       you_can_join_kassi_using_invitation_code: "Ваш пригласительный код для регистрации на сервисе: %{code}"
-      join_kassi_in: "Вы можете присоединиться к Kassi здесь"
+      join_kassi_in: "Вы можете присоединиться к %{service_name} здесь"
     new_badge:
       you_can_view_all_your_badges_in: "Вы можете просмотреть свои значки здесь —"
       you_have_achieved_a_badge: "Вы получили значок «%{badge_name}» в Kassi!"
@@ -333,9 +333,9 @@ ru:
       has_commented_your_request_in_kassi: "%{author} оставил комментарий на ваш запрос %{listing}"
       you_can_reply_to_comment_in: "Вы можете просмотреть комментарий и ответить на него"
       you_have_a_new_comment: "%{author} оставил комментарий на ваш запрос в Kassi"
-      listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите"
-      has_commented_offer_you_follow_in_kassi: "%{author} прокомментировал запрос «%{listing}», за которым вы следите"
-      has_commented_request_you_follow_in_kassi: "%{author} прокомментировал предложение «%{listing}», за которым вы следите"
+      listing_you_follow_has_a_new_comment: "%{author} прокомментировал листинг, за которым вы следите в %{service_name}"
+      has_commented_offer_you_follow_in_kassi: "%{author} прокомментировал запрос «%{listing}», за которым вы следите в %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} прокомментировал предложение «%{listing}», за которым вы следите в %{service_name}"
     new_message:
       conversation_title: "Название цепочки сообщений: %{title}"
       do_not_reply_to_this_email: "Примечание: не отвечайте на это письмо. Используйте ссылку, приведённую ниже."
@@ -348,20 +348,20 @@ ru:
       you_can_view_all_your_feedback_in: "Вы можете просмотреть все полученные вами отзывы здесь -"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Листинг, за которым вы следите, был обновлён"
-      has_updated_offer_you_follow_in_kassi: "%{author} обновил запрос «%{listing}», за которым вы следите"
-      has_updated_request_you_follow_in_kassi: "%{author} обновил предложение «%{listing}», за которым вы следите"
+      has_updated_offer_you_follow_in_kassi: "%{author} обновил запрос «%{listing}», за которым вы следите в %{service_name}"
+      has_updated_request_you_follow_in_kassi: "%{author} обновил предложение «%{listing}», за которым вы следите в %{service_name}"
       you_can_view_the_changes_in: "Вы можете просмотреть изменения"
     newsletter:
-      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества «%{community}» на Kassi"
+      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества «%{community}» %{service_name}"
       hi: "Привет %{name},"
-      update_on_what_is_happening: "Посмотрите, что происходит в сообществе %{community} прямо сейчас."
+      update_on_what_is_happening: "Посмотрите, что происходит в сообществе %{community} %{service_name} прямо сейчас."
       newest_offers: "Что люди предлагают сейчас"
       newest_requests: "Что нужно людям сейчас"
       could_you_offer_something: "У вас есть что-нибудь, что может пригодиться другим? Или вам нужно что-либо, что может быть у других?"
       add: Добавить
       an_offer: предложение
       a_request: запрос
-      to_kassi: "на Kassi"
+      to_kassi: "в %{service_name}"
       check_everything_that_others_are: "посмотрите, что другие пользователи"
       offering: предлагают
       requesting: запрашивают
@@ -398,45 +398,45 @@ ru:
     error_description: "Описание ошибки"
     no_javascript:
       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
-      kassi_does_not_currently_work_without_javascript: "К сожалению, Kassi не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу. Если вы хотите пользоваться Kassi без javascript, сообщите нам, почему."
+      kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу. Если вы хотите пользоваться %{service_name} без javascript, сообщите нам, почему."
       send_feedback: Отправить
       your_feedback_to_admins: "Обратная связь с администрацией"
     send: Отправить
     your_email_address: "Ваш адрес электронной почты"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: "согласился отдать"
-      has_accepted_sell_item: "согласился продать"
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} согласился дать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} согласился отдать %{listing_title} %{time_ago} %{requester_name}."
+      has_accepted_receive_item: "%{offerer_name} согласился отдать %{listing_title} %{time_ago} %{requester_name}."
+      has_accepted_sell_item: "%{offerer_name} согласился продать %{listing_title} %{time_ago} покупателю %{requester_name}."
+      has_accepted_buy_item: "%{offerer_name} согласился продать %{listing_title} %{time_ago} покупателю %{requester_name}."
+      has_accepted_trade_item: "%{offerer_name} согласился поменяться %{listing_title} с %{requester_name} %{time_ago}."
+      has_accepted_temporary_accommodation_housing: "%{offerer_name} согласился предложить %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} согласился продать %{listing_title} %{time_ago} покупателю %{requester_name}."
+      has_accepted_buy_housing: "%{offerer_name} согласился продать %{listing_title} %{time_ago} покупателю %{requester_name}."
+      has_accepted_rent_out_housing: "%{offerer_name} согласился сдать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} согласился сдать %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} согласился предложить %{listing_title} %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} согласился на своместную поездку %{listing_title} с %{requester_name} %{time_ago}."
     join:
-      joined_kassi: "присоединился к Kassi"
+      joined_kassi: "%{name} присоединился к %{community_name} %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "зашёл в Kassi"
+      logged_in_to_kassi: "%{name} зашёл в %{service_name} %{time_ago}."
     comment:
-      commented: прокомментировал
+      commented: "%{commenter_name} прокомментировал %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: предложил
       request_partitive: запросил
   header:
-    about: "О Kassi"
+    about: "О сервисе"
     community: Сообщество
     home: Главная
     mobile_version: "Мобильная версия"
     offers: Предложения
     requests: Запросы
-    search_kassi: "Поиск в Kassi"
+    search_kassi: "Поиск %{service_name}"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Кроме того, есть <b>одно другое предложение</b>,"
@@ -491,11 +491,11 @@ ru:
       request_something: "Запросить что-нибудь"
       request_something_description: "Расскажите другим, если вам нужна какая-нибудь вещь, услуга или помощь с поездкой"
       requesting: "запрашивают другие"
-      teaser_text: "Kassi — сервис для сообщества %{community}. С помощью него вы можете обмениваться вещами, продавать, покупать, отдавать и брать их на прокат, получить или оказать помощь, либо договориться о совместном использовании транспорта. У вас есть что предложить другим?"
+      teaser_text: "%{service_name} — сервис для сообщества %{community}. С помощью него вы можете обмениваться вещами, продавать, покупать, отдавать и брать их на прокат, получить или оказать помощь, либо договориться о совместном использовании транспорта. У вас есть что предложить другим?"
       tell_it_here: "Расскажите об этом здесь!"
-      welcome_to_new_kassi: "Добро пожаловать на новую Kassi!"
+      welcome_to_new_kassi: "Добро пожаловать в новый %{service_name}!"
     invitation_form:
-      invite_your_friends: "Пригласите друзей в Kassi!"
+      invite_your_friends: "Пригласите друзей в %{service_name}!"
       email: "Адрес электронной почты вашего друга:"
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
@@ -526,18 +526,18 @@ ru:
       other_requests: "другие запросы"
   layouts:
     admin:
-      admin: "Администрирование Kassi"
-      back_to_kassi: "Вернуться в Kassi"
+      admin: "Администрирование %{service_name}"
+      back_to_kassi: "Вернуться в %{service_name}"
       news_items: "Новостные статьи"
       polls: Опросы
     application:
       default_feedback: "Предложите новую функцию, сообщите об ошибке, выразите своё мнение о сервисе, либо просто скажите нам «Привет»!"
-      feedback: "Отзыв команде Kassi"
+      feedback: "Отзыв команде %{service_name}"
       feedback_forum: форум
       feedback_handle: "Написать отзыв"
-      give_feedback: "Написать отзыв о Kassi"
-      keywords: "услуга, вещи, совместное использование автомобилей, проживание, жилье, приют, помощь, помогать, предлагать, предложение, требуется, сдавать, обменяться, купить, продать, отдать, отдать бесплатно, Kassi, Касси, сообщество, он-лайн сообщество"
-      meta_description: "Kassi - это сервис, который помогает людям обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
+      give_feedback: "Написать отзыв о %{service_name}"
+      keywords: "%{service_name}, Kassi, услуга, вещи, совместное использование автомобилей, проживание, жилье, приют, помощь, помогать, предлагать, предложение, требуется, сдавать, обменяться, купить, продать, отдать, отдать бесплатно, Касси, сообщество, он-лайн сообщество"
+      meta_description: "%{service_name} - это сервис, который помогает людям обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       or_check_our: "...или зайдите на наш"
       send_feedback_to_admin: "Отправить отзыв"
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
@@ -549,11 +549,11 @@ ru:
       received: Полученные
       sent: Отправленые
     dashboard:
-      title: "Kassi - делитесь вещами и услугами в вашем местном сообществе!"
+      title: "%{service_name} - делитесь вещами и услугами в вашем местном сообществе!"
     infos:
-      about: "Что такое Kassi?"
+      about: "Что это такое"
       how_to_use: "Как пользоваться?"
-      info_about_kassi: "Информация о Kassi"
+      info_about_kassi: "Информация о %{service_name}"
       news: Новости
       register_details: "Регистр данных"
       terms: Условия
@@ -594,7 +594,7 @@ ru:
       create_new_request: "Запросить ещё что-нибудь"
       create_one_here: "создать её"
       email_confirmation_sent_to_new_address: "Письмо с ссылкой подтверждения отправлено на новый адрес."
-      email_not_found: "Введённый вами адрес электронной почты не содержится в базе данных Kassi."
+      email_not_found: "Введённый вами адрес электронной почты не содержится в базе данных %{service_name}."
       error_with_session: "Ошибка сессии."
       favor_offer_message_sent: "Запрос на услугу успешно отправлен"
       favor_request_message_sent: "Предложение услуги успешно отправлено"
@@ -607,13 +607,13 @@ ru:
       housing_request_message_sent: "Сообщение успешно отправлено"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
       invitation_sent: "Приглашение успешно отправлено"
-      inviting_new_users_is_not_allowed_in_this_community: "Это сообщество не позволяет приглашать новых пользователей"
+      inviting_new_users_is_not_allowed_in_this_community: "Это сообщество %{service_name} не позволяет приглашать новых пользователей"
       item_offer_message_sent: "Запрос на вещь успешно отправлен"
       item_request_message_sent: "Предложение вещи успешно отправлено"
       login_again: "Попробуйте войти ещё раз."
       login_failed: "Не удалось войти. Проверьте правильность введённых данных."
-      login_successful: "Добро пожаловать в Kassi, "
-      logout_successful: "Вы только что вышли из Kassi. Заходите ещё!"
+      login_successful: "Добро пожаловать в %{service_name}, "
+      logout_successful: "Вы только что вышли из %{service_name}. Заходите ещё!"
       news_item_created: "Статья создана"
       news_item_creation_failed: "Ошибка при создании статьи"
       news_item_update_failed: "Ошибка при обновлении статьи"
@@ -624,7 +624,7 @@ ru:
       offer_created_successfully: "Предложение успешно создано."
       offer_rejected: "Предложение отклонено"
       offer_updated_successfully: "Предложение успешно обновлено"
-      only_kassi_administrators_can_access_this_area: "Только администраторы Kassi имеют доступ к этому разделу"
+      only_kassi_administrators_can_access_this_area: "Только администраторы %{service_name} имеют доступ к этому разделу"
       only_listing_author_can_close_a_listing: "Листинг может закрыть только автор"
       only_listing_author_can_edit_a_listing: "Листинг может редактировать только автор"
       password_recovery_sent: "Инструкции по смене пароля отправлены на ваш почтовый ящик."
@@ -652,7 +652,7 @@ ru:
       this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
-      welcome_message: "Kassi - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
+      welcome_message: "Добро пожаловать в %{service_name}! %(service_name} - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
@@ -665,18 +665,18 @@ ru:
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_are_now_member: "Вы успешно присоединилась к этому сообществу"
       you_are_already_member: "Вы уже являетесь членом этого сообщества %{service_name}. С возвращением!"
-      you_must_log_in_to_create_new_offer: "Для того, чтобы создать новое предложение, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
+      you_must_log_in_to_create_new_offer: "Для того, чтобы создать новое предложение, вы должны зайти в %{service_name}. Если у вас нет учётной записи, вы можете"
       additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
-      you_must_log_in_to_create_new_request: "Для того, чтобы создать новый запрос, вы должны зайти в Kassi. Если у вас нет учётной записи, вы можете"
+      you_must_log_in_to_create_new_request: "Для того, чтобы создать новый запрос, вы должны зайти в %{service_name}. Если у вас нет учётной записи, вы можете"
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
-      you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в Kassi"
+      you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
       you_must_log_in_to_send_a_comment: "Вы должны войти, чтобы оставить новый комментарий"
       you_must_log_in_to_send_a_message: "Для того, чтобы отправить сообщение пользователю, вы должны авторизоваться."
       you_must_log_in_to_view_this_content: "Для просмотра содержимого требуется авторизация"
       you_must_log_in_to_view_this_page: "Вам необходимо зарегистрироваться для просмотра этой страницы"
-      you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в Kassi."
+      you_must_log_in_to_view_your_inbox: "Для того, чтобы просмотреть входящие сообщения, вы должны зайти в %{service_name}."
       you_must_log_in_to_view_your_settings: "Для просмотра настроек требуется авторизация."
-      you_must_log_in_to_add_news_item: "Вы должны авторизоваться, чтобы добавить новую статью."
+      you_must_log_in_to_add_news_item: "Вы должны авторизоваться в %{service_name}, чтобы добавить новую статью."
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
@@ -904,7 +904,7 @@ ru:
       delete_news_item: "Удалить статью"
   okl:
     member_id: Идентификатор
-    member_id_is_your_username: ~
+    member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
     join_here: присоединиться.
   people:
     badge_description:
@@ -922,8 +922,8 @@ ru:
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud является онлайн-сервисом, который помогает \"измерить\"  надёжность пользователя с помощью других сервисов. В зависимости от активности пользователя в интернете, ему присваивается рейтинг TrustScore (1-1000). Рейтинг увеличивается, например, при получении положительных отзывов на аукционе eBay, либо при наличии множества связей в Facebook. Щёлкните каждую карточку для получения более подробной информации.</p><p>TrustCloud используется для получения  большей уверенности, в том, что человек за учётной записью является реальным и не прячется за выдуманной личностью.</p><p>Вы можете получить свою карточку TrustCard, <a href='https://trustcloud.com/claim'>зарегистрировавшись на TrustCloud</a> с тем же адресом электронной почты, который вы использовали при регистрации на %{service_name}. Это совершенно необязательно, но мы рекомендуем получить свою учётную запись TrustCard, так как это повысит ваш авторитет и скорее всего упростит общение с другими членами сообщества.</p><p>Ваши действия в %{service_name} пока ещё не влияют на ваш рейтинг TrustScore, но мы планируем сделать это возможным в будущем.</p>"
     inactive_notification:
-      this_person_is_not_active_in_kassi: "Этот пользователь больше не использует Kassi"
-      inactive_description: "Пользователь прекратил использовать Kassi. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
+      this_person_is_not_active_in_kassi: "Этот пользователь больше не использует %{service_name}"
+      inactive_description: "Пользователь прекратил использовать %{service_name}. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
     new:
       address_validator: "Местоположение не найдено."
       captcha_incorrect: "Проверка на ввод символов не пройдена. Введите символы с картинки в форму ниже."
@@ -937,13 +937,13 @@ ru:
       family_name: "Фамилия:"
       given_name: "Настоящее имя:"
       i_accept_the: "Я согласен с"
-      if_you_already_have_account_you_can: "Если вы уже зарегистрированы в другом сообществе Kassi, вы можете"
+      if_you_already_have_account_you_can: "Если вы уже зарегистрированы в другом сообществе %{service_name}, вы можете"
       join_with_your_existing_account: "присоединиться к этому сообществу с помощью существующей учетной записи"
       invalid_invitation_code: "Код приглашения недействителен."
       invitation_code: "Код приглашения:"
       not_required: ", не обязательно"
       password_again: "Подтвердить пароль:"
-      show_my_name_to_others: "Показывать моё настоящее имя"
+      show_my_name_to_others: "Показывать моё настоящее имя другим пользователям %{service_name}"
       sign_up: "Зарегистрироваться в Kassi"
       terms: "условиями использования"
       username_is_in_use: "Это имя пользователя занято."
@@ -976,7 +976,7 @@ ru:
       enthusiast_bronze: "Энтузиаст (бронза)"
       enthusiast_bronze_description: "Вы заходили на Kassi в течении пяти дней. Судя по всему для вас это становится привычкой."
       enthusiast_gold: "Энтузиаст (золото)"
-      enthusiast_gold_description: "Вы не можете без Kassi: вы посещали сайт в течении ста дней!"
+      enthusiast_gold_description: "Вы не можете без %{service_name}: вы посещали сайт в течении ста дней!"
       enthusiast_silver: "Энтузиаст (серебро)"
       enthusiast_silver_description: "Kassi является частью вашей повседневной активности: вы совершили 30 визитов на сервис."
       first_transaction: "Первое событие"
@@ -994,7 +994,7 @@ ru:
       helper_silver: "Помощник (серебро)"
       helper_silver_description: "Вам нравится помогать остальным: оказано 6 услуг!"
       jack_of_all_trades: "И швец и жнец"
-      jack_of_all_trades_description: "У вас исключительно много талантов! Вы выступали на Kassi уже в пяти разных ролях. Продолжайте и освойте все восемь возможных: предлагающий вещи, предлагающий услуги, предлагающий поездки, предлагающий жильё, запрашивающий вещи, запрашивающий услуги, запрашивающий поездки и запрашивающий жильё."
+      jack_of_all_trades_description: "У вас исключительно много талантов! Вы действовали уже в пяти разных ролях. Продолжайте и освойте все восемь возможных: предлагающий вещи, предлагающий услуги, предлагающий поездки, предлагающий жильё, запрашивающий вещи, запрашивающий услуги, запрашивающий поездки и запрашивающий жильё."
       lender_bronze: "Lender (бронза)"
       lender_bronze_description: "Вы разместили три вещи, которые можете дать напрокат, отлично!"
       lender_gold: "Lender (золото)"
@@ -1002,33 +1002,33 @@ ru:
       lender_silver: "Lender (серебро)"
       lender_silver_description: "В вашем шкафу множество вещей, которыми вы делитесь с остальными: 10 предложений вещей на прокат!"
       listing_freak_bronze: "Фанат листингов (бронза)"
-      listing_freak_bronze_description: "У вас пять активных предложений/запросов на Kassi. Круто! Но может есть ещё что-нибудь в шкафу или в наборе умений, что может пригодиться другим?"
+      listing_freak_bronze_description: "У вас пять активных предложений/запросов на %{service_name}. Круто! Но может есть ещё что-нибудь в шкафу или в наборе умений, что может пригодиться другим?"
       listing_freak_gold: "Фанат листингов (золото)"
       listing_freak_gold_description: "40 предложений и/или запросов, невероятно! Вы один из самых активных пользователей сайта."
-      listing_freak_silver: "Фанат листингов (серебро)"
-      listing_freak_silver_description: "20 предложений и/или запросов, отлично! Вы по-настоящему активный пользователь."
-      moneymaker_bronze: "Торговец (бронза)"
-      moneymaker_bronze_description: "Вы поняли, что Kassi можно использовать и для заработка! Успешно продано или отдано в аренду две вещи."
-      moneymaker_gold: "Торговец (золото)"
-      moneymaker_gold_description: "15 проданных или отданных в аренду вещей, и все с положительными отзывами! Kassi отличная бизнес-площадка для вас и людей, берущих в аренду или покупающих у вас вещи!"
-      moneymaker_silver: "Торговец (серебро)"
-      moneymaker_silver_description: "Kassi даёт неплохую добавку к вашим доходам. Шесть проданных или отданных в аренду вещей и шесть положительных отзывов."
-      rookie: Новобранец
-      rookie_description: "Вы добавили свое первое предложение или запрос на Kassi. Поехали!"
-      santa: "Дед Мороз"
       santa_description: "Счастливого Нового Года! Вы отдали как минимум одну вещь в декабре."
+      listing_freak_silver: "Фанат листингов (серебро)"
       taxi_stand_bronze: "Таксист (бронза)"
-      taxi_stand_bronze_description: "Вы добавили три предложения поездки на Kassi."
+      listing_freak_silver_description: "20 предложений и/или запросов, отлично! Вы по-настоящему активный пользователь."
+      taxi_stand_bronze_description: "Вы добавили три предложения поездки в %{service_name}."
+      moneymaker_bronze: "Торговец (бронза)"
       taxi_stand_gold: "Таксист (золото)"
+      moneymaker_bronze_description: "Вы поняли, что %{service_name} можно использовать и для заработка! Успешно продано или отдано в аренду две вещи."
       taxi_stand_gold_description: "Вы всегда готовы предложить помощь с подвозкой для других. 25 предложений поездок, превосходно!"
+      moneymaker_gold: "Торговец (золото)"
       taxi_stand_silver: "Таксист (серебро)"
+      moneymaker_gold_description: "15 проданных или отданных в аренду вещей, и все с положительными отзывами! %{service_name} отличная бизнес-площадка для вас и людей, берущих в аренду или покупающих у вас вещи!"
       taxi_stand_silver_description: "10 предложений поездок, отлично! Люди знают, к кому обратиться, если им требуется подвозка."
+      moneymaker_silver: "Торговец (серебро)"
       volunteer_bronze: "Волонтёр (бронза)"
-      volunteer_bronze_description: "Вам нравится когда ваши умения и навыки помогают другим. У вас три активных предложения услуг на Kassi."
+      moneymaker_silver_description: "%{service_name} даёт неплохую добавку к вашим доходам. Шесть проданных или отданных в аренду вещей и шесть положительных отзывов."
+      volunteer_bronze_description: "Вам нравится когда ваши умения и навыки помогают другим. У вас три активных предложения услуг в %{service_name}."
+      rookie: Новобранец
       volunteer_gold: "Волонтёр (золото)"
+      rookie_description: "Вы добавили свое первое предложение или запрос в %{service_name}. Поехали!"
       volunteer_gold_description: "Вы не знаете лучшего занятия, чем помощь другим людям. У вас 25 активных предложений услуг, невероятно!"
+      santa: "Дед Мороз"
       volunteer_silver: "Волонтёр (серебро)"
-      volunteer_silver_description: "Вы можете многим помочь другим: у вас 10 предложений услуг на Kassi!"
+      volunteer_silver_description: "Вы можете многим помочь другим: у вас 10 предложений услуг в %{service_name}!"
     profile_feedback:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
@@ -1065,7 +1065,7 @@ ru:
       hide_description: Меньше
       joined_this_community: "Зарегистрирован с"
       was_last_seen: "…последний раз заходил"
-      was_invited_by: "...был приглашён"
+      was_invited_by: "...был приглашён %{inviter_name}"
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
       show_all_badges: "Показать все значки"
@@ -1091,11 +1091,11 @@ ru:
       create_new_account: "Создать новую учётную запись"
       i_forgot_my_password: "Я забыл пароль"
       login: Войти
-      login_to_kassi: "Зайти в Kassi"
+      login_to_kassi: "Зайти в %{service_name}"
       connect_your_facebook_to_kassi: "Подключите вашу учётную запись Facebook к %{service_name}"
       facebook_account: "Учётная запись Facebook:"
       log_in_to_link_account: "Если у вас уже есть учётная запись %{service_name}, войдите в систему для связи её с вашей учетной записью Facebook."
-      you_can_also_create_new_account: "Если вы не имеете учетной записи в Kassi, %{accont_creation_link} для её создания с помощью учётной записи Facebook."
+      you_can_also_create_new_account: "Если вы не имеете учетной записи в %{service_name}, %{accont_creation_link} для её создания с помощью учётной записи Facebook."
       account_creation_link_text: "нажмите здесь"
       cancle_facebook_connect: "Если вы не хотите привязывать эту учётную запись, вы можете %{cancel_link}."
       facebook_cancel_link_text: "отменить это действие"
@@ -1105,11 +1105,11 @@ ru:
       request_new_password: "Запросить новый пароль"
       change_your_password: "Смена пароля"
     confirmation_pending:
-      welcome_to_kassi: "Добро пожаловать в Kassi!"
+      welcome_to_kassi: "Добро пожаловать в %{service_name}!"
       check_your_email: "Проверьте ваш почтовый ящик"
-      account_conrimation_instructions: "В скором времени, вы получите письмо от Kassi, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу Kassi.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
-      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от Kassi со ссылкой, по которой нужно перейти для получения доступа к этому сообществу.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием Kassi, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
-      get_started: "Начало работы с Kassi"
+      account_conrimation_instructions: "В скором времени, вы получите письмо от %{service_name}, содержащее ссылку, по которой нужно будет перейти, чтобы получить доступ к этому сообществу %{service_name}.</p><p>Эта проверка нужна для того, чтобы убедиться в том, что все участники на самом деле относятся к сообществу <b>%{community_name}</b>, что создаёт безопасную среду для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием %{service_name}, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> слева и дайте нам знать. Пожалуйста, поделитесь своими идеями для улучшения сервиса!"
+      account_confirmation_instructions_any_email: "Вскоре вы получите электронное письмо от %{service_name} со ссылкой, по которой нужно перейти для получения доступа к этому сообществу %{service_name}.<p><p>Эта проверка введена для создания более доверенных условий для совместного использования ресурсов.</p><p>Если у вас возникли проблемы с использованием %{service_name}, просто нажмите кнопку <a href=\"#\" id=\"give_feedback_link\">обратной связи</a> в левой части страницы и дайте нам знать. Пожалуйста, поделитесь своими идеями улучшения нашего сервиса!"
+      get_started: "Начало работы с %{service_name}"
       getting_started_instructions: "После подтверждения вашей учетной записи, хорошей идеей будет добавление картинки для вашего <a href=\"%{profile_url}\">профиля</a> и заполнения полей с информацией о вас, либо вы можете перейти прямо к действию, добавив <a href=\"/ru/listings/new/offer\">предложение</a> о чем-то, что вы могли бы сдать напрокат, продать или сделать для других. Или, если вы сами в чём-то конкретно нуждаетесь, разместите <a href=\"/ru/listings/new/request\">запрос</a> ."
       resend_confirmation_instructions: "Повторно выслать инструкции для подтверждения"
       your_current_email_is: "Ваша электронная почта: %{email} ."
@@ -1138,7 +1138,7 @@ ru:
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
-      email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на Kassi"
+      email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на %{service_name}"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
     profile:
@@ -1152,7 +1152,7 @@ ru:
       profile_page: "на странице вашего профиля"
       profilemap: Карта
       street_address: "Адрес:"
-      these_fields_are_shown_in_your: "Эта информация видна всем пользователям Kassi"
+      these_fields_are_shown_in_your: "Эта информация видна всем пользователям %{service_name}"
       visible_to_everybody: "видимо для всех"
       visible_to_registered_users: "видимо только для зарегистрированных пользователей"
     save_information: Сохранить
@@ -1167,8 +1167,8 @@ ru:
     you_can_call_him_at: "Вы можете связаться с водителем по телефону %{phone_number}"
     you_can_pay_gas_money_to_driver: "To pay some gas money, reply 'kassi pay %{driver} Xe' where X is the amount. The amount + 5% commission is put in your phone bill."
     category_not_supported: "SMS для этой категории ещё не поддерживается."
-    check_the_offer_in_kassi: "Просмотреть предложение в Kassi: %{listing_url}"
-    listing_created: "Спасибо за сообщение, листинг добавлен в Kassi."
+    check_the_offer_in_kassi: "Просмотреть предложение в %{service_name}: %{listing_url}"
+    listing_created: "Спасибо за сообщение, листинг добавлен в %{service_name}."
     offer: ^offer$|^o$
   tag_cloud:
     tag_used:
@@ -1176,15 +1176,15 @@ ru:
       without_tag: "Без метки"
   terms:
     show:
-      accept_terms: "Согласие с условиями использования Kassi"
+      accept_terms: "Согласие с условиями использования %{service_name}"
       here: здесь
       i_accept_new_terms: "Я согласен с новыми условиями"
       i_accept_terms: "Я согласен с условиями"
-      terms: "Условия использования Kassi"
+      terms: "Условия использования %{service_name}"
       terms_have_changed: "Условия использования изменены"
       you_can_view_the_new_terms: "Вы можете ознакомиться с новыми условиями"
-      you_need_to_accept: "Приветствуем вас в Kassi! Судя по всему, вы в первый раз используете этот сервис. Перед началом использования вы должны принять"
-      you_need_to_accept_new_terms: "Условия использования Kassi были изменены. Вы должны принять новые условия для того, чтобы продолжать использовать Kassi. Новые условия использования определяют порядок работы сервиса после окончания исследовательского проекта."
+      you_need_to_accept: "Приветствуем вас в %{service_name}! Судя по всему, вы в первый раз используете этот сервис. Перед началом использования вы должны принять"
+      you_need_to_accept_new_terms: "Условия использования %{service_name} были изменены. Вы должны принять новые условия для того, чтобы продолжать использовать %{service_name}. Новые условия использования определяют порядок работы сервиса после окончания исследовательского проекта."
   testimonials:
     index:
       all_testimonials: "Все отзывы"
@@ -1194,7 +1194,7 @@ ru:
     new:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
-      give_feedback_to: "Оставить отзыв о/об %{person}"
+      give_feedback_to: "Оставить отзыв о %{person}"
       grade: "Оценка события"
       less_than_expected: "Хуже, чем ожидалось"
       send_feedback: "Отправить отзыв"
