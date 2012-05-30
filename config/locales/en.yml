@@ -735,11 +735,15 @@ en:
         rideshare: "a ride"
         i_want_to_offer: "I want to offer..."
         i_want_to_request: "I need..."
+      googlemap:
+        googlemap_copy: "End Points From Map"
+        googlemap_description: Mapview
+        googlemap_updatemap: "Update Map"
       images:
-        remove_image: "Remove image"
-        select_file: "Select file"
         image: Image
         no_file_selected: "No file selected"
+        remove_image: "Remove image"
+        select_file: "Select file"
       location:
         location: Location
       origin:
@@ -748,10 +752,6 @@ en:
       send_button:
         save_offer: "Save offer"
         save_request: "Save request"
-      googlemap:
-        googlemap_copy: "End Points From Map"
-        googlemap_description: Mapview
-        googlemap_updatemap: "Update Map"
       share_type:
         select: Select
         borrow: Borrowing
