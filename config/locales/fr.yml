@@ -56,16 +56,16 @@ fr:
     or: ou
     password: "Mot de passe"
     share_types:
-      borrow: "à emprunter"
+      borrow: "a emprunter "
       buy: "à acheter"
       give_away: "à donner"
-      lend: "à prêter"
+      lend: "a prêter "
       receive: "accepter gratuitement"
       rent: "cherche à louer"
       rent_out: "à louer"
       sell: "à vendre"
       temporary_accommodation: "hébergement temporaire"
-      trade: "à échanger"
+      trade: "a échanger "
     username: "Nom d'utilisateur"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
@@ -184,7 +184,7 @@ fr:
       euros_per_month_premium: "150 euros par mois"
       custom_domain: "Nom de domaine personnalisé"
       you_can_change_and_cancel: "Vous pouvez annuler ou changer d'offre à tout moment."
-      we_help_you_get_started: "Nous rapprochons vos équipes"
+      we_help_you_get_started: "Nous aidons à la promotion"
       discounts_available_for_non_profits: "Tarif réduit de 50% pour les groupes à but non lucratif"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Quel type de tribu souhaitez-vous créer ?"
@@ -260,7 +260,7 @@ fr:
       resources: RESSOURCES
       connect: "RETROUVEZ NOUS"
       blog: Blog
-      code: Code
+      code: "Code source"
       issue_tracker: "Gestionnaire de tickets"
       product_of: "%{service_name} est un produit de"
       language: "Langue :"
@@ -354,9 +354,9 @@ fr:
     newsletter:
       weekly_news_from_kassi: "Actualités hebdomadaires de la communauté %{service_name} %{community}"
       hi: "Bonjour %{name},"
-      update_on_what_is_happening: "Jetez un oeil à ce qui se passe dans la communauté %{community} sur %{service_name} en ce moment."
-      newest_offers: "Ce que les gens proposent aux autres en ce moment"
-      newest_requests: "Ce dont les gens ont besoin en ce moment"
+      update_on_what_is_happening: "Jetez un oeil à ce qu'il se passe dans la tribu %{community} sur %{service_name} en ce moment."
+      newest_offers: "Ce que les membres proposent aux autres en ce moment"
+      newest_requests: "Ce dont les membres ont besoin en ce moment"
       could_you_offer_something: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ?"
       add: Ajouter
       an_offer: "une offre"
@@ -365,7 +365,7 @@ fr:
       check_everything_that_others_are: "Vérifiez tout ce que les autres sont en train de"
       offering: offre
       requesting: demande
-      text_version_text: "Pourriez-vous partager quelque chose dont les autres auraient besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ? Ajoutez une offre ou une demande ou vérifiez tout ce que les autres offrent ou demandent en ce moment à %{url}"
+      text_version_text: "Et si vous partagiez quelque chose dont les autres auraient besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
@@ -459,10 +459,10 @@ fr:
       items_to_offer: "Articles à prêter : "
       items_to_request: "Articles à emprunter : "
       log_in: "connectez-vous !"
-      no_offers_visible_unless_logged_in: "Aucune offre d'objet, de service ou de covoiturage n'est visible aux utilisateurs non connectés."
+      no_offers_visible_unless_logged_in: "Aucune offre d'objet, de service ou de covoiturage n'est visible par les utilisateurs non connectés."
       no_open_offers_currently: "Aucune offre d'objet, de service ou de covoiturage en cours."
       no_open_requests_currently: "Aucune demande d'objet, de service ou de covoiturage en cours."
-      no_requests_visible_unless_logged_in: "Aucune demande d'objet, de service ou de covoiturage visible aux utilisateurs non connectés."
+      no_requests_visible_unless_logged_in: "Aucune demande d'objet, de service ou de covoiturage n'est visible par les utilisateurs non connectés."
       one_private_offer_exists: "Il y a déjà <b>une offre</b>,"
       one_private_request_exists: "Il y a déjà <b>une demande</b>,"
       ride_offer: "Accompagner les enfants des autres à leurs activités"
@@ -484,11 +484,11 @@ fr:
       offer_something: "Listez vos objets et vos compétences !"
       offer_something_description: "Ajoutez des objets, compétences, etc que vous pouvez proposer"
       or: ou
-      or_see_what_the_others: "... ou voir ce que les autres"
+      or_see_what_the_others: "... ou regardez ce que les autres"
       recent_events: "Evénements les plus récents"
       recent_offers: "Ce que proposent les autres"
       recent_requests: "Ce dont les autres ont besoin"
-      request_something: "Dites ce dont vous avez besoin !"
+      request_something: "Demandez ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
       requesting: demandent
       teaser_text: "%{service_name} est un service pour la communauté %{community}. Ici vous pouvez prêter, louer, donner et vendre des objets, donner et recevoir de l'aide ou organiser des covoiturages. Y a-t-il quelque chose que vous pourriez prêter aux autres ou avec quoi vous pourriez les aider ?"
@@ -551,8 +551,8 @@ fr:
     dashboard:
       title: "%{service_name} - Partagez des objets, des services et des transports avec votre tribu locale !"
     infos:
-      about: "%{service_name} - qu'est-ce que c'est?"
-      how_to_use: "Comment utiliser %{service_name}"
+      about: "Qu'est-ce que c'est ?"
+      how_to_use: "Comment ça marche ?"
       info_about_kassi: "Informations sur %{service_name}"
       news: Actualités
       register_details: "Détails de registre"
@@ -584,8 +584,8 @@ fr:
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette communauté. Il vous reste à confirmer votre adresse email."
-      avatar_upload_failed: "Chargement d'avatar a échoué. Formats de photo acceptés : .png, .jpg ou .gif."
-      avatar_upload_successful: "Téléchargement d'avatar réussi."
+      avatar_upload_failed: "Le chargement de l'image de profil a échoué. Les formats d'image acceptés sont : .png, .jpg ou .gif."
+      avatar_upload_successful: "Téléchargement d'image du profil réussi."
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
@@ -686,7 +686,7 @@ fr:
       testimonials: "Avis reçus"
     settings:
       account: Compte
-      avatar: "Image de profil"
+      avatar: "Image du profil"
       notifications: Notifications
       profile: "Info profil"
       settings: Paramètres
@@ -743,7 +743,7 @@ fr:
         image: Image
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer image"
-        select_file: "Sélectionner fichier"
+        select_file: "Sélectionner une image"
       location:
         location: Localisation
       origin:
@@ -1049,8 +1049,8 @@ fr:
       loading_more_requests: "Chargement de plus de demandes"
       offers: Offres
       requests: Demandes
-      show_also_closed: "Montrer aussi les fermées"
-      show_only_open: "Montrer seulement les offres et demandes en cours"
+      show_also_closed: "Voir également les offres et demandes closes"
+      show_only_open: "Voir uniquement les offres et demandes en cours"
     show:
       about_me: "Qui suis-je :"
       add_description: "Parlez un peu de vous"
@@ -1063,15 +1063,15 @@ fr:
       exceeded_expectations: "Dépassait mes attentes"
       feedback_average: "Moyenne des évaluations :"
       hide_description: "Montrer moins"
-      joined_this_community: "A rejoint la communauté le"
-      was_last_seen: "... a été vu pour la dernière fois"
+      joined_this_community: "...a rejoint la communauté le"
+      was_last_seen: "...été connecté pour la dernière fois"
       was_invited_by: "... a été invité par %{inviter_name}"
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone :"
       show_all_badges: "Montrer tous les badges %{service_name}"
       show_all_feedback: "Montrer tous les avis"
       show_all_testimonials: "Montrer tous les commentaires"
-      show_full_description: "Montrer plus"
+      show_full_description: "Voir la suite..."
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
@@ -1127,20 +1127,20 @@ fr:
       save: Sauvegarder
       these_fields_are_shown_only_to_you: "Le nom d'utilisateur apparaît dans votre profil sauf si vous avez communiqué votre nom. Il n'y a que vous qui voyez les autres informations."
     avatar:
-      add_avatar_submit: "Sauvegarder image"
-      update_profile_picture: "Mettre à jour l'image de profil"
+      add_avatar_submit: "Sauvegarder l'image"
+      update_profile_picture: "Mettre à jour l'image du profil"
     notifications:
       i_want_to_get_email_notification_when: "Je souhaite recevoir un email de notification lorsque..."
       newsletters: "Bulletins d'information"
-      email_about_accept_reminders: "... j'ai oublié d'accepter un événement"
-      email_about_new_badges: "... j'obtiens un nouveau badge"
-      email_about_new_comments_to_own_listing: "... quelqu'un fait un commentaire sur mon offre ou ma demande"
-      email_about_new_messages: "... quelqu'un m'envoie un message"
-      email_about_new_received_testimonials: "... quelqu'un me donne un avis"
-      email_about_testimonial_reminders: "... j'ai oublié de donner un avis sur un événement"
+      email_about_accept_reminders: "...j'ai oublié d'accepter un événement"
+      email_about_new_badges: "...j'obtiens un nouveau badge"
+      email_about_new_comments_to_own_listing: "...quelqu'un fait un commentaire sur une de mes offres ou de mes demandes"
+      email_about_new_messages: "...quelqu'un m'envoie un message"
+      email_about_new_received_testimonials: "...quelqu'un me donne un avis"
+      email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
       email_about_weekly_events: "Envoyez-moi un email toutes les semaines avec les actualités de %{service_name}"
-      email_when_conversation_accepted: "... quelqu'un accepte mon offre ou ma demande"
-      email_when_conversation_rejected: "... quelqu'un rejette mon offre ou ma demande"
+      email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
+      email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
     profile:
       about_you: "Qui suis-je :"
       city: "Ville :"
@@ -1149,13 +1149,13 @@ fr:
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
       phone_number: "Numéro de téléphone :"
       postal_code: "Code postal :"
-      profile_page: "sur votre page de profile"
+      profile_page: "sur votre page de profil"
       profilemap: Plan
       street_address: "Adresse :"
-      these_fields_are_shown_in_your: "Cette information sera visible à tous les utilisateurs de %{service_name}"
+      these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
-      visible_to_registered_users: "visible aux utilisateurs connectés"
-    save_information: "Sauvegarder informations"
+      visible_to_registered_users: "visible par les utilisateurs connectés"
+    save_information: "Sauvegarder les informations"
   sms:
     or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
     parsing_error: "Impossible de comprendre le contenu du message. Veuillez relire les instructions et réessayer."
