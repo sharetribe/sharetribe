@@ -2,11 +2,11 @@
 # After which they can be imported e.g. to OpenOffice spreadsheet and printed out to deal to people
 
 # Do the invitations
-community_id = 335
-info_text = "generated invites to Alto Santiago"
+community_id = 313
+info_text = "generated invites to Parque Providencia"
 filename = "invitations.csv"
 
-340.times do
+384.times do
   Invitation.create(:community_id => community_id, :information => info_text)
 end
 
@@ -18,7 +18,8 @@ result = ""
 
 column = 0
 ins.each do |i|
-  result += "alto.kassi.cl código: #{i.code},"
+  #result += "parqueprovidencia.sharetribe.com código: #{i.code},"
+  result += "#{i.code},"
   column += 1
   if column == columns
     result += "\n"
