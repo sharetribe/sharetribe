@@ -1063,9 +1063,9 @@ zh:
       exceeded_expectations: 超过预期
       feedback_average: 平均评价：
       hide_description: 显示更少
-      joined_this_community: 已加入这个社区
+      joined_this_community: "已加入这个社区 %{time_ago}"
       was_last_seen: 被看见
-      was_invited_by: 被邀请
+      was_invited_by: "被邀请 %{time_ago}"
       less_than_expected: 比期望的差
       phone_number: 电话号码：
       show_all_badges: 显示所有徽章
