@@ -1063,8 +1063,8 @@ el:
       exceeded_expectations: "Ξεπέρασε τις προσδοκίες"
       feedback_average: "Σχολιασμός του χρήστη:"
       hide_description: Απόκρυψη
-      joined_this_community: "... γράφτηκε σε αυτή την κοινότητα"
-      was_last_seen: "... συνδέθηκε τελευταία φορά"
+      joined_this_community: "... γράφτηκε σε αυτή την κοινότητα %{time_ago}"
+      was_last_seen: "... συνδέθηκε τελευταία φορά %{time_ago}"
       was_invited_by: "... προσκλήθηκε από τον/την"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
       phone_number: "Αριθμός τηλεφώνου:"

@@ -1063,8 +1063,8 @@ ru:
       exceeded_expectations: "Намного лучше, чем ожидалось"
       feedback_average: "Отзывы в среднем:"
       hide_description: Меньше
-      joined_this_community: "Зарегистрирован с"
-      was_last_seen: "…последний раз заходил"
+      joined_this_community: "Зарегистрирован с %{time_ago}"
+      was_last_seen: "…последний раз заходил %{time_ago}"
       was_invited_by: "...был приглашён %{inviter_name}"
       less_than_expected: "Хуже чем ожидалось"
       phone_number: "Телефон:"
