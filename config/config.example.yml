@@ -152,14 +152,16 @@ default: &default_settings
   # This can also be set community specific in community.settings["service_name"]
   global_service_name: Sharetribe
   
+  # The default consent (terms of use) all the communities will use.
+  # It's just a string that tells the version of the consent.
+  consent: "SHARETRIBE1.0"
+  
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
   # don't need to change those
   # ----------------------------------------------------------------
   
-  # The default consent (terms of use) all the communities will use.
-  # It's just a string that tells the version of the consent.
-  consent: "SHARETRIBE1.O"
+
 
 production:
   <<: *default_settings
