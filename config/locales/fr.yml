@@ -54,19 +54,19 @@ fr:
     default_description: ~
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
-    password: "Mot de passe"
+    password: "Mot de passe "
     share_types:
       borrow: "a emprunter "
-      buy: "à acheter"
-      give_away: "à donner"
+      buy: "à acheter "
+      give_away: "à donner "
       lend: "a prêter "
-      receive: "accepter gratuitement"
-      rent: "cherche à louer"
-      rent_out: "à louer"
-      sell: "à vendre"
+      receive: "accepter gratuitement "
+      rent: "cherche à louer "
+      rent_out: "à louer "
+      sell: "à vendre "
       temporary_accommodation: "hébergement temporaire"
       trade: "a échanger "
-    username: "Nom d'utilisateur"
+    username: "Nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
@@ -294,7 +294,7 @@ fr:
       badge_description1: "Sur %{service_name}, vous pouvez gagner plusieurs badges différents en récompense de vos activités dans le service. Vous gagnez des badges pour avoir ajouté des offres ou des demandes, pour avoir fait des commentaires sur le contenu des autres ainsi que pour tout type d'échange de ressources (vendre ou emprunter des articles, rendre service, organiser un covoiturage, etc...) et pour le fait d'utiliser le service d'une façon active. Notez que vous obtenez des badges uniquement pour les échanges pour lesquels vous avez reçu un avis positif."
       badge_description2: "Un utilisateur ayant obtenu beaucoup de badges est susceptible d'être actif, fiable et apprécié des autres utilisateurs. Prêtez et empruntez un grand nombre d'objets, rendez service, faites du covoiturage et collectionnez toute la série des badges %{service_name} !"
       you_have_received_badges: "Vous avez obtenu des badges sur %{service_name} !"
-      you_have_received_badges_in_kassi: "Vous avez gagné des badges sur %{service_name}. Pour visionner les badges obtenus, connectez-vous sur %{service_name} et allez sur"
+      you_have_received_badges_in_kassi: "Vous avez gagné des badges sur %{service_name}. Pour voir les badges obtenus, connectez-vous sur %{service_name} et allez sur"
     confirmation_instructions:
       confirmation_instructions_signature: "Meilleures salutations, <br/> L'équipe de %{service_name}"
       welcome_to_kassi: "Bienvenue sur %{service_name} !"
@@ -439,10 +439,10 @@ fr:
     search_kassi: "Chercher sur %{service_name}"
   homepage:
     additional_private_listings_slate:
-      additionally_one_private_offer_exists: "Par ailleurs, il y a <b>une autre offre</b>,"
-      additionally_one_private_request_exists: "Par ailleurs, il y a <b>une autre demande</b>,"
-      additionally_some_private_offers_exist: "Par ailleurs, il y a <b>%{number_of_listings} autres offres</b>,"
-      additionally_some_private_requests_exist: "Par ailleurs, il y a <b>%{number_of_listings} autres demandes</b>,"
+      additionally_one_private_offer_exists: "Il y a aussi <b>une autre offre</b>,"
+      additionally_one_private_request_exists: "Il y a aussi <b>une autre demande</b>,"
+      additionally_some_private_offers_exist: "Il y a aussi <b>%{number_of_listings} autres offres</b>,"
+      additionally_some_private_requests_exist: "Il y a aussi <b>%{number_of_listings} autres demandes</b>,"
     blank_slate:
       add_first: "Ajouter !"
       but_that_is_visible_only_to_registered_members: "mais elle est visible uniquement aux membres enregistrés."
@@ -474,7 +474,7 @@ fr:
     index:
       are_offering: offrent
       add_news_item: "Ajouter un article"
-      inform_others_about_events: "Dernière actualités et évènements dans la communauté."
+      inform_others_about_events: "Dernières actualités et évènements dans la tribu."
       lend_rent_help_carpool: "Vendre, prêter, aider, faire du covoiturage"
       loading_more_content: "En cours de chargement"
       more_events: "Plus d'événements ..."
@@ -484,7 +484,7 @@ fr:
       offer_something: "Listez vos objets et vos compétences !"
       offer_something_description: "Ajoutez des objets, compétences, etc que vous pouvez proposer"
       or: ou
-      or_see_what_the_others: "... ou regardez ce que les autres"
+      or_see_what_the_others: "...ou regardez ce que les autres"
       recent_events: "Evénements les plus récents"
       recent_offers: "Ce que proposent les autres"
       recent_requests: "Ce dont les autres ont besoin"
@@ -841,9 +841,9 @@ fr:
     listed_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
-      no_offers_with_the_conditions_you_gave: "Pas d'offres avec les conditions que vous proposez."
-      no_requests_with_the_conditions_you_gave: "Pas de demandes avec les conditions que vous proposez."
-      offer_something: "Offrez quelque chose !"
+      no_offers_with_the_conditions_you_gave: "Il n'y a pas d'offres correspondant aux conditions que vous avez choisies."
+      no_requests_with_the_conditions_you_gave: "Il n'y a pas de demandes correspondant aux conditions que vous avez choisies."
+      offer_something: "Proposez quelque chose !"
       request_something: "Demandez quelque chose !"
       search_returned_no_results: "Pas de résultats à votre recherche."
     please_comment: "Faire un commentaire"
@@ -1033,7 +1033,7 @@ fr:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
       grade: "note :"
-      less_than_expected: "Ne correspondait pas du tout à mes attentes"
+      less_than_expected: "Ne correspondait pas à mes attentes"
       offered_favor: "a rendu service"
       offered_housing: "a proposé un logement"
       offered_item: "a proposé un objet"
@@ -1042,8 +1042,8 @@ fr:
       requested_housing: "a demandé un logement"
       requested_item: "a reçu un objet"
       requested_rideshare: "a demandé un transport"
-      slightly_better_than_expected: "Un peu mieux que ce à quoi je m'attendais"
-      slightly_less_than_expected: "Un peu moins bien que ce à quoi je m'attendais"
+      slightly_better_than_expected: "Mieux qu'attendu"
+      slightly_less_than_expected: "Moins bien qu'attendu"
     profile_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
@@ -1061,10 +1061,10 @@ fr:
       badges: Badges
       edit_profile_info: "Modifier profil"
       exceeded_expectations: "Dépassait mes attentes"
-      feedback_average: "Moyenne des évaluations :"
+      feedback_average: "Moyenne des notes :"
       hide_description: "Montrer moins"
-      joined_this_community: "...a rejoint la communauté le %{time_ago}"
-      was_last_seen: "...été connecté pour la dernière fois %{time_ago}"
+      joined_this_community: "...a rejoint la communauté %{time_ago}"
+      was_last_seen: "...était connecté pour la dernière fois %{time_ago}"
       was_invited_by: "... a été invité par %{inviter_name}"
       less_than_expected: "Ne correspondait pas à mes attentes"
       phone_number: "Numéro de téléphone :"
@@ -1196,7 +1196,7 @@ fr:
       exceeded_expectations: "Dépassait complètement mes attentes"
       give_feedback_to: "Donner un avis pour %{person}"
       grade: "Estimation des activités d'un utilisateur"
-      less_than_expected: "Ne correspondait pas du tout à mes attentes"
+      less_than_expected: "Ne correspondait pas à mes attentes"
       send_feedback: "Envoyer avis"
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
@@ -1211,13 +1211,13 @@ fr:
       sms: "%e.%m. h %H:%M"
   timestamps:
     day_ago: "il y a un jour"
-    days_ago: "days ago"
+    days_ago: jours
     hour_ago: "il y a une heure"
-    hours_ago: "hours ago"
+    hours_ago: heures
     minute_ago: "il y a une minute"
-    minutes_ago: "minutes ago"
+    minutes_ago: minutes
     month_ago: "il y a un mois"
-    months_ago: "months ago"
-    seconds_ago: "seconds ago"
+    months_ago: mois
+    seconds_ago: secondes
     year_ago: "il y a un an"
-    years_ago: "years ago"
+    years_ago: années
