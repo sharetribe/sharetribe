@@ -7,7 +7,7 @@
     %h3.pricing= t(".free_plan")
     %ul
       %li= t(".no_charge")
-      %li= t(".max_100_members")
+      %li= t(".max_members", :number => 50)
       <br />
     = link_to t(".create_for_free"), new_tribe_path(:pricing_plan => "free"), :id => "free_plan_link", :class => "pricing_plan_selection"
 .grid_4
@@ -16,7 +16,7 @@
     %ul
       %li= t(".euros_per_month_premium", :price => (session[:community_category].nil? || ["university","company"].include?(session[:community_category]) ? "150" : "75")) + (session[:community_category] ? "" : "*")
       %li= t(".care_free_user_support")
-      %li= t(".max_500_members")      
+      %li= t(".max_members", :number => 500)      
     = link_to t(".create_your_tribe"), new_tribe_path(:pricing_plan => "premium"), :id => "premium_plan_link", :class => "pricing_plan_selection"
 .grid_4.omega
   .pricing_column
