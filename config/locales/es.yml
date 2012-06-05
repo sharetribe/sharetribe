@@ -51,7 +51,6 @@ es:
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
     cancel: Cancelar
-    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -172,9 +171,8 @@ es:
       create_for_free: "Crear gratis"
       contact_us: Contáctanos
       free_plan: "Plan gratuito"
-      max_100_members: "Máx. 100 usuarios"
+      max_members: "Máx. %{number} usuarios"
       premium_plan: "Plan Premium"
-      max_500_members: "Máx. 500 usuarios"
       care_free_user_support: "Soporte de atención al usuario gratuito"
       create_your_tribe: "Crea tu tribu"
       professional_plan: "Plan Profesional"
@@ -208,7 +206,6 @@ es:
       domain_invalid: "El dominio sólo puede contener letras, números, guiones o guión bajo."
       domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
       address: "Ubicación de tu tribu"
-      location_description: ~
       select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
       language: Idioma
     signup_form:
