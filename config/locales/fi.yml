@@ -255,7 +255,7 @@ fi:
       email_default_text: Sähköpostiosoitteesi
       send: Lähetä!
       or_drop_us_a_line: "...tai ota yhteyttä:"
-      thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman kassiyhteisön."
+      thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman %{service_name}-yhteisön."
       resources: RESURSSIT
       connect: YHTEYS
       blog: Blogi
@@ -293,7 +293,7 @@ fi:
       badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
       badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko %{service_name}-merkkisarja!"
       you_have_received_badges: "Olet saanut %{service_name}-merkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia %{service_name}-merkkejä. Voit nähdä saamasi merkit kirjautumalla kassiin ja menemällä osoitteeseen"
+      you_have_received_badges_in_kassi: "Olet ansainnut uusia %{service_name}-merkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
@@ -351,9 +351,9 @@ fi:
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
       you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
     newsletter:
-      weekly_news_from_kassi: "Viikon tapahtumat %{community}-kassiyhteisössä"
+      weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
-      update_on_what_is_happening: "Tässä yhteenveto siitä, mitä %{community}-kassissa tapahtuu juuri nyt."
+      update_on_what_is_happening: "Tässä yhteenveto siitä, mitä %{community}-%{service_name_inessive} tapahtuu juuri nyt."
       newest_offers: "Muun muassa näitä tarjotaan:"
       newest_requests: "Muun muassa näitä tarvitaan"
       could_you_offer_something: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota?"
@@ -606,7 +606,7 @@ fi:
       housing_request_message_sent: "Vastaus lähetetty"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
-      inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä kassiyhteisössä"
+      inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
       item_offer_message_sent: "Tavarapyyntö lähetetty"
       item_request_message_sent: "Tavaratarjous lähetetty"
       login_again: "Kirjaudu uudestaan."
@@ -780,7 +780,7 @@ fi:
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
       visibility:
-        communities: "Omille kassiyhteisöilleni"
+        communities: "Omille %{service_name}-yhteisöilleni"
         everybody: "Kaikille internetin käyttäjille"
         this_community: "Vain %{community}-yhteisön jäsenille"
         visibility: Näkyvyys
@@ -950,14 +950,14 @@ fi:
       visible_only_to_you: "näkyy vain sinulle ja ylläpidolle"
       visible_to_everybody: "näkyy kaikille"
     not_member:
-      explanation_text: "Olet tällä hetkellä kassiyhteisössä %{community}. Yritit mennä sellaisen %{service_name_genetive} käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. %{service_name} ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia %{service_name}-yhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
+      explanation_text: "Olet tällä hetkellä yhteisössä %{community}. Yritit mennä sellaisen %{service_name_genetive} käyttäjän profiiliin, joka on jonkin toisen yhteisön jäsen. %{service_name} ei vielä toistaiseksi tue käyttäjien kuulumista kerrallaan useampaan kuin yhteen yhteisöön, joten et voi nähdä tämän käyttäjän profiilia %{service_name}-yhteisön %{community} kautta. Mahdollisuus kuulua useampaan kuin yhteen yhteisöön lisätään palveluun myöhemmin."
       read_more_about_kassi_communities: "Lue lisää %{service_name_genetive} yhteisöistä"
       this_user_does_not_belong_to_this_community: "Tämä käyttäjä ei ole %{community}-yhteisön jäsen"
     profile_badge:
       active_member_bronze: "Aktiivi (pronssi)"
       active_member_bronze_description: "Tämä oli jo kolmas tapahtumasi %{service_name_inessive}! Sinusta on selvästi kuoriutumassa todellinen aktiivi. Jatka samaan malliin!"
       active_member_gold: "Aktiivi (kulta)"
-      active_member_gold_description: "Kahdeskymmenesviides tapahtuma %{service_name_inessive}, mahtavaa! Kuulut kassiaktiivien terävimpään kärkeen. Sinunlaisesi pitävät palvelun pyörät pyörimässä. Kiitos ja kumarrus!"
+      active_member_gold_description: "Kahdeskymmenesviides tapahtuma %{service_name_inessive}, mahtavaa! Kuulut %{service_name}-aktiivien terävimpään kärkeen. Sinunlaisesi pitävät palvelun pyörät pyörimässä. Kiitos ja kumarrus!"
       active_member_silver: "Aktiivi (hopea)"
       active_member_silver_description: "Onneksi olkoon kymmenennen tapahtumasi johdosta! Sinun ansiostasi tavarat ja palvelukset kiertävät tehokkaasti. Hienoa!"
       chauffer_bronze: "Kuski (pronssi)"
@@ -983,7 +983,7 @@ fi:
       generous_bronze: "Antelias (pronssi)"
       generous_bronze_description: "Olet lahjoittanut tai lainannut jo kaksi kertaa tavaroitasi jollekulle toiselle."
       generous_gold: "Antelias (kulta)"
-      generous_gold_description: "Mikä on sinun, on myös muiden. Olet lainannut tai antanut kassissa tavaran jollekulle toiselle jo 15 kertaa, upeaa!"
+      generous_gold_description: "Mikä on sinun, on myös muiden. Olet lainannut tai antanut %{service_name_inessive} tavaran jollekulle toiselle jo 15 kertaa, upeaa!"
       generous_silver: "Antelias (hopea)"
       generous_silver_description: "Jaat mielelläsi tavarasi muiden kanssa. 6 annettua tai lainattua tavaraa, hienoa!"
       helper_bronze: "Auttaja (pronssi)"
