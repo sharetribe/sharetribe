@@ -51,7 +51,6 @@ ru:
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
     default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Сообщите что Вы можете предложить и в чём нуждаетесь сами."
     cancel: Отмена
-    default_description: ~
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
     or: или
     password: Пароль
@@ -172,9 +171,8 @@ ru:
       create_for_free: "Создать бесплатно"
       contact_us: "Свяжитесь с нами"
       free_plan: "Бесплатный план"
-      max_100_members: "Макс. 100 участников"
+      max_members: "Макс. %{number} участников"
       premium_plan: Премиум-план
-      max_500_members: "Макс. 500 участников"
       care_free_user_support: "Заботливая поддержка пользователей"
       create_your_tribe: "Создайте своё сообщество"
       professional_plan: "Настраиваемый план"
@@ -208,7 +206,6 @@ ru:
       domain_invalid: "Имя домена может содержать только буквы, цифры, знак подчеркивания и дефис."
       domain_taken: "Это сообщество уже существует. Вам нужно выбрать другое имя домена."
       address: "Местоположение вашего сообщества"
-      location_description: ~
       select_main_language_of_your_tribe: "Выберите основной язык вашего сообщества"
       language: Язык
     signup_form:
