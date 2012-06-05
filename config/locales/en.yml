@@ -51,7 +51,6 @@ en:
     default_community_slogan: "Lend, help, share"
     default_community_description: "%{service_name} is a place where the members of our community can share goods, services, rides, and spaces. You can let others know what you could offer to them and get help when needed."
     cancel: Cancel
-    default_description: ~
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
     password: Password
@@ -207,7 +206,6 @@ en:
       domain_invalid: "The domain can only contain alphabets, numbers, underscores or hyphens."
       domain_taken: "This tribe exists already. You have to pick another domain name."
       address: "Location of your tribe"
-      location_description: ~
       select_main_language_of_your_tribe: "Select the main language of your tribe"
       language: Language
     signup_form:
