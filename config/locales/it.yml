@@ -51,7 +51,6 @@ it:
     default_community_slogan: ~
     default_community_description: ~
     cancel: ~
-    default_description: ~
     fields_that_are_mandatory: ~
     or: ~
     password: ~
@@ -172,10 +171,8 @@ it:
       create_for_free: ~
       contact_us: ~
       free_plan: ~
-      max_100_members: ~
       max_members: ~
       premium_plan: ~
-      max_500_members: ~
       care_free_user_support: ~
       create_your_tribe: ~
       professional_plan: ~
@@ -209,7 +206,6 @@ it:
       domain_invalid: ~
       domain_taken: ~
       address: ~
-      location_description: ~
       select_main_language_of_your_tribe: ~
       language: ~
     signup_form:

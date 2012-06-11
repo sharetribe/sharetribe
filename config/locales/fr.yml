@@ -353,20 +353,20 @@ fr:
       has_updated_request_you_follow_in_kassi: "%{author} a mis à jour l'offre '%{listing}' que vous suivez dans %{service_name}"
       you_can_view_the_changes_in: "Vous pouvez voir les changements de"
     newsletter:
-      weekly_news_from_kassi: "Actualités hebdomadaires de la communauté %{service_name} %{community}"
+      weekly_news_from_kassi: "Cette semaine dans la tribu %{service_name} %{community}"
       hi: "Bonjour %{name},"
       update_on_what_is_happening: "Jetez un oeil à ce qu'il se passe dans la tribu %{community} sur %{service_name} en ce moment."
       newest_offers: "Ce que les membres proposent aux autres en ce moment"
       newest_requests: "Ce dont les membres ont besoin en ce moment"
       could_you_offer_something: "Pourriez-vous partager quelque chose dont les autres ont besoin ? Ou avez-vous besoin de quelque chose que les autres pourraient avoir ?"
-      add: Ajouter
+      add: Ajoutez
       an_offer: "une offre"
       a_request: "une demande"
       to_kassi: "à %{service_name}"
-      check_everything_that_others_are: "Vérifiez tout ce que les autres sont en train de"
-      offering: offre
-      requesting: demande
-      text_version_text: "Et si vous partagiez quelque chose dont les autres auraient besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
+      check_everything_that_others_are: "regardez ce que les autres"
+      offering: offrent
+      requesting: demandent
+      text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
