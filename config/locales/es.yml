@@ -51,6 +51,7 @@ es:
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
     cancel: Cancelar
+    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -206,6 +207,7 @@ es:
       domain_invalid: "El dominio sólo puede contener letras, números, guiones o guión bajo."
       domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
       address: "Ubicación de tu tribu"
+      location_description: ~
       select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
       language: Idioma
     signup_form:
@@ -484,7 +486,7 @@ es:
       no_news: "No hay novedades"
       more_news: "Más novedades"
       offer_something: "¡Comparte con los demás!"
-      offer_something_description: "Haz una lista de las cosas y favores que puedes ofrecer a los demás"
+      offer_something_description: "Haz una lista de las cosas y servicios que puedes ofrecer a los demás"
       or: "y"
       or_see_what_the_others: "...o revisa lo que publicaron los demás en"
       recent_events: "Eventos recientes"
@@ -774,8 +776,8 @@ es:
       title:
         favor_you_offer: "Servicio que ofreces"
         favor_you_request: "Servicio que necesitas"
-        housing_you_offer: "Hospedaje que ofreces"
-        housing_you_request: "Hospedaje que necesitas"
+        housing_you_offer: "Alojamiento o espacio que ofreces"
+        housing_you_request: "Alojamiento o espacio que necesitas"
         item_you_offer: "Artículo que ofreces"
         item_you_request: "Artículo que necesitas"
       valid_until:
@@ -816,7 +818,7 @@ es:
       buys: "Lo compro"
       favors: Servicios
       give_aways: Regalando
-      housings: Hospedaje
+      housings: "Alojamientos y espacios"
       items: Productos
       lends: Prestando
       receives: ¡Gratis!
@@ -837,21 +839,12 @@ es:
       link_label_for_rideshare_request: Contacto
     listed_listing:
       edit: Editar
-    listed_listing_closed_status:
-      offer_is_closed: "Oferta cerrada"
-      request_is_closed: "Solicitud cerrada"
-    listed_listings:
-      loading_more_offers: "Cargando más ofertas"
-      loading_more_requests: "Cargando más solicitudes"
-      no_offers_with_the_conditions_you_gave: "No hay ofertas con las condiciones que diste."
-      no_requests_with_the_conditions_you_gave: "No hay solicitudes con las condiciones que diste."
-      offer_something: "¡Ofrece algo!"
-      request_something: "¡Solicita algo!"
-      search_returned_no_results: "Tu búsqueda no generó resultados"
-    please_comment: Comentario
     reply_link:
       offer_closed: "Oferta cerrada"
       request_closed: "Solicitud cerrada"
+    listed_listing_closed_status:
+      offer_is_closed: "Oferta cerrada"
+      request_is_closed: "Solicitud cerrada"
     show:
       comments: Comentarios
       favor_offer: "Oferta de servicios"
@@ -877,6 +870,15 @@ es:
       time: hora
       times: veces
       times_viewed: Visto
+    listed_listings:
+      loading_more_offers: "Cargando más ofertas"
+      loading_more_requests: "Cargando más solicitudes"
+      no_offers_with_the_conditions_you_gave: "No hay ofertas con las condiciones que diste."
+      no_requests_with_the_conditions_you_gave: "No hay solicitudes con las condiciones que diste."
+      offer_something: "¡Ofrece algo!"
+      request_something: "¡Solicita algo!"
+      search_returned_no_results: "Tu búsqueda no generó resultados"
+    please_comment: Comentario
   mapview:
     index:
       all_categories: "Todas las categorías"
