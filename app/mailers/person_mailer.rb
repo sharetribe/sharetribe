@@ -164,6 +164,17 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end
   
+  # This is used by console script that creates a list of user accounts and sends an email to all
+  # Currently only in spanish, as not yet needed in other languages
+  def automatic_account_created(recipient, password)
+    @no_settings = true
+    @username = recipient.username
+    @given_name = recipient.given_name
+    @password = password
+    subject = "Tienes una cuenta creada para la comunidad Diseño UDD de Sharetribe"
+    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com")
+  end
+  
   # This method can send any plain text mail where subject and mail contents are given in parameters.
   # Only thing added to contents is "Hi (user's name),"
   def open_content_message(recipient, subject, mail_content, default_locale="en")

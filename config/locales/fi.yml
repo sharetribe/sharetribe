@@ -51,7 +51,6 @@ fi:
     default_community_slogan: "Lainaa, auta, jaa"
     default_community_description: "%{service_name}ssa yhteisön jäsenet voivat jakaa tavaroita, palveluita ja kyytejä. Voit kertoa muille mitä voisit tarjota heille ja pyytää apua kun tarvitset sitä."
     cancel: Peruuta
-    default_description: ~
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
     password: Salasana
@@ -207,7 +206,6 @@ fi:
       domain_invalid: "Domain nimessä saa olla vain kirjaimia, numeroita ja väli- ja alaviivoja."
       domain_taken: "Nimi on jo varattu. Koeta valita toinen nimi."
       address: "Yhteisön sijainti"
-      location_description: ~
       select_main_language_of_your_tribe: "Valitse yhteisön ensisijainen kieli"
       language: Kieli
     signup_form:

@@ -88,6 +88,8 @@ class SessionsController < ApplicationController
 
     session[:form_username] = nil
     
+    @current_user.update_attribute(:active, true) unless @current_user.active?
+    
     unless @current_user && (!@current_user.communities.include?(@current_community) || current_community.consent.eql?(@current_user.consent(current_community)) || @current_user.is_admin?)
       # Either the user has succesfully logged in, but is not found in Sharetribe DB
       # (Existing OtaSizzle user's first login in Sharetribe) or the user is a member
@@ -112,7 +114,7 @@ class SessionsController < ApplicationController
       session[:person_id] = current_person.id
     end
     
-    @current_user.update_attribute(:active, true) unless @current_user.active?
+    
     
     if not @current_community
       redirect_to domain + new_tribe_path
