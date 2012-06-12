@@ -172,7 +172,7 @@ class PersonMailer < ActionMailer::Base
     @given_name = recipient.given_name
     @password = password
     subject = "Tienes una cuenta creada para la comunidad Diseño UDD de Sharetribe"
-    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com")
+    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => :sendmail)
   end
   
   # This method can send any plain text mail where subject and mail contents are given in parameters.
