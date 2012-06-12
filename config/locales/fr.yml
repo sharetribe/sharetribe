@@ -51,7 +51,6 @@ fr:
     default_community_slogan: "Prêter, aider, partager"
     default_community_description: "%{service_name} est service sur lequel les membres des tribus auxquelles vous appartenez peuvent partager des objets, des services, des trajets et des lieux. Sans tarder, dites aux autres ce que vous proposez et recevez de l'aide quand vous en avez besoin."
     cancel: Annuler
-    default_description: ~
     fields_that_are_mandatory: "Les champs marqués d'un astérisque (*) sont obligatoires."
     or: ou
     password: "Mot de passe "
@@ -172,10 +171,8 @@ fr:
       create_for_free: "Créer votre tribu"
       contact_us: "Nous contacter"
       free_plan: "Offre gratuite"
-      max_100_members: "Jusqu'à 100 membres"
       max_members: "Jusqu'à %{number} membres"
       premium_plan: "Offre premium"
-      max_500_members: "Jusqu'à 500 membres"
       care_free_user_support: "Support utilisateur"
       create_your_tribe: "Créer votre tribu"
       professional_plan: "Offre pro"
@@ -209,7 +206,6 @@ fr:
       domain_invalid: "Le domaine ne peut contenir que des lettres, des nombres, des tirets bas (\"_\") et des tirets hauts (\"-\")."
       domain_taken: "Cette tribu existe déjà. Vous devez choisir un autre nom."
       address: "Emplacement de votre tribu"
-      location_description: ~
       select_main_language_of_your_tribe: "Choisissez la langue de votre tribu"
       language: Langue
     signup_form:

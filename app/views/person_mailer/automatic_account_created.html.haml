@@ -1,0 +1,61 @@
+%b
+  = "Estimado #{@given_name},"
+
+%p
+  Te presentamos una plataforma disponible exclusivamente para la comunidad Diseño UDD: 
+  = link_to("Sharetribe", "http://disenoudd.sharetribe.com") + "."
+  Es un sitio web diseñado únicamente para compartir en comunidad:
+%p
+  %b
+    ¿Más específico?
+%p
+  Es una red en la cual puedes compartir lo que quieras: productos, servicios, traslados y hasta inmuebles. Pero la gracia es que funciona en un entorno local y de confianza: sólo tienen acceso los miembros de la comunidad Diseño UDD.
+
+%p
+  %b
+    ¿Qué se puede compartir en Sharetribe?
+%p
+  Algunos ejemplos: puedes vender, trocar o regalar todo aquello que no necesitas más: ropa vieja, libros, dvds y discos antiguos, muebles, etc. También puedes arrendar o prestar instrumentos musicales, equipamiento deportivo, o cosas que no usas todos los días. O a lo mejor quieres ahorrar tiempo y dinero compartiendo un traslado a la U a través de un sistema de turnos (así aprovechas de cuidar el medio ambiente!). O puedes publicar tus habilidades y ponerlas al servicio de los demás: clases particulares, consultorías, apoyo a alumnos de intercambio, etc.; y de la misma manera solicitar ayuda a toda la comunidad Diseño UDD.
+
+%p
+  %b
+    ¿Tengo que pagar por usar Sharetribe?
+
+%p
+  Absolutamente nada! Para ti como usuario el servicio es totalmente gratuito y nunca deberás desembolsar un peso por publicar algo en la comunidad. 
+
+%p
+  %b
+    ¿Entonces...?
+%p 
+  Tu cuenta ya ha sido creada! Sólo tienes que activarla siguiendo estos pasos
+  %ol
+    %li
+      Abre el enlace: 
+      = link_to "https://disenoudd.sharetribe.com/es/login", "https://disenoudd.sharetribe.com/es/login"
+    %li
+      Llena los campos con los siguientes datos:
+      %br
+      Nombre de usuario: 
+      %b
+        = @username
+      %br
+      Contraseña: 
+      %b
+        = @password
+      
+%p
+  y listo! Comienza a compartir!
+%p
+  Si tienes más preguntas, revisa 
+  = link_to "las instrucciones", "http://disenoudd.sharetribe.com/es/infos/how_to_use"
+  o escribe a diego@sharetribe.com
+%p
+  ¡Gracias por tu tiempo!
+
+%p
+  Saludos,
+  %br
+  Diego Ramírez
+  %br
+  Sharetribe Chile

@@ -51,7 +51,6 @@ es:
     default_community_slogan: "Colabora, ayuda o comparte"
     default_community_description: "%{service_name} es un lugar donde los integrantes de tu comunidad pueden compartir productos, servicios, traslados y espacios. Puedes contarle a los demás lo que podrías ofrecerles y obtener ayuda cuando lo necesites."
     cancel: Cancelar
-    default_description: ~
     fields_that_are_mandatory: "Los campos marcados con (*) son obligatorios."
     or: o
     password: Contraseña
@@ -207,7 +206,6 @@ es:
       domain_invalid: "El dominio sólo puede contener letras, números, guiones o guión bajo."
       domain_taken: "Esa tribu ya existe. Tienes que escoger otro nombre de dominio."
       address: "Ubicación de tu tribu"
-      location_description: ~
       select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
       language: Idioma
     signup_form:
@@ -839,12 +837,21 @@ es:
       link_label_for_rideshare_request: Contacto
     listed_listing:
       edit: Editar
-    reply_link:
-      offer_closed: "Oferta cerrada"
-      request_closed: "Solicitud cerrada"
     listed_listing_closed_status:
       offer_is_closed: "Oferta cerrada"
       request_is_closed: "Solicitud cerrada"
+    listed_listings:
+      loading_more_offers: "Cargando más ofertas"
+      loading_more_requests: "Cargando más solicitudes"
+      no_offers_with_the_conditions_you_gave: "No hay ofertas con las condiciones que diste."
+      no_requests_with_the_conditions_you_gave: "No hay solicitudes con las condiciones que diste."
+      offer_something: "¡Ofrece algo!"
+      request_something: "¡Solicita algo!"
+      search_returned_no_results: "Tu búsqueda no generó resultados"
+    please_comment: Comentario
+    reply_link:
+      offer_closed: "Oferta cerrada"
+      request_closed: "Solicitud cerrada"
     show:
       comments: Comentarios
       favor_offer: "Oferta de servicios"
@@ -870,15 +877,6 @@ es:
       time: hora
       times: veces
       times_viewed: Visto
-    listed_listings:
-      loading_more_offers: "Cargando más ofertas"
-      loading_more_requests: "Cargando más solicitudes"
-      no_offers_with_the_conditions_you_gave: "No hay ofertas con las condiciones que diste."
-      no_requests_with_the_conditions_you_gave: "No hay solicitudes con las condiciones que diste."
-      offer_something: "¡Ofrece algo!"
-      request_something: "¡Solicita algo!"
-      search_returned_no_results: "Tu búsqueda no generó resultados"
-    please_comment: Comentario
   mapview:
     index:
       all_categories: "Todas las categorías"
@@ -1188,7 +1186,7 @@ es:
       terms_have_changed: "Los términos de uso han cambiado"
       you_can_view_the_new_terms: "Puedes ver los nuevos términos"
       you_need_to_accept: "¡Bienvenido a %{service_name}! Al parecer esta es la primera vez que utilizas el servicio. Antes de comenzar primero debes aceptar los"
-      you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}. Lo nuevos términos de uso intentan permitir seguir haciendo uso del servicio una vez finalizado el proyecto de investigación que lo originó."
+      you_need_to_accept_new_terms: "Los términos de uso de %{service_name} han cambiado. Es necesario que aceptes los nuevos términos para poder continuar utilizando %{service_name}."
   testimonials:
     index:
       all_testimonials: "Todas las sugerencias"
