@@ -201,6 +201,7 @@ Kassi::Application.routes.draw do
       get :message_arrived
     end
     resources :news_items
+    resources :statistics
   end
   
   # Some non-RESTful mappings

@@ -239,10 +239,10 @@ ru:
     index:
       get_started: "НАЧНИТЕ СЕЙЧАС!"
       browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
-      slogan: "Виртуальный рынок для вашего сообщества."
+      slogan: "Виртуальный рынок вашего сообщества."
       create_your_own: "Создайте своё"
       sharing_website: СООБЩЕСТВО
-      main_description: "Создайте место, где члены сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия."
+      main_description: "Создайте место, где члены сообщества смогут обмениваться товарами, услугами и поездками в обстановке полного доверия!"
       kassi_for_your_company: "…ДЛЯ ВАШЕЙ КОМПАНИИ"
       kassi_for_your_company_description: "Хотите, чтобы ваша компания стала ещё более социальной и объединённой? Хотите помочь своим работникам узнать друг друга? Хотите сократить выбросы и стать более экологичным предприятием? Sharetribe — это предложение для вас."
       kassi_for_your_city: "…ДЛЯ ВАШЕГО ГОРОДА"
@@ -259,7 +259,7 @@ ru:
       blog: Блог
       code: Код
       issue_tracker: Баг-трекер
-      product_of: "Sharetribe — это продукт"
+      product_of: "Sharetribe — продукт"
       language: "Язык:"
       new: Новость!
       new_text: "%{service_name} теперь доступен для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
@@ -290,7 +290,7 @@ ru:
     badge_migration_notification:
       badge_description1: "В %{service_name} вы можете заработать несколько разных значков, которые будут говорить о вашей активности в той или иной области. Вы будете получать значки при выполнении таких действий, как добавление новых запросов или предложений, комментировании листингов других пользователей, от всех видов обмена, таких, как продажа и прокат вещей, предоставление своих услуг, помощь с поездками на автомобиле и т.д., и просто, как активный пользователь сервиса. Примите во внимание, что значки вы получаете только за те события, по окончании которых вы получили положительный отзыв."
       badge_description2: "Пользователь, обладающий большим количеством значков как правило является активным, надёжным и вызывающим симпатию у других пользователей. Будьте активны в %{service_name}: покупайте, продавайте, давайте напрокат, оказывайте другие услуги, используйте совместно транспортные средства, и будьте уверены, ваш список наград будет быстро расти!"
-      you_have_received_badges: "Вы получили значок на %{service_name}!"
+      you_have_received_badges: "Вы получили значок в %{service_name}!"
       you_have_received_badges_in_kassi: "Вы заработали новые значки в %{service_name}. Чтобы увидеть их, войдите в %{service_name} под своим именем и паролем и перейдите в"
     confirmation_instructions:
       confirmation_instructions_signature: "С наилучшими пожеланиями,</br>Команда %{service_name}"
@@ -303,7 +303,7 @@ ru:
       hey: "Привет, %{name}!"
       kassi_team: "Команда %{service_name}"
       thanks: "Спасибо,"
-      want_to_control_emails: "Хотите настроить получение писем от %{service_name}?"
+      want_to_control_emails: "Хотите изменить получение сообщений от %{service_name}?"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -349,13 +349,13 @@ ru:
       has_updated_request_you_follow_in_kassi: "%{author} обновил предложение «%{listing}», за которым вы следите в %{service_name}"
       you_can_view_the_changes_in: "Вы можете просмотреть изменения"
     newsletter:
-      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества «%{community}» %{service_name}"
+      weekly_news_from_kassi: "Еженедельный дайджест новостей сообщества %{service_name} «%{community}»"
       hi: "Привет %{name},"
-      update_on_what_is_happening: "Посмотрите, что происходит в сообществе %{community} %{service_name} прямо сейчас."
-      newest_offers: "Что люди предлагают сейчас"
-      newest_requests: "Что нужно людям сейчас"
+      update_on_what_is_happening: "Ознакомьтесь с последними предложениями и запросами в сообществе %{service_name} %{community} прямо сейчас."
+      newest_offers: "Последние предложения"
+      newest_requests: "Последние запросы"
       could_you_offer_something: "У вас есть что-нибудь, что может пригодиться другим? Или вам нужно что-либо, что может быть у других?"
-      add: Добавить
+      add: Добавьте
       an_offer: предложение
       a_request: запрос
       to_kassi: "в %{service_name}"
@@ -433,7 +433,7 @@ ru:
     mobile_version: "Мобильная версия"
     offers: Предложения
     requests: Запросы
-    search_kassi: "Поиск %{service_name}"
+    search_kassi: "Поиск в %{service_name}"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Кроме того, есть <b>одно другое предложение</b>,"
@@ -604,7 +604,7 @@ ru:
       housing_request_message_sent: "Сообщение успешно отправлено"
       invitation_cannot_be_sent: "Приглашение не может быть отправлено"
       invitation_sent: "Приглашение успешно отправлено"
-      inviting_new_users_is_not_allowed_in_this_community: "Это сообщество %{service_name} не позволяет приглашать новых пользователей"
+      inviting_new_users_is_not_allowed_in_this_community: "Сообщество %{service_name} не позволяет приглашать новых пользователей"
       item_offer_message_sent: "Запрос на вещь успешно отправлен"
       item_request_message_sent: "Предложение вещи успешно отправлено"
       login_again: "Попробуйте войти ещё раз."
@@ -649,7 +649,7 @@ ru:
       this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
-      welcome_message: "Добро пожаловать в %{service_name}! %(service_name} - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
+      welcome_message: "Добро пожаловать в %{service_name}! %{service_name} - это сервис, который помогает членам сообщества %{community} обмениваться, продавать, покупать и давать на прокат вещи и услуги, организовывать группы по совместному использованию автомобилей и вообще помогать друг другу самыми разными способами."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Для того, чтобы оставить отзыв об этом событии, требуется авторизация"
       you_are_not_authorized_to_do_this: "У вас не хватает прав для этого действия"
       you_are_not_authorized_to_view_this_content: "У вас не хватает прав для просмотра этой информации"
@@ -1135,7 +1135,7 @@ ru:
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
-      email_about_weekly_events: "Я хочу получать один раз в неделю письмо о новых событиях на %{service_name}"
+      email_about_weekly_events: "Я хочу получать еженедельный дайджест новостей на %{service_name}"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
     profile:
