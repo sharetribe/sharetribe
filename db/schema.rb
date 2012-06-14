@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120526021050) do
+ActiveRecord::Schema.define(:version => 20120614052244) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -75,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20120526021050) do
     t.string   "category",                                  :default => "other"
     t.boolean  "polls_enabled",                             :default => false
     t.string   "plan"
+    t.integer  "user_limit"
+    t.float    "monthly_price_in_euros"
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|

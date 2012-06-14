@@ -1,0 +1,39 @@
+%h1
+  Statistics
+  
+%h2
+  Activation
+
+Users who create content during first 2 weeks:
+= "#{@activation_p_first_two_weeks}% (#{@active_in_first_two_weeks} / #{@total_users_for_first_two_weeks})"
+%br
+
+Users who participate in a transaction during first month:
+= "#{@transaction_p_first_month}% (#{@transaction_in_first_month} / #{@total_users_for_first_month})"
+
+%h2
+  Retention
+
+%h3
+  G1 (at least a page load)
+MAU:
+= "#{@mau_p}% (#{@mau}/#{@registered_users})"
+%br
+WAU:
+= "#{@wau_p}% (#{@wau}/#{@registered_users})"
+%br
+DAU:
+= "#{@dau_p}% (#{@dau}/#{@registered_users})"
+
+%h2
+  Referral
+
+Invitations on average per user (accepted/sent)
+= "#{@inv_accepted_avg.round(4)} / #{@inv_sent_avg.round(4)}"
+
+
+%h2
+  Revenue
+
+Revenue per MAU:
+= "#{@revenue_sum/@mau}€ - #{@revenue_sum}€ / #{@mau} "
