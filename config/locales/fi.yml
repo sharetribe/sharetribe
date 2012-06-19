@@ -236,6 +236,8 @@ fi:
       log_out: "kirjautua ulos"
       join_community_button: "Liity yhteisöön"
   dashboard:
+    api:
+      coming_soon: "Tulossa pian!"
     index:
       get_started: "ALOITA TÄSTÄ!"
       browse_communities_around_you: "liity lähellä olevaan yhteisöön"

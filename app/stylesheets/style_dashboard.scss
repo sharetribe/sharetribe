@@ -832,3 +832,11 @@ p.map_bubble {
   }
   
 }
+
+#api_main {
+  @include main;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 50px;
+  text-align: center;
+}

@@ -1600,3 +1600,41 @@ p.map_bubble {
      color: #fa9961; }
   .faq a:active {
      color: #f8792f; }
+
+#api_main {
+  height: 421px;
+  background-color: #3e6e14;
+  background-image: -webkit-gradient(radial, 50% 100%, 100, 50% -50%, 100, from(#223f05), to(#3e6e14));
+  background-image: -webkit-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: -moz-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: -ms-radial-gradient(50% 0%, #3e6e14, #223f05);
+  background-image: radial-gradient(50% 0%, #3e6e14, #223f05);
+  box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  -khtml-box-shadow: inset 0 0 8px 1px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 50px;
+  text-align: center; }
+  #api_main p.intro {
+    margin: 46px 0 50px 0;
+    font-size: 18px;
+    color: white; }
+  #api_main p.browse {
+    margin-top: 5px;
+    color: white;
+    font-size: 18px;
+    text-align: center; }
+  #api_main p.tour {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #api_main div.faq_question {
+    margin-top: 26px;
+    font-size: 18px;
+    color: white; }
+  #api_main div.faq_answer {
+    margin-top: 26px;
+    font-size: 14px;
+    color: white; }
