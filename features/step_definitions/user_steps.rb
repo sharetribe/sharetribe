@@ -77,8 +77,12 @@ Given /^there are following users:$/ do |person_table|
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
       CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent)
     #end
-    attributes_to_update = hash.except('person','person_id')
+    attributes_to_update = hash.except('person','person_id', 'locale')
     @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?
+    if hash['locale'] 
+      @hash_person.locale = hash['locale']
+      @hash_person.save
+    end
     @people[hash['person']] = @hash_person
   end
 end
