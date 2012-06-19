@@ -29,11 +29,11 @@
           %div{:style => "font-size: 18px"}
             = select_tag 'locale', options_for_select(@communities.collect { |c| [c.name, get_url_for(c)]}), :onchange => 'open_url(this.value)', :include_blank => "Select your neighborhood:", :class => "community_select"
       %p.bottom.okl
-        "From Neighborhoods to Village Communities" project is a part of the World Design Capital Helsinki 2012 and Helsinki 200 years as capital celebrations. Aalto University is responsible for the project and Avoin Interactive Oy will handle practical matters. More information:
-        = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
+        "From Neighborhoods to Village Communities" project is a part of the World Design Capital Helsinki 2012 and Helsinki 200 years as capital celebrations. Aalto University is responsible for the project and Sharetribe Oy will handle practical matters.
+        = link_to("Contact us!", "mailto:info@sharetribe.com", :class => "green_part_link_smaller")
       %p.okl
         #logos
-          = image_tag("/images/dashboard/wdc_logo.png", :alt => "World Design Capital Helsinki 2012")
-          = image_tag("/images/dashboard/helsinki200v_logo.png", :alt => "World Design Capital Helsinki 2012")
+          = image_tag("/images/dashboard/wdc_logo.png", :alt => "World Design Capital Helsinki 2012", :class => "left_logo")
+          = link_to image_tag("/images/dashboard/helsinki200v_logo.png", :alt => "Helsinki 200 years as capital 2012"), "http://www.helsinki200.fi/", :class => "logo_link"
 = render :partial => "lower_middle"
 = render :partial => "footer"

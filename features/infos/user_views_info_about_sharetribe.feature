@@ -21,7 +21,7 @@ Feature: User views info about sharetribe
     And I should see "How to use" within ".inbox_tab_unselected"
     And I should see "Terms of use" within ".inbox_tab_selected"
     And I should see "Register details" within ".inbox_tab_unselected"
-    And I should see "Rights of content" within "h3"
+    And I should see "Rights of Content" within "h3"
   
   Scenario: User views how to use page without logging in
     Given I am on the home page

@@ -2,38 +2,13 @@
 @import url('../text.css');
 @import url('../960.css');
 @import url('../uniform.kassi.css');
-
-/* Colors */
-$bg_color: #f7f5e6;
-$text_color: #464646;
-$form_bg: #d1c9b4;
-$light_green_bg: #ececdb;
-$orange: #d45207;
-$medium_brown: #765d3a;
-$darker_brown: #5d492e;
-$dark_orange: darken($orange, 10%);
-$darker_orange: darken($orange, 20%);
-$light_orange: lighten($orange, 15%);
-$lighter_orange: lighten($orange, 25%);
-$dark_brown: darken($medium_brown, 12%);
-$light_brown: lighten($medium_brown, 12%);
-$light_grey: lighten($text_color, 20%);
-$lighter_grey: lighten($text_color, 30%);
-$yellow: #fdf4bc;
-$dark_green: #223f05;
-$lighter_green: #3e6714;
+@import "common";
 
 /* Fonts */
-$sans_font: 'Droid Sans', Helvetica, Georgia, Times, serif;
-
+$sans_font: 'Droid Sans', Helvetica, Arial, Verdana;
+$serif_font: 'Droid Serif', Helvetica, Georgia, Times, serif;
 
 /* Mixins */
-
-@mixin rounded($radius: 15px) {
-	border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-}
 
 @mixin connect_icon($icon_type) {
 	display: block;
@@ -43,14 +18,6 @@ $sans_font: 'Droid Sans', Helvetica, Georgia, Times, serif;
 	height: 49px;
 	color: transparent;
 	&:hover { background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + ".png") no-repeat 0 -49px};
-}
-
-@mixin spacer($color: $text_color, $type: solid) {
-	border-top: 1px $type $color;
-	width: 100%;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	height: 0;
 }
 
 @mixin form {
@@ -70,7 +37,7 @@ $sans_font: 'Droid Sans', Helvetica, Georgia, Times, serif;
 }
 
 @mixin form_button {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   @include rounded(7px);
   text-align: center;
   display: block;
@@ -131,40 +98,11 @@ $sans_font: 'Droid Sans', Helvetica, Georgia, Times, serif;
 	color: white;
 }
 
-@mixin hidden_div($width: 300px) {
-	@include rounded;
-	width: $width;
-	padding: 10px 10px 15px 10px;
-	background: $bg_color;
-	display: none;
-	overflow: hidden;
-	h3 {
-		font-size: 14px;
-		margin: 0;
-		padding: 0;
-		color: black;
-	}
-	h4 {
-		font-size: 14px;
-		margin: 0;
-		padding: 0;
-		color: black;
-	}
-}
-
-@mixin hidden_title($width: 200px) {
-	float: left;
-	width: $width;
-	font-weight: bold;
-	font-size: 16px;
-	padding: 10px 0 0 20px;
-}
-
 
 /* Actual stuff */
 
 body {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: $sans_font;
   background: $medium_brown;
   color: $text_color; 
 }
@@ -180,21 +118,21 @@ h1 {
 }
 
 h1.new_tribe { 
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   text-align: center;
   font-size: 40px;
   margin-bottom: 0; 
 }
 
 h1.browse {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   text-align: center;
   font-size: 40px;
   margin-top: 30px;
 }
 
 h2 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   margin: 30px 0 5px 0;
   font-size: 18px;
   font-weight: 300;
@@ -203,7 +141,7 @@ h2 {
 }
 
 h2.new_tribe {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: $sans_font;
   text-align: center;
   margin-top: 0;
   font-size: 18px;
@@ -212,15 +150,15 @@ h2.new_tribe {
 }
 
 h2.new_tribe_bottom {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: $sans_font;
   text-align: center;
   margin: 0 0 50px 0;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
 }
 
 h2.browse {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: $sans_font;
   text-align: center;
   margin: 0 0 50px 0;
   font-size: 18px;
@@ -236,7 +174,7 @@ h2.campaign_page {
 }
 
 h3 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   margin: 30px 0 0 0;
   font-size: 20px;
   letter-spacing: 4px;
@@ -245,7 +183,7 @@ h3 {
 }
 
 h3.pricing {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: $sans_font;
   margin: 0;
   font-size: 25px;
   font-weight: bold;
@@ -262,7 +200,7 @@ h3.map_bubble {
 }
 
 h4 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: $serif_font;
   margin: 30px 0 0 0;
   font-size: 36px;
   font-weight: 200;
@@ -288,6 +226,15 @@ a:active {
 a.green_part_link {
   color: $light_orange;
   font-size: 18px;
+  font-weight: 400;
+  &:hover { color: $lighter_orange; }
+  &:focus { color: $lighter_orange; }
+  &:active { color: $light_orange; }
+}
+
+a.green_part_link_smaller {
+  color: $light_orange;
+  font-size: 16px;
   font-weight: 400;
   &:hover { color: $lighter_orange; }
   &:focus { color: $lighter_orange; }
@@ -576,6 +523,16 @@ div.community_category {
 
 .footer_links {
   line-height: 28px;
+  overflow: hidden;
+}
+
+.footer_links_left {
+  float: left;
+  width: 90px;
+}
+
+.footer_links_right {
+  float: left;
 }
 
 #connect_icons {
@@ -609,8 +566,13 @@ div.community_category {
 
 #logos {
   overflow: hidden;
-  margin-top: 30px;
-  img { 
+  margin-top: 20px;
+  img.left_logo { 
+    float: left;
+    margin-right: 30px;
+  }
+  a.logo_link {
+    display: block;
     float: left;
     margin-right: 30px;
   }

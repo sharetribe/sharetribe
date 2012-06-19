@@ -205,6 +205,7 @@ Kassi::Application.routes.draw do
   end
   
   # Some non-RESTful mappings
+  match '/:locale/api' => "dashboard#api", :as => :api
   match '/:locale/faq' => "dashboard#faq", :as => :faq
   match '/:locale/pricing' => "dashboard#pricing", :as => :pricing
   match '/:locale/dashboard_login' => "dashboard#login", :as => :dashboard_login

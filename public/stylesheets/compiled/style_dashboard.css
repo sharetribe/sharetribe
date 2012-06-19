@@ -2,12 +2,88 @@
 @import url('../text.css');
 @import url('../960.css');
 @import url('../uniform.kassi.css');
-/* Colors */
+/* Main colors */
+/* Other colors */
+/* Used to fix form padding problem in FF */
+input[type="submit"]::-moz-focus-inner {
+  border: 0; }
+
+/* Used for divs with rounded corners */
+/* Draws a thin line */
+/* Flash notification */
+#notifications {
+  margin-top: 15px; }
+  #notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .warning {
+    margin: 0 5px;
+    color: #514721;
+    border: 2px solid #ffd324;
+    background: #fff6bf url("/images/icons/notification_icon_warning.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .info_message {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_info.png") 5px 0 no-repeat;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px;
+    line-height: 18px; }
+
+.notifications {
+  margin-top: 20px; }
+  .notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  .notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+
+/* Hidden div stuff */
 /* Fonts */
 /* Mixins */
 /* Actual stuff */
 body {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Sans", Helvetica, Arial, Verdana;
   background: #765d3a;
   color: #464646; }
 
@@ -22,19 +98,19 @@ h1 {
     margin-left: 30px; }
 
 h1.new_tribe {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
   text-align: center;
   font-size: 40px;
   margin-bottom: 0; }
 
 h1.browse {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
   text-align: center;
   font-size: 40px;
   margin-top: 30px; }
 
 h2 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
   margin: 30px 0 5px 0;
   font-size: 18px;
   font-weight: 300;
@@ -42,7 +118,7 @@ h2 {
   letter-spacing: 1px; }
 
 h2.new_tribe {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Sans", Helvetica, Arial, Verdana;
   text-align: center;
   margin-top: 0;
   font-size: 18px;
@@ -50,14 +126,14 @@ h2.new_tribe {
   margin-bottom: 0; }
 
 h2.new_tribe_bottom {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Sans", Helvetica, Arial, Verdana;
   text-align: center;
   margin: 0 0 50px 0;
-  font-size: 18px;
+  font-size: 16px;
   color: white; }
 
 h2.browse {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Sans", Helvetica, Arial, Verdana;
   text-align: center;
   margin: 0 0 50px 0;
   font-size: 18px;
@@ -71,7 +147,7 @@ h2.campaign_page {
   color: white; }
 
 h3 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 20px;
   letter-spacing: 4px;
@@ -79,7 +155,7 @@ h3 {
   font-weight: 200; }
 
 h3.pricing {
-  font-family: 'Droid Sans', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Sans", Helvetica, Arial, Verdana;
   margin: 0;
   font-size: 25px;
   font-weight: bold;
@@ -94,7 +170,7 @@ h3.map_bubble {
   line-height: 30px; }
 
 h4 {
-  font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+  font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
   margin: 30px 0 0 0;
   font-size: 36px;
   font-weight: 200;
@@ -122,6 +198,17 @@ a.green_part_link {
   a.green_part_link:focus {
      color: #fa9961; }
   a.green_part_link:active {
+     color: #f8792f; }
+
+a.green_part_link_smaller {
+  color: #f8792f;
+  font-size: 16px;
+  font-weight: 400; }
+  a.green_part_link_smaller:hover {
+    color: #fa9961; }
+  a.green_part_link_smaller:focus {
+     color: #fa9961; }
+  a.green_part_link_smaller:active {
      color: #f8792f; }
 
 li[role=presentation] a {
@@ -395,7 +482,7 @@ div.get_started {
   width: 100%;
   cursor: pointer; }
   div.get_started a {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -458,7 +545,7 @@ div.community_category {
   -webkit-border-radius: 10px;
   float: left; }
   div.community_category a {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -547,7 +634,15 @@ div.community_category {
   margin: 5px 0 40px 0; }
 
 .footer_links {
-  line-height: 28px; }
+  line-height: 28px;
+  overflow: hidden; }
+
+.footer_links_left {
+  float: left;
+  width: 90px; }
+
+.footer_links_right {
+  float: left; }
 
 #connect_icons {
   border-radius: 7px;
@@ -603,8 +698,12 @@ div.community_category {
 
 #logos {
   overflow: hidden;
-  margin-top: 30px; }
-  #logos img {
+  margin-top: 20px; }
+  #logos img.left_logo {
+    float: left;
+    margin-right: 30px; }
+  #logos a.logo_link {
+    display: block;
     float: left;
     margin-right: 30px; }
 
@@ -637,8 +736,8 @@ div.community_category {
 .dashboard_spacer {
   border-top: 1px solid #939393;
   width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
+  padding: 0;
   height: 0; }
 
 .hidden {
@@ -654,7 +753,7 @@ div.community_category {
   padding: 35px 40px 25px 40px;
   overflow: hidden; }
   #new_tribe_form .form_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -732,7 +831,7 @@ span.domain {
   overflow: hidden;
   text-align: left; }
   #login_form .form_button, #signup_form .form_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -791,7 +890,7 @@ span.domain {
     margin-left: 0;
     width: 524px; }
   #login_form .send_button, #signup_form .send_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -888,7 +987,7 @@ div.show_tribe_link {
   -webkit-border-radius: 10px;
   float: left; }
   div.show_tribe_link a {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1061,7 +1160,7 @@ p.okl {
   margin-bottom: 30px;
   padding: 20px 25px; }
   .pricing_column .form_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1120,7 +1219,7 @@ p.okl {
     margin-left: 0;
     width: 524px; }
   .pricing_column a {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1186,7 +1285,7 @@ div.language {
   overflow: hidden;
   overflow: hidden; }
   #organization_email_form .form_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1245,7 +1344,7 @@ div.language {
     margin-left: 0;
     width: 524px; }
   #organization_email_form .send_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1305,7 +1404,7 @@ div.language {
   overflow: hidden;
   overflow: hidden; }
   #confirmation_pending_form .form_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1369,7 +1468,7 @@ div.language {
     #confirmation_pending_form p a {
       font-size: 16px; }
   #confirmation_pending_form input.resend_email_confirmation_button, #confirmation_pending_form input.send_button {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1426,7 +1525,7 @@ div.language {
   width: 150px;
   float: right; }
   .map_bubble_link a {
-    font-family: 'Droid Serif', Helvetica, Georgia, Times, serif;
+    font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
@@ -1447,7 +1546,7 @@ div.language {
     border: 0px;
     cursor: pointer;
     padding: 5px;
-    font-family: "Droid Sans", Helvetica, Georgia, Times, serif; }
+    font-family: "Droid Sans", Helvetica, Arial, Verdana; }
     .map_bubble_link a:active {
       background-color: #ed9374;
       background-image: -webkit-gradient(linear, left top, left bottom, from(#ed9374), to(#e77148));

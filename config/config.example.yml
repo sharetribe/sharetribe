@@ -19,7 +19,7 @@ default: &default_settings
   
   # Sharetribe can use an Aalto Social Interface server to store userinformation
   # If you want to use an ASI server set this to true and specify server address and password below.
-  use_asi: true
+  use_asi: false
   
   #This is the url of the ASI server you want to use
   asi_url: "http://cos.alpha.sizl.org"

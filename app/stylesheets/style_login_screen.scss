@@ -2,6 +2,7 @@
 @import url('../text.css');
 @import url('../960.css');
 @import url('../uniform.kassi.css');
+@import "common";
 
 $bg_color: #f7f5e6;
 $text_color: #464646;
@@ -39,14 +40,6 @@ $dark_green: #223f05;
 	&:focus { background-color: $light_brown; }
 }
 
-@mixin spacer($color: $medium_brown, $type: solid) {
-	border-top: 1px $type $color;
-	width: 100%;
-	margin: 10px 0;
-	padding: 0;
-	height: 0;
-}
-
 @mixin colored_title($color: $orange, $width: 340px) {
 	color: $color;
 	width: $width;
@@ -74,18 +67,6 @@ $dark_green: #223f05;
 	padding: 14px 10px 5px 10px;
 	background: red url("/images/error_arrow.png") no-repeat top left;
 	color: white;
-}
-
-@mixin notification($text, $border, $bg, $bg_position: 0, $font-weight: bold) {
-	margin: 0 5px;
-	color: $text;
-	border: 2px solid $border;
-	background: $bg url("/images/icons/notification_icons.png") 5px $bg_position no-repeat;
-	font-weight: $font-weight;
-	font-size: 14px;
-	padding: 5px 5px;
-	overflow: hidden;
-	width: 927px;
 }
 
 /* Used for divs with rounded top or bottom */
@@ -450,33 +431,6 @@ p { font-size: 18px; }
 	float: right;
 	font-size: 18px;
 	font-weight: bold;
-}
-
-#notifications {
-	margin-top: 15px;
-	.notice {
-		@include notification($notice_text, $notice_border, $notice_bg);
-	}
-	.error {
-		@include notification($error_text, $error_border, $error_bg, -40px);
-	}
-	.warning {
-		@include notification($warning_text, $warning_border, $warning_bg, -80px);
-	}
-	.info_message{
-		@include notification($notice_text, $notice_border, $notice_bg, -115px, normal);
-		line-height: 18px;
-	}
-}
-
-.notifications {
-	margin-top: 20px;
-	.notice {
-		@include notification($notice_text, $notice_border, $notice_bg);
-	}
-	.error {
-		@include notification($error_text, $error_border, $error_bg, -40px);
-	}
 }
 
 .feedback_div {
