@@ -2,52 +2,7 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 @import url('../uniform.kassi.css');
-@import url('../massi.css');
-
-/* Colors */
-$bg_color: #f7f5e6;
-$text_color: #464646;
-$form_bg: #d1c9b4;
-$light_green_bg: #ececdb;
-$light_green_status_box: #d0e2ae;
-$light_red_status_box: #f1cecf;
-$orange: #d45207;
-$medium_brown: #765d3a;
-$dark_orange: darken($orange, 10%);
-$darker_orange: darken($orange, 20%);
-$light_orange: lighten($orange, 15%);
-$lighter_orange: lighten($orange, 25%);
-$teaser_bg: #e7b78d;
-$dark_brown: darken($medium_brown, 12%);
-$light_brown: lighten($medium_brown, 12%);
-$light_grey: lighten($text_color, 20%);
-$bg_color_dark: darken($bg_color, 10%);
-$listing_button_grey: #5c5c5c;
-$listing_button_light_grey: #b8b19f;
-$dark_green: #223f05;
-$lighter_green: lighten($dark_green, 5%);
-$light_green: #ececdb;
-$greyish_green: #ccd1b9;
-$unread_message: #efd6ba;
-$notice_text: #264409; 
-$notice_border: #c6d880; 
-$notice_bg: #e6efc2;
-$error_text: #8a1f11;
-$error_border: #fbc2c4;
-$error_bg: #fbe3e4;
-$warning_text: #514721;
-$warning_border: #ffd324;
-$warning_bg: #fff6bf;
-
-/* Used to fix form padding problem in FF */
-input[type="submit"]::-moz-focus-inner {border:0;}
-
-/* Used for divs with rounded corners */
-@mixin rounded($radius: 7px) {
-  border-radius: $radius;
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-}
+@import "common";
 
 /* Used for divs with rounded top or bottom */
 @mixin half_rounded($side, $radius: 7px) {
@@ -67,14 +22,6 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 	-moz-border-radius-bottom#{$side}: $radius;
   -webkit-border-top-#{$side}-radius: $radius;
 	-webkit-border-top-#{$side}-radius: $radius;
-}
-
-@mixin spacer($color: $medium_brown, $type: solid) {
-	border-top: 1px $type $color;
-	width: 100%;
-	margin: 10px 0;
-	padding: 0;
-	height: 0;
 }
 
 /* Basic form */
@@ -371,18 +318,6 @@ form, input {
 	height: 20px;
 }
 
-@mixin notification($text, $border, $bg, $bg_position: 0, $font-weight: bold) {
-	margin: 0 5px;
-	color: $text;
-	border: 2px solid $border;
-	background: $bg url("/images/icons/notification_icons.png") 5px $bg_position no-repeat;
-	font-weight: $font-weight;
-	font-size: 14px;
-	padding: 5px 5px;
-	overflow: hidden;
-	width: 927px;
-}
-
 .notification_text {
 	width: 850px;
 	float: left;
@@ -395,33 +330,6 @@ form, input {
 	float: right;
 	font-size: 18px;
 	font-weight: bold;
-}
-
-#notifications {
-	margin-top: 15px;
-	.notice {
-		@include notification($notice_text, $notice_border, $notice_bg);
-	}
-	.error {
-		@include notification($error_text, $error_border, $error_bg, -40px);
-	}
-	.warning {
-		@include notification($warning_text, $warning_border, $warning_bg, -80px);
-	}
-	.info_message{
-		@include notification($notice_text, $notice_border, $notice_bg, -115px, normal);
-		line-height: 18px;
-	}
-}
-
-.notifications {
-	margin-top: 20px;
-	.notice {
-		@include notification($notice_text, $notice_border, $notice_bg);
-	}
-	.error {
-		@include notification($error_text, $error_border, $error_bg, -40px);
-	}
 }
 
 .field_with_errors {
@@ -1061,20 +969,6 @@ span.smaller {
 	width: 300px;
 }
 
-@mixin hidden_div($width: 300px) {
-	@include rounded;
-	width: $width;
-	padding: 10px 10px 15px 10px;
-	background: $bg_color;
-	display: none;
-	overflow: hidden;
-	h3 {
-		font-size: 14px;
-		margin: 0;
-		padding: 0;
-	}
-}
-
 .hidden_description {
 	@include hidden_div;
 }
@@ -1085,14 +979,6 @@ span.smaller {
 
 .hidden_description_feedback {
 	@include hidden_div(600px);
-}
-
-@mixin hidden_title($width: 200px) {
-	float: left;
-	width: $width;
-	font-weight: bold;
-	font-size: 16px;
-	padding: 10px 0 0 20px;
 }
 
 .hidden_title { @include hidden_title; }
@@ -1853,7 +1739,7 @@ a.edit_profile {
 }
 
 @mixin message_notice($width: 340px, $margin_left: 77px) {
-	@include notification($notice_text, $notice_border, $notice_bg);
+	@include notification("notice", $notice_text, $notice_border, $notice_bg);
 	margin: 10px 77px 10px $margin_left;
 	width: $width;
 	padding: 10px 0 10px 55px;
@@ -2382,7 +2268,7 @@ span.profile_settings_visibility_info {
 }
 
 #listing_closed_status {
-	@include notification($error_text, $error_border, $error_bg, -40px);
+	@include notification("error", $error_text, $error_border, $error_bg);
 	width: 200px;
 }
 
@@ -3254,6 +3140,20 @@ input.resend_email_confirmation_button {
 	@include send_button;
 	width: 330px;
 }
+
+/* Tag cloud - Massi code */
+#tag_cloud {text-align: justify; }
+#tag_cloud a {border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#tag_cloud a:hover,focus { background: #fdd9c3;}
+#tag_cloud a:active { background: #fa9961; color: #464646; }
+#tag_cloud a.selected {background: #fbb992; color: #464646; }
+
+#tag_cloud .tag1 {font-size: 0.7em;}
+#tag_cloud .tag2 {font-size: 0.9em;}
+#tag_cloud .tag3 {font-size: 1.1em;}
+#tag_cloud .tag4 {font-size: 1.3em;}
+#tag_cloud .tag5 {font-size: 1.5em;}
+#tag_cloud .tag6 {font-size: 1.7em;}
 
 
 /* Trustcloud's Trustcard colors*/

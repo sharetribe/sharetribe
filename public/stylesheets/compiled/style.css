@@ -2,13 +2,83 @@
 @import url('../text.css');
 @import url('../960_24_col.css');
 @import url('../uniform.kassi.css');
-@import url('../massi.css');
-/* Colors */
+/* Main colors */
+/* Other colors */
 /* Used to fix form padding problem in FF */
 input[type="submit"]::-moz-focus-inner {
   border: 0; }
 
 /* Used for divs with rounded corners */
+/* Draws a thin line */
+/* Flash notification */
+#notifications {
+  margin-top: 15px; }
+  #notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .warning {
+    margin: 0 5px;
+    color: #514721;
+    border: 2px solid #ffd324;
+    background: #fff6bf url("/images/icons/notification_icon_warning.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  #notifications .info_message {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_info.png") 5px 0 no-repeat;
+    font-weight: normal;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px;
+    line-height: 18px; }
+
+.notifications {
+  margin-top: 20px; }
+  .notifications .notice {
+    margin: 0 5px;
+    color: #264409;
+    border: 2px solid #c6d880;
+    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+  .notifications .error {
+    margin: 0 5px;
+    color: #8a1f11;
+    border: 2px solid #fbc2c4;
+    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 5px 5px;
+    overflow: hidden;
+    width: 927px; }
+
+/* Hidden div stuff */
 /* Used for divs with rounded top or bottom */
 /* Used for divs with rounded left or right */
 /* Basic form */
@@ -262,73 +332,6 @@ form, input {
   float: right;
   font-size: 18px;
   font-weight: bold; }
-
-#notifications {
-  margin-top: 15px; }
-  #notifications .notice {
-    margin: 0 5px;
-    color: #264409;
-    border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px; }
-  #notifications .error {
-    margin: 0 5px;
-    color: #8a1f11;
-    border: 2px solid #fbc2c4;
-    background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px; }
-  #notifications .warning {
-    margin: 0 5px;
-    color: #514721;
-    border: 2px solid #ffd324;
-    background: #fff6bf url("/images/icons/notification_icons.png") 5px -80px no-repeat;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px; }
-  #notifications .info_message {
-    margin: 0 5px;
-    color: #264409;
-    border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icons.png") 5px -115px no-repeat;
-    font-weight: normal;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px;
-    line-height: 18px; }
-
-.notifications {
-  margin-top: 20px; }
-  .notifications .notice {
-    margin: 0 5px;
-    color: #264409;
-    border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px; }
-  .notifications .error {
-    margin: 0 5px;
-    color: #8a1f11;
-    border: 2px solid #fbc2c4;
-    background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 5px 5px;
-    overflow: hidden;
-    width: 927px; }
 
 .field_with_errors {
   float: left; }
@@ -1123,9 +1126,9 @@ span.smaller {
   width: 300px; }
 
 .hidden_description {
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   width: 300px;
   padding: 10px 10px 15px 10px;
   background: #f7f5e6;
@@ -1134,12 +1137,18 @@ span.smaller {
   .hidden_description h3 {
     font-size: 14px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    color: black; }
+  .hidden_description h4 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black; }
 
 .hidden_description_terms {
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   width: 500px;
   padding: 10px 10px 15px 10px;
   background: #f7f5e6;
@@ -1148,12 +1157,18 @@ span.smaller {
   .hidden_description_terms h3 {
     font-size: 14px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    color: black; }
+  .hidden_description_terms h4 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black; }
 
 .hidden_description_feedback {
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   width: 600px;
   padding: 10px 10px 15px 10px;
   background: #f7f5e6;
@@ -1162,7 +1177,13 @@ span.smaller {
   .hidden_description_feedback h3 {
     font-size: 14px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    color: black; }
+  .hidden_description_feedback h4 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black; }
 
 .hidden_title {
   float: left;
@@ -2124,7 +2145,7 @@ a.edit_profile {
   margin: 0 5px;
   color: #264409;
   border: 2px solid #c6d880;
-  background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
+  background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 5px;
@@ -2138,7 +2159,7 @@ a.edit_profile {
   margin: 0 5px;
   color: #264409;
   border: 2px solid #c6d880;
-  background: #e6efc2 url("/images/icons/notification_icons.png") 5px 0 no-repeat;
+  background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 5px;
@@ -2740,7 +2761,7 @@ span.profile_settings_visibility_info {
   margin: 0 5px;
   color: #8a1f11;
   border: 2px solid #fbc2c4;
-  background: #fbe3e4 url("/images/icons/notification_icons.png") 5px -40px no-repeat;
+  background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
   font-weight: bold;
   font-size: 14px;
   padding: 5px 5px;
@@ -3198,9 +3219,9 @@ a.handle:hover {
   font-size: 11px; }
 
 .badge_description {
-  border-radius: 7px;
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   width: 450px;
   padding: 10px 10px 15px 10px;
   background: #f7f5e6;
@@ -3209,7 +3230,13 @@ a.handle:hover {
   .badge_description h3 {
     font-size: 14px;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    color: black; }
+  .badge_description h4 {
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    color: black; }
   .badge_description img {
     padding: 0 10px 30px 10px;
     float: right; }
@@ -3707,6 +3734,44 @@ input.resend_email_confirmation_button {
     background-color: #9f7d4e; }
   input.resend_email_confirmation_button:focus {
     background-color: #9f7d4e; }
+
+/* Tag cloud - Massi code */
+#tag_cloud {
+  text-align: justify; }
+
+#tag_cloud a {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px; }
+
+#tag_cloud a:hover, focus {
+  background: #fdd9c3; }
+
+#tag_cloud a:active {
+  background: #fa9961;
+  color: #464646; }
+
+#tag_cloud a.selected {
+  background: #fbb992;
+  color: #464646; }
+
+#tag_cloud .tag1 {
+  font-size: 0.7em; }
+
+#tag_cloud .tag2 {
+  font-size: 0.9em; }
+
+#tag_cloud .tag3 {
+  font-size: 1.1em; }
+
+#tag_cloud .tag4 {
+  font-size: 1.3em; }
+
+#tag_cloud .tag5 {
+  font-size: 1.5em; }
+
+#tag_cloud .tag6 {
+  font-size: 1.7em; }
 
 /* Trustcloud's Trustcard colors*/
 /* Light Color */

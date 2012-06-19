@@ -45,12 +45,12 @@
         osa World Design Capital Helsinki 2012 ja
         Helsinki 200 vuotta pääkaupunkina -juhlavuosia.
         Hankkeesta vastaa Aalto-yliopisto ja sen käytännön
-        toteutuksesta Avoin Interactive Oy. Lisätietoja:
-        = image_tag("/images/dashboard/kassi_email_address2.png", :alt => "Our email address", :class => "email")
+        toteutuksesta Sharetribe Oy.
+        = link_to("Ota yhteyttä!", "mailto:info@sharetribe.com", :class => "green_part_link_smaller")
       %p.okl
         #logos
-          = image_tag("/images/dashboard/wdc_logo.png", :alt => "World Design Capital Helsinki 2012")
-          = image_tag("/images/dashboard/helsinki200v_logo.png", :alt => "World Design Capital Helsinki 2012")
+          = image_tag("/images/dashboard/wdc_logo.png", :alt => "World Design Capital Helsinki 2012", :class => "left_logo")
+          = link_to image_tag("/images/dashboard/helsinki200v_logo.png", :alt => "Helsinki 200 vuotta pääkaupunkina"), "http://www.helsinki200.fi/", :class => "logo_link"
 = render :partial => "lower_middle"
 = render :partial => "footer"
       

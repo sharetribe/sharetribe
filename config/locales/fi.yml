@@ -61,7 +61,7 @@ fi:
       lend: "annetaan lainaan"
       receive: "otetaan vastaan"
       rent: vuokrataan
-      rent_out: vuokrataan
+      rent_out: "annetaan vuokralle"
       sell: myydään
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
@@ -173,16 +173,16 @@ fi:
       free_plan: "Ilmainen paketti"
       max_members: "Max. %{number} jäsentä"
       premium_plan: Palvelupaketti
-      care_free_user_support: "Huoleton käyttäjätuki"
+      care_free_user_support: "Priorisoitu käyttäjätuki"
       create_your_tribe: "Luo yhteisö"
       professional_plan: "Mukautuva paketti"
       unlimited_members: "Rajoittamaton jäsenmäärä"
-      intranet_integration: "Intranet integrointi"
+      intranet_integration: "Intranet-integrointi"
       no_charge: Ilmainen
       euros_per_month_premium: "%{price} euroa/kk (sis. ALV)"
-      custom_domain: "oma domain-nimi"
+      custom_domain: "Oma verkko-osoite"
       you_can_change_and_cancel: "Voit vaihtaa tai perua valittun paketin milloin vain."
-      we_help_you_get_started: "Autamme porukan kokoamisessa"
+      we_help_you_get_started: "Tuki aloitusvaiheessa"
       discounts_available_for_non_profits: "Tarjoamme 50% alennuksen voittoa tavoittelemattomille yhdistyksille"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Millaisen yhteisön haluat luoda?"
@@ -257,7 +257,10 @@ fi:
       resources: RESURSSIT
       connect: YHTEYS
       blog: Blogi
-      code: Koodi
+      code: "Lähdekoodi"
+      about: TIETOA
+      developers: KEHITTÄJILLE
+      api: API
       issue_tracker: Tehtävänhallinta
       product_of: "%{service_name_partitive} tekee"
       language: "Kieli:"
@@ -272,7 +275,7 @@ fi:
       faq: FAQ
       browse_tribes: "Selaa yhteisöjä"
       pricing: Hinnat
-      contact: Yhteys
+      contact: "Ota yhteyttä"
       university_example_link: "<a href=\"http://aalto.sharetribe.com/fi\">Aalto-yliopiston Sharetribe </a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/fi\">HTC Keilaniemen Sharetribe </a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
@@ -758,7 +761,7 @@ fi:
         offer_type: Tarjoustapa
         receive: "Otetaan vastaan"
         rent: Vuokrataan
-        rent_out: Vuokrataan
+        rent_out: "Annetaan vuokralle"
         request_type: Pyyntötapa
         sell: Myydään
         temporary_accommodation: Tilapäismajoitus
@@ -815,7 +818,7 @@ fi:
       items: Tavarat
       lends: "Annetaan lainaan"
       receives: "Otetaan vastaan"
-      rent_outs: Vuokrataan
+      rent_outs: "Annetaan vuokralle"
       rents: Vuokrataan
       rideshares: Kimppakyydit
       sells: Myydään
