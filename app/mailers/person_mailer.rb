@@ -6,7 +6,7 @@ class PersonMailer < ActionMailer::Base
   # Enable use of method to_date.
   require 'active_support/core_ext'
   
-  default :from => APP_CONFIG.kassi_mail_from_address
+  default :from => APP_CONFIG.sharetribe_mail_from_address, :reply_to => APP_CONFIG.sharetribe_reply_to_address
   layout 'email'
 
   def new_message_notification(message, host=nil)
@@ -15,7 +15,10 @@ class PersonMailer < ActionMailer::Base
     @message = message
     alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
-         :subject => t("emails.new_message.you_have_a_new_message"))
+         :subject => t("emails.new_message.you_have_a_new_message"),
+         :reply_to => APP_CONFIG.sharetribe_mail_from_address) 
+         # reply_to no-reply address so that people notice immediately that it didn't work
+         # and hopefully read the actual message and answer with the link 
   end
   
   def new_comment_to_own_listing_notification(comment, host=nil)

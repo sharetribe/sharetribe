@@ -79,7 +79,12 @@ default: &default_settings
   #postmark_api_key:
 
   # This will be the from field in the mails sent from Sharetribe
-  kassi_mail_from_address: "noreply-kassi@example.com"
+  sharetribe_mail_from_address: "noreply-kassi@example.com"
+  # This address is added in the most mail signatures 
+  # (it's good idea to set this if you use no-reply addres as the form
+  # address above so that people can contact the admins if needed)
+  # Can also be left blank.
+  sharetribe_reply_to_address: "real-team-address@example.com"
   
   # The address where the notifications of feedbacks from Sharetribe UI are sent
   feedback_mailer_recipients:  'admins@example.com'
