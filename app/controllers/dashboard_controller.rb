@@ -27,6 +27,10 @@ class DashboardController < ApplicationController
     
   end
   
+  def api
+    
+  end
+  
   def pricing
     
   end
