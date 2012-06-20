@@ -1,7 +1,3 @@
-jQuery.ajaxSetup({
-  'beforeSend': function(xhr) {xhr.setRequestHeader("Accept", "text/javascript")}
-});
-
 function initialize_confirmation_pending_form(locale, email_in_use_message) {
 	$('#mistyped_email_link').click(function() { 
 		$('#password_forgotten').slideToggle('fast'); 
@@ -25,23 +21,13 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
   });
 }
 
-// function disable_and_submit(form_id, form, ajax, locale) {
-//  disable_submit_button(form_id, locale);
-//  form.submit();
-// }
-
+/* This should be used with non-ajax forms only */
 function disable_and_submit(form_id, form, ajax, locale) {
-	$(form_id + ' input[type=submit]').attr('disabled', 'disabled');
-	jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
-	  $(form_id + ' input[type=submit]').val(json.please_wait);
-	});
-	if (ajax == "true") {
-		$(form).ajaxSubmit();
-	} else {
-  	form.submit();
-	}	
+  disable_submit_button(form_id, locale);
+  form.submit();
 }
 
+/* This should be used always with ajax forms */
 function prepare_ajax_form(form_id, locale, rules) {
   $(form_id).ajaxForm({
     dataType: 'script',

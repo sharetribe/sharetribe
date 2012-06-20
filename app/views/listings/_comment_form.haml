@@ -2,7 +2,7 @@
   = t(".you_cannot_send_a_new_comment_because_#{@listing.listing_type}_is_closed")  
 - elsif logged_in?
   #comment_form
-    = form_for Comment.new, :url => listing_comments_path(:listing_id => @listing.id.to_s), :remote => true do |f|
+    = form_for Comment.new, :url => listing_comments_path(:listing_id => @listing.id.to_s) do |f|
       .message_form_field_container
         = f.label :content, t(".write_comment")
       .message_form_field_container  

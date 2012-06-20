@@ -94,16 +94,14 @@ function initialize_defaults(default_text, feedback_default_text, locale) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	var form_id = "#new_feedback";
-	$(form_id).validate({
-		rules: {
+	prepare_ajax_form(
+    "#new_feedback",
+    locale, 
+    {
 		  "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
 		}
-	});
+  );
 }
 
 function initialize_feedback_tab() {
@@ -229,28 +227,20 @@ function initialize_send_message_form(default_text, locale) {
 function initialize_reply_form(locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
-	var form_id = "#new_message"
-	$(form_id).validate({
-		rules: {
-			"message[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
-		}
-	});	
+	prepare_ajax_form(
+    "#new_message",
+    locale, 
+    {"message[content]": {required: true, minlength: 1}}
+  );
 }
 
 function initialize_comment_form(locale) {
 	auto_resize_text_areas();
-	var form_id = "#new_comment"
-	$(form_id).validate({
-		rules: {
-			"comment[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
-		}
-	});
+	prepare_ajax_form(
+    "#new_comment",
+    locale, 
+    {"comment[content]": {required: true, minlength: 1}}
+  );
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
@@ -281,6 +271,7 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 }
 
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
+  console.log("Here we are");
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
@@ -338,8 +329,6 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
       "person[street_address]": {required: false, address_validator: true},
 			"person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
-			// 			"person[postal_code]": {required: false, maxlength: 8},
-			// 			"person[city]": {required: false, maxlength: 50},
 			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		 onkeyup: false,
@@ -347,7 +336,7 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
          onfocusout: false,
 		 onsubmit: true,
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -357,7 +346,7 @@ function initialize_update_notification_settings_form(locale, person_id) {
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -373,7 +362,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 			"file": { required: true, accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -616,16 +605,14 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	var form_id = "#new_feedback";
-	$(form_id).validate({
-		rules: {
+	prepare_ajax_form(
+    "#new_feedback",
+    locale, 
+    {
 		  "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
 		}
-	});
+  );
 }
 
 function initialize_private_community_homepage(username_default_text, password_default_text) {

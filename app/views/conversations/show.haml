@@ -26,7 +26,7 @@
   #conversation_notice
     
   #reply_form
-    = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s), :remote => true do |f|
+    = form_for Message.new, :url => person_message_messages_path(:person_id => @current_user.id, :message_id => @conversation.id.to_s) do |f|
       .message_form_field_container
         = f.label :content, t(".write_a_reply")
       .message_form_field_container  
