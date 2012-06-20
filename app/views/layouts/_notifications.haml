@@ -1,7 +1,8 @@
 :javascript
   $(document).ready(function() { $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); }); });
 
-#notifications{:class => (@container_class || "container_24")}
+- container_class = (@current_community.private? && !logged_in?) ? "container_12" : "container_24"
+#notifications{:class => container_class}
   - [:notice, :warning, :error, :info_message].each do |announcement|
     - if flash[announcement]  
       %div{:class => announcement.to_s}
