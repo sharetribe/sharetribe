@@ -2,12 +2,14 @@
 $("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
 
 /* Close the invitation form */
-$('div.invitation_form_hidden_parts').slideUp('fast');
+if ("<%= Rails.env %>" != "test") {
+  $('div.invitation_form_hidden_parts').slideUp('fast');
+}
 
 /* Reset the invitation form */
 $("#new_invitation")[0].reset();
-$("#new_invitation")[1].reset();
 
 /* Enable send button */
 $('#new_invitation input[type=submit]').removeAttr('disabled');
 $('#new_invitation input[type=submit]').val('<%= t("homepage.invitation_form.send_invitation") %>');
+
