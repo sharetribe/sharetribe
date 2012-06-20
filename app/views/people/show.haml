@@ -21,7 +21,7 @@
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
     .profile_badges_header
       = "#{t('.badges')} (#{@person.badges.size})"
-      &nbsp;
+      %br/
       = link_to t(".what_are_these"), "#", :id => "badges_description_link"
     .profile_badges
       = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
