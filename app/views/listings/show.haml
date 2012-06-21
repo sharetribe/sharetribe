@@ -64,10 +64,10 @@
             = @listing.location.address
     #additional_listing_links
       .float_left
-        = facebook_like
-      .float_left
         = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe", "data-related" => "avoinyritys:Our company blog.")
-        %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}    
+        %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
+      .float_left
+        = facebook_like
       - if @current_community.settings["use_qr_code"]
         .float_left
           = link_to(t(".qr_code"), "http://qrcode.kaywa.com/img.php?s=6&d=#{CGI.escape request.url}")
