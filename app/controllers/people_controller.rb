@@ -71,7 +71,19 @@ class PeopleController < Devise::RegistrationsController
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
       end
     end
-        
+    
+    # Check that email is not taken
+    unless Person.email_available?(params[:person][:email])
+      flash[:error] = t("people.new.email_is_in_use")
+      redirect_to error_redirect_path and return
+    end
+    
+    # Check that the email is allowed for current community
+    if @current_community && ! @current_community.email_allowed?(params[:person][:email])
+      flash[:error] = t("people.new.email_not_allowed")
+      redirect_to error_redirect_path and return
+    end
+    
     @person = Person.new
     if APP_CONFIG.use_recaptcha && @current_community && @current_community.use_captcha && !verify_recaptcha_unless_already_accepted(:model => @person, :message => t('people.new.captcha_incorrect'))
         
@@ -192,6 +204,13 @@ class PeopleController < Devise::RegistrationsController
 	    flash[:error] = t("people.new.email_not_allowed")
 	    redirect_to :back and return
     end
+    
+    # If person is changing email address, store the old confirmed address as additional email
+    # One point of this is that same email cannot be used more than one in email restricted community
+    # (This has to be remembered also when creating a possibility to modify additional emails)
+    if params[:person][:email] && @person.confirmed_at
+      Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
+    end
 	  
     begin
       if @person.update_attributes(params[:person], session[:cookie])
@@ -258,13 +277,7 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks only that email is not already in use
   def check_email_availability
-    # check if it's already in use
-    if @current_user && (@current_user.email == params[:person][:email] || Email.find_by_address_and_person_id(params[:person][:email], @current_user.id) )
-      # Current user's own email should not be shown as unavailable
-      available = true
-    else
-      available = Person.email_available?(params[:person][:email])
-    end
+    available = email_available_for_user?(@current_user, params[:person][:email])
     
     respond_to do |format|
       format.json { render :json => available }
