@@ -1,7 +1,7 @@
 class Api::ListingsController < Api::ApiController
-  respond_to :json
 
-
+  #before_filter :authenticate_person!
+  
   def index
     if params[:community_id]
       @listings = Community.find(params[:community_id]).listings
