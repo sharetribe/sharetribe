@@ -16,7 +16,11 @@ default: &default_settings
   # are submited in encrypted form. e.g. "https://login.kassi.eu"
   # If this is empty, will use the same domain for login
   login_domain: 
-  
+
+  # Sharetribe can allow accessing data from external applications by RESTful API
+  # You can enable the API by setting this value true
+  api_enabled: false
+
   # Sharetribe can use an Aalto Social Interface server to store userinformation
   # If you want to use an ASI server set this to true and specify server address and password below.
   use_asi: false

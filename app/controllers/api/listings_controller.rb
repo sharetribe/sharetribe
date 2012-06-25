@@ -1,5 +1,5 @@
 class Api::ListingsController < Api::ApiController
-  respond_to :json, :api_json
+  respond_to :json
 
 
   def index
