@@ -3,10 +3,16 @@ class Api::ApiController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :fetch_community
 
-  before_filter :set_correct_mime_type
+  before_filter :ensure_api_enabled, :set_correct_mime_type
   
   
   protected
+  
+  def ensure_api_enabled
+    unless APP_CONFIG.api_enabled
+      render :status => :forbidden, :json => ["API is not enabled on this server"]
+    end
+  end
   
   def set_correct_mime_type
     # puts "ACCEPT: ->"
