@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class ApplicationController < ActionController::Base
   include UrlHelper, ApplicationHelper
   protect_from_forgery
