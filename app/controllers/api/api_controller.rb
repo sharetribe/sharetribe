@@ -3,10 +3,13 @@ class Api::ApiController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :fetch_community
 
+  prepend_before_filter :get_api_key
   before_filter :ensure_api_enabled, :set_correct_mime_type
   
   #version 1
   
+  respond_to :json
+    
   layout false
   
   protected
@@ -37,6 +40,13 @@ class Api::ApiController < ApplicationController
     default_version = 'alpha'
     pattern = /application\/vnd\.sharetribe.*version=([\d]+)/
     request.env['HTTP_ACCEPT'][pattern, 1] || default_version
+  end
+  
+
+  def get_api_key
+    if api_token = params[:api_token].blank? && request.headers["Sharetribe-API-Token"]
+      params[:api_token] = api_token
+    end
   end
 
   

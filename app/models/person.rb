@@ -20,10 +20,10 @@ class Person < ActiveRecord::Base
     
   if not ApplicationHelper::use_asi?
     # Include default devise modules. Others available are:
-    # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable
+    # :lockable, :timeoutable
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, 
-           :validatable, :omniauthable
+           :validatable, :omniauthable, :token_authenticatable
            
     if APP_CONFIG.use_asi_encryptor
       require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
