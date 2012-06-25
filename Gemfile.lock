@@ -165,6 +165,9 @@ GEM
       actionmailer
       postmark (>= 0.9.0)
       rake
+    rabl (0.6.13)
+      activesupport (>= 2.3.14)
+      multi_json (~> 1.0)
     rack (1.2.5)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -241,7 +244,7 @@ GEM
     whenever (0.7.0)
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
-    will_paginate (3.0.pre2)
+    will_paginate (3.0.3)
     win32-api (1.4.8-x86-mingw32)
     win32-process (0.6.5)
       windows-pr (>= 1.1.2)
@@ -281,6 +284,7 @@ DEPENDENCIES
   passenger
   pickle
   postmark-rails
+  rabl
   rails (= 3.0.0)
   rails-i18n
   recaptcha
@@ -294,6 +298,6 @@ DEPENDENCIES
   thinking-sphinx (= 2.0.0)
   web_translate_it (<= 1.7.4.5)
   whenever
-  will_paginate (~> 3.0.pre2)
+  will_paginate (~> 3.0)
   win32-process
   win32console

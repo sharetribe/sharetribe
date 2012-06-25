@@ -3,11 +3,17 @@ class Api::ListingsController < Api::ApiController
 
 
   def index
-    respond_with Listing.all
+    if params[:community_id]
+      @listings = Community.find(params[:community_id]).listings
+    else
+      @listings = Listing.all
+    end
+    respond_with @listings
   end
 
   def show
-    respond_with Listing.find(params[:id])
+    @listing = Listing.find(params[:id])
+    respond_with @listing
   end
 
   def create

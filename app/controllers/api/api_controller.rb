@@ -5,8 +5,15 @@ class Api::ApiController < ApplicationController
 
   before_filter :ensure_api_enabled, :set_correct_mime_type
   
+  #version 1
+  
+  layout false
   
   protected
+  
+  # def rabl(object, template_name = "#{controller_name}/#{action_name}", options = {})
+  #   render_json Rabl.render(object, template_name, :view_path => Rails.root.join('app/views'), :format => :json, :scope => self)
+  # end
   
   def ensure_api_enabled
     unless APP_CONFIG.api_enabled

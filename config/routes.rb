@@ -62,7 +62,7 @@ Kassi::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))
   
   scope :module => "api", :constraints => {:subdomain => "api"} do
-
+    
     resources :listings
 
     match '/' => 'dashboard#api'    
