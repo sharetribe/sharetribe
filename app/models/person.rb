@@ -75,6 +75,8 @@ class Person < ActiveRecord::Base
   has_many :answered_polls, :through => :poll_answers, :source => :poll
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+  has_and_belongs_to_many :hobbies, :join_table => 'person_hobbies'
+
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
