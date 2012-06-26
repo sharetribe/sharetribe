@@ -22,7 +22,7 @@ class Api::TokensController < Api::ApiController
     end
 
     if not @person.valid_password?(password)
-      logger.info("User #{username} failed signin, password \"#{password}\" is invalid")
+      logger.info("User #{username} failed signin, password is invalid")
       render :status=>401, :json=>{:message=>"Invalid username or password."}
     else
       @person.ensure_authentication_token!
