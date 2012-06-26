@@ -1,6 +1,6 @@
 class PeopleController < Devise::RegistrationsController
   
-  include UrlHelper
+  include UrlHelper, PeopleHelper
   
   layout :choose_layout
   
