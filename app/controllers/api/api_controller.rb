@@ -3,6 +3,8 @@ class Api::ApiController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :fetch_community
 
+  skip_before_filter :verify_authenticity_token
+  
   prepend_before_filter :get_api_key
   before_filter :ensure_api_enabled, :set_correct_mime_type
   

@@ -2,7 +2,7 @@ class Api::TokensController < Api::ApiController
 
   # Shows the token based on username and password
   # Used http://matteomelani.wordpress.com/2011/10/17/authentication-for-mobile-devices/ as example for this
-  def index
+  def create
 
     username = params[:username]
     password = params[:password]
