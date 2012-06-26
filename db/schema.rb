@@ -199,6 +199,13 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.integer "listing_id"
   end
 
+  create_table "hobbies", :force => true do |t|
+    t.string   "name"
+    t.boolean  "official",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "invitations", :force => true do |t|
     t.string   "code"
     t.integer  "community_id"
@@ -361,7 +368,7 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
   end
 
   create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+    t.string   "id",                            :limit => 22,                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "is_admin",                                    :default => 0
@@ -397,6 +404,7 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.datetime "image_updated_at"
     t.string   "facebook_id"
     t.string   "authentication_token"
+    t.string   "hobby_status",                                :default => "Existing"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
@@ -429,6 +437,13 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.integer  "is_read",          :default => 0
     t.datetime "last_sent_at"
     t.datetime "last_received_at"
+  end
+
+  create_table "person_hobbies", :id => false, :force => true do |t|
+    t.string   "person_id"
+    t.integer  "hobby_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "person_interesting_listings", :force => true do |t|
