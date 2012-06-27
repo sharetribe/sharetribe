@@ -2269,6 +2269,29 @@ span.profile_settings_visibility_info {
   h5 { margin-bottom: 10px; }
 }
 
+#hobbies_form form {
+    width: 100%;
+}
+.hobbies_other input {
+    float: none;
+    display: inline;
+    margin-left: 6px;
+}
+.hobbies_checkboxes {
+    background: #f00;
+}
+.hobbies_checkbox_container {
+	overflow: hidden;
+	width: 49%;
+    float: left;
+	margin-bottom: 10px;
+}
+.hobbies_other {
+    clear: both;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
 #listing_closed_status {
 	@include notification("error", $error_text, $error_border, $error_bg);
 	width: 200px;

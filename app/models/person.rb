@@ -250,7 +250,43 @@ class Person < ActiveRecord::Base
         self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
         save
 
-        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
+        if params[:hobbies]
+          # compile a new hobbies list
+          temp_hobbies = []
+          params[:hobbies].each do |field, value|
+            value.strip!
+
+            if field == 'other'
+              if value != ''
+                # comma-separated, 'non-official', other hobbies
+                value.split(',').each do |v|
+                  temp_hobbies << Hobby.find_or_create_by_name(:name => v.strip.titleize, :official => false)
+                end
+              end
+            else
+              # 'official' hobby
+              temp_hobbies << Hobby.find_by_id(value)
+            end
+          end
+
+          # update the actual hobbies list from the new list
+          self.hobbies.each do |h|
+            # if it's not in the new list, delete it
+            if not temp_hobbies.include? h
+              self.hobbies.delete h
+            end
+          end
+          temp_hobbies.each do |h|
+            # if it's not in the list, add it
+            if not self.hobbies.include? h
+              self.hobbies << h
+            end
+          end
+
+          # [TODO: update hobbies_status]
+        end
+
+        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))    
       end
     end
     
