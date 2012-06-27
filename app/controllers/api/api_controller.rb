@@ -27,12 +27,7 @@ class Api::ApiController < ApplicationController
   end
   
   def set_correct_mime_type
-    # puts "ACCEPT: ->"
-    # puts request.env['HTTP_ACCEPT']
-    # puts request.format
-    # puts "VERSION #{api_version}"
-
-    if  request.env['HTTP_ACCEPT'].match /application\/vnd\.sharetribe\+json/
+    if request.env['HTTP_ACCEPT'] && request.env['HTTP_ACCEPT'].match(/application\/vnd\.sharetribe\+json/)
       request.format = :json
     end
   end  
