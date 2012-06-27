@@ -208,6 +208,9 @@ Kassi::Application.routes.draw do
     resource :sms do
       get :message_arrived
     end
+    resource :hobbies do
+      get :show
+    end
     resources :news_items
     resources :statistics
   end

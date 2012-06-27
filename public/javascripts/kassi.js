@@ -676,6 +676,16 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
 	});	  
 }
 
+function initialize_hobbies_form() {
+	//$("input[type=checkbox]").uniform();
+	var form_id = "hobbies_form";
+	$(form_id).validate({
+		submitHandler: function(form) {
+		  disable_and_submit(form_id, form, "false", locale);
+		}
+	});	
+}
+
 function set_textarea_maxlength() {
   var ignore = [8,9,13,33,34,35,36,37,38,39,40,46];
   var eventName = 'keypress';

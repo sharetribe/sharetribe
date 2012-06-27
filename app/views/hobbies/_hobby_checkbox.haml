@@ -1,0 +1,5 @@
+.hobbies_checkbox_container
+  .checkbox_float
+    = check_box_tag "person[hobbies][hobby_#{hobby.id}]", hobby.id, @current_user.hobbies.include?(hobby) ? true : false
+  = label_tag "person[hobbies][hobby_#{hobby.id}]", t("hobbies.#{hobby.name}"), :class => "checkbox"
+
