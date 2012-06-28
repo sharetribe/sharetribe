@@ -1741,10 +1741,10 @@ a.edit_profile {
 
 .inbox_tab_selected {
   float: left;
-  margin-right: 8px; }
+  margin-right: 5px; }
   .inbox_tab_selected a {
     padding-top: 9px;
-    width: 140px;
+    width: 130px;
     height: 27px;
     text-align: center;
     display: block;
@@ -1762,10 +1762,10 @@ a.edit_profile {
 
 .inbox_tab_unselected {
   float: left;
-  margin-right: 8px; }
+  margin-right: 5px; }
   .inbox_tab_unselected a {
     padding-top: 9px;
-    width: 140px;
+    width: 130px;
     height: 27px;
     text-align: center;
     display: block;
@@ -2760,20 +2760,29 @@ span.profile_settings_visibility_info {
   #profile_community_info h5 {
     margin-bottom: 10px; }
 
-#hobbies_form form {
-    width: 100%;
+.hobbies_other {
+    padding-left: 38px;
+}
+.hobbies_other label {
+    font-weight: bold;
 }
 .hobbies_other input {
     float: none;
     display: inline;
     margin-left: 6px;
 }
+#person_settings_form.hobbies_form input.send_button {
+    margin-left: 0;
+}
 .hobbies_checkboxes {
-    background: #f00;
+    overflow: auto;
+}
+.hobbies_checkboxes label {
+    width: 275px !important;
 }
 .hobbies_checkbox_container {
 	overflow: hidden;
-	width: 37%;
+	width: 49%;
     float: left;
 	margin-bottom: 10px;
 }

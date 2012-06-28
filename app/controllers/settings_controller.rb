@@ -31,6 +31,11 @@ class SettingsController < ApplicationController
 
   def notifications
   end
+
+  def hobbies
+    @official_hobbies = Hobby.where(:official => true)
+    @other_hobbies = @person.hobbies.select { |x| x.official == false }
+  end
   
   private
   

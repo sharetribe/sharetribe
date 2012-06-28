@@ -677,7 +677,7 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
 }
 
 function initialize_hobbies_form() {
-	//$("input[type=checkbox]").uniform();
+	$("input[type=checkbox]").uniform();
 	var form_id = "hobbies_form";
 	$(form_id).validate({
 		submitHandler: function(form) {
