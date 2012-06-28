@@ -95,6 +95,8 @@ class Person < ActiveRecord::Base
   ] 
   
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
+
+  HOBBY_STATUSES = { :existing => "Existing", :unsubmitted => "Unsubmitted", :submitted => "Submitted" }
     
   serialize :preferences
   
@@ -275,7 +277,8 @@ class Person < ActiveRecord::Base
           # Update the actual hobbies list from the new list.
           self.hobbies.replace(temp_hobbies)
 
-          # [TODO: update hobbies_status]
+          # Update hobby_status
+          self.hobby_status = HOBBY_STATUSES[:submitted]
         end
 
         super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))
