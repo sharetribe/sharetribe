@@ -2349,8 +2349,11 @@ span.profile_settings_visibility_info {
   overflow: hidden;
 }
 
-#hobbies_form form {
-    width: 100%;
+.hobbies_other {
+    padding-left: 38px;
+}
+.hobbies_other label {
+    font-weight: bold;
 }
 .hobbies_other input {
     float: none;
@@ -2358,7 +2361,10 @@ span.profile_settings_visibility_info {
     margin-left: 6px;
 }
 .hobbies_checkboxes {
-    background: #f00;
+    overflow: auto;
+}
+.hobbies_checkboxes label {
+    width: 275px !important;
 }
 .hobbies_checkbox_container {
 	overflow: hidden;

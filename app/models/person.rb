@@ -260,7 +260,10 @@ class Person < ActiveRecord::Base
               if value != ''
                 # comma-separated, 'non-official', other hobbies
                 value.split(',').each do |v|
-                  temp_hobbies << Hobby.find_or_create_by_name(:name => v.strip.titleize, :official => false)
+                  v.strip!
+                  if v != ''
+                    temp_hobbies << Hobby.find_or_create_by_name(:name => v.titleize, :official => false)
+                  end
                 end
               end
             else
@@ -269,24 +272,13 @@ class Person < ActiveRecord::Base
             end
           end
 
-          # update the actual hobbies list from the new list
-          self.hobbies.each do |h|
-            # if it's not in the new list, delete it
-            if not temp_hobbies.include? h
-              self.hobbies.delete h
-            end
-          end
-          temp_hobbies.each do |h|
-            # if it's not in the list, add it
-            if not self.hobbies.include? h
-              self.hobbies << h
-            end
-          end
+          # Update the actual hobbies list from the new list.
+          self.hobbies.replace(temp_hobbies)
 
           # [TODO: update hobbies_status]
         end
 
-        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))    
+        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))
       end
     end
     
