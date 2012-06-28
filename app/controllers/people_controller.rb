@@ -14,6 +14,7 @@ class PeopleController < Devise::RegistrationsController
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
+  skip_filter :check_hobbies_submitted, :only => [ :update]
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :check_username_availability, :check_email_availability ]
   skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_invitation_code]
@@ -104,6 +105,9 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
+
+    # new users must submit hobby form
+    params[:person][:hobby_status] = Person::HOBBY_STATUSES[:unsubmitted]
     
     if use_asi?
       # Open an ASI Session first only for Sharetribe to be able to create a user

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
+  before_filter :check_hobbies_submitted, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
 
   # after filter would be more logical, but then log would be skipped when action cache is hit.
@@ -162,6 +163,14 @@ class ApplicationController < ActionController::Base
     if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
       flash[:warning] = "you_need_to_confirm_your_account_first"
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
+    end
+  end
+
+  def check_hobbies_submitted
+    # Make sure that a new user has submitted the hobbies form.
+    if @current_user && @current_user.hobby_status == Person::HOBBY_STATUSES[:unsubmitted]
+      flash[:warning] = "please_submit_the_hobbies_form"
+      redirect_to hobbies_path unless params[:controller] == 'hobbies' or params[:controller] == 'devise/confirmations'
     end
   end
 
