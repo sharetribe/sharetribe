@@ -64,6 +64,7 @@ Kassi::Application.routes.draw do
   scope :module => "api", :constraints => {:subdomain => "api"}, :defaults => { :format => 'json' } do
     resources :tokens, :only => :create
     resources :listings
+    resources :people
 
     match '/' => 'dashboard#api'    
   end
