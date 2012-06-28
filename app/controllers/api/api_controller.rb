@@ -2,6 +2,7 @@ class Api::ApiController < ApplicationController
   skip_filter :single_community_only
   skip_filter :dashboard_only
   skip_filter :fetch_community
+  skip_filter :cannot_access_without_joining
 
   skip_before_filter :verify_authenticity_token
   
@@ -27,7 +28,7 @@ class Api::ApiController < ApplicationController
   end
   
   def set_correct_mime_type
-    if request.env['HTTP_ACCEPT'] && request.env['HTTP_ACCEPT'].match(/application\/vnd\.sharetribe\+json/)
+    if request.env['HTTP_ACCEPT'] && request.env['HTTP_ACCEPT'].match(/application\/vnd\.sharetribe\+json/i)
       request.format = :json
     end
   end  
