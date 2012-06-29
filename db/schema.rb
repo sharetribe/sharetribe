@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625211426) do
+ActiveRecord::Schema.define(:version => 20120628121713) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -291,12 +291,7 @@ ActiveRecord::Schema.define(:version => 20120625211426) do
     t.string   "author_id"
     t.string   "category"
     t.string   "title"
-    t.text     "content"
-    t.date     "good_thru"
     t.integer  "times_viewed",            :default => 0
-    t.string   "status"
-    t.integer  "value_cc"
-    t.string   "value_other"
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
