@@ -1,17 +1,21 @@
 require 'spec_helper'
 
 describe Api::ListingsController do
-
-  describe "index" do
+ 
+  before(:each) do
+    @c1 = FactoryGirl.create(:community)
+    @c2 = FactoryGirl.create(:community)
+    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike")
+    @l1.communities = [@c1]
+    FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
+    FactoryGirl.create(:listing, :listing_type => "request").communities = [@c2]
+    FactoryGirl.create(:listing, :listing_type => "request", :open => false).communities = [@c1]
     
-    before(:each) do
-      @c1 = FactoryGirl.create(:community)
-      @c2 = FactoryGirl.create(:community)
-      FactoryGirl.create(:listing, :listing_type => "request").communities = [@c1]
-      FactoryGirl.create(:listing, :listing_type => "offer", :share_type => "sell").communities = [@c1]
-      FactoryGirl.create(:listing, :listing_type => "request").communities = [@c2]
-      FactoryGirl.create(:listing, :listing_type => "request", :status => "closed").communities = [@c1]
-    end
+    @p1 = FactoryGirl.create(:person)
+    @p1.ensure_authentication_token!
+  end
+  
+  describe "index" do
     
     it "returns all listings if called without parameters" do
       get :index, :format => :json
@@ -22,21 +26,22 @@ describe Api::ListingsController do
     it "supports community_id and type as parameters" do
       get :index, :community_id => @c1.id, :format => :json
       resp = JSON.parse(response.body)
+      response.status.should == 200
       resp.count.should == 2
       
       get :index, :community_id => @c2.id, :format => :json
       resp = JSON.parse(response.body)
       resp.count.should == 1
       
-      get :index, :community_id => @c1.id, :type => "offer", :format => :json
+      get :index, :community_id => @c1.id, :listing_type => "offer", :format => :json
       resp = JSON.parse(response.body)
       resp.count.should == 1
       
-      get :index, :community_id => @c2.id, :type => "offer", :format => :json
+      get :index, :community_id => @c2.id, :listing_type => "offer", :format => :json
       resp = JSON.parse(response.body)
       resp.count.should == 0
       
-      get :index, :type => "request", :format => :json
+      get :index, :listing_type => "request", :format => :json
       resp = JSON.parse(response.body)
       resp.count.should == 2
     end
@@ -44,27 +49,84 @@ describe Api::ListingsController do
     it "uses status parameter with default: 'open'" do
       get :index, :community_id => @c1.id, :format => :json
       resp = JSON.parse(response.body)
+      response.status.should == 200
       resp.count.should == 2
       
       get :index, :community_id => @c1.id, :status => "open", :format => :json
+      response.status.should == 200
       resp = JSON.parse(response.body)
       resp.count.should == 2
       
       get :index, :community_id => @c1.id, :status => "closed", :format => :json
+      response.status.should == 200
       resp = JSON.parse(response.body)
       resp.count.should == 1
       
       get :index, :community_id => @c1.id, :status => "all", :format => :json
+      response.status.should == 200
       resp = JSON.parse(response.body)
       resp.count.should == 3
       
     end
     
     it "returns an array of lisitings with correct attributes" do
-      get :index, :type => "offer", :format => :json
+      get :index, :listing_type => "offer", :format => :json
+      response.status.should == 200
       resp = JSON.parse(response.body)
-      #resp.count.should == 1
-      puts resp[0]["listing"].to_yaml
+      resp.count.should == 1
+      resp[0]["title"].should == "hammer"
+      resp[0]["description"].should == "shiny new hammer"
+    end
+  end
+  
+  describe "show" do
+    it "returns one listing" do
+      get :show, :id => @l1.id, :format => :json
+      response.status.should == 200
+      resp = JSON.parse(response.body)
+      resp["title"].should == "bike"
+      resp["description"].should == "A very nice bike"
+      #puts resp.inspect    
+    end
+  end
+  
+  describe "create" do
+    it "creates a new listing" do
+      listings_count = Listing.count
+      request.env['Sharetribe-API-Token'] = @p1.authentication_token
+      post :create, :title => "new great listing", 
+                    :description => "This is what you need!", 
+                    :listing_type => "offer",
+                    :category => "item",
+                    :share_type => "sell",
+                    :visibility => "this_community",
+                    :format => :json
+      response.status.should == 201
+      Listing.count.should == listings_count + 1
+      resp = JSON.parse(response.body)
+      resp["title"].should == "new great listing"
+      resp["description"].should == "This is what you need!"
+      resp["visibility"].should == "this_community"
+      resp["share_type"].should == "sell"
+      resp["category"].should == "item"
+      resp["listing_type"].should == "offer"
+      resp["author"]["id"].should == @p1.id
+    end
+    
+    it "gives informative error messages" do
+      listings_count = Listing.count
+      request.env['Sharetribe-API-Token'] = @p1.authentication_token
+      post :create, :description => "This is what you need!", 
+                    :listing_type => "offer",
+                    :share_type => "sell",
+                    :visibility => "this_community",
+                    :format => :json
+      response.status.should == 400
+      Listing.count.should == listings_count
+      resp = JSON.parse(response.body)
+      #puts resp.inspect
+      resp[0].should match /Title is too short/
+      resp[1].should match /Category is not included in the list/
     end
   end
 end

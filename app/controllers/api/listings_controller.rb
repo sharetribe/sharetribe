@@ -1,13 +1,20 @@
 class Api::ListingsController < Api::ApiController
 
-  #before_filter :authenticate_person!
+  before_filter :authenticate_person!, :except => [:index, :show]
   
   def index
-    #puts params.inspect
-    query = params.slice("status", "category")
-    query["listing_type"] = params["type"] if params["type"]
-    #query[""]
-    #puts query.inspect
+    query = params.slice("category", "listing_type")
+    #query["listing_type"] = params["type"] if params["type"]
+    
+    if params["status"] == "closed"
+      query["open"] = false
+    elsif params["status"] == "all"
+      # leave "open" out totally to return all statuses
+    else
+      query["open"] = true #default
+    end
+    
+    
     if params["community_id"]
       @listings = Community.find(params["community_id"]).listings.where(query)
     else
@@ -22,7 +29,16 @@ class Api::ListingsController < Api::ApiController
   end
 
   def create
-    respond_with Listing.create(params[:listing])
+    @listing = Listing.create(params.slice("title", "description", "category", "share_type", "listing_type", "visibility").merge("author_id" => current_person.id))
+    
+    if @listing.new_record?
+      response.status = 400
+      render :json => @listing.errors.full_messages
+    else
+      response.status = 201 
+      respond_with(@listing)
+    end
+    
   end
 
 end

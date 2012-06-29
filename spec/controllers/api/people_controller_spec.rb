@@ -14,7 +14,7 @@ describe Api::PeopleController do
     it "returns basic json of a person" do
       get :show, :id => @p1.id, :format => :json
       resp = JSON.parse(response.body)
-      puts response.body
+      #puts response.body
     end
   end
 end
