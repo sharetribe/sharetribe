@@ -3,8 +3,10 @@ class Api::ListingsController < Api::ApiController
   before_filter :authenticate_person!, :except => [:index, :show]
   
   def index
+    @page = params["page"] || 1
+    @per_page = params["per_page"] || 50
+    
     query = params.slice("category", "listing_type")
-    #query["listing_type"] = params["type"] if params["type"]
     
     if params["status"] == "closed"
       query["open"] = false
@@ -14,11 +16,10 @@ class Api::ListingsController < Api::ApiController
       query["open"] = true #default
     end
     
-    
     if params["community_id"]
-      @listings = Community.find(params["community_id"]).listings.where(query)
+      @listings = Community.find(params["community_id"]).listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
-      @listings = Listing.where(query)
+      @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     end
     respond_with @listings
   end
@@ -34,19 +35,19 @@ class Api::ListingsController < Api::ApiController
     @community = Community.find(params["community_id"])
     if @community.nil?
       response.status = 400
-      render :json => ["community_id parameter missing, or no community found with given id"]
+      render :json => ["community_id parameter missing, or no community found with given id"] and return
     end
     
     if current_person.member_of?(@community)
       @listing.communities << @community
     else
       response.status = 400
-      render :json => ["The user is not member of given community."]
+      render :json => ["The user is not member of given community."] and return
     end
     
     if @listing.new_record?
       response.status = 400
-      render :json => @listing.errors.full_messages
+      render :json => @listing.errors.full_messages and return
     else
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, "#{@community.domain}.#{APP_CONFIG.weekly_email_domain}"))
       response.status = 201 
