@@ -3,24 +3,30 @@ require 'spec_helper'
 describe Api::ListingsController do
  
   before(:each) do
+    Listing.all.collect(&:destroy) # for some reason there's a listing before starting. Destroy to be clear.
+    
     @c1 = FactoryGirl.create(:community)
     @c2 = FactoryGirl.create(:community)
-    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike")
+    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago)
     @l1.communities = [@c1]
     FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
-    FactoryGirl.create(:listing, :listing_type => "request").communities = [@c2]
-    FactoryGirl.create(:listing, :listing_type => "request", :open => false).communities = [@c1]
+    FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago).communities = [@c2]
+    FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already").communities = [@c1]
     
     @p1 = FactoryGirl.create(:person)
+    @p1.communities << @c1
     @p1.ensure_authentication_token!
+    
   end
   
   describe "index" do
     
-    it "returns all listings if called without parameters" do
+    it "returns open listings if called without parameters, (paginated by 50)" do
       get :index, :format => :json
       resp = JSON.parse(response.body)
+      #puts resp.inspect
       resp.count.should == 3
+      # TODO test default pagination
     end
     
     it "supports community_id and type as parameters" do
@@ -77,6 +83,24 @@ describe Api::ListingsController do
       resp[0]["title"].should == "hammer"
       resp[0]["description"].should == "shiny new hammer"
     end
+    
+    it "supports pagination" do
+      get :index, :per_page => 2, :page => 1, :format => :json
+      response.status.should == 200
+      resp = JSON.parse(response.body)
+      #puts resp.to_yaml
+      resp.count.should == 2
+      resp[0]["title"].should == "hammer"
+      resp[1]["title"].should == "bike"
+      
+      get :index, :per_page => 2, :page => 2, :format => :json
+      response.status.should == 200
+      resp = JSON.parse(response.body)
+      #puts resp.to_yaml
+      resp.count.should == 1
+      resp[0]["title"].should == "help me"
+      
+    end
   end
   
   describe "show" do
@@ -100,6 +124,7 @@ describe Api::ListingsController do
                     :category => "item",
                     :share_type => "sell",
                     :visibility => "this_community",
+                    :community_id => @c1.id,
                     :format => :json
       response.status.should == 201
       Listing.count.should == listings_count + 1
@@ -120,6 +145,7 @@ describe Api::ListingsController do
                     :listing_type => "offer",
                     :share_type => "sell",
                     :visibility => "this_community",
+                    :community_id => @c1.id,
                     :format => :json
       response.status.should == 400
       Listing.count.should == listings_count
