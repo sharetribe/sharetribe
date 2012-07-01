@@ -31,10 +31,24 @@ class Api::ListingsController < Api::ApiController
   def create
     @listing = Listing.create(params.slice("title", "description", "category", "share_type", "listing_type", "visibility").merge("author_id" => current_person.id))
     
+    @community = Community.find(params["community_id"])
+    if @community.nil?
+      response.status = 400
+      render :json => ["community_id parameter missing, or no community found with given id"]
+    end
+    
+    if current_person.member_of?(@community)
+      @listing.communities << @community
+    else
+      response.status = 400
+      render :json => ["The user is not member of given community."]
+    end
+    
     if @listing.new_record?
       response.status = 400
       render :json => @listing.errors.full_messages
     else
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, "#{@community.domain}.#{APP_CONFIG.weekly_email_domain}"))
       response.status = 201 
       respond_with(@listing)
     end
