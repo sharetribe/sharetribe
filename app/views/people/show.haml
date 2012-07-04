@@ -21,7 +21,7 @@
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
     .profile_badges_header
       = "#{t('.badges')} (#{@person.badges.size})"
-      &nbsp;
+      %br/
       = link_to t(".what_are_these"), "#", :id => "badges_description_link"
     .profile_badges
       = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
@@ -30,15 +30,17 @@
   - if @person.received_testimonials.size > 0    
     .profile_feedback_header
       .profile_feedback_average_image
-        %div{:class => grade_image_class(@person.feedback_average)}
+        %div{:class => grade_image_class(@person.feedback_positive_percentage)}
           &nbsp;
       .profile_feedback_average
         .profile_feedback_average_title
-          = t(".feedback_average")
+          = t(".received_feedback")
         .profile_feedback_average_value
-          = @person.feedback_average.to_s + "/5"
+          = @person.feedback_positive_percentage.to_s + "%"
         .profile_feedback_average_description
-          = "(" + grade_text(@person.feedback_average, false) + ")"
+          = t(".positive")
+          %br/
+          = "(#{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
     .profile_feedback_list
       .profile_feedback_arrow
         &nbsp;

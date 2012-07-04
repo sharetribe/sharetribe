@@ -37,9 +37,9 @@ Feature: User updates profile information
     And I fill in "Given name:" with "Testijeppe"
     And I uncheck "person_show_real_name_to_other_users"
     And I press "Save information"
-    Then I should see my username
+    Then I should see "kassi_testperson2"
     And I should not see "Testijeppe"
     When I check "person_show_real_name_to_other_users"
     And I press "Save information"
-    Then I should not see my username
+    Then I should not see "kassi_testperson2"
     And I should see "Testijeppe"

@@ -6,16 +6,13 @@
     &ldquo;#{listing.title}&rdquo;
   - else
     = link_to listing.title, listing
-  = time_ago(testimonial.created_at) + "."
+  = t(".and_gave_following_feedback")
+  = time_ago(testimonial.created_at) + ":"
   
-%br/ 
-%br/
 %span
   %i
-    - unless testimonial.text.eql?("")
-      &ldquo;#{truncate(testimonial.text, :length => 60, :omission => "...")}&rdquo;
-      %br/
-      %br/
-  %b
-    = t(".grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."
+    - if testimonial.text.eql?("")
+      &ldquo;#{grade_text(testimonial.displayed_grade).capitalize}&rdquo;
+    - else
+      &ldquo;#{truncate(testimonial.text, :length => 100, :omission => "...")}&rdquo;
     

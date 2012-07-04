@@ -53,6 +53,7 @@ function initialize_campaign_page(select_default) {
 
 function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message, select_default) {
   auto_resize_text_areas();
+  translate_validation_messages(locale);
   $('select.community_language_select').selectmenu({width: "540px", maxHeight: 175, style: 'dropdown'});
   //Remove unnecessary default option from the select tribe language menu
   if ($('a:contains("' + select_default + '")').eq(1).length < 1) {

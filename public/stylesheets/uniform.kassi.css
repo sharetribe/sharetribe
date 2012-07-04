@@ -491,13 +491,13 @@ div.selector2.disabled span {
 div.selector3 {
 	margin-right: 6px;
 	float: left;
-  width: 274px;
+  width: 400px;
   font-size: 12px;
 	font-weight: bold;
 }
 
 div.selector3 select {
-  width: 274px;
+  width: 400px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
 	font-weight: bold;
@@ -510,7 +510,7 @@ div.selector3 span {
 
 div.selector3 span {
   color: #464646;
-  width: 262px;
+  width: 388px;
   text-shadow: 0 1px 0 #fff;
 }
 
@@ -531,7 +531,7 @@ div.radio {
 
 /* Uploader */
 div.uploader {
-  width: 397px;
+  width: 398px;
 }
 
 div.uploader span.action {
@@ -545,13 +545,13 @@ div.uploader span.action {
 
 div.uploader span.filename {
   color: #464646;
-  width: 250px;
+  width: 251px;
   font-size: 13px;
-	padding-top:; 1px;
+	padding-top: 1px;
 }
 
 div.uploader input {
-  width: 396px;
+  width: 397px;
 }
 
 div.uploader.disabled span.action {

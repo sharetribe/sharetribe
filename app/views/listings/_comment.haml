@@ -7,7 +7,8 @@
     .message_sender
       = link_to comment.author.name, comment.author
       %span
-        = l(comment.created_at, :format => :short) + ":"
+        = t(".wrote")
+        = time_ago(comment.created_at) + ":"
     .comment_content_div
       - text_with_line_breaks do  
         = comment.content

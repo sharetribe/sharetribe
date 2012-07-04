@@ -94,16 +94,14 @@ function initialize_defaults(default_text, feedback_default_text, locale) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	var form_id = "#new_feedback";
-	$(form_id).validate({
-		rules: {
+	prepare_ajax_form(
+    "#new_feedback",
+    locale, 
+    {
 		  "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
 		}
-	});
+  );
 }
 
 function initialize_feedback_tab() {
@@ -229,28 +227,20 @@ function initialize_send_message_form(default_text, locale) {
 function initialize_reply_form(locale) {
 	auto_resize_text_areas();
 	$('textarea').focus();
-	var form_id = "#new_message"
-	$(form_id).validate({
-		rules: {
-			"message[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
-		}
-	});	
+	prepare_ajax_form(
+    "#new_message",
+    locale, 
+    {"message[content]": {required: true, minlength: 1}}
+  );
 }
 
 function initialize_comment_form(locale) {
 	auto_resize_text_areas();
-	var form_id = "#new_comment"
-	$(form_id).validate({
-		rules: {
-			"comment[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
-		}
-	});
+	prepare_ajax_form(
+    "#new_comment",
+    locale, 
+    {"comment[content]": {required: true, minlength: 1}}
+  );
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
@@ -338,8 +328,6 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
       "person[street_address]": {required: false, address_validator: true},
 			"person[given_name]": {required: name_required, maxlength: 30},
       "person[family_name]": {required: name_required, maxlength: 30},
-			// 			"person[postal_code]": {required: false, maxlength: 8},
-			// 			"person[city]": {required: false, maxlength: 50},
 			"person[phone_number]": {required: false, maxlength: 25}
 		},
 		 onkeyup: false,
@@ -347,7 +335,7 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
          onfocusout: false,
 		 onsubmit: true,
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -357,7 +345,7 @@ function initialize_update_notification_settings_form(locale, person_id) {
 	var form_id = "#edit_person_" + person_id
 	$(form_id).validate({
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -373,7 +361,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 			"file": { required: true, accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
+		  disable_and_submit(form_id, form, "false", locale);
 		}
 	});	
 }
@@ -576,37 +564,34 @@ function initialize_profile_feedback_view() {
 }
 
 function initialize_homepage() {
-  $('#invitation_email').focus(function() {
-    $('div.invitation_form_hidden_parts').slideDown('fast');
-    $(document).bind('focusin.invitation_form_hidden_parts click.invitation_form_hidden_parts',function(e) {
-      if ($(e.target).closest('.invitation_form_hidden_parts, #invitation_email').length) return;
-      $(document).unbind('.example');
-      $('div.invitation_form_hidden_parts').slideUp('fast');
-    });
-  });
-  $('div.invitation_form_hidden_parts').slideUp('fast');
-  $('#poll_answer_poll_option_id_value15').focus(function() {
-    alert("Focus here!");
-    // $('div.invitation_form_hidden_parts').slideDown('fast');
-    // $(document).bind('focusin.poll_form_hidden_parts click.poll_form_hidden_parts',function(e) {
-    //   if ($(e.target).closest('.poll_form_hidden_parts, .poll_answer[poll_option_id]').length) return;
-    //   $(document).unbind('.example');
-    //   $('div.poll_form_hidden_parts').slideUp('fast');
-    // });
-  });
-  $('div.poll_form_hidden_parts').slideUp('fast');
   $("input[type=radio]").uniform();
+}
+
+function initialize_invitation_form(locale, rails_env) {
+  // Focus triggering causes a recursion in Firefox in tests,
+  // so skipping it in test environment
+  if (rails_env == "test") {
+    $('div.invitation_form_hidden_parts').slideDown('fast');
+  } else {
+    $('#invitation_email').focus(function() {
+      $('div.invitation_form_hidden_parts').slideDown('fast');
+      $(document).bind('focusin.invitation_form_hidden_parts click.invitation_form_hidden_parts',function(e) {
+        if ($(e.target).closest('.invitation_form_hidden_parts, #invitation_email').length) return;
+        $(document).unbind('.example');
+        $('div.invitation_form_hidden_parts').slideUp('fast');
+      });
+    });
+    $('div.invitation_form_hidden_parts').slideUp('fast');
+  }
   auto_resize_text_areas();
-  var form_id = "#new_invitation"
-	$(form_id).validate({
-		rules: {
-		  "invitation[email]": {required: true, email: true},
-			"invitation[message]": {required: false, maxlength: 5000}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
-		}
-	});
+  prepare_ajax_form(
+    "#new_invitation",
+    locale, 
+    {
+      "invitation[email]": {required: true, email: true},
+      "invitation[message]": {required: false, maxlength: 5000}
+    }
+  );
 }
 
 
@@ -619,16 +604,14 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
 	$('.wrapper').addClass('js_enabled');
 	initialize_feedback_tab();
 	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	var form_id = "#new_feedback";
-	$(form_id).validate({
-		rules: {
+	prepare_ajax_form(
+    "#new_feedback",
+    locale, 
+    {
 		  "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
-		},
-		submitHandler: function(form) {
-		  disable_and_submit(form_id, form, "true", locale);
 		}
-	});
+  );
 }
 
 function initialize_private_community_homepage(username_default_text, password_default_text) {
@@ -793,30 +776,6 @@ var faceGrade = {
       $(this).siblings().andSelf().removeClass('grade-over');
     });    
   } 
-}
-
-function translate_validation_messages(locale) {
-  jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
-    jQuery.extend(jQuery.validator.messages, {
-        required: json.validation_messages.required,
-        remote: json.validation_messages.remote,
-        email: json.validation_messages.email,
-        url: json.validation_messages.url,
-        date: json.validation_messages.date,
-        dateISO: json.validation_messages.dateISO,
-        number: json.validation_messages.number,
-        digits: json.validation_messages.digits,
-        creditcard: json.validation_messages.creditcard,
-        equalTo: json.validation_messages.equalTo,
-        accept: json.validation_messages.accept,
-        maxlength: jQuery.validator.format(json.validation_messages.maxlength),
-        minlength: jQuery.validator.format(json.validation_messages.minlength),
-        rangelength: jQuery.validator.format(json.validation_messages.rangelength),
-        range: jQuery.validator.format(json.validation_messages.range),
-        max: jQuery.validator.format(json.validation_messages.max),
-        min: jQuery.validator.format(json.validation_messages.min)
-    });
-  });
 }
 
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup
