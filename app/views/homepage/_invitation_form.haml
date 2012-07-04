@@ -1,6 +1,10 @@
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() { initialize_invitation_form("#{I18n.locale}", "#{Rails.env}"); })
+
 #invitation_form
   %h3= t(".invite_your_friends")
-  = form_for Invitation.new, :url => person_invitations_path(:person_id => @current_user.id), :remote => true do |f|
+  = form_for Invitation.new, :url => person_invitations_path(:person_id => @current_user.id) do |f|
     .form_field_container.label_container
       = f.label :email, t(".email")
     .form_field_container

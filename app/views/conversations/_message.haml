@@ -11,7 +11,7 @@
     .message_sender
       = link_to message.sender.name, message.sender
       %span
-        = l(message.created_at, :format => :short) + ":"
+        = time_ago(message.created_at) + ":"
     .message_content_div
       - text_with_line_breaks do  
         = message.content

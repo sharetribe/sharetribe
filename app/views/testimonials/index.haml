@@ -4,19 +4,21 @@
 = render :partial => "layouts/profile_extras_header"
 
 - if @testimonials && !@testimonials.empty?
-  #testimonials_grade_image.grid_4
-    %div{:class => "#{grade_image_class(@person.feedback_average)}_big"}
-      &nbsp;
-  #feedback_average.grid_10
+  .grid_5.alpha
+    #testimonials_grade_image
+      %div{:class => "#{grade_image_class(@person.feedback_average)}_big"}
+        &nbsp;
+  #feedback_average.grid_9
     .feedback_average_title
-      = t("people.show.feedback_average")
+      = t("people.show.received_feedback")
     .feedback_average_value
-      = @person.feedback_average.to_s + "/5"
+      = @person.feedback_positive_percentage.to_s + "%"
     .feedback_average_description
-      = "(" + grade_text(@person.feedback_average) + ")"
+      = t("people.show.positive")
+      = "(#{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
     .feedback_average_description_link_div
       = link_to t("common.what_is_this"), "#", :id => "help_feedback_link"
-  .grid_10
+  .grid_10.omega
     #feedback_type_descriptions
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       %h4= t(".feedback_altogether") + @testimonials.total_entries.to_s

@@ -62,6 +62,8 @@ class Person < ActiveRecord::Base
   has_many :conversations, :through => :participations
   has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
   has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC"
+  has_many :received_positive_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.5,0.75,1)", :order => "id DESC"
+  has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges, :dependent => :destroy 
   has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
@@ -278,6 +280,21 @@ class Person < ActiveRecord::Base
   def feedback_average
     ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0
   end
+  
+  # The percentage of received testimonials with positive grades
+  # (grades between 3 and 5 are positive, 1 and 2 are negative)
+  def feedback_positive_percentage
+    logger.info "Here we are"
+    if received_positive_testimonials.size > 0
+      if received_negative_testimonials.size > 0
+        (received_positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round
+      else
+        return 100
+      end
+    elsif received_negative_testimonials.size > 0
+      return 0
+    end  
+  end
     
   def set_default_preferences
     self.preferences = {}
@@ -363,12 +380,15 @@ class Person < ActiveRecord::Base
     participation.feedback_can_be_given?
   end
   
+  # This methods can be used to control whether certain badges
+  # are shown to this person. Currently everybody sees all badges.
   def badges_visible_to?(person)
-    if person
-      self.eql?(person) ? true : [2,4].include?(person.test_group_number)
-    else
-      false
-    end
+    return true
+    # if person
+    #   self.eql?(person) ? true : [2,4].include?(person.test_group_number)
+    # else
+    #   false
+    # end
   end
   
   def consent(community)

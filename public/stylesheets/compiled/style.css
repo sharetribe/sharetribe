@@ -604,6 +604,9 @@ span.news_item_more_link {
 .news_item_button_homepage_margin {
   margin: 0 0 20px 20px; }
 
+#recent_requests, #recent_offers {
+  margin-bottom: 50px; }
+
 .recent_listings {
   width: 340px; }
 
@@ -3115,38 +3118,40 @@ a.handle:hover {
 .profile_feedback_average {
   background: #2f5707;
   float: left;
-  width: 134px;
+  width: 138px;
   height: 47px;
   font-weight: bold;
-  padding: 7px 10px 10px 10px;
+  padding: 7px 8px 10px 8px;
   color: white;
   overflow: hidden; }
 
 .profile_feedback_average_title {
-  width: 134px;
+  width: 135px;
   font-size: 12px;
   float: left; }
 
 .profile_feedback_average_value {
   float: left;
-  width: 68px;
   font-size: 26px;
-  line-height: 26px; }
+  line-height: 28px; }
 
 .profile_feedback_average_description {
-  font-size: 10px;
+  margin-left: 5px;
+  font-size: 12px;
   float: left;
-  width: 66px;
   line-height: 11px;
-  padding-top: 2px; }
+  padding-top: 2px;
+  text-align: center; }
 
 .profile_feedback_list {
   overflow: hidden;
   background: #ececdb;
-  width: 218px; }
+  width: 218px;
+  margin-bottom: 30px; }
 
 .profile_feedback_arrow {
-  background: #ececdb url("/images/profile_feedback_arrow.png") 150px 0 no-repeat; }
+  background: #ececdb url("/images/profile_feedback_arrow.png") 150px 0 no-repeat;
+  height: 15px; }
 
 .profile_feedback_texts {
   padding: 0px 15px 15px 15px;
@@ -3304,7 +3309,7 @@ a.handle:hover {
     color: white; }
 
 #testimonials_grade_image {
-  padding-top: 40px; }
+  padding: 53px 20px 0 40px; }
 
 #feedback_average {
   padding-top: 60px;
@@ -3319,17 +3324,15 @@ a.handle:hover {
 .feedback_average_value {
   padding-top: 10px;
   float: left;
-  width: 150px;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
-  line-height: 26px; }
+  line-height: 60px; }
 
 .feedback_average_description {
-  font-size: 13px;
+  font-size: 16px;
   float: left;
-  width: 200px;
-  line-height: 11px;
-  padding-top: 18px; }
+  padding-top: 30px;
+  margin-left: 10px; }
 
 .single_testimonial {
   overflow: hidden;
@@ -3346,7 +3349,7 @@ a.handle:hover {
 
 .testimonial_description_text {
   font-style: italic;
-  font-size: 11px; }
+  font-size: 12px; }
 
 .light_green {
   background: #ececdb; }
@@ -3360,7 +3363,7 @@ a.handle:hover {
 
 #feedback_type_descriptions {
   background: #d1c9b4;
-  margin: 20px 10px 0 0;
+  margin: 20px 6px 0 0;
   padding: 5px; }
   #feedback_type_descriptions h4 {
     margin: 10px 0 10px 35px; }

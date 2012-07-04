@@ -6,8 +6,8 @@ module PeopleHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
-  def grade_image_class(grade, profile = true)
-    "#{profile ? "profile_" : ""}feedback_average_image_#{grade_number(grade).to_s}"
+  def grade_image_class(feedback_positive_percentage, profile = true)
+    "#{profile ? "profile_" : ""}feedback_average_image_#{grade_number(feedback_positive_percentage).to_s}"
   end
   
   def grade_text(grade, full_description = true)
@@ -15,13 +15,13 @@ module PeopleHelper
   end
   
   def grade_number(grade)
-    if grade < 2
+    if grade < 50
       return 1
-    elsif (grade >= 2 && grade < 3)
+    elsif (grade >= 50 && grade < 70)
       return 2
-    elsif (grade >= 3 && grade < 3.5)
+    elsif (grade >= 70 && grade < 90)
       return 3
-    elsif (grade >= 3.5 && grade < 4.5)
+    elsif (grade >= 90 && grade < 100)
       return 4
     else
       return 5
@@ -43,7 +43,7 @@ module PeopleHelper
     when "feedback_description"
       "hidden_description_feedback"
     else
-       "hidden_description"
+       "hidden_description_terms"
     end
   end
   

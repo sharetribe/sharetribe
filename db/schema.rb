@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628121713) do
+ActiveRecord::Schema.define(:version => 20120704072606) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -62,12 +62,12 @@ ActiveRecord::Schema.define(:version => 20120628121713) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
+    t.boolean  "news_enabled",                              :default => true
     t.boolean  "private",                                   :default => false
     t.string   "label"
+    t.boolean  "all_users_can_add_news",                    :default => true
     t.boolean  "show_date_in_listings_list",                :default => false
-    t.boolean  "news_enabled",                              :default => false
-    t.boolean  "all_users_can_add_news",                    :default => false
-    t.boolean  "custom_frontpage_sidebar",                  :default => true
+    t.boolean  "custom_frontpage_sidebar",                  :default => false
     t.boolean  "event_feed_enabled",                        :default => true
     t.integer  "members_count",                             :default => 0
     t.string   "slogan"

@@ -60,6 +60,13 @@
   
 .grid_6
 
+  - if @current_user && (@current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community))
+    .homepage_sidebar_box
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
+      #invitation_form_container
+        = render :partial => "invitation_form"
+      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+
   - if @current_user && @current_user.profile_info_empty?
     .homepage_sidebar_box
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
@@ -83,12 +90,6 @@
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       #poll_form
         = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_user && (@current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community))
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :partial => "invitation_form"
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
   - if @current_community.custom_frontpage_sidebar?
