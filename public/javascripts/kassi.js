@@ -778,30 +778,6 @@ var faceGrade = {
   } 
 }
 
-function translate_validation_messages(locale) {
-  jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
-    jQuery.extend(jQuery.validator.messages, {
-        required: json.validation_messages.required,
-        remote: json.validation_messages.remote,
-        email: json.validation_messages.email,
-        url: json.validation_messages.url,
-        date: json.validation_messages.date,
-        dateISO: json.validation_messages.dateISO,
-        number: json.validation_messages.number,
-        digits: json.validation_messages.digits,
-        creditcard: json.validation_messages.creditcard,
-        equalTo: json.validation_messages.equalTo,
-        accept: json.validation_messages.accept,
-        maxlength: jQuery.validator.format(json.validation_messages.maxlength),
-        minlength: jQuery.validator.format(json.validation_messages.minlength),
-        rangelength: jQuery.validator.format(json.validation_messages.rangelength),
-        range: jQuery.validator.format(json.validation_messages.range),
-        max: jQuery.validator.format(json.validation_messages.max),
-        min: jQuery.validator.format(json.validation_messages.min)
-    });
-  });
-}
-
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup
 // Didn't work now, but I leave here to make things faster if want to invesetigate more.
 

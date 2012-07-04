@@ -48,7 +48,7 @@
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
         %br/
         %span{:class => "smaller"}
-          = t(".#{@listing.listing_type}_created") + " " + l(@listing.created_at, :format => :short)
+          = t(".#{@listing.listing_type}_created") + " " + time_ago(@listing.created_at)
 
   #listing_right_panel.grid_7.omega
     #listing_reply_link

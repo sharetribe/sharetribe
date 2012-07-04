@@ -11,7 +11,7 @@
       %b
         - if badge.instance_of?(Badge)
           = t(".badge_achieved_at")
-          = l(badge.created_at, :format => :short)
+          = time_ago(badge.created_at)
         - else
           = t(".you_do_not_yet_have_this_badge")
   = image_tag "/images/badges/#{badge_name}_large.png", :alt => t("people.profile_badge.#{badge_name}"), :title => t("people.profile_badge.#{badge_name}")

@@ -695,6 +695,8 @@ en:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
+    comment:
+      wrote: "wrote"
     comment_form:
       log_in: "log in"
       send_comment: "Send comment"
@@ -785,7 +787,7 @@ en:
       visibility:
         communities: "All my %{service_name} communities"
         everybody: "All internet users"
-        this_community: "Only %{community} members"
+        this_community: "Only members of this tribe"
         visibility: Visibility
     help_texts:
       help_share_type_title: "Type of the offer or request"
@@ -853,7 +855,7 @@ en:
       offer_closed: "Offer is closed"
       request_closed: "Request is closed"
     show:
-      comments: Comments
+      comments: "Public discussion"
       favor_offer: "Service offer"
       favor_request: "Service request"
       housing_offer: "Housing offer"
@@ -1035,6 +1037,7 @@ en:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       grade: "grade:"
+      and_gave_following_feedback: "and gave following feedback"
       less_than_expected: "Worse than expected"
       offered_favor: "offered help"
       offered_housing: "offered housing"
@@ -1063,7 +1066,8 @@ en:
       badges: Badges
       edit_profile_info: "Edit your information"
       exceeded_expectations: "Exceeded expectations"
-      feedback_average: "Feedback average:"
+      received_feedback: "Received feedback:"
+      positive: "positive"
       hide_description: "Show less"
       joined_this_community: "...joined this community %{time_ago}"
       was_last_seen: "...was last seen %{time_ago}"
