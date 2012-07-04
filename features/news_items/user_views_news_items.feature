@@ -2,7 +2,7 @@ Feature: User views news items
   
   @javascript
   Scenario: User views homepage news items
-    Given I am logged in
+    Given I am logged in as "kassi_testperson2"
     And I am on the home page
     And I should not see "Add an article"
     And I should not see "More news"

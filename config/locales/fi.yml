@@ -203,7 +203,7 @@ fi:
       slogan_of_your_tribe: "Yhteisön iskulause"
       describe_your_tribe: "Kuvaile yhteisösi: mikä on yhteisön tarkoitus"
       create_your_tribe: "Luo yhteisö!"
-      domain_invalid: "Domain nimessä saa olla vain kirjaimia, numeroita ja väli- ja alaviivoja."
+      domain_invalid: "Osoitteessa saa olla vain kirjaimia (poislukien ääkköset), numeroita ja väli- ja alaviivoja."
       domain_taken: "Nimi on jo varattu. Koeta valita toinen nimi."
       address: "Yhteisön sijainti"
       select_main_language_of_your_tribe: "Valitse yhteisön ensisijainen kieli"
@@ -695,6 +695,8 @@ fi:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
+    comment:
+      wrote: "kirjoitti"
     comment_form:
       log_in: "kirjautua sisään"
       send_comment: "Lähetä kommentti"
@@ -785,7 +787,7 @@ fi:
       visibility:
         communities: "Omille %{service_name}-yhteisöilleni"
         everybody: "Kaikille internetin käyttäjille"
-        this_community: "Vain %{community}-yhteisön jäsenille"
+        this_community: "Vain tämän yhteisön jäsenille"
         visibility: Näkyvyys
     help_texts:
       help_share_type_title: "Tarjous- tai pyyntötapa"
@@ -1035,6 +1037,7 @@ fi:
       as_expected: "Vastasi odotuksia"
       exceeded_expectations: "Ylitti täysin odotukset"
       grade: "arvio:"
+      and_gave_following_feedback: "ja antoi seuraavan palautteen"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       offered_favor: "teki palveluksen"
       offered_housing: "tarjosi asunnon"
@@ -1063,7 +1066,8 @@ fi:
       badges: "%{service_name}-merkit"
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
-      feedback_average: "Palautteiden keskiarvo:"
+      received_feedback: "Saatu palaute:"
+      positive: "positiivista"
       hide_description: "Vähemmän tekstiä"
       joined_this_community: "...liittyi tähän yhteisöön %{time_ago}"
       was_last_seen: "...oli viimeksi aktiivinen %{time_ago}"
