@@ -6,7 +6,7 @@
 - if @testimonials && !@testimonials.empty?
   .grid_5.alpha
     #testimonials_grade_image
-      %div{:class => "#{grade_image_class(@person.feedback_average)}_big"}
+      %div{:class => "#{grade_profile_image_class(@person.feedback_positive_percentage)}_big"}
         &nbsp;
   #feedback_average.grid_9
     .feedback_average_title

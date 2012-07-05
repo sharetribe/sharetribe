@@ -109,6 +109,7 @@ Feature: User views profile page
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "Received feedback:"
+    And I should see small happy face with non-transparent background
     And I should see "100%" within ".profile_feedback_average_value"
     And I should see "Test feedback" within ".profile_feedback_texts"
     And I should see "Show all feedback (1)"
@@ -118,18 +119,21 @@ Feature: User views profile page
     And there is feedback about that event from "kassi_testperson3" with grade "0.25" and with text "Test feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "50%" within ".profile_feedback_average_value"
+    And I should see small semiunhappy face with non-transparent background
     When there is item request with title "drill" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson2" with grade "0.75" and with text "OK feedback"
     And I go to the profile page of "kassi_testperson1"
     Then I should see "67%" within ".profile_feedback_average_value"
+    And I should see small content face with non-transparent background
     When there is item request with title "tool" from "kassi_testperson1" and with share type "borrow"
     And there is a message "I offer this" from "kassi_testperson3" about that listing
     And the offer is accepted
     And there is feedback about that event from "kassi_testperson3" with grade "1" and with text "Excellent feedback"
     When I go to the profile page of "kassi_testperson1"
     Then I should see "75%" within ".profile_feedback_average_value"
+    And I should see small content face with non-transparent background
     And I should see "Excellent feedback" within ".profile_feedback_texts"
     And I should not see "OK feedback" within ".profile_feedback_texts"
     And I should not see "Test feedback" within ".profile_feedback_texts"

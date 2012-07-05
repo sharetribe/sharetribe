@@ -30,7 +30,7 @@
   - if @person.received_testimonials.size > 0    
     .profile_feedback_header
       .profile_feedback_average_image
-        %div{:class => grade_image_class(@person.feedback_positive_percentage)}
+        %div{:class => grade_profile_image_class(@person.feedback_positive_percentage)}
           &nbsp;
       .profile_feedback_average
         .profile_feedback_average_title
