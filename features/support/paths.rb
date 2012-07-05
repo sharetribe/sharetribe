@@ -30,6 +30,8 @@ module NavigationHelpers
       person_path(:id => @people[$1].id)
     when /^the badges page of "(.*)"$/i
       person_badges_path(:person_id => @people[$1].id)
+    when /^the testimonials page of "(.*)"$/i
+      person_testimonials_path(:person_id => @people[$1].id)
     when /the listing page/
       listing_path(:id => @listing.id)
     when /^the registration page with invitation code "(.*)"$/i
