@@ -81,10 +81,10 @@ fi:
       favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
       favor_request_message_title: "Palvelustarjous: %{title}"
-      housing_offer_message_form_title: "Vastaa käyttäjälle"
-      housing_offer_message_title: "Vastaus ilmoitukseen %{title}"
-      housing_request_message_form_title: "Vastaa käyttäjälle"
-      housing_request_message_title: "Vastaus ilmoitukseen %{title}"
+      housing_offer_message_form_title: "Tarjoa tilaa käyttäjälle"
+      housing_offer_message_title: "Tilatarjous: %{title}"
+      housing_request_message_form_title: "Pyydä tilaa käyttäjältä"
+      housing_request_message_title: "Tilapyyntö: %{title}"
       item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
       item_offer_message_title: "Tavarapyyntö: %{title}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
@@ -417,10 +417,10 @@ fi:
       has_accepted_buy_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_trade_item: "%{offerer_name} vaihtoi tavaran %{listing_title} käyttäjän %{requester_name} kanssa %{time_ago}."
       has_accepted_temporary_accommodation_housing: " %{offerer_name} tarjosi tilapäismajoituksen %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
-      has_accepted_sell_housing: "%{offerer_name} myi asunnon %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
-      has_accepted_buy_housing: "%{offerer_name} myi asunnon %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
-      has_accepted_rent_out_housing: "%{offerer_name} vuokrasi asunnon %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
-      has_accepted_rent_housing: "%{offerer_name} vuokrasi asunnon %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} myi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} myi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} vuokrasi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} vuokrasi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_favor: "%{offerer_name} tarjosi palveluksen %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_rideshare: "%{offerer_name} sopi kyydistä %{listing_title} käyttäjän %{requester_name} kanssa %{time_ago}."
     join:
@@ -732,7 +732,7 @@ fi:
         destination: Määränpää
       form_content:
         favor: Apua
-        housing: Asunnon
+        housing: Tilan
         item: Tavaran
         offer_something: "Tarjoa jotain"
         request_something: "Pyydä jotain"
@@ -776,8 +776,8 @@ fi:
       title:
         favor_you_offer: "Palvelus jonka tarjoat"
         favor_you_request: "Palvelus jonka tarvitset"
-        housing_you_offer: "Mitä tarjoat"
-        housing_you_request: "Mitä tarvitset"
+        housing_you_offer: "Tila jonka tarjoat"
+        housing_you_request: "Tila jonka tarvitset"
         item_you_offer: "Tavara jonka tarjoat"
         item_you_request: "Tavara jonka tarvitset"
       valid_until:
@@ -800,7 +800,7 @@ fi:
       category: Kategoria
       did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
       favors: Palvelukset
-      housing: Asuminen
+      housing: Tilat
       items: Tavarat
       list_view: Listanäkymä
       map_view: Karttanäkymä
@@ -818,7 +818,7 @@ fi:
       buys: Ostetaan
       favors: Palvelukset
       give_aways: Annetaan
-      housings: Asunnot
+      housings: Tilat
       items: Tavarat
       lends: "Annetaan lainaan"
       receives: "Otetaan vastaan"
@@ -858,8 +858,8 @@ fi:
       comments: Kommentit
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
-      housing_offer: Asuntotarjous
-      housing_request: Asuntotarve
+      housing_offer: Tilatarjous
+      housing_request: Tilatarve
       item_offer: Tavaratarjous
       item_request: Tavarapyyntö
       no_description: "Ei kuvausta"
@@ -887,7 +887,7 @@ fi:
       category: Kategoria
       did_not_found_what_you_were_looking_for: "Etkö löytänyt tarvitsemaasi?"
       favors: Palvelukset
-      housing: Asuminen
+      housing: Tilat
       items: Tavarat
       list_view: Listanäkymä
       map_view: Karttanäkymä
@@ -1040,11 +1040,11 @@ fi:
       and_gave_following_feedback: "ja antoi seuraavan palautteen"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       offered_favor: "teki palveluksen"
-      offered_housing: "tarjosi asunnon"
+      offered_housing: "tarjosi tilan"
       offered_item: "tarjosi tavaran"
       offered_rideshare: "tarjosi kyydin"
       requested_favor: "sai palveluksen"
-      requested_housing: "pyysi asunnon"
+      requested_housing: "pyysi tilan"
       requested_item: "sai tavaran"
       requested_rideshare: "sai kyydin"
       slightly_better_than_expected: "Ylitti jossain määrin odotukset"

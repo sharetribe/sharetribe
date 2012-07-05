@@ -81,10 +81,10 @@ en:
       favor_offer_message_title: "Service request: %{title}"
       favor_request_message_form_title: "Offer help to"
       favor_request_message_title: "Service offer: %{title}"
-      housing_offer_message_form_title: "Reply to"
-      housing_offer_message_title: "Reply to your listing %{title}"
-      housing_request_message_form_title: "Reply to"
-      housing_request_message_title: "Reply to your listing %{title}"
+      housing_offer_message_form_title: "Offer space to"
+      housing_offer_message_title: "Space available: %{title}"
+      housing_request_message_form_title: "Request space from"
+      housing_request_message_title: "Space request: %{title}"
       item_offer_message_form_title: "Request an item from"
       item_offer_message_title: "Item request: %{title}"
       item_request_message_form_title: "Offer an item to"
@@ -538,7 +538,7 @@ en:
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Give feedback on %{service_name}"
-      keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
+      keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
       meta_description: "%{service_name} is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
@@ -605,8 +605,8 @@ en:
       feedback_saved: "Thanks for your feedback!"
       feedback_sent_to: "Feedback sent to"
       feedback_skipped: "Feedback skipped"
-      housing_offer_message_sent: "Message sent successfully"
-      housing_request_message_sent: "Message sent successfully"
+      housing_offer_message_sent: "Space request sent successfully"
+      housing_request_message_sent: "Space offer sent successfully"
       invitation_cannot_be_sent: "Invitation could not be sent"
       invitation_sent: "Invitation sent successfully"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed in this %{service_name} community"
@@ -732,7 +732,7 @@ en:
         destination: Destination
       form_content:
         favor: "a service"
-        housing: accommodation
+        housing: "a space"
         item: "an item"
         offer_something: "Offer something"
         request_something: "Request something"
@@ -776,8 +776,8 @@ en:
       title:
         favor_you_offer: "Service you offer"
         favor_you_request: "Service you need"
-        housing_you_offer: "Housing you offer"
-        housing_you_request: "Housing you need"
+        housing_you_offer: "Space you offer"
+        housing_you_request: "Space you need"
         item_you_offer: "Item you offer"
         item_you_request: "Item you need"
       valid_until:
@@ -800,7 +800,7 @@ en:
       category: Category
       did_not_found_what_you_were_looking_for: "Didn't find what you need?"
       favors: Services
-      housing: Housing
+      housing: Spaces
       items: Items
       list_view: "List view"
       map_view: "Map view"
@@ -818,7 +818,7 @@ en:
       buys: Buying
       favors: Services
       give_aways: "Giving away"
-      housings: Housing
+      housings: Spaces
       items: Items
       lends: Lending
       receives: "Taking for free"
@@ -858,8 +858,8 @@ en:
       comments: "Public discussion"
       favor_offer: "Service offer"
       favor_request: "Service request"
-      housing_offer: "Housing offer"
-      housing_request: "Housing request"
+      housing_offer: "Space offer"
+      housing_request: "Space request"
       item_offer: "Item offer"
       item_request: "Item request"
       no_description: "No description"
@@ -887,7 +887,7 @@ en:
       category: Category
       did_not_found_what_you_were_looking_for: "Didn't find what you need?"
       favors: Services
-      housing: Housing
+      housing: Spaces
       items: Items
       list_view: "List view"
       map_view: "Map view"
@@ -998,7 +998,7 @@ en:
       helper_silver: "Helper (silver)"
       helper_silver_description: "You like to spend your time helping others: 6 services done!"
       jack_of_all_trades: "Jack of all trades"
-      jack_of_all_trades_description: "You are a true multitalent! You have been participating in resource exchange in five different roles. Carry on and collect all eight: item offerer, service offerer, ride offerer, housing offerer, item requester, service requester, ride requester and housing requester."
+      jack_of_all_trades_description: "You are a true multitalent! You have been participating in resource exchange in five different roles. Carry on and collect all eight: item offerer, service offerer, ride offerer, space offerer, item requester, service requester, ride requester and space requester."
       lender_bronze: "Lender (bronze)"
       lender_bronze_description: "You have listed three items that you could lend in your profile, great!"
       lender_gold: "Lender (gold)"
@@ -1040,11 +1040,11 @@ en:
       and_gave_following_feedback: "and gave following feedback"
       less_than_expected: "Worse than expected"
       offered_favor: "offered help"
-      offered_housing: "offered housing"
+      offered_housing: "offered space"
       offered_item: "offered an item"
       offered_rideshare: "offered a ride"
       requested_favor: "requested help"
-      requested_housing: "requested housing"
+      requested_housing: "requested space"
       requested_item: "requested an item"
       requested_rideshare: "requested a ride"
       slightly_better_than_expected: "Slightly better than expected"
