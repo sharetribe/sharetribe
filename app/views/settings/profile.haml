@@ -36,7 +36,7 @@
         :javascript
           source = document.getElementById("person_street_address");
           $(document).ready(function(){
-            googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true);
+            googlemapMarkerInit("settings_map_canvas","person_location","person_street_address", true, #{tribe_latitude}, #{tribe_longitude});
             });
     .form_field_container  
       = form.label :phone_number, t(".phone_number"), :class => "input"

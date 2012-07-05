@@ -66,15 +66,16 @@ function timed_input(param) {
 
 function timed_input_on_route(){
   clearTimeout(timer);
-  timer=setTimeout(function(){
+  timer=setTimeout(
+    function() {
       startRoute();
-      }, 1500);
+    }, 1500
+  );
 }
 
-function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
+function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable,community_location_lat,community_location_lon) {
 	prefix = n_prefix;
 	textfield = n_textfield;
-	defaultCenter = new google.maps.LatLng(60.1894, 24.8358);
 	
 	if (draggable == undefined)
 		draggable = false;
@@ -82,29 +83,34 @@ function googlemapMarkerInit(canvas,n_prefix,n_textfield,draggable) {
 	var latitude = document.getElementById(prefix+ "_latitude");
 	var longitude = document.getElementById(prefix+ "_longitude");
 	var visible = true;
-	if(latitude.value != ""){
-		center = new google.maps.LatLng(latitude.value,longitude.value);
-	} else {
-		center = defaultCenter;
-		visible = false;
-	}
 	
 	var myOptions = {
 		'zoom': 12,
-		'center': center,
 		'streetViewControl': false,
 		'mapTypeControl': false,
     'mapTypeId': google.maps.MapTypeId.ROADMAP
   }
 	
 	map = new google.maps.Map(document.getElementById(canvas), myOptions);
+	if (latitude.value != "") {
+	  setMapCenter(latitude.value, longitude.value, false);
+  } else {
+    setMapCenter(community_location_lat, community_location_lon, false);
+  }
 	geocoder = new google.maps.Geocoder();
+	
+	if (latitude.value != ""){
+  	markerPosition = new google.maps.LatLng(latitude.value,longitude.value);
+  } else {
+  	markerPosition = defaultCenter;
+  	visible = false;
+  }
 	
 	marker = new google.maps.Marker({
 		'map': map,
 		'draggable': draggable,
 		'animation': google.maps.Animation.DROP,
-		'position': center
+		'position': markerPosition
   });
 
 	infowindow = new google.maps.InfoWindow();
@@ -219,7 +225,7 @@ function googlemapRouteInit(canvas) {
 
   geocoder = new google.maps.Geocoder();
   directionsService = new google.maps.DirectionsService();
-  defaultCenter = new google.maps.LatLng(60.1894, 24.8358);
+  defaultCenter = new google.maps.LatLng(60.17, 24.94);
 	
   var myOptions = {
     'mapTypeId': google.maps.MapTypeId.ROADMAP,
@@ -255,7 +261,7 @@ function googlemapRouteInit(canvas) {
 
 
 // Use this one for "new" and "edit"
-function startRoute() {
+function startRoute(latitude, longitude) {
   var foo = document.getElementById("listing_origin").value;
   var bar = document.getElementById("listing_destination").value;
 	directionsDisplay.setMap(map);
@@ -267,7 +273,7 @@ function startRoute() {
   } else {
     removeRoute();
     if (foo == '' && bar == '') {
-	    map.setCenter(defaultCenter);
+	    setMapCenter(latitude, longitude, false);
     	map.setZoom(12);
     }
   }
@@ -462,56 +468,39 @@ function initialize_listing_map(type, community_location_lat, community_location
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setOptions( { suppressMarkers: true } );
-  helsinki = new google.maps.LatLng(60.2, 24.9);
+  helsinki = new google.maps.LatLng(60.17, 24.94);
   flagMarker = new google.maps.Marker();
   var myOptions = {
-    zoom: 10,
+    zoom: 13,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-  
-  // First try the default location of the community if it has one
-  if (community_location_lat != null) {
-    initialLocation = new google.maps.LatLng(community_location_lat,community_location_lon);
-    map.setCenter(initialLocation);
-  // Try W3C Geolocation (Preferred)
-  } else if(navigator.geolocation) {
-    browserSupportFlag = true;
-    navigator.geolocation.getCurrentPosition(function(position) {
-      initialLocation = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      map.setCenter(initialLocation);
-    }, function() {
-      handleNoGeolocation(browserSupportFlag);
-    });
-  // Try Google Gears Geolocation
-  } else if (google.gears) {
-    browserSupportFlag = true;
-    var geo = google.gears.factory.create('beta.geolocation');
-    geo.getCurrentPosition(function(position) {
-      initialLocation = new google.maps.LatLng(position.latitude,position.longitude);
-      map.setCenter(initialLocation);
-    }, function() {
-      handleNoGeoLocation(browserSupportFlag);
-    });
-  // Browser doesn't support Geolocation
-  } else {
-    browserSupportFlag = false;
-    handleNoGeolocation(browserSupportFlag);
-  }
-  
-  function handleNoGeolocation(errorFlag) {
-    if (errorFlag == true) {
-      alert("Geolocation service failed.");
-      initialLocation = helsinki;
-    } else {
-      alert("Your browser doesn't support geolocation. We've placed you in Helsinki.");
-      initialLocation = helsinki;
-    }
-    map.setCenter(initialLocation);
-  }
+  setMapCenter(community_location_lat, community_location_lon, true);
   google.maps.event.addListenerOnce(map, 'tilesloaded', addListingMarkers);
 }
 
+function setMapCenter(community_location_lat, community_location_lon, show_alerts) {
+  // Set default location to Helsinki
+  var defaultPosition = new google.maps.LatLng(60.17, 24.94);
+  // If location given in parameters, use it
+  if (community_location_lat != null && community_location_lat != '') {
+    map.setCenter(new google.maps.LatLng(community_location_lat,community_location_lon));
+  // Try Browser Geolocation
+  } else if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      map.setCenter(new google.maps.LatLng(position.coords.latitude,position.coords.longitude));
+    }, function() {
+      if (show_alerts == true)
+        alert("Geolocation service failed. We've placed you in Helsinki, Finland.");
+      map.setCenter(defaultPosition);
+    });
+  // Browser doesn't support Geolocation, we need to use the default location.
+  } else {
+    if (show_alerts == true)
+      alert("Your browser doesn't support geolocation. We've placed you in Helsinki, Finland.");
+    map.setCenter(defaultPosition);
+  }
+}
 
 function addListingMarkers() {
   // Test requesting location data
