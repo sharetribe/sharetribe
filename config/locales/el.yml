@@ -80,7 +80,7 @@ el:
       favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
       favor_offer_message_title: "Χάρη: %{title}"
       favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
-      favor_request_message_title: "Χάρη: %{title}"
+      favor_request_message_title: "Υπηρεσία: %{title}"
       housing_offer_message_form_title: "Απάντησε στον/στην"
       housing_offer_message_title: "Απάντηση στην αγγελία σου %{title}"
       housing_request_message_form_title: "Απάντησε στον/στην"
@@ -244,11 +244,11 @@ el:
       sharing_website: SHARETRIBE
       main_description: "Δημιούργησε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
       kassi_for_your_company: "ΤΟ SHARETRIBE ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
-      kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους ενώ ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
+      kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους, να κάνουν κοινές δράσεις και ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
       kassi_for_your_city: "ΤΟ SHARETRIBE ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
       kassi_for_your_university: "ΤΟ SHARETRIBE ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
-      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να γλιτώνουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
+      kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
       want_kassi_for_your_community: "Θα ήθελες το %{service_name} στην κοινότητά σου;"
       email_default_text: "Ηλεκτρονική διεύθυνση"
       send: Αποστολή!
@@ -276,6 +276,11 @@ el:
       university_example_link: "<a href=\"http://UPatras.sharetribe.com\">Το Sharetribe στο Πανεπιστήμιο Πατρών</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Το Sharetribe στο High Tech Center Keilaniemi</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">To Sharetribe στη γειτονιά Kallio του Ελσίνκι</a>"
+      about: ~
+      api: ~
+      developers: ~
+    api:
+      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -767,7 +772,7 @@ el:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
       title:
-        favor_you_offer: "Βοήθεια που προσφέρεις"
+        favor_you_offer: "Υπηρεσία που προσφέρεις"
         favor_you_request: "Βοήθεια που χρειάζεσαι"
         housing_you_offer: "Διαμονή που προσφέρεις"
         housing_you_request: "Διαμονή που χρειάζεσαι"
@@ -822,7 +827,7 @@ el:
       temporary_accommodations: "Προσωρινή διαμονή"
       trades: Ανταλλαγές
     link_labels:
-      link_label_for_favor_offer: "Ζήτα αυτή τη χάρη"
+      link_label_for_favor_offer: "Ζήτησέ το"
       link_label_for_favor_request: "Πρόσφερε τη βοήθεια σου"
       link_label_for_housing_offer: Απάντησε
       link_label_for_housing_request: Απάντησε
@@ -849,7 +854,7 @@ el:
       request_closed: "Το αίτημα είναι κλειστό"
     show:
       comments: Σχόλια
-      favor_offer: "Προσφερόμενες χάρες"
+      favor_offer: "Προσφορά υπηρεσίας"
       favor_request: "Ζητούμενες χάρες"
       housing_offer: "Προσφορά διαμονής"
       housing_request: Διαμονή

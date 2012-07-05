@@ -3,6 +3,8 @@ class DashboardController < ApplicationController
   include CommunitiesHelper
   
   skip_filter :single_community_only
+  skip_filter :dashboard_only, :only => :api
+  skip_filter :fetch_community, :only => :api
   
   def index  
     I18n.locale = "es" if request.domain =~ /\.cl$/ && params[:locale].blank?

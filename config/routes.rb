@@ -61,6 +61,14 @@ Kassi::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))
   
+  scope :module => "api", :constraints => {:subdomain => "api"}, :defaults => { :format => 'json' } do
+    resources :tokens, :only => :create
+    resources :listings
+    resources :people
+
+    match '/' => 'dashboard#api'    
+  end
+  
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
 
