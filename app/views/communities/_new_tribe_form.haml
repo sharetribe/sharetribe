@@ -36,8 +36,8 @@
             :javascript
               source = document.getElementById("community_address");
               $(document).ready(function(){
-                googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true);
-                });
+                googlemapMarkerInit("new_community_map_canvas","community_location","community_address", true, undefined, undefined);
+              });
         .form_field_container_taller
           = form.label :description, t(".describe_your_tribe")
           = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en")))

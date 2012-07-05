@@ -272,4 +272,16 @@ module ApplicationHelper
     url[/^([^\/]*\/\/)?[^\/]+\/(\w{2})(\/.*)?/,2]
   end
   
+  # Helper method for javascript. Return "undefined" 
+  # if tribe has no location.
+  def tribe_latitude
+    @current_community.location ? @current_community.location.latitude : "undefined"
+  end
+  
+  # Helper method for javascript. Return "undefined" 
+  # if tribe has no location.
+  def tribe_longitude
+    @current_community.location ? @current_community.location.longitude : "undefined"
+  end
+  
 end
