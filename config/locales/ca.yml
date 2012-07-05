@@ -60,10 +60,10 @@ ca:
       give_away: donant
       lend: prestant
       receive: regalar
-      rent: arrendant
-      rent_out: Arrenda
+      rent: Lloguer
+      rent_out: lloga
       sell: Vendre
-      temporary_accommodation: "Allotjament temporal"
+      temporary_accommodation: Allotjament
       trade: Intercanviar
     username: Usuari
     what_is_this: "Què és això?"
@@ -276,6 +276,11 @@ ca:
       university_example_link: ~
       company_example_link: ~
       city_example_link: ~
+      about: ~
+      api: ~
+      developers: ~
+    api:
+      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: Oferta
@@ -557,7 +562,7 @@ ca:
       register_details: "Detalls del registre"
       terms: "Termes d'ús"
     logged_in:
-      admin: Administrador
+      admin: Admin
       go_to_your_profile_page: Perfil
       hi: Hola
       login: "Inicia sessió"
@@ -571,7 +576,7 @@ ca:
     logged_in_notifications_icon:
       notifications: Notificacions
     mobile_logged_in:
-      admin: Administrador
+      admin: Admin
       go_to_your_profile_page: Perfil
       hi: Hola
       login: "Inicia sessió"
@@ -763,7 +768,7 @@ ca:
         rent_out: Arrendament
         request_type: "Tipus de sol·licitud"
         sell: Venta
-        temporary_accommodation: "Allotjament temporal"
+        temporary_accommodation: Allotjament
         trade: Intercanvi
       tag_list:
         comma_separate: "(separades per comes)"
@@ -824,14 +829,14 @@ ca:
       temporary_accommodations: "Allotjament temporal"
       trades: Intercanvis
     link_labels:
-      link_label_for_favor_offer: Contacte
-      link_label_for_favor_request: Contacte
-      link_label_for_housing_offer: Contacte
-      link_label_for_housing_request: Contacte
-      link_label_for_item_offer: Contacte
-      link_label_for_item_request: Contacte
-      link_label_for_rideshare_offer: Contacte
-      link_label_for_rideshare_request: Contacte
+      link_label_for_favor_offer: Contactar
+      link_label_for_favor_request: Contactar
+      link_label_for_housing_offer: Contactar
+      link_label_for_housing_request: Contactar
+      link_label_for_item_offer: Contactar
+      link_label_for_item_request: Contactar
+      link_label_for_rideshare_offer: Contactar
+      link_label_for_rideshare_request: Contactar
     listed_listing:
       edit: Editar
     listed_listing_closed_status:

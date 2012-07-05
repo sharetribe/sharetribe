@@ -89,7 +89,7 @@ end
 
 # Filling in with random strings
 When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)")?$/ do |field, value, selector|
-  @values = {}
+  @values ||= {}
   case value
   when "username"
     value = generate_random_username
@@ -155,10 +155,15 @@ When /^I can choose whether I want to show my username to others in community "(
 end
 
 Then /^I should see my username$/ do
+  username = Person.order("updated_at").last.username
+  if @values && @values["username"]
+    puts "it seems there username of last created person is stored, so use that"
+    username = @values["username"]
+  end
   if page.respond_to? :should
-    page.should have_content(Person.order("created_at").last.username)
+    page.should have_content(username)
   else
-    assert page.has_content?(Person.order("created_at").last.username)
+    assert page.has_content?(username)
   end
 end
 

@@ -65,4 +65,13 @@ module PeopleHelper
     end
   end
   
+  def email_available_for_user?(user, email)
+      if user && (user.email == email || Email.find_by_address_and_person_id(email, user.id) )
+        # Current user's own email should not be shown as unavailable
+        return true
+      else
+        return Person.email_available?(email)
+      end
+  end
+  
 end

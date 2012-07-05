@@ -171,7 +171,7 @@ ru:
       create_for_free: "Создать бесплатно"
       contact_us: "Свяжитесь с нами"
       free_plan: "Бесплатный план"
-      max_members: "Макс. %{number} участников"
+      max_members: "Максимум %{number} участников"
       premium_plan: Премиум-план
       care_free_user_support: "Заботливая поддержка пользователей"
       create_your_tribe: "Создайте своё сообщество"
@@ -276,6 +276,11 @@ ru:
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe в университете Аальто</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe в HTC Keilaniemi</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe в Каллио, Хельсинки</a>"
+      about: ~
+      api: ~
+      developers: ~
+    api:
+      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: предложение
