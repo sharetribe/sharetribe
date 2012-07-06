@@ -236,6 +236,12 @@ class PeopleController < Devise::RegistrationsController
       flash[:error] = "update_error"
     end
     
+    # If hobbies form submitted as part of the on-boarding process,
+    # redirect to root to avoid a "dead-end" in the sign-up process
+    if params[:hobbies_onboard] == 'true'
+      redirect_to root and return
+    end
+    
     redirect_to :back
     
   end
