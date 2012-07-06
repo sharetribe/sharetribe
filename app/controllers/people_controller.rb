@@ -196,17 +196,17 @@ class PeopleController < Devise::RegistrationsController
   
   def update
     
-	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
+    if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
-	  end
-	  
-	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
-	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
-	    flash[:error] = t("people.new.email_not_allowed")
-	    redirect_to :back and return
+    end
+      
+    #Check that people don't exploit changing email to be confirmed to join an email restricted community
+    if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
+      flash[:error] = t("people.new.email_not_allowed")
+      redirect_to :back and return
     end
     
     # If person is changing email address, store the old confirmed address as additional email
