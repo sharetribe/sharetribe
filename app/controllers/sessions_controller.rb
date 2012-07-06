@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
   skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
+  skip_filter :check_hobbies_submitted, :only => [ :destroy ]
   
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
