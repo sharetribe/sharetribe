@@ -168,8 +168,11 @@ class ApplicationController < ActionController::Base
 
   def check_hobbies_submitted
     # Make sure that a new user has submitted the hobbies form.
+    if on_dashboard?
+      return
+    end
     if @current_user && @current_user.hobby_status == Person::HOBBY_STATUSES[:unsubmitted]
-      flash[:warning] = "please_submit_the_hobbies_form"
+      flash[:notice] = "please_submit_the_hobbies_form"
       redirect_to hobbies_path unless params[:controller] == 'hobbies' or params[:controller] == 'devise/confirmations'
     end
   end
