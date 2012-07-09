@@ -239,6 +239,7 @@ class PeopleController < Devise::RegistrationsController
     # If hobbies form submitted as part of the on-boarding process,
     # redirect to root to avoid a "dead-end" in the sign-up process
     if params[:hobbies_onboard] == 'true'
+      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
       redirect_to root and return
     end
     
