@@ -249,9 +249,6 @@ class Person < ActiveRecord::Base
           params.delete(:location)
         end
 
-        self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
-        save
-
         if params[:hobbies]
           # compile a new hobbies list
           temp_hobbies = []
@@ -280,6 +277,11 @@ class Person < ActiveRecord::Base
           # Update hobby_status
           self.hobby_status = HOBBY_STATUSES[:submitted]
         end
+
+        if params[:show_real_name_setting_affected]
+          self.show_real_name_to_other_users = !!params[:show_real_name_to_other_users]
+        end
+        save
 
         super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))
       end
