@@ -15,6 +15,8 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     Then I should see "Welcome to Sharetribe, Testmanno!" within "#notifications"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
@@ -78,6 +80,8 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     Then I should see "Welcome to Sharetribe" within "#notifications"
   
   @javascript  
@@ -94,6 +98,8 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     Then I should see my username
     And I should not see "Testmanno"
     And I should not see "Testmanno!"
@@ -112,6 +118,8 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     Then I should not see my username
     And I should see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
