@@ -3,7 +3,7 @@ Feature: User creates a new account
   As a person who does not have an account in Sharetribe
   I want to create a new account in Sharetribe
   
-  @javascript  
+  @javascript @seeds
   Scenario: Creating a new account successfully
     Given I am not logged in
     And I am on the signup page
@@ -21,7 +21,7 @@ Feature: User creates a new account
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
   
-  @javascript  
+  @javascript
   Scenario: Trying to create account with unavailable username 
     Given I am not logged in
     And I am on the signup page
@@ -34,7 +34,7 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "This username is already in use." within ".error"
   
-  @javascript  
+  @javascript
   Scenario: Trying to create account with invalid username 
     Given I am not logged in
     And I am on the signup page
@@ -60,7 +60,7 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "The email you gave is already in use." within ".error"
   
-  @javascript
+  @javascript @seeds
   Scenario: Trying to create an account without given name and last name
     Given I am not logged in
     And I am on the signup page
@@ -84,7 +84,7 @@ Feature: User creates a new account
     And I press "Save information"
     Then I should see "Welcome to Sharetribe" within "#notifications"
   
-  @javascript  
+  @javascript @seeds
   Scenario: Creating a new account without allowing to show real name
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"
@@ -105,7 +105,7 @@ Feature: User creates a new account
     And I should not see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
   
-  @javascript  
+  @javascript @seeds
   Scenario: Creating a new account and allowing to show real name
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"

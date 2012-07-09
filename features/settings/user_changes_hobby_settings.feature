@@ -3,6 +3,7 @@ Feature: User changes hobby settings
   As a user
   I want to be able to change my hobby settings
 
+  @seeds
   Scenario: user changes hobby settings successfully
     Given there are following users:
       | kassi_testperson1 |
@@ -18,6 +19,7 @@ Feature: User changes hobby settings
     And the "Sports" checkbox should be checked
     And the "Fashion" checkbox should not be checked
 
+  @seeds
   Scenario: user adds a new hobby
     Given there are following users:
       | kassi_testperson1 |
