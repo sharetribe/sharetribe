@@ -1259,8 +1259,23 @@ div.checkbox_float {
 
 /* Single listing view */
 
+#listing_content_side {
+  h1 {
+    font-size: 32px;
+    line-height: 38px; 
+  }
+}
+
 #listing_center {
-  h1 { line-height: 28px; }
+  margin-top: 5px;
+  p {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+}
+
+#listing_main_content {
+  overflow: hidden;
 }
 
 #googlemap {
@@ -1328,21 +1343,72 @@ a.edit_profile {
 	padding: 30px 0 0 30px;
 }
 
-#share_types_and_tags {
-	padding: 10px;
-	border: 1px solid $text_color;
-}
-
 #listing_author {
-	padding: 15px 0;
+	border: 2px solid $medium_brown;
 	overflow: hidden;
+	a { font-weight: normal; }
 }
 
-#listing_author_description {
-	float: left;
-	margin-left: 10px;
-	padding-top: 5px;
+#listing_author_image {
+  float: left;
+  padding: 10px;
+  background: white;
+  height: 70px;
 }
+
+@mixin listing_author_description($width: 163px) {
+  float: left;
+	padding: 10px 10px 10px 0;
+	background: white;
+	height: 70px;
+	width: $width;
+	line-height: 18px;
+}
+
+#listing_author_description { @include listing_author_description; }
+#listing_author_description_wide { @include listing_author_description(283px); }
+
+#listing_author_feedback {
+  background: $medium_brown;
+  color: white;
+  font-size: 12px;
+  padding: 9px 10px 11px 12px;
+  height: 70px;
+  line-height: 20px;
+  float: right;
+  width: 100px;
+  &:hover { color: $lighter_orange; };
+}
+
+div.listing_author_feedback_title {
+  margin-bottom: 5px;
+}
+
+div.listing_author_feedback_percentage {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+
+@mixin message_to_listing_author_link($color: $orange) {
+	padding-bottom: 10px;
+	@include home_button($color, 300px);
+	a {
+	  padding-top: 16px;
+	  font-weight: 400px;
+	  height: 30px;
+	  font-size: 15px;
+	}
+}
+
+#transaction_proposal_link { 
+  @include message_to_listing_author_link;
+  a {
+    font-size: 18px;
+    padding: 13px 0 13px 0;
+  }
+}
+#free_message_link { @include message_to_listing_author_link($medium_brown); }
 
 #request_listing_link {
 	margin-left: 10px;
@@ -1613,7 +1679,7 @@ a.edit_profile {
 
 .comment {
 	overflow: hidden;
-	margin-bottom: 20px;
+	margin: 20px 0 20px 0;
 }
 
 .person_image_message {
@@ -1719,10 +1785,15 @@ a.edit_profile {
 
 #comment_form {
 	@include message_form(370px, 0);
+	textarea { 
+	  width: 598px;
+	  background: white;
+	  opacity: 1; 
+	}
 }
 
 .comment_checkbox_container {
-  padding: 5px 0 8px 0;
+  padding: 1px 0 5px 0;
   overflow: hidden;
 }
 
@@ -1901,12 +1972,13 @@ a.edit_profile {
 
 
 #comments {
-	margin-top: 10px;
+	margin-top: 30px;
 	h2 {
 		padding: 0;
 		font-size: 18px;
 		width: 620px;
 		border-bottom: 2px solid $text_color;
+		margin-bottom: 10px;
 	}	
 }
 
@@ -2882,9 +2954,9 @@ a.handle {
 	padding-top: 10px;
 }
 
-#additional_listing_links {
-  margin: 10px;
+#listing_share_links {
   overflow: hidden;
+  margin: 5px 0 27px 10px;
 }
 
 #inactive_notification_box {
