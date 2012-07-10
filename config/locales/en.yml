@@ -518,6 +518,8 @@ en:
       add_your_info_link: "Add your info now"
     recent_listing:
       please_offer: Offer
+      comment: "comment"
+      comments: "comments"
     sign_in:
       recent_offers: "What members are offering right now"
       recent_requests: "What members need right now"
@@ -829,14 +831,36 @@ en:
       temporary_accommodations: "Temporary accommodation"
       trades: Swapping
     link_labels:
-      link_label_for_favor_offer: Contact
-      link_label_for_favor_request: Contact
+      link_label_for_favor_offer: "Offer service"
+      link_label_for_favor_request: "Request service"
       link_label_for_housing_offer: Contact
       link_label_for_housing_request: Contact
-      link_label_for_item_offer: Contact
-      link_label_for_item_request: Contact
-      link_label_for_rideshare_offer: Contact
-      link_label_for_rideshare_request: Contact
+      link_label_for_item_offer_lend: "Borrow this item"
+      link_label_for_item_offer_rent_out: "Rent this item"
+      link_label_for_item_offer_sell: "Buy this item"
+      link_label_for_item_offer_give_away: "Request this item"
+      link_label_for_item_offer_trade: "Swap this item"
+      link_label_for_item_request_borrow: "Offer to lend this item"
+      link_label_for_item_request_rent: "Offer to rent out this item"
+      link_label_for_item_request_buy: "Offer to sell this item"
+      link_label_for_item_request_receive: "Offer this item"
+      link_label_for_item_request_trade: "Offer to swap this item"
+      link_label_for_rideshare_offer: "Offer ride"
+      link_label_for_rideshare_request: "Request ride"
+      message_link_label_for_favor_offer: "Send private message to offerer"
+      message_link_label_for_favor_request: "Send private message to requester"
+      message_link_label_for_item_offer_lend: "Send private message to lender"
+      message_link_label_for_item_offer_rent_out: "Send private message to renter"
+      message_link_label_for_item_offer_sell: "Send private message to seller"
+      message_link_label_for_item_offer_give_away: "Send private message to offerer"
+      message_link_label_for_item_offer_trade: "Send private message to offerer"
+      message_link_label_for_item_request_borrow: "Send private message to requester"
+      message_link_label_for_item_request_rent: "Send private message to requester"
+      message_link_label_for_item_request_buy: "Send private message to requester"
+      message_link_label_for_item_request_receive: "Send private message to requester"
+      message_link_label_for_item_request_trade: "Send private message to requester"
+      message_link_label_for_rideshare_offer: "Send private message to requester"
+      message_link_label_for_rideshare_request: "Send private message to offerer"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -855,7 +879,9 @@ en:
       offer_closed: "Offer is closed"
       request_closed: "Request is closed"
     show:
+      add_your_phone_number: "Add your phone number"
       comments: "Public discussion"
+      contact_by_phone: "Contact by phone:"
       favor_offer: "Service offer"
       favor_request: "Service request"
       housing_offer: "Space offer"
@@ -865,13 +891,15 @@ en:
       no_description: "No description"
       offer: Offer
       offer_author: "Offered by"
-      offer_created: "Offer created"
+      offer_created: "Created"
+      feedback: "Feedback:"
       qr_code: "QR code"
       request: Request
       request_author: "Requested by"
-      request_created: "Request created"
+      request_created: "Created"
       rideshare_offer: "Rideshare offer"
       rideshare_request: "Rideshare request"
+      send_private_message: "Send private message"
       share_types: "Share types"
       share_types_offer: "Type of offer"
       share_types_request: "Type of request"

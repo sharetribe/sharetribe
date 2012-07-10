@@ -12,15 +12,11 @@
     - listing_title = listed_listing_title(listing)
     %h5= link_to listing_title, listing
     %p.description_tall
-      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 60, :omission => "..."))
-      %span
-        &ndash;
-        = link_to listing.author.given_name_or_username, listing.author
-        - if @current_community.show_date_in_listings_list
-          = time_ago(listing.created_at)
+      = (listing.description.blank? ? t("listings.show.no_description") : truncate(listing.description, :length => 120, :omission => "..."))
     .float_left
-      - unless current_user?(listing.author)
-        = link_to t("listings.link_labels.link_label_for_#{listing.category}_#{listing.listing_type}"), reply_to_listing_path(:id => listing.id)
-        &nbsp;|&nbsp;
-      - comment_count = listing.comments.count > 0 ? " (#{listing.comments.count})" : ""  
-      = link_to "#{t('listings.please_comment')}#{comment_count}", listing_path(listing)+ "#comment_form"
+      = link_to listing.author.given_name_or_username, listing.author
+      - if @current_community.show_date_in_listings_list
+        = time_ago(listing.created_at)
+    - if listing.comments.size > 0
+      .float_right
+        = link_to pluralize(listing.comments.size, t(".comment"), t(".comments")), (listing_path(listing) + "#comment_form")

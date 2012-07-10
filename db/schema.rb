@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120704072606) do
+ActiveRecord::Schema.define(:version => 20120710084323) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -108,13 +108,8 @@ ActiveRecord::Schema.define(:version => 20120704072606) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "reserver_name"
-    t.datetime "pick_up_time"
-    t.datetime "return_time"
     t.string   "status",               :default => "pending"
-    t.integer  "hidden_from_owner",    :default => 0
-    t.integer  "hidden_from_reserver", :default => 0
-    t.integer  "favor_id"
+    t.boolean  "transaction_proposal", :default => true
   end
 
   create_table "delayed_jobs", :force => true do |t|

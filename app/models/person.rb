@@ -284,7 +284,6 @@ class Person < ActiveRecord::Base
   # The percentage of received testimonials with positive grades
   # (grades between 3 and 5 are positive, 1 and 2 are negative)
   def feedback_positive_percentage
-    logger.info "Here we are"
     if received_positive_testimonials.size > 0
       if received_negative_testimonials.size > 0
         (received_positive_testimonials.size.to_f/received_testimonials.size.to_f*100).round

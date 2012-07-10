@@ -1,0 +1,15 @@
+- if @listing.closed?
+  .grid_16.alpha.omega
+    #listing_closed_status
+      .listing_closed_status_text
+        = t(".#{@listing.listing_type}_closed")
+- elsif !current_user?(@listing.author)
+  - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
+  .grid_8.alpha
+    #transaction_proposal_link
+      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s)
+  .grid_8.omega    
+    #free_message_link
+      = link_to t("listings.link_labels.message_link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s)
+          
+    

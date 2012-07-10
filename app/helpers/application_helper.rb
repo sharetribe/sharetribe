@@ -67,6 +67,14 @@ module ApplicationHelper
     end
   end
   
+  def medium_avatar_thumb(person)
+    if use_asi?    
+      link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 70, :height => 70), person
+    else
+      link_to((image_tag person.image.url(:medium), :width => 70, :height => 70), person)
+    end
+  end
+  
   def large_avatar_thumb(person)
     if use_asi?
       image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
@@ -165,7 +173,7 @@ module ApplicationHelper
       else "#{I18n.locale}_#{I18n.locale.to_s.upcase}"
     end
     
-    content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{loc}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=false&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 120, :height => 20
+    content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{loc}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=false&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 140, :height => 20, :style => "float: left;"
   end
   
   def self.use_asi?

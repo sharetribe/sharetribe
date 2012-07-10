@@ -54,7 +54,7 @@ function auto_resize_text_areas() {
 	$('textarea').autoResize({
 	    // On resize:
 	    onResize : function() {
-	        $(this).css({opacity:0.8});
+	        $(this).css({opacity:1});
 	    },
 	    // After resize:
 	    animateCallback : function() {

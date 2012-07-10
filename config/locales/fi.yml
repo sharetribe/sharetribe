@@ -517,7 +517,8 @@ fi:
       you_have_not_added_your_info: "Et ole lisännyt %{service_name_illative} yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
       add_your_info_link: "Lisää tietosi %{service_name_illative}"
     recent_listing:
-      please_offer: Tarjoa
+      comment: "kommentti"
+      comments: "kommenttia"
     sign_in:
       recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
       recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
@@ -855,9 +856,12 @@ fi:
       offer_closed: "Tarjous on suljettu"
       request_closed: "Pyyntö on suljettu"
     show:
-      comments: Kommentit
+      add_your_phone_number: "Lisää puhelinnumerosi"
+      comments: "Julkinen keskustelu"
+      contact_by_phone: "Puhelinnumero:"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
+      feedback: "Palaute:"
       housing_offer: Tilatarjous
       housing_request: Tilatarve
       item_offer: Tavaratarjous
@@ -872,6 +876,7 @@ fi:
       request_created: "Pyyntö lisätty"
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
+      send_private_message: "Lähetä yksityisviesti"
       share_types: Tarjoustavat
       share_types_offer: Tarjoustapa
       share_types_request: Pyyntötapa
