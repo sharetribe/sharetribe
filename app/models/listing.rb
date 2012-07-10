@@ -50,13 +50,13 @@ class Listing < ActiveRecord::Base
       "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
       "favor" => nil, 
       "rideshare" => nil,
-      "housing" => ["rent_out", "sell", "temporary_accommodation"]
+      "housing" => ["rent_out", "sell"]
     },
     "request" => {
       "item" => ["borrow", "buy", "rent", "trade", "receive"],
       "favor" => nil, 
       "rideshare" => nil,
-      "housing" => ["rent", "buy", "temporary_accommodation"],
+      "housing" => ["rent", "buy"],
     }
   }
   VALID_VISIBILITIES = ["everybody", "this_community", "communities"]

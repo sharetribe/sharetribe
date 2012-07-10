@@ -63,7 +63,6 @@ en:
       rent: renting
       rent_out: "renting out"
       sell: selling
-      temporary_accommodation: "temporary accommodation"
       trade: swapping
     username: Username
     what_is_this: "What's this?"
@@ -416,7 +415,6 @@ en:
       has_accepted_sell_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_buy_item: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_trade_item: "%{offerer_name} agreed to swap %{listing_title} with %{requester_name} %{time_ago}."
-      has_accepted_temporary_accommodation_housing: "%{offerer_name} agreed to offer %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_sell_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} agreed to sell %{listing_title} to %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} agreed to rent %{listing_title} to %{requester_name} %{time_ago}."
@@ -770,7 +768,6 @@ en:
         rent_out: "Renting out"
         request_type: "Request type"
         sell: Selling
-        temporary_accommodation: Temporary
         trade: Swapping
       tag_list:
         comma_separate: "(comma separate)"
@@ -828,13 +825,14 @@ en:
       rents: Renting
       rideshares: Rideshare
       sells: Selling
-      temporary_accommodations: "Temporary accommodation"
       trades: Swapping
     link_labels:
       link_label_for_favor_offer: "Offer service"
       link_label_for_favor_request: "Request service"
-      link_label_for_housing_offer: Contact
-      link_label_for_housing_request: Contact
+      link_label_for_housing_offer_sell: "Buy this space"
+      link_label_for_housing_offer_rent_out: "Rent this space"
+      link_label_for_housing_request_buy: "Offer to sell this space"
+      link_label_for_housing_request_rent: "Offer to rent out this space"
       link_label_for_item_offer_lend: "Borrow this item"
       link_label_for_item_offer_rent_out: "Rent this item"
       link_label_for_item_offer_sell: "Buy this item"
@@ -861,6 +859,10 @@ en:
       message_link_label_for_item_request_trade: "Send private message to requester"
       message_link_label_for_rideshare_offer: "Send private message to requester"
       message_link_label_for_rideshare_request: "Send private message to offerer"
+      message_link_label_for_housing_offer_sell: "Send private message to seller"
+      message_link_label_for_housing_offer_rent_out: "Send private message to renter"
+      message_link_label_for_housing_request_buy: "Send private message to requester"
+      message_link_label_for_housing_request_rent: "Send private message to requester"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
