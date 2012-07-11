@@ -2007,8 +2007,9 @@ div.listing_author_feedback_percentage {
     margin-bottom: 0; }
 
 #conversation_status {
-  margin-top: 21px;
-  overflow: hidden; }
+  margin: 21px 10px 0 0;
+  overflow: hidden;
+  float: right; }
 
 .conversation_status_link {
   float: left;
@@ -2891,6 +2892,19 @@ span.profile_settings_visibility_info {
   overflow: hidden;
   width: 927px;
   width: 200px; }
+
+#listing_closed_status_wide {
+  margin: 0 5px;
+  color: #8a1f11;
+  border: 2px solid #fbc2c4;
+  background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px 5px;
+  overflow: hidden;
+  width: 927px;
+  margin: 0 0 10px 0;
+  width: 605px; }
 
 .listing_closed_status_text {
   padding: 4px 0 6px 50px; }

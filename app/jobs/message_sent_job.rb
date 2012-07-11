@@ -11,7 +11,7 @@ class MessageSentJob < Struct.new(:conversation_id, :last_message_id, :host)
   def perform
     conversation = Conversation.find(conversation_id)
     conversation.send_email_to_participants(host)
-    Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, last_message_id, host), :priority => 0, :run_at => 1.week.from_now) if conversation.transaction_proposal?
+    Delayed::Job.enqueue(AcceptReminderJob.new(conversation.id, last_message_id, host), :priority => 0, :run_at => 1.week.from_now) unless conversation.status.eql?("free")
   end
   
 end

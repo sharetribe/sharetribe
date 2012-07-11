@@ -6,7 +6,7 @@
     %title 
       #{service_name}
       - if @listing && action_name.eql?("show")
-        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
+        = "- #{listed_listing_title(@listing)}"
       - else
         = "- #{@current_community.name}"
     - if @listing && action_name.eql?("show")

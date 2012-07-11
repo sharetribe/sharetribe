@@ -1,11 +1,10 @@
-- link_title = t("listings.show.#{listing.category}_#{listing.listing_type}") + ": " + listing.title
 .recent_listing
   .listing_image
     - unless listing.listing_images.empty?
-      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => link_title
+      = link_to (image_tag listing.listing_images.first.image.url(:thumb), :class => "listing_main_image", :alt => listing.title), listing_path(listing), :title => listed_listing_title(listing)
     - else
       %div{:class => "listing_image_#{listing.category}"}
-        %a{:href => listing_path(listing), :title => link_title}
+        %a{:href => listing_path(listing), :title => listed_listing_title(listing)}
           %span{:class => "not_visible"}
             a
   .recent_listing_text

@@ -1,4 +1,4 @@
-- if conversation.listing
+- if conversation.listing && !conversation.status.eql?("free")
   - if conversation.status.eql?("pending")
     - if current_user?(conversation.listing.author)
       - ["accept", "reject"].each do |status|
