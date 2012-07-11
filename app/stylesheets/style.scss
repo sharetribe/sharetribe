@@ -1053,7 +1053,7 @@ div.checkbox_float {
 
 #login_form, #new_message_form, #signup_form {
 	@include form;
-	padding: 20px 25px 25px 25px;
+	padding: 30px 25px 35px 25px;
 	line-height: 25px;
 	h2 {
 		font-weight: bold;
@@ -1261,6 +1261,7 @@ div.checkbox_float {
 
 #listing_content_side {
   h1 {
+    margin-top: 5px;
     font-size: 32px;
     line-height: 38px; 
   }
@@ -1276,6 +1277,7 @@ div.checkbox_float {
 
 #listing_main_content {
   overflow: hidden;
+  p { padding-top: 5px; }
 }
 
 #googlemap {
@@ -1346,6 +1348,7 @@ a.edit_profile {
 #listing_author {
 	border: 2px solid $medium_brown;
 	overflow: hidden;
+	margin-top: 12px;
 	a { font-weight: normal; }
 }
 
@@ -1356,6 +1359,18 @@ a.edit_profile {
   height: 70px;
 }
 
+.listing_author_add_profile_picture_link {
+  width: 40px;
+  height: 56px;
+  padding: 6px 15px 8px 15px;
+  a { 
+    color: white;
+    line-height: 18px;
+    &:hover { color: $lighter_orange; }
+  }
+  background: $light_grey;
+}
+
 @mixin listing_author_description($width: 163px) {
   float: left;
 	padding: 10px 10px 10px 0;
@@ -1363,6 +1378,7 @@ a.edit_profile {
 	height: 70px;
 	width: $width;
 	line-height: 18px;
+	a { font-weight: bold; }
 }
 
 #listing_author_description { @include listing_author_description; }
@@ -1394,19 +1410,15 @@ div.listing_author_feedback_percentage {
 	padding-bottom: 10px;
 	@include home_button($color, 300px);
 	a {
-	  padding-top: 16px;
+	  font-size: 17px;
+    padding: 14px 0 12px 0;
 	  font-weight: 400px;
 	  height: 30px;
-	  font-size: 15px;
 	}
 }
 
 #transaction_proposal_link { 
   @include message_to_listing_author_link;
-  a {
-    font-size: 18px;
-    padding: 13px 0 13px 0;
-  }
 }
 #free_message_link { @include message_to_listing_author_link($medium_brown); }
 
@@ -1605,14 +1617,14 @@ div.listing_author_feedback_percentage {
 	margin: 0;
 }
 
-#conversation_title {
+#conversation_title_bar {
 	h2 {
 		text-align: left;
 		font-size: 16px;
 		color: $text_color;
 		margin-bottom: 0;
 	}
-	margin-top: 18px
+	margin-top: 18px;
 }
 
 #conversation_status {
@@ -2956,7 +2968,7 @@ a.handle {
 
 #listing_share_links {
   overflow: hidden;
-  margin: 5px 0 27px 10px;
+  margin: 10px 0 22px 10px;
 }
 
 #inactive_notification_box {
@@ -3228,6 +3240,3 @@ input.resend_email_confirmation_button {
 #tag_cloud .tag4 {font-size: 1.3em;}
 #tag_cloud .tag5 {font-size: 1.5em;}
 #tag_cloud .tag6 {font-size: 1.7em;}
-
-
-

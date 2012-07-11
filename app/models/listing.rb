@@ -50,7 +50,7 @@ class Listing < ActiveRecord::Base
       "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
       "favor" => nil, 
       "rideshare" => nil,
-      "housing" => ["rent_out", "sell"]
+      "housing" => ["rent_out", "sell", "share_for_free"]
     },
     "request" => {
       "item" => ["borrow", "buy", "rent", "trade", "receive"],

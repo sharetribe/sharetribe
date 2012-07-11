@@ -56,7 +56,7 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      flash[:notice] = @conversation.listing ? "#{@conversation.listing.category}_#{@conversation.listing.listing_type}_message_sent" : "message_sent"
+      flash[:notice] = "message_sent"
       Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, request.host))
       redirect_to (session[:return_to_content] || root)
     else

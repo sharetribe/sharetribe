@@ -64,6 +64,7 @@ en:
       rent_out: "renting out"
       sell: selling
       trade: swapping
+      share_for_free: "sharing for free"
     username: Username
     what_is_this: "What's this?"
   conversations:
@@ -74,8 +75,6 @@ en:
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
     new:
-      default_offer_message_text: "Explain what you need."
-      default_request_message_text: "Explain what you are offering and under what conditions."
       favor_offer_message_form_title: "Ask help from"
       favor_offer_message_title: "Service request: %{title}"
       favor_request_message_form_title: "Offer help to"
@@ -84,7 +83,16 @@ en:
       housing_offer_message_title: "Space available: %{title}"
       housing_request_message_form_title: "Request space from"
       housing_request_message_title: "Space request: %{title}"
-      item_offer_message_form_title: "Request an item from"
+      item_offer_lend_message_form_title: "Borrow %{listing} from %{person}"
+      item_offer_sell_message_form_title: "Buy %{listing} from %{person}"
+      item_offer_give_away_message_form_title: "Get %{listing} from %{person}"
+      item_offer_trade_message_form_title: "Swap %{listing} with %{person}"
+      item_offer_rent_out_message_form_title: "Rent %{listing} from %{person}"
+      item_request_borrow_message_form_title: "Lend %{listing} to %{person}"
+      item_request_buy_message_form_title: "Sell %{listing} to %{person}"
+      item_request_take_for_free_message_form_title: "Give %{listing} to %{person}"
+      item_request_trade_message_form_title: "Swap %{listing} with %{person}"
+      item_request_rent_message_form_title: "Rent out %{listing} to %{person}"
       item_offer_message_title: "Item request: %{title}"
       item_request_message_form_title: "Offer an item to"
       item_request_message_title: "Item offer: %{title}"
@@ -96,8 +104,11 @@ en:
       send_a_new_message: "Send a new message"
       send_offer_message: "Send the offer"
       send_request_message: "Send the request"
-      this_message_is_private: "This message is private between you and %{person}."
+      this_message_is_private: "This message is private between you and %{person}. %{person} will be notified of this message by email."
+      you_will_get_notified_of_acceptance: "You will get an email notification when %{person} accepts or rejects your proposal."
+      you_will_get_notified: "You will get an email notification when %{person} answers you."
       title: Title
+      send_message_to_user: "Send message to %{person}"
     notifications:
       badgenotification:
         see_all_your_badges: "See all your badges"
@@ -489,7 +500,7 @@ en:
       recent_offers: "What others can offer"
       recent_requests: "What others need"
       request_something: "Tell what you need!"
-      request_something_description: "Tell others when you need help, an item or a ride"
+      request_something_description: "Tell others when you need help, an item, a ride or a space"
       requesting: need
       teaser_text: "%{service_name} is a service for the %{community} community. Here you can lend, rent, give away and sell stuff, give and get help or share rides. Could you lend something to others or help them?"
       tell_it_here: "Tell it here!"
@@ -768,6 +779,7 @@ en:
         rent_out: "Renting out"
         request_type: "Request type"
         sell: Selling
+        share_for_free: "Sharing for free"
         trade: Swapping
       tag_list:
         comma_separate: "(comma separate)"
@@ -825,12 +837,14 @@ en:
       rents: Renting
       rideshares: Rideshare
       sells: Selling
+      share_for_frees: "Sharing for free"
       trades: Swapping
     link_labels:
-      link_label_for_favor_offer: "Offer service"
-      link_label_for_favor_request: "Request service"
+      link_label_for_favor_offer: "Request this service"
+      link_label_for_favor_request: "Offer this service"
       link_label_for_housing_offer_sell: "Buy this space"
       link_label_for_housing_offer_rent_out: "Rent this space"
+      link_label_for_housing_offer_share_for_free: "Request this space"
       link_label_for_housing_request_buy: "Offer to sell this space"
       link_label_for_housing_request_rent: "Offer to rent out this space"
       link_label_for_item_offer_lend: "Borrow this item"
@@ -841,28 +855,20 @@ en:
       link_label_for_item_request_borrow: "Offer to lend this item"
       link_label_for_item_request_rent: "Offer to rent out this item"
       link_label_for_item_request_buy: "Offer to sell this item"
-      link_label_for_item_request_receive: "Offer this item"
+      link_label_for_item_request_receive: "Give this item to requester"
       link_label_for_item_request_trade: "Offer to swap this item"
       link_label_for_rideshare_offer: "Offer ride"
-      link_label_for_rideshare_request: "Request ride"
-      message_link_label_for_favor_offer: "Send private message to offerer"
-      message_link_label_for_favor_request: "Send private message to requester"
+      link_label_for_rideshare_request: "Request this ride"
+      message_link_label_for_offer: "Send private message to offerer"
+      message_link_label_for_request: "Send private message to requester"
       message_link_label_for_item_offer_lend: "Send private message to lender"
       message_link_label_for_item_offer_rent_out: "Send private message to renter"
       message_link_label_for_item_offer_sell: "Send private message to seller"
       message_link_label_for_item_offer_give_away: "Send private message to offerer"
       message_link_label_for_item_offer_trade: "Send private message to offerer"
-      message_link_label_for_item_request_borrow: "Send private message to requester"
-      message_link_label_for_item_request_rent: "Send private message to requester"
-      message_link_label_for_item_request_buy: "Send private message to requester"
-      message_link_label_for_item_request_receive: "Send private message to requester"
-      message_link_label_for_item_request_trade: "Send private message to requester"
-      message_link_label_for_rideshare_offer: "Send private message to requester"
-      message_link_label_for_rideshare_request: "Send private message to offerer"
       message_link_label_for_housing_offer_sell: "Send private message to seller"
       message_link_label_for_housing_offer_rent_out: "Send private message to renter"
-      message_link_label_for_housing_request_buy: "Send private message to requester"
-      message_link_label_for_housing_request_rent: "Send private message to requester"
+      message_link_label_for_housing_offer_share_for_free: "Send private message to offerer"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -882,6 +888,7 @@ en:
       request_closed: "Request is closed"
     show:
       add_your_phone_number: "Add your phone number"
+      add_profile_picture: "Add profile picture"
       comments: "Public discussion"
       contact_by_phone: "Contact by phone:"
       favor_offer: "Service offer"
@@ -890,6 +897,8 @@ en:
       housing_request: "Space request"
       item_offer: "Item offer"
       item_request: "Item request"
+      item_offer_trade: "Swap offer"
+      item_request_trade: "Swap request"
       no_description: "No description"
       offer: Offer
       offer_author: "Offered by"

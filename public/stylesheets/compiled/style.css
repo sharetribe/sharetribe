@@ -1265,7 +1265,7 @@ div.checkbox_float {
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   overflow: hidden;
-  padding: 20px 25px 25px 25px;
+  padding: 30px 25px 35px 25px;
   line-height: 25px; }
   #login_form h2, #new_message_form h2, #signup_form h2 {
     font-weight: bold;
@@ -1547,6 +1547,7 @@ div.checkbox_float {
 
 /* Single listing view */
 #listing_content_side h1 {
+  margin-top: 5px;
   font-size: 32px;
   line-height: 38px; }
 
@@ -1558,6 +1559,8 @@ div.checkbox_float {
 
 #listing_main_content {
   overflow: hidden; }
+  #listing_main_content p {
+    padding-top: 5px; }
 
 #googlemap {
   margin-left: 10px;
@@ -1650,7 +1653,8 @@ a.edit_profile {
 
 #listing_author {
   border: 2px solid #765d3a;
-  overflow: hidden; }
+  overflow: hidden;
+  margin-top: 12px; }
   #listing_author a {
     font-weight: normal; }
 
@@ -1660,6 +1664,17 @@ a.edit_profile {
   background: white;
   height: 70px; }
 
+.listing_author_add_profile_picture_link {
+  width: 40px;
+  height: 56px;
+  padding: 6px 15px 8px 15px;
+  background: #797979; }
+  .listing_author_add_profile_picture_link a {
+    color: white;
+    line-height: 18px; }
+    .listing_author_add_profile_picture_link a:hover {
+      color: #fa9961; }
+
 #listing_author_description {
   float: left;
   padding: 10px 10px 10px 0;
@@ -1667,6 +1682,8 @@ a.edit_profile {
   height: 70px;
   width: 163px;
   line-height: 18px; }
+  #listing_author_description a {
+    font-weight: bold; }
 
 #listing_author_description_wide {
   float: left;
@@ -1675,6 +1692,8 @@ a.edit_profile {
   height: 70px;
   width: 283px;
   line-height: 18px; }
+  #listing_author_description_wide a {
+    font-weight: bold; }
 
 #listing_author_feedback {
   background: #765d3a;
@@ -1716,13 +1735,10 @@ div.listing_author_feedback_percentage {
     #transaction_proposal_link a:active {
       background: #a33f05; }
   #transaction_proposal_link a {
-    padding-top: 16px;
+    font-size: 17px;
+    padding: 14px 0 12px 0;
     font-weight: 400px;
-    height: 30px;
-    font-size: 15px; }
-  #transaction_proposal_link a {
-    font-size: 18px;
-    padding: 13px 0 13px 0; }
+    height: 30px; }
 
 #free_message_link {
   padding-bottom: 10px;
@@ -1745,10 +1761,10 @@ div.listing_author_feedback_percentage {
     #free_message_link a:active {
       background: #544229; }
   #free_message_link a {
-    padding-top: 16px;
+    font-size: 17px;
+    padding: 14px 0 12px 0;
     font-weight: 400px;
-    height: 30px;
-    font-size: 15px; }
+    height: 30px; }
 
 #request_listing_link {
   margin-left: 10px;
@@ -1982,9 +1998,9 @@ div.listing_author_feedback_percentage {
   height: 0;
   margin: 0; }
 
-#conversation_title {
+#conversation_title_bar {
   margin-top: 18px; }
-  #conversation_title h2 {
+  #conversation_title_bar h2 {
     text-align: left;
     font-size: 16px;
     color: #464646;
@@ -3514,7 +3530,7 @@ a.handle:hover {
 
 #listing_share_links {
   overflow: hidden;
-  margin: 5px 0 27px 10px; }
+  margin: 10px 0 22px 10px; }
 
 #inactive_notification_box {
   border: solid 2px #ffd324;

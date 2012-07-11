@@ -173,7 +173,7 @@ module ApplicationHelper
       else "#{I18n.locale}_#{I18n.locale.to_s.upcase}"
     end
     
-    content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{loc}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=false&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 140, :height => 20, :style => "float: left;"
+    content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{loc}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=false&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 140, :height => 25, :style => "float: left;"
   end
   
   def self.use_asi?

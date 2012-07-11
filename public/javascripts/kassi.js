@@ -209,13 +209,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 	auto_resize_text_areas();
 }
 
-function initialize_send_message_form(default_text, locale) {
+function initialize_send_message_form(locale) {
 	auto_resize_text_areas();
-	$('textarea').watermark(default_text, {className: 'default_textarea_text'});
 	$('textarea').focus();
 	var form_id = "#new_conversation"
 	$(form_id).validate({
 		rules: {
+		  "conversation[title]": {required: true, minlength: 1, maxlength: 120},
 			"conversation[message_attributes][content]": {required: true, minlength: 1}
 		},
 		submitHandler: function(form) {

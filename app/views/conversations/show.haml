@@ -3,7 +3,7 @@
 
 .grid_24
   .grid_11.alpha
-    #conversation_title
+    #conversation_title_bar
       %h2= @conversation.title
       - if @conversation.listing
         - if current_user?(@conversation.messages.first.sender)

@@ -11,4 +11,8 @@ module ConversationsHelper
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
   end
   
+  def transaction_proposal_form_title(listing)
+    "#{listing.category}_#{listing.listing_type}#{listing.share_type? ? '_' + @listing.share_type : ''}_message_form_title"
+  end
+  
 end

@@ -7,9 +7,10 @@
   - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
   .grid_8.alpha
     #transaction_proposal_link
-      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s)
+      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s, :transaction_proposal => 1)
   .grid_8.omega    
     #free_message_link
+      - listing_type_string = @listing.listing_type unless (["item","housing"].include?(@listing.category) && @listing.listing_type.eql?("offer"))
       = link_to t("listings.link_labels.message_link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s)
           
     
