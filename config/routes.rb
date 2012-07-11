@@ -113,12 +113,11 @@ Kassi::Application.routes.draw do
             put :reject
             put :cancel
           end
-          resources :messages
-          resources :feedbacks, :controller => :testimonials do
-            collection do
-              put :skip
-            end  
-          end    
+        end
+        resources :feedbacks, :controller => :testimonials do
+          collection do
+            put :skip
+          end  
         end
         resource :settings do
           member do
@@ -230,7 +229,7 @@ Kassi::Application.routes.draw do
   match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
   match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
-  match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
+  #match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing
   match "/:locale/listings/new/:type/:category" => "listings#new", :as => :new_request_category
   match "/:locale/listings/new/:type" => "listings#new", :as => :new_request

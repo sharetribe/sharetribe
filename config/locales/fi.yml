@@ -80,10 +80,8 @@ fi:
       favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
       favor_request_message_title: "Palvelustarjous: %{title}"
-      housing_offer_message_form_title: "Tarjoa tilaa käyttäjälle"
-      housing_offer_message_title: "Tilatarjous: %{title}"
-      housing_request_message_form_title: "Pyydä tilaa käyttäjältä"
-      housing_request_message_title: "Tilapyyntö: %{title}"
+      housing_offer_message_title: "Pyyntö: %{title}"
+      housing_request_message_title: "Tila tarjolla: %{title}"
       item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
       item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
@@ -94,6 +92,11 @@ fi:
       item_request_take_for_free_message_form_title: "Anna %{listing} käyttäjälle %{person}"
       item_request_trade_message_form_title: "Vaihda %{listing} käyttäjän %{person} kanssa"
       item_request_rent_message_form_title: "Vuokraa %{listing} käyttäjälle %{person}"
+      housing_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
+      housing_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
+      housing_offer_share_for_free_message_form_title: "Pyydä käyttöoikeutta tilaan %{listing} käyttäjältä %{person}"
+      housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
+      housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
       item_offer_message_title: "Tavarapyyntö: %{title}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       item_request_message_title: "Tavaratarjous: %{title}"
@@ -102,9 +105,9 @@ fi:
       rideshare_offer_message_title: "Kyytipyyntö: %{title}"
       rideshare_request_message_form_title: "Tarjoa kyyti käyttäjälle"
       rideshare_request_message_title: "Kyytitarjous: %{title}"
-      send_a_new_message: "Lähetä viesti"
       send_offer_message: "Lähetä tarjous"
       send_request_message: "Lähetä pyyntö"
+      send_message: "Lähetä viesti"
       this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
       you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
       you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
@@ -133,7 +136,7 @@ fi:
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
         see_all_the_feedback_you_have_received: "katso kaikki saamasi palautteet"
     show:
-      in_response_to_offer: tarjouksesta
+      in_response_to_offer: "liittyen tarjoukseen"
       in_response_to_request: "vastauksena pyyntöön"
       offer_sent_by: "Pyynnön lähetti"
       offer_sent_to: "Pyyntö lähetetty käyttäjälle"
@@ -141,6 +144,8 @@ fi:
       request_sent_to: "Tarjous lähetetty käyttäjälle"
       send_reply: "Lähetä viesti"
       write_a_reply: "Kirjoita vastaus:"
+      conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}."
+      conversation_with_user: "Keskustelu käyttäjän %{person} kanssa."
     status:
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"
@@ -666,8 +671,7 @@ fi:
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet salasanan vaihtoon."
       you_cannot_reply_to_a_closed_offer: "Et voi vastata suljettuun tarjoukseen"
       you_cannot_reply_to_a_closed_request: "Et voi vastata suljettuun pyyntöön"
-      you_cannot_reply_to_your_own_offer: "Et voi vastata omaan tarjoukseesi"
-      you_cannot_reply_to_your_own_request: "Et voi vastata omaan pyyntöösi"
+      you_cannot_send_message_to_yourself: "Et voi lähettää viestiä itsellesi"
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       you_are_now_member: "Yhteisöön liittyminen onnistui."
@@ -890,10 +894,6 @@ fi:
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
       feedback: "Palaute:"
-      housing_offer: Tilatarjous
-      housing_request: Tilatarve
-      item_offer: Tavaratarjous
-      item_request: Tavarapyyntö
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Ei kuvausta"
@@ -1092,6 +1092,7 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
+      contact: "Lähetä viesti käyttäjälle %{person}"
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
       add_location: "Lisää sijainti"

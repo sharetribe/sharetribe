@@ -14,6 +14,7 @@ class ConversationsController < ApplicationController
   
   before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
+  before_filter :check_conversation_type, :only => [ :new, :create ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
@@ -44,12 +45,14 @@ class ConversationsController < ApplicationController
   
   def show
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
+    @other_party = @conversation.other_party(@current_user)
   end
 
   def new
     @conversation = Conversation.new
     @conversation.messages.build
     @conversation.participants.build
+    @target_person ||= @listing.author
     render :action => :new, :layout => "application"
   end
   
@@ -97,24 +100,38 @@ class ConversationsController < ApplicationController
     end
   end
   
+  # Check if type is free message or listing-related conversation.
+  # If former, find the target person of the message.
+  def check_conversation_type
+    if params[:profile_message]
+      if params[:conversation]
+        @target_person = 
+      else
+        @target_person = Person.find(params[:person_id])
+      end
+    end
+  end
+  
   def ensure_listing_is_open
-    @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
-    if @listing.closed?
-      flash[:error] = "you_cannot_reply_to_a_closed_#{@listing.listing_type}"
-      redirect_to (session[:return_to_content] || root)
+    unless @target_person
+      @listing = params[:conversation] ? Listing.find(params[:conversation][:listing_id]) : Listing.find(params[:id])
+      if @listing.closed?
+        flash[:error] = "you_cannot_reply_to_a_closed_#{@listing.listing_type}"
+        redirect_to (session[:return_to_content] || root)
+      end
     end
   end
   
   def ensure_listing_author_is_not_current_user
-    if current_user?(@listing.author)
-      flash[:error] = "you_cannot_reply_to_your_own_#{@listing.listing_type}"
+    if (@target_person && current_user?(@target_person)) || (@listing && current_user?(@listing.author))
+      flash[:error] = "you_cannot_send_message_to_yourself"
       redirect_to (session[:return_to_content] || root)
-    end  
+    end
   end
   
   # Ensure that only users with appropriate visibility settings can reply to the listing
   def ensure_authorized_to_reply
-    unless @listing.visible_to?(@current_user, @current_community)
+    if @listing && !@listing.visible_to?(@current_user, @current_community)
       flash[:error] = "you_are_not_authorized_to_view_this_content"
       redirect_to root and return
     end  

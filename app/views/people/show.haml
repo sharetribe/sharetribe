@@ -108,6 +108,9 @@
       - if @community_membership.invitation && @community_membership.invitation.inviter
         %br/
         = t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
+      - unless current_user?(@person)
+        %br/
+        = link_to t(".contact", :person => @person.given_name_or_username), new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)
     - if logged_in? && @person.location && @person.location.address != ""
       #googlemap
         = render :partial => "googlemap"

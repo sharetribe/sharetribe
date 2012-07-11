@@ -5,10 +5,7 @@
     = render :partial => "layouts/kissmetrics"
     %title 
       #{service_name}
-      - if @listing && action_name.eql?("show")
-        = "- #{t("listings.show.#{@listing.category}_#{@listing.listing_type}")}: #{@listing.title}"
-      - else
-        = "- #{@current_community.name}"
+      = "- #{@current_community.name}"
     %meta{ :property => "og:type", :content =>"website"}
     %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
     %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/sharetribe_logo.png"}

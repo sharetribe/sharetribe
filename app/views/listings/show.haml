@@ -52,7 +52,7 @@
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
           - unless current_user?(@listing.author)
             %br/
-            = link_to t(".send_private_message"), reply_to_listing_path(:id => @listing.id.to_s)
+            = link_to t(".send_private_message"), reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free")
         - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank?
           %strong
             %br/

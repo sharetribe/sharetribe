@@ -1628,8 +1628,9 @@ div.listing_author_feedback_percentage {
 }
 
 #conversation_status {
-	margin-top: 21px;
+	margin: 21px 10px 0 0;
 	overflow: hidden;
+	float: right;
 }
 
 .conversation_status_link {
@@ -2356,6 +2357,12 @@ span.profile_settings_visibility_info {
 #listing_closed_status {
 	@include notification("error", $error_text, $error_border, $error_bg);
 	width: 200px;
+}
+
+#listing_closed_status_wide {
+	@include notification("error", $error_text, $error_border, $error_bg);
+	margin: 0 0 10px 0;
+	width: 605px;
 }
 
 .listing_closed_status_text {
