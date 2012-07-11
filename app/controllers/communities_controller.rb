@@ -20,15 +20,11 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  # GET /communities/1
-  # GET /communities/1.xml
   def show
     @community = Community.find(params[:id])
     render :partial => "map_bubble"
   end
 
-  # GET /communities/new
-  # GET /communities/new.xml
   def new
     @community = Community.new
     @community.community_memberships.build
@@ -49,13 +45,10 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  # GET /communities/1/edit
   def edit
     @community = Community.find(params[:id])
   end
 
-  # POST /communities
-  # POST /communities.xml
   def create
     params[:community][:location][:address] = params[:community][:address] if params[:community][:address]
     location = Location.new(params[:community][:location])
@@ -75,8 +68,6 @@ class CommunitiesController < ApplicationController
     render :action => :new
   end
 
-  # PUT /communities/1
-  # PUT /communities/1.xml
   def update
     @community = Community.find(params[:id])
 
@@ -88,18 +79,6 @@ class CommunitiesController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /communities/1
-  # DELETE /communities/1.xml
-  def destroy
-    @community = Community.find(params[:id])
-    @community.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(communities_url) }
-      format.xml  { head :ok }
     end
   end
   
