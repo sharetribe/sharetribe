@@ -149,8 +149,8 @@ default: &default_settings
   
   # If you have migrated from using ASI to use standalone Sharetribe,
   # You should set this to true to use ASI based password encryption
-  # otherwise leave blank
-  use_asi_encryptor: 
+  # Actually the tests currently work only with ASI encryptor, so better to keep this as true.
+  use_asi_encryptor: true
 
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
