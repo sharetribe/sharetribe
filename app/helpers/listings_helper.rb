@@ -58,7 +58,15 @@ module ListingsHelper
   end
   
   def listed_listing_title(listing)
-    listing.share_type? ? (t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}") : listing.title
+    if listing.share_type
+      if listing.share_type.eql?("trade")
+        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}") + ": #{listing.title}"
+      else
+        t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}"
+      end
+    else
+      t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}"
+    end
   end
   
 end

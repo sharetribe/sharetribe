@@ -60,9 +60,10 @@ fi:
       give_away: annetaan
       lend: "annetaan lainaan"
       receive: "otetaan vastaan"
-      rent: vuokrataan
+      rent: "halutaan vuokrata"
       rent_out: "annetaan vuokralle"
       sell: myydään
+      share_for_free: "tarjotaan käyttöön ilmaiseksi"
       temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
     username: Käyttäjätunnus
@@ -75,8 +76,6 @@ fi:
       no_received_messages: "Ei vastaanotettuja viestejä"
       no_sent_messages: "Ei lähetettyjä viestejä"
     new:
-      default_offer_message_text: "Kerro tarkemmin, mitä tarvitset."
-      default_request_message_text: "Kerro tarkemmin, mitä tarjoat ja millä ehdoilla."
       favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
       favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
@@ -85,7 +84,16 @@ fi:
       housing_offer_message_title: "Tilatarjous: %{title}"
       housing_request_message_form_title: "Pyydä tilaa käyttäjältä"
       housing_request_message_title: "Tilapyyntö: %{title}"
-      item_offer_message_form_title: "Pyydä tavaraa käyttäjältä"
+      item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
+      item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
+      item_offer_give_away_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
+      item_offer_trade_message_form_title: "Vaihda %{listing} käyttäjän %{person} kanssa"
+      item_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
+      item_request_borrow_message_form_title: "Lainaa %{listing} käyttäjälle %{person}"
+      item_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
+      item_request_take_for_free_message_form_title: "Anna %{listing} käyttäjälle %{person}"
+      item_request_trade_message_form_title: "Vaihda %{listing} käyttäjän %{person} kanssa"
+      item_request_rent_message_form_title: "Vuokraa %{listing} käyttäjälle %{person}"
       item_offer_message_title: "Tavarapyyntö: %{title}"
       item_request_message_form_title: "Tarjoa tavara käyttäjälle"
       item_request_message_title: "Tavaratarjous: %{title}"
@@ -97,8 +105,11 @@ fi:
       send_a_new_message: "Lähetä viesti"
       send_offer_message: "Lähetä tarjous"
       send_request_message: "Lähetä pyyntö"
-      this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä."
+      this_message_is_private: "Tämä viesti on yksityinen sinun ja käyttäjän %{person} välillä. %{person} saa tiedon lähettämästäsi viestistä sähköpostilla."
+      you_will_get_notified_of_acceptance: "Saat sähköpostiisi tiedon, kun %{person} hyväksyy tai hylkää ehdotuksesi."
+      you_will_get_notified: "Saat sähköpostiisi tiedon, kun %{person} vastaa sinulle."
       title: Otsikko
+      send_message_to_user: "Lähetä viesti käyttäjälle %{person}"
     notifications:
       badgenotification:
         see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
@@ -599,20 +610,15 @@ fi:
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt %{service_name_genetive} tietokannasta."
       error_with_session: "Virhe istunnon käsittelyssä."
-      favor_offer_message_sent: "Palveluspyyntö lähetetty"
-      favor_request_message_sent: "Palvelustarjous lähetetty"
       feedback_considered_spam: "Jokin palautteen sisällössä esti tallentamisen. Yritä uudelleen tai käydä palautefoorumia."
       feedback_not_saved: "Palautteen lähettäminen epäonnistui."
       feedback_saved: "Kiitos palautteestasi!"
       feedback_sent_to: "Palaute lähetetty käyttäjälle"
       feedback_skipped: "Palaute ohitettu"
-      housing_offer_message_sent: "Vastaus lähetetty"
-      housing_request_message_sent: "Vastaus lähetetty"
+      message_sent: "Viesti lähetetty"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
-      item_offer_message_sent: "Tavarapyyntö lähetetty"
-      item_request_message_sent: "Tavaratarjous lähetetty"
       login_again: "Kirjaudu uudestaan."
       login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       login_successful: "Tervetuloa %{service_name_illative}, "
@@ -650,8 +656,6 @@ fi:
       request_created_successfully: "Pyyntö tallennettu."
       request_rejected: "Pyyntö hylätty"
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
-      rideshare_offer_message_sent: "Kyytipyyntö lähetetty"
-      rideshare_request_message_sent: "Kyytitarjous lähetetty"
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
@@ -765,10 +769,11 @@ fi:
         lend: "Annetaan lainaan"
         offer_type: Tarjoustapa
         receive: "Otetaan vastaan"
-        rent: Vuokrataan
+        rent: "Halutaan vuokrata"
         rent_out: "Annetaan vuokralle"
         request_type: Pyyntötapa
         sell: Myydään
+        share_for_free: "Tarjotaan käyttöön ilmaiseksi"
         temporary_accommodation: Tilapäismajoitus
         trade: Vaihdetaan
       tag_list:
@@ -824,20 +829,42 @@ fi:
       lends: "Annetaan lainaan"
       receives: "Otetaan vastaan"
       rent_outs: "Annetaan vuokralle"
-      rents: Vuokrataan
+      rents: "Halutaan vuokrata"
       rideshares: Kimppakyydit
       sells: Myydään
+      share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
       temporary_accommodations: Tilapäismajoitus
       trades: Vaihdetaan
     link_labels:
-      link_label_for_favor_offer: "Ota yhteyttä"
-      link_label_for_favor_request: "Ota yhteyttä"
-      link_label_for_housing_offer: "Ota yhteyttä"
-      link_label_for_housing_request: "Ota yhteyttä"
-      link_label_for_item_offer: "Ota yhteyttä"
-      link_label_for_item_request: "Ota yhteyttä"
-      link_label_for_rideshare_offer: "Ota yhteyttä"
-      link_label_for_rideshare_request: "Ota yhteyttä"
+      link_label_for_favor_offer: "Pyydä palvelusta"
+      link_label_for_favor_request: "Tarjoa apuasi"
+      link_label_for_housing_offer_sell: "Osta"
+      link_label_for_housing_offer_rent_out: "Vuokraa"
+      link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
+      link_label_for_housing_request_buy: "Myy pyydetty tila"
+      link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
+      link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
+      link_label_for_item_offer_rent_out: "Vuokraa tämä tavara"
+      link_label_for_item_offer_sell: "Osta tämä tavara"
+      link_label_for_item_offer_give_away: "Pyydä tavara itsellesi"
+      link_label_for_item_offer_trade: "Vaihda tämä tavara"
+      link_label_for_item_request_borrow: "Tarjoa tämä tavara lainaan"
+      link_label_for_item_request_rent: "Tarjoa tämä tavara vuokralle"
+      link_label_for_item_request_buy: "Tarjoudu myymään tämä tavara"
+      link_label_for_item_request_receive: "Anna pyydetty tavara pyytäjälle"
+      link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
+      link_label_for_rideshare_offer: "Tarjoa kyytiä"
+      link_label_for_rideshare_request: "Pyydä kyytiä"
+      message_link_label_for_offer: "Lähetä yksityisviesti tarjoajalle"
+      message_link_label_for_request: "Lähetä yksityisviesti pyytäjälle"
+      message_link_label_for_item_offer_lend: "Lähetä yksityisviesti lainaajalle"
+      message_link_label_for_item_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
+      message_link_label_for_item_offer_sell: "Lähetä yksityisviesti myyjälle"
+      message_link_label_for_item_offer_give_away: "Lähetä yksityisviesti tarjoajalle"
+      message_link_label_for_item_offer_trade: "Lähetä yksityisviesti tarjoajalle"
+      message_link_label_for_housing_offer_sell: "Lähetä yksityisviesti myyjälle"
+      message_link_label_for_housing_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
+      message_link_label_for_housing_offer_share_for_free: "Lähetä yksityisviesti tarjoajalle"
     listed_listing:
       edit: Muokkaa
     listed_listing_closed_status:
@@ -857,6 +884,7 @@ fi:
       request_closed: "Pyyntö on suljettu"
     show:
       add_your_phone_number: "Lisää puhelinnumerosi"
+      add_profile_picture: "Lisää profiili- kuva"
       comments: "Julkinen keskustelu"
       contact_by_phone: "Puhelinnumero:"
       favor_offer: Palvelustarjous
@@ -866,6 +894,8 @@ fi:
       housing_request: Tilatarve
       item_offer: Tavaratarjous
       item_request: Tavarapyyntö
+      item_offer_trade: "Annetaan vaihtoon"
+      item_request_trade: "Halutaan vaihdossa"
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja

@@ -21,7 +21,7 @@
   = render :partial => "message_links"
   .clear
   .grid_16.alpha.omega
-    %h1= @listing.share_type ? listed_listing_title(@listing) : (t(".#{@listing.category}_#{@listing.listing_type}") + ": #{@listing.title}")
+    %h1= listed_listing_title(@listing)
   .clear
   #listing_center.grid_10.alpha
     #listing_main_content
@@ -41,14 +41,18 @@
             
     #listing_author
       #listing_author_image
-        = medium_avatar_thumb(@listing.author)
+        - if current_user?(@listing.author) && !@listing.author.has_profile_picture?
+          .listing_author_add_profile_picture_link
+            = link_to t(".add_profile_picture"), avatar_person_settings_path(@listing.author)
+        - else
+          = medium_avatar_thumb(@listing.author)
       %div{:id => (@listing.author.received_testimonials.size > 0 ? "listing_author_description" : "listing_author_description_wide")}
         %strong
           = t(".#{@listing.listing_type}_author")
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
           - unless current_user?(@listing.author)
             %br/
-            = link_to t(".send_private_message"), "#"
+            = link_to t(".send_private_message"), reply_to_listing_path(:id => @listing.id.to_s)
         - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank?
           %strong
             %br/
@@ -72,9 +76,9 @@
 
   #listing_right_panel.grid_6.omega
     #listing_share_links
-      = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe", "data-related" => "avoinyritys:Our company blog.")
-      %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
       = facebook_like
+      = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe", "data-related" => "avoinyritys:Our company blog.")
+      %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}    
       - if @current_community.settings["use_qr_code"]
         = link_to(t(".qr_code"), "http://qrcode.kaywa.com/img.php?s=6&d=#{CGI.escape request.url}", :target => '_blank')
     - if @listing.origin_loc && @listing.origin_loc.address != ""

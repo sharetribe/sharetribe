@@ -482,6 +482,12 @@ class Person < ActiveRecord::Base
     return current_name
   end
   
+  # If image_file_name is null, it means the user
+  # does not have a profile picture.
+  def has_profile_picture?
+    image_file_name.present?
+  end
+  
   private
   
   # This method constructs a key to be used in caching.
@@ -520,4 +526,3 @@ class Person < ActiveRecord::Base
   end
   
 end
-

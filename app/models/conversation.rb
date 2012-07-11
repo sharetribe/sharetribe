@@ -7,7 +7,7 @@ class Conversation < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   
-  VALID_STATUSES = ["pending", "accepted", "rejected"]
+  VALID_STATUSES = ["pending", "accepted", "rejected", "free"]
   
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
