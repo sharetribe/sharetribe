@@ -149,8 +149,8 @@ default: &default_settings
   
   # If you have migrated from using ASI to use standalone Sharetribe,
   # You should set this to true to use ASI based password encryption
-  # Actually the tests currently work only with ASI encryptor, so better to keep this as true.
-  use_asi_encryptor: true
+  use_asi_encryptor: 
+
 
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
@@ -199,6 +199,10 @@ test:
   
   # captcha is expected to be off when running tests
   use_recaptcha: false
+  
+
+  # The tests currently work only with ASI encryptor
+  use_asi_encryptor: true
   
   # The domain should be set to lvh.me (which redirects to localhost)
   # to be able to run the tests with subdomains.
