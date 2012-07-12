@@ -1,3 +1,6 @@
+require 'openssl'
+require 'base64'
+
 module PeopleHelper
   
   # Class is selected if listing type is currently selected
@@ -74,4 +77,10 @@ module PeopleHelper
       end
   end
   
+  def encrypted_email_for_trustcloud(email)
+    # Public RSA key of TrustCloud
+    tcpublickey =  OpenSSL::PKey::RSA.new("-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDY1tLeY6qZtq8BqDnbArujYyjG\nwGPrkzLhyQMUX4ASW+912gf1RPRJVsuufGuhTYsP+biXxjWAI8rUX1k4YisiOK8u\nflUED8i5Zrpn7dR8NNGQc/A3LLjPzmaqW7g++5Q+iIoSCRYczsUxx6Bmo/a9YIFJ\nWWbeYnKh10eHN/JMewIDAQAB\n-----END PUBLIC KEY-----")
+    # Make the string URL safe by changing some characters
+    encrypted_email = Base64.encode64(tcpublickey.public_encrypt(email)).tr('+/=', '-_~')
+  end
 end

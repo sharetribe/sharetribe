@@ -15,7 +15,7 @@
       &nbsp;
       = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
     .profile_trustcloud
-      = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}\"></script>".html_safe
+      = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailrsa-#{encrypted_email_for_trustcloud(@person.email)}&darkcolor=2F5707&lightcolor=44731B&viewerisowner=#{( current_user?(@person) ? "1" : "0")}\"></script>".html_safe
       = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
   
   - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
