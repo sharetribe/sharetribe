@@ -1798,11 +1798,10 @@ div.listing_author_feedback_percentage {
 
 #edit_info_link {
   margin-top: 15px;
-  padding-bottom: 5px;
   width: 225px;
   float: left;
   margin-bottom: 10px;
-  width: 248px; }
+  width: 290px; }
   #edit_info_link a {
     display: block;
     font-size: 14px;
@@ -1818,10 +1817,6 @@ div.listing_author_feedback_percentage {
       background: #f8792f; }
     #edit_info_link a:active {
       background: #a33f05; }
-  #edit_info_link img {
-    vertical-align: -25%;
-    margin-right: 7px;
-    display: inline; }
 
 #single_listing_location {
   padding-top: 5px;
@@ -2877,7 +2872,8 @@ span.profile_settings_visibility_info {
   background: #d1c9b4;
   padding: 15px;
   font-size: 11px;
-  font-weight: bold; }
+  font-weight: bold;
+  overflow: hidden; }
   #profile_community_info h5 {
     margin-bottom: 10px; }
 

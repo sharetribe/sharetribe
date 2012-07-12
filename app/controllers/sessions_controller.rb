@@ -126,6 +126,9 @@ class SessionsController < ApplicationController
       if session[:return_to]
         redirect_to domain + session[:return_to]
         session[:return_to] = nil
+      elsif session[:return_to_content]
+        redirect_to session[:return_to_content]
+        session[:return_to_content] = nil
       else
         redirect_to domain + root_path
       end

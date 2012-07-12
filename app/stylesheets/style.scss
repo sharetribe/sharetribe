@@ -1440,14 +1440,8 @@ div.listing_author_feedback_percentage {
 
 #edit_info_link {
   margin-top: 15px;
-	padding-bottom: 5px;
 	@include home_button($orange);
-	width: 248px;
-	img {
-		vertical-align: -25%;
-		margin-right: 7px;
-		display: inline;
-	}
+	width: 290px;
 }
 
 #single_listing_location {
@@ -2352,6 +2346,7 @@ span.profile_settings_visibility_info {
   font-size: 11px;
   font-weight: bold;
   h5 { margin-bottom: 10px; }
+  overflow: hidden;
 }
 
 #listing_closed_status {

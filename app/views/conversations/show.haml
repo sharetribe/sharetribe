@@ -18,7 +18,7 @@
           = t(".in_response_to_#{@conversation.listing.listing_type}")
           = link_to(@conversation.listing.title, @conversation.listing) + "."
       - else
-        = t(".conversation_with_user", :person => link_to(@other_party.name, @other_party))
+        = t(".conversation_with_user", :person => link_to(@other_party.name, @other_party)).html_safe
   .grid_10.omega
     #conversation_status
       %div{:id => "conversation_#{@conversation.id.to_s}_status"}

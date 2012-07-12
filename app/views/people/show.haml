@@ -91,12 +91,11 @@
                 = @person.description
               %br/  
               = link_to t(".hide_description"), "#", :id => "description_full_link"
-        - if current_user?(@person)
-          #edit_info_link
-            %a{:href => profile_person_settings_path(:person_id => @current_user.id.to_s)}
-              = image_tag "/images/icons/edit_profile_icon.png"
-              .request_listing_link_label
-                = t(".edit_profile_info")
+        #edit_info_link
+          - if current_user?(@person)
+            = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s)
+          - else
+            = link_to t(".contact", :person => @person.given_name_or_username), new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)
   .grid_7.omega
     #profile_community_info
       %h5
@@ -107,10 +106,7 @@
         = t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
       - if @community_membership.invitation && @community_membership.invitation.inviter
         %br/
-        = t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
-      - unless current_user?(@person)
-        %br/
-        = link_to t(".contact", :person => @person.given_name_or_username), new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)
+        = t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe        
     - if logged_in? && @person.location && @person.location.address != ""
       #googlemap
         = render :partial => "googlemap"
