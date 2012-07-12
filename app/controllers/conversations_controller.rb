@@ -61,7 +61,11 @@ class ConversationsController < ApplicationController
     if @conversation.save
       flash[:notice] = "message_sent"
       Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, request.host))
-      redirect_to (session[:return_to_content] || root)
+      if params[:profile_message]
+        redirect_to @target_person
+      else
+        redirect_to (session[:return_to_content] || root)
+      end
     else
       render :action => :new
     end  
@@ -105,7 +109,7 @@ class ConversationsController < ApplicationController
   def check_conversation_type
     if params[:profile_message]
       if params[:conversation]
-        @target_person = 
+        @target_person = Person.find(params[:target_person_id])
       else
         @target_person = Person.find(params[:person_id])
       end

@@ -113,11 +113,12 @@ Kassi::Application.routes.draw do
             put :reject
             put :cancel
           end
-        end
-        resources :feedbacks, :controller => :testimonials do
-          collection do
-            put :skip
-          end  
+          resources :messages
+          resources :feedbacks, :controller => :testimonials do
+            collection do
+              put :skip
+            end  
+          end
         end
         resource :settings do
           member do

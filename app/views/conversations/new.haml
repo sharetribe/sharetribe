@@ -38,7 +38,8 @@
         - if params[:message_type]
           = form.hidden_field :status, :value => params[:message_type]
         - if params[:profile_message]
-          = hidden_field_tag "profile_message", :value => params[:profile_message]
+          = hidden_field_tag "profile_message", params[:profile_message]
+          = hidden_field_tag "target_person_id", @target_person.id
         - if params[:message_type]
           = form.submit t(".send_message"), :class => "send_button"
         - else
