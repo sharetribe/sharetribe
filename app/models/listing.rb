@@ -382,7 +382,7 @@ class Listing < ActiveRecord::Base
       locale = request.author.locale.to_sym || :fi
       Time::DATE_FORMATS[:sms] = I18n.t("time.formats.sms", :locale => locale)
       message = I18n.t("sms.potential_ride_share_offer", :author_name => offer.author.given_name_or_username, :origin => offer.origin, :destination => offer.destination, :start_time  => offer.valid_until.to_formatted_s(:sms), :locale => locale)
-      listing_url = ApplicationHelper.shorten_url("http://demo.kassi.eu/#{locale.to_s}/listings/#{offer.id}")
+      listing_url = ApplicationHelper.shorten_url("http://demo.sharetribe.com/#{locale.to_s}/listings/#{offer.id}")
       unless offer.author.phone_number.blank?
         message += " " + I18n.t("sms.you_can_call_him_at", :phone_number  => offer.author.phone_number, :locale => locale)
         message += " " + I18n.t("sms.or_check_the_offer_in_kassi", :listing_url => listing_url, :locale => locale)
