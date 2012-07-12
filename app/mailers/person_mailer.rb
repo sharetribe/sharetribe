@@ -103,7 +103,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
     set_locale @recipient.locale
     @no_settings = true
-    @url = "http://aalto.kassi.eu/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}"
+    @url = "http://aalto.sharetribe.com/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}"
     mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
   end
   
