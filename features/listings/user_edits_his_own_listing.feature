@@ -32,7 +32,7 @@ Feature: User edits his own listing
     When I follow "Edit request"
     Then I should see the image I just uploaded
     And I follow "Remove image"
-    And I follow "Save request"
+    And I press "Save request"
     Then I should not see the image I just deleted
     When I follow "Logout"
     And I log in as "kassi_testperson2"

@@ -27,7 +27,7 @@ Feature: User views a single listing
     And I should see "Add profile picture"
     When I follow "Settings"
     And I follow "Profile picture"
-    And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "avatar_file"
+    And I attach a valid image file to "avatar_file"
     And I press "Save picture"
     And I go to the home page
     And I follow "Massage"
