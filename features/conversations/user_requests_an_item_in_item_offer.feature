@@ -17,6 +17,10 @@ Feature: User requests an item in item offer
     And I press "Send the request"
     Then I should see "Message sent" within "#notifications"
     And I should see "Lending: Hammer" within "h1"
+    When I follow "Messages"
+    And I follow "Sent"
+    Then I should see "I want to borrow this item"
+    And I should see "Awaiting confirmation from listing author"
   
   @javascript
   Scenario: Borrowing an item with invalid information

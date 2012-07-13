@@ -13,7 +13,7 @@
       - unless current_user?(comment.author)
         .float_right
           %span
-            = link_to t(".send_private_message", :person => comment.author.given_name_or_username), new_person_message_path(:person_id => comment.author.id, :message_type => "free", :comment_message => true)
+            = link_to t(".send_private_message", :person => comment.author.given_name_or_username), new_person_message_path(:person_id => comment.author.id, :message_type => "free", :comment_message => true, :listing_id => comment.listing.id)
     .comment_content_div
       - text_with_line_breaks do  
         = comment.content

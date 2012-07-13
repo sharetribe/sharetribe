@@ -16,7 +16,6 @@ Feature: Search
     When I fill in "q" with "sofa"
     And I press "search"
     Then I should see "results"
-    And show me the page
     And I should see "old sofa for sale"
     
   

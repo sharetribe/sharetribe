@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
 
-  before_filter :save_current_path
+  before_filter :save_current_path, :except => :sign_in
   
   layout :choose_layout
 

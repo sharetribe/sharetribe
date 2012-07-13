@@ -23,11 +23,17 @@ Feature: User edits his own listing
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I fill in "listing_tag_list" with "hammers, sledges"
+    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     And the system processes jobs
     Then I should see "Renting: Sledgehammer" within "h1"
-    And I should see "hammers, sledges" within "#share_types_and_tags"
     And I should see "Request updated successfully" within "#notifications"
+    And I should see the image I just uploaded
+    When I follow "Edit request"
+    Then I should see the image I just uploaded
+    And I follow "Remove image"
+    And I follow "Save request"
+    Then I should not see the image I just deleted
     When I follow "Logout"
     And I log in as "kassi_testperson2"
     Then I should see "1" within "#logged_in_notifications_icon"
