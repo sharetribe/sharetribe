@@ -85,12 +85,11 @@ Feature: User views profile page
      When I follow "massage"
      And I follow "listing_author_link"
      And I should not see "car spare parts"
-     And I should see "massage"
+     And I should see "Service offer: massage"
      When I log in as "kassi_testperson1"
-     And I follow "massage"
      And I follow "listing_author_link"
      Then I should see "car spare parts"
-     And I should see "massage"
+     And I should see "Service offer: massage"
      And I should not see "apartment"
      
   @javascript

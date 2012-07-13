@@ -45,11 +45,10 @@ Given /^that listing is visible to members of community "([^"]*)"$/ do |domain|
   @listing.communities << Community.find_by_domain(domain)
 end
 
-Then /^I should see image with alt text "([^\"]*)"$/ do | alt_text |
-  find('img.listing_main_image')[:alt].should == alt_text
-end
-
 Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" starting at "([^"]*)"$/ do |share_type, origin, destination, time|
   listings = Listing.find_all_by_title("#{origin} - #{destination}")
 end
 
+When /^there is one comment to the listing from "([^"]*)"$/ do |author|
+  @comment = Factory(:comment, :listing => @listing, :author => @people[author])
+end

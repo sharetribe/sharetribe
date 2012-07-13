@@ -13,13 +13,11 @@ Feature: User creates a new listing
     And I fill in "listing_title" with "Sledgehammer"
     And I fill in "listing_description" with "My description"
     And I fill in "listing_tag_list" with "Tools, hammers"
-    And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
+    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     Then I should see "Buying: Sledgehammer" within "h1"
-    #And I should see "borrow, buy" within ".share_types"
-    And I should see "tools, hammers" within "#share_types_and_tags"
     And I should see "Request created successfully" within "#notifications"
-    And I should see image with alt text "Sledgehammer"
+    And I should see the image I just uploaded
   
   @javascript
   Scenario: Creating a new item offer successfully
@@ -31,13 +29,14 @@ Feature: User creates a new listing
     And I select "Lending" from "listing_share_type"
     And I fill in "listing_title" with "My offer"
     And I fill in "listing_description" with "My description"
-    And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
+    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save offer"
     Then I should see "Lending: My offer" within "h1"
     And I should see "Offer created successfully" within "#notifications"
+    And I should see the image I just uploaded
   
   @javascript
-  Scenario: Creating a new favor request successfully
+  Scenario: Creating a new service request successfully
     Given I am logged in
     And I am on the home page
     When I follow "Tell what you need!"
@@ -45,10 +44,11 @@ Feature: User creates a new listing
     And I should not see "Request type*:"
     And I fill in "listing_title" with "Massage"
     And I fill in "listing_description" with "My description"
-    And I attach the file "spec/fixtures/Australian_painted_lady.jpg" to "listing_listing_images_attributes_0_image"
+    And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     Then I should see "Service request: Massage" within "h1"
     And I should see "Request created successfully" within "#notifications"
+    And I should see the image I just uploaded
   
   @javascript  
   Scenario: Creating a new rideshare request successfully
@@ -77,7 +77,7 @@ Feature: User creates a new listing
     And I am on the home page
     When I follow "Tell what you need!"
     And I follow "an item"
-    And I attach the file "spec/fixtures/i_am_not_image.txt" to "listing_listing_images_attributes_0_image"
+    And I attach an image with invalid extension to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
     And I select "December" from "listing_valid_until_2i"
     And I select "2013" from "listing_valid_until_1i"
@@ -85,7 +85,7 @@ Feature: User creates a new listing
     Then I should see "This field is required." within ".error"
     And I should see "You must select one." within ".error"
     And I should see "This date must be between current time and one year from now." within ".error"
-    #And I should see "Please enter a value with a valid extension." within ".error" # Works in UI but not here, reason unknown
+    And I should see "The image file must be either in GIF, JPG or PNG format." within ".error"
     
   @javascript  
   Scenario: Trying to create a new rideshare request with insufficient information

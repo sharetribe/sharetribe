@@ -64,7 +64,7 @@ class ConversationsController < ApplicationController
       if params[:profile_message]
         redirect_to @target_person
       else
-        redirect_to (session[:return_to_content] || root)
+        redirect_to session[:return_to_content] || root
       end
     else
       render :action => :new
@@ -106,14 +106,17 @@ class ConversationsController < ApplicationController
   
   # Check if type is free message or listing-related conversation.
   # If former, find the target person of the message.
+  # If message is targeted to a commenter of a listing,
+  # save the listing info.
   def check_conversation_type
-    if params[:profile_message]
+    if params[:profile_message] || params[:comment_message]
       if params[:conversation]
         @target_person = Person.find(params[:target_person_id])
       else
         @target_person = Person.find(params[:person_id])
       end
     end
+    @listing = Listing.find(params[:listing_id]) if params[:comment_message]
   end
   
   def ensure_listing_is_open
@@ -127,7 +130,7 @@ class ConversationsController < ApplicationController
   end
   
   def ensure_listing_author_is_not_current_user
-    if (@target_person && current_user?(@target_person)) || (@listing && current_user?(@listing.author))
+    if (@target_person && current_user?(@target_person)) || (!params[:comment_message] && @listing && current_user?(@listing.author))
       flash[:error] = "you_cannot_send_message_to_yourself"
       redirect_to (session[:return_to_content] || root)
     end

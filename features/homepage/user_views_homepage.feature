@@ -15,14 +15,12 @@ Feature: User views homepage
     And visibility of that listing is "this_community"
     When I am on the homepage
     And I should see "car spare parts"
-    And I should see "Contact"
     And I should not see "bike"
     And I should not see "saw"
     And I log in as "kassi_testperson1"
     Then I should see "saw"
     And I should see "car spare parts"
     And I should not see "bike"
-    And I should see "Contact"
   
   @javascript
   Scenario: Latest requests on the homepage

@@ -24,3 +24,26 @@ When /^I move the focus to "([^"]*)"?$/ do |selected_element_id|
   #find("##{selected_element_id}").trigger('focus')
   page.evaluate_script("$('##{selected_element_id}').focus();")
 end
+
+When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
+  attach_image('Australian_painted_lady.jpg', field, selector)
+end
+
+When /^(?:|I )attach an image with invalid extension to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
+  attach_image('i_am_not_image.txt', field, selector)
+end
+
+Then /^I should see the image I just uploaded$/ do
+  
+end
+
+Then /^I should not see the image I just deleted$/ do
+  
+end
+
+def attach_image(filename, field, selector)
+  path = File.join(Rails.root, 'spec', 'fixtures', filename)
+  with_scope(selector) do
+    attach_file(field, path)
+  end
+end

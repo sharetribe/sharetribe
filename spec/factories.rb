@@ -19,6 +19,7 @@ Factory.define :person do |p|
   p.confirmed_at Time.now
   p.given_name "Proto"
   p.family_name "Testro"
+  p.phone_number "0000-123456"
   if not ApplicationHelper::use_asi?
     p.username { |u| u.username = Factory.next(:username) }
     p.password "testi"
