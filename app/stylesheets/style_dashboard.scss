@@ -270,27 +270,30 @@ li {
 #header {
   height: 64px;
 	background: $bg_color;
+	overflow: hidden;
 }
 
-#logo_container { overflow: hidden; }
-
 #logo {
-  margin-top: 14px;
+  margin-top: 13px;
   float: left;
 }
 
 #select_language_form {
-  margin-top: 20px;
+  margin-top: 21px;
   float: right;
 }
 
 #slogan {
   color: $orange;
-  margin: 24px 0 0 20px;
+  margin: 23px 0 0 20px;
   float: left;
+  width: 203px;
 }
 
-#language_switch { overflow: hidden; }
+#language_switch { 
+  overflow: hidden;
+  float: right;
+}
 
 #language_label { 
   float: right;
@@ -788,7 +791,7 @@ div.language {
   input.resend_email_confirmation_button, input.send_button { @include form_button; }
 }
 
-.map_bubble_header {
+.map_bubble_3{
   overflow: hidden;
   width: 340px;
 }
@@ -812,12 +815,13 @@ p.map_bubble {
 
 #header_links {
   overflow: hidden;
+  float: right;
   a {
-    font-size: 18px;
+    font-size: 17px;
     color: lighten($dark_green, 10%);
     &:hover { color: lighten($dark_green, 20%); }
     float: right;
-    margin: 18px 20px 0 0;
+    margin: 20px 18px 0 0;
   }
 }
 
