@@ -63,8 +63,8 @@ nl:
       rent: Huren
       rent_out: uitlenen
       sell: verkopen
-      temporary_accommodation: "tijdelijke accomodatie"
       trade: ruilen
+      share_for_free: ~
     username: Gebruikersnaam
     what_is_this: "Wat is dit?"
   conversations:
@@ -75,8 +75,6 @@ nl:
       no_received_messages: "Geen ontvangen berichten"
       no_sent_messages: "Geen verzonden berichten"
     new:
-      default_offer_message_text: "Leg uit wat je nodig hebt."
-      default_request_message_text: "Let uit wat je aanbied en onder welke voorwaarden."
       favor_offer_message_form_title: "Vraag om een gunst van"
       favor_offer_message_title: "Gunst verzoek: %{title}"
       favor_request_message_form_title: "Bied een gunst aan"
@@ -85,7 +83,6 @@ nl:
       housing_offer_message_title: "Beantwoord jou lijst %{title}"
       housing_request_message_form_title: "Beantwoord aan"
       housing_request_message_title: "Beantwoord jou lijst %{title}"
-      item_offer_message_form_title: "Vraag om een item van"
       item_offer_message_title: "Item verzoek: %{title}"
       item_request_message_form_title: "Bied een item aan"
       item_request_message_title: "Item aanbod: %{title}"
@@ -94,11 +91,29 @@ nl:
       rideshare_offer_message_title: "Rit verzoek: %{title}"
       rideshare_request_message_form_title: "Bied een rit aan"
       rideshare_request_message_title: "Rit aanbod: %{title}"
-      send_a_new_message: "Verstuur een nieuw bericht"
       send_offer_message: "Verstuur het verzoek"
       send_request_message: "Verstuur het aanbod"
       this_message_is_private: ~
       title: Titel
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      send_message: ~
+      send_message_to_user: ~
+      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: ~
     notifications:
       badgenotification:
         see_all_your_badges: ~
@@ -130,6 +145,8 @@ nl:
       request_sent_to: "Verzoek gestuurd naar"
       send_reply: "Stuur antwoord"
       write_a_reply: "Schrijf een antwoord:"
+      conversation_about_listing: ~
+      conversation_with_user: ~
     status:
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
@@ -416,7 +433,6 @@ nl:
       has_accepted_sell_item: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
       has_accepted_buy_housing: ~
       has_accepted_rent_out_housing: ~
@@ -518,6 +534,8 @@ nl:
       add_your_info_link: ~
     recent_listing:
       please_offer: Aanbod
+      comment: ~
+      comments: ~
     sign_in:
       recent_offers: ~
       recent_requests: ~
@@ -598,20 +616,14 @@ nl:
       email_confirmation_sent_to_new_address: ~
       email_not_found: "De email die je gaf, was niet gevonden in de Kassi database."
       error_with_session: "Fout in sessie."
-      favor_offer_message_sent: "Gunst verzoek is succesvol verzonden"
-      favor_request_message_sent: "Favor offer sent successfully"
       feedback_considered_spam: "Feedback is niet opgeslagen, door de opmaak. Probeer opnieuw of gebruik het feedback forum."
       feedback_not_saved: "Feedback kon niet worden verzonden."
       feedback_saved: "Bedankt voor je feedback!"
       feedback_sent_to: "Feedback gestuurd naar"
       feedback_skipped: "Feedback overgeslagen"
-      housing_offer_message_sent: "Bericht succesvol verstuurd"
-      housing_request_message_sent: "Bericht is succesvol verstuurd"
       invitation_cannot_be_sent: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      item_offer_message_sent: "Item verzoek is succesvol verzonden"
-      item_request_message_sent: "Item aanbod is succesvol verzonden"
       login_again: "Log opnieuw in alstublieft."
       login_failed: "Login mislukt. Vul de goede gegevens in."
       login_successful: "Welkom bij Kassi, "
@@ -649,8 +661,6 @@ nl:
       request_created_successfully: "Verzoek succesvol aangemaakt."
       request_rejected: "Verzoek afgewezen"
       request_updated_successfully: "Verzoek succesvol bijgewerkt"
-      rideshare_offer_message_sent: "Rit verzoek is succesvol verzonden"
-      rideshare_request_message_sent: "Rit aanbod is succesvol verzonden"
       this_content_is_not_available_in_this_community: ~
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
@@ -661,8 +671,6 @@ nl:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
-      you_cannot_reply_to_your_own_offer: "Je kan niet reageren op je eigen aanbod"
-      you_cannot_reply_to_your_own_request: "Je kan niet reageren op je eigen verzoek"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: ~
@@ -682,6 +690,8 @@ nl:
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
+      message_sent: ~
+      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -766,8 +776,8 @@ nl:
         rent_out: Verhuren
         request_type: "Verzoek type"
         sell: Verkoop
-        temporary_accommodation: Tijdelijk
         trade: Handel
+        share_for_free: ~
       tag_list:
         comma_separate: "(comma separate)"
         tags: Tags
@@ -824,17 +834,38 @@ nl:
       rents: Huren
       rideshares: "Rit delen"
       sells: Verkopen
-      temporary_accommodations: "Tijdelijke huisvesting"
       trades: Ruilen
+      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: "Vraag een gunst"
       link_label_for_favor_request: "Bied je hulp aan"
-      link_label_for_housing_offer: Beantwoord
-      link_label_for_housing_request: Beantwoord
-      link_label_for_item_offer: "vraag een item"
-      link_label_for_item_request: "Bied een item aan"
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
+      link_label_for_housing_offer_rent_out: ~
+      link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_buy: ~
+      link_label_for_housing_request_rent: ~
+      link_label_for_item_offer_give_away: ~
+      link_label_for_item_offer_lend: ~
+      link_label_for_item_offer_rent_out: ~
+      link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_trade: ~
+      link_label_for_item_request_borrow: ~
+      link_label_for_item_request_buy: ~
+      link_label_for_item_request_receive: ~
+      link_label_for_item_request_rent: ~
+      link_label_for_item_request_trade: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_share_for_free: ~
+      message_link_label_for_item_offer_give_away: ~
+      message_link_label_for_item_offer_lend: ~
+      message_link_label_for_item_offer_rent_out: ~
+      message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_trade: ~
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
     listed_listing:
       edit: Bewerken
     listed_listing_closed_status:
@@ -856,10 +887,6 @@ nl:
       comments: Commentaar
       favor_offer: "Gunst aanbod"
       favor_request: "Gunst gezocht"
-      housing_offer: Woonaanbod
-      housing_request: Woonverzoek
-      item_offer: "Item aanbod"
-      item_request: "Item gezocht"
       no_description: "Geen beschrijving"
       offer: Aanbod
       offer_author: "Aangeboden door"
@@ -877,6 +904,16 @@ nl:
       time: tijd
       times: keer
       times_viewed: Gezien
+      add_profile_picture: ~
+      add_your_phone_number: ~
+      contact_by_phone: ~
+      feedback: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      send_private_message: ~
+    comment:
+      send_private_message: ~
+      wrote: ~
   mapview:
     index:
       all_categories: ~
@@ -1046,6 +1083,7 @@ nl:
       requested_rideshare: "lift gezocht"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets minder dan verwacht"
+      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: "Meer aanbod aan het laden"
       loading_more_requests: "Meer verzoeken aan het laden"
@@ -1063,7 +1101,6 @@ nl:
       badges: Badges
       edit_profile_info: "Wijzig profile"
       exceeded_expectations: "Verwachtingen overtroffen"
-      feedback_average: "Feedback gemiddelde:"
       hide_description: "Laat minder zien"
       joined_this_community: ~
       was_last_seen: ~
@@ -1078,6 +1115,9 @@ nl:
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
       trustcloud: ~
+      contact: ~
+      positive: ~
+      received_feedback: ~
   search:
     show:
       all_results: "Alle resultaten"

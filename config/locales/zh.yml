@@ -63,8 +63,8 @@ zh:
       rent: 出租
       rent_out: 已出租
       sell: 出售中
-      temporary_accommodation: 临时租房
       trade: 交易
+      share_for_free: ~
     username: 用户名
     what_is_this: 这是什么？
   conversations:
@@ -75,8 +75,6 @@ zh:
       no_received_messages: 没有新消息
       no_sent_messages: 没有已发送消息
     new:
-      default_offer_message_text: 说明你需要神马
-      default_request_message_text: 说明你在何种条件下提供何种服务
       favor_offer_message_form_title: 向...索请一个帮助
       favor_offer_message_title: "帮助请求：%{title}"
       favor_request_message_form_title: 向...提供帮助
@@ -85,7 +83,6 @@ zh:
       housing_offer_message_title: "回复所有%{title}"
       housing_request_message_form_title: 回复
       housing_request_message_title: "回复所有%{title}"
-      item_offer_message_form_title: 想要一个物品
       item_offer_message_title: "物品请求：%{title}"
       item_request_message_form_title: 向...提供一个物品
       item_request_message_title: "已有物品：%{title}"
@@ -94,11 +91,29 @@ zh:
       rideshare_offer_message_title: "搭顺风车请求：%{title}"
       rideshare_request_message_form_title: 提供顺风车
       rideshare_request_message_title: "已有顺风车：%{title}"
-      send_a_new_message: 发送一条新消息
       send_offer_message: ~
       send_request_message: ~
       this_message_is_private: "此消息为您和%{person}之间的悄悄话"
       title: 名称
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      send_message: ~
+      send_message_to_user: ~
+      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: ~
     notifications:
       badgenotification:
         see_all_your_badges: 查看所有的徽章
@@ -130,6 +145,8 @@ zh:
       request_sent_to: 请求发送至...
       send_reply: 发送回复
       write_a_reply: 回复：
+      conversation_about_listing: ~
+      conversation_with_user: ~
     status:
       feedback_given: 已发送反馈
       feedback_skipped: 跳过的反馈
@@ -416,7 +433,6 @@ zh:
       has_accepted_sell_item: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
       has_accepted_buy_housing: ~
       has_accepted_rent_out_housing: ~
@@ -518,6 +534,8 @@ zh:
       add_your_info_link: 现在添加个人信息
     recent_listing:
       please_offer: 提议
+      comment: ~
+      comments: ~
     sign_in:
       recent_offers: ~
       recent_requests: ~
@@ -598,20 +616,14 @@ zh:
       email_confirmation_sent_to_new_address: ~
       email_not_found: 无法在Kassi中找到您所提供的邮箱地址
       error_with_session: 内容错误
-      favor_offer_message_sent: 请求帮助已成功发送
-      favor_request_message_sent: 提议成功发送
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
       feedback_not_saved: 评价发送失败。
       feedback_saved: 感谢您的评价！
       feedback_sent_to: 发送评价至
       feedback_skipped: 无评价
-      housing_offer_message_sent: 信息发送成功
-      housing_request_message_sent: 信息发送成功
       invitation_cannot_be_sent: 邀请未被发出
       invitation_sent: 邀请成功发出
       inviting_new_users_is_not_allowed_in_this_community: 邀请新用户在此社区不被允许。
-      item_offer_message_sent: 物品请求发送成功
-      item_request_message_sent: 提议成功发送
       login_again: 请重新登录。
       login_failed: 登录失败，请输入正确的用户凭证
       login_successful: "欢迎来到Kassi, "
@@ -649,8 +661,6 @@ zh:
       request_created_successfully: 已成功创建请求
       request_rejected: 已拒绝的请求
       request_updated_successfully: 已成功更新请求
-      rideshare_offer_message_sent: 搭车请求已发送
-      rideshare_request_message_sent: 提议已经成功提交
       this_content_is_not_available_in_this_community: 此内容在此社区中不可用
       unknown_error: 发生未知错误。请使用反馈链接向我们提供细节。
       update_error: 更新您的信息时发生错误，请重试
@@ -661,8 +671,6 @@ zh:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: 您不能对已关闭的提议发表评论
       you_cannot_reply_to_a_closed_request: 您不能回复已关闭请求
-      you_cannot_reply_to_your_own_offer: 您不能回应自己的提议
-      you_cannot_reply_to_your_own_request: 您不能回复自己的请求
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: 您已经对此事件发表评价
       you_are_now_member: ~
@@ -682,6 +690,8 @@ zh:
       you_need_to_confirm_your_account_first: 您需要先确认账户
       you_unfollowed_listing: 您不再关注此列表
       joining_community_failed: ~
+      message_sent: ~
+      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: 回到用户个人资料
       badges: 徽章
@@ -766,8 +776,8 @@ zh:
         rent_out: 已出租
         request_type: 请求类型
         sell: 出售
-        temporary_accommodation: 临时
         trade: 交易
+        share_for_free: ~
       tag_list:
         comma_separate: （用逗号隔开）
         tags: 标签
@@ -824,17 +834,38 @@ zh:
       rents: 出租
       rideshares: 拼车
       sells: 出售中
-      temporary_accommodations: 临时租房
       trades: 交易中
+      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: 需要帮助
       link_label_for_favor_request: 提供您宝贵的帮助
-      link_label_for_housing_offer: 回复
-      link_label_for_housing_request: 回复
-      link_label_for_item_offer: 需要物品
-      link_label_for_item_request: 提供物品
       link_label_for_rideshare_offer: 需要顺风车
       link_label_for_rideshare_request: 提供顺风车
+      link_label_for_housing_offer_rent_out: ~
+      link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_buy: ~
+      link_label_for_housing_request_rent: ~
+      link_label_for_item_offer_give_away: ~
+      link_label_for_item_offer_lend: ~
+      link_label_for_item_offer_rent_out: ~
+      link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_trade: ~
+      link_label_for_item_request_borrow: ~
+      link_label_for_item_request_buy: ~
+      link_label_for_item_request_receive: ~
+      link_label_for_item_request_rent: ~
+      link_label_for_item_request_trade: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_share_for_free: ~
+      message_link_label_for_item_offer_give_away: ~
+      message_link_label_for_item_offer_lend: ~
+      message_link_label_for_item_offer_rent_out: ~
+      message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_trade: ~
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
     listed_listing:
       edit: 编辑
     listed_listing_closed_status:
@@ -856,10 +887,6 @@ zh:
       comments: 评论
       favor_offer: 已有帮助
       favor_request: 已有请求
-      housing_offer: 住房提供
-      housing_request: 住房请求
-      item_offer: 物品提供
-      item_request: 物品请求
       no_description: 无描述
       offer: 提议
       offer_author: 提议来自
@@ -877,6 +904,16 @@ zh:
       time: 时间
       times: 次数
       times_viewed: 已阅
+      add_profile_picture: ~
+      add_your_phone_number: ~
+      contact_by_phone: ~
+      feedback: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      send_private_message: ~
+    comment:
+      send_private_message: ~
+      wrote: ~
   mapview:
     index:
       all_categories: 全部分类
@@ -1046,6 +1083,7 @@ zh:
       requested_rideshare: 请求拼车
       slightly_better_than_expected: 比期望的略好
       slightly_less_than_expected: 比期望的略差
+      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: 加载更多提供
       loading_more_requests: 加载更多请求
@@ -1063,7 +1101,6 @@ zh:
       badges: 徽章
       edit_profile_info: 编辑您的资料
       exceeded_expectations: 超过预期
-      feedback_average: 平均评价：
       hide_description: 显示更少
       joined_this_community: "已加入这个社区 %{time_ago}"
       was_last_seen: 被看见
@@ -1078,6 +1115,9 @@ zh:
       slightly_less_than_expected: 比期望的差
       what_are_these: 这些是什么？
       trustcloud: ~
+      contact: ~
+      positive: ~
+      received_feedback: ~
   search:
     show:
       all_results: 所有结果

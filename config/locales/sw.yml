@@ -63,8 +63,8 @@ sw:
       rent: kukodisha
       rent_out: ~
       sell: kuuza
-      temporary_accommodation: ~
       trade: ~
+      share_for_free: ~
     username: ~
     what_is_this: "Nini hii?"
   conversations:
@@ -75,8 +75,6 @@ sw:
       no_received_messages: ~
       no_sent_messages: ~
     new:
-      default_offer_message_text: "Fafanua unachotaka."
-      default_request_message_text: ~
       favor_offer_message_form_title: ~
       favor_offer_message_title: ~
       favor_request_message_form_title: ~
@@ -85,7 +83,6 @@ sw:
       housing_offer_message_title: ~
       housing_request_message_form_title: "Jibu kwa"
       housing_request_message_title: ~
-      item_offer_message_form_title: ~
       item_offer_message_title: ~
       item_request_message_form_title: ~
       item_request_message_title: ~
@@ -94,11 +91,29 @@ sw:
       rideshare_offer_message_title: ~
       rideshare_request_message_form_title: ~
       rideshare_request_message_title: ~
-      send_a_new_message: "Tuma ujumbe mpya"
       send_offer_message: ~
       send_request_message: ~
       this_message_is_private: ~
       title: ~
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      send_message: ~
+      send_message_to_user: ~
+      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: ~
     notifications:
       badgenotification:
         see_all_your_badges: ~
@@ -130,6 +145,8 @@ sw:
       request_sent_to: ~
       send_reply: ~
       write_a_reply: "Andika jibu:"
+      conversation_about_listing: ~
+      conversation_with_user: ~
     status:
       feedback_given: ~
       feedback_skipped: ~
@@ -416,7 +433,6 @@ sw:
       has_accepted_sell_item: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
       has_accepted_buy_housing: ~
       has_accepted_rent_out_housing: ~
@@ -518,6 +534,8 @@ sw:
       add_your_info_link: ~
     recent_listing:
       please_offer: ~
+      comment: ~
+      comments: ~
     sign_in:
       recent_offers: ~
       recent_requests: ~
@@ -598,20 +616,14 @@ sw:
       email_confirmation_sent_to_new_address: ~
       email_not_found: ~
       error_with_session: ~
-      favor_offer_message_sent: ~
-      favor_request_message_sent: ~
       feedback_considered_spam: ~
       feedback_not_saved: ~
       feedback_saved: ~
       feedback_sent_to: ~
       feedback_skipped: ~
-      housing_offer_message_sent: ~
-      housing_request_message_sent: ~
       invitation_cannot_be_sent: ~
       invitation_sent: ~
       inviting_new_users_is_not_allowed_in_this_community: ~
-      item_offer_message_sent: ~
-      item_request_message_sent: ~
       login_again: ~
       login_failed: ~
       login_successful: ~
@@ -649,8 +661,6 @@ sw:
       request_created_successfully: ~
       request_rejected: ~
       request_updated_successfully: ~
-      rideshare_offer_message_sent: ~
-      rideshare_request_message_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
@@ -661,8 +671,6 @@ sw:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: ~
       you_cannot_reply_to_a_closed_request: ~
-      you_cannot_reply_to_your_own_offer: ~
-      you_cannot_reply_to_your_own_request: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
       you_are_now_member: ~
@@ -682,6 +690,8 @@ sw:
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
+      message_sent: ~
+      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -766,8 +776,8 @@ sw:
         rent_out: ~
         request_type: ~
         sell: ~
-        temporary_accommodation: ~
         trade: ~
+        share_for_free: ~
       tag_list:
         comma_separate: ~
         tags: ~
@@ -824,17 +834,38 @@ sw:
       rents: ~
       rideshares: ~
       sells: ~
-      temporary_accommodations: ~
       trades: ~
+      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: ~
       link_label_for_favor_request: ~
-      link_label_for_housing_offer: ~
-      link_label_for_housing_request: ~
-      link_label_for_item_offer: ~
-      link_label_for_item_request: ~
       link_label_for_rideshare_offer: ~
       link_label_for_rideshare_request: ~
+      link_label_for_housing_offer_rent_out: ~
+      link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_buy: ~
+      link_label_for_housing_request_rent: ~
+      link_label_for_item_offer_give_away: ~
+      link_label_for_item_offer_lend: ~
+      link_label_for_item_offer_rent_out: ~
+      link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_trade: ~
+      link_label_for_item_request_borrow: ~
+      link_label_for_item_request_buy: ~
+      link_label_for_item_request_receive: ~
+      link_label_for_item_request_rent: ~
+      link_label_for_item_request_trade: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_share_for_free: ~
+      message_link_label_for_item_offer_give_away: ~
+      message_link_label_for_item_offer_lend: ~
+      message_link_label_for_item_offer_rent_out: ~
+      message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_trade: ~
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
     listed_listing:
       edit: ~
     listed_listing_closed_status:
@@ -856,10 +887,6 @@ sw:
       comments: ~
       favor_offer: ~
       favor_request: ~
-      housing_offer: ~
-      housing_request: ~
-      item_offer: ~
-      item_request: ~
       no_description: ~
       offer: ~
       offer_author: ~
@@ -877,6 +904,16 @@ sw:
       time: ~
       times: ~
       times_viewed: ~
+      add_profile_picture: ~
+      add_your_phone_number: ~
+      contact_by_phone: ~
+      feedback: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      send_private_message: ~
+    comment:
+      send_private_message: ~
+      wrote: ~
   mapview:
     index:
       all_categories: ~
@@ -1046,6 +1083,7 @@ sw:
       requested_rideshare: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
+      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: ~
       loading_more_requests: ~
@@ -1063,7 +1101,6 @@ sw:
       badges: ~
       edit_profile_info: ~
       exceeded_expectations: ~
-      feedback_average: ~
       hide_description: ~
       joined_this_community: ~
       was_last_seen: ~
@@ -1078,6 +1115,9 @@ sw:
       slightly_less_than_expected: ~
       what_are_these: ~
       trustcloud: ~
+      contact: ~
+      positive: ~
+      received_feedback: ~
   search:
     show:
       all_results: ~

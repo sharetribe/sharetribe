@@ -63,8 +63,8 @@ el:
       rent: ενοικίαση
       rent_out: εκμίσθωση
       sell: πώληση
-      temporary_accommodation: "προσωρινή φιλοξενία"
       trade: ανταλλαγή
+      share_for_free: ~
     username: "Όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
   conversations:
@@ -75,8 +75,6 @@ el:
       no_received_messages: "Κανένα εισερχόμενο μήνυμα"
       no_sent_messages: "Κανένα απεσταλμένο μήνυμα"
     new:
-      default_offer_message_text: "Εξήγησε τι χρειάζεσαι."
-      default_request_message_text: "Εξήγησε τι προσφέρεις και με ποιους όρους."
       favor_offer_message_form_title: "Ζήτα μια χάρη από τον/την"
       favor_offer_message_title: "Χάρη: %{title}"
       favor_request_message_form_title: "Κάνε μια χάρη στον/στην"
@@ -85,7 +83,6 @@ el:
       housing_offer_message_title: "Απάντηση στην αγγελία σου %{title}"
       housing_request_message_form_title: "Απάντησε στον/στην"
       housing_request_message_title: "Απάντηση στην αγγελία σου %{title}"
-      item_offer_message_form_title: "Ζήτησε ένα αντικείμενο από τον/την"
       item_offer_message_title: "Αίτημα: %{title}"
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       item_request_message_title: "Προσφορά: %{title}"
@@ -94,11 +91,29 @@ el:
       rideshare_offer_message_title: "Πάρε με μαζί σου στο %{title}"
       rideshare_request_message_form_title: "Ταξίδεψε μαζί με τον/την"
       rideshare_request_message_title: "Πάμε μαζί στο %{title}"
-      send_a_new_message: "Αποστολή νέου μηνύματος"
       send_offer_message: "Στείλε την προσφορά"
       send_request_message: "Στείλε το αίτημα"
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
       title: Τίτλος
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      send_message: Αποστολή
+      send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
+      you_will_get_notified: "Θα λάβεις μια ειδοποίηση με email όταν ο/η %{person} σου απαντήσει."
+      you_will_get_notified_of_acceptance: "Θα λάβεις μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σου."
     notifications:
       badgenotification:
         see_all_your_badges: "Δες όλες τις κονκάρδες σου"
@@ -130,6 +145,8 @@ el:
       request_sent_to: "Ζητήθηκε από τον/την"
       send_reply: Αποστολή
       write_a_reply: "Απάντησε:"
+      conversation_about_listing: "Συνομιλία με τον/την %{person} σχετικά με το \"%{listing}\"."
+      conversation_with_user: "Συνομιλία με τον/την%{person}."
     status:
       feedback_given: "Δόθηκε κριτική"
       feedback_skipped: "Η κριτική παραλείφθηκε"
@@ -243,11 +260,11 @@ el:
       create_your_own: "Δημιούργησε ένα"
       sharing_website: SHARETRIBE
       main_description: "Δημιούργησε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
-      kassi_for_your_company: "ΤΟ SHARETRIBE ΣΤΟ ΧΩΡΟ ΕΡΓΑΣΙΑΣ"
+      kassi_for_your_company: "... ΣΤΗΝ ΕΤΑΙΡΙΑ"
       kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους, να κάνουν κοινές δράσεις και ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
-      kassi_for_your_city: "ΤΟ SHARETRIBE ΓΙΑ ΤΗΝ ΠΟΛΗ ΣΟΥ"
+      kassi_for_your_city: "... ΣΤΗΝ ΠΟΛΗ ΣΟΥ"
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
-      kassi_for_your_university: "ΤΟ SHARETRIBE ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
+      kassi_for_your_university: "... ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
       kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
       want_kassi_for_your_community: "Θα ήθελες το %{service_name} στην κοινότητά σου;"
       email_default_text: "Ηλεκτρονική διεύθυνση"
@@ -266,21 +283,21 @@ el:
       want_to_know_more: "Θες να μάθεις περισσότερα; %{read_our_faq_link} ή %{contact_us_link}."
       read_our_faq: "Διάβασε τις συχνές ερωτήσεις"
       contact_us: "επικοινώνησε μαζί μας"
-      why_you_really_should_have_a_tribe: "Πραγματικά αξίζει να έχεις μια κοινότητα"
+      why_you_really_should_have_a_tribe: "Γιατί αξίζει να χρησιμοποιείς το Sharetribe..."
       an_example: "Ένα παράδειγμα:"
       home: Αρχή
       faq: FAQ
-      browse_tribes: ~
+      browse_tribes: "Βρες κοινότητες"
       pricing: Τιμές
       contact: Επικοινωνία
       university_example_link: "<a href=\"http://UPatras.sharetribe.com\">Το Sharetribe στο Πανεπιστήμιο Πατρών</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Το Sharetribe στο High Tech Center Keilaniemi</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">To Sharetribe στη γειτονιά Kallio του Ελσίνκι</a>"
-      about: ~
-      api: ~
-      developers: ~
+      about: "ΣΧΕΤΙΚΑ ΜΕ ΤΟ SHARETRIBE"
+      api: API
+      developers: "ΓΙΑ ΠΡΟΓΡΑΜΜΑΤΙΣΤΕΣ"
     api:
-      coming_soon: ~
+      coming_soon: Σύντομα!
   emails:
     accept_reminder:
       offer_accusative: προσφορά
@@ -416,7 +433,6 @@ el:
       has_accepted_sell_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_buy_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_trade_item: "Ο/Η %{offerer_name} συμφώνησε να ανταλλάξει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_temporary_accommodation_housing: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_sell_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_buy_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
       has_accepted_rent_out_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
@@ -518,6 +534,8 @@ el:
       add_your_info_link: "Πρόσθεσε πληροφορίες για σένα"
     recent_listing:
       please_offer: Προσφορά
+      comment: σχόλιο
+      comments: σχόλια
     sign_in:
       recent_offers: "Τι προσφέρουν τώρα τα μέλη της κοινότητας"
       recent_requests: "Τι χρειάζονται τώρα τα μέλη της κοινότητας"
@@ -598,20 +616,14 @@ el:
       email_confirmation_sent_to_new_address: "Η επιβεβαίωση στέλνεται τώρα στη νέα διεύθυνση."
       email_not_found: "Το email που έδωσες δεν βρέθηκε στη βάση δεδομένων του %{service_name}."
       error_with_session: "Σφάλμα με τη συνεδρία."
-      favor_offer_message_sent: "Το αίτημα στάλθηκε επιτυχώς"
-      favor_request_message_sent: "Η προσφορά στάλθηκε επιτυχώς"
       feedback_considered_spam: "Τα σχόλιά σου δεν αποθηκεύτηκαν λόγω της μορφοποίησής τους. Προσπάθησε ξανά ή εναλλακτικά χρησιμοποίησε την περιοχή σχολίων."
       feedback_not_saved: "Τα σχόλιά σου δεν μπόρεσαν να σταλούν."
       feedback_saved: "Ευχαριστούμε για τα σχόλιά σου!"
       feedback_sent_to: "Η κριτική δώθηκε στον/στην"
       feedback_skipped: "Η κριτική παραλείφθηκε"
-      housing_offer_message_sent: "Το μήνυμα εστάλη"
-      housing_request_message_sent: "Το μήνυμα εστάλη"
       invitation_cannot_be_sent: "Η πρόσκληση δεν μπόρεσε να σταλεί"
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
-      item_offer_message_sent: "Το αίτημα σου εστάλη"
-      item_request_message_sent: "Η προσφορά σου εστάλη"
       login_again: "Παρακαλούμε, συνδέσου ξανά."
       login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώσε τα σωστά στοιχεία."
       login_successful: "Καλωσήρθες στο %{service_name},"
@@ -649,8 +661,6 @@ el:
       request_created_successfully: "Το αίτημα σου καταχωρήθηκε."
       request_rejected: "Το αίτημα απορρίφθηκε"
       request_updated_successfully: "Το αίτημα ενημερώθηκε"
-      rideshare_offer_message_sent: "Το αίτημα να συνταξιδέψεις εστάλη"
-      rideshare_request_message_sent: "Η προσφορά να συνταξιδέψεις εστάλη"
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
       unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων (Feedback) για να μας στείλεις λεπτομέρειες για το τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σου, παρακαλούμε προσπάθησε ξανά"
@@ -661,8 +671,6 @@ el:
       send_instructions: "Σε λίγα λεπτά θα λάβεις ένα email με οδηγίες για το πως να επαναφέρεις τον κωδικό πρόσβασης σου."
       you_cannot_reply_to_a_closed_offer: "Δεν μπορείς να απαντήσεις σε μία προσφορά που έχει κλείσει"
       you_cannot_reply_to_a_closed_request: "Δεν μπορείς να απαντήσεις σε ένα αίτημα που έχει κλείσει"
-      you_cannot_reply_to_your_own_offer: "Δεν μπορείς να απαντήσεις στη δική σου προσφορά"
-      you_cannot_reply_to_your_own_request: "Δεν μπορείς να απαντήσεις στο δικό σου αίτημα"
       you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
@@ -682,6 +690,8 @@ el:
       you_need_to_confirm_your_account_first: "Πρέπει πρώτα να επιβεβαιώσεις το λογαριασμό σου."
       you_unfollowed_listing: "Δεν παρακολουθείς πλέον αυτή την καταχώρηση"
       joining_community_failed: "Η εγγραφή σε αυτή την κοινότητα απέτυχε"
+      message_sent: "Το μήνυμα εστάλη"
+      you_cannot_send_message_to_yourself: "Δεν γίνεται να στείλεις μήνυμα στον εαυτό σου"
     profile_extras_header:
       back_to_profile_of_person: "Επιστροφή στο προφίλ του χρήστη"
       badges: Κονκάρδες
@@ -766,8 +776,8 @@ el:
         rent_out: Εκμίσθωση
         request_type: "Τύπος αιτήματος"
         sell: Πώληση
-        temporary_accommodation: Προσωρινή
         trade: Ανταλλαγή
+        share_for_free: ~
       tag_list:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
@@ -824,17 +834,38 @@ el:
       rents: Ενοικίαση
       rideshares: Οτοστόπ
       sells: Πωλήσεις
-      temporary_accommodations: "Προσωρινή διαμονή"
       trades: Ανταλλαγές
+      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: "Ζήτησέ το"
       link_label_for_favor_request: "Πρόσφερε τη βοήθεια σου"
-      link_label_for_housing_offer: Απάντησε
-      link_label_for_housing_request: Απάντησε
-      link_label_for_item_offer: "Ζήτησέ το"
-      link_label_for_item_request: Επικοινώνησε
       link_label_for_rideshare_offer: "Κάνε οτοστόπ"
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
+      link_label_for_housing_offer_rent_out: ~
+      link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_buy: ~
+      link_label_for_housing_request_rent: ~
+      link_label_for_item_offer_give_away: ~
+      link_label_for_item_offer_lend: ~
+      link_label_for_item_offer_rent_out: ~
+      link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_trade: ~
+      link_label_for_item_request_borrow: ~
+      link_label_for_item_request_buy: ~
+      link_label_for_item_request_receive: ~
+      link_label_for_item_request_rent: ~
+      link_label_for_item_request_trade: ~
+      message_link_label_for_housing_offer_rent_out: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_housing_offer_sell: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_housing_offer_share_for_free: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_item_offer_give_away: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_item_offer_lend: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_item_offer_rent_out: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_item_offer_sell: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_item_offer_trade: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_offer: "Στείλε προσωπικό μήνυμα"
+      message_link_label_for_request: "Στείλε προσωπικό μήνυμα"
     listed_listing:
       edit: Επεξεργασία
     listed_listing_closed_status:
@@ -856,18 +887,14 @@ el:
       comments: Σχόλια
       favor_offer: "Προσφορά υπηρεσίας"
       favor_request: "Ζητούμενες χάρες"
-      housing_offer: "Προσφορά διαμονής"
-      housing_request: Διαμονή
-      item_offer: "Προσφορά αντικειμένου"
-      item_request: Ζητείται
       no_description: "Χωρίς περιγραφή"
       offer: Προσφορά
       offer_author: "Προσφέρεται από τον/την"
-      offer_created: "Δημιουργήθηκε στις"
+      offer_created: "Δημιουργήθηκε πριν από"
       qr_code: "Κωδικός QR"
       request: Αίτημα
       request_author: "Ζητήθηκε από τον/την"
-      request_created: "Δημιουργήθηκε στις"
+      request_created: "Δημιουργήθηκε πριν από"
       rideshare_offer: "Προσφορά οτοστόπ"
       rideshare_request: "Αίτημα οτοστόπ"
       share_types: "Τύποι συναλλαγών"
@@ -877,6 +904,16 @@ el:
       time: φορά
       times: φορές
       times_viewed: Διαβάστηκε
+      add_profile_picture: "Πρόσθεσε μια φωτογραφία σου"
+      add_your_phone_number: "Πρόσθεσε το τηλέφωνό σου"
+      contact_by_phone: "Επικοινώνησε τηλεφωνικά"
+      feedback: "Κριτική:"
+      item_offer_trade: "Προσφορά ανταλλαγής"
+      item_request_trade: "Αίτημα ανταλλαγής"
+      send_private_message: "Στείλε προσωπικό μήνυμα"
+    comment:
+      send_private_message: "Στείλε προσωπικό στον/στην %{person}."
+      wrote: έγραψε
   mapview:
     index:
       all_categories: "Όλες οι κατηγορίες"
@@ -1046,6 +1083,7 @@ el:
       requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
       slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
       slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
+      and_gave_following_feedback: "και έδωσε αυτή την κριτική"
     profile_listings:
       loading_more_offers: "Εμφάνιση περισσότερων προσφορών"
       loading_more_requests: "Εμφάνιση περισσότερων αιτημάτων"
@@ -1063,7 +1101,6 @@ el:
       badges: Κονκάρδες
       edit_profile_info: "Επεξεργασία προφίλ"
       exceeded_expectations: "Ξεπέρασε τις προσδοκίες"
-      feedback_average: "Σχολιασμός του χρήστη:"
       hide_description: Απόκρυψη
       joined_this_community: "... γράφτηκε σε αυτή την κοινότητα %{time_ago}"
       was_last_seen: "... συνδέθηκε τελευταία φορά %{time_ago}"
@@ -1078,6 +1115,9 @@ el:
       slightly_less_than_expected: "Χειρότερα από το αναμενόμενο"
       what_are_these: "Τι είναι αυτά;"
       trustcloud: TrustCloud
+      contact: "Επικοινώνησε με τον/την%{person}."
+      positive: θετική
+      received_feedback: "Έλαβε κριτική:"
   search:
     show:
       all_results: "Όλα τα αποτελέσματα"
@@ -1192,7 +1232,7 @@ el:
       all_testimonials: "Εμφάνιση όλης της κριτικής"
       feedback_altogether: "Κριτική συνολικά: "
       loading_more_testimonials: "Εμφάνιση περισσότερων σχολίων"
-      no_testimonials: "Δεν έχει δωθεί κριτική."
+      no_testimonials: "Ο χρήστης δεν έχει λάβει κριτική."
     new:
       as_expected: "Όπως ήταν αναμενόμενο"
       exceeded_expectations: "Πολύ καλύτερα από το αναμενόμενο"

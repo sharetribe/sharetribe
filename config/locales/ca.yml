@@ -63,8 +63,8 @@ ca:
       rent: Lloguer
       rent_out: lloga
       sell: Vendre
-      temporary_accommodation: Allotjament
       trade: Intercanviar
+      share_for_free: ~
     username: Usuari
     what_is_this: "Què és això?"
   conversations:
@@ -75,8 +75,6 @@ ca:
       no_received_messages: "No hi ha missatges rebuts"
       no_sent_messages: "No hi ha missatges enviats"
     new:
-      default_offer_message_text: "Descriu allò que necessites"
-      default_request_message_text: "Explica el que estàs oferint i sota quines condicions."
       favor_offer_message_form_title: "Demana ajuda de"
       favor_offer_message_title: "Servei sol·licitat: %{title}"
       favor_request_message_form_title: "Oferir ajuda a"
@@ -85,7 +83,6 @@ ca:
       housing_offer_message_title: "Respon a la llista %{title}"
       housing_request_message_form_title: "Respondre a"
       housing_request_message_title: "Respon a la llista %{title}"
-      item_offer_message_form_title: "Sol·licitar un article de"
       item_offer_message_title: "Article sol·licitat: %{title}"
       item_request_message_form_title: "Oferir un article a"
       item_request_message_title: "Article ofert: %{title}"
@@ -94,11 +91,29 @@ ca:
       rideshare_offer_message_title: "Sol·licitud de trasllat compartit: %{title}"
       rideshare_request_message_form_title: "Oferir un trasllat a"
       rideshare_request_message_title: "Oferta de trasllat compartit: %{title}"
-      send_a_new_message: "Enviar un nou missatge"
       send_offer_message: "Envia l'oferta"
       send_request_message: "Envia la sol·licitud"
       this_message_is_private: "Aquest missatge és privat entre tu i %{person}."
       title: Títol
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      send_message: ~
+      send_message_to_user: ~
+      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: ~
     notifications:
       badgenotification:
         see_all_your_badges: "Comprova les teves medalles"
@@ -130,6 +145,8 @@ ca:
       request_sent_to: "Sol·licitud enviada a"
       send_reply: "Envia resposta"
       write_a_reply: "Escriu una resposta:"
+      conversation_about_listing: ~
+      conversation_with_user: ~
     status:
       feedback_given: "Suggerència enviada"
       feedback_skipped: "Suggerència omesa"
@@ -418,7 +435,6 @@ ca:
       has_accepted_sell_item: ~
       has_accepted_buy_item: ~
       has_accepted_trade_item: ~
-      has_accepted_temporary_accommodation_housing: ~
       has_accepted_sell_housing: ~
       has_accepted_buy_housing: ~
       has_accepted_rent_out_housing: ~
@@ -520,6 +536,8 @@ ca:
       add_your_info_link: "Afegeix la teva informació ara"
     recent_listing:
       please_offer: Oferta
+      comment: ~
+      comments: ~
     sign_in:
       recent_offers: "Què estan oferint els membres en aquest moment"
       recent_requests: "Què necessiten els usuaris en aquest moment"
@@ -600,20 +618,14 @@ ca:
       email_confirmation_sent_to_new_address: ~
       email_not_found: "No s'ha trobat el correu electrònic dins de la base de dades de Kassi"
       error_with_session: "Error amb la sessió."
-      favor_offer_message_sent: "Sol·licitud enviada satisfactòriament."
-      favor_request_message_sent: "Oferta enviada satisfactòriament."
       feedback_considered_spam: "Suggeriment no enviat degut al format. Intenti-ho de nou o utilitzi el fòrum per a suggeriments."
       feedback_not_saved: "No es pot enviar el suggeriment."
       feedback_saved: "Gràcies pels comentaris!"
       feedback_sent_to: "Comentari enviat a"
       feedback_skipped: "Suggeriment omès"
-      housing_offer_message_sent: "Missatge enviat amb èxit"
-      housing_request_message_sent: "Missatge enviat amb èxit"
       invitation_cannot_be_sent: "No s'ha pogut enviar la invitació"
       invitation_sent: "Invitació enviada amb èxit"
       inviting_new_users_is_not_allowed_in_this_community: "Convidar a nous usuaris no està permès en aquesta comunitat"
-      item_offer_message_sent: "Sol·licitud d'article enviada correctament"
-      item_request_message_sent: "L'oferta ha estat enviada correctament"
       login_again: "Siusplau, torna a iniciar sessió"
       login_failed: "Error. Siusplau comprova que les dades són correctes."
       login_successful: "Benvingut a Kassi, "
@@ -651,8 +663,6 @@ ca:
       request_created_successfully: "Sol·licitud creada correctament"
       request_rejected: "Sol·licitud rebutjada"
       request_updated_successfully: "Sol·licitud actualitzada correctament"
-      rideshare_offer_message_sent: "Sol·licitud de trasllat enviada correctament"
-      rideshare_request_message_sent: "Oferta de trasllat enviada amb èxit!"
       this_content_is_not_available_in_this_community: "Aquest contingut no està disponible en aquesta comunitat."
       unknown_error: "Error desconegut. Si us plau utilitza l'enllaç de suggeriments per donar-nos detalls del que ha succeït."
       update_error: "S'ha produït un error quan durant l'actualització de la informació, si us plau intenta-ho de nou."
@@ -663,8 +673,6 @@ ca:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "No pots respondre a una oferta finalitzada"
       you_cannot_reply_to_a_closed_request: "No pots respondre a una sol·licitud tancada"
-      you_cannot_reply_to_your_own_offer: "No pots respondre a la teva pròpia oferta"
-      you_cannot_reply_to_your_own_request: "No pots respondre a la teva pròpia sol·licitud"
       you_followed_listing: "Ara està seguint aquesta llista"
       you_have_already_given_feedback_about_this_event: "Ja has enviat un suggeriment sobre aquest esdeveniment"
       you_are_now_member: ~
@@ -684,6 +692,8 @@ ca:
       you_need_to_confirm_your_account_first: "Hauràs de confirmar el teu compte abans."
       you_unfollowed_listing: "Ja no segueixes aquest anunci"
       joining_community_failed: ~
+      message_sent: ~
+      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: "Torna al perfil d'usuari"
       badges: Medalles
@@ -768,8 +778,8 @@ ca:
         rent_out: Arrendament
         request_type: "Tipus de sol·licitud"
         sell: Venta
-        temporary_accommodation: Allotjament
         trade: Intercanvi
+        share_for_free: ~
       tag_list:
         comma_separate: "(separades per comes)"
         tags: Etiquetes
@@ -826,17 +836,38 @@ ca:
       rents: Lloguer
       rideshares: "Compartir cotxe"
       sells: Venta
-      temporary_accommodations: "Allotjament temporal"
       trades: Intercanvis
+      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: Contactar
       link_label_for_favor_request: Contactar
-      link_label_for_housing_offer: Contactar
-      link_label_for_housing_request: Contactar
-      link_label_for_item_offer: Contactar
-      link_label_for_item_request: Contactar
       link_label_for_rideshare_offer: Contactar
       link_label_for_rideshare_request: Contactar
+      link_label_for_housing_offer_rent_out: ~
+      link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_buy: ~
+      link_label_for_housing_request_rent: ~
+      link_label_for_item_offer_give_away: ~
+      link_label_for_item_offer_lend: ~
+      link_label_for_item_offer_rent_out: ~
+      link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_trade: ~
+      link_label_for_item_request_borrow: ~
+      link_label_for_item_request_buy: ~
+      link_label_for_item_request_receive: ~
+      link_label_for_item_request_rent: ~
+      link_label_for_item_request_trade: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_share_for_free: ~
+      message_link_label_for_item_offer_give_away: ~
+      message_link_label_for_item_offer_lend: ~
+      message_link_label_for_item_offer_rent_out: ~
+      message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_trade: ~
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
     listed_listing:
       edit: Editar
     listed_listing_closed_status:
@@ -858,10 +889,6 @@ ca:
       comments: Comentaris
       favor_offer: "Oferta de serveis"
       favor_request: "Sol·licitud de servei"
-      housing_offer: "Oferta d'allotjament"
-      housing_request: "Sol·licitud d'allotjament"
-      item_offer: "Oferta d'article"
-      item_request: "Sol·licitud d'article"
       no_description: "Sense descripció"
       offer: Oferta
       offer_author: "Oferit per"
@@ -879,6 +906,16 @@ ca:
       time: hora
       times: vegades
       times_viewed: Vist
+      add_profile_picture: ~
+      add_your_phone_number: ~
+      contact_by_phone: ~
+      feedback: ~
+      item_offer_trade: ~
+      item_request_trade: ~
+      send_private_message: ~
+    comment:
+      send_private_message: ~
+      wrote: ~
   mapview:
     index:
       all_categories: "Totes les categories"
@@ -1048,6 +1085,7 @@ ca:
       requested_rideshare: "Vas sol·licitar un trajecte"
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
+      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: "Carregant més ofertes"
       loading_more_requests: "Carregant més sol·licituds"
@@ -1065,7 +1103,6 @@ ca:
       badges: Medalles
       edit_profile_info: "Edita la informació"
       exceeded_expectations: "Expectatives superades"
-      feedback_average: "Mitjana de vot:"
       hide_description: "Mostrar menys"
       joined_this_community: "...es va unir a la comunitat %{time_ago}"
       was_last_seen: "...va ser vist per última vegada %{time_ago}"
@@ -1080,6 +1117,9 @@ ca:
       slightly_less_than_expected: "Pitjor de l'esperat"
       what_are_these: "Què són aquests?"
       trustcloud: ~
+      contact: ~
+      positive: ~
+      received_feedback: ~
   search:
     show:
       all_results: "Tots els resultats"
