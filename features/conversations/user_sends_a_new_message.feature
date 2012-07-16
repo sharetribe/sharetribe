@@ -24,6 +24,12 @@ Feature: User sends a new message
     Then I should see "Question about the hammer"
     And I should see "What kind of hammer is this?"
     And I should not see "Awaiting confirmation from listing author"
+    When I follow "Logout"
+    And I log in as "kassi_testperson1"
+    And I follow "Messages"
+    Then I should not see "Accept"
+    When I follow "Question about the hammer"
+    Then I should not see "Accept"
   
   @javascript
   Scenario: Trying to ask details about a listing with inadequate information
@@ -85,3 +91,9 @@ Feature: User sends a new message
     Then I should see "Random title"
     And I should see "Random message"
     And I should not see "Awaiting confirmation from listing author"
+    When I follow "Logout"
+    And I log in as "kassi_testperson1"
+    And I follow "Messages"
+    Then I should not see "Accept"
+    When I follow "Random title"
+    Then I should not see "Accept"

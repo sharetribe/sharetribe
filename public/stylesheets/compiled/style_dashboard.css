@@ -234,26 +234,26 @@ li {
 
 #header {
   height: 64px;
-  background: #f7f5e6; }
-
-#logo_container {
+  background: #f7f5e6;
   overflow: hidden; }
 
 #logo {
-  margin-top: 14px;
+  margin-top: 13px;
   float: left; }
 
 #select_language_form {
-  margin-top: 20px;
+  margin-top: 21px;
   float: right; }
 
 #slogan {
   color: #d45207;
-  margin: 24px 0 0 20px;
-  float: left; }
+  margin: 23px 0 0 20px;
+  float: left;
+  width: 203px; }
 
 #language_switch {
-  overflow: hidden; }
+  overflow: hidden;
+  float: right; }
 
 #language_label {
   float: right;
@@ -1516,7 +1516,7 @@ div.language {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
 
-.map_bubble_header {
+.map_bubble_3 {
   overflow: hidden;
   width: 340px; }
 
@@ -1581,12 +1581,13 @@ p.map_bubble {
   font-style: italic; }
 
 #header_links {
-  overflow: hidden; }
+  overflow: hidden;
+  float: right; }
   #header_links a {
-    font-size: 18px;
+    font-size: 17px;
     color: #3c6e09;
     float: right;
-    margin: 18px 20px 0 0; }
+    margin: 20px 18px 0 0; }
     #header_links a:hover {
       color: #559e0c; }
 

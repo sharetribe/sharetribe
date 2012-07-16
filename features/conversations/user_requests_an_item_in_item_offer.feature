@@ -3,6 +3,7 @@ Feature: User requests an item in item offer
   As a person who needs that item
   I want to be able to send a message to the person who offers the item
   
+  @javascript
   Scenario: Borrowing an item from the listing page
     Given there are following users:
       | person | 
@@ -21,6 +22,12 @@ Feature: User requests an item in item offer
     And I follow "Sent"
     Then I should see "I want to borrow this item"
     And I should see "Awaiting confirmation from listing author"
+    When I follow "Logout"
+    And I log in as "kassi_testperson1"
+    And I follow "Messages"
+    Then I should see "Accept"
+    When I follow "Item request: Hammer"
+    Then I should see "Accept"
   
   @javascript
   Scenario: Borrowing an item with invalid information
