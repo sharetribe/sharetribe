@@ -85,6 +85,8 @@
                 = link_to t(".show_full_description"), "#", :id => "description_preview_link"
             - elsif current_user?(@person)
               = link_to t(".add_description"), person_settings_path(@person)
+            - else
+              %br/
           - if @person.description && @person.description.length > 200      
             #profile_description_full
               - text_with_line_breaks do
