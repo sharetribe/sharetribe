@@ -4,6 +4,7 @@ Feature: User views a single listing
   I want feature
 
   @javascript
+  @only_without_asi
   Scenario: User views a listing that he is allowed to see
     Given there are following users:
       | person | 
