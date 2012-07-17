@@ -4,6 +4,7 @@ Feature: User changes profile photo
   I want to be able to upload a profile photo
 
   @javascript
+  @only_without_asi
   Scenario: title
     Given I am logged in as "kassi_testperson1"
     And I am on the home page
