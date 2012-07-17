@@ -33,7 +33,7 @@ Feature: User edits his own listing
     Then I should see the image I just uploaded
     And I follow "Remove image"
     And I press "Save request"
-    Then I should not see the image I just deleted
+    Then I should not see the image I just uploaded
     When I follow "Logout"
     And I log in as "kassi_testperson2"
     Then I should see "1" within "#logged_in_notifications_icon"

@@ -26,7 +26,8 @@ When /^I move the focus to "([^"]*)"?$/ do |selected_element_id|
 end
 
 When /^(?:|I )attach a valid image file to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
-  attach_image('Australian_painted_lady.jpg', field, selector)
+  @latest_uploaded_image = 'Australian_painted_lady.jpg'
+  attach_image(@latest_uploaded_image, field, selector)
 end
 
 When /^(?:|I )attach an image with invalid extension to "([^"]*)"(?: within "([^"]*)")?$/ do |field, selector|
@@ -34,11 +35,11 @@ When /^(?:|I )attach an image with invalid extension to "([^"]*)"(?: within "([^
 end
 
 Then /^I should see the image I just uploaded$/ do
-  
+  page.should have_xpath("//img[contains(@src,'#{@latest_uploaded_image}')]")
 end
 
-Then /^I should not see the image I just deleted$/ do
-  
+Then /^I should not see the image I just uploaded$/ do
+  page.should_not have_xpath("//img[contains(@src,'#{@latest_uploaded_image}')]")
 end
 
 def attach_image(filename, field, selector)
