@@ -25,6 +25,9 @@ every 1.hours do
   rake "thinking_sphinx:index" 
 end
 
+every 1.day, :at => '11:57pm' do
+  runner "Statistic.create"
+end
 
 # Upload cached Ressi events.
 # If Ressi (Research data collection) is not in use, this doesn't do anything.
