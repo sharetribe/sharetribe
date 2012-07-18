@@ -221,5 +221,9 @@ test:
   # Note above, if running tests disconnected from the internet
   login_domain: 
   #"http://login.lvh.me:9887"
+  
+  # Facebook Connect dummy credentials for tests
+  fb_connect_id: "123456789012345"
+  fb_connect_secret: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
 
 
