@@ -110,10 +110,10 @@ ru:
       item_request_rent_message_form_title: ~
       item_request_take_for_free_message_form_title: ~
       item_request_trade_message_form_title: ~
-      send_message: ~
-      send_message_to_user: ~
-      you_will_get_notified: ~
-      you_will_get_notified_of_acceptance: ~
+      send_message: "Отправить сообщение"
+      send_message_to_user: "Отправить сообщение %{person}"
+      you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
+      you_will_get_notified_of_acceptance: "Вы получите уведомление по электронной почте когда %{person} примет или отклонит ваше предложение."
     notifications:
       badgenotification:
         see_all_your_badges: "Посмотреть все значки"
@@ -145,8 +145,8 @@ ru:
       request_sent_to: "Запросы, отправленные"
       send_reply: "Отправить ответ"
       write_a_reply: "Написать ответ:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "Диалог с %{person} о %{listing}."
+      conversation_with_user: "Диалог с %{person}."
     status:
       feedback_given: "Отзыв отправлен"
       feedback_skipped: "Отзыв отменён"
@@ -534,8 +534,8 @@ ru:
       add_your_info_link: "Добавьте информацию о себе"
     recent_listing:
       please_offer: Предложить
-      comment: ~
-      comments: ~
+      comment: комментарий
+      comments: комментарии
     sign_in:
       recent_offers: "Что предлагают прямо сейчас"
       recent_requests: "Что требуется прямо сейчас"
@@ -690,8 +690,8 @@ ru:
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
-      message_sent: ~
-      you_cannot_send_message_to_yourself: ~
+      message_sent: "Сообщение отправлено"
+      you_cannot_send_message_to_yourself: "Вы не можете отправить сообщение самому себе"
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -773,7 +773,7 @@ ru:
         offer_type: "Тип предложения"
         receive: "Приму в дар"
         rent: Аренда
-        rent_out: Прокат
+        rent_out: Аренда
         request_type: "Тип запроса"
         sell: Продам
         trade: Обмен
@@ -830,7 +830,7 @@ ru:
       items: Вещи
       lends: "на время"
       receives: "Прить в дар"
-      rent_outs: Прокат
+      rent_outs: Аренда
       rents: Аренда
       rideshares: Поездки
       sells: Продажа
@@ -904,15 +904,15 @@ ru:
       time: раз
       times: раз(а)
       times_viewed: Просмотрено
-      add_profile_picture: ~
-      add_your_phone_number: ~
-      contact_by_phone: ~
-      feedback: ~
+      add_profile_picture: "Добавить изображение профиля"
+      add_your_phone_number: "Добавить свой номер телефона"
+      contact_by_phone: "Телефон:"
+      feedback: "Репутация:"
       item_offer_trade: ~
       item_request_trade: ~
-      send_private_message: ~
+      send_private_message: "Отправить личное сообщение"
     comment:
-      send_private_message: ~
+      send_private_message: "Отправить личное сообщение для %{person}"
       wrote: написал
   mapview:
     index:
@@ -1115,9 +1115,9 @@ ru:
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       what_are_these: "Что это?"
       trustcloud: TrustCloud
-      contact: ~
-      positive: положительный
-      received_feedback: "Получен отзыв:"
+      contact: "Связаться с %{person}"
+      positive: позитивн.
+      received_feedback: "Репутация:"
   search:
     show:
       all_results: "Все результаты"
