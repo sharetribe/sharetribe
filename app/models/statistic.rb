@@ -21,7 +21,7 @@ class Statistic < ActiveRecord::Base
     end
     @active_in_first_two_weeks = activated
     @total_users_for_first_two_weeks = six_to_two_week_old_users.count
-    self.two_week_content_activation_percentage = (@active_in_first_two_weeks*1.0 / @total_users_for_first_two_weeks * 100).round(2)
+    self.two_week_content_activation_percentage = (@active_in_first_two_weeks*1.0 / @total_users_for_first_two_weeks).round(4)
 
     # participate in transcation in first month (average of recent month)
     one_to_two_month_old_users = Person.where(:created_at => (2.months.ago..1.month.ago))
@@ -34,7 +34,7 @@ class Statistic < ActiveRecord::Base
     end
     @transaction_in_first_month = activated
     @total_users_for_first_month = one_to_two_month_old_users.count
-    self.four_week_transaction_activation_percentage = (@transaction_in_first_month*1.0 / @total_users_for_first_month * 100).round(2)
+    self.four_week_transaction_activation_percentage = (@transaction_in_first_month*1.0 / @total_users_for_first_month).round(4)
 
 
     #retention
@@ -44,9 +44,9 @@ class Statistic < ActiveRecord::Base
     @wau = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{7.days.ago.to_formatted_s(:db)}'").count
     @dau = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{25.hours.ago.to_formatted_s(:db)}'").count
 
-    self.mau_g1 = ((@mau*1.0/users_count)*100).round(2)
-    self.wau_g1 = ((@wau*1.0/users_count)*100).round(2)
-    self.dau_g1 = ((@dau*1.0/users_count)*100).round(2)
+    self.mau_g1 = ((@mau*1.0/users_count)).round(4)
+    self.wau_g1 = ((@wau*1.0/users_count)).round(4)
+    self.dau_g1 = ((@dau*1.0/users_count)).round(4)
 
 
     #referral
