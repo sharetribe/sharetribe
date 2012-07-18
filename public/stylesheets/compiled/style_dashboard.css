@@ -1638,3 +1638,12 @@ p.map_bubble {
     margin-top: 26px;
     font-size: 14px;
     color: white; }
+
+#statistics {
+  background-color: #f7f5e6; }
+  #statistics h2 {
+    font-size: 28px; }
+  #statistics h3 {
+    color: black; }
+  #statistics h4 {
+    font-size: 16px; }

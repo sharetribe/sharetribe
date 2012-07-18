@@ -139,5 +139,9 @@ class Community < ActiveRecord::Base
     end
     return allowed
   end
+  
+  def new_members_during_last(time)
+    community_memberships.where(:created_at => time.ago..Time.now).collect(&:person)
+  end
 
 end

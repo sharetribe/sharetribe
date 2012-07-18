@@ -843,3 +843,17 @@ p.map_bubble {
   padding-bottom: 50px;
   text-align: center;
 }
+
+#statistics {
+  background-color: $bg_color;
+  
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    color: black;
+  }
+  h4 {
+    font-size: 16px;
+  }
+}
