@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711140918) do
+ActiveRecord::Schema.define(:version => 20120718031225) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -62,17 +62,17 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.text     "allowed_emails"
     t.boolean  "users_can_invite_new_users",                :default => false
     t.boolean  "select_whether_name_is_shown_to_everybody", :default => false
-    t.boolean  "news_enabled",                              :default => true
     t.boolean  "private",                                   :default => false
     t.string   "label"
-    t.boolean  "all_users_can_add_news",                    :default => true
     t.boolean  "show_date_in_listings_list",                :default => false
+    t.boolean  "news_enabled",                              :default => true
+    t.boolean  "all_users_can_add_news",                    :default => true
     t.boolean  "custom_frontpage_sidebar",                  :default => false
     t.boolean  "event_feed_enabled",                        :default => true
+    t.integer  "members_count",                             :default => 0
     t.string   "slogan"
     t.text     "description"
     t.string   "category",                                  :default => "other"
-    t.integer  "members_count",                             :default => 0
     t.boolean  "polls_enabled",                             :default => false
     t.string   "plan"
     t.integer  "user_limit"
@@ -360,33 +360,17 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.boolean  "feedback_skipped", :default => false
   end
 
-  create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+  create_table "people", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                      :default => 0
+    t.string   "locale",                        :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",             :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                           :default => 1
-    t.boolean  "active",                                      :default => true
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",               :default => true
-    t.string   "username"
-    t.string   "email"
-    t.string   "encrypted_password",                          :default => "",   :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                               :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.string   "password_salt"
+    t.integer  "test_group_number",             :default => 1
+    t.boolean  "active",                        :default => true
+    t.boolean  "show_real_name_to_other_users", :default => true
     t.string   "given_name"
     t.string   "family_name"
     t.string   "phone_number"
@@ -395,6 +379,21 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password",            :default => "",   :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                 :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "password_salt"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string   "facebook_id"
     t.string   "authentication_token"
   end
@@ -515,6 +514,28 @@ ActiveRecord::Schema.define(:version => 20120711140918) do
     t.integer "people_smerf_form_id", :null => false
     t.string  "question_code",        :null => false
     t.text    "response",             :null => false
+  end
+
+  create_table "statistics", :force => true do |t|
+    t.integer  "community_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "users_count"
+    t.float    "two_week_content_activation_percentage"
+    t.float    "four_week_transaction_activation_percentage"
+    t.float    "mau_g1"
+    t.float    "wau_g1"
+    t.float    "dau_g1"
+    t.float    "mau_g2"
+    t.float    "wau_g2"
+    t.float    "dau_g2"
+    t.float    "mau_g3"
+    t.float    "wau_g3"
+    t.float    "dau_g3"
+    t.float    "invitations_sent_per_user"
+    t.float    "invitations_accepted_per_user"
+    t.float    "revenue_per_mau_g1"
+    t.text     "extra_data"
   end
 
   create_table "taggings", :force => true do |t|
