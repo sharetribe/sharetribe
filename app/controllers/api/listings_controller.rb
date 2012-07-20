@@ -49,7 +49,7 @@ class Api::ListingsController < Api::ApiController
       response.status = 400
       render :json => @listing.errors.full_messages and return
     else
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, "#{@community.domain}.#{APP_CONFIG.weekly_email_domain}"))
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @community.full_domain))
       response.status = 201 
       respond_with(@listing)
     end

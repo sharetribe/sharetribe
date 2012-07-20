@@ -134,7 +134,7 @@ class Listing < ActiveRecord::Base
   end
   
   def visible_to?(current_user, current_community)
-    if current_user
+    if current_user && current_community
       Listing.count_by_sql("
         SELECT count(*) 
         FROM community_memberships, communities_listings 
@@ -143,8 +143,16 @@ class Listing < ActiveRecord::Base
         AND communities_listings.listing_id = '#{id}'
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
-    else
-      current_community.listings.include?(self) && self.visibility.eql?("everybody")
+    elsif current_community
+      return current_community.listings.include?(self) && self.visibility.eql?("everybody")
+    elsif current_user
+      return true if self.visibility.eql?("everybody")
+      self.communities.each do |community|
+        return true if current_user.communities.include?(community)
+      end
+      return false #if user doesn't belong to any community where listing is visible
+    else #if no user or community specified, return if visible to anyone
+      return self.visibility.eql?("everybody")
     end
   end
   
