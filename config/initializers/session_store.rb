@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
 # Pick the session domain from APP_CONFIG. (Removing the possible port in the end)
-if APP_CONFIG.domain
-  domain = APP_CONFIG.domain.split(":")[0]
+if APP_CONFIG.session_domain
+  domain = APP_CONFIG.session_domain.split(":")[0]
 else
   domain = nil
 end

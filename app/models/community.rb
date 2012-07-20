@@ -89,7 +89,7 @@ class Community < ActiveRecord::Base
     original_locale = I18n.locale
     
     #Store host to global variable to be able to use this from console
-    $host = "#{self.domain}.#{APP_CONFIG.weekly_email_domain}"
+    $host = full_domain
     
     members.all.each do |member|
       member.confirmed_at = nil
@@ -142,6 +142,11 @@ class Community < ActiveRecord::Base
   
   def new_members_during_last(time)
     community_memberships.where(:created_at => time.ago..Time.now).collect(&:person)
+  end
+  
+  #returns full domain without protocol
+  def full_domain
+    "#{self.domain}.#{APP_CONFIG.domain}"
   end
 
 end

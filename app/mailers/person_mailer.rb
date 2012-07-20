@@ -148,7 +148,7 @@ class PersonMailer < ActionMailer::Base
     @community = community
     @recipient = recipient
     set_locale @recipient.locale
-    @url_base = "http://#{@community.domain}.#{APP_CONFIG.weekly_email_domain}/#{recipient.locale}"
+    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     @requests = @community.listings.open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.open.offers.visible_to(@recipient, @community).limit(5)
