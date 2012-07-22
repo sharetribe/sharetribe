@@ -27,7 +27,11 @@ class Api::ListingsController < Api::ApiController
   end
 
   def show
-    @listing = Listing.find(params[:id])
+    @listing = Listing.find_by_id(params[:id])
+    if @listing.nil?
+      response.status = 404
+      render :json => ["No listing found with given ID"] and return
+    end
     respond_with @listing
   end
 

@@ -1,7 +1,7 @@
 module ConversationsHelper
   
   def get_message_title(listing)
-    t(".#{listing.category}_#{listing.listing_type}_message_title", :title => @listing.title)
+    t("conversations.new.#{listing.category}_#{listing.listing_type}_message_title", :title => listing.title)
   end
   
   # Class is selected if conversation type is currently selected
