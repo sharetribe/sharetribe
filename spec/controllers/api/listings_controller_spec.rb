@@ -35,45 +35,45 @@ describe Api::ListingsController do
         get :index, :community_id => @c1.id, :format => :json
         resp = JSON.parse(response.body)
         response.status.should == 200
-        resp.count.should == 2
+        resp["listings"].count.should == 2
       
         get :index, :community_id => @c2.id, :format => :json
         resp = JSON.parse(response.body)
-        resp.count.should == 1
+        resp["listings"].count.should == 1
       
         get :index, :community_id => @c1.id, :listing_type => "offer", :format => :json
         resp = JSON.parse(response.body)
-        resp.count.should == 1
+        resp["listings"].count.should == 1
       
         get :index, :community_id => @c2.id, :listing_type => "offer", :format => :json
         resp = JSON.parse(response.body)
-        resp.count.should == 0
+        resp["listings"].count.should == 0
       
         get :index, :listing_type => "request", :format => :json
         resp = JSON.parse(response.body)
-        resp.count.should == 2
+        resp["listings"].count.should == 2
       end
     
       it "uses status parameter with default: 'open'" do
         get :index, :community_id => @c1.id, :format => :json
         resp = JSON.parse(response.body)
         response.status.should == 200
-        resp.count.should == 2
+        resp["listings"].count.should == 2
       
         get :index, :community_id => @c1.id, :status => "open", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp.count.should == 2
+        resp["listings"].count.should == 2
       
         get :index, :community_id => @c1.id, :status => "closed", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp.count.should == 1
+        resp["listings"].count.should == 1
       
         get :index, :community_id => @c1.id, :status => "all", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp.count.should == 3
+        resp["listings"].count.should == 3
       
       end
     
@@ -81,9 +81,9 @@ describe Api::ListingsController do
         get :index, :listing_type => "offer", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp.count.should == 1
-        resp[0]["title"].should == "hammer"
-        resp[0]["description"].should == "shiny new hammer"
+        resp["listings"].count.should == 1
+        resp["listings"][0]["title"].should == "hammer"
+        resp["listings"][0]["description"].should == "shiny new hammer"
       end
     
       it "supports pagination" do
@@ -91,16 +91,16 @@ describe Api::ListingsController do
         response.status.should == 200
         resp = JSON.parse(response.body)
         #puts resp.to_yaml
-        resp.count.should == 2
-        resp[0]["title"].should == "hammer"
-        resp[1]["title"].should == "bike"
+        resp["listings"].count.should == 2
+        resp["listings"][0]["title"].should == "hammer"
+        resp["listings"][1]["title"].should == "bike"
       
         get :index, :per_page => 2, :page => 2, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
         #puts resp.to_yaml
-        resp.count.should == 1
-        resp[0]["title"].should == "help me"
+        resp["listings"].count.should == 1
+        resp["listings"][0]["title"].should == "help me"
       
       end
     end
