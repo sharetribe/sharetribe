@@ -210,7 +210,7 @@ class ApplicationController < ActionController::Base
       e.action            = "#{self.class}\##{action_name}"
       e.test_group_number = @current_user ? @current_user.test_group_number : nil
       begin
-        if (params["file"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
+        if (params["file"] || params["image"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
             params["person"] && params["person"]["image"]))
           # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
           e.parameters    = params.inspect.gsub('=>', ':')
