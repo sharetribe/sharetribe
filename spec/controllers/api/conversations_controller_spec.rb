@@ -63,7 +63,7 @@ describe Api::ConversationsController do
                       :content => "This will be the first message of the conversation",
                       :community_id => @c1.id,
                       :format => :json
-        #response.status.should == 201
+        response.status.should == 201
         resp = JSON.parse(response.body)
         #puts response.body
         #puts resp.to_yaml
@@ -72,6 +72,28 @@ describe Api::ConversationsController do
         resp["messages"].count.should == 1
         resp["messages"][0]["content"].should == "This will be the first message of the conversation"
         resp["messages"][0]["sender_id"].should == @p1.id
+        resp["status"].should == "pending"
+        resp["participations"][0]["person_id"].should == @p1.id
+        resp["participations"][1]["person_id"].should == @p2.id
+      end
+    end
+    
+    describe "new_message" do
+      it "adds a message to the conversation" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        post :new_message, :id => @con1.id, 
+                           :person_id => @p1.id,
+                           :community_id => @c1.id,
+                           :content => "I'd like to continue this topic",
+                           :format => :json
+        response.status.should == 201
+        #puts response.body
+        resp = JSON.parse(response.body)
+        #puts resp.to_yaml
+        resp["title"].should == "Item offer: Sledgehammer"
+        resp["messages"].count.should == 3
+        resp["messages"][2]["content"].should == "I'd like to continue this topic"
+        resp["messages"][2]["sender_id"].should == @p1.id
         resp["status"].should == "pending"
         resp["participations"][0]["person_id"].should == @p1.id
         resp["participations"][1]["person_id"].should == @p2.id

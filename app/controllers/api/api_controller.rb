@@ -8,9 +8,7 @@ class Api::ApiController < ApplicationController
   
   prepend_before_filter :get_api_key
   before_filter :ensure_api_enabled, :set_correct_mime_type
-  
-  #version 1
-  
+    
   respond_to :json
     
   layout false
