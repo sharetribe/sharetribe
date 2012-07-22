@@ -15,4 +15,6 @@ node :per_page do |conversations|
   @per_page
 end
 
-
+node :total_pages do |conversations|
+  @total_pages
+end
