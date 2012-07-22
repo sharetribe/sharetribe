@@ -6,6 +6,7 @@
   - content_for :javascript do
     initialize_homepage();
 
+
 #teaser
   #teaser_left
     %h1= render :file => community_file("teaser_welcome_text_title", true)
@@ -97,3 +98,28 @@
       = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
       = render :file => community_file("frontpage_sidebar", true)
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
+
+- if not @current_user
+  // Track event of unidentified user seeing front page to Kissmetrics
+  <script type="text/javascript">
+    
+  // from http://www.w3schools.com/js/js_cookies.asp
+  function getCookie(c_name)
+  {
+  var i,x,y,ARRcookies=document.cookie.split(";");
+  for (i=0;i<ARRcookies.length;i++)
+  {
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+  {
+  return unescape(y);
+  }
+  }
+  }
+  
+  if (typeof(getCookie("km_ni")) == "undefined") {
+  _kmq.push(['record', 'Viewed tribe homepage as unidentified']);
+  }
+  </script>
