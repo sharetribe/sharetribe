@@ -404,7 +404,7 @@ class Person < ActiveRecord::Base
   end
   
   def should_receive?(email_type)
-    active && preferences[email_type]
+    active && preferences && preferences[email_type]
   end
   
   def profile_info_empty?

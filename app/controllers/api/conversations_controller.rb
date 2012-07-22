@@ -62,4 +62,31 @@ class Api::ConversationsController < Api::ApiController
     
   end
   
+  def new_message
+    @current_community = Community.find_by_id(params[:community_id])
+    if @current_community.nil? 
+      response.status = 404
+      render :json => ["No community found with given id"] and return
+    end
+    
+    @conversation = Conversation.find_by_id(params["id"])
+    if @conversation.nil?
+      response.status = 404
+      render :json => ["No conversation found with given ID"] and return
+    end
+    
+    @message = Message.new(:content => params["content"], :sender_id => current_person.id, :conversation => @conversation)
+    
+    if @message.save 
+      response.status = 201
+      @message.conversation.send_email_to_participants(@current_community.full_domain)
+      respond_with @conversation
+    else
+       response.status = 400
+       render :json => @message.errors.full_messages and return
+    end  
+    
+    
+  end
+  
 end
