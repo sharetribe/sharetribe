@@ -66,7 +66,9 @@ Kassi::Application.routes.draw do
     resources :listings do
       resources :comments
     end
-    resources :people
+    resources :people do
+      resources :conversations
+    end
 
     match '/' => 'dashboard#api'    
   end
