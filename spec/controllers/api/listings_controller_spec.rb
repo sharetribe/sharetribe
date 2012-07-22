@@ -25,10 +25,11 @@ describe Api::ListingsController do
     
       it "returns open listings if called without parameters, (paginated by 50)" do
         get :index, :format => :json
+        response.status.should == 200
         resp = JSON.parse(response.body)
-        #puts resp.inspect
-        resp.count.should == 3
-        # TODO test default pagination
+        resp["listings"].count.should == 3
+        resp["page"].should == 1
+        resp["per_page"].should == 50
       end
     
       it "supports community_id and type as parameters" do
