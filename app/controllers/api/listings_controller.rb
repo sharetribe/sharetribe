@@ -30,7 +30,7 @@ class Api::ListingsController < Api::ApiController
   end
 
   def create
-    @listing = Listing.create(params.slice("title", "description", "category", "share_type", "listing_type", "visibility").merge("author_id" => current_person.id))
+    @listing = Listing.new(params.slice("title", "description", "category", "share_type", "listing_type", "visibility").merge({"author_id" => current_person.id, "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
     @community = Community.find(params["community_id"])
     if @community.nil?
@@ -45,13 +45,13 @@ class Api::ListingsController < Api::ApiController
       render :json => ["The user is not member of given community."] and return
     end
     
-    if @listing.new_record?
-      response.status = 400
-      render :json => @listing.errors.full_messages and return
-    else
+    if @listing.save
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @community.full_domain))
       response.status = 201 
       respond_with(@listing)
+    else
+      response.status = 400
+      render :json => @listing.errors.full_messages and return
     end
     
   end

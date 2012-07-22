@@ -156,6 +156,26 @@ describe Api::ListingsController do
         resp[0].should match /Title is too short/
         resp[1].should match /Category is not included in the list/
       end
+      
+      it "supports image upload" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        post :create, :title => "nice looking offer", 
+                      :description => "Testing photo upload", 
+                      :listing_type => "offer",
+                      :category => "item",
+                      :share_type => "sell",
+                      :visibility => "this_community",
+                      :community_id => @c1.id,
+                      :image => Rack::Test::UploadedFile.new(Rails.root.join("test/fixtures/Australian_painted_lady.jpg"),"image/jpeg"),
+                      :format => :json
+        
+        #puts response.body.inspect              
+        response.status.should == 201
+        resp = JSON.parse(response.body)
+        #puts resp.to_yaml
+        resp["image_urls"][0].should  match /Australian_painted_lady.jpg/
+        
+      end
     end
   end
 end
