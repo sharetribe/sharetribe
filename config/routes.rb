@@ -67,7 +67,12 @@ Kassi::Application.routes.draw do
       resources :comments
     end
     resources :people do
-      resources :conversations
+      resources :conversations do
+        member do
+          post :messages, :controller => :conversations, :action => "new_message"
+        end
+      end
+      
     end
 
     match '/' => 'dashboard#api'    
