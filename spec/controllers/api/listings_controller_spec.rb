@@ -30,6 +30,7 @@ describe Api::ListingsController do
         resp["listings"].count.should == 3
         resp["page"].should == 1
         resp["per_page"].should == 50
+        resp["total_pages"].should == 1
       end
     
       it "supports community_id and type as parameters" do
@@ -95,6 +96,7 @@ describe Api::ListingsController do
         resp["listings"].count.should == 2
         resp["listings"][0]["title"].should == "hammer"
         resp["listings"][1]["title"].should == "bike"
+        resp["total_pages"].should == 2
       
         get :index, :per_page => 2, :page => 2, :format => :json
         response.status.should == 200
@@ -102,7 +104,7 @@ describe Api::ListingsController do
         #puts resp.to_yaml
         resp["listings"].count.should == 1
         resp["listings"][0]["title"].should == "help me"
-      
+        resp["total_pages"].should == 2
       end
     end
   

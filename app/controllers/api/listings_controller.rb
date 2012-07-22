@@ -23,6 +23,8 @@ class Api::ListingsController < Api::ApiController
     else
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     end
+    
+    @total_pages = @listings.total_pages
     respond_with @listings
   end
 
