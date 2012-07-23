@@ -1238,12 +1238,13 @@ fi:
       as_expected: "Vastasi odotuksia"
       exceeded_expectations: "Ylitti täysin odotukset"
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
-      grade: "Yleisarvio kokemuksesta"
+      grade: "Yleisarvosana kokemuksesta"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       send_feedback: "Lähetä palaute"
       slightly_better_than_expected: "Ylitti osin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      textual_feedback: Perustelut
+      textual_feedback: "Miten tapahtuma sujui"
+      this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
     testimonial:
       from_user: käyttäjältä
       to_user: käyttäjälle

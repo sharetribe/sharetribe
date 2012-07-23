@@ -35,7 +35,7 @@
       .message_form_field_container
         = f.label :content, t(".write_a_reply")
       .message_form_field_container  
-        = f.text_area :content
+        = f.text_area :content, :class => "reply_form_text_area"
       .message_form_field_container
         = f.hidden_field :conversation_id, :value => @conversation.id.to_s
         = f.hidden_field :sender_id, :value => @current_user.id

@@ -91,6 +91,7 @@ class CommunitiesController < ApplicationController
   def set_organization_email
     if @current_user.emails.select{|e| e.confirmed_at.present?}.include?(params[:email])
       session[:confirmed_email] = params[:email]
+      session[:allowed_email] = "@#{params[:email].split('@')[1]}"
     else
       # no confirmed allowed email found. Check if there is unconfirmed or should we add one.
       if @current_user.has_email?(params[:email])

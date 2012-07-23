@@ -6,7 +6,7 @@
       .message_form_field_container
         = f.label :content, t(".write_comment")
       .message_form_field_container  
-        = f.text_area :content
+        = f.text_area :content, :class => "listing_comment_content_text_area"
       - unless current_user?(@listing.author)
         .message_form_field_container
           .comment_checkbox_container

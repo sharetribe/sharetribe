@@ -1237,12 +1237,13 @@ en:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       give_feedback_to: "Give feedback to %{person}"
-      grade: "Assessment of experience"
+      grade: "Rate the experience"
       less_than_expected: "Worse than expected"
       send_feedback: "Send feedback"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
-      textual_feedback: "Textual feedback"
+      textual_feedback: "How did things go"
+      this_will_be_shown_in_profile: "The feedback you give will be visible to other users in the profile page of %{person}. It helps other members of this tribe to evaluate whether %{person} is a trustworthy person."
     testimonial:
       from_user: from
       to_user: to
