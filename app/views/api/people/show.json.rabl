@@ -16,3 +16,7 @@ node do |person|
     request.protocol + request.host_with_port + person.image.url(:thumb)
   end
 end
+
+if @show_email
+  attributes :email
+end
