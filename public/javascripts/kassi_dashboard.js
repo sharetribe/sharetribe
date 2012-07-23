@@ -92,7 +92,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
 	});
 }
 
-function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, invalid_email_ending_message, valid_email_ending_required) {
+function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, invalid_email_ending_message, valid_email_ending_required, community_category) {
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
@@ -111,14 +111,14 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[username]": {required: true, minlength: 3, maxlength: 20, valid_username: true, remote: "/people/check_username_availability"},
       "person[given_name]": {required: true, maxlength: 30},
       "person[family_name]": {required: true, maxlength: 30},
-      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: "/people/check_email_availability"},
+      "person[email]": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: ("/" + locale + "/people/check_email_availability_for_new_tribe?community_category=" + community_category)},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
       "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
 		},
 		messages: {
 			"person[username]": { valid_username: invalid_username_message, remote: username_in_use_message },
-			"person[email]": { valid_email_ending_required: invalid_email_ending_message, remote: email_in_use_message }
+			"person[email]": { valid_email_ending_required: invalid_email_ending_message, remote: jQuery.format("{0}") }
 		},
 		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
 		submitHandler: function(form) {

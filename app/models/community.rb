@@ -123,7 +123,6 @@ class Community < ActiveRecord::Base
     return nil
   end
   
-  
   def email_allowed?(email)
     return true unless allowed_emails.present?
     
@@ -148,5 +147,15 @@ class Community < ActiveRecord::Base
   def full_domain
     "#{self.domain}.#{APP_CONFIG.domain}"
   end
+
+  def self.find_by_allowed_email(email)
+    email_ending = "@#{email.split('@')[1]}"
+    where("allowed_emails LIKE '%#{email_ending}%'")
+  end
+  
+  # Check if communities with this category are email restricted
+  def self.email_restricted?(community_category)
+    ["company", "university"].include?(community_category)
+  end  
 
 end

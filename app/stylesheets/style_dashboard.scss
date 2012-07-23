@@ -88,14 +88,22 @@ $serif_font: 'Droid Serif', Helvetica, Georgia, Times, serif;
 }
 
 @mixin form_error_field {
-	font-size: 16px;
-	font-weight: bold;
+	font-size: 15px;
+	font-weight: 500;
 	clear: both;
 	float: left;
 	margin: 5px 0 0 170px;
 	padding: 14px 10px 5px 10px;
 	background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
 	color: white;
+	a {
+	  margin: 0;
+	  padding: 0;
+	  font-size: 15px;
+	  font-weight: 500;
+	  color: black;
+	  &:hover { color: $text_color };
+	}
 }
 
 

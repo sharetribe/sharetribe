@@ -296,4 +296,8 @@ module ApplicationHelper
     ["university", "company"].include? session[:community_category]
   end
   
+  def get_url_for(community)
+    "http://#{community.domain}.#{request.domain}/#{I18n.locale}"
+  end
+  
 end

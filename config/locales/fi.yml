@@ -240,6 +240,16 @@ fi:
       email_in_use_message: "%{service_name_inessive} on jo tunnus tällä sähköpostiosoitteella. Jos sinulla on jo tunnus voit kirjautua sisään ylempänä olevasta linkistä. "
       invalid_email_ending_message: "Osoite vaikuttaa henkilökohtaiselta sähköpostilta. Sinun täytyy kirjautua %{community_category}sähköpostiosoitteella"
       log_in_here: "kirjaudu sisään tästä"
+      existing_community_with_this_email: "Tälle %{community_category} on jo perustettu Sharetribe-yhteisö. Voit liittyä yhteisöön %{link}."
+      here: "tästä"
+      for_company: yritykselle
+      for_university: yliopistolle
+      for_town: kaupungille
+      for_congregation: seurakunnalle
+      for_association: yhdistykselle
+      for_neighborhood: kaupunginosalle
+      for_apartment_building: taloyhtiölle
+      for_other: taholle
   community_memberships:
     new:
       join_community: "Liittyminen yhteisöön '%{community}'"
@@ -465,7 +475,7 @@ fi:
       add_first: "Lisää ensimmäinen!"
       but_that_is_visible_only_to_registered_members: "mutta se on näkyvissä vain kirjautuneille käyttäjille."
       but_those_are_visible_only_to_registered_members: "mutta ne näkyvät vain kirjautuneille käyttäjille."
-      create_new_account_for_yourself: "Luo tunnus itsellesi"
+      create_new_account_for_yourself: "Luo itsellesi tili"
       examples_of_what_you_could_offer_to_others: "Esimerkkejä siitä mitä voisit tarjota muille"
       examples_of_what_you_could_request_to_others: "Esimerkkejä siitä mitä voisit pyytää muilta"
       favor_offer_list: "tietokoneapu, vaatteiden kunnostus, leivonta, pyörän huolto"
