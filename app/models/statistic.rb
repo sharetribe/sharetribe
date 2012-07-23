@@ -40,14 +40,49 @@ class Statistic < ActiveRecord::Base
     #retention
 
     #CommunityMembership.where("last_page_load_date > ?", 1.months.ago).select("distinct(person_id)").uniq  #uniq not working as hoped here, so use SQL
-    @mau = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{1.month.ago.to_formatted_s(:db)}'").count
-    @wau = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{7.days.ago.to_formatted_s(:db)}'").count
-    @dau = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{25.hours.ago.to_formatted_s(:db)}'").count
+    # G1 means users who did at least one page load as logged in
+    @mau_g1 = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{1.month.ago.to_formatted_s(:db)}'").count
+    @wau_g1 = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{7.days.ago.to_formatted_s(:db)}'").count
+    @dau_g1 = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{24.hours.ago.to_formatted_s(:db)}'").count
 
-    self.mau_g1 = ((@mau*1.0/users_count)).round(4)
-    self.wau_g1 = ((@wau*1.0/users_count)).round(4)
-    self.dau_g1 = ((@dau*1.0/users_count)).round(4)
+    self.mau_g1 = ((@mau_g1*1.0/users_count)).round(4)
+    self.wau_g1 = ((@wau_g1*1.0/users_count)).round(4)
+    self.dau_g1 = ((@dau_g1*1.0/users_count)).round(4)
+    
+    # G2 means users did some content interaction: listing/comment/message or participated in transaction
+    
+    #Person.find_by_sql("select distinct author_id as person_id from comments where `updated_at` > '#{1.month.ago.to_formatted_s(:db)}'")
+    
+    c = Comment.where("created_at > '#{1.month.ago.to_formatted_s(:db)}'")
+    l = Listing.where("created_at > '#{1.month.ago.to_formatted_s(:db)}'")
+    m = Message.where("created_at > '#{1.month.ago.to_formatted_s(:db)}'")
+    t = Conversation.where("updated_at > '#{1.month.ago.to_formatted_s(:db)}' AND status = 'accepted'")
+    @mau_g2 = [c.collect(&:author_id), l.collect(&:author_id), m.collect(&:sender_id), t.collect(&:participants).flatten.collect(&:id)].flatten.uniq.count
+    
+    c = Comment.where("created_at > '#{7.days.ago.to_formatted_s(:db)}'")
+    l = Listing.where("created_at > '#{7.days.ago.to_formatted_s(:db)}'")
+    m = Message.where("created_at > '#{7.days.ago.to_formatted_s(:db)}'")
+    t = Conversation.where("updated_at > '#{7.days.ago.to_formatted_s(:db)}' AND status = 'accepted'")
+    @wau_g2 = [c.collect(&:author_id), l.collect(&:author_id), m.collect(&:sender_id), t.collect(&:participants).flatten.collect(&:id)].flatten.uniq.count
+    
+    c = Comment.where("created_at > '#{24.hours.ago.to_formatted_s(:db)}'")
+    l = Listing.where("created_at > '#{24.hours.ago.to_formatted_s(:db)}'")
+    m = Message.where("created_at > '#{24.hours.ago.to_formatted_s(:db)}'")
+    t = Conversation.where("updated_at > '#{24.hours.ago.to_formatted_s(:db)}' AND status = 'accepted'")
+    @dau_g2 = [c.collect(&:author_id), l.collect(&:author_id), m.collect(&:sender_id), t.collect(&:participants).flatten.collect(&:id)].flatten.uniq.count
+   
+    self.mau_g2 = ((@mau_g2*1.0/users_count)).round(4)
+    self.wau_g2 = ((@wau_g2*1.0/users_count)).round(4)
+    self.dau_g2 = ((@dau_g2*1.0/users_count)).round(4)
+    
+    # G3 means users who participated in a transaction
+    @mau_g3 = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{1.month.ago.to_formatted_s(:db)}'").count
+    @wau_g3 = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{7.days.ago.to_formatted_s(:db)}'").count
+    @dau_g3 = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{24.hours.ago.to_formatted_s(:db)}'").count   
 
+    self.mau_g3 = ((@mau_g3*1.0/users_count)).round(4)
+    self.wau_g3 = ((@wau_g3*1.0/users_count)).round(4)
+    self.dau_g3 = ((@dau_g3*1.0/users_count)).round(4)
 
     #referral
     @inv_sent = Invitation.where("inviter_id is not NULL").count
@@ -61,15 +96,21 @@ class Statistic < ActiveRecord::Base
     Community.select(:monthly_price_in_euros).each do |d|
       @revenue_sum += d.monthly_price_in_euros if d.monthly_price_in_euros
     end
-    self.revenue_per_mau_g1 = (@revenue_sum/@mau).round(2)
+    self.revenue_per_mau_g1 = (@revenue_sum/@mau_g1).round(2)
     
     self.extra_data = { :active_in_first_two_weeks => @active_in_first_two_weeks, 
                         :total_users_for_first_two_weeks => @total_users_for_first_two_weeks, 
                         :transaction_in_first_month => @transaction_in_first_month,
                         :total_users_for_first_month => @total_users_for_first_month,
-                        :mau_g1 => @mau,
-                        :wau_g1 => @wau,
-                        :dau_g1 => @dau,
+                        :mau_g1 => @mau_g1,
+                        :wau_g1 => @wau_g1,
+                        :dau_g1 => @dau_g1,
+                        :mau_g2 => @mau_g2,
+                        :wau_g2 => @wau_g2,
+                        :dau_g2 => @dau_g2,
+                        :mau_g3 => @mau_g3,
+                        :wau_g3 => @wau_g3,
+                        :dau_g3 => @dau_g3, 
                         :inv_sent => @inv_sent,
                         :inv_accepted => @inv_accepted,
                         :revenue_sum => @revenue_sum
