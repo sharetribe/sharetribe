@@ -292,4 +292,8 @@ module ApplicationHelper
     @current_community.location ? @current_community.location.longitude : "undefined"
   end
   
+  def community_email_restricted?
+    ["university", "company"].include? session[:community_category]
+  end
+  
 end

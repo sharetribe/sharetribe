@@ -18,7 +18,7 @@ function add_validator_methods() {
   		function(value, element, valid_email_ending_required) {
   		  if (valid_email_ending_required == "true") {
   			  var email_ending = value.split('@')[1];
-    			var personal_email_endings = ["hotmail.com","gmail.com","yahoo.com"]
+    			var personal_email_endings = ["hotmail.com","gmail.com","yahoo.com"];
     			if ($.inArray(email_ending, personal_email_endings) != -1) {
   					return false;
   				}
@@ -52,7 +52,7 @@ function initialize_campaign_page(select_default) {
 }
 
 function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use_message, select_default) {
-  auto_resize_text_areas();
+  auto_resize_text_areas("new_tribe_text_area");
   translate_validation_messages(locale);
   $('select.community_language_select').selectmenu({width: "540px", maxHeight: 175, style: 'dropdown'});
   //Remove unnecessary default option from the select tribe language menu
@@ -64,7 +64,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
   $('input.text_field:first').focus();
   $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
-  var form_id = "#new_community"
+  var form_id = "#new_community";
   $(form_id).validate({
     errorPlacement: function(error, element) {
 			if (element.attr("name") == "community[domain]") {
@@ -96,7 +96,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
-	var form_id = "#new_person"
+	var form_id = "#new_person";
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
@@ -127,8 +127,24 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	});	
 }
 
-function initialize_enter_organization_email_form(default_text) {
+function initialize_enter_organization_email_form(default_text,email_in_use_message, invalid_email_ending_message, valid_email_ending_required) {
   $('input.organization_email').watermark(default_text, {className: 'default_text'});
+  var form_id = "#org_email_form";
+	$(form_id).validate({
+	  errorPlacement: function(error, element) {
+			error.appendTo(element.parent());
+		},
+		rules: {
+      "email": {required: true, email: true, valid_email_ending_required: valid_email_ending_required, remote: "/people/check_email_availability"}
+		},
+		messages: {
+			"email": { valid_email_ending_required: invalid_email_ending_message, remote: email_in_use_message }
+		},
+		onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
+		submitHandler: function(form) {
+      disable_and_submit(form_id, form, "false", locale);  
+		}
+	});
 }
 
 function open_url(url) {

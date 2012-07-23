@@ -151,7 +151,8 @@ class PeopleController < Devise::RegistrationsController
     
     if !@current_community
       session[:consent] = APP_CONFIG.consent
-      session[:unconfirmed_email] = @person.email
+      session[:unconfirmed_email] = params[:person][:email]
+      session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
@@ -277,7 +278,8 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks only that email is not already in use
   def check_email_availability
-    available = email_available_for_user?(@current_user, params[:person][:email])
+    email = params[:person] ? params[:person][:email] : params[:email]
+    available = email_available_for_user?(@current_user, email)
     
     respond_to do |format|
       format.json { render :json => available }

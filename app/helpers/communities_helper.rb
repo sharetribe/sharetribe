@@ -1,9 +1,5 @@
 module CommunitiesHelper
 
-  def community_email_restricted?
-    ["university", "company"].include? session[:community_category]
-  end
-
   def new_community_email_label
     if ["university", "company"].include? session[:community_category]
       t("communities.signup_form.your_#{session[:community_category]}_email")
@@ -13,7 +9,7 @@ module CommunitiesHelper
   end
   
   def clear_session_variables
-    session[:community_category] = session[:pricing_plan] = session[:community_locale] = session[:unconfirmed_email] = session[:confirmed_email] = nil
+    session[:community_category] = session[:pricing_plan] = session[:community_locale] = session[:unconfirmed_email] = session[:confirmed_email] = session[:allowed_email] = nil
   end
   
   def new_tribe_email_confirmed?

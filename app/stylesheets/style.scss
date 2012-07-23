@@ -473,7 +473,7 @@ form, input {
     textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 40px;
+      height: 60px;
       border: 0;
       padding: 7px;
     }
@@ -945,7 +945,7 @@ span.not_visible {
 		width: 373px;
 		font-size: 12px;
 		height: 100px;
-		padding: 12px 10px 5px 15px;
+		padding: 10px;
 	}
 	img {
 		float: left;
@@ -1126,7 +1126,7 @@ div.checkbox_float {
 		color: $text_color;
 		background: $bg_color;
 		font-size: 12px;
-		height: 50px;
+		height: 80px;
 		padding: 9px 9px;
 		border: 0;
 		&:focus { background: white; }
@@ -1769,7 +1769,7 @@ div.listing_author_feedback_percentage {
 		color: $text_color;
 		background: white;
 		font-size: 12px;
-		height: 70px;
+		height: 80px;
 		padding: 9px 9px;
 		border: 2px solid $medium_brown;
 	}
@@ -1879,7 +1879,7 @@ div.listing_author_feedback_percentage {
 		color: $text_color;
 		background: $bg_color;
 		font-size: 12px;
-		height: 50px;
+		height: 80px;
 		padding: 9px 9px;
 		border: 0;
 		&:focus { background: white; }
@@ -1898,9 +1898,9 @@ div.listing_author_feedback_percentage {
 	label.error {
 		@include form_error_field;
 		width: 298px;
-		margin-left: 10px;
+		margin: 5px 0 10px 10px;
 		line-height: 18px;
-		padding-bottom: 10px;
+		padding-bottom: 5px;
 	}
 }
 
@@ -2156,7 +2156,7 @@ div.listing_author_feedback_percentage {
 		width: 293px;
 		font-size: 14px;
 		height: 100px;
-		padding: 12px 10px 5px 15px;
+		padding: 10px;
 		float: left;
 	}
 	input.send_button {
