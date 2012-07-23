@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{t("communities.signup_form.email_in_use_message", :log_in_link => link_to(t("communities.signup_form.log_in_here").html_safe, dashboard_login_path))}", "#{t("communities.signup_form.invalid_email_ending_message", :community_category => t("communities.select_tribe_category_form.#{session[:community_category]}"))}", "#{community_email_restricted?}");
+  initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{t("communities.signup_form.email_in_use_message", :log_in_link => link_to(t("communities.signup_form.log_in_here").html_safe, dashboard_login_path))}", "#{t("communities.signup_form.invalid_email_ending_message", :community_category => t("communities.select_tribe_category_form.#{session[:community_category]}"))}", "#{community_email_restricted?}", "#{session[:community_category]}");
 
 .grid_12.alpha.omega
   %h1.new_tribe= t(".create_an_account")
@@ -17,7 +17,7 @@
         = form.text_field :email_confirmation, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2"
         - if ["university", "company"].include? session[:community_category]
           %p.form
-            = t(".you_need_to_confirm", :tribe_type => t("communities.select_tribe_category_form.#{session[:community_category]}"))
+            = t(".you_need_to_confirm", :tribe_type => t("communities.select_tribe_category_form.#{session[:community_category]}").downcase)
       .form_field_container 
         = form.label :username, t('.pick_username')
         = form.text_field :username, :class => :text_field, :maxlength => "20"

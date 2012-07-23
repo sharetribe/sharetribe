@@ -800,8 +800,8 @@ div.community_category {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   #new_tribe_form label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -810,6 +810,14 @@ div.community_category {
     color: white;
     margin-left: 0;
     width: 524px; }
+    #new_tribe_form label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      #new_tribe_form label.error a:hover {
+        color: #464646; }
 
 div.domain_container {
   overflow: hidden; }
@@ -878,8 +886,8 @@ span.domain {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   #login_form label.error, #signup_form label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -888,6 +896,14 @@ span.domain {
     color: white;
     margin-left: 0;
     width: 524px; }
+    #login_form label.error a, #signup_form label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      #login_form label.error a:hover, #signup_form label.error a:hover {
+        color: #464646; }
   #login_form .send_button, #signup_form .send_button {
     font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
@@ -945,8 +961,8 @@ span.domain {
     font-size: 14px;
     margin-bottom: 10px; }
   #login_form label.error, #signup_form label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -955,6 +971,14 @@ span.domain {
     color: white;
     margin-left: 0;
     width: 360px; }
+    #login_form label.error a, #signup_form label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      #login_form label.error a:hover, #signup_form label.error a:hover {
+        color: #464646; }
 
 .unwanted_text_field {
   display: none; }
@@ -1207,8 +1231,8 @@ p.okl {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   .pricing_column label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -1217,6 +1241,14 @@ p.okl {
     color: white;
     margin-left: 0;
     width: 524px; }
+    .pricing_column label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      .pricing_column label.error a:hover {
+        color: #464646; }
   .pricing_column a {
     font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
@@ -1332,8 +1364,8 @@ div.language {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   #organization_email_form label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -1342,6 +1374,14 @@ div.language {
     color: white;
     margin-left: 0;
     width: 524px; }
+    #organization_email_form label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      #organization_email_form label.error a:hover {
+        color: #464646; }
   #organization_email_form .send_button {
     font-family: "Droid Serif", Helvetica, Georgia, Times, serif;
     border-radius: 7px;
@@ -1451,8 +1491,8 @@ div.language {
       background-image: linear-gradient(top, #ed9374, #e77148);
       filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#ed9374', EndColorStr='#e77148'); }
   #confirmation_pending_form label.error {
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 500;
     clear: both;
     float: left;
     margin: 5px 0 0 170px;
@@ -1461,6 +1501,14 @@ div.language {
     color: white;
     margin-left: 0;
     width: 524px; }
+    #confirmation_pending_form label.error a {
+      margin: 0;
+      padding: 0;
+      font-size: 15px;
+      font-weight: 500;
+      color: black; }
+      #confirmation_pending_form label.error a:hover {
+        color: #464646; }
   #confirmation_pending_form p {
     color: white;
     font-size: 16px; }
