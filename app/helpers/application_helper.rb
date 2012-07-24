@@ -15,20 +15,20 @@ module ApplicationHelper
     distance_in_minutes = (((to_time - from_time).abs)/60).round
     distance_in_seconds = ((to_time - from_time).abs).round
     case distance_in_minutes
-      when 0..1           then time = (distance_in_seconds < 60) ? "#{distance_in_seconds} #{t('timestamps.seconds_ago')}" : "1 #{t('timestamps.minute_ago')}"
-      when 2..59          then time = "#{distance_in_minutes} #{t('timestamps.minutes_ago')}"
-      when 60..90         then time = "1 #{t('timestamps.hour_ago')}"
-      when 90..1440       then time = "#{(distance_in_minutes.to_f / 60.0).round} #{t('timestamps.hours_ago')}"
-      when 1440..2160     then time = "1 #{t('timestamps.day_ago')}" # 1-1.5 days
-      when 2160..2880     then time = "#{(distance_in_minutes.to_f / 1440.0).round} #{t('timestamps.days_ago')}" # 1.5-2 days
+      when 0..1           then time = (distance_in_seconds < 60) ? t('timestamps.seconds_ago', :count => distance_in_seconds) : t('timestamps.minute_ago', :count => 1)
+      when 2..59          then time = t('timestamps.minutes_ago', :count => distance_in_minutes)
+      when 60..90         then time = t('timestamps.hour_ago', :count => 1)
+      when 90..1440       then time = t('timestamps.hours_ago', :count => (distance_in_minutes.to_f / 60.0).round)
+      when 1440..2160     then time = t('timestamps.day_ago', :count => 1) # 1-1.5 days
+      when 2160..2880     then time = t('timestamps.days_ago', :count => (distance_in_minutes.to_f / 1440.0).round) # 1.5-2 days
       #else time = from_time.strftime(t('date.formats.default'))
     end
     if distance_in_minutes > 2880
       distance_in_days = (distance_in_minutes/1440.0).round
       case distance_in_days
-        when 0..30    then time = "#{distance_in_days} #{t('timestamps.days_ago')}"
-        when 31..364  then time = "#{(distance_in_days.to_f / 30.0).round} #{t('timestamps.months_ago')}"
-        else               time = "#{(distance_in_days.to_f / 365.24).round} #{t('timestamps.years_ago')}"
+        when 0..30    then time = t('timestamps.days_ago', :count => distance_in_days)
+        when 31..364  then time = t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
+        else               time = t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
       end
     end
     

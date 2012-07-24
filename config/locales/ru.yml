@@ -64,7 +64,7 @@ ru:
       rent_out: прокат
       sell: продам
       trade: обменяю
-      share_for_free: ~
+      share_for_free: "бесплатно поделюсь"
     username: "Имя пользователя"
     what_is_this: "Что это?"
   conversations:
@@ -83,6 +83,21 @@ ru:
       housing_offer_message_title: "Ответ на ваш листинг %{title}"
       housing_request_message_form_title: Ответить
       housing_request_message_title: "Ответ на ваш листинг %{title}"
+      item_offer_lend_message_form_title: "Одолжить %{listing} у %{person}"
+      item_offer_sell_message_form_title: "Купить %{listing} у %{person}"
+      item_offer_give_away_message_form_title: "Забрать %{listing} у %{person}"
+      item_offer_trade_message_form_title: "Обменяться %{listing} с %{person}"
+      item_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
+      item_request_borrow_message_form_title: "Дать на время %{listing} %{person}"
+      item_request_buy_message_form_title: "Продать %{listing} %{person}"
+      item_request_take_for_free_message_form_title: "Отдать %{listing} %{person}"
+      item_request_trade_message_form_title: "Обменяться %{listing} с %{person}"
+      item_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
+      housing_offer_sell_message_form_title: "Купить %{listing} у %{person}"
+      housing_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
+      housing_offer_share_for_free_message_form_title: "Запросить %{listing} у %{person}"
+      housing_request_buy_message_form_title: "Продать %{listing} %{person}"
+      housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_offer_message_title: "Запрос вещи: %{title}"
       item_request_message_form_title: "Предложить вещь"
       item_request_message_title: "Предложение вещи: %{title}"
@@ -93,33 +108,18 @@ ru:
       rideshare_request_message_title: "Предложение совместной поездки: %{title}"
       send_offer_message: "Отправить предложение"
       send_request_message: "Отправить запрос"
-      this_message_is_private: "Это приватное сообщение между вами и %{person}."
-      title: Заголовок
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
       send_message: "Отправить сообщение"
-      send_message_to_user: "Отправить сообщение %{person}"
-      you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
+      this_message_is_private: "Это приватное сообщение между вами и %{person}."
       you_will_get_notified_of_acceptance: "Вы получите уведомление по электронной почте когда %{person} примет или отклонит ваше предложение."
+      you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
+      title: Заголовок
+      send_message_to_user: "Отправить сообщение %{person}"
     notifications:
       badgenotification:
         see_all_your_badges: "Посмотреть все значки"
         you_have_earned_badge: "Вы заработали значок"
       comment_to_followed_listing_notification:
-        has_commented: прокомментировал
+        has_commented: "%{author} прокомментировал"
         offer_you_follow: "предложение, за которым вы следите"
         request_you_follow: "запрос, за которым вы следите"
       listing_updated_notification:
@@ -127,7 +127,7 @@ ru:
         offer_you_follow: "предложение, за которым вы следите"
         request_you_follow: "запрос, за которым вы следите"
       comment_to_own_listing_notification:
-        has_commented: прокомментировал
+        has_commented: "%{author} прокомментировал"
         your_offer: "ваше предложение"
         your_request: "ваш запрос"
       loading_more_notifications: "Загрузка оповещений"
@@ -253,6 +253,8 @@ ru:
       log_out: выйти
       join_community_button: Присоединиться
   dashboard:
+    api:
+      coming_soon: Скоро!
     index:
       get_started: "НАЧНИТЕ СЕЙЧАС!"
       browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
@@ -273,6 +275,9 @@ ru:
       thanks_for_contacting_us: "Спасибо за то что связались с нами! Скоро вы получите информацию о том, как создать своё сообщество %{service_name}."
       resources: РЕСУРСЫ
       connect: СВЯЗЬ
+      about: "О ПРОЕКТЕ SHARETRIBE"
+      developers: "ДЛЯ РАЗРАБОТЧИКОВ"
+      api: API
       blog: Блог
       code: Код
       issue_tracker: Баг-трекер
@@ -293,11 +298,6 @@ ru:
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe в университете Аальто</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe в HTC Keilaniemi</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe в Каллио, Хельсинки</a>"
-      about: "О ПРОЕКТЕ SHARETRIBE"
-      api: API
-      developers: "ДЛЯ РАЗРАБОТЧИКОВ"
-    api:
-      coming_soon: Скоро!
   emails:
     accept_reminder:
       offer_accusative: предложение
@@ -535,7 +535,7 @@ ru:
     recent_listing:
       please_offer: Предложить
       comment: комментарий
-      comments: комментарии
+      comments: комментария
     sign_in:
       recent_offers: "Что предлагают прямо сейчас"
       recent_requests: "Что требуется прямо сейчас"
@@ -661,6 +661,7 @@ ru:
       request_created_successfully: "Запрос успешно создан."
       request_rejected: "Запрос отклонён"
       request_updated_successfully: "Запрос успешно обновлён"
+      message_sent: "Сообщение отправлено"
       this_content_is_not_available_in_this_community: "Эта информация не доступна в этом сообществе."
       unknown_error: "Неизвестная ошибка. Используйте ссылку отзыва для отправки деталей о том, как это произошло."
       update_error: "Произошла ошибка при сохранении данных. Попробуйте снова."
@@ -671,6 +672,7 @@ ru:
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
       you_cannot_reply_to_a_closed_offer: "Вы не можете ответить на закрытое предложение"
       you_cannot_reply_to_a_closed_request: "Вы не можете ответить на закрытый запрос"
+      you_cannot_send_message_to_yourself: "Вы не можете отправить сообщение самому себе"
       you_followed_listing: "Вы следите за этим листингом"
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_are_now_member: "Вы успешно присоединилась к этому сообществу"
@@ -690,8 +692,6 @@ ru:
       you_need_to_confirm_your_account_first: "Сначала вы должны подтвердить свою учётную запись."
       you_unfollowed_listing: "Вы больше не следите за этим листингом"
       joining_community_failed: "Ошибка при вступлении в сообщество"
-      message_sent: "Сообщение отправлено"
-      you_cannot_send_message_to_yourself: "Вы не можете отправить сообщение самому себе"
     profile_extras_header:
       back_to_profile_of_person: "Назад к профилю пользователя"
       badges: Значки
@@ -705,6 +705,9 @@ ru:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "У вас нет прав для просмотра этой записи."
+    comment:
+      wrote: написал
+      send_private_message: "Отправить личное сообщение для %{person}"
     comment_form:
       log_in: войти
       send_comment: Отправить
@@ -776,8 +779,8 @@ ru:
         rent_out: Аренда
         request_type: "Тип запроса"
         sell: Продам
+        share_for_free: "Бесплатно поделюсь"
         trade: Обмен
-        share_for_free: ~
       tag_list:
         comma_separate: "(разделённые запятыми)"
         tags: Метки
@@ -834,38 +837,38 @@ ru:
       rents: Аренда
       rideshares: Поездки
       sells: Продажа
+      share_for_frees: "Бесплатно поделюсь"
       trades: Обмен
-      share_for_frees: ~
     link_labels:
       link_label_for_favor_offer: "Запросить услугу"
       link_label_for_favor_request: "Предложить помощь"
+      link_label_for_housing_offer_sell: "Купить помещение"
+      link_label_for_housing_offer_rent_out: "Арендовать помещение"
+      link_label_for_housing_offer_share_for_free: "Запрос на помещение"
+      link_label_for_housing_request_buy: "Предложение на продажу этого помещения"
+      link_label_for_housing_request_rent: "Предложение арендовать помещение"
+      link_label_for_item_offer_lend: "Одолжить вещь"
+      link_label_for_item_offer_rent_out: "Взять в аренду"
+      link_label_for_item_offer_sell: Купить
+      link_label_for_item_offer_give_away: Запросить
+      link_label_for_item_offer_trade: Обменяться
+      link_label_for_item_request_borrow: "Предложение одолжить на время"
+      link_label_for_item_request_rent: "Предложение взять в аренду"
+      link_label_for_item_request_buy: "Предложение на продажу этой вещи"
+      link_label_for_item_request_receive: "Отдать запрашивающему"
+      link_label_for_item_request_trade: "Предложение на обмен этой вещи"
       link_label_for_rideshare_offer: "Запросить поездку"
       link_label_for_rideshare_request: "Предложить поездку"
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_trade: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_share_for_free: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
+      message_link_label_for_offer: "Отправить личное сообщение владельцу"
+      message_link_label_for_request: "Отправить личное сообщение запрашивающему"
+      message_link_label_for_item_offer_lend: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_rent_out: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_sell: "Отправить личное сообщение продавцу"
+      message_link_label_for_item_offer_give_away: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_trade: "Отправить личное сообщение владельцу"
+      message_link_label_for_housing_offer_sell: "Отправить личное сообщение продавцу"
+      message_link_label_for_housing_offer_rent_out: "Отправить личное сообщение владельцу"
+      message_link_label_for_housing_offer_share_for_free: "Отправить личное сообщение владельцу"
     listed_listing:
       edit: Редактировать
     listed_listing_closed_status:
@@ -884,19 +887,26 @@ ru:
       offer_closed: "Предложение закрыто"
       request_closed: "Запрос закрыт"
     show:
+      add_your_phone_number: "Добавить свой номер телефона"
+      add_profile_picture: "Добавить изображение профиля"
       comments: Комментарии
+      contact_by_phone: "Телефон:"
       favor_offer: "Предложение услуги"
       favor_request: "Запрос услуги"
+      item_offer_trade: "Предложение обмена"
+      item_request_trade: "Запрос обмена"
       no_description: "Без описания"
       offer: Предложение
       offer_author: Предложено
       offer_created: "Предложение создано"
+      feedback: "Репутация:"
       qr_code: QR-код
       request: Запрос
       request_author: "Запрос от"
       request_created: "Запрос создан"
       rideshare_offer: "Предложение поездки"
       rideshare_request: "Запрос на поездку"
+      send_private_message: "Отправить личное сообщение"
       share_types: "Типы обмена"
       share_types_offer: "Тип предложения"
       share_types_request: "Тип запроса"
@@ -904,16 +914,6 @@ ru:
       time: раз
       times: раз(а)
       times_viewed: Просмотрено
-      add_profile_picture: "Добавить изображение профиля"
-      add_your_phone_number: "Добавить свой номер телефона"
-      contact_by_phone: "Телефон:"
-      feedback: "Репутация:"
-      item_offer_trade: ~
-      item_request_trade: ~
-      send_private_message: "Отправить личное сообщение"
-    comment:
-      send_private_message: "Отправить личное сообщение для %{person}"
-      wrote: написал
   mapview:
     index:
       all_categories: "Все категории"
@@ -1072,6 +1072,7 @@ ru:
       as_expected: "Как ожидалось"
       exceeded_expectations: "Намного лучше, чем ожидалось"
       grade: "Оценка:"
+      and_gave_following_feedback: "и оставил отзыв"
       less_than_expected: "Хуже чем ожидалось"
       offered_favor: "предложил услугу"
       offered_housing: "предложил проживание"
@@ -1083,7 +1084,6 @@ ru:
       requested_rideshare: "запросил поездку"
       slightly_better_than_expected: "Лучше чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
-      and_gave_following_feedback: "и оставил отзыв"
     profile_listings:
       loading_more_offers: "Загрузка предложений"
       loading_more_requests: "Загрузка запросов"
@@ -1092,6 +1092,7 @@ ru:
       show_also_closed: "Показывать закрытые"
       show_only_open: "Показывать только открытые"
     show:
+      contact: "Связаться с %{person}"
       about_me: "Обо мне:"
       add_description: "Расскажите немного о себе"
       add_location: "Добавьте местоположение"
@@ -1101,6 +1102,8 @@ ru:
       badges: Значки
       edit_profile_info: "Редактировать профиль"
       exceeded_expectations: "Намного лучше, чем ожидалось"
+      received_feedback: "Репутация:"
+      positive: позитивн.
       hide_description: Меньше
       joined_this_community: "Зарегистрирован с %{time_ago}"
       was_last_seen: "…последний раз заходил %{time_ago}"
@@ -1115,9 +1118,6 @@ ru:
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       what_are_these: "Что это?"
       trustcloud: TrustCloud
-      contact: "Связаться с %{person}"
-      positive: позитивн.
-      received_feedback: "Репутация:"
   search:
     show:
       all_results: "Все результаты"
@@ -1252,14 +1252,14 @@ ru:
       shorter: "%e %b в %H:%M"
       sms: "%e %b в %H:%M"
   timestamps:
-    day_ago: "день назад"
-    days_ago: "дней назад"
-    hour_ago: "час назад"
-    hours_ago: "часов назад"
-    minute_ago: "минуту назад"
-    minutes_ago: "минут назад"
-    month_ago: "месяц назад"
-    months_ago: "месяцев назад"
-    seconds_ago: "секунд назад"
-    year_ago: "год назад"
-    years_ago: "лет назад"
+    day_ago: "%{count} день назад"
+    days_ago: "%{count} дней назад"
+    hour_ago: "%{count} час назад"
+    hours_ago: "%{count} часов назад"
+    minute_ago: "%{count} минуту назад"
+    minutes_ago: "%{count} минут назад"
+    month_ago: "%{count} месяц назад"
+    months_ago: "%{count} месяцев назад"
+    seconds_ago: "%{count} секунд назад"
+    year_ago: "%{count} год назад"
+    years_ago: "%{count} лет назад"

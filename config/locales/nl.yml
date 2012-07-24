@@ -83,6 +83,21 @@ nl:
       housing_offer_message_title: "Beantwoord jou lijst %{title}"
       housing_request_message_form_title: "Beantwoord aan"
       housing_request_message_title: "Beantwoord jou lijst %{title}"
+      item_offer_lend_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
       item_offer_message_title: "Item verzoek: %{title}"
       item_request_message_form_title: "Bied een item aan"
       item_request_message_title: "Item aanbod: %{title}"
@@ -93,27 +108,12 @@ nl:
       rideshare_request_message_title: "Rit aanbod: %{title}"
       send_offer_message: "Verstuur het verzoek"
       send_request_message: "Verstuur het aanbod"
-      this_message_is_private: ~
-      title: Titel
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
       send_message: ~
-      send_message_to_user: ~
-      you_will_get_notified: ~
+      this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: Titel
+      send_message_to_user: ~
     notifications:
       badgenotification:
         see_all_your_badges: ~
@@ -253,6 +253,8 @@ nl:
       log_out: ~
       join_community_button: ~
   dashboard:
+    api:
+      coming_soon: ~
     index:
       get_started: ~
       browse_communities_around_you: ~
@@ -273,6 +275,9 @@ nl:
       thanks_for_contacting_us: ~
       resources: ~
       connect: ~
+      about: ~
+      developers: ~
+      api: ~
       blog: ~
       code: ~
       issue_tracker: ~
@@ -293,11 +298,6 @@ nl:
       university_example_link: ~
       company_example_link: ~
       city_example_link: ~
-      about: ~
-      api: ~
-      developers: ~
-    api:
-      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -661,6 +661,7 @@ nl:
       request_created_successfully: "Verzoek succesvol aangemaakt."
       request_rejected: "Verzoek afgewezen"
       request_updated_successfully: "Verzoek succesvol bijgewerkt"
+      message_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: "Onbekende error. Gebruik alstublieft de feedback link om error details te verzenden."
       update_error: "Er is een fout opgetreden bij het bijwerken van jouw informatie, probeer opnieuw"
@@ -671,6 +672,7 @@ nl:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Je kan niet reageren op een gesloten aanbod"
       you_cannot_reply_to_a_closed_request: "Je kan niet reageren op een gesloten verzoek"
+      you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: ~
@@ -690,8 +692,6 @@ nl:
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
-      message_sent: ~
-      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: "Terug naar de gebruikers profiel"
       badges: Badges
@@ -705,6 +705,9 @@ nl:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
+    comment:
+      wrote: ~
+      send_private_message: ~
     comment_form:
       log_in: "log in"
       send_comment: "Verzend commentaar"
@@ -776,8 +779,8 @@ nl:
         rent_out: Verhuren
         request_type: "Verzoek type"
         sell: Verkoop
-        trade: Handel
         share_for_free: ~
+        trade: Handel
       tag_list:
         comma_separate: "(comma separate)"
         tags: Tags
@@ -834,38 +837,38 @@ nl:
       rents: Huren
       rideshares: "Rit delen"
       sells: Verkopen
-      trades: Ruilen
       share_for_frees: ~
+      trades: Ruilen
     link_labels:
       link_label_for_favor_offer: "Vraag een gunst"
       link_label_for_favor_request: "Bied je hulp aan"
-      link_label_for_rideshare_offer: "vraag om een rit"
-      link_label_for_rideshare_request: "Bied een rit aan"
-      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_lend: ~
       link_label_for_item_offer_rent_out: ~
       link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_trade: ~
       link_label_for_item_request_borrow: ~
+      link_label_for_item_request_rent: ~
       link_label_for_item_request_buy: ~
       link_label_for_item_request_receive: ~
-      link_label_for_item_request_rent: ~
       link_label_for_item_request_trade: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_share_for_free: ~
-      message_link_label_for_item_offer_give_away: ~
+      link_label_for_rideshare_offer: "vraag om een rit"
+      link_label_for_rideshare_request: "Bied een rit aan"
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
       message_link_label_for_item_offer_lend: ~
       message_link_label_for_item_offer_rent_out: ~
       message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_give_away: ~
       message_link_label_for_item_offer_trade: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: Bewerken
     listed_listing_closed_status:
@@ -884,19 +887,26 @@ nl:
       offer_closed: "Aanbod is gesloten"
       request_closed: "Verzoek is gesloten"
     show:
+      add_your_phone_number: ~
+      add_profile_picture: ~
       comments: Commentaar
+      contact_by_phone: ~
       favor_offer: "Gunst aanbod"
       favor_request: "Gunst gezocht"
+      item_offer_trade: ~
+      item_request_trade: ~
       no_description: "Geen beschrijving"
       offer: Aanbod
       offer_author: "Aangeboden door"
       offer_created: "Aanbod aangemaakt"
+      feedback: ~
       qr_code: ~
       request: Verzoek
       request_author: "Aangevraagd door"
       request_created: "Verzoek aangemaakt"
       rideshare_offer: Ritaanbod
       rideshare_request: "Rit gezocht"
+      send_private_message: ~
       share_types: "Deel types"
       share_types_offer: "Type aanbod"
       share_types_request: "Type verzoek"
@@ -904,16 +914,6 @@ nl:
       time: tijd
       times: keer
       times_viewed: Gezien
-      add_profile_picture: ~
-      add_your_phone_number: ~
-      contact_by_phone: ~
-      feedback: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      send_private_message: ~
-    comment:
-      send_private_message: ~
-      wrote: ~
   mapview:
     index:
       all_categories: ~
@@ -1072,6 +1072,7 @@ nl:
       as_expected: "Zoals verwacht"
       exceeded_expectations: "Veel beter dan verwacht"
       grade: "cijfer:"
+      and_gave_following_feedback: ~
       less_than_expected: "Veel minder dan verwacht"
       offered_favor: "gunst aangeboden"
       offered_housing: "huisvesting aangeboden"
@@ -1083,7 +1084,6 @@ nl:
       requested_rideshare: "lift gezocht"
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets minder dan verwacht"
-      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: "Meer aanbod aan het laden"
       loading_more_requests: "Meer verzoeken aan het laden"
@@ -1092,6 +1092,7 @@ nl:
       show_also_closed: "Laat ook gesloten zien"
       show_only_open: "Laat alleen open zien"
     show:
+      contact: ~
       about_me: "Over mij:"
       add_description: ~
       add_location: ~
@@ -1101,6 +1102,8 @@ nl:
       badges: Badges
       edit_profile_info: "Wijzig profile"
       exceeded_expectations: "Verwachtingen overtroffen"
+      received_feedback: ~
+      positive: ~
       hide_description: "Laat minder zien"
       joined_this_community: ~
       was_last_seen: ~
@@ -1115,9 +1118,6 @@ nl:
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
       trustcloud: ~
-      contact: ~
-      positive: ~
-      received_feedback: ~
   search:
     show:
       all_results: "Alle resultaten"
@@ -1252,14 +1252,14 @@ nl:
       shorter: "%e %b at %H:%M"
       sms: "%e %b at %H:%M"
   timestamps:
-    day_ago: "dag geleden"
-    days_ago: "dagen geleden"
-    hour_ago: "uur geleden"
-    hours_ago: "uren geleden"
-    minute_ago: "minuut geleden"
-    minutes_ago: "minuten geleden"
-    month_ago: "maand geleden"
-    months_ago: "maanden geleden"
-    seconds_ago: "secondes geleden"
-    year_ago: "jaar geleden"
-    years_ago: "jaren geleden"
+    day_ago: "%{count} dag geleden"
+    days_ago: "%{count} dagen geleden"
+    hour_ago: "%{count} uur geleden"
+    hours_ago: "%{count} uren geleden"
+    minute_ago: "%{count} minuut geleden"
+    minutes_ago: "%{count} minuten geleden"
+    month_ago: "%{count} maand geleden"
+    months_ago: "%{count} maanden geleden"
+    seconds_ago: "%{count} secondes geleden"
+    year_ago: "%{count} jaar geleden"
+    years_ago: "%{count} jaren geleden"
