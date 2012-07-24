@@ -64,7 +64,7 @@ ru:
       rent_out: прокат
       sell: продам
       trade: обменяю
-      share_for_free: ~
+      share_for_free: "бесплатно поделюсь"
     username: "Имя пользователя"
     what_is_this: "Что это?"
   conversations:
@@ -95,21 +95,21 @@ ru:
       send_request_message: "Отправить запрос"
       this_message_is_private: "Это приватное сообщение между вами и %{person}."
       title: Заголовок
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
+      housing_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
+      housing_offer_sell_message_form_title: "Купить %{listing} у %{person}"
+      housing_offer_share_for_free_message_form_title: "Запросить %{listing} у %{person}"
+      housing_request_buy_message_form_title: "Продать %{listing} %{person}"
+      housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
+      item_offer_give_away_message_form_title: "Забрать %{listing} у %{person}"
+      item_offer_lend_message_form_title: "Одолжить %{listing} у %{person}"
+      item_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
+      item_offer_sell_message_form_title: "Купить %{listing} у %{person}"
+      item_offer_trade_message_form_title: "Обменяться %{listing} с %{person}"
+      item_request_borrow_message_form_title: "Дать на время %{listing} %{person}"
+      item_request_buy_message_form_title: "Продать %{listing} %{person}"
+      item_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
+      item_request_take_for_free_message_form_title: "Отдать %{listing} %{person}"
+      item_request_trade_message_form_title: "Обменяться %{listing} с %{person}"
       send_message: "Отправить сообщение"
       send_message_to_user: "Отправить сообщение %{person}"
       you_will_get_notified: "Вы получите уведомление по электронной почте когда %{person} ответит вам."
@@ -535,7 +535,7 @@ ru:
     recent_listing:
       please_offer: Предложить
       comment: комментарий
-      comments: комментарии
+      comments: комментария
     sign_in:
       recent_offers: "Что предлагают прямо сейчас"
       recent_requests: "Что требуется прямо сейчас"
@@ -777,7 +777,7 @@ ru:
         request_type: "Тип запроса"
         sell: Продам
         trade: Обмен
-        share_for_free: ~
+        share_for_free: "Бесплатно поделюсь"
       tag_list:
         comma_separate: "(разделённые запятыми)"
         tags: Метки
@@ -835,37 +835,37 @@ ru:
       rideshares: Поездки
       sells: Продажа
       trades: Обмен
-      share_for_frees: ~
+      share_for_frees: "Бесплатно поделюсь"
     link_labels:
       link_label_for_favor_offer: "Запросить услугу"
       link_label_for_favor_request: "Предложить помощь"
       link_label_for_rideshare_offer: "Запросить поездку"
       link_label_for_rideshare_request: "Предложить поездку"
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_trade: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_share_for_free: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
+      link_label_for_housing_offer_rent_out: "Арендовать помещение"
+      link_label_for_housing_offer_sell: "Купить помещение"
+      link_label_for_housing_offer_share_for_free: "Запрос на помещение"
+      link_label_for_housing_request_buy: "Предложение на продажу этого помещения"
+      link_label_for_housing_request_rent: "Предложение арендовать помещение"
+      link_label_for_item_offer_give_away: Запросить
+      link_label_for_item_offer_lend: "Одолжить вещь"
+      link_label_for_item_offer_rent_out: "Взять в аренду"
+      link_label_for_item_offer_sell: Купить
+      link_label_for_item_offer_trade: Обменяться
+      link_label_for_item_request_borrow: "Предложение одолжить на время"
+      link_label_for_item_request_buy: "Предложение на продажу этой вещи"
+      link_label_for_item_request_receive: "Отдать запрашивающему"
+      link_label_for_item_request_rent: "Предложение взять в аренду"
+      link_label_for_item_request_trade: "Предложение на обмен этой вещи"
+      message_link_label_for_housing_offer_rent_out: "Отправить личное сообщение владельцу"
+      message_link_label_for_housing_offer_sell: "Отправить личное сообщение продавцу"
+      message_link_label_for_housing_offer_share_for_free: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_give_away: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_lend: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_rent_out: "Отправить личное сообщение владельцу"
+      message_link_label_for_item_offer_sell: "Отправить личное сообщение продавцу"
+      message_link_label_for_item_offer_trade: "Отправить личное сообщение владельцу"
+      message_link_label_for_offer: "Отправить личное сообщение владельцу"
+      message_link_label_for_request: "Отправить личное сообщение запрашивающему"
     listed_listing:
       edit: Редактировать
     listed_listing_closed_status:
@@ -908,8 +908,8 @@ ru:
       add_your_phone_number: "Добавить свой номер телефона"
       contact_by_phone: "Телефон:"
       feedback: "Репутация:"
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Предложение обмена"
+      item_request_trade: "Запрос обмена"
       send_private_message: "Отправить личное сообщение"
     comment:
       send_private_message: "Отправить личное сообщение для %{person}"
