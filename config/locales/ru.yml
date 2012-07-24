@@ -119,7 +119,7 @@ ru:
         see_all_your_badges: "Посмотреть все значки"
         you_have_earned_badge: "Вы заработали значок"
       comment_to_followed_listing_notification:
-        has_commented: прокомментировал
+        has_commented: "%{author} прокомментировал"
         offer_you_follow: "предложение, за которым вы следите"
         request_you_follow: "запрос, за которым вы следите"
       listing_updated_notification:
@@ -127,7 +127,7 @@ ru:
         offer_you_follow: "предложение, за которым вы следите"
         request_you_follow: "запрос, за которым вы следите"
       comment_to_own_listing_notification:
-        has_commented: прокомментировал
+        has_commented: "%{author} прокомментировал"
         your_offer: "ваше предложение"
         your_request: "ваш запрос"
       loading_more_notifications: "Загрузка оповещений"
