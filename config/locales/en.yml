@@ -119,7 +119,7 @@ en:
         see_all_your_badges: "See all your badges"
         you_have_earned_badge: "You have earned the badge"
       comment_to_followed_listing_notification:
-        has_commented: "has commented"
+        has_commented: "%{author} has commented"
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       listing_updated_notification:
@@ -127,7 +127,7 @@ en:
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       comment_to_own_listing_notification:
-        has_commented: "has commented"
+        has_commented: "%{author} has commented"
         your_offer: "your offer"
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"

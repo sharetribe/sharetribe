@@ -83,6 +83,21 @@ fr:
       housing_offer_message_title: "Répondre à votre annonce %{title}"
       housing_request_message_form_title: "Répondre à"
       housing_request_message_title: "Répondre à votre annonce %{title}"
+      item_offer_lend_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
       item_offer_message_title: "Demande d'objet : %{title}"
       item_request_message_form_title: "Offrir un objet à"
       item_request_message_title: "Offre d'article : %{title}"
@@ -93,27 +108,12 @@ fr:
       rideshare_request_message_title: "Offre de covoiturage : %{title}"
       send_offer_message: "Envoyer l'offre"
       send_request_message: "Envoyer la demande"
-      this_message_is_private: "Ce message entre %{person} et vous est privé."
-      title: Titre
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
       send_message: ~
-      send_message_to_user: ~
-      you_will_get_notified: ~
+      this_message_is_private: "Ce message entre %{person} et vous est privé."
       you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: Titre
+      send_message_to_user: ~
     notifications:
       badgenotification:
         see_all_your_badges: "Voir tous vos badges"
@@ -253,6 +253,8 @@ fr:
       log_out: Déconnexion
       join_community_button: "Rejoindre la communauté"
   dashboard:
+    api:
+      coming_soon: ~
     index:
       get_started: "LANCEZ VOUS !"
       browse_communities_around_you: "rejoignez une tribu près de vous"
@@ -273,6 +275,9 @@ fr:
       thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre communauté %{service_name} très bientôt."
       resources: RESSOURCES
       connect: "RETROUVEZ NOUS"
+      about: ~
+      developers: ~
+      api: ~
       blog: Blog
       code: "Code source"
       issue_tracker: "Gestionnaire de tickets"
@@ -293,11 +298,6 @@ fr:
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Tribu de l'université d'Aalto</a>"
       company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Tribu High Tech Center de Keilaniemi en Finlande</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Tribu de Kallio à Helsinki, Finlande</a>"
-      about: ~
-      api: ~
-      developers: ~
-    api:
-      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: offre
@@ -661,6 +661,7 @@ fr:
       request_created_successfully: "Demande créée avec succès."
       request_rejected: "Demande rejetée"
       request_updated_successfully: "Demande mise à jour avec succès"
+      message_sent: ~
       this_content_is_not_available_in_this_community: "Ce contenu n'est pas accessible à cette communauté."
       unknown_error: "Erreur inconnue. Veuillez utiliser le lien vers commentaires pour nous envoyer plus de détails sur ce qui s'est passé."
       update_error: "Une erreur s'est produite lors de la réactualisation de vos informations, veuillez réessayer ultérieurement"
@@ -671,6 +672,7 @@ fr:
       send_instructions: "Vous allez recevoir un email vous expliquant comment ré-initialiser votre mot de passe dans quelques minutes."
       you_cannot_reply_to_a_closed_offer: "Vous ne pouvez pas répondre à une offre fermée"
       you_cannot_reply_to_a_closed_request: "Vous ne pouvez pas répondre à une demande fermée"
+      you_cannot_send_message_to_yourself: ~
       you_followed_listing: "Vous suivez désormais cette annonce"
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
       you_are_now_member: "Vous avez rejoint cette communauté"
@@ -690,8 +692,6 @@ fr:
       you_need_to_confirm_your_account_first: "Vous devez d'abord confirmer votre inscription."
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette communauté a échoué."
-      message_sent: ~
-      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: "Retour au profil d'utilisateur"
       badges: Badges
@@ -705,6 +705,9 @@ fr:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: "Vous n'avez pas la permission de consultez cette annonce."
+    comment:
+      wrote: ~
+      send_private_message: ~
     comment_form:
       log_in: "vous connecter"
       send_comment: "Envoyer un commentaire"
@@ -776,8 +779,8 @@ fr:
         rent_out: "Offre de location"
         request_type: "Type de demande"
         sell: "A vendre"
-        trade: Echanger
         share_for_free: ~
+        trade: Echanger
       tag_list:
         comma_separate: "(séparés par une virgule)"
         tags: Tags
@@ -834,38 +837,38 @@ fr:
       rents: "Cherche à louer"
       rideshares: Covoiturage
       sells: "A vendre"
-      trades: "A échanger"
       share_for_frees: ~
+      trades: "A échanger"
     link_labels:
       link_label_for_favor_offer: "Demander service"
       link_label_for_favor_request: "Proposer votre aide"
-      link_label_for_rideshare_offer: "Demander un transport"
-      link_label_for_rideshare_request: "Proposer un transport"
-      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_lend: ~
       link_label_for_item_offer_rent_out: ~
       link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_trade: ~
       link_label_for_item_request_borrow: ~
+      link_label_for_item_request_rent: ~
       link_label_for_item_request_buy: ~
       link_label_for_item_request_receive: ~
-      link_label_for_item_request_rent: ~
       link_label_for_item_request_trade: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_share_for_free: ~
-      message_link_label_for_item_offer_give_away: ~
+      link_label_for_rideshare_offer: "Demander un transport"
+      link_label_for_rideshare_request: "Proposer un transport"
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
       message_link_label_for_item_offer_lend: ~
       message_link_label_for_item_offer_rent_out: ~
       message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_give_away: ~
       message_link_label_for_item_offer_trade: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: Modifier
     listed_listing_closed_status:
@@ -884,19 +887,26 @@ fr:
       offer_closed: "Offre fermée"
       request_closed: "Demande fermée"
     show:
+      add_your_phone_number: ~
+      add_profile_picture: ~
       comments: Commentaires
+      contact_by_phone: ~
       favor_offer: "Offre de service"
       favor_request: "Demande de service"
+      item_offer_trade: ~
+      item_request_trade: ~
       no_description: "Pas de description"
       offer: Offre
       offer_author: "Offert par"
       offer_created: "Offre créée"
+      feedback: ~
       qr_code: "QR code"
       request: Demande
       request_author: "Demandé par"
       request_created: "Demande créée"
       rideshare_offer: "Offre de covoiturage"
       rideshare_request: "Demande de transport"
+      send_private_message: ~
       share_types: "Types de partage"
       share_types_offer: "Type d'offre"
       share_types_request: "Type de demande"
@@ -904,16 +914,6 @@ fr:
       time: fois
       times: fois
       times_viewed: Vu
-      add_profile_picture: ~
-      add_your_phone_number: ~
-      contact_by_phone: ~
-      feedback: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      send_private_message: ~
-    comment:
-      send_private_message: ~
-      wrote: ~
   mapview:
     index:
       all_categories: "Toutes les catégories"
@@ -1072,6 +1072,7 @@ fr:
       as_expected: "Correspondait à mes attentes"
       exceeded_expectations: "Dépassait complètement mes attentes"
       grade: "note :"
+      and_gave_following_feedback: ~
       less_than_expected: "Ne correspondait pas à mes attentes"
       offered_favor: "a rendu service"
       offered_housing: "a proposé un logement"
@@ -1083,7 +1084,6 @@ fr:
       requested_rideshare: "a demandé un transport"
       slightly_better_than_expected: "Mieux qu'attendu"
       slightly_less_than_expected: "Moins bien qu'attendu"
-      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: "Chargement de plus d'offres"
       loading_more_requests: "Chargement de plus de demandes"
@@ -1092,6 +1092,7 @@ fr:
       show_also_closed: "Voir également les offres et demandes closes"
       show_only_open: "Voir uniquement les offres et demandes en cours"
     show:
+      contact: ~
       about_me: "Qui suis-je :"
       add_description: "Parlez un peu de vous"
       add_location: "Ajouter un emplacement"
@@ -1101,6 +1102,8 @@ fr:
       badges: Badges
       edit_profile_info: "Modifier profil"
       exceeded_expectations: "Dépassait mes attentes"
+      received_feedback: ~
+      positive: ~
       hide_description: "Montrer moins"
       joined_this_community: "...a rejoint la communauté %{time_ago}"
       was_last_seen: "...était connecté pour la dernière fois %{time_ago}"
@@ -1115,9 +1118,6 @@ fr:
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
       trustcloud: TrustCloud
-      contact: ~
-      positive: ~
-      received_feedback: ~
   search:
     show:
       all_results: "Tous les résultats"
@@ -1253,13 +1253,13 @@ fr:
       sms: "%e.%m. h %H:%M"
   timestamps:
     day_ago: "il y a un jour"
-    days_ago: jours
+    days_ago: "il y a %{count} jours"
     hour_ago: "il y a une heure"
-    hours_ago: heures
+    hours_ago: "il y a %{count} heures"
     minute_ago: "il y a une minute"
-    minutes_ago: minutes
+    minutes_ago: "il y a %{count} minutes"
     month_ago: "il y a un mois"
-    months_ago: mois
-    seconds_ago: secondes
+    months_ago: "il y a %{count} mois"
+    seconds_ago: "il y a %{count} secondes"
     year_ago: "il y a un an"
-    years_ago: années
+    years_ago: "il y a %{count} années"
