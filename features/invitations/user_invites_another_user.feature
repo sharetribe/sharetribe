@@ -9,10 +9,7 @@ Feature: User joins invite only community
       | person | 
       | kassi_testperson1 |
     And I am on the homepage
-    And I should not see "Your friend's email address"
     When I log in as "kassi_testperson2"
-    Then I should not see "Your friend's email address"
-    When users can invite new users to join community "test"
     And I am on the homepage
     Then I should see "Your friend's email address"
     And I fill in "invitation_email" with "test@example.com"
