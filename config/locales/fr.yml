@@ -119,7 +119,7 @@ fr:
         see_all_your_badges: "Voir tous vos badges"
         you_have_earned_badge: "Vous avez gagné le badge"
       comment_to_followed_listing_notification:
-        has_commented: "a commenté"
+        has_commented: "%{author} a commenté"
         offer_you_follow: "une offre que vous suivez"
         request_you_follow: "une demande que vous suivez"
       listing_updated_notification:
@@ -127,7 +127,7 @@ fr:
         offer_you_follow: "une offre que vous suivez"
         request_you_follow: "une demande que vous suivez"
       comment_to_own_listing_notification:
-        has_commented: "a commenté"
+        has_commented: "%{author} a commenté"
         your_offer: "votre offre"
         your_request: "votre demande"
       loading_more_notifications: "Chargement de plus de notifications"

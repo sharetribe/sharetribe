@@ -119,7 +119,7 @@ ca:
         see_all_your_badges: "Comprova les teves medalles"
         you_have_earned_badge: "Has guanyat una medalla"
       comment_to_followed_listing_notification:
-        has_commented: "ha comentat"
+        has_commented: "%{author} ha comentat"
         offer_you_follow: "una oferta que segueixes"
         request_you_follow: "una sol·licitud que segueixes"
       listing_updated_notification:
@@ -127,7 +127,7 @@ ca:
         offer_you_follow: "Una oferta que segueixes"
         request_you_follow: "Una sol·licitud que segueixes"
       comment_to_own_listing_notification:
-        has_commented: "ha comentat"
+        has_commented: "%{author} ha comentat"
         your_offer: "La seva oferta"
         your_request: "La seva sol·licitud"
       loading_more_notifications: "Carregant més notificacions"

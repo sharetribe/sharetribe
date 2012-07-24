@@ -127,7 +127,7 @@ el:
         offer_you_follow: "μία προσφορά που παρακολουθείς"
         request_you_follow: "ένα αίτημα που παρακολουθείς"
       comment_to_own_listing_notification:
-        has_commented: "έχει σχολιάσει"
+        has_commented: "%{author} έχει σχολιάσει"
         your_offer: "την προσφορά σου"
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
@@ -1252,14 +1252,14 @@ el:
       shorter: "%e %b στις %H:%M"
       sms: "%e %b στις %H:%M"
   timestamps:
-    day_ago: μέρα
-    days_ago: μέρες
-    hour_ago: ώρα
-    hours_ago: ώρες
-    minute_ago: λεπτό
-    minutes_ago: λεπτά
-    month_ago: μήνα
+    day_ago: "%{count} μέρα"
+    days_ago: "%{count} μέρες"
+    hour_ago: "%{count} ώρα"
+    hours_ago: "%{count} ώρες"
+    minute_ago: "%{count} λεπτό"
+    minutes_ago: "%{count} λεπτά"
+    month_ago: "%{count} μήνα"
     months_ago: μήνες
-    seconds_ago: δευτερόλεπτα
-    year_ago: χρόνο
+    seconds_ago: "%{count} δευτερόλεπτα"
+    year_ago: "%{count} χρόνο"
     years_ago: χρόνια

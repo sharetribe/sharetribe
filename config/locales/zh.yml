@@ -119,7 +119,7 @@ zh:
         see_all_your_badges: 查看所有的徽章
         you_have_earned_badge: 您已获得该徽章
       comment_to_followed_listing_notification:
-        has_commented: 已评论
+        has_commented: "%{author} 已评论"
         offer_you_follow: ~
         request_you_follow: ~
       listing_updated_notification:
@@ -127,7 +127,7 @@ zh:
         offer_you_follow: ~
         request_you_follow: ~
       comment_to_own_listing_notification:
-        has_commented: ~
+        has_commented: "%{author} 已评论"
         your_offer: ~
         your_request: ~
       loading_more_notifications: 载入更多提醒
