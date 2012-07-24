@@ -1259,7 +1259,7 @@ el:
     minute_ago: "%{count} λεπτό"
     minutes_ago: "%{count} λεπτά"
     month_ago: "%{count} μήνα"
-    months_ago: μήνες
+    months_ago: "%{count} μήνες"
     seconds_ago: "%{count} δευτερόλεπτα"
     year_ago: "%{count} χρόνο"
-    years_ago: χρόνια
+    years_ago: "%{count} χρόνια"
