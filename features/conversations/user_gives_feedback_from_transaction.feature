@@ -16,7 +16,7 @@ Feature: User gives feedback from transaction
     When I follow "Messages"
     And I follow "Give feedback"
     And I follow "Much better than expected"
-    And I fill in "Textual feedback:" with "Everything was great!"
+    And I fill in "How did things go:" with "Everything was great!"
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within "#notifications"
     And I should see "Feedback given" within ".conversation_status_label_links"
@@ -30,7 +30,7 @@ Feature: User gives feedback from transaction
     And I should not see "1" within "#logged_in_notifications_icon"
   
   @javascript
-  Scenario: Try to give feedback without giving a grade
+  Scenario: Try to give feedback without required information
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -41,26 +41,9 @@ Feature: User gives feedback from transaction
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     And I follow "Give feedback"
-    And I fill in "Textual feedback:" with "Everything went ok."
     And I press "send_testimonial_button"
     Then I should see "Remember to grade the user by clicking one of the icons above" within ".error"
-  
-  @javascript
-  Scenario: Give neutral feedback successfully without message
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson1"
-    And there is a message "I offer this" from "kassi_testperson2" about that listing
-    And the offer is accepted
-    And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    And I follow "Give feedback"
-    And I follow "As expected"
-    And I press "send_testimonial_button"
-    Then I should see "Feedback sent to" within "#notifications"
-    And I should see "Feedback given" within ".conversation_status_label_links"
+    And I should see "This field is required" within ".error"
     
   @javascript
   Scenario: Try to give non-neutral feedback without a message
@@ -76,7 +59,7 @@ Feature: User gives feedback from transaction
     And I follow "Give feedback"
     And I follow "Much better than expected"
     And I press "send_testimonial_button"
-    Then I should see "If you want to give non-neutral feedback, you must explain why" within ".error"
+    Then I should see "This field is required" within ".error"
   
   @javascript
   Scenario: Try to give feedback without logging in
