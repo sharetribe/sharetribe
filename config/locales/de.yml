@@ -83,6 +83,21 @@ de:
       housing_offer_message_title: ~
       housing_request_message_form_title: ~
       housing_request_message_title: ~
+      item_offer_lend_message_form_title: ~
+      item_offer_sell_message_form_title: ~
+      item_offer_give_away_message_form_title: ~
+      item_offer_trade_message_form_title: ~
+      item_offer_rent_out_message_form_title: ~
+      item_request_borrow_message_form_title: ~
+      item_request_buy_message_form_title: ~
+      item_request_take_for_free_message_form_title: ~
+      item_request_trade_message_form_title: ~
+      item_request_rent_message_form_title: ~
+      housing_offer_sell_message_form_title: ~
+      housing_offer_rent_out_message_form_title: ~
+      housing_offer_share_for_free_message_form_title: ~
+      housing_request_buy_message_form_title: ~
+      housing_request_rent_message_form_title: ~
       item_offer_message_title: ~
       item_request_message_form_title: ~
       item_request_message_title: ~
@@ -93,27 +108,12 @@ de:
       rideshare_request_message_title: ~
       send_offer_message: ~
       send_request_message: ~
-      this_message_is_private: ~
-      title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_lend_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
       send_message: ~
-      send_message_to_user: ~
-      you_will_get_notified: ~
+      this_message_is_private: ~
       you_will_get_notified_of_acceptance: ~
+      you_will_get_notified: ~
+      title: ~
+      send_message_to_user: ~
     notifications:
       badgenotification:
         see_all_your_badges: ~
@@ -253,6 +253,8 @@ de:
       log_out: ~
       join_community_button: ~
   dashboard:
+    api:
+      coming_soon: ~
     index:
       get_started: ~
       browse_communities_around_you: ~
@@ -273,6 +275,9 @@ de:
       thanks_for_contacting_us: ~
       resources: ~
       connect: ~
+      about: ~
+      developers: ~
+      api: ~
       blog: ~
       code: ~
       issue_tracker: ~
@@ -293,11 +298,6 @@ de:
       university_example_link: ~
       company_example_link: ~
       city_example_link: ~
-      about: ~
-      api: ~
-      developers: ~
-    api:
-      coming_soon: ~
   emails:
     accept_reminder:
       offer_accusative: ~
@@ -661,6 +661,7 @@ de:
       request_created_successfully: ~
       request_rejected: ~
       request_updated_successfully: ~
+      message_sent: ~
       this_content_is_not_available_in_this_community: ~
       unknown_error: ~
       update_error: ~
@@ -671,6 +672,7 @@ de:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: ~
       you_cannot_reply_to_a_closed_request: ~
+      you_cannot_send_message_to_yourself: ~
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: ~
       you_are_now_member: ~
@@ -690,8 +692,6 @@ de:
       you_need_to_confirm_your_account_first: ~
       you_unfollowed_listing: ~
       joining_community_failed: ~
-      message_sent: ~
-      you_cannot_send_message_to_yourself: ~
     profile_extras_header:
       back_to_profile_of_person: ~
       badges: ~
@@ -705,6 +705,9 @@ de:
   listings:
     bubble_listing_not_visible:
       listing_not_visible: ~
+    comment:
+      wrote: ~
+      send_private_message: ~
     comment_form:
       log_in: ~
       send_comment: ~
@@ -776,8 +779,8 @@ de:
         rent_out: ~
         request_type: ~
         sell: ~
-        trade: ~
         share_for_free: ~
+        trade: ~
       tag_list:
         comma_separate: ~
         tags: ~
@@ -834,38 +837,38 @@ de:
       rents: ~
       rideshares: ~
       sells: ~
-      trades: ~
       share_for_frees: ~
+      trades: ~
     link_labels:
       link_label_for_favor_offer: ~
       link_label_for_favor_request: ~
-      link_label_for_rideshare_offer: ~
-      link_label_for_rideshare_request: ~
-      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_sell: ~
+      link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_lend: ~
       link_label_for_item_offer_rent_out: ~
       link_label_for_item_offer_sell: ~
+      link_label_for_item_offer_give_away: ~
       link_label_for_item_offer_trade: ~
       link_label_for_item_request_borrow: ~
+      link_label_for_item_request_rent: ~
       link_label_for_item_request_buy: ~
       link_label_for_item_request_receive: ~
-      link_label_for_item_request_rent: ~
       link_label_for_item_request_trade: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_share_for_free: ~
-      message_link_label_for_item_offer_give_away: ~
+      link_label_for_rideshare_offer: ~
+      link_label_for_rideshare_request: ~
+      message_link_label_for_offer: ~
+      message_link_label_for_request: ~
       message_link_label_for_item_offer_lend: ~
       message_link_label_for_item_offer_rent_out: ~
       message_link_label_for_item_offer_sell: ~
+      message_link_label_for_item_offer_give_away: ~
       message_link_label_for_item_offer_trade: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
+      message_link_label_for_housing_offer_sell: ~
+      message_link_label_for_housing_offer_rent_out: ~
+      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: ~
     listed_listing_closed_status:
@@ -884,19 +887,26 @@ de:
       offer_closed: ~
       request_closed: ~
     show:
+      add_your_phone_number: ~
+      add_profile_picture: ~
       comments: ~
+      contact_by_phone: ~
       favor_offer: ~
       favor_request: ~
+      item_offer_trade: ~
+      item_request_trade: ~
       no_description: ~
       offer: ~
       offer_author: ~
       offer_created: ~
+      feedback: ~
       qr_code: ~
       request: ~
       request_author: ~
       request_created: ~
       rideshare_offer: ~
       rideshare_request: ~
+      send_private_message: ~
       share_types: ~
       share_types_offer: ~
       share_types_request: ~
@@ -904,16 +914,6 @@ de:
       time: ~
       times: ~
       times_viewed: ~
-      add_profile_picture: ~
-      add_your_phone_number: ~
-      contact_by_phone: ~
-      feedback: ~
-      item_offer_trade: ~
-      item_request_trade: ~
-      send_private_message: ~
-    comment:
-      send_private_message: ~
-      wrote: ~
   mapview:
     index:
       all_categories: ~
@@ -1072,6 +1072,7 @@ de:
       as_expected: ~
       exceeded_expectations: ~
       grade: ~
+      and_gave_following_feedback: ~
       less_than_expected: ~
       offered_favor: ~
       offered_housing: ~
@@ -1083,7 +1084,6 @@ de:
       requested_rideshare: ~
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
-      and_gave_following_feedback: ~
     profile_listings:
       loading_more_offers: ~
       loading_more_requests: ~
@@ -1092,6 +1092,7 @@ de:
       show_also_closed: ~
       show_only_open: ~
     show:
+      contact: ~
       about_me: ~
       add_description: ~
       add_location: ~
@@ -1101,6 +1102,8 @@ de:
       badges: ~
       edit_profile_info: ~
       exceeded_expectations: ~
+      received_feedback: ~
+      positive: ~
       hide_description: ~
       joined_this_community: ~
       was_last_seen: ~
@@ -1115,9 +1118,6 @@ de:
       slightly_less_than_expected: ~
       what_are_these: ~
       trustcloud: ~
-      contact: ~
-      positive: ~
-      received_feedback: ~
   search:
     show:
       all_results: ~
