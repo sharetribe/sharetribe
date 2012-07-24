@@ -118,7 +118,7 @@ fi:
         see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
         you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
       comment_to_followed_listing_notification:
-        has_commented: kommentoi
+        has_commented: "%{author} kommentoi"
         offer_you_follow: "seuraamaasi tarjousta"
         request_you_follow: "seuraamaasi pyyntöä"
       listing_updated_notification:
@@ -126,7 +126,7 @@ fi:
         offer_you_follow: "seuraamasi tarjouksen"
         request_you_follow: "seuraamasi pyynnön"
       comment_to_own_listing_notification:
-        has_commented: kommentoi
+        has_commented: "%{author} kommentoi"
         your_offer: tarjoustasi
         your_request: pyyntöäsi
       loading_more_notifications: "Ladataan lisää tiedotteita"
