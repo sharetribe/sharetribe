@@ -311,7 +311,7 @@ form, input {
 }
 
 .facebook_connect {
-  margin-right: 4px;
+  margin: 1px 0 0 0;
 }
 
 #top_spacer {
@@ -1080,8 +1080,19 @@ div.checkbox_float {
 		@include send_button;
 		width: 250px;
 	}
+	.facebook_login_container { overflow: hidden; }
+	.facebook_login_label {
+	  float: left;
+	  width: 210px;
+	  padding-top: 1px;
+	}
+	.normal_login_label {
+	  margin: 20px 0;
+	}
 	img.facebook_login {
-	  margin: 23px 0 0 10px;
+	  float: right;
+	  margin-left: 10px;
+	  width: 120px;
 	}
 	label {
 		margin: 10px;

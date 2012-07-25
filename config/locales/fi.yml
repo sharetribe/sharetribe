@@ -1145,13 +1145,15 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään %{service_name_illative}"
-      connect_your_facebook_to_kassi: "Yhdistä Facebook tili %{service_name_illative}"
-      facebook_account: "Facebook tili:"
-      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
+      connect_your_facebook_to_kassi: "Yhdistä Facebook-tilisi %{service_name_illative}"
+      facebook_account: "Facebook-tilisi:"
+      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook-tiliisi."
       you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
       facebook_cancel_link_text: "voit perua yhdistämisen"
+      log_in_with_your_facebook_account: "Kirjaudu Facebook-tunnuksellasi:"
+      or_sign_up_with_your_username: "...tai sitten käyttäjätunnuksellasi ja salasanallasi:"
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
