@@ -241,6 +241,16 @@ ca:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: ~
@@ -1143,6 +1153,8 @@ ca:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: "Correu electrònic"
       password_recovery_instructions: "Escriu el teu correu electrònic per enviar-te el nom d'usuari i les instruccions per a realitzar el canvi de contrasenya."
@@ -1245,6 +1257,7 @@ ca:
       slightly_better_than_expected: "Una mica millor de l'esperat"
       slightly_less_than_expected: "Una mica pitjor de l'esperat"
       textual_feedback: Suggeriment
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: "Des de"
       to_user: a

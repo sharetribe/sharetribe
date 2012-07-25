@@ -119,7 +119,7 @@ el:
         see_all_your_badges: "Δες όλες τις κονκάρδες σου"
         you_have_earned_badge: "Κέρδισες την κονκάρδα"
       comment_to_followed_listing_notification:
-        has_commented: "έχει σχολιάσει"
+        has_commented: "ο/η %{author} σχολίασε"
         offer_you_follow: "μία προσφορά που παρακολουθείς"
         request_you_follow: "ένα αίτημα που παρακολουθείς"
       listing_updated_notification:
@@ -127,7 +127,7 @@ el:
         offer_you_follow: "μία προσφορά που παρακολουθείς"
         request_you_follow: "ένα αίτημα που παρακολουθείς"
       comment_to_own_listing_notification:
-        has_commented: "%{author} έχει σχολιάσει"
+        has_commented: "ο/η %{author} σχολίασε"
         your_offer: "την προσφορά σου"
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
@@ -241,6 +241,16 @@ el:
       email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχεις ήδη λογαριασμό, μπορείς να συνδεθείς χρησιμοποιώντας τον παραπάνω σύνδεσμο."
       invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείς με ένα email που να σχετίζεται με το/την %{community_category} σου."
       log_in_here: "συνδεθείς εδώ"
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: "Εγγραφή στην κοινότητα %{community}"
@@ -356,7 +366,7 @@ el:
       has_commented_offer_you_follow_in_kassi: "Ο/Η %{author} σχολίασε στο αίτημα \"%{listing}\" που παρακολουθείς στο %{service_name}"
       has_commented_request_you_follow_in_kassi: "Ο/Η %{author} σχολίασε στην προσφορά \"%{listing}\" που παρακολουθείς στο %{service_name}"
     new_message:
-      conversation_title: "Τίτλος νήματος: %{title}"
+      conversation_title: "Συνομιλία: %{title}"
       do_not_reply_to_this_email: "Σημείωση: μην απαντήσεις απευθείας σε αυτό το email. Χρησιμοποίησε τον παραπάνω σύνδεσμο καλύτερα."
       has_sent_you_a_message_in_kassi: "Ο/Η %{sender} σου έστειλε ένα μήνυμα στο %{service_name}:"
       you_can_reply_to_message_in: "Μπορείς να απαντήσεις σε αυτό το μήνυμα στο"
@@ -842,21 +852,21 @@ el:
     link_labels:
       link_label_for_favor_offer: "Ζήτησέ το"
       link_label_for_favor_request: "Πρόσφερε τη βοήθεια σου"
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
+      link_label_for_housing_offer_sell: "Αγόρασέ το"
+      link_label_for_housing_offer_rent_out: "Νοίκιασέ το"
+      link_label_for_housing_offer_share_for_free: "Ζήτα το"
+      link_label_for_housing_request_buy: "Πούλησέ το"
+      link_label_for_housing_request_rent: "Νοίκιασέ το"
+      link_label_for_item_offer_lend: "Δανείσου το"
+      link_label_for_item_offer_rent_out: "Νοίκιασέ το"
+      link_label_for_item_offer_sell: "Αγόρασέ το"
+      link_label_for_item_offer_give_away: "Ζήτα το"
+      link_label_for_item_offer_trade: "Αντάλλαξέ το"
+      link_label_for_item_request_borrow: "Δάνεισέ το"
+      link_label_for_item_request_rent: "Πρόσφερε το δικό σου"
+      link_label_for_item_request_buy: "Πρόσφερε το δικό σου"
+      link_label_for_item_request_receive: "Πρόσφερέ το"
+      link_label_for_item_request_trade: "Αντάλλαξέ το"
       link_label_for_rideshare_offer: "Κάνε οτοστόπ"
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
       message_link_label_for_offer: "Στείλε προσωπικό μήνυμα"
@@ -1141,6 +1151,8 @@ el:
       account_creation_link_text: "κάνε κλικ εδώ"
       cancle_facebook_connect: "Αν δεν θέλεις να συνδέσεις αυτό το λογαριασμό, μπορείς να %{cancel_link}."
       facebook_cancel_link_text: ~
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
@@ -1243,6 +1255,7 @@ el:
       slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
       slightly_less_than_expected: "Λίγο χειρότερα από το αναμενόμενο"
       textual_feedback: "Κριτική με κείμενο"
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: "από τον/την"
       to_user: στον/στην
@@ -1252,14 +1265,14 @@ el:
       shorter: "%e %b στις %H:%M"
       sms: "%e %b στις %H:%M"
   timestamps:
-    day_ago: "%{count} μέρα"
-    days_ago: "%{count} μέρες"
-    hour_ago: "%{count} ώρα"
-    hours_ago: "%{count} ώρες"
-    minute_ago: "%{count} λεπτό"
-    minutes_ago: "%{count} λεπτά"
-    month_ago: "%{count} μήνα"
-    months_ago: "%{count} μήνες"
-    seconds_ago: "%{count} δευτερόλεπτα"
-    year_ago: "%{count} χρόνο"
-    years_ago: "%{count} χρόνια"
+    day_ago: "πριν από %{count} μέρα"
+    days_ago: "πριν από %{count} μέρες"
+    hour_ago: "πριν από %{count} ώρα"
+    hours_ago: "πριν από %{count} ώρες"
+    minute_ago: "πριν από %{count} λεπτό"
+    minutes_ago: "πριν από %{count} λεπτά"
+    month_ago: "πριν από %{count} μήνα"
+    months_ago: "πριν από %{count} μήνες"
+    seconds_ago: "πριν από %{count} δευτερόλεπτα"
+    year_ago: "πριν από %{count} χρόνο"
+    years_ago: "πριν από %{count} χρόνια"
