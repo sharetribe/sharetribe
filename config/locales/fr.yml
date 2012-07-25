@@ -241,6 +241,16 @@ fr:
       email_in_use_message: "Un compte avec cette adresse email existe déjà pour %{service_name}. Si vous avez déjà un compte, vous pouvez vous connecter en cliquant ci-dessous."
       invalid_email_ending_message: "Cela ressemble à une adresse email personnelle. Vous devez vous inscrire avec votre email %{community_category}."
       log_in_here: "Se connecter"
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: "Rejoindre la communauté '%{community}'"
@@ -1141,6 +1151,8 @@ fr:
       account_creation_link_text: "cliquez ici"
       cancle_facebook_connect: "Si vous ne voulez pas lier ce compte, vous pouvez %{cancel_link}."
       facebook_cancel_link_text: annuler
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Entrez votre adresse email afin de recevoir les instructions pour changer votre mot de passe."
@@ -1243,6 +1255,7 @@ fr:
       slightly_better_than_expected: "Dépassait partiellement mes attentes"
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Description textuelle"
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: par
       to_user: à
