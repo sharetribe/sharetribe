@@ -316,7 +316,7 @@ form, input {
     background: #a33f05; }
 
 .facebook_connect {
-  margin-right: 4px; }
+  margin: 1px 0 0 0; }
 
 #top_spacer {
   height: 20px; }
@@ -1317,8 +1317,18 @@ div.checkbox_float {
       background-color: #9f7d4e; }
     #login_form input.send_button_terms:focus, #new_message_form input.send_button_terms:focus, #signup_form input.send_button_terms:focus {
       background-color: #9f7d4e; }
+  #login_form .facebook_login_container, #new_message_form .facebook_login_container, #signup_form .facebook_login_container {
+    overflow: hidden; }
+  #login_form .facebook_login_label, #new_message_form .facebook_login_label, #signup_form .facebook_login_label {
+    float: left;
+    width: 210px;
+    padding-top: 1px; }
+  #login_form .normal_login_label, #new_message_form .normal_login_label, #signup_form .normal_login_label {
+    margin: 20px 0; }
   #login_form img.facebook_login, #new_message_form img.facebook_login, #signup_form img.facebook_login {
-    margin: 23px 0 0 10px; }
+    float: right;
+    margin-left: 10px;
+    width: 120px; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
     font-size: 14px;
