@@ -15,14 +15,13 @@
   
   %h2
     = t('.login_to_kassi')
-  .facebook_login_container
-    .facebook_login_label
-      = t(".log_in_with_your_facebook_account")
-    - if APP_CONFIG.fb_connect_id && ! use_asi? && @current_community
-      - unless @facebook_merge
-        = link_to(image_tag("/images/icons/facebook-connect.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(:facebook))
-  .normal_login_label
-    = t(".or_sign_up_with_your_username")
+  - if @current_community.settings && @current_community.settings["use_facebook_login"] &&APP_CONFIG.fb_connect_id && ! use_asi? && @current_community && ! @facebook_merge
+    .facebook_login_container
+      .facebook_login_label
+        = t(".log_in_with_your_facebook_account")
+      = link_to(image_tag("/images/icons/facebook-connect.png", {:alt => "Facebook Connect", :class => "facebook_login"}), person_omniauth_authorize_path(:facebook))
+    .normal_login_label
+      = t(".or_sign_up_with_your_username")
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     .form_field_container
       %label{:for => "username"}
