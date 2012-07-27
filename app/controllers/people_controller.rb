@@ -15,10 +15,9 @@ class PeopleController < Devise::RegistrationsController
   
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :dashboard_only
-  skip_filter :single_community_only, :only => [ :create, :check_username_availability, :check_email_availability ]
-  skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_invitation_code]
+  skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
+  skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_email_availability_for_new_tribe, :check_invitation_code]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
-  skip_filter :single_community_only, :only  => [:check_email_availability_and_validity, :update]
   
   if ApplicationHelper.use_asi?
     # We don't use devise's authentication with ASI
@@ -151,7 +150,8 @@ class PeopleController < Devise::RegistrationsController
     
     if !@current_community
       session[:consent] = APP_CONFIG.consent
-      session[:unconfirmed_email] = @person.email
+      session[:unconfirmed_email] = params[:person][:email]
+      session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
       flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
@@ -277,10 +277,30 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks only that email is not already in use
   def check_email_availability
-    available = email_available_for_user?(@current_user, params[:person][:email])
+    email = params[:person] ? params[:person][:email] : params[:email]
+    available = email_available_for_user?(@current_user, email)
     
     respond_to do |format|
       format.json { render :json => available }
+    end
+  end
+  
+  # this checks only that email is not already in use
+  def check_email_availability_for_new_tribe
+    email = params[:person] ? params[:person][:email] : params[:email]
+    if email_available_for_user?(@current_user, email)
+      existing_communities = Community.find_by_allowed_email(email)
+      if existing_communities.size > 0 && Community.email_restricted?(params[:community_category])
+        available = restricted_tribe_already_exists_error_message(existing_communities.first)      
+      else
+        available = true
+      end
+    else
+      available = t("communities.signup_form.email_in_use_message")
+    end
+    
+    respond_to do |format|
+      format.json { render :json => available.to_json }
     end
   end
   

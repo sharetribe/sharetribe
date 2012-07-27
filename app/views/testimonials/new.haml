@@ -3,10 +3,13 @@
 
 .grid_10.prefix_7.suffix_7
   #new_testimonial_form
-    %h2
-      = t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
+    %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
+    %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
     = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
       = form.error_messages
+      .message_form_field_container
+        = form.label :text, t('.textual_feedback') + ":", :class => "normal" 
+        = form.text_area :text, :class => "text_area"
       .message_form_field_container
         = form.label :grade, t(".grade") + ":", :class => "normal"
         %br/
@@ -15,9 +18,6 @@
             %label{:for => "grade-#{grade[1][:form_value]}", :class => "radio"}
               = radio_button_tag "testimonial[grade]", grade[1][:db_value], grade[1][:default], :id => "grade-#{grade[1][:form_value]}" 
               = t(".#{grade[0]}")
-      .message_form_field_container
-        = form.label :text, t('.textual_feedback') + ":", :class => "normal" 
-        = form.text_area :text, :class => "text_area"
       .message_form_field_container
         = form.hidden_field :author_id, :value => @current_user.id
         = form.hidden_field :receiver_id, :value => @conversation.other_party(@current_user).id

@@ -94,6 +94,7 @@ Kassi::Application.routes.draw do
         collection do
           get :check_username_availability
           get :check_email_availability
+          get :check_email_availability_for_new_tribe
           get :check_email_availability_and_validity
           get :check_email_validity
           get :check_invitation_code

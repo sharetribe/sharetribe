@@ -31,7 +31,7 @@
     = yield :head
 
     = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.form', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autoresize.min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'sharetribe_common', 'kassi', 'googlemaps'
+    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.form', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autosize-min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'sharetribe_common', 'kassi', 'googlemaps'
     = yield(:extra_javascript)
     = csrf_meta_tag
     :javascript
@@ -50,11 +50,13 @@
     %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/images/dashboard/sharetribe_logo.png"}
     
   %body
-  
+    
     %noscript
       .js_enabled
         #no_javascript.container_24
           = render :partial => "layouts/no_javascript"
+    
+    = render :partial => "layouts/facebook_sdk" # load Facebook SDK for the whole page
         
     .wrapper
     

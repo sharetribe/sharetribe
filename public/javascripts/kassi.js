@@ -2,7 +2,7 @@
 // Add custom validation methods
 function add_validator_methods() {
   $.validator.
-  	addMethod( "accept", 
+  	addMethod("accept",
   		function(value, element, param) {
   			return value.match(new RegExp(/(\.jpe?g|\.gif|\.png|^$)/i));
   		}
@@ -54,12 +54,9 @@ function add_validator_methods() {
               async: false
         }).responseText;
 
-        if (resp == "success")
-        {
+        if (resp == "success") {
           return true;
-        }
-          else
-        {
+        } else {
           Recaptcha.reload();
           return false;
         }
@@ -206,13 +203,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 		}
 	});	
 	set_textarea_maxlength();
-	auto_resize_text_areas();
+	auto_resize_text_areas("listing_description_textarea");
 }
 
 function initialize_send_message_form(locale) {
-	auto_resize_text_areas();
+	auto_resize_text_areas("text_area");
 	$('textarea').focus();
-	var form_id = "#new_conversation"
+	var form_id = "#new_conversation";
 	$(form_id).validate({
 		rules: {
 		  "conversation[title]": {required: true, minlength: 1, maxlength: 120},
@@ -225,7 +222,7 @@ function initialize_send_message_form(locale) {
 }
 
 function initialize_reply_form(locale) {
-	auto_resize_text_areas();
+	auto_resize_text_areas("reply_form_text_area");
 	$('textarea').focus();
 	prepare_ajax_form(
     "#new_message",
@@ -235,7 +232,7 @@ function initialize_reply_form(locale) {
 }
 
 function initialize_comment_form(locale) {
-	auto_resize_text_areas();
+	auto_resize_text_areas("listing_comment_content_text_area");
 	prepare_ajax_form(
     "#new_comment",
     locale, 
@@ -244,10 +241,10 @@ function initialize_comment_form(locale) {
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
-	auto_resize_text_areas();
+	auto_resize_text_areas("text_area");
 	$('textarea').focus();
 	faceGrade.create('.feedback_grade_images');
-	var form_id = "#new_testimonial"
+	var form_id = "#new_testimonial";
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "testimonial[text]") {
@@ -258,11 +255,10 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 		},	
 		rules: {
 			"testimonial[grade]": {required: true},
-			"testimonial[text]": {required_when_not_neutral_feedback: true}
+			"testimonial[text]": {required: true}
 		}, 
 		messages: {
-			"testimonial[grade]": { required: grade_error_message },
-			"testimonial[text]": { required_when_not_neutral_feedback: text_error_message }
+			"testimonial[grade]": { required: grade_error_message }
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
@@ -275,7 +271,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	$('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
-	var form_id = "#new_person"
+	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
@@ -316,10 +312,10 @@ function initialize_terms_form() {
 }
 
 function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
-	auto_resize_text_areas();
+	auto_resize_text_areas("update_profile_description_text_area");
 	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
-	var form_id = "#edit_person_" + person_id
+	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			error.appendTo(element.parent());
@@ -342,7 +338,7 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
 
 function initialize_update_notification_settings_form(locale, person_id) {
 	$("input[type=checkbox]").uniform();
-	var form_id = "#edit_person_" + person_id
+	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
@@ -396,7 +392,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 			$(this).text(change_text);
 		}
 	);
-	var email_form_id = "#email_form"
+	var email_form_id = "#email_form";
 	$(email_form_id).validate({
 		errorClass: "error_account",
 		rules: {
@@ -409,7 +405,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 		  disable_and_submit(email_form_id, form, "false", locale);
 		}
 	});
-	var password_form_id = "#password_form"
+	var password_form_id = "#password_form";
 	$(password_form_id).validate({
 		errorClass: "error_account",
 		rules: {
@@ -423,7 +419,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 }
 
 function initialize_reset_password_form() {
-	var password_form_id = "#person_new"
+	var password_form_id = "#person_new";
 	$(password_form_id).validate({
 		errorPlacement: function(error, element) {
 			error.insertAfter(element);
@@ -498,11 +494,11 @@ function reload_browse_view(link, listing_type, listing_style, locale) {
 			sections[link_type].push(link_title);
 		}
 	});
-	if (listing_style == "map")
+	if (listing_style == "map") {
 		//var request_path = '/' + locale + '/loadmap'
 		filtersUpdated(sections['categories'], sections['sharetypes'], sections['tags']);
-	else {
-		var request_path = '/' + locale + '/load'
+	} else {
+		var request_path = '/' + locale + '/load';
 		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'], 'tag[]': sections['tags'] }, function(data) {
 			$('#search_results').html(data);
 		});
@@ -575,15 +571,15 @@ function initialize_invitation_form(locale, rails_env) {
   } else {
     $('#invitation_email').focus(function() {
       $('div.invitation_form_hidden_parts').slideDown('fast');
+      auto_resize_text_areas("invitation_message_text");
       $(document).bind('focusin.invitation_form_hidden_parts click.invitation_form_hidden_parts',function(e) {
         if ($(e.target).closest('.invitation_form_hidden_parts, #invitation_email').length) return;
-        $(document).unbind('.example');
+        $(document).unbind('.invitation_form_hidden_parts');
         $('div.invitation_form_hidden_parts').slideUp('fast');
       });
     });
     $('div.invitation_form_hidden_parts').slideUp('fast');
   }
-  auto_resize_text_areas();
   prepare_ajax_form(
     "#new_invitation",
     locale, 
@@ -631,7 +627,7 @@ function initialize_admin_news_item(news_item_id) {
 }
 
 function initialize_admin_new_news_item_form() {
-  auto_resize_text_areas();
+  auto_resize_text_areas("new_news_item_text_area");
   $('#new_news_item input.text_field:first').focus();
   $('#new_news_item').validate({
 		rules: {
@@ -642,14 +638,7 @@ function initialize_admin_new_news_item_form() {
 }
 
 function initialize_admin_new_poll_form() {
-  auto_resize_text_areas();
-  $('#new_poll input.text_field:first').focus();
-  $('#new_poll').validate({
-		rules: {
-		  "news_item[title]": {required: true, minlength: 1, maxlenght: 200},
-		  "news_item[content]": {required: true, minlength: 1, maxlenght: 10000}
-		}
-	});
+  
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

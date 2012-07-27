@@ -40,7 +40,7 @@
               });
         .form_field_container_taller
           = form.label :description, t(".describe_your_tribe")
-          = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en")))
+          = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en"))), :class => "new_tribe_text_area"
         - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
           = form.hidden_field :terms, :value => "true"
         - else
@@ -58,6 +58,8 @@
             = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :category, :value => session[:community_category]
+          - if community_email_restricted?
+            = form.hidden_field :allowed_emails, :value => session[:allowed_email]
           = hidden_field_tag :community_locale, session[:community_locale]
           = form.fields_for :location do |loc|
             = loc.hidden_field :address, :value => @community.location.address

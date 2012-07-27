@@ -3,7 +3,7 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
 		$('#password_forgotten').slideToggle('fast'); 
 		$('input.email').focus();
 	});
-	var form_id = "#change_mistyped_email_form"
+	var form_id = "#change_mistyped_email_form";
   $(form_id).validate({
      errorPlacement: function(error, element) {
        error.insertAfter(element);
@@ -50,21 +50,8 @@ function disable_submit_button(form_id, locale) {
 	});
 }
 
-function auto_resize_text_areas() {
-	$('textarea').autoResize({
-	    // On resize:
-	    onResize : function() {
-	        $(this).css({opacity:1});
-	    },
-	    // After resize:
-	    animateCallback : function() {
-	        $(this).css({opacity:1});
-	    },
-	    // Quite slow animation:
-	    animateDuration : 300
-	    // More extra space:
-	});
-	$('textarea').keydown();
+function auto_resize_text_areas(class_name) {
+  $('textarea.' + class_name).autosize();
 }
 
 function translate_validation_messages(locale) {

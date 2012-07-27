@@ -63,9 +63,8 @@ fi:
       rent: "halutaan vuokrata"
       rent_out: "annetaan vuokralle"
       sell: myydään
-      share_for_free: "tarjotaan käyttöön ilmaiseksi"
-      temporary_accommodation: tilapäismajoitus
       trade: vaihdetaan
+      share_for_free: "tarjotaan käyttöön ilmaiseksi"
     username: Käyttäjätunnus
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
@@ -80,7 +79,9 @@ fi:
       favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
       favor_request_message_title: "Palvelustarjous: %{title}"
+      housing_offer_message_form_title: "Vastaa käyttäjälle"
       housing_offer_message_title: "Pyyntö: %{title}"
+      housing_request_message_form_title: "Vastaa käyttäjälle"
       housing_request_message_title: "Tila tarjolla: %{title}"
       item_offer_lend_message_form_title: "Lainaa %{listing} käyttäjältä %{person}"
       item_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
@@ -193,7 +194,7 @@ fi:
       create_your_tribe: "Luo yhteisö"
       professional_plan: "Mukautuva paketti"
       unlimited_members: "Rajoittamaton jäsenmäärä"
-      intranet_integration: "Intranet-integrointi"
+      intranet_integration: Intranet-integrointi
       no_charge: Ilmainen
       euros_per_month_premium: "%{price} euroa/kk (sis. ALV)"
       custom_domain: "Oma verkko-osoite"
@@ -240,6 +241,16 @@ fi:
       email_in_use_message: "%{service_name_inessive} on jo tunnus tällä sähköpostiosoitteella. Jos sinulla on jo tunnus voit kirjautua sisään ylempänä olevasta linkistä. "
       invalid_email_ending_message: "Osoite vaikuttaa henkilökohtaiselta sähköpostilta. Sinun täytyy kirjautua %{community_category}sähköpostiosoitteella"
       log_in_here: "kirjaudu sisään tästä"
+      existing_community_with_this_email: "Tälle %{community_category} on jo perustettu Sharetribe-yhteisö. Voit liittyä yhteisöön %{link}."
+      here: tästä
+      for_company: yritykselle
+      for_university: yliopistolle
+      for_town: kaupungille
+      for_congregation: seurakunnalle
+      for_association: yhdistykselle
+      for_neighborhood: kaupunginosalle
+      for_apartment_building: taloyhtiölle
+      for_other: taholle
   community_memberships:
     new:
       join_community: "Liittyminen yhteisöön '%{community}'"
@@ -274,11 +285,11 @@ fi:
       thanks_for_contacting_us: "Kiitos yhteydenotosta! Lähetämme sinulle mahdollisimman pian tietoa siitä, kuinka voit luoda oman %{service_name}-yhteisön."
       resources: RESURSSIT
       connect: YHTEYS
-      blog: Blogi
-      code: "Lähdekoodi"
       about: TIETOA
       developers: KEHITTÄJILLE
       api: API
+      blog: Blogi
+      code: Lähdekoodi
       issue_tracker: Tehtävänhallinta
       product_of: "%{service_name_partitive} tekee"
       language: "Kieli:"
@@ -432,7 +443,6 @@ fi:
       has_accepted_sell_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_buy_item: "%{offerer_name} myi tavaran %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_trade_item: "%{offerer_name} vaihtoi tavaran %{listing_title} käyttäjän %{requester_name} kanssa %{time_ago}."
-      has_accepted_temporary_accommodation_housing: " %{offerer_name} tarjosi tilapäismajoituksen %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_sell_housing: "%{offerer_name} myi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_buy_housing: "%{offerer_name} myi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
       has_accepted_rent_out_housing: "%{offerer_name} vuokrasi tilan %{listing_title} käyttäjälle %{requester_name} %{time_ago}."
@@ -465,7 +475,7 @@ fi:
       add_first: "Lisää ensimmäinen!"
       but_that_is_visible_only_to_registered_members: "mutta se on näkyvissä vain kirjautuneille käyttäjille."
       but_those_are_visible_only_to_registered_members: "mutta ne näkyvät vain kirjautuneille käyttäjille."
-      create_new_account_for_yourself: "Luo tunnus itsellesi"
+      create_new_account_for_yourself: "Luo itsellesi tili"
       examples_of_what_you_could_offer_to_others: "Esimerkkejä siitä mitä voisit tarjota muille"
       examples_of_what_you_could_request_to_others: "Esimerkkejä siitä mitä voisit pyytää muilta"
       favor_offer_list: "tietokoneapu, vaatteiden kunnostus, leivonta, pyörän huolto"
@@ -533,8 +543,9 @@ fi:
       you_have_not_added_your_info: "Et ole lisännyt %{service_name_illative} yhteystietojasi. Lisää tietosi, niin muiden on helpompi ottaa sinuun yhteyttä. Muista myös lisätä itsestäsi kuva, niin muiden on helpompi luottaa sinuun."
       add_your_info_link: "Lisää tietosi %{service_name_illative}"
     recent_listing:
-      comment: "kommentti"
-      comments: "kommenttia"
+      please_offer: Tarjoa
+      comment: kommentti
+      comments: kommenttia
     sign_in:
       recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
       recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
@@ -620,7 +631,6 @@ fi:
       feedback_saved: "Kiitos palautteestasi!"
       feedback_sent_to: "Palaute lähetetty käyttäjälle"
       feedback_skipped: "Palaute ohitettu"
-      message_sent: "Viesti lähetetty"
       invitation_cannot_be_sent: "Kutsua ei voitu lähettää"
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
@@ -661,6 +671,7 @@ fi:
       request_created_successfully: "Pyyntö tallennettu."
       request_rejected: "Pyyntö hylätty"
       request_updated_successfully: "Pyyntö päivitetty onnistuneesti"
+      message_sent: "Viesti lähetetty"
       this_content_is_not_available_in_this_community: "Pyytämääsi sivua ei löydy tästä %{service_name}-yhteisöstä."
       unknown_error: "Tuntematon virhe. Voit auttaa selvittämisessä lähettämällä palautetta siitä mitä tapahtui."
       update_error: "Tietojen päivitys ei onnistunut, yritä uudelleen hetken kuluttua"
@@ -705,7 +716,7 @@ fi:
     bubble_listing_not_visible:
       listing_not_visible: "Sinulla ei ole oikeuksia nähdä tätä ilmoitusta."
     comment:
-      wrote: "kirjoitti"
+      wrote: kirjoitti
       send_private_message: "Lähetä yksityisviesti käyttäjälle %{person}"
     comment_form:
       log_in: "kirjautua sisään"
@@ -779,7 +790,6 @@ fi:
         request_type: Pyyntötapa
         sell: Myydään
         share_for_free: "Tarjotaan käyttöön ilmaiseksi"
-        temporary_accommodation: Tilapäismajoitus
         trade: Vaihdetaan
       tag_list:
         comma_separate: "(erota pilkulla)"
@@ -838,13 +848,12 @@ fi:
       rideshares: Kimppakyydit
       sells: Myydään
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
-      temporary_accommodations: Tilapäismajoitus
       trades: Vaihdetaan
     link_labels:
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_favor_request: "Tarjoa apuasi"
-      link_label_for_housing_offer_sell: "Osta"
-      link_label_for_housing_offer_rent_out: "Vuokraa"
+      link_label_for_housing_offer_sell: Osta
+      link_label_for_housing_offer_rent_out: Vuokraa
       link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
       link_label_for_housing_request_buy: "Myy pyydetty tila"
       link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
@@ -894,13 +903,13 @@ fi:
       contact_by_phone: "Puhelinnumero:"
       favor_offer: Palvelustarjous
       favor_request: Palveluspyyntö
-      feedback: "Palaute:"
       item_offer_trade: "Annetaan vaihtoon"
       item_request_trade: "Halutaan vaihdossa"
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja
       offer_created: "Tarjous lisätty"
+      feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
       request_author: Pyytäjä
@@ -1104,7 +1113,7 @@ fi:
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
       received_feedback: "Saatu palaute:"
-      positive: "positiivista"
+      positive: positiivista
       hide_description: "Vähemmän tekstiä"
       joined_this_community: "...liittyi tähän yhteisöön %{time_ago}"
       was_last_seen: "...oli viimeksi aktiivinen %{time_ago}"
@@ -1136,12 +1145,14 @@ fi:
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään %{service_name_illative}"
       connect_your_facebook_to_kassi: "Yhdistä Facebook tili %{service_name_illative}"
-      facebook_account: "Facebook tili:"
+      facebook_account: "Facebook-tilisi:"
       log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
       you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
       cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
       facebook_cancel_link_text: "voit perua yhdistämisen"
+      log_in_with_your_facebook_account: "Kirjaudu Facebook-tunnuksellasi:"
+      or_sign_up_with_your_username: "...tai sitten käyttäjätunnuksellasi ja salasanallasi:"
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
@@ -1238,12 +1249,13 @@ fi:
       as_expected: "Vastasi odotuksia"
       exceeded_expectations: "Ylitti täysin odotukset"
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
-      grade: "Yleisarvio kokemuksesta"
+      grade: "Yleisarvosana kokemuksesta"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       send_feedback: "Lähetä palaute"
       slightly_better_than_expected: "Ylitti osin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      textual_feedback: Perustelut
+      textual_feedback: "Miten tapahtuma sujui"
+      this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
     testimonial:
       from_user: käyttäjältä
       to_user: käyttäjälle
