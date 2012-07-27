@@ -77,7 +77,8 @@
 
   #listing_right_panel.grid_6.omega
     #listing_share_links
-      = facebook_like(current_user?(@listing.author))
+      - if @listing.public? && ! @current_community.private?
+        = facebook_like(current_user?(@listing.author))
       = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe", "data-related" => "avoinyritys:Our company blog.")
       %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}    
       - if @current_community.settings["use_qr_code"]
