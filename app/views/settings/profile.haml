@@ -45,7 +45,7 @@
         = t('.visible_to_registered_users')
     .form_field_container  
       = form.label :description, t(".about_you"), :class => "input"
-      = form.text_area :description
+      = form.text_area :description, :class => "update_profile_description_text_area"
     .form_field_container
       = form.fields_for :location do |loc|
         = loc.hidden_field :address, :value => @person.location.address

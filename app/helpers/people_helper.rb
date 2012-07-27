@@ -83,4 +83,13 @@ module PeopleHelper
     # Make the string URL safe by changing some characters
     encrypted_email = Base64.encode64(tcpublickey.public_encrypt(email)).tr('+/=', '-_~')
   end
+  
+  # Returns the error message for a case where
+  # the user is trying to create a new email-restricted tribe
+  # but there's already a community with the
+  # email provided.
+  def restricted_tribe_already_exists_error_message(existing_community)
+    t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), get_url_for(existing_community))).html_safe 
+  end
+  
 end

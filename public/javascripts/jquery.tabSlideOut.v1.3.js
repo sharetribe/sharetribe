@@ -141,7 +141,7 @@
             } else if (settings.tabLocation === 'bottom') {
                 obj.animate({bottom: '-' + properties.containerHeight}, settings.speed).removeClass('open');
             }    
-            
+
         };
         
         var slideOut = function() {
@@ -155,6 +155,7 @@
             } else if (settings.tabLocation == 'bottom') {
                 obj.animate({bottom:'-3px'},  settings.speed).addClass('open');
             }
+            
         };
 
         var clickScreenToClose = function() {

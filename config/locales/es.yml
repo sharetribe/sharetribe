@@ -119,7 +119,7 @@ es:
         see_all_your_badges: "Revisa todas tus medallas"
         you_have_earned_badge: "¡Has ganado una medalla!"
       comment_to_followed_listing_notification:
-        has_commented: "ha comentado"
+        has_commented: "%{author} ha comentado"
         offer_you_follow: "una oferta que sigues"
         request_you_follow: "una solicitud que sigues"
       listing_updated_notification:
@@ -127,7 +127,7 @@ es:
         offer_you_follow: "Una oferta que sigues"
         request_you_follow: "una solicitud que sigues"
       comment_to_own_listing_notification:
-        has_commented: "ha comentado"
+        has_commented: "%{author} ha comentado"
         your_offer: "Su oferta"
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
@@ -244,6 +244,16 @@ es:
       email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
       invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
       log_in_here: "inicia sesión aquí"
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: "Únete a la comunidad de '%{community}'"
@@ -1146,6 +1156,8 @@ es:
       account_creation_link_text: "haz clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -1248,6 +1260,7 @@ es:
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
       textual_feedback: "Sugerencia textual"
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: Desde
       to_user: a

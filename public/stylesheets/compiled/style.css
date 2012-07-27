@@ -316,7 +316,7 @@ form, input {
     background: #a33f05; }
 
 .facebook_connect {
-  margin-right: 4px; }
+  margin: 1px 0 0 0; }
 
 #top_spacer {
   height: 20px; }
@@ -476,7 +476,7 @@ form, input {
     .homepage_sidebar_box #invitation_form textarea, .homepage_sidebar_box #poll_form textarea {
       margin: 2px 0 5px 0;
       width: 185px;
-      height: 40px;
+      height: 60px;
       border: 0;
       padding: 7px; }
     .homepage_sidebar_box #invitation_form input.send_button, .homepage_sidebar_box #poll_form input.send_button {
@@ -1107,7 +1107,7 @@ span.not_visible {
     width: 373px;
     font-size: 12px;
     height: 100px;
-    padding: 12px 10px 5px 15px; }
+    padding: 10px; }
     #new_listing_form_main textarea:focus {
       background: white; }
   #new_listing_form_main img {
@@ -1317,8 +1317,18 @@ div.checkbox_float {
       background-color: #9f7d4e; }
     #login_form input.send_button_terms:focus, #new_message_form input.send_button_terms:focus, #signup_form input.send_button_terms:focus {
       background-color: #9f7d4e; }
+  #login_form .facebook_login_container, #new_message_form .facebook_login_container, #signup_form .facebook_login_container {
+    overflow: hidden; }
+  #login_form .facebook_login_label, #new_message_form .facebook_login_label, #signup_form .facebook_login_label {
+    float: left;
+    width: 210px;
+    padding-top: 1px; }
+  #login_form .normal_login_label, #new_message_form .normal_login_label, #signup_form .normal_login_label {
+    margin: 20px 0; }
   #login_form img.facebook_login, #new_message_form img.facebook_login, #signup_form img.facebook_login {
-    margin: 23px 0 0 10px; }
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
     font-size: 14px;
@@ -1354,7 +1364,7 @@ div.checkbox_float {
     color: #464646;
     background: #f7f5e6;
     font-size: 12px;
-    height: 50px;
+    height: 80px;
     padding: 9px 9px;
     border: 0; }
     #login_form textarea:focus, #new_message_form textarea:focus, #signup_form textarea:focus {
@@ -2163,7 +2173,7 @@ div.listing_author_feedback_percentage {
     color: #464646;
     background: white;
     font-size: 12px;
-    height: 70px;
+    height: 80px;
     padding: 9px 9px;
     border: 2px solid #765d3a; }
   #reply_form input.send_button {
@@ -2206,7 +2216,7 @@ div.listing_author_feedback_percentage {
     color: #464646;
     background: white;
     font-size: 12px;
-    height: 70px;
+    height: 80px;
     padding: 9px 9px;
     border: 2px solid #765d3a; }
   #comment_form input.send_button {
@@ -2333,7 +2343,7 @@ div.listing_author_feedback_percentage {
     color: #464646;
     background: #f7f5e6;
     font-size: 12px;
-    height: 50px;
+    height: 80px;
     padding: 9px 9px;
     border: 0; }
     #new_testimonial_form textarea:focus {
@@ -2357,9 +2367,9 @@ div.listing_author_feedback_percentage {
     background: red url("/images/error_arrow.png") no-repeat top left;
     color: white;
     width: 298px;
-    margin-left: 10px;
+    margin: 5px 0 10px 10px;
     line-height: 18px;
-    padding-bottom: 10px; }
+    padding-bottom: 5px; }
 
 .grade_link_wrapper {
   overflow: hidden;
@@ -2659,7 +2669,7 @@ div.listing_author_feedback_percentage {
     width: 293px;
     font-size: 14px;
     height: 100px;
-    padding: 12px 10px 5px 15px;
+    padding: 10px;
     float: left; }
     #person_settings_form textarea:focus {
       background: white; }
@@ -3539,7 +3549,7 @@ a.handle:hover {
   padding-top: 10px; }
 
 #listing_share_links {
-  overflow: hidden;
+  overflow: visible;
   margin: 10px 0 22px 10px; }
 
 #inactive_notification_box {

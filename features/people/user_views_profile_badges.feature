@@ -48,6 +48,7 @@ Feature: User views profile badges
     And I follow "Sent"
     And I follow "Give feedback"
     And I follow "As expected"
+    And I fill in "How did things go:" with "Everything went ok."
     And I press "send_testimonial_button"
     And the system processes jobs
     And I follow "Logout"

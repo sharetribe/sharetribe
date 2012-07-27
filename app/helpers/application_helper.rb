@@ -164,16 +164,8 @@ module ApplicationHelper
     ["", "www","dashboardtranslate"].include?(request.subdomain)
   end
   
-  def facebook_like
-    
-    loc = case I18n.locale
-      when :en then "en_US"
-      when :ca then "ca_ES"
-      when :"es-ES" then "es_ES"    
-      else "#{I18n.locale}_#{I18n.locale.to_s.upcase}"
-    end
-    
-    content_tag :iframe, nil, :src => "https://www.facebook.com/plugins/like.php?locale=#{loc}&href=#{CGI::escape(request.url)}&layout=button_count&show_faces=false&width=150&action=recommend&font=arial&colorscheme=light&height=20", :scrolling => 'no', :frameborder => '0', :allowtransparency => true, :id => :facebook_like, :width => 140, :height => 25, :style => "float: left;"
+  def facebook_like    
+    "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\"></div>".html_safe
   end
   
   def self.use_asi?
@@ -290,6 +282,14 @@ module ApplicationHelper
   # if tribe has no location.
   def tribe_longitude
     @current_community.location ? @current_community.location.longitude : "undefined"
+  end
+  
+  def community_email_restricted?
+    ["university", "company"].include? session[:community_category]
+  end
+  
+  def get_url_for(community)
+    "http://#{community.domain}.#{request.domain}/#{I18n.locale}"
   end
   
 end

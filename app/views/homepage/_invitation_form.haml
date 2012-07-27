@@ -1,3 +1,4 @@
+
 - content_for :extra_javascript do
   :javascript
     $(document).ready(function() { initialize_invitation_form("#{I18n.locale}", "#{Rails.env}"); })
@@ -13,7 +14,7 @@
       .form_field_container.label_container
         = f.label :message, t(".message")
       .form_field_container  
-        = f.text_area :message
+        = f.text_area :message, :class => "invitation_message_text"
       .form_field_container.label_container
         = f.hidden_field :community_id, :value => @current_community.id.to_s
         = f.hidden_field :inviter_id, :value => @current_user.id

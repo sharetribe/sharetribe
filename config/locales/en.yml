@@ -241,6 +241,16 @@ en:
       email_in_use_message: "There is already an account in %{service_name} with this email address. If you already have an account, you can log in using the link above."
       invalid_email_ending_message: "This looks like a personal email. You need to sign up with your %{community_category} email."
       log_in_here: "log in here"
+      existing_community_with_this_email: "There already exists a tribe for this %{community_category}. You can join the tribe %{link}."
+      here: "here"
+      for_company: company
+      for_university: university
+      for_town: town
+      for_congregation: congregation
+      for_association: association
+      for_neighborhood: neighborhood
+      for_apartment_building: "apartment building"
+      for_other: other
   community_memberships:
     new:
       join_community: "Join community '%{community}'"
@@ -1141,6 +1151,8 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
+      log_in_with_your_facebook_account: "Log in with your Facebook account:"
+      or_sign_up_with_your_username: "...or with your username and password:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
@@ -1237,12 +1249,13 @@ en:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       give_feedback_to: "Give feedback to %{person}"
-      grade: "Assessment of experience"
+      grade: "Rate the experience"
       less_than_expected: "Worse than expected"
       send_feedback: "Send feedback"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
-      textual_feedback: "Textual feedback"
+      textual_feedback: "How did things go"
+      this_will_be_shown_in_profile: "The feedback you give will be visible to other users in the profile page of %{person}. It helps other members of this tribe to evaluate whether %{person} is a trustworthy person."
     testimonial:
       from_user: from
       to_user: to

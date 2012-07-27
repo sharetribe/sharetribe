@@ -9,7 +9,7 @@
       = form.text_field :title, :class => "text_field", :maxlength => "200"
     .form_field_container
       = form.label :content, t('.content'), :class => "input"
-      = form.text_area :content, :maxlength => "5000"
+      = form.text_area :content, :maxlength => "5000", :class => "new_news_item_text_area"
     .new_listing_form_field_container
       = form.hidden_field(:author_id, :value => @current_user.id)
       = form.hidden_field(:community_id, :value => @current_community.id)
