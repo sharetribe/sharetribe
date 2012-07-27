@@ -1328,7 +1328,7 @@ div.checkbox_float {
   #login_form img.facebook_login, #new_message_form img.facebook_login, #signup_form img.facebook_login {
     float: right;
     margin-left: 10px;
-    width: 120px; }
+    margin-right: 10px; }
   #login_form label, #new_message_form label, #signup_form label {
     margin: 10px;
     font-size: 14px;
@@ -3549,7 +3549,7 @@ a.handle:hover {
   padding-top: 10px; }
 
 #listing_share_links {
-  overflow: hidden;
+  overflow: visible;
   margin: 10px 0 22px 10px; }
 
 #inactive_notification_box {
