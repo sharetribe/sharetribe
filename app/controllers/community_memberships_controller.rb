@@ -71,6 +71,7 @@ class CommunityMembershipsController < ApplicationController
       redirect_to root 
     else
       flash[:error] = "joining_community_failed"
+      logger.info { "Joining a community failed, because: #{@community_membership.errors.full_messages}" }
       render :action => :new
     end
   end

@@ -241,6 +241,16 @@ ru:
       email_in_use_message: "Учётная запись с этим адресом электронной почты уже существует в %{service_name} . Если у вас уже есть аккаунт, вы можете войти с его помощью по ссылке выше."
       invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
       log_in_here: войти
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: "Присоединяйтесь к сообществу '%{community}'"
@@ -1141,6 +1151,8 @@ ru:
       account_creation_link_text: "нажмите здесь"
       cancle_facebook_connect: "Если вы не хотите привязывать эту учётную запись, вы можете %{cancel_link}."
       facebook_cancel_link_text: "отменить это действие"
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
@@ -1243,6 +1255,7 @@ ru:
       slightly_better_than_expected: "Лучше, чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       textual_feedback: "Текст отзыва"
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: от
       to_user: для

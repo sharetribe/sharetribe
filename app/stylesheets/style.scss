@@ -1092,7 +1092,7 @@ div.checkbox_float {
 	img.facebook_login {
 	  float: right;
 	  margin-left: 10px;
-	  width: 120px;
+	  margin-right: 10px;
 	}
 	label {
 		margin: 10px;
@@ -2980,7 +2980,7 @@ a.handle {
 }
 
 #listing_share_links {
-  overflow: hidden;
+  overflow: visible;
   margin: 10px 0 22px 10px;
 }
 
