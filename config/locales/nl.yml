@@ -241,6 +241,16 @@ nl:
       email_in_use_message: ~
       invalid_email_ending_message: ~
       log_in_here: ~
+      existing_community_with_this_email: ~
+      here: ~
+      for_company: ~
+      for_university: ~
+      for_town: ~
+      for_congregation: ~
+      for_association: ~
+      for_neighborhood: ~
+      for_apartment_building: ~
+      for_other: ~
   community_memberships:
     new:
       join_community: ~
@@ -1141,6 +1151,8 @@ nl:
       account_creation_link_text: ~
       cancle_facebook_connect: ~
       facebook_cancel_link_text: ~
+      log_in_with_your_facebook_account: ~
+      or_sign_up_with_your_username: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Geef je email adres en je ontvangt instructies hoe je je wachtwoord kunt veranderen."
@@ -1243,6 +1255,7 @@ nl:
       slightly_better_than_expected: "Iets beter dan verwacht"
       slightly_less_than_expected: "Iets Minder dan verwacht"
       textual_feedback: "Op- of aanmerkingen"
+      this_will_be_shown_in_profile: ~
     testimonial:
       from_user: van
       to_user: naar
