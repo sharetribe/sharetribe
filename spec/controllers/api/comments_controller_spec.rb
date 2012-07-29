@@ -26,10 +26,10 @@ describe Api::CommentsController do
                         :format => :json
         response.status.should == 201  
         @l1.comments.count.should == comments_count + 1
-        
+        #puts response.body
         resp = JSON.parse(response.body)
         resp["listing_id"].should == @l1.id
-        resp["author_id"].should == @p1.id
+        resp["author"]["id"].should == @p1.id
         resp["content"].should == "This listing is absolutely hilarious"
       end
       
