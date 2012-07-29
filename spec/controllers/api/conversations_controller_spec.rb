@@ -73,8 +73,8 @@ describe Api::ConversationsController do
         resp["messages"][0]["content"].should == "This will be the first message of the conversation"
         resp["messages"][0]["sender_id"].should == @p1.id
         resp["status"].should == "pending"
-        resp["participations"][0]["person_id"].should == @p1.id
-        resp["participations"][1]["person_id"].should == @p2.id
+        resp["participations"][0]["person"]["id"].should == @p1.id
+        resp["participations"][1]["person"]["id"].should == @p2.id
       end
     end
     
@@ -95,8 +95,8 @@ describe Api::ConversationsController do
         resp["messages"][2]["content"].should == "I'd like to continue this topic"
         resp["messages"][2]["sender_id"].should == @p1.id
         resp["status"].should == "pending"
-        resp["participations"][0]["person_id"].should == @p1.id
-        resp["participations"][1]["person_id"].should == @p2.id
+        resp["participations"][0]["person"]["id"].should == @p1.id
+        resp["participations"][1]["person"]["id"].should == @p2.id
       end
     end
 

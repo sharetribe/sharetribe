@@ -4,5 +4,8 @@ child :messages do
   attributes :content, :sender_id, :created_at
 end
 child :participations do
-  attributes :person_id, :is_read, :last_sent_at, :last_received_at, :feedback_skipped
+  attributes :is_read, :last_sent_at, :last_received_at, :feedback_skipped
+  child :person do 
+    extends "api/people/small_info"
+  end
 end

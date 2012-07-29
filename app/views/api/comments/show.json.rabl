@@ -1,2 +1,6 @@
 object @comment
-attributes :content, :author_id, :created_at
+attributes :content, :created_at
+
+child :author => :author do 
+  extends "api/people/small_info"
+end
