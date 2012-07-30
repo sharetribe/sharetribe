@@ -126,3 +126,9 @@ Factory.define :news_item do |n|
   n.content "More information about this amazing event."
   n.author { |author| author.association(:person) }
 end  
+
+Factory.define :device do |d|
+  d.device_type "iPhone"
+  d.device_token "LSIDFSLDJIOGSSCSBEUS52349583"
+  d.person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+end
