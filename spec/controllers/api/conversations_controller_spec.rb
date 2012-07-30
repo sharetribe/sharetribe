@@ -30,6 +30,7 @@ describe Api::ConversationsController do
         get :index, :person_id => @p1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
+        #puts response.body
         #puts resp.to_yaml
         resp["conversations"].count.should == 1
         resp["conversations"][0]["last_message"].should_not be_nil

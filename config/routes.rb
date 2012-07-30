@@ -72,7 +72,7 @@ Kassi::Application.routes.draw do
           post :messages, :controller => :conversations, :action => "new_message"
         end
       end
-      
+      resources :devices
     end
 
     match '/' => 'dashboard#api'    
