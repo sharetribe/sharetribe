@@ -30,8 +30,9 @@ describe Api::ConversationsController do
         get :index, :person_id => @p1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        #puts response.body
-        #resp["conversations"].count.should == 3
+        #puts resp.to_yaml
+        resp["conversations"].count.should == 1
+        resp["conversations"][0]["last_message"].should_not be_nil
         resp["page"].should == 1
         resp["per_page"].should == 50
       end
@@ -44,8 +45,9 @@ describe Api::ConversationsController do
         get :show, :person_id => @p1.id, :id => @con1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
+        
         #puts response.body
-        # puts resp.to_yaml
+        #puts resp.to_yaml
         resp["messages"].count.should == 2
         resp["messages"][0]["content"].should == "Let's talk"
         resp["messages"][1]["content"].should == "Ok! You start."
@@ -73,8 +75,9 @@ describe Api::ConversationsController do
         resp["messages"][0]["content"].should == "This will be the first message of the conversation"
         resp["messages"][0]["sender_id"].should == @p1.id
         resp["status"].should == "pending"
-        resp["participations"][0]["person"]["id"].should == @p1.id
-        resp["participations"][1]["person"]["id"].should == @p2.id
+        [@p1.id, @p2.id].should include(resp["participations"][0]["person"]["id"])
+        [@p1.id, @p2.id].should include(resp["participations"][1]["person"]["id"])
+        resp["participations"][1]["person"]["id"].should_not == resp["participations"][0]["person"]["id"]
       end
     end
     
