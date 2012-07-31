@@ -38,7 +38,37 @@ class Api::ListingsController < Api::ApiController
   end
 
   def create
-    @listing = Listing.new(params.slice("title", "description", "category", "share_type", "listing_type", "visibility").merge({"author_id" => current_person.id, "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
+    
+    # Set locations correctly if provided in params
+    if params["latitude"] || params["address"]
+      params.merge!({"origin_loc_attributes" => {"latitude" => params["latitude"], 
+                                                 "longitude" => params["longitude"], 
+                                                 "address" => params["address"], 
+                                                 "google_address" => params["address"], 
+                                                 "location_type" => "origin_loc"}})
+      
+      if params["destination_latitude"] || params["destination_address"]
+        params.merge!({"destination_loc_attributes" => {"latitude" => params["destination_latitude"], 
+                                                        "longitude" => params["destination_longitude"], 
+                                                        "address" => params["destination_address"], 
+                                                        "google_address" => params["destination_address"], 
+                                                        "location_type" => "destination_loc"}})
+      end
+    end
+    
+    
+    @listing = Listing.new(params.slice("title", 
+                                        "description", 
+                                        "category", 
+                                        "share_type", 
+                                        "listing_type", 
+                                        "visibility",
+                                        "origin",
+                                        "destination",
+                                        "origin_loc_attributes",
+                                        "destination_loc_attributes"
+                                        ).merge({"author_id" => current_person.id, 
+                                                 "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
     @community = Community.find(params["community_id"])
     if @community.nil?

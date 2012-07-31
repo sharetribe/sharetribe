@@ -179,6 +179,66 @@ describe Api::ListingsController do
         resp["image_urls"][0].should  match /Australian_painted_lady.jpg/
         
       end
+      
+      describe "locations" do
+        
+     
+        it "supports setting locations by coordinates" do
+          request.env['Sharetribe-API-Token'] = @p1.authentication_token
+          post :create, :title => "hammer", 
+                        :description => "well located hammer", 
+                        :listing_type => "offer",
+                        :category => "item",
+                        :share_type => "sell",
+                        :visibility => "everybody",
+                        :community_id => @c1.id,
+                        :latitude => "60.2426",
+                        :longitude => "25.0475",
+                        #:address => "helsinki",
+                        :format => :json
+        
+          resp = JSON.parse(response.body)
+          #puts resp.to_yaml
+          response.status.should == 201
+          # puts Location.last.to_yaml
+          # puts Location.count
+          Location.count.should == 1
+          Listing.last.origin_loc.latitude.should == 60.2426
+        end
+      
+        it "supports setting also destination location for rideshare listings" do
+          request.env['Sharetribe-API-Token'] = @p1.authentication_token
+          post :create, :title => "Ride in Finland", 
+                        :description => "Join the road trip", 
+                        :listing_type => "offer",
+                        :category => "rideshare",
+                        :visibility => "this_community",
+                        :community_id => @c1.id,
+                        :latitude => "62.2426",
+                        :longitude => "25.7475",
+                        :destination_latitude => "61.2426",
+                        :destination_longitude => "26.7475",
+                        :destination  => "office",
+                        :address => "helsinki",
+                        :origin => "Home",
+                        :format => :json
+        
+          resp = JSON.parse(response.body)
+          #puts resp.to_yaml
+          response.status.should == 201
+          #puts Location.last.to_yaml
+          Location.count.should == 2
+          #puts "hox #{Listing.last.inspect}"
+          Listing.last.origin_loc.latitude.should == 62.2426
+          Listing.last.destination_loc.longitude.should == 26.7475
+          Listing.last.destination.should == "office"
+          Listing.last.origin_loc.address.should == "helsinki"
+        end
+        
+        it "supports setting locations by address only" do
+          
+        end
+      end
     end
   end
 end

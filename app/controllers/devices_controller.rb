@@ -30,7 +30,6 @@ class Api::DevicesController < Api::ApiController
     
     @device = Device.new(params.slice("device_type", "device_token", "person_id"))
     if @device.save
-      puts Device.all.inspect
       response.status = 201 
       respond_with(@device)
     else
