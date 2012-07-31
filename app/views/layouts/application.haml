@@ -10,10 +10,10 @@
       - else
         = "- #{@current_community.name}"
     - if @listing && action_name.eql?("show")
-      - fb_image = @listing.listing_images.empty? ? "images/sharetribe_logo.png" : @listing.listing_images.first.image.url(:medium)
+      - fb_image = @listing.listing_images.empty? ? "images/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
       %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
       %meta{ :property => "og:type", :content =>"website"}
-      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}/listings/#{@listing.id.to_s}"}   
+      %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   
       %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
       %meta{ :property => "og:site_name", :content =>"#{service_name}: "}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
@@ -21,8 +21,8 @@
     - else
       %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
       %meta{ :property => "og:type", :content =>"website"}
-      %meta{ :property => "og:url", :content =>"http://#{@current_community.domain}.#{request.domain}"} 
-      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/sharetribe_logo.png"}
+      %meta{ :property => "og:url", :content =>"#{request.protocol}#{@current_community.domain}.#{request.domain}"} 
+      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/sharetribe_icon.png"}
       %meta{ :property => "og:site_name", :content =>"#{service_name}"}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
       %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
