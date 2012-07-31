@@ -7,8 +7,8 @@
       = t(".title")
 
     %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"http://#{request.host}"} 
-    %meta{ :property => "og:image", :content => "http://#{request.host}/images/sharetribe_logo.png"}
+    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host}"} 
+    %meta{ :property => "og:image", :content => "http://#{request.host}/images/sharetribe_icon.png"}
     %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
     %meta{ :property => "og:description", :content => t("layouts.application.meta_description")}

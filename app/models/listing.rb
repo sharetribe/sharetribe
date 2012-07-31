@@ -156,6 +156,10 @@ class Listing < ActiveRecord::Base
     end
   end
   
+  def public?
+    self.visibility.eql?("everybody")
+  end
+  
   # Get only  listings that are private to current community (or to many communities including current)
   def self.private_to_community(community)
     where("

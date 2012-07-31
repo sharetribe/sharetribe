@@ -164,8 +164,8 @@ module ApplicationHelper
     ["", "www","dashboardtranslate"].include?(request.subdomain)
   end
   
-  def facebook_like    
-    "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\"></div>".html_safe
+  def facebook_like(recommend=false)
+    "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
   end
   
   def self.use_asi?
