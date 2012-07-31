@@ -71,7 +71,7 @@ module ApplicationHelper
     if use_asi?    
       link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 70, :height => 70), person
     else
-      link_to((image_tag person.image.url(:medium), :width => 70, :height => 70), person)
+      link_to((image_tag person.image.url(:thumb), :width => 70, :height => 70), person)
     end
   end
   
