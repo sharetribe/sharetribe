@@ -1361,6 +1361,7 @@ a.edit_profile {
 	overflow: hidden;
 	margin-top: 12px;
 	a { font-weight: normal; }
+	background: white;
 }
 
 #listing_author_image {
@@ -1372,7 +1373,7 @@ a.edit_profile {
 
 .listing_author_add_profile_picture_link {
   width: 40px;
-  height: 56px;
+  min-height: 56px;
   padding: 6px 15px 8px 15px;
   a { 
     color: white;
@@ -1386,7 +1387,7 @@ a.edit_profile {
   float: left;
 	padding: 10px 10px 10px 0;
 	background: white;
-	height: 70px;
+	min-height: 70px;
 	width: $width;
 	line-height: 18px;
 	a { font-weight: bold; }
@@ -1400,7 +1401,7 @@ a.edit_profile {
   color: white;
   font-size: 12px;
   padding: 9px 10px 11px 12px;
-  height: 70px;
+  min-height: 72px;
   line-height: 20px;
   float: right;
   width: 100px;
