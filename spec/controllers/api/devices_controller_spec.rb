@@ -13,9 +13,9 @@ describe Api::DevicesController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       get :index, :person_id => @p1.id, :format => :json
       response.status.should == 200
-      puts response.body
+      #puts response.body
       resp = JSON.parse(response.body)
-      puts resp.to_yaml
+      #puts resp.to_yaml
       resp[0]["device_type"].should == "iPhone"
       resp[0]["device_token"].should == "LSIDFSLDJIOGSSCSBEUS52349583"
     end
@@ -27,10 +27,10 @@ describe Api::DevicesController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       @p1.devices.count.should == 0
       post :create, :person_id => @p1.id, :device_type => "iPad", :device_token => "738SDK2FFKD29D", :format => :json
-      puts response.body
+      #puts response.body
       resp = JSON.parse(response.body)
       response.status.should == 201
-      puts resp.to_yaml
+      #puts resp.to_yaml
       resp["device_type"].should == "iPad"
       resp["device_token"].should == "738SDK2FFKD29D"
       
