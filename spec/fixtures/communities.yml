@@ -5,7 +5,10 @@ test_community:
   consent: "test_consent0.1"
   settings: <%= {
      "locales" => ["en", "fi"],
-     "asi_welcome_mail" => true}.to_yaml.inspect %>
+     "asi_welcome_mail" => true,
+     "use_facebook_login" => true
+     }.to_yaml.inspect %>
+
   real_name_required: 1
   news_enabled: false
   all_users_can_add_news: false
