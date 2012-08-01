@@ -4,6 +4,7 @@ class Api::ConversationsController < Api::ApiController
   before_filter :authenticate_person!
   
   # TODO add same filters as in the normal conversations controller
+  # so that people can only see their own conversations and post to those, and not start conversation with themselves etc.
   
   def index
     @page = params["page"] || 1

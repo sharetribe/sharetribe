@@ -1,8 +1,11 @@
 class Api::ListingsController < Api::ApiController
 
   before_filter :authenticate_person!, :except => [:index, :show]
-  # TODO limit visibility of listings based on the visibility rules
+  # TODO limit visibility of listings in index method based on the visibility rules
   # It requires to authenticate the user but also allow unauthenticated access to above methods
+  
+  # TODO: limit the visibility of one listing. The below doesn't work yet as the param name is different in this case (only id)
+  #before_filter :ensure_authorized_to_view_listing, :only => [:show]
   
   def index
     @page = params["page"] || 1

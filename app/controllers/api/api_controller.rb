@@ -8,6 +8,8 @@ class Api::ApiController < ApplicationController
   
   prepend_before_filter :get_api_key
   before_filter :ensure_api_enabled, :set_correct_mime_type
+  before_filter :set_current_community_if_given, :set_current_user_if_authorized_request
+
     
   respond_to :json
     
@@ -44,6 +46,44 @@ class Api::ApiController < ApplicationController
       params[:api_token] = api_token
     end
   end
+  
+  # Ensure that only users with appropriate visibility settings can view the listing
+  def ensure_authorized_to_view_listing
+    @listing = Listing.find_by_id(params[:listing_id])
+    if @listing.nil?
+      response.status = 404
+      render :json => ["No listing found with given id"] and return
+    end
+    
+    unless @listing.visible_to?(@current_user, @current_community)
+      if @listing.visibility.eql?("everybody")
+        # This situation occurs when the user tries to access a listing
+        # with a different community_id .
+        response.status = 400
+        render :json => ["This listing is not visible in given community."] and return
+      elsif @current_user
+        response.status = 403
+        render :json => ["The user doesn't have a permission to see this listing"] and return
+      else
+        response.status = 401
+        render :json => ["This listing is not visible to unregistered users."] and return
+      end
+    end
+  end
 
+  def set_current_community_if_given
+    if params["community_id"]
+      @current_community = Community.find_by_id(params["community_id"])
+      if @current_community.nil? 
+        response.status = 404
+        render :json => ["No community found with given id"] and return
+      end
+    end
+  end
+  
+  def set_current_user_if_authorized_request
+    # Devise gives us the current_person automatically if valid api_token provided
+    @current_user = current_person
+  end
   
 end
