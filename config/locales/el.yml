@@ -64,7 +64,7 @@ el:
       rent_out: εκμίσθωση
       sell: πώληση
       trade: ανταλλαγή
-      share_for_free: ~
+      share_for_free: φιλοξενία
     username: "Όνομα χρήστη"
     what_is_this: "Τι είναι αυτό;"
   conversations:
@@ -434,27 +434,27 @@ el:
     your_email_address: "Η ηλεκτρονική σου διεύθυνση"
   event_feed_events:
     accept:
-      has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_borrow_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_rent_out_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_rent_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_give_away_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_receive_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_sell_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_buy_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_trade_item: "Ο/Η %{offerer_name} συμφώνησε να ανταλλάξει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_sell_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_buy_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_rent_out_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_rent_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει τη βοήθεια %{listing_title} στον/στην %{requester_name} πριν από %{time_ago}."
-      has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} πριν από %{time_ago}."
+      has_accepted_lend_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_borrow_item: "Ο/Η %{offerer_name} συμφώνησε να δανείσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_rent_out_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_rent_item: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_give_away_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_receive_item: "Ο/Η %{offerer_name} συμφώνησε να δώσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_sell_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "Ο/Η %{offerer_name} συμφώνησε να ανταλλάξει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "Ο/Η %{offerer_name} συμφώνησε να πουλήσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_rent_housing: "Ο/Η %{offerer_name} συμφώνησε να νοικιάσει το %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_favor: "Ο/Η %{offerer_name} συμφώνησε να προσφέρει τη βοήθεια %{listing_title} στον/στην %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "Ο/Η %{offerer_name} συμφώνησε να συνταξιδέψει με τον/την %{requester_name} στη διαδρομή %{listing_title} %{time_ago}."
     join:
-      joined_kassi: "Ο/Η %{name} γράφτηκε στο %{service_name} πριν από %{time_ago}."
+      joined_kassi: "Ο/Η %{name} γράφτηκε στο %{service_name} %{time_ago}."
     login:
-      logged_in_to_kassi: "Ο/Η %{name} συνδέθηκε στο %{service_name} πριν από %{time_ago}."
+      logged_in_to_kassi: "Ο/Η %{name} συνδέθηκε στο %{service_name} %{time_ago}."
     comment:
-      commented: "Ο/Η %{commenter_name} σχολίασε στο \"%{listing_title}\" πριν από %{time_ago}."
+      commented: "Ο/Η %{commenter_name} σχολίασε στο \"%{listing_title}\" %{time_ago}."
       offer_partitive: προσφορά
       request_partitive: αίτημα
   header:
@@ -464,7 +464,7 @@ el:
     mobile_version: "Έκδοση για κινητά"
     offers: Προσφορές
     requests: Αιτήματα
-    search_kassi: "Αναζήτηση στο %{service_name}"
+    search_kassi: Αναζήτηση
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Υπάρχει <b>μία ακόμα προσφορά</b>,"
@@ -588,7 +588,7 @@ el:
       register_details: Εγγραφή
       terms: "Όροι χρήσης"
     logged_in:
-      admin: Διαχείριση
+      admin: Admin
       go_to_your_profile_page: Προφίλ
       hi: "Γεια σου"
       login: Σύνδεση
@@ -602,7 +602,7 @@ el:
     logged_in_notifications_icon:
       notifications: Ειδοποιήσεις
     mobile_logged_in:
-      admin: Διαχείριση
+      admin: Admin
       go_to_your_profile_page: Προφίλ
       hi: "Γεια σου"
       login: Σύνδεση
@@ -789,7 +789,7 @@ el:
         rent_out: Εκμίσθωση
         request_type: "Τύπος αιτήματος"
         sell: Πώληση
-        share_for_free: ~
+        share_for_free: Φιλοξενία
         trade: Ανταλλαγή
       tag_list:
         comma_separate: "(χωρισμένες με κόμμα)"
@@ -847,7 +847,7 @@ el:
       rents: Ενοικίαση
       rideshares: Οτοστόπ
       sells: Πωλήσεις
-      share_for_frees: ~
+      share_for_frees: Φιλοξενία
       trades: Ανταλλαγές
     link_labels:
       link_label_for_favor_offer: "Ζήτησέ το"
