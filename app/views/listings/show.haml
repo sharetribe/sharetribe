@@ -51,10 +51,10 @@
         %strong
           = t(".#{@listing.listing_type}_author")
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
-          - unless current_user?(@listing.author)
+          - unless @listing.closed? || current_user?(@listing.author)
             %br/
             = link_to t(".send_private_message"), reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :id => "message_listing_author_link"
-        - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank?
+        - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
           %strong
             %br/
             = t(".contact_by_phone")
