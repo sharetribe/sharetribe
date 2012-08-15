@@ -13,6 +13,11 @@ class Api::ListingsController < Api::ApiController
     
     query = params.slice("category", "listing_type")
     
+    unless @current_community
+      response.status = 400
+      render :json => ["Community_id is a required parameter."] and return
+    end
+    
     if params["status"] == "closed"
       query["open"] = false
     elsif params["status"] == "all"
@@ -21,9 +26,12 @@ class Api::ListingsController < Api::ApiController
       query["open"] = true #default
     end
     
-    if params["community_id"]
+    if params["search"]
+      @listings = search_listings(params["search"], query)
+    elsif params["community_id"]
       @listings = Community.find(params["community_id"]).listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
+      # This is actually not currently supported. Community_id is currently required parameter.
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     end
     
@@ -95,6 +103,36 @@ class Api::ListingsController < Api::ApiController
       render :json => @listing.errors.full_messages and return
     end
     
+  end
+  
+  def search_listings(search, attributes)
+    with = {}
+    
+    unless attributes["open"].nil?
+      with[:open] = true if attributes["open"] == true
+      with[:open] = false if attributes["open"] == false
+    end
+    
+    if attributes["listing_type"]
+      with[:is_request] = true if attributes["listing_type"].eql?("request")
+      with[:is_offer] = true if attributes["listing_type"].eql?("offer")
+    end
+    
+    
+    
+    unless @current_user && @current_user.communities.include?(@current_community)
+      with[:visible_to_everybody] = true
+    end
+    
+    # Here is expected that @current_community always exists as community_id is currently required parameter
+    with[:community_ids] = @current_community.id
+
+    Listing.search(search, :include => :listing_images, 
+                           :page => @page,
+                           :per_page => @per_page, 
+                           :star => true,
+                           :with => with
+                           )
   end
 
 end
