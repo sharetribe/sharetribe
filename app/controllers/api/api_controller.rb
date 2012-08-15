@@ -9,6 +9,7 @@ class Api::ApiController < ApplicationController
   prepend_before_filter :get_api_key
   before_filter :ensure_api_enabled, :set_correct_mime_type
   before_filter :set_current_community_if_given, :set_current_user_if_authorized_request
+  before_filter :set_pagination
 
     
   respond_to :json
@@ -86,4 +87,22 @@ class Api::ApiController < ApplicationController
     @current_user = current_person
   end
   
+  def set_pagination
+    @page = params["page"] || 1
+    @per_page = params["per_page"] || 50   
+  end
+  
+  # A filter used by few different API controllers
+  def find_listing(allow_nil=false)
+    # if there is no params listing_id the request is probably in listings_controller, where it is just id.
+    id = params[:listing_id] || params[:id]
+    if allow_nil && id.nil?
+      return true
+    end
+    @listing = Listing.find_by_id(id)
+    if @listing.nil?
+      response.status = 404
+      render :json => ["No listing found with given ID"] and return
+    end
+  end
 end

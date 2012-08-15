@@ -15,7 +15,7 @@ describe Api::ConversationsController do
         @p2 = FactoryGirl.create(:person)
         @p2.communities << @c1
         @p1.ensure_authentication_token!
-        
+                
         @con1 = FactoryGirl.create(:conversation, :participants => [@p1, @p2])
         FactoryGirl.create(:message, :conversation => @con1, :sender => @p1, :content => "Let's talk")
         FactoryGirl.create(:message, :conversation => @con1, :sender => @p2, :content => "Ok! You start.")
@@ -80,6 +80,34 @@ describe Api::ConversationsController do
         [@p1.id, @p2.id].should include(resp["participations"][1]["person"]["id"])
         resp["participations"][1]["person"]["id"].should_not == resp["participations"][0]["person"]["id"]
       end
+      
+      it "doesn't allow messaging yourself" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        post :create, :person_id => @p1.id, 
+                      :target_person_id => @p1.id,
+                      :status => "free",
+                      :content => "I'm trying to message myself",
+                      :community_id => @c1.id,
+                      :format => :json
+        response.status.should == 400
+        resp = JSON.parse(response.body)        
+        resp[0].should == "You cannot send message to yourself."
+      end
+      
+      it "handles requests with invalid listing_id" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        post :create, :person_id => @p1.id, 
+                      :target_person_id => @p2.id,
+                      :listing_id => 123456789,
+                      :status => "pending",
+                      :content => "I'm trying to respond to nonexisting listing",
+                      :community_id => @c1.id,
+                      :format => :json
+        response.status.should == 404
+        resp = JSON.parse(response.body)        
+        resp[0].should == "No listing found with given ID"
+        
+      end
     end
     
     describe "new_message" do
@@ -104,7 +132,48 @@ describe Api::ConversationsController do
       end
     end
 
-
+    describe "update" do
+      it "changes the conversation status" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        put :update, :id => @con1.id, 
+                           :person_id => @p1.id,
+                           :community_id => @c1.id,
+                           :status => "rejected",
+                           :format => :json
+        response.status.should == 200
+        resp = JSON.parse(response.body)
+        resp["status"].should == "rejected"
+      end
+      
+      it "doesn't allow invalid status" do
+        request.env['Sharetribe-API-Token'] = @p1.authentication_token
+        put :update, :id => @con1.id, 
+                           :person_id => @p1.id,
+                           :community_id => @c1.id,
+                           :status => "waiting",
+                           :format => :json
+        response.status.should == 400
+        resp = JSON.parse(response.body)
+        resp[0].should == "The conversation status (waiting) is not valid."
+      end
+      
+      it "doesn't allow outsider person to change status" do
+        @p3 = FactoryGirl.create(:person)
+        @p3.communities << @c1
+        @p3.ensure_authentication_token!
+        
+        request.env['Sharetribe-API-Token'] = @p3.authentication_token
+        put :update, :id => @con1.id, 
+                           :person_id => @p3.id,
+                           :community_id => @c1.id,
+                           :status => "accepted",
+                           :format => :json
+        response.status.should == 403
+        resp = JSON.parse(response.body)
+        resp[0].should == "The logged in user is not part of this conversation."
+        
+      end
+    end
 
   end
 end

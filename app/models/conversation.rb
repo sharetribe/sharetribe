@@ -80,10 +80,10 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
   
-  def change_status(new_status, current_user, current_community, request)
+  def change_status(new_status, current_user, current_community, community_domain)
     update_attribute(:status, new_status)
     participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id, request.host)) 
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id, community_domain)) 
   end
   
   def has_feedback_from_all_participants?

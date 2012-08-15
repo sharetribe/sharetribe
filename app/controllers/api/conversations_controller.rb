@@ -2,35 +2,22 @@ class Api::ConversationsController < Api::ApiController
   include ConversationsHelper
   
   before_filter :authenticate_person!
-  
-  # TODO add same filters as in the normal conversations controller
-  # so that people can only see their own conversations and post to those, and not start conversation with themselves etc.
+  before_filter :find_conversation, :except => [:index, :create]
+  before_filter :only => :create do |controller|
+    controller.find_listing(true)
+  end
+  before_filter :person_authorized_to_view_conversation, :except => [:index, :create]
+  before_filter :ensure_listing_author_is_not_current_user, :only => :create
   
   def index
-    @page = params["page"] || 1
-    @per_page = params["per_page"] || 50
     @conversations = current_person.conversations.paginate(:per_page => @per_page, :page => @page)
   end
   
   def show
-    @page = params["page"] || 1
-    @per_page = params["per_page"] || 50
-    @conversation = Conversation.find_by_id(params[:id])
-    
-    if @conversation.nil?
-      response.status = 404
-      render :json => ["No conversation found with given ID"] and return
-    end
     respond_with @conversation
   end
   
-  def create
-    @current_community = Community.find_by_id(params[:community_id])
-    if @current_community.nil? 
-      response.status = 404
-      render :json => ["No community found with given id"] and return
-    end
-    
+  def create    
     @conversation = Conversation.new(params.slice("listing_id","status", "title").merge({
                                         "message_attributes" => {
                                             "content" => params["content"],
@@ -40,6 +27,17 @@ class Api::ConversationsController < Api::ApiController
                                             params["target_person_id"] => true
                                         } 
                                       }))
+    # If related to listing, check that it's open and the user is authorized to view it
+    if @listing
+      if @listing.closed?
+        response.status = 403
+        render :json => ["Cannot reply to listing that is not open."] and return
+      end
+      unless @listing.visible_to?(@current_user, @current_community)
+        response.status = 403
+        render :json => ["Cannot reply to listing that should not be visible to current user."] and return
+      end
+    end
     
     if @conversation.title.nil?
       if @conversation.listing_id
@@ -63,19 +61,17 @@ class Api::ConversationsController < Api::ApiController
     
   end
   
+  def update
+    if Conversation::VALID_STATUSES.include? params["status"]
+      @conversation.change_status(params["status"], @current_user, @current_community, @current_community.full_domain)
+      respond_with @conversation
+    else
+      response.status = 400
+      render :json => ["The conversation status (#{params["status"]}) is not valid."] and return
+    end
+  end
+  
   def new_message
-    @current_community = Community.find_by_id(params[:community_id])
-    if @current_community.nil? 
-      response.status = 404
-      render :json => ["No community found with given id"] and return
-    end
-    
-    @conversation = Conversation.find_by_id(params["id"])
-    if @conversation.nil?
-      response.status = 404
-      render :json => ["No conversation found with given ID"] and return
-    end
-    
     @message = Message.new(:content => params["content"], :sender_id => current_person.id, :conversation => @conversation)
     
     if @message.save 
@@ -90,4 +86,26 @@ class Api::ConversationsController < Api::ApiController
     
   end
   
+  def find_conversation
+    @conversation = Conversation.find_by_id(params[:id])
+    
+    if @conversation.nil?
+      response.status = 404
+      render :json => ["No conversation found with given ID"] and return
+    end
+  end
+  
+  def person_authorized_to_view_conversation
+    unless @conversation.participants.include?(@current_user)
+      response.status = 403
+      render :json => ["The logged in user is not part of this conversation."] and return
+    end
+  end
+  
+  def ensure_listing_author_is_not_current_user
+    if (params["target_person_id"] && current_user?(Person.find_by_id(params["target_person_id"]))) || (!params["listing_id"] && listing = Listing.find_by_id(params["listing_id"])  && current_user?(listing.author))
+      response.status = 400
+      render :json => ["You cannot send message to yourself."] and return
+    end
+  end
 end
