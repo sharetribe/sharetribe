@@ -130,6 +130,7 @@ describe Api::ListingsController do
                       :share_type => "sell",
                       :visibility => "this_community",
                       :community_id => @c1.id,
+                      :valid_until => 2.months.from_now,
                       :format => :json
         response.status.should == 201
         Listing.count.should == listings_count + 1
@@ -140,6 +141,7 @@ describe Api::ListingsController do
         resp["share_type"].should == "sell"
         resp["category"].should == "item"
         resp["listing_type"].should == "offer"
+        resp["valid_until"].to_date.should == 2.months.from_now.to_date
         resp["author"]["id"].should == @p1.id
       end
     
@@ -214,6 +216,7 @@ describe Api::ListingsController do
                         :category => "rideshare",
                         :visibility => "this_community",
                         :community_id => @c1.id,
+                        :valid_until => 2.days.from_now,
                         :latitude => "62.2426",
                         :longitude => "25.7475",
                         :destination_latitude => "61.2426",
@@ -233,6 +236,7 @@ describe Api::ListingsController do
           Listing.last.destination_loc.longitude.should == 26.7475
           Listing.last.destination.should == "office"
           Listing.last.origin_loc.address.should == "helsinki"
+          Listing.last.valid_until.to_s.should == 2.days.from_now.to_s
         end
         
         it "supports setting locations by address only" do

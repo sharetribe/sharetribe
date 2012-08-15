@@ -41,7 +41,6 @@ class Api::ListingsController < Api::ApiController
   end
 
   def create
-    
     # Set locations correctly if provided in params
     if params["latitude"] || params["address"]
       params.merge!({"origin_loc_attributes" => {"latitude" => params["latitude"], 
@@ -69,6 +68,7 @@ class Api::ListingsController < Api::ApiController
                                         "origin",
                                         "destination",
                                         "origin_loc_attributes",
+                                        "valid_until",
                                         "destination_loc_attributes"
                                         ).merge({"author_id" => current_person.id, 
                                                  "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
