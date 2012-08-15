@@ -10,9 +10,9 @@ describe Api::ListingsController do
       @c2 = FactoryGirl.create(:community)
       @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago)
       @l1.communities = [@c1]
-      FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
+      FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
       FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago).communities = [@c2]
-      FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already").communities = [@c1]
+      FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway").communities = [@c1]
     
       @p1 = FactoryGirl.create(:person)
       @p1.communities << @c1
@@ -23,11 +23,18 @@ describe Api::ListingsController do
 
     describe "index" do
     
-      it "returns open listings if called without parameters, (paginated by 50)" do
+      it "requires valid community_id" do
         get :index, :format => :json
+        response.status.should == 400
+        resp = JSON.parse(response.body)
+        resp[0].should == "Community_id is a required parameter."
+      end
+      
+      it "returns open listings if called without extra parameters, (paginated by 50)" do
+        get :index, :community_id => @c1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp["listings"].count.should == 3
+        resp["listings"].count.should == 2
         resp["page"].should == 1
         resp["per_page"].should == 50
         resp["total_pages"].should == 1
@@ -80,7 +87,7 @@ describe Api::ListingsController do
       end
     
       it "returns an array of lisitings with correct attributes" do
-        get :index, :listing_type => "offer", :format => :json
+        get :index, :community_id => @c1.id, :listing_type => "offer", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
         resp["listings"].count.should == 1
@@ -89,23 +96,32 @@ describe Api::ListingsController do
       end
     
       it "supports pagination" do
-        get :index, :per_page => 2, :page => 1, :format => :json
+        get :index, :community_id => @c1.id, :per_page => 2, :status => "all", :page => 1, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
         #puts resp.to_yaml
         resp["listings"].count.should == 2
-        resp["listings"][0]["title"].should == "hammer"
-        resp["listings"][1]["title"].should == "bike"
+        resp["listings"][0]["title"].should == "old junk"
+        resp["listings"][1]["title"].should == "hammer"
         resp["total_pages"].should == 2
       
-        get :index, :per_page => 2, :page => 2, :format => :json
+        get :index, :community_id => @c1.id, :per_page => 2, :page => 2, :status => "all", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
         #puts resp.to_yaml
         resp["listings"].count.should == 1
-        resp["listings"][0]["title"].should == "help me"
+        resp["listings"][0]["title"].should == "bike"
         resp["total_pages"].should == 2
       end
+ 
+      # Not in use as not yet set up Sphinx for RSpec
+      
+      # it "supports search" do
+      #    get :index, :community_id => @c1.id, :search => "nice", :format => :json
+      #    response.status.should == 200
+      #    resp = JSON.parse(response.body)
+      #    puts resp.to_yaml
+      #  end
     end
   
     describe "show" do
