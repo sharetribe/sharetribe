@@ -4,7 +4,7 @@ class Api::ConversationsController < Api::ApiController
   before_filter :authenticate_person!
   before_filter :find_conversation, :except => [:index, :create]
   before_filter :only => :create do |controller|
-    controller.find_listing(true)
+    controller.ensure_authorized_to_view_listing(true)
   end
   before_filter :person_authorized_to_view_conversation, :except => [:index, :create]
   before_filter :ensure_listing_author_is_not_current_user, :only => :create
