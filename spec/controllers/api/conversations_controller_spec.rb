@@ -105,7 +105,7 @@ describe Api::ConversationsController do
                       :format => :json
         response.status.should == 404
         resp = JSON.parse(response.body)        
-        resp[0].should == "No listing found with given ID"
+        resp[0].should == "No listing found with given id"
         
       end
     end

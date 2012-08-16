@@ -49,8 +49,14 @@ class Api::ApiController < ApplicationController
   end
   
   # Ensure that only users with appropriate visibility settings can view the listing
-  def ensure_authorized_to_view_listing
-    @listing = Listing.find_by_id(params[:listing_id])
+  def ensure_authorized_to_view_listing(allow_nil=false)
+    # if there is no param listing_id the request is probably in listings_controller, where it is just id.
+    id = params[:listing_id] || params[:id]
+    if allow_nil && id.nil?
+      return true
+    end
+    
+    @listing = Listing.find_by_id(id)
     if @listing.nil?
       response.status = 404
       render :json => ["No listing found with given id"] and return
@@ -92,17 +98,4 @@ class Api::ApiController < ApplicationController
     @per_page = params["per_page"] || 50   
   end
   
-  # A filter used by few different API controllers
-  def find_listing(allow_nil=false)
-    # if there is no params listing_id the request is probably in listings_controller, where it is just id.
-    id = params[:listing_id] || params[:id]
-    if allow_nil && id.nil?
-      return true
-    end
-    @listing = Listing.find_by_id(id)
-    if @listing.nil?
-      response.status = 404
-      render :json => ["No listing found with given ID"] and return
-    end
-  end
 end
