@@ -14,6 +14,7 @@ class PeopleController < Devise::RegistrationsController
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
+  skip_filter :check_hobbies_submitted, :only => [ :update]
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
   skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_email_availability_for_new_tribe, :check_invitation_code]
@@ -103,6 +104,9 @@ class PeopleController < Devise::RegistrationsController
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
+
+    # new users must submit hobby form
+    params[:person][:hobby_status] = Person::HOBBY_STATUSES[:unsubmitted]
     
     if use_asi?
       # Open an ASI Session first only for Sharetribe to be able to create a user
@@ -192,17 +196,17 @@ class PeopleController < Devise::RegistrationsController
   
   def update
     
-	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
+    if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
-	  end
-	  
-	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
-	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
-	    flash[:error] = t("people.new.email_not_allowed")
-	    redirect_to :back and return
+    end
+      
+    #Check that people don't exploit changing email to be confirmed to join an email restricted community
+    if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
+      flash[:error] = t("people.new.email_not_allowed")
+      redirect_to :back and return
     end
     
     # If person is changing email address, store the old confirmed address as additional email
@@ -230,6 +234,13 @@ class PeopleController < Devise::RegistrationsController
       end
     rescue RestClient::RequestFailed => e
       flash[:error] = "update_error"
+    end
+    
+    # If hobbies form submitted as part of the on-boarding process,
+    # redirect to root to avoid a "dead-end" in the sign-up process
+    if params[:hobbies_onboard] == 'true'
+      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+      redirect_to root and return
     end
     
     redirect_to :back

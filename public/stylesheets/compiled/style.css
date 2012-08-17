@@ -1862,10 +1862,10 @@ div.listing_author_feedback_percentage {
 
 .inbox_tab_selected {
   float: left;
-  margin-right: 8px; }
+  margin-right: 5px; }
   .inbox_tab_selected a {
     padding-top: 9px;
-    width: 140px;
+    width: 130px;
     height: 27px;
     text-align: center;
     display: block;
@@ -1883,10 +1883,10 @@ div.listing_author_feedback_percentage {
 
 .inbox_tab_unselected {
   float: left;
-  margin-right: 8px; }
+  margin-right: 5px; }
   .inbox_tab_unselected a {
     padding-top: 9px;
-    width: 140px;
+    width: 130px;
     height: 27px;
     text-align: center;
     display: block;
@@ -2887,6 +2887,38 @@ span.profile_settings_visibility_info {
   overflow: hidden; }
   #profile_community_info h5 {
     margin-bottom: 10px; }
+
+.hobbies_other {
+    padding-left: 38px;
+}
+.hobbies_other label {
+    font-weight: bold;
+}
+.hobbies_other input {
+    float: none;
+    display: inline;
+    margin-left: 6px;
+}
+#person_settings_form.hobbies_form input.send_button {
+    margin-left: 0;
+}
+.hobbies_checkboxes {
+    overflow: auto;
+}
+.hobbies_checkboxes label {
+    width: 275px !important;
+}
+.hobbies_checkbox_container {
+	overflow: hidden;
+	width: 49%;
+    float: left;
+	margin-bottom: 10px;
+}
+.hobbies_other {
+    clear: both;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
 
 #listing_closed_status {
   margin: 0 5px;

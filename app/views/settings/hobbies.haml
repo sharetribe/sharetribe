@@ -1,0 +1,36 @@
+- content_for :javascript do
+  initialize_hobbies_form();
+
+- if @private_layout
+  .container_12
+    .grid_6.prefix_3.suffix_3
+      #person_settings_form.hobbies_form
+        %h2
+          = t('.My Hobbies')
+        %p
+          = t('.Sharetribe is a place where people share goods and services based on their interests, abilities and hobbies. Please tell us about your hobbies. You can select as many as you like. These will not be shown to other Sharetribe users. You can change them at any time from your settings.')
+        = form_for @current_person do |form|
+          = form.fields_for 'hobbies' do |hobby_fields|
+            .hobbies_checkboxes
+              = render :partial => "hobbies/hobby_checkbox", :collection => @official_hobbies, :as => :hobby
+            .hobbies_other
+              = hobby_fields.label "other", t('hobbies.other'), :class => 'hobby_other'
+              = hobby_fields.text_field "other", :value => (@other_hobbies.collect! { |h| h.name }).join(', '), :class => :text_field
+          .form_field_container
+            = form.submit t('settings.save_information'), :class => "send_button"
+- else
+  #person_settings_form.hobbies_form
+    %h2
+      = t('.My Hobbies')
+    %p
+      = t('.Sharetribe is a place where people share goods and services based on their interests, abilities and hobbies. Please tell us about your hobbies. You can select as many as you like. These will not be shown to other Sharetribe users. You can change them at any time from your settings.')
+    = form_for @current_person do |form|
+      = form.fields_for 'hobbies' do |hobby_fields|
+        .hobbies_checkboxes
+          = render :partial => "hobbies/hobby_checkbox", :collection => @official_hobbies, :as => :hobby
+        .hobbies_other
+          = hobby_fields.label "other", t('hobbies.other'), :class => 'hobby_other'
+          = hobby_fields.text_field "other", :value => (@other_hobbies.collect! { |h| h.name }).join(', '), :class => :text_field
+      .form_field_container
+        = form.submit t('settings.save_information'), :class => "send_button"
+

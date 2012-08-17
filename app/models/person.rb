@@ -76,6 +76,8 @@ class Person < ActiveRecord::Base
   has_many :devices
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
+  has_and_belongs_to_many :hobbies, :join_table => 'person_hobbies'
+
   
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
@@ -94,6 +96,8 @@ class Person < ActiveRecord::Base
   ] 
   
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
+
+  HOBBY_STATUSES = { :existing => "Existing", :unsubmitted => "Unsubmitted", :submitted => "Submitted" }
     
   serialize :preferences
   
@@ -246,10 +250,41 @@ class Person < ActiveRecord::Base
           params.delete(:location)
         end
 
-        self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
+        if params[:hobbies]
+          # compile a new hobbies list
+          temp_hobbies = []
+          params[:hobbies].each do |field, value|
+            value.strip!
+
+            if field == 'other'
+              if value != ''
+                # comma-separated, 'non-official', other hobbies
+                value.split(',').each do |v|
+                  v.strip!
+                  if v != ''
+                    temp_hobbies << Hobby.find_or_create_by_name(:name => v.titleize, :official => false)
+                  end
+                end
+              end
+            else
+              # 'official' hobby
+              temp_hobbies << Hobby.find_by_id(value)
+            end
+          end
+
+          # Update the actual hobbies list from the new list.
+          self.hobbies.replace(temp_hobbies)
+
+          # Update hobby_status
+          self.hobby_status = HOBBY_STATUSES[:submitted]
+        end
+
+        if params[:show_real_name_setting_affected]
+          self.show_real_name_to_other_users = !!params[:show_real_name_to_other_users]
+        end
         save
 
-        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
+        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address", "hobbies"))
       end
     end
     

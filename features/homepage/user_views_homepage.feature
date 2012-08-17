@@ -117,7 +117,7 @@ Feature: User views homepage
      Then I should not see "bike parts"
      And I should see "There are already 2 requests, but those are visible only to registered members."
   
-  @javascript
+  @javascript @seeds
   Scenario: User views event feed
     Given there are following users:
       | person | 
@@ -134,6 +134,8 @@ Feature: User views homepage
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     And the system processes jobs
     Then I should not see "Chuck joined Test Sharetribe"
     And I follow "Logout"

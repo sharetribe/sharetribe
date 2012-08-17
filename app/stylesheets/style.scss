@@ -2361,6 +2361,64 @@ span.profile_settings_visibility_info {
   overflow: hidden;
 }
 
+.hobbies_other {
+    padding-left: 38px;
+}
+.hobbies_other label {
+    font-weight: bold;
+}
+.hobbies_other input {
+    float: none;
+    display: inline;
+    margin-left: 6px;
+}
+.hobbies_checkboxes {
+    overflow: auto;
+}
+.hobbies_checkboxes label {
+    width: 275px !important;
+}
+.hobbies_checkbox_container {
+	overflow: hidden;
+	width: 49%;
+    float: left;
+	margin-bottom: 10px;
+}
+.hobbies_other {
+    clear: both;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.hobbies_other {
+    padding-left: 38px;
+}
+.hobbies_other label {
+    font-weight: bold;
+}
+.hobbies_other input {
+    float: none;
+    display: inline;
+    margin-left: 6px;
+}
+.hobbies_checkboxes {
+    overflow: auto;
+}
+.hobbies_checkboxes label {
+    width: 275px !important;
+}
+.hobbies_checkbox_container {
+	overflow: hidden;
+	width: 49%;
+    float: left;
+	margin-bottom: 10px;
+}
+.hobbies_other {
+    clear: both;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
 #listing_closed_status {
 	@include notification("error", $error_text, $error_border, $error_bg);
 	width: 200px;

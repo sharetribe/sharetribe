@@ -3,7 +3,7 @@ Feature: User joins invite only community
   As a community administrator
   I want that new users can join only if they have valid invite code
   
-  @javascript
+  @javascript @seeds
   Scenario: User has valid invite code
     Given there are following users:
       | person | 
@@ -23,10 +23,12 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
+    And I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
 
-  @javascript
+  @javascript @seeds
   Scenario: User joins a private community with invitation
     Given there are following users:
       | person | 
@@ -46,6 +48,8 @@ Feature: User joins invite only community
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     Then I should see "Welcome to Sharetribe, Testmanno!" within "#notifications"
     And I should not see "The invitation code is not valid."
     And I should not see "This field is required."
@@ -99,7 +103,7 @@ Feature: User joins invite only community
     And I am on the signup page
     Then I should see "Invitation code"
   
-  @javascript  
+  @javascript @seeds
   Scenario: User joins a community where invitation code is not necessary with an invitation code
     Given there are following users:
       | person | 
@@ -118,7 +122,10 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
+    And I should see "Please tell us about your hobbies and interests before proceeding."
+    And I press "Save information"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
     When I follow "Testmanno2"
     Then I should see "...was invited by"
+

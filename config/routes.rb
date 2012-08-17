@@ -136,6 +136,7 @@ Kassi::Application.routes.draw do
             get :avatar
             get :account
             get :notifications
+            get :hobbies
           end
         end
         resources :invitations
@@ -217,6 +218,9 @@ Kassi::Application.routes.draw do
     resources :consent
     resource :sms do
       get :message_arrived
+    end
+    resource :hobbies do
+      get :show
     end
     resources :news_items
     resources :statistics
