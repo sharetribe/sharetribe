@@ -49,7 +49,7 @@ ru:
         edit_poll: "Редактировать опрос"
   common:
     default_community_slogan: "Сотрудничайте, делитесь и помогайте"
-    default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Сообщите что Вы можете предложить и в чём нуждаетесь сами."
+    default_community_description: "%{service_name} это место, где участники нашего сообщества могут обмениваться вещами, услугами, поездками и жильём. Расскажите другим, о том, что Вы можете предложить и в чём нуждаетесь сами."
     cancel: Отмена
     fields_that_are_mandatory: "Поля, отмеченные звёздочкой (*), являются обязательными."
     or: или
@@ -169,7 +169,7 @@ ru:
       confirmation_pending: "Подтвердите свой адрес электронной почты"
     enter_organization_email:
       enter_your_organization_email: "Введите вашу электронную почту %{community_category}"
-      only_people_with_verified_email_address_can_join_your_tribe: "Только люди с проверенным %{community_category} адресом электронной почты могут присоединиться к этому сообществу."
+      only_people_with_verified_email_address_can_join_your_tribe: "В это сообщество могут вступать только люди с проверенным адресом электронной почты категории «%{community_category}»."
       continue: Продолжить
       tribe_exists: "Сообщество существует!"
       this_tribe_exists_already: "Это сообщество уже существует! Вы хотите присоединиться к нему?"
@@ -184,26 +184,26 @@ ru:
       start_your_own_tribe_link: "создайте своё!"
     select_pricing_plan:
       select_your_plan: "Выберите ваш план"
-      pick_one_of_the_options_below: "Выберите один из вариантов ниже."
+      pick_one_of_the_options_below: "Выберите один из вариантов."
       create_for_free: "Создать бесплатно"
       contact_us: "Свяжитесь с нами"
       free_plan: "Бесплатный план"
       max_members: "Максимум %{number} участников"
       premium_plan: Премиум-план
-      care_free_user_support: "Заботливая поддержка пользователей"
+      care_free_user_support: "Заботливая служба поддержки"
       create_your_tribe: "Создайте своё сообщество"
       professional_plan: "Настраиваемый план"
       unlimited_members: "Неограниченное число участников"
-      intranet_integration: "Интеграция локальной сети"
+      intranet_integration: "Интеграция в локальную сеть"
       no_charge: Бесплатно
       euros_per_month_premium: "%{price} евро в месяц (вкл. НДС)"
       custom_domain: "Пользовательский домен"
       you_can_change_and_cancel: "Вы можете изменить или отменить план позже в любое время."
-      we_help_you_get_started: "Мы помогаем людям объединяться"
+      we_help_you_get_started: "Помощь с привлечением участников"
       discounts_available_for_non_profits: "Для некоммерческих организаций действует 50% скидка"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Какой тип сообщества вы хотите создать?"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете из списка ниже."
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Сперва выберите тип сообщества, которое вы представляете."
       company: Компания
       university: Университет
       town: Город
@@ -215,7 +215,7 @@ ru:
     new_tribe_form:
       create_a_tribe_in_a_minute: "Создайте новое сообщество за минуту"
       welcome_now_create_your_tribe: "Добро пожаловать, %{name}! Теперь создайте своё сообщество."
-      name_of_your_tribe: "Имя вашего сообщества"
+      name_of_your_tribe: "Название сообщества"
       web_address_of_your_tribe: "Адрес вашего сообщества в Интернете"
       slogan_of_your_tribe: "Девиз вашего сообщества"
       describe_your_tribe: "Опишите сообщество: какова цель его существования?"
@@ -227,7 +227,7 @@ ru:
       language: Язык
     signup_form:
       create_an_account: "Создайте учётную запись для себя"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для Sharetribe ниже или"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для %{service_name} или"
       log_in_with_your_existing_account: "войти в систему с помощью существующей учётной записи"
       your_email: "Электронная почта"
       your_university_email: "Университетская электронная почта"
@@ -241,16 +241,16 @@ ru:
       email_in_use_message: "Учётная запись с этим адресом электронной почты уже существует в %{service_name} . Если у вас уже есть аккаунт, вы можете войти с его помощью по ссылке выше."
       invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
       log_in_here: войти
-      existing_community_with_this_email: ~
+      existing_community_with_this_email: "Для типа сообщества %{community_category} уже существует учётная запись. Вы можете вступить в это сообщество, перейдя по ссылке %{link}."
       here: ~
       for_company: ~
-      for_university: ~
+      for_university: университет
       for_town: ~
       for_congregation: ~
       for_association: ~
       for_neighborhood: ~
       for_apartment_building: ~
-      for_other: ~
+      for_other: прочее
   community_memberships:
     new:
       join_community: "Присоединяйтесь к сообществу '%{community}'"
@@ -296,7 +296,7 @@ ru:
       new: Новость!
       new_text: "%{service_name} теперь доступен для <a href=\"http://www.kassi.eu/en/wdc\">кварталов в Хельсинки и Лахти</a> и для <a href=\"http://www.kassi.eu/en/okl\">членов Suomen Omakotiliitto</a>!"
       want_to_know_more: "Хотите узнать больше? %{read_our_faq_link} или %{contact_us_link}."
-      read_our_faq: "Прочтите наш FAQ"
+      read_our_faq: "Прочтите FAQ"
       contact_us: "свяжитесь с нами напрямую"
       why_you_really_should_have_a_tribe: "Зачем вам сообщество"
       an_example: "Пример:"
@@ -1151,8 +1151,8 @@ ru:
       account_creation_link_text: "нажмите здесь"
       cancle_facebook_connect: "Если вы не хотите привязывать эту учётную запись, вы можете %{cancel_link}."
       facebook_cancel_link_text: "отменить это действие"
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Зайти через Facebook:"
+      or_sign_up_with_your_username: "…или с помощью логина и пароля:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
@@ -1255,7 +1255,7 @@ ru:
       slightly_better_than_expected: "Лучше, чем ожидалось"
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       textual_feedback: "Текст отзыва"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Оставленный вами отзыв будет виден другим пользователям на странице профиля %{person}. Это поможет другим членам сообщества оценить степень доверия к пользователю %{person}."
     testimonial:
       from_user: от
       to_user: для

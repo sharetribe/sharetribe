@@ -2,7 +2,7 @@ lv:
   admin:
     badges:
       index:
-        add_new_badge: ~
+        add_new_badge: "Pievienot jaunu žetonu"
         existing_badges: "Esošie žetoni"
         image: "Žetona attēls"
         name: "Žetona nosaukums"
@@ -55,11 +55,11 @@ lv:
     or: vai
     password: ~
     share_types:
-      borrow: aizņemās
+      borrow: aizņemas
       buy: pērk
       give_away: atdod
       lend: aizdod
-      receive: "ņem par brīvu"
+      receive: "par brīvu"
       rent: īrē
       rent_out: "meklē īrniekus"
       sell: pārdod
@@ -77,7 +77,7 @@ lv:
     new:
       favor_offer_message_form_title: "Lūgt palīdzību"
       favor_offer_message_title: ~
-      favor_request_message_form_title: ~
+      favor_request_message_form_title: "Piedāvāt palīdzību"
       favor_request_message_title: ~
       housing_offer_message_form_title: "Piedāvāt vietu"
       housing_offer_message_title: ~
@@ -116,8 +116,8 @@ lv:
       send_message_to_user: ~
     notifications:
       badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
+        see_all_your_badges: "Apskatīt visus savus žetonus"
+        you_have_earned_badge: "Jūs esat nopelnījis žetonu"
       comment_to_followed_listing_notification:
         has_commented: ~
         offer_you_follow: ~
