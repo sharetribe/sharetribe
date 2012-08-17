@@ -588,7 +588,7 @@ el:
       register_details: Εγγραφή
       terms: "Όροι χρήσης"
     logged_in:
-      admin: Admin
+      admin: Διαχείριση
       go_to_your_profile_page: Προφίλ
       hi: "Γεια σου"
       login: Σύνδεση
@@ -602,7 +602,7 @@ el:
     logged_in_notifications_icon:
       notifications: Ειδοποιήσεις
     mobile_logged_in:
-      admin: Admin
+      admin: Διαχείριση
       go_to_your_profile_page: Προφίλ
       hi: "Γεια σου"
       login: Σύνδεση
@@ -1102,7 +1102,7 @@ el:
       show_also_closed: "Εμφάνισε ακόμα και κλειστές καταχωρήσεις"
       show_only_open: "Εμφάνισε μόνο ανοιχτές καταχωρήσεις"
     show:
-      contact: "Επικοινώνησε με τον/την%{person}."
+      contact: "Επικοινώνησε με τον/την %{person}"
       about_me: "Σχετικά με μένα:"
       add_description: "Γράψε κάτι για τον εαυτό σου"
       add_location: Τοποθεσία
