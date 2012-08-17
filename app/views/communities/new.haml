@@ -27,7 +27,10 @@
                 - else
                   = render :partial => "email_confirmation_pending"
               - else
-                = render :partial => "new_tribe_form_wrapper"
+                - if @current_user.confirmed_at?
+                  = render :partial => "new_tribe_form_wrapper"
+                - else
+                  = render :partial => "email_confirmation_pending"
           - else
             = render :partial => "signup_form"
         - else
