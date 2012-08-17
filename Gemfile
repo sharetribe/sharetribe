@@ -47,7 +47,6 @@ gem 'devise', '2.0.0.rc'
 gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
-gem 'email_spec'
 #gem 'rocket_pants'
 
 group :test do

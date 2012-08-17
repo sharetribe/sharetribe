@@ -115,8 +115,3 @@ Feature: User creates a new account
     Then I should not see my username
     And I should see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
-  
-  
-  
-
-  

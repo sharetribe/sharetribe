@@ -37,23 +37,68 @@ Feature: User creates a new community
     And I follow "Create for free"
     And I fill in "email" with "test@mycompany.com"
     And I press "Continue"
+    #And "test@mycompany.com" should receive an email
     Then I should see "Please confirm your email address"
+    #TODO: Test the process after the email address has been confirmed
+    #When I open the email
+    #And I follow "Confirm my account"
 
   @no_subdomain
   @javascript
-  Scenario: User signs up and creates a new non-profit community
+  Scenario: New user signs up and creates a new non-profit community
     Given I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Association"
     And I follow "Create for free"
-    And I follow 
+    And I fill in "Your email address" with "test@example.com"
+    And I fill in "Pick a username" with random username
+    And I fill in "Your given name" with "Testmanno"
+    And I fill in "Your family name" with "Namez"
+    And I fill in "Pick a password" with "test"
+    And I fill in "Confirm your password" with "test"
+    And I check "person_terms"
+    And I press "Create account"
+    #And "test@example.com" should receive an email
+    Then I should see "Please confirm your email address"
+    When I follow "Home"
+    And I follow "GET STARTED NOW!"
+    And I follow "Association"
+    And I follow "Create for free"
+    Then I should see "Please confirm your email address"
+    #When I open the email
+    #And I follow "Confirm my account"
   
   @no_subdomain
   @javascript
-  Scenario: User tries to create a for-profit community and sign up with an email that is already use in another organization
-    Given context
-    When event
-    Then outcome
+  Scenario: Existing user tries to create a for-profit community and sign up with an email that is already use in another organization
+    Given I am logged in as "kassi_testperson1"
+    And there is an existing community with "@mycompany.com" in allowed emails
+    And I am on the home page
+    When I follow "GET STARTED NOW!"
+    And I follow "Company"
+    And I follow "Create for free"
+    And I fill in "email" with "test@mycompany.com"
+    Then I should see "There already exists a tribe for this company." within ".error"
+    When I follow "here"
+    Then I should be
+  
+  @no_subdomain
+  @javascript
+  Scenario: New user tries to create a for-profit community and sign up with an email that is already use in another organization
+    Given I am logged in as "kassi_testperson1"
+    And I am on the home page
+    When I follow "GET STARTED NOW!"
+    And I follow "Company"
+    And I follow "Create for free"
+    And I fill in "Your email address" with "test@example.com"
+    And I fill in "Pick a username" with random username
+    And I fill in "Your given name" with "Testmanno"
+    And I fill in "Your family name" with "Namez"
+    And I fill in "Pick a password" with "test"
+    And I fill in "Confirm your password" with "test"
+    And I check "person_terms"
+    And I press "Create account"
+    And I fill in "email" with "test@mycompany.com"
   
   @no_subdomain
   @javascript
