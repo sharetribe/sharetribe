@@ -8,15 +8,18 @@ describe Api::ListingsController do
     
       @c1 = FactoryGirl.create(:community)
       @c2 = FactoryGirl.create(:community)
-      @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago)
+      
+      @p1 = FactoryGirl.create(:person)
+      @p1.communities << @c1
+      @p1.ensure_authentication_token!
+      
+      @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1)
       @l1.communities = [@c1]
       FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
       FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago).communities = [@c2]
       FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway").communities = [@c1]
     
-      @p1 = FactoryGirl.create(:person)
-      @p1.communities << @c1
-      @p1.ensure_authentication_token!
+
     
     end
   
@@ -122,6 +125,14 @@ describe Api::ListingsController do
       #    resp = JSON.parse(response.body)
       #    puts resp.to_yaml
       #  end
+      
+      it "can return listings for single person only" do
+        get :index, :community_id => @c1.id, :person_id => @p1.id, :format => :json
+        response.status.should == 200
+        resp = JSON.parse(response.body)
+        resp["listings"].count.should == 1
+        resp["listings"][0]["title"]. should == "bike"
+      end
     end
   
     describe "show" do
