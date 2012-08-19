@@ -93,6 +93,16 @@ class Api::ApiController < ApplicationController
     @current_user = current_person
   end
   
+  def find_target_person
+    if params["person_id"]
+      @person = Person.find_by_id(params["person_id"])
+      if @person.nil? 
+        response.status = 404
+        render :json => ["No user found with person_id"] and return
+      end
+    end
+  end
+  
   def set_pagination
     @page = params["page"] || 1
     @per_page = params["per_page"] || 50   
