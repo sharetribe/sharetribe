@@ -26,6 +26,10 @@ class Api::ListingsController < Api::ApiController
       query["open"] = true #default
     end
     
+    if params["person_id"]
+      query["author_id"] = params["person_id"]
+    end
+    
     if params["search"]
       @listings = search_listings(params["search"], query)
     elsif params["community_id"]
