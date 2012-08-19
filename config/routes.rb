@@ -74,6 +74,8 @@ Kassi::Application.routes.draw do
       end
       resources :devices
       resources :listings
+      resources :feedbacks, :controller => :testimonials
+      resources :badges
     end
 
     match '/' => 'dashboard#api'    
