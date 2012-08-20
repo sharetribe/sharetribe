@@ -18,7 +18,7 @@ describe Api::TestimonialsController do
         get :index, :person_id => @p1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        #puts resp.to_yaml
+        puts resp.to_yaml
         resp["feedbacks"].count.should == 2
         resp["page"].should == 1
         resp["per_page"].should == 50
@@ -28,7 +28,9 @@ describe Api::TestimonialsController do
         resp["feedbacks"][1]["text"].should == "well done"
         resp["feedbacks"][0]["text"].should == "Nice job!"
         resp["feedbacks"][1]["conversation_id"].should == @c1.id
-        resp["feedbacks"][0]["conversation_id"].should == @c1.id      
+        resp["feedbacks"][0]["conversation_id"].should == @c1.id
+        resp["feedbacks"][1]["author"]["id"].should == @p2.id
+        resp["feedbacks"][0]["author"]["id"].should == @p2.id
       end
     end
   end
