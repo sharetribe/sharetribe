@@ -23,4 +23,8 @@ end
 
 if @current_user
   attributes :phone_number
+  child :location => :location do
+    extends "api/locations/show"
+  end
 end
+

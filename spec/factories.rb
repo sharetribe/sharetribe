@@ -132,3 +132,13 @@ Factory.define :device do |d|
   d.device_token "LSIDFSLDJIOGSSCSBEUS52349583"
   d.person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
 end
+
+Factory.define :location do |c|
+  c.association :listing
+  c.association :person
+  c.association :community
+  c.latitude 62.2426
+  c.longitude 25.7475
+  c.address "helsinki"
+  c.google_address "Helsinki, Finland"
+end
