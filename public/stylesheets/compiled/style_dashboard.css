@@ -1695,3 +1695,28 @@ p.map_bubble {
     color: black; }
   #statistics h4 {
     font-size: 16px; }
+
+div.wrapper {
+  overflow: hidden;
+  display: none; }
+
+.js_enabled div.wrapper {
+  display: block; }
+
+#no_javascript_container {
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  background: #f7f5e6;
+  padding: 30px 40px;
+  margin-top: 50px; }
+  #no_javascript_container h1 {
+    color: #464646;
+    font-size: 22px;
+    text-shadow: none;
+    margin: 0; }
+  #no_javascript_container a {
+    color: #d45207;
+    font-size: 12px; }
+    #no_javascript_container a:hover {
+      color: #f8792f; }

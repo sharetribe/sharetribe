@@ -31,6 +31,7 @@ function add_validator_methods() {
 function initialize_defaults() {
   $('select.language_select').selectmenu({style: 'dropdown', width: "100px"});
   add_validator_methods();
+  $('.js_wrapper').addClass('js_enabled');
 }
 
 function initialize_dashboard(email_default_text) { 
