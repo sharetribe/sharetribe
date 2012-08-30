@@ -865,3 +865,27 @@ p.map_bubble {
     font-size: 16px;
   }
 }
+
+div.wrapper { 
+  overflow: hidden;
+  display: none; 
+} 
+.js_enabled div.wrapper { display: block; }
+
+#no_javascript_container {
+  @include rounded(10px);
+  background: $bg_color;
+  padding: 30px 40px;
+  margin-top: 50px;
+  h1 {
+    color: $text_color;
+    font-size: 22px;
+    text-shadow: none;
+    margin: 0;
+  }
+  a {
+    color: $orange;
+    font-size: 12px;
+    &:hover { color: $light_orange;}
+  }
+}
