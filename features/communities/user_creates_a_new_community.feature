@@ -80,7 +80,7 @@ Feature: User creates a new community
     And I fill in "email" with "test@mycompany.com"
     Then I should see "There already exists a tribe for this company." within ".error"
     When I follow "here"
-    Then I should be
+    Then I should be on the page of the existing tribe
   
   @no_subdomain
   @javascript
