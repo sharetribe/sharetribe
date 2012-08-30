@@ -1,4 +1,7 @@
 - if @current_community
-  = render :file => community_file("terms", true)
+  - if @current_community.label.eql?("okl")
+    = render :file => community_file("okl_terms", true)
+  - else
+    = render :file => community_file("terms", true)
 - else
   = render :file => "communities/default/terms/terms.#{I18n.locale}.haml"
