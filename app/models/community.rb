@@ -3,9 +3,9 @@ class Community < ActiveRecord::Base
   has_many :community_memberships, :dependent => :destroy 
   has_many :members, :through => :community_memberships, :source => :person, :foreign_key => :member_id
   has_many :invitations, :dependent => :destroy
-  has_many :news_items
-  has_many :polls
-  has_many :event_feed_events
+  has_many :news_items, :dependent => :destroy
+  has_many :polls, :dependent => :destroy
+  has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   
   has_and_belongs_to_many :listings
