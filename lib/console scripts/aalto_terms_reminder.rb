@@ -41,3 +41,7 @@ mail_content = {
     "body"=> fi_message,
     "subject"=> fi_subject}
  }
+
+# c = Community.find_by_domain("aalto").members.where("`community_memberships`.consent = 'KASSI_FI1.0'")
+# PersonMailer.deliver_open_content_messages(test_array, "test subject", mail_content, "fi", true)
+# PersonMailer.deliver_open_content_messages(c, "Remember to accept new terms of use in Sharetribe!", mail_content, "fi", true)
