@@ -65,7 +65,6 @@ module ListingsHelper
         t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}"
       end
     else
-      logger.info "No share type"
       t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}"
     end
   end
