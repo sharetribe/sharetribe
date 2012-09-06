@@ -59,14 +59,12 @@ module ListingsHelper
   
   def listed_listing_title(listing)
     if listing.share_type
-      logger.info "Share type: #{listing.share_type}"
       if listing.share_type.eql?("trade")
         t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}") + ": #{listing.title}"
       else
         t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}"
       end
     else
-      logger.info "No share type"
       t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}"
     end
   end
