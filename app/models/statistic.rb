@@ -45,6 +45,8 @@ class Statistic < ActiveRecord::Base
     @wau_g1 = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{7.days.ago.to_formatted_s(:db)}'").count
     @dau_g1 = CommunityMembership.find_by_sql("select distinct person_id from community_memberships where last_page_load_date > '#{24.hours.ago.to_formatted_s(:db)}'").count
 
+    self.mau_g1_count = @mau_g1
+    self.wau_g1_count = @wau_g1
     self.mau_g1 = ((@mau_g1*1.0/users_count)).round(4)
     self.wau_g1 = ((@wau_g1*1.0/users_count)).round(4)
     self.dau_g1 = ((@dau_g1*1.0/users_count)).round(4)
@@ -102,8 +104,8 @@ class Statistic < ActiveRecord::Base
                         :total_users_for_first_two_weeks => @total_users_for_first_two_weeks, 
                         :transaction_in_first_month => @transaction_in_first_month,
                         :total_users_for_first_month => @total_users_for_first_month,
-                        :mau_g1 => @mau_g1,
-                        :wau_g1 => @wau_g1,
+                        #:mau_g1 => @mau_g1,
+                        #:wau_g1 => @wau_g1,
                         :dau_g1 => @dau_g1,
                         :mau_g2 => @mau_g2,
                         :wau_g2 => @wau_g2,
