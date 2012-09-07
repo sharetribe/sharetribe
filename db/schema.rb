@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730024756) do
+ActiveRecord::Schema.define(:version => 20120907023525) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -207,6 +207,13 @@ ActiveRecord::Schema.define(:version => 20120730024756) do
     t.integer "listing_id"
   end
 
+  create_table "hobbies", :force => true do |t|
+    t.string   "name"
+    t.boolean  "official",   :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "invitations", :force => true do |t|
     t.string   "code"
     t.integer  "community_id"
@@ -390,7 +397,7 @@ ActiveRecord::Schema.define(:version => 20120730024756) do
     t.datetime "image_updated_at"
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",            :default => "",   :null => false
+    t.string   "encrypted_password",            :default => "",         :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -405,6 +412,7 @@ ActiveRecord::Schema.define(:version => 20120730024756) do
     t.datetime "confirmation_sent_at"
     t.string   "facebook_id"
     t.string   "authentication_token"
+    t.string   "hobby_status",                  :default => "Existing"
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true
@@ -437,6 +445,13 @@ ActiveRecord::Schema.define(:version => 20120730024756) do
     t.integer  "is_read",          :default => 0
     t.datetime "last_sent_at"
     t.datetime "last_received_at"
+  end
+
+  create_table "person_hobbies", :id => false, :force => true do |t|
+    t.string   "person_id"
+    t.integer  "hobby_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "person_interesting_listings", :force => true do |t|
@@ -545,6 +560,22 @@ ActiveRecord::Schema.define(:version => 20120730024756) do
     t.float    "invitations_accepted_per_user"
     t.float    "revenue_per_mau_g1"
     t.text     "extra_data"
+    t.integer  "mau_g1_count"
+    t.integer  "wau_g1_count"
+    t.integer  "listings_count"
+    t.integer  "new_listings_last_week"
+    t.integer  "new_listings_last_month"
+    t.integer  "conversations_count"
+    t.integer  "new_conversations_last_week"
+    t.integer  "new_conversations_last_month"
+    t.integer  "messages_count"
+    t.integer  "new_messages_last_week"
+    t.integer  "new_messages_last_month"
+    t.integer  "transactions_count"
+    t.integer  "new_transactions_last_week"
+    t.integer  "new_transactions_last_month"
+    t.integer  "new_users_last_week"
+    t.integer  "new_users_last_month"
   end
 
   create_table "taggings", :force => true do |t|
