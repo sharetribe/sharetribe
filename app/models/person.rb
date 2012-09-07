@@ -59,9 +59,9 @@ class Person < ActiveRecord::Base
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
   
   has_many :participations, :dependent => :destroy 
-  has_many :conversations, :through => :participations
-  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id"
-  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC"
+  has_many :conversations, :through => :participations, :dependent => :destroy
+  has_many :authored_testimonials, :class_name => "Testimonial", :foreign_key => "author_id", :dependent => :destroy
+  has_many :received_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :received_positive_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.5,0.75,1)", :order => "id DESC"
   has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
@@ -73,7 +73,7 @@ class Person < ActiveRecord::Base
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
   has_many :answered_polls, :through => :poll_answers, :source => :poll
-  has_many :devices
+  has_many :devices, :dependent => :destroy
   #event where this person did something
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy 
   # events where this person was the target of the action
