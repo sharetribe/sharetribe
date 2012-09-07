@@ -26,7 +26,7 @@ every 1.hours do
 end
 
 every 1.day, :at => '11:57pm' do
-  runner "Statistic.create"
+  rake "kassi:calculate_statistics"
 end
 
 # Upload cached Ressi events.
