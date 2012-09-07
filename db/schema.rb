@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120907010347) do
+ActiveRecord::Schema.define(:version => 20120907023525) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -562,6 +562,20 @@ ActiveRecord::Schema.define(:version => 20120907010347) do
     t.text     "extra_data"
     t.integer  "mau_g1_count"
     t.integer  "wau_g1_count"
+    t.integer  "listings_count"
+    t.integer  "new_listings_last_week"
+    t.integer  "new_listings_last_month"
+    t.integer  "conversations_count"
+    t.integer  "new_conversations_last_week"
+    t.integer  "new_conversations_last_month"
+    t.integer  "messages_count"
+    t.integer  "new_messages_last_week"
+    t.integer  "new_messages_last_month"
+    t.integer  "transactions_count"
+    t.integer  "new_transactions_last_week"
+    t.integer  "new_transactions_last_month"
+    t.integer  "new_users_last_week"
+    t.integer  "new_users_last_month"
   end
 
   create_table "taggings", :force => true do |t|
