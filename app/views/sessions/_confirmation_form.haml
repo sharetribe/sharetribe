@@ -1,6 +1,6 @@
 - content_for :javascript do
   initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
-- if @current_community
+- if @current_community && @current_user
   - email_to_confirm = @current_user.email
 - else
   - email_to_confirm = session[:unconfirmed_email]
