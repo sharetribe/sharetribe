@@ -74,6 +74,10 @@ class Person < ActiveRecord::Base
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy
   has_many :answered_polls, :through => :poll_answers, :source => :poll
   has_many :devices
+  #event where this person did something
+  has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy 
+  # events where this person was the target of the action
+  has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
