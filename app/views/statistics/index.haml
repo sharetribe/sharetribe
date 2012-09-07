@@ -7,55 +7,10 @@
       Community:
       = @current_community.name
     
-    %h3
-      Users
-    
-    Total:
-    = @current_community.members.count
-    %br
-    New during last week:
-    = @current_community.new_members_during_last(7.days).count
-    %br
-    New during last month:
-    = @current_community.new_members_during_last(30.days).count
-    
+    = render :partial => "statistics",  :locals => { :stats => @community_stats }
+
 
   %h2
     Whole Sharetribe server
   
-  %h3
-    Activation
-
-  Users who create content during first 2 weeks:
-  = "#{@activation_p_first_two_weeks}% (#{@active_in_first_two_weeks} / #{@total_users_for_first_two_weeks})"
-  %br
-
-  Users who participate in a transaction during first month:
-  = "#{@transaction_p_first_month}% (#{@transaction_in_first_month} / #{@total_users_for_first_month})"
-
-  %h3
-    Retention
-
-  %h4
-    G1 (at least a page load)
-  MAU:
-  = "#{@mau_p}% (#{@mau}/#{@registered_users})"
-  %br
-  WAU:
-  = "#{@wau_p}% (#{@wau}/#{@registered_users})"
-  %br
-  DAU:
-  = "#{@dau_p}% (#{@dau}/#{@registered_users})"
-
-  %h3
-    Referral
-
-  Invitations on average per user (accepted/sent)
-  = "#{@inv_accepted_avg.round(4)} / #{@inv_sent_avg.round(4)}"
-
-
-  %h3
-    Revenue
-
-  Revenue per MAU:
-  = "#{@revenue_sum/@mau}€ - #{@revenue_sum}€ / #{@mau} "
+  = render :partial => "statistics",  :locals => { :stats => @server_stats }
