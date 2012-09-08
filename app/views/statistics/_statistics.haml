@@ -80,35 +80,35 @@ Users who participate in a transaction during first month:
 %h4
   G1 (at least a page load)
 MAU:
-= "#{stats.mau_g1}% (#{ stats.mau_g1_count}/#{ stats.users_count})"
+= "#{stats.mau_g1*100}% (#{ stats.mau_g1_count}/#{ stats.users_count})"
 %br
 WAU:
-= "#{stats.wau_g1}% (#{ stats.wau_g1_count}/#{ stats.users_count})"
+= "#{stats.wau_g1*100}% (#{ stats.wau_g1_count}/#{ stats.users_count})"
 %br
 DAU:
-= "#{stats.dau_g1}% (#{extra_stats["dau_g1"]}/#{ stats.users_count})"
+= "#{stats.dau_g1*100}% (#{extra_stats["dau_g1"]}/#{ stats.users_count})"
 
 %h4
   G2 (created some content or activity)
 MAU:
-= "#{stats.mau_g2}% (#{ extra_stats["mau_g2"]}/#{ stats.users_count})"
+= "#{stats.mau_g2*100}% (#{ extra_stats["mau_g2"]}/#{ stats.users_count})"
 %br
 WAU:
-= "#{stats.wau_g2}% (#{ extra_stats["wau_g2"]}/#{ stats.users_count})"
+= "#{stats.wau_g2*100}% (#{ extra_stats["wau_g2"]}/#{ stats.users_count})"
 %br
 DAU:
-= "#{stats.dau_g2}% (#{extra_stats["dau_g2"]}/#{ stats.users_count})"
+= "#{stats.dau_g2*100}% (#{extra_stats["dau_g2"]}/#{ stats.users_count})"
 
 %h4
   G3 (participated in a transaction)
 MAU:
-= "#{stats.mau_g3}% (#{ extra_stats["mau_g3"]}/#{ stats.users_count})"
+= "#{stats.mau_g3*100}% (#{ extra_stats["mau_g3"]}/#{ stats.users_count})"
 %br
 WAU:
-= "#{stats.wau_g3}% (#{ extra_stats["wau_g3"]}/#{ stats.users_count})"
+= "#{stats.wau_g3*100}% (#{ extra_stats["wau_g3"]}/#{ stats.users_count})"
 %br
 DAU:
-= "#{stats.dau_g3}% (#{extra_stats["dau_g3"]}/#{ stats.users_count})"
+= "#{stats.dau_g3*100}% (#{extra_stats["dau_g3"]}/#{ stats.users_count})"
 
 %h3
   Referral

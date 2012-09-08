@@ -9,6 +9,7 @@ class Statistic < ActiveRecord::Base
     # Users count
     if community
       self.users_count = community.members.count
+      self.users_count = 1 if self.users_count == 0 # 0 breaks the calculation, so expect that there should be at least 1 member.
       self.new_users_last_week = community.new_members_during_last(7.days).count
       self.new_users_last_month = community.new_members_during_last(30.days).count
     else
@@ -25,7 +26,8 @@ class Statistic < ActiveRecord::Base
       community.members.each{ |m| conversations << m.conversations }
       
       #select only conversations that are duplicate (i.e. happening between members of this community)
-      conversations.flatten!.reject!{|c| conversations.count(c) != 2}.uniq!        
+      conversations.flatten!
+      conversations = conversations.select{|c| conversations.count(c) == 2}.uniq        
       
       listings = community.listings
       messages = []
@@ -157,7 +159,7 @@ class Statistic < ActiveRecord::Base
         @revenue_sum += d.monthly_price_in_euros if d.monthly_price_in_euros
       end
     end
-    self.revenue_per_mau_g1 = @mau_g1 > 0 ? (@revenue_sum/@mau_g1).round(2) : 0
+    self.revenue_per_mau_g1 = @mau_g1 > 0 ? (@revenue_sum/@mau_g1*100).round/100 : 0
     
     self.extra_data = { :active_in_first_two_weeks => @active_in_first_two_weeks, 
                         :total_users_for_first_two_weeks => @total_users_for_first_two_weeks, 
