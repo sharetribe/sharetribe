@@ -50,12 +50,12 @@ gem 'rabl'
 #gem 'rocket_pants'
 
 group :test do
-  gem "rspec-rails", "2.0.0.beta.19" #
-  gem 'capybara', '0.3.9' #
+  gem "rspec-rails"#
+  gem 'capybara'#
   gem 'cucumber-rails'
-  gem 'cucumber', '0.8.5' #
+  gem 'cucumber' #
   #gem 'selenium-webdriver', '~>0.2.2'
-  gem 'selenium-webdriver', '0.0.28'
+  gem 'selenium-webdriver'#
   gem 'launchy'
   gem 'ruby-prof'
   gem 'factory_girl_rails'

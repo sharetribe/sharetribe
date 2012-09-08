@@ -98,7 +98,7 @@ GEM
     httpauth (0.1)
     httpclient (2.1.6.1)
     i18n (0.4.2)
-    json (1.2.2)
+    json (1.7.5)
     json_pure (1.4.6)
     launchy (0.3.7)
       configuration (>= 0.0.5)
@@ -264,8 +264,8 @@ DEPENDENCIES
   acts-as-taggable-on
   airbrake
   capistrano
-  capybara (= 0.3.9)
-  cucumber (= 0.8.5)
+  capybara
+  cucumber
   cucumber-rails
   database_cleaner
   delayed_job
@@ -289,11 +289,11 @@ DEPENDENCIES
   rails-i18n
   recaptcha
   rest-client (>= 1.6.0)
-  rspec-rails (= 2.0.0.beta.19)
+  rspec-rails
   ruby-prof
   russian
   sass
-  selenium-webdriver (= 0.0.28)
+  selenium-webdriver
   spreadsheet
   thinking-sphinx (= 2.0.0)
   web_translate_it (<= 1.7.4.5)
