@@ -3,7 +3,7 @@ require 'spec_helper'
 describe CommunityMembership do
   
   before(:each) do
-    @community_membership = Factory.build(:community_membership)
+    @community_membership = FactoryGirl.build(:community_membership)
   end
   
   it "is valid with valid attributes" do

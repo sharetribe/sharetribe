@@ -11,7 +11,7 @@ end
 
 
 Before('@badge') do
-  # Factory.create(:community, :domain => "test3")
+  # FactoryGirl.create(:community, :domain => "test3")
   #   puts "COMMUNITIES: #{Community.all.count}"
   steps %Q{
     Given there are following users:

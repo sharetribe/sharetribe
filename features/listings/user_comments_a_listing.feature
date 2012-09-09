@@ -34,7 +34,6 @@ Feature: User comments a listing
     And I log in as "kassi_testperson2"
     And the system processes jobs
     And I go to the home page
-    And show me the page
     Then I should see "1" within "#logged_in_notifications_icon"
     When I follow "notifications_link"
     Then I should see "has commented a request you follow"
