@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Api::BadgesController do
+  render_views
   if not use_asi? # No need to run the API tests with ASI
     before(:each) do
       @p1 = FactoryGirl.create(:person)
@@ -15,8 +16,6 @@ describe Api::BadgesController do
         get :index, :person_id => @p1.id, :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        #puts resp.to_yaml
-        # => puts response.body
         resp["badges"].count.should == 2
         resp["badges"][0]["name"].should == "rookie"
         resp["badges"][0]["description"].should == "You have added an offer or a request in Sharetribe for the first time. Here we go!"

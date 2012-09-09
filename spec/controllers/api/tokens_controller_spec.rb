@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::TokensController do
+  render_views
+  
   if not use_asi? # No need to run the API tests with ASI
     describe "show" do
     
