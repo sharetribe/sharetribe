@@ -26,7 +26,7 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
-gem 'paperclip'
+gem 'paperclip', '~>2.3.8'
 gem "will_paginate", "~> 3.0"
 gem 'whenever'#, "0.6.8" # newer seems to cause "Invalid gemspec:invalid date format in specification" error
 gem 'newrelic_rpm'
@@ -36,6 +36,7 @@ gem 'recaptcha'
 gem "airbrake"
 gem 'passenger'
 gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'win32-process', :platforms => [:mswin, :mingw]
 gem 'json'
@@ -50,15 +51,14 @@ gem 'rabl'
 #gem 'rocket_pants'
 
 group :test do
-  gem "rspec-rails"#
-  gem 'capybara'#
+  gem "rspec-rails"
+  gem 'capybara'
   gem 'cucumber-rails'
-  gem 'cucumber' #
-  #gem 'selenium-webdriver', '~>0.2.2'
-  gem 'selenium-webdriver'#
+  gem 'cucumber' 
+  gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 1.7.0'
   gem "pickle"
 end
 
