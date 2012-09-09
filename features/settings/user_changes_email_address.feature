@@ -31,7 +31,7 @@ Feature: User changes email address
     And I fill in "person_email" with "this is not email"
     And I press "email_submit"
     Then I should not see "Information updated" within "#notifications"
-    And I should see "Please enter a valid email address." within ".error_account"
+    And I should see "Please enter a valid email address." 
   
   
   

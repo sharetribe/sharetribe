@@ -42,8 +42,8 @@ Feature: User gives feedback from transaction
     When I follow "Messages"
     And I follow "Give feedback"
     And I press "send_testimonial_button"
-    Then I should see "Remember to grade the user by clicking one of the icons above" within ".error"
-    And I should see "This field is required" within ".error"
+    Then I should see "Remember to grade the user by clicking one of the icons above"
+    And I should see "This field is required"
     
   @javascript
   Scenario: Try to give non-neutral feedback without a message
@@ -59,7 +59,7 @@ Feature: User gives feedback from transaction
     And I follow "Give feedback"
     And I follow "Much better than expected"
     And I press "send_testimonial_button"
-    Then I should see "This field is required" within ".error"
+    Then I should see "This field is required"
   
   @javascript
   Scenario: Try to give feedback without logging in

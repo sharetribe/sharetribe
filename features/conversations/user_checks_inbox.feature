@@ -14,10 +14,10 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     Then I should see "Messages" within "h1"
-    And I should see "Service offer: Massage" within "h3"
+    And I should see "Service offer: Massage" within "div.conversation_center"
     And I should see "Received" within ".inbox_tab_selected"
     And I should see "Sent" within ".inbox_tab_unselected"
-    And I should see "Test message" within "span"
+    And I should see "Test message" within "div.conversation_center"
 
   @javascript
   Scenario: Viewing sent messages
@@ -31,8 +31,8 @@ Feature: User checks inbox
     When I follow "Messages"
     And I follow "Sent"
     Then I should see "Messages" within "h1"
-    And I should see "Service offer: Massage" within "h3"
-    And I should see "Test message" within "span"
+    And I should see "Service offer: Massage" within "div.conversation_center"
+    And I should see "Test message" within "div.conversation_center"
   
   @javascript
   Scenario: Viewing a single conversation in received messages
@@ -67,13 +67,13 @@ Feature: User checks inbox
     And there is a reply "Fine" to that message by "kassi_testperson2"
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
-    Then I should see "Reply to massage" within ".unread"
-    And I should see "Service offer: Massage" within "h3"
+    Then I should see "Reply to massage"
+    And I should see "Service offer: Massage"
     And I should not see "Another test" within ".unread"
     And I should not see "Test1"
     And I should not see "Test2"
-    And I should see "Rideshare request: Helsinki - Turku" within "h3"
-    And I should see "Fine" within ".unread"
+    And I should see "Rideshare request: Helsinki - Turku" 
+    And I should see "Fine"
     And I should see "3" within "#logged_in_messages_icon"
     And I follow "Fine"
     And I follow "Messages"
@@ -102,12 +102,12 @@ Feature: User checks inbox
     When I follow "Messages"
     And I follow "Sent"
     Then I should see "Ok"
-    And I should see "Service offer: Massage" within "h3"
+    And I should see "Service offer: Massage"
     And I should not see "Another test"
     And I should not see "Test1"
     And I should see "Test2"
-    And I should see "Item request: Hammer" within "h3"
-    And I should see "Rideshare request: Helsinki - Turku" within "h3"
+    And I should see "Item request: Hammer"
+    And I should see "Rideshare request: Helsinki - Turku"
     And I should see "Test3"
   
   @javascript
