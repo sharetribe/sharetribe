@@ -60,7 +60,7 @@ module TestHelpers
     else # No ASI just Sharetribe DB in use
       test_person = Person.find_by_username(username)
       unless test_person.present?
-        test_person = Factory.build(:person, { :username => username, 
+        test_person = FactoryGirl.build(:person, { :username => username, 
                         :password => "testi", 
                         :email => "#{username}@example.com",
                         :given_name => "Test",
