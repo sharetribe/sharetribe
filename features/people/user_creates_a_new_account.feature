@@ -30,7 +30,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "This username is already in use." within ".error"
+    Then I should see "This username is already in use." 
   
   @javascript  
   Scenario: Trying to create account with invalid username 
@@ -43,7 +43,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "Username is invalid." within ".error"
+    Then I should see "Username is invalid." 
   
   @javascript
   Scenario: Trying to create account with unavailable email
@@ -56,7 +56,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address" with "kassi_testperson2@example.com"
     And I press "Create account"
-    Then I should see "The email you gave is already in use." within ".error"
+    Then I should see "The email you gave is already in use." 
   
   @javascript
   Scenario: Trying to create an account without given name and last name

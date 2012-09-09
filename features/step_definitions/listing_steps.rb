@@ -52,3 +52,8 @@ end
 When /^there is one comment to the listing from "([^"]*)"$/ do |author|
   @comment = Factory(:comment, :listing => @listing, :author => @people[author])
 end
+
+Then /^the total number of comments should be (\d+)$/ do |no_of_comments|
+  Comment.all.count.should == no_of_comments.to_i
+end
+

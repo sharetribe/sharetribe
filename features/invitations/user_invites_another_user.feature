@@ -34,8 +34,8 @@ Feature: User joins invite only community
     And I am logged in as "kassi_testperson1"
     And users can invite new users to join community "test"
     And I press "Send invitation"
-    Then I should see "This field is required." within ".error"
+    Then I should see "This field is required." 
     When I fill in "invitation_email" with "test"
-    Then I should see "Please enter a valid email address." within ".error"
+    Then I should see "Please enter a valid email address."
   
   

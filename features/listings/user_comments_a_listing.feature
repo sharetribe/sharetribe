@@ -32,6 +32,8 @@ Feature: User comments a listing
     And the system processes jobs
     And I follow "Logout"
     And I log in as "kassi_testperson2"
+    And the system processes jobs
+    And I go to the home page
     Then I should see "1" within "#logged_in_notifications_icon"
     When I follow "notifications_link"
     Then I should see "has commented a request you follow"
@@ -63,7 +65,7 @@ Feature: User comments a listing
     And I am logged in as "kassi_testperson2"
     When I follow "Massage"
     And I press "Send comment"
-    Then I should see "This field is required." within ".error"
+    Then I should see "This field is required."
       
   Scenario: Trying to add a comment without logging in
     Given there are following users:

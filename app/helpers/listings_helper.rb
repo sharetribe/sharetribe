@@ -32,7 +32,7 @@ module ListingsHelper
   def clear_datetime_select(&block)
     time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('listings.form.departure_time.at')}:</div>"
     colon = "</div><div class='date_select_time_container'><div class='datetime_select_colon_label'>:</div>"
-    haml_concat capture_haml(&block).gsub(":", "#{colon}").gsub("&mdash;", "#{time}").gsub("\n", '')
+    haml_concat capture_haml(&block).gsub(":", "#{colon}").gsub("&mdash;", "#{time}").gsub("\n", '').html_safe
   end
   
   # Class is selected if listing type is currently selected

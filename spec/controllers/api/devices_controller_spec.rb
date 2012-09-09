@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Api::DevicesController do
+  render_views
   if not use_asi? # No need to run the API tests with ASI
     before(:each) do
       @p1 = FactoryGirl.create(:person, :given_name => "Danny", :family_name => "van Testburg")

@@ -82,10 +82,10 @@ Feature: User creates a new listing
     And I select "December" from "listing_valid_until_2i"
     And I select "2013" from "listing_valid_until_1i"
     And I press "Save request"
-    Then I should see "This field is required." within ".error"
-    And I should see "You must select one." within ".error"
-    And I should see "This date must be between current time and one year from now." within ".error"
-    And I should see "The image file must be either in GIF, JPG or PNG format." within ".error"
+    Then I should see "This field is required."
+    And I should see "You must select one." 
+    And I should see "This date must be between current time and one year from now." 
+    And I should see "The image file must be either in GIF, JPG or PNG format." 
     
   @javascript  
   Scenario: Trying to create a new rideshare request with insufficient information
@@ -99,8 +99,8 @@ Feature: User creates a new listing
     And I select "December" from "listing_valid_until_2i"
     And I select "2013" from "listing_valid_until_1i"
     And I press "Save request"
-    Then I should see "This field is required." within ".error"
-    And I should see "Departure time must be between current time and one year from now." within ".error"  
+    Then I should see "This field is required."
+    And I should see "Departure time must be between current time and one year from now." 
 
   @javascript
   Scenario: User creates a listing and sees it in another community
