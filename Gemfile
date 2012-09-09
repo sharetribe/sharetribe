@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -26,21 +26,22 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
-gem 'paperclip'
-gem "will_paginate", "~> 3.0"
-gem 'whenever'#, "0.6.8" # newer seems to cause "Invalid gemspec:invalid date format in specification" error
+gem 'paperclip', '~>2.7'
+gem "will_paginate"
+gem 'whenever'
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
+gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'recaptcha'
 gem "airbrake"
 gem 'passenger'
 gem 'delayed_job'
+gem 'delayed_job_active_record'
 gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'win32-process', :platforms => [:mswin, :mingw]
 gem 'json'
 gem 'russian'
-gem 'web_translate_it', '<= 1.7.4.5' # newer seems to cause "Invalid gemspec:invalid date format in specification" error
+gem 'web_translate_it'
 gem 'postmark-rails'
 gem 'rails-i18n'
 gem 'devise', '2.0.0.rc'
@@ -50,15 +51,14 @@ gem 'rabl'
 #gem 'rocket_pants'
 
 group :test do
-  gem "rspec-rails", "2.0.0.beta.19" #
-  gem 'capybara', '0.3.9' #
+  gem "rspec-rails"
+  gem 'capybara'
   gem 'cucumber-rails'
-  gem 'cucumber', '0.8.5' #
-  #gem 'selenium-webdriver', '~>0.2.2'
-  gem 'selenium-webdriver', '0.0.28'
+  gem 'cucumber' 
+  gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 1.7 '
   gem "pickle"
 end
 

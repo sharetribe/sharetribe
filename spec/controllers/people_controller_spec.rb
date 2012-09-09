@@ -54,9 +54,9 @@ describe PeopleController do
       it "should store the old accepted email as additional email when changing email" do
        
         # one reason for this is that people can't use one email to create many accounts in email restricted community
-        community = Factory.build(:community, :allowed_emails => "@examplecompany.co")
+        community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
         @request.host = "#{community.domain}.lvh.me"
-        member = Factory.build(:person)
+        member = FactoryGirl.build(:person)
         member.email = "one@examplecompany.co"
         member.communities.push community
         member.save
@@ -99,7 +99,7 @@ describe PeopleController do
       it "doesn't create a person for community if email is not allowed" do
         
         username = generate_random_username
-        community = Factory.build(:community, :allowed_emails => "@examplecompany.co")
+        community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
         community.save
         @request.host = "#{community.domain}.lvh.me"
 

@@ -65,8 +65,8 @@ Feature: User edits his own listing
     And I select "December" from "listing_valid_until_2i"
     And I select "2013" from "listing_valid_until_1i"
     And I press "Save request"
-    Then I should see "This field is required." within ".error"
-    And I should see "This date must be between current time and one year from now." within ".error"  
+    Then I should see "This field is required." 
+    And I should see "This date must be between current time and one year from now."  
 
   @javascript
   Scenario: Trying to update somebody else's listing

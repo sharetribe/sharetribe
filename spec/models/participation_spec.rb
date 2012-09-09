@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Participation do
   
   before(:each) do
-    @participation = Factory.build(:participation)
+    @participation = FactoryGirl.build(:participation)
   end
   
   it "is valid with valid attributes" do

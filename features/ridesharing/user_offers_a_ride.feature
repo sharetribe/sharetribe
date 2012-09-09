@@ -26,9 +26,9 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "This place should not exist"
     And I fill in "listing_destination" with "Tampere"
     And wait for 2 seconds
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found" 
     And I press "Save request"
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found" 
 
   @javascript
   Scenario: Creating a new rideshare item request with wrong address in destination
@@ -40,9 +40,9 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "This place should not exist"
     And wait for 2 seconds
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
     And I press "Save request"
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
 
   @javascript
   Scenario: Creating a new rideshare item offer successfully
@@ -70,9 +70,9 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "This place should not exist"
     And I fill in "listing_destination" with "Tampere"
     And wait for 2 seconds
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
     And I press "Save offer"
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
 
   @javascript
   Scenario: Creating a new rideshare item offer with wrong address in destination
@@ -84,7 +84,7 @@ Feature: User creates a new rideshare
     And I fill in "listing_origin" with "Tampere"
     And I fill in "listing_destination" with "This place should not exist"
     And wait for 2 seconds
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
     And I press "Save offer"
-    Then I should see "Address not found" within ".error"
+    Then I should see "Address not found"
 

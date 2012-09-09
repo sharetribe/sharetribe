@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Community do
   
   before(:each) do
-    @community = Factory.build(:community)
+    @community = FactoryGirl.build(:community)
   end
   
   it "is valid with valid attributes" do
@@ -44,8 +44,8 @@ describe Community do
     
     # it "Sends email to each user who doesn't have confirmed date" do
     #   ActionMailer::Base.deliveries = []
-    #   person1 = Factory.build(:person, :locale => :en)
-    #   person2 = Factory.build(:person, :locale => :fi)
+    #   person1 = FactoryGirl.build(:person, :locale => :en)
+    #   person2 = FactoryGirl.build(:person, :locale => :fi)
     #   @community.members.push [person1, person2]
     #   @community.set_email_confirmation_on_and_send_mail_to_existing_users
     #   ActionMailer::Base.deliveries.should_not be_empty
@@ -59,8 +59,8 @@ describe Community do
     # 
     # it "does not send email to those who are already confirmed" do
     #   ActionMailer::Base.deliveries = []
-    #   person1 = Factory.build(:person, :locale => :en)
-    #   person2 = Factory.build(:person, :locale => :fi, :confirmed_at => Time.now)
+    #   person1 = FactoryGirl.build(:person, :locale => :en)
+    #   person2 = FactoryGirl.build(:person, :locale => :fi, :confirmed_at => Time.now)
     #   @community.members.push [person1, person2]
     #   @community.set_email_confirmation_on_and_send_mail_to_existing_users
     #   ActionMailer::Base.deliveries.should_not be_empty

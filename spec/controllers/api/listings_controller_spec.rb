@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::ListingsController do
+  render_views
+  
   if not use_asi? # No need to run the API tests with ASI
       
     before(:each) do
@@ -263,7 +265,7 @@ describe Api::ListingsController do
           Listing.last.destination_loc.longitude.should == 26.7475
           Listing.last.destination.should == "office"
           Listing.last.origin_loc.address.should == "helsinki"
-          Listing.last.valid_until.to_s.should == 2.days.from_now.to_s
+          Listing.last.valid_until.should be_within(3.seconds).of(2.days.from_now)
         end
         
         it "supports setting locations by address only" do

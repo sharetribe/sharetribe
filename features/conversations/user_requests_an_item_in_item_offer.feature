@@ -41,7 +41,7 @@ Feature: User requests an item in item offer
     When I follow "Hammer"
     And I follow "Borrow this item"
     And I press "Send the request"
-    Then I should see "This field is required." within ".error"
+    Then I should see "This field is required."
   
   @javascript  
   Scenario: Requesting an item without logging in and then logging in

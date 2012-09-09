@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Message do
   
   before(:each) do
-    @message = Factory.build(:message)
+    @message = FactoryGirl.build(:message)
   end
   
   it "is valid with valid attributes" do 

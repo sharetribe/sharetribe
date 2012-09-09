@@ -287,13 +287,13 @@ describe Person do
         
         describe "#delete" do
           it "should delete also related conversations and testimonials" do
-            conv = Factory.create(:conversation)
+            conv = FactoryGirl.create(:conversation)
             conv.participants << @test_person
             conv_id = conv.id
             Conversation.find_by_id(conv_id).should_not be_nil
             @test_person.conversations.should include(conv)
             
-            tes = Factory.create(:testimonial, :author => @test_person)
+            tes = FactoryGirl.create(:testimonial, :author => @test_person)
             tes_id = tes.id
             Testimonial.find_by_id(tes_id).should_not be_nil
             

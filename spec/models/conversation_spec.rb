@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Conversation do
 
   before(:each) do
-    @conversation = Factory.build(:conversation)
+    @conversation = FactoryGirl.build(:conversation)
   end
   
   it "should be valid with valid attributes" do
