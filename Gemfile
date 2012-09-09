@@ -26,12 +26,12 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
-gem 'paperclip', '~>2.3.8'
-gem "will_paginate", "~> 3.0"
-gem 'whenever'#, "0.6.8" # newer seems to cause "Invalid gemspec:invalid date format in specification" error
+gem 'paperclip', '~>2.7'
+gem "will_paginate"
+gem 'whenever'
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx', "2.0.0", :require => 'thinking_sphinx'
+gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'recaptcha'
 gem "airbrake"
 gem 'passenger'
@@ -41,7 +41,7 @@ gem 'win32console', :platforms => [:mswin, :mingw]
 gem 'win32-process', :platforms => [:mswin, :mingw]
 gem 'json'
 gem 'russian'
-gem 'web_translate_it', '<= 1.7.4.5' # newer seems to cause "Invalid gemspec:invalid date format in specification" error
+gem 'web_translate_it'
 gem 'postmark-rails'
 gem 'rails-i18n'
 gem 'devise', '2.0.0.rc'
@@ -58,7 +58,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails', '~> 1.7.0'
+  gem 'factory_girl_rails', '~> 1.7 '
   gem "pickle"
 end
 
