@@ -27,8 +27,8 @@ Feature: User sends feedback to admins
     When I follow "Feedback"
     And I fill in "Your email address" with "test"
     And I press "Send feedback"
-    Then I should see "This field is required" within ".error"
-    And I should see "Please enter a valid email address" within ".error"
+    Then I should see "This field is required"
+    And I should see "Please enter a valid email address"
     
   @javascript
   Scenario: Trying to send a spam link
