@@ -96,8 +96,9 @@
         .grid_6
           #search
             = form_tag("/#{I18n.locale}/search", :method => "get") do
-              = text_field_tag("q", params[:q], :class => "search_field")
-              = submit_tag("s", :class => "search_button")
+              - one_line_for_html_safe_content do  
+                = text_field_tag("q", params[:q], :class => "search_field")
+                = submit_tag("s", :class => "search_button")
           - if logo_text.present? && available_locales.count > 1
             .locale_select_padding_lower
               = render :partial => "layouts/locale_select"

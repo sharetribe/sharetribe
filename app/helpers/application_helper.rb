@@ -3,8 +3,9 @@ module ApplicationHelper
   @@use_asi_in_this_test = (ENV["KASSI_TESTS_WITH_ASI"] == "true")
   
   # Removes whitespaces from HAML expressions
-  def one_line(&block)
-    haml_concat capture_haml(&block).gsub("\n", '')
+  # if you add two elements on two lines; the white space creates a space between the elements (in some browsers)
+  def one_line_for_html_safe_content(&block)
+    haml_concat capture_haml(&block).gsub("\n", '').html_safe
   end
   
   # Returns a human friendly format of the time stamp
