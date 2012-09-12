@@ -54,3 +54,11 @@ When /^I move to community "([^"]*)"$/ do |community|
   Capybara.app_host = "http://#{community}.lvh.me:9887"
 end
 
+Given /^there is an existing community with "([^"]*)" in allowed emails and with slogan "([^"]*)"$/ do |email_ending, slogan|
+  @existing_community = Factory(:community, :allowed_emails => email_ending, :slogan => slogan, :category => "company")
+end
+
+Given /^show me existing community$/ do
+  puts "Email ending: #{@existing_community.allowed_emails}"
+end
+

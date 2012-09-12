@@ -289,7 +289,7 @@ module ApplicationHelper
   end
   
   def get_url_for(community)
-    "http://#{community.domain}.#{request.domain}/#{I18n.locale}"
+    "http://#{with_subdomain(community.domain)}/#{I18n.locale}"
   end
   
 end

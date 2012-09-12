@@ -36,7 +36,7 @@ class CommunitiesController < ApplicationController
     session[:community_category] = params[:category] if params[:category]
     session[:pricing_plan] = params[:pricing_plan] if params[:pricing_plan]
     session[:community_locale] = params[:community_locale] if params[:community_locale]
-    @existing_community = Community.find_by_email_ending(params[:new_tribe_email]) if params[:new_tribe_email]
+    
     session[:confirmed_email] = session[:unconfirmed_email] if session[:unconfirmed_email] && @current_user.has_confirmed_email?(session[:unconfirmed_email])
     
     respond_to do |format|
