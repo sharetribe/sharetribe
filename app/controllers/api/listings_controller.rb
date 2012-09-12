@@ -40,6 +40,10 @@ class Api::ListingsController < Api::ApiController
     end
     
     @total_pages = @listings.total_pages
+    
+    @title = "Recent listings in #{@current_community.name} #{service_name}"
+    @updated = @listings.last.updated_at
+    
     respond_with @listings
   end
 

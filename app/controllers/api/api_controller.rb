@@ -12,7 +12,7 @@ class Api::ApiController < ApplicationController
   before_filter :set_pagination
 
     
-  respond_to :json
+  respond_to :json, :atom
     
   layout false
   
