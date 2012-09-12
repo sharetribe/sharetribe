@@ -1,0 +1,5 @@
+.container_12
+  .grid_8.prefix_2.suffix_2
+    #no_javascript_container
+      %h1= t('error_pages.no_javascript.javascript_is_disabled_in_your_browser')
+      %p= t('error_pages.no_javascript.kassi_does_not_currently_work_without_javascript_dashboard', :contact_us => link_to(t("error_pages.no_javascript.contact_us"), "mailto:info@sharetribe.com")).html_safe

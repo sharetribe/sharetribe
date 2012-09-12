@@ -1,5 +1,5 @@
 - if logged_in?
-  #logged_in_icon_container.grid_4.prefix_3.alpha
+  #logged_in_icon_container.grid_3.alpha
     #logged_in_icons
       #logged_in_messages_icon
         = render :partial => "layouts/logged_in_messages_icon"
@@ -9,7 +9,7 @@
         %a{:href => person_settings_path(:person_id => @current_user.id), :title => t('.settings') }
           %span{:class => "not_visible"}
             a
-  .grid_5.omega
+  .grid_9.omega
     #logged_in_links
       %span
         = t('.hi')

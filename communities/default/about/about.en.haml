@@ -1,24 +1,20 @@
 %h3 What is #{service_name}?
 
 %p 
-  #{service_name} makes it easier to sell, buy and lend stuff, do favors, organize car pooling and in general to exchange day-to-day resources within a local community. #{service_name} users can offer each other items, favors, rides and housing and also request all these from other users.
-
+  #{service_name} is a marketplace that makes it easy for people to lend, rent, buy and sell goods, exchange services and share rides and spaces with the members of their local community - university campus, neighborhood, company, association, congregation, you name it. 
+  
 %p  
-  #{service_name} aims to create a local item and service directory for each community and thus decrease the need for members to buy goods and services outside the community. Thus, use of the service saves both your time and money, and saves the planet at the same time. It is also a great way to meet new people in your neighborhood.
-
-%h3 Who is #{service_name} for?
+  In #{service_name} you can let others know what you could share with them, and ask for help when you need it. Sharing saves your time and money and helps the environment, and you also get to know the people from your community better.
+  
+%p  
+  You are currently browsing the sharetribe of #{@current_community.name}. Would you like to set up a tribe for your own community? It's free and only takes a minute! If you'd like to know more,  
+  = link_to("click here", "http://www.sharetribe.com/?ref=about") + "."
 
 %p
-  #{service_name} is a community-based service for schools, cities, companies and associations. You are currently browsing the #{service_name} community of #{@current_community.name}.
-
-%p
-  Would you like to use #{service_name} with the people in your school, city, company or association? Read more at
-  = link_to "http://www.sharetribe.com", "http://www.sharetribe.com/en"
-  and leave us your email address using the form on the site, if you want more information about the service.
+  #{service_name} code is open source, so you can also install it on your own server, and participate in the development if you wish. You can find the code
+  = link_to("here", "https://github.com/sharetribe/sharetribe") + "." 
 
 %h3 Who's behind #{service_name}?
 
 %p
-  #{service_name} has been developed as a part of the 
-  = link_to("OtaSizzle research project", "http://sizl.org")
-  of Aalto University. Researchers Antti Virolainen and Juho Makkonen are responsible for the development of the service. If you have any questions, comments or feedback regarding the service, please send them to info (at) sharetribe.com or directly to Antti's or Juho's personal email addresses (firstname.lastname@sharetribe.com).
+  #{service_name} is developed and maintained by Sharetribe Ltd, a company founded in 2011 by three guys from Finland: Juho Makkonen, Antti Virolainen and Niklas Begley. If you have any questions, you can contact us by email: team@sharetribe.com or firstname.lastname@sharetribe.com.

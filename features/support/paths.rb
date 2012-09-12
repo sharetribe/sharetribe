@@ -40,7 +40,8 @@ module NavigationHelpers
       about_infos_path
     when /the news page/
       news_items_path
-      
+    when /new tribe in English/
+      new_tribe_path(:community_locale => "en")
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page
