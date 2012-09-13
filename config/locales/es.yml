@@ -244,10 +244,10 @@ es:
       email_in_use_message: "Ya existe una cuenta en %{service_name} con esta dirección e-mail. Si ya tienes una cuenta, puedes iniciar sesión utilizando el enlace de más arriba."
       invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
       log_in_here: "inicia sesión aquí"
-      existing_community_with_this_email: ~
+      existing_community_with_this_email: "Ya existe una tribu para esta %{community_category}. Puedes unirte a la tribu %{link}."
       here: ~
-      for_company: ~
-      for_university: ~
+      for_company: empresa
+      for_university: universidad
       for_town: ~
       for_congregation: ~
       for_association: ~
@@ -433,6 +433,8 @@ es:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
+      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      contact_us: ~
       send_feedback: "Enviar sugerencia"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
