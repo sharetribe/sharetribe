@@ -428,6 +428,8 @@ el:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
       kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και τότε ανανέωσε αυτή τη σελίδα. Αν θέλεις να χρησιμοποιείς το %{service_name} χωρίς Javascript, παρακαλούμε στείλε μας τα σχόλιά σου χρησιμοποιώντας την παρακάτω φόρμα."
+      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      contact_us: ~
       send_feedback: "Αποστολή σχολίων"
       your_feedback_to_admins: "Τα σχόλιά σου στους διαχειριστές"
     send: Αποστολή
@@ -596,7 +598,7 @@ el:
       notifications: Ειδοποιήσεις
       requests: "Αιτήματα φιλίας"
       settings: Ρυθμίσεις
-      sign_up: "Νέος λογαριασμός"
+      sign_up: Εγγραφή
     logged_in_messages_icon:
       messages: Μηνύματα
     logged_in_notifications_icon:
@@ -931,7 +933,7 @@ el:
       all_request_types: "Όλοι οι τύποι αιτημάτων"
       category: Κατηγορία
       did_not_found_what_you_were_looking_for: "Δεν βρήκες αυτό που χρειάζεσαι;"
-      favors: Χάρες
+      favors: Υπηρεσίες
       housing: Διαμονή
       items: Αντικείμενα
       list_view: "Προβολή σε λίστα"
@@ -969,7 +971,7 @@ el:
       help_invitation_code_title: "Χρειάζεσαι πρόσκληση για να συμμετέχεις."
       terms_title: "Όροι χρήσης του %{service_name}"
       trustcloud_description_title: TrustCloud
-      trustcloud_description_text: ~
+      trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το %{service_name}. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
@@ -977,7 +979,7 @@ el:
       address_validator: "Η τοποθεσία δεν βρέθηκε."
       captcha_incorrect: "Ο έλεγχος του reCAPTCHA απέτυχε. Παρακαλούμε, γράψε στο παρακάτω κουτάκι τις λέξεις που φαίνονται στην εικόνα."
       captcha_was_wrong: "Το κείμενο του Captcha ήταν λάθος."
-      create_new_account: "Δημιούργησε λογαριασμό"
+      create_new_account: "Δημιουργία λογαριασμού"
       email: "Διεύθυνση email:"
       email_is_in_use: "Το email που έδωσες χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποίησε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δες τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείς να συνδεθείς επικοινώνησε μαζί μας πατώντας το κουμπί ανατροφοδότησης στα αριστερά."
@@ -997,8 +999,8 @@ el:
       terms: "όρους χρήσης"
       username_is_in_use: "Το όνομα χρήστη που έδωσες χρησιμοποιείται ήδη."
       username_is_invalid: "Το όνομα χρήστη δεν είναι έγκυρο. Επιτρέπονται μόνο γράμματα, αριθμοί και κάτω παύλες."
-      visible_only_to_you: "ορατό μόνο σε σένα και το διαχειριστή της κοινότητας"
-      visible_to_everybody: "ορατές σε όλους"
+      visible_only_to_you: "ορατή μόνο σε σένα και το διαχειριστή της κοινότητας"
+      visible_to_everybody: "ορατό σε όλους"
     not_member:
       explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το %{service_name} δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
       read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες %{service_name}"
@@ -1085,11 +1087,11 @@ el:
       and_gave_following_feedback: "και έδωσε αυτή την κριτική"
       less_than_expected: "Χειρότερα από το αναμενόμενο"
       offered_favor: "πρόσφερε τη βοήθειά του"
-      offered_housing: "πρόσφερε στέγαση"
+      offered_housing: "πρόσφερε διαμονή"
       offered_item: "πρόσφερε ένα αντικείμενο"
       offered_rideshare: "πρόσφερε το όχημά του/της"
       requested_favor: "ζήτησε βοήθεια"
-      requested_housing: "ζήτησε στέγαση"
+      requested_housing: "ζήτησε διαμονή"
       requested_item: "ζήτησε ένα αντικείμενο"
       requested_rideshare: "έκανε οτοστόπ στη διαδρομή"
       slightly_better_than_expected: "Λίγο καλύτερα από το αναμενόμενο"
@@ -1143,7 +1145,7 @@ el:
       create_new_account: "Δημιούργησε λογαριασμό"
       i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
       login: Σύνδεση
-      login_to_kassi: "Συνδέσου στο %{service_name}"
+      login_to_kassi: "Σύνδεση στο %{service_name}"
       connect_your_facebook_to_kassi: "Σύνδεσε το λογαριασμό σου στο Facebook με το %{service_name}"
       facebook_account: "Λογαριασμός Facebook:"
       log_in_to_link_account: "Αν έχεις ήδη λογαριασμό στο %{service_name}, συνδέσου για να τον συσχετίσεις με τον λογαριασμό σου στο Facebook."

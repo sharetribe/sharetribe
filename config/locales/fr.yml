@@ -428,6 +428,8 @@ fr:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript est désactivé dans votre navigateur"
       kassi_does_not_currently_work_without_javascript: "Pour le moment, %{service_name} ne fonctionne pas sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page. Si vous souhaitez utiliser %{service_name} sans javascript, veuillez nous envoyer vos commentaires en utilisant le formulaire ci-dessous."
+      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      contact_us: ~
       send_feedback: "Envoyer commentaires"
       your_feedback_to_admins: "Vos commentaires aux administrateurs"
     send: Envoyer
