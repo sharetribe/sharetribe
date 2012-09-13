@@ -43,11 +43,11 @@ Feature: Facebook connect
     And I press "Join community"
     Then I should see "successfully joined this community"
     And I should see "Markus"
-    And user "sharer123" should have "given_name" with value "Markus"
-    And user "sharer123" should have "family_name" with value "Sugarberg"
-    And user "sharer123" should have "email" with value "markus@example.com"
-    And user "sharer123" should have "facebook_id" with value "597013691"
-    And user "sharer123" should not have "image_file_size" with value "nil"
+    And user "markus_sharer_123" should have "given_name" with value "Markus"
+    And user "markus_sharer_123" should have "family_name" with value "Sugarberg"
+    And user "markus_sharer_123" should have "email" with value "markus@example.com"
+    And user "markus_sharer_123" should have "facebook_id" with value "597013691"
+    And user "markus_sharer_123" should not have "image_file_size" with value "nil"
   
   Scenario: Facebook connect to log in when the accounts are already linked
     Given there are following users:
