@@ -95,7 +95,7 @@ Feature: User creates a new community
     And I follow "Create for free"
     And I fill in "Your company email address" with "test@mycompany.com"
     And I press "Create account"
-    Then I should see "There already exists a tribe for this company" within ".error"
+    Then I should see "There already exists a tribe for this company"
     When I follow "here"
     Then I should see "Hey hey my my"
   
@@ -136,4 +136,4 @@ Feature: User creates a new community
     And wait for 2 seconds
     And I press "Create your tribe"
     Then I should not see "Done!"
-    And I should see "This field is required" within ".error"
+    And I should see "This field is required"

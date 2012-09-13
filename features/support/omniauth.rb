@@ -9,7 +9,7 @@ OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new( {
       :raw_info => {
         :first_name => "Markus",
         :last_name => "Sugarberg",
-        :username => "sharer123",
+        :username => "markus.sharer-123",
         :email => "markus@example.com",
         :id => '597013691'
       }
