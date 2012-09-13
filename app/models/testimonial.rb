@@ -8,9 +8,9 @@ class Testimonial < ActiveRecord::Base
     [ "exceeded_expectations", { :form_value => "5", :db_value => 1, :default => false } ]
   ]
 
-  belongs_to :author, :class_name => "Person", :dependent => :destroy
-  belongs_to :receiver, :class_name => "Person", :dependent => :destroy
-  belongs_to :participation, :dependent => :destroy
+  belongs_to :author, :class_name => "Person"
+  belongs_to :receiver, :class_name => "Person"
+  belongs_to :participation
   
   has_one :notification, :as => :notifiable
 
