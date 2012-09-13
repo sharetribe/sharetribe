@@ -423,11 +423,11 @@ class Person < ActiveRecord::Base
   def has_email?(address)
     self.email == address || Email.find_by_address_and_person_id(address, self.id).present?
   end
-  
+    
   # Returns true if the address given as a parameter is confirmed
   def has_confirmed_email?(address)
     additional_email = Email.find_by_address(address)
-    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at?)
+    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at.present?)
   end
   
   def has_valid_email_for_community?(community)
