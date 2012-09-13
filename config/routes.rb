@@ -83,6 +83,9 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
+    
+    # pick listings feed requests to API controller even if they use community subdomain
+    match "/listings" => "api/listings#index", :constraints => {:format => "atom"} 
 
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} do  
       # these matches need to be before the general resources to have more priority
