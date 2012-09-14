@@ -22,6 +22,10 @@ class ListingsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
+    if params[:format] == "atom"
+      redirect_to :controller => "Api::ListingsController", :action => :index
+      return
+    end
     redirect_to root
   end
   
