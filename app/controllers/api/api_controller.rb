@@ -12,7 +12,7 @@ class Api::ApiController < ApplicationController
   before_filter :set_pagination
 
     
-  respond_to :json
+  respond_to :json, :atom
     
   layout false
   
@@ -36,7 +36,7 @@ class Api::ApiController < ApplicationController
   
 
   def api_version
-    default_version = 'alpha'
+    default_version = '1'
     pattern = /application\/vnd\.sharetribe.*version=([\d]+)/
     request.env['HTTP_ACCEPT'][pattern, 1] || default_version
   end
@@ -79,12 +79,28 @@ class Api::ApiController < ApplicationController
   end
 
   def set_current_community_if_given
+    if @current_community = Community.find_by_domain(request.subdomain)
+      #puts "#{params[:community_id]} ---  #{@current_community.id}"
+      if params[:community_id] && (params[:community_id].to_s != @current_community.id.to_s)
+        response.status = 400
+        render :json => ["Community subdomain mismatch with community_id given in params. Using one of these is enough."] and return
+      end
+      return
+    end
+    
     if params["community_id"]
       @current_community = Community.find_by_id(params["community_id"])
       if @current_community.nil? 
         response.status = 404
         render :json => ["No community found with given id"] and return
       end
+    end
+  end
+  
+  def require_community
+    unless @current_community
+      response.status = 400
+      render :json => ["Community must be selected. Easiest done by providing a community_id parameter."] and return
     end
   end
   
