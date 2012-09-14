@@ -36,7 +36,7 @@ class Api::ApiController < ApplicationController
   
 
   def api_version
-    default_version = 'alpha'
+    default_version = '1'
     pattern = /application\/vnd\.sharetribe.*version=([\d]+)/
     request.env['HTTP_ACCEPT'][pattern, 1] || default_version
   end
