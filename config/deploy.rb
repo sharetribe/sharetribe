@@ -11,6 +11,8 @@ ssh_options[:forward_agent] = true
 
 set :scm, :git
 
+# It seems we need to install test stuff too because of some rake dependencies on rspec
+set :bundle_without, [:develop]
 
 set :deploy_via, :remote_cache
 
