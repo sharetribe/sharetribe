@@ -242,14 +242,14 @@ ru:
       invalid_email_ending_message: "Это выглядит как адрес личной электронной почты. Вам необходимо войти с помощью вашей электронной почты %{community_category}."
       log_in_here: войти
       existing_community_with_this_email: "Для типа сообщества %{community_category} уже существует учётная запись. Вы можете вступить в это сообщество, перейдя по ссылке %{link}."
-      here: ~
-      for_company: ~
+      here: здесь
+      for_company: компания
       for_university: университет
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: ~
-      for_apartment_building: ~
+      for_town: город
+      for_congregation: конгрегация
+      for_association: объединение
+      for_neighborhood: соседство
+      for_apartment_building: общежитие
       for_other: прочее
   community_memberships:
     new:
@@ -428,6 +428,8 @@ ru:
     no_javascript:
       javascript_is_disabled_in_your_browser: "В вашем браузере отключён Javascript"
       kassi_does_not_currently_work_without_javascript: "К сожалению, %{service_name} не сможет работать при отключенном javascript. Попробуйте включить поддержку javascript в своём браузере и перезагрузить страницу. Если вы хотите пользоваться %{service_name} без javascript, сообщите нам, почему."
+      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      contact_us: ~
       send_feedback: Отправить
       your_feedback_to_admins: "Обратная связь с администрацией"
     send: Отправить

@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Api::ListingsController do
+  render_views
+  
   if not use_asi? # No need to run the API tests with ASI
       
     before(:each) do
@@ -30,7 +32,7 @@ describe Api::ListingsController do
         get :index, :format => :json
         response.status.should == 400
         resp = JSON.parse(response.body)
-        resp[0].should == "Community_id is a required parameter."
+        resp[0].should =~ /Community must be selected./
       end
       
       it "returns open listings if called without extra parameters, (paginated by 50)" do
@@ -61,9 +63,9 @@ describe Api::ListingsController do
         resp = JSON.parse(response.body)
         resp["listings"].count.should == 0
       
-        get :index, :listing_type => "request", :format => :json
+        get :index, :community_id => @c1.id, :listing_type => "request", :format => :json
         resp = JSON.parse(response.body)
-        resp["listings"].count.should == 2
+        resp["listings"].count.should == 1
       end
     
       it "uses status parameter with default: 'open'" do
@@ -263,7 +265,7 @@ describe Api::ListingsController do
           Listing.last.destination_loc.longitude.should == 26.7475
           Listing.last.destination.should == "office"
           Listing.last.origin_loc.address.should == "helsinki"
-          Listing.last.valid_until.to_s.should == 2.days.from_now.to_s
+          Listing.last.valid_until.should be_within(3.seconds).of(2.days.from_now)
         end
         
         it "supports setting locations by address only" do

@@ -151,6 +151,7 @@ Feature: User views homepage
     Then I should see "Chuck joined Test Sharetribe"
     And I should see "logged in to Sharetribe"
     And I should see "commented offer hammer"
+    And the total number of comments should be 1
     When I follow "Lending: hammer"
     And I follow "Borrow this item"
     And I fill in "Message:" with "I want to borrow this item"
@@ -169,6 +170,8 @@ Feature: User views homepage
     And I fill in "comment_content" with "Test comment"
     And I press "Send comment"
     And the system processes jobs
+    Then I should see "Comment sent"
+    And the total number of comments should be 2
     And I follow "Logout"
     Then I should not see "commented offer power drill"
     When I log in as "kassi_testperson1"

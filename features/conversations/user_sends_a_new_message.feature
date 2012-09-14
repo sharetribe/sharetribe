@@ -43,7 +43,7 @@ Feature: User sends a new message
     When I follow "Hammer"
     And I follow "Send private message to lender"
     And I press "Send message"
-    Then I should see "This field is required." within ".error"
+    Then I should see "This field is required."
   
   @javascript
   Scenario: Asking details about a listing through the listing author box link

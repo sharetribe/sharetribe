@@ -29,4 +29,4 @@ Feature: User changes password
     And I fill in "person_password" with "testi"
     And I fill in "person_password2" with "testing"
     And I press "password_submit"
-    Then I should see "Please enter the same value again." within ".error_account"  
+    Then I should see "Please enter the same value again." 

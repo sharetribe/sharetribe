@@ -423,11 +423,11 @@ class Person < ActiveRecord::Base
   def has_email?(address)
     self.email == address || Email.find_by_address_and_person_id(address, self.id).present?
   end
-  
+    
   # Returns true if the address given as a parameter is confirmed
   def has_confirmed_email?(address)
     additional_email = Email.find_by_address(address)
-    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at?)
+    (self.email.eql?(address) && self.confirmed_at) || (additional_email && additional_email.confirmed_at.present?)
   end
   
   def has_valid_email_for_community?(community)
@@ -478,8 +478,9 @@ class Person < ActiveRecord::Base
   end
   
   # returns the same if its available, otherwise "same1", "same2" etc.
+  # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
-    current_name = initial_name
+    current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
     i = 1
     while self.find_by_username(current_name) do
       current_name = "#{initial_name}#{i}"

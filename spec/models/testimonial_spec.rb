@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Testimonial do
     
   before(:each) do
-    @testimonial = Factory.build(:testimonial)
+    @testimonial = FactoryGirl.build(:testimonial)
   end
   
   it "is valid with valid attributes" do

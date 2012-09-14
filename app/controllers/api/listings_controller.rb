@@ -1,6 +1,7 @@
 class Api::ListingsController < Api::ApiController
 
   before_filter :authenticate_person!, :except => [:index, :show]
+  before_filter :require_community, :except => :show
   # TODO limit visibility of listings in index method based on the visibility rules
   # It requires to authenticate the user but also allow unauthenticated access to above methods
   
@@ -12,11 +13,6 @@ class Api::ListingsController < Api::ApiController
     @per_page = params["per_page"] || 50
     
     query = params.slice("category", "listing_type")
-    
-    unless @current_community
-      response.status = 400
-      render :json => ["Community_id is a required parameter."] and return
-    end
     
     if params["status"] == "closed"
       query["open"] = false
@@ -32,14 +28,26 @@ class Api::ListingsController < Api::ApiController
     
     if params["search"]
       @listings = search_listings(params["search"], query)
-    elsif params["community_id"]
-      @listings = Community.find(params["community_id"]).listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
+    elsif @current_community
+      @listings = @current_community.listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
       # This is actually not currently supported. Community_id is currently required parameter.
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     end
     
     @total_pages = @listings.total_pages
+    
+    if params[:format] == "atom" #few extra fields for ATOM feed
+      category_label = ""
+      if params["category"]
+        category_label_translation_key = params["category"]
+        category_label_translation_key += "s" if ["item", "favor"].include?(params["category"])
+        category_label = t("listings.index.#{category_label_translation_key}") + " "
+      end
+      
+      @title = "Recent #{category_label}listings in #{@current_community.name} #{service_name}"
+      @updated = Time.now # FIXME: something more accurate
+    end
     respond_with @listings
   end
 
@@ -85,21 +93,16 @@ class Api::ListingsController < Api::ApiController
                                         ).merge({"author_id" => current_person.id, 
                                                  "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
-    @community = Community.find(params["community_id"])
-    if @community.nil?
-      response.status = 400
-      render :json => ["community_id parameter missing, or no community found with given id"] and return
-    end
     
-    if current_person.member_of?(@community)
-      @listing.communities << @community
+    if current_person.member_of?(@current_community)
+      @listing.communities << @current_community
     else
       response.status = 400
       render :json => ["The user is not member of given community."] and return
     end
     
     if @listing.save
-      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @community.full_domain))
+      Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, @current_community.full_domain))
       response.status = 201 
       respond_with(@listing)
     else

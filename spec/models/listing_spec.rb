@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Listing do
   
   before(:each) do
-    @listing = Factory.build(:listing)
+    @listing = FactoryGirl.build(:listing)
   end  
   
   it "is valid with valid attributes" do
@@ -179,7 +179,7 @@ describe Listing do
     
     describe "#origin_and_destination_close_enough?" do
       it "should return true, when comparing listings with origin and destination close enough" do
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Simonkatu 4"
@@ -189,7 +189,7 @@ describe Listing do
       end
       
       it "should return true, when comparing listings with origin and destination exact same string, but not found on map." do
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Otski"
         other_listing.destination = "Taikki"
@@ -200,7 +200,7 @@ describe Listing do
       end
       
       it "should return true, when comparing listings with origin exactly same and destination close enough." do
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Skatta"
         other_listing.destination = "simonkatu 4"
@@ -212,7 +212,7 @@ describe Listing do
       
       it "should return false when comparing places too far away (either destination or origin)" do
         sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Vilhonvuorenkatu 3"
@@ -221,7 +221,7 @@ describe Listing do
       end
       
       it "returns true even with long distances if differences are small enough" do
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "Lahti"
         other_listing.destination = "Oulu"
@@ -230,7 +230,7 @@ describe Listing do
       end
       
       it "should handle location nicknames in Helsinki if journey planner in use" do
-        other_listing = Factory.build(:listing)
+        other_listing = FactoryGirl.build(:listing)
         other_listing.category = "rideshare"
         other_listing.origin = "dipoli"
         other_listing.destination = "taik"
@@ -250,10 +250,10 @@ describe Listing do
       describe "#inform_requester_about_potential_match" do
         context "When driver has a phone number in profile" do
           it "should send sms including driver's phone number and offer url" do
-            offer = Factory.build(:listing)
-            request = Factory.build(:listing)
-            author = Factory.build(:person)
-            request_author = Factory.build(:person)
+            offer = FactoryGirl.build(:listing)
+            request = FactoryGirl.build(:listing)
+            author = FactoryGirl.build(:person)
+            request_author = FactoryGirl.build(:person)
             offer.id = 13
             offer.category = "rideshare"
             offer.origin = "Otakaari 20"
@@ -275,10 +275,10 @@ describe Listing do
       
         context "When driver doesn't have a phone number in profile" do
           it "should send sms including offers url" do
-            offer = Factory.build(:listing)
-            request = Factory.build(:listing)
-            author = Factory.build(:person)
-            request_author = Factory.build(:person)
+            offer = FactoryGirl.build(:listing)
+            request = FactoryGirl.build(:listing)
+            author = FactoryGirl.build(:person)
+            request_author = FactoryGirl.build(:person)
             offer.id = 15
             #author.phone_number = nil
             
@@ -292,7 +292,7 @@ describe Listing do
             offer.listing_type = "offer"
             offer.author = author
             request.listing_type = "request"
-            request.author = Factory.build(:person)
+            request.author = FactoryGirl.build(:person)
             
             request.inform_requester_about_potential_match(request, offer)
           end

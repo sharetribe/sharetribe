@@ -4,7 +4,7 @@ describe Notification do
   
   before(:each) do
     @test_person, @session = get_test_person_and_session
-    @notification = Factory.build(:notification, :receiver => @test_person)
+    @notification = FactoryGirl.build(:notification, :receiver => @test_person)
   end
   
   it "is only valid with valid notification types" do

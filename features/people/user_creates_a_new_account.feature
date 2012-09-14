@@ -7,7 +7,8 @@ Feature: User creates a new account
   Scenario: Creating a new account successfully
     Given I am not logged in
     And I am on the signup page
-    And I fill in "Username:" with random username
+    Then I should not see "This community is only for"
+    When I fill in "Username:" with random username
     And I fill in "Given name:" with "Testmanno"
     And I fill in "Family name:" with "Namez"
     And I fill in "Password:" with "test"
@@ -30,7 +31,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "This username is already in use." within ".error"
+    Then I should see "This username is already in use." 
   
   @javascript  
   Scenario: Trying to create account with invalid username 
@@ -43,7 +44,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address:" with random email
     And I press "Create account"
-    Then I should see "Username is invalid." within ".error"
+    Then I should see "Username is invalid." 
   
   @javascript
   Scenario: Trying to create account with unavailable email
@@ -56,7 +57,7 @@ Feature: User creates a new account
     And I fill in "Confirm password:" with "test"
     And I fill in "Email address" with "kassi_testperson2@example.com"
     And I press "Create account"
-    Then I should see "The email you gave is already in use." within ".error"
+    Then I should see "The email you gave is already in use." 
   
   @javascript
   Scenario: Trying to create an account without given name and last name
@@ -115,3 +116,12 @@ Feature: User creates a new account
     Then I should not see my username
     And I should see "Testmanno!"
     And Most recently created user should be member of "test" community with its latest consent accepted
+    
+  @subdomain2  
+  Scenario: Seeing info of community's email restriction
+    Given I am not logged in
+    When I go to the signup page
+    Then I should see "This community is only for Test2. To join you need a '@example.com' email address."
+  
+  
+  
