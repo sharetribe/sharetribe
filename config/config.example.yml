@@ -9,7 +9,7 @@ default: &default_settings
   # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
   # practically in most cases the same value as in "domain:"
   # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
-  # If you use domain aliases e.g. kassi.eu & kassi.cl, leave this empty.
+  # If you use domain aliases e.g. sharetribe.eu & sharetribe.cl, leave this empty.
   # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
   session_domain:
   
@@ -24,21 +24,8 @@ default: &default_settings
   api_enabled: false
 
   # Sharetribe can use an Aalto Social Interface server to store userinformation
-  # If you want to use an ASI server set this to true and specify server address and password below.
+  # This version of Sharetribe no longer support ASI so keep the setting below as false
   use_asi: false
-  
-  #This is the url of the ASI server you want to use
-  asi_url: "http://cos.alpha.sizl.org"
-  # The following url will be used when handling passwords
-  # So if the ASI server supports https, you can specify a https uls
-  # This can be same as asi_url if no https is available
-  ssl_asi_url: "https://cos.alpha.sizl.org"
-
-  # These are the credentials used to log on to ASI server. 
-  # The defaults will work for
-  # OtaSizzle's test server, an can be used for testing Sharetribe.
-  asi_app_name: kassi_testing
-  asi_app_password: kassi_tester
 
   # The default locale (language) of the user interface
   # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
@@ -85,7 +72,7 @@ default: &default_settings
   #postmark_api_key:
 
   # This will be the from field in the mails sent from Sharetribe
-  sharetribe_mail_from_address: "noreply-kassi@example.com"
+  sharetribe_mail_from_address: "noreply-sharetribe@example.com"
   # This address is added in the most mail signatures 
   # (it's good idea to set this if you use no-reply addres as the form
   # address above so that people can contact the admins if needed)
@@ -156,7 +143,7 @@ default: &default_settings
 
   # If you need for some reason change the session key used in cookies, you can do it here.
   # Normally no need to touch this.
-  session_key: _kassi_session
+  session_key: _sharetribe_session
   
   # Global Service name
   # If you want to call this service with different name on this server, you can specify it here

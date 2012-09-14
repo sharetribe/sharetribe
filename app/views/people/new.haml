@@ -6,7 +6,14 @@
     #signup_form
       %h2
         = t('.sign_up')
-      = render :file => community_file("signup_information", true)
+      - if community_file?("signup_information", true)
+        = render :file => community_file("signup_information", true)
+      - elsif @current_community.allowed_emails
+        %p
+          = t('.email_restriction_instructions', 
+                :community_name => @current_community.name,
+                :allowed_emails => @current_community.allowed_emails,
+                :count => (@current_community.allowed_emails.split(",").count)) 
       - if @current_community.label.eql?("okl")
         %p
           = t('okl.member_id_is_your_username')

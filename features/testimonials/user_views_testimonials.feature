@@ -38,7 +38,7 @@ Feature: User views testimonials
     And I should see "67%" within ".feedback_average_value"
     And I should see big content face with transparent background
     And I should see small content face with transparent background
-    And I should see "Well done" within ".light_green"
+    And I should see "Well done"
     And I should see "You suck" within ".light_red"
     And I should see "1" within "#feedback_grade_2"
     And I should see "1" within "#feedback_grade_4"

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ContactRequest do
   
   before(:each) do
-    @contact_request = Factory.build(:contact_request)
+    @contact_request = FactoryGirl.build(:contact_request)
   end
   
   it "is valid with valid attributes" do

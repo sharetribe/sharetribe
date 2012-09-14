@@ -1,6 +1,6 @@
 namespace :kassi do
   desc "Adds people and listings without a community to a community specified in parameter"
-  task :add_default_community, :community_name, :needs => :environment do |t, args|
+  task :add_default_community, [:community_name] => :environment do |t, args|
     puts "Searching for all Listings and People without a community and adding those to '#{args[:community_name]}' community"
     
     community = Community.find_by_name(args[:community_name])
@@ -30,7 +30,7 @@ namespace :kassi do
   end
   
   desc "Fetches people data from ASI and stores it to Kassi DB. This is run before switching from using ASI to run Kassi without ASI"
-  task :fetch_people_data_from_asi, :needs => :environment do |t, args|
+  task :fetch_people_data_from_asi => :environment do |t, args|
     puts "NOTE: the APP_CONFIG.use_asi MUST BE true WHEN RUNNING THIS"
     not_found_count = 0
     `mkdir temp_profile_images`
@@ -74,7 +74,7 @@ namespace :kassi do
   end
   
   desc "Calculates statistics and stores to DB for all communties where member count is over the minimum level."
-  task :calculate_statistics, :needs => :environment do |t, args|
+  task :calculate_statistics => :environment do |t, args|
     
     MIN_MEMBER_COUNT_TO_CALCULATE_STATISTICS = 10
     

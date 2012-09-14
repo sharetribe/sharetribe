@@ -428,6 +428,8 @@ fi:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript ei ole päällä selaimessasi"
       kassi_does_not_currently_work_without_javascript: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, voit lähettää meille palautetta alla olevalla lomakkeella."
+      kassi_does_not_currently_work_without_javascript_dashboard: "%{service_name} ei valitettavasti tällä hetkellä toimi ilman javascriptiä. Kokeile asettaa javascript-tuki päälle selaimesi asetuksista ja kokeile ladata tämä sivu uudestaan. Jos ehdottomasti haluaisit käyttää %{service_name_partitive} ilman javascriptiä, %{contact_us}."
+      contact_us: "ota yhteyttä"
       send_feedback: "Lähetä palaute"
       your_feedback_to_admins: "Palautteesi ylläpidolle"
     send: Lähetä
@@ -982,6 +984,9 @@ fi:
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
+      email_restriction_instructions:
+        one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
+        other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"  
       enter_captcha: "Olen ihminen:"
       family_name: "Sukunimi:"
       given_name: "Etunimi:"

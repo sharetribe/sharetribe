@@ -984,6 +984,9 @@ en:
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback by clicking the link on the left."
       email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback by clicking the link on the left."
+      email_restriction_instructions:
+          one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
+          other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
       enter_captcha: "I'm a human:"
       family_name: "Family name:"
       given_name: "Given name:"
