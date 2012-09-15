@@ -273,5 +273,24 @@ describe Api::ListingsController do
         end
       end
     end
+    
+    describe "ATOM feed" do
+      it "lists the most recent listings in order" do
+        get :index, :community_id => @c1.id, :format => :atom
+        response.status.should == 200
+        puts response.body
+        #resp = JSON.parse(response.body)
+
+      end
+      
+      it "supports localization" do
+        
+      end
+    
+      it "supports fliter parameters" do
+        
+      end
+    
+    end
   end
 end
