@@ -42,11 +42,12 @@ class Api::ListingsController < Api::ApiController
       if params["category"]
         category_label_translation_key = params["category"]
         category_label_translation_key += "s" if ["item", "favor"].include?(params["category"])
-        category_label = t("listings.index.#{category_label_translation_key}") + " "
+        @category_label = t("listings.index.#{category_label_translation_key}") + " "
       end
       
-      @title = "Recent #{category_label}listings in #{@current_community.name} #{service_name}"
+      @title = "Recent #{@category_label}listings in #{@current_community.name} #{service_name}"
       @updated = Time.now # FIXME: something more accurate
+      @url_root = "#{request.protocol}#{@current_community.full_domain}"
     end
     respond_with @listings
   end
