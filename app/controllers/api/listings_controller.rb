@@ -2,8 +2,6 @@ class Api::ListingsController < Api::ApiController
   include ListingsHelper
   before_filter :authenticate_person!, :except => [:index, :show]
   before_filter :require_community, :except => :show
-  # TODO limit visibility of listings in index method based on the visibility rules
-  # It requires to authenticate the user but also allow unauthenticated access to above methods
   
   # TODO: limit the visibility of one listing. The below doesn't work yet as the param name is different in this case (only id)
   #before_filter :ensure_authorized_to_view_listing, :only => [:show]
@@ -24,6 +22,10 @@ class Api::ListingsController < Api::ApiController
     
     if params["person_id"]
       query["author_id"] = params["person_id"]
+    end
+    
+    unless @current_user && @current_user.communities.include?(@current_community)
+      query["visibility"] = "everybody"
     end
     
     if params["search"]
