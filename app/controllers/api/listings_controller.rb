@@ -1,5 +1,5 @@
 class Api::ListingsController < Api::ApiController
-
+  include ListingsHelper
   before_filter :authenticate_person!, :except => [:index, :show]
   before_filter :require_community, :except => :show
   # TODO limit visibility of listings in index method based on the visibility rules
@@ -29,7 +29,8 @@ class Api::ListingsController < Api::ApiController
     if params["search"]
       @listings = search_listings(params["search"], query)
     elsif @current_community
-      @listings = @current_community.listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
+      listings_to_query = (query["open"] ? @current_community.listings.open : @current_community.listings)
+      @listings = listings_to_query.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
       # This is actually not currently supported. Community_id is currently required parameter.
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
@@ -37,16 +38,21 @@ class Api::ListingsController < Api::ApiController
     
     @total_pages = @listings.total_pages
     
-    if params[:format] == "atom" #few extra fields for ATOM feed
-      category_label = ""
-      if params["category"]
-        category_label_translation_key = params["category"]
-        category_label_translation_key += "s" if ["item", "favor"].include?(params["category"])
-        category_label = t("listings.index.#{category_label_translation_key}") + " "
+    # Few extra fields for ATOM feed
+    if params[:format].to_s == "atom" 
+      
+      @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
+      
+      if ["request","offer"].include?params['listing_type']
+        listing_type_label = t("listings.index.#{params['listing_type']+"s"}")
+      else
+         listing_type_label = t("listings.index.listings")
       end
       
-      @title = "Recent #{category_label}listings in #{@current_community.name} #{service_name}"
+      #@title = "Recent #{@category_label}listings in #{@current_community.name} #{service_name}"
+      @title = t("listings.index.feed_title", :optional_category => @category_label, :community_name => @current_community.name, :listing_type => listing_type_label)
       @updated = Time.now # FIXME: something more accurate
+      @url_root = "#{request.protocol}#{@current_community.full_domain}"
     end
     respond_with @listings
   end
