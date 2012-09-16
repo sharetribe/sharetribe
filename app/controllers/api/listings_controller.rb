@@ -37,9 +37,10 @@ class Api::ListingsController < Api::ApiController
     
     @total_pages = @listings.total_pages
     
-    if params[:format] == "atom" #few extra fields for ATOM feed
+    # Few extra fields for ATOM feed
+    if params[:format].to_s == "atom" 
       
-      @category_label = "(" + localized_category_label(params["category"]) + ")"
+      @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
       
       if ["request","offer"].include?params['listing_type']
         listing_type_label = t("listings.index.#{params['listing_type']+"s"}")

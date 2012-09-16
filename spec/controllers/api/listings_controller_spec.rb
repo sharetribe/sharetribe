@@ -278,18 +278,45 @@ describe Api::ListingsController do
       it "lists the most recent listings in order" do
         get :index, :community_id => @c1.id, :format => :atom
         response.status.should == 200
-        puts response.body
-        #resp = JSON.parse(response.body)
-
+        doc = Nokogiri::XML::Document.parse(response.body)
+        doc.at('feed/logo').text.should == "https://www.sharetribe.com/images/dashboard/sharetribe_logo.png"
+        
+        doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
+        doc.search("feed/entry").count.should == 2
+        doc.search("feed/entry/title")[0].text.should == "Selling: hammer"
+        doc.search("feed/entry/title")[1].text.should == "Buying: bike"
+        doc.search("feed/entry/published")[0].text.should > doc.search("feed/entry/published")[1].text
+        #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
+        doc.search("feed/entry/content")[1].text.should == @l1.description
       end
       
+      
       it "supports localization" do
-        
+        get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+
+        doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+ Sharetribessa/
+        doc.at("feed/entry/title").text.should == "Myydään: hammer"
+        doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"       
       end
     
       it "supports fliter parameters" do
-        
+        get :index, :community_id => @c1.id, :format => :atom, :listing_type => "request", :locale => "en"
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+        doc.search("feed/entry").count.should == 1
+        doc.at("feed/entry/title").text.should == "Buying: bike"
       end
+
+      # TODO: fix search tests after sphinx upgraded (or changed)
+      # it "supports search" do
+      #   get :index, :community_id => @c1.id, :format => :atom, :search => "hammer"
+      #   response.status.should == 200
+      #   doc = Nokogiri::XML::Document.parse(response.body)
+      #   doc.search("feed/entry").count.should == 1
+      #   doc.at("feed/entry/title").text.should == "Selling: hammer"
+      # end
     
     end
   end
