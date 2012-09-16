@@ -7,7 +7,10 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
   @listings.each do |listing|
     feed.entry( listing ) do |entry|
       entry.title listed_listing_title(listing)
-      entry.content listing.description, :type => 'html'
+      pattern = /[\.)]*$/
+      entry.content :type => 'html' do |content|
+        entry.cdata!( add_links_and_br_tags(html_escape(listing.description)))
+      end
 
       # the strftime is needed to work with Google Reader.
       #entry.updated(listing.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")) 

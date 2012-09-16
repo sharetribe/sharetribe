@@ -29,7 +29,8 @@ class Api::ListingsController < Api::ApiController
     if params["search"]
       @listings = search_listings(params["search"], query)
     elsif @current_community
-      @listings = @current_community.listings.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
+      listings_to_query = (query["open"] ? @current_community.listings.open : @current_community.listings)
+      @listings = listings_to_query.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
       # This is actually not currently supported. Community_id is currently required parameter.
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
