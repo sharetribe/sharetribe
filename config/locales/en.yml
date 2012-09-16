@@ -826,6 +826,7 @@ en:
       housing: Spaces
       items: Items
       list_view: "List view"
+      listings: Listings
       map_view: "Map view"
       offer_something: "Let others know!"
       offer_type: "Offer type"
@@ -836,6 +837,7 @@ en:
       rideshare: Rideshare
       search_verb: Search
       you_have_something_others_do_not: "Have something to offer?"
+      feed_title: "%{listing_type} in %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Borrowing
       buys: Buying
