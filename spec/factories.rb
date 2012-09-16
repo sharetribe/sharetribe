@@ -7,7 +7,7 @@ Factory.sequence :email do |n|
 end
 
 Factory.sequence :domain do |n|
-  "kassi_testcommunity_#{n}" 
+  "sharetribe_testcommunity_#{n}" 
 end
 
 
