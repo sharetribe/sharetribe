@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  
+  # Skip auth token check as current jQuery doesn't provide it automatically
+  skip_before_filter :verify_authenticity_token, :only => [:close, :update]
 
   before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_this_content"

@@ -69,4 +69,11 @@ module ListingsHelper
     end
   end
   
+  # expects category_string to be "item", "favor", "rideshare" or "housing"
+  def localized_category_label(category_string)
+    return nil if category_string.nil?
+    category_string += "s" if ["item", "favor"].include?(category_string)
+    return t("listings.index.#{category_string}")
+  end
+  
 end

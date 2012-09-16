@@ -17,10 +17,12 @@ describe Api::ListingsController do
       
       @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1)
       @l1.communities = [@c1]
-      FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "shiny new hammer", :share_type => "sell").communities = [@c1]
+      FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :share_type => "sell").communities = [@c1]
       FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago).communities = [@c2]
       FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway").communities = [@c1]
-    
+      @l4 = FactoryGirl.create(:listing, :listing_type => "request", :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => "borrow")
+      @l4.communities = [@c1]
+      @l4.update_attribute(:valid_until, 2.days.ago)
 
     
     end
@@ -87,7 +89,7 @@ describe Api::ListingsController do
         get :index, :community_id => @c1.id, :status => "all", :format => :json
         response.status.should == 200
         resp = JSON.parse(response.body)
-        resp["listings"].count.should == 3
+        resp["listings"].count.should == 4
       
       end
     
@@ -97,7 +99,7 @@ describe Api::ListingsController do
         resp = JSON.parse(response.body)
         resp["listings"].count.should == 1
         resp["listings"][0]["title"].should == "hammer"
-        resp["listings"][0]["description"].should == "shiny new hammer"
+        resp["listings"][0]["description"].should =~ /<b>shiny<\/b> new hammer/
       end
     
       it "supports pagination" do
@@ -114,7 +116,7 @@ describe Api::ListingsController do
         response.status.should == 200
         resp = JSON.parse(response.body)
         #puts resp.to_yaml
-        resp["listings"].count.should == 1
+        resp["listings"].count.should == 2
         resp["listings"][0]["title"].should == "bike"
         resp["total_pages"].should == 2
       end
@@ -272,6 +274,59 @@ describe Api::ListingsController do
           
         end
       end
+    end
+    
+    describe "ATOM feed" do
+      it "lists the most recent listings in order" do
+        get :index, :community_id => @c1.id, :format => :atom
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+        doc.at('feed/logo').text.should == "https://www.sharetribe.com/images/dashboard/sharetribe_logo.png"
+        
+        doc.at("feed/title").text.should =~ /Listings in sharetribe_testcommunity_\d+ Sharetribe/
+        doc.search("feed/entry").count.should == 2
+        doc.search("feed/entry/title")[0].text.should == "Selling: hammer"
+        doc.search("feed/entry/title")[1].text.should == "Buying: bike"
+        doc.search("feed/entry/published")[0].text.should > doc.search("feed/entry/published")[1].text
+        #DateTime.parse(doc.search("feed/entry/published")[1].text).should == @l1.created_at
+        doc.search("feed/entry/content")[1].text.should =~ /#{@l1.description}/
+      end
+      
+      
+      it "supports localization" do
+        get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+
+        doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+ Sharetribessa/
+        doc.at("feed/entry/title").text.should == "Myydään: hammer"
+        doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"       
+      end
+    
+      it "supports fliter parameters" do
+        get :index, :community_id => @c1.id, :format => :atom, :listing_type => "request", :locale => "en"
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+        doc.search("feed/entry").count.should == 1
+        doc.at("feed/entry/title").text.should == "Buying: bike"
+      end
+      
+      it "escapes html tags, but adds links" do
+        get :index, :community_id => @c1.id, :format => :atom
+        response.status.should == 200
+        doc = Nokogiri::XML::Document.parse(response.body)
+        doc.at("feed/entry/content").text.should =~ /&lt;b&gt;shiny&lt;\/b&gt; new hammer, see details at <a href="http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer">http:\/\/en\.wikipedia\.org\/wiki\/MC_Hammer<\/a>/
+      end
+
+      # TODO: fix search tests after sphinx upgraded (or changed)
+      # it "supports search" do
+      #   get :index, :community_id => @c1.id, :format => :atom, :search => "hammer"
+      #   response.status.should == 200
+      #   doc = Nokogiri::XML::Document.parse(response.body)
+      #   doc.search("feed/entry").count.should == 1
+      #   doc.at("feed/entry/title").text.should == "Selling: hammer"
+      # end
+    
     end
   end
 end
