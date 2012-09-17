@@ -19,6 +19,9 @@ class PeopleController < Devise::RegistrationsController
   skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_email_availability_for_new_tribe, :check_invitation_code]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
   
+  # Skip auth token check as current jQuery doesn't provide it automatically
+  skip_before_filter :verify_authenticity_token, :only => [:activate, :deactivate]
+  
   if ApplicationHelper.use_asi?
     # We don't use devise's authentication with ASI
     skip_filter :authenticate_scope! 
