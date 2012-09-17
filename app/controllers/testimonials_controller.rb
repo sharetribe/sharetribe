@@ -9,6 +9,8 @@ class TestimonialsController < ApplicationController
   before_filter :person_belongs_to_current_community, :only => :index
   
   skip_filter :dashboard_only
+  # Skip auth token check as current jQuery doesn't provide it automatically
+  skip_before_filter :verify_authenticity_token, :only => [:skip]
   
   def index
     @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
