@@ -828,6 +828,7 @@ ca:
       housing: Allotjament
       items: Articles
       list_view: "Mostra la llista"
+      listings: ~
       map_view: "Mostra mapa"
       offer_something: "Comparteix-ho amb els demés!"
       offer_type: "Tipus d'oferta"
@@ -838,6 +839,7 @@ ca:
       rideshare: "Compartir cotxe"
       search_verb: Cerca
       you_have_something_others_do_not: "Tens alguna cosa que oferir?"
+      feed_title: ~
     left_panel_link:
       borrows: Prèstecs
       buys: Compra
@@ -986,6 +988,9 @@ ca:
       email_is_in_use: "Aquest correu ja està registrat"
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si us plau, utilitza una adreça que estigui associada amb aquesta comunitat. Si encara tens problemes per accedir, envia'ns un comentari utilitzant el botó de \"Feedback\" de l'esquerra."
       email_not_allowed: ~
+      email_restriction_instructions:
+        one: ~
+        other: ~
       enter_captcha: "Sóc un ser humà"
       family_name: "Cognoms:"
       given_name: "Nom:"

@@ -826,6 +826,7 @@ fr:
       housing: Logement
       items: Objets
       list_view: "Vue en liste"
+      listings: ~
       map_view: "Afficher le plan"
       offer_something: "Parlez-en aux autres !"
       offer_type: "Type d'offre"
@@ -836,6 +837,7 @@ fr:
       rideshare: Covoiturage
       search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
+      feed_title: ~
     left_panel_link:
       borrows: "A emprunter"
       buys: "A acheter"
@@ -984,6 +986,9 @@ fr:
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
       email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette communauté. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un feedback en cliquant sur le lien à gauche."
+      email_restriction_instructions:
+        one: ~
+        other: ~
       enter_captcha: "Je suis un être humain :"
       family_name: "Nom de famille :"
       given_name: "Prénom :"
