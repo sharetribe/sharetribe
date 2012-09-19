@@ -826,6 +826,7 @@ zh:
       housing: 租房
       items: 物品
       list_view: 列表视图
+      listings: ~
       map_view: 由指南针检视切换回到地图检视
       offer_something: 让其他人知道
       offer_type: 提议类型
@@ -836,6 +837,7 @@ zh:
       rideshare: 拼车
       search_verb: 搜索
       you_have_something_others_do_not: 想卖点什么？
+      feed_title: ~
     left_panel_link:
       borrows: 借入
       buys: 购买
@@ -984,6 +986,8 @@ zh:
       email_is_in_use: 此邮箱已使用。
       email_is_in_use_or_not_allowed: 此Email不允许在此社区使用或已被注册。请使用与社区相关的Email地址（详细说明见上）。如果您仍然不能注册，请点击左侧链接填写反馈。
       email_not_allowed: ~
+      email_restriction_instructions:
+        other: ~
       enter_captcha: 我是一个人类：
       family_name: 姓：
       given_name: 名：

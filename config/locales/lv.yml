@@ -826,6 +826,7 @@ lv:
       housing: ~
       items: ~
       list_view: ~
+      listings: ~
       map_view: ~
       offer_something: ~
       offer_type: ~
@@ -836,6 +837,7 @@ lv:
       rideshare: ~
       search_verb: ~
       you_have_something_others_do_not: ~
+      feed_title: ~
     left_panel_link:
       borrows: ~
       buys: ~
@@ -984,6 +986,10 @@ lv:
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
+      email_restriction_instructions:
+        zero: ~
+        one: ~
+        other: ~
       enter_captcha: ~
       family_name: ~
       given_name: ~

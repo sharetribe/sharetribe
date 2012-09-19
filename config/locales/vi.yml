@@ -826,6 +826,7 @@ vi:
       housing: "Các không gian"
       items: "Các mục"
       list_view: "Xem danh sách"
+      listings: ~
       map_view: "Xem bản đồ"
       offer_something: "Cho các người khác biết!"
       offer_type: "Loại hỗ trợ"
@@ -836,6 +837,7 @@ vi:
       rideshare: "Cuốc xe chia sẻ"
       search_verb: "Tìm kiếm"
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
+      feed_title: ~
     left_panel_link:
       borrows: Mượn
       buys: Bán
@@ -969,81 +971,83 @@ vi:
       feedback_description_title: "Thông tin phản hồi"
       help_captcha_title: "Bạn là người?"
       help_invitation_code_title: ~
-      terms_title: ~
+      terms_title: "Các điều khoán của việc sử dụng %{service_name}"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
     new:
-      address_validator: ~
-      captcha_incorrect: ~
-      captcha_was_wrong: ~
-      create_new_account: ~
-      email: ~
-      email_is_in_use: ~
+      address_validator: "Vị trí không tìm thấy."
+      captcha_incorrect: "kiểm tra reCAPTCHA không thành công. Xin vui lòng viết các từ trong hình vào hộp dưới đây."
+      captcha_was_wrong: "Văn bản CAPTCHA không chính xác."
+      create_new_account: "Tạo tài khoản"
+      email: "Địa chỉ email:"
+      email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      enter_captcha: ~
-      family_name: ~
-      given_name: ~
-      i_accept_the: ~
+      email_restriction_instructions:
+        other: ~
+      enter_captcha: "Tôi là con người:"
+      family_name: "Họ:"
+      given_name: "Tên:"
+      i_accept_the: "Tôi chấp nhận"
       if_you_already_have_account_you_can: ~
       join_with_your_existing_account: ~
       invalid_invitation_code: ~
       invitation_code: ~
-      not_required: ~
-      password_again: ~
+      not_required: ", không bắt buộc"
+      password_again: "Nhập lại mật khẩu:"
       show_my_name_to_others: ~
-      sign_up: ~
-      terms: ~
-      username_is_in_use: ~
-      username_is_invalid: ~
-      visible_only_to_you: ~
-      visible_to_everybody: ~
+      sign_up: "Tạo một tài khoản mới trong %{service_name}"
+      terms: "Điều khoản sử dụng"
+      username_is_in_use: "Tên người dùng này đang được sử dụng."
+      username_is_invalid: "Tên người dùng không hợp lệ. Cho phép các ký tự là chữ cái, số và gạch dưới."
+      visible_only_to_you: "chỉ hiện thị đối với bạn và cộng đồng quản trị"
+      visible_to_everybody: "hiển thị đối với mọi người"
     not_member:
-      explanation_text: ~
-      read_more_about_kassi_communities: ~
-      this_user_does_not_belong_to_this_community: ~
+      explanation_text: "Hiện tại bạn đang ở trong cộng đồng %{community}. Bạn thử xem thông tin người dùng của cộng đồng khác. Hiện tại %{service_name} không hỗ trợ cho đa cộng đồng, do đó bạn không thể truy cập hồ sơ này thông qua cộng đồng %{community}. Chúng tôi đang thực hiện tính năng cho phép một chọn lựa thuộc về nhiều hơn một cộng đồng cùng một lúc. Tính năng này sẽ được thêm dịch vụ sau này."
+      read_more_about_kassi_communities: "Tìm hiểu thêm về cộng đồng %{service_name}"
+      this_user_does_not_belong_to_this_community: "Người dùng này không thuộc về cộng đồng %{community}"
     profile_badge:
-      active_member_bronze: ~
-      active_member_bronze_description: ~
-      active_member_gold: ~
-      active_member_gold_description: ~
-      active_member_silver: ~
-      active_member_silver_description: ~
-      chauffer_bronze: ~
-      chauffer_bronze_description: ~
-      chauffer_gold: ~
-      chauffer_gold_description: ~
+      active_member_bronze: "Thành viên tích cực (đồng)"
+      active_member_bronze_description: "Đây là trao đổi thứ ba bạn tham gia vào  %{service_name} ! Sự bắt đầu rất ấn tượng, giữ cho nó tiếp tục!"
+      active_member_gold: "Thành viên tích cực (vàng)"
+      active_member_gold_description: "Thay đổi thứ 25 tại %{service_name}, vô cùng ấn tượng! Bạn là một VIP trong %{service_name}. Những người như bạn sẽ giữ quá trình tiếp tục tiến triển. Cảm ơn nhiều!"
+      active_member_silver: "Thành viên tích cực (bạc)"
+      active_member_silver_description: "Chúc mừng lần thay đổi thứ 10 của bạn tại %{service_name}! Nhiều thay đổi đang diễn ra trong dịch vụ cảm ơn bạn. Thật tuyệt!"
+      chauffer_bronze: "Người tài xế (đồng)"
+      chauffer_bronze_description: "Bạn đã hỗ trợ hai cuốc xe cho người khác, công việc tốt!"
+      chauffer_gold: "Người tài xết (vàng)"
+      chauffer_gold_description: "15 cuốc xe được hỗ trợ! Bạn thích tổng hơp xe bất cứ khi nào bàn có thể. Đó là cách để tiếp tục, Đấng tạo hóa nói cảm ơn bạn!"
       chauffer_silver: ~
-      chauffer_silver_description: ~
-      commentator_bronze: ~
-      commentator_bronze_description: ~
-      commentator_gold: ~
-      commentator_gold_description: ~
-      commentator_silver: ~
-      commentator_silver_description: ~
-      enthusiast_bronze: ~
-      enthusiast_bronze_description: ~
-      enthusiast_gold: ~
-      enthusiast_gold_description: ~
-      enthusiast_silver: ~
-      enthusiast_silver_description: ~
-      first_transaction: ~
-      first_transaction_description: ~
-      generous_bronze: ~
-      generous_bronze_description: ~
-      generous_gold: ~
-      generous_gold_description: ~
-      generous_silver: ~
-      generous_silver_description: ~
-      helper_bronze: ~
-      helper_bronze_description: ~
-      helper_gold: ~
-      helper_gold_description: ~
-      helper_silver: ~
-      helper_silver_description: ~
+      chauffer_silver_description: "6 cuốc xe được hỗ trợ, xuất sắc! Bạn thích có công ty trong khi lái xe."
+      commentator_bronze: "Người bình luận (đồng)"
+      commentator_bronze_description: "Bạn thích thảo luận với những người khác. Bạn đã để lại ba bình luận cho các danh sách trong %{service_name}."
+      commentator_gold: "Người bình luận (vàng)"
+      commentator_gold_description: "30 bình luận! Bạn cảm giác như ở nhà tại cồng đồng %{service_name}. Bạn háo hức gặp những người mới và thảo luận với họ."
+      commentator_silver: "Người bình luận (bạc)"
+      commentator_silver_description: "10 bình luận! Bạn tham dự năng động trong các cuộc trò chuyện với những người %{service_name} khác"
+      enthusiast_bronze: "Người nhiệt tình (đồng)"
+      enthusiast_bronze_description: "Bạn đang ở %{service_name} trong năm ngày khác nhau. Có vẻ dường như bạn đang muốn trở thành một thành viên thường xuyên."
+      enthusiast_gold: "Người nhiệt tình (vàng)"
+      enthusiast_gold_description: "Bạn không thể tránh %{service_name}: Bạn đã viếng thăm website hàng trăm ngày khác nhau."
+      enthusiast_silver: "Người nhiệt tình (bạc)"
+      enthusiast_silver_description: "%{service_name} là một phần trong lỗ trình hằng ngày của bạn: bạn vừa có 30 lần viếng thăm dịch vụ."
+      first_transaction: "Sự kiện đầu tiên"
+      first_transaction_description: "Chúc mừng lần thay đổi đầu tiên của bạn tại %{service_name}! Một trong những yêu cầu hoặc hỗ trợ của bạn đã được chấp nhận và xác nhận như đã làm."
+      generous_bronze: "Rộng lượng (đồng)"
+      generous_bronze_description: "Bạn cho mượn hoặc cho đi hai thứ. Tốt cho bạn!"
+      generous_gold: "Rộng lượng (vàng)"
+      generous_gold_description: "Những gì của bản cũng là của các người khác. Bạn đã cho mượn hoặc cho đi 15 thứ, thật tuyệt!"
+      generous_silver: "Rộng lượng (bạc)"
+      generous_silver_description: "Bạn thích chia sẻ những thứ của bạn với người khác. 6 thứ đã cho mượn hoặc cho đi, thật tuyệt!"
+      helper_bronze: "Người giúp đỡ (đồng)"
+      helper_bronze_description: "Bạn đã cung cấp giúp đỡ của bạn đối với người khác hai lần, tuyệt vời!"
+      helper_gold: "Người giúp đỡ (vàng)"
+      helper_gold_description: "Bạn luôn luôn là một tình nguyện viên khi một người nào đó cần giúp đỡ. 15 dịch vụ đã thực hiện, tuyệt vời!"
+      helper_silver: "Người giúp đỡ (bạc)"
+      helper_silver_description: "Bạn thích dùng thời gian của bạn giúp đỡ những người khác: 6 dịch vụ đã thực hiện!"
       jack_of_all_trades: ~
       jack_of_all_trades_description: ~
       lender_bronze: ~
