@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :root, :logged_in?, :current_user?
 
-  def set_locale
+  def set_locale    
     locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
 
     if locale.blank? && @current_community
@@ -52,18 +52,8 @@ class ApplicationController < ActionController::Base
   end
 
   def fetch_logged_in_user
-    if use_asi? # Check session and ensure session exits for ASI
-      if session[:person_id] 
-        @current_user = Person.find_by_id(session[:person_id])
-        if session[:cookie].blank?
-          # If there is no ASI-cookie for this session, log out completely
-          clear_user_session
-        end
-      end
-    else # Stand-alone Sharetribe uses Devise
-      if person_signed_in?
-        @current_user = current_person
-      end
+    if person_signed_in?
+      @current_user = current_person
     end
   end
 
