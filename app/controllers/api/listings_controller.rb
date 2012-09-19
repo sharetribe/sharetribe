@@ -51,9 +51,8 @@ class Api::ListingsController < Api::ApiController
          listing_type_label = t("listings.index.listings")
       end
       
-      #@title = "Recent #{@category_label}listings in #{@current_community.name} #{service_name}"
       @title = t("listings.index.feed_title", :optional_category => @category_label, :community_name => @current_community.name, :listing_type => listing_type_label)
-      @updated = Time.now # FIXME: something more accurate
+      @updated = @listings.first.updated_at
       @url_root = "#{request.protocol}#{@current_community.full_domain}"
     end
     respond_with @listings
