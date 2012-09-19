@@ -43,7 +43,7 @@ Feature: User creates a new community
     #When I open the email
     #And I follow "Confirm my account"
 
-  @no_subdomain
+  @www_subdomain
   @javascript
   Scenario: New user signs up and creates a new non-profit community
     Given I am on the home page

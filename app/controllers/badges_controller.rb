@@ -14,7 +14,7 @@ class BadgesController < ApplicationController
     @show_badge_status = true
     @badge = Badge.find_by_person_id_and_name(@person.id, params[:id])
     respond_to do |format|
-      format.html { }
+      format.html {render :file => "public/404.html", :layout => false and return }
       format.js { render :layout => false }
     end
   end
