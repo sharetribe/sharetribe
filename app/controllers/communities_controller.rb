@@ -37,7 +37,7 @@ class CommunitiesController < ApplicationController
     session[:pricing_plan] = params[:pricing_plan] if params[:pricing_plan]
     session[:community_locale] = params[:community_locale] if params[:community_locale]
     
-    session[:confirmed_email] = session[:unconfirmed_email] if session[:unconfirmed_email] && @current_user.has_confirmed_email?(session[:unconfirmed_email])
+    session[:confirmed_email] = session[:unconfirmed_email] if session[:unconfirmed_email] && @current_user && @current_user.has_confirmed_email?(session[:unconfirmed_email])
     
     respond_to do |format|
       format.html
