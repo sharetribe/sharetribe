@@ -1,5 +1,7 @@
-en_subject = "IMPORTANT: Remember to accept Sharetribe’s new terms of use, or your account will be deleted!"
+en_subject = "IMPORTANT: (2nd reminder) Remember to accept Sharetribe’s new terms of use, or your account will be deleted!"
 en_message = <<MESSAGE
+This is the second reminder about the topic. If you already read the first one, but you don't want your data to be preserved, you don't need to do anything.
+
 Aalto University's Sharetribe (earlier Kassi) has new Terms of Use (since spring 2011), which you have not yet accepted. At 30th September Sharetribe’s database will be moved to new server and the upkeep responsibility of the service will be transfered from OtaSizzle research project to Sharetribe Oy, a company founded for future development of Sharetribe. The change in the terms of use is made to allow this transfer. We cannot transfer the user accounts, who have not permitted the transfer by accepting the new terms, so we will need to delete those accounts and all the data related to them (listings, messages, feedback etc.)
 
 You can accept the new terms easily by logging in at: https://aalto.sharetribe.com/en/login
@@ -16,8 +18,10 @@ Sharetribe team
 MESSAGE
 
 
-fi_subject = "TÄRKEÄ: Muista hyväksyä Aallon Sharetriben uudet käyttöehdot tai käyttäjätietosi poistetaan!"
+fi_subject = "TÄRKEÄ: (2 muistutus) Muista hyväksyä Aallon Sharetriben uudet käyttöehdot tai käyttäjätietosi poistetaan!"
 fi_message =  <<MESSAGE
+Tämä on toinen muistutusviesti aiheesta. Jos huomasit ensimmäisen, mutta et halua tietojasi siirrettävän, sinun ei tarvitse tehdä mitään.
+
 Et ole vielä hyväksynyt Aallon Sharetriben (entinen Kassi) uusia (keväällä 2011 voimaan tulleita) käyttöehtoja. 30.9. Sharetriben tietokanta siirretään uudelle palvelimelle, ja tässä yhteydessä joudumme poistamaan kaikki ne käyttäjät, jotka eivät ole hyväksyneet uusia ehtoja, sekä näiden käyttäjien kaikki tiedot (ilmoitukset, viestit sekä saadut ja annetut palautteet). Tietojen siirto tehdään, koska Sharetribe-palvelun ylläpitovastuu siirtyy OtaSizzle-tutkimusprojektilta Sharetribe Oy -yrityksellemme. Uusien käyttöehtojen tarkoituksena on oikeuttaa meidät tekemään siirto.
 
 Voit hyväksyä uudet ehdot klikkaamalla seuraavaa linkkiä: https://aalto.sharetribe.com/fi/login ja kirjautumalla sisään.
@@ -43,5 +47,5 @@ mail_content = {
  }
 
 # c = Community.find_by_domain("aalto").members.where("`community_memberships`.consent = 'KASSI_FI1.0'")
-# PersonMailer.deliver_open_content_messages(test_array, "test subject", mail_content, "fi", true)
+# # # PersonMailer.deliver_open_content_messages(test_array, "test subject", mail_content, "fi", true)
 # PersonMailer.deliver_open_content_messages(c, "Remember to accept new terms of use in Sharetribe!", mail_content, "fi", true)
