@@ -1,8 +1,23 @@
-notifications:
-  recipients:
-    - team@kassi.eu
+language: ruby
+rvm:
+  - 1.8.7
 
-# select branches to build
+env:
+  - SUITE=spec
+
+notifications:
+  email: false
+
 branches:
   only:
+    - develop
     - master
+
+before_script:
+  - cp config/config.example.yml config/config.yml
+  - cp config/database.travis.yml config/database.yml
+  - mysql -e 'create database sharetribe_test;'
+  - rake db:test:load
+
+script:
+  - bundle exec rake $SUITE
