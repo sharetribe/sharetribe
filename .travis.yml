@@ -14,7 +14,7 @@ branches:
     - master
 
 before_script:
-  - cp config/config.example.yml config/config.yml
+  - cp config/config.travis.yml config/config.yml
   - cp config/database.travis.yml config/database.yml
   - mysql -e 'create database sharetribe_test;'
   - rake db:test:load
