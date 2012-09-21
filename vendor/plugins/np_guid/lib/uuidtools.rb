@@ -560,7 +560,8 @@ class UUID
     integer = 0
     size = byte_string.size
     for i in 0..(size - 1)
-      integer += (byte_string[i] << (((size - 1) - i) * 8))
+      # Added here the .to_i at the end of next line when updating to Ruby 1.9.3
+      integer += (byte_string[i] << (((size - 1) - i) * 8)).to_i
     end
     return integer
   end
