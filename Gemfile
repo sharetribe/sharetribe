@@ -18,7 +18,6 @@ gem 'capistrano'
 
 # Bundle the extra gems:
 
-gem "mongrel"
 gem 'mysql', '2.8.1'
 gem 'haml'
 gem 'sass'
