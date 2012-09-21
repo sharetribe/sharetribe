@@ -18,7 +18,8 @@ gem 'capistrano'
 
 # Bundle the extra gems:
 
-gem 'mysql', '2.8.1'
+gem "mysql2", "~> 0.2.7" #this version for Rails < 3.1 compatibility
+#gem 'mysql', '2.8.1'
 gem 'haml'
 gem 'sass'
 gem 'database_cleaner'

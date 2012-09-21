@@ -118,8 +118,8 @@ GEM
     mime-types (1.19)
     multi_json (1.3.6)
     multipart-post (1.1.5)
-    mysql (2.8.1)
-    mysql (2.8.1-x86-mingw32)
+    mysql2 (0.2.18)
+    mysql2 (0.2.18-x86-mingw32)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -271,7 +271,7 @@ DEPENDENCIES
   json
   launchy
   memcache-client (>= 1.8.5)
-  mysql (= 2.8.1)
+  mysql2 (~> 0.2.7)
   newrelic_rpm
   omniauth-facebook
   paperclip (~> 2.7)
