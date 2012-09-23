@@ -4,6 +4,7 @@ rvm:
 
 env:
   - SUITE=spec
+  - SUITE=cucumber
 
 notifications:
   email: false
