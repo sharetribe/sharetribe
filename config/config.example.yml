@@ -217,5 +217,8 @@ test:
   
   # normally no point of submiting events from tests to Kissmetrics
   use_kissmetrics: false
+  
+  # Keep api available always for tests to be run
+  api_enabled: true
 
 
