@@ -20,11 +20,9 @@ Factory.define :person do |p|
   p.given_name "Proto"
   p.family_name "Testro"
   p.phone_number "0000-123456"
-  if not ApplicationHelper::use_asi?
-    p.username { |u| u.username = Factory.next(:username) }
-    p.password "testi"
-    p.email { |e| e.email = Factory.next(:email) }
-  end
+  p.username { |u| u.username = Factory.next(:username) }
+  p.password "testi"
+  p.email { |e| e.email = Factory.next(:email) }
 end  
 
 Factory.define :share_type do |s|

@@ -18,7 +18,7 @@
         %p
           = t('okl.member_id_is_your_username')
           = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
-      - unless (use_asi? || @current_community.allowed_emails.present?)
+      - unless ( @current_community.allowed_emails.present?)
         %p
           = t(".if_you_already_have_account_you_can")
           = link_to(t(".join_with_your_existing_account"), new_tribe_membership_path, :class => "form") + "."
