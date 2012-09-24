@@ -1,6 +1,6 @@
 namespace :i18n do
   # Load Config
-  require File.expand_path('../config_loader', __FILE__)
+  require File.expand_path('../../../config/config_loader', __FILE__)
   APP_CONFIG = load_app_config
 
   
