@@ -64,7 +64,7 @@ fr:
       rent_out: "à louer "
       sell: "à vendre "
       trade: "a échanger "
-      share_for_free: ~
+      share_for_free: "Partagé gratuitement"
     username: "Nom d'utilisateur "
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
@@ -83,19 +83,19 @@ fr:
       housing_offer_message_title: "Répondre à votre annonce %{title}"
       housing_request_message_form_title: "Répondre à"
       housing_request_message_title: "Répondre à votre annonce %{title}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
+      item_offer_lend_message_form_title: "Emprunter %{listing} de %{person}"
+      item_offer_sell_message_form_title: "Acheter %{listing} de %{person}"
+      item_offer_give_away_message_form_title: "Obtenir %{listing} de %{person}"
       item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
+      item_offer_rent_out_message_form_title: "Louer %{listing} de %{person}"
+      item_request_borrow_message_form_title: "Prêter %{listing} à %{person}"
+      item_request_buy_message_form_title: "Vendre %{listing} à %{person}"
+      item_request_take_for_free_message_form_title: "Donner  %{listing} à %{person}"
       item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
+      item_request_rent_message_form_title: "Louer %{listing} à %{person}"
+      housing_offer_sell_message_form_title: "Acheter %{listing} de %{person}"
+      housing_offer_rent_out_message_form_title: "Louer %{listing} de %{person}"
+      housing_offer_share_for_free_message_form_title: "Demander %{listing} à %{person}"
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_offer_message_title: "Demande d'objet : %{title}"
@@ -264,7 +264,7 @@ fr:
       join_community_button: "Rejoindre la communauté"
   dashboard:
     api:
-      coming_soon: ~
+      coming_soon: "Bientôt ..."
     index:
       get_started: "LANCEZ VOUS !"
       browse_communities_around_you: "rejoignez une tribu près de vous"
@@ -285,9 +285,9 @@ fr:
       thanks_for_contacting_us: "Merci de nous avoir contacté ! Nous allons vous envoyer des informations sur la création de votre communauté %{service_name} très bientôt."
       resources: RESSOURCES
       connect: "RETROUVEZ NOUS"
-      about: ~
-      developers: ~
-      api: ~
+      about: "A PROPOS DE SHARETRIBE"
+      developers: "POUR LES DÉVELOPPEURS"
+      api: API
       blog: Blog
       code: "Code source"
       issue_tracker: "Gestionnaire de tickets"
