@@ -54,6 +54,7 @@ gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
 #gem 'rocket_pants'
+gem 'rake', '0.8.7' # downgraded because issues with 0.9
 
 group :test do
   gem "rspec-rails"
