@@ -1,6 +1,8 @@
 namespace :i18n do
-  
-  APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].merge(ENV).symbolize_keys)
+  # Load Config
+  require File.expand_path('../config_loader', __FILE__)
+  APP_CONFIG = load_app_config
+
   
   def write_error_page(status, locale = nil)
     dest_filename = [status.to_s, locale, "html"].compact.join(".")

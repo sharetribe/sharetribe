@@ -3,8 +3,8 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 
 # These needed to load the config.yml
-require 'yaml'
-require 'ostruct'
+require File.expand_path('../config_loader', __FILE__)
+
 
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -16,10 +16,8 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Kassi
   class Application < Rails::Application
     
-    # Read the config from the config.yml # THIS SHOULD BE DONE IN load_config.yml, but for some reason APP_CONFIG is not usable here
-    APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].merge(ENV).symbolize_keys)
-    # FIXME Temporary cludge to make Heroku work
-    APP_CONFIG.available_locales = [["English", "en"], ["Suomi", "fi"]] if APP_CONFIG.available_locales.nil?
+    # Read the config from the config.yml 
+    APP_CONFIG = load_app_config
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
