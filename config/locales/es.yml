@@ -245,15 +245,15 @@ es:
       invalid_email_ending_message: "Esto parece un e-mail personal. Necesitas registrarte con tu e-mail %{community_category}."
       log_in_here: "inicia sesión aquí"
       existing_community_with_this_email: "Ya existe una tribu para esta %{community_category}. Puedes unirte a la tribu %{link}."
-      here: ~
+      here: aquí
       for_company: empresa
       for_university: universidad
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: ~
-      for_apartment_building: ~
-      for_other: ~
+      for_town: ciudad
+      for_congregation: congregración
+      for_association: asociación
+      for_neighborhood: vecindario
+      for_apartment_building: condominio
+      for_other: otro
   community_memberships:
     new:
       join_community: "Únete a la comunidad de '%{community}'"
@@ -433,8 +433,8 @@ es:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript está desactivado en tu buscador"
       kassi_does_not_currently_work_without_javascript: "Desafortunadamente en la actualidad %{service_name} no funciona sin javascript. Intenta activar javascript en las preferencias de tu buscador y vuelva a cargar la página. Si deseas utilizar %{service_name} sin javascript, por favor envíanos una sugerencia utilizando el formulario que aparece a continuación."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      kassi_does_not_currently_work_without_javascript_dashboard: "Lamentablemente por ahora %{service_name} no funciona sin javascript. Intenta habilitar javascript desde las preferencias de tu buscador y luego carga esta página nuevamente. Si quisieras usar %{service_name} sin javascript, por favor %{contact_us}."
+      contact_us: contáctanos
       send_feedback: "Enviar sugerencia"
       your_feedback_to_admins: "Envía tu sugerencia al administrador"
     send: Enviar
@@ -521,8 +521,8 @@ es:
       or: "y"
       or_see_what_the_others: "...o revisa lo que publicaron los demás en"
       recent_events: "Eventos recientes"
-      recent_offers: "Lo que los demás pueden ofrecer"
-      recent_requests: "Lo que otros necesitan"
+      recent_offers: "Lo que se ofrece"
+      recent_requests: "Lo que se necesita"
       request_something: "Cuéntanos qué necesitas"
       request_something_description: "Di a los demás cuando necesitas ayuda, un artículo o un traslado"
       requesting: Solicitudes
@@ -831,7 +831,7 @@ es:
       housing: Alojamiento
       items: Productos
       list_view: "Ver lista"
-      listings: ~
+      listings: Anuncios
       map_view: "Vista en el mapa"
       offer_something: "¡Compártelo con los demás!"
       offer_type: "Tipo de oferta"
@@ -842,7 +842,7 @@ es:
       rideshare: "Traslado compartido"
       search_verb: Buscar
       you_have_something_others_do_not: "¿Tienes algo que ofecer?"
-      feed_title: ~
+      feed_title: "%{listing_type} en %{community_name} de %{service_name}%{optional_category}"
     left_panel_link:
       borrows: Préstamos
       buys: "Lo compro"
@@ -992,8 +992,8 @@ es:
       email_is_in_use_or_not_allowed: "El e-mail ingresado no está autorizado para entrar a esta comunidad o ya está siendo utilizado. Por favor usa una dirección de correo electrónico que esté asociada con esta comunidad (ver instrucciones más arriba). Si todavía tienes problemas para ingresar, envíanos un comentario usando el link de \"Feedback\" a la izquierda."
       email_not_allowed: "Este e-mail no esta habilitado para esta comunidad. Por favor usa una dirección que esté asociada con esta comunidad. Si todavía no puedes ingresar, envíanos un comentario haciendo clic en el botón de la izquierda."
       email_restriction_instructions:
-        one: ~
-        other: ~
+        one: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas una dirección de email %{allowed_emails}."
+        other: "Esta comunidad es sólo para %{community_name}. Para unirte necesitas un email que tenga una de los siguientes direcciones: %{allowed_emails}."
       enter_captcha: "Soy un ser humano:"
       family_name: "Apellido:"
       given_name: "Nombre:"
@@ -1163,8 +1163,8 @@ es:
       account_creation_link_text: "haz clic aquí"
       cancle_facebook_connect: "Si no quieres vincular esta cuenta, puedes %{cancel_link}."
       facebook_cancel_link_text: cancelar
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      log_in_with_your_facebook_account: "Inicia sesión con tu cuenta de Facebook:"
+      or_sign_up_with_your_username: "... o con tu nombre de usuario y contraseña:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -1267,7 +1267,7 @@ es:
       slightly_better_than_expected: "Un poco mejor de lo esperado"
       slightly_less_than_expected: "Un poco peor de lo esperado"
       textual_feedback: "Sugerencia textual"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "El feedback que tú des será visible para los otros usuarios en la página del perfil de %{person}. Esto ayudará a los otros miembros de esta tribu para evaluar si %{person} es una persona confiable."
     testimonial:
       from_user: Desde
       to_user: a
