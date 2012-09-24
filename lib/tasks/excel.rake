@@ -1,7 +1,6 @@
-require File.expand_path('../config_loader', __FILE__)
-
 namespace :excel do
-  
+  # Load Config
+  require File.expand_path('../../../config/config_loader', __FILE__)
   APP_CONFIG = load_app_config
   
   require 'spreadsheet'
