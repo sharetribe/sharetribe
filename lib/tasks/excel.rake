@@ -1,6 +1,6 @@
 namespace :excel do
   
-  APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)
+  APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].merge(ENV).symbolize_keys)
   
   require 'spreadsheet'
   
