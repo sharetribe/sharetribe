@@ -82,6 +82,7 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (1.0.0)
+    eventmachine (1.0.0-x86-mingw32)
     factory_girl (2.6.4)
       activesupport (>= 2.3.9)
     factory_girl_rails (1.7.0)
@@ -192,7 +193,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
-    rake (0.9.2.2)
+    rake (0.8.7)
     rdoc (3.12)
       json (~> 1.4)
     recaptcha (0.3.4)
@@ -287,6 +288,7 @@ DEPENDENCIES
   rabl
   rails (= 3.0.17)
   rails-i18n
+  rake (= 0.8.7)
   recaptcha
   rest-client (>= 1.6.0)
   rspec-rails
