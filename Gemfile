@@ -31,7 +31,8 @@ gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
 gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
-gem 'paperclip', '~>2.7'
+gem 'paperclip'
+gem 'aws-sdk'
 gem "will_paginate"
 gem 'whenever'
 gem 'newrelic_rpm'
