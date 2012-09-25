@@ -6,7 +6,6 @@ namespace :heroku do
     CONFIG = YAML.load_file('config/config.yml')['production'] rescue {}
     command = "heroku config:add"
     CONFIG.each {|key, val| 
-      puts "SETTIN #{key} => #{val}"
       command << " #{key}=#{val} " if val 
       }
     puts command 
