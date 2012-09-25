@@ -23,6 +23,14 @@ default: &default_settings
   # You can enable the API by setting this value true
   api_enabled: false
 
+  # You can use Amazong S3 to store listing and profile images
+  # If you leave following empty, the images will be stored in local file system
+  # NOTE: in Heroku you can't store files in local system, so S3 should be used
+  s3_bucket_name: 
+  aws_access_key_id: 
+  aws_secret_access_key: 
+
+
   # Sharetribe can use an Aalto Social Interface server to store userinformation
   # This version of Sharetribe no longer support ASI so keep the setting below as false
   use_asi: false
@@ -221,4 +229,9 @@ test:
   # Keep api available always for tests to be run
   api_enabled: true
 
+  # don't use S3 in tests. (this is the default to avoid 
+  # anyone losing money for paying for the hosting of test images)
+  s3_bucket_name: 
+  aws_access_key_id: 
+  aws_secret_access_key:
 
