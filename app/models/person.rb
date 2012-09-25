@@ -119,7 +119,9 @@ class Person < ActiveRecord::Base
   validate :community_email_type_is_correct
 
   # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
-  has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
+  has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
+        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+        :url => "/system/:attachment/:id/:style/:filename"
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image,
