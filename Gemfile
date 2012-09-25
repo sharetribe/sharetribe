@@ -60,7 +60,7 @@ gem 'rake', '0.8.7' # downgraded because issues with 0.9
 group :test do
   gem "rspec-rails"
   gem 'capybara'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
   gem 'cucumber' 
   gem 'selenium-webdriver'
   gem 'launchy'

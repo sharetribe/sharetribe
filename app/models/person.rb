@@ -118,10 +118,26 @@ class Person < ActiveRecord::Base
 
   validate :community_email_type_is_correct
 
-  # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
-  has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
+  paperclip_options = {
+        :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
         :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
         :url => "/system/:attachment/:id/:style/:filename"
+        }
+  if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
+    paperclip_options.merge!({
+      :path => "images/:class/:attachment/:id/:style/:filename",
+      :url => "/system/:class/:attachment/:id/:style/:filename",
+      :storage => :s3,
+      :s3_credentials => {
+            :bucket            => APP_CONFIG.s3_bucket_name, 
+            :access_key_id     => APP_CONFIG.aws_access_key_id, 
+            :secret_access_key => APP_CONFIG.aws_secret_access_key 
+      }
+    })
+  end
+  
+  has_attached_file :image, paperclip_options
+        
   #validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image,
