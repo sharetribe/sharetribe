@@ -15,7 +15,7 @@ namespace :i18n do
   desc 'Write public/404.html and public/500.html error pages'
   task :write_error_pages => :environment do
     [404, 500].each do |status|
-      APP_CONFIG.available_locales.collect{|loc| loc[1]}.each do |locale|
+      Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}.each do |locale|
         I18n.with_locale locale do
           write_error_page(status, locale)
           # Create also a default error page for situations

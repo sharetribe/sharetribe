@@ -14,7 +14,7 @@
       .language= t(".language")
       = form_tag(new_tribe_path, :method => "get", :remote => true) do
         .div{:style => "font-size: 20px"}
-          = select_tag "community_locale", options_for_select(APP_CONFIG.available_locales, session[:community_locale]), :include_blank => t(".select_main_language_of_your_tribe"), :onchange => 'this.form.submit()', :class => 'community_language_select'
+          = select_tag "community_locale", options_for_select(Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES, session[:community_locale]), :include_blank => t(".select_main_language_of_your_tribe"), :onchange => 'this.form.submit()', :class => 'community_language_select'
     - if session[:community_locale]
       = form_for @community, :url => tribes_path + "?ref=tribe_created" do |form|
         .form_field_container_taller
