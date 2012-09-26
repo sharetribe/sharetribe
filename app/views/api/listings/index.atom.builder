@@ -11,8 +11,10 @@ atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss'
       entry_content = add_links_and_br_tags(html_escape(listing.description))
       
       unless listing.listing_images.empty?
-        img_url = "#{@url_root}#{listing.listing_images.first.image.url(:medium)}"
-
+        
+        img_url = "#{listing.listing_images.first.image.url(:medium)}"
+        # add url root unless paperclip gave full url already (as happens with S3)
+        img_url = "#{@url_root}#{img_url}" unless img_url =~ /^http/ 
         # disable enclosure link to avoid double pictures
         #entry.link :href => img_url, :rel => "enclosure", :type  => listing.listing_images.first.image_content_type
         entry_content +=  "<br />\n" + link_to(image_tag(img_url), listing_url(listing)) 

@@ -92,7 +92,12 @@ class Listing < ActiveRecord::Base
     has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
-    set_property :delta => true
+    if Rails.env.production?
+      set_property :delta => FlyingSphinx::DelayedDelta
+    else
+      set_property :delta => true
+    end
+    
     set_property :field_weights => {
       :title       => 10,
       :tags        => 8,
