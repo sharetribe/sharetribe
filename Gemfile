@@ -38,6 +38,7 @@ gem 'whenever'
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'flying-sphinx'
 gem 'recaptcha'
 gem "airbrake"
 gem 'passenger'
