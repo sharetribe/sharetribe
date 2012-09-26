@@ -25,9 +25,9 @@ class SessionsController < ApplicationController
   def create
  
     if current_community = Community.find_by_domain(params[:community])
-      domain = "http://#{with_subdomain(current_community.domain)}"
+      domain = "#{request.protocol}#{with_subdomain(current_community.domain)}"
     else
-      domain = "http://www.#{[request.domain, request.port_string].join}"
+      domain = "#{request.protocol}#{request.host_with_port}"
     end
 
     session[:form_username] = params[:person][:username]

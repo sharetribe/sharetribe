@@ -47,7 +47,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
-    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "http://www.#{[request.domain, request.port_string].join}"
+    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots

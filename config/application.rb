@@ -19,6 +19,9 @@ module Kassi
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config
     
+    if APP_CONFIG.always_use_ssl
+      config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
