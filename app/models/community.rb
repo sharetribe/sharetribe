@@ -45,7 +45,7 @@ class Community < ActiveRecord::Base
       return settings["locales"]
     else
       # if locales not set, return the short locales from the default list
-      return APP_CONFIG.available_locales.collect{|loc| loc[1]}
+      return Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}
     end
   end
   

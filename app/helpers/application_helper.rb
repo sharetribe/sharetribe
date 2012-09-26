@@ -97,9 +97,9 @@ module ApplicationHelper
   def available_locales
     if @current_community
       # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
-      return @current_community.locales.collect{|loc| APP_CONFIG.available_locales.select{|app_loc| app_loc[1] == loc }[0]}
+      return @current_community.locales.collect{|loc| Kassi::Application.config.AVAILABLE_LOCALES.select{|app_loc| app_loc[1] == loc }[0]}
     else
-      return APP_CONFIG.available_locales
+      return Kassi::Application.config.AVAILABLE_LOCALES
     end
   end
   

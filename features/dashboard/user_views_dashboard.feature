@@ -15,7 +15,7 @@ Feature: User views dashboard
     Given I am on the home page
     # These steps temporarily removed since capybara does not seem to
     # work with the jQuery UI select menu component.
-    # When I select "Finnish" from "locale"
+    # When I select "Suomi" from "locale"
     # Then I should see "OMA VERKKOTORI"
 
   

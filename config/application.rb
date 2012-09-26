@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
@@ -22,6 +24,34 @@ module Kassi
     if APP_CONFIG.always_use_ssl
       config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
     end
+    
+    
+    # This is the list of all possible locales. Part of the translations may be unfinished.
+    config.AVAILABLE_LOCALES = [
+          ["English", "en"], 
+          ["Suomi", "fi"], 
+          ["Pусский", "ru"], 
+          ["Nederlands", "nl"], 
+          ["Ελληνικά", "el"], 
+          ["kiswahili", "sw"], 
+          ["română", "ro"], 
+          ["Français", "fr"], 
+          ["中文", "zh"], 
+          ["Español", "es"], 
+          ["Español", "es-ES"], 
+          ["Catalan", "ca"],
+          ["Tiếng Việt", "vi"]
+    ]
+
+    # This is the list o locales avaible for the dashboard and newly created tribes in UI
+    config.AVAILABLE_DASHBOARD_LOCALES = [
+          ["English", "en"], 
+          ["Suomi", "fi"],
+          ["Español", "es"],
+          ["Français", "fr"], 
+          ["Pусский", "ru"], 
+          ["Ελληνικά", "el"] 
+    ]
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

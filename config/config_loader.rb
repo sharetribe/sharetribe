@@ -9,6 +9,6 @@ def load_app_config
   end
   conf = OpenStruct.new(conf_hash.merge(ENV).symbolize_keys)
   # FIXME Temporary cludge to make Heroku work
-  conf.available_locales = [["English", "en"], ["Suomi", "fi"]] if conf.available_locales.nil?
+  #conf.available_locales = [["English", "en"], ["Suomi", "fi"]] if conf.available_locales.nil?
   return conf
 end
