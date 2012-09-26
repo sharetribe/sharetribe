@@ -92,7 +92,7 @@ class Listing < ActiveRecord::Base
     has communities(:id), :as => :community_ids
     
     set_property :enable_star => true
-    if Rails.env.production?
+    if APP_CONFIG.FLYING_SPHINX_API_KEY
       set_property :delta => FlyingSphinx::DelayedDelta
     else
       set_property :delta => true
