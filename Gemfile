@@ -24,7 +24,7 @@ gem 'capistrano'
 gem 'thin'
 
 gem "mysql2", "~> 0.2.7" #this version for Rails < 3.1 compatibility
-#gem 'mysql', '2.8.1'
+gem 'rack-ssl', :require => 'rack/ssl'
 gem 'haml'
 gem 'sass'
 gem 'database_cleaner'

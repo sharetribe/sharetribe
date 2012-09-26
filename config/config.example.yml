@@ -30,6 +30,9 @@ default: &default_settings
   aws_access_key_id: 
   aws_secret_access_key: 
 
+  # If you want to force all use to be SSL secured (https://) you can set this to true
+  # Note that you can set this value separately to each enironment below (e.g. if your developing)
+  always_use_ssl: false
 
   # Sharetribe can use an Aalto Social Interface server to store userinformation
   # This version of Sharetribe no longer support ASI so keep the setting below as false
@@ -191,6 +194,9 @@ production:
 development:
   <<: *default_settings
   
+  # Usually it's easier to run development without SSL
+  always_use_ssl: false
+  
 test:
   <<: *default_settings
   # The locale should be "en" for test environment
@@ -239,4 +245,7 @@ test:
   s3_bucket_name: 
   aws_access_key_id: 
   aws_secret_access_key:
+    
+  # easier to run tests without SSL
+  always_use_ssl: false
 
