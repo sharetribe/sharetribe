@@ -119,7 +119,7 @@ en:
         see_all_your_badges: "See all your badges"
         you_have_earned_badge: "You have earned the badge"
       comment_to_followed_listing_notification:
-        has_commented: "%{author} has commented"
+        has_commented: "%{author} has commented on"
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       listing_updated_notification:
@@ -127,7 +127,7 @@ en:
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       comment_to_own_listing_notification:
-        has_commented: "%{author} has commented"
+        has_commented: "%{author} has commented on"
         your_offer: "your offer"
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
@@ -358,13 +358,13 @@ en:
       you_can_view_all_your_badges_in: "You can view all your badges in"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} has commented your offer %{listing}"
-      has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
+      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}"
+      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}"
       you_can_reply_to_comment_in: "You can view all the comments and reply to them at"
-      you_have_a_new_comment: "%{author} has commented your listing in %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} has commented a listing you follow in %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} has commented the request '%{listing}' you are following in %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} has commented the offer '%{listing}' you are following in %{service_name}"
+      you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
+      has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}"
     new_message:
       conversation_title: "Message thread title: %{title}"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
@@ -456,7 +456,7 @@ en:
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} commented on %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:
