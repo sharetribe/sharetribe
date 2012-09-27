@@ -18,6 +18,14 @@ test: &test
     username: sharetribe
     password: secret
     host: localhost
+    
+staging:
+    adapter: mysql2
+    database: sharetribe_staging
+    encoding: utf8
+    username: sharetribe
+    password: secret
+    host: localhost
 
 production:
     adapter: mysql2
