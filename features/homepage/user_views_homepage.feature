@@ -150,7 +150,7 @@ Feature: User views homepage
     And I go to the homepage
     Then I should see "Chuck joined Test Sharetribe"
     And I should see "logged in to Sharetribe"
-    And I should see "commented offer hammer"
+    And I should see "commented on offer hammer"
     And the total number of comments should be 1
     When I follow "Lending: hammer"
     And I follow "Borrow this item"
@@ -175,7 +175,7 @@ Feature: User views homepage
     And I follow "Logout"
     Then I should not see "commented offer power drill"
     When I log in as "kassi_testperson1"
-    Then I should see "commented offer power drill"
+    Then I should see "commented on offer power drill"
   
   @pending
   Scenario: Latest transactions on the homepage
