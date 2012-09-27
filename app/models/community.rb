@@ -156,6 +156,11 @@ class Community < ActiveRecord::Base
   # Check if communities with this category are email restricted
   def self.email_restricted?(community_category)
     ["company", "university"].include?(community_category)
-  end  
+  end
+  
+  # Returns all the people who are admins in at least one tribe.
+  def self.all_admins
+    Person.joins(:community_memberships).where("community_memberships.admin = '1'").group("people.id")
+  end
 
 end

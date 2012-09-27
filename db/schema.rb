@@ -350,13 +350,6 @@ ActiveRecord::Schema.define(:version => 20120909143322) do
   add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
   add_index "people", ["username"], :name => "index_people_on_username", :unique => true
 
-  create_table "person_hobbies", :id => false, :force => true do |t|
-    t.string   "person_id"
-    t.integer  "hobby_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "poll_answers", :force => true do |t|
     t.integer  "poll_id"
     t.integer  "poll_option_id"
