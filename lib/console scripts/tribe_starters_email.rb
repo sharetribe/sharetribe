@@ -29,7 +29,7 @@ Me Sharetribessa työskentelemme jatkuvasti sen eteen, että palvelu vastaisi ma
 
 Jos sinulla on 15-30 minuuttia aikaa lähipäivinä, haluaisin mieluusti haastatella sinua. Jos asut tai liikut silloin tällöin pääkaupunkiseudulla, haastattelu onnistuu livenä (tarjoan kahvit). Muussa tapauksessa haastattelu voidaan tehdä joko puhelimitse tai Skypen/Google Hangoutin välityksellä. Ei haittaa, vaikka perustamassasi yhteisössäsi ei ole vielä yhtään jäsentä tai jos olet perustanut sen vain testimielessä - palaute on silti tervetullutta! 
 
-Jos siis lyhyt haastattelu sopii, vastaathan tähän viestiin.
+Jos siis lyhyt haastattelu sopii, kerrothan siitä vastaamalla tähän viestiin.
 
 Jos sinulla on mitä tahansa kysyttävää Sharetribeen liittyen tai haluat antaa palautetta, autan myös mielelläni. Vastaa vain tähän viestiin ja palaan asiaan niin pian kuin mahdollista. Reaaliaikaista apua saa myös Sharetriben ilmaiselta web-selaimessa toimivalta chat-kanavalta, johon voit liittyä seuraavan linkin kautta: https://sharetribe.flowdock.com/invitations/dd71aff8775de59782a6acaa3889298b37b26065-help-support
 
@@ -40,3 +40,15 @@ Juho Makkonen
 Toimitusjohtaja ja perustajatiimin jäsen, Sharetribe
 MESSAGE
 
+mail_content = {
+  "en"=>{
+    "body"=> en_message, 
+    "subject"=> en_subject}, 
+  "fi"=>{
+    "body"=> fi_message,
+    "subject"=> fi_subject}
+ }
+
+# c = Community.all_admins
+# # # PersonMailer.deliver_open_content_messages(test_array, "test subject", mail_content, "en", true)
+# PersonMailer.deliver_open_content_messages(c, "Help us make Sharetribe better", mail_content, "en", true)
