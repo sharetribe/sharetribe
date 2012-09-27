@@ -25,7 +25,7 @@ Feature: User comments a listing
     And I log in as "kassi_testperson1"
     Then I should see "1" within "#logged_in_notifications_icon"
     When I follow "notifications_link"
-    Then I should see "has commented your request"
+    Then I should see "has commented on your request"
     When I follow "your request"
     And I fill in "comment_content" with "Test answer"
     And I press "Send comment"
@@ -36,7 +36,7 @@ Feature: User comments a listing
     And I go to the home page
     Then I should see "1" within "#logged_in_notifications_icon"
     When I follow "notifications_link"
-    Then I should see "has commented a request you follow"
+    Then I should see "has commented on a request you follow"
     When I follow "a request you follow"
     And I fill in "comment_content" with "Test comment 2"
     And I uncheck "comment_author_follow_status"
