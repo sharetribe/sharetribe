@@ -97,6 +97,11 @@ module Kassi
       ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
     end
+    
+    # Set the logger to STDOUT, based on tip at: http://blog.railsonfire.com/2012/05/06/Unicorn-on-Heroku.html
+    # For unicorn logging to work
+    config.logger = Logger.new(STDOUT)
+    
 
   end
 end

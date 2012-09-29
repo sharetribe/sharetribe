@@ -21,7 +21,8 @@ gem 'capistrano'
 # Bundle the extra gems:
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
-gem 'thin'
+#gem 'thin'
+gem 'unicorn'
 
 gem "mysql2", "~> 0.2.7" #this version for Rails < 3.1 compatibility
 gem 'rack-ssl', :require => 'rack/ssl'
