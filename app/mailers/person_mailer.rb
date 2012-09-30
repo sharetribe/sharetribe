@@ -114,7 +114,7 @@ class PersonMailer < ActionMailer::Base
   def contact_request_notification(email)
     @no_settings = true
     @email = email
-    subject = "New contact requests from #{APP_CONFIG.server_name}-Sharetribe"
+    subject = "New contact request"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
