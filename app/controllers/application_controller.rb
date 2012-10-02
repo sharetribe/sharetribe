@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   layout 'application'
 
 
-  before_filter :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :domain_redirect, :force_ssl, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
 
@@ -237,6 +237,36 @@ class ApplicationController < ActionController::Base
       return request_url_with_port.sub(/[^\/\.]+\./, "#{community.domain}.")
     else
       return request_url_with_port
+    end
+  end
+  
+   # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
+    # # And you if you need your own rules for redirection or rewrite, add here.
+  def domain_redirect
+    # to speed up the check on every page load, only check first 
+    # if different domain than specified in config
+    if request.domain != APP_CONFIG.domain
+      
+      # Redirect contry domain dashboards to .com with correct language
+      redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
+      redirect_to "#{request.protocol}www.sharetribe.com/en" and return if request.host =~ /^(www\.)?sharetribe\.us/ || request.host =~ /^.+\.?sharetri\.be/
+      redirect_to "#{request.protocol}www.sharetribe.com/el" and return if request.host =~ /^(www\.)?sharetribe\.gr/
+      redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
+      redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
+      
+      # Redirect to right commnunity (changing to .com)
+      redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/
+      
+      redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
+      
+      
+      
+    end 
+  end
+  
+  def force_ssl
+    if APP_CONFIG.always_use_ssl
+      redirect_to :protocol => 'https' unless request.ssl?
     end
   end
 end
