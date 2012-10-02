@@ -19,12 +19,7 @@ module Kassi
   class Application < Rails::Application
     
     # Read the config from the config.yml 
-    APP_CONFIG = load_app_config
-    
-    if APP_CONFIG.always_use_ssl
-      config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
-    end
-    
+    APP_CONFIG = load_app_config    
     
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
@@ -52,6 +47,7 @@ module Kassi
           ["Pусский", "ru"], 
           ["Ελληνικά", "el"] 
     ]
+    
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -100,8 +96,11 @@ module Kassi
     
     # Set the logger to STDOUT, based on tip at: http://blog.railsonfire.com/2012/05/06/Unicorn-on-Heroku.html
     # For unicorn logging to work
-    config.logger = Logger.new(STDOUT)
-    
+    # It looks stupid that this is not in production.rb, but according to that blog,
+    # it needs to be set here to work
+    if Rails.env.production?
+      config.logger = Logger.new(STDOUT)
+    end
 
   end
 end
