@@ -36,6 +36,11 @@ GEM
       builder
       girl_friday
     arel (2.0.10)
+    aws-sdk (1.6.6)
+      httparty (~> 0.7)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
+      uuidtools (~> 2.1)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (2.1.2)
@@ -52,11 +57,10 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
-    cgi_multipart_eof_fix (2.5.0)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
     chronic (0.6.7)
-    cocaine (0.3.0)
+    cocaine (0.3.1)
     connection_pool (0.9.2)
     cucumber (1.2.1)
       builder (>= 2.1.2)
@@ -68,7 +72,6 @@ GEM
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
     daemon_controller (1.0.0)
-    daemons (1.1.9)
     database_cleaner (0.8.0)
     delayed_job (3.0.3)
       activesupport (~> 3.0)
@@ -89,10 +92,17 @@ GEM
       railties (>= 3.0.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
+    faraday_middleware (0.8.8)
+      faraday (>= 0.7.4, < 0.9)
     fastthread (1.0.7)
     ffi (1.1.5)
     ffi (1.1.5-x86-mingw32)
-    gem_plugin (0.2.3)
+    flying-sphinx (0.8.4)
+      faraday_middleware (~> 0.7)
+      multi_json (>= 1.0.1)
+      rash (~> 0.3.0)
+      riddle (>= 1.5.0)
+      thinking-sphinx
     gherkin (2.11.2)
       json (>= 1.4.6)
     gherkin (2.11.2-x86-mingw32)
@@ -102,12 +112,16 @@ GEM
     haml (3.1.7)
     hashie (1.2.0)
     highline (1.6.14)
+    httparty (0.9.0)
+      multi_json (~> 1.0)
+      multi_xml
     httpauth (0.1)
     httpclient (2.2.7)
     i18n (0.5.0)
     json (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    kgio (2.7.4)
     launchy (2.1.2)
       addressable (~> 2.3)
     libwebsocket (0.1.5)
@@ -119,18 +133,11 @@ GEM
       treetop (~> 1.4.8)
     memcache-client (1.8.5)
     mime-types (1.19)
-    mongrel (1.1.5)
-      cgi_multipart_eof_fix (>= 2.4)
-      daemons (>= 1.0.3)
-      fastthread (>= 1.0.1)
-      gem_plugin (>= 0.2.3)
-    mongrel (1.1.5-x86-mingw32)
-      cgi_multipart_eof_fix (>= 2.4)
-      gem_plugin (>= 0.2.3)
     multi_json (1.3.6)
+    multi_xml (0.5.1)
     multipart-post (1.1.5)
-    mysql (2.8.1)
-    mysql (2.8.1-x86-mingw32)
+    mysql2 (0.2.18)
+    mysql2 (0.2.18-x86-mingw32)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -156,9 +163,10 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.7)
-    paperclip (2.7.0)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
+    paperclip (3.2.0)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
       cocaine (>= 0.0.2)
       mime-types
     passenger (3.0.17)
@@ -201,7 +209,10 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
-    rake (0.9.2.2)
+    raindrops (0.10.0)
+    rake (0.8.7)
+    rash (0.3.2)
+      hashie (~> 1.2.0)
     rdoc (3.12)
       json (~> 1.4)
     recaptcha (0.3.4)
@@ -245,6 +256,11 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.33)
+    unicorn (4.3.1)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
+    uuidtools (2.1.3)
     warden (1.2.1)
       rack (>= 1.0)
     web_translate_it (2.0.4)
@@ -255,9 +271,6 @@ GEM
       activesupport (>= 2.3.4)
       chronic (~> 0.6.3)
     will_paginate (3.0.3)
-    win32-process (0.7.0)
-      ffi (>= 1.0.0)
-    win32console (1.3.2-x86-mingw32)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -268,6 +281,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   airbrake
+  aws-sdk
   capistrano
   capybara
   cucumber
@@ -277,22 +291,23 @@ DEPENDENCIES
   delayed_job_active_record
   devise (= 2.0.0.rc)
   factory_girl_rails (~> 1.7)
+  flying-sphinx
   haml
   httpclient
   json
   launchy
   memcache-client (>= 1.8.5)
-  mongrel
-  mysql (= 2.8.1)
+  mysql2 (~> 0.2.7)
   newrelic_rpm
   omniauth-facebook
-  paperclip (~> 2.7)
+  paperclip
   passenger
   pickle
   postmark-rails
   rabl
   rails (= 3.0.17)
   rails-i18n
+  rake (= 0.8.7)
   recaptcha
   rest-client (>= 1.6.0)
   rspec-rails
@@ -302,8 +317,7 @@ DEPENDENCIES
   selenium-webdriver
   spreadsheet
   thinking-sphinx
+  unicorn
   web_translate_it
   whenever
   will_paginate
-  win32-process
-  win32console

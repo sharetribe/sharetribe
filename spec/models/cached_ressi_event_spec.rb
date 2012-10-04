@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe CachedRessiEvent do
-  @@OPTIONS = { :return_value=>"nil",
+  @OPTIONS = { :return_value=>"nil",
      :parameters =>
      { :format => "json",
        :action => "show",
@@ -19,7 +19,7 @@ describe CachedRessiEvent do
 
 
    it "should be created without errors" do
-     event = CachedRessiEvent.new(@@OPTIONS)
+     event = CachedRessiEvent.new(@OPTIONS)
      event.save!
      CachedRessiEvent.count.should > 0
    end
@@ -27,7 +27,7 @@ describe CachedRessiEvent do
    it "should be uploaded to ressi wtihout errors" do
      if APP_CONFIG.log_to_ressi
        begin
-         event = CachedRessiEvent.new(@@OPTIONS)
+         event = CachedRessiEvent.new(@OPTIONS)
          event.save!
          event.upload
        rescue Errno::ECONNREFUSED => e

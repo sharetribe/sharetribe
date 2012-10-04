@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 class SmsController < ApplicationController
   
   skip_filter :dashboard_only

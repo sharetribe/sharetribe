@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 include ApplicationHelper
 include PeopleHelper
 
@@ -95,7 +97,7 @@ class PersonMailer < ActionMailer::Base
     @feedback.email ||= feedback.author.try(:email)
     @current_community = current_community
     subject = "New #unanswered #feedback from #{@current_community.name} community from user #{feedback.author.try(:name)} "
-    mail_to = APP_CONFIG.feedback_mailer_recipients + (@current_community.feedback_to_admin? ? ", #{@current_community.admin_emails}" : "")
+    mail_to = APP_CONFIG.feedback_mailer_recipients + (@current_community.feedback_to_admin? ? ", #{@current_community.admin_emails.join(",")}" : "")
     mail(:to => mail_to, :subject => subject, :reply_to => @feedback.email)
   end
   
@@ -112,7 +114,7 @@ class PersonMailer < ActionMailer::Base
   def contact_request_notification(email)
     @no_settings = true
     @email = email
-    subject = "New contact requests from #{APP_CONFIG.server_name}-Sharetribe"
+    subject = "New contact request"
     mail(:to => APP_CONFIG.feedback_mailer_recipients, :subject => subject)
   end
   
@@ -152,9 +154,17 @@ class PersonMailer < ActionMailer::Base
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     @requests = @community.listings.open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.open.offers.visible_to(@recipient, @community).limit(5)
+    
+    if APP_CONFIG.mail_delivery_method == "postmark"
+      # Postmark doesn't support bulk emails, so use Sendmail for this
+      delivery_method = :sendmail
+    else
+      delivery_method = APP_CONFIG.mail_delivery_method.to_sym
+    end
+    
     mail(:to => @recipient.email,
          :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
-         :delivery_method => :sendmail)
+         :delivery_method => :delivery_method)
   end
   
   def invitation_to_kassi(invitation, host=nil)
@@ -175,7 +185,15 @@ class PersonMailer < ActionMailer::Base
     @given_name = recipient.given_name
     @password = password
     subject = "Tienes una cuenta creada para la comunidad Diseño UDD de Sharetribe"
-    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => :sendmail)
+    
+    if APP_CONFIG.mail_delivery_method == "postmark"
+      # Postmark doesn't support bulk emails, so use Sendmail for this
+      delivery_method = :sendmail
+    else
+      delivery_method = APP_CONFIG.mail_delivery_method.to_sym
+    end
+    
+    mail(:to => recipient.email, :subject => subject, :reply_to => "diego@sharetribe.com", :delivery_method => delivery_method)
   end
   
   # This method can send any plain text mail where subject and mail contents are given in parameters.
