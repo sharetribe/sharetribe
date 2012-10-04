@@ -258,7 +258,7 @@ class ApplicationController < ActionController::Base
       # Redirect to right commnunity (changing to .com)
       redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/
       
-      #redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
+      redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
       
       
       
