@@ -163,6 +163,10 @@ default: &default_settings
   # It's just a string that tells the version of the consent.
   consent: "SHARETRIBE1.0"
   
+  # If you need to turn off the service for a while (so that people can't modify data)
+  # you can show the maintenance page on every pageload by turning on the following
+  show_maintenance_page: false
+  
   # Below it is possible to specify different settings for different
   # environments. If you are not developing or testing Sharetribe, you 
   # don't need to change those
