@@ -1,15 +1,8 @@
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
-  if use_asi?
-    visit login_path(:locale => :en)
-    fill_in("person[username]", :with => username)
-    fill_in("person[password]", :with => "testi")
-    click_button("Log in")
-  else
-    person = Person.find_by_username(username) || Factory(:person, :username => username)
-    login_as(person, :scope => :person)
-    visit root_path(:locale => :en)
-  end
+  person = Person.find_by_username(username) || Factory(:person, :username => username)
+  login_as(person, :scope => :person)
+  visit root_path(:locale => :en)
 end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
@@ -33,13 +26,7 @@ end
 Given /^my given name is "([^"]*)"$/ do |name|
   # Using direct model (and ASI) access here
   cookie = nil
-  if use_asi?
-    @session = Session.create({:username => "kassi_testperson1", :password => "testi" })
-    @test_person = Person.find(@session.person_id)
-    cookie = @session.cookie
-  else
-    @test_person = Person.find_by_username "kassi_testperson1"
-  end
+  @test_person = Person.find_by_username "kassi_testperson1"
   @test_person.set_given_name(name, cookie)
 end
 
@@ -53,26 +40,11 @@ Given /^there will be and error in my Facebook login$/ do
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
 
-When /^I enter correct credentials$/ do
-  # This is hard to replicate with Devise & Warden, so just skip as this is not widely used
-  if use_asi?
-    @session = Session.create( {:username => "kassi_testperson1", :password => "testi"})
-  end
-  
-end
-
-Then /^I should be logged in$/ do
-  # This is hard to replicate with Devise & Warden, so just skip as this is not widely used
-  if use_asi?
-    @session.check["entry"]["user_id"].should_not be_blank
-  end
-end
-
 Given /^there are following users:$/ do |person_table|
   @people = {}
   person_table.hashes.each do |hash|
     @hash_person, @hash_session = get_test_person_and_session(hash['person'])
-    cookie = (use_asi? ? @hash_session.cookie : nil)
+    cookie =nil
     @hash_person.update_attributes({:preferences => { "email_about_new_comments_to_own_listing" => "true", "email_about_new_messages" => "true" }}, cookie)
     #unless CommunityMembership.find_by_person_id_and_community_id(@hash_person.id, Community.first.id)
       CommunityMembership.create(:community_id => Community.first.id, :person_id => @hash_person.id, :consent => Community.first.consent)
@@ -123,23 +95,6 @@ Then /^(?:|I )should see the (username|email) I gave(?: within "([^"]*)")?$/ do 
       assert page.has_content?(@values[value])
     end
   end
-end
-
-# Adds a test person to ASI but not in Sharetribe
-Given /^I already have an OtaSizzle account$/ do
-  cookie = Session.create.cookie
-  @username = generate_random_username
-  @password = "test"
-  person_hash = {:person => {:username => @username, :email => "#{@username}@mail.com", :password => @password, :consent => "Test"} }
-  response = PersonConnection.create_person(person_hash, cookie)
-end
-
-When /^I fill in username with my OtaSizzle username$/ do
-  fill_in("person_username", :with => @username)
-end
-
-When /^I fill in password with my OtaSizzle password$/ do
-  fill_in("person_password", :with => @password)
 end
 
 Given /^"([^"]*)" is superadmin$/ do |username|

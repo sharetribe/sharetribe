@@ -25,66 +25,47 @@ class SessionsController < ApplicationController
   def create
  
     if current_community = Community.find_by_domain(params[:community])
-      domain = "http://#{with_subdomain(current_community.domain)}"
+      domain = "#{request.protocol}#{with_subdomain(current_community.domain)}"
     else
-      domain = "http://www.#{[request.domain, request.port_string].join}"
+      domain = "#{request.protocol}#{request.host_with_port}"
     end
 
     session[:form_username] = params[:person][:username]
     
-    if use_asi?
-      # Start a session with ASI
-      
-      begin
-        @session = Session.create({ :username => params[:person][:username], 
-          :password => params[:person][:password] })
-          if @session.person_id  # if not app-only-session and person found in cos
-            @current_user = Person.find_by_id(@session.person_id)
-          end
-      rescue RestClient::Unauthorized => e
-        flash[:error] = :login_failed
-        if current_community.private?
-          redirect_to "#{domain}/#{I18n.locale}/homepage/sign_in" and return
-        else
-          redirect_to domain + login_path and return
-        end
-      end
-      
-      
-    else
-      # Start a session with Devise
-      
-      # In case of failure, set the message already here and 
-      # clear it afterwards, if authentication worked.
-      flash[:error] = :login_failed
-      
-      # Since the authentication happens in the rack layer,
-      # we need to tell Devise to call the action "sessions#new"
-      # in case something goes bad.
-      if current_community
-        if current_community.private?
-          person = authenticate_person!(:recall => "homepage#sign_in")
-        else
-          person = authenticate_person!(:recall => "sessions#new")
-        end
-      else
-        person = authenticate_person!(:recall => "dashboard#login")
-      end
-      flash[:error] = nil
-      @current_user = person
-      
-      # Store Facebook ID and picture if connecting with FB
-      if session["devise.facebook_data"]
-        @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"]) 
-        # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
-        if @current_user.image_file_size.nil?
-          @current_user.store_picture_from_facebook
-        end
-      end
-      
-      sign_in @current_user
 
+    # Start a session with Devise
+    
+    # In case of failure, set the message already here and 
+    # clear it afterwards, if authentication worked.
+    flash[:error] = :login_failed
+    
+    # Since the authentication happens in the rack layer,
+    # we need to tell Devise to call the action "sessions#new"
+    # in case something goes bad.
+    if current_community
+      if current_community.private?
+        person = authenticate_person!(:recall => "homepage#sign_in")
+      else
+        person = authenticate_person!(:recall => "sessions#new")
+      end
+    else
+      person = authenticate_person!(:recall => "dashboard#login")
     end
+    flash[:error] = nil
+    @current_user = person
+    
+    # Store Facebook ID and picture if connecting with FB
+    if session["devise.facebook_data"]
+      @current_user.update_attribute(:facebook_id, session["devise.facebook_data"]["id"]) 
+      # FIXME: Currently this doesn't work for very unknown reason. Paper clip seems to be processing, but no pic
+      if @current_user.image_file_size.nil?
+        @current_user.store_picture_from_facebook
+      end
+    end
+    
+    sign_in @current_user
+
+  
 
     session[:form_username] = nil
     
@@ -96,25 +77,17 @@ class SessionsController < ApplicationController
       # Either the user has succesfully logged in, but is not found in Sharetribe DB
       # (Existing OtaSizzle user's first login in Sharetribe) or the user is a member
       # of this community but the terms of use have changed.
-      if use_asi?
-        session[:temp_cookie] = @session.cookie
-        session[:temp_person_id] = @session.person_id
-      else
-        sign_out @current_user
-        session[:temp_cookie] = "pending acceptance of new terms"
-        session[:temp_person_id] =  @current_user.id  
-      end
+
+      sign_out @current_user
+      session[:temp_cookie] = "pending acceptance of new terms"
+      session[:temp_person_id] =  @current_user.id  
       session[:temp_community_id] = current_community.id
       session[:consent_changed] = true if @current_user
       redirect_to domain + terms_path and return
     end
+
+    session[:person_id] = current_person.id
     
-    if use_asi?
-      session[:cookie] = @session.cookie
-      session[:person_id] = @session.person_id 
-    else
-      session[:person_id] = current_person.id
-    end
     
     
     
@@ -138,11 +111,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if use_asi?
-      Session.destroy(session[:cookie]) if session[:cookie]
-    else
-      sign_out
-    end
+    sign_out
     session[:cookie] = nil
     session[:person_id] = nil
     flash[:notice] = :logout_successful
@@ -155,23 +124,14 @@ class SessionsController < ApplicationController
   end
   
   def request_new_password
-    if use_asi?
-      begin
-        RestHelper.make_request(:post, "#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
-        # RestClient.post("#{APP_CONFIG.asi_url}/people/recover_password", {:email => params[:email]} ,{:cookies => Session.kassi_cookie})
-        flash[:notice] = :password_recovery_sent
-      rescue RestClient::ResourceNotFound => e 
-        flash[:error] = :email_not_found
-      end
+    if Person.find_by_email(params[:email])
+      #Call devise based method
+      resource = Person.send_reset_password_instructions(params)
+      flash[:notice] = :password_recovery_sent
     else
-      if Person.find_by_email(params[:email])
-        #Call devise based method
-        resource = Person.send_reset_password_instructions(params)
-        flash[:notice] = :password_recovery_sent
-      else
-        flash[:error] = :email_not_found
-      end
+      flash[:error] = :email_not_found
     end
+
     
     if on_dashboard?
       redirect_to dashboard_login_path

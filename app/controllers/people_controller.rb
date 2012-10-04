@@ -23,10 +23,6 @@ class PeopleController < Devise::RegistrationsController
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:activate, :deactivate]
   
-  if ApplicationHelper.use_asi?
-    # We don't use devise's authentication with ASI
-    skip_filter :authenticate_scope! 
-  end
   
   helper_method :show_closed?
   
@@ -51,7 +47,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
-    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "http://www.#{[request.domain, request.port_string].join}"
+    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
@@ -108,26 +104,18 @@ class PeopleController < Devise::RegistrationsController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
     
-    if use_asi?
-      # Open an ASI Session first only for Sharetribe to be able to create a user
-      @session = Session.create
-      session[:cookie] = @session.cookie
-    end
-    
     # Try to create a new person in ASI.
     begin
-      if use_asi?
-        @person = Person.create(params[:person].except(:email_confirmation), session[:cookie], @current_community.use_asi_welcome_mail?)
-      else
-        params["person"].delete(:terms) #remove terms part which confuses Devise
-        
-        # This part is copied from Devise's regstration_controller#create
-        build_resource
-        @person = resource
-        if @person.save
-          sign_in(resource_name, resource)
-        end
+
+      params["person"].delete(:terms) #remove terms part which confuses Devise
+      
+      # This part is copied from Devise's regstration_controller#create
+      build_resource
+      @person = resource
+      if @person.save
+        sign_in(resource_name, resource)
       end
+    
       @person.set_default_preferences
       # Make person a member of the current community
       if @current_community
@@ -218,7 +206,7 @@ class PeopleController < Devise::RegistrationsController
 	  
     begin
       if @person.update_attributes(params[:person], session[:cookie])
-        if params[:person][:password] && !use_asi?
+        if params[:person][:password]
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
@@ -241,7 +229,7 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def update_avatar
-    if params[:person] && params[:person][:image] && (use_asi? ? @person.update_avatar(params[:person][:image], session[:cookie]) : @person.update_attributes(params[:person]))
+    if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
       flash[:notice] = :avatar_upload_successful
     else 
       flash[:error] = :avatar_upload_failed

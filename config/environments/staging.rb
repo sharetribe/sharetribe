@@ -1,13 +1,14 @@
 Kassi::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
-  # The production environment is meant for finished, "live" apps.
+  # The staging environment is meant to be very similar to production, but to allow easier testing and debuging
+  
   # Code is not reloaded between requests
   # If live updates for translations are in use, caching is set to false.
   config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load.present? ? false : true)
 
   # Full error reports are disabled and caching is turned on
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local       = true
   config.action_controller.perform_caching = true
 
   # Specifies the header that your server uses for sending files
@@ -20,7 +21,7 @@ Kassi::Application.configure do
   # just comment this out and Rails will serve the files
 
   # See everything in the log (default is :info)
-  # config.log_level = :debug
+  config.log_level = :debug
 
   # Use a different logger for distributed setups
   # config.logger = SyslogLogger.new

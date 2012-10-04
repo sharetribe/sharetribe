@@ -8,8 +8,6 @@ describe PeopleController do
     @request.env["devise.mapping"] = Devise.mappings[:person]
   end
   
-  # First general tests and then ASI / No-ASI specific ones
-  
   describe "#check_email_availability" do
     it "should return available if email not in use" do
       @request.host = "test.lvh.me"
@@ -18,137 +16,95 @@ describe PeopleController do
     end
   end
     
-  if not use_asi?
-    describe "#check_email_availability" do
-      it "should return unavailable if email is in use" do
-        @request.host = "test.lvh.me"
-        person, session = get_test_person_and_session
-        person.update_attribute(:email, "test@example.com")
+  describe "#check_email_availability" do
+    it "should return unavailable if email is in use" do
+      @request.host = "test.lvh.me"
+      person, session = get_test_person_and_session
+      person.update_attribute(:email, "test@example.com")
 
-        get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
-        response.body.should == "false"
+      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+      response.body.should == "false"
 
-        Email.create(:person_id => person.id, :address => "test2@example.com")
-        get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
-        response.body.should == "false"  
-      end
-      
-      it "should return available for user's own adress" do
-        @request.host = "test.lvh.me"
-
-        person, session = get_test_person_and_session
-        sign_in person
-      
-        person.update_attribute(:email, "test@example.com")
-        get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
-        response.body.should == "true"
-        
-        Email.create(:person_id => person.id, :address => "test2@example.com")
-        get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
-        response.body.should == "true"
-      end
-      
+      Email.create(:person_id => person.id, :address => "test2@example.com")
+      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+      response.body.should == "false"  
     end
     
-    describe "#update" do
-      it "should store the old accepted email as additional email when changing email" do
-       
-        # one reason for this is that people can't use one email to create many accounts in email restricted community
-        community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
-        @request.host = "#{community.domain}.lvh.me"
-        member = FactoryGirl.build(:person)
-        member.email = "one@examplecompany.co"
-        member.communities.push community
-        member.save
-        
-        person_count = Person.count
-        
-        #sign_in member # For some reason only sign_in (Devise) doesn't work so 2 next lines to fix that
-        request.env['warden'].stub :authenticate! => member
-        controller.stub :current_person => member
-        
-        request.env["HTTP_REFERER"] = "http://test.host/en/people/#{member.id}"
-        put :update, {:person => {:email => "something@el.se"}, :person_id => member.id}
+    it "should return available for user's own adress" do
+      @request.host = "test.lvh.me"
 
-        # remove "signed in" stubs
-        request.env['warden'].unstub :authenticate!
-        #request.env['warden'].stub(:authenticate!).and_throw(:warden)
-        controller.unstub :current_person
-        
-        
-        post :create, {:person => {:username => generate_random_username, :password => "test", :email => "one@examplecompany.co", :given_name => "The user who", :family_name => "tries to use taken email"}, :community => community.domain}
-        
-        Person.find_by_family_name("tries to use taken email").should be_nil
-        Person.count.should == person_count
-        flash[:error].to_s.should include("The email you gave is already in use")
-        
-      end
+      person, session = get_test_person_and_session
+      sign_in person
+    
+      person.update_attribute(:email, "test@example.com")
+      get :check_email_availability,  {:person => {:email => "test@example.com"}, :format => :json}
+      response.body.should == "true"
+      
+      Email.create(:person_id => person.id, :address => "test2@example.com")
+      get :check_email_availability,  {:person => {:email => "test2@example.com"}, :format => :json}
+      response.body.should == "true"
     end
     
-    describe "#create" do
-
-      it "creates a person" do
-        @request.host = "test.lvh.me"
-        person_count = Person.count
-        username = generate_random_username
-        post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-        Person.find_by_username(username).should_not be_nil 
-        Person.count.should == person_count + 1 
-      end
-      
-      it "doesn't create a person for community if email is not allowed" do
-        
-        username = generate_random_username
-        community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
-        community.save
-        @request.host = "#{community.domain}.lvh.me"
-
-        post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => community.domain}
-
-        Person.find_by_username(username).should be_nil
-        flash[:error].to_s.should include("This email is not allowed for this community")
-      end
-    end
   end
   
-
-  
-  if (use_asi?)
-    context "When ASI is used as the storage for Person data" do
-    
-    
-      describe "#create" do
-        it "should tell ASI to skip welcome mail if that's in the community's settings" do
-          
-          PersonConnection.should_receive(:create_person).with(hash_including({:welcome_email => false}), anything()).and_return({"entry" => {"id" => "dfskh3r29wefhsdifh"}})  
-          PersonConnection.should_receive(:put_attributes).and_return({"entry" => {}})  
-      
-          @request.host = "test2.lvh.me"
-          username = generate_random_username
-          post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test2"}
-        end
-    
-        it "should tell ASI to send welcome mail if that's in the community's settings" do
+  describe "#update" do
+    it "should store the old accepted email as additional email when changing email" do
      
-          PersonConnection.should_receive(:create_person).with(hash_including({:welcome_email => true}), anything()).and_return({"entry" => {"id" => "dfskh3r29wefhsdifh"}})  
-          PersonConnection.should_receive(:put_attributes).and_return({"entry" => {}})  
+      # one reason for this is that people can't use one email to create many accounts in email restricted community
+      community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
+      @request.host = "#{community.domain}.lvh.me"
+      member = FactoryGirl.build(:person)
+      member.email = "one@examplecompany.co"
+      member.communities.push community
+      member.save
       
-          @request.host = "test.lvh.me"
-          username = generate_random_username
-          post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-        end
+      person_count = Person.count
+      
+      #sign_in member # For some reason only sign_in (Devise) doesn't work so 2 next lines to fix that
+      request.env['warden'].stub :authenticate! => member
+      controller.stub :current_person => member
+      
+      request.env["HTTP_REFERER"] = "http://test.host/en/people/#{member.id}"
+      put :update, {:person => {:email => "something@el.se"}, :person_id => member.id}
 
-        # No more using login domain
-        # it "redirects back to original community's domain" do
-        #   PersonConnection.should_receive(:create_person).and_return({"entry" => {"id" => "dfskh3r29wefhsdifh"}})  
-        #   PersonConnection.should_receive(:put_attributes).and_return({"entry" => {}})  
-        #       
-        #   @request.host = "login.lvh.me"
-        #   username = generate_random_username
-        #   post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
-        #   response.should redirect_to "http://test.lvh.me/?locale=en"
-        # end
-      end
+      # remove "signed in" stubs
+      request.env['warden'].unstub :authenticate!
+      #request.env['warden'].stub(:authenticate!).and_throw(:warden)
+      controller.unstub :current_person
+      
+      
+      post :create, {:person => {:username => generate_random_username, :password => "test", :email => "one@examplecompany.co", :given_name => "The user who", :family_name => "tries to use taken email"}, :community => community.domain}
+      
+      Person.find_by_family_name("tries to use taken email").should be_nil
+      Person.count.should == person_count
+      flash[:error].to_s.should include("The email you gave is already in use")
+      
     end
   end
+  
+  describe "#create" do
+
+    it "creates a person" do
+      @request.host = "test.lvh.me"
+      person_count = Person.count
+      username = generate_random_username
+      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => "test"}
+      Person.find_by_username(username).should_not be_nil 
+      Person.count.should == person_count + 1 
+    end
+    
+    it "doesn't create a person for community if email is not allowed" do
+      
+      username = generate_random_username
+      community = FactoryGirl.build(:community, :allowed_emails => "@examplecompany.co")
+      community.save
+      @request.host = "#{community.domain}.lvh.me"
+
+      post :create, {:person => {:username => username, :password => "test", :email => "#{username}@example.com", :given_name => "", :family_name => ""}, :community => community.domain}
+
+      Person.find_by_username(username).should be_nil
+      flash[:error].to_s.should include("This email is not allowed for this community")
+    end
+  end
+
 end

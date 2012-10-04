@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'spec_helper'
 
 describe Community do
@@ -28,7 +30,7 @@ describe Community do
     @community.should_not be_valid
     @community.domain = "a" * 51
     @community.should_not be_valid
-    @community.domain = "´?%"
+    @community.domain = "´?€"
     @community.should_not be_valid
   end
   
