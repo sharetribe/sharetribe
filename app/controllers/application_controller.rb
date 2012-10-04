@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'application'
 
+  before_filter :show_maintenance_page
 
   before_filter :domain_redirect, :force_ssl, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
@@ -267,6 +268,12 @@ class ApplicationController < ActionController::Base
   def force_ssl
     if APP_CONFIG.always_use_ssl
       redirect_to :protocol => 'https' unless request.ssl?
+    end
+  end
+  
+  def show_maintenance_page
+    if APP_CONFIG.show_maintenance_page
+      render :file => "public/errors/maintenance.html", :layout => false and return
     end
   end
 end
