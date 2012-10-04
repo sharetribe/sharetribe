@@ -31,7 +31,7 @@ describe PersonMailer do
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [recipient.email], email.to unless recipient.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
-    assert_equal "Teppo Testaaja has commented your listing in Sharetribe", email.subject
+    assert_equal "Teppo Testaaja has commented on your listing in Sharetribe", email.subject
   end
   
   it "should send email about an accepted and rejected offer or request" do

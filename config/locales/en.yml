@@ -119,7 +119,7 @@ en:
         see_all_your_badges: "See all your badges"
         you_have_earned_badge: "You have earned the badge"
       comment_to_followed_listing_notification:
-        has_commented: "%{author} has commented"
+        has_commented: "%{author} has commented on"
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       listing_updated_notification:
@@ -127,7 +127,7 @@ en:
         offer_you_follow: "an offer you follow"
         request_you_follow: "a request you follow"
       comment_to_own_listing_notification:
-        has_commented: "%{author} has commented"
+        has_commented: "%{author} has commented on"
         your_offer: "your offer"
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
@@ -242,7 +242,7 @@ en:
       invalid_email_ending_message: "This looks like a personal email. You need to sign up with your %{community_category} email."
       log_in_here: "log in here"
       existing_community_with_this_email: "There already exists a tribe for this %{community_category}. You can join the tribe %{link}."
-      here: "here"
+      here: here
       for_company: company
       for_university: university
       for_town: town
@@ -285,8 +285,8 @@ en:
       thanks_for_contacting_us: "Thanks for contacting us! We'll send you more info about how to create a %{service_name} community soon."
       resources: RESOURCES
       connect: CONNECT
-      about: ABOUT SHARETRIBE
-      developers: FOR DEVELOPERS
+      about: "ABOUT SHARETRIBE"
+      developers: "FOR DEVELOPERS"
       api: API
       blog: Blog
       code: "Source code"
@@ -358,13 +358,13 @@ en:
       you_can_view_all_your_badges_in: "You can view all your badges in"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} has commented your offer %{listing}"
-      has_commented_your_request_in_kassi: "%{author} has commented your request %{listing}"
+      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}"
+      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}"
       you_can_reply_to_comment_in: "You can view all the comments and reply to them at"
-      you_have_a_new_comment: "%{author} has commented your listing in %{service_name}"
-      listing_you_follow_has_a_new_comment: "%{author} has commented a listing you follow in %{service_name}"
-      has_commented_offer_you_follow_in_kassi: "%{author} has commented the request '%{listing}' you are following in %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} has commented the offer '%{listing}' you are following in %{service_name}"
+      you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
+      listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
+      has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}"
     new_message:
       conversation_title: "Message thread title: %{title}"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
@@ -456,7 +456,7 @@ en:
     login:
       logged_in_to_kassi: "%{name} logged in to %{service_name} %{time_ago}."
     comment:
-      commented: "%{commenter_name} commented %{listing_type} %{listing_title} %{time_ago}."
+      commented: "%{commenter_name} commented on %{listing_type} %{listing_title} %{time_ago}."
       offer_partitive: offer
       request_partitive: request
   header:
@@ -546,8 +546,8 @@ en:
       add_your_info_link: "Add your info now"
     recent_listing:
       please_offer: Offer
-      comment: "comment"
-      comments: "comments"
+      comment: comment
+      comments: comments
     sign_in:
       recent_offers: "What members are offering right now"
       recent_requests: "What members need right now"
@@ -718,7 +718,7 @@ en:
     bubble_listing_not_visible:
       listing_not_visible: "You do not have permission to view this listing."
     comment:
-      wrote: "wrote"
+      wrote: wrote
       send_private_message: "Send private message to %{person}"
     comment_form:
       log_in: "log in"
@@ -912,12 +912,12 @@ en:
       no_description: "No description"
       offer: Offer
       offer_author: "Offered by"
-      offer_created: "Created"
+      offer_created: Created
       feedback: "Feedback:"
       qr_code: "QR code"
       request: Request
       request_author: "Requested by"
-      request_created: "Created"
+      request_created: Created
       rideshare_offer: "Rideshare offer"
       rideshare_request: "Rideshare request"
       send_private_message: "Send private message"
@@ -987,8 +987,8 @@ en:
       email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback by clicking the link on the left."
       email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback by clicking the link on the left."
       email_restriction_instructions:
-          one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
-          other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
+        one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
+        other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
       enter_captcha: "I'm a human:"
       family_name: "Family name:"
       given_name: "Given name:"
@@ -1120,7 +1120,7 @@ en:
       edit_profile_info: "Edit your information"
       exceeded_expectations: "Exceeded expectations"
       received_feedback: "Received feedback:"
-      positive: "positive"
+      positive: positive
       hide_description: "Show less"
       joined_this_community: "...joined this community %{time_ago}"
       was_last_seen: "...was last seen %{time_ago}"
