@@ -28,8 +28,13 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   # GET /resource/confirmation?confirmation_token=abcdef
   def show
+    puts "NOW IN SHOW METHOD"
+    puts "TOKEN: #{params[:confirmation_token]}"
+    puts "RESOURCE CLASS: #{resource_class}"
+    
     self.resource = resource_class.confirm_by_token(params[:confirmation_token])
 
+    puts "ERRORS? #{resource.errors}"
     if resource.errors.empty?
       set_flash_message(:notice, :confirmed) if is_navigational_format?
       sign_in(resource_name, resource)
