@@ -41,7 +41,8 @@ Factory.define :listing do |l|
   l.tag_list("tools, hammers")
   l.valid_until 3.months.from_now
   l.times_viewed 0
-  l.visibility "everybody"
+  l.visibility "this_community"
+  l.privacy "private"
   l.communities { [ Factory.create(:community) ] }
 end
 

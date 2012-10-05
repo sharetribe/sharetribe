@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120909143322) do
+ActiveRecord::Schema.define(:version => 20120929091629) do
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -245,6 +245,7 @@ ActiveRecord::Schema.define(:version => 20120909143322) do
     t.boolean  "delta",         :default => true,        :null => false
     t.boolean  "open",          :default => true
     t.string   "share_type"
+    t.string   "privacy",       :default => "private"
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

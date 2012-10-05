@@ -1,0 +1,3 @@
+.new_listing_form_field_container
+  = form.label :privacy, t(".privacy") + "*:", :class => "input"
+  = select("listing", "privacy", privacy_array, {:selected => (@listing.privacy || "public")}, { :class => "visibility_select" })
