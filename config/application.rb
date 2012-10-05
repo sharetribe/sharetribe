@@ -98,7 +98,7 @@ module Kassi
     # For unicorn logging to work
     # It looks stupid that this is not in production.rb, but according to that blog,
     # it needs to be set here to work
-    if Rails.env.production?
+    if Rails.env.production? || Rails.env.staging? 
       config.logger = Logger.new(STDOUT)
     end
 
