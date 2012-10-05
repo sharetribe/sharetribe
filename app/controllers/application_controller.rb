@@ -267,7 +267,7 @@ class ApplicationController < ActionController::Base
   
   def force_ssl
     if APP_CONFIG.always_use_ssl
-      redirect_to :protocol => 'https' unless request.ssl?
+      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl?
     end
   end
   
