@@ -7,3 +7,7 @@ branches:
   only:
     - master
     - develop
+
+before_script:
+  - "cp config/database.example.yml config/database.yml"
+  - "bundle exec rake db:schema:load"
