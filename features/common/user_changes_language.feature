@@ -8,13 +8,13 @@ Feature: User changes language
     Given I am on the home page
     When I follow "Share with others!"
     And I follow "Home" 
-    And I select "Finnish" from "locale"
+    And I select "Suomi" from "locale"
     Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   
   @javascript
   Scenario: User changes language when logged in
     Given I am logged in
-    When I select "Finnish" from "locale"
+    When I select "Suomi" from "locale"
     Then I should see "Listaa taitosi ja tavarasi!" within "#offer_something_button"
   
   

@@ -1,7 +1,5 @@
 module ApplicationHelper
   
-  @@use_asi_in_this_test = (ENV["KASSI_TESTS_WITH_ASI"] == "true")
-  
   # Removes whitespaces from HAML expressions
   # if you add two elements on two lines; the white space creates a space between the elements (in some browsers)
   def one_line_for_html_safe_content(&block)
@@ -60,27 +58,15 @@ module ApplicationHelper
   end
   
   def small_avatar_thumb(person)
-    if use_asi?    
-      link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/small_thumbnail", :width => 50, :height => 50), person
-    else
-      link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
-    end
+    link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
   end
   
   def medium_avatar_thumb(person)
-    if use_asi?    
-      link_to (image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 70, :height => 70), person
-    else
-      link_to((image_tag person.image.url(:thumb), :width => 70, :height => 70), person)
-    end
+    link_to((image_tag person.image.url(:thumb), :width => 70, :height => 70), person)
   end
   
   def large_avatar_thumb(person)
-    if use_asi?
-      image_tag APP_CONFIG.asi_url + "/people/" + person.id + "/@avatar/large_thumbnail", :width => 218, :alt => person.name(session[:cookie])
-    else
-      image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
-    end
+    image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
@@ -111,9 +97,9 @@ module ApplicationHelper
   def available_locales
     if @current_community
       # use the ordered list from community settings, but replace the short locales with ["English", "en"] like arrays from APP_CONFIG
-      return @current_community.locales.collect{|loc| APP_CONFIG.available_locales.select{|app_loc| app_loc[1] == loc }[0]}
+      return @current_community.locales.collect{|loc| Kassi::Application.config.AVAILABLE_LOCALES.select{|app_loc| app_loc[1] == loc }[0]}
     else
-      return APP_CONFIG.available_locales
+      return Kassi::Application.config.AVAILABLE_LOCALES
     end
   end
   
@@ -166,22 +152,6 @@ module ApplicationHelper
   
   def facebook_like(recommend=false)
     "<div class=\"fb-like\" data-send=\"true\" data-layout=\"button_count\" data-width=\"200\" data-show-faces=\"false\" #{recommend ? 'data-action="recommend"' : ''}></div>".html_safe
-  end
-  
-  def self.use_asi?
-    unless Rails.env.test?
-      return APP_CONFIG.use_asi
-    else
-      return @@use_asi_in_this_test
-    end  
-  end
-  
-  def use_asi?
-    ApplicationHelper.use_asi?
-  end
-  
-  def use_asi_in_this_test=(value)
-    @@use_asi_in_this_test = value
   end
   
   def self.random_sting(length=6)

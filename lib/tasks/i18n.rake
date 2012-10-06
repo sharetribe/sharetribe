@@ -1,6 +1,8 @@
 namespace :i18n do
-  
-  APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)
+  # Load Config
+  require File.expand_path('../../../config/config_loader', __FILE__)
+  APP_CONFIG = load_app_config
+
   
   def write_error_page(status, locale = nil)
     dest_filename = [status.to_s, locale, "html"].compact.join(".")
@@ -13,7 +15,7 @@ namespace :i18n do
   desc 'Write public/404.html and public/500.html error pages'
   task :write_error_pages => :environment do
     [404, 500].each do |status|
-      APP_CONFIG.available_locales.collect{|loc| loc[1]}.each do |locale|
+      Kassi::Application.config.AVAILABLE_LOCALES.collect{|loc| loc[1]}.each do |locale|
         I18n.with_locale locale do
           write_error_page(status, locale)
           # Create also a default error page for situations

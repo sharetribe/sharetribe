@@ -7,10 +7,10 @@
         = t("dashboard.index.slogan")
       #language_switch
         #select_language_form
-          - if APP_CONFIG.available_locales.count > 1
+          - if Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES.count > 1
             = form_tag("/change_locale", :method => "get") do
               = hidden_field_tag :redirect_uri, @return_to
-              = select_tag 'locale', options_for_select(APP_CONFIG.available_locales, I18n.locale), :onchange => 'this.form.submit()', :class => 'language_select'
+              = select_tag 'locale', options_for_select(Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES, I18n.locale), :onchange => 'this.form.submit()', :class => 'language_select'
       #header_links
         = link_to t("dashboard.index.contact"), "mailto:info@sharetribe.com", :id => "dashboard_contact_link"
         = link_to t("dashboard.index.blog"), "http://blog.sharetribe.com"

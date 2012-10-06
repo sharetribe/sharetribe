@@ -1,9 +1,10 @@
+# encoding: UTF-8
+
 # Load the rails application
 require File.expand_path('../application', __FILE__)
+require File.expand_path('../config_loader', __FILE__)
 
-require 'yaml'
-require 'ostruct'
-APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)  
+APP_CONFIG = load_app_config
 
 # Initialize the rails application
 Kassi::Application.initialize!
