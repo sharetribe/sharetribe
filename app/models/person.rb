@@ -5,31 +5,25 @@ require 'uuid22'
 require "open-uri"
 
 # This class represents a person (a user of Sharetribe).
-# Some of the person data can be stored in Aalto Social Interface (ASI) server.
-# if use_asi is set to true in config.yml some methods are loaded from asi_person.rb
 
 
 class Person < ActiveRecord::Base
 
   include ErrorsHelper
   include ApplicationHelper
-
-  # Include devise module confirmable always. Others depend on if ASI is used or not
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :confirmable
     
-  if not ApplicationHelper::use_asi?
-    # Include default devise modules. Others available are:
-    # :lockable, :timeoutable
-    devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, 
-           :validatable, :omniauthable, :token_authenticatable
-           
-    if APP_CONFIG.use_asi_encryptor
-      require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
-      devise :encryptable # to be able to use similar encrypt method as ASI
-    end
+  
+  # Include default devise modules. Others available are:
+  # :lockable, :timeoutable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, 
+         :validatable, :omniauthable, :token_authenticatable, :confirmable
+         
+  if APP_CONFIG.use_asi_encryptor
+    require Rails.root.join('lib', 'devise', 'encryptors', 'asi')
+    devise :encryptable # to be able to use similar encrypt method as ASI
   end
+  
   
   # Setup accessible attributes for your model (the rest are protected)
   attr_accessible :username, :email, :password, :password2, :password_confirmation, 
@@ -102,48 +96,58 @@ class Person < ActiveRecord::Base
   serialize :preferences
   
 
-  if not ApplicationHelper::use_asi?
-    validates_uniqueness_of :username
-    validates_uniqueness_of :email
-    validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
-    validates_length_of :username, :within => 3..20
-    validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-    validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
-    validates_length_of :email, :maximum => 255
+
+  validates_uniqueness_of :username
+  validates_uniqueness_of :email
+  validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
+  validates_length_of :username, :within => 3..20
+  validates_length_of :given_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :family_name, :within => 1..30, :allow_nil => true, :allow_blank => true
+  validates_length_of :email, :maximum => 255
 
 
-    validates_format_of :username,
-                         :with => /^[A-Z0-9_]*$/i
+  validates_format_of :username,
+                       :with => /^[A-Z0-9_]*$/i
 
-    validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
-                         :allow_blank => true,
-                         :allow_nil => true
+  validates_format_of :password, :with => /^([\x20-\x7E])+$/,              
+                       :allow_blank => true,
+                       :allow_nil => true
 
-    validates_format_of :email,
-                         :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
- 
-    validate :community_email_type_is_correct
- 
-    # If ASI is in use the image settings below are not used as profile pictures are stored in ASI
-    has_attached_file :image, :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" }
-    #validates_attachment_presence :image
-    validates_attachment_size :image, :less_than => 5.megabytes
-    validates_attachment_content_type :image,
-                                      :content_type => ["image/jpeg", "image/png", "image/gif", 
-                                        "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
- 
-    before_validation(:on => :create) do
-      self.id = UUID.timestamp_create.to_s22
-    end
- 
-  else # this is only needed if ASI is in use
-  
-    before_validation(:on => :create) do
-      #self.id may already be correct in this point so use ||=
-      self.id ||= self.guid
-    end
-    
+  validates_format_of :email,
+                       :with => /^[A-Z0-9._%\-\+\~\/]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i
+
+  validate :community_email_type_is_correct
+
+  paperclip_options = {
+        :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
+        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
+        :url => "/system/:attachment/:id/:style/:filename"
+        }
+  if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
+    paperclip_options.merge!({
+      :path => "images/:class/:attachment/:id/:style/:filename",
+      :url => "/system/:class/:attachment/:id/:style/:filename",
+      :storage => :s3,
+      :s3_credentials => {
+            :bucket            => APP_CONFIG.s3_bucket_name, 
+            :access_key_id     => APP_CONFIG.aws_access_key_id, 
+            :secret_access_key => APP_CONFIG.aws_secret_access_key 
+      }
+    })
   end
+  
+  has_attached_file :image, paperclip_options
+        
+  #validates_attachment_presence :image
+  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_content_type :image,
+                                    :content_type => ["image/jpeg", "image/png", "image/gif", 
+                                      "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
+
+  before_validation(:on => :create) do
+    self.id = UUID.timestamp_create.to_s22
+  end
+
   
   def community_email_type_is_correct
     if ["university", "community"].include? community_category
@@ -153,129 +157,103 @@ class Person < ActiveRecord::Base
       end
     end
   end
-  
-  
-  # # ***********************************************************************************
-  # This module contains the methods that are used to store used data on Sharetribe's database.
-  # If ASI server is used, this module is not loaded, but AsiPerson module is loaded instead.
-  module LocalPerson
-    
-    def self.included(base) # :nodoc:
-      base.extend ClassMethods
-    end
 
-    module ClassMethods  
-      
-      def asi_methods_loaded?
-        return false
+  def self.username_available?(username, cookie=nil)
+     if Person.find_by_username(username).present?
+       return false
+     else
+       return true
+     end
+   end
+
+   def self.email_available?(email, cookie=nil)
+     if Person.find_by_email(email).present? || Email.find_by_address(email).present?
+       return false
+     else
+       return true
+     end
+   end
+
+  def name_or_username(cookie=nil)
+    if given_name.present? || family_name.present?
+      return "#{given_name} #{family_name}"
+    else
+      return username
+    end
+  end
+
+  def name(cookie=nil)
+    # We rather return the username than blank if no name is set
+    return username unless show_real_name_to_other_users
+    return name_or_username(cookie)
+  end
+
+  def given_name_or_username(cookie=nil)
+    if given_name.present? && show_real_name_to_other_users
+      return given_name
+    else
+      return username
+    end
+  end
+
+  def set_given_name(name, cookie=nil)
+    update_attributes({:given_name => name })
+  end
+
+  def street_address(cookie=nil)
+    if location
+      return location.address
+    else
+      return nil
+    end
+  end
+
+  def email(cookie=nil)
+    super()
+  end
+
+  def set_email(email, cookie=nil)
+    update_attributes({:email => email})
+  end
+
+  def update_attributes(params, cookie=nil)
+    if params[:preferences]
+      super(params)
+    else  
+
+      #Handle location information
+      if self.location 
+        #delete location always (it would be better to check for changes)
+        self.location.delete
+      end
+      if params[:location]
+        # Set the address part of the location to be similar to what the user wrote.
+        # the google_address field will store the longer string for the exact position.
+        params[:location][:address] = params[:street_address] if params[:street_address]
+
+        self.location = Location.new(params[:location])
+        params[:location].each {|key| params[:location].delete(key)}
+        params.delete(:location)
       end
 
-      def username_available?(username, cookie=nil)
-         if Person.find_by_username(username).present?
-           return false
-         else
-           return true
-         end
-       end
+      self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
+      save
 
-       def email_available?(email, cookie=nil)
-         if Person.find_by_email(email).present? || Email.find_by_address(email).present?
-           return false
-         else
-           return true
-         end
-       end
-    
-    end #end the module ClassMethods
-
-    def name_or_username(cookie=nil)
-      if given_name.present? || family_name.present?
-        return "#{given_name} #{family_name}"
-      else
-        return username
-      end
-    end
-
-    def name(cookie=nil)
-      # We rather return the username than blank if no name is set
-      return username unless show_real_name_to_other_users
-      return name_or_username(cookie)
-    end
-
-    def given_name_or_username(cookie=nil)
-      if given_name.present? && show_real_name_to_other_users
-        return given_name
-      else
-        return username
-      end
-    end
-
-    def set_given_name(name, cookie=nil)
-      update_attributes({:given_name => name })
-    end
-
-    def street_address(cookie=nil)
-      if location
-        return location.address
-      else
-        return nil
-      end
-    end
-
-    def email(cookie=nil)
-      super()
-    end
-
-    def set_email(email, cookie=nil)
-      update_attributes({:email => email})
-    end
-
-    def update_attributes(params, cookie=nil)
-      if params[:preferences]
-        super(params)
-      else  
-
-        #Handle location information
-        if self.location 
-          #delete location always (it would be better to check for changes)
-          self.location.delete
-        end
-        if params[:location]
-          # Set the address part of the location to be similar to what the user wrote.
-          # the google_address field will store the longer string for the exact position.
-          params[:location][:address] = params[:street_address] if params[:street_address]
-
-          self.location = Location.new(params[:location])
-          params[:location].each {|key| params[:location].delete(key)}
-          params.delete(:location)
-        end
-
-        self.show_real_name_to_other_users = (!params[:show_real_name_to_other_users] && params[:show_real_name_setting_affected]) ? false : true 
-        save
-
-        super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
-      end
-    end
-    
-    def picture_from_url(url)
-      self.image = open(url)
-      self.save
-    end
-    
-    def store_picture_from_facebook()
-      if self.facebook_id
-        self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
-      end
+      super(params.except("password2", "show_real_name_to_other_users", "show_real_name_setting_affected", "street_address"))    
     end
   end
   
+  def picture_from_url(url)
+    self.image = open(url)
+    self.save
+  end
   
-  
-  
-  
-  # *************************************************************************************
-  # Below start the methods that are used for Person class not depending on if ASI is in use or not.
-  
+  def store_picture_from_facebook()
+    if self.facebook_id
+      self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
+    end
+  end
+
   
   # Returns conversations for the "received" and "sent" actions
   def messages_that_are(action)
@@ -523,13 +501,6 @@ class Person < ActiveRecord::Base
   def self.email_all_users(subject, mail_content, default_locale="en", verbose=false, emails_to_skip=[])
     puts "Sending mail to every #{Person.count} users in the service" if verbose
     PersonMailer.deliver_open_content_messages(Person.all, subject, mail_content, default_locale, verbose, emails_to_skip)
-  end
-  
-  # If ASI is in use, methods are loaded from AsiPerson, otherwise from LocalPersonMethods which is defined in this file
-  if ApplicationHelper.use_asi?
-    include AsiPerson
-  else
-    include LocalPerson
   end
   
 end

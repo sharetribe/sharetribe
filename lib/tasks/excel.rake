@@ -1,6 +1,7 @@
 namespace :excel do
-  
-  APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)
+  # Load Config
+  require File.expand_path('../../../config/config_loader', __FILE__)
+  APP_CONFIG = load_app_config
   
   require 'spreadsheet'
   

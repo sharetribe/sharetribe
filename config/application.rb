@@ -1,10 +1,12 @@
+# encoding: UTF-8
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
 # These needed to load the config.yml
-require 'yaml'
-require 'ostruct'
+require File.expand_path('../config_loader', __FILE__)
+
 
 
 # If you have a Gemfile, require the gems listed there, including any gems
@@ -16,8 +18,35 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Kassi
   class Application < Rails::Application
     
-    # Read the config from the config.yml # THIS SHOULD BE DONE IN load_config.yml, but for some reason APP_CONFIG is not usable here
-    APP_CONFIG = OpenStruct.new(YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env].symbolize_keys)
+    # Read the config from the config.yml 
+    APP_CONFIG = load_app_config    
+    
+    # This is the list of all possible locales. Part of the translations may be unfinished.
+    config.AVAILABLE_LOCALES = [
+          ["English", "en"], 
+          ["Suomi", "fi"], 
+          ["Pусский", "ru"], 
+          ["Nederlands", "nl"], 
+          ["Ελληνικά", "el"], 
+          ["kiswahili", "sw"], 
+          ["română", "ro"], 
+          ["Français", "fr"], 
+          ["中文", "zh"], 
+          ["Español", "es"], 
+          ["Español", "es-ES"], 
+          ["Catalan", "ca"],
+          ["Tiếng Việt", "vi"]
+    ]
+
+    # This is the list o locales avaible for the dashboard and newly created tribes in UI
+    config.AVAILABLE_DASHBOARD_LOCALES = [
+          ["English", "en"], 
+          ["Suomi", "fi"],
+          ["Español", "es"],
+          ["Français", "fr"], 
+          ["Pусский", "ru"], 
+          ["Ελληνικά", "el"] 
+    ]
     
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -63,6 +92,14 @@ module Kassi
     if APP_CONFIG.use_recaptcha
       ENV['RECAPTCHA_PUBLIC_KEY']  = APP_CONFIG.recaptcha_public_key
       ENV['RECAPTCHA_PRIVATE_KEY'] = APP_CONFIG.recaptcha_private_key
+    end
+    
+    # Set the logger to STDOUT, based on tip at: http://blog.railsonfire.com/2012/05/06/Unicorn-on-Heroku.html
+    # For unicorn logging to work
+    # It looks stupid that this is not in production.rb, but according to that blog,
+    # it needs to be set here to work
+    if Rails.env.production? || Rails.env.staging? 
+      config.logger = Logger.new(STDOUT)
     end
 
   end
