@@ -1,8 +1,9 @@
 notifications:
   recipients:
-    - team@kassi.eu
+    - main@sharetribe.flowdock.com
 
 # select branches to build
 branches:
   only:
     - master
+    - develop
