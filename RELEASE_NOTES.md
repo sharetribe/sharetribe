@@ -6,10 +6,10 @@ This file contains description of changes in each Sharetribe release. It's good 
 General update instructions 
 ---------------------------
 
-When updating, always run the following to update gem set and database structure:
+When updating, always run the following commands to update gem set and database structure:
  - bundle install
  - rake RAILS_ENV=production db:migrate
- - check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
+ -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
 2.3.0
 -----
