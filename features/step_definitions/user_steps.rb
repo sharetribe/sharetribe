@@ -7,14 +7,14 @@ end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("person[username]", :with => (person ? person : "kassi_testperson1"))
+  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
   fill_in("person[password]", :with => "testi")
   click_button("Log in")
 end
 
 Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("person[username]", :with => (person ? person : "kassi_testperson1"))
+  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
   fill_in("person[password]", :with => "testi")
   click_button("Log in")
 end
