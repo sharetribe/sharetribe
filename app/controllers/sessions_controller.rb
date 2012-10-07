@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
       domain = "#{request.protocol}#{request.host_with_port}"
     end
 
-    session[:form_username] = params[:person][:username]
+    session[:form_login] = params[:person][:login]
     
 
     # Start a session with Devise
@@ -67,7 +67,7 @@ class SessionsController < ApplicationController
 
   
 
-    session[:form_username] = nil
+    session[:form_login] = nil
     
     if @current_user
       @current_user.update_attribute(:active, true) unless @current_user.active?
