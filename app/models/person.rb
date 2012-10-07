@@ -27,13 +27,16 @@ class Person < ActiveRecord::Base
   
   # Setup accessible attributes for your model (the rest are protected)
   attr_accessible :username, :email, :password, :password2, :password_confirmation, 
-                  :remember_me, :consent
+                  :remember_me, :consent, :login
       
-  attr_accessor :guid, :password2, :form_username,
+  attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected,
                 :email_confirmation, :community_category
 
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
+  attr_accessor :login
   
   attr_protected :is_admin
 
@@ -148,6 +151,15 @@ class Person < ActiveRecord::Base
     self.id = UUID.timestamp_create.to_s22
   end
 
+  # Override Devise's authentication finder method to allow log in with username OR email
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
+    end
+  end
   
   def community_email_type_is_correct
     if ["university", "community"].include? community_category
