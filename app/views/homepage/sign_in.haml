@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_private_community_homepage('#{escape_javascript username_label}','#{t("common.password")}');
+  initialize_private_community_homepage('#{escape_javascript username_or_email_label}','#{t("common.password")}');
 
 #image_header.container_12
   = render(:file => community_file("private_community_image_header", false))
@@ -16,7 +16,7 @@
     #login_form
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do  
         .form_field_container
-          = text_field_tag "person[username]", nil, :value => session[:form_username], :class => :text_field 
+          = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field 
         .form_field_container  
           = password_field_tag "person[password]", nil, :class => :text_field  
         .form_field_container
