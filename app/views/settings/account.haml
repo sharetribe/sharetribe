@@ -38,5 +38,10 @@
           = form.password_field :password2, :class => :text_field_account, :maxlength => "255"
           = form.submit t(".save"), :class => "send_button_account", :id => "password_submit"    
     .settings_account_row_link
-      = link_to t(".change"), "#", :id => "account_password_link"    
+      = link_to t(".change"), "#", :id => "account_password_link"
+  %br
+  %br
+  %h6
+    = t(".delete_account")
+  = t(".instructions_to_delete_account")
     

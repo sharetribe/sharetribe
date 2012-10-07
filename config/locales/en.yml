@@ -66,6 +66,7 @@ en:
       trade: swapping
       share_for_free: "sharing for free"
     username: Username
+    username_or_email: Username or email
     what_is_this: "What's this?"
   conversations:
     index:
@@ -958,6 +959,7 @@ en:
   okl:
     member_id: "Member id"
     member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
+    member_id_or_email: "Member id or email"
     join_here: "join here."
   people:
     badge_description:
@@ -1182,7 +1184,9 @@ en:
     account:
       change: Change
       confirm_new_password: "Confirm new password"
+      delete_account: "Delete account"
       email: "Email address:"
+      instructions_to_delete_account: "If you want to delete your account, contact us by using the feedback button on the left."
       new_email: "New email address"
       new_password: "New password"
       save: Save
