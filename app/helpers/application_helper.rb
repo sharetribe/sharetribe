@@ -165,6 +165,10 @@ module ApplicationHelper
     (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id") : t("common.username")
   end
   
+  def username_or_email_label
+    (@current_community && @current_community.label.eql?("okl")) ? t("okl.member_id_or_email") : t("common.username_or_email")
+  end
+  
   def service_name(form=nil)
     if @current_community && @current_community.settings && @current_community.settings["service_name"].present?
       service_name = @current_community.settings["service_name"]
