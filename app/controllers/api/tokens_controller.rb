@@ -4,26 +4,26 @@ class Api::TokensController < Api::ApiController
   # Used http://matteomelani.wordpress.com/2011/10/17/authentication-for-mobile-devices/ as example for this
   def create
 
-    username = params[:username]
+    login = params[:login] || params[:username]
     password = params[:password]
 
-    if username.nil? or password.nil?
+    if login.nil? or password.nil?
        render :status=>400,
-              :json=>{:message=>"The request must contain the user username and password."}
+              :json=>{:message=>"The request must contain the user login (username or email) and password."}
        return
     end
 
-    @person = Person.find_by_username(username.downcase)
+    @person = Person.where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
 
     if @person.nil?
       logger.info("User #{username} failed signin, user cannot be found.")
-      render :status=>401, :json=>{:message=>"Invalid username or password."}
+      render :status=>401, :json=>{:message=>"Invalid login or password."}
       return
     end
 
     if not @person.valid_password?(password)
-      logger.info("User #{username} failed signin, password is invalid")
-      render :status=>401, :json=>{:message=>"Invalid username or password."}
+      logger.info("User #{login} failed signin, password is invalid")
+      render :status=>401, :json=>{:message=>"Invalid login or password."}
     else
       @person.ensure_authentication_token!
       respond_with @person 
