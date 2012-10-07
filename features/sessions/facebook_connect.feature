@@ -24,7 +24,7 @@ Feature: Facebook connect
     Given I am on the home page
     When I follow "facebook_connect"
     Then I should see "Connect your Facebook account"
-    When I fill in "person_username" with "facebooker"
+    When I fill in "person_login" with "facebooker"
     And I fill in "person_password" with "testi"
     And I press "Log in" 
     Then I should see "Welcome to Sharetribe"
