@@ -63,7 +63,7 @@ class Person < ActiveRecord::Base
   has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges, :dependent => :destroy 
-  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
+  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships
