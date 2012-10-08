@@ -235,12 +235,6 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    unless Rails.env.test?
-      delivery_method = :sendmail
-    else 
-      delivery_method = :test 
-    end
-    
     mail(:to => @recipient.email, :subject => @subject, :delivery_method => delivery_method)
   end
   
@@ -280,7 +274,7 @@ class PersonMailer < ActionMailer::Base
     puts "\nSending mails finished" if verbose
     
   end
-
+  
   private
   
   def set_up_recipient(recipient, host=nil)
