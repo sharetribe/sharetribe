@@ -492,88 +492,90 @@ class Person < ActiveRecord::Base
   def merge(source_person)
       
     print_mergeable_data(self, source_person)  
-      
-    # Merge data in people table
-    fields_to_check = %w(username email given_name family_name phone_number description facebook_id authentication_token)
-    fields_to_check.each do |attr|
-      begin
-        original_attr_value = self.try(attr)
-        new_attr_value = get_existing_value_or_ask(attr, self, source_person )
+    
+    begin  
+      # Merge data in people table
+      fields_to_check = %w(username email given_name family_name phone_number description facebook_id authentication_token)
+      fields_to_check.each do |attr|
+        begin
+          original_attr_value = self.try(attr)
+          new_attr_value = get_existing_value_or_ask(attr, self, source_person )
         
-        # if choosing unique field from source_person, need to change that first to be able to use same string for self
-        if new_attr_value.present? && new_attr_value == source_person.try(attr)
-          source_person.update_attribute(attr, "merged_#{source_person.try(attr)}")
+          # if choosing unique field from source_person, need to change that first to be able to use same string for self
+          if new_attr_value.present? && new_attr_value == source_person.try(attr)
+            source_person.update_attribute(attr, "merged_#{source_person.try(attr)}")
+          end
+        
+          self.update_attribute(attr, new_attr_value)
+          
+        rescue ActiveRecord::RecordNotUnique => e
+          puts "Can' set #{attr} to #{self.try(attr)}, not unique. #{e.message}"
+          self.update_attribute(attr, original_attr_value)
         end
-        
-        self.update_attribute(attr, new_attr_value)
-      rescue ActiveRecord::RecordNotUnique => e
-        puts "Can' set #{attr} to #{self.try(attr)}, not unique. #{e.message}"
-        self.update_attribute(attr, original_attr_value)
+        puts "Updated #{attr} => #{self.try(attr)}"
       end
-      puts "Updated #{attr} => #{self.try(attr)}"
-    end
-    selected_image = get_existing_value_or_ask("image_file_name", self, source_person )
-    if selected_image != self.image_file_name
-      self.image = source_person.image
-      # self.update_attribute("image_file_name", source_person.image_file_name)
-      # self.update_attribute("image_content_type", source_person.image_content_type)
-      # self.update_attribute("image_file_size", source_person.image_file_size)
-      # self.update_attribute("image_updated_at", source_person.image_updated_at)
-      # puts "****************************************************************************************"
-      # puts "CHOOSING THE IMAGE FROM SOURCE PERSON: IN IMAGES FOLDER YOU NEED TO MANUALLY COMMAND: mv #{source_person.id} #{self.id}" 
-      #       puts "****************************************************************************************"
-    end
+      
+      selected_image = get_existing_value_or_ask("image_file_name", self, source_person )
+      if selected_image != self.image_file_name
+        self.image = source_person.image
+      end
     
-    self.save
+      self.save!
     
-    # Move other assets to be owned by the this person
-    source_person.listings.each  { |asset| asset.author = self ; asset.save( :validate => false ) }
-    source_person.emails.each { |asset| asset.person = self ; asset.save(:validate => false) }
-    source_person.participations.each { |asset| asset.person = self ; asset.save(:validate => false) }
-    source_person.authored_testimonials.each  { |asset| asset.author = self ; asset.save(:validate => false) }
-    source_person.received_testimonials.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
-    source_person.messages.each  { |asset| asset.sender = self ; asset.save(:validate => false) }
-    source_person.badges.each { |asset| asset.person = self ; asset.save(:validate => false) }
-    source_person.notifications.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
-    source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
-    source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
-    source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-    source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
-    source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
-    source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
-    source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
-    source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
-    source_person.followed_listings.each { |asset| self.followed_listings << asset}
-    Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
-    Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
-    NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+      # Move other assets to be owned by the this person
+      source_person.listings.each  { |asset| asset.author = self ; asset.save( :validate => false ) }
+      source_person.emails.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.participations.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.authored_testimonials.each  { |asset| asset.author = self ; asset.save(:validate => false) }
+      source_person.received_testimonials.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
+      source_person.messages.each  { |asset| asset.sender = self ; asset.save(:validate => false) }
+      source_person.badges.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.notifications.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
+      source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
+      source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
+      source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
+      source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
+      source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
+      source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
+      source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
+      source_person.followed_listings.each { |asset| self.followed_listings << asset}
+      Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+      Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+      NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
     
-    # Location. Pick from source_person only if primary account doesn't have
-    if self.location.nil? && source_person.location.present?
-      loc = source_person.location
-      loc.person = self
-      loc.save
-    end
+      # Location. Pick from source_person only if primary account doesn't have
+      if self.location.nil? && source_person.location.present?
+        loc = source_person.location
+        loc.person = self
+        loc.save
+      end
       
       
-    # Finally delete source_person
-    source_person = Person.find(source_person.id) # Find again from DB to refres active record relations
-    print_mergeable_data(self, source_person)
-    puts "merged person with id #{source_person.id} to #{self.id} and deleting the source person."
-    if (
-        source_person.listings.count == 0 &&
-        source_person.authored_comments.count == 0 &&
-        source_person.authored_testimonials.count == 0 &&
-        source_person.received_testimonials.count == 0 &&
-        source_person.community_memberships.count == 0 &&
-        source_person.participations.count == 0 &&
-        source_person.messages.count == 0 &&
-        source_person.badges.count == 0
-        )
+      # Finally delete source_person
+      source_person = Person.find(source_person.id) # Find again from DB to refres active record relations
+      
+      print_mergeable_data(self, source_person)
+      
+      puts "merged person with id #{source_person.id} to #{self.id} and deleting the source person."
+      if (
+          source_person.listings.count == 0 &&
+          source_person.authored_comments.count == 0 &&
+          source_person.authored_testimonials.count == 0 &&
+          source_person.received_testimonials.count == 0 &&
+          source_person.community_memberships.count == 0 &&
+          source_person.participations.count == 0 &&
+          source_person.messages.count == 0 &&
+          source_person.badges.count == 0
+          )
         
-      #source_person.destroy 
-    else  
-      puts "Did not destroy #{source_person.id} because some assets were not transferred succesfully"
+        source_person.destroy 
+      else  
+        puts "Did not destroy #{source_person.id} because some assets were not transferred succesfully"
+      end
+    
+    rescue
+      puts "Aborted migrating this person. Some fields may have been changed."
     end
   end
   
@@ -633,17 +635,21 @@ class Person < ActiveRecord::Base
   end
   
   def ask_user_for_merge_options(attribute_name, option1, option2)
+    return option1 if attribute_name == "email" && option2.match(/^merge_/)
     option = 0
-    while (option < 1 || option > 2) do
+    while (option < 1 || option > 3) do
       puts "Which one of these should be used for #{attribute_name}"
       puts "1. #{option1}"
       puts "2. #{option2}"
+      puts "3. Abort merge (changed fields stay changed)"
       option = gets.chomp.to_i
     end
     if option == 1
       return option1
     elsif option == 2
       return option2
+    elsif option == 3
+      throw Execption.new("abort merge")
     else
       puts "error in merge script, selection exited with value other than 1 or 2."
     end    
@@ -652,7 +658,11 @@ class Person < ActiveRecord::Base
   def print_mergeable_data(p1, p2)
     puts "Merge comparison:"
     puts "ID:\t#{p1.id}\t#{p2.id}"
+    puts "seen_at:\t#{p1.current_sign_in_at}\t#{p2.current_sign_in_at}"
     puts "username:\t#{p1.username}\t#{p2.username}"
+    puts "email:\t#{p1.email}\t#{p2.email}"
+    puts "given_name:\t#{p1.given_name}\t#{p2.given_name}"
+    puts "family_name:\t#{p1.family_name}\t#{p2.family_name}"
     puts "listings:\t#{p1.listings.count}\t#{p2.listings.count}"
     puts "comments:\t#{p1.authored_comments.count}\t#{p2.authored_comments.count}"
     puts "auth_testim:\t#{p1.authored_testimonials.count}\t#{p2.authored_testimonials.count}"
