@@ -29,9 +29,9 @@
       = t(".or_sign_up_with_your_username")
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     .form_field_container
-      %label{:for => "username"}
-        = username_label + ":"
-      = text_field_tag "person[username]", nil, :value => session[:form_username], :class => :text_field 
+      %label{:for => "login"}
+        = username_or_email_label + ":"
+      = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field 
     .form_field_container  
       %label{:for => "password"}
         = t('common.password') + ":"

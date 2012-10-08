@@ -27,13 +27,16 @@ class Person < ActiveRecord::Base
   
   # Setup accessible attributes for your model (the rest are protected)
   attr_accessible :username, :email, :password, :password2, :password_confirmation, 
-                  :remember_me, :consent
+                  :remember_me, :consent, :login
       
-  attr_accessor :guid, :password2, :form_username,
+  attr_accessor :guid, :password2, :form_login,
                 :form_given_name, :form_family_name, :form_password, 
                 :form_password2, :form_email, :consent, :show_real_name_setting_affected,
                 :email_confirmation, :community_category
 
+  # Virtual attribute for authenticating by either username or email
+  # This is in addition to a real persisted field like 'username'
+  attr_accessor :login
   
   attr_protected :is_admin
 
@@ -60,7 +63,7 @@ class Person < ActiveRecord::Base
   has_many :received_negative_testimonials, :class_name => "Testimonial", :foreign_key => "receiver_id", :conditions => "grade IN (0.0,0.25)", :order => "id DESC"
   has_many :messages, :foreign_key => "sender_id"
   has_many :badges, :dependent => :destroy 
-  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC"
+  has_many :notifications, :foreign_key => "receiver_id", :order => "id DESC", :dependent => :destroy
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships
@@ -148,6 +151,15 @@ class Person < ActiveRecord::Base
     self.id = UUID.timestamp_create.to_s22
   end
 
+  # Override Devise's authentication finder method to allow log in with username OR email
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+    else
+      where(conditions).first
+    end
+  end
   
   def community_email_type_is_correct
     if ["university", "community"].include? community_category
@@ -473,6 +485,102 @@ class Person < ActiveRecord::Base
     image_file_name.present?
   end
   
+  # Merge this person with the data from the person given as parameter
+  # This person is saved and THE PERSON GIVEN IN PARAMETER IS DESTROYED
+  # This should be called only from console, as it requires command line choises
+  # for choosing from duplicate information
+  def merge(source_person)
+      
+    print_mergeable_data(self, source_person)  
+    
+    begin  
+      # Merge data in people table
+      fields_to_check = %w(username email given_name family_name phone_number description facebook_id authentication_token)
+      fields_to_check.each do |attr|
+        begin
+          original_attr_value = self.try(attr)
+          new_attr_value = get_existing_value_or_ask(attr, self, source_person )
+        
+          # if choosing unique field from source_person, need to change that first to be able to use same string for self
+          if new_attr_value.present? && new_attr_value == source_person.try(attr)
+            source_person.update_attribute(attr, "merged_#{source_person.try(attr)}")
+          end
+        
+          self.update_attribute(attr, new_attr_value)
+          
+        rescue ActiveRecord::RecordNotUnique => e
+          puts "Can' set #{attr} to #{self.try(attr)}, not unique. #{e.message}"
+          self.update_attribute(attr, original_attr_value)
+        end
+        puts "Updated #{attr} => #{self.try(attr)}"
+      end
+      
+      selected_image = get_existing_value_or_ask("image_file_name", self, source_person )
+      if selected_image != self.image_file_name
+        self.image = source_person.image
+      end
+    
+      self.save!
+    
+      # Move other assets to be owned by the this person
+      source_person.listings.each  { |asset| asset.author = self ; asset.save( :validate => false ) }
+      source_person.emails.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.participations.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.authored_testimonials.each  { |asset| asset.author = self ; asset.save(:validate => false) }
+      source_person.received_testimonials.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
+      source_person.messages.each  { |asset| asset.sender = self ; asset.save(:validate => false) }
+      source_person.badges.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.notifications.each  { |asset| asset.receiver = self ; asset.save(:validate => false) }
+      source_person.authored_comments.each  { |asset| asset.author = self ; asset.save(:validate => false) }
+      source_person.community_memberships.each  { |asset| asset.person = self ; asset.save(:validate => false)}
+      source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
+      source_person.poll_answers.each { |asset| asset.answerer = self ; asset.save(:validate => false) }
+      source_person.invitations.each { |asset| asset.inviter = self ; asset.save(:validate => false) }
+      source_person.devices.each { |asset| asset.person = self ; asset.save(:validate => false) }
+      source_person.done_event_feed_events.each { |asset| asset.person1 = self ; asset.save(:validate => false) }
+      source_person.targeted_event_feed_events.each { |asset| asset.person2 = self ; asset.save(:validate => false) }
+      source_person.followed_listings.each { |asset| self.followed_listings << asset}
+      Poll.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+      Feedback.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+      NewsItem.find_all_by_author_id(source_person.id).each { |asset| asset.author = self ; asset.save(:validate => false) }
+    
+      # Location. Pick from source_person only if primary account doesn't have
+      if self.location.nil? && source_person.location.present?
+        loc = source_person.location
+        loc.person = self
+        loc.save
+      end
+      
+      
+      # Finally delete source_person
+      source_person = Person.find(source_person.id) # Find again from DB to refres active record relations
+      
+      print_mergeable_data(self, source_person)
+      
+      puts "merged person with id #{source_person.id} to #{self.id} and deleting the source person."
+      if (
+          source_person.listings.count == 0 &&
+          source_person.authored_comments.count == 0 &&
+          source_person.authored_testimonials.count == 0 &&
+          source_person.received_testimonials.count == 0 &&
+          source_person.community_memberships.count == 0 &&
+          source_person.participations.count == 0 &&
+          source_person.messages.count == 0 &&
+          source_person.badges.count == 0
+          )
+        
+        source_person.destroy 
+      else  
+        puts "Did not destroy #{source_person.id} because some assets were not transferred succesfully"
+      end
+    
+    rescue
+      puts "Aborted migrating this person. Some fields may have been changed."
+    end
+  end
+  
+  
+  
   private
   
   # This method constructs a key to be used in caching.
@@ -501,6 +609,70 @@ class Person < ActiveRecord::Base
   def self.email_all_users(subject, mail_content, default_locale="en", verbose=false, emails_to_skip=[])
     puts "Sending mail to every #{Person.count} users in the service" if verbose
     PersonMailer.deliver_open_content_messages(Person.all, subject, mail_content, default_locale, verbose, emails_to_skip)
+  end
+  
+  def get_existing_value_or_ask(attribute, p1, p2)
+    if p2.try(attribute)
+      if p1.try(attribute)
+        # both have this attribute
+        if p1.try(attribute) != p2.try(attribute)
+          return ask_user_for_merge_options(attribute, p1.try(attribute), p2.try(attribute) )
+        else
+          # same value, return p1
+          return  p1.try(attribute)
+        end
+      
+      else
+        #if p1 didin't have, use from p2
+        return p2.try(attribute)
+      end
+
+    else
+      #if p2 didin't have, use from p1 anyway
+      return p1.try(attribute)
+    end
+    
+  end
+  
+  def ask_user_for_merge_options(attribute_name, option1, option2)
+    return option1 if attribute_name == "email" && option2.match(/^merge_/)
+    option = 0
+    while (option < 1 || option > 3) do
+      puts "Which one of these should be used for #{attribute_name}"
+      puts "1. #{option1}"
+      puts "2. #{option2}"
+      puts "3. Abort merge (changed fields stay changed)"
+      option = gets.chomp.to_i
+    end
+    if option == 1
+      return option1
+    elsif option == 2
+      return option2
+    elsif option == 3
+      throw Execption.new("abort merge")
+    else
+      puts "error in merge script, selection exited with value other than 1 or 2."
+    end    
+  end
+  
+  def print_mergeable_data(p1, p2)
+    puts "Merge comparison:"
+    puts "ID:\t#{p1.id}\t#{p2.id}"
+    puts "seen_at:\t#{p1.current_sign_in_at}\t#{p2.current_sign_in_at}"
+    puts "username:\t#{p1.username}\t#{p2.username}"
+    puts "email:\t#{p1.email}\t#{p2.email}"
+    puts "given_name:\t#{p1.given_name}\t#{p2.given_name}"
+    puts "family_name:\t#{p1.family_name}\t#{p2.family_name}"
+    puts "listings:\t#{p1.listings.count}\t#{p2.listings.count}"
+    puts "comments:\t#{p1.authored_comments.count}\t#{p2.authored_comments.count}"
+    puts "auth_testim:\t#{p1.authored_testimonials.count}\t#{p2.authored_testimonials.count}"
+    puts "rec_testim:\t#{p1.received_testimonials.count}\t#{p2.received_testimonials.count}"
+    puts "comm_memb:\t#{p1.community_memberships.count}\t#{p2.community_memberships.count}"
+    puts "participations:\t#{p1.participations.count}\t#{p2.participations.count}"
+    puts "messages:\t#{p1.messages.count}\t#{p2.messages.count}"
+    puts "badges:\t#{p1.badges.count}\t#{p2.badges.count}"
+    
+    
   end
   
 end
