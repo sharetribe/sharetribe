@@ -12,7 +12,7 @@ class Testimonial < ActiveRecord::Base
   belongs_to :receiver, :class_name => "Person"
   belongs_to :participation
   
-  has_one :notification, :as => :notifiable
+  has_one :notification, :as => :notifiable, :dependent => :destroy
 
   validates_inclusion_of :grade, :in => 0..1, :allow_nil => false
   
