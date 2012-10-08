@@ -66,6 +66,7 @@ fi:
       trade: vaihdetaan
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
     username: Käyttäjätunnus
+    username_or_email: Käyttäjätunnus tai sähköposti
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
@@ -958,6 +959,7 @@ fi:
   okl:
     member_id: Jäsennumero
     member_id_is_your_username: "Sinun on annettava voimassaoleva Omakotiliiton jäsennumerosi, jotta voit liittyä tähän yhteisöön. Jäsennumero toimii myös käyttäjätunnuksenasi, kun kirjaudut %{service_name_illative}. Jos et ole vielä Omakotiliiton jäsen,"
+    member_id_or_email: "Jäsennumero tai sähköposti"
     join_here: "liity tästä."
   people:
     badge_description:
@@ -1182,7 +1184,9 @@ fi:
     account:
       change: Vaihda
       confirm_new_password: "Uusi salasana uudestaan"
+      delete_account: "Käyttäjätilin poisto"
       email: "Sähköpostiosoite:"
+      instructions_to_delete_account: "Jos haluat kokonaan poistaa käyttäjätilisi palvelusta, ota ylläpitoon yhteyttä vasemman laidan palautelinkin kautta."
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
       save: Tallenna
