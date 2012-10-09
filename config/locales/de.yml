@@ -66,6 +66,7 @@ de:
       trade: ~
       share_for_free: ~
     username: ~
+    username_or_email: ~
     what_is_this: ~
   conversations:
     index:
@@ -958,6 +959,7 @@ de:
   okl:
     member_id: ~
     member_id_is_your_username: ~
+    member_id_or_email: ~
     join_here: ~
   people:
     badge_description:
@@ -1182,7 +1184,9 @@ de:
     account:
       change: ~
       confirm_new_password: ~
+      delete_account: ~
       email: ~
+      instructions_to_delete_account: ~
       new_email: ~
       new_password: ~
       save: ~
