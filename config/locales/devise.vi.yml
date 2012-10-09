@@ -1,0 +1,57 @@
+vi:
+  errors:
+    messages:
+      expired: "đã hết hạn, xin vui lòng yêu cầu cái mới"
+      not_found: "không tìm thấy"
+      already_confirmed: "đã được xác nhận, hãy thử đăng ký lại"
+      not_locked: "không bị khoá"
+      not_saved:
+        other: ~
+  devise:
+    failure:
+      already_authenticated: "Bạn đã đăng ký."
+      unauthenticated: "Bạn cần đăng nhập hoặc đăng kí để tiếp tục."
+      unconfirmed: "Bạn phải xác nhận tài khoản trước khi tiếp tục."
+      locked: "Tài khoản của bạn đã bị khoá."
+      invalid: "Email hoặc mật khẩu không hợp lệ."
+      invalid_token: ~
+      timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
+      inactive: "Tài khoản của bạn chưa được kích hoạt."
+    passwords:
+      updated_not_active: "Mật khẩu của bạn đã đổi thành công."
+      send_paranoid_instructions: "Nếu email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một mật khẩu phục hồi liên kết trên e-mail của bạn"
+      send_instructions: "Bạn sẽ nhận được một email với các hướng dẫn làm thế nào để đặt lại mật khẩu của bạn trong một vài phút."
+      updated: "Mật khẩu của bạn đã đổi thành công. Bây giờ bạn đã đăng nhập."
+    sessions:
+      signed_in: "Đăng nhập thành công."
+      signed_out: "Đăng xuất thành công."
+    confirmations:
+      send_paranoid_instructions: "Nếu email của bạn tồn tại trong cơ sở dữ liệu của chúng tôi, bạn sẽ nhận được một email có các hướng dẫn về việc làm thế nào để xác nhận tài khoản của bạn trong một vài phút."
+      send_instructions: "Bạn sẽ nhận được thư điện tử có các chỉ dẫn về việc làm thể nào để xác nhận tài khoản của bạn trong ít phút nữa."
+      confirmed: "Tài khoản của bạn đã được xác nhận thành công."
+    registrations:
+      signed_up_but_unconfirmed: "Một tin nhắn với một liên kết xác nhận đã được gửi đến địa chỉ email của bạn. Xin vui lòng mở liên kết để kích hoạt tài khoản của bạn."
+      signed_up_but_inactive: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập bạn bởi vì tài khoản của bạn chưa được kích hoạt."
+      signed_up_but_locked: "Bạn đã đăng ký thành công. Tuy nhiên, chúng tôi không thể đăng nhập bạn bởi vì tài khoản của bạn bị khóa."
+      reasons:
+        inactive: "không hoạt động"
+        unconfirmed: "Chưa được xác nhận"
+        locked: "đã khóa"
+      update_needs_confirmation: ~
+      signed_up: "Chào mừng! Bạn đã đăng ký thành công."
+      updated: "Bạn đã cập nhật tài khoản thành công."
+      destroyed: "Tạm biệt! Tài khoản của bạn đã huỷ thành công. Chúng tôi hy vọng sẽ gặp lại bạn sớm."
+    unlocks:
+      send_paranoid_instructions: "Nếu tài khoản của bạn tồn tại, bạn sẽ nhận được một email với các hướng dẫn về việc làm thế nào để mở khóa nó trong một vài phút."
+      send_instructions: "Bạn sẽ nhận được thư chứa các chỉ dẫn mở khoá tài khoản trong ít phút nữa."
+      unlocked: "Tài khoản của bạn đã mở khóa thành công. Xin vui lòng đăng nhập để tiếp tục."
+    omniauth_callbacks:
+      success: "Cho phép thành công từ tài khoản %{kind}."
+      failure: "Có thể không cho phép bạn từ %{kind} vì \"%{reason} \"."
+    mailer:
+      confirmation_instructions:
+        subject: "Chỉ dẫn xác nhận"
+      reset_password_instructions:
+        subject: "Chỉ dẫn khôi phục mật khẩu"
+      unlock_instructions:
+        subject: "Chỉ dẫn mở khoá"

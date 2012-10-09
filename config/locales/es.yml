@@ -66,6 +66,7 @@ es:
       trade: Trocar
       share_for_free: "compartido gratuitamente"
     username: "Nombre de usuario"
+    username_or_email: ~
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -963,6 +964,7 @@ es:
   okl:
     member_id: "Número de identificación"
     member_id_is_your_username: "Tienes que dar tu identificación de miembro de Omakotiliitto (jäsennumero) para ingresar a %{service_name}. Tu identificación de miembro es también tu nombre de usuario que necesitarás cuando inicies sesión en %{service_name}. Si todavía no eres un miembro de Omakotiliitto, puedes"
+    member_id_or_email: ~
     join_here: "Ingresa aquí."
   people:
     badge_description:
@@ -1187,7 +1189,9 @@ es:
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
+      delete_account: ~
       email: "Dirección de correo electrónico:"
+      instructions_to_delete_account: ~
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar
