@@ -1,6 +1,8 @@
 namespace :sharetribe do
   namespace :demo do
     
+    # Constant used in demo script location creation
+    MAX_LOC_DIFF = 0.04
     
     desc "Reads the demo data from lib/demos and populates the database with that data"
     task :load, [:locale] => :environment do |t, args|
@@ -28,6 +30,7 @@ namespace :sharetribe do
                  :family_name =>  row[5],
                  :phone_number => row[6],
                  :description =>  row[7],
+                 :location =>     row[9].blank?  ? nil : random_location_around(row[9], "person"),
                  :confirmed_at=>  Time.now,
                  :communities =>  [@community],
                  :image => (image_path && File.exists?(image_path) ? File.new(image_path) : nil)
@@ -54,8 +57,10 @@ namespace :sharetribe do
                  :category =>     row[5].split(" ")[0].downcase,
                  :share_type =>   row[6].blank? ? nil : row[6].downcase,
                  :visibility =>   row[7].downcase,
-                 :origin =>       row[9].blank? ? nil : row[9],
-                 :destination  => row[10].blank? ? nil : row[10],
+                 :location =>     row[9].blank?  ? nil : random_location_around(row[9], "origin_loc"),
+                 :destination_loc => row[10].blank? ? nil : random_location_around(row[10], "destination_loc"),
+                 :origin =>       row[11].blank? ? nil : row[11],
+                 :destination  => row[12].blank? ? nil : row[12],
                  :valid_until  => 11.months.from_now,
                  :communities =>  [@community],
                  :listing_images => (image.present? ? [image] : [])     
@@ -138,6 +143,7 @@ namespace :sharetribe do
          end
       end
       
+      puts "Created 'Demo (#{locale})' community at subdomain: #{locale}-demo"
     end
     
     desc "removes the content created by the demoscript from the DB. It's based on usernames, so don't use if there's a risk of collisions."
@@ -167,5 +173,12 @@ namespace :sharetribe do
       end
       Spreadsheet.open demo_data_path
     end
+  end
+  
+  def random_location_around(coordinate_string, location_type)    
+    lat = coordinate_string.split(",")[0].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
+    lon =  coordinate_string.split(",")[1].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
+        
+    Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => "#{lat},#{lon}", :google_address => "#{lat},#{lon}")
   end
 end
