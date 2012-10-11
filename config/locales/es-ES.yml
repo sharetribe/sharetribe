@@ -66,6 +66,7 @@ es-ES:
       trade: Intercambiar
       share_for_free: ~
     username: "Nombre de usuario"
+    username_or_email: ~
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -960,6 +961,7 @@ es-ES:
   okl:
     member_id: ~
     member_id_is_your_username: ~
+    member_id_or_email: ~
     join_here: ~
   people:
     badge_description:
@@ -1184,7 +1186,9 @@ es-ES:
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
+      delete_account: ~
       email: "Dirección de correo electrónico:"
+      instructions_to_delete_account: ~
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar

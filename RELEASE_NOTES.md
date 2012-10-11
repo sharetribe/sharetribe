@@ -12,6 +12,16 @@ When updating, always run the following commands to update gem set and database 
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
 
+2.3.3
+-----
+
+Demo script and bug fixes
+
+### Changes ###
+
+ - Demo script that can populate the database based on spreadsheet file. Now done for English and French. More languages can be added by following the same logic.
+ - Fix S3 image links to be https to avoid browser warnings 
+
 2.3.2
 -----
 

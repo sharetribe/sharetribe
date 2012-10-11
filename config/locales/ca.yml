@@ -66,6 +66,7 @@ ca:
       trade: Intercanviar
       share_for_free: ~
     username: Usuari
+    username_or_email: ~
     what_is_this: "Què és això?"
   conversations:
     index:
@@ -960,6 +961,7 @@ ca:
   okl:
     member_id: "Número d'identificació"
     member_id_is_your_username: "Tens que donar la teva identificació de membre de Omakotiliitto (jäsennumero) per a iniciar sessió. La teva identificació de membre és també el teu nom d'usuari que necessitaràs quan inicis sessió. Si encara no ets membre d'Omakotiliitto, pots"
+    member_id_or_email: ~
     join_here: "Inicia sessió aquí."
   people:
     badge_description:
@@ -1184,7 +1186,9 @@ ca:
     account:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"
+      delete_account: ~
       email: "Correu electrònic:"
+      instructions_to_delete_account: ~
       new_email: "Nou correu electrònic:"
       new_password: "Nova contrasenya"
       save: Desa

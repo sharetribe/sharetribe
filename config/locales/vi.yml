@@ -25,9 +25,9 @@ vi:
         delete_news_item: Xoá
     polls:
       index:
-        polls: ~
-        create_poll: ~
-        no_polls: ~
+        polls: "Thăm dò ý kiến"
+        create_poll: "Tạo ra một cuộc thăm dò"
+        no_polls: "Không thăm dò ý kiến"
       edit_poll_links:
         close_poll: Đóng
         open_poll: Mở
@@ -35,10 +35,10 @@ vi:
         delete_poll: Xoá
       new:
         add_option: "Thêm tùy chọn"
-        new_poll: ~
-        edit_poll: ~
+        new_poll: "Tạo ra một cuộc thăm dò"
+        edit_poll: "Chỉnh sửa thăm dò ý kiến"
         title: "Tựa đề:"
-        save_poll: ~
+        save_poll: "Lưu thăm dò ý kiến"
       new_option:
         option: "Tùy chọn"
         remove_option: "Hủy bỏ tùy chọn"
@@ -46,7 +46,7 @@ vi:
         open: Mở
         closed: "Đã đóng"
       show:
-        edit_poll: ~
+        edit_poll: "Chỉnh sửa thăm dò ý kiến"
   common:
     default_community_slogan: "Cho mượn, giúp đỡ, chia sẻ"
     default_community_description: "%{service_name} là nơi mà các thành viên trong cộng đồng của chúng ta có thể chia sẻ hàng hoá, dịch vụ, cuốc xe, và không gian. Bạn có thể cho người khác biết những gì bạn có thể hỗ trợ họ và nhận trợ giúp khi cần."
@@ -66,6 +66,7 @@ vi:
       trade: đổi
       share_for_free: "chia sẻ miễn phí"
     username: "Tên đăng nhập"
+    username_or_email: ~
     what_is_this: "Đây là gì?"
   conversations:
     index:
@@ -83,21 +84,21 @@ vi:
       housing_offer_message_title: "Yêu cầu không gian: %{title}"
       housing_request_message_form_title: "Yêu cầu không gian từ"
       housing_request_message_title: "Không gian sẵn sàng: %{title}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_offer_lend_message_form_title: "Mượn %{listing} từ %{person}"
+      item_offer_sell_message_form_title: "Mua %{listing} từ %{person}"
+      item_offer_give_away_message_form_title: "Nhận %{listing} từ %{person}"
+      item_offer_trade_message_form_title: "Trao đổi %{listing} với %{person}"
+      item_offer_rent_out_message_form_title: "Thuê %{listing} từ %{person}"
+      item_request_borrow_message_form_title: "Cho %{person} vay %{listing}"
+      item_request_buy_message_form_title: "Bán %{listing} cho %{person}"
+      item_request_take_for_free_message_form_title: "Cho %{person} %{listing}"
+      item_request_trade_message_form_title: "Trao đổi %{listing} với %{person}"
+      item_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
+      housing_offer_sell_message_form_title: "Mua %{listing} từ %{person}"
+      housing_offer_rent_out_message_form_title: "Thuê %{listing} từ %{person}"
+      housing_offer_share_for_free_message_form_title: "Yêu cầu %{listing} từ %{person}"
+      housing_request_buy_message_form_title: "Bán %{listing} cho %{person}"
+      housing_request_rent_message_form_title: "Cho %{person} thuê %{listing}"
       item_offer_message_title: "Món đồ yêu câu:%{title}"
       item_request_message_form_title: "Hỗ trợ một món đồ để"
       item_request_message_title: "Món đồ hỗ trợ: %{title}"
@@ -106,30 +107,30 @@ vi:
       rideshare_offer_message_title: "Yêu cầu chia sẻ xe: %{title}"
       rideshare_request_message_form_title: "Hỗ trợ cuốc xe đến"
       rideshare_request_message_title: "Hỗ trợ chia sẻ quá giang: %{title}"
-      send_offer_message: ~
+      send_offer_message: "Gửi hỗ trợ"
       send_request_message: "Gửi yêu cầu"
-      send_message: ~
+      send_message: "Gửi thông điệp"
       this_message_is_private: "Thông điệp này riêng tư giữa bạn và %{person} . %{person} sẽ được thông báo bằng tin nhắn qua email."
-      you_will_get_notified_of_acceptance: ~
-      you_will_get_notified: ~
+      you_will_get_notified_of_acceptance: "Bạn sẽ nhận được thông báo qua email khi %{person} chấp nhận hoặc từ chối đề xuất của bạn."
+      you_will_get_notified: "Bạn sẽ nhận được thông báo qua email khi %{person} trả lời bạn."
       title: "Tiêu đề"
-      send_message_to_user: ~
+      send_message_to_user: "Gửi tin nhắn đến %{person}"
     notifications:
       badgenotification:
         see_all_your_badges: "Xem tất cả các huy hiệu của bạn"
         you_have_earned_badge: "Bạn đã giành được huy hiệu"
       comment_to_followed_listing_notification:
         has_commented: "%{author} đã nhận xét"
-        offer_you_follow: ~
-        request_you_follow: ~
+        offer_you_follow: "hỗ trợ bạn sau đây"
+        request_you_follow: "yêu cầu bạn sau đây"
       listing_updated_notification:
         has_updated: "đã cập nhật"
-        offer_you_follow: ~
-        request_you_follow: ~
+        offer_you_follow: "hỗ trợ bạn sau đây"
+        request_you_follow: "yêu cầu bạn sau đây"
       comment_to_own_listing_notification:
         has_commented: "%{author} đã nhận xét"
-        your_offer: ~
-        your_request: ~
+        your_offer: "bạn hỗ trợ"
+        your_request: "bạn yêu cầu"
       loading_more_notifications: "Nạp thêm thông báo"
       no_notifications: "Không có thông báo"
       testimonialnotification:
@@ -145,8 +146,8 @@ vi:
       request_sent_to: "Yêu cầu đã gửi tới"
       send_reply: "Gửi trả lời"
       write_a_reply: "Viết phản hồi:"
-      conversation_about_listing: ~
-      conversation_with_user: ~
+      conversation_about_listing: "Cuộc trò chuyện với %{person} về %{listing}."
+      conversation_with_user: "Cuộc trò chuyện với %{person}."
     status:
       feedback_given: "Phản hồi được cho"
       feedback_skipped: "Phản hồi bị bỏ qua"
@@ -164,150 +165,150 @@ vi:
       reject_request: "Từ chối yêu cầu"
   communities:
     map_bubble:
-      view_tribe: ~
+      view_tribe: "Xem cộng đồng"
     email_confirmation_pending:
-      confirmation_pending: ~
+      confirmation_pending: "Xin vui lòng xác nhận địa chỉ email của bạn"
     enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
-      continue: ~
-      tribe_exists: ~
-      this_tribe_exists_already: ~
+      enter_your_organization_email: "Nhập email %{community_category} của bạn"
+      only_people_with_verified_email_address_can_join_your_tribe: "Chỉ những người có xác nhận địa chỉ email %{community_category} mới có thể tham gia cộng đồng này."
+      continue: "Tiếp tục"
+      tribe_exists: "Cộng đồng tồn tại!"
+      this_tribe_exists_already: "Cộng đồng này đã tồn tại! Bạn có muốn tham gia nó?"
     done:
-      done: ~
-      tribe_created_successfully: ~
-      go_to_your_tribe: ~
-      we_will_contact_you_about_invoicing: ~
+      done: "Đã thực hiện!"
+      tribe_created_successfully: "Bạn đã tạo thành công cộng đồng của bạn."
+      go_to_your_tribe: "Đi đến cộng đồng của bạn"
+      we_will_contact_you_about_invoicing: "Chúng tôi sẽ liên hệ với bạn sau này bằng email về hoá đơn."
     index:
-      find_your_local_tribe: ~
-      or_start_your_own: ~
-      start_your_own_tribe_link: ~
+      find_your_local_tribe: "Tìm thấy cộng đồng đại phương của bạn"
+      or_start_your_own: "...hoặc %{start_your_own_tribe_link}"
+      start_your_own_tribe_link: "bắt đầu của riêng bạn!"
     select_pricing_plan:
-      select_your_plan: ~
-      pick_one_of_the_options_below: ~
-      create_for_free: ~
-      contact_us: ~
-      free_plan: ~
-      max_members: ~
+      select_your_plan: "Chọn kế hoạch của bạn"
+      pick_one_of_the_options_below: "Chọn một trong các tùy chọn dưới đây."
+      create_for_free: "Tạo miễn phí"
+      contact_us: "Liên hệ với chúng tôi"
+      free_plan: "Kế hoạch tự do"
+      max_members: "Cực đại. %{number} thành viên"
       premium_plan: ~
       care_free_user_support: ~
-      create_your_tribe: ~
-      professional_plan: ~
-      unlimited_members: ~
+      create_your_tribe: "Tạo cộng đồng của bạn"
+      professional_plan: "Chỉnh sửa kế hoạch"
+      unlimited_members: "Thành viên không giới hạn"
       intranet_integration: ~
-      no_charge: ~
-      euros_per_month_premium: ~
+      no_charge: "Miễn phí"
+      euros_per_month_premium: "%{price} Euro/tháng (bao gồm thuế VAT)"
       custom_domain: ~
-      you_can_change_and_cancel: ~
-      we_help_you_get_started: ~
-      discounts_available_for_non_profits: ~
+      you_can_change_and_cancel: "Bạn có thể thay đổi hoặc hủy bỏ kế hoạch sau này tại bất kỳ thời gian."
+      we_help_you_get_started: "Chúng tôi giúp đỡ để tập hợp mọi người"
+      discounts_available_for_non_profits: "Chúng giảm giá 50% cho các tổ chức phi lợi nhuận"
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: ~
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: ~
-      company: ~
-      university: ~
-      town: ~
-      congregation: ~
-      association: ~
-      neighborhood: ~
-      apartment_building: ~
-      other: ~
+      what_kind_of_tribe_do_you_want_to_create: "Bạn muốn tạo loại cộng đồng gì?"
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Đầu tiên cho chúng tôi biết loại cộng đồng bạn đại diện bằng cách chọn một loại dưới đây."
+      company: "Công ty"
+      university: "Đại học"
+      town: "Thành phố / Thị trấn"
+      congregation: "Giáo đoàn"
+      association: "Hiệp hội"
+      neighborhood: "Khu phố"
+      apartment_building: "Căn hộ chung cư"
+      other: "Tổ chức khác"
     new_tribe_form:
-      create_a_tribe_in_a_minute: ~
-      welcome_now_create_your_tribe: ~
-      name_of_your_tribe: ~
-      web_address_of_your_tribe: ~
-      slogan_of_your_tribe: ~
-      describe_your_tribe: ~
-      create_your_tribe: ~
-      domain_invalid: ~
-      domain_taken: ~
-      address: ~
-      select_main_language_of_your_tribe: ~
-      language: ~
+      create_a_tribe_in_a_minute: "Tạo một cộng đồng mới trong một phút"
+      welcome_now_create_your_tribe: "Chào mừng %{name}! Tích cực và tạo cộng đồng của bạn."
+      name_of_your_tribe: "Tên cộng đồng của bạn"
+      web_address_of_your_tribe: "Địa chỉ web của cộng đồng của bạn"
+      slogan_of_your_tribe: "Khẩu hiệu của cộng đồng của bạn"
+      describe_your_tribe: "Mô tả cộng đồng của bạn: mục đích của cộng đồng là gì"
+      create_your_tribe: "Tạo cộng đồng của bạn!"
+      domain_invalid: "Tên miền chỉ có thể chứa các bảng chữ cái, số, gạch dưới hoặc dấu gạch ngang."
+      domain_taken: "Cộng đồng này đã tồn tại. Bạn phải chọn một tên miền khác."
+      address: "Vị trí cộng đồng của bạn"
+      select_main_language_of_your_tribe: "Chọn ngôn ngữ chính của cộng đồng của bạn"
+      language: "Ngôn ngữ"
     signup_form:
-      create_an_account: ~
-      to_create_a_tribe_you_must_first_create_sharetribe_account: ~
-      log_in_with_your_existing_account: ~
-      your_email: ~
-      your_university_email: ~
-      your_company_email: ~
-      you_need_to_confirm: ~
-      pick_username: ~
-      your_given_name: ~
-      your_family_name: ~
-      your_password: ~
-      confirm_your_password: ~
-      email_in_use_message: ~
-      invalid_email_ending_message: ~
-      log_in_here: ~
-      existing_community_with_this_email: ~
-      here: ~
-      for_company: ~
-      for_university: ~
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: ~
-      for_apartment_building: ~
-      for_other: ~
+      create_an_account: "Tạo một tài khoản cho chính mình"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "Bạn có thể tạo một tài khoản mới để %{service_name} dưới đây hoặc"
+      log_in_with_your_existing_account: "đăng nhập bằng tài khoản hiện tại"
+      your_email: "Địa chỉ email của bạn"
+      your_university_email: "Địa chỉ email trường đại học của bạn"
+      your_company_email: "Địa chỉ email công ty của bạn"
+      you_need_to_confirm: "Để tạo ra một cộng đồng cho %{tribe_type} của bạn bạn cần phải xác nhận %{tribe_type} địa chỉ email của bạn."
+      pick_username: "Chọn một tên người dùng"
+      your_given_name: "Tên của bạn"
+      your_family_name: "Họ của bạn"
+      your_password: "Chọn một mật khẩu"
+      confirm_your_password: "Xác nhận mật khẩu của bạn"
+      email_in_use_message: "Vửa có một tài khoản trong %{service_name} với địa chỉ email. Nếu bạn đã có tài khoản, bạn có thể đăng nhập bằng cách sử dụng liên kết ở trên."
+      invalid_email_ending_message: "Đây có vẻ giống như một email cá nhân. Bạn cần phải đăng ký bằng email %{community_category} của bạn."
+      log_in_here: "đăng nhập tại đây"
+      existing_community_with_this_email: "Đã có cộng đồng này %{community_category}. Bạn có thể tham gia cộng đồng %{link}."
+      here: đây
+      for_company: "công ty"
+      for_university: "đại học"
+      for_town: "thành phố/thị trấn"
+      for_congregation: "giáo đoàn"
+      for_association: "hiệp hội"
+      for_neighborhood: "khu phố"
+      for_apartment_building: "căn hộ chung cư"
+      for_other: khác
   community_memberships:
     new:
-      join_community: ~
-      you_are_not_a_member_of_this_community: ~
-      you_can_join: ~
-      you_can_join_email_confirmation: ~
-      you_can_join_email_confirmation_multiple_addresses: ~
-      you_can_join_with_invite_only: ~
-      if_want_to_view_content: ~
-      log_out: ~
-      join_community_button: ~
+      join_community: "Tham gia cộng đồng '%{community}'"
+      you_are_not_a_member_of_this_community: "Bạn có một tài khoản người dùng tại %{service_name}, nhưng bạn chưa là thành viên của %{service_name} cộng đồng '%{community} '."
+      you_can_join: "Bạn có thể tham gia cộng đồng này bằng việc chấp nhận các điều khoản sử dụng và bấm vào 'Tham gia cộng đồng' dưới đây."
+      you_can_join_email_confirmation: "Để tham gia cộng đồng này bạn cần phải có một địa chỉ email hợp lệ, kết thúc bằng %{email_ending}. Bạn có thể tham gia bằng cách điền vào địa chỉ email của bạn, chấp nhận các điều khoản sử dụng của cộng đồng này và nhấp vào 'Tham gia cộng đồng' dưới đây, và xác nhận email của bạn."
+      you_can_join_email_confirmation_multiple_addresses: "Để tham gia cộng đồng này, bạn cần phải có một địa chỉ email hợp lệ, kết thúc bằng một trong những điều sau đây: %{email_endings}. Bạn có thể tham gia bằng cách điền vào địa chỉ email của bạn, chấp nhận các điều khoản sử dụng của cộng đồng này và nhấp vào 'Tham gia cộng đồng này' bên dưới."
+      you_can_join_with_invite_only: "Bạn phải có một lời mời từ một thành viên khác để tham gia cộng đồng này. Nếu bạn có một mã số lời mời, bạn có thể tham gia cộng đồng này bằng cách gõ mã vào trường bên dưới, chấp nhận các điều khoản sử dụng của cộng đồng này và nhấp vào 'Tham gia cộng đồng' dưới đây."
+      if_want_to_view_content: "Nếu bạn muốn để xem nội dung trong cộng đồng này mà không gia nhập, bạn cần phải"
+      log_out: "đăng xuất"
+      join_community_button: "Tham gia cộng đồng"
   dashboard:
     api:
-      coming_soon: ~
+      coming_soon: "Đến sớm!"
     index:
-      get_started: ~
-      browse_communities_around_you: ~
+      get_started: "BẮT ĐẦU BÂY GIỜ!"
+      browse_communities_around_you: "tham gia cộng đồng gần bạn"
       slogan: "Chia sẻ với cộng đồng của bạn."
-      create_your_own: ~
+      create_your_own: "Tạo cho riêng bạn"
       sharing_website: "CHIA SẺ TRANG WEB"
       main_description: "Thiết lập một không gian mà các thành viên của cộng đồng của bạn có thể chia sẻ hàng hoá, dịch vụ, cuốc xe và không gian trong một môi trường địa phương tin cậy. Miễn phí và chỉ mất vài phút để làm!"
-      kassi_for_your_company: ~
-      kassi_for_your_company_description: ~
-      kassi_for_your_city: ~
-      kassi_for_your_city_description: ~
-      kassi_for_your_university: ~
-      kassi_for_your_university_description: ~
-      want_kassi_for_your_community: ~
+      kassi_for_your_company: "...CHO CÔNG TY CỦA BẠN"
+      kassi_for_your_company_description: "Bạn có muốn giúp nhân viên của bạn kết nối với nhau? Bạn muốn cắt giảm phát thải của bạn và trở thành một doanh nghiệp xanh? Bạn muốn tiết kiệm chi phí du lịch, đậu xe và đồ nội thất sử dụng? Sharetribe là giải pháp cho bạn."
+      kassi_for_your_city: "... CHO THÀNH PHỐ CỦA BẠN"
+      kassi_for_your_city_description: "Bạn muốn chuyển đổi các khu dân cư của thành phố cho cộng đồng ngôi làng nơi mọi người chia sẻ với nhau? Bạn có muốn trao quyền cho công dân của bạn để cải thiện cuộc sống của họ? Sharetribe sẽ giúp bạn đạt điều đó."
+      kassi_for_your_university: "...CHO TRƯỜNG ĐẠI HỌC CỦA BẠN"
+      kassi_for_your_university_description: "Bạn muốn tạo ra một môi trường trong khuôn viên trường sôi động, nơi mọi người biết và tin cậy lẫn nhau? Muốn giúp các sinh viên và nhân viên của bạn tiết kiệm thời gian, tiền bạc, và môi trường của họ? Hãy thử Sharetribe và cảm nhận sự thay đổi!"
+      want_kassi_for_your_community: "Muốn %{service_name} cho cộng đồng của bạn?"
       email_default_text: "Địa chỉ email của bạn"
       send: Gửi!
-      or_drop_us_a_line: ~
+      or_drop_us_a_line: "...hoặc cho chúng tôi xuống một dòng:"
       thanks_for_contacting_us: "Cảm ơn bạn đã liên hệ với chúng tôi! Chúng tôi sẽ gửi cho bạn thêm thông tin về làm thế nào để tạo một cộng đồng %{service_name} sớm."
       resources: "TÀI NGUYÊN"
-      connect: ~
-      about: ~
-      developers: ~
-      api: ~
-      blog: ~
+      connect: "KẾT NỐI"
+      about: "VỀ SHARETRIBE"
+      developers: "CHO NHÀ PHÁT TRIỂN"
+      api: API
+      blog: Blog
       code: "Mã nguồn"
       issue_tracker: ~
       product_of: "Sharetribe là một sản phẩm của"
       language: "Ngôn ngữ:"
       new: MỚI!
       new_text: ~
-      want_to_know_more: ~
-      read_our_faq: ~
-      contact_us: ~
-      why_you_really_should_have_a_tribe: ~
-      an_example: ~
+      want_to_know_more: "Bạn muốn biết thêm chi tiết? %{read_our_faq_link} or %{contact_us_link}."
+      read_our_faq: "Đọc câu hỏi và trả lợi thường xuyên (FAQ) của chúng tôi"
+      contact_us: "liên hệ trực tiếp với chúng tôi"
+      why_you_really_should_have_a_tribe: "Tại sao bạn thực sự cần phải có một cộng đồng"
+      an_example: "Một ví dụ:"
       home: ~
-      faq: ~
-      browse_tribes: ~
-      pricing: ~
-      contact: ~
-      university_example_link: ~
-      company_example_link: ~
-      city_example_link: ~
+      faq: "Câu hỏi thường gặp (FAQ)"
+      browse_tribes: "Duyệt các cộng đồng"
+      pricing: "Giá cả"
+      contact: "Liên hệ"
+      university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe của đại học Aalto</a>"
+      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe của HTC Keilaniemi</a>"
+      city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe Kallio, Helsinki</a>"
   emails:
     accept_reminder:
       offer_accusative: "hỗ trợ"
@@ -329,7 +330,7 @@ vi:
       welcome_to_kassi: "Chào mừng đến với %{service_name}!"
       need_to_confirm: "Bạn cần phải xác nhận địa chỉ email của bạn bằng cách nhấp vào liên kết sau:"
       confirmation_link_text: "Xác nhận tài khoản của tôi"
-      turning_on_confirmations_in_this_community: ~
+      turning_on_confirmations_in_this_community: "Chúng tôi đang bắt đầu sử dụng các xác nhận email trong cộng đồng %{service_name}."
     common:
       check_your_settings: "Kiểm tra các thiết lập của bạn"
       hey: "Chào %{name},"
@@ -362,11 +363,11 @@ vi:
       has_commented_your_request_in_kassi: "%{author} đã nhận xét %{listing} yêu cầu của bạn"
       you_can_reply_to_comment_in: "Bạn có thể xem tất cả các nhận xét và phản hồi đến họ tại"
       you_have_a_new_comment: "%{author} đã nhận xét danh sách của bạn tại %{service_name}"
-      listing_you_follow_has_a_new_comment: ~
-      has_commented_offer_you_follow_in_kassi: ~
-      has_commented_request_you_follow_in_kassi: ~
+      listing_you_follow_has_a_new_comment: "%{author} đã nhận xét về danh sách mà bạn làm theo %{service_name}"
+      has_commented_offer_you_follow_in_kassi: "%{author} đã nhận xét về yêu cầu '%{listing}' bạn đang theo dõi trong %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} đã nhận xét về hỗ trỡ '%{listing}' bạn đang theo dõi trong %{service_name}"
     new_message:
-      conversation_title: ~
+      conversation_title: "Tiêu đề tin nhắn: %{title}"
       do_not_reply_to_this_email: "Chú ý: không trả lời trực tiếp đến email này. Thay vào đó sử dụng liện kết trả lời ở trên."
       has_sent_you_a_message_in_kassi: "%{sender} đã gửi cho bạn một tin nhắn tại %{service_name}:"
       you_can_reply_to_message_in: "Ban có thể trả lời tin nhắn tại"
@@ -376,9 +377,9 @@ vi:
       you_can_give_feedback_to: "Ban có thể đưa ra thông tin phản hồi đến %{name} tại"
       you_can_view_all_your_feedback_in: "Bạn có thể xem tất cả thông tin phản hồi bạn đã nhận được tại"
     new_update_to_listing:
-      listing_you_follow_has_been_updated: ~
-      has_updated_offer_you_follow_in_kassi: ~
-      has_updated_request_you_follow_in_kassi: ~
+      listing_you_follow_has_been_updated: "Danh sách các bạn theo đã được cập nhật"
+      has_updated_offer_you_follow_in_kassi: "%{author} đã cập nhật yêu cầu '%{listing}' bạn đang theo dõi trong %{service_name}"
+      has_updated_request_you_follow_in_kassi: "%{author} đã cập nhật hỗ trợ '%{listing}' bạn đang theo dõi trong %{service_name}"
       you_can_view_the_changes_in: "Bạn có thể xem những thay đổi trong"
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
@@ -386,19 +387,19 @@ vi:
       update_on_what_is_happening: ~
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
-      could_you_offer_something: ~
+      could_you_offer_something: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không?"
       add: Thêm
-      an_offer: ~
-      a_request: ~
-      to_kassi: ~
-      check_everything_that_others_are: ~
-      offering: ~
-      requesting: ~
+      an_offer: "một hỗ trợ"
+      a_request: "một yêu cầu"
+      to_kassi: "đến %{service_name}"
+      check_everything_that_others_are: "kiểm tra mọi thứ mà những người khác"
+      offering: "hỗ trợ"
+      requesting: "yêu cầu"
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
     reply_to_contact_request:
       thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
-      change_my_password: ~
+      change_my_password: "Đổi mật khẩu của tôi"
       reset_password_instructions: ~
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Thông tin phản hồi là công khai và được hiển thị cho tất cả các người dùng khác. Dựa trên thông tin phản hồi những người dùng khác có thể nhận xét, nếu %{name} là một người đáng tin cậy và một người nào đó họ muốn liên lạc. Như vậy, điều đó là tốt để luôn luôn nhớ đưa ra thông tin phản hồi về các sự kiện, và cũng nhắc nhở nhóm khác đưa ra thông tin phản hồi cho bạn. Bạn cũng cần thông tin phản hồi tích cực để đạt được nhiều huy hiệu nhất."
@@ -429,36 +430,36 @@ vi:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
       kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      contact_us: "liên hệ với chúng tôi"
       send_feedback: "Gửi thông tin phản hồi"
       your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
     send: Gửi
     your_email_address: "Địa chỉ email của bạn"
   event_feed_events:
     accept:
-      has_accepted_lend_item: ~
-      has_accepted_borrow_item: ~
-      has_accepted_rent_out_item: ~
-      has_accepted_rent_item: ~
-      has_accepted_give_away_item: ~
-      has_accepted_receive_item: ~
-      has_accepted_sell_item: ~
-      has_accepted_buy_item: ~
-      has_accepted_trade_item: ~
-      has_accepted_sell_housing: ~
-      has_accepted_buy_housing: ~
-      has_accepted_rent_out_housing: ~
-      has_accepted_rent_housing: ~
-      has_accepted_favor: ~
-      has_accepted_rideshare: ~
+      has_accepted_lend_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
+      has_accepted_borrow_item: "%{offerer_name} đồng ý cho %{requester_name} vay %{listing_title} %{time_ago}."
+      has_accepted_rent_out_item: "%{offerer_name} đồng ý cho %{requester_name} thuê %{listing_title} %{time_ago}."
+      has_accepted_rent_item: "%{offerer_name} đồng ý cho %{requester_name} thuê %{listing_title} %{time_ago}."
+      has_accepted_give_away_item: "%{offerer_name} đồng ý cho %{requester_name} %{listing_title} %{time_ago}."
+      has_accepted_receive_item: "%{offerer_name} đồng ý cho %{requester_name} %{listing_title} %{time_ago}."
+      has_accepted_sell_item: "%{offerer_name} đồng ý bán %{listing_title} cho %{requester_name} %{time_ago}."
+      has_accepted_buy_item: "%{offerer_name} đồng ý bán %{listing_title} cho %{requester_name} %{time_ago}."
+      has_accepted_trade_item: "%{offerer_name} đồng ý trao đổi %{listing_title} với %{requester_name} %{time_ago}."
+      has_accepted_sell_housing: "%{offerer_name} đồng ý bán %{listing_title} cho %{requester_name} %{time_ago}."
+      has_accepted_buy_housing: "%{offerer_name} đồng ý bán %{listing_title} cho %{requester_name} %{time_ago}."
+      has_accepted_rent_out_housing: "%{offerer_name} đồng ý cho %{requester_name} thuê %{listing_title} %{time_ago}."
+      has_accepted_rent_housing: "%{offerer_name} đồng ý cho %{requester_name} thuê %{listing_title} %{time_ago}."
+      has_accepted_favor: "%{offerer_name} đồng ý hỗ trợ %{listing_title} cho %{requester_name} %{time_ago}."
+      has_accepted_rideshare: "%{offerer_name} đồng ý chia sẻ cuốc xe %{listing_title} với %{requester_name} %{time_ago}."
     join:
-      joined_kassi: ~
+      joined_kassi: "%{name} tham gia %{community_name} %{service_name} %{time_ago}."
     login:
       logged_in_to_kassi: "%{name} đã đăng nhập vào %{service_name} %{time_ago}."
     comment:
-      commented: ~
-      offer_partitive: ~
-      request_partitive: ~
+      commented: "%{commenter_name} nhận xét về %{listing_type} %{listing_title} %{time_ago}."
+      offer_partitive: "hỗ trợ"
+      request_partitive: "yêu cầu"
   header:
     about: "Tìm hiểu về"
     community: "Cộng đồng"
@@ -533,7 +534,7 @@ vi:
       show_less: "Hiển thị ít hơn"
       show_more: "Hiển thị thêm"
     poll_form:
-      poll: ~
+      poll: "Thăm dò ý kiến:"
       comment: "Bình luận:"
       answer: "Trả lời:"
       results: "Kết quả"
@@ -552,8 +553,8 @@ vi:
       recent_offers: "Những gì các thành viên đang hỗ trợ bây giờ"
       recent_requests: "Những gì các thành viên cần ngay bây giờ"
       plus: "...cộng"
-      other_offer: ~
-      other_offers: ~
+      other_offer: "hỗ trợ khác"
+      other_offers: "các hỗ trợ khác"
       other_request: "yêu cầu khác"
       other_requests: "yêu cầu khác"
   layouts:
@@ -561,7 +562,7 @@ vi:
       admin: "ban quản trị %{service_name}"
       back_to_kassi: "Trở về %{service_name}"
       news_items: "Tin bài"
-      polls: ~
+      polls: "Thăm dò ý kiến"
     application:
       default_feedback: "Đề nghị một đặc tính mới, thông báo lỗi, cho biết ý kiến của bạn về dịch vụ, hoặc chỉ để lại chú ý bằng cách nói xin chào!"
       feedback: "Thông tin phản hồi đến đội ngũ %{service_name}"
@@ -615,17 +616,17 @@ vi:
       sign_up: "Đăng kí"
     notifications:
       account_creation_succesful_you_still_need_to_confirm_your_email: "Tài khoản được tạo thành công. Tiếp theo bạn cần phải xác nhận địa chỉ email của bạn."
-      community_joined_succesfully_you_still_need_to_confirm_your_email: ~
+      community_joined_succesfully_you_still_need_to_confirm_your_email: "Bây giờ bạn là một thành viên của cộng đồng này. Tiếp theo, bạn cần phải xác nhận địa chỉ email của bạn."
       avatar_upload_failed: "Avatar tải lên thất bại. Hãy nhớ rằng tập tin hình ảnh phải ở định dạng .png, .jpg hoặc .gif."
       avatar_upload_successful: "Avatar tải lên thành công"
       comment_cannot_be_empty: "Bình luận không được để trống"
       comment_sent: "Bình luận đã gửi"
-      confirmation_link_is_wrong_or_used: ~
-      additional_email_confirmed: ~
+      confirmation_link_is_wrong_or_used: "Liên kết xác nhận vừa được sử dụng hoặc bị hỏng. Thử đăng nhập lại, hoặc gửi thông tin phản hồi nếu lỗi vẫn tồn tại."
+      additional_email_confirmed: "Thư điện tử bạn đã nhập bây giờ được xác nhận. Bây giờ, bạn có thể tham gia cộng đồng bằng cách nhập lại nó."
       create_new_offer: "Hỗ trợ thứ gì khác"
       create_new_request: "Yêu cầu thứ gì khác"
       create_one_here: "tạo một ở đây"
-      email_confirmation_sent_to_new_address: ~
+      email_confirmation_sent_to_new_address: "Bây giờ, email xác nhận được gửi đến địa chỉ mới."
       email_not_found: "Email bạn cho không tim thấy từ cớ sở dữ liệu %{service_name}."
       error_with_session: "Vùng bị lỗi"
       feedback_considered_spam: "Thông tin phản hồi không được lưu, vì định dạng của nó. Thử lại hoặc sử dụng diễn đàn thông tin phản hồi."
@@ -665,7 +666,7 @@ vi:
       poll_updated: ~
       poll_deleted: ~
       read_more: "Tìm hiểu thêm!"
-      registration_considered_spam: ~
+      registration_considered_spam: "Đăng ký không làm việc, xin vui lòng gửi thông tin phản hồi ở bên trái và đề cập đến \"email2 lỗi\"."
       reply_cannot_be_empty: "Bạn không thể gửi thông điệp trống."
       reply_sent: "Trả lời đã gửi thành công."
       request_accepted: "Yêu cầu đã được chấp nhận"
@@ -673,7 +674,7 @@ vi:
       request_created_successfully: "Đã tạo thành công yêu cầu"
       request_rejected: "Yêu cầu đã bị từ chối"
       request_updated_successfully: "Đã cập nhật thành công yêu cầu"
-      message_sent: ~
+      message_sent: "Đã gửi tin nhắn"
       this_content_is_not_available_in_this_community: "Nội dung này là không có sẵn trong cộng đồng này."
       unknown_error: "Lỗi không xác định. Xin vui lòng sử dụng liên kết phản hồi để gửi chi tiết những gì đã xảy ra."
       update_error: "Có lỗi xảy ra khi cố cập nhật thông tin của bạn, vui lòng thử lại"
@@ -684,26 +685,26 @@ vi:
       send_instructions: ~
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_reply_to_a_closed_request: "Bạn không thể trả lời một yêu cầu bị đóng"
-      you_cannot_send_message_to_yourself: ~
+      you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
       you_followed_listing: ~
       you_have_already_given_feedback_about_this_event: "Bạn vừa đưa ra thông tin phản hồi về sự kiện này"
-      you_are_now_member: ~
-      you_are_already_member: ~
+      you_are_now_member: "Bạn đã tham gia cộng đồng này thành công"
+      you_are_already_member: "Bạn đã là một thành viên của cộng đồng %{service_name}. Chào mừng trở lại!"
       you_must_log_in_to_create_new_offer: "Bạn phải đăng nhập vào %{service_name} để tạo hỗ trợ mới. Nếu bạn không có tài khoản bạn có thể"
-      additional_email_confirmed_dashboard: ~
+      additional_email_confirmed_dashboard: "Email của bạn bây giờ được xác nhận."
       you_must_log_in_to_create_new_request: "Bạn phải đăng nhập vào %{service_name} để tạo yêu cầu mới. Nếu bạn không có tài khoản bạn có thể"
       you_must_log_in_to_give_feedback: "Bạn phải đăng nhập để đưa ra thông thin phản hồi"
       you_must_log_in_to_invite_new_users: "Bạn phải đăng nhập để mời được người dùng mới vào %{service_name}"
       you_must_log_in_to_send_a_comment: "Bạn phải đăng nhập để gửi bình luận"
       you_must_log_in_to_send_a_message: "Bạn phải đăng nhập vào %{service_name} để gửi thông điệp đến người dùng khác"
       you_must_log_in_to_view_this_content: "Bạn phải đăng nhập để xem nội dung này"
-      you_must_log_in_to_view_this_page: ~
+      you_must_log_in_to_view_this_page: "Bạn phải đăng nhập để xem trang này"
       you_must_log_in_to_view_your_inbox: "Bạn phải đăng nhập vào %{service_name} để xem hộp thư đến của bạn."
       you_must_log_in_to_view_your_settings: "Bạn phải đăng nhập vào %{service_name} để xem được các thiết lập của bạn."
       you_must_log_in_to_add_news_item: "Bạn phải đăng nhập vào %{service_name} mới thêm được bài viết mới."
       you_need_to_confirm_your_account_first: "Bạn cần phải xác nhận email của bạn lần trước tiên."
       you_unfollowed_listing: "Bạn đang không còn được đề cập trong danh sách này"
-      joining_community_failed: ~
+      joining_community_failed: "Tham gia cộng đồng này thất bại"
     profile_extras_header:
       back_to_profile_of_person: "Quay về hồ sơ của người dùng"
       badges: "Huy hiệu"
@@ -718,8 +719,8 @@ vi:
     bubble_listing_not_visible:
       listing_not_visible: "Bạn không có quyền xem danh sách này."
     comment:
-      wrote: ~
-      send_private_message: ~
+      wrote: "đã viết"
+      send_private_message: "Gửi tin nhắn riêng tư đến %{person}"
     comment_form:
       log_in: "đăng nhập"
       send_comment: "Gửi bình luận"
@@ -740,9 +741,9 @@ vi:
       reopen_offer: "Mở lại giao dịch"
       reopen_request: "Mở lại yêu cầu"
     follow_links:
-      follow: ~
-      unfollow: ~
-      follow_description: ~
+      follow: "Thực hiện theo các danh sách này"
+      unfollow: "Ngừng theo danh sách này"
+      follow_description: "Bằng cách làm theo danh sách, bạn sẽ nhận được thông báo về ý kiến mới và cập nhật nó."
     form:
       departure_time:
         at: Tại
@@ -760,7 +761,7 @@ vi:
         offer_something: "Hỗ trỡ thứ gì đó"
         request_something: "Yêu cầu thứ gì đó"
         rideshare: "một cuốc xe"
-        i_want_to_offer: ~
+        i_want_to_offer: "Tôi muốn hỗ trợ..."
         i_want_to_request: "Tôi cần..."
       googlemap:
         googlemap_copy: "Những Điểm Cuối Từ Bản Đồ"
@@ -780,7 +781,7 @@ vi:
         save_offer: "Lưu giao dịch"
         save_request: "Lưu yêu cầu"
       share_type:
-        select: ~
+        select: Chọn
         borrow: Mượn
         buy: Mua
         give_away: "Cho đi"
@@ -856,33 +857,33 @@ vi:
     link_labels:
       link_label_for_favor_offer: "Yêu cầu dịch vụ này"
       link_label_for_favor_request: "Hỗ trợ dịch vụ này"
-      link_label_for_housing_offer_sell: ~
-      link_label_for_housing_offer_rent_out: ~
-      link_label_for_housing_offer_share_for_free: ~
-      link_label_for_housing_request_buy: ~
-      link_label_for_housing_request_rent: ~
-      link_label_for_item_offer_lend: ~
-      link_label_for_item_offer_rent_out: ~
-      link_label_for_item_offer_sell: ~
-      link_label_for_item_offer_give_away: ~
-      link_label_for_item_offer_trade: ~
-      link_label_for_item_request_borrow: ~
-      link_label_for_item_request_rent: ~
-      link_label_for_item_request_buy: ~
-      link_label_for_item_request_receive: ~
-      link_label_for_item_request_trade: ~
+      link_label_for_housing_offer_sell: "Mua không gian này"
+      link_label_for_housing_offer_rent_out: "Thuê không gian này"
+      link_label_for_housing_offer_share_for_free: "Yêu cầu không gian này"
+      link_label_for_housing_request_buy: "Trợ giúp để bán không gian này"
+      link_label_for_housing_request_rent: "Trợ giúp cho thuê không gian này"
+      link_label_for_item_offer_lend: "Mượn khoản mục này"
+      link_label_for_item_offer_rent_out: "Thuê khoản mục này"
+      link_label_for_item_offer_sell: "Mua sản phẩm này"
+      link_label_for_item_offer_give_away: "Yêu cầu khoản mục này"
+      link_label_for_item_offer_trade: "Trao đổi khoản mục này"
+      link_label_for_item_request_borrow: "Hỗ trợ để vay khoản mục này"
+      link_label_for_item_request_rent: "Hỗ trợ cho thuê khoản mục này"
+      link_label_for_item_request_buy: "Hỗ trợ để bán các khoản mục này"
+      link_label_for_item_request_receive: "Cho khoản mục này đối với người yêu cầu"
+      link_label_for_item_request_trade: "Hỗ trợ để trao đổi khoản mục này"
       link_label_for_rideshare_offer: "Yêu cầu cuốc xe này"
       link_label_for_rideshare_request: "Hỗ trợ cuốc xe"
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_share_for_free: ~
+      message_link_label_for_offer: "Gửi tin nhắn cá nhân đến người hỗ trợ"
+      message_link_label_for_request: "Gửi tin nhắn các nhân đến người yêu cầu"
+      message_link_label_for_item_offer_lend: "Gửi tin nhắn các nhân đến người cho vay"
+      message_link_label_for_item_offer_rent_out: "Gửi tin nhắn cá nhân đến người cho thuê"
+      message_link_label_for_item_offer_sell: "Gửi tin nhắn các nhân đến người bán"
+      message_link_label_for_item_offer_give_away: "Gửi tin nhắn cá nhân đến người hỗ trợ"
+      message_link_label_for_item_offer_trade: "Gửi tin nhắn cá nhân đến người hỗ trợ"
+      message_link_label_for_housing_offer_sell: "Gửi tin nhắn các nhân đến người bán"
+      message_link_label_for_housing_offer_rent_out: "Gửi tin nhắn cá nhân đến người cho thuê"
+      message_link_label_for_housing_offer_share_for_free: "Gửi tin nhắn cá nhân đến người hỗ trợ"
     listed_listing:
       edit: "Chỉnh sửa"
     listed_listing_closed_status:
@@ -901,26 +902,26 @@ vi:
       offer_closed: "Giao dịch bị đóng"
       request_closed: "Yêu cầu bị đóng"
     show:
-      add_your_phone_number: ~
-      add_profile_picture: ~
+      add_your_phone_number: "Thêm số điện thoại của bạn"
+      add_profile_picture: "Thêm ảnh tiểu sử"
       comments: "Thảo luận công khai"
-      contact_by_phone: ~
+      contact_by_phone: "Liên hệ bằng điện thoại:"
       favor_offer: "Dịch vụ hỗ trợ"
       favor_request: "Dịch vụ yêu cầu"
-      item_offer_trade: ~
-      item_request_trade: ~
+      item_offer_trade: "Trao đổi hỗ trợ"
+      item_request_trade: "Trao đổi yêu cầu"
       no_description: "Không mô tả"
       offer: "Hỗ trợ"
       offer_author: "Hỗ trợ bởi"
       offer_created: "Đã tạo"
-      feedback: ~
+      feedback: "Thông tin phản hồi:"
       qr_code: ~
       request: "Yêu cầu"
       request_author: "Yêu cầu bởi"
       request_created: "Đã tạo"
       rideshare_offer: "Hỗ trợ cuốc xe chia sẻ"
       rideshare_request: "Yêu cầu cuốc xe chia sẻ"
-      send_private_message: ~
+      send_private_message: "Gửi tin nhắn riêng tư"
       share_types: "Các loại chia sẻ"
       share_types_offer: "Loại giao dịch"
       share_types_request: "Loại yêu cầu"
@@ -956,9 +957,10 @@ vi:
     news_item:
       delete_news_item: "Loại bỏ bài viết"
   okl:
-    member_id: ~
+    member_id: "ID thành viên"
     member_id_is_your_username: ~
-    join_here: ~
+    member_id_or_email: ~
+    join_here: "tham gia ở đây."
   people:
     badge_description:
       badge_achieved_at: "Huy hiệu đạt được "
@@ -985,15 +987,15 @@ vi:
       email: "Địa chỉ email:"
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
-      email_not_allowed: ~
+      email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
       email_restriction_instructions:
         other: ~
       enter_captcha: "Tôi là con người:"
       family_name: "Họ:"
       given_name: "Tên:"
       i_accept_the: "Tôi chấp nhận"
-      if_you_already_have_account_you_can: ~
-      join_with_your_existing_account: ~
+      if_you_already_have_account_you_can: "Nếu bạn đã có một tài khoản tại một cộng đồng %{service_name} khác, bạn có thể"
+      join_with_your_existing_account: "tham gia cộng đồng này với tài khoản đã có"
       invalid_invitation_code: "Mã lời mời không hợp lệ:"
       invitation_code: "Mã lời mời:"
       not_required: ", không bắt buộc"
@@ -1063,66 +1065,66 @@ vi:
       listing_freak_silver: ~
       listing_freak_silver_description: ~
       moneymaker_bronze: ~
-      moneymaker_bronze_description: ~
-      moneymaker_gold: ~
-      moneymaker_gold_description: ~
-      moneymaker_silver: ~
-      moneymaker_silver_description: ~
+      moneymaker_bronze_description: "Bạn nhận ra rằng %{service_name} cũng có thể được sử dụng để kiếm tiền! Bạn đã bán hoặc thuê thành công hai thứ tại %{service_name}."
+      moneymaker_gold: "Moneymaker (vàng)"
+      moneymaker_gold_description: "15 món đã bán hay thuê có phản hồi tích cực! %{service_name} là một vụ kinh doanh tuyệt vời cho bạn và những người mua hoặc thuê từ bạn!"
+      moneymaker_silver: "Moneymaker (bạc)"
+      moneymaker_silver_description: "%{service_name} cung cấp cho một bổ sung thú vị vào thu nhập của bạn. Sáu món đã bán hoặc thuê có phản hồi tích cực."
       rookie: ~
-      rookie_description: ~
+      rookie_description: "Bạn thêm hỗ trợ hoặc yêu cầu vào %{service_name} lần đầu tiên. Chúng ta đi!"
       santa: ~
       santa_description: ~
       taxi_stand_bronze: ~
-      taxi_stand_bronze_description: ~
+      taxi_stand_bronze_description: "Bạn đã chia sẻ ba cuốc xe đến %{service_name}."
       taxi_stand_gold: ~
-      taxi_stand_gold_description: ~
+      taxi_stand_gold_description: "Bạn luôn luôn ở trong dịch vụ, sẵn sàng để hỗ trợ một cuốc xe cho những người khác. Hộ trợ 25 cuốc xe, tuyệt vời!"
       taxi_stand_silver: ~
-      taxi_stand_silver_description: ~
+      taxi_stand_silver_description: "10 cuốc xe chia sẻ đã được thêm, tuyệt vời! Người ta biết ai để hỏi khi họ cần một cuốc xe."
       volunteer_bronze: "Tình nguyện viên (đồng)"
-      volunteer_bronze_description: ~
+      volunteer_bronze_description: "Bạn muốn đưa các kỹ năng sử dụng của bạn bằng cách giúp những người khác. Bạn có ba hỗ trợ dịch vụ mở tại %{service_name} ."
       volunteer_gold: "Tình nguyện viên (vàng)"
       volunteer_gold_description: "Bạn biết rằng không gì tốt hơn việc giúp đỡ người khác. Bạn có 25 dịch vụ hỗ trợ mở trong hồ sơ của bạn, tuyệt vời!"
       volunteer_silver: "Tình nguyện viên (bạc)"
-      volunteer_silver_description: ~
+      volunteer_silver_description: "Bạn có rất nhiều để cung cấp cho những người khác: bạn đã liệt kê 10 dịch vụ mà bạn có thể làm tại %{service_name} !"
     profile_feedback:
       as_expected: "Như mong đợi"
       exceeded_expectations: "Tốt hơn nhiều so với dự kiến"
-      grade: ~
-      and_gave_following_feedback: ~
+      grade: "xếp loại:"
+      and_gave_following_feedback: "và đã cung cấp thông tin phản hồi sau"
       less_than_expected: "Tệ hơn so với dự kiến"
-      offered_favor: ~
-      offered_housing: ~
-      offered_item: ~
+      offered_favor: "đã hỗ trợ trợ giúp"
+      offered_housing: "đã hỗ trợ không gian"
+      offered_item: "đã hỗ trợ một thứ"
       offered_rideshare: "hỗ trợ cuốc xe"
       requested_favor: "đã yêu cầu trợ giúp"
-      requested_housing: ~
-      requested_item: ~
-      requested_rideshare: ~
+      requested_housing: "đã yêu cầu không gian"
+      requested_item: "đã yêu cầu một thứ"
+      requested_rideshare: "đã yêu cầu một cuốc xe"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
     profile_listings:
-      loading_more_offers: ~
-      loading_more_requests: ~
-      offers: ~
-      requests: ~
-      show_also_closed: ~
-      show_only_open: ~
+      loading_more_offers: "Tải thêm hỗ trợ"
+      loading_more_requests: "Tải thêm yêu cầu"
+      offers: "Các hỗ trợ"
+      requests: "Các yêu cầu"
+      show_also_closed: "Hiển thị cũng đóng"
+      show_only_open: "Chỉ hiển thị mở"
     show:
-      contact: ~
+      contact: "Liên hệ %{person}"
       about_me: "Về tôi:"
       add_description: "Nói thứ gì đó về bản thân"
       add_location: "Thêm địa điểm"
       add_phone_number: "Thêm số điện thoại"
       address: "Nơi ở:"
-      as_expected: ~
+      as_expected: "Như mong đợi"
       badges: "Các huy hiệu"
       edit_profile_info: "Chỉnh sửa thông tin của bạn"
       exceeded_expectations: ~
-      received_feedback: ~
-      positive: ~
-      hide_description: ~
-      joined_this_community: ~
-      was_last_seen: ~
+      received_feedback: "Đã nhận thông tin phản hồi:"
+      positive: "tích cực"
+      hide_description: "Hiển thị ít hơn"
+      joined_this_community: "...tham gia cộng đồng này %{time_ago}"
+      was_last_seen: "...được xem lần cuối %{time_ago}"
       was_invited_by: "...đã được mời bởi %{inviter_name}"
       less_than_expected: "Tệ hơn so với dự kiến"
       phone_number: "Số điện thoại:"
@@ -1131,17 +1133,17 @@ vi:
       show_all_testimonials: "Hiển thị tất cả các thông tin phản hồi"
       show_full_description: "Hiển thị thêm"
       slightly_better_than_expected: ~
-      slightly_less_than_expected: ~
+      slightly_less_than_expected: "Tệ hơn so với dự kiến"
       what_are_these: "Đây là gì?"
       trustcloud: ~
   search:
     show:
       all_results: "Tất cả kết quả"
       loading_more_search_results: "Nạp thêm kết quả tìm kiếm"
-      offers: ~
-      requests: ~
+      offers: "Các hỗ trợ"
+      requests: "Các yêu cầu"
       search: Tìm
-      search_results: ~
+      search_results: "Tìm kiếm kết quả"
       search_returned_no_results: "Không có kết quả nào cho tim kiếm của bạn"
       search_verb: Tìm
   sessions:
@@ -1150,38 +1152,40 @@ vi:
       i_forgot_my_password: "Tôi quên tên người dùng hoặc mật khẩu của tôi"
       login: "Đăng nhập"
       login_to_kassi: "Đăng nhập vào %{service_name}"
-      connect_your_facebook_to_kassi: ~
-      facebook_account: ~
-      log_in_to_link_account: ~
-      you_can_also_create_new_account: ~
-      account_creation_link_text: ~
-      cancle_facebook_connect: ~
-      facebook_cancel_link_text: ~
+      connect_your_facebook_to_kassi: "Kết nối tài khoản Facebook của bạn %{service_name}"
+      facebook_account: "Tài khoản Facebook:"
+      log_in_to_link_account: "Nếu bạn đã có tài khoản %{service_name}, đăng nhập vào liên kết nó với tài khoản Facebook của bạn."
+      you_can_also_create_new_account: "Nếu bạn không có tài khoản tại %{service_name}, %{accont_creation_link} tạo ra một tên đăng nhập Facebook của bạn."
+      account_creation_link_text: "nhấn vào đây"
+      cancle_facebook_connect: "Nếu bạn không muốn liên kết tài khoản này, bạn có thể %{cancel_link}."
+      facebook_cancel_link_text: "hủy bỏ"
       log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      or_sign_up_with_your_username: "...hoặc với tên người dùng và mật khẩu của bạn:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Cho địa chỉ email của bạn và bạn nhận được tên người dùng và hướng dẫn về làm thế nào để thay đổi mật khẩu của bạn."
       request_new_password: "Yêu cầu mật khẩu mới"
-      change_your_password: ~
+      change_your_password: "Thay đổi mật khẩu của bạn"
     confirmation_pending:
       welcome_to_kassi: "Chào mừng đến với %{service_name}!"
       check_your_email: "Kiểm tra hộp thư đến của bạn"
-      account_conrimation_instructions: ~
-      account_confirmation_instructions_any_email: ~
+      account_conrimation_instructions: "Bạn sẽ sớm nhận được một email từ %{service_name} với một liên kết mà bạn cần phải nhấn vào đây để truy cập cộng đồng %{service_name} này.<p><p> Việc kiểm tra email này được thực hiện để đảm bảo rằng tất cả các thành viên thực sự thuộc về cộng đồng này (<b>%{community_name}</b>). Điều này tạo ra một môi trường an toàn hơn cho việc chia sẻ.</p><p>Nếu bạn có bất kỳ rắc rối nào khi cách sử dụng %{service_name}, chỉ cần nhấp vào liên kết thông tin phản hồi <a href=\"#\" id=\"give_feedback_link\"></a> bên trái và cho chúng tôi biết. Xin vui lòng cũng chia sẻ những ý tưởng cải thiện của bạn!"
+      account_confirmation_instructions_any_email: "Bạn sẽ sớm nhận được một email từ %{service_name} với một liên kết mà bạn cần phải nhấn vào đây để truy cập cộng đồng %{service_name} này.<p><p>Việc kiểm tra email này được thực hiện để tạo ra một môi trường đáng tin cậy hơn cho việc chia sẻ.</p><p>Nếu bạn có bất kỳ rắc rối nào khi sử dụng %{service_name}, chỉ cần nhấp vào liên kết thông tin phản hồi <a href=\"#\" id=\"give_feedback_link\"></a> bên trái và cho chúng tôi biết. Xin vui lòng cũng chia sẻ các ý tưởng cải thiện của bạn!"
       get_started: "Bắt đầu với %{service_name}"
-      getting_started_instructions: ~
+      getting_started_instructions: "Khi bạn đã xác nhận tài khoản của bạn, một ý tưởng tốt để thêm ảnh vào tiểu sử của bạn và điền vào các chi tiết khác. Bạn cũng có thể cũng tiếp tục thao tác trực tiếp bằng cách thêm một hỗ trợ về một cái gì đó bạn có thể cho vay, cho thuê, bán hoặc làm cho người khác. Hoặc nếu bạn cần một thứ gì đó cụ thể hoặc giúp đỡ một thứ gì đó, hãy gửi yêu cầu."
       resend_confirmation_instructions: "Gửi lại chỉ dẫn xác nhận"
-      your_current_email_is: ~
-      change_email: ~
-      confirm_your_email: ~
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      your_current_email_is: "Email của bạn là %{email}."
+      change_email: "thay đổi"
+      confirm_your_email: "Xác nhận email của bạn"
+      account_confirmation_instructions: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập. Sau khi xác nhận email của bạn, bạn có thể bắt đầu sử dụng %{service_name}."
+      account_confirmation_instructions_dashboard: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập."
   settings:
     account:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"
+      delete_account: ~
       email: "Địa chỉ email:"
+      instructions_to_delete_account: ~
       new_email: "Địa chỉ email mới"
       new_password: "Mật khẩu mới"
       save: Lưu
@@ -1206,7 +1210,7 @@ vi:
       city: "Thành phố:"
       family_name: "Họ:"
       given_name: "Tên:"
-      location_description: ~
+      location_description: "Bạn có thể cung cấp vị trí chính xác của bạn hoặc chỉ mã vùng của bạn. Xin vui lòng thêm ít nhất là mã vùng của bạn. Bạn cũng có thể chọn vị trí từ bản đồ."
       phone_number: "Số điện thoại:"
       postal_code: "Mã bưu điện:"
       profile_page: "trong trang hồ sơ của bạn"
@@ -1217,26 +1221,26 @@ vi:
       visible_to_registered_users: "hiển thị cho người dùng đã đăng nhập"
     save_information: "Lưu thông tin"
   sms:
-    or_check_the_offer_in_kassi: ~
-    parsing_error: ~
-    pay: ~
-    payment_delivered: ~
-    potential_ride_share_offer: ~
+    or_check_the_offer_in_kassi: "hoặc kiểm tra sự trợ giúp %{listing_url}"
+    parsing_error: "Có thể không hiểu nội dùng thông điệp. Vui lòng kiểm tra các chỉ dẫn và thử lại."
+    pay: "thanh toán|số tiền thanh toán"
+    payment_delivered: "Số tiền thanh toán %{amount} Euro đã được chuyển đến %{receiver}. Bạn sẽ trả %{amount_plus_commission} Euro cho tiền điện thoại của bạn."
+    potential_ride_share_offer: "%{author_name} hỗ trợ một cuốc đi tại %{service_name} từ %{origin} đến %{destination} %{start_time}."
     request: ~
-    rideshare: ~
+    rideshare: "cuốc xe|cuốc xe chia sẻ"
     you_can_call_him_at: "Bạn có thể gọi tài xế xe bằng số %{phone_number}"
-    you_can_pay_gas_money_to_driver: ~
-    category_not_supported: ~
-    check_the_offer_in_kassi: ~
-    listing_created: ~
+    you_can_pay_gas_money_to_driver: "Để trả tiền gas, phản hồi trả kassi %{driver} . Số tiền + 5% hoa hồng vào hóa đơn điện thoại của bạn."
+    category_not_supported: "Thể loại này chưa được hỗ trợ bằng tin nhắn sms."
+    check_the_offer_in_kassi: "Kiểm tra hộ trợ tại  %{service_name}: %{listing_url}"
+    listing_created: "Cảm ơn cảm ơn bạn đã thông báo, danh sách bây giờ được thêm vào %{service_name}."
     offer: ~
   tag_cloud:
     tag_used:
-      with_tag: ~
-      without_tag: ~
+      with_tag: "Với thẻ"
+      without_tag: "Không thẻ"
   terms:
     show:
-      accept_terms: ~
+      accept_terms: "Chấp nhận các điều khoản sử dụng %{service_name}"
       here: "ở đây"
       i_accept_new_terms: "Tôi chấp nhận các điều khoản mới"
       i_accept_terms: "Tôi chấp nhận các điều khoản"
@@ -1250,17 +1254,17 @@ vi:
       all_testimonials: "Tất cả thông tin phản hồi"
       feedback_altogether: ~
       loading_more_testimonials: ~
-      no_testimonials: ~
+      no_testimonials: "Không có phản hồi được nhận."
     new:
-      as_expected: ~
-      exceeded_expectations: ~
+      as_expected: "Như mong đợi"
+      exceeded_expectations: "Tốt hơn nhiều so với dự kiến"
       give_feedback_to: "Cho thông tin phản hồi đến %{person}"
       grade: ~
       less_than_expected: "Tệ hơn so với dự kiến"
       send_feedback: "Gửi ý kiến phản hồi"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
-      textual_feedback: ~
+      textual_feedback: "Mọi thứ đã đi như thế nào"
       this_will_be_shown_in_profile: ~
     testimonial:
       from_user: từ
