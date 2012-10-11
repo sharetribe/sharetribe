@@ -21,11 +21,13 @@ namespace :sharetribe do
       
       user_sheet.each 1 do |row|
         if row[1].present?
+          @community.location = random_location_around(row[9], "community") unless row[9].blank?
+          @community.save
           image_path = "lib/demos/images/#{row[8]}" if row[8].present?
           p = Person.create!(
-                 :username =>     row[1],
+                 :username =>     row[4].downcase,
                  :email =>        row[2],
-                 :password =>     row[3],
+                 :password =>     "test",
                  :given_name =>   row[4],
                  :family_name =>  row[5],
                  :phone_number => row[6],
