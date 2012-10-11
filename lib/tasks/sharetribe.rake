@@ -157,12 +157,14 @@ namespace :sharetribe do
       spreadsheet = load_spreadsheet(locale)
       puts "Aborting" and return if spreadsheet.nil?
       
-      Community.find_by_domain("#{locale}-demo").destroy
+      c = Community.find_by_domain("#{locale}-demo")
+      c.destroy if c
       
       user_sheet = spreadsheet.worksheet "Users"
       user_sheet.each 1 do |row|
-        if row[1].present?
-          Person.find_by_username(row[1]).destroy
+        if row[4].present?
+          p = Person.find_by_username(row[4])
+          p.destroy if p
         end
       end
     end
