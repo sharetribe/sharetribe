@@ -66,6 +66,7 @@ nl:
       trade: ruilen
       share_for_free: ~
     username: Gebruikersnaam
+    username_or_email: ~
     what_is_this: "Wat is dit?"
   conversations:
     index:
@@ -958,6 +959,7 @@ nl:
   okl:
     member_id: ~
     member_id_is_your_username: ~
+    member_id_or_email: ~
     join_here: ~
   people:
     badge_description:
@@ -1182,7 +1184,9 @@ nl:
     account:
       change: Wijzig
       confirm_new_password: "Bevestig nieuw wachtwoord"
+      delete_account: ~
       email: "Email adres:"
+      instructions_to_delete_account: ~
       new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
       save: Opslaan

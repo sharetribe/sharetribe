@@ -66,6 +66,7 @@ ru:
       trade: обменяю
       share_for_free: "бесплатно поделюсь"
     username: "Имя пользователя"
+    username_or_email: ~
     what_is_this: "Что это?"
   conversations:
     index:
@@ -958,6 +959,7 @@ ru:
   okl:
     member_id: Идентификатор
     member_id_is_your_username: "You must give your Omakotiliitto member id (jäsennumero) in order to join %{service_name}. Your member id is also your username that you will need when logging in to %{service_name}. If you are not a member of Omakotiliitto yet, you can"
+    member_id_or_email: ~
     join_here: присоединиться.
   people:
     badge_description:
@@ -1184,7 +1186,9 @@ ru:
     account:
       change: Изменить
       confirm_new_password: "Подтвердить новый пароль"
+      delete_account: ~
       email: "Адрес электронной почты:"
+      instructions_to_delete_account: ~
       new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
       save: Сохранить

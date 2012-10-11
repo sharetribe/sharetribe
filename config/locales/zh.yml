@@ -66,6 +66,7 @@ zh:
       trade: 交易
       share_for_free: ~
     username: 用户名
+    username_or_email: ~
     what_is_this: 这是什么？
   conversations:
     index:
@@ -958,6 +959,7 @@ zh:
   okl:
     member_id: ~
     member_id_is_your_username: ~
+    member_id_or_email: ~
     join_here: ~
   people:
     badge_description:
@@ -1181,7 +1183,9 @@ zh:
     account:
       change: 修改
       confirm_new_password: 确认新密码
+      delete_account: ~
       email: "Email 地址"
+      instructions_to_delete_account: ~
       new_email: 新Email地址
       new_password: 新密码
       save: 保存
