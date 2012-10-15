@@ -6,7 +6,6 @@ module ApiHelper
     if initial_url =~ /^http/
       return initial_url
     else
-      puts "returning #{@url_root}#{initial_url}"
       return "#{@url_root}#{initial_url}"
     end
   end
