@@ -147,7 +147,7 @@ describe Api::ListingsController do
       resp = JSON.parse(response.body)
       resp["title"].should == "bike"
       resp["description"].should == "A very nice bike"
-      #puts resp.inspect    
+      #puts resp.to_yaml
     end
   end
 
