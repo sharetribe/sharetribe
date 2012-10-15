@@ -1,4 +1,6 @@
 class Api::ApiController < ApplicationController
+  include ApiHelper
+  
   skip_filter :single_community_only
   skip_filter :dashboard_only
   skip_filter :fetch_community
@@ -79,6 +81,10 @@ class Api::ApiController < ApplicationController
   end
 
   def set_current_community_if_given
+    # use the domain picked from the request by default, 
+    # and it will be set again, if @current_community
+    @url_root = "#{request.protocol}#{request.host_with_port}"
+    
     if @current_community = Community.find_by_domain(request.subdomain)
       #puts "#{params[:community_id]} ---  #{@current_community.id}"
       if params[:community_id] && (params[:community_id].to_s != @current_community.id.to_s)
@@ -90,9 +96,13 @@ class Api::ApiController < ApplicationController
     
     if params["community_id"]
       @current_community = Community.find_by_id(params["community_id"])
+      
       if @current_community.nil? 
         response.status = 404
         render :json => ["No community found with given id"] and return
+      else
+        # Set also @root__url that can be used in building links that point to the right community instead of api subdomain
+        @url_root = "#{request.protocol}#{@current_community.full_domain}"
       end
     end
   end

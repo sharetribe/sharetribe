@@ -190,12 +190,12 @@ vi:
       contact_us: "Liên hệ với chúng tôi"
       free_plan: "Kế hoạch tự do"
       max_members: "Cực đại. %{number} thành viên"
-      premium_plan: ~
+      premium_plan: "Kế hoạch giải thưởng"
       care_free_user_support: ~
       create_your_tribe: "Tạo cộng đồng của bạn"
       professional_plan: "Chỉnh sửa kế hoạch"
       unlimited_members: "Thành viên không giới hạn"
-      intranet_integration: ~
+      intranet_integration: "Tích hợp intranet"
       no_charge: "Miễn phí"
       euros_per_month_premium: "%{price} Euro/tháng (bao gồm thuế VAT)"
       custom_domain: ~
@@ -301,7 +301,7 @@ vi:
       contact_us: "liên hệ trực tiếp với chúng tôi"
       why_you_really_should_have_a_tribe: "Tại sao bạn thực sự cần phải có một cộng đồng"
       an_example: "Một ví dụ:"
-      home: ~
+      home: "Trang chủ"
       faq: "Câu hỏi thường gặp (FAQ)"
       browse_tribes: "Duyệt các cộng đồng"
       pricing: "Giá cả"
@@ -400,7 +400,7 @@ vi:
       thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
       change_my_password: "Đổi mật khẩu của tôi"
-      reset_password_instructions: ~
+      reset_password_instructions: "<p>Bạn đã chỉ ra rằng bạn đã quên mật khẩu hoặc tên người dùng của bạn tại dịch vụ %{service_name}.</p><p>Tên người dùng của bạn là: %{username}</p><p>Nếu bạn cần phải đặt lại mật khẩu của bạn, nhấp vào liên kết sau đây: %{password_reset_link}</p><br><p>Nếu bạn không yêu cầu, xin vui lòng bỏ qua email này. Mật khẩu của bạn sẽ không thay đổi cho đến khi bạn truy cập vào liên kết ở trên và tạo ra một mật khẩu mới.</p>"
     testimonial_reminder:
       feedback_is_public_and_is_shown: "Thông tin phản hồi là công khai và được hiển thị cho tất cả các người dùng khác. Dựa trên thông tin phản hồi những người dùng khác có thể nhận xét, nếu %{name} là một người đáng tin cậy và một người nào đó họ muốn liên lạc. Như vậy, điều đó là tốt để luôn luôn nhớ đưa ra thông tin phản hồi về các sự kiện, và cũng nhắc nhở nhóm khác đưa ra thông tin phản hồi cho bạn. Bạn cũng cần thông tin phản hồi tích cực để đạt được nhiều huy hiệu nhất."
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
@@ -429,7 +429,7 @@ vi:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript bị vô hiệu hóa trên trình duyệt của bạn"
       kassi_does_not_currently_work_without_javascript: "Thật không may %{service_name} hiện tại không làm việc nếu javascript không hoạt động. Hãy thử kích hoạt javascript từ tùy chọn của trình duyệt của bạn và sau đó tải lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng gửi cho chúng tôi thông tin phản hồi bằng cách sử dụng mẫu dưới đây."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
+      kassi_does_not_currently_work_without_javascript_dashboard: "Không may, %{service_name} không thực hiện nếu không có javascript. Thử kích hoạt javascript từ tùy chọn của trình duyệt và nạp lại trang này. Nếu bạn muốn sử dụng %{service_name} mà không cần javascript, vui lòng liên hệ với chúng tôi %{contact_us}."
       contact_us: "liên hệ với chúng tôi"
       send_feedback: "Gửi thông tin phản hồi"
       your_feedback_to_admins: "Thông tin phản hồi của bạn đến các quản trị viên"
@@ -682,7 +682,7 @@ vi:
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Bạn không được phân quyền để đưa ra thông tin phản hồi về sự kiện này"
       you_are_not_authorized_to_do_this: "Bạn không được phân quyền để làm việc này"
       you_are_not_authorized_to_view_this_content: "Bạn không được phân quyền để xem nội dung này"
-      send_instructions: ~
+      send_instructions: "Bạn sẽ nhận được một email với các hướng dẫn làm thế nào để đặt lại mật khẩu của bạn trong một vài phút."
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_reply_to_a_closed_request: "Bạn không thể trả lời một yêu cầu bị đóng"
       you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
@@ -827,7 +827,7 @@ vi:
       housing: "Các không gian"
       items: "Các món đồ"
       list_view: "Xem danh sách"
-      listings: ~
+      listings: "Các bảng liệt kê"
       map_view: "Xem bản đồ"
       offer_something: "Cho người khác biết!"
       offer_type: "Loại hỗ trợ"
@@ -915,7 +915,7 @@ vi:
       offer_author: "Hỗ trợ bởi"
       offer_created: "Đã tạo"
       feedback: "Thông tin phản hồi:"
-      qr_code: ~
+      qr_code: "Mã QR"
       request: "Yêu cầu"
       request_author: "Yêu cầu bởi"
       request_created: "Đã tạo"
@@ -1135,7 +1135,7 @@ vi:
       slightly_better_than_expected: ~
       slightly_less_than_expected: "Tệ hơn so với dự kiến"
       what_are_these: "Đây là gì?"
-      trustcloud: ~
+      trustcloud: TrustCloud
   search:
     show:
       all_results: "Tất cả kết quả"
@@ -1159,7 +1159,7 @@ vi:
       account_creation_link_text: "nhấn vào đây"
       cancle_facebook_connect: "Nếu bạn không muốn liên kết tài khoản này, bạn có thể %{cancel_link}."
       facebook_cancel_link_text: "hủy bỏ"
-      log_in_with_your_facebook_account: ~
+      log_in_with_your_facebook_account: "Đăng nhập với tài khoản Facebook của bạn:"
       or_sign_up_with_your_username: "...hoặc với tên người dùng và mật khẩu của bạn:"
     password_forgotten:
       email: Email
@@ -1265,7 +1265,7 @@ vi:
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
       slightly_less_than_expected: "Tệ hơn một chút so với dự kiến"
       textual_feedback: "Mọi thứ đã đi như thế nào"
-      this_will_be_shown_in_profile: ~
+      this_will_be_shown_in_profile: "Thông tin phản hồi mà bạn cung cấp sẽ được hiển thị đối với các người dùng khác trong trang hồ sơ của %{person} . Điều đó giúp các thành viên khác của cộng đồng này đánh giá xem %{person} là người đáng tin cậy không."
     testimonial:
       from_user: từ
       to_user: đến
