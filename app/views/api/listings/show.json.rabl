@@ -7,12 +7,12 @@ attributes :id, :title, :description, :status, :listing_type,
 node do |listing|
   if listing.listing_images.present?
     node :thumbnail_url do |listing|
-      request.protocol + request.host_with_port + listing.listing_images.first.image.url(:thumb)
+      ensure_full_image_url(listing.listing_images.first.image.url(:thumb))
     end
 
     node :image_urls do |listing|
       listing.listing_images.map do |i|
-        request.protocol + request.host_with_port + i.image.url(:medium)
+        ensure_full_image_url(i.image.url(:medium))
       end
     end
   end

@@ -64,9 +64,9 @@ fr:
       rent_out: "à louer "
       sell: "à vendre "
       trade: "a échanger "
-      share_for_free: "Offert gratuitement "
+      share_for_free: "A partager"
     username: "Nom d'utilisateur "
-    username_or_email: ~
+    username_or_email: "Nom d'utilisateur ou e-mail"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
@@ -720,7 +720,7 @@ fr:
       listing_not_visible: "Vous n'avez pas la permission de consultez cette annonce."
     comment:
       wrote: "a écrit"
-      send_private_message: "Envoyer un message privé à %{person}"
+      send_private_message: "Envoyer un message à %{person}"
     comment_form:
       log_in: "vous connecter"
       send_comment: "Envoyer un commentaire"
@@ -758,7 +758,7 @@ fr:
         favor: Service
         housing: Logement
         item: Objet
-        offer_something: "Offrir quelque chose"
+        offer_something: "Proposer quelque chose"
         request_something: "Demander quelque chose"
         rideshare: Covoiturage
         i_want_to_offer: "Je veux proposer..."
@@ -771,7 +771,7 @@ fr:
         image: Image
         no_file_selected: "Aucun fichier sélectionné"
         remove_image: "Supprimer image"
-        select_file: "Sélectionner une image"
+        select_file: "Choisir une image"
       location:
         location: Localisation
       origin:
@@ -789,10 +789,10 @@ fr:
         offer_type: "Type d'offre"
         receive: "Accepter gratuitement"
         rent: Louer
-        rent_out: "Offre de location"
+        rent_out: Louer
         request_type: "Type de demande"
-        sell: "A vendre"
-        share_for_free: "Offre gratuitement"
+        sell: Vendre
+        share_for_free: "A partager"
         trade: Echanger
       tag_list:
         comma_separate: "(séparés par une virgule)"
@@ -829,7 +829,7 @@ fr:
       list_view: "Vue en liste"
       listings: Listes
       map_view: "Afficher le plan"
-      offer_something: "Parlez-en aux autres !"
+      offer_something: "Proposez le !"
       offer_type: "Type d'offre"
       offers: Offres
       request_something: "Demandez quelque chose !"
@@ -852,10 +852,10 @@ fr:
       rents: "Cherche à louer"
       rideshares: Covoiturage
       sells: "A vendre"
-      share_for_frees: "Offre gratuitement"
+      share_for_frees: "A partager"
       trades: "A échanger"
     link_labels:
-      link_label_for_favor_offer: "Demander service"
+      link_label_for_favor_offer: "Demander ce service"
       link_label_for_favor_request: "Proposer votre aide"
       link_label_for_housing_offer_sell: "Acheter ce logement"
       link_label_for_housing_offer_rent_out: "Louer ce logement"
@@ -874,14 +874,14 @@ fr:
       link_label_for_item_request_trade: "Proposer d'échanger cet objet"
       link_label_for_rideshare_offer: "Demander un transport"
       link_label_for_rideshare_request: "Proposer un transport"
-      message_link_label_for_offer: "Envoyer un message privé à l'annonceur"
-      message_link_label_for_request: "Envoyer un message privé au demandeur"
-      message_link_label_for_item_offer_lend: "Envoyer un message privé au prêteur"
-      message_link_label_for_item_offer_rent_out: "Envoyer un message privé au loueur"
+      message_link_label_for_offer: "Envoyer un message à l'annonceur"
+      message_link_label_for_request: "Envoyer un message au demandeur"
+      message_link_label_for_item_offer_lend: "Envoyer un message au prêteur"
+      message_link_label_for_item_offer_rent_out: "Envoyer un message au loueur"
       message_link_label_for_item_offer_sell: "Envoyé un message privé au vendeur"
-      message_link_label_for_item_offer_give_away: "Envoyer un message privé au donneur"
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: "Envoyer un message privé au vendeur"
+      message_link_label_for_item_offer_give_away: "Envoyer un message au donneur"
+      message_link_label_for_item_offer_trade: "Envoyer un message au donneur"
+      message_link_label_for_housing_offer_sell: "Envoyer un message au vendeur"
       message_link_label_for_housing_offer_rent_out: "Envoyer une message privé au loueur"
       message_link_label_for_housing_offer_share_for_free: "Envoyer une message privé au donneur"
     listed_listing:
@@ -921,7 +921,7 @@ fr:
       request_created: "Demande créée"
       rideshare_offer: "Offre de covoiturage "
       rideshare_request: "Demande de transport "
-      send_private_message: "Envoyer un message privé"
+      send_private_message: "Envoyer un message"
       share_types: "Types de partage"
       share_types_offer: "Type d'offre"
       share_types_request: "Type de demande"
@@ -959,7 +959,7 @@ fr:
   okl:
     member_id: "Member id"
     member_id_is_your_username: "Vous devez fournir votre Omakotiliitto member id (jäsennumero) pour rejoindre %{service_name}. Votre member id est également votre nom d'utilisateur, dont vous aurez besoin pour vous connecter à %{service_name}. Si vous n'êtes pas encore membre de Omakotiliitto, vous pouvez"
-    member_id_or_email: ~
+    member_id_or_email: "Identifiant ou e-mail"
     join_here: "rejoindre ici"
   people:
     badge_description:
@@ -1184,9 +1184,9 @@ fr:
     account:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"
-      delete_account: ~
+      delete_account: "Supprimer le compte"
       email: "Adresse email :"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Si vous voulez supprimer votre compte, contactez nous en utilisant le bouton \"Feedback\" sur la gauche."
       new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
