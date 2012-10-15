@@ -47,6 +47,8 @@ describe Api::PeopleController do
       #puts resp.to_yaml
       resp["id"].should == @p1.id
       resp["email"].should == @p1.email
+      resp["picture_url"].should =~ /^http/
+      resp["thumbnail_url"].should =~ /^http/
     end
     
     it "includes phone and location if asker is logged in" do

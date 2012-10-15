@@ -9,11 +9,11 @@ end
 
 node do |person|
   node :picture_url do |person|
-    request.protocol + request.host_with_port + person.image.url(:medium)
+    ensure_full_image_url(person.image.url(:medium))
   end
   
   node :thumbnail_url do |person|
-    request.protocol + request.host_with_port + person.image.url(:thumb)
+    ensure_full_image_url(person.image.url(:thumb))
   end
 end
 
