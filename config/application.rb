@@ -35,7 +35,8 @@ module Kassi
           ["Español", "es"], 
           ["Español", "es-ES"], 
           ["Catalan", "ca"],
-          ["Tiếng Việt", "vi"]
+          ["Tiếng Việt", "vi"],
+          ["Deutsch", "de"]
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
@@ -45,7 +46,8 @@ module Kassi
           ["Español", "es"],
           ["Français", "fr"], 
           ["Pусский", "ru"], 
-          ["Ελληνικά", "el"] 
+          ["Ελληνικά", "el"],
+          ["Deutsch", "de"] 
     ]
     
     # Settings in config/environments/* take precedence over those specified here.
