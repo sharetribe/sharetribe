@@ -164,7 +164,7 @@ class PersonMailer < ActionMailer::Base
     
     mail(:to => @recipient.email,
          :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
-         :delivery_method => :delivery_method)
+         :delivery_method => delivery_method)
   end
   
   def invitation_to_kassi(invitation, host=nil)
@@ -235,7 +235,7 @@ class PersonMailer < ActionMailer::Base
     # disable escaping since this is currently always coming from trusted source.
     @mail_content = @mail_content.html_safe
     
-    mail(:to => @recipient.email, :subject => @subject, :delivery_method => delivery_method)
+    mail(:to => @recipient.email, :subject => @subject)
   end
   
   def self.deliver_newsletters
