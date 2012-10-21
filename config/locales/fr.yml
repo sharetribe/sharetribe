@@ -57,7 +57,7 @@ fr:
     share_types:
       borrow: "a emprunter "
       buy: "à acheter "
-      give_away: "à donner "
+      give_away: "a donner "
       lend: "a prêter "
       receive: "accepter gratuitement "
       rent: "cherche à louer "
@@ -260,8 +260,8 @@ fr:
       you_can_join_email_confirmation: "Pour rejoindre cette communauté, vous devez avoir une adresse email valide qui se termine par %{email_ending}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
       you_can_join_email_confirmation_multiple_addresses: "Pour rejoindre cette communauté, vous devez avoir une adresse email valide qui se termine par %{email_endings}. Complétez votre adresse email, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
       you_can_join_with_invite_only: "Vous devez être invité par un autre membre pour rejoindre cette communauté. Si vous avez ce code, entrez le ci-dessous, acceptez les conditions d'utilisation de cette communauté puis cliquez sur 'Rejoignez la communauté' ci-dessous."
-      if_want_to_view_content: "Pour voir le contenu de cette communauté sans la rejoindre vous devez"
-      log_out: Déconnexion
+      if_want_to_view_content: "Pour voir le contenu de cette communauté sans la rejoindre, vous devez"
+      log_out: "vous déconnecter"
       join_community_button: "Rejoindre la communauté"
   dashboard:
     api:

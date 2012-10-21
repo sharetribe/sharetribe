@@ -64,7 +64,7 @@ el:
       rent_out: εκμίσθωση
       sell: πώληση
       trade: ανταλλαγή
-      share_for_free: φιλοξενία
+      share_for_free: δωρεάν
     username: "Όνομα χρήστη"
     username_or_email: ~
     what_is_this: "Τι είναι αυτό;"
@@ -136,7 +136,7 @@ el:
       testimonialnotification:
         give_feedback_to: "Κάνε κριτική για τον/την %{name}"
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
-        see_all_the_feedback_you_have_received: "δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
+        see_all_the_feedback_you_have_received: "Δες όλα τα σχόλια που έχουν αφήσει άλλοι για σένα"
     show:
       in_response_to_offer: "σχετικά με την προσφορά"
       in_response_to_request: "σε απάντηση του αιτήματος"
@@ -691,7 +691,7 @@ el:
       you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας %{service_name}. Καλωσόρισες ξανά!"
       you_must_log_in_to_create_new_offer: "Πρέπει να συνδεθείς στο %{service_name} για να καταχωρήσεις μια προσφορά. Αν δεν έχεις λογαριασμό μπορείς να"
-      additional_email_confirmed_dashboard: "Το email σου επιβεβαιώθηκε."
+      additional_email_confirmed_dashboard: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σου επιβεβαιώθηκε."
       you_must_log_in_to_create_new_request: "Πρέπει να συνδεθείς στο %{service_name} για να καταχωρήσεις ένα αίτημα. Αν δεν έχεις λογαριασμό μπορείς να"
       you_must_log_in_to_give_feedback: "Πρέπει να συνδεθείς για να κάνεις κριτική"
       you_must_log_in_to_invite_new_users: "Πρέπει να συνδεθείς για να προσκαλέσεις χρήστες στο %{service_name}"
@@ -731,19 +731,19 @@ el:
       you_must: "Πρέπει να"
       subscribe_to_comments: "Ειδοποίησέ με αν υπάρξουν νέα σχόλια ή αλλάγες"
     edit:
-      edit_offer: "Επεξεργασία προσφοράς"
-      edit_request: "Επεξεργασία αιτήματος"
+      edit_offer: Επεξεργασία
+      edit_request: Επεξεργασία
     edit_links:
       close_offer: "Κλείσε την προσφορά"
       close_request: "Κλείσε το αίτημα"
-      edit_offer: "Επεξεργασία προσφοράς"
-      edit_request: "Επεξεργασία αιτήματος"
-      reopen_offer: "Ξανάνοιξε την προσφορά"
-      reopen_request: "Ξανάνοιξε το αίτημα"
+      edit_offer: Επεξεργασία
+      edit_request: Επεξεργασία
+      reopen_offer: "Άνοιξε ξανά την προσφορά"
+      reopen_request: "Άνοιξε ξανά το αίτημα"
     follow_links:
       follow: "Παρακολούθηση αυτής της καταχώρησης"
       unfollow: "Παύση παρακολούθησης αυτής της καταχώρησης"
-      follow_description: "Παρακολουθώντας μία καταχώρηση ενημερώνεσαι για οτιδήποτε νέα σχόλια και αλλαγές που γίνονται σε αυτή."
+      follow_description: "Παρακολουθώντας μία καταχώρηση ενημερώνεσαι για νέα σχόλια και αλλαγές που γίνονται σε αυτή."
     form:
       departure_time:
         at: Στις
@@ -751,13 +751,13 @@ el:
       departure_time_radio_buttons:
         repeated: "Επαναλαμβανόμενο - πρόσθεσε λεπτομέρειες στην περιγραφή"
       description:
-        detailed_description: "Αναλυτική περιγραφή"
+        detailed_description: Περιγραφή
       destination:
         destination: Προορισμός
       form_content:
         favor: βοήθεια
         housing: διαμονή
-        item: "ένα αντικείμενο"
+        item: αντικείμενα
         offer_something: "Πρόσφερε κάτι"
         request_something: "Ζήτα κάτι"
         rideshare: "να συνταξιδέψω"
@@ -778,8 +778,8 @@ el:
         location: Τοποθεσία
         origin: Αφετηρία
       send_button:
-        save_offer: "Αποθήκευση προσφοράς"
-        save_request: "Αποθήκευση αιτήματος"
+        save_offer: Αποθήκευση
+        save_request: Αποθήκευση
       share_type:
         select: Επιλογή
         borrow: Δανεισμός
@@ -792,14 +792,14 @@ el:
         rent_out: Εκμίσθωση
         request_type: "Τύπος αιτήματος"
         sell: Πώληση
-        share_for_free: Φιλοξενία
+        share_for_free: Δωρεάν
         trade: Ανταλλαγή
       tag_list:
         comma_separate: "(χωρισμένες με κόμμα)"
         tags: Ετικέτες
       title:
         favor_you_offer: "Υπηρεσία που προσφέρεις"
-        favor_you_request: "Βοήθεια που χρειάζεσαι"
+        favor_you_request: "Υπηρεσία που χρειάζεσαι"
         housing_you_offer: "Διαμονή που προσφέρεις"
         housing_you_request: "Διαμονή που χρειάζεσαι"
         item_you_offer: "Αντικείμενο που προσφέρεις"
@@ -818,16 +818,16 @@ el:
       help_tags_title: Ετικέτες
       help_valid_until_title: "Ημερομηνία λήξης"
     index:
-      all_categories: "Όλες οι κατηγορίες"
-      all_offer_types: "Όλοι οι τύποι προσφορών"
-      all_request_types: "Όλοι οι τύποι αιτημάτων"
+      all_categories: Όλα
+      all_offer_types: Όλα
+      all_request_types: Όλα
       category: Κατηγορία
       did_not_found_what_you_were_looking_for: "Δεν βρήκες αυτό που χρειάζεσαι;"
-      favors: Βοήθεια
+      favors: Υπηρεσίες
       housing: Διαμονή
       items: Αντικείμενα
       list_view: "Προβολή λίστας"
-      listings: ~
+      listings: Καταχωρήσεις
       map_view: "Προβολή στο χάρτη"
       offer_something: "Διάδωσέ το!"
       offer_type: "Τύπος προσφοράς"
@@ -852,26 +852,26 @@ el:
       rents: Ενοικίαση
       rideshares: Οτοστόπ
       sells: Πωλήσεις
-      share_for_frees: Φιλοξενία
+      share_for_frees: Δωρεάν
       trades: Ανταλλαγές
     link_labels:
       link_label_for_favor_offer: "Ζήτησέ το"
       link_label_for_favor_request: "Πρόσφερε τη βοήθεια σου"
-      link_label_for_housing_offer_sell: "Αγόρασέ το"
-      link_label_for_housing_offer_rent_out: "Νοίκιασέ το"
-      link_label_for_housing_offer_share_for_free: "Ζήτα το"
-      link_label_for_housing_request_buy: "Πούλησέ το"
-      link_label_for_housing_request_rent: "Νοίκιασέ το"
+      link_label_for_housing_offer_sell: "Αγόρασε αυτό το χώρο"
+      link_label_for_housing_offer_rent_out: "Νοίκιασε αυτό το χώρο"
+      link_label_for_housing_offer_share_for_free: "Ζήτα αυτό το χώρο"
+      link_label_for_housing_request_buy: "Πρόσφερε το δικό σου"
+      link_label_for_housing_request_rent: "Πρόσφερε το δικό σου"
       link_label_for_item_offer_lend: "Δανείσου το"
-      link_label_for_item_offer_rent_out: "Νοίκιασέ το"
+      link_label_for_item_offer_rent_out: "Πρόσφερε το δικό σου"
       link_label_for_item_offer_sell: "Αγόρασέ το"
       link_label_for_item_offer_give_away: "Ζήτα το"
-      link_label_for_item_offer_trade: "Αντάλλαξέ το"
-      link_label_for_item_request_borrow: "Δάνεισέ το"
+      link_label_for_item_offer_trade: "Κάνε ανταλλαγή"
+      link_label_for_item_request_borrow: "Πρόσφερε το δικό σου"
       link_label_for_item_request_rent: "Πρόσφερε το δικό σου"
       link_label_for_item_request_buy: "Πρόσφερε το δικό σου"
-      link_label_for_item_request_receive: "Πρόσφερέ το"
-      link_label_for_item_request_trade: "Αντάλλαξέ το"
+      link_label_for_item_request_receive: "Πρόσφερε το δικό σου"
+      link_label_for_item_request_trade: "Κάνε ανταλλαγή"
       link_label_for_rideshare_offer: "Κάνε οτοστόπ"
       link_label_for_rideshare_request: "Πρόσφερε το όχημά σου"
       message_link_label_for_offer: "Στείλε προσωπικό μήνυμα"
@@ -895,7 +895,7 @@ el:
       no_offers_with_the_conditions_you_gave: "Δεν υπάρχουν προσφορές με τα κριτήρια που έδωσες."
       no_requests_with_the_conditions_you_gave: "Δεν υπάρχουν αιτήματα με τα κριτήρια που έδωσες."
       offer_something: "Πρόσφερε κάτι!"
-      request_something: "Ζήτησέ το!"
+      request_something: "Ζήτα κάτι!"
       search_returned_no_results: "Η αναζήτησή σου δεν επέστρεψε αποτελέσματα."
     please_comment: Σχολίασε
     reply_link:
@@ -906,10 +906,10 @@ el:
       add_profile_picture: "Πρόσθεσε μια φωτογραφία σου"
       comments: Σχόλια
       contact_by_phone: "Επικοινώνησε στο"
-      favor_offer: "Προσφορά υπηρεσίας"
-      favor_request: "Ζητούμενες χάρες"
-      item_offer_trade: "Προσφορά ανταλλαγής"
-      item_request_trade: "Αίτημα ανταλλαγής"
+      favor_offer: Yπηρεσία
+      favor_request: Υπηρεσία
+      item_offer_trade: Ανταλλαγή
+      item_request_trade: Ανταλλαγή
       no_description: "Χωρίς περιγραφή"
       offer: Προσφορά
       offer_author: "Προσφέρεται από τον/την"
@@ -919,12 +919,12 @@ el:
       request: Αίτημα
       request_author: "Ζητήθηκε από τον/την"
       request_created: "Δημιουργήθηκε πριν από"
-      rideshare_offer: "Προσφορά οτοστόπ"
-      rideshare_request: "Αίτημα οτοστόπ"
+      rideshare_offer: Οτοστόπ
+      rideshare_request: Οτοστόπ
       send_private_message: "Στείλε προσωπικό μήνυμα"
       share_types: "Τύποι συναλλαγών"
-      share_types_offer: "Τύπος προσφοράς"
-      share_types_request: "Τύπος αιτήματος"
+      share_types_offer: Τύπος
+      share_types_request: Τύπος
       tags: Ετικέτες
       time: φορά
       times: φορές

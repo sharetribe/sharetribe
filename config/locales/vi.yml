@@ -291,11 +291,11 @@ vi:
       api: API
       blog: Blog
       code: "Mã nguồn"
-      issue_tracker: ~
+      issue_tracker: "Vấn đề theo dõi"
       product_of: "Sharetribe là một sản phẩm của"
       language: "Ngôn ngữ:"
       new: MỚI!
-      new_text: ~
+      new_text: "%{service_name} bây giờ có sẵn cho những hàng xóm <a href=\"http://www.sharetribe.com/en/wdc\"> ở Helsinki và Lahti</a> và cho các thành viên <a href=\"http://www.kassi.eu/en/okl\"> của Suomen Omakotiliitto</a>!"
       want_to_know_more: "Bạn muốn biết thêm chi tiết? %{read_our_faq_link} or %{contact_us_link}."
       read_our_faq: "Đọc câu hỏi và trả lợi thường xuyên (FAQ) của chúng tôi"
       contact_us: "liên hệ trực tiếp với chúng tôi"
@@ -384,7 +384,7 @@ vi:
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
-      update_on_what_is_happening: ~
+      update_on_what_is_happening: "Để ý một tý vào những gì đang xảy ra tại %{community} %{service_name} ngay bây giờ."
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
       could_you_offer_something: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không?"
@@ -658,13 +658,13 @@ vi:
       person_activated: "Người dùng được kích hoạt"
       person_deactivated: "Người dùng ngừng hoạt động"
       person_updated_successfully: "Thông tin đã cập nhật"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_answered: "Thăm dò ý kiến đã được trả lời"
+      poll_could_not_be_answered: "Thăm dò ý kiến không được trả lời"
+      poll_created: "Thăm dò ý kiến đã được tạo"
+      poll_creation_failed: "Tạo thăm dò ý kiến thất bại"
+      poll_update_failed: "Thăm dò ý kiến cập nhật không thành công"
+      poll_updated: "Thăm dò ý kiến đã cập nhật"
+      poll_deleted: "Thăm dò ý kiến bị gỡ bỏ"
       read_more: "Tìm hiểu thêm!"
       registration_considered_spam: "Đăng ký không làm việc, xin vui lòng gửi thông tin phản hồi ở bên trái và đề cập đến \"email2 lỗi\"."
       reply_cannot_be_empty: "Bạn không thể gửi thông điệp trống."
@@ -686,7 +686,7 @@ vi:
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_reply_to_a_closed_request: "Bạn không thể trả lời một yêu cầu bị đóng"
       you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
-      you_followed_listing: ~
+      you_followed_listing: "Bây giờ bạn đang theo dõi bảng liệt kê này"
       you_have_already_given_feedback_about_this_event: "Bạn vừa đưa ra thông tin phản hồi về sự kiện này"
       you_are_now_member: "Bạn đã tham gia cộng đồng này thành công"
       you_are_already_member: "Bạn đã là một thành viên của cộng đồng %{service_name}. Chào mừng trở lại!"
@@ -958,7 +958,7 @@ vi:
       delete_news_item: "Loại bỏ bài viết"
   okl:
     member_id: "ID thành viên"
-    member_id_is_your_username: ~
+    member_id_is_your_username: "Bạn phải cung cấp nhận dạng (id) thành viên Omakotiliitto (jäsennumero) của bạn để tham gia %{service_name}. Nhận dạng thành viên của bạn cũng là tên mà bạn sẽ cần khi đăng nhập vào %{service_name} . Nếu bạn chưa phải là thành viên của Omakotiliitto, bạn có thể"
     member_id_or_email: ~
     join_here: "tham gia ở đây."
   people:
