@@ -65,24 +65,22 @@ common: &default_settings
   # you send us needs end-to-end verified certificates.
   #
   # This means we cannot cache the DNS lookup, so each request to the
-  # RPM service will perform a lookup. It also means that we cannot
+  # service will perform a lookup. It also means that we cannot
   # use a non-blocking lookup, so in a worst case, if you have DNS
   # problems, your app may block indefinitely.
   # verify_certificate: true
-  
-  # Set your application's Apdex threshold value with the 'apdex_t'
-  # setting, in seconds. The apdex_t value determines the buckets used
-  # to compute your overall Apdex score. 
-  # Requests that take less than apdex_t seconds to process will be
-  # classified as Satisfying transactions; more than apdex_t seconds
-  # as Tolerating transactions; and more than four times the apdex_t
-  # value as Frustrating transactions. 
-  # For more about the Apdex standard, see
-  # http://support.newrelic.com/faqs/general/apdex
 
-  apdex_t: 0.5
+  #============================== Browser Monitoring ===============================
+  # New Relic Real User Monitoring gives you insight into the performance real users are
+  # experiencing with your website. This is accomplished by measuring the time it takes for
+  # your users' browsers to download and render your web pages by injecting a small amount
+  # of JavaScript code into the header and footer of each page. 
+  browser_monitoring:
+      # By default the agent automatically injects the monitoring JavaScript 
+      # into web pages. Set this attribute to false to turn off this behavior.
+      auto_instrument: true
 
-  # Proxy settings for connecting to the RPM server.
+  # Proxy settings for connecting to the service.
   #
   # If a proxy is used, the host setting is required.  Other settings
   # are optional.  Default port is 8080.
@@ -91,7 +89,6 @@ common: &default_settings
   # proxy_port: 8080
   # proxy_user:
   # proxy_pass:
-
   
   # Tells transaction tracer and error collector (when enabled)
   # whether or not to capture HTTP params.  When true, frameworks can
@@ -228,4 +225,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  app_name: My Application (Staging)
+  app_name: Sharetribe (Staging)
