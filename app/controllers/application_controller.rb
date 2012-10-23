@@ -200,6 +200,7 @@ class ApplicationController < ActionController::Base
       e.ip_address        = request.remote_ip
       e.action            = "#{self.class}\##{action_name}"
       e.test_group_number = @current_user ? @current_user.test_group_number : nil
+      e.community_id      = @current_community ? @current_community.id : nil
       begin
         if (params["file"] || params["image"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
             params["person"] && params["person"]["image"]))
