@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.0.17'
+gem 'rails', '3.1.8'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,7 +24,7 @@ gem 'capistrano'
 #gem 'thin'
 gem 'unicorn'
 
-gem "mysql2", "~> 0.2.7" #this version for Rails < 3.1 compatibility
+gem "mysql2"
 gem 'haml'
 gem 'sass'
 gem 'database_cleaner'
@@ -49,7 +49,8 @@ gem 'russian'
 gem 'web_translate_it'
 gem 'postmark-rails'
 gem 'rails-i18n'
-gem 'devise', '2.0.0.rc'
+gem 'devise'
+gem "devise-encryptable"
 gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
@@ -64,7 +65,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails', '~> 1.7 '
+  gem 'factory_girl_rails'
   gem "pickle"
 end
 
