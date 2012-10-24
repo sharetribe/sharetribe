@@ -4,9 +4,7 @@ test_community:
   domain: test
   consent: "test_consent0.1"
   settings: <%= {
-     "locales" => ["en", "fi"],
-     "asi_welcome_mail" => true,
-     "use_facebook_login" => true
+     "locales" => ["en", "fi"]
      }.to_yaml.inspect %>
 
   real_name_required: 1
