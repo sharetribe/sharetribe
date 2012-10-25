@@ -12,6 +12,7 @@ class Person < ActiveRecord::Base
   include ErrorsHelper
   include ApplicationHelper
     
+  self.primary_key = "id"
   
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -100,7 +101,7 @@ class Person < ActiveRecord::Base
   
 
 
-  validates_uniqueness_of :username
+#  validates_uniqueness_of :username
   validates_uniqueness_of :email
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20

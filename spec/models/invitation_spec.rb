@@ -13,7 +13,7 @@ describe Invitation do
   
   describe "#use" do
     it "reduces usages left by one" do
-      i = Factory(:invitation)
+      i = FactoryGirl(:invitation)
       i.usages_left.should == 1
       i.save!
       Invitation.find(i.id).usages_left.should == 1

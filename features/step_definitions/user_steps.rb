@@ -1,6 +1,6 @@
 Given /^I am logged in(?: as "([^"]*)")?$/ do |person|
   username = person || "kassi_testperson1"
-  person = Person.find_by_username(username) || Factory(:person, :username => username)
+  person = Person.find_by_username(username) || FactoryGirl(:person, :username => username)
   login_as(person, :scope => :person)
   visit root_path(:locale => :en)
 end

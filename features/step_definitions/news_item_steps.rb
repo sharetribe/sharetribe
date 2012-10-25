@@ -7,11 +7,11 @@ When /^anyone can add news items in community "([^"]*)"$/ do |domain|
 end
 
 Given /^there is news item by "([^"]*)" in community "([^"]*)"$/ do |author, community|
-  @news_item = Factory(:news_item, :author => @people[author], :community => Community.find_by_domain(community))
+  @news_item = FactoryGirl(:news_item, :author => @people[author], :community => Community.find_by_domain(community))
 end
 
 When /^there are "([^"]*)" news items in community "([^"]*)"$/ do |amount, community|
   amount.to_i.times do
-    @news_item = Factory(:news_item, :community => Community.find_by_domain(community))
+    @news_item = FactoryGirl(:news_item, :community => Community.find_by_domain(community))
   end
 end

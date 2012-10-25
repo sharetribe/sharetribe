@@ -17,7 +17,7 @@ describe Badge do
   
   it "is not valid if the person already has the same badge" do
     @test_person, @session = get_test_person_and_session
-    @badge1 = Factory(:badge, :person => @test_person)
+    @badge1 = FactoryGirl(:badge, :person => @test_person)
     @badge2 = FactoryGirl.build(:badge, :person => @test_person)
     @badge2.should_not be_valid
   end

@@ -17,7 +17,7 @@ Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([
   listing_type = role ? role.chop.chop : "request"
   amount.to_i.times do
     listing = create_listing(listing_type, category, share_type)
-    conversation = Factory(:conversation, :status => "accepted", :listing => listing)
+    conversation = FactoryGirl(:conversation, :status => "accepted", :listing => listing)
     conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
     participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson1"].id, conversation.id)
     @testimonial = Testimonial.create!(:grade => 0.75, :text => "Yeah", :author_id => @people["kassi_testperson2"], :receiver_id => @people["kassi_testperson1"], :participation_id => participation.id)
@@ -125,7 +125,7 @@ end
 
 When /^I have commented that listing "(.+)" times$/ do |amount|
   amount.to_i.times do
-    Factory(:comment, :author => @people["kassi_testperson1"])
+    FactoryGirl(:comment, :author => @people["kassi_testperson1"])
   end  
 end
 

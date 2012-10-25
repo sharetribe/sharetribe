@@ -34,7 +34,7 @@ describe Notification do
   
   it "is not valid if the same notification already exists" do
     @notification.should be_valid
-    @notification2 = Factory(:notification, :receiver => @test_person)
+    @notification2 = FactoryGirl(:notification, :receiver => @test_person)
     @notification.should_not be_valid
     @notification2.update_attribute(:created_at, 1.day.ago)
     @notification.should be_valid
