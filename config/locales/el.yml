@@ -838,7 +838,7 @@ el:
       rideshare: Οτοστόπ
       search_verb: Ψάξε
       you_have_something_others_do_not: "Έχεις κάτι να προσφέρεις;"
-      feed_title: ~
+      feed_title: "%{listing_type} στο %{service_name} \"%{community_name}\" - %{optional_category}"
     left_panel_link:
       borrows: Δανεισμοί
       buys: Αγορές
