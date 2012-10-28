@@ -45,12 +45,12 @@
 %p
   Tin cậy hơn bạn xuất hiện đối với người khác, thiết tha hơn họ có thể hỗ trợ bạn những thứ bạn cần. Cách dễ nhất để xây dựng uy tín của bạn là 
   - if logged_in?
-    = link_to("điền đầy đủ thông tin một cách cẩn thận", profile_person_settings_path(:person_id => @current_user.id)) + "." 
+    = link_to("điền đầy đủ thông tin một cách cẩn thận", profile_person_settings_path(:person_id => @current_user.id)) + "."
   - else
     điền đầy đủ thông tin một cách cẩn thận.
   Ít nhất bạn nên điền tên đầy đủ của bạn và
   - if logged_in?
-    = link_to("thêm một hình ảnh nhận diện tiểu sử của chính bạn", avatar_person_settings_path(:person_id => @current_user.id)) + "." 
+    = link_to("thêm một hình ảnh nhận diện tiểu sử của chính bạn", avatar_person_settings_path(:person_id => @current_user.id)) + "."
   - else
     thêm một hình ảnh nhận diện tiểu sử của chính bạn.
 
