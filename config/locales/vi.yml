@@ -66,7 +66,7 @@ vi:
       trade: đổi
       share_for_free: "chia sẻ miễn phí"
     username: "Tên đăng nhập"
-    username_or_email: ~
+    username_or_email: "Tên người dùng hoặc email"
     what_is_this: "Đây là gì?"
   conversations:
     index:
@@ -180,7 +180,7 @@ vi:
       go_to_your_tribe: "Đi đến cộng đồng của bạn"
       we_will_contact_you_about_invoicing: "Chúng tôi sẽ liên hệ với bạn sau này bằng email về hoá đơn."
     index:
-      find_your_local_tribe: "Tìm thấy cộng đồng đại phương của bạn"
+      find_your_local_tribe: "Tìm thấy cộng đồng địa phương của bạn"
       or_start_your_own: "...hoặc %{start_your_own_tribe_link}"
       start_your_own_tribe_link: "bắt đầu của riêng bạn!"
     select_pricing_plan:
@@ -189,11 +189,11 @@ vi:
       create_for_free: "Tạo miễn phí"
       contact_us: "Liên hệ với chúng tôi"
       free_plan: "Kế hoạch tự do"
-      max_members: "Cực đại. %{number} thành viên"
-      premium_plan: "Kế hoạch giải thưởng"
-      care_free_user_support: ~
+      max_members: "Tối đa. %{number} thành viên"
+      premium_plan: "Kế hoạch chất lượng cao"
+      care_free_user_support: "Hỗ trợ người dùng ưu tiên"
       create_your_tribe: "Tạo cộng đồng của bạn"
-      professional_plan: "Chỉnh sửa kế hoạch"
+      professional_plan: "Kế hoạch tùy chọn"
       unlimited_members: "Thành viên không giới hạn"
       intranet_integration: "Tích hợp intranet"
       no_charge: "Miễn phí"
@@ -201,7 +201,7 @@ vi:
       custom_domain: ~
       you_can_change_and_cancel: "Bạn có thể thay đổi hoặc hủy bỏ kế hoạch sau này tại bất kỳ thời gian."
       we_help_you_get_started: "Chúng tôi giúp đỡ để tập hợp mọi người"
-      discounts_available_for_non_profits: "Chúng giảm giá 50% cho các tổ chức phi lợi nhuận"
+      discounts_available_for_non_profits: "Chúng tôi giảm giá 50% cho các tổ chức phi lợi nhuận"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Bạn muốn tạo loại cộng đồng gì?"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Đầu tiên cho chúng tôi biết loại cộng đồng bạn đại diện bằng cách chọn một loại dưới đây."
@@ -291,18 +291,18 @@ vi:
       api: API
       blog: Blog
       code: "Mã nguồn"
-      issue_tracker: ~
+      issue_tracker: "Vấn đề theo dõi"
       product_of: "Sharetribe là một sản phẩm của"
       language: "Ngôn ngữ:"
       new: MỚI!
-      new_text: ~
+      new_text: "%{service_name} bây giờ có sẵn cho những hàng xóm <a href=\"http://www.sharetribe.com/en/wdc\"> ở Helsinki và Lahti</a> và cho các thành viên <a href=\"http://www.kassi.eu/en/okl\"> của Suomen Omakotiliitto</a>!"
       want_to_know_more: "Bạn muốn biết thêm chi tiết? %{read_our_faq_link} or %{contact_us_link}."
-      read_our_faq: "Đọc câu hỏi và trả lợi thường xuyên (FAQ) của chúng tôi"
+      read_our_faq: "Đọc câu hỏi và trả lời thường gặp (FAQ) của chúng tôi"
       contact_us: "liên hệ trực tiếp với chúng tôi"
       why_you_really_should_have_a_tribe: "Tại sao bạn thực sự cần phải có một cộng đồng"
       an_example: "Một ví dụ:"
       home: "Trang chủ"
-      faq: "Câu hỏi thường gặp (FAQ)"
+      faq: FAQ
       browse_tribes: "Duyệt các cộng đồng"
       pricing: "Giá cả"
       contact: "Liên hệ"
@@ -384,7 +384,7 @@ vi:
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
-      update_on_what_is_happening: ~
+      update_on_what_is_happening: "Để ý một tý vào những gì đang xảy ra tại %{community} %{service_name} ngay bây giờ."
       newest_offers: "Hiện tại người nào hỗ trợ những người khác"
       newest_requests: "Hiện tại người nào cần"
       could_you_offer_something: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không?"
@@ -496,7 +496,7 @@ vi:
       no_requests_visible_unless_logged_in: "Không có các yêu cầu sản phẩm, dịch vụ hoặc chia sẻ chuyên đi (rideshare) có thể thấy cho người dùng chưa đăng nhập."
       one_private_offer_exists: "Vừa có <b>một hỗ trợ</b>,"
       one_private_request_exists: "Vừa có <b>một yêu cầu</b>,"
-      ride_offer: ~
+      ride_offer: "Đưa những đứa trẻ đi chơi"
       ride_request: "Một cuốc xe đi làm"
       some_private_offers_exist: "Vừa có <b>%{number_of_listings} hỗ trợ</b>,"
       some_private_requests_exist: "Vừa có <b>%{number_of_listings} yêu cầu</b>,"
@@ -571,11 +571,11 @@ vi:
       give_feedback: "Cho ý kiến phản hồi đối với %{service_name}"
       keywords: "%{service_name}, Kassi, chia sẻ tài nguyên trong một cộng đồng, mượn đồ vật, dịch vụ, thiện ý, tin tức, chia sẻ chuyến đi, không gian, thông tin xe hơi, nhà ở, chỗ ở, sự giúp đỡ, giúp đỡ, hỗ trợ, yêu cầu, thuê mướn, đổi, trao đổi, việc mua, việc bán, bán, mua, việc cho, cho, sinh thái, cộng đồng, cộng đồng trực tuyến, địa phương"
       meta_description: "%{service_name} là một dịch vụ giúp đỡ các thành viên của các hiệp hội và các cộng đồng khác để bán và cho mượn các đồ vật với nhau, sắp xếp thông tin về xe hơi và giúp đỡ lẫn nhau trong nhiều cách khác."
-      or_check_our: "...hoặc kiểm tra của chúng tôi"
+      or_check_our: "...hoặc kiểm tra"
       send_feedback_to_admin: "Gửi ý kiến phản hồi"
       to_see_what_others_have_suggested: "để xem những gì người dùng khác đề nghị"
       your_email_address: "Địa chỉ email của bạn (không bắt buộc)"
-      formerly_known_as_kassi: ~
+      formerly_known_as_kassi: "được biết trước như Kassi"
     conversations:
       messages: "Các thông điệp"
       notifications: "Các thông báo"
@@ -658,13 +658,13 @@ vi:
       person_activated: "Người dùng được kích hoạt"
       person_deactivated: "Người dùng ngừng hoạt động"
       person_updated_successfully: "Thông tin đã cập nhật"
-      poll_answered: ~
-      poll_could_not_be_answered: ~
-      poll_created: ~
-      poll_creation_failed: ~
-      poll_update_failed: ~
-      poll_updated: ~
-      poll_deleted: ~
+      poll_answered: "Thăm dò ý kiến đã được trả lời"
+      poll_could_not_be_answered: "Thăm dò ý kiến không được trả lời"
+      poll_created: "Thăm dò ý kiến đã được tạo"
+      poll_creation_failed: "Tạo thăm dò ý kiến thất bại"
+      poll_update_failed: "Thăm dò ý kiến cập nhật không thành công"
+      poll_updated: "Thăm dò ý kiến đã cập nhật"
+      poll_deleted: "Thăm dò ý kiến bị gỡ bỏ"
       read_more: "Tìm hiểu thêm!"
       registration_considered_spam: "Đăng ký không làm việc, xin vui lòng gửi thông tin phản hồi ở bên trái và đề cập đến \"email2 lỗi\"."
       reply_cannot_be_empty: "Bạn không thể gửi thông điệp trống."
@@ -686,7 +686,7 @@ vi:
       you_cannot_reply_to_a_closed_offer: "Bạn không thể trả lời hỗ trợ bị đóng"
       you_cannot_reply_to_a_closed_request: "Bạn không thể trả lời một yêu cầu bị đóng"
       you_cannot_send_message_to_yourself: "Bạn không thể gửi thư cho chính mình"
-      you_followed_listing: ~
+      you_followed_listing: "Bây giờ bạn đang theo dõi bảng liệt kê này"
       you_have_already_given_feedback_about_this_event: "Bạn vừa đưa ra thông tin phản hồi về sự kiện này"
       you_are_now_member: "Bạn đã tham gia cộng đồng này thành công"
       you_are_already_member: "Bạn đã là một thành viên của cộng đồng %{service_name}. Chào mừng trở lại!"
@@ -812,7 +812,7 @@ vi:
         communities: "Tất cả cộng đồng %{service_name} của tôi"
         everybody: "Tất cả người dùng internet"
         this_community: "Chỉ những thành viên của cộng đồng này"
-        visibility: ~
+        visibility: "Hiển thị"
     help_texts:
       help_share_type_title: "Loại hỗ trợ hoặc yêu cầu"
       help_tags_title: Thẻ
@@ -838,7 +838,7 @@ vi:
       rideshare: "Cuốc xe chia sẻ"
       search_verb: "Tìm kiếm"
       you_have_something_others_do_not: "Có thứ gì để hỗ trợ không?"
-      feed_title: ~
+      feed_title: "%{listing_type} tại %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
       borrows: Mượn
       buys: Mua
@@ -958,8 +958,8 @@ vi:
       delete_news_item: "Loại bỏ bài viết"
   okl:
     member_id: "ID thành viên"
-    member_id_is_your_username: ~
-    member_id_or_email: ~
+    member_id_is_your_username: "Bạn phải cung cấp nhận dạng (id) thành viên Omakotiliitto (jäsennumero) của bạn để tham gia %{service_name}. Nhận dạng thành viên của bạn cũng là tên mà bạn sẽ cần khi đăng nhập vào %{service_name} . Nếu bạn chưa phải là thành viên của Omakotiliitto, bạn có thể"
+    member_id_or_email: "Định danh hoặc email của thành viên"
     join_here: "tham gia ở đây."
   people:
     badge_description:
@@ -974,8 +974,8 @@ vi:
       help_captcha_title: "Bạn là người?"
       help_invitation_code_title: "Bạn cần một lời mời để tham gia"
       terms_title: "Các điều khoán của việc sử dụng %{service_name}"
-      trustcloud_description_title: ~
-      trustcloud_description_text: ~
+      trustcloud_description_title: TrustCloud
+      trustcloud_description_text: "<p> TrustCloud là một dịch vụ trực tuyến trợ giúp để đo lường độ tin tưởng thông qua các dịch vụ trực tuyến khác nhau. Nó cho điểm lòng tin (TrustScore) (1-1000) dựa trên hoạt động trực tuyết của người đó. Điểm này được tăng lên chẳng hạn bởi nhận được phản hồi tốt trên eBay hoặc có nhiều mối liên hệ Facebook tốt. Bạn có thể chọn (click) mỗi thẻ để biết thêm chi tiết.</p><p> TrustCloud được sử dụng để đem nhiều tự tin điều mà một ngơời nào đó đằng sau tiểu sử là thật và không dấu sau một định danh giả tạo.</p><p> Bạn có thể đòi hỏi chính thẻ tín nhiệm của bạn nếu bạn muốn bởi <a href='https://trustcloud.com/claim'> đăng ký với TrustCloud</a> và xác định cùng một địa chỉ email tại rằng bạn đã đăng ký tại %{service_name}. Điều này là không bắt buộc, nhưng chúng ta đề nghị đòi hỏi TrustCard của bạn bởi bì điều đó sẽ làm tằng uy tín của bạn và có thể làm cho nó dễ dàng hơn để thương lượng với người khác trong cộng đồng.</p><p> Các hoạt động tại %{service_name} không ảnh hường TrustScore của bạn, nhưng chúng tôi lập kết hoạch để làm điều đó có thể trong tương lai sau này.</p>"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
       inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
@@ -988,8 +988,7 @@ vi:
       email_is_in_use: "Email bạn cho đang được sử dụng."
       email_is_in_use_or_not_allowed: "Email này không được phép đối với cộng đồng này hoặc nó vừa được sử dụng. Vui lòng sử dụng một địa chỉ tương thích với cộng đồng này (xem hướng dẫn ở trên). Nếu bạn vẫn không thể vào được, gửi cho chúng tôi phản hồi bằng cách nhấp vào liên kết ở phía bên trái."
       email_not_allowed: "Email này không được phép trong cộng đồng này. Xin vui lòng sử dụng một địa chỉ đó là liên kết với cộng đồng này. Nếu bạn vẫn không thể nhận được trong, gửi cho chúng tôi thông tin phản hồi bằng cách nhấp vào liên kết ở bên trái."
-      email_restriction_instructions:
-        other: ~
+      email_restriction_instructions: ~
       enter_captcha: "Tôi là con người:"
       family_name: "Họ:"
       given_name: "Tên:"
@@ -1051,34 +1050,34 @@ vi:
       helper_silver: "Người giúp đỡ (bạc)"
       helper_silver_description: "Bạn thích dùng thời gian của bạn giúp đỡ những người khác: 6 dịch vụ đã thực hiện!"
       jack_of_all_trades: ~
-      jack_of_all_trades_description: ~
+      jack_of_all_trades_description: "Bạn thật đa tài! Bạn đang tham gia vào trao đổi tài nguyên với các vai trò khác nhau. Thực hiện và tập trung cả tám loại hình: người hỗ trợ sản phẩm, người hỗ trợ dịch vụ, người hỗ trợ cuốc xe, người hỗ trợ không gian, người yêu cầu sản phẩm, người yêu cầu dịch vụ, người yêu cầu cuốc xe và người yêu cầu không gian."
       lender_bronze: "Người cho vay (đồng)"
       lender_bronze_description: "Bạn đã liệt kê ba mục bạn có thể cho vay trong hồ sơ của bạn, tuyệt vời!"
       lender_gold: "Người cho vay (vàng)"
-      lender_gold_description: ~
+      lender_gold_description: "Bạn cho người bạn chiếc áo. Bạn có danh sach 25 món mà bạn có thể cho mượn, khủng khiếp!"
       lender_silver: "Người cho vay (bạc)"
       lender_silver_description: "Có nhiều hàng hóa trong phòng của bạn mà bạn có thể chia sẻ với những người khác: 10 món đã cho những người khác mượn!"
-      listing_freak_bronze: ~
-      listing_freak_bronze_description: ~
-      listing_freak_gold: ~
-      listing_freak_gold_description: ~
-      listing_freak_silver: ~
-      listing_freak_silver_description: ~
-      moneymaker_bronze: ~
+      listing_freak_bronze: "Liệt kê người quan tâm (đồng)"
+      listing_freak_bronze_description: "Bạn có năm hỗ trợ/yêu cầu mở được liệt kê tại %{service_name}. Tuyệt vời, Có gì trong kho hoặc bộ dụng cụ của bạn đem lại lợi ích cho những người khác không?"
+      listing_freak_gold: "Liệt kê người quan tâm (vàng)"
+      listing_freak_gold_description: "40 yêu hỗ trợ và/hoặc cầu mở, tuyệt vời! Bạn là một trong những người xuất bản nội dung năng động nhất tại %{service_name}."
+      listing_freak_silver: "Liệt kê người quan tâm (bạc)"
+      listing_freak_silver_description: "20 hỗ trợ và/hoặc yêu cầu mở, tuyệt vời! Bạn thật sự là một người liệt kê năng động."
+      moneymaker_bronze: "Thương vụ đem lại lợi ích lớn (đồng)"
       moneymaker_bronze_description: "Bạn nhận ra rằng %{service_name} cũng có thể được sử dụng để kiếm tiền! Bạn đã bán hoặc thuê thành công hai thứ tại %{service_name}."
       moneymaker_gold: "Moneymaker (vàng)"
       moneymaker_gold_description: "15 món đã bán hay thuê có phản hồi tích cực! %{service_name} là một vụ kinh doanh tuyệt vời cho bạn và những người mua hoặc thuê từ bạn!"
       moneymaker_silver: "Moneymaker (bạc)"
       moneymaker_silver_description: "%{service_name} cung cấp cho một bổ sung thú vị vào thu nhập của bạn. Sáu món đã bán hoặc thuê có phản hồi tích cực."
-      rookie: ~
+      rookie: "Tân binh"
       rookie_description: "Bạn thêm hỗ trợ hoặc yêu cầu vào %{service_name} lần đầu tiên. Chúng ta đi!"
-      santa: ~
-      santa_description: ~
-      taxi_stand_bronze: ~
+      santa: "Ông già Nô-en"
+      santa_description: "Ho ho ho và Chúc mừng giáng sinh! Bạn đã bỏ đi ít nhất một mặt hàng vào tháng Mười hai."
+      taxi_stand_bronze: "Nơi taxi đứng (đồng)"
       taxi_stand_bronze_description: "Bạn đã chia sẻ ba cuốc xe đến %{service_name}."
-      taxi_stand_gold: ~
+      taxi_stand_gold: "Nơi taxi đứng (vàng)"
       taxi_stand_gold_description: "Bạn luôn luôn ở trong dịch vụ, sẵn sàng để hỗ trợ một cuốc xe cho những người khác. Hộ trợ 25 cuốc xe, tuyệt vời!"
-      taxi_stand_silver: ~
+      taxi_stand_silver: "Nơi taxi đứng (bạc)"
       taxi_stand_silver_description: "10 cuốc xe chia sẻ đã được thêm, tuyệt vời! Người ta biết ai để hỏi khi họ cần một cuốc xe."
       volunteer_bronze: "Tình nguyện viên (đồng)"
       volunteer_bronze_description: "Bạn muốn đưa các kỹ năng sử dụng của bạn bằng cách giúp những người khác. Bạn có ba hỗ trợ dịch vụ mở tại %{service_name} ."
@@ -1119,7 +1118,7 @@ vi:
       as_expected: "Như mong đợi"
       badges: "Các huy hiệu"
       edit_profile_info: "Chỉnh sửa thông tin của bạn"
-      exceeded_expectations: ~
+      exceeded_expectations: "Vượt quá mong đợi"
       received_feedback: "Đã nhận thông tin phản hồi:"
       positive: "tích cực"
       hide_description: "Hiển thị ít hơn"
@@ -1132,7 +1131,7 @@ vi:
       show_all_feedback: "Hiển thị tất cả các thông tin phản hồi"
       show_all_testimonials: "Hiển thị tất cả các thông tin phản hồi"
       show_full_description: "Hiển thị thêm"
-      slightly_better_than_expected: ~
+      slightly_better_than_expected: "Vượt quá mong đợi"
       slightly_less_than_expected: "Tệ hơn so với dự kiến"
       what_are_these: "Đây là gì?"
       trustcloud: TrustCloud
@@ -1183,19 +1182,19 @@ vi:
     account:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"
-      delete_account: ~
+      delete_account: "Xóa tài khoản"
       email: "Địa chỉ email:"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Nếu bạn muốn xóa tài khoản của bạn, liên hệ với chúng tôi bằng cách sử dụng nút phản hồi bên trái."
       new_email: "Địa chỉ email mới"
       new_password: "Mật khẩu mới"
       save: Lưu
-      these_fields_are_shown_only_to_you: ~
+      these_fields_are_shown_only_to_you: "Tên người dùng được hiển thị trong tiểu sử của bạn trừ khi bạn đưa ra tên của bạn. Các thông tin khác chỉ hiện thị đối với bạn."
     avatar:
       add_avatar_submit: "Lưu hình ảnh"
       update_profile_picture: "Cập Nhật hình ảnh cá nhân"
     notifications:
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
-      newsletters: ~
+      newsletters: "Bản in các hoạt động"
       email_about_accept_reminders: "...tôi đã quên để chấp nhận một sự kiện"
       email_about_new_badges: "...tôi đã đạt được một huy hiệu mới"
       email_about_new_comments_to_own_listing: ".. .người nào đó bình luận về sự hỗ trợ hoặc yêu cầu của tôi"
@@ -1252,14 +1251,14 @@ vi:
   testimonials:
     index:
       all_testimonials: "Tất cả thông tin phản hồi"
-      feedback_altogether: ~
-      loading_more_testimonials: ~
+      feedback_altogether: "Phản hồi tất cả: "
+      loading_more_testimonials: "Nạp thêm quà tặng"
       no_testimonials: "Không có phản hồi được nhận."
     new:
       as_expected: "Như mong đợi"
       exceeded_expectations: "Tốt hơn nhiều so với dự kiến"
       give_feedback_to: "Cho thông tin phản hồi đến %{person}"
-      grade: ~
+      grade: "Xếp loại kinh nghiệm"
       less_than_expected: "Tệ hơn so với dự kiến"
       send_feedback: "Gửi ý kiến phản hồi"
       slightly_better_than_expected: "Tốt hơn một chút so với dự kiến"
@@ -1271,9 +1270,9 @@ vi:
       to_user: đến
   time:
     formats:
-      short: ~
-      shorter: ~
-      sms: ~
+      short: "%e %b %Y lúc % H: % M"
+      shorter: "%e %b lúc %H:% M"
+      sms: "%e %b lúc  %H:% M"
   timestamps:
     day_ago: "%{count} ngày trước"
     days_ago: "%{count} ngày trước"
