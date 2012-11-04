@@ -249,6 +249,10 @@ a.green_part_link_smaller {
   &:active { color: $light_orange; }
 }
 
+a.smaller {
+	font-size: 11px;
+}
+
 li[role=presentation] a {
   color: black;
   font-weight: 300;

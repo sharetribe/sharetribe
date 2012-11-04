@@ -41,6 +41,13 @@
         .form_field_container_taller
           = form.label :description, t(".describe_your_tribe")
           = form.text_area :description, :maxlength => "500", :value => (@community.description || t("common.default_community_description", :locale => (session[:community_locale] || "en"))), :class => "new_tribe_text_area"
+        .form_field_container
+          .signup_checkbox_container
+            .signup_checkbox_input_container
+              %input{:type => "checkbox", :id => "community_join_with_invite_only", :style => "opacity: 0;", :name => "community[join_with_invite_only]"}
+            .signup_checkbox_label_container
+              = form.label :terms, t('.restrict_tribe_to_invited_people'), :class => "checkbox"
+              = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link", :class => "green_part_link_smaller smaller"
         - if session[:consent] && session[:consent].eql?(APP_CONFIG.consent)
           = form.hidden_field :terms, :value => "true"
         - else
@@ -70,4 +77,5 @@
           = form.submit t(".create_your_tribe"), :class => "form_button", :id => "create_community_button"
 
 - if session[:community_locale]
-  = render :partial => "people/help_texts", :collection => ["terms"], :as => :field 
+  = render :partial => "people/help_texts", :collection => ["terms"], :as => :field
+= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

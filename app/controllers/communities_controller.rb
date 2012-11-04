@@ -56,6 +56,7 @@ class CommunitiesController < ApplicationController
     params[:community].delete(:address)
     @community = Community.new(params[:community])
     @community.settings = {"locales"=>["#{params[:community_locale]}"]}
+    @community.join_with_invite_only = params[:community][:join_with_invite_only].present?
     @community.email_confirmation = true
     @community.plan = session[:pricing_plan]
     @community.users_can_invite_new_users = true
@@ -92,6 +93,11 @@ class CommunitiesController < ApplicationController
     session[:allowed_email] = "@#{params[:email].split('@')[1]}"
     if @current_user.has_confirmed_email?(params[:email])
       session[:confirmed_email] = params[:email]
+      session[:unconfirmed_email] = params[:email] 
+      # FIXME: this is bit unlogically stored also to unconfirmed as the new.haml 
+      # for community creation expects that step to be taken first. So having confirmed 
+      # already is kind of rarer case, so setting both will make the logic based on the 
+      # default case work in this case too.
     else
       # no confirmed allowed email found. 
       # Check if there is unconfirmed or should we add one.

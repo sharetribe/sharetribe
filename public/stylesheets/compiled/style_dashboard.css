@@ -1,7 +1,8 @@
-@import url('../reset.css');
-@import url('../text.css');
-@import url('../960.css');
-@import url('../uniform.kassi.css');
+@charset "UTF-8";
+@import url("../reset.css");
+@import url("../text.css");
+@import url("../960.css");
+@import url("../uniform.kassi.css");
 /* Main colors */
 /* Other colors */
 /* Used to fix form padding problem in FF */
@@ -210,6 +211,9 @@ a.green_part_link_smaller {
      color: #fa9961; }
   a.green_part_link_smaller:active {
      color: #f8792f; }
+
+a.smaller {
+  font-size: 11px; }
 
 li[role=presentation] a {
   color: black;
