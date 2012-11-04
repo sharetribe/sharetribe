@@ -64,6 +64,7 @@ function initialize_new_tribe_form(locale, invalid_domain_message, domain_in_use
   }
   $('input.text_field:first').focus();
   $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
+  $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
 	$("input[type=checkbox]").uniform();
   var form_id = "#new_community";
   $(form_id).validate({
@@ -128,7 +129,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	});	
 }
 
-function initialize_enter_organization_email_form(default_text,email_in_use_message, invalid_email_ending_message, valid_email_ending_required, community_category) {
+function initialize_enter_organization_email_form(locale, default_text,email_in_use_message, invalid_email_ending_message, valid_email_ending_required, community_category) {
   $('input.organization_email').watermark(default_text, {className: 'default_text'});
   var form_id = "#org_email_form";
 	$(form_id).validate({
