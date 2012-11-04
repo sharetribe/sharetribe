@@ -10,6 +10,11 @@ When updating, always run the following commands to update gem set and database 
  - bundle install
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
+ 
+2.3.8
+-----
+
+Add possibility to create tribe as invite only. Also disable problematic FB login on dashboard.
 
 2.3.7
 -----
