@@ -167,6 +167,18 @@ class PersonMailer < ActionMailer::Base
          :delivery_method => delivery_method)
   end
   
+  def html_news(recipient)
+    
+    @recipient = recipient
+    #set_locale @recipient.locale
+    mail(:to => @recipient.email,
+         :subject => "test news") do |format|
+               format.html { render :layout => false }
+    end
+    
+    
+  end
+  
   def invitation_to_kassi(invitation, host=nil)
     @no_settings = true
     @invitation = invitation

@@ -98,8 +98,6 @@ class Person < ActiveRecord::Base
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
     
   serialize :preferences
-  
-
 
   validates_uniqueness_of :username
   validates_uniqueness_of :email
