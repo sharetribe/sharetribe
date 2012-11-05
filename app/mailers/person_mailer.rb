@@ -146,7 +146,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => email.address, :subject => t("devise.mailer.confirmation_instructions.subject"), :template_path => 'devise/mailer', :template_name => 'confirmation_instructions')
   end
   
-  def newsletter(recipient, community)
+  def community_updates(recipient, community)
     @community = community
     @recipient = recipient
     set_locale @recipient.locale
@@ -250,16 +250,16 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, :subject => @subject)
   end
   
-  def self.deliver_newsletters
+  def self.deliver_community_updatess
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
           if member.should_receive?("email_about_weekly_events")
             begin
-              PersonMailer.newsletter(member, community).deliver
+              PersonMailer.community_updates(member, community).deliver
             rescue Exception => e
               # Catch the exception and continue sending the news letter
-              ApplicationHelper.send_error_notification("Error sending mail for weekly newsletter: #{e.message}", e.class)
+              ApplicationHelper.send_error_notification("Error sending mail for weekly community updates: #{e.message}", e.class)
             end
           end
         end
