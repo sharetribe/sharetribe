@@ -167,16 +167,21 @@ class PersonMailer < ActionMailer::Base
          :delivery_method => delivery_method)
   end
   
-  def html_news(recipient)
+  def newsletter(recipient, newsletter_filename)
     
     @recipient = recipient
-    #set_locale @recipient.locale
-    mail(:to => @recipient.email,
-         :subject => "test news") do |format|
-               format.html { render :layout => false }
+    set_locale recipient.locale
+    
+    @newsletter_content = File.read("public/newsletters/#{newsletter_filename}.#{@recipient.locale}.html")
+    
+    @community = recipient.communities.first # We pick random community to point the settings link to
+    
+    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    
+    mail(:to => @recipient.email, :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|
+      format.html { render :layout => "newsletter" }
     end
-    
-    
   end
   
   def invitation_to_kassi(invitation, host=nil)
@@ -265,6 +270,28 @@ class PersonMailer < ActionMailer::Base
         end
       end
     end
+  end
+  
+  def self.deliver_newsletters(newsletter_filename)
+    unless File.exists?("public/newsletters/#{newsletter_filename}.en.html")
+      puts "Can't find the newsletter file in english (public/newsletters/#{newsletter_filename}.en.html) Maybe you mistyped the first part of filename?"
+      return
+    end
+    
+    Person.all.each do |person|
+      if person.should_receive?("email_newsletters")
+        begin
+          if File.exists?("public/newsletters/#{newsletter_filename}.#{person.locale}.html")
+            PersonMailer.newsletter(person, newsletter_filename).deliver
+          else
+            logger.debug "Skipping sending newsletter to #{person.username}, because his locale is #{person.locale} and that file was not found."
+          end
+        rescue Exception => e
+          # Catch the exception and continue sending the newsletter
+          ApplicationHelper.send_error_notification("Error sending newsletter for #{person.username}: #{e.message}", e.class)
+        end
+      end 
+    end;"Newsletters sent"
   end  
   
   def self.deliver_open_content_messages(people_array, subject, mail_content, default_locale="en", verbose=false, addresses_to_skip=[])
