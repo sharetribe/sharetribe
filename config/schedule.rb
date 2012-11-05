@@ -36,5 +36,5 @@ every 1.day, :at => '1am' do
 end
 
 every :tuesday, :at => "2pm" do
-  runner "PersonMailer.deliver_newsletters"
+  runner "PersonMailer.deliver_community_updatess"
 end
