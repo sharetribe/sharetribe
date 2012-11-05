@@ -78,6 +78,7 @@ class Person < ActiveRecord::Base
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
+  # These are the email notifications, excluding newsletters settings
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
     "email_about_new_comments_to_own_listing",
@@ -97,8 +98,6 @@ class Person < ActiveRecord::Base
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
     
   serialize :preferences
-  
-
 
   validates_uniqueness_of :username
   validates_uniqueness_of :email
@@ -295,6 +294,7 @@ class Person < ActiveRecord::Base
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
     self.preferences["email_about_weekly_events"] = true
+    self.preferences["email_newsletters"] = true
     save
   end
   

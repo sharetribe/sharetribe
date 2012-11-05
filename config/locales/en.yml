@@ -338,6 +338,8 @@ en:
       kassi_team: "The %{service_name} Team"
       thanks: "Thanks,"
       want_to_control_emails: "Want to control which emails you receive from %{service_name}?"
+      dont_want_to_receive_these_emails: "Don't want to receive these emails?"
+      edit_your_email_settings_here: "Edit your email settings here"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
@@ -397,6 +399,7 @@ en:
       offering: offering
       requesting: requesting
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
+      occasional_newsletter_title: "Sharetribe newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
     reset_password_instructions:
@@ -1206,7 +1209,8 @@ en:
       email_about_new_messages: "...somebody sends me a message"
       email_about_new_received_testimonials: "...somebody gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
-      email_about_weekly_events: "Send me an email every week on what is happening in %{service_name}"
+      email_about_weekly_events: "Send me an email every week on what is happening in my tribes"
+      email_newsletters: "Send me occasional %{service_name} newsletter"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
     profile:
