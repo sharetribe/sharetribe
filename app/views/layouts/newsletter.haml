@@ -1,0 +1,16 @@
+!!! 5
+!!! xml
+%html{html_attrs}
+  %head
+  %body
+    %table{cellpadding: "0", cellspacing: "0", border: "0", align:"center", style:"text-align:center;margin:0;padding:0;width:100%!important;line-height:100%!important;background:#f9f8f8"}
+      %tbody
+        %tr
+          %td
+            = yield
+            %font{face:"Helvetica Neue, Arial, Helvetica, sans-serif", style:"font-size:12px;line-height:18px;color: #464646;"}
+              %p{style:"padding-bottom: 20px"}
+                = t("emails.common.dont_want_to_receive_these_emails")
+                %a{style:"color: #d25427;", href:"#{@settings_url}?ref=email"}
+                  = t("emails.common.edit_your_email_settings_here")
+  

@@ -338,6 +338,8 @@ fi:
       kassi_team: "%{service_name}-tiimi"
       thanks: "Terveisin,"
       want_to_control_emails: "Mistä kaikesta haluat %{service_name_genetive} lähettävän sinulle sähköpostimuistutuksen?"
+      dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
+      edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -397,6 +399,7 @@ fi:
       offering: tarjoavat
       requesting: pyytävät
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
+      occasional_newsletter_title: "Sharetribe uutiskirje"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name_partitive} kohtaan!"
     reset_password_instructions:
@@ -1206,7 +1209,8 @@ fi:
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä %{service_name_inessive} tapahtuu"
+      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä yhteisöissäni tapahtuu"
+      email_newsletters: "Lähetä minulle silloin tällöin ilmestyvä %{service_name}-uutiskirje"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
     profile:
