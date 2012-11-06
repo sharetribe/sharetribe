@@ -340,6 +340,8 @@ fi:
       want_to_control_emails: "Mistä kaikesta haluat %{service_name_genetive} lähettävän sinulle sähköpostimuistutuksen?"
       dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
       edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
+      message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
+      view_it_in_your_browser: "Katso verkkoselaimellasi."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
