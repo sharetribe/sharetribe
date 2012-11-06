@@ -172,7 +172,8 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
     set_locale recipient.locale
     
-    @newsletter_content = File.read("public/newsletters/#{newsletter_filename}.#{@recipient.locale}.html")
+    @newsletter_path = "newsletters/#{newsletter_filename}.#{@recipient.locale}.html"
+    @newsletter_content = File.read("public/#{@newsletter_path}")
     
     @community = recipient.communities.first # We pick random community to point the settings link to
     
