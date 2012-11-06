@@ -142,7 +142,7 @@ class Person < ActiveRecord::Base
   has_attached_file :image, paperclip_options
         
   #validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_size :image, :less_than => 9.megabytes
   validates_attachment_content_type :image,
                                     :content_type => ["image/jpeg", "image/png", "image/gif", 
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
