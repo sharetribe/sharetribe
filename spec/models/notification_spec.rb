@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Notification do
   
   before(:each) do
-    @test_person, @session = get_test_person_and_session
-    @notification = FactoryGirl.build(:notification, :receiver => @test_person)
+    @test_person = FactoryGirl.create(:person)
+    @notification = FactoryGirl.create(:notification, :receiver => @test_person)
   end
   
   it "is only valid with valid notification types" do
@@ -34,10 +34,10 @@ describe Notification do
   
   it "is not valid if the same notification already exists" do
     @notification.should be_valid
-    @notification2 = FactoryGirl(:notification, :receiver => @test_person)
-    @notification.should_not be_valid
-    @notification2.update_attribute(:created_at, 1.day.ago)
-    @notification.should be_valid
+    @notification2 = FactoryGirl.build(:notification, :receiver => @test_person)
+    @notification2.should_not be_valid
+    @notification.update_attribute(:created_at, 1.days.ago)
+    @notification2.should be_valid
   end
   
 end

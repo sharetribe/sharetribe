@@ -11,133 +11,133 @@ FactoryGirl.define do
     "sharetribe_testcommunity_#{n}" 
   end
 
-  factory :person, aliases: [:author] do |p|
-    p.id "dMF4WsJ7Kr3BN6ab9B7ckF"
-    p.is_admin 0
-    p.locale "en"
-    p.test_group_number 4
-    p.confirmed_at Time.now
-    p.given_name "Proto"
-    p.family_name "Testro"
-    p.phone_number "0000-123456"
-    p.username { |u| u.username = generate(:username) }
-    p.password "testi"
-    p.email { |e| e.email = generate(:email) }
+  factory :person, aliases: [:author, :receiver] do
+    id "dMF4WsJ7Kr3BN6ab9B7ckF"
+    is_admin 0
+    locale "en"
+    test_group_number 4
+    confirmed_at Time.now
+    given_name "Proto"
+    family_name "Testro"
+    phone_number "0000-123456"
+    username
+    password "testi"
+    email
   end  
 
-  factory :share_type do |s|
-    s.name "borrow"
+  factory :share_type do
+    name "borrow"
   end  
 
-  factory :listing do |l|
-    l.title "Sledgehammer"
-    l.description("test")
-    l.author
-    l.listing_type "request"
-    l.category "item"
-    l.share_type "buy"
-    l.tag_list("tools, hammers")
-    l.valid_until 3.months.from_now
-    l.times_viewed 0
-    l.visibility "everybody"
-    l.communities { [ FactoryGirl.create(:community) ] }
+  factory :listing do
+    title "Sledgehammer"
+    description("test")
+    author
+    listing_type "request"
+    category "item"
+    share_type "buy"
+    tag_list("tools, hammers")
+    valid_until 3.months.from_now
+    times_viewed 0
+    visibility "everybody"
+    communities { [ FactoryGirl.create(:community) ] }
   end
 
-  factory :conversation do |c|
-    c.title "Item offer: Sledgehammer"
-    c.listing
-    c.status "pending"
+  factory :conversation do
+    title "Item offer: Sledgehammer"
+    listing
+    status "pending"
   end
 
-  factory :message do |m|
-    m.content "Test"
-    m.association :conversation
-    m.sender { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  factory :message do
+    content "Test"
+    association :conversation
+    sender { |sender| sender.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
   end
 
-  factory :participation do |p|
-    p.association :conversation
-    p.association :person
-    p.is_read false
-    p.last_sent_at DateTime.now
+  factory :participation do
+    association :conversation
+    association :person
+    is_read false
+    last_sent_at DateTime.now
   end
 
-  factory :testimonial do |t|
-    t.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-    t.association :participation
-    t.grade 0.5
-    t.text "Test text"
+  factory :testimonial do
+    author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    association :participation
+    grade 0.5
+    text "Test text"
   end
 
-  factory :comment do |c|
-    c.author { |author| author.association(:person) }
-    c.association :listing
-    c.content "Test text"
+  factory :comment do
+    author { |author| author.association(:person) }
+    association :listing
+    content "Test text"
   end
 
-  factory :feedback do |f|
-    f.author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-    f.content "Test feedback"
-    f.url "/requests"
-    f.email "kassi_testperson1@example.com"
-    f.is_handled 0
+  factory :feedback do
+    author { |author| author.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    content "Test feedback"
+    url "/requests"
+    email "kassi_testperson1@example.com"
+    is_handled 0
   end
 
-  factory :badge do |b|
-    b.person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-    b.name "rookie"
+  factory :badge do
+    person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+    name "rookie"
   end
 
-  factory :notification do |n|
-    n.receiver { |receiver| receiver.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
-    n.is_read 0
-    n.notifiable_type "Listing"
-    n.notifiable_id "1"
-    n.description "to_own_listing"
+  factory :notification do
+    receiver
+    is_read 0
+    notifiable_type "Listing"
+    notifiable_id "1"
+    description "to_own_listing"
   end
 
-  factory :community do |c|
-    c.name { |d| d.domain = FactoryGirl.next(:domain) }
-    c.domain { |d| d.domain = FactoryGirl.next(:domain) }
-    c.slogan "Test slogan"
-    c.description "Test description"
-    c.category "other"
+  factory :community do
+    name { generate(:domain) }
+    domain
+    slogan "Test slogan"
+    description "Test description"
+    category "other"
   end
 
-  factory :community_membership do |c|
-    c.association :community
-    c.association :person
-    c.admin false
-    c.consent "test_consent0.1"
+  factory :community_membership do
+    association :community
+    association :person
+    admin false
+    consent "test_consent0.1"
   end
 
-  factory :contact_request do |c|
-    c.email "test@example.com"
+  factory :contact_request do
+    email "test@example.com"
   end
 
-  factory :invitation do |c|
-    c.community_id 1
+  factory :invitation do
+    community_id 1
   end
 
-  factory :news_item do |n|
-    n.title "A new event in our community"
-    n.content "More information about this amazing event."
-    n.author { |author| author.association(:person) }
+  factory :news_item do
+    title "A new event in our community"
+    content "More information about this amazing event."
+    author { |author| author.association(:person) }
   end  
 
-  factory :device do |d|
-    d.device_type "iPhone"
-    d.device_token "LSIDFSLDJIOGSSCSBEUS52349583"
-    d.person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
+  factory :device do
+    device_type "iPhone"
+    device_token "LSIDFSLDJIOGSSCSBEUS52349583"
+    person { |person| person.association(:person, :id => get_test_person_and_session("kassi_testperson1")[0].id) }
   end
 
-  factory :location do |c|
-    c.association :listing
-    c.association :person
-    c.association :community
-    c.latitude 62.2426
-    c.longitude 25.7475
-    c.address "helsinki"
-    c.google_address "Helsinki, Finland"
+  factory :location do
+    association :listing
+    association :person
+    association :community
+    latitude 62.2426
+    longitude 25.7475
+    address "helsinki"
+    google_address "Helsinki, Finland"
   end
 end

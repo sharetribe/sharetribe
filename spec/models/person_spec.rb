@@ -116,8 +116,8 @@ describe Person do
       
       describe "devise valid_password?" do
         it "Test that the hashing works. (makes more sense to test this if ASI digest is used)" do
-          FactoryGirl(:person).valid_password?('testi').should be_true
-          FactoryGirl(:person).valid_password?('something_else').should_not be_true
+          FactoryGirl.build(:person).valid_password?('testi').should be_true
+          FactoryGirl.build(:person).valid_password?('something_else').should_not be_true
         end
       end
 
@@ -149,9 +149,10 @@ describe Person do
         tes = FactoryGirl.create(:testimonial, :author => @test_person)
         tes_id = tes.id
         Testimonial.find_by_id(tes_id).should_not be_nil
+        @test_person.authored_testimonials.should include(tes)
         
         @test_person.destroy
-        
+                
         # check that related stuff was removed too
         Conversation.find_by_id(conv_id).should be_nil
         Testimonial.find_by_id(tes_id).should be_nil

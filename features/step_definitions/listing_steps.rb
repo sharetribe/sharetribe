@@ -1,5 +1,5 @@
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
-  @listing = FactoryGirl(:listing, :listing_type => type, 
+  @listing = FactoryGirl.create(:listing, :listing_type => type, 
                                :category => category,
                                :title => title,
                                :share_type => share_type,
@@ -23,7 +23,7 @@ end
 # end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
-  @listing = FactoryGirl(:listing, :listing_type => type, 
+  @listing = FactoryGirl.create(:listing, :listing_type => type, 
                                :category => "rideshare",
                                :origin => origin,
                                :destination => destination,
@@ -50,7 +50,7 @@ Then /^There should be a rideshare (offer|request) from "([^"]*)" to "([^"]*)" s
 end
 
 When /^there is one comment to the listing from "([^"]*)"$/ do |author|
-  @comment = FactoryGirl(:comment, :listing => @listing, :author => @people[author])
+  @comment = FactoryGirl.create(:comment, :listing => @listing, :author => @people[author])
 end
 
 Then /^the total number of comments should be (\d+)$/ do |no_of_comments|

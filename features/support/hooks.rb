@@ -1,8 +1,8 @@
 Before do
-  Fixtures.reset_cache
+  ActiveRecord::Fixtures.reset_cache
   fixtures_folder = File.join(Rails.root  , 'spec', 'fixtures')
   fixtures = Dir[File.join(fixtures_folder, '*.yml')].map {|f| File.basename(f, '.yml') }
-  Fixtures.create_fixtures(fixtures_folder, fixtures)
+  ActiveRecord::Fixtures.create_fixtures(fixtures_folder, fixtures)
   
   Capybara.default_host = 'test.lvh.me'
   Capybara.server_port = 9887

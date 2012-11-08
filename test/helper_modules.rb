@@ -7,20 +7,16 @@ module TestHelpers
     if category
       case category
       when "favor"
-       # listing = FactoryGirl(:listing, :category => category, :share_type => nil, :listing_type => listing_type)
         listing_params.merge!({ :share_type => nil, :listing_type => listing_type})
       when "rideshare"
-        #listing = FactoryGirl(:listing, :category => category, :share_type => nil, :origin => "test", :destination => "test2", :listing_type => listing_type)
         listing_params.merge!({:share_type => nil, :origin => "test", :destination => "test2", :listing_type => listing_type})
       else
         if share_type.nil? && ["item", "housing"].include?(category)
           share_type = listing_type.eql?("request") ? "buy" : "sell"
         end
-        #listing = FactoryGirl(:listing, :category => category, :share_type => share_type, :listing_type => listing_type)
         listing_params.merge!({ :share_type => share_type, :listing_type => listing_type})
       end
     else
-      #listing = FactoryGirl(:listing, :category => "item")
       listing_params[:category] = "item"
     end
     
@@ -29,7 +25,7 @@ module TestHelpers
     listing_params.merge!({:author => test_person})
     
     
-    listing = FactoryGirl(:listing, listing_params)
+    listing = FactoryGirl.create(:listing, listing_params)
   end
   
   def get_test_person_and_session(username="kassi_testperson1")
