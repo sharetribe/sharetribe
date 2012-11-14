@@ -89,7 +89,6 @@ Kassi::Application.routes.draw do
     devise_scope :person do  
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
-      match "/people/login" => "sessions#new" #this is kind of duplicate, but helps to cope with devises defaults
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"
