@@ -17,7 +17,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #264409;
     border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    background: #e6efc2 url("/assets/icons/notification_icon_notice.png") 5px 0 no-repeat;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 5px;
@@ -27,7 +27,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #8a1f11;
     border: 2px solid #fbc2c4;
-    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    background: #fbe3e4 url("/assets/icons/notification_icon_error.png") 5px 0 no-repeat;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 5px;
@@ -37,7 +37,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #514721;
     border: 2px solid #ffd324;
-    background: #fff6bf url("/images/icons/notification_icon_warning.png") 5px 0 no-repeat;
+    background: #fff6bf url("/assets/icons/notification_icon_warning.png") 5px 0 no-repeat;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 5px;
@@ -47,7 +47,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #264409;
     border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icon_info.png") 5px 0 no-repeat;
+    background: #e6efc2 url("/assets/icons/notification_icon_info.png") 5px 0 no-repeat;
     font-weight: normal;
     font-size: 14px;
     padding: 5px 5px;
@@ -61,7 +61,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #264409;
     border: 2px solid #c6d880;
-    background: #e6efc2 url("/images/icons/notification_icon_notice.png") 5px 0 no-repeat;
+    background: #e6efc2 url("/assets/icons/notification_icon_notice.png") 5px 0 no-repeat;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 5px;
@@ -71,7 +71,7 @@ input[type="submit"]::-moz-focus-inner {
     margin: 0 5px;
     color: #8a1f11;
     border: 2px solid #fbc2c4;
-    background: #fbe3e4 url("/images/icons/notification_icon_error.png") 5px 0 no-repeat;
+    background: #fbe3e4 url("/assets/icons/notification_icon_error.png") 5px 0 no-repeat;
     font-weight: bold;
     font-size: 14px;
     padding: 5px 5px;
@@ -657,30 +657,30 @@ div.community_category {
   #connect_icons a.facebook {
     display: block;
     float: left;
-    background: #5d492e url("/images/dashboard/connect_icons/facebook.png") no-repeat;
+    background: #5d492e url("/assets/dashboard/connect_icons/facebook.png") no-repeat;
     width: 49px;
     height: 49px;
     color: transparent; }
     #connect_icons a.facebook:hover {
-      background: #5d492e url("/images/dashboard/connect_icons/facebook.png") no-repeat 0 -49px; }
+      background: #5d492e url("/assets/dashboard/connect_icons/facebook.png") no-repeat 0 -49px; }
   #connect_icons a.twitter {
     display: block;
     float: left;
-    background: #5d492e url("/images/dashboard/connect_icons/twitter.png") no-repeat;
+    background: #5d492e url("/assets/dashboard/connect_icons/twitter.png") no-repeat;
     width: 49px;
     height: 49px;
     color: transparent; }
     #connect_icons a.twitter:hover {
-      background: #5d492e url("/images/dashboard/connect_icons/twitter.png") no-repeat 0 -49px; }
+      background: #5d492e url("/assets/dashboard/connect_icons/twitter.png") no-repeat 0 -49px; }
   #connect_icons a.google_plus {
     display: block;
     float: left;
-    background: #5d492e url("/images/dashboard/connect_icons/google_plus.png") no-repeat;
+    background: #5d492e url("/assets/dashboard/connect_icons/google_plus.png") no-repeat;
     width: 49px;
     height: 49px;
     color: transparent; }
     #connect_icons a.google_plus:hover {
-      background: #5d492e url("/images/dashboard/connect_icons/google_plus.png") no-repeat 0 -49px; }
+      background: #5d492e url("/assets/dashboard/connect_icons/google_plus.png") no-repeat 0 -49px; }
 
 #product {
   margin-top: 34px;
@@ -806,7 +806,7 @@ div.community_category {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 524px; }
@@ -892,7 +892,7 @@ span.domain {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 524px; }
@@ -967,7 +967,7 @@ span.domain {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 360px; }
@@ -1237,7 +1237,7 @@ p.okl {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 524px; }
@@ -1370,7 +1370,7 @@ div.language {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 524px; }
@@ -1497,7 +1497,7 @@ div.language {
     float: left;
     margin: 5px 0 0 170px;
     padding: 14px 10px 5px 10px;
-    background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+    background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
     color: white;
     margin-left: 0;
     width: 524px; }

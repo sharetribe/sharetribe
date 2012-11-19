@@ -104,7 +104,7 @@ function initialize_defaults(default_text, feedback_default_text, locale) {
 function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
-    pathToTabImage: '/images/feedback_handles.png',
+    pathToTabImage: '/assets/feedback_handles.png',
 	  imageHeight: '122px',                     //height of tab image           //Optionally can be set using css
     imageWidth: '40px',                       //width of tab image            //Optionally can be set using css
     tabLocation: 'left',                      //side of screen where tab lives, top, right, bottom, or left
@@ -509,7 +509,7 @@ function initialize_browse_view(listing_type, listing_style, locale) {
   $('#left_link_panel_browse').find('a').click(
     function() {
       if (listing_style == 'listing') {
-        $("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+        $("#search_results").html('<div id="loader"><img src="/assets/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
       }
       reload_browse_view($(this), listing_type, listing_style, locale);
     }
@@ -517,7 +517,7 @@ function initialize_browse_view(listing_type, listing_style, locale) {
 	$('#tag_cloud').find('a').click(
 	  function() {
 		  if (listing_style == 'listing') {
-				$("#search_results").html('<div id="loader"><img src="/images/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+				$("#search_results").html('<div id="loader"><img src="/assets/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
 			}
 		  reload_browse_view($(this), listing_type,listing_style, locale);
 		}

@@ -38,7 +38,7 @@
 	float: left;
 	margin: 5px 0 0 170px;
 	padding: 14px 10px 5px 10px;
-	background: red url("/images/error_arrow.png") no-repeat top left;
+	background: red url("/assets/error_arrow.png") no-repeat top left;
 	color: white;
 }
 
@@ -85,7 +85,7 @@ input[type="submit"] {
 }
 
 body {
-	background: $bg_color url("/images/background_gradient.png") repeat-x;
+	background: $bg_color url("/assets/background_gradient.png") repeat-x;
 	color: $text_color;
 }
 
@@ -199,14 +199,14 @@ form, input {
 	}
 	input.search_button {
 		text-align: left;
-		background: $orange url("/images/icons/header_icons.png") 8px -356px no-repeat;
+		background: $orange url("/assets/icons/header_icons.png") 8px -356px no-repeat;
 		width: 41px;
 		height: 28px;
 		padding: 0;
 		border: 0;
 		color: $orange;
 		&:active { 
-			background: $dark_orange url("/images/icons/header_icons.png") 8px -356px no-repeat;
+			background: $dark_orange url("/assets/icons/header_icons.png") 8px -356px no-repeat;
 			color: $dark_orange;
 		}
 		&:hover { 
@@ -214,7 +214,7 @@ form, input {
 			color: $light_orange;
 		}
 		&:focus { 
-			background: $light_orange url("/images/icons/header_icons.png") 8px -356px no-repeat; 
+			background: $light_orange url("/assets/icons/header_icons.png") 8px -356px no-repeat; 
 			color: $light_orange;
 		}
 	}
@@ -649,7 +649,7 @@ p.description {
 		height: 85px;
 		display: block;
 		color: transparent;
-		background: lighten($light_grey, 25%) url("/images/icons/new_listing_type_select_icons.png") 7px $image_pos no-repeat;
+		background: lighten($light_grey, 25%) url("/assets/icons/new_listing_type_select_icons.png") 7px $image_pos no-repeat;
 	}	
 }
 
@@ -809,7 +809,7 @@ p.description {
 @mixin listing_type_select_icon_selected($image_position) {
 	@include listing_type_select_icon;
 	a {
-		background: $bg_color url("/images/icons/new_listing_type_select_icons.png") 28px $image_position no-repeat;
+		background: $bg_color url("/assets/icons/new_listing_type_select_icons.png") 28px $image_position no-repeat;
 		color: $orange;
 		border: 3px solid $orange;
 	}	
@@ -819,23 +819,23 @@ p.description {
 	@include listing_type_select_icon;
 	a {
 		color: $listing_button_grey;
-		background: $listing_button_light_grey url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position) no-repeat;
+		background: $listing_button_light_grey url("/assets/icons/new_listing_type_select_icons.png") 28px ($image_position) no-repeat;
 		border: 3px solid $listing_button_grey;	
 		&:hover {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/assets/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 		&:focus {
 			color: $light_orange;
 			border-color: $light_orange;
-			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/assets/icons/new_listing_type_select_icons.png") 28px ($image_position + 100px) no-repeat;
 		}
 		&:active {
 			color: $light_orange;
 			border-color: $light_orange;
 			padding: 67px 15px 9px 15px;
-			background: lighten($listing_button_light_grey, 20%) url("/images/icons/new_listing_type_select_icons.png") 28px ($image_position + 101px) no-repeat;
+			background: lighten($listing_button_light_grey, 20%) url("/assets/icons/new_listing_type_select_icons.png") 28px ($image_position + 101px) no-repeat;
 		}
 	}	
 }
@@ -1182,12 +1182,12 @@ div.checkbox_float {
 	a {
 		color: transparent;
 		display: block;
-		background: transparent url("/images/icons/header_icons.png") 0px $image_position no-repeat;
-		&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
-		&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
+		background: transparent url("/assets/icons/header_icons.png") 0px $image_position no-repeat;
+		&:hover { background: transparent url("/assets/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
+		&:focus { background: transparent url("/assets/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; }
 		&:active {
 			margin-top: 1px;
-			background: transparent url("/images/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; 
+			background: transparent url("/assets/icons/header_icons.png") 0px ($image_position - 40px) no-repeat; 
 		}	
 	}
 }
@@ -1198,12 +1198,12 @@ div.checkbox_float {
 	height: 24px;
 	float: left;
 	margin: 3px 0 0 9px;
-	background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos + 4px) no-repeat;
-	&:hover { background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
-	&:focus { background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
+	background: transparent url("/assets/icons/header_icons.png") 0px ($icon_pos + 4px) no-repeat;
+	&:hover { background: transparent url("/assets/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
+	&:focus { background: transparent url("/assets/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; }
 	&:active {
 		margin-top: 4px;
-		background: transparent url("/images/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; 
+		background: transparent url("/assets/icons/header_icons.png") 0px ($icon_pos - 36px) no-repeat; 
 	}
 	.logged_in_icon_notification_text {
 		width: 9px;
@@ -1302,11 +1302,11 @@ div.checkbox_float {
 	display: block;
 	height: 20px;
 	padding: 5px 0px 5px 32px;
-	background: $bg_color url("/images/icons/edit_listing_icons2.png") 6px $image_pos no-repeat;
+	background: $bg_color url("/assets/icons/edit_listing_icons2.png") 6px $image_pos no-repeat;
 	border-bottom: 1px solid $light_orange;
 	&:hover {
 		color: white;
-		background: $orange url("/images/icons/edit_listing_icons2.png") 6px ($image_pos - 38px) no-repeat;
+		background: $orange url("/assets/icons/edit_listing_icons2.png") 6px ($image_pos - 38px) no-repeat;
 	}
 }
 
@@ -1344,10 +1344,10 @@ a.edit_profile {
 	display: block;
 	height: 20px;
 	padding: 5px 10px 5px 32px;
-	background: $bg_color url("/images/icons/edit_listing_icons2.png") 6px 5px no-repeat;
+	background: $bg_color url("/assets/icons/edit_listing_icons2.png") 6px 5px no-repeat;
 	&:hover {
 		color: white;
-		background: $orange url("/images/icons/edit_listing_icons2.png") 6px -33px no-repeat;
+		background: $orange url("/assets/icons/edit_listing_icons2.png") 6px -33px no-repeat;
 	}
 }
 
@@ -1465,7 +1465,7 @@ div.listing_author_feedback_percentage {
 @mixin listing_category_big_icon($image_position: 0) {
 	width: 300px;
 	height: 300px;
-	background: $listing_button_light_grey url("/images/icons/big_category_icons.png") 0 $image_position no-repeat;
+	background: $listing_button_light_grey url("/assets/icons/big_category_icons.png") 0 $image_position no-repeat;
 }
 
 #listing_category_big_icon_item {
@@ -1709,7 +1709,7 @@ div.listing_author_feedback_percentage {
 }
 
 .message_arrow_left {
-	background: $bg_color url("/images/message_arrows.png") 0 35px no-repeat;
+	background: $bg_color url("/assets/message_arrows.png") 0 35px no-repeat;
 	width: 13px;
 	height: 55px;
 	float: left;
@@ -1717,7 +1717,7 @@ div.listing_author_feedback_percentage {
 }
 
 .message_arrow_right {
-	background: $bg_color url("/images/message_arrows.png") 0 -25px no-repeat;
+	background: $bg_color url("/assets/message_arrows.png") 0 -25px no-repeat;
 	width: 13px;
 	height: 55px;
 	float: left;
@@ -1794,7 +1794,7 @@ div.listing_author_feedback_percentage {
 		@include form_error_field;
 		width: ($field_width + 1);
 		margin: 0 400px 10px 0;
-		background: red url("/images/error_arrow2.png") no-repeat top left;
+		background: red url("/assets/error_arrow2.png") no-repeat top left;
 	}
 }
 
@@ -1853,9 +1853,9 @@ div.listing_author_feedback_percentage {
 		display: block;
 		color: transparent;
 		margin-right: 10px;
-		background: $form_bg url("/images/kaapo/basic_link.png") 0 $image_pos no-repeat;
-		&:focus { background: $form_bg url("/images/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
-		&:hover { background: $form_bg url("/images/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
+		background: $form_bg url("/assets/kaapo/basic_link.png") 0 $image_pos no-repeat;
+		&:focus { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
+		&:hover { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
 	}
 }
 
@@ -1931,7 +1931,7 @@ div.listing_author_feedback_percentage {
 		text-indent: -999em; 
 		overflow: hidden;
 		margin-right: 10px;
-		background: transparent url("/images/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat;
+		background: transparent url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat;
 	}
 	a.grade { background-position: 0 ($image_pos); }
 	a.grade-over { background-position: 0 ($image_pos - 100px); }
@@ -2067,16 +2067,16 @@ div.listing_author_feedback_percentage {
 		color: $orange;
 		font-size: 11px;
 		padding: 4px 10px 4px 10px;
-		&:hover { background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
-		&:focus { background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
+		&:hover { background: $bg_color url("/assets/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
+		&:focus { background: $bg_color url("/assets/left_panel_" + $image + ".png") 0 (-1 * $image_height) no-repeat; }
 		&:active { 
-			background: $bg_color url("/images/left_panel_" + $image + ".png") 0 (-2 * $image_height) no-repeat; 
+			background: $bg_color url("/assets/left_panel_" + $image + ".png") 0 (-2 * $image_height) no-repeat; 
 			color: $text_color;
 		}
 		margin-bottom: 2px;
 	}
 	a.selected {
-		background: $bg_color url("/images/left_panel_" + $image + ".png") 0 0 no-repeat;
+		background: $bg_color url("/assets/left_panel_" + $image + ".png") 0 0 no-repeat;
 		color: $text_color;
 	}
 }
@@ -2276,7 +2276,7 @@ span.profile_settings_visibility_info {
 	padding: 0;
 	border: 0;
 	color: white;
-	background-image: url("/images/small_loader.gif");
+	background-image: url("/assets/small_loader.gif");
 	background-repeat: no-repeat;
 }
 
@@ -2533,7 +2533,7 @@ a.handle {
 		width: 325px;
 		margin: 5px 60px 0 0;
 		padding: 14px 10px 7px 10px;
-		background: red url("/images/error_arrow3.png") no-repeat top left;
+		background: red url("/assets/error_arrow3.png") no-repeat top left;
 		color: white;
 	}
 }
@@ -2618,7 +2618,7 @@ a.handle {
 @mixin profile_feedback_average_image($image_pos: 0, $bg: $bg_color) {
 	width: 50px;
 	height: 50px;
-	background: $bg url("/images/kaapo/kaapo_grades.png") 0 $image_pos no-repeat;
+	background: $bg url("/assets/kaapo/kaapo_grades.png") 0 $image_pos no-repeat;
 }
 
 .profile_feedback_average_image_5 { @include profile_feedback_average_image; }
@@ -2636,7 +2636,7 @@ a.handle {
 @mixin profile_feedback_average_image_big($image_pos: 0) {
 	width: 140px;
 	height: 140px;
-	background: $bg_color url("/images/kaapo/kaapo_grades_big.png") 0 $image_pos no-repeat;
+	background: $bg_color url("/assets/kaapo/kaapo_grades_big.png") 0 $image_pos no-repeat;
 }
 
 .profile_feedback_average_image_5_big { @include profile_feedback_average_image_big; }
@@ -2648,7 +2648,7 @@ a.handle {
 @mixin profile_feedback_average_image_small($image_pos: 0) {
 	width: 35px;
 	height: 35px;
-	background: transparent url("/images/kaapo/kaapo_grades_small.png") 0 $image_pos no-repeat;
+	background: transparent url("/assets/kaapo/kaapo_grades_small.png") 0 $image_pos no-repeat;
 }
 
 .profile_feedback_average_image_5_small { @include profile_feedback_average_image_small; }
@@ -2697,7 +2697,7 @@ a.handle {
 }
 
 .profile_feedback_arrow {
-	background: $light_green url("/images/profile_feedback_arrow.png") 150px 0 no-repeat;
+	background: $light_green url("/assets/profile_feedback_arrow.png") 150px 0 no-repeat;
 	height: 15px;
 }
 
@@ -2834,7 +2834,7 @@ a.handle {
 	overflow: hidden;
 	width: 760px;
 	height: 750px;
-	background: $bg_color url("/images/huge_bag.png") 0 0 no-repeat;
+	background: $bg_color url("/assets/huge_bag.png") 0 0 no-repeat;
 	padding: 130px 150px 150px 120px;
 }
 

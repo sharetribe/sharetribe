@@ -63,7 +63,7 @@ input[type="submit"]::-moz-focus-inner {border:0;}
 	margin: 0 5px;
 	color: $text;
 	border: 2px solid $border;
-	background: $bg url("/images/icons/notification_icon_" + $type + ".png") 5px 0 no-repeat;
+	background: $bg url("/assets/icons/notification_icon_" + $type + ".png") 5px 0 no-repeat;
 	font-weight: $font-weight;
 	font-size: 14px;
 	padding: 5px 5px;

@@ -26,7 +26,7 @@ group :assets do
   gem 'uglifier'  
 end  
   
-gem 'jquery-rails'
+#gem 'jquery-rails'
 
 # Bundle the extra gems:
 

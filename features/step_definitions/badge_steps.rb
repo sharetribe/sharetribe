@@ -3,14 +3,11 @@ Then /^I should see badge with alt text "([^\"]*)"$/ do | alt_text |
 end
 
 Then /^I should see badge "(.+)"$/ do |badge|
-  #find("img[src='/images/badges/#{badge}.png']").should_not be_nil
-  assert page.has_xpath?("//img[@src='/images/badges/#{badge}.png']")
+  assert page.has_xpath?("//img[@src='/assets/badges/#{badge}.png']")
 end
 
 Then /^I should not see badge "(.+)"$/ do |badge|
-  #page.should_not have_selector("img", :src => "/images/badges/#{badge}.png")
-  #lambda {find("img[src='/images/badges/#{badge}.png']")}.should raise_error(Capybara::ElementNotFound)
-  assert page.has_no_xpath?("//img[@src='/images/badges/#{badge}.png']")
+  assert page.has_no_xpath?("//img[@src='/assets/badges/#{badge}.png']")
 end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|

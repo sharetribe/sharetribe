@@ -97,7 +97,7 @@
   
   #comments
     %h2
-      = image_tag "/images/icons/comment_icon.png"
+      = image_tag "/assets/icons/comment_icon.png"
       = t(".comments")
       %span{:id => "comment_count"}= "(#{@listing.comments.count})"
     = render :partial => "comment", :collection => @listing.comments

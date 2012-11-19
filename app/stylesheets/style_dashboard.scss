@@ -13,11 +13,11 @@ $serif_font: 'Droid Serif', Helvetica, Georgia, Times, serif;
 @mixin connect_icon($icon_type) {
 	display: block;
 	float: left;
-	background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + ".png") no-repeat;
+	background: $darker_brown url("/assets/dashboard/connect_icons/" + $icon_type + ".png") no-repeat;
 	width: 49px;
 	height: 49px;
 	color: transparent;
-	&:hover { background: $darker_brown url("/images/dashboard/connect_icons/" + $icon_type + ".png") no-repeat 0 -49px};
+	&:hover { background: $darker_brown url("/assets/dashboard/connect_icons/" + $icon_type + ".png") no-repeat 0 -49px};
 }
 
 @mixin form {
@@ -94,7 +94,7 @@ $serif_font: 'Droid Serif', Helvetica, Georgia, Times, serif;
 	float: left;
 	margin: 5px 0 0 170px;
 	padding: 14px 10px 5px 10px;
-	background: red url("/images/dashboard/error_arrow.png") no-repeat top left;
+	background: red url("/assets/dashboard/error_arrow.png") no-repeat top left;
 	color: white;
 	a {
 	  margin: 0;

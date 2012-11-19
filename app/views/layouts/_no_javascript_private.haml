@@ -8,14 +8,14 @@
 .grid_8.prefix_2.suffix_2
   .grid_4.alpha
     #logo
-      = link_to image_tag("/images/dashboard/sharetribe_logo.png", :alt => "Sharetribe"), :controller => :homepage, :action => :sign_in
+      = link_to image_tag("dashboard/sharetribe_logo.png", :alt => "Sharetribe"), :controller => :homepage, :action => :sign_in
     #error_content
       %h2= t('error_pages.no_javascript.javascript_is_disabled_in_your_browser')
       %p= t('error_pages.no_javascript.kassi_does_not_currently_work_without_javascript')
 
   .grid_4.omega
     #error_kaapo
-      = image_tag "/images/kaapo/sad_kaapo_big.png", :alt => "Kaapo"
+      = image_tag "/assets/kaapo/sad_kaapo_big.png", :alt => "Kaapo"
 
 .grid_8.prefix_2.suffix_2
   #error_page_feedback_form
