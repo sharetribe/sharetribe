@@ -45,7 +45,7 @@ function prepare_ajax_form(form_id, locale, rules) {
 
 function disable_submit_button(form_id, locale) {
   $(form_id + ' input[type=submit]').attr('disabled', 'disabled');
-	jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
+	jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
 	  $(form_id + ' input[type=submit]').val(json.please_wait);
 	});
 }
@@ -55,7 +55,7 @@ function auto_resize_text_areas(class_name) {
 }
 
 function translate_validation_messages(locale) {
-  jQuery.getJSON('/javascripts/locales/' + locale + '.json', function(json) {
+  jQuery.getJSON('/assets/locales/' + locale + '.json', function(json) {
     jQuery.extend(jQuery.validator.messages, {
         required: json.validation_messages.required,
         remote: json.validation_messages.remote,

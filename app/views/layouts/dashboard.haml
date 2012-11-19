@@ -15,12 +15,10 @@
     %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" } 
     %meta{ :name => "description", :content => t("layouts.application.meta_description") }
     %meta{ :name => "keywords", :content => t("layouts.application.keywords") }
-    = stylesheet_link_tag "themes/kassi/jquery-ui-1.8.16.custom.css"
-    = stylesheet_link_tag 'ui.selectmenu.css'
-    = stylesheet_link_tag 'compiled/style_dashboard.css'
+    = stylesheet_link_tag 'dashboard'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Serif'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Droid+Sans'
-    = javascript_include_tag 'jquery-1.6.2.min', 'jquery-ui-1.8.16.custom.min.js', 'jquery.uniform.min', 'jquery.lightbox_me', 'jquery.ui.selectmenu.js', 'jquery.watermark.min', 'jquery.autosize-min', 'rails', 'jquery.validate.min', 'sharetribe_common', 'kassi_dashboard', 'googlemaps', 'google_analytics'
+    = javascript_include_tag 'dashboard'
     = yield(:extra_javascript)
     :javascript
       $(document).ready(function() { initialize_defaults(); #{yield :javascript} });

@@ -101,7 +101,7 @@
       = render :file => community_file("frontpage_sidebar", true)
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
-- if not @current_user
+- if not @current_user && APP_CONFIG.use_kissmetrics
   // Track event of unidentified user seeing front page to Kissmetrics
   <script type="text/javascript">
     

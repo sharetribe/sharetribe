@@ -5,18 +5,21 @@
 // the compiled file.
 //
 //= require jquery
-// require jquery_ujs
+//= require jquery_ujs
 //= require jquery-ui-1.8.16.custom.min
 //= require jquery.uniform.min
-//= require jquery.lightbox_me
 //= require jquery.ui.selectmenu
-//= require jquery.watermark.min
-//= require jquery.autosize-min
+//= require jquery.form
+//= require jquery.uniform.min
+//= require jquery.lightbox_me
 //= require jquery.validate.min
+//= require jquery.pageless
+//= require jquery.autosize-min
+//= require jquery.watermark.min
+//= require jquery.tabSlideOut.v1.3
 //= require sharetribe_common
-//= require kassi_dashboard
+//= require kassi
 //= require googlemaps
-//= require google_analytics
 //= require_self 
 
 

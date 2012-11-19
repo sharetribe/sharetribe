@@ -28,6 +28,7 @@
 = render :partial => "footer"
 
 //Store KM event
-<script type="text/javascript">
-_kmq.push(['record', 'viewed Dashboard']);
-</script>
+- if APP_CONFIG.use_kissmetrics
+  <script type="text/javascript">
+  _kmq.push(['record', 'viewed Dashboard']);
+  </script>
