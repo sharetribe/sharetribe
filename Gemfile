@@ -18,6 +18,16 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug'
 
+# Gems used only for assets and not required  
+# in production environments by default.  
+group :assets do  
+  gem 'sass-rails', " ~> 3.1.0"  
+  gem 'coffee-rails', " ~> 3.1.0"  
+  gem 'uglifier'  
+end  
+  
+gem 'jquery-rails'
+
 # Bundle the extra gems:
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
@@ -56,6 +66,8 @@ gem 'spreadsheet'
 gem 'rabl'
 #gem 'rocket_pants'
 gem 'rake', '0.8.7' # downgraded because issues with 0.9
+
+
 
 group :test do
   gem "rspec-rails"

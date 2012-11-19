@@ -30,8 +30,8 @@
     %meta{ :name => "keywords", :content => t(".keywords") }
     = yield :head
 
-    = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.form', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autosize-min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'sharetribe_common', 'kassi', 'googlemaps'
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
     = yield(:extra_javascript)
     = csrf_meta_tag
     :javascript
