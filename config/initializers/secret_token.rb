@@ -13,7 +13,7 @@ if File.exist?(secret_file)
 elsif APP_CONFIG.session_secret
   secret = APP_CONFIG.session_secret
 else
-  secret = ActiveSupport::SecureRandom.hex(64)
+  secret = SecureRandom.hex(64)
   File.open(secret_file, 'w') { |f| f.write(secret) }
 end
 

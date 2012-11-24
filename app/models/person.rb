@@ -1,6 +1,5 @@
 require 'json'
 require 'rest_client'
-require 'httpclient'
 require 'uuid22'
 require "open-uri"
 

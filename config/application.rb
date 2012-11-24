@@ -34,7 +34,7 @@ module Kassi
     config.assets.initialize_on_precompile = false
     
     # Define here additional Assset Pipeline Manifests to include to precompilation
-    config.assets.precompile += ['dashboard.js', 'dashboard.css']
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'login_screen.js', 'login_screen.css', 'uniform.kassi.css']
     
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config    

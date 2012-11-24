@@ -2,5 +2,8 @@
 *= require themes/kassi/jquery-ui-1.8.16.custom
 *= require ui.selectmenu
 *= require_self 
-*= require compiled/style_login_screen
+*= require reset
+*= require text
+*= require 960
+*= require style_login_screen
 */  

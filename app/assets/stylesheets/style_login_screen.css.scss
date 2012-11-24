@@ -1,8 +1,9 @@
-@import url('../reset.css');
-@import url('../text.css');
-@import url('../960.css');
-@import url('../uniform.kassi.css');
+@import url('reset.css');
+@import url('text.css');
+@import url('960.css');
+@import url('uniform.kassi.css');
 @import "common";
+@import "tab_slide_out";
 
 $bg_color: #f7f5e6;
 $text_color: #464646;
@@ -67,16 +68,6 @@ $dark_green: #223f05;
 	padding: 14px 10px 5px 10px;
 	background: red url("/assets/error_arrow.png") no-repeat top left;
 	color: white;
-}
-
-/* Used for divs with rounded top or bottom */
-@mixin half_rounded($side, $radius: 7px) {
-  border-#{$side}-left-radius: $radius;
-  border-#{$side}-right-radius: $radius;
-  -moz-border-radius-#{$side}right: $radius;
-	-moz-border-radius-#{$side}left: $radius;
-  -webkit-border-#{$side}-right-radius: $radius;
-	-webkit-border-#{$side}-left-radius: $radius;
 }
 
 body {
@@ -433,18 +424,6 @@ p { font-size: 18px; }
 	font-weight: bold;
 }
 
-.feedback_div {
-	@include half_rounded(bottom);
-	padding: 20px 20px 35px 20px;
-  width: 250px;
- 	background: lighten($dark_green, 5%);
-	color: white;
-	h3 {
-		color: $bg_color;
-		font-size: 16px;
-		margin-bottom: 5px;
-	}
-}
 
 a.handle {
 	&:hover { 
@@ -515,9 +494,6 @@ a.handle {
 .unwanted_text_field {
   display:none
 }
-
-div.container_12, div.feedback_div { display: none; } 
-.js_enabled div.container_12, .js_enabled div.feedback_div { display: block; }
 
 #error { 
 	margin-top: 120px; 

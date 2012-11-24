@@ -1,18 +1,9 @@
-@import url('../reset.css');
-@import url('../text.css');
-@import url('../960_24_col.css');
-@import url('../uniform.kassi.css');
+@import url('reset.css');
+@import url('text.css');
+@import url('960_24_col.css');
+@import url('uniform.kassi.css');
 @import "common";
-
-/* Used for divs with rounded top or bottom */
-@mixin half_rounded($side, $radius: 7px) {
-  border-#{$side}-left-radius: $radius;
-  border-#{$side}-right-radius: $radius;
-  -moz-border-radius-#{$side}right: $radius;
-	-moz-border-radius-#{$side}left: $radius;
-  -webkit-border-#{$side}-right-radius: $radius;
-	-webkit-border-#{$side}-left-radius: $radius;
-}
+@import "tab_slide_out";
 
 /* Used for divs with rounded left or right */
 @mixin half_rounded_side($side, $radius: 7px) {
@@ -2439,9 +2430,6 @@ span.profile_settings_visibility_info {
 	}
 }
 
-div.container_24, div.feedback_div { display: none; } 
-.js_enabled div.container_24, .js_enabled div.feedback_div { display: block; }
-
 #infos_content {
 	margin: 10px 20px;
 	h3 {
@@ -2457,19 +2445,6 @@ div.container_24, div.feedback_div { display: none; }
 	p {
 		margin: 10px 20px;
 	}	
-}
-
-.feedback_div {
-	@include half_rounded(bottom);
-	padding: 20px 20px 35px 20px;
-  width: 250px;
- 	background: lighten($dark_green, 5%);
-	color: white;
-	h3 {
-		color: $bg_color;
-		font-size: 16px;
-		margin-bottom: 5px;
-	}
 }
 
 a.handle {

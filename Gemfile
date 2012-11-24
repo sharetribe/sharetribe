@@ -4,14 +4,6 @@ ruby '1.9.3'
 
 gem 'rails', '3.1.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
 # Deploy with Capistrano
 gem 'capistrano'
 
@@ -21,8 +13,8 @@ gem 'capistrano'
 # Gems used only for assets and not required  
 # in production environments by default.  
 group :assets do  
-  gem 'sass-rails', " ~> 3.1.0"  
-  gem 'coffee-rails', " ~> 3.1.0"  
+  gem 'sass-rails', "3.1.4"  # later 3.1.x causes problems 3.2.x should be ok
+  gem 'coffee-rails'
   gem 'uglifier'  
 end  
   
@@ -39,7 +31,6 @@ gem 'haml'
 gem 'sass'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
-gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'aws-sdk'
@@ -64,8 +55,7 @@ gem "devise-encryptable"
 gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
-#gem 'rocket_pants'
-gem 'rake', '0.8.7' # downgraded because issues with 0.9
+gem 'rake'
 
 
 
