@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.1.8'
+gem 'rails', '3.2.9'
 
 # Deploy with Capistrano
 gem 'capistrano'
@@ -13,8 +13,8 @@ gem 'capistrano'
 # Gems used only for assets and not required  
 # in production environments by default.  
 group :assets do  
-  gem 'sass-rails', "3.1.4"  # later 3.1.x causes problems 3.2.x should be ok
-  gem 'coffee-rails'
+  gem 'sass-rails', "  ~> 3.2.5"
+  gem 'coffee-rails', "~> 3.2.2"
   gem 'uglifier'  
 end  
   
