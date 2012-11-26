@@ -56,7 +56,7 @@ gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
 gem 'rake'
-
+gem 'xpath'
 
 
 group :test do
