@@ -108,7 +108,7 @@ class Community < ActiveRecord::Base
 
   # Makes the creator of the community a member and an admin
   def admin_attributes=(attributes)
-    community_memberships.build(attributes)
+    community_memberships.build(attributes).update_attribute("admin", true)
   end
   
   def self.domain_available?(domain)

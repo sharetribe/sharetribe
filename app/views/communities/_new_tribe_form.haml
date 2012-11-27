@@ -54,7 +54,6 @@
         .form_field_container_taller
           = fields_for "community[admin_attributes]", CommunityMembership.new do |admin_form|
             = admin_form.hidden_field :person_id, :value => @current_user.id
-            = admin_form.hidden_field :admin, :value => true
             = admin_form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :consent, :value => APP_CONFIG.consent
           = form.hidden_field :category, :value => session[:community_category]
