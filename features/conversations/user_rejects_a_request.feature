@@ -15,7 +15,7 @@ Feature: User rejects a request
     When I follow "Messages"
     And I follow "Service offer: Massage"
     And I follow "Reject offer"
-    Then I should see "Offer rejected" within "#notifications"
+    Then I should see "Offer rejected"
     And I should see "Offer rejected" within ".conversation_status_label"
   
   @javascript

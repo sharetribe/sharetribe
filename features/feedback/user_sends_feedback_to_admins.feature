@@ -19,7 +19,7 @@ Feature: User sends feedback to admins
     And I should not see "Your email"
     And I fill in "Feedback to Sharetribe staff" with "Feedback"
     And I press "Send feedback"
-    Then I should see "Thanks for your feedback!" within "#notifications"
+    Then I should see "Thanks for your feedback!"
   
   @javascript
   Scenario: Trying to give invalid feedback
