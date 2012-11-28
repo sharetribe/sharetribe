@@ -1,7 +1,7 @@
 # Copyright (c) 2005-2007 Assembla, LLC
 # MIT License
 
-require 'uuidtools'
+require File.expand_path('../uuidtools', __FILE__)
 
 class UUID
 

@@ -27,4 +27,5 @@
 #   end      
 #   execute "ALTER TABLE mytable ADD PRIMARY KEY (id)"
 
-require 'usesnpguid'
+require File.expand_path('../../../lib/np_guid/usesnpguid', __FILE__)
+require File.expand_path('../../../lib/np_guid/uuid22', __FILE__)

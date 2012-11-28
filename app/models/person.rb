@@ -1,7 +1,7 @@
 require 'json'
 require 'rest_client'
-require 'uuid22'
 require "open-uri"
+require File.expand_path('../../../lib/np_guid/uuid22', __FILE__)
 
 # This class represents a person (a user of Sharetribe).
 

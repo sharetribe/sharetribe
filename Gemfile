@@ -57,6 +57,7 @@ gem 'spreadsheet'
 gem 'rabl'
 gem 'rake'
 gem 'xpath'
+gem 'dynamic_form'
 
 
 group :test do

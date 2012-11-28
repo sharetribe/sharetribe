@@ -2,8 +2,7 @@
 # Modified by Andy Singleton to use different GUID generator
 #
 # MIT License
-
-require 'uuid22'
+require File.expand_path('../uuid22', __FILE__)
 
 module ActiveRecord
   module Usesnpguid #:nodoc:

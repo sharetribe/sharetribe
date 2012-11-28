@@ -10,7 +10,7 @@
       - else
         = "- #{@current_community.name}"
     - if @listing && action_name.eql?("show")
-      - fb_image = @listing.listing_images.empty? ? "images/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
+      - fb_image = @listing.listing_images.empty? ? "assets/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
       %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   

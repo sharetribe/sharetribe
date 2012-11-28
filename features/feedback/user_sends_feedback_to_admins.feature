@@ -40,7 +40,7 @@ Feature: User sends feedback to admins
     When I follow "Feedback"
     And I fill in "Feedback to Sharetribe staff" with "<a href="
     And I press "Send feedback"
-    Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum." within ".error"
+    Then I should see "Feedback not saved, due to its formatting. Try again or use the feedback forum."
   
 
   

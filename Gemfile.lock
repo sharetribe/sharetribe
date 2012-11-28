@@ -91,6 +91,7 @@ GEM
     devise-encryptable (0.1.1)
       devise (>= 2.1.0.rc)
     diff-lcs (1.1.3)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -315,6 +316,7 @@ DEPENDENCIES
   delayed_job_active_record
   devise
   devise-encryptable
+  dynamic_form
   factory_girl_rails
   flying-sphinx
   haml
