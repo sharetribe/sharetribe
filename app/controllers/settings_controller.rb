@@ -1,5 +1,7 @@
 class SettingsController < ApplicationController
   
+  layout "settings"
+  
   before_filter do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_your_settings"
   end

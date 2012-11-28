@@ -10,7 +10,8 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   # POST /resource/confirmation
   def create
-    self.resource = resource_class.send_confirmation_instructions(params[resource_name])
+    self.resource = resource_class.send_confirmation_instructions(resource_params)
+    
 
     if successfully_sent?(resource)
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
@@ -22,7 +23,7 @@ class ConfirmationsController < Devise::ConfirmationsController
         redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
       end
     else
-      respond_with_navigational(resource){ render_with_scope :new }
+      respond_with(resource)
     end
   end
   
