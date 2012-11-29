@@ -58,10 +58,10 @@ gem 'rabl'
 gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
-
+gem "rspec-rails"
 
 group :test do
-  gem "rspec-rails"
+
   gem 'capybara', "~> 1.1.3" # because version 2 causes too many unambiguous matches with current test suite
   # TODO: upgrade with changes from: http://techblog.fundinggates.com/blog/2012/08/capybara-2-0-upgrade-guide/
   gem 'cucumber-rails', :require => false
