@@ -74,5 +74,4 @@ Kassi::Application.configure do
     
     
   ActionMailer::Base.perform_deliveries = true # the "deliver_*" methods are available
-  ActionMailer::Base.default_charset = "utf-8"
 end
