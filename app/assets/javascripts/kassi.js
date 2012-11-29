@@ -598,16 +598,6 @@ function initialize_private_community_defaults(locale, feedback_default_text) {
   $('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
 	// Make sure that Sharetribe cannot be used if js is disabled
 	$('.wrapper').addClass('js_enabled');
-	initialize_feedback_tab();
-	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	prepare_ajax_form(
-    "#new_feedback",
-    locale, 
-    {
-		  "feedback[email]": {required: false, email: true},
-			"feedback[content]": {required: true, minlength: 1}
-		}
-  );
 }
 
 function initialize_private_community_homepage(username_or_email_default_text, password_default_text) {
