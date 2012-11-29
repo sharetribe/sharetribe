@@ -36,8 +36,11 @@ module Kassi
     # Define here additional Assset Pipeline Manifests to include to precompilation
     config.assets.precompile += ['dashboard.js', 'dashboard.css', 'login_screen.js', 'login_screen.css', 'uniform.kassi.css']
     
+    puts "IN APP.RB NOW"
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config    
+    
+    puts "LOADED APP_CONFIG: #{APP_CONFIG.inspect}" 
     
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
