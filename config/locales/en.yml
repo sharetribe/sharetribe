@@ -226,6 +226,7 @@ en:
       address: "Location of your tribe"
       select_main_language_of_your_tribe: "Select the main language of your tribe"
       language: Language
+      restrict_tribe_to_invited_people: "People need an invite to join this tribe"
     signup_form:
       create_an_account: "Create an account for yourself"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "You can either create a new account to %{service_name} below or"
@@ -337,6 +338,10 @@ en:
       kassi_team: "The %{service_name} Team"
       thanks: "Thanks,"
       want_to_control_emails: "Want to control which emails you receive from %{service_name}?"
+      dont_want_to_receive_these_emails: "Don't want to receive these emails?"
+      edit_your_email_settings_here: "Edit your email settings here"
+      message_not_displaying_correctly: "Is this email not displaying correctly?"
+      view_it_in_your_browser: "View it in your browser"  
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
@@ -396,6 +401,7 @@ en:
       offering: offering
       requesting: requesting
       text_version_text: "Could you share something that others might need? Or do you need something that others might have? Add an offer or a request or check everything that the others are offering or requesting at %{url}"
+      occasional_newsletter_title: "Sharetribe newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Thank you for your interest in %{service_name}!"
     reset_password_instructions:
@@ -976,6 +982,8 @@ en:
       terms_title: "%{service_name} terms of use"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
+      invite_only_help_text: "Select this option if you want that new members can join only if they are invited by an existing member of the tribe."
+      invite_only_help_text_title: Invite-only tribe
     inactive_notification:
       this_person_is_not_active_in_kassi: "This user is no longer active in %{service_name}"
       inactive_description: "This user has stopped using %{service_name}. You cannot contact this user, give feedback to them or comment their listings."
@@ -1203,7 +1211,8 @@ en:
       email_about_new_messages: "...somebody sends me a message"
       email_about_new_received_testimonials: "...somebody gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
-      email_about_weekly_events: "Send me an email every week on what is happening in %{service_name}"
+      email_about_weekly_events: "Send me an email every week on what is happening in my tribes"
+      email_newsletters: "Send me occasional %{service_name} newsletter"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
     profile:

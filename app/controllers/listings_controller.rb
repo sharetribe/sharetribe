@@ -139,7 +139,9 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing.increment!(:times_viewed)
+    unless current_user?(@listing.author)
+      @listing.increment!(:times_viewed)
+    end
   end
   
   def new

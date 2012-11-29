@@ -226,6 +226,7 @@ fi:
       address: "Yhteisön sijainti"
       select_main_language_of_your_tribe: "Valitse yhteisön ensisijainen kieli"
       language: Kieli
+      restrict_tribe_to_invited_people: "Vain kutsutut käyttäjät voivat liittyä yhteisöön"
     signup_form:
       create_an_account: "Luo tunnus itsellesi"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Voit luoda uuden tunnuksen %{service_name_illative} alta tai"
@@ -337,6 +338,10 @@ fi:
       kassi_team: "%{service_name}-tiimi"
       thanks: "Terveisin,"
       want_to_control_emails: "Mistä kaikesta haluat %{service_name_genetive} lähettävän sinulle sähköpostimuistutuksen?"
+      dont_want_to_receive_these_emails: "Etkö halua saada jatkossa näitä viestejä?"
+      edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
+      message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
+      view_it_in_your_browser: "Katso verkkoselaimellasi"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -396,6 +401,7 @@ fi:
       offering: tarjoavat
       requesting: pyytävät
       text_version_text: "Voisitko tarjota muille jotain? Tai tarvitsetko jotain, mitä joku muu voisi tarjota? Lisää tarjous tai pyyntö tai katso mitä muut tarjoavat tai pyytävät osoitteessa %{url}"
+      occasional_newsletter_title: "Sharetribe uutiskirje"
     reply_to_contact_request:
       thank_you_for_your_interest: "Kiitos kiinnostuksestasi %{service_name_partitive} kohtaan!"
     reset_password_instructions:
@@ -976,6 +982,8 @@ fi:
       terms_title: "%{service_name_genetive} käyttöehdot"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud on Internet-palvelu, joka auttaa mittaamaan henkilöiden luotettavuutta erilaisissa jakamispalveluissa. TrustCloud antaa pistemäärän (1-1000) perustuen henkilön toimintaan eri palveluissa. Pistemäärä kasvattaa muilta saatu hyvä palaute, omien tietojen kertominen avoimesti, sekä suuri määrä yhteyksiä esim. Facebookissa. TrustCard-korttia klikkaamalla näet lisätietoja kustakin kortista.</p><p>TrustCloud on käytössä %{service_name_inessive} tuomassa lisävarmistusta sille, että henkilö esiintyy omana itsenään, ei piiloudu tekaistun identiteetin taakse.</p><p>Voit rekisteröidä oman TrustCard-kortin, jos haluat, <a href='https://trustcloud.com/claim'>rekisteröitymällä TrustCloudiin</a> ja vahvistamalla siellä saman email osoitteen, joka sinulla on käytössä %{service_name_inessive}. TrustCloudin käyttö on täysin vapaaehtoista, mutta suosittelemme rekisteröitymistä, sillä se lisää luotettavuuttasi muiden silmissä, ja todennäköisesti siten helpottaa avun löytämistä.</p><p>Toimintasi %{service_name_inessive} ei vielä vaikuta TrustCloud-pisteisiisi, mutta tulevaisuudessa on tarkoitus, että %{service_name}-palautteetkin vaikuttavat.</p>"
+      invite_only_help_text: "Valitse tämä, jos haluat, että uudet jäsenet voivat liittyä vain, jos he ovat saaneet kutsun olemassaolevalta jäseneltä."
+      invite_only_help_text_title: Kutsun vaativa yhteisö
     inactive_notification:
       this_person_is_not_active_in_kassi: "Tämä käyttäjä ei ole enää aktiivinen %{service_name_inessive}"
       inactive_description: "Tämä käyttäjä on lopettanut %{service_name_genetive} käytön. Et voi enää lähettää hänelle viestejä, antaa hänelle palautetta tai kommentoida hänen ilmoituksiaan."
@@ -1203,7 +1211,8 @@ fi:
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä %{service_name_inessive} tapahtuu"
+      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä yhteisöissäni tapahtuu"
+      email_newsletters: "Lähetä minulle silloin tällöin ilmestyvä %{service_name}-uutiskirje"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
     profile:

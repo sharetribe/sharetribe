@@ -78,6 +78,7 @@ class Person < ActiveRecord::Base
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
+  # These are the email notifications, excluding newsletters settings
   EMAIL_NOTIFICATION_TYPES = [
     "email_about_new_messages",
     "email_about_new_comments_to_own_listing",
@@ -97,8 +98,6 @@ class Person < ActiveRecord::Base
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
     
   serialize :preferences
-  
-
 
 #  validates_uniqueness_of :username
   validates_uniqueness_of :email
@@ -143,7 +142,7 @@ class Person < ActiveRecord::Base
   has_attached_file :image, paperclip_options
         
   #validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_size :image, :less_than => 9.megabytes
   validates_attachment_content_type :image,
                                     :content_type => ["image/jpeg", "image/png", "image/gif", 
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
@@ -295,6 +294,7 @@ class Person < ActiveRecord::Base
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
     self.preferences["email_about_weekly_events"] = true
+    self.preferences["email_newsletters"] = true
     save
   end
   
@@ -400,7 +400,7 @@ class Person < ActiveRecord::Base
   end
   
   def should_receive?(email_type)
-    active && preferences && preferences[email_type]
+    active && confirmed_at && preferences && preferences[email_type]
   end
   
   def profile_info_empty?

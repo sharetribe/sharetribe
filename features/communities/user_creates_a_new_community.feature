@@ -26,6 +26,7 @@ Feature: User creates a new community
     Then I should see "Done!"
     When I follow "Go to your tribe"
     Then I should see "Lend, help, share"
+    And community "testtribe" should not require invite to join
   
   @no_subdomain
   @javascript
@@ -79,11 +80,9 @@ Feature: User creates a new community
     And I follow "Create for free"
     And I fill in "email" with "test@mycompany.com"
     And I press "Continue"
-    #TODO: The rest of this test fails because it doesn't recognize the form validation
-    #at all - no idea why. Validation even works if you open browser with "show me the page".
-    #Then I should see "There already exists a tribe for this company." within ".error"
-    #When I follow "here"
-    #Then I should see "Hey hey my my"
+    Then I should see "There already exists a tribe for this company."
+    When I follow "here"
+    Then I should see "Hey hey my my"
   
   @no_subdomain
   @javascript
@@ -137,3 +136,25 @@ Feature: User creates a new community
     And I press "Create your tribe"
     Then I should not see "Done!"
     And I should see "This field is required"
+    
+  @no_subdomain
+  @javascript
+  Scenario: Existing logged in user creates an invite-only community
+    Given I am logged in as "kassi_testperson1"
+    And I am on the home page
+    When I follow "GET STARTED NOW!"
+    And I follow "Association"
+    And I follow "Create for free"
+    And I go to new tribe in English
+    And I fill in "community_name" with "Test tribe"
+    And I fill in "community_domain" with "testtribe"
+    And I fill in "community_address" with "Otaniemi"
+    And I check "community_terms"
+    And I check "community_join_with_invite_only"
+    And wait for 2 seconds
+    And I press "Create your tribe"
+    Then I should see "Done!"
+    And community "testtribe" should require invite to join
+  
+  
+  

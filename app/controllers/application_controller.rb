@@ -81,7 +81,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user?(person)
-    @current_user ? @current_user.id.eql?(person.id) : false
+    @current_user && @current_user.id.eql?(person.id)
   end
 
   # Saves current path so that the user can be

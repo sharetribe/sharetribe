@@ -22,7 +22,6 @@ class Community < ActiveRecord::Base
   
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
-  # asi_welcome_mail: boolean that tells if ASI should send the welcome mail to newly registered user. Default is false.
     
   serialize :settings, Hash
   
@@ -57,16 +56,6 @@ class Community < ActiveRecord::Base
   # Returns the emails of admins in an array
   def admin_emails
     admins.collect { |p| p.email }
-  end
-  
-  # returns if ASI welcome mail is used for this community
-  # defaults to false if that setting is not set
-  def use_asi_welcome_mail?
-    if settings && settings["asi_welcome_mail"] == true
-      return true
-    else
-      return false
-    end
   end
   
   # If community name has several words, add an extra space

@@ -64,8 +64,7 @@ module Kassi
           ["Español", "es"],
           ["Français", "fr"], 
           ["Pусский", "ru"], 
-          ["Ελληνικά", "el"],
-          ["Deutsch", "de"] 
+          ["Ελληνικά", "el"]
     ]
     
     # Settings in config/environments/* take precedence over those specified here.
