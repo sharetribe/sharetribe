@@ -36,12 +36,9 @@ module Kassi
     # Define here additional Assset Pipeline Manifests to include to precompilation
     config.assets.precompile += ['dashboard.js', 'dashboard.css', 'login_screen.js', 'login_screen.css', 'uniform.kassi.css']
     
-    puts "IN APP.RB NOW"
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config    
-    
-    puts "LOADED APP_CONFIG: #{APP_CONFIG.inspect}" 
-    
+        
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
           ["English", "en"], 
@@ -90,7 +87,7 @@ module Kassi
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = APP_CONFIG.default_locale.to_sym
+    config.i18n.default_locale = (APP_CONFIG.default_locale ? APP_CONFIG.default_locale.to_sym : :en)
     
     # add locales from subdirectories
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
