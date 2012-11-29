@@ -3,6 +3,7 @@
     %h1= t(".admin")
     .grid_6.alpha
       #left_link_panel_admin
+        = link_to t(".tribe_info"), edit_admin_community_path(:id => @current_community.id, :type => "tribe_info"), :class => ((params[:type] && params[:type].eql?("tribe_info")) ? "selected" : "unselected")
         = link_to t(".news_items"), admin_news_items_path(:type => "news"), :class => ((params[:type] && params[:type].eql?("news")) ? "selected" : "unselected")
         - if @current_community.polls_enabled?
           = link_to t(".polls"), admin_polls_path(:type => "polls"), :class => ((params[:type] && params[:type].eql?("polls")) ? "selected" : "unselected")

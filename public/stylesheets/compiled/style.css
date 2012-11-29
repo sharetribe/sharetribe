@@ -1,7 +1,7 @@
-@import url('../reset.css');
-@import url('../text.css');
-@import url('../960_24_col.css');
-@import url('../uniform.kassi.css');
+@import url("../reset.css");
+@import url("../text.css");
+@import url("../960_24_col.css");
+@import url("../uniform.kassi.css");
 /* Main colors */
 /* Other colors */
 /* Used to fix form padding problem in FF */
@@ -3878,6 +3878,19 @@ input.resend_email_confirmation_button {
     background-color: #9f7d4e; }
   input.resend_email_confirmation_button:focus {
     background-color: #9f7d4e; }
+
+.signup_checkbox_container {
+  overflow: hidden;
+  margin-left: 110px;
+  margin-bottom: 5px; }
+
+.signup_checkbox_input_container {
+  margin-right: 10px;
+  float: left; }
+
+.signup_checkbox_label_container {
+  margin-top: 8px;
+  float: left; }
 
 /* Tag cloud - Massi code */
 #tag_cloud {

@@ -1,5 +1,12 @@
 en:
   admin:
+    communities:
+      edit:
+        edit_community: "Edit tribe %{tribe_name}"
+        tribe_name: "Tribe name:"
+        tribe_slogan: "Tribe slogan:"
+        tribe_description: "Description:"
+        update_information: "Update information"
     badges:
       index:
         add_new_badge: "Add new badge"
@@ -567,6 +574,7 @@ en:
     admin:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"
+      tribe_info: "Basic tribe information"
       news_items: "News articles"
       polls: Polls
     application:
