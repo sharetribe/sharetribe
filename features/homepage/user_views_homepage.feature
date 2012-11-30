@@ -174,6 +174,7 @@ Feature: User views homepage
     And the total number of comments should be 2
     And I follow "Logout"
     Then I should not see "commented offer power drill"
+    And the system processes jobs
     When I log in as "kassi_testperson1"
     Then I should see "commented on offer power drill"
   

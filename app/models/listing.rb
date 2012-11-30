@@ -39,7 +39,7 @@ class Listing < ActiveRecord::Base
   scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
   scope :rideshare, :conditions => { :category => "rideshare"}
   
-  scope :open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
+  scope :currently_open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   scope :public, :conditions  => "visibility = 'everybody'"
   scope :private, :conditions  => "visibility <> 'everybody'"
   
@@ -306,9 +306,9 @@ class Listing < ActiveRecord::Base
     
     potential_listings = []
     if listing_type == "request"
-      potential_listings =  Listing.open.rideshare.offers
+      potential_listings =  Listing.currently_open.rideshare.offers
     else
-      potential_listings = Listing.open.rideshare.requests
+      potential_listings = Listing.currently_open.rideshare.requests
     end
     
     potential_listings.each do |candidate|

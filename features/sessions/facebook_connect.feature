@@ -15,7 +15,6 @@ Feature: Facebook connect
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
     
-  
   Scenario: Facebook connect with different email in Sharetribe DB
     Given there are following users:
       | person | given_name |

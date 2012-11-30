@@ -152,8 +152,8 @@ class PersonMailer < ActionMailer::Base
     set_locale @recipient.locale
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
-    @requests = @community.listings.open.requests.visible_to(@recipient, @community).limit(5)
-    @offers = @community.listings.open.offers.visible_to(@recipient, @community).limit(5)
+    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
+    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
       # Postmark doesn't support bulk emails, so use Sendmail for this

@@ -1,5 +1,7 @@
 class ConversationsController < ApplicationController
 
+  layout "conversations"
+  
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in "you_must_log_in_to_send_a_message"
   end

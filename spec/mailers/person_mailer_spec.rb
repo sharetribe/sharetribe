@@ -13,9 +13,9 @@ describe PersonMailer do
   end   
 
   it "should send email about a new message" do
-    @conversation = Factory(:conversation)
+    @conversation = FactoryGirl.create(:conversation)
     @conversation.participants = [@test_person2, @test_person]
-    @message = Factory(:message)
+    @message = FactoryGirl.create(:message)
     @message.conversation = @conversation
     @message.save
     email = PersonMailer.new_message_notification(@message).deliver
@@ -25,7 +25,7 @@ describe PersonMailer do
   end
   
   it "should send email about a new comment to own listing" do
-    @comment = Factory(:comment)
+    @comment = FactoryGirl.create(:comment)
     @comment.author.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     recipient = @comment.listing.author
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
@@ -35,7 +35,7 @@ describe PersonMailer do
   end
   
   it "should send email about an accepted and rejected offer or request" do
-    @conversation = Factory(:conversation)
+    @conversation = FactoryGirl.create(:conversation)
      @conversation.participants = [@test_person2, @test_person]
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
@@ -53,7 +53,7 @@ describe PersonMailer do
   end
   
   it "should send email about a new badge" do
-    @badge = Factory(:badge)
+    @badge = FactoryGirl.create(:badge)
     email = PersonMailer.new_badge(@badge).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
@@ -62,7 +62,7 @@ describe PersonMailer do
   
   it "should send email about a new testimonial" do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
-    @conversation = Factory(:conversation)
+    @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2 
     @conversation.update_attribute(:status, "accepted")
@@ -78,7 +78,7 @@ describe PersonMailer do
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     @test_person.save
     Person.find(@test_person.id).update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
-    @conversation = Factory(:conversation)
+    @conversation = FactoryGirl.create(:conversation)
     @conversation.participants << @test_person
     @conversation.participants << @test_person2 
     @conversation.update_attribute(:status, "accepted")
@@ -90,16 +90,16 @@ describe PersonMailer do
   end
   
   it "should send email to admins of new feedback" do
-    @feedback = Factory(:feedback)
-    @community = Factory(:community)
+    @feedback = FactoryGirl.create(:feedback)
+    @community = FactoryGirl.create(:community)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
   end
   
   it "should send email to community admins of new feedback if that setting is on" do
-    @feedback = Factory(:feedback)
-    @community = Factory(:community, :feedback_to_admin => 1)
+    @feedback = FactoryGirl.create(:feedback)
+    @community = FactoryGirl.create(:community, :feedback_to_admin => 1)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
@@ -108,14 +108,14 @@ describe PersonMailer do
   end
   
   it "should send email to admins of new contact request" do
-    @contact_request = Factory(:contact_request)
+    @contact_request = FactoryGirl.create(:contact_request)
     email = PersonMailer.contact_request_notification(@contact_request).deliver
     assert !ActionMailer::Base.deliveries.empty?
     assert_equal APP_CONFIG.feedback_mailer_recipients.split(", "), email.to
   end
   
   it "should send email to community admins of new member if wanted" do
-    @community = Factory(:community, :email_admins_about_new_members => 1)
+    @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
     m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
     m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
@@ -158,7 +158,7 @@ describe PersonMailer do
       }
       
       @test_person2.update_attribute(:locale, "fi")
-      @test_person3 = Factory(:person, :locale => "es")
+      @test_person3 = FactoryGirl.create(:person, :locale => "es")
       people = [@test_person, @test_person2, @test_person3]
       
       PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")
@@ -203,7 +203,7 @@ describe PersonMailer do
 
         @test_person2.update_attribute(:locale, "ru")
         @test_person2.update_attribute(:locale, "es")
-        @test_person3 = Factory(:person, :locale => "ca")
+        @test_person3 = FactoryGirl.create(:person, :locale => "ca")
         people = [@test_person, @test_person2, @test_person3]
 
         PersonMailer.deliver_open_content_messages(people, "SHOULD NOT BE SEEN", content, "en")

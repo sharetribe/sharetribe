@@ -6,16 +6,16 @@ require 'rails/performance_test_help'
 class BrowsingTest < ActionController::PerformanceTest
   
   def setup
-    @author = Factory(:person)
-    @community = Factory(:community, :domain => "test")
+    @author = FactoryGirl(:person)
+    @community = FactoryGirl(:community, :domain => "test")
     
   end
   
   def create_listings(n=40)
     40.times do |n|
-      Factory(:listing, :author => @author, 
+      FactoryGirl(:listing, :author => @author, 
       :listing_type => ( n%2 == 0 ? "request" : "offer" ),
-      :share_types => [Factory(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
+      :share_types => [FactoryGirl(:share_type, :name => ( n%2 == 0 ? "buy" : "sell" ))],
       :communities => [@community])
     end
   end

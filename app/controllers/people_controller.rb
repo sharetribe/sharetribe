@@ -34,7 +34,7 @@ class PeopleController < Devise::RegistrationsController
   def show
     @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
-    @listings = show_closed? ? @listings : @listings.open 
+    @listings = show_closed? ? @listings : @listings.currently_open 
     @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
     render :partial => "listings/additional_listings" if request.xhr?
   end

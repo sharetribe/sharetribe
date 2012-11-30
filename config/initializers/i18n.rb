@@ -31,12 +31,12 @@ I18n.module_eval do
     # The method is quite strictly the original, only modifcation of "options" is added few lines below.
     def translate(*args)
             
-      options = args.last.is_a?(Hash) ? args.pop : {}
-      key     = args.shift
-      backend = config.backend
-      locale  = options.delete(:locale) || config.locale
-      raises  = options.delete(:raise)
-
+      options  = args.last.is_a?(Hash) ? args.pop : {}
+      key      = args.shift
+      backend  = config.backend
+      locale   = options.delete(:locale) || config.locale
+      handling = options.delete(:throw) && :throw || options.delete(:raise) && :raise # TODO deprecate :raise
+      
       # insert here the variables
       service_name = ApplicationHelper.fetch_community_service_name_from_thread
       service_name_other_forms = ApplicationHelper.service_name_other_forms(service_name)
@@ -51,17 +51,17 @@ I18n.module_eval do
       end
       # end added code here
 
-      raise I18n::ArgumentError if key.is_a?(String) && key.empty?
+       raise I18n::ArgumentError if key.is_a?(String) && key.empty?
 
-      if key.is_a?(Array)
-        key.map { |k| backend.translate(locale, k, options) }
-      else
-        backend.translate(locale, key, options)
+        result = catch(:exception) do
+          if key.is_a?(Array)
+            key.map { |k| backend.translate(locale, k, options) }
+          else
+            backend.translate(locale, key, options)
+          end
+        end
+        result.is_a?(I18n::MissingTranslation) ? handle_exception(handling, result, locale, key, options) : result
       end
-    rescue I18n::ArgumentError => exception
-      raise exception if raises
-      handle_exception(exception, locale, key, options)
-    end
-    alias :t :translate
+      alias :t :translate
   end
 end

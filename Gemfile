@@ -2,15 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.0.17'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-
-# Use unicorn as the web server
-# gem 'unicorn'
+gem 'rails', '3.2.9'
 
 # Deploy with Capistrano
 gem 'capistrano'
@@ -18,18 +10,27 @@ gem 'capistrano'
 # To use debugger
 # gem 'ruby-debug'
 
+# Gems used only for assets and not required  
+# in production environments by default.  
+group :assets do  
+  gem 'sass-rails', "  ~> 3.2.5"
+  gem 'coffee-rails', "~> 3.2.2"
+  gem 'uglifier'  
+end  
+  
+gem 'jquery-rails'
+
 # Bundle the extra gems:
 
 # gem 'heroku' install the Heroku toolbelt (https://toolbelt.heroku.com/) instead (as gem had some problems)
 #gem 'thin'
 gem 'unicorn'
 
-gem "mysql2", "~> 0.2.7" #this version for Rails < 3.1 compatibility
+gem "mysql2"
 gem 'haml'
 gem 'sass'
 gem 'database_cleaner'
 gem 'rest-client', '>= 1.6.0'
-gem 'httpclient' # Used by avatar upload
 gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'aws-sdk'
@@ -49,22 +50,26 @@ gem 'russian'
 gem 'web_translate_it'
 gem 'postmark-rails'
 gem 'rails-i18n'
-gem 'devise', '2.0.0.rc'
+gem 'devise'
+gem "devise-encryptable"
 gem "omniauth-facebook"
 gem 'spreadsheet'
 gem 'rabl'
-#gem 'rocket_pants'
-gem 'rake', '0.8.7' # downgraded because issues with 0.9
+gem 'rake'
+gem 'xpath'
+gem 'dynamic_form'
+gem "rspec-rails"
 
 group :test do
-  gem "rspec-rails"
-  gem 'capybara'
+
+  gem 'capybara', "~> 1.1.3" # because version 2 causes too many unambiguous matches with current test suite
+  # TODO: upgrade with changes from: http://techblog.fundinggates.com/blog/2012/08/capybara-2-0-upgrade-guide/
   gem 'cucumber-rails', :require => false
   gem 'cucumber' 
   gem 'selenium-webdriver'
   gem 'launchy'
   gem 'ruby-prof'
-  gem 'factory_girl_rails', '~> 1.7 '
+  gem 'factory_girl_rails'
   gem "pickle"
 end
 
