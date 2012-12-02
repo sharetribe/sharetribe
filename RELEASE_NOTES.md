@@ -11,6 +11,26 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+2.4.0
+-----
+
+Update Rails version to 3.2 and update many gems to latest versions
+
+### Update instructions from 2.3.10 to 2.4.0 ###
+
+ - "bundle install" command should do required updates for gems.
+ - if you have modified some static assets (CSS, JS, images) you might need to move them to app/assets directory. See the current directory structure for example
+ - the current deploy process expects that the assets get precompiled at the server. You might need to add "rake assets:precompile" to you build process.
+
+
+### Changes ###
+
+ - Updated Rails version to 3.2.9
+ - Updated many gems to latest versions
+ - Enabled Asset Pipeline and changed the directory structure for assets
+ 
+
+
 2.3.10
 ------
 
