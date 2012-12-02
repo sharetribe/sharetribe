@@ -19,15 +19,15 @@ class HomepageController < ApplicationController
     # and show the normal front page starting from newest listing
     params[:page] = 1 unless request.xhr? 
     
-    @requests = Listing.requests.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
-    @offers = Listing.offers.visible_to(@current_user, @current_community).open.paginate(:per_page => listings_per_page, :page => params[:page])
+    @requests = Listing.requests.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
+    @offers = Listing.offers.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
         
     # TODO This below should only be done if the count is actually shown, otherwise unnecessary.
     #If browsing Sharetribe unlogged, count also the number of private listings available 
     unless @current_user
       @private_listings = {}
-      @private_listings["request"] = Listing.requests.open.private_to_community(@current_community).count
-      @private_listings["offer"] = Listing.offers.open.private_to_community(@current_community).count
+      @private_listings["request"] = Listing.requests.currently_open.private_to_community(@current_community).count
+      @private_listings["offer"] = Listing.offers.currently_open.private_to_community(@current_community).count
     end
     
     if request.xhr? # checks if AJAX request
@@ -42,10 +42,10 @@ class HomepageController < ApplicationController
   
   def sign_in
     redirect_to root_path unless @current_community.private?
-    @requests = @current_community.listings.requests.open.limit(5)
-    @total_request_count = @current_community.listings.requests.open.count
-    @offers = @current_community.listings.offers.open.limit(5)
-    @total_offer_count = @current_community.listings.offers.open.count
+    @requests = @current_community.listings.requests.currently_open.limit(5)
+    @total_request_count = @current_community.listings.requests.currently_open.count
+    @offers = @current_community.listings.offers.currently_open.limit(5)
+    @total_offer_count = @current_community.listings.offers.currently_open.count
     @container_class = "container_12"
   end
   

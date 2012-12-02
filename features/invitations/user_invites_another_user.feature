@@ -18,7 +18,7 @@ Feature: User joins invite only community
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
-    Then I should see "Invitation sent successfully" within "#notifications"
+    Then I should see "Invitation sent successfully" 
     # Make sure that sending multiple invitations in a row works
     # (this had problems before)
     When I fill in "invitation_email" with "test@example.com"

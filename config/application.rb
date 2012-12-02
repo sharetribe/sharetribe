@@ -8,19 +8,37 @@ require 'rails/all'
 require File.expand_path('../config_loader', __FILE__)
 
 
-
-# If you have a Gemfile, require the gems listed there, including any gems
-# you've limited to :test, :development, or :production.
-Bundler.require(:default, Rails.env) if defined?(Bundler)
+if defined?(Bundler)  
+  # If you precompile assets before deploying to production, use this line  
+  Bundler.require *Rails.groups(:assets => %w(development test))  
+  # If you want your assets lazily compiled in production, use this line  
+  # Bundler.require(:default, :assets, Rails.env)  
+end
 
 
 
 module Kassi
   class Application < Rails::Application
     
+    # Enable the asset pipeline  
+    config.assets.enabled = true  
+
+    # Version of your assets, change this if you want to expire all your assets  
+    config.assets.version = '1.0'
+    
+    # From http://guides.rubyonrails.org/asset_pipeline.html#precompiling-assets
+    # For faster asset precompiles, you can partially load your application by setting
+    # config.assets.initialize_on_precompile to false in config/application.rb, though
+    # in that case templates cannot see application objects or methods. 
+    # Heroku requires this to be false.
+    config.assets.initialize_on_precompile = false
+    
+    # Define here additional Assset Pipeline Manifests to include to precompilation
+    config.assets.precompile += ['dashboard.js', 'dashboard.css', 'login_screen.js', 'login_screen.css', 'uniform.kassi.css', 'markerclusterer.js']
+    
     # Read the config from the config.yml 
     APP_CONFIG = load_app_config    
-    
+        
     # This is the list of all possible locales. Part of the translations may be unfinished.
     config.AVAILABLE_LOCALES = [
           ["English", "en"], 
@@ -69,7 +87,7 @@ module Kassi
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = APP_CONFIG.default_locale.to_sym
+    config.i18n.default_locale = (APP_CONFIG.default_locale ? APP_CONFIG.default_locale.to_sym : :en)
     
     # add locales from subdirectories
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]

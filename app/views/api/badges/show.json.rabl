@@ -2,7 +2,7 @@ object @badge
 attributes :id, :name, :created_at
 
 node :picture_url do |badge|
-  request.protocol + request.host_with_port + "/images/badges/#{badge.name}_large.png"
+  request.protocol + request.host_with_port + "/assets/badges/#{badge.name}_large.png"
 end
 
 node :description do |badge|

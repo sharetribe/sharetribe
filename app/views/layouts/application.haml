@@ -10,7 +10,7 @@
       - else
         = "- #{@current_community.name}"
     - if @listing && action_name.eql?("show")
-      - fb_image = @listing.listing_images.empty? ? "images/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
+      - fb_image = @listing.listing_images.empty? ? "assets/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
       %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   
@@ -22,7 +22,7 @@
       %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
       %meta{ :property => "og:type", :content =>"website"}
       %meta{ :property => "og:url", :content =>"#{request.protocol}#{@current_community.domain}.#{request.domain}"} 
-      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/images/sharetribe_icon.png"}
+      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/assets/sharetribe_icon.png"}
       %meta{ :property => "og:site_name", :content =>"#{service_name}"}
       %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
       %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
@@ -30,8 +30,8 @@
     %meta{ :name => "keywords", :content => t(".keywords") }
     = yield :head
 
-    = stylesheet_link_tag 'compiled/style.css'
-    = javascript_include_tag 'jquery', 'jquery.uniform.min', 'jquery.form', 'jquery.lightbox_me', 'jquery.validate.min', 'jquery.pageless', 'jquery.autosize-min', 'jquery.watermark.min', 'jquery.tabSlideOut.v1.3', 'rails', 'sharetribe_common', 'kassi', 'googlemaps'
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
     = yield(:extra_javascript)
     = csrf_meta_tag
     :javascript
@@ -47,7 +47,7 @@
           a.handle { background-position: -80px 0; }
           a.handle:hover { background-position: -120px 0; }  
     
-    %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/images/dashboard/sharetribe_logo.png"}
+    %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/assets/dashboard/sharetribe_logo.png"}
     
     = auto_discovery_link_tag(:atom, atom_feed_url ) 
   %body

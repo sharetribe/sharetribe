@@ -37,7 +37,7 @@
     .recent_listings
       %h3{:class => "orange"}
         = link_to t('.recent_requests'), requests_path
-        = link_to image_tag("/images/icons/feed-icon.png"), atom_feed_url(:listing_type => "request")
+        = link_to image_tag("icons/feed-icon.png"), atom_feed_url(:listing_type => "request")
       - if @requests.total_entries > 0
         = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
         = will_paginate(@requests)
@@ -50,7 +50,7 @@
     .recent_listings
       %h3{:class => "brown"}
         = link_to t('.recent_offers'), offers_path
-        = link_to image_tag("/images/icons/feed-icon.png"), atom_feed_url(:listing_type => "offer")
+        = link_to image_tag("icons/feed-icon.png"), atom_feed_url(:listing_type => "offer")
       - if @offers.total_entries > 0
         = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
         = will_paginate(@offers)
@@ -101,7 +101,7 @@
       = render :file => community_file("frontpage_sidebar", true)
       = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
 
-- if not @current_user
+- if not @current_user && APP_CONFIG.use_kissmetrics
   // Track event of unidentified user seeing front page to Kissmetrics
   <script type="text/javascript">
     

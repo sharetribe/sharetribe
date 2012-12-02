@@ -1,8 +1,7 @@
 require 'json'
 require 'rest_client'
-require 'httpclient'
-require 'uuid22'
 require "open-uri"
+require File.expand_path('../../../lib/np_guid/uuid22', __FILE__)
 
 # This class represents a person (a user of Sharetribe).
 
@@ -12,6 +11,7 @@ class Person < ActiveRecord::Base
   include ErrorsHelper
   include ApplicationHelper
     
+  self.primary_key = "id"
   
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
@@ -99,7 +99,7 @@ class Person < ActiveRecord::Base
     
   serialize :preferences
 
-  validates_uniqueness_of :username
+#  validates_uniqueness_of :username
   validates_uniqueness_of :email
   validates_length_of :phone_number, :maximum => 25, :allow_nil => true, :allow_blank => true
   validates_length_of :username, :within => 3..20
@@ -142,7 +142,7 @@ class Person < ActiveRecord::Base
   has_attached_file :image, paperclip_options
         
   #validates_attachment_presence :image
-  validates_attachment_size :image, :less_than => 5.megabytes
+  validates_attachment_size :image, :less_than => 9.megabytes
   validates_attachment_content_type :image,
                                     :content_type => ["image/jpeg", "image/png", "image/gif", 
                                       "image/pjpeg", "image/x-png"] #the two last types are sent by IE. 
@@ -400,7 +400,7 @@ class Person < ActiveRecord::Base
   end
   
   def should_receive?(email_type)
-    active && preferences && preferences[email_type]
+    active && confirmed_at && preferences && preferences[email_type]
   end
   
   def profile_info_empty?

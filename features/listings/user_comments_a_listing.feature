@@ -44,7 +44,7 @@ Feature: User comments a listing
     Then I should see "Follow this listing"
     And I should not see "Stop following this listing"
     When I follow "Follow this listing"
-    Then I should see "You are now following this listing" within "#notifications"
+    Then I should see "You are now following this listing"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "Massage"

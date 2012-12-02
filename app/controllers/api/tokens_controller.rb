@@ -16,7 +16,7 @@ class Api::TokensController < Api::ApiController
     @person = Person.where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
 
     if @person.nil?
-      logger.info("User #{username} failed signin, user cannot be found.")
+      logger.info("User #{login} failed signin, user cannot be found.")
       render :status=>401, :json=>{:message=>"Invalid login or password."}
       return
     end

@@ -1,6 +1,6 @@
 class Participation < ActiveRecord::Base
   
-  belongs_to :conversation
+  belongs_to :conversation, :dependent => :destroy
   belongs_to :person
   has_one :testimonial
   

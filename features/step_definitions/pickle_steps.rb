@@ -60,14 +60,15 @@ Then(/^#{capture_model} should not be #{capture_model}(?:'s)? (\w+)$/) do |targe
   model!(owner).send(association).should_not == model!(target)
 end
 
+# COMMENTED OUT AS NOT NEEDED AND CAUSED "regular expression too big" RegexpError
 # assert model.predicate? 
-Then(/^#{capture_model} should (?:be|have) (?:an? )?#{capture_predicate}$/) do |name, predicate|
-  if model!(name).respond_to?("has_#{predicate.gsub(' ', '_')}")
-    model!(name).should send("have_#{predicate.gsub(' ', '_')}")
-  else
-    model!(name).should send("be_#{predicate.gsub(' ', '_')}")
-  end
-end
+# Then(/^#{capture_model} should (?:be|have) (?:an? )?#{capture_predicate}$/) do |name, predicate|
+#   if model!(name).respond_to?("has_#{predicate.gsub(' ', '_')}")
+#     model!(name).should send("have_#{predicate.gsub(' ', '_')}")
+#   else
+#     model!(name).should send("be_#{predicate.gsub(' ', '_')}")
+#   end
+# end
 
 # assert not model.predicate?
 Then(/^#{capture_model} should not (?:be|have) (?:an? )?#{capture_predicate}$/) do |name, predicate|

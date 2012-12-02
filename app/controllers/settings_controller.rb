@@ -1,5 +1,7 @@
 class SettingsController < ApplicationController
   
+  layout "settings"
+  
   before_filter do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_your_settings"
   end
@@ -36,7 +38,7 @@ class SettingsController < ApplicationController
   
   def add_location_to_person  
     unless @person.location
-      @person.build_location(:address => @person.street_address,:type => 'person')
+      @person.build_location(:address => @person.street_address,:location_type => 'person')
       @person.location.search_and_fill_latlng
     end
   end

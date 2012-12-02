@@ -74,7 +74,7 @@ class ListingsController < ApplicationController
     @title = params[:listing_type]
     @tag = params[:tag]
     @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
+    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
     @request_path = request.fullpath
     if request.xhr? && params[:page] && params[:page].to_i > 1
       render :partial => "listings/additional_listings"
@@ -85,7 +85,7 @@ class ListingsController < ApplicationController
   
   def loadmap
     @title = params[:listing_type]
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user)
+    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user)
     @listing_style = "map"
     @to_render ||= {:partial => "listings/listings_on_map"}
     @request_path = request.fullpath
@@ -97,7 +97,7 @@ class ListingsController < ApplicationController
   def requests_on_map
     params[:listing_type] = "request"
     @to_render = {:action => :index}
-    @listings = Listing.open.order("created_at DESC").find_with(params, @current_user, @current_community)
+    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community)
     @listing_style = "map"
     load
   end
@@ -112,7 +112,7 @@ class ListingsController < ApplicationController
   
   # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
   def serve_listing_data
-    @listings = Listing.open.joins(:origin_loc).group("listings.id").
+    @listings = Listing.currently_open.joins(:origin_loc).group("listings.id").
                 order("listings.created_at DESC").find_with(params, @current_user, @current_community).select("listings.id, listing_type, category, latitude, longitude")
     render :json => { :data => @listings }
   end
@@ -139,7 +139,9 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @listing.increment!(:times_viewed)
+    unless current_user?(@listing.author)
+      @listing.increment!(:times_viewed)
+    end
   end
   
   def new
@@ -223,7 +225,7 @@ class ListingsController < ApplicationController
   
   #shows a random listing from current community
   def random
-    open_listings_ids = Listing.open.select("id").find_with(nil, @current_user, @current_community).all
+    open_listings_ids = Listing.currently_open.select("id").find_with(nil, @current_user, @current_community).all
     if open_listings_ids.empty?
       redirect_to root and return
       #render :action => :index and return

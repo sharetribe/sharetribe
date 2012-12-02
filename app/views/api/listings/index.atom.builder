@@ -1,8 +1,8 @@
 atom_feed :language => 'en-US', 'xmlns:georss' => 'http://www.georss.org/georss', 'xmlns:st'  => 'http://www.sharetribe.com/SharetribeFeed' do |feed|
   feed.title @title
   feed.updated @updated
-  feed.icon "https://www.sharetribe.com/images/sharetribe_icon.png"
-  feed.logo "https://www.sharetribe.com/images/dashboard/sharetribe_logo.png"
+  feed.icon "https://www.sharetribe.com/assets/sharetribe_icon.png"
+  feed.logo "https://www.sharetribe.com/assets/dashboard/sharetribe_logo.png"
 
   @listings.each do |listing|
     feed.entry( listing ) do |entry|

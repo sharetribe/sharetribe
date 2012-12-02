@@ -22,7 +22,7 @@ Feature: User gives feedback from transaction
     And I should see "Feedback given" within ".conversation_status_label_links"
     And the system processes jobs
     When I follow "Logout"
-    And I am logged in as "kassi_testperson2"
+    And I log in as "kassi_testperson2"
     When I follow "notifications_link"
     Then I should see "has given you feedback on event Service offer: Massage."
     And I should see "Give feedback to"

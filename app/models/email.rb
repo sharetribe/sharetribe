@@ -9,7 +9,7 @@ class Email < ActiveRecord::Base
   
   before_save do
     if not confirmed_at
-      self.confirmation_token ||= ActiveSupport::SecureRandom.base64(12)
+      self.confirmation_token ||= SecureRandom.base64(12)
     end
   end
   

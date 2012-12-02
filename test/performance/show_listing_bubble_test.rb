@@ -6,8 +6,8 @@ require 'rails/performance_test_help'
 class ShowListingBubbleTest < ActionController::PerformanceTest
   
   def setup
-    author = Factory(:person)
-    @listing = Factory(:listing, :author => Person.first)
+    author = FactoryGirl(:person)
+    @listing = FactoryGirl(:listing, :author => Person.first)
   end
   
   def test_show_listing_bubble

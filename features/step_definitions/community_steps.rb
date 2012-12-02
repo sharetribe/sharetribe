@@ -55,7 +55,7 @@ When /^I move to community "([^"]*)"$/ do |community|
 end
 
 Given /^there is an existing community with "([^"]*)" in allowed emails and with slogan "([^"]*)"$/ do |email_ending, slogan|
-  @existing_community = Factory(:community, :allowed_emails => email_ending, :slogan => slogan, :category => "company")
+  @existing_community = FactoryGirl.create(:community, :allowed_emails => email_ending, :slogan => slogan, :category => "company")
 end
 
 Given /^show me existing community$/ do
