@@ -11,10 +11,15 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+2.4.1
+-----
+
+just a small fix to a bug the prevented calculating statistics in non-active tribes
+
 2.4.0
 -----
 
-Update Rails version to 3.2 and update many gems to latest versions
+Update Rails version to 3.2, enable asset pipeline and update many gems to latest versions
 
 ### Update instructions from 2.3.10 to 2.4.0 ###
 
