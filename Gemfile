@@ -59,6 +59,7 @@ gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
 gem "rspec-rails"
+gem "truncate_html"
 
 group :test do
 

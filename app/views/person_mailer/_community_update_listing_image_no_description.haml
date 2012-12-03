@@ -1,0 +1,18 @@
+%table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-bottom:1px solid #ededed;padding-bottom:5px;padding-top: 20px;", :width => "100%"}
+  %tbody
+    %tr
+      %td
+        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+          %tbody
+            %tr
+              - if listing.author.has_profile_picture?
+                %td{:valign => "top", :width => "50"}
+                  = link_to((image_tag listing.author.image.url(:thumb), :width => 50, :height => 50, :style => "display:block;margin-right:20px;margin-bottom:20px;margin-top:0;"), listing.author)
+              %td{:valign => "top"}
+                %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;color:#464646;font-weight: normal; font-size: 14px;margin-bottom:0;padding:0;"}
+                  = link_to listing.author.given_name_or_username, listing.author, :style => "color:#d25427;font-weight:bold;text-decoration:none;"
+                  added an offer:
+                %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;color:#d25427;font-size:28px;line-height:32px;margin-bottom:16px;display:block; margin-top:0;min-width:150px;"}
+                  = link_to listed_listing_title(listing), listing, :style => "color:#d25427!important;text-decoration:none", :target => "_blank"
+              %td{:valign => "top"}
+                = image_tag listing.listing_images.first.image.url(:medium), :class => "listing_main_image", :alt => listing.title, :height => "100", :width => "150", :style => "display:block;margin-left:30px;margin-bottom:20px;margin-top:4px", :align => "right"

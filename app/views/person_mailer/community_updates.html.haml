@@ -1,30 +1,68 @@
-= t("emails.newsletter.update_on_what_is_happening", :community => @community.name_with_separator(@recipient.locale))
-
-%br/
-%br/
-%b
-  = t("emails.newsletter.newest_offers")
-%br/
-- @offers.each do |offer| 
-  = link_to(offer.title, "#{@url_base}/listings/#{offer.id.to_s}?ref=weeklymail")
-  %br/
-
-%br/
-%b
-  = t("emails.newsletter.newest_requests")
-%br/
-- @requests.each do |request| 
-  = link_to(request.title, "#{@url_base}/listings/#{request.id.to_s}?ref=weeklymail")
-  %br/
-  
-%br/
-= t("emails.newsletter.could_you_offer_something")
-= t("emails.newsletter.add")
-= link_to t("emails.newsletter.an_offer"), "#{@url_base}/listings/new/offer"
-= t("common.or")
-= link_to t("emails.newsletter.a_request"), "#{@url_base}/listings/new/request"
-= t("common.or")
-= t("emails.newsletter.check_everything_that_others_are")
-= link_to t("emails.newsletter.offering"), "#{@url_base}/offers?ref=weeklymail"
-= t("common.or")
-= link_to t("emails.newsletter.requesting"), "#{@url_base}/requests?ref=weeklymail"
+%div{:style => "min-width:100%"}
+  %table{:cellpadding => "0", :cellspacing => "0", :border => "0", :align => "center", :style => "text-align:center;margin:0;padding:0;width:100%!important;line-height:100%!important;background: #ebebeb;"}
+    %tbody
+      %tr
+        %td
+          %table{:cellpadding=> "0", :cellspacing => "0", :border => "0", :align => "center", :style => "text-align:center"}
+            =# %tr
+            =#  %td{:valign => "bottom", :style => "width:100%;max-width:602px;padding-left:35px;", :height => "30"}
+            =#    %p{:style => "margin-top:5px;margin-bottom:5px;font-family:Helvetica Neue, Helvetica, Arial,sans-serif;font-size:12px;color:#464646;text-align: left;"}
+            =#      Top notification test plus 
+            =#      = link_to("Link", "http://lauttasaari.sharetribe.com", :style => "color:#d25427; text-decoration: none;") + "."
+            %tr
+              %td{:style => "width:100%;max-width:602px", :valign => "top"}
+                %table{:align => "center", :border => "0", :cellpadding => "0", :cellspacing => "0", :style => "background:#fff;"}
+                  %tbody
+                    %tr
+                      %td{:width => "5%"}
+                      %td{:valign => "top", :width => "90%"}
+                        %h1{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;font-size:18px;margin-top:20px;margin-bottom:5px;line-height:1; padding: 20px; background: #ebebeb;text-align: left;"}
+                          = link_to "Lauttasaari Sharetribe","https://lauttasaari.sharetribe.com", :style => "color:#d25427;font-weight:normal;text-decoration:none;"
+                          %span{:style => "color:#464646;"}
+                            community update
+                        %div{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:22px; padding: 10px 0;text-align:left;"}
+                          %p 
+                            Hello 
+                            = link_to("Juho", "#", :style => "color:#d25427;text-decoration:none;") + ","
+                          %p
+                            Here are some of the things that happened in the
+                            = link_to "Lauttasaari Sharetribe community", "#", :style => "color:#d25427;text-decoration:none;"
+                            during the past 7 days.
+                      %td{:width => "5%"}
+                    %tr
+                      %td{:width => "5%"}
+                      %td{:style => "text-align:left", :valign => "top", :width => "90%"}
+                        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-bottom: 1px solid #ededed;", :width => "100%"}
+                          %tbody
+                            %tr
+                              %td
+                        = render :partial => "community_update_listing", :collection => @offers, :as => :listing
+                        
+                        
+                        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "padding-bottom:45px;padding-top: 20px;", :width => "100%"}
+                          %tbody
+                            %tr
+                              %td
+                                %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:18px;line-height:26px;color: #464646;text-align: center; margin-bottom: 10px;"}
+                                  Could you share something? 
+                                  %br/
+                                  Need help with anything?
+                                %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-collapse:collapse;", :height => "67", :align => "center"}
+                                  %tbody
+                                    %tr
+                                      %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_left.png", :width => "12", :style => "background-repeat:no-repeat"}
+                                      %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_middle.png", :bgcolor => "#d25427"}
+                                        = link_to "Post a new listing!", "#", :target => "_blank", :style => "display:inline-block;text-decoration:none;width:100%;padding:20px 20px 20px 20px;color:#ffffff;font-size:20px;font-weight:bold"
+                                      %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_right.png", :width => "12", :style => "background-repeat:no-repeat"}     
+                      %td{:width => "5%"}
+            %tr
+              %td{:style => "text-align: left;width:100%;max-width:602px;padding: 5px 30px;"}
+                %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
+                  Too much email? 
+                  = link_to "Edit your email settings here", "http://lauttasaari.sharetribe.com", :style => "color:#d25427; text-decoration: none;"       
+                  or
+                  = link_to("unsubscribe", "#", :style => "color:#d25427; text-decoration: none;") + "."
+                %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
+                  Did you know you can create a community marketplace like this for free for your neigborhood, town, association or other local community? 
+                  = link_to "Create one yourself", "http://lauttasaari.sharetribe.com", :style => "color:#d25427; text-decoration: none;"
+                  or find out more by replying to this email.
