@@ -8,7 +8,7 @@ namespace :i18n do
     dest_filename = [status.to_s, locale, "html"].compact.join(".")
     File.open(File.join(Rails.root, "public", dest_filename), "w") do |file|
       path = File.join("app", "views", "errors", "#{status}.haml")
-      file.print ActionView::Base.new(Rails.configuration.paths.app.views.first).render(:file => path)
+      file.print ActionView::Base.new(Rails.configuration.paths["app/views"].first).render(:file => path)
     end   
   end
   
