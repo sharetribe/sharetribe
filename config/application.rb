@@ -119,6 +119,7 @@ module Kassi
     # it needs to be set here to work
     if Rails.env.production? || Rails.env.staging? 
       config.logger = Logger.new(STDOUT)
+      config.logger.level = Logger::INFO
     end
 
   end
