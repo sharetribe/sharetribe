@@ -143,6 +143,19 @@ class Statistic < ActiveRecord::Base
     self.wau_g3 = ((@wau_g3*1.0/users_count)).round(4)
     self.dau_g3 = ((@dau_g3*1.0/users_count)).round(4)
 
+
+
+    # Growth
+    
+    # find a statistic 7 days ago
+    last_weeks_stats = Statistic.where(:community_id => (community ? community.id : nil), :created_at => 7.4.days.ago..6.6.days.ago).first
+    
+    if last_weeks_stats
+      self.user_count_weekly_growth = (self.users_count - last_weeks_stats.users_count)*1.0 /  last_weeks_stats.users_count
+      self.wau_weekly_growth = (self.wau_g1_count - last_weeks_stats.wau_g1_count)*1.0 / last_weeks_stats.wau_g1_count
+    end
+
+
     #referral
     @inv_sent = Invitation.where("inviter_id is not NULL #{community ? "AND community_id = '#{community.id}'" : ""}").count
     @inv_accepted = Invitation.where("inviter_id is not NULL and usages_left = 0 #{community ? "AND community_id = '#{community.id}'" : ""}").count
