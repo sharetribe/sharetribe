@@ -1,8 +1,8 @@
 class Statistic < ActiveRecord::Base
   belongs_to :community
   
-  def initialize(params = {})
-    super(params)
+  def initialize(params = {}, options = {})
+    super(params, options)
 
     #throw "Doesn't yet support counting statistics for a community" if community
 
@@ -70,7 +70,7 @@ class Statistic < ActiveRecord::Base
     six_to_two_week_old_users.each do |u|
       creation_date = u.created_at
       u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-      if u && Listing.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Comment.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Message.where(:sender_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? 
+      if u.present? && Listing.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Comment.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Message.where(:sender_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? 
         activated += 1
       end      
     end
@@ -142,6 +142,19 @@ class Statistic < ActiveRecord::Base
     self.mau_g3 = ((@mau_g3*1.0/users_count)).round(4)
     self.wau_g3 = ((@wau_g3*1.0/users_count)).round(4)
     self.dau_g3 = ((@dau_g3*1.0/users_count)).round(4)
+
+
+
+    # Growth
+    
+    # find a statistic 7 days ago
+    last_weeks_stats = Statistic.where(:community_id => (community ? community.id : nil), :created_at => 7.4.days.ago..6.6.days.ago).first
+    
+    if last_weeks_stats
+      self.user_count_weekly_growth = (self.users_count - last_weeks_stats.users_count)*1.0 /  last_weeks_stats.users_count
+      self.wau_weekly_growth = (self.wau_g1_count - last_weeks_stats.wau_g1_count)*1.0 / last_weeks_stats.wau_g1_count
+    end
+
 
     #referral
     @inv_sent = Invitation.where("inviter_id is not NULL #{community ? "AND community_id = '#{community.id}'" : ""}").count
