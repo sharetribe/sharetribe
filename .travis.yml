@@ -1,14 +1,28 @@
+language: ruby
+rvm:
+  - 1.8.7
+
+env:
+  - SUITE=spec
+  - SUITE=cucumber
+
 notifications:
   recipients:
     - main@sharetribe.flowdock.com
 
-# select branches to build
 branches:
   only:
-    - master
     - develop
+    - master
 
 before_script:
+  - cp config/config.travis.yml config/config.yml
+  - cp config/database.travis.yml config/database.yml
   - mysql -e 'create database sharetribe_test;'
-  - "cp config/database.example.yml config/database.yml"
-  - "bundle exec rake db:schema:load"
+  - rake db:test:load
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - bundle exec rake $SUITE
+

@@ -1,0 +1,221 @@
+default: &default_settings
+  
+  # Fill here the domain where you will be running Sharetribe.
+  # If you are running on localhost, you can write here "lvh.me:3000" (which redirects to localhost port 3000)
+  # The community subdomains will be added to this top domain.
+  # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
+  domain: "lvh.me:3000"
+  
+  # If you want to make logins work across different subdomains you should put here the domain where you are running Sharetribe.
+  # practically in most cases the same value as in "domain:"
+  # The session cookies will apply for the whole domain. If this is not needed you can leave this empty. 
+  # If you use domain aliases e.g. sharetribe.eu & sharetribe.cl, leave this empty.
+  # NOTE: Do not include http(s) here, or subdomains, just the top level domain, like "sharetribe.com" for example
+  session_domain:
+  
+  # Login url. This can be a separate address for loggin in. For example
+  # a subdomain with https. It's recommended to use https here, so passwords
+  # are submited in encrypted form. e.g. "https://login.sharetribe.com"
+  # If this is empty, will use the same domain for login
+  login_domain: 
+
+  # Sharetribe can allow accessing data from external applications by RESTful API
+  # You can enable the API by setting this value true
+  api_enabled: true
+
+  # Sharetribe can use an Aalto Social Interface server to store userinformation
+  # This version of Sharetribe no longer support ASI so keep the setting below as false
+  use_asi: false
+
+  # The default locale (language) of the user interface
+  # if locales are listed in the community specific settings in db. The first in that list is used as default for that community.
+  # This setting here is the server wide default, and it's used if no community specific setting is found.
+  default_locale: en
+  # Available locales (languages) of the user interface. This is the list of all the possible locales on this Sharetribe server.
+  # Some communities may have shorter list but not longer.
+  # Keep the value in format: [["Language1", "shortcode for language1"],["language2", "code for l2"], ["l3", "code for l3"]] 
+  # To add support for new languages, you must add new yml file to config/locales. See the existing files for example.
+  # If you make new translations, please share those for example in Github.
+  # If you change the default locale, you should put that one first in the list of available_locations, to get
+  # the language dropdown menu work more logically.
+  available_locales: [["English", "en"], ["Suomi", "fi"], ["Pусский", "ru"]]
+  
+  # Facebook Connect
+  # If you want to use Facebook connect, enter the credentials here
+  fb_connect_id:
+  fb_connect_secret:
+  
+  # reCAPTChA is used to avoid bots registering accounts
+  # You need to register your domain at https://www.google.com/recaptcha
+  # to get the keys
+  use_recaptcha: false
+  recaptcha_public_key: 'enter_your_own_key_here'
+  recaptcha_private_key: 'enter_your_own_key_here'  
+
+  # You can use Airbrake to track errors if you want.
+  # You need to register an account and get an API key from airbrake.io 
+  use_airbrake: false
+  airbrake_api_key: 'your_own_api_key_here'
+
+  # Ressi is Researcher's Interface for logged data
+  # If you don't need it just leave it to false
+  # If log_to_ressi is false, other ressi settings can be ignored.
+  log_to_ressi: false
+  ressi_url: "http://cos.alpha.sizl.org/ressi"
+  ressi_timeout: 5
+  ressi_upload_hour: 1
+  
+  # Mail delivery method for mails sent by Sharetribe
+  # Sharetribe can send mails via sendmail or Postmark (postmarkapp.com)
+  # The default is sendmail. If using postmark, uncomment and enter your API key.
+  mail_delivery_method: sendmail
+  #postmark_api_key:
+
+  # This will be the from field in the mails sent from Sharetribe
+  sharetribe_mail_from_address: "noreply-sharetribe@example.com"
+  # This address is added in the most mail signatures 
+  # (it's good idea to set this if you use no-reply addres as the form
+  # address above so that people can contact the admins if needed)
+  # Can also be left blank.
+  sharetribe_reply_to_address: "real-team-address@example.com"
+  
+  # The address where the notifications of feedbacks from Sharetribe UI are sent
+  feedback_mailer_recipients:  'admins@example.com'
+
+  # If you want to get mail notification of errors that happen in Sharetribe
+  # you can specify it here. Otherwise leave to be false.
+  use_error_mailer: false
+  error_mailer_recipients: 'admins@example.com'
+  error_mailer_from_address: 'Error Mailer <SharetribeErrors@example.com>'
+  
+  # Google Analytics can be used to track traffic on the site
+  # If set to true you need to obtain your own API key for analytics
+  # and enter it below
+  use_google_analytics: false
+  google_analytics_key: "enter_your_key_here"
+  # If you use analytics, the tracked domain must be entered here. See Google anaylitys documentation if you need more info.
+  google_analytics_domain: ".yourdomain.here"
+  
+  # KISS metrics can be used to track many events on the site
+  use_kissmetrics: false
+  kissmetrics_url: '//doug1izaerwt3.cloudfront.net/INSERT_YOUR_API_KEY_HERE.1.js'
+  
+  # Funneld can be used to track social media activity on the site. 
+  use_funneld: false
+  funneld_key: "enter_your_key_here"
+
+  # CAS is a centralized authentication system, it is completely optional
+  # If not needed leave to false
+  use_CAS: false
+  
+  # Bit.ly url shortener
+  # At some places urls can be made shorter if you add your bit.ly login and apikey here:
+  # if you leave these empty, urls will be kept long
+  bitly_username: 
+  bitly_key: 
+  
+  # TeliaSonera sms API is optional and experimental
+  # leave this to false unless you know what you're doing
+  # (The receiver resource must be created separately. see: http://developer.medialab.sonera.fi/info/index.php/Receiver_resource)
+  use_sms: false
+  sms_username: your_api_username
+  sms_password: your_api_password
+  sms_service_key: your_api_service_key
+  sms_receiver_id: your_separately_registered_keyword
+  
+  # In rideshare matching, the Helsinki Area Journey Planner API can be used if you have access. Otherwise leave empty.
+  journey_planner_username:
+  journey_planner_password:  
+  
+  # If you want to force Sharetribe to show mobile view even when accessed with normal desktop browser, set this to true
+  # Useful only for mobile development
+  force_mobile_ui: false
+  
+  # If you want to fetch the newest translate files from Web Translate It on every page load, set this to true
+  # This makes sense only in a server dedicated to translation testing.
+  # To make this work you also need config/translation.yml with wti credentials.
+  update_translations_on_every_page_load: false
+  
+  # If you have migrated from using ASI to use standalone Sharetribe,
+  # You should set this to true to use ASI based password encryption
+  use_asi_encryptor: 
+
+
+  # If you need for some reason change the session key used in cookies, you can do it here.
+  # Normally no need to touch this.
+  session_key: _sharetribe_session
+  
+  # Global Service name
+  # If you want to call this service with different name on this server, you can specify it here
+  # This can also be set community specific in community.settings["service_name"]
+  global_service_name: Sharetribe
+  
+  # The default consent (terms of use) all the communities will use.
+  # It's just a string that tells the version of the consent.
+  consent: "SHARETRIBE1.0"
+  
+  # Below it is possible to specify different settings for different
+  # environments. If you are not developing or testing Sharetribe, you 
+  # don't need to change those
+  # ----------------------------------------------------------------
+  
+
+
+production:
+  <<: *default_settings
+
+  # Set this to true if you want the rails server to serve static assets in production mode (images, JS etc.)
+  # normally it is better to leave this for the web server (apache) to do.
+  serve_static_assets_in_production: false
+
+development:
+  <<: *default_settings
+  
+  # These settings are used for sending email from your local computer.
+  # This example is using gmail SMTP, but you can also use your local SMTP server.
+  local_email_address: "smtp.gmail.com"
+  local_email_port: 587
+  local_email_user_name: "<YOUR_GMAIL_USERNAME>@gmail.com"
+  local_email_password: "<YOUR_GMAIL_PASSWORD>"
+  
+test:
+  <<: *default_settings
+  # The locale should be "en" for test environment
+  # even if you change it for others
+  default_locale: en
+  # available are at least english and finnish (to test language changing) English comes first in dropdowns.
+  available_locales: [["English", "en"], ["Finnish", "fi"]]
+  
+  # captcha is expected to be off when running tests
+  use_recaptcha: false
+  
+
+  # The tests currently work only with ASI encryptor
+  use_asi_encryptor: true
+  
+  # The domain should be set to lvh.me (which redirects to localhost)
+  # to be able to run the tests with subdomains.
+  domain: lvh.me
+  # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
+  # And add lines: (where there is one tab separating the ip and the domain)
+  #127.0.0.1       lvh.me
+  #127.0.0.1       login.lvh.me
+  #127.0.0.1       test.lvh.me
+  #127.0.0.1       test2.lvh.me
+
+  
+  
+    
+  # The login domain should be empty for tests
+  # Note above, if running tests disconnected from the internet
+  login_domain: 
+  #"http://login.lvh.me:9887"
+  
+  # Facebook Connect dummy credentials for tests
+  fb_connect_id: "123456789012345"
+  fb_connect_secret: "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456"
+  
+  # normally no point of submiting events from tests to Kissmetrics
+  use_kissmetrics: false
+
+
