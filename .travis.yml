@@ -16,6 +16,7 @@ branches:
     - master
 
 before_script:
+  - cp config/database.example.yml config/database.yml
   - mysql -e 'create database sharetribe_test;'
   - rake db:test:load
   - export DISPLAY=:99.0
