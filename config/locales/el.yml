@@ -226,6 +226,7 @@ el:
       address: "Περιοχή της κοινότητας"
       select_main_language_of_your_tribe: "Επέλεξε την κύρια γλώσσα της κοινότητας"
       language: Γλώσσα
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: "Δημιούργησε ένα λογαριασμό για σένα"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Μπορείς να δημιουργήσεις ένα νέο λογαριασμό στο Sharetribe ή να"
@@ -337,6 +338,10 @@ el:
       kassi_team: "Η Ομάδα του %{service_name}"
       thanks: "Ευχαριστούμε,"
       want_to_control_emails: "Θέλεις να ρυθμίσεις ποια μηνύματα λαμβάνεις από το %{service_name};"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} έχει αποδεχτεί την προσφορά σου σχετικά με το αίτημα \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} έχει αποδεχτεί το αίτημά σου σχετικά με την προσφορά %{listing}"
@@ -396,6 +401,7 @@ el:
       offering: προσφέρουν
       requesting: χρειάζονται
       text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Σε ευχαριστούμε για το ενδιαφέρον σου στο %{service_name}!"
     reset_password_instructions:
@@ -976,6 +982,8 @@ el:
       terms_title: "Όροι χρήσης του %{service_name}"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το %{service_name}. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
@@ -1202,6 +1210,7 @@ el:
       email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
       email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
       email_about_weekly_events: "Στείλε μου ένα email κάθε βδομάδα με το τι συμβαίνει στο %{service_name}"
+      email_newsletters: ~
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
     profile:
