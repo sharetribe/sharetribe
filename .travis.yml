@@ -4,7 +4,7 @@ rvm:
 
 env:
   - SUITE=spec
-  - SUITE=cucumber
+  #- SUITE=cucumber
 
 notifications:
   recipients:
