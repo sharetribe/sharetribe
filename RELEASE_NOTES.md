@@ -11,6 +11,14 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+2.4.2
+-----
+
+- bug fixes
+- better support for Travis CI
+- started improving the tribe updates mail
+- better log level control with Heroku hosting
+
 2.4.1
 -----
 
