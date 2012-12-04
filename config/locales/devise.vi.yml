@@ -6,7 +6,7 @@ vi:
       already_confirmed: "đã được xác nhận, hãy thử đăng ký lại"
       not_locked: "không bị khoá"
       not_saved:
-        other: ~
+        other: "%{count} errors prohibited this %{resource} from being saved:"
   devise:
     failure:
       already_authenticated: "Bạn đã đăng ký."

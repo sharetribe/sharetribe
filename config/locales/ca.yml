@@ -226,6 +226,7 @@ ca:
       address: ~
       select_main_language_of_your_tribe: ~
       language: ~
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: ~
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
@@ -337,6 +338,10 @@ ca:
       kassi_team: "L'equip de Kassi"
       thanks: "Gràcies,"
       want_to_control_emails: "Vol controlar els correus electrònics que reps de Kassi?"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
@@ -396,6 +401,7 @@ ca:
       offering: oferint
       requesting: sol·licitant
       text_version_text: "Tens alguna cosa que la resta puguin necessitar? O necessites alguna cosa que altra gent pugui tenir? Afegeix una oferta o sol·licitud, o revisa tot allò que s'ofereix a %{url}"
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Gràcies pel teu interès amb Kassi!"
     reset_password_instructions:
@@ -978,6 +984,8 @@ ca:
       terms_title: "Termes d'ús de Kassi"
       trustcloud_description_title: ~
       trustcloud_description_text: ~
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Aquest usuari ja no està actiu."
       inactive_description: "Aquest usuari ha deixat d'utilitzar Kassi. No pots posar-te en contacte amb ell."
@@ -990,9 +998,6 @@ ca:
       email_is_in_use: "Aquest correu ja està registrat"
       email_is_in_use_or_not_allowed: "Aquest correu electrònic no està autoritzat per a aquesta comunitat o ja està sent utilitzat. Si us plau, utilitza una adreça que estigui associada amb aquesta comunitat. Si encara tens problemes per accedir, envia'ns un comentari utilitzant el botó de \"Feedback\" de l'esquerra."
       email_not_allowed: ~
-      email_restriction_instructions:
-        one: ~
-        other: ~
       enter_captcha: "Sóc un ser humà"
       family_name: "Cognoms:"
       given_name: "Nom:"
@@ -1206,6 +1211,7 @@ ca:
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
       email_about_weekly_events: "Envia'm un correu cada setmana per conèixer el que està passant a Kassi"
+      email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
     profile:

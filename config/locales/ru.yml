@@ -226,6 +226,7 @@ ru:
       address: "Местоположение вашего сообщества"
       select_main_language_of_your_tribe: "Выберите основной язык вашего сообщества"
       language: Язык
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: "Создайте учётную запись для себя"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Можно создать новую учётную запись для %{service_name} или"
@@ -337,6 +338,10 @@ ru:
       kassi_team: "Команда %{service_name}"
       thanks: "Спасибо,"
       want_to_control_emails: "Хотите изменить получение сообщений от %{service_name}?"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -396,6 +401,7 @@ ru:
       offering: предлагают
       requesting: запрашивают
       text_version_text: "У вас есть что-нибудь, что может кому-то пригодиться? А может быть вам нужно то, что может быть у других? Оставьте запрос, предложение или просто взгляните на то, что предлагают и запрашивают другие — %{url}"
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Спасибо за ваш интерес к Kassi!"
     reset_password_instructions:
@@ -976,6 +982,8 @@ ru:
       terms_title: "Условия использования Kassi"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud является онлайн-сервисом, который помогает \"измерить\"  надёжность пользователя с помощью других сервисов. В зависимости от активности пользователя в интернете, ему присваивается рейтинг TrustScore (1-1000). Рейтинг увеличивается, например, при получении положительных отзывов на аукционе eBay, либо при наличии множества связей в Facebook. Щёлкните каждую карточку для получения более подробной информации.</p><p>TrustCloud используется для получения  большей уверенности, в том, что человек за учётной записью является реальным и не прячется за выдуманной личностью.</p><p>Вы можете получить свою карточку TrustCard, <a href='https://trustcloud.com/claim'>зарегистрировавшись на TrustCloud</a> с тем же адресом электронной почты, который вы использовали при регистрации на %{service_name}. Это совершенно необязательно, но мы рекомендуем получить свою учётную запись TrustCard, так как это повысит ваш авторитет и скорее всего упростит общение с другими членами сообщества.</p><p>Ваши действия в %{service_name} пока ещё не влияют на ваш рейтинг TrustScore, но мы планируем сделать это возможным в будущем.</p>"
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Этот пользователь больше не использует %{service_name}"
       inactive_description: "Пользователь прекратил использовать %{service_name}. Вы не можете связаться с этим пользователем, поставить ему оценку или комментировать его листинги."
@@ -1202,6 +1210,7 @@ ru:
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
       email_about_weekly_events: "Я хочу получать еженедельный дайджест новостей на %{service_name}"
+      email_newsletters: ~
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
     profile:

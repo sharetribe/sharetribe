@@ -6,9 +6,9 @@ ru:
       already_confirmed: "уже подтверждена. Пожалуйста, попробуйте войти в систему"
       not_locked: "не заблокирована"
       not_saved:
+        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
         few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
         many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
-        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
         other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
   devise:
     failure:

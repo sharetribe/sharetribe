@@ -2,13 +2,18 @@
 
 include ApplicationHelper
 include PeopleHelper
+include ListingsHelper
+include TruncateHtmlHelper
 
 class PersonMailer < ActionMailer::Base
   
   # Enable use of method to_date.
   require 'active_support/core_ext'
   
+  require "truncate_html"
+  
   default :from => APP_CONFIG.sharetribe_mail_from_address, :reply_to => APP_CONFIG.sharetribe_reply_to_address
+  
   layout 'email'
 
   def new_message_notification(message, host=nil)
@@ -164,7 +169,9 @@ class PersonMailer < ActionMailer::Base
     
     mail(:to => @recipient.email,
          :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
-         :delivery_method => delivery_method)
+         :delivery_method => delivery_method) do |format|
+      format.html { render :layout => false }
+    end
   end
   
   def newsletter(recipient, newsletter_filename)
@@ -256,7 +263,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, :subject => @subject)
   end
   
-  def self.deliver_community_updatess
+  def self.deliver_community_updates
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|

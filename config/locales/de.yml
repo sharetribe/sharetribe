@@ -226,6 +226,7 @@ de:
       address: "Standort Ihres Stammes"
       select_main_language_of_your_tribe: "Wählen Sie die Hauptsprache Ihres Stammes"
       language: Sprache
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: "Erstellen Sie ein Konto für sich selbst"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Sie können entweder ein neues Konto bei %{service_name} unten erstellen oder"
@@ -337,6 +338,10 @@ de:
       kassi_team: "Das %{service_name} Team"
       thanks: "Danke,"
       want_to_control_emails: "Wollen Sie kontrollieren welche Emails Sie von %{service_name} erhalten?"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage akzeptiert %{listing}"
       has_accepted_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots akzeptiert %{listing}"
@@ -396,6 +401,7 @@ de:
       offering: anbieten
       requesting: anfragen
       text_version_text: "Könnten Sie etwas teilen dass andere benötigen könnten? Oder brauchen Sie etwas dass andere haben könnten? Fügen Sie ein Angebot oder eine Anfrage hinzu oder überprüfen Sie was die andeen anbieten oder benötigen bei %{url}"
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Danke für Ihr Interesse zu %{service_name}!"
     reset_password_instructions:
@@ -979,6 +985,8 @@ de:
           <p>TrustCloud ist ein Online Service der dabei hilft die Vertrauenswürdigkeit einer Person durch verschiedene Online Dienste zu messen. Es gibt einen TrustScore (1-1000) basierend auf der Online Aktivität der Person. Diese Punktzahl erhöht sich zum Beispiel indem man positives Feedback in eBay gibt, oder indem man viele Verbindungen auf Facebook hat. Sie können jede Karte anklicken um mehr Informationen zu erhalten.
            </p><p> TrustCloud wird genutzt um mehr Vertrauen zu bringen, dass die Person hinter diesem Profil echt ist und sich nicht hinter einer erfundenen Identität versteckt.
           </p><p> Sie können Ihre eigene TrustCard bekommen indem <a href='https://trustcloud.com/claim'> Sie sich bei TrustCloud registrieren </a> und die gleiche Email Adresse bestätigen die Sie auch in %{service_name} verwenden. Dies ist natürlich freiwillig, doch wir empfehlen Ihnen Ihre TrustCard in Anspruch zu nehmen um Ihre Glaubwürdigkeit zu erhöhen und um den Umgang mit anderen Leuten in der Community zu vereinfachen. </p><p> Die Aktivitäten in %{service_name} haben noch keine Wirkung auf Ihren TrustScore, doch wir planen dies bald zu möglich zu machen.</p>
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Der Benutzer ist nicht mehr aktiv in %{service_name}"
       inactive_description: "Der Benutzer hat aufgehört %{service_name} zu verwenden. Sie können diesen Benutzer weder kontaktieren, noch können Sie Ihm Feedback oder Kommentare hinterlassen."
@@ -1207,6 +1215,7 @@ de:
       email_about_new_received_testimonials: "...jemand gibt mir Feedback"
       email_about_testimonial_reminders: "...ich habe vergessen jemandem zu einer Veranstaltung Feedback zu hinterlassen"
       email_about_weekly_events: "Senden Sie mir jede Woche eine Email über die Geschehnisse in %{service_name}"
+      email_newsletters: ~
       email_when_conversation_accepted: "...jemand akzeptiert mein Angebot oder meine Anfrage"
       email_when_conversation_rejected: "...jemand lehnt mein Angebot oder meine Anfrage ab"
     profile:

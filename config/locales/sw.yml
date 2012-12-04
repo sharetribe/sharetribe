@@ -226,6 +226,7 @@ sw:
       address: ~
       select_main_language_of_your_tribe: ~
       language: ~
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: ~
       to_create_a_tribe_you_must_first_create_sharetribe_account: ~
@@ -337,6 +338,10 @@ sw:
       kassi_team: "Timu ya Kassi"
       thanks: "Ahsante,"
       want_to_control_emails: ~
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -396,6 +401,7 @@ sw:
       offering: ~
       requesting: ~
       text_version_text: ~
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: ~
     reset_password_instructions:
@@ -976,6 +982,8 @@ sw:
       terms_title: ~
       trustcloud_description_title: ~
       trustcloud_description_text: ~
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: ~
       inactive_description: ~
@@ -988,9 +996,6 @@ sw:
       email_is_in_use: ~
       email_is_in_use_or_not_allowed: ~
       email_not_allowed: ~
-      email_restriction_instructions:
-        one: ~
-        other: ~
       enter_captcha: ~
       family_name: ~
       given_name: ~
@@ -1204,6 +1209,7 @@ sw:
       email_about_new_received_testimonials: ~
       email_about_testimonial_reminders: ~
       email_about_weekly_events: ~
+      email_newsletters: ~
       email_when_conversation_accepted: ~
       email_when_conversation_rejected: ~
     profile:

@@ -66,7 +66,7 @@ es:
       trade: Trocar
       share_for_free: "compartido gratuitamente"
     username: "Nombre de usuario"
-    username_or_email: ~
+    username_or_email: "Usuario o email"
     what_is_this: "Qué es esto?"
   conversations:
     index:
@@ -226,6 +226,7 @@ es:
       address: "Ubicación de tu tribu"
       select_main_language_of_your_tribe: "Selecciona el idioma de tu tribu"
       language: Idioma
+      restrict_tribe_to_invited_people: "La gente necesita una invitación para unirse a esta tribu"
     signup_form:
       create_an_account: "Crea una cuenta para ti"
       to_create_a_tribe_you_must_first_create_sharetribe_account: |-
@@ -340,6 +341,10 @@ es:
       kassi_team: "El equipo %{service_name}"
       thanks: "Gracias,"
       want_to_control_emails: "Quieres controlar qué correos recibes de %{service_name}?"
+      dont_want_to_receive_these_emails: "¿Quieres recibir estos emails?"
+      edit_your_email_settings_here: "Edita tu configuración de email aquí"
+      message_not_displaying_correctly: "¿Tienes problemas para ver este correo?"
+      view_it_in_your_browser: "Velo en tu buscador"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
@@ -399,6 +404,7 @@ es:
       offering: ofreciendo
       requesting: solicitando
       text_version_text: "¿Tienes algo para compartir que los demás podrían necesitar? ¿O necesitas algo que los otros podrían tener? Añade una oferta o solicitud o revisa todo lo que otros están ofreciendo o están pidiendo en %{url}"
+      occasional_newsletter_title: "Newsletter de Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "¡Gracias por tu interés en %{service_name}!"
     reset_password_instructions:
@@ -964,7 +970,7 @@ es:
   okl:
     member_id: "Número de identificación"
     member_id_is_your_username: "Tienes que dar tu identificación de miembro de Omakotiliitto (jäsennumero) para ingresar a %{service_name}. Tu identificación de miembro es también tu nombre de usuario que necesitarás cuando inicies sesión en %{service_name}. Si todavía no eres un miembro de Omakotiliitto, puedes"
-    member_id_or_email: ~
+    member_id_or_email: "Identificación de usuario o email"
     join_here: "Ingresa aquí."
   people:
     badge_description:
@@ -981,6 +987,8 @@ es:
       terms_title: "Términos de uso de %{service_name}"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p> TrustCloud es un servicio en línea que ayuda a medir la integridad de una persona a través de varios servicios que están en línea. Genera un TrustScore (de 1 a 1000) basado en la actividad de la persona en la web. Por ejemplo, el puntaje se incrementa al recibir una buena evaluación en eBay o al tener muchas conexiones en Facebook. Puedes hacer clic en cada tarjeta para más detalles.</p><p>TrustCloud es usado para dar más confianza de que la persona tras el perfil es real y no se esconde tras una identidad falsificada.</p><p> Si quieres, puedes solicitar tu propia TrustCard por medio de <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> con la misma dirección e-mail que registraste en %{service_name}. Esto es completamente opcional, pero te recomendamos pedir tu TrustCard, la que te ayudará a mejorar tu credibilidad y, probablemente, hará más fácil hacer tratos con los demás miembros de esta comunidad. </p><p>Las actividades en %{service_name} no afectan tu TrustScore, pero estamos planeando integrarlo en el futuro.</p>"
+      invite_only_help_text: "Selecciona esta opción si quieres que los nuevos miembros sólo puedan unirse si son invitados por un miembro de esta tribu."
+      invite_only_help_text_title: "Tribu sólo de invitaciones"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Este usuario ya no está activo en %{service_name}"
       inactive_description: "Este usuario ha dejado de utilizar %{service_name}. No puedes ponerte en contacto con él, hacerle sugerencias o comentar sus peticiones."
@@ -1189,9 +1197,9 @@ es:
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"
-      delete_account: ~
+      delete_account: "Borrar cuenta"
       email: "Dirección de correo electrónico:"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Si quieres eliminar tu cuenta, contáctanos usando el botón de feedback a la izquierda"
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar
@@ -1209,6 +1217,7 @@ es:
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
       email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en %{service_name}"
+      email_newsletters: "Enviarme ocasionalmente %{service_name} newsletter"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
     profile:

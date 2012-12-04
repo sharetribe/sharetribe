@@ -226,6 +226,7 @@ vi:
       address: "Vị trí cộng đồng của bạn"
       select_main_language_of_your_tribe: "Chọn ngôn ngữ chính của cộng đồng của bạn"
       language: "Ngôn ngữ"
+      restrict_tribe_to_invited_people: ~
     signup_form:
       create_an_account: "Tạo một tài khoản cho chính mình"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Bạn có thể tạo một tài khoản mới để %{service_name} dưới đây hoặc"
@@ -337,6 +338,10 @@ vi:
       kassi_team: "Nhóm %{service_name}"
       thanks: "Cảm ơn,"
       want_to_control_emails: "Muốn kiểm soát những email bạn nhận từ %{service_name}?"
+      dont_want_to_receive_these_emails: ~
+      edit_your_email_settings_here: ~
+      message_not_displaying_correctly: ~
+      view_it_in_your_browser: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} đã chấp nhận sự hỗ trợ của bạn xem xét yêu cầu %{listing}"
       has_accepted_your_request: "%{accepter} đã chấp nhận yêu cầu của bạn xem xét hỗ trợ %{listing}"
@@ -396,6 +401,7 @@ vi:
       offering: "hỗ trợ"
       requesting: "yêu cầu"
       text_version_text: "Bạn có thể chia sẻ thứ gì đó người khác cần không? Hoặc bạn cần thứ gì đó mà người khác có không? Thêm một đề nghị hoặc một yêu cầu hoặc kiểm tra mọi thứ mà những người khác đang hỗ trợ hoặc yêu cầu tại %{url}"
+      occasional_newsletter_title: ~
     reply_to_contact_request:
       thank_you_for_your_interest: "Cảm ơn bạn đã quan tâm đến %{service_name}!"
     reset_password_instructions:
@@ -976,6 +982,8 @@ vi:
       terms_title: "Các điều khoán của việc sử dụng %{service_name}"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p> TrustCloud là một dịch vụ trực tuyến trợ giúp để đo lường độ tin tưởng thông qua các dịch vụ trực tuyến khác nhau. Nó cho điểm lòng tin (TrustScore) (1-1000) dựa trên hoạt động trực tuyết của người đó. Điểm này được tăng lên chẳng hạn bởi nhận được phản hồi tốt trên eBay hoặc có nhiều mối liên hệ Facebook tốt. Bạn có thể chọn (click) mỗi thẻ để biết thêm chi tiết.</p><p> TrustCloud được sử dụng để đem nhiều tự tin điều mà một ngơời nào đó đằng sau tiểu sử là thật và không dấu sau một định danh giả tạo.</p><p> Bạn có thể đòi hỏi chính thẻ tín nhiệm của bạn nếu bạn muốn bởi <a href='https://trustcloud.com/claim'> đăng ký với TrustCloud</a> và xác định cùng một địa chỉ email tại rằng bạn đã đăng ký tại %{service_name}. Điều này là không bắt buộc, nhưng chúng ta đề nghị đòi hỏi TrustCard của bạn bởi bì điều đó sẽ làm tằng uy tín của bạn và có thể làm cho nó dễ dàng hơn để thương lượng với người khác trong cộng đồng.</p><p> Các hoạt động tại %{service_name} không ảnh hường TrustScore của bạn, nhưng chúng tôi lập kết hoạch để làm điều đó có thể trong tương lai sau này.</p>"
+      invite_only_help_text: ~
+      invite_only_help_text_title: ~
     inactive_notification:
       this_person_is_not_active_in_kassi: "Người dùng này không còn hoạt động trong %{service_name}"
       inactive_description: "Người dùng này đã ngừng sử dụng  %{service_name} . Bạn không thể liên lạc với người dùng này, đưa ra phản hồi cho họ hoặc nhận xét danh sách của họ."
@@ -1202,6 +1210,7 @@ vi:
       email_about_new_received_testimonials: ".. .người nào đó cho tôi thông tin phản hồi"
       email_about_testimonial_reminders: "...Tôi đã quên để đưa ra thông tin phản hồi về một sự kiện"
       email_about_weekly_events: "Gửi cho tôi một email mỗi tuần những gì đang xảy ra tại %{service_name}"
+      email_newsletters: ~
       email_when_conversation_accepted: ".. .người nào đó chấp nhận sự hỗ trợ hoặc yêu cầu của tôi"
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"
     profile:

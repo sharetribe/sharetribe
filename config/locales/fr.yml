@@ -226,6 +226,7 @@ fr:
       address: "Emplacement de votre tribu"
       select_main_language_of_your_tribe: "Choisissez la langue de votre tribu"
       language: Langue
+      restrict_tribe_to_invited_people: "Les utilisateurs ont besoin d'une invitation pour rejoindre cette tribu."
     signup_form:
       create_an_account: "Créer votre compte personnel"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Vous pouvez créer un nouveau compte sur Sharetribe ci-dessous ou bien"
@@ -337,6 +338,10 @@ fr:
       kassi_team: "L'équipe de %{service_name}"
       thanks: "Merci,"
       want_to_control_emails: "Vous souhaitez contrôler les emails que vous recevez de %{service_name} ?"
+      dont_want_to_receive_these_emails: "Souhaitez-vous recevoir ces emails ?"
+      edit_your_email_settings_here: "Gérer vos paramètres d'email ici"
+      message_not_displaying_correctly: "Cet email ne s'affiche pas correctement ?"
+      view_it_in_your_browser: "Voir dans votre navigateur."
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} a accepté votre offre concernant la demande %{listing}"
       has_accepted_your_request: "%{accepter} a accepté votre demande concernant l'offre %{listing}"
@@ -396,6 +401,7 @@ fr:
       offering: offrent
       requesting: demandent
       text_version_text: "Et si vous partagiez quelque chose dont les autres ont besoin ? Ou peut être avez-vous besoin de quelque chose que d'autres pourraient avoir ? Ajoutez une offre ou une demande ou jetez un oeil aux offres et demandes des autres membres sur %{url}"
+      occasional_newsletter_title: "Sharetribe newsletter"
     reply_to_contact_request:
       thank_you_for_your_interest: "Nous vous remercions pour l'intérêt que vous portez à %{service_name} !"
     reset_password_instructions:
@@ -976,6 +982,8 @@ fr:
       terms_title: "Conditions d'utilisation de %{service_name}"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud est un service en ligne qui aide à quantifier le niveau de confiance d'une personne parmi différents sites web. Il donne un score (de 1 à 1000) calculé sur l'activité en ligne d'une personne. Ce score augmente par exemple en ayant de bons avis sur eBay ou en ayant de nombreuses relations sur Facebook. Vous pouvez cliquer sur chaque carte pour en savoir plus.</p><p>TrustCloud est utilisé pour apporter aider à certifier que quelqu'un derrière un profil est bien celui qu'il dit être et non un autre.</p><p>Vous pouvez demander votre TrustCard si vous le souhaitez en <a href='https://trustcloud.com/claim'>vous inscrivant sur TrustCloud</a> avec la même adresse email que vous avez utilisé sur %{service_name}. Ce n'est pas obligatoire, mais nous vous le recommandons puisque cela va améliorer votre crédibilité et faciliter votre rencontre dans la communauté.</p><p>Pour le moment, les actions dans %{service_name} n'affecte pas votre TrustScore, mais nous allons le rendre possible très bientôt.</p>"
+      invite_only_help_text: "Choisissez cette option si vous souhaitez que les nouveaux membres ne puissent rejoindre la tribu que s'ils ont été invités par un utilisateur déjà membre de la tribu."
+      invite_only_help_text_title: "Tribu sur invitation"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Cet utilisateur n'est plus actif sur %{service_name}"
       inactive_description: "Cet utilisateur a arrêté d'utiliser %{service_name}. Vous ne pouvez plus le contacter, l'évaluer ni lui faire des commentaires."
@@ -1123,7 +1131,7 @@ fr:
       exceeded_expectations: "Dépassait mes attentes"
       received_feedback: "Avis reçus :"
       positive: positif
-      hide_description: "Montrer moins"
+      hide_description: Réduire
       joined_this_community: "...a rejoint la communauté %{time_ago}"
       was_last_seen: "...était connecté pour la dernière fois %{time_ago}"
       was_invited_by: "... a été invité par %{inviter_name}"
@@ -1204,6 +1212,7 @@ fr:
       email_about_new_received_testimonials: "...quelqu'un me donne un avis"
       email_about_testimonial_reminders: "...j'ai oublié de donner mon avis sur un événement"
       email_about_weekly_events: "Envoyez-moi un email toutes les semaines avec les actualités de %{service_name}"
+      email_newsletters: "Envoyez-moi la newsletter de %{service_name} (occasionnel)"
       email_when_conversation_accepted: "...quelqu'un accepte une de mes offres ou de mes demandes"
       email_when_conversation_rejected: "...quelqu'un rejette une de mes offres ou de mes demandes"
     profile:
