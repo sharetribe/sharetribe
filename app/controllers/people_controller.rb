@@ -28,7 +28,7 @@ class PeopleController < Devise::RegistrationsController
   
   def index
     # this is not yet in use in this version of Sharetribe, but old URLs point here so implement this to avoid errors
-   render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+   render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
   end
   
   def show
