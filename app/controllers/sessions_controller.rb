@@ -120,7 +120,7 @@ class SessionsController < ApplicationController
   
   def index
     # this is not in use in Sharetribe, but bots seem to try the url so implementing this to avoid errors
-    render :file => "#{RAILS_ROOT}/public/404.html", :layout => false, :status => 404
+    render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
   end
   
   def request_new_password
