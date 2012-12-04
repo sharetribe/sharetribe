@@ -1,6 +1,6 @@
 # Sharetribe
 
-[![Build Status](https://secure.travis-ci.org/elf-pavlik/tmp-sharetribe-ci.png)](http://travis-ci.org/elf-pavlik/tmp-sharetribe-ci)
+[![Build Status](https://secure.travis-ci.org/sharetribe/sharetribe.png)](http://travis-ci.org/sharetribe/sharetribe)
 
 Sharetribe is a community resource exchange service built with Ruby on Rails. 
 

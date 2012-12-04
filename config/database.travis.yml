@@ -1,9 +1,0 @@
-test: &test
-    adapter: mysql2
-    database: sharetribe_test
-    encoding: utf8
-    username: root
-    password:
-
-cucumber:
-  <<: *test
