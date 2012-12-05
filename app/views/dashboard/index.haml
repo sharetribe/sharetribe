@@ -5,25 +5,25 @@
 
 #home_main
   .container_12
-    .grid_7.alpha
+    .grid_12.alpha.omega
       #home_main_title
         %h1
           = t(".create_your_own")
-          %br/
-          %span.indentation
-            = t(".sharing_website")
+          = t(".sharing_website")
+        %p.intro
+          = t(".main_description").html_safe
+    .clear
+    .grid_7.alpha
       #home_main_screenshot
         = image_tag("dashboard/sharetribe_homepage_screenshot.png", :alt => "This is what a Sharetribe community looks like")
     .grid_5.omega
-      %p.intro
-        = t(".main_description")
       .get_started
         = link_to t(".get_started"), new_tribe_path, :class => "get_started"
       %p.browse
         = "..." + t("common.or")
         = link_to(t(".browse_communities_around_you"), tribes_path, :class => "green_part_link")
       %p.tour
-        = t(".want_to_know_more", :read_our_faq_link => link_to(t(".read_our_faq"), faq_path, :class => "green_part_link"), :contact_us_link => link_to(t(".contact_us"), "mailto:info@sharetribe.com", :class => "green_part_link")).html_safe
+        = t(".want_to_know_more", :read_our_faq_link => link_to(t(".read_our_faq").html_safe, faq_path, :class => "green_part_link"), :contact_us_link => link_to(t(".contact_us"), "mailto:info@sharetribe.com", :class => "green_part_link")).html_safe
 = render :partial => "lower_middle"
 = render :partial => "footer"
 
