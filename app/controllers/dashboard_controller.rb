@@ -36,6 +36,7 @@ class DashboardController < ApplicationController
   end
   
   def pricing
+    redirect_to :faq
     
   end
   
