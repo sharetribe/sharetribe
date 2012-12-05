@@ -7,31 +7,28 @@
   .container_12
     - if @community.new_record?
       - if session[:community_category]
-        - if session[:pricing_plan]
-          - if @current_user
-            - if community_email_restricted?
-              - if session[:unconfirmed_email]
-                - if session[:confirmed_email]
-                  = render :partial => "new_tribe_form_wrapper"
-                - else
-                  = render :partial => "email_confirmation_pending" 
+        - if @current_user
+          - if community_email_restricted?
+            - if session[:unconfirmed_email]
+              - if session[:confirmed_email]
+                = render :partial => "new_tribe_form_wrapper"
               - else
-                = render :partial => "enter_organization_email"
+                = render :partial => "email_confirmation_pending" 
             - else
-              - if session[:unconfirmed_email]
-                - if session[:confirmed_email]
-                  = render :partial => "new_tribe_form_wrapper"
-                - else
-                  = render :partial => "email_confirmation_pending"
-              - else
-                - if @current_user.confirmed_at?
-                  = render :partial => "new_tribe_form_wrapper"
-                - else
-                  = render :partial => "email_confirmation_pending"
+              = render :partial => "enter_organization_email"
           - else
-            = render :partial => "signup_form"
+            - if session[:unconfirmed_email]
+              - if session[:confirmed_email]
+                = render :partial => "new_tribe_form_wrapper"
+              - else
+                = render :partial => "email_confirmation_pending"
+            - else
+              - if @current_user.confirmed_at?
+                = render :partial => "new_tribe_form_wrapper"
+              - else
+                = render :partial => "email_confirmation_pending"
         - else
-          = render :partial => "select_pricing_plan"
+          = render :partial => "signup_form"
       - else
         = render :partial => "select_tribe_category_form"
     - else
