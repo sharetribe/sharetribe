@@ -66,7 +66,7 @@ el:
       trade: ανταλλαγή
       share_for_free: δωρεάν
     username: "Όνομα χρήστη"
-    username_or_email: ~
+    username_or_email: "Όνομα χρήστη ή ηλεκτρονική διεύθυνση"
     what_is_this: "Τι είναι αυτό;"
   conversations:
     index:
@@ -84,21 +84,21 @@ el:
       housing_offer_message_title: "Απάντηση στην αγγελία σου %{title}"
       housing_request_message_form_title: "Απάντησε στον/στην"
       housing_request_message_title: "Απάντηση στην αγγελία σου %{title}"
-      item_offer_lend_message_form_title: ~
-      item_offer_sell_message_form_title: ~
-      item_offer_give_away_message_form_title: ~
-      item_offer_trade_message_form_title: ~
-      item_offer_rent_out_message_form_title: ~
-      item_request_borrow_message_form_title: ~
-      item_request_buy_message_form_title: ~
-      item_request_take_for_free_message_form_title: ~
-      item_request_trade_message_form_title: ~
-      item_request_rent_message_form_title: ~
-      housing_offer_sell_message_form_title: ~
-      housing_offer_rent_out_message_form_title: ~
-      housing_offer_share_for_free_message_form_title: ~
-      housing_request_buy_message_form_title: ~
-      housing_request_rent_message_form_title: ~
+      item_offer_lend_message_form_title: "Δανείσου το %{listing} από τον/την %{person}."
+      item_offer_sell_message_form_title: "Αγόρασε το %{listing} από τον/την %{person}"
+      item_offer_give_away_message_form_title: "Πάρε το %{listing} από τον/την %{person}"
+      item_offer_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
+      item_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την%{person}"
+      item_request_borrow_message_form_title: "Δάνεισε το %{listing} στον/στην %{person}"
+      item_request_buy_message_form_title: "Πούλα το %{listing} στον/στην %{person}"
+      item_request_take_for_free_message_form_title: "Δώσε το %{listing} στον/στην %{person}"
+      item_request_trade_message_form_title: "Αντάλλαξε το %{listing} με τον/την %{person}"
+      item_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
+      housing_offer_sell_message_form_title: "Αγόρασε το %{listing} από τον/την %{person}"
+      housing_offer_rent_out_message_form_title: "Νοίκιασε το %{listing} από τον/την %{person}"
+      housing_offer_share_for_free_message_form_title: "Ζήτα το %{listing} από τον/την %{person}"
+      housing_request_buy_message_form_title: "Πούλα το %{listing} στον/στην %{person}"
+      housing_request_rent_message_form_title: "Νοίκιασε το %{listing} στον/στην %{person}"
       item_offer_message_title: "Αίτημα: %{title}"
       item_request_message_form_title: "Πρόσφερε ένα αντικείμενο στον/στην"
       item_request_message_title: "Προσφορά: %{title}"
@@ -120,7 +120,7 @@ el:
         see_all_your_badges: "Δες όλες τις κονκάρδες σου"
         you_have_earned_badge: "Κέρδισες την κονκάρδα"
       comment_to_followed_listing_notification:
-        has_commented: "ο/η %{author} σχολίασε"
+        has_commented: "ο/η %{author} σχολίασε στο"
         offer_you_follow: "μία προσφορά που παρακολουθείς"
         request_you_follow: "ένα αίτημα που παρακολουθείς"
       listing_updated_notification:
@@ -128,7 +128,7 @@ el:
         offer_you_follow: "μία προσφορά που παρακολουθείς"
         request_you_follow: "ένα αίτημα που παρακολουθείς"
       comment_to_own_listing_notification:
-        has_commented: "ο/η %{author} σχολίασε"
+        has_commented: "ο/η %{author} σχολίασε στο"
         your_offer: "την προσφορά σου"
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
@@ -146,7 +146,7 @@ el:
       request_sent_to: "Ζητήθηκε από τον/την"
       send_reply: Αποστολή
       write_a_reply: "Απάντησε:"
-      conversation_about_listing: "Συνομιλία με τον/την %{person} σχετικά με το \"%{listing}\"."
+      conversation_about_listing: "Συνομιλία με τον/την %{person} σχετικά με την καταχώρηση \"%{listing}\"."
       conversation_with_user: "Συνομιλία με τον/την%{person}."
     status:
       feedback_given: "Δόθηκε κριτική"
@@ -165,29 +165,29 @@ el:
       reject_request: "Απόρριψη αιτήματος"
   communities:
     map_bubble:
-      view_tribe: "Εμφάνιση κοινότητας"
+      view_tribe: "Εμφάνιση του sharetribe"
     email_confirmation_pending:
       confirmation_pending: "Παρακαλούμε, επιβεβαίωσε την διεύθυνση email σου"
     enter_organization_email:
-      enter_your_organization_email: ~
-      only_people_with_verified_email_address_can_join_your_tribe: ~
+      enter_your_organization_email: "Γράψτε την ηλεκτρονική διεύθυνση του/της %{community_category} σας"
+      only_people_with_verified_email_address_can_join_your_tribe: "Μόνο άτομα με επιβεβαιωμένη ηλεκτρονική διεύθυνση αυτής της κοινότητας μπορούν να συμμετέχουν σε αυτό το sharetribe."
       continue: Συνέχεια
-      tribe_exists: "Η κοινότητα υπάρχει!"
-      this_tribe_exists_already: "Αυτή η κοινότητα υπάρχει ήδη! Μηπως θέλεις να συμμετέχεις σε αυτή;"
+      tribe_exists: "Υπάρχει ήδη!"
+      this_tribe_exists_already: "Αυτό το sharetribe υπάρχει ήδη! Μηπως θέλετε να συμμετέχετε σε αυτό;"
     done:
       done: Εντάξει!
       tribe_created_successfully: "Δημιούργησες την κοινότητά σου επιτυχώς."
-      go_to_your_tribe: "Πήγαινε στην κοινότητά σου"
+      go_to_your_tribe: "Πήγαινε στο sharetribe σου"
       we_will_contact_you_about_invoicing: "Θα επικοινωνήσουμε εμείς μαζί σου αργότερα σχετικά με τη χρέωση της υπηρεσίας."
     index:
-      find_your_local_tribe: "Βρες μια κοινότητα στην περιοχή σου"
+      find_your_local_tribe: "Βρείτε ένα sharetribe κοντά σας"
       or_start_your_own: "... ή %{start_your_own_tribe_link}."
-      start_your_own_tribe_link: "ξεκίνα την δική σου!"
+      start_your_own_tribe_link: "ξεκινήστε ένα δικό σας"
     select_pricing_plan:
       select_your_plan: "Μορφή της κοινότητας"
       pick_one_of_the_options_below: "Διάλεξε μία από τις παρακάτω επιλογές"
       create_for_free: Δημιουργία
-      contact_us: "Επικοινώνησε μαζί μας"
+      contact_us: "Επικοινωνήστε μαζί μας"
       free_plan: Βασική
       max_members: "Μέχρι %{number} μέλη"
       premium_plan: Premium
@@ -195,15 +195,15 @@ el:
       create_your_tribe: Δημιουργία
       professional_plan: Προσαρμοσμένη
       unlimited_members: "Απεριόριστα μέλη"
-      intranet_integration: "Intranet integration"
+      intranet_integration: "Ολοκλήρωση με Intranet"
       no_charge: "Χωρίς χρέωση"
       euros_per_month_premium: "%{price} ευρώ/μήνα (περιλ. ΦΠΑ)"
       custom_domain: "Επιλογή ηλεκτρονικής διεύθυνσης (domain)"
-      you_can_change_and_cancel: "Μπορείς να αλλάξεις αυτή την επιλογή οποιαδήποτε στιγμή."
+      you_can_change_and_cancel: "Μπορείτε να αλλάξετε αυτή την επιλογή οποιαδήποτε στιγμή."
       we_help_you_get_started: "Προσφέρουμε βοήθεια για να ξεκινήσει η κοινότητα"
       discounts_available_for_non_profits: "Για μη-κερδοσκοπικούς οργανισμούς ισχύει έκπτωση 50%"
     select_tribe_category_form:
-      what_kind_of_tribe_do_you_want_to_create: "Τι κοινότητα θέλεις να δημιουργήσεις;"
+      what_kind_of_tribe_do_you_want_to_create: "Πείτε μας για την κοινότητά σας"
       first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πες μας τι είδους κοινότητα αντιπροσωπεύεις επιλέγοντας ένα από τα παρακάτω."
       company: Εταιρεία
       university: Πανεπιστήμιο
@@ -226,33 +226,33 @@ el:
       address: "Περιοχή της κοινότητας"
       select_main_language_of_your_tribe: "Επέλεξε την κύρια γλώσσα της κοινότητας"
       language: Γλώσσα
-      restrict_tribe_to_invited_people: ~
+      restrict_tribe_to_invited_people: "Απαιτείται πρόσκληση για συμμετοχή"
     signup_form:
       create_an_account: "Δημιούργησε ένα λογαριασμό για σένα"
       to_create_a_tribe_you_must_first_create_sharetribe_account: "Μπορείς να δημιουργήσεις ένα νέο λογαριασμό στο Sharetribe ή να"
       log_in_with_your_existing_account: "συνδεθείς με τον λογαριασμό σου"
-      your_email: "Το email σου"
+      your_email: "Η ηλεκτρονική σας διεύθυνση"
       your_university_email: "Το email του πανεπιστημίου σου"
       your_company_email: "Το email της εταιρείας σου"
       you_need_to_confirm: "Για να συνεχίσεις πρέπει να επιβεβαιώσεις την διεύθυνση ηλεκτρονικού ταχυδρομείου της κοινότητας σου."
-      pick_username: "Επέλεξε ένα όνομα χρήστη"
+      pick_username: "Επιλέξτε ένα όνομα χρήστη"
       your_given_name: "Το όνομά σου"
       your_family_name: "Το επώνυμό σου"
       your_password: Κωδικός
       confirm_your_password: "Επιβεβαίωση κωδικού"
       email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχεις ήδη λογαριασμό, μπορείς να συνδεθείς χρησιμοποιώντας τον παραπάνω σύνδεσμο."
       invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείς με ένα email που να σχετίζεται με το/την %{community_category} σου."
-      log_in_here: "συνδεθείς εδώ"
-      existing_community_with_this_email: ~
-      here: ~
-      for_company: ~
-      for_university: ~
-      for_town: ~
-      for_congregation: ~
-      for_association: ~
-      for_neighborhood: ~
-      for_apartment_building: ~
-      for_other: ~
+      log_in_here: "συνδεθείτε εδώ"
+      existing_community_with_this_email: "Υπάρχει ήδη ένα sharetribe γι' αυτή την κοινότητα. Μπορείτε να συμμετέχετε σε αυτό %{link}."
+      here: εδώ
+      for_company: εταιρία
+      for_university: πανεπιστήμιο
+      for_town: πόλη
+      for_congregation: ενορία
+      for_association: σύλλογος
+      for_neighborhood: γειτονιά
+      for_apartment_building: πολυκατοικία
+      for_other: άλλο
   community_memberships:
     new:
       join_community: "Εγγραφή στην κοινότητα %{community}"
@@ -268,15 +268,15 @@ el:
     api:
       coming_soon: Σύντομα!
     index:
-      get_started: "ΞΕΚΙΝΑ ΕΔΩ!"
-      browse_communities_around_you: "γράψου σε μια κοινότητα κοντά σε σένα"
-      slogan: "Μοιράσου πόρους στην κοινότητά σου."
+      get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
+      browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
+      slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
       create_your_own: "Δημιούργησε ένα"
       sharing_website: SHARETRIBE
-      main_description: "Δημιούργησε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σου μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες."
+      main_description: "Δημιουργήστε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σας μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες. Είναι δωρεάν και γίνεται μέσα σε 1 λεπτό!"
       kassi_for_your_company: "... ΣΤΗΝ ΕΤΑΙΡΙΑ"
       kassi_for_your_company_description: "Δημιουργείστε καλύτερες κοινωνικές σχέσεις στο χώρο εργασίας σας: Χρησιμοποιώντας το %{service_name} στην εταιρία σας βοηθάτε τους εργαζόμενους να γνωριστούν μεταξύ τους, να κάνουν κοινές δράσεις και ταυτόχρονα μειώνετε τις εκπομπές CO₂ και γίνεστε μια πιο πράσινη επιχείρηση!"
-      kassi_for_your_city: "... ΣΤΗΝ ΠΟΛΗ ΣΟΥ"
+      kassi_for_your_city: "... ΣΤΗ ΓΕΙΤΟΝΙΑ ΣΑΣ"
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
       kassi_for_your_university: "... ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
       kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
@@ -297,14 +297,14 @@ el:
       language: "Γλώσσα:"
       new: ΝΕΟ!
       new_text: "Τo %{service_name} είναι τώρα διαθέσιμο για την <a href=\"http://upatras.sharetribe.com/el\">κοινότητα του Πανεπιστημίου Πατρών</a>"
-      want_to_know_more: "Θες να μάθεις περισσότερα; %{read_our_faq_link} ή %{contact_us_link}."
-      read_our_faq: "Διάβασε τις συχνές ερωτήσεις"
-      contact_us: "επικοινώνησε μαζί μας"
-      why_you_really_should_have_a_tribe: "Γιατί αξίζει να χρησιμοποιείτε το Sharetribe"
+      want_to_know_more: "Θέλετε να μάθετε περισσότερα; %{read_our_faq_link} ή %{contact_us_link}."
+      read_our_faq: "Διαβάστε τις συχνές ερωτήσεις"
+      contact_us: "επικοινωνήστε μαζί μας"
+      why_you_really_should_have_a_tribe: "Γιατί να χρησιμοποιείτε το Sharetribe"
       an_example: "Ένα παράδειγμα:"
       home: Αρχή
       faq: FAQ
-      browse_tribes: "Βρες κοινότητες"
+      browse_tribes: "Βρες sharetribes"
       pricing: Τιμές
       contact: Επικοινωνία
       university_example_link: "<a href=\"http://UPatras.sharetribe.com\">Το Sharetribe στο Πανεπιστήμιο Πατρών</a>"
@@ -338,10 +338,10 @@ el:
       kassi_team: "Η Ομάδα του %{service_name}"
       thanks: "Ευχαριστούμε,"
       want_to_control_emails: "Θέλεις να ρυθμίσεις ποια μηνύματα λαμβάνεις από το %{service_name};"
-      dont_want_to_receive_these_emails: ~
-      edit_your_email_settings_here: ~
-      message_not_displaying_correctly: ~
-      view_it_in_your_browser: ~
+      dont_want_to_receive_these_emails: "Δεν θέλετε να λαμβάνετε αυτά τα μηνύματα;"
+      edit_your_email_settings_here: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου εδώ"
+      message_not_displaying_correctly: "Μήπως αυτό το μήνυμα δεν εμφανίζεται σωστά;"
+      view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} έχει αποδεχτεί την προσφορά σου σχετικά με το αίτημα \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} έχει αποδεχτεί το αίτημά σου σχετικά με την προσφορά %{listing}"
@@ -401,7 +401,7 @@ el:
       offering: προσφέρουν
       requesting: χρειάζονται
       text_version_text: "Μήπως έχεις κάτι που μπορείς να προσφέρεις; Ή μήπως χρειάζεσαι κάτι που μπορεί να το έχει κάποιος άλλος; Βάλε μια προσφορά ή ένα αίτημα στο ή δες τι προσφέρουν ή τι χρειάζονται άλλα άτομα στο %{url}"
-      occasional_newsletter_title: ~
+      occasional_newsletter_title: "Νέα του Sharetribe"
     reply_to_contact_request:
       thank_you_for_your_interest: "Σε ευχαριστούμε για το ενδιαφέρον σου στο %{service_name}!"
     reset_password_instructions:
@@ -435,8 +435,8 @@ el:
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
       kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και τότε ανανέωσε αυτή τη σελίδα. Αν θέλεις να χρησιμοποιείς το %{service_name} χωρίς Javascript, παρακαλούμε στείλε μας τα σχόλιά σου χρησιμοποιώντας την παρακάτω φόρμα."
-      kassi_does_not_currently_work_without_javascript_dashboard: ~
-      contact_us: ~
+      kassi_does_not_currently_work_without_javascript_dashboard: "To %{service_name} δεν λειτουργεί χωρίς Javascript. Προσπαθήστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του browser σας και ανανεώστε τη σελίδα. Αν θέλετε να χρησιμοποιήσετε το %{service_name} χωρίς Javascript, παρακαλούμε %{contact_us}."
+      contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: "Αποστολή σχολίων"
       your_feedback_to_admins: "Τα σχόλιά σου στους διαχειριστές"
     send: Αποστολή
@@ -982,8 +982,8 @@ el:
       terms_title: "Όροι χρήσης του %{service_name}"
       trustcloud_description_title: TrustCloud
       trustcloud_description_text: "<p>TrustCloud is an online service that helps to measure person's trustworthiness accross different online services. It gives a TrustScore (1-1000) based on person's online activity. The score is increased for example by getting good feedback in eBay or having lot of conections Facebook. You can click each card for more details.</p><p>TrustCloud is used to bring more confidence that the person behind the profile is real and not hiding behind a made-up identity.</p><p>You can claim your own TrustCard if you want by <a href='https://trustcloud.com/claim'>registering to TrustCloud</a> and confirming the same email address there that you have registered in %{service_name}. This is optional, but we recommend claiming your TrustCard as that will increase your credibility and probably make it easier to deal with others in this community.</p><p>The activities in %{service_name} do not yet affect your TrustScore, but we are planning to make that possible in the future.</p>"
-      invite_only_help_text: ~
-      invite_only_help_text_title: ~
+      invite_only_help_text: "Επιλέξτε αν θέλετε νέα μέλη να συμμετέχουν σε αυτό το sharetribe μόνο εάν έχουν λάβει πρόσκληση από άλλα μέλη."
+      invite_only_help_text_title: "Συμμετοχή μόνο με πρόσκληση"
     inactive_notification:
       this_person_is_not_active_in_kassi: "Αυτός ο χρήστης δεν είναι πια ενεργός στο %{service_name}"
       inactive_description: "Αυτός ο χρήστης έχει σταματήσει να χρησιμοποιεί το %{service_name}. Δεν μπορείς να επικοινωνήσεις μαζί του/της, να του/της κάνεις κριτική, ή να δεις τις καταχωρήσεις του/της."
@@ -996,7 +996,9 @@ el:
       email_is_in_use: "Το email που έδωσες χρησιμοποιείται ήδη."
       email_is_in_use_or_not_allowed: "Αυτή η ηλεκτρονική διεύθυνση δεν επιτρέπεται σε αυτή την κοινότητα ή χρησιμοποιείται ήδη. Παρακαλούμε χρησιμοποίησε μία ηλεκτρονική διεύθυνση που σχετίζεται με αυτή την κοινότητα (δες τις οδηγίες παραπάνω). Αν και πάλι δεν μπορείς να συνδεθείς επικοινώνησε μαζί μας πατώντας το κουμπί ανατροφοδότησης στα αριστερά."
       email_not_allowed: "Για αυτή την κοινότητα δεν επιτρέπεται αυτή η ηλεκτρονική διεύθυνση. Παρακαλούμε, χρησιμοποίησε μία διεύθυνση που να σχετίζεται με αυτή την κοινότητα. Αν και πάλι δεν μπορείς να γραφτείς, επικοινώνησε μαζί μας κάνοντας κλικ στο κουμπί \"Feedback\" στα αριστερά."
-      email_restriction_instructions: ~
+      email_restriction_instructions:
+        one: "Αυτό το sharetribe είναι για την κοινότητα %{community_name}. Για να συμμετέχετε σε αυτό πρέπει να έχετε ηλεκτρονική διεύθυνση της μορφής '%{allowed_emails}'."
+        other: "Αυτό το sharetribe είναι για την κοινότητα %{community_name}. Για να συμμετέχετε σε αυτό πρέπει η ηλεκτρονική σας διεύθυνση να έχει μία από αυτές τις καταλήξεις: '%{allowed_emails}'."
       enter_captcha: "Είμαι άνθρωπος:"
       family_name: "Επώνυμο:"
       given_name: "Όνομα:"
@@ -1159,15 +1161,15 @@ el:
       i_forgot_my_password: "Ξέχασα τον κωδικό μου ή το όνομα χρήστη"
       login: Σύνδεση
       login_to_kassi: "Σύνδεση στο %{service_name}"
-      connect_your_facebook_to_kassi: "Σύνδεσε το λογαριασμό σου στο Facebook με το %{service_name}"
+      connect_your_facebook_to_kassi: "Συνδέστε το λογαριασμό σας στο Facebook με το %{service_name}"
       facebook_account: "Λογαριασμός Facebook:"
       log_in_to_link_account: "Αν έχεις ήδη λογαριασμό στο %{service_name}, συνδέσου για να τον συσχετίσεις με τον λογαριασμό σου στο Facebook."
-      you_can_also_create_new_account: "Αν δεν έχεις λογαριασμό στο %{service_name}, %{accont_creation_link} μπορείς να δημιουργήσεις ένα χρησιμοποιώντας το λογαριασμό σου στο Facebook."
-      account_creation_link_text: "κάνε κλικ εδώ"
-      cancle_facebook_connect: "Αν δεν θέλεις να συνδέσεις αυτό το λογαριασμό, μπορείς να %{cancel_link}."
-      facebook_cancel_link_text: ~
-      log_in_with_your_facebook_account: ~
-      or_sign_up_with_your_username: ~
+      you_can_also_create_new_account: "Αν δεν έχετε λογαριασμό στο %{service_name}, %{accont_creation_link} για να δημιουργήσετε ένα χρησιμοποιώντας το λογαριασμό σας στο Facebook."
+      account_creation_link_text: "κάντε κλικ εδώ"
+      cancle_facebook_connect: "Αν δεν θέλετε να συνδέσετε αυτό το λογαριασμό, μπορείτε να το %{cancel_link}."
+      facebook_cancel_link_text: ακυρώσετε
+      log_in_with_your_facebook_account: "Συνδέσου με το λογαριασμό σου στο Facebook"
+      or_sign_up_with_your_username: "... ή με το όνομα χρήστη και τον κωδικό πρόσβασής σου:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
@@ -1183,16 +1185,16 @@ el:
       resend_confirmation_instructions: "Στείλε ξανά τις οδηγίες επιβεβαίωσης."
       your_current_email_is: "Η ηλεκτρονική σου διεύθυνση είναι %{email}."
       change_email: Αλλαγή
-      confirm_your_email: "Επιβεβαίωσε το email σου."
-      account_confirmation_instructions: ~
-      account_confirmation_instructions_dashboard: ~
+      confirm_your_email: "Επιβεβαιώστε την ηλεκτρονική σας διεύθυνση"
+      account_confirmation_instructions: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες. Αφού γίνει η επιβεβαίωση μπορείς να χρησιμοποιήσεις το %{service_name}."
+      account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
   settings:
     account:
       change: Αλλαγή
       confirm_new_password: "Επιβεβαίωση κωδικού"
-      delete_account: ~
+      delete_account: "Διαγραφή λογαριασμού"
       email: "Ηλεκτρονική διεύθυνση:"
-      instructions_to_delete_account: ~
+      instructions_to_delete_account: "Αν θέλετε να διαγράψετε το λογαριασμό σας, παρακαλούμε επικοινωνήστε μαζί μας χρησιμοποιώντας το κουμπί \"Feedback\" στα αριστερά της σελίδας."
       new_email: "Νέα ηλεκτρονική διεύθυνση"
       new_password: "Νέος κωδικός"
       save: Αποθήκευση
@@ -1209,8 +1211,8 @@ el:
       email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
       email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
       email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
-      email_about_weekly_events: "Στείλε μου ένα email κάθε βδομάδα με το τι συμβαίνει στο %{service_name}"
-      email_newsletters: ~
+      email_about_weekly_events: "Να λαμβάνω ένα email κάθε βδομάδα με οτιδήποτε νέο στα sharetribes στα οποία συμμετέχω."
+      email_newsletters: "Να μου στέλνετε περιστασιακά τα νέα του %{service_name}"
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
     profile:
