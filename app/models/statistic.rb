@@ -70,7 +70,7 @@ class Statistic < ActiveRecord::Base
     six_to_two_week_old_users.each do |u|
       creation_date = u.created_at
       u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-      if u.present? && Listing.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Comment.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Message.where(:sender_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? 
+      if u.present? && u.class == Person && (Message.where(:sender_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Listing.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present? || Comment.where(:author_id => u.id, :created_at => (creation_date..(creation_date + 2.weeks))).present?) 
         activated += 1
       end      
     end

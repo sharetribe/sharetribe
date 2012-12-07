@@ -112,8 +112,11 @@ body {
 }
 
 h1 {
-  font-size: 52px;
+  font-family: $serif_font;
+  font-size: 40px;
   margin-top: 40px;
+  margin-bottom: 10px;
+  text-align: center;
   color: white;
   font-weight: bold;
   text-shadow: 1px 1px 3px $text_color;
@@ -320,17 +323,21 @@ li {
   -webkit-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   -khtml-box-shadow: inset 0 0 8px 1px rgba(0,0,0,0.5);
   p.intro {
-    margin: 46px 0 50px 0;
+    text-align: center;
+    margin: 0;
+    padding: 0 80px;
     font-size: 18px;
     color: white;
   }
   p.browse { 
     margin-top: 5px;
     color: white;
-    font-size: 18px;
+    font-size: 12px;
     text-align: center;
+    a.green_part_link { font-size: 16px; }
   }
   p.tour {
+    text-align: center;
     margin-top: 26px;
     font-size: 18px;
     color: white;

@@ -154,19 +154,25 @@ class PersonMailer < ActionMailer::Base
   def community_updates(recipient, community)
     @community = community
     @recipient = recipient
+    
+    unless @recipient.member_of?(@community)
+      logger.info "Trying to send community updates to a person who is not member of the given community. Skipping."
+      return
+    end
+
     set_locale @recipient.locale
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
-    
+  
     if APP_CONFIG.mail_delivery_method == "postmark"
       # Postmark doesn't support bulk emails, so use Sendmail for this
       delivery_method = :sendmail
     else
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym
     end
-    
+  
     mail(:to => @recipient.email,
          :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
          :delivery_method => delivery_method) do |format|
