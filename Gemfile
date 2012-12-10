@@ -5,7 +5,7 @@ ruby '1.9.3'
 gem 'rails', '3.2.9'
 
 # Deploy with Capistrano
-gem 'capistrano'
+gem 'capistrano' # could be removed as not currently used
 
 # To use debugger
 # gem 'ruby-debug'
@@ -35,20 +35,19 @@ gem 'acts-as-taggable-on'
 gem 'paperclip'
 gem 'aws-sdk'
 gem "will_paginate"
-gem 'whenever'
+gem 'whenever' # could be removed as not currently used
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
 gem 'thinking-sphinx', :require => 'thinking_sphinx'
 gem 'flying-sphinx'
 gem 'recaptcha'
 gem "airbrake"
-gem 'passenger'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'json'
 gem 'russian'
 gem 'web_translate_it'
-gem 'postmark-rails'
+gem 'postmark-rails' # could be removed as not currently used
 gem 'rails-i18n'
 gem 'devise'
 gem "devise-encryptable"
