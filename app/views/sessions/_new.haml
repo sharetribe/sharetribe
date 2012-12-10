@@ -15,7 +15,7 @@
   
   %h2
     = t('.login_to_kassi')
-  - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community
+  - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
     .facebook_login_container
       .facebook_login_label
         = t(".log_in_with_your_facebook_account")
