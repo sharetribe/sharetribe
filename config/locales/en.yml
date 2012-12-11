@@ -434,7 +434,7 @@ en:
     error_description: "Error description"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Javascript is disabled in your browser"
-      kassi_does_not_currently_work_without_javascript: "Unfortunately %{service_name} does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use %{service_name} without javascript, please send us feedback using the form below."
+      kassi_does_not_currently_work_without_javascript: "%{service_name} does not work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use %{service_name} without javascript, please send us feedback using the form below."
       kassi_does_not_currently_work_without_javascript_dashboard: "Unfortunately %{service_name} does not currently work without javascript. Try to enable javascript from your browser's preferences and then reload this page again. If you'd like to use %{service_name} without javascript, please %{contact_us}."
       contact_us: "contact us"
       send_feedback: "Send feedback"

@@ -37,7 +37,7 @@ class Conversation < ActiveRecord::Base
   
   # Returns last received or sent message
   def last_message(user, received = true, count = -1)
-    (messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
+    (messages[count].present? && messages[count].sender.eql?(user) == received) ? last_message(user, received, (count-1)) : messages[count]
   end
   
   def other_party(person)

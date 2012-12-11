@@ -89,7 +89,7 @@ class Statistic < ActiveRecord::Base
     one_to_two_month_old_users.each do |u|
       creation_date = u.created_at
       u = u.person if u.class == CommunityMembership # Set u to point to the actual user if it now points to the membership object
-      if u.conversations.where(:status => "accepted", :created_at => (creation_date..(creation_date + 1.month))).present?
+      if  u.present? && u.class == Person && u.conversations.where(:status => "accepted", :created_at => (creation_date..(creation_date + 1.month))).present?
         activated += 1
       end      
     end

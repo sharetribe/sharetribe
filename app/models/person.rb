@@ -472,6 +472,7 @@ class Person < ActiveRecord::Base
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
+    current_name = current_name[0..19] #truncate to 20 chars or less
     i = 1
     while self.find_by_username(current_name) do
       current_name = "#{initial_name}#{i}"

@@ -25,7 +25,7 @@
         = link_to t('.sign_up'), sign_up_path, :title => t('.sign_up')
       .login_tab.float_right
         = link_to t('.login'), login_path, :title => t('.login')
-      - if APP_CONFIG.fb_connect_id
+      - if APP_CONFIG.fb_connect_id && @current_community && ! @current_community.label.eql?("okl")
         .facebook_connect.float_right
           -# <div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
           = link_to(image_tag("icons/facebook-login.png", {:alt => "Facebook Connect", :class => "facebook_connect"}), person_omniauth_authorize_path(:facebook), :id => "facebook_connect")#, :class => "popup", :"data-width" => 600, :"data-height" => 400)

@@ -65,6 +65,7 @@ module ApplicationHelper
   end
   
   def small_avatar_thumb(person)
+    return "" if person.nil?
     link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
   end
   
