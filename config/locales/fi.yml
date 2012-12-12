@@ -391,6 +391,7 @@ fi:
       added_request: "lisäsi pyynnön:"
       update_mail_title: "%{community_name}-%{service_name_genetive} uusimmat kuulumiset"
     newsletter:
+      weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
       update_on_what_is_happening: "Tässä yhteenveto siitä, mitä %{community}-%{service_name_inessive} tapahtuu juuri nyt."
       newest_offers: "Muun muassa näitä tarjotaan:"
