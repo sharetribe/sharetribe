@@ -159,13 +159,27 @@ class PersonMailer < ActionMailer::Base
       logger.info "Trying to send community updates to a person who is not member of the given community. Skipping."
       return
     end
-
+    
     set_locale @recipient.locale
+    default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
+    @time_since_last_update = "7 days" #FIXME
+    #@recipient.ensure_authentication_token!
+    
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
-    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
-    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
+    @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
+    @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
+    
+    @listings = select_listings_to_show(@requests, @offers, @recipient)
   
+    if @listings.size < 1
+      logger.info "There are no new listings in community #{@community.name} since that last update for #{@recipient.id}"
+      return
+    end
+    
+    @title_link_text = t("emails.community_updates.title_link_text", :community_name => @community.name_with_separator(@recipient.locale))
+    subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
+    
     if APP_CONFIG.mail_delivery_method == "postmark"
       # Postmark doesn't support bulk emails, so use Sendmail for this
       delivery_method = :sendmail
@@ -174,7 +188,7 @@ class PersonMailer < ActionMailer::Base
     end
   
     mail(:to => @recipient.email,
-         :subject => t("emails.newsletter.weekly_news_from_kassi", :community => @community.name_with_separator(@recipient.locale)),
+         :subject => subject,
          :delivery_method => delivery_method) do |format|
       format.html { render :layout => false }
     end
@@ -340,6 +354,25 @@ class PersonMailer < ActionMailer::Base
     if host =~ /login/
       ApplicationHelper.send_error_notification("Sending mail with LOGIN host: #{host}, which should not happen!", "Mailer domain error", params.merge({:sent_link => sent_link}))
     end
+  end
+  
+  # selects a set of listings to include in the community updates email
+  def select_listings_to_show(requests, offers, recipient)
+    selected = []
+    requests.each do |r|
+      if r.created_at > 1.year.ago #recipient.last_tribe_updates_sent_at
+        selected << r
+      end
+      break if selected.count > 5
+    end
+    offers.each do |o|
+      if o.created_at > 1.year.ago #recipient.last_tribe_updates_sent_at
+        selected << o
+      end
+      break if selected.count > 9
+    end
+        
+    return selected
   end
 
 end
