@@ -13,7 +13,6 @@ notifications:
 branches:
   only:
     - develop
-    - master
 
 before_script:
   - cp config/database.example.yml config/database.yml
