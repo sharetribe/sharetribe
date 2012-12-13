@@ -7,6 +7,9 @@ fi:
         image: "Merkin kuva"
         name: "Merkin nimi"
         save_badge: "Tallenna ansiomerkki"
+    communities:
+      edit:
+        update_information: "Päivitä tiedot"
     news_items:
       index:
         news_items: "Uusimmat uutiset"
@@ -572,6 +575,7 @@ fi:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
       news_items: Uutiset
+      tribe_info: "Yhteisön perustiedot"
       polls: Kyselyt
     application:
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"

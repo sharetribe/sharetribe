@@ -631,6 +631,24 @@ function initialize_admin_new_poll_form() {
   
 }
 
+function initialize_admin_edit_tribe_form(locale, community_id) {
+  auto_resize_text_areas("new_tribe_text_area");
+  translate_validation_messages(locale);
+  $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
+ 	$("input[type=checkbox]").uniform();
+  var form_id = "#edit_community_" + community_id;
+  $(form_id).validate({
+ 		rules: {
+ 			"community[name]": {required: true, minlength: 2, maxlength: 50},
+ 			"community[slogan]": {required: true, minlength: 2, maxlength: 100},
+ 			"community[description]": {required: true, minlength: 2, maxlength: 500}
+ 		},
+ 		submitHandler: function(form) {
+ 		  disable_and_submit(form_id, form, "false", locale);
+ 		}
+ 	});
+}
+
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $("input[type=checkbox]").uniform();
   $('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
