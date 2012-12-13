@@ -299,7 +299,7 @@ describe Api::ListingsController do
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
 
-      doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+ Sharetribessa/
+      doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+-Sharetribessa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
       doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"       
     end
