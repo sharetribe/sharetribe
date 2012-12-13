@@ -823,10 +823,13 @@ fi:
       valid_until_radio_buttons:
         for_the_time_being: Toistaiseksi
       visibility:
-        communities: "Omille %{service_name}-yhteisöilleni"
-        everybody: "Kaikille internetin käyttäjille"
+        all_communities: "Kaikille %{service_name}-yhteisöilleni"
         this_community: "Vain tämän yhteisön jäsenille"
         visibility: Näkyvyys
+      privacy:
+        privacy: Yksityisyys
+        private: "Yksityinen (näkyy vain kirjautuneille)"
+        public: "Julkinen (näkyy myös kirjautumattomille)"
     help_texts:
       help_share_type_title: "Tarjous- tai pyyntötapa"
       help_tags_title: Avaisanat

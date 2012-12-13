@@ -40,9 +40,9 @@ class Listing < ActiveRecord::Base
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :currently_open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
-  scope :public, :conditions  => "visibility = 'everybody'"
-  scope :private, :conditions  => "visibility <> 'everybody'"
-  
+  scope :public, :conditions  => "privacy = 'public'"
+  scope :private, :conditions  => "privacy = 'private'"
+
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
   VALID_SHARE_TYPES = {
@@ -59,7 +59,8 @@ class Listing < ActiveRecord::Base
       "housing" => ["rent", "buy"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "this_community", "communities"]
+  VALID_VISIBILITIES = ["this_community", "all_communities"]
+  VALID_PRIVACY_OPTIONS = ["private", "public"]
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
@@ -87,7 +88,7 @@ class Listing < ActiveRecord::Base
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
+    has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
     
@@ -120,21 +121,10 @@ class Listing < ActiveRecord::Base
   # Filter out listings that current user cannot see
   def self.visible_to(current_user, current_community, ids=nil)
     id_condition = ids ? ids : "SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}'"
-    if current_user
-      where("
-        (listings.visibility = 'everybody' 
-        OR (
-          listings.visibility IN ('communities','this_community') 
-          AND listings.id IN (
-            SELECT listing_id 
-            FROM communities_listings
-            WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
-          )
-        ))
-        AND listings.id IN (#{id_condition})
-      ")
+    if current_user && current_user.member_of?(current_community)
+      where("listings.id IN (#{id_condition})")
     else 
-      where("listings.visibility = 'everybody' AND listings.id IN (#{id_condition})")
+      where("listings.privacy = 'public' AND listings.id IN (#{id_condition})")
     end
   end
   
@@ -149,20 +139,20 @@ class Listing < ActiveRecord::Base
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
     elsif current_community
-      return current_community.listings.include?(self) && self.visibility.eql?("everybody")
+      return current_community.listings.include?(self) && public?
     elsif current_user
-      return true if self.visibility.eql?("everybody")
+      return true if self.privacy.eql?("public")
       self.communities.each do |community|
         return true if current_user.communities.include?(community)
       end
       return false #if user doesn't belong to any community where listing is visible
     else #if no user or community specified, return if visible to anyone
-      return self.visibility.eql?("everybody")
+      return public?
     end
   end
   
   def public?
-    self.visibility.eql?("everybody")
+    self.privacy.eql?("public")
   end
   
   # Get only  listings that are private to current community (or to many communities including current)

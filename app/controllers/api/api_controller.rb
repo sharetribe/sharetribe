@@ -65,7 +65,7 @@ class Api::ApiController < ApplicationController
     end
     
     unless @listing.visible_to?(@current_user, @current_community)
-      if @listing.visibility.eql?("everybody")
+      if @listing.public?
         # This situation occurs when the user tries to access a listing
         # with a different community_id .
         response.status = 400

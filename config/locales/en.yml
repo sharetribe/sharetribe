@@ -837,10 +837,13 @@ en:
       valid_until_radio_buttons:
         for_the_time_being: "For the time being"
       visibility:
-        communities: "All my %{service_name} communities"
-        everybody: "All internet users"
+        all_communities: "All my %{service_name} communities"
         this_community: "Only members of this tribe"
         visibility: Visibility
+      privacy:
+        privacy: Privacy
+        private: "Private (only logged-in users can see)"
+        public: "Public (visible to non-logged-in users)"
     help_texts:
       help_share_type_title: "Type of the offer or request"
       help_tags_title: Tags

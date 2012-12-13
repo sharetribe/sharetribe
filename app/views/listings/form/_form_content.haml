@@ -41,6 +41,8 @@
             = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => false}
             = render :partial => "listings/form/images", :locals => { :form => form }
           = render :partial => "listings/form/visibility", :locals => { :form => form }
+          = render :partial => "listings/form/privacy", :locals => { :form => form }
+          = form.hidden_field :current_community_id, :value => @current_community.id
           = render :partial => "listings/form/send_button", :locals => { :form => form }
 
 = render :partial => "listings/help_texts", :collection => ["help_share_type", "help_tags", "help_valid_until"], :as => :field

@@ -34,6 +34,8 @@
           = form.hidden_field :open, :value => true
         = form.hidden_field :last_modified, :value => DateTime.now
         = render :partial => "listings/form/visibility", :locals => { :form => form }
+        = render :partial => "listings/form/privacy", :locals => { :form => form }
+        = form.hidden_field :current_community_id, :value => @current_community.id
         = render :partial => "listings/form/send_button", :locals => { :form => form }
 
 - ["help_share_type", "help_tags", "help_valid_until"].each do |field|

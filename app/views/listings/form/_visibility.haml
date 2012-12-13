@@ -1,4 +1,6 @@
-.new_listing_form_field_container
-  = form.label :visibility, t(".visibility") + "*:", :class => "input"
-  = select("listing", "visibility", visibility_array, {:selected => (@listing.visibility || "everybody")}, { :class => "visibility_select" })
-= form.hidden_field :current_community_id, :value => @current_community.id
+- if @current_user.communities.size > 1
+  .new_listing_form_field_container
+    = form.label :visibility, t(".visibility") + "*:", :class => "input"
+    = select("listing", "visibility", visibility_array, {:selected => (@listing.visibility || "this_community")}, { :class => "visibility_select" })
+- else
+  = form.hidden_field :visibility, :value => "this_community"

@@ -224,7 +224,7 @@ describe Api::ListingsController do
                       :listing_type => "offer",
                       :category => "item",
                       :share_type => "sell",
-                      :visibility => "everybody",
+                      :visibility => "this_community",
                       :community_id => @c1.id,
                       :latitude => "60.2426",
                       :longitude => "25.0475",
@@ -272,7 +272,7 @@ describe Api::ListingsController do
       end
       
       it "supports setting locations by address only" do
-        
+
       end
     end
   end

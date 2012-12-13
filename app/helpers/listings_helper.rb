@@ -57,6 +57,10 @@ module ListingsHelper
     return array  
   end
   
+  def privacy_array
+    Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t(".#{option}"), option] }
+  end
+  
   def listed_listing_title(listing)
     if listing.share_type
       if listing.share_type.eql?("trade")
