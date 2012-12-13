@@ -1,0 +1,31 @@
+= t("emails.newsletter.update_on_what_is_happening", :community => @community.name_with_separator(@recipient.locale))
+
+%br/
+%br/
+%b
+  = t("emails.newsletter.newest_offers")
+%br/
+- @offers.each do |offer| 
+  = link_to(offer.title, "#{@url_base}/listings/#{offer.id.to_s}?ref=weeklymail")
+  %br/
+
+%br/
+%b
+  = t("emails.newsletter.newest_requests")
+%br/
+- @requests.each do |request| 
+  = link_to(request.title, "#{@url_base}/listings/#{request.id.to_s}?ref=weeklymail")
+  %br/
+  
+%br/
+= t("emails.newsletter.could_you_offer_something")
+= t("emails.newsletter.add")
+= link_to t("emails.newsletter.an_offer"), "#{@url_base}/listings/new/offer"
+= t("common.or")
+= link_to t("emails.newsletter.a_request"), "#{@url_base}/listings/new/request"
+= t("common.or")
+= t("emails.newsletter.check_everything_that_others_are")
+= link_to t("emails.newsletter.offering"), "#{@url_base}/offers?ref=weeklymail"
+= t("common.or")
+= link_to t("emails.newsletter.requesting"), "#{@url_base}/requests?ref=weeklymail"
+

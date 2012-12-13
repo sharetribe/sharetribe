@@ -386,6 +386,10 @@ fi:
       has_updated_offer_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi pyynnön %{listing}"
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
       you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
+    community_updates:
+      added_offer: "lisäsi tarjouksen:"
+      added_request: "lisäsi pyynnön:"
+      update_mail_title: "%{community_name}-%{service_name_genetive} uusimmat kuulumiset"
     newsletter:
       weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
@@ -844,7 +848,7 @@ fi:
       rideshare: Kimppakyydit
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
-      feed_title: "%{listing_type} %{community_name} %{service_name_inessive} %{optional_category}"
+      feed_title: "%{listing_type} %{community_name}-%{service_name_inessive} %{optional_category}"
     left_panel_link:
       borrows: "Halutaan lainata"
       buys: Ostetaan

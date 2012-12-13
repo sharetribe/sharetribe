@@ -1,0 +1,12 @@
+= t("emails.newsletter.update_on_what_is_happening", :community => @community.name_with_separator(@recipient.locale))
+
+= t("emails.newsletter.newest_offers")
+- @offers.each do |offer|
+  = offer.title
+
+= t("emails.newsletter.newest_requests")
+- @requests.each do |request|
+  = request.title
+  
+= t("emails.newsletter.text_version_text", :url => "http://#{@community.domain}.sharetribe.com")
+
