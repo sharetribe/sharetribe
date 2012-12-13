@@ -102,7 +102,7 @@ class PeopleController < Devise::RegistrationsController
     # skip email confirmation unless it's required in this community
     params[:person][:confirmed_at] = (@current_community.email_confirmation ? nil : Time.now) if @current_community
     
-    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || (@current_community && !@current_community.select_whether_name_is_shown_to_everybody))
+    params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
     
     # Try to create a new person in ASI.
     begin

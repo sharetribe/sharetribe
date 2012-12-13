@@ -1,5 +1,5 @@
 = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => l(@conversation.created_at.to_date), :title => @conversation.title)
 
-= t("emails.accept_reminder.remember_to_accept_listing", :listing_type => t("emails.accept_reminder.#{@conversation.discussion_type}_accusative"))
+= t("emails.accept_reminder.remember_to_accept_listing", :listing_type => t("emails.common.#{@conversation.discussion_type}_accusative"))
 
 = t("emails.accept_reminder.you_can_accept_or_reject_#{@conversation.discussion_type}_at") + " " + "?ref=email"

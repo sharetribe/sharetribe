@@ -17,17 +17,14 @@
                       %td{:width => "5%"}
                       %td{:valign => "top", :width => "90%"}
                         %h1{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-weight:400;font-size:18px;margin-top:20px;margin-bottom:5px;line-height:1; padding: 20px; background: #ebebeb;text-align: left;"}
-                          = link_to "Lauttasaari Sharetribe","https://lauttasaari.sharetribe.com", :style => "color:#d25427;font-weight:normal;text-decoration:none;"
                           %span{:style => "color:#464646;"}
-                            community update
+                            = t("emails.community_updates.update_mail_title", :title_link => link_to(@title_link_text, root_url, :style => "color:#d25427;font-weight:normal;text-decoration:none;")).html_safe
                         %div{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:22px; padding: 10px 0;text-align:left;"}
                           %p 
                             Hello 
-                            = link_to("Juho", "#", :style => "color:#d25427;text-decoration:none;") + ","
+                            = link_to(@recipient.given_name_or_username, person_url(@recipient), :style => "color:#d25427;text-decoration:none;") + ","
                           %p
-                            Here are some of the things that happened in the
-                            = link_to "Lauttasaari Sharetribe community", "#", :style => "color:#d25427;text-decoration:none;"
-                            during the past 7 days.
+                            = t("emails.community_updates.intro_paragraph", :community_link => link_to(t("emails.community_updates.intro_paragraph_link_text", :community_name => @community.name_with_separator(@recipient.locale)), root_url, :style => "color:#d25427;text-decoration:none;"), :time_since_last_update => @time_since_last_update).html_safe
                       %td{:width => "5%"}
                     %tr
                       %td{:width => "5%"}
@@ -36,7 +33,7 @@
                           %tbody
                             %tr
                               %td
-                        = render :partial => "community_update_listing", :collection => @offers, :as => :listing
+                        = render :partial => "community_update_listing", :collection => @listings, :as => :listing
                         
                         
                         %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "padding-bottom:45px;padding-top: 20px;", :width => "100%"}
@@ -44,25 +41,21 @@
                             %tr
                               %td
                                 %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:18px;line-height:26px;color: #464646;text-align: center; margin-bottom: 10px;"}
-                                  Could you share something? 
+                                  = t("emails.community_updates.could_you_share_something") 
                                   %br/
-                                  Need help with anything?
+                                  = t("emails.community_updates.do_you_need_help_with_anything")
                                 %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :style => "border-collapse:collapse;", :height => "67", :align => "center"}
                                   %tbody
                                     %tr
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_left.png", :width => "12", :style => "background-repeat:no-repeat"}
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_middle.png", :bgcolor => "#d25427"}
-                                        = link_to "Post a new listing!", "#", :target => "_blank", :style => "display:inline-block;text-decoration:none;width:100%;padding:20px 20px 20px 20px;color:#ffffff;font-size:20px;font-weight:bold"
+                                        = link_to t("emails.community_updates.post_a_new_listing"), new_request_without_locale_url(:type => "offer"), :target => "_blank", :style => "display:inline-block;text-decoration:none;width:100%;padding:20px 20px 20px 20px;color:#ffffff;font-size:20px;font-weight:bold"
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_right.png", :width => "12", :style => "background-repeat:no-repeat"}     
                       %td{:width => "5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 5px 30px;"}
                 %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  Too much email? 
-                  = link_to "Edit your email settings here", "http://lauttasaari.sharetribe.com", :style => "color:#d25427; text-decoration: none;"       
-                  or
-                  = link_to("unsubscribe", "#", :style => "color:#d25427; text-decoration: none;") + "."
+                  = t("emails.community_updates.reduce_email_footer_text", :settings_link => link_to(t("emails.community_updates.settings_link_text"), notifications_person_settings_url(:person_id => @recipient.id), :style => "color:#d25427; text-decoration: none;"), :unsubscribe_link => link_to("unsubscribe", "#", :style => "color:#d25427; text-decoration: none;")).html_safe
                 %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  Did you know you can create a community marketplace like this for free for your neigborhood, town, association or other local community? 
-                  = link_to "Create one yourself", "http://lauttasaari.sharetribe.com", :style => "color:#d25427; text-decoration: none;"
-                  or find out more by replying to this email.
+                  = t("emails.community_updates.tribe_creation_promotion_footer", :create_tribe_link =>  link_to(t("emails.community_updates.create_tribe_link_text"), "http://#{APP_CONFIG.domain}", :style => "color:#d25427; text-decoration: none;")).html_safe
+                  
