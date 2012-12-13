@@ -75,6 +75,7 @@ class Person < ActiveRecord::Base
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy 
   # events where this person was the target of the action
   has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
+  has_many :auth_tokens, :dependent => :destroy
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
@@ -485,6 +486,11 @@ class Person < ActiveRecord::Base
   # does not have a profile picture.
   def has_profile_picture?
     image_file_name.present?
+  end
+  
+  def new_email_auth_token(valid_for = 36.hours)
+    t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
+    return t.token
   end
   
   # Merge this person with the data from the person given as parameter

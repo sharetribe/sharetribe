@@ -186,6 +186,7 @@ class PersonMailer < ActionMailer::Base
     default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
     @time_since_last_update = "7 days" #FIXME
     #@recipient.ensure_authentication_token!
+    @auth_token = @recipient.new_email_auth_token
     
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
