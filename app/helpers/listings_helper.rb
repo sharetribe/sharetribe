@@ -62,7 +62,7 @@ module ListingsHelper
       if listing.share_type.eql?("trade")
         t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}") + ": #{listing.title}"
       else
-        t("common.share_types.#{listing.share_type}").capitalize + ": #{listing.title}"
+        localized_share_type_label(listing.share_type).capitalize + ": #{listing.title}"
       end
     else
       t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}"
@@ -76,4 +76,14 @@ module ListingsHelper
     return t("listings.index.#{category_string}")
   end
   
+  
+  def localized_share_type_label(share_type_string)
+    return nil if share_type_string.nil?
+    return t("common.share_types.#{share_type_string}")
+  end
+  
+  def localized_listing_type_label(listing_type_string)
+    return nil if listing_type_string.nil?
+    return t("listings.show.#{listing_type_string}")
+  end
 end

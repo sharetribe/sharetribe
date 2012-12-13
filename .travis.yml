@@ -9,11 +9,11 @@ env:
 notifications:
   recipients:
     - main@sharetribe.flowdock.com
+    - main@kassi.flowdock.com
 
 branches:
   only:
     - develop
-    - master
 
 before_script:
   - cp config/database.example.yml config/database.yml

@@ -298,10 +298,16 @@ describe Api::ListingsController do
       get :index, :community_id => @c1.id, :format => :atom, :locale => "fi"
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
-
+      doc.remove_namespaces!
+      
       doc.at("feed/title").text.should =~ /Ilmoitukset sharetribe_testcommunity_\d+-Sharetribessa/
       doc.at("feed/entry/title").text.should == "Myydään: hammer"
-      doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"       
+      doc.at("feed/entry/category").attribute("term").value.should == "item"
+      doc.at("feed/entry/category").attribute("label").value.should == "Tavarat"
+      doc.at("feed/entry/listing_type").attribute("term").value.should == "offer"
+      doc.at("feed/entry/listing_type").attribute("label").value.should == "Tarjous"
+      doc.at("feed/entry/share_type").attribute("term").value.should == "sell"
+      doc.at("feed/entry/share_type").attribute("label").value.should == "Myydään"
     end
   
     it "supports fliter parameters" do
