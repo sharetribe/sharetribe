@@ -1310,3 +1310,6 @@ en:
     seconds_ago: "%{count} seconds ago"
     year_ago: "%{count} year ago"
     years_ago: "%{count} years ago"
+    days:
+      one: "%{count} day"
+      other: "%{count} days"

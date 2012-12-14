@@ -71,5 +71,6 @@ group :test do
   gem 'ruby-prof'
   gem 'factory_girl_rails'
   gem "pickle"
+  gem 'email_spec'
 end
 

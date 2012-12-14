@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212145626) do
+ActiveRecord::Schema.define(:version => 20121214083430) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -318,27 +318,27 @@ ActiveRecord::Schema.define(:version => 20121212145626) do
   end
 
   create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+    t.string   "id",                                 :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                                         :default => 0
+    t.string   "locale",                                           :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",                                :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                           :default => 1
-    t.boolean  "active",                                      :default => true
+    t.integer  "test_group_number",                                :default => 1
+    t.boolean  "active",                                           :default => true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",               :default => true
+    t.boolean  "show_real_name_to_other_users",                    :default => true
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",                          :default => "",   :null => false
+    t.string   "encrypted_password",                               :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                               :default => 0
+    t.integer  "sign_in_count",                                    :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -354,6 +354,8 @@ ActiveRecord::Schema.define(:version => 20121212145626) do
     t.datetime "image_updated_at"
     t.string   "facebook_id"
     t.string   "authentication_token"
+    t.datetime "community_updates_last_sent_at"
+    t.integer  "min_days_between_community_updates",               :default => 1
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

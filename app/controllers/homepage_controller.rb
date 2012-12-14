@@ -40,6 +40,7 @@ class HomepageController < ApplicationController
     end
   end
   
+  # This is going to get removed in the v3.0 design when there's no more separate sign_in page for private communities.
   def sign_in
     redirect_to root_path unless @current_community.private?
     @requests = @current_community.listings.requests.currently_open.limit(5)

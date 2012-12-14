@@ -3,6 +3,10 @@ require 'spec_helper'
 describe PersonMailer do
   fixtures :people, :communities, :community_memberships
   
+  # Include EmailSpec stuff (https://github.com/bmabey/email-spec)
+  include(EmailSpec::Helpers)
+  include(EmailSpec::Matchers)
+  
   before(:each) do
     @test_person, @session = get_test_person_and_session
     @test_person2, @session2 = get_test_person_and_session("kassi_testperson2")
@@ -123,6 +127,99 @@ describe PersonMailer do
     assert_equal [@test_person.email], email.to
     assert_equal "New member in #{@community.name} Sharetribe", email.subject
   end
+  
+  describe "#community_updates" do
+    
+    before(:all) do
+      @c1 = FactoryGirl.create(:community)
+      @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
+      @p1.communities << @c1
+      @l1 = FactoryGirl.create(:listing, 
+          :listing_type => "request", 
+          :title => "bike", 
+          :description => "A very nice bike", 
+          :created_at => 3.days.ago, 
+          :author => @p1).communities = [@c1]
+      @l2 = FactoryGirl.create(:listing, 
+          :listing_type => "offer", 
+          :title => "hammer", 
+          :created_at => 2.days.ago, 
+          :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", 
+          :share_type => "sell").communities = [@c1]
+      @l3 = FactoryGirl.create(:listing, 
+          :listing_type => "offer", 
+          :title => "sledgehammer", 
+          :created_at => 12.days.ago, 
+          :description => "super <b>shiny</b> sledgehammer, borrow it!", 
+          :share_type => "lend").communities = [@c1]
+          
+      @email = PersonMailer.community_updates(@p1, @p1.communities.first)
+    end
+
+    it "should have correct address and subject" do
+      @email.should deliver_to("update_tester@example.com")
+      @email.should have_subject("#{@c1.name} Sharetribe community update")
+    end
+    
+    it "should contain latest listings" do
+      @email.should have_body_text("A very nice bike")
+      @email.should have_body_text("new hammer")
+    end
+    
+    it "should pick only new listings" do
+      @email.should_not have_body_text("sledgehammer")
+      
+    end
+    
+    it "should include valid auth_token in links" do
+      token = @p1.auth_tokens.last.token
+      @email.should have_body_text("?auth=#{token}")
+    end
+    
+  end
+  
+  describe "#deliver_community_updates" do
+    before(:all) do
+      @c1 = FactoryGirl.create(:community)
+      @p1 = FactoryGirl.create(:person)
+      @p1.communities << @c1
+      @l1 = FactoryGirl.create(:listing, 
+          :listing_type => "request", 
+          :title => "bike", 
+          :description => "A very nice bike", 
+          :created_at => 3.hours.ago, 
+          :author => @p1).communities = [@c1]
+      @p2 = FactoryGirl.create(:person)
+      @p2.communities << @c1
+      @p3 = FactoryGirl.create(:person)
+      @p3.communities << @c1
+      @p4 = FactoryGirl.create(:person)
+      @p4.communities << @c1
+      
+      @p1.community_updates_last_sent_at = 1.days.ago
+      @p2.community_updates_last_sent_at = 14.days.ago
+      @p3.community_updates_last_sent_at = 3.days.ago
+      @p4.community_updates_last_sent_at = 9.days.ago      
+      
+      @p1.min_days_between_community_updates = 1
+      @p2.min_days_between_community_updates = 1
+      @p3.min_days_between_community_updates = 7
+      @p4.min_days_between_community_updates = 7      
+
+          
+      PersonMailer.deliver_community_updates
+    end
+    
+    it "should send only to people who want it now" do
+      puts "---"
+      puts ActionMailer::Base.deliveries
+      puts ActionMailer::Base.deliveries.size
+      puts "hox"
+    end
+    
+  end
+  
+  
 
   describe "#deliver_open_content_messages" do
     

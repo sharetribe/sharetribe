@@ -22,7 +22,7 @@
                         %div{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;font-size:16px;line-height:22px; padding: 10px 0;text-align:left;"}
                           %p 
                             Hello 
-                            = link_to(@recipient.given_name_or_username, person_url(@recipient), :style => "color:#d25427;text-decoration:none;") + ","
+                            = link_to(@recipient.given_name_or_username, person_url(@recipient, :auth => @auth_token), :style => "color:#d25427;text-decoration:none;") + ","
                           %p
                             = t("emails.community_updates.intro_paragraph", :community_link => link_to(t("emails.community_updates.intro_paragraph_link_text", :community_name => @community.name_with_separator(@recipient.locale)), root_url, :style => "color:#d25427;text-decoration:none;"), :time_since_last_update => @time_since_last_update).html_safe
                       %td{:width => "5%"}
@@ -49,13 +49,13 @@
                                     %tr
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_left.png", :width => "12", :style => "background-repeat:no-repeat"}
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_middle.png", :bgcolor => "#d25427"}
-                                        = link_to t("emails.community_updates.post_a_new_listing"), new_request_without_locale_url(:type => "offer"), :target => "_blank", :style => "display:inline-block;text-decoration:none;width:100%;padding:20px 20px 20px 20px;color:#ffffff;font-size:20px;font-weight:bold"
+                                        = link_to t("emails.community_updates.post_a_new_listing"), new_request_without_locale_url(:type => "offer", :auth => @auth_token), :target => "_blank", :style => "display:inline-block;text-decoration:none;width:100%;padding:20px 20px 20px 20px;color:#ffffff;font-size:20px;font-weight:bold"
                                       %td{:background => "https://s3.amazonaws.com/sharetribe-emails/email_action_button_right.png", :width => "12", :style => "background-repeat:no-repeat"}     
                       %td{:width => "5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 5px 30px;"}
                 %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  = t("emails.community_updates.reduce_email_footer_text", :settings_link => link_to(t("emails.community_updates.settings_link_text"), notifications_person_settings_url(:person_id => @recipient.id), :style => "color:#d25427; text-decoration: none;"), :unsubscribe_link => link_to("unsubscribe", "#", :style => "color:#d25427; text-decoration: none;")).html_safe
+                  = t("emails.community_updates.reduce_email_footer_text", :settings_link => link_to(t("emails.community_updates.settings_link_text"), notifications_person_settings_url(:person_id => @recipient.id, :auth => @auth_token), :style => "color:#d25427; text-decoration: none;"), :unsubscribe_link => link_to("unsubscribe", "#", :style => "color:#d25427; text-decoration: none;")).html_safe
                 %p{:style => "margin-top:10px;margin-bottom:5px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
                   = t("emails.community_updates.tribe_creation_promotion_footer", :create_tribe_link =>  link_to(t("emails.community_updates.create_tribe_link_text"), "http://#{APP_CONFIG.domain}", :style => "color:#d25427; text-decoration: none;")).html_safe
                   

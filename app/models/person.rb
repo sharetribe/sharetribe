@@ -150,6 +150,7 @@ class Person < ActiveRecord::Base
 
   before_validation(:on => :create) do
     self.id = UUID.timestamp_create.to_s22
+    set_default_preferences unless self.preferences
   end
 
   # Override Devise's authentication finder method to allow log in with username OR email
@@ -587,7 +588,13 @@ class Person < ActiveRecord::Base
     end
   end
   
-  
+  def should_recieve_community_updates_now?
+    return false unless should_receive?("email_about_weekly_events")
+    # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want 
+    # 1 day limit to match even if there's 23.55 minutes passed since last sending.
+    return true if community_updates_last_sent_at.nil?
+    return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
+  end
   
   private
   

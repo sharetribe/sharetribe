@@ -9,6 +9,8 @@ class CreateAuthTokens < ActiveRecord::Migration
 
         t.timestamps
       end
+      
+      add_index :auth_tokens, :token, :unique => true
   end
 
   def down
