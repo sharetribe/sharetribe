@@ -247,7 +247,7 @@ class ApplicationController < ActionController::Base
   def domain_redirect
     # to speed up the check on every page load, only check first 
     # if different domain than specified in config
-    if request.domain != APP_CONFIG.domain
+    if request.domain != APP_CONFIG.domain && APP_CONFIG.domain == 'sharetribe.com'
       
       # Redirect contry domain dashboards to .com with correct language
       redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
