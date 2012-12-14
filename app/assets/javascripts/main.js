@@ -32,8 +32,6 @@ $(function(){
       $(this).removeClass('toggled-logo');
     }
     
-    
-    
   });
     
 });

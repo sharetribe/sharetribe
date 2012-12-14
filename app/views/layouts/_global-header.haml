@@ -48,9 +48,13 @@
     
     - else  
     
-      .login-menu-toggle
+      .login-menu-toggle.toggle{data: {toggle: '.login-menu'}}
         .login-icon.ss-login
-        .login-text Login
+        .login-text Log in
+        
+      .feedback-menu-toggle.toggle
+        .feedback-icon.ss-megaphone
+        .feedback-text Feedback
       
       
       
@@ -98,3 +102,13 @@
         .ss-logout.icon-with-text
         .text-with-icon
           Log out
+    
+    %nav.login-menu.toggle-menu
+      = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
+        - if @current_community
+          = hidden_field_tag :community, @current_community.domain
+        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => "Email or username"
+        = password_field_tag "person[password]", nil, :placeholder => "Password"
+        = submit_tag t('sessions.new.login')
+        
+          

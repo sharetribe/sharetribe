@@ -192,6 +192,29 @@ body {
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
+input[type=text], input[type=password] {
+  
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  border: 1px solid $aside;
+  width: 95%;
+  padding: em(5) em(8);
+  margin: lines(0.5) 2.5%;
+  display: block;
+  
+  @include media(tablet) {
+    margin: 0;
+    padding: em(8) em(11);
+  }  
+  
+}
+
+button, input[type=submit] {
+  @include button;
+  padding: em(6) lines(1);
+}
+
+
 /*
   ------------------------
   Global Sharetribe header
@@ -293,7 +316,7 @@ body {
   
   .icon-dropdown {
     position: absolute;
-    right: lines(2.5); top: lines(0.65);
+    right: lines(2.5); top: em(14);
   }
 
   @include media(tablet) {
@@ -418,42 +441,6 @@ body {
   
 }
 
-.login-menu-toggle {
-  background: $background;
-  &:hover { background: $highlight; }
-  position: absolute;
-  right: 0; top: 0;
-  border: solid $border;
-  border-width: 0 1px 0;
-  
-  .login-icon {
-    display: block;
-    margin: lines(0.25) lines(0.25);
-    @include big-type;
-  }
-  
-  .login-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    height: lines(1);
-  }
-  
-  @include media(tablet) {
-    width: lines(10);
-    
-    .login-icon {
-      float: left;
-      margin-right: lines(0.375);
-    }
-    
-    .login-text {
-      display: block;
-      padding: lines(0.5) lines(1.5) 0 0;
-    }
-  }
-}
-
 .user-menu {
   @include media(tablet) {
     // Makes the menu float on top of the content
@@ -467,6 +454,109 @@ body {
       // Hidden, since this functionality is now in
       // .inbox-toggle and .notifications-toggle
       display: none;
+    }
+  }
+}
+
+.login-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: 0; top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  z-index: 6;
+  
+  .login-icon {
+    width: em(15);
+    height: em(15);
+    display: block;
+    margin: em(10) em(10);
+    @include big-type;
+  }
+  
+  .login-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+    display: none;
+  }
+  
+  @include media(tablet) {
+    width: lines(7);
+    
+    .login-icon {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .login-text {
+      display: block;
+      padding: lines(0.5) lines(1.5) 0 0;
+    }
+  }
+}
+
+.login-menu {
+  
+  input[type=text], input[type=password] {
+    margin: 5%;
+    width: 90%;
+  }
+  
+  button, input[type=submit] {
+    margin: 0 5% 5% 5%;
+  }
+  
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0; top: lines(2);
+    width: lines(14);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+  }
+}
+
+.feedback-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: lines(6); top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  z-index: 5;
+  display: none;
+  
+  .feedback-icon {
+    width: em(15);
+    height: em(15);
+    display: block;
+    margin: em(10) em(10);
+    @include big-type;
+  }
+  
+  .feedback-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+    display: none;
+    padding: lines(0.5) lines(1.5) 0 0;
+  }
+  
+  @include media(tablet) {
+    width: lines(8);
+    display: block;
+    
+    .feedback-icon {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .feedback-text {
+      display: block;
     }
   }
 }
@@ -948,13 +1038,6 @@ figure.fluidratio {
 .feed-search {
   
   input[type=text] {
-    @include box-sizing(border-box);
-    @include border-radius(em(5));
-    border: 1px solid $aside;
-    width: 95%;
-    height: lines(1.5);
-    padding: lines(0.5);
-    margin: lines(0.5) 2.5%;
     display: block;
   }
   
@@ -979,23 +1062,16 @@ figure.fluidratio {
     }
     
     input[type=text] {
-      display: inline;
-      margin: 0;
-      width: lines(11.5);
-      height: lines(1.82);
-      padding: lines(0.5);
       position: absolute;
       top: lines(1.8); left: lines(13.5);
+      display: inline;
+      width: lines(11.5);
     }
 
     button {
-      @include button;
-      display: inline;
-      margin-right: 0;
-      padding: em(6) lines(1);
       position: absolute;
-      width: auto;
       top: lines(1.8); left: lines(25.5);
+      display: inline;
     }
     
     a.map-link {
