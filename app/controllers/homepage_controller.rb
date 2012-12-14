@@ -13,7 +13,7 @@ class HomepageController < ApplicationController
     else
       @event_feed_events = @current_community.event_feed_events.non_members_only.limit(5).order("id DESC")
     end
-    listings_per_page = 15
+    listings_per_page = 10
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
@@ -31,7 +31,7 @@ class HomepageController < ApplicationController
     end
     
     if request.xhr? # checks if AJAX request
-      render :partial => "additional_listings", :locals => {:type => :request, :requests => @requests, :offers => @offers}   
+      render :partial => "recent_listing", :collection => @offers, :as => :listing   
     else
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)

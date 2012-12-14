@@ -1,0 +1,1384 @@
+@import 'compass';
+
+@import 'reset';  // jonikorpi's custom CSS reset
+@import 'colors'; // color presets and their logic
+@import 'type';   // typography presets and tools
+@import 'media-queries'; // media query presets
+
+/*
+  --------------------------
+  Typography and link styles
+  --------------------------
+*/
+
+body {
+  @include ff-tisa;
+  @include normal-type;
+  
+  @include media(tiny-mobile) {
+    // Zooms out on tiny screens
+    font-size: em(13);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $link;
+  &:hover { color: darken($link, 15%); }
+  &:active { color: darken($link, 25%); }
+}
+
+small {
+  @include small-type;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include lft-etica;
+  color: $emphasis;
+}
+
+.page-content {
+  h1 {
+    margin: lines(0.25) 0 lines(0.5);
+    font-weight: 600;
+    
+    @include media(small-tablet) {
+      @include large-type;
+      margin-top: lines(0.25, 26);
+      margin-bottom: lines(0.5, 26);
+    }
+  }
+  
+  h2 {
+    margin: lines(1) 0 lines(0.5);
+    @include normal-type;
+    //text-transform: uppercase;
+    font-weight: 600;
+    
+    @include media(small-tablet) {
+      @include normal-type;
+      letter-spacing: normal;
+      font-weight: 600;
+      text-transform: none;
+    }
+  }
+  
+  p {
+    margin-bottom: lines(0.5);
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+  }
+}
+
+
+/*
+  ---------------------
+  Often used components
+  ---------------------
+*/
+
+body {
+  background: $background;
+  color: $body;
+  height: auto; // fixes some height issues in the map view
+  //border: solid darken($highlight, 9%);
+  //border-width: 0 0 lines(1);
+}
+
+.wrapper {
+  background: $background;
+  position: relative;
+  margin: 0 auto;
+  max-width: lines(42);
+}
+
+.section {
+  padding: lines(0.5);
+  @include clearfix;
+  @include media(tablet) {
+    padding: lines(1) lines(0);
+  }
+}
+
+// For simple, one-column views
+.centered-section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: lines(23);
+}
+
+.avatar {
+  position: relative;
+  width: lines(1);
+  
+  img {
+    width: 100%;
+  }
+}
+
+// The "Selling" bit after post headings
+// and the reputation indicator after usernames
+.postfix {
+  color: $aside;
+  font-size: em(12);
+  font-weight: normal;
+  white-space: nowrap;
+  position: relative;
+  left: em(2); top: em(-2);
+  @include ff-tisa;
+  
+  &.reputation.less-positive {
+    background: $emphasis;
+  }
+}
+
+// These display the amount of notifications
+// .big-badge is for two-number figures
+// .huge-badge is for three-number figures
+.badge {
+  @include small-type;
+  background: $link;
+  text-align: center;
+  width: em(18, 13);
+  line-height: em( (18 - 1 - 5), 13 );
+  padding: em(1, 13) 0 em(5, 13);
+  color: $background;
+  @include border-radius( em((18/2), 13) );
+  
+  &.big-badge {
+    width: em(22, 13);
+    line-height: em( (22 - 1 - 5), 13 );
+    @include border-radius( em((22/2), 13) );
+  }
+  
+  &.huge-badge {
+    width: em(28, 13);
+    line-height: em( (28 - 1 - 5), 13 );
+    padding: em(2, 13) 0 em(4, 13);    
+    @include border-radius( em((28/2), 13) );
+  }
+}
+
+// Only used for the Font Awesome icons in this prototype
+.icon {
+  @include big-type;
+  height: lines(1, 24);
+  overflow: hidden;
+  text-align: center;
+  display: block;
+  padding-top: lines(0.05);
+}
+
+@mixin button() {
+  @include border-radius(em(5));
+  background: $link;
+  border: em(2) solid darken($link, 10%);
+  color: $background;
+  text-align: center;
+  &:hover { 
+    background: darken($link, 5%);
+    border: em(2) solid darken($link, 15%); 
+  };
+  &:active {
+    background: darken($link, 10%);
+    border: em(2) solid darken($link, 20%);
+  }
+  cursor: pointer;
+  padding: lines(0.4) lines(0.5) lines(0.5) lines(0.5);
+}
+
+.icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
+.text-with-icon { display: inline-block; vertical-align: top; }
+
+/*
+  ------------------------
+  Global Sharetribe header
+  ------------------------
+*/
+
+.global-header {
+  position: relative;
+  border: 0;
+  background: $background;
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(2) em(5));
+  position: static;
+  width: 100%;
+  z-index: 10000;
+
+  .wrapper {
+    border: none;
+  }
+  
+  @include media(tablet) {
+    position: fixed;
+  }
+}
+
+.top-margin {
+  @include media(tablet) {
+    width: 100%;
+    height: em(47);
+    background: $background;
+  }
+}
+
+.sharetribe-logo {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  left: 0; top: 0;
+  padding: lines(0.5);
+  //padding-right: lines(0.5) - em(2); // compensates for borders
+  padding-right: lines(0.5);
+  width: lines(1);
+  font-weight: bold;
+  //border: solid $border;
+  //border-width: 0 1px 0;
+  
+  // The question mark icon
+  .icon {
+    position: absolute;
+    right: em(5); top: lines(0.375);
+    @include small-type
+  }
+
+  @include media(tablet) {
+    // Shows all of the logo, not just the "S"
+    width: lines(9.5 - 1.5);
+    padding-left: lines(1);
+    
+    .icon {
+      right: lines(0.5);
+    }
+  }
+  
+}
+
+.sharetribe-menu {
+//  border: solid $border;
+//  border-width: 0 0 1px;
+  
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    left: 0; top: lines(2);
+//    border-width: 0 1px 1px;
+    //width: lines(9.5) - em(2); // compensates for borders
+    width: lines(9.5);
+  }
+}
+
+
+
+.select-tribe {
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat;
+  &:hover { 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat; 
+  }
+  margin: 0 0;
+  padding: lines(0.5) lines(0.5) lines(0.5) lines(1.75);
+  position: relative;
+  max-width: lines(30);
+  
+  .current-tribe {
+    display: block;
+    height: lines(1);
+    margin-right: lines(1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(2.5); top: lines(0.65);
+  }
+
+  @include media(tablet) {
+    padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
+    background: $background url("/assets/new-design/sharetribe-logo2.png") lines(0.65) lines(0.35) no-repeat;
+    &:hover { 
+      background: $highlight url("/assets/new-design/sharetribe-logo2.png") lines(0.65) lines(0.35) no-repeat; 
+    }
+    margin: 0 lines(12) 0 lines(0);
+    max-width: lines(8.75);
+    .icon-dropdown {
+      right: lines(0.5);
+    }
+    border: solid $border;
+    border-width: 0 1px 0;
+  }
+}
+
+.tribe-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    //left: lines(9.5) - em(1); 
+    left: lines(0); 
+    top: lines(2); 
+    right: lines(25.5) - em(2);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+//    border: solid $border;
+//    border-width: 0 1px 0;
+  }
+}
+
+.notifications-toggle,
+.inbox-toggle {
+  // Hidden on small screens, because 
+  // this functionality is in .user-menu
+  display: none;
+  &:hover { background: $highlight; }
+  
+  @include media(tablet) {
+    // Shown on wider screens, while the
+    // duplicate functionality in .user-menu gets hidden
+    display: block;
+    background: $background;
+    position: absolute;
+    right: lines(10.5); top: lines(0);
+    padding: lines(0.6) lines(0.5) lines(0.4) lines(0.5);
+    //padding-left: (lines(0.5) - em(1));
+    width: lines(1);
+    text-align: center;
+    //border: solid $border;
+    //border-width: 0 0 0 1px;
+  }
+}
+
+.inbox-toggle {
+  @include media(tablet) {
+    right: lines(12.5);
+  }
+}
+
+.global-header .badge {
+  // Positions badges in .inbox-toggle and .notifications-toggle
+  position: absolute;
+  right: lines(0.125, 13); bottom: lines(0.125, 13);
+  
+  &.huge-badge {
+    right: lines(0.0625); bottom: lines(0.0625);
+  }
+}
+
+.user-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: 0; top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  
+  .user-avatar {
+    display: block;
+    width: lines(1.5);
+    height: lines(1.5);
+    background: $background;
+    @include border-radius(em(5));
+    //margin: lines(0.25) (lines(0.25) - em(1)); // compensates for borders
+    margin: lines(0.25) lines(0.25);
+  }
+  
+  .user-name {
+    display: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(0.5); top: lines(0.6);
+  }
+  
+  @include media(tablet) {
+    // Becomes wider and displays the username
+    width: lines(10);
+    
+    .user-avatar {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .user-name {
+      display: block;
+      padding: lines(0.5) lines(1.5) 0 0;
+    }
+    
+    .badge {
+      display: none;
+    }
+  }
+  
+}
+
+.login-menu-toggle {
+  background: $background;
+  &:hover { background: $highlight; }
+  position: absolute;
+  right: 0; top: 0;
+  border: solid $border;
+  border-width: 0 1px 0;
+  
+  .login-icon {
+    display: block;
+    margin: lines(0.25) lines(0.25);
+    @include big-type;
+  }
+  
+  .login-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: lines(1);
+  }
+  
+  @include media(tablet) {
+    width: lines(10);
+    
+    .login-icon {
+      float: left;
+      margin-right: lines(0.375);
+    }
+    
+    .login-text {
+      display: block;
+      padding: lines(0.5) lines(1.5) 0 0;
+    }
+  }
+}
+
+.user-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0; top: lines(2);
+    width: lines(10);
+    border: solid $emphasis;
+    border-width: 0 1px 1px;
+    
+    .inbox-menu-button, .notifications-menu-button {
+      // Hidden, since this functionality is now in
+      // .inbox-toggle and .notifications-toggle
+      display: none;
+    }
+  }
+}
+  
+
+/*
+  ------------
+  Toggle menus
+  ------------
+*/
+
+.toggle-menu-filters {
+  
+  &.hidden {
+    // Added and removed via JS, to toggle visibility
+    display: none;
+  }
+  
+  @include media(tablet) {
+    // Makes sure they're never obscured by other elements
+    z-index: 9999;
+    &.hidden {
+      // Added and removed via JS, to toggle visibility
+      display: block;
+    }
+  }
+  
+}
+
+.toggle-menu {
+  background-color: transparentize($emphasis, 0.05);
+  //background: $emphasis;
+  border-color: $emphasis !important; // Goes well with the dark background, I think!
+  @include media(tablet) {
+    // Makes sure they're never obscured by other elements
+    z-index: 9999;
+  }
+  
+  a, .feedback {
+    display: block;
+    position: relative;
+    color: $background;
+    padding: lines(0.5);
+    //padding-top: (lines(0.5)); // compensates for the 1px border
+    //border-top: 1px solid $body;
+  }
+  
+  a:after {
+    content: "→"; // Could be replaced by a font icon
+    display: block;
+    position: absolute;
+    right: lines(0.5); top: lines(0.5);
+    color: $aside;
+  }
+
+  a:hover {
+    background: $link;
+    color: $background;
+    //border-top: 1px solid $link;
+    
+    &:after {
+      color: $background;
+    }
+  }
+  
+  .feedback {
+    textarea {
+      @include box-sizing(border-box);
+      @include small-type;
+      display: block;
+      width: 100%;
+      height: lines(3, 13);
+      padding: lines(0.25, 13);
+    }
+  }
+  
+  &.hidden {
+    // Added and removed via JS, to toggle visibility
+    display: none;
+  }
+  
+  .badge {
+    position: absolute;
+    right: em(9, 13); top: em(14, 13); bottom: auto;
+    z-index: 900;
+    
+    &.huge-badge {
+      top: em(10, 13); right: em(9, 13); bottom: auto;
+    }
+  }
+}
+
+.toggle {
+  cursor: pointer;
+  
+  &.toggled {
+    background: $emphasis;
+    color: $background !important;
+    border-color: $emphasis;
+    
+    @include media(tablet) {
+      border-bottom-color: $emphasis !important;
+    }
+  }
+  
+  &.toggled-logo {
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat;
+    color: $background !important;
+    border-color: $emphasis;
+    
+    @include media(tablet) {
+      background: $emphasis url("/assets/new-design/sharetribe-logo2.png") lines(0.45) lines(0.35) no-repeat;
+      border-bottom-color: $emphasis !important;
+    }
+  }
+  
+}
+
+
+/*
+  ------------
+  Tribe header
+  ------------
+*/
+
+.tribe-header {
+  position: relative;
+}
+
+.coverimage {
+  max-width: em(1600);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Calculate fluid ratio based on two dimensions (width/height) */
+@mixin fluid-ratio($large-size, $small-size) {
+  $width-large: nth($large-size, 1);
+  $width-small: nth($small-size, 1);
+  $height-large: nth($large-size, 2);
+  $height-small: nth($small-size, 2);
+  $slope: ($height-large - $height-small) / ($width-large - $width-small);
+  $height: $height-small - $width-small * $slope;
+
+  padding-top: $slope * 100%;
+  height: $height;
+
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+}
+
+figure.fluidratio {
+  height: lines(4.3);
+  background-size: cover;
+  -moz-background-size: cover;  /* Firefox 3.6 */
+  background-position: center;  /* Internet Explorer 7/8 */
+  
+  background-image: url("/assets/new-design/cover-image5.png");
+  background-position: center center;
+  @include media(tablet) {
+    /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
+    @include fluid-ratio(em(1600) em(195), em(300) em(195));
+  }
+}
+
+.cover-image {
+  position: relative;
+  
+  img {
+    width: 100%;
+    max-height: lines(20);
+    display: block;
+  }
+  
+}
+  
+.tribe-logo {
+  width: lines(3);
+  height: lines(3);
+  padding: lines(0.2);
+  background: $background;
+  position: absolute;
+  left: lines(0.5);
+  top: lines(-3.85);
+  z-index: 900;
+  @include border-radius(em(5));
+  box-shadow: none;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    background: grey;
+    @include border-radius(em(5));
+  }
+  
+  @include media(tablet) {
+    @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+    top: lines(-6.7 - 0.25);
+    left: lines(0);
+    width: lines(8);
+    height: lines(8);
+    padding: lines(0.75);
+  }
+}
+
+.tribe-intro {
+  padding: lines(0.55) lines(0.75);
+  background-color: transparentize($emphasis, 0.5);
+  position: absolute;
+  left: lines(4.3); top: lines(-3.85); right: lines(0.5);
+  margin-bottom: lines(1);
+  z-index: 900;
+  @include border-radius(em(5));
+  
+  h1 {
+    color: $background;
+    font-weight: 600;
+    @include small-type;
+  }
+  
+  a {
+    padding-left: lines(0.5);
+    color: lighten($link, 20%);
+    &:hover { color: lighten($link, 30%); }
+    &:after { content: "→"; }
+  }
+  
+  p {
+    color: $background;
+    max-width: lines(17);
+    @include normal-type;
+    display: none;
+  }
+  
+  @include media(tablet) {
+    padding: lines(0.55) lines(1);
+    margin-right: 0;
+    margin-bottom: 0;
+    top: lines(-6.7 - 0.25);
+    width: lines(17.5);
+    height: lines(4.9);
+    left: lines(10.5);
+    display: block;
+    .intro-wrapper {
+      height: lines(4.8);
+      overflow: auto;
+    }
+    h1 {
+      @include large-type;
+      margin-bottom: em(1);
+      line-height: em(20);
+    }
+    p {
+      display: block;
+    }
+    a, span {
+      display: inline;
+    }
+  }
+}
+
+.join-action-buttons {
+  position: absolute;
+  left: lines(31);
+  top: lines(-7) + em(1);
+  padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
+  background-color: transparentize($emphasis, 0.5);
+  @include border-radius(em(5));
+  display: none;
+  color: $background;
+  text-align: center;
+  height: lines(4.25);
+  a.regular_link { 
+    padding-top: lines(0.2); 
+    color: lighten($link, 20%);
+    &:hover { color: lighten($link, 30%); }
+  }
+  .intro-button {
+    @include button;
+    @include big-type;
+    width: lines(5.5);
+    display: block;
+  }
+  @include media(desktop) {
+    display: block;
+  }
+}
+
+.actions-menu {
+  position: relative;
+  @include clearfix;
+
+  // Left-aligned links
+  a {
+    display: block;
+    float: left;
+    padding: em(10) lines(0.4) em(10) lines(0.6);
+    color: $emphasis;
+  }
+  
+  // Right-aligned links
+  .offset-link {
+    display: block;
+    float: right;
+    text-align: center;
+    color: $body;
+    height: lines(1);
+    min-width: lines(1);
+    overflow: hidden;
+    padding-top: lines(0.6);
+  }
+  
+  @include media(tablet) {
+    a {
+      padding: lines(0.4) lines(0.8);
+    }
+  }
+
+}
+
+.tribe-navigation {
+  position: relative;
+  background: $link;
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(-4) em(3) em(1));
+  z-index: 600;
+}
+
+.tribe-actions { 
+  
+  background: $link;
+  
+  // Hide texts in narrow viewports
+  .hidden {
+    display: none;
+  }
+  
+  .menu-text-link {
+    color: $background;
+    &:hover { 
+      background: darken($link, 5%);
+    }
+  }
+  
+  .menu-text-first-child { margin-left: lines(0); }
+  
+  .menu-text-link-selected { 
+    color: $body;
+    background: $background;
+  }
+  
+  .about-toggle.toggled {
+    background: $emphasis;
+  }
+  
+  @include media(tablet) {
+    
+    // Tribe intro and search are always shown in wide viewports
+    // so these toggles get hidden
+    .about-toggle {
+      display: none;
+    }
+
+    .search-toggle {
+      display: none;
+    }
+    
+    .menu-text-first-child { margin-left: lines(10.5); }
+    
+    //&:first-child { margin-left: lines(10.5); }
+  }
+  
+  @include media(small-desktop) {
+    
+    // Show texts only in really wide viewports
+    .hidden {
+      display: inline-block;
+    }
+  }
+
+}
+
+.select-language {
+  &:hover { background: darken($link, 5%); }
+  color: $background;
+  float: right;
+  //padding: em(10) lines(1.6) em(12) lines(0.8);
+  
+  .current-language {
+    display: block;
+    float: left;
+    
+    padding: em(10) lines(1.6) em(12) lines(0.8);
+  }
+  
+  .icon-dropdown {
+    position: absolute;
+    right: lines(0.5); top: lines(0.5);
+  }
+}
+
+.language-menu {
+  @include media(tablet) {
+    // Makes the menu float on top of the content
+    position: absolute;
+    right: 0;
+    width: lines(10);
+    top: em(46);
+  }
+}
+
+
+/*
+  --------
+  Feed view
+  --------
+*/
+
+.feed-actions {
+  background: $background;
+  
+  .new-listing-link {
+    color: $link;
+    &:hover { color: darken($link, 15%); }
+  }
+  
+  @include media(tablet) {
+    padding-top: lines(1.8);
+    
+    .new-listing-link {
+      @include button;
+      &:hover { color: $background; }
+      text-align: center;    
+      margin: lines(0) lines(1.5) lines(0.75) lines(0);
+      @include big-type;
+    }
+    
+  }
+  
+}
+
+.feed-filters {
+  background: $emphasis;
+  
+  .filter-title {
+    display: none;
+  }
+  
+  @include media(tablet) {
+    
+    background: $background;
+    
+    .filter-title {
+      margin-bottom: lines(0.5);
+      display: block;
+    }
+    
+    select, option { 
+      //-webkit-appearance: none;
+      width: lines(11.4);
+    }
+    
+  }
+  
+  .feed-filter-dropdowns {
+    padding-bottom: lines(0.5);
+    margin-left: 2.5%;
+    @include media(tablet) {
+      margin-bottom: 0;
+      margin-left: 0;
+      select {
+        margin-bottom: lines(0.5);
+      }
+    }
+  }
+  
+}
+
+.feed-search {
+  
+  input[type=text] {
+    @include box-sizing(border-box);
+    @include border-radius(em(5));
+    border: 1px solid $aside;
+    width: 95%;
+    height: lines(1.5);
+    padding: lines(0.5);
+    margin: lines(0.5) 2.5%;
+    display: block;
+  }
+  
+  button {
+    display: none;
+  }
+  
+  a.map-link {
+    display: none;
+  }
+  
+  .hidden-text {
+    display: none;
+  }
+
+  @include media(tablet) {
+    background: transparent;
+    padding: 0;
+    
+    .hidden {
+      display: inline;
+    }
+    
+    input[type=text] {
+      display: inline;
+      margin: 0;
+      width: lines(11.5);
+      height: lines(1.82);
+      padding: lines(0.5);
+      position: absolute;
+      top: lines(1.8); left: lines(13.5);
+    }
+
+    button {
+      @include button;
+      display: inline;
+      margin-right: 0;
+      padding: em(6) lines(1);
+      position: absolute;
+      width: auto;
+      top: lines(1.8); left: lines(25.5);
+    }
+    
+    a.map-link {
+      display: inline;
+      cursor: pointer;
+      position: absolute;
+      top: lines(1.35); right: lines(0);
+      padding-top: lines(0.2);
+      color: $body;
+      &:hover { color: $link; }
+      @include big-type;    
+    }
+    
+  }
+  
+  @include media(small-desktop) {
+    
+    // Show texts only in really wide viewports
+    
+    .hidden-text {
+      display: inline-block;
+    }
+  }
+
+}
+
+.feed-navigation {
+  background: $emphasis;
+  
+  @include media(tablet) {
+    // Turns into a sidebar
+    float: left;
+    width: lines(13.5);
+    
+    .actions-menu a {
+      float: none;
+      width: auto;
+    }
+    
+    .toggle {
+      display: none;
+    }
+    
+    .toggle-menu {
+      display: block;
+    }
+  }
+}
+
+
+  
+.feed {
+  background: $background;
+  
+  @include media(tablet) {
+    // Makes space for sidebar
+    margin-left: lines(13.5);
+    padding-top: lines(4.8);
+  }
+  
+}
+
+
+.feed-item {
+  position: relative;
+  padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
+  border: solid $border;
+  border-width: 1px 0 0;
+  
+  h2 {
+    line-height: lines(0.75);
+    margin: 0;
+  }
+  
+  small {
+    margin-top: lines(0.25, 13);
+  }
+  
+  .feed-content {
+    margin: em(-3) lines(3.25) 0 lines(2);
+    padding: 0;
+    max-width: lines(20);
+    .author { 
+      @include small-type;
+      padding-bottom: lines(0.25);
+    }
+  }
+  
+  .feed-author-avatar {
+    position: absolute;
+    width: lines(1.5);
+    height: lines(1.5);
+    img {
+      @include border-radius(em(5));
+      width: lines(1.5);
+      height: lines(1.5);
+    }
+    background: $background;
+  }
+  
+  .feed-listing-icons a {
+    color: $body;
+    &:hover { color: $link; }
+  }
+  
+  .feed-listing-price {
+    display: inline-block;
+    margin-right: lines(1);
+  }
+  
+  .feed-listing-comment {
+    display: inline-block;
+  }
+  
+  @include media(tablet) {
+    padding: lines(1) lines(0) lines(0.75) lines(0);
+    
+    .feed-content {
+      margin: em(-3) lines(6) 0 lines(2.25);
+    }
+    
+    h2 {
+      @include big-type;
+    }
+    
+    .feed-excerpt {
+      color: $aside;
+      font-style: italic;
+    }
+    
+    small {
+      @include normal-type;
+      margin-top: lines(0.25);
+    }
+  }
+}
+
+.feed-image {
+  position: absolute;
+  right: lines(0.5); top: lines(0.5);
+  width: lines(3);
+  height: lines(3);
+  
+  img {
+    @include border-radius(em(5));
+    width: 100%;
+  }
+
+  @include media(tablet) {
+    right: 0; top: lines(1);
+    width: lines(5);
+    height: lines(5);
+  }
+
+}
+
+
+/*
+  --------
+  Map view
+  --------
+*/
+
+.map-navigation {
+  background: $link;
+  
+  .feed-filters {
+    position: absolute;
+    left: 0; top: lines(2) - em(2);
+    width: 100%;
+    z-index: 9000;
+    border-bottom: 1px solid $border;
+  }
+  
+  @include media(tablet) {
+    
+    // Shows filters all the time, instead hiding them behind a toggle
+    .toggle {
+      display: none;
+    }
+    
+    .feed-filters {
+      display: block;
+      width: lines(13);
+      text-align: right;
+      top: 0; left: auto; right: 0;
+      border: none !important;
+      background: none;
+      
+      select {
+        margin: 0;
+      }
+    }
+  }
+}
+
+#map-container {
+  position: absolute;
+  top: lines(4); left: 0; right: 0; bottom: 0;
+  z-index: -1;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+/*
+  ----------------
+  Single item view
+  ----------------
+*/
+
+.view-item {
+  background: $background;
+  
+  .item-description {
+    @include media(tablet) {
+      padding-right: lines(12); // Makes horizontal space for image
+      min-height: lines(10); // Makes sure there's always enough vertical space for the image
+    }
+    
+    p, li {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }    
+  }
+  
+  .item-image {
+    position: relative;
+    float: right;
+    width: lines(3.5);
+    margin: 0 0 0 lines(0.5);
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    
+    @include media(tablet) {
+      float: none;
+      margin: 0;
+      position: absolute;
+      right: lines(1); top: lines(1);
+      width: lines(10);
+    }
+  }
+  
+  .item-meta {
+    background: $highlight;
+    border: solid $border;
+    border-width: 1px 0;
+    
+    @include media(tablet) {
+      // Positions metadata next to the map
+      position: relative;
+      padding-right: lines(12);
+      
+      .item-meta-wrapper {
+        position: absolute;
+        right: 0; top: 0;
+        width: lines(12 - 1);
+        padding: lines(0.5);
+      }
+    }
+  }
+  
+  .item-map {
+    display: block;
+    border: solid $border;
+    border-width: 0 0 1px;
+    
+    iframe {
+      display: block;
+      width: 100%;
+      height: lines(8);
+    }
+    
+    @include media(tablet) {
+      border-width: 0 1px 0 0;
+      
+      iframe {
+        height: lines(13);
+      }
+    }
+  }
+    
+  .item-poster {
+    position: relative;
+    background: $highlight;
+    margin: lines(0.5) lines(1.5 + 0.25) lines(0.25);
+    
+    .avatar {
+      position: absolute;
+      left: lines(-1.25); top: 0;
+    }
+    
+    h2 {
+      margin: 0;
+    }
+    
+    .send-message {
+      display: block;
+      position: absolute;
+      right: lines(-1.25); top: 0;
+    }
+  }
+  
+  .item-metadata, .social {
+    padding: 0 lines(0.5) lines(0.5);
+
+    small i {
+      color: $aside;
+    }
+  }
+
+  .social {
+    .fb-like, .twitter-share-button {
+      display: inline-block;
+      margin-right: lines(0.25);
+    }
+  }
+  
+  .discussion {
+    padding-top: lines(0.75);
+  
+    h2 {
+      margin-top: 0;
+    }
+    
+    .comment {
+      position: relative;
+      border-top: 1px dotted $border;
+      padding: lines(0.5) 0;
+
+      .avatar {
+        position: absolute;
+        left: 0; top: lines(0.5);
+      }
+      
+      h3 {
+        margin-left: lines(1.25);
+      }
+      
+      h3, small {
+        display: inline;
+      }
+      
+      small {
+        color: $aside;
+      }
+      
+      .comment-content {
+        @include small-type;
+        @include media(small-tablet) {
+          @include normal-type;
+        }
+      }
+    }
+    
+    @include media(tablet) {
+      padding-top: lines(1.5);
+      
+      h2 {
+        @include big-type;
+      }
+      
+      .comment {
+        padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+        
+        .avatar {
+          width: lines(2);
+        }
+        
+        h3 {
+          margin: 0;
+        }
+      }
+    }
+  }
+  
+}

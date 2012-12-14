@@ -17,15 +17,15 @@ Kassi::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   # Enable sending mail from localhost
-  ActionMailer::Base.smtp_settings = {
-    :address              => APP_CONFIG.smtp_email_address,
-    :port                 => APP_CONFIG.smtp_email_port,
-    :domain               => 'localhost',
-    :user_name            => APP_CONFIG.smtp_email_user_name,
-    :password             => APP_CONFIG.smtp_email_password,
-    :authentication       => 'plain',
-    :enable_starttls_auto => true  
-  }
+  # ActionMailer::Base.smtp_settings = {
+  #   :address              => APP_CONFIG.smtp_email_address,
+  #   :port                 => APP_CONFIG.smtp_email_port,
+  #   :domain               => 'localhost',
+  #   :user_name            => APP_CONFIG.smtp_email_user_name,
+  #   :password             => APP_CONFIG.smtp_email_password,
+  #   :authentication       => 'plain',
+  #   :enable_starttls_auto => true  
+  # }
 
   config.active_support.deprecation = :log
   

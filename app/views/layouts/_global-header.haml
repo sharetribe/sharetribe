@@ -1,0 +1,100 @@
+%header.global-header
+  .wrapper
+      
+    .select-tribe.toggle{data: {toggle: '.tribe-menu'}}
+      .current-tribe
+        Lauttasaari
+      %i.icon-dropdown.ss-dropdown
+    
+    - if @current_user  
+      
+      .notifications-toggle.toggle
+        %i.icon.ss-earth
+        -# if single digit:
+        .badge 5
+
+        -# if two digits:
+        -#.badge.big-badge 50 
+
+        -# if three digits:
+        -#.badge.huge-badge 500
+
+      .inbox-toggle.toggle
+        %i.icon.ss-mail
+        -# if single digit:
+        .badge 5
+
+        -# if two digits:
+        -#.badge.big-badge 50 
+
+        -# if three digits:
+        -#.badge.huge-badge 500
+      
+    
+      .user-menu-toggle.toggle{data: {toggle: '.user-menu'}}
+        = image_tag '/assets/new-design/avatar.jpg', alt: '', class: 'user-avatar'
+        .user-name= @current_user.name_or_username
+
+        %i.icon-dropdown.ss-dropdown
+
+        -# if single digit:
+        -#.badge 5
+
+        -# if two digits:
+        -#.badge.big-badge 50 
+
+        -# if three digits:
+        .badge.huge-badge 500
+    
+    - else  
+    
+      .login-menu-toggle
+        .login-icon.ss-login
+        .login-text Login
+      
+      
+      
+
+    .sharetribe-menu.toggle-menu
+      %a{href: '#'} Sharetribe.com
+      %a{href: '#'} Blog
+      %a{href: '#'} Developers
+      %a{href: '#'} Contact
+      .feedback
+        %textarea{placeholder: 'Feedback? Let us know here.'}
+      
+    %nav.tribe-menu.toggle-menu
+      %a{href: '#'}
+        Kisko Labs
+      %a{href: '#'}
+        Ruoholahden Asukkaat
+      %a{href: '#'}
+        Find another tribe
+    
+    %nav.user-menu.toggle-menu
+      %a.profile-menu-button{href: '#'}
+        .ss-user.icon-with-text
+        .text-with-icon
+          Profile
+      %a.inbox-menu-button{href: '#'}
+        .ss-mail.icon-with-text
+        .text-with-icon
+          Inbox 
+          .badge.big-badge 50 
+      %a.notifications-menu-button{href: '#'}
+        .ss-earth.icon-with-text
+        .text-with-icon
+          Notifications
+          .badge.huge-badge 500
+      %a.feedback-menu-button{href: '#'}
+        .ss-megaphone.icon-with-text
+        .text-with-icon
+          Feedback
+      %a{href: '#'}
+        .ss-settings.icon-with-text
+        .text-with-icon
+          Settings
+      %a{href: logout_path}
+        .ss-logout.icon-with-text
+        .text-with-icon
+          Log out

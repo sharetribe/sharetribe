@@ -1,0 +1,47 @@
+/*
+  -----------------------------------------
+  Color presets
+  -----------------------------------------
+  A good way to select hues:
+  1. Pick one hue (0–360)
+  2. Add it to, or substract it from one of
+     the following:
+     - 360/1.618 (split-complementary color)
+     - 360/2 (complementary color)
+     - 360/3 (triadic color)
+     - 360/4 (quad…tric color)
+     - 360/5 (pentatonic color)
+  -----------------------------------------
+  Values derived using the golden ratio:
+  
+  100% / 1.618^1          = ~61.8%
+  100% / 1.618^2          = ~38.2%
+  100% / 1.618^3          = ~23.6%
+  100% / 1.618^3          = ~14.6%
+  100% / 1.618^3          =  ~9.0%
+  100% / 1.618^3          =  ~5.6%
+  100% - (100% / 1.618^6) = ~94.4%
+  100% - (100% / 1.618^5) = ~91.0%
+  100% - (100% / 1.618^6) = ~85.4%
+  100% - (100% / 1.618^6) = ~76.4%
+  
+  Try using these values as the saturations 
+  and lightnesses of colours you use.
+  The results are usually pleasing.
+  -----------------------------------------
+*/
+
+$primary-hue: 25;
+$secondary-hue: $primary-hue + (360/1.618); // not used in this prototype
+
+$background:  hsl($primary-hue, 0%, 100%);
+$highlight:   hsl($primary-hue, 0%, 91%);
+$border:      hsl($primary-hue, 0%, 76.4%);
+
+$aside:       hsl($primary-hue, 0%, 50%);
+$body:        hsl($primary-hue, 0%, 23.6%);
+$emphasis:    hsl($primary-hue, 0%, 9%);
+
+$link:        hsl($primary-hue, 73.4%, 49%);
+$link2:       hsl($secondary-hue, 76.4%, 50%);
+//$link:      darken(desaturate(hsl($primary-hue, 61.8%, 50%), 23.6%), 11.8%); // Darkened and desaturated version

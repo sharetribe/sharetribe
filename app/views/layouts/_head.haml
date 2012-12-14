@@ -1,0 +1,61 @@
+!!! 5
+/[if lt IE 7] <html lang="en" class="no-js oldie ie6">
+/[if IE 7 ]   <html lang="en" class="no-js oldie ie7">
+/[if IE 8 ]   <html lang="en" class="no-js oldie ie8">
+<!--[if (gt IE 8)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
+%head
+  %meta{charset: "utf-8" }
+  %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
+  %meta{ :name => "keywords", :content => t(".keywords") }
+  = yield :head
+  
+  %title 
+    #{service_name}
+    - if @listing && action_name.eql?("show")
+      = "- #{listed_listing_title(@listing)}"
+    - else
+      = "- #{@current_community.name}"
+  - if @listing && action_name.eql?("show")
+    - fb_image = @listing.listing_images.empty? ? "assets/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
+    %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
+    %meta{ :property => "og:type", :content =>"website"}
+    %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   
+    %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
+    %meta{ :property => "og:site_name", :content =>"#{service_name}: "}
+    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+    %meta{ :property => "og:description", :content => @listing.description}
+  - else
+    %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
+    %meta{ :property => "og:type", :content =>"website"}
+    %meta{ :property => "og:url", :content =>"#{request.protocol}#{@current_community.domain}.#{request.domain}"} 
+    %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/assets/sharetribe_icon.png"}
+    %meta{ :property => "og:site_name", :content =>"#{service_name}"}
+    %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
+    %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
+
+  / CSS
+  = stylesheet_link_tag 'application'
+  = stylesheet_link_tag "webfonts/ss-pika.css"
+
+  = javascript_include_tag "//use.typekit.net/wja3pck.js"
+  = javascript_include_tag "/assets/webfonts/ss-pika.js"
+  :javascript
+    try{Typekit.load();}catch(e){
+      alert(e);
+    }
+    
+  = javascript_include_tag 'application'
+
+  / Favicons
+  -# %link{ href: image_path("favicon.ico"), rel: "shortcut icon" }
+  -# %link{ href: image_path("apple-touch-icon-144x144.png"), rel: "apple-touch-icon", sizes: "144x144" }
+
+  %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/assets/dashboard/sharetribe_logo.png"}
+  
+  = auto_discovery_link_tag(:atom, atom_feed_url )
+  
+%body
+
+  -# load Facebook SDK for the whole page
+  = render :partial => "layouts/facebook_sdk"

@@ -1,0 +1,106 @@
+/*
+  --------------------------------------------
+  Em conversion functions
+  pixels to ems & baselines to ems
+  --------------------------------------------
+  Usage:
+  - em(6, 26) converts 6px to ems assuming the 
+    font-size of the element is 26px. If the
+    element's font-size is the same as the 
+    base font-size, you can omit the 2nd 
+    argument: em(6)
+  - lines(0.5, 26) is a shorthand for 
+    em(($line-height/2), 26), so em(12, 26) 
+    in Sharetribe's case.
+  --------------------------------------------
+  Examples:
+    p {
+      font-size: 
+      line-height: lines(1);
+      margin-bottom: lines(0.5);
+    }
+    h1 {
+      font-size: em(42);
+      line-height: lines(2, 42);
+      margin-bottom: lines(1, 42);
+    }
+  --------------------------------------------
+*/
+
+$font-size: 16;
+$line-height: 24;
+
+@function em($pixels, $context-font-size: $font-size) {
+ @return ($pixels / $context-font-size) * 1em; 
+}
+
+@function lines($lines, $context-font-size: $font-size,  $context-line-height: $line-height) {
+  @return $lines * ($context-line-height / $context-font-size) * 1em;
+}
+
+
+/*
+  --------------------------------------------------
+  Font-family mixins
+  FF Tisa: https://typekit.com/fonts/ff-tisa-web-pro
+  LFT Etica: https://typekit.com/fonts/lft-etica-web
+  --------------------------------------------------
+*/
+
+@mixin ff-tisa {
+  font-family: "ff-tisa-web-pro-1","ff-tisa-web-pro-2",serif;
+}
+
+@mixin lft-etica {
+  font-family: "lft-etica-1","lft-etica-2",sans-serif;
+}
+
+
+/*
+  ----------------------------------------------------------
+  Type presets
+  mostly calculated using a modular scale based on 
+  the golden ratio: 1:1.618
+  http://modularscale.com/scale/?px1=16&px2=&ra1=1.618&ra2=0
+  ----------------------------------------------------------
+*/
+
+@mixin small-type {
+  font-size: em(13);
+  line-height: lines(0.75, 13); // 18px, aligns with baseline grid every 4 lines
+}
+
+@mixin normal-type {
+  font-size: em($font-size, 16); // 16 is the base font-size of all(?) browsers
+  line-height: lines(1); // 24px
+}
+
+@mixin big-type {
+  font-size: em(22); // roughly 16*1.382 (shorter part of golden ratio)
+  line-height: lines(1, 22); // 24px
+  font-weight: 500;
+}
+
+@mixin large-type {
+  font-size: em(26); // roughly 16*1.618 (longer part golden ratio)
+  line-height: lines(1.5, 26); // 36px
+  font-weight: 600;
+}
+
+@mixin huge-type {
+  font-size: em(42); // roughly 16*1.618^2 (double golden ratio)
+  line-height: lines(2, 42); // 48px
+  font-weight: 700;
+}
+
+@mixin mega-type {
+  font-size: em(68); // roughly 16*1.618^3 (triple golden ratio)
+  line-height: lines(3, 68); // 72px
+  font-weight: 700;
+}
+
+@mixin giga-type {
+  font-size: em(110); // just in case you need something this big!
+  line-height: lines(5, 110); // 120px
+  font-weight: 700;
+}

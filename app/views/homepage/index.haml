@@ -1,127 +1,55 @@
-- if @current_community.news_enabled? && @news_items.size > 0
-  - content_for :javascript do
-    initialize_homepage_news_items(#{array_or_string_for_javascript(@news_items.collect(&:id))});
-    initialize_homepage();
-- else
-  - content_for :javascript do
-    initialize_homepage();
+.feed-navigation
+  .feed-actions.actions-menu
+    %a.new-listing-link{href: '#'} 
+      %i.ss-plus.icon-with-text
+      .text-with-icon Post a new listing!
+    %a.offset-link.toggle{href: '#', data: {toggle: '.feed-filters'}}
+      %i.ss-search
+    %a.offset-link.toggle{href: 'map.html', title: 'Map view'}
+      %i.ss-maplocation
 
-
-#teaser
-  #teaser_left
-    %h1= render :file => community_file("teaser_welcome_text_title", true)
-    %p
-      = render :file => community_file("teaser_welcome_text", true), :locals => {:community_name => @current_community.name_with_separator(I18n.locale)}
-  #teaser_right
-    #teaser_button_container
-      #offer_something_button
-        = link_to t('.offer_something'), new_request_path(:type => "offer")
-      #teaser_button_description
-        = t(".offer_something_description")
-    #teaser_button_container
-      #request_something_button
-        = link_to t('.request_something'), new_request_path(:type => "request")
-      #teaser_button_description
-        = t(".request_something_description")
-    #teaser_browse_links
-      %p
-        = t(".or_see_what_the_others")
-        = link_to t(".are_offering"), offers_path
-        = t(".or")
-        = link_to t(".requesting"), requests_path
-      
+  .feed-filters.toggle-menu-filters
   
-#recent_listings.grid_18
- 
-  #recent_requests.grid_9.alpha
-    .recent_listings
-      %h3{:class => "orange"}
-        = link_to t('.recent_requests'), requests_path
-        = link_to image_tag("icons/feed-icon.png"), atom_feed_url(:listing_type => "request")
-      - if @requests.total_entries > 0
-        = render :partial => "recent_listing", :collection => @requests, :as => :listing, :spacer_template => "request_spacer"
-        = will_paginate(@requests)
-        - if @requests.total_pages < 2 && @private_listings && @private_listings["request"].present? && @private_listings["request"] > 0
-          .request_spacer
-          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "request", :private_listings_count =>  @private_listings["request"]}
-      - else
-        = render :partial => "blank_slate", :locals => { :slate_type => "request" }
-  #recent_offers.grid_9.omega
-    .recent_listings
-      %h3{:class => "brown"}
-        = link_to t('.recent_offers'), offers_path
-        = link_to image_tag("icons/feed-icon.png"), atom_feed_url(:listing_type => "offer")
-      - if @offers.total_entries > 0
-        = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
-        = will_paginate(@offers)
-        - if @offers.total_pages < 2 && @private_listings && @private_listings["offer"].present? && @private_listings["offer"] > 0
-          .offer_spacer
-          = render :partial => "additional_private_listings_slate",  :locals => {:listing_type => "offer", :private_listings_count =>  @private_listings["offer"]}       
-      - else
-        = render :partial => "blank_slate", :locals => { :slate_type => "offer" }
-  = pageless((@requests.total_pages > @offers.total_pages ? @requests.total_pages : @offers.total_pages), '#recent_listings', root_path, t('.loading_more_content'), true) 
+    .feed-search
+      %input{type: 'text', placeholder: 'What do you need?'}
+      %button
+        %i.ss-search.icon-with-text
+        .text-with-icon.hidden Search
+      %a.map-link{href: 'map.html', title: 'Map view'}
+        %i.ss-maplocation.icon-with-text
+        .text-with-icon.hidden-text Map
   
-.grid_6
+    .feed-filter-dropdowns
+      .filter-title
+        Show:
+      %select.item-type
+        %option All listings types
+        %option Requests
+        %option — Borrowing
+        %option — Buying
+        %option — Taking for free
+        %option — Renting
+        %option — Swapping
+        %option Offers
+        %option — Giving away
+        %option — Lending
+        %option — Renting out
+        %option — Selling
+        %option — Sharing for free
+        %option — Swapping
+      %select.item-category
+        %option All categories
+        %option Items
+        %option — Clothing
+        %option — Furniture
+        %option — Electronics
+        %option — Tools
+        %option Services
+        %option Rideshare
+        %option Spaces
 
-  - if @current_user && (@current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community))
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      #invitation_form_container
-        = render :partial => "invitation_form"
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_user && @current_user.profile_info_empty?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :partial => "profile_info_empty_notification"
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_community.event_feed_enabled? && @current_community.event_feed_events.size > 2
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :partial => "event_feed"
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_community.news_enabled?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :partial => "news_items"
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_user && @current_community.active_poll
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      #poll_form
-        = render :partial => "poll_form", :locals => { :poll => @current_community.active_poll }
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-  - if @current_community.custom_frontpage_sidebar?
-    .homepage_sidebar_box
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_top" }
-      = render :file => community_file("frontpage_sidebar", true)
-      = render :partial => "common/staples", :locals => { :temp_class => "staples_bottom" }
-
-- if not @current_user && APP_CONFIG.use_kissmetrics
-  // Track event of unidentified user seeing front page to Kissmetrics
-  <script type="text/javascript">
-    
-  // from http://www.w3schools.com/js/js_cookies.asp
-  function getCookie(c_name)
-  {
-  var i,x,y,ARRcookies=document.cookie.split(";");
-  for (i=0;i<ARRcookies.length;i++)
-  {
-  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-  x=x.replace(/^\s+|\s+$/g,"");
-  if (x==c_name)
-  {
-  return unescape(y);
-  }
-  }
-  }
-  
-  if (typeof(getCookie("km_ni")) == "undefined") {
-  _kmq.push(['record', 'Viewed tribe homepage as unidentified']);
-  }
-  </script>
+#homepage-feed.feed
+  - if @offers.total_entries > 0
+    = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
+    = will_paginate(@offers)
+    = pageless(@offers.total_pages, '#homepage-feed', root_path, t('.loading_more_content'), true)

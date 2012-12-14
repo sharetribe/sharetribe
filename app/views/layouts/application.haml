@@ -1,153 +1,77 @@
-!!! 5
-!!! xml
-%html{html_attrs(I18n.locale).merge({"xmlns:og"=>"http://ogp.me/ns#"})}
-  %head
-    = render :partial => "layouts/kissmetrics"
-    %title 
-      #{service_name}
-      - if @listing && action_name.eql?("show")
-        = "- #{listed_listing_title(@listing)}"
-      - else
-        = "- #{@current_community.name}"
-    - if @listing && action_name.eql?("show")
-      - fb_image = @listing.listing_images.empty? ? "assets/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
-      %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
-      %meta{ :property => "og:type", :content =>"website"}
-      %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   
-      %meta{ :property => "og:image", :content =>"http://#{@current_community.domain}.#{request.domain}/#{fb_image}"}
-      %meta{ :property => "og:site_name", :content =>"#{service_name}: "}
-      %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-      %meta{ :property => "og:description", :content => @listing.description}
-    - else
-      %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
-      %meta{ :property => "og:type", :content =>"website"}
-      %meta{ :property => "og:url", :content =>"#{request.protocol}#{@current_community.domain}.#{request.domain}"} 
-      %meta{ :property => "og:image", :content => "http://#{@current_community.domain}.#{request.domain}/assets/sharetribe_icon.png"}
-      %meta{ :property => "og:site_name", :content =>"#{service_name}"}
-      %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
-      %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
-    %meta{ :"http-equiv" => "Content-Type", :content => "text/html; charset=utf-8" }
-    %meta{ :name => "keywords", :content => t(".keywords") }
-    = yield :head
+= render :partial => 'layouts/head'
+   
+= render :partial => 'layouts/global-header'
 
-    = stylesheet_link_tag 'application'
-    = javascript_include_tag 'application'
-    = yield(:extra_javascript)
-    = csrf_meta_tag
-    :javascript
-      $(document).ready(function() { initialize_defaults("#{t('header.search_kassi')}","#{t('layouts.application.default_feedback')}", "#{I18n.locale}"); #{yield :javascript} });
-    
-    - unless I18n.locale.to_s.eql?("fi")
-      - if I18n.locale.to_s.eql?("ru")
-        %style{:type => "text/css"}
-          a.handle { background-position: -160px 0; }
-          a.handle:hover { background-position: -200px 0; }
-      - else
-        %style{:type => "text/css"}
-          a.handle { background-position: -80px 0; }
-          a.handle:hover { background-position: -120px 0; }  
-    
-    %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/assets/dashboard/sharetribe_logo.png"}
-    
-    = auto_discovery_link_tag(:atom, atom_feed_url ) 
-  %body
-    
-    %noscript
-      .js_enabled
-        #no_javascript.container_24
-          = render :partial => "layouts/no_javascript"
-    
-    = render :partial => "layouts/facebook_sdk" # load Facebook SDK for the whole page
-        
-    .wrapper
-    
-      .feedback_div
-        = link_to t(".feedback_handle"), "#", :class => "handle", :id => "Feedback"
-        %h3= t(".give_feedback")
-        #new_feedback_form
-          = form_for :feedback, :url => admin_feedbacks_path, :html => { :id => "new_feedback" } do |form|
-            - unless logged_in?
-              = form.label :email, t(".your_email_address")
-              = form.text_field :email, :class => "text_field"
-            = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
-            = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
-            = form.label :content, t(".feedback")
-            = form.text_area :content, :class => "feedback"
-            = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
-            = form.hidden_field :url, :value => request.fullpath
-            = form.submit t(".send_feedback_to_admin"), :class => "send_button"
-            %span
-              = t(".or_check_our")
-              = link_to t(".feedback_forum"), "http://kassi.uservoice.com"
-              = t(".to_see_what_others_have_suggested")
-    
-      #header.container_24
-        .grid_6
-          #logo
-            = render :file => community_file("logo", false)
-            - logo_text = render :file => community_file("logo_text", false)
-            - if logo_text.present?
-              = logo_text
-            - elsif available_locales.count > 1
-              .locale_select_padding
-                = render :partial => "layouts/locale_select"
-            - elsif @current_community.use_fb_like
-              .fb_like_padding
-                = "<iframe src=\"https://www.facebook.com/plugins/like.php?app_id=216154058406825&amp;href=#{@current_community.domain}.#{request.domain}&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=arial&amp;height=21\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; width:450px; height:21px;\" allowTransparency=\"true\"></iframe>".html_safe 
-        .grid_6
-          #search
-            = form_tag("/#{I18n.locale}/search", :method => "get") do
-              - one_line_for_html_safe_content do  
-                = text_field_tag("q", params[:q], :class => "search_field")
-                = submit_tag("s", :class => "search_button")
-          - if logo_text.present? && available_locales.count > 1
-            .locale_select_padding_lower
-              = render :partial => "layouts/locale_select"
-        .grid_12
-          = render :partial => "layouts/logged_in"
-          .clear
-          .tabs.grid_9.alpha
-            .grid_3.alpha{:class => (controller_name.eql?("homepage") && action_name.eql?("index")) ? "tab_selected" : "tab_unselected"}
-              = link_to t('header.home'), root
-            .grid_3{:class => (params[:listing_type] && params[:listing_type].eql?("request")) ? "tab_selected" : "tab_unselected"}
-              = link_to t('header.requests'), requests_path
-            .grid_3.omega{:class => (params[:listing_type] && params[:listing_type].eql?("offer")) ? "tab_selected" : "tab_unselected"}
-              = link_to t('header.offers'), offers_path
-            .clear
-          .top_navi_link.align_right.grid_3.omega
-            .navi_link_margin_right
-              = link_to t('header.about'), about_infos_path
-
-      #notification_container 
-        = render :partial => "layouts/notifications"
-
-      #main.container_24
-        = content_for?(:content) ? yield(:content) : yield
-
-      #bottom_spacer.container_24  
-        %br/
-        &nbsp;
-        %br/
-        &nbsp;
-        %br/
-        %br/
+%header.tribe-header
+  
+  .top-margin
+  
+  .coverimage
+    %figure.fluidratio
+  
+  .wrapper
+    .tribe-logo
+      %a{href: '/'}
+        = image_tag '/assets/new-design/tribe-logo2.png'
+    .tribe-intro.hidden
+      .intro-wrapper
+        %h1 Lauttasaari neighbor help service
+        %p 
+          Sharetribe is a place where the members of our community can share
+          goods, services, rides, and spaces. In Sharetribe you can...
+          %a{href: "#"}
+            Read more
+    .join-action-buttons
+      %a.intro-button
+        Join this tribe!
+      = link_to("...or join without Facebook", "#", :class => "regular_link")
       
-      =# render :partial => "layouts/google_analytics_script"
+.tribe-navigation
 
-      - if APP_CONFIG.use_google_analytics
-        <script type="text/javascript">
+  .wrapper
 
-        var _gaq = _gaq || [];
-        = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-        = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
-        _gaq.push(['_trackPageview']);
-        _gaq.push(['_trackPageLoadTime']);
+    %nav.tribe-actions.actions-menu
+      %a.menu-text-link-selected.menu-text-first-child{href: '#', title: 'Home'}
+        %i.ss-home.icon-with-text
+        .text-with-icon.hidden Home
+      %a.menu-text-link{href: '#', title: 'Members'}
+        %i.ss-usergroup.icon-with-text
+        .text-with-icon.hidden Members
+      %a.menu-text-link{href: '#', title: 'About'}
+        %i.ss-help.icon-with-text
+        .text-with-icon.hidden About
+      %a.menu-text-link{href: '#', title: 'Admin'}
+        %i.ss-wrench.icon-with-text
+        .text-with-icon.hidden Admin
+      .select-language.toggle{data: {toggle: '.language-menu'}}
+        %i.icon-dropdown.ss-dropdown
+        .current-language
+          English
+    
+    .language-menu.toggle-menu
+      %a{href: '#'} English
+      %a{href: '#'} Finnish
+      %a{href: '#'} French
+    
+%article.page-content
+  .wrapper
+    = yield
 
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+- if APP_CONFIG.use_google_analytics
+  <script type="text/javascript">
 
-        </script>
+  var _gaq = _gaq || [];
+  = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+  = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+  _gaq.push(['_trackPageview']);
+  _gaq.push(['_trackPageLoadTime']);
+
+  (function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+      
 
