@@ -391,7 +391,7 @@ fi:
       added_request: "lisäsi pyynnön:"
       update_mail_title: "%{title_link} uusimmat kuulumiset"
       title_link_text: "%{community_name}-%{service_name_genetive}"
-      intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana"
+      intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
       intro_paragraph_link_text: "%{community_name}-%{service_name_inessive}"
       could_you_share_something: "Voisitko tarjota jotain?"
       do_you_need_help_with_anything: "Tarvitsetko apua tai tavaraa?"

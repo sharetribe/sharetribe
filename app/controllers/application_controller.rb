@@ -77,7 +77,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    ! @current_user.nil?
+    @current_user.present?
   end
 
   def current_user?(person)
@@ -276,6 +276,7 @@ class ApplicationController < ActionController::Base
             sign_in(t.person)
             t.times_used = t.times_used + 1 
           else
+            session[:auth_token_expired] = true #this can be used to allow unsubscribes even with old token
             #flash.now[:warning] = "auth_token_expired"
           end
           t.save
