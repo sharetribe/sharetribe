@@ -386,6 +386,21 @@ fr:
       has_updated_offer_you_follow_in_kassi: "%{author} a mis à jour la demande '%{listing}' que vous suivez dans %{service_name}"
       has_updated_request_you_follow_in_kassi: "%{author} a mis à jour l'offre '%{listing}' que vous suivez dans %{service_name}"
       you_can_view_the_changes_in: "Vous pouvez voir les changements de"
+    community_updates:
+      added_offer: "a ajouté une offre : "
+      added_request: "a ajouté une demande : "
+      update_mail_title: "Actualités de la tribu %{title_link}"
+      title_link_text: "%{community_name} %{service_name}"
+      intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name} %{service_name}"
+      could_you_share_something: "Avez-vous quelques chose à partager ?"
+      do_you_need_help_with_anything: "Avez-vous besoin de quelque chose ?"
+      post_a_new_listing: "Déposez une annonce !"
+      reduce_email_footer_text: "Trop d'emails ? %{settings_link} ou %{unsubscribe_link}"
+      tribe_creation_promotion_footer: "Saviez-vous que vous pouvez créer gratuitement une place de marché, comme celle-ci, pour votre quartier, votre ville, votre association ou vos autres communautés locales ? %{create_tribe_link} ou posez-nous vos questions en répondant à cet email."
+      settings_link_text: "Gérez vos paramètres d'email"
+      unsubscribe_link_text: désabonnez-vous
+      create_tribe_link_text: "Créez la votre"
     newsletter:
       weekly_news_from_kassi: "Cette semaine dans la tribu %{service_name} %{community}"
       hi: "Bonjour %{name},"
@@ -1296,3 +1311,6 @@ fr:
     seconds_ago: "il y a %{count} secondes"
     year_ago: "il y a un an"
     years_ago: "il y a %{count} années"
+    days_since:
+      one: "%{count} jour"
+      other: "%{count} jours"

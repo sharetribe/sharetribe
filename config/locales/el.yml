@@ -386,6 +386,21 @@ el:
       has_updated_offer_you_follow_in_kassi: "Ο/Η %{author} ενημέρωσε το αίτημα \"%{listing}\" που παρακολουθείς στο %{service_name}"
       has_updated_request_you_follow_in_kassi: "Ο/Η %{author} ενημέρωσε την προσφορά \"%{listing}\" που παρακολουθείς στο %{service_name}"
       you_can_view_the_changes_in: "Μπορείς να δεις τις αλλαγές στο"
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      could_you_share_something: ~
+      do_you_need_help_with_anything: ~
+      post_a_new_listing: ~
+      reduce_email_footer_text: ~
+      tribe_creation_promotion_footer: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Εβδομαδιαία ενημέρωση από την κοινότητα %{service_name} \"%{community}\""
       hi: "Γεια σου %{name},"
