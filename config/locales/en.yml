@@ -399,6 +399,7 @@ en:
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
       tribe_creation_promotion_footer: "Did you know you can create a community marketplace like this for free for your neigborhood, town, association or other local community? %{create_tribe_link} or find out more by replying to this email."
       settings_link_text: "Edit your email settings here"
+      unsubscribe_link_text: "unsubscribe"
       create_tribe_link_text: "Create one yourself"
     newsletter:
       weekly_news_from_kassi: "Weekly news from %{community} %{service_name}"
@@ -1310,6 +1311,6 @@ en:
     seconds_ago: "%{count} seconds ago"
     year_ago: "%{count} year ago"
     years_ago: "%{count} years ago"
-    days:
+    days_since:
       one: "%{count} day"
       other: "%{count} days"

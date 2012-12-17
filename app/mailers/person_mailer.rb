@@ -186,7 +186,9 @@ class PersonMailer < ActionMailer::Base
     
     set_locale @recipient.locale
     default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
-    @time_since_last_update = t("timestamps.days", :count => time_difference_in_days(@recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
+    @time_since_last_update = t("timestamps.days_since", 
+        :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
+        DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
     @auth_token = @recipient.new_email_auth_token
     
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
@@ -201,7 +203,8 @@ class PersonMailer < ActionMailer::Base
       return
     end
     
-    @title_link_text = t("emails.community_updates.title_link_text", :community_name => @community.name_with_separator(@recipient.locale))
+    @title_link_text = t("emails.community_updates.title_link_text", 
+          :community_name => @community.name_with_separator(@recipient.locale))
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
@@ -212,7 +215,8 @@ class PersonMailer < ActionMailer::Base
     end
     
     @recipient.update_attribute(:community_updates_last_sent_at, Time.now)
-  
+    
+    
     mail(:to => @recipient.email,
          :subject => subject,
          :delivery_method => delivery_method) do |format|

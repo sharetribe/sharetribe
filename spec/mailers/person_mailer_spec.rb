@@ -13,7 +13,6 @@ describe PersonMailer do
     @test_person2.locale = "en"
     @test_person2.save
     @cookie = (@session.present? ? @session.cookie : nil)
-    
   end   
 
   it "should send email about a new message" do
@@ -176,10 +175,16 @@ describe PersonMailer do
       @email.should have_body_text("?auth=#{token}")
     end
     
+    it "should not send, if no new listings" do
+      @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
+      other_email = PersonMailer.community_updates(@p1, @p1.communities.first)
+      other_email.class.should == ActionMailer::Base::NullMail
+    end
+    
   end
   
   describe "#deliver_community_updates" do
-    before(:all) do
+    before(:each) do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person)
       @p1.communities << @c1
@@ -195,26 +200,45 @@ describe PersonMailer do
       @p3.communities << @c1
       @p4 = FactoryGirl.create(:person)
       @p4.communities << @c1
-      
-      @p1.community_updates_last_sent_at = 1.days.ago
-      @p2.community_updates_last_sent_at = 14.days.ago
-      @p3.community_updates_last_sent_at = 3.days.ago
-      @p4.community_updates_last_sent_at = 9.days.ago      
-      
-      @p1.min_days_between_community_updates = 1
-      @p2.min_days_between_community_updates = 1
-      @p3.min_days_between_community_updates = 7
-      @p4.min_days_between_community_updates = 7      
 
-          
-      PersonMailer.deliver_community_updates
+      
+      @p1.update_attribute(:community_updates_last_sent_at, 8.hours.ago)
+      @p2.update_attribute(:community_updates_last_sent_at, 14.days.ago)
+      @p3.update_attribute(:community_updates_last_sent_at, 3.days.ago)
+      @p4.update_attribute(:community_updates_last_sent_at, 9.days.ago)
+      
+      
+      @p1.update_attribute(:min_days_between_community_updates, 1)
+      @p2.update_attribute(:min_days_between_community_updates, 1)
+      @p3.update_attribute(:min_days_between_community_updates, 7)
+      @p4.update_attribute(:min_days_between_community_updates, 7)   
     end
     
     it "should send only to people who want it now" do
-      puts "---"
-      puts ActionMailer::Base.deliveries
-      puts ActionMailer::Base.deliveries.size
-      puts "hox"
+      PersonMailer.deliver_community_updates
+      ActionMailer::Base.deliveries.size.should == 2
+      ActionMailer::Base.deliveries[0].to.include?(@p2.email).should be_true
+      ActionMailer::Base.deliveries[1].to.include?(@p4.email).should be_true
+           
+    end
+    
+    it "should contain specific time information" do
+      @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
+      PersonMailer.deliver_community_updates
+      ActionMailer::Base.deliveries.size.should == 3
+      ActionMailer::Base.deliveries[0].body.include?("during the past 1 day").should be_true
+      ActionMailer::Base.deliveries[1].body.include?("during the past 14 days").should be_true
+      ActionMailer::Base.deliveries[2].body.include?("during the past 9 days").should be_true
+    end
+    
+    it "should send with default 7 days to those with nil as last time sent" do
+      @p5 = FactoryGirl.create(:person)
+      @p5.communities << @c1
+      @p5.update_attribute(:community_updates_last_sent_at, nil)     
+      PersonMailer.deliver_community_updates
+      ActionMailer::Base.deliveries.size.should == 3
+      ActionMailer::Base.deliveries[2].to.include?(@p5.email).should be_true
+      ActionMailer::Base.deliveries[2].body.include?("during the past 7 days").should be_true
     end
     
   end
