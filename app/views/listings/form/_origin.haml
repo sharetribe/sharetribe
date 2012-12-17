@@ -1,7 +1,7 @@
 .new_listing_form_field_container
   - if !rideshare
     = form.label :origin, t(".location"), :class => "input"
-    = form.text_field :origin, :class => "text_field", :onkeyup => "timed_input(this)", :value => origin_loc.address
+    = form.text_field :origin, :class => "text_field", :onkeyup => "timed_input(this)", :value => (origin_loc ? origin_loc.address : nil)
   - else
     = form.label :origin, t(".origin") + "*:", :class => "input"
     = form.text_field(:origin, :class => "title_text_field", :maxlength => "48",

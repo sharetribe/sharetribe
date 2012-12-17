@@ -859,7 +859,7 @@ fi:
       rideshare: Kimppakyydit
       search_verb: Hae
       you_have_something_others_do_not: "Voisitko tarjota jotain muille?"
-      feed_title: "%{listing_type} %{community_name} %{service_name_inessive} %{optional_category}"
+      feed_title: "%{listing_type} %{community_name}-%{service_name_inessive} %{optional_category}"
     left_panel_link:
       borrows: "Halutaan lainata"
       buys: Ostetaan

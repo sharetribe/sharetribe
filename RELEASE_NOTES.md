@@ -11,6 +11,22 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+2.4.6
+-----
+
+Add translations to ATOM feed for share type and listing type
+
+2.4.5
+-----
+
+- Tiny fixes in emails and Atom feed title
+
+2.4.4
+-----
+
+- bug fixes in statistics and FB login
+- language updates
+
 2.4.3
 -----
 

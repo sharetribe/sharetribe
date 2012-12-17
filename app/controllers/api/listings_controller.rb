@@ -51,7 +51,7 @@ class Api::ListingsController < Api::ApiController
          listing_type_label = t("listings.index.listings")
       end
       
-      @title = t("listings.index.feed_title", :optional_category => @category_label, :community_name => @current_community.name, :listing_type => listing_type_label)
+      @title = t("listings.index.feed_title", :optional_category => @category_label, :community_name => @current_community.name_with_separator(I18n.locale), :listing_type => listing_type_label)
       @updated = @listings.first.present? ? @listings.first.updated_at : Time.now
     end
     respond_with @listings
