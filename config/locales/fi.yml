@@ -389,7 +389,18 @@ fi:
     community_updates:
       added_offer: "lisäsi tarjouksen:"
       added_request: "lisäsi pyynnön:"
-      update_mail_title: "%{community_name}-%{service_name_genetive} uusimmat kuulumiset"
+      update_mail_title: "%{title_link} uusimmat kuulumiset"
+      title_link_text: "%{community_name}-%{service_name_genetive}"
+      intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana"
+      intro_paragraph_link_text: "%{community_name}-%{service_name_inessive}"
+      could_you_share_something: "Voisitko tarjota jotain?"
+      do_you_need_help_with_anything: "Tarvitsetko apua tai tavaraa?"
+      post_a_new_listing: "Lisää uusi ilmoitus!"
+      reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
+      tribe_creation_promotion_footer: "Tiesitkö, että voit avata tällaisen oman verkkotorin ilmaiseksi myös työpaikallesi, harrastusseurallesi tai muulle paikalliselle yhteisölle? %{create_tribe_link} tai kysy lisätietoa vastaamalla tähän sähköpostiin."
+      settings_link_text: "Säädä sähköpostit harvemmaksi"
+      unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
+      create_tribe_link_text: "Luo uusi yhteisö heti"
     newsletter:
       weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
@@ -1300,3 +1311,6 @@ fi:
     seconds_ago: "%{count} sekuntia sitten"
     year_ago: "%{count} vuosi sitten"
     years_ago: "%{count} vuotta sitten"
+    days_since:
+      one: "päivän"
+      other: "%{count} päivän"

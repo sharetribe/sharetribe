@@ -12,6 +12,8 @@ class PersonMailer < ActionMailer::Base
   
   require "truncate_html"
   
+  DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
+  
   default :from => APP_CONFIG.sharetribe_mail_from_address, :reply_to => APP_CONFIG.sharetribe_reply_to_address
   
   layout 'email'
@@ -184,8 +186,10 @@ class PersonMailer < ActionMailer::Base
     
     set_locale @recipient.locale
     default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
-    @time_since_last_update = "7 days" #FIXME
-    #@recipient.ensure_authentication_token!
+    @time_since_last_update = t("timestamps.days_since", 
+        :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
+        DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
+    @auth_token = @recipient.new_email_auth_token
     
     @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
@@ -199,16 +203,20 @@ class PersonMailer < ActionMailer::Base
       return
     end
     
-    @title_link_text = t("emails.community_updates.title_link_text", :community_name => @community.name_with_separator(@recipient.locale))
+    @title_link_text = t("emails.community_updates.title_link_text", 
+          :community_name => @community.name_with_separator(@recipient.locale))
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
       # Postmark doesn't support bulk emails, so use Sendmail for this
       delivery_method = :sendmail
     else
-      delivery_method = APP_CONFIG.mail_delivery_method.to_sym
+      delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
-  
+    
+    @recipient.update_attribute(:community_updates_last_sent_at, Time.now)
+    
+    
     mail(:to => @recipient.email,
          :subject => subject,
          :delivery_method => delivery_method) do |format|
@@ -305,7 +313,7 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email, :subject => @subject)
   end
   
-  def self.deliver_community_updates
+  def self.deliver_old_style_community_updates
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
@@ -315,6 +323,26 @@ class PersonMailer < ActionMailer::Base
             rescue Exception => e
               # Catch the exception and continue sending the news letter
               ApplicationHelper.send_error_notification("Error sending mail for weekly community updates: #{e.message}", e.class)
+            end
+          end
+        end
+      end
+    end
+  end
+  
+  # This task is expected to be run with daily or hourly scheduling
+  # It looks through all users and send email to those who want it now 
+  def deliver_community_updates
+    Person.all.each do |person|
+      if person.should_recieve_community_updates_now?
+        person.communities.each do |community|
+          if community.has_new_listings_since?(person.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago)
+            begin
+              PersonMailer.community_updates(person, community).deliver
+            rescue Exception => e
+              # Catch the exception and continue sending emails
+            puts "Error sending mail to #{person.email} community updates: #{e.message}"
+            ApplicationHelper.send_error_notification("Error sending mail to #{person.email} community updates: #{e.message}", e.class)
             end
           end
         end
@@ -381,14 +409,16 @@ class PersonMailer < ActionMailer::Base
   # selects a set of listings to include in the community updates email
   def select_listings_to_show(requests, offers, recipient)
     selected = []
+    latest = recipient.community_updates_last_sent_at || DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago # don't send older in any case
+    
     requests.each do |r|
-      if r.created_at > 1.year.ago #recipient.last_tribe_updates_sent_at
+      if r.created_at > latest
         selected << r
       end
       break if selected.count > 5
     end
     offers.each do |o|
-      if o.created_at > 1.year.ago #recipient.last_tribe_updates_sent_at
+      if o.created_at > latest
         selected << o
       end
       break if selected.count > 9

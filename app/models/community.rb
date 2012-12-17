@@ -137,6 +137,10 @@ class Community < ActiveRecord::Base
     "#{self.domain}.#{APP_CONFIG.domain}"
   end
 
+  def has_new_listings_since?(time)
+    return listings.where("created_at > ?", time).present?
+  end
+
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE '%#{email_ending}%'")

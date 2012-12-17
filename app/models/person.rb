@@ -75,6 +75,7 @@ class Person < ActiveRecord::Base
   has_many :done_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person1_id", :dependent => :destroy 
   # events where this person was the target of the action
   has_many :targeted_event_feed_events, :class_name => "EventFeedEvent", :foreign_key => "person2_id", :dependent => :destroy
+  has_many :auth_tokens, :dependent => :destroy
   
   has_and_belongs_to_many :followed_listings, :class_name => "Listing", :join_table => "listing_followers"
   
@@ -149,6 +150,7 @@ class Person < ActiveRecord::Base
 
   before_validation(:on => :create) do
     self.id = UUID.timestamp_create.to_s22
+    set_default_preferences unless self.preferences
   end
 
   # Override Devise's authentication finder method to allow log in with username OR email
@@ -487,6 +489,11 @@ class Person < ActiveRecord::Base
     image_file_name.present?
   end
   
+  def new_email_auth_token(valid_for = 36.hours)
+    t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
+    return t.token
+  end
+  
   # Merge this person with the data from the person given as parameter
   # This person is saved and THE PERSON GIVEN IN PARAMETER IS DESTROYED
   # This should be called only from console, as it requires command line choises
@@ -581,7 +588,13 @@ class Person < ActiveRecord::Base
     end
   end
   
-  
+  def should_recieve_community_updates_now?
+    return false unless should_receive?("email_about_weekly_events")
+    # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want 
+    # 1 day limit to match even if there's 23.55 minutes passed since last sending.
+    return true if community_updates_last_sent_at.nil?
+    return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
+  end
   
   private
   

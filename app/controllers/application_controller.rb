@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :domain_redirect, :force_ssl, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
 
@@ -264,6 +264,32 @@ class ApplicationController < ActionController::Base
       
       
     end 
+  end
+  
+  def check_auth_token
+    if params[:auth]
+      unless person_signed_in?  #if cookie and session already set up, ignore auth token
+        if t = AuthToken.find_by_token(params[:auth])
+          t.last_use_attempt = Time.now # record the usage attempt to see how people click on email links
+          if t.expires_at > Time.now
+            # Token is valid, sign the person in
+            sign_in(t.person)
+            t.times_used = t.times_used + 1 
+          else
+            #flash.now[:warning] = "auth_token_expired"
+          end
+          t.save
+        else
+          #flash.now[:warning] = "auth_token_not_found"
+        end      
+      end
+      
+      #if url had auth param, remove it.
+      path_without_auth_token = request.fullpath.gsub(/auth=[^\&]*(\&?)/,"")
+      puts path_without_auth_token
+      redirect_to path_without_auth_token
+    end
+    
   end
   
   def force_ssl
