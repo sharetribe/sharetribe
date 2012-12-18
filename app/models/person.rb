@@ -295,7 +295,6 @@ class Person < ActiveRecord::Base
   def set_default_preferences
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
-    self.preferences["email_about_weekly_events"] = true
     self.preferences["email_newsletters"] = true
     save
   end
@@ -402,6 +401,10 @@ class Person < ActiveRecord::Base
   end
   
   def should_receive?(email_type)
+    if email_type == "community_updates"
+      # this is handled outside prefenrences so answer separately
+      return active && confirmed_at && min_days_between_community_updates < 100000
+    end
     active && confirmed_at && preferences && preferences[email_type]
   end
   
@@ -589,7 +592,7 @@ class Person < ActiveRecord::Base
   end
   
   def should_recieve_community_updates_now?
-    return false unless should_receive?("email_about_weekly_events")
+    return false unless should_receive?("community_updates")
     # return whether or not enought time has passed. The - 45.minutes is because the sending takes some time so we want 
     # 1 day limit to match even if there's 23.55 minutes passed since last sending.
     return true if community_updates_last_sent_at.nil?

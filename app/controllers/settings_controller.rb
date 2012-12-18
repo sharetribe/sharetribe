@@ -44,7 +44,7 @@ class SettingsController < ApplicationController
     
     if @person_to_unsubscribe && @person_to_unsubscribe.id == params[:person_id]
       if params[:email_type] == "community_updates"
-        @person_to_unsubscribe.preferences["email_about_weekly_events"] = false
+        @person_to_unsubscribe.min_days_between_community_updates = 100000
         @person_to_unsubscribe.save!
         @unsubscribe_successful = true
         render :unsubscribe, :layout => "application"

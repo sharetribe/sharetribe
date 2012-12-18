@@ -317,7 +317,7 @@ class PersonMailer < ActionMailer::Base
     Community.all.each do |community|
       if community.created_at < 1.week.ago && community.listings.size > 5 && community.automatic_newsletters
         community.members.each do |member|
-          if member.should_receive?("email_about_weekly_events")
+          if member.should_receive?("community_updates")
             begin
               PersonMailer.old_style_community_updates(member, community).deliver
             rescue Exception => e

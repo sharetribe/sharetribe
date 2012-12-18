@@ -13,10 +13,10 @@ describe SettingsController do
       p1.set_default_preferences
       
       
-      p1.preferences["email_about_weekly_events"].should be_true
+      p1.min_days_between_community_updates.should == 1
       get :unsubscribe, {:email_type => "community_updates", :person_id => p1.id}
       response.status.should == 200
-      p1.preferences["email_about_weekly_events"].should be_false
+      p1.min_days_between_community_updates.should == 100000
       #response.body.should include("Unsubscribe succesful")
       
     end
@@ -27,7 +27,7 @@ describe SettingsController do
       t = p1.new_email_auth_token
       AuthToken.find_by_token(t).update_attribute(:expires_at, 2.days.ago)
       p1.set_default_preferences
-      p1.preferences["email_about_weekly_events"].should be_true
+      p1.min_days_between_community_updates.should == 1
       get :unsubscribe, {:email_type => "community_updates", :person_id => p1.id, :auth => t}
       response.status.should == 302 #redirection to url withouth token in query string
       session[:expired_auth_token].should == t
@@ -35,18 +35,17 @@ describe SettingsController do
                         {:expired_auth_token => t}
       response.status.should == 200
       p1 = Person.find(p1.id) # fetch again to refresh
-      p1.preferences["email_about_weekly_events"].should be_false
-      
+      p1.min_days_between_community_updates.should == 100000
     end
     
     it "should not unsubscribe if no token provided" do
       @request.host = "test.lvh.me"
       p1 = FactoryGirl.create(:person)
       p1.set_default_preferences
-      p1.preferences["email_about_weekly_events"].should be_true
+      p1.min_days_between_community_updates.should == 1
       get :unsubscribe, {:email_type => "community_updates", :person_id => p1.id}
       response.status.should == 401
-      p1.preferences["email_about_weekly_events"].should be_true
+      p1.min_days_between_community_updates.should == 1
       
     end
   end
