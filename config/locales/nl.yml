@@ -1218,16 +1218,25 @@ nl:
     notifications:
       i_want_to_get_email_notification_when: "Ik wil graag een email bevestiging krijgen als..."
       newsletters: ~
+      community_updates: ~
       email_about_accept_reminders: ~
       email_about_new_badges: "...ik heb een nieuwe badge bereikt"
       email_about_new_comments_to_own_listing: "...iemand heeft gereageerd op mijn aanbod of verzoek"
       email_about_new_messages: "...iemand stuurt me een bericht"
       email_about_new_received_testimonials: "...iemand geeft me feedback"
       email_about_testimonial_reminders: "...ik ben vergeten feedback te geven op een event"
-      email_about_weekly_events: ~
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...iemand accepteert mijn aanbod of verzoek"
       email_when_conversation_rejected: "...iemand weigert mijn aanbod of verzoek"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Over jou:"
       city: "Stad:"

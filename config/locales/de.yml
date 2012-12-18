@@ -1223,16 +1223,25 @@ de:
     notifications:
       i_want_to_get_email_notification_when: "Ich möchte eine Email Benachrichtigung erhalten wenn..."
       newsletters: Newsletter
+      community_updates: ~
       email_about_accept_reminders: "...Ich habe vergessen, eine Veranstaltung zu akzeptieren"
       email_about_new_badges: "...Ich habe ein neues Abzeichen erhalten"
       email_about_new_comments_to_own_listing: "...jemand kommentiert mein Angebot oder Anfrage"
       email_about_new_messages: "...jemand sendet mir eine Nachricht"
       email_about_new_received_testimonials: "...jemand gibt mir Feedback"
       email_about_testimonial_reminders: "...ich habe vergessen jemandem zu einer Veranstaltung Feedback zu hinterlassen"
-      email_about_weekly_events: "Senden Sie mir jede Woche eine Email über die Geschehnisse in %{service_name}"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...jemand akzeptiert mein Angebot oder meine Anfrage"
       email_when_conversation_rejected: "...jemand lehnt mein Angebot oder meine Anfrage ab"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Über Sie:"
       city: "Stadt:"

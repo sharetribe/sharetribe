@@ -1220,16 +1220,25 @@ el:
     notifications:
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
       newsletters: Newsletters
+      community_updates: ~
       email_about_accept_reminders: "... έχω ξεχάσει να αποδεχτώ μία προσφορά ή αίτημα"
       email_about_new_badges: "... λαμβάνω μια καινούρια κονκάρδα"
       email_about_new_comments_to_own_listing: "... κάποιος σχολιάζει την προσφορά ή το αίτημά μου"
       email_about_new_messages: "... κάποιος μου στέλνει μήνυμα"
       email_about_new_received_testimonials: "... κάποιος αφήνει ένα σχόλιο για μένα"
       email_about_testimonial_reminders: "... έχω ξεχάσει να κάνω κριτική για κάποιο συμβάν"
-      email_about_weekly_events: "Να λαμβάνω ένα email κάθε βδομάδα με οτιδήποτε νέο στα sharetribes στα οποία συμμετέχω."
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: "Να μου στέλνετε περιστασιακά τα νέα του %{service_name}"
       email_when_conversation_accepted: "... κάποιος δέχεται την προσφορά ή το αίτημά μου"
       email_when_conversation_rejected: "... κάποιος απορρίπτει την προσφορά ή το αίτημά μου"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Σχετικά με σένα:"
       city: "Πόλη:"

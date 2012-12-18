@@ -1225,16 +1225,25 @@ es:
     notifications:
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
+      community_updates: ~
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
-      email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en %{service_name}"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: "Enviarme ocasionalmente %{service_name} newsletter"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Acerca de ti:"
       city: "Ciudad:"

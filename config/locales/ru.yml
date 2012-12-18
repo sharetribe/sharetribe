@@ -1222,16 +1222,25 @@ ru:
     notifications:
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       newsletters: "Новостная рассылка"
+      community_updates: ~
       email_about_accept_reminders: "...я забыл принять решение по событию"
       email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
-      email_about_weekly_events: "Я хочу получать еженедельный дайджест новостей моих сообществ"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: "Отправляйте мне иногда рассылку новостей %{service_name}"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "О вас:"
       city: "Город:"

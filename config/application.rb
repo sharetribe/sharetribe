@@ -54,7 +54,8 @@ module Kassi
           ["Español", "es-ES"], 
           ["Catalan", "ca"],
           ["Tiếng Việt", "vi"],
-          ["Deutsch", "de"]
+          ["Deutsch", "de"],
+          ["Svenska", "sv"]
     ]
 
     # This is the list o locales avaible for the dashboard and newly created tribes in UI
