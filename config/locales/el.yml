@@ -111,8 +111,8 @@ el:
       send_request_message: "Στείλε το αίτημα"
       send_message: Αποστολή
       this_message_is_private: "Αυτό το μήνυμα είναι προσωπικό, μεταξύ εσένα και του/της %{person}."
-      you_will_get_notified_of_acceptance: "Θα λάβεις μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σου."
-      you_will_get_notified: "Θα λάβεις μια ειδοποίηση με email όταν ο/η %{person} σου απαντήσει."
+      you_will_get_notified_of_acceptance: "Θα λάβετε μια ειδοποίηση μέσω email όταν ο/η %{person} δεχτεί ή απορρίψει την πρότασή σας."
+      you_will_get_notified: "Θα λάβετε μια ειδοποίηση με email όταν ο/η %{person} σας απαντήσει."
       title: Τίτλος
       send_message_to_user: "Αποστολή μηνύματος στον/στην %{person}"
     notifications:
@@ -167,17 +167,17 @@ el:
     map_bubble:
       view_tribe: "Εμφάνιση του sharetribe"
     email_confirmation_pending:
-      confirmation_pending: "Παρακαλούμε, επιβεβαίωσε την διεύθυνση email σου"
+      confirmation_pending: "Παρακαλούμε, επιβεβαιώστε τη διεύθυνση email σας"
     enter_organization_email:
-      enter_your_organization_email: "Γράψτε την ηλεκτρονική διεύθυνση του/της %{community_category} σας"
+      enter_your_organization_email: "Γράψτε την ηλεκτρονική διεύθυνση της κοινότητάς σας"
       only_people_with_verified_email_address_can_join_your_tribe: "Μόνο άτομα με επιβεβαιωμένη ηλεκτρονική διεύθυνση αυτής της κοινότητας μπορούν να συμμετέχουν σε αυτό το sharetribe."
       continue: Συνέχεια
       tribe_exists: "Υπάρχει ήδη!"
-      this_tribe_exists_already: "Αυτό το sharetribe υπάρχει ήδη! Μηπως θέλετε να συμμετέχετε σε αυτό;"
+      this_tribe_exists_already: "Αυτό το sharetribe υπάρχει ήδη! Μηπως θα θέλατε να συμμετέχετε σε αυτό;"
     done:
-      done: Εντάξει!
-      tribe_created_successfully: "Δημιούργησες την κοινότητά σου επιτυχώς."
-      go_to_your_tribe: "Πήγαινε στο sharetribe σου"
+      done: Έτοιμο!
+      tribe_created_successfully: "Το sharetribe σας είναι έτοιμο."
+      go_to_your_tribe: "Επισκεφτείτε το sharetribe σας"
       we_will_contact_you_about_invoicing: "Θα επικοινωνήσουμε εμείς μαζί σου αργότερα σχετικά με τη χρέωση της υπηρεσίας."
     index:
       find_your_local_tribe: "Βρείτε ένα sharetribe κοντά σας"
@@ -198,13 +198,13 @@ el:
       intranet_integration: "Ολοκλήρωση με Intranet"
       no_charge: "Χωρίς χρέωση"
       euros_per_month_premium: "%{price} ευρώ/μήνα (περιλ. ΦΠΑ)"
-      custom_domain: "Επιλογή ηλεκτρονικής διεύθυνσης (domain)"
+      custom_domain: "Custom domain"
       you_can_change_and_cancel: "Μπορείτε να αλλάξετε αυτή την επιλογή οποιαδήποτε στιγμή."
       we_help_you_get_started: "Προσφέρουμε βοήθεια για να ξεκινήσει η κοινότητα"
       discounts_available_for_non_profits: "Για μη-κερδοσκοπικούς οργανισμούς ισχύει έκπτωση 50%"
     select_tribe_category_form:
       what_kind_of_tribe_do_you_want_to_create: "Πείτε μας για την κοινότητά σας"
-      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πες μας τι είδους κοινότητα αντιπροσωπεύεις επιλέγοντας ένα από τα παρακάτω."
+      first_tell_us_what_kind_of_community_the_tribe_is_for_by_selecting_one_option_below: "Πείτε μας τι είδους κοινότητα εκπροσωπείτε επιλέγοντας ένα από τα παρακάτω."
       company: Εταιρεία
       university: Πανεπιστήμιο
       town: Πόλη
@@ -214,34 +214,34 @@ el:
       apartment_building: Πολυκατοικία
       other: "Κάτι άλλο"
     new_tribe_form:
-      create_a_tribe_in_a_minute: "Δημιούργησε μια νέα κοινότητα μέσα σε ένα λεπτό"
-      welcome_now_create_your_tribe: "Καλωσόρισες %{name}, δημιούργησε την κοινότητά σου."
-      name_of_your_tribe: "Όνομα της κοινότητας"
-      web_address_of_your_tribe: "Ηλεκτρονική διεύθυνση της κοινότητας"
+      create_a_tribe_in_a_minute: "Δημιουργήστε ένα sharetribe μέσα σε ένα λεπτό"
+      welcome_now_create_your_tribe: "Καλωσόρισες %{name}! Συνεχίστε τώρα στη δημιουργία του sharetribe σας."
+      name_of_your_tribe: "Όνομα του sharetribe"
+      web_address_of_your_tribe: "Διεύθυνση του sharetribe στο διαδίκτυο"
       slogan_of_your_tribe: "Σλόγκαν (θα φαίνεται στην αρχική σελίδα)"
-      describe_your_tribe: "Γράψε μια περιγραφή: ποιος είναι ο στόχος της κοινότητας"
-      create_your_tribe: "Δημιούργησε την κοινότητά σου!"
-      domain_invalid: "Η ηλεκτρονική διεύθυνση επιτρέπεται να περιέχει μόνο γράμματα, αριθμούς, παύλες και κάτω παύλες."
-      domain_taken: "Αυτή η κοινότητα υπάρχει ήδη. Πρέπει να διαλέξεις μια άλλη διεύθυνση."
-      address: "Περιοχή της κοινότητας"
+      describe_your_tribe: "Γράψτε μια περιγραφή: ποιος είναι ο στόχος της κοινότητας"
+      create_your_tribe: "Δημιουργήστε το sharetribe σας!"
+      domain_invalid: "Η διεύθυνση επιτρέπεται να περιέχει μόνο γράμματα, αριθμούς, παύλες και κάτω παύλες."
+      domain_taken: "Αυτό το sharetribe υπάρχει ήδη. Πρέπει να διαλέξετε μια άλλη διεύθυνση."
+      address: "Περιοχή του sharetribe"
       select_main_language_of_your_tribe: "Επέλεξε την κύρια γλώσσα της κοινότητας"
       language: Γλώσσα
       restrict_tribe_to_invited_people: "Απαιτείται πρόσκληση για συμμετοχή"
     signup_form:
-      create_an_account: "Δημιούργησε ένα λογαριασμό για σένα"
-      to_create_a_tribe_you_must_first_create_sharetribe_account: "Μπορείς να δημιουργήσεις ένα νέο λογαριασμό στο Sharetribe ή να"
-      log_in_with_your_existing_account: "συνδεθείς με τον λογαριασμό σου"
-      your_email: "Η ηλεκτρονική σας διεύθυνση"
-      your_university_email: "Το email του πανεπιστημίου σου"
-      your_company_email: "Το email της εταιρείας σου"
-      you_need_to_confirm: "Για να συνεχίσεις πρέπει να επιβεβαιώσεις την διεύθυνση ηλεκτρονικού ταχυδρομείου της κοινότητας σου."
+      create_an_account: "Δημιουργήστε ένα λογαριασμό για εσάς"
+      to_create_a_tribe_you_must_first_create_sharetribe_account: "Μπορείτε να δημιουργήσετε ένα νέο λογαριασμό στο %{service_name} ή να"
+      log_in_with_your_existing_account: "συνδεθείτε με τον λογαριασμό σας"
+      your_email: "η ηλεκτρονική σας διεύθυνση"
+      your_university_email: "το email του πανεπιστημίου σας"
+      your_company_email: "το email της εταιρείας σας"
+      you_need_to_confirm: "Για να συνεχίσετε πρέπει πρώτα να επιβεβαιώσετε τη διεύθυνση ηλεκτρονικού ταχυδρομείου της κοινότητάς σας."
       pick_username: "Επιλέξτε ένα όνομα χρήστη"
-      your_given_name: "Το όνομά σου"
-      your_family_name: "Το επώνυμό σου"
+      your_given_name: "Το όνομά σας"
+      your_family_name: "Το επώνυμό σας"
       your_password: Κωδικός
       confirm_your_password: "Επιβεβαίωση κωδικού"
-      email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχεις ήδη λογαριασμό, μπορείς να συνδεθείς χρησιμοποιώντας τον παραπάνω σύνδεσμο."
-      invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείς με ένα email που να σχετίζεται με το/την %{community_category} σου."
+      email_in_use_message: "Υπάρχει ήδη λογαριασμός στο %{service_name} με αυτή την διεύθυνση email. Αν έχετε ήδη λογαριασμό, μπορείτε να συνδεθείτε χρησιμοποιώντας τον παραπάνω σύνδεσμο."
+      invalid_email_ending_message: "Αυτό μοιάζει να είναι προσωπικό email. Θα πρέπει να γραφτείτε με ένα email που να σχετίζεται με την κοινότητά σας."
       log_in_here: "συνδεθείτε εδώ"
       existing_community_with_this_email: "Υπάρχει ήδη ένα sharetribe γι' αυτή την κοινότητα. Μπορείτε να συμμετέχετε σε αυτό %{link}."
       here: εδώ
@@ -271,7 +271,7 @@ el:
       get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
       browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
       slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
-      create_your_own: "Δημιούργησε ένα"
+      create_your_own: "Δημιουργήστε ένα"
       sharing_website: SHARETRIBE
       main_description: "Δημιουργήστε μια ιστοσελίδα όπου τα μέλη της κοινότητάς σας μπορούν με ασφάλεια να μοιράζονται αντικείμενα και υπηρεσίες. Είναι δωρεάν και γίνεται μέσα σε 1 λεπτό!"
       kassi_for_your_company: "... ΣΤΗΝ ΕΤΑΙΡΙΑ"
@@ -280,11 +280,11 @@ el:
       kassi_for_your_city_description: "Μετασχηματίστε τις γειτονιές σας σε κοινότητες όπου οι άνθρωποι γνωρίζονται μεταξύ τους και βοηθούν ο ένας τον άλλο. Με το %{service_name} μπορείτε να δώσετε τη δυνατότητα στους πολίτες να βελτιώσουν τη ζωή τους!"
       kassi_for_your_university: "... ΣΤΟ ΠΑΝΕΠΙΣΤΗΜΙΟ"
       kassi_for_your_university_description: "Θέλετε μια δραστήρια πανεπιστημιούπολη όπου οι άνθρωποι γνωρίζονται και εμπιστεύονται ο ένας τον άλλο; Βοηθήστε τους φοιτητές και το προσωπικό του πανεπιστημίου να κερδίζουν χρόνο, χρήμα και να κάνουν καλό στο περιβάλλον. Δοκιμάστε το %{service_name}!"
-      want_kassi_for_your_community: "Θα ήθελες το %{service_name} στην κοινότητά σου;"
+      want_kassi_for_your_community: "Θα θέλατε το %{service_name} στην κοινότητά σας;"
       email_default_text: "Ηλεκτρονική διεύθυνση"
       send: Αποστολή!
-      or_drop_us_a_line: "... ή επικοινώνησε μαζί μας:"
-      thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σου σύντομα!"
+      or_drop_us_a_line: "... ή επικοινωνήστε μαζί μας:"
+      thanks_for_contacting_us: "Ευχαριστούμε για το ενδιαφέρον! Θα επικοινωνήσουμε μαζί σας σύντομα!"
       resources: ΠΕΡΙΣΣΟΤΕΡΑ
       connect: ΔΙΚΤΥΩΣΗ
       about: "ΣΧΕΤΙΚΑ ΜΕ ΤΟ SHARETRIBE"
@@ -387,20 +387,20 @@ el:
       has_updated_request_you_follow_in_kassi: "Ο/Η %{author} ενημέρωσε την προσφορά \"%{listing}\" που παρακολουθείς στο %{service_name}"
       you_can_view_the_changes_in: "Μπορείς να δεις τις αλλαγές στο"
     community_updates:
-      added_offer: ~
-      added_request: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      could_you_share_something: ~
-      do_you_need_help_with_anything: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
-      tribe_creation_promotion_footer: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
-      create_tribe_link_text: ~
+      added_offer: "πρόσθεσε μια προσφορά:"
+      added_request: "πρόσθεσε ένα αίτημα:"
+      update_mail_title: "Ενημερώσεις από το %{title_link}"
+      title_link_text: "%{service_name} %{community_name}"
+      intro_paragraph: "Δείτε κάποια από τα νέα του %{community_link} τις τελευταίες %{time_since_last_update}"
+      intro_paragraph_link_text: "%{service_name} %{community_name}"
+      could_you_share_something: "Μήπως έχετε κάτι να προσφέρετε;"
+      do_you_need_help_with_anything: "Χρειάζεστε κάποια βοήθεια;"
+      post_a_new_listing: "Κάντε μια νέα καταχώρηση!"
+      reduce_email_footer_text: "Είναι πολλά τα email που λαμβάνετε; %{settings_link} ή %{unsubscribe_link}"
+      tribe_creation_promotion_footer: "Ξέρετε ότι μπορείτε να δημιουργήστε μια πλατφόρμα διαμοιρασμού σαν αυτή δωρεάν για τη γειτονιά σας, την πόλη σας, το σύλλογο ή οποιαδήποτε άλλη κοινότητα; %{create_tribe_link} ή απαντήστε σε αυτό το μήνυμα για να μάθετε περισσότερα."
+      settings_link_text: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου"
+      unsubscribe_link_text: "διαγραφτείτε από τη λίστα ενημερώσεων"
+      create_tribe_link_text: "Δημιουργήστε μία"
     newsletter:
       weekly_news_from_kassi: "Εβδομαδιαία ενημέρωση από την κοινότητα %{service_name} \"%{community}\""
       hi: "Γεια σου %{name},"
@@ -449,7 +449,7 @@ el:
     error_description: "Περιγραφή του σφάλματος"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
-      kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και τότε ανανέωσε αυτή τη σελίδα. Αν θέλεις να χρησιμοποιείς το %{service_name} χωρίς Javascript, παρακαλούμε στείλε μας τα σχόλιά σου χρησιμοποιώντας την παρακάτω φόρμα."
+      kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και ανανέωσε τη σελίδα. Αν θέλεις να χρησιμοποιείς το %{service_name} χωρίς Javascript, παρακαλούμε στείλε μας τα σχόλιά σου χρησιμοποιώντας την παρακάτω φόρμα."
       kassi_does_not_currently_work_without_javascript_dashboard: "To %{service_name} δεν λειτουργεί χωρίς Javascript. Προσπαθήστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του browser σας και ανανεώστε τη σελίδα. Αν θέλετε να χρησιμοποιήσετε το %{service_name} χωρίς Javascript, παρακαλούμε %{contact_us}."
       contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: "Αποστολή σχολίων"
@@ -1311,3 +1311,6 @@ el:
     seconds_ago: "πριν από %{count} δευτερόλεπτα"
     year_ago: "πριν από %{count} χρόνο"
     years_ago: "πριν από %{count} χρόνια"
+    days_since:
+      one: "%{count} μέρα"
+      other: "%{count} μέρες"
