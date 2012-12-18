@@ -1,0 +1,3 @@
+.settings_checkbox_container
+  = radio_button_tag("person[min_days_between_community_updates]", options[1], @person.min_days_between_community_updates == options[1], :id => options[0])
+  = label_tag(options[0], t("settings.notifications.#{options[0]}").html_safe, :class => "radiobutton")
