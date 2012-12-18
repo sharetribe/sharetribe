@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-content {
+  
   h1 {
     margin: lines(0.25) 0 lines(0.5);
     font-weight: 600;
@@ -70,8 +71,12 @@ h1, h2, h3, h4, h5, h6 {
     -moz-hyphens: auto;
     hyphens: auto;
   }
+  
+  @include media(tablet) {
+    padding-top: lines(0.5);
+  }
+  
 }
-
 
 /*
   ---------------------
@@ -192,7 +197,7 @@ body {
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password], textarea {
   
   @include box-sizing(border-box);
   @include border-radius(em(5));
@@ -200,7 +205,6 @@ input[type=text], input[type=password] {
   width: 95%;
   padding: em(5) em(8);
   margin: lines(0.5) 2.5%;
-  display: block;
   
   @include media(tablet) {
     margin: 0;
@@ -501,12 +505,19 @@ button, input[type=submit] {
 .login-menu {
   
   input[type=text], input[type=password] {
-    margin: 5%;
-    width: 90%;
+    width: 94%;
+  }
+  
+  input[type=text] {
+    margin: 4% 3% 3% 3%;
+  }
+  
+  input[type=password] {
+    margin: 0 3% 3% 3%;
   }
   
   button, input[type=submit] {
-    margin: 0 5% 5% 5%;
+    margin: 0 3% 3% 3%;
   }
   
   @include media(tablet) {
@@ -807,6 +818,7 @@ figure.fluidratio {
     }
     h1 {
       @include large-type;
+      font-weight: 500;
       margin-bottom: em(1);
       line-height: em(20);
     }
@@ -830,8 +842,9 @@ figure.fluidratio {
   color: $background;
   text-align: center;
   height: lines(4.25);
-  a.regular_link { 
-    padding-top: lines(0.2); 
+  a.regular-link {
+    display: block;
+    padding-top: lines(0.25); 
     color: lighten($link, 20%);
     &:hover { color: lighten($link, 30%); }
   }
@@ -844,6 +857,32 @@ figure.fluidratio {
   @include media(desktop) {
     display: block;
   }
+  a.fb-connect {
+
+    cursor: pointer;
+    color: white;
+    display: block;
+    border: em(2) solid #25567c;
+    padding: em(10) em(5) em(6) em(10);
+    width: lines(8.25);
+    text-align: left;
+    @include border-radius(em(5));
+    @include single-text-shadow;
+    @include background-image(linear-gradient(#5a87ac, #265376));
+    &:hover { @include background-image(linear-gradient(#6f99bc, #37668a)); }
+
+    .fb-icon {
+      position: absolute;
+      @include large-type;
+    }
+
+    .fb-text {
+      @include big-type;
+      padding: em(2) em(10) em(7) em(25);
+    }
+
+  }
+  
 }
 
 .actions-menu {
@@ -1172,11 +1211,6 @@ figure.fluidratio {
     background: $background;
   }
   
-  .feed-listing-icons a {
-    color: $body;
-    &:hover { color: $link; }
-  }
-  
   .feed-listing-price {
     display: inline-block;
     margin-right: lines(1);
@@ -1292,7 +1326,7 @@ figure.fluidratio {
   
   .item-description {
     @include media(tablet) {
-      padding-right: lines(12); // Makes horizontal space for image
+      padding-right: lines(16); // Makes horizontal space for image
       min-height: lines(10); // Makes sure there's always enough vertical space for the image
     }
     
@@ -1304,103 +1338,172 @@ figure.fluidratio {
     }    
   }
   
+  .request-link {
+    width: 90%;
+    margin: 0 0 lines(0.5) 0;
+    max-width: 100%;
+    @include button;
+    display: block;
+    
+    @include media(tablet) {
+      margin: 0;
+      position: absolute;
+      right: 0; top: lines(1);
+      width: lines(10) - em(4);
+      
+      &:hover { color: $background; }
+      text-align: center;
+      @include big-type;
+    }
+  }
+  
+  .action-links {
+    margin: 0 0 lines(0.5) 0;
+    
+    .action-link {
+      display: inline;
+      margin-right: lines(0.5);
+    }
+    
+    @include media(tablet) {
+      margin: 0;
+      position: absolute;
+      right: 0; top: lines(1);
+      width: lines(11) - em(4);
+      @include big-type;
+      text-align: left;
+      .action-link {
+        display: block;
+        width: 100%;
+        padding-bottom: lines(0.25);
+      }
+    }
+  }
+  
+  
+  .listing-icons {
+    padding-top: lines(0.5);
+    a {
+      color: $body;
+      &:hover { color: $link; }
+    }
+    
+    .listing-icon {
+      display: inline-block;
+      margin-right: lines(1);
+    }
+    
+  }
+  
+  
   .item-image {
     position: relative;
     float: right;
-    width: lines(3.5);
+    width: lines(4.5);
     margin: 0 0 0 lines(0.5);
 
     img {
       display: block;
       max-width: 100%;
+      @include border-radius(em(5));
     }
     
     @include media(tablet) {
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(1); top: lines(1);
-      width: lines(10);
-    }
-  }
-  
-  .item-meta {
-    background: $highlight;
-    border: solid $border;
-    border-width: 1px 0;
-    
-    @include media(tablet) {
-      // Positions metadata next to the map
-      position: relative;
-      padding-right: lines(12);
-      
-      .item-meta-wrapper {
-        position: absolute;
-        right: 0; top: 0;
-        width: lines(12 - 1);
-        padding: lines(0.5);
+      right: lines(0); top: lines(5);
+      width: lines(15);
+      img {
+        width: lines(15);
+        max-width: lines(15);
       }
     }
   }
   
-  .item-map {
+  .jsmap {
     display: block;
-    border: solid $border;
-    border-width: 0 0 1px;
-    
-    iframe {
-      display: block;
-      width: 100%;
-      height: lines(8);
-    }
+    width: 100%;
+    height: lines(8);
     
     @include media(tablet) {
-      border-width: 0 1px 0 0;
-      
-      iframe {
-        height: lines(13);
-      }
-    }
-  }
-    
-  .item-poster {
-    position: relative;
-    background: $highlight;
-    margin: lines(0.5) lines(1.5 + 0.25) lines(0.25);
-    
-    .avatar {
       position: absolute;
-      left: lines(-1.25); top: 0;
-    }
-    
-    h2 {
-      margin: 0;
-    }
-    
-    .send-message {
-      display: block;
-      position: absolute;
-      right: lines(-1.25); top: 0;
+      right: lines(0); top: lines(17.5);
+      width: lines(15);
+      height: lines(10);
+      @include border-radius(em(5));
     }
   }
   
-  .item-metadata, .social {
-    padding: 0 lines(0.5) lines(0.5);
-
-    small i {
-      color: $aside;
+  .listing-author {
+    
+    
+    position: relative;
+    padding-top: lines(1);
+    min-height: lines(5);
+    
+    h3 {
+      margin: 0;
+      padding: 0;
+      display: inline;
     }
+    
+    .listing-author-image {
+      padding: em(5) em(5) em(2) em(5);
+      background: $background;
+      position: absolute;
+      top: lines(1);
+      left: em(3);
+      @include border-radius(em(5));
+      @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+
+      img {
+        @include border-radius(em(5));
+      }
+    }
+    
+    .listing-author-description {
+      padding-left: lines(3.25);
+    }
+    
+    @include media(tablet) {
+      padding-top: lines(1.25);
+      
+      img {
+        width: lines(4.5);
+        height: lines(4.5);
+      }
+      .listing-author-description {
+        padding-left: lines(6);
+      }
+    }
+    
   }
 
   .social {
-    .fb-like, .twitter-share-button {
-      display: inline-block;
-      margin-right: lines(0.25);
+    
+    position: relative;
+    padding-top: lines(0.5);
+    
+    .fb-like-container {
+      position: absolute;
     }
+    
+    .tweet-button-container {
+      padding-left: lines(8.5);
+      padding-top: em(5);
+    }
+    
+//    .fb-like, .twitter-share-button {
+//      display: inline-block;
+//      margin-right: lines(0.25);
+//    }
+//    .twitter-share-button {
+//      padding-top: lines(1);
+//    }
   }
   
   .discussion {
-    padding-top: lines(0.75);
   
     h2 {
       margin-top: 0;
@@ -1409,15 +1512,14 @@ figure.fluidratio {
     .comment {
       position: relative;
       border-top: 1px dotted $border;
-      padding: lines(0.5) 0;
+      padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
 
       .avatar {
         position: absolute;
         left: 0; top: lines(0.5);
-      }
-      
-      h3 {
-        margin-left: lines(1.25);
+        img {
+          @include border-radius(em(5));
+        }
       }
       
       h3, small {
@@ -1427,17 +1529,58 @@ figure.fluidratio {
       small {
         color: $aside;
       }
-      
-      .comment-content {
+        
+      .comment-content, .comment-icon {
         @include small-type;
         @include media(small-tablet) {
           @include normal-type;
         }
       }
+      
+      .comment-icons {
+        padding-top: lines(0.25);
+        padding-bottom: lines(0.25);
+      }
+      
+      .comment-icon {
+        display: inline-block;
+        margin-right: lines(0.5);
+      }
+      
+    }
+    
+    .comment-form {
+      border-top: 1px dotted $border;
+      padding-top: lines(0.5);
+      position: relative;
+      
+      textarea {
+        width: 95%;
+        height: lines(4);
+        margin: 0;
+      }
+      
+      .comment-form-checkbox {
+        
+        position: relative;
+      
+        input[type=checkbox] {
+          position: absolute;
+          top: lines(0.5);
+        }
+
+        label {
+          display: block;
+          padding: em(6) 0 lines(0.5) lines(1);
+        }
+        
+      }
+
     }
     
     @include media(tablet) {
       padding-top: lines(1.5);
+      padding-right: lines(16);
       
       h2 {
         @include big-type;
@@ -1452,6 +1595,13 @@ figure.fluidratio {
         
         h3 {
           margin: 0;
+        }
+      }
+      
+      .comment-form {
+        textarea {
+          width: 100%;
+          height: lines(6);
         }
       }
     }

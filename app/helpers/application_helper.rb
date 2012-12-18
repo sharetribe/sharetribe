@@ -66,11 +66,11 @@ module ApplicationHelper
   
   def small_avatar_thumb(person)
     return "" if person.nil?
-    link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
+    link_to((image_tag person.image.url(:thumb)), person)
   end
   
   def medium_avatar_thumb(person)
-    link_to((image_tag person.image.url(:thumb), :width => 70, :height => 70), person)
+    link_to((image_tag person.image.url(:thumb)), person)
   end
   
   def large_avatar_thumb(person)

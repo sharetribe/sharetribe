@@ -1,16 +1,21 @@
 - if @listing.closed?
-  .grid_16.alpha.omega
-    #listing_closed_status_wide
-      .listing_closed_status_text
-        = t("listings.reply_link.#{@listing.listing_type}_closed")
-- elsif !current_user?(@listing.author)
-  - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
-  .grid_8.alpha
-    #transaction_proposal_link
-      = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s)
-  .grid_8.omega    
-    #free_message_link
-      - listing_type_string = @listing.listing_type unless (["item","housing"].include?(@listing.category) && @listing.listing_type.eql?("offer"))
-      = link_to t("listings.link_labels.message_link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free")
-          
-    
+  .action-links
+    - if current_user?(@listing.author)
+      %a.action-link{href: edit_listing_path(@listing)}
+        .ss-unlock.icon-with-text
+        .text-with-icon= t("listings.edit_links.reopen_#{@listing.listing_type}")
+    - else
+      .ss-lock.icon-with-text
+      .text-with-icon= t("listings.reply_link.#{@listing.listing_type}_closed")
+- else
+  - if current_user?(@listing.author)
+    .action-links
+      %a.action-link{href: edit_listing_path(@listing)}
+        .ss-draw.icon-with-text
+        .text-with-icon= t("listings.edit_links.edit_#{@listing.listing_type}")
+      %a.action-link{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
+        .ss-unlock.icon-with-text
+        .text-with-icon= t("listings.edit_links.close_#{@listing.listing_type}")
+  - else
+    - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
+    = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s), :class => "request-link"

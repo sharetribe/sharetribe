@@ -4,105 +4,103 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
 
-#listing_image_side.grid_8
-  .image
-    - if @listing.listing_images.empty?
-      %div{:id => "listing_category_big_icon_#{@listing.category}"}
-    - @listing.listing_images.each do |listing_image|
-      = image_tag listing_image.image.url(:medium), :class => "listing_main_image", :alt => @listing.title
-  - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
-    #edit_links
-      = render :partial => "edit_links"
-  - else 
-    #follow_links
-      = render :partial => "follow_links"
+.view-item
+  
+  .item-description.section
+      
+    %h1
+      = listed_listing_title(@listing)
     
-#listing_content_side.grid_16
-  #listing_message_links
-    = render :partial => "message_links"
-  .clear
-  .grid_16.alpha.omega
-    %h1= listed_listing_title(@listing)
-  .clear
-  #listing_center.grid_10.alpha
-    #listing_main_content
-      - if @listing.category == "rideshare" && @listing.valid_until
-        %p
-          %strong
-            = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
-      %p
-        - text_with_line_breaks do
-          = @listing.description.blank? ? t(".no_description") : @listing.description
-      %p
-        %b
-          = t(".#{@listing.listing_type}_created") + " " + time_ago(@listing.created_at)
-          |
+    #listing_message_links
+      = render :partial => "message_links"
+
+    .item-image
+      - @listing.listing_images.each do |listing_image|
+        = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
+    
+    %p Canon PIXMA MP140 - Multifunction (printer/copier/scanner) on sale. The product is in perfect condition and fully working. The original box and the required cable to connect it to the computer via USB is also provided. 
+  
+    %p 
+      Please check the rest of the items that I have on sale:
+      %a{href: 'https://aalto.sharetribe.com/people/d6Q20MCV4r3'} https://aalto.sharetribe.com/people/d6Q20MCV4r3…
+
+    .listing-icons
+      .listing-icon
+        %i.ss-pricetag.icon-with-text 
+        .text-with-icon 22€ / hour
+      .listing-icon
+        %i.ss-view.icon-with-text 
+        .text-with-icon
           = t(".times_viewed")
           = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
-            
-    #listing_author
-      #listing_author_image
+      .listing-icon
+        %i.ss-calendar.icon-with-text 
+        .text-with-icon
+          = t(".#{@listing.listing_type}_created") + " " + time_ago(@listing.created_at)
+      - if @listing.valid_until && @listing.open?
+        .listing-icon
+          %i.ss-alarmclock.icon-with-text 
+          .text-with-icon
+            = t(".open_until", :date => l(@listing.valid_until, :format => :short))
+    
+    - if @listing.public? && ! @current_community.private? 
+      .social
+        .fb-like-container
+          = facebook_like(current_user?(@listing.author))
+        .tweet-button-container
+          = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe")
+          %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}
+
+    .listing-author
+      .listing-author-image
         - if current_user?(@listing.author) && !@listing.author.has_profile_picture?
           .listing_author_add_profile_picture_link
             = link_to t(".add_profile_picture"), avatar_person_settings_path(@listing.author)
         - else
           = medium_avatar_thumb(@listing.author)
-      %div{:id => (@listing.author.received_testimonials.size > 0 ? "listing_author_description" : "listing_author_description_wide")}
-        %strong
+      .listing-author-description
+        %h3
           = t(".#{@listing.listing_type}_author")
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
-          - unless @listing.closed? || current_user?(@listing.author)
-            %br/
-            = link_to t(".send_private_message"), reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), :id => "message_listing_author_link"
-        - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
-          %strong
-            %br/
-            = t(".contact_by_phone")
+        - if @listing.author.received_testimonials.size > 0
           %br/
-          - if @listing.author.phone_number && !@listing.author.phone_number.blank?
-            = @listing.author.phone_number
-          - elsif current_user?(@listing.author)
-            %strong
+          .ss-star.icon-with-text
+          .text-with-icon
+            = t(".feedback")
+            = @listing.author.feedback_positive_percentage.to_s + "%"
+            = t("people.show.positive")
+            = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
+        - unless @listing.closed? || current_user?(@listing.author)
+          %br/
+          %a{href: reply_to_listing_path(:id => @listing.id.to_s, :message_type => "free"), id: "message_listing_author_link"}
+            .ss-mail.icon-with-text
+            .text-with-icon= t(".send_private_message")
+        - if @current_user && @current_user.member_of?(@current_community) && @listing.author.phone_number && !@listing.author.phone_number.blank? && !@listing.closed?
+          %br/
+          .ss-phone.icon-with-text
+          .text-with-icon
+            - if @listing.author.phone_number && !@listing.author.phone_number.blank?
+              = @listing.author.phone_number
+            - elsif current_user?(@listing.author)
               = link_to t(".add_your_phone_number"), person_settings_path(:person_id => @current_user.id)
-      
-      - if @listing.author.received_testimonials.size > 0
-        %a{:href => person_testimonials_path(@listing.author)}
-          #listing_author_feedback
-            %div.listing_author_feedback_title= t(".feedback")
-            %div.listing_author_feedback_percentage= @listing.author.feedback_positive_percentage.to_s + "%"
-            %div.listing_author_feedback_amount
-              = t("people.show.positive")
-              = "(#{@listing.author.received_positive_testimonials.size}/#{@listing.author.received_testimonials.size})"
-          
 
-  #listing_right_panel.grid_6.omega
-    #listing_share_links
-      - if @listing.public? && ! @current_community.private?
-        = facebook_like(current_user?(@listing.author))
-      = link_to("", "https://twitter.com/share", :class => "twitter-share-button", "data-count" => "horizontal", "data-via" => "Sharetribe", "data-related" => "avoinyritys:Our company blog.")
-      %script{:type => "text/javascript", :src => "https://platform.twitter.com/widgets.js"}    
-      - if @current_community.settings["use_qr_code"]
-        = link_to(t(".qr_code"), "http://qrcode.kaywa.com/img.php?s=6&d=#{CGI.escape request.url}", :target => '_blank')
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       #googlemap
         = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
         = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
         - if @listing.category == "rideshare"
           = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
-        - if @listing.location != nil 
-          #single_listing_location
-            = @listing.location.address
         
-  .clear
+      
   
-  #comments
-    %h2
-      = image_tag "/assets/icons/comment_icon.png"
-      = t(".comments")
-      %span{:id => "comment_count"}= "(#{@listing.comments.count})"
-    = render :partial => "comment", :collection => @listing.comments
-  
-  #comment_notice  
-  
-  #listing_comment_form
+  #comments.discussion.section
+    %h2 
+      .ss-chat.icon-with-text
+      .text-with-icon
+        = t(".comments")
+        %span{:id => "comment_count"}= "(#{@listing.comments.count})"
+    
+    #comment-list
+      = render :partial => "comment", :collection => @listing.comments
     = render :partial => "comment_form"
+

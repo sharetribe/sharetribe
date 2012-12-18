@@ -1,19 +1,19 @@
-%div{:id => "comment#{comment.id.to_s}", :class => "comment"}
-  .person_image_message
+.comment{:id => "comment#{comment.id.to_s}"}
+  .avatar
     = small_avatar_thumb(comment.author)
-  .message_arrow_left
-    &nbsp;
-  .comment_main
-    .comment_sender
-      .float_left
-        = link_to comment.author.name, comment.author
-        %span
-          = t(".wrote")
-          = time_ago(comment.created_at) + ":"
-      - unless current_user?(comment.author)
-        .float_right
-          %span
-            = link_to t(".send_private_message", :person => comment.author.given_name_or_username), new_person_message_path(:person_id => comment.author.id, :message_type => "free", :comment_message => true, :listing_id => comment.listing.id)
-    .comment_content_div
-      - text_with_line_breaks do  
-        = comment.content
+  %h3
+    = link_to comment.author.name, comment.author
+  %small= time_ago(comment.created_at)
+  .comment-content
+    - text_with_line_breaks do  
+      = comment.content
+  .comment-icons
+    - if current_user?(comment.listing.author) && !current_user?(comment.author)
+      %a{href: new_person_message_path(:person_id => comment.author.id, :message_type => "free", :comment_message => true, :listing_id => comment.listing.id)}
+        .comment-icon
+          .ss-mail.icon-with-text
+          .text-with-icon= t(".send_private_message", :person => comment.author.given_name_or_username)
+        
+          
+          
+    

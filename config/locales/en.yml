@@ -750,12 +750,13 @@ en:
       wrote: wrote
       send_private_message: "Send private message to %{person}"
     comment_form:
+      ask_a_question: "Comment on the listing or ask for more details. All the other users will be able to see your comment."
       log_in: "log in"
       send_comment: "Send comment"
       to_send_a_comment: "to send a new comment."
       write_comment: "Write a new comment:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send a new comment because this offer is closed."
-      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send a new comment because this request is closed."
+      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send new comments because this offer is closed."
+      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send new comments because this request is closed."
       you_must: "You must"
       subscribe_to_comments: "Notify me of new comments and updates"
     edit:
@@ -945,6 +946,7 @@ en:
       offer: Offer
       offer_author: "Offered by"
       offer_created: Created
+      open_until: "Open until %{date}"
       feedback: "Feedback:"
       qr_code: "QR code"
       request: Request

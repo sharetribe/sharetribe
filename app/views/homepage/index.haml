@@ -50,6 +50,6 @@
 
 #homepage-feed.feed
   - if @offers.total_entries > 0
-    = render :partial => "recent_listing", :collection => @offers, :as => :listing, :spacer_template => "offer_spacer"
+    = render :partial => "recent_listing", :collection => @offers, :as => :listing
     = will_paginate(@offers)
     = pageless(@offers.total_pages, '#homepage-feed', root_path, t('.loading_more_content'), true)

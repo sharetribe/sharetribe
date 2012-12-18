@@ -7,16 +7,16 @@
 //= require jquery
 // require jquery_ujs
 // require jquery.uniform.min
-// require jquery.form
+//= require jquery.form
 // require jquery.lightbox_me
-// require jquery.validate.min
+//= require jquery.validate.min
 //= require jquery.pageless
-// require jquery.autosize-min
+//= require jquery.autosize-min
 // require jquery.watermark.min
 //= html5shiv-printshiv
 //= ss-pika
-// require sharetribe_common
-// require kassi
+//= require sharetribe_common
+//= require kassi
 //= require main
 //= require googlemaps
 //= require_self 

@@ -36,17 +36,22 @@
 
   / CSS
   = stylesheet_link_tag 'application'
+  = stylesheet_link_tag "webfonts/ss-social.css"
   = stylesheet_link_tag "webfonts/ss-pika.css"
 
   = javascript_include_tag "//use.typekit.net/wja3pck.js"
   = javascript_include_tag "/assets/webfonts/ss-pika.js"
+  = javascript_include_tag "/assets/webfonts/ss-social.js"
   :javascript
     try{Typekit.load();}catch(e){
       alert(e);
     }
     
   = javascript_include_tag 'application'
-
+  = yield(:extra_javascript)
+  = csrf_meta_tag
+  :javascript
+    $(document).ready(function() { #{yield :javascript} });
   / Favicons
   -# %link{ href: image_path("favicon.ico"), rel: "shortcut icon" }
   -# %link{ href: image_path("apple-touch-icon-144x144.png"), rel: "apple-touch-icon", sizes: "144x144" }

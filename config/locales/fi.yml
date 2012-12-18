@@ -736,6 +736,7 @@ fi:
       wrote: kirjoitti
       send_private_message: "Lähetä yksityisviesti käyttäjälle %{person}"
     comment_form:
+      ask_a_question: "Kommentoi ilmoitusta tai kysy lisätietoja. Kommenttisi näkyy muille käyttäjille."
       log_in: "kirjautua sisään"
       send_comment: "Lähetä kommentti"
       to_send_a_comment: "jotta voisit kommentoida ilmoitusta."
@@ -931,6 +932,7 @@ fi:
       offer: Tarjous
       offer_author: Tarjoaja
       offer_created: "Tarjous lisätty"
+      open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö

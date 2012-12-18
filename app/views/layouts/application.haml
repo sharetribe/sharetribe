@@ -22,9 +22,14 @@
           %a{href: "#"}
             Read more
     .join-action-buttons
-      %a.intro-button
-        Join this tribe!
-      = link_to("...or join without Facebook", "#", :class => "regular_link")
+      - if @no_fb_connect
+        %a.intro-button
+          Join this tribe
+      - else
+        %a.fb-connect{:href => "#"}
+          %i.ss-icon.ss-social.ss-facebook.fb-icon
+          .fb-text Connect
+      = link_to("...or join without Facebook", "#", :class => "regular-link")
       
 .tribe-navigation
 

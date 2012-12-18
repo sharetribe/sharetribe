@@ -32,7 +32,7 @@
       
     
       .user-menu-toggle.toggle{data: {toggle: '.user-menu'}}
-        = image_tag '/assets/new-design/avatar.jpg', alt: '', class: 'user-avatar'
+        = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
         .user-name= @current_user.name_or_username
 
         %i.icon-dropdown.ss-dropdown
@@ -109,6 +109,8 @@
           = hidden_field_tag :community, @current_community.domain
         = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => "Email or username"
         = password_field_tag "person[password]", nil, :placeholder => "Password"
-        = submit_tag t('sessions.new.login')
+        = button_tag t('sessions.new.login')
+        = link_to t('sessions.new.create_new_account'), sign_up_path
+        = link_to t('sessions.new.i_forgot_my_password'), "#"
         
           
