@@ -299,7 +299,6 @@ module ApplicationHelper
       url += "&#{key}=#{value}"
     end
     return url
-  end
-  
+  end  
   
 end

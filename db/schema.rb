@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(:version => 20121214083430) do
     t.datetime "updated_at",       :null => false
   end
 
+  add_index "auth_tokens", ["token"], :name => "index_auth_tokens_on_token", :unique => true
+
   create_table "badges", :force => true do |t|
     t.string   "person_id"
     t.string   "name"
@@ -257,6 +259,7 @@ ActiveRecord::Schema.define(:version => 20121214083430) do
     t.boolean  "delta",         :default => true,        :null => false
     t.boolean  "open",          :default => true
     t.string   "share_type"
+    t.string   "privacy",       :default => "private"
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

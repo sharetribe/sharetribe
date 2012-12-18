@@ -90,11 +90,9 @@ describe ApplicationController do
     it "logs person in when auth_token is valid" do
       p1 = FactoryGirl.create(:person)
       t = p1.new_email_auth_token
-      get :index, {}, {:auth => t}
+      get :index, {:auth => t}
       response.status.should == 302 #redirection to url withouth token in query string
-      puts assigns.inspect
-      assigns["current_user"].id.should == p1.id
-      
+      assigns("current_user").id.should == p1.id
     end
     
   end

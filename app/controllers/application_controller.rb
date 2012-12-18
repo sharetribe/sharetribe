@@ -274,9 +274,10 @@ class ApplicationController < ActionController::Base
           if t.expires_at > Time.now
             # Token is valid, sign the person in
             sign_in(t.person)
+            @current_user = t.person
             t.times_used = t.times_used + 1 
           else
-            session[:auth_token_expired] = true #this can be used to allow unsubscribes even with old token
+            session[:expired_auth_token] = t.token #this can be used to allow unsubscribes even with old token
             #flash.now[:warning] = "auth_token_expired"
           end
           t.save

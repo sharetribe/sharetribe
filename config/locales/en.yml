@@ -1234,6 +1234,8 @@ en:
       unsubscribe_info_text: "You will no longer receive this type of email. Check your %{settings_link} to choose other emails you want or don't want to recieve, or return to %{homepage_link}."
       settings_link: "settings"
       homepage_link: "home page"
+      unsubscribe_unsuccesful: "Error in unsubscribing"
+      unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or log in to change your email settings."
     profile:
       about_you: "About you:"
       city: "City:"
