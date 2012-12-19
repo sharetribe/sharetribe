@@ -424,7 +424,7 @@ class PersonMailer < ActionMailer::Base
       break if selected.count > 9
     end
         
-    return selected
+    return selected.sort_by{|e| e.created_at}
   end
 
 end

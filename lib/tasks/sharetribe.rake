@@ -179,6 +179,14 @@ namespace :sharetribe do
     end
   end
   
+  
+  namespace :community_updates do
+    desc "Sends the community updates email to everyone who should receive it now"
+    task :deliver => :environment do |t, args|
+      PersonMailer.deliver_community_updates
+    end
+  end
+  
   def random_location_around(coordinate_string, location_type)    
     lat = coordinate_string.split(",")[0].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
     lon =  coordinate_string.split(",")[1].to_f + rand*2*MAX_LOC_DIFF - MAX_LOC_DIFF
