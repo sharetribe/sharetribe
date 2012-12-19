@@ -129,24 +129,33 @@ body {
   }
 }
 
-// For simple, one-column views
+// User for simple centered views with mostly forms
 .centered-section {
   padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
   max-width: lines(19);
-  input[type=text], input[type=password], textarea {
-    //margin-bottom: lines(0.5);
-  }
+  
   form {
     padding-bottom: lines(2);
   }
+  
+  input[type=text], input[type=password], textarea {
+    //margin-bottom: lines(0.5);
+  }
+  
+  textarea {
+    height: lines(5);
+  }
+  
+  
   a.fb-connect {
     @include facebook-connect-button;
     padding: em(10) 2% em(6) 2%;
     width: 95%;
     margin-bottom: lines(0.5);
   }
+  
 }
 
 .avatar {
@@ -247,6 +256,7 @@ form {
       width: auto;
       padding: 0 0 0 lines(1);
       margin-top: lines(0.5) - em(3);
+      font-weight: 600;
     }
     
     label.error {
@@ -291,6 +301,7 @@ label {
   width: 100%;
   display: block;
   margin-top: lines(0.5);
+  font-weight: 600;
 }
 
 label.inline {
@@ -1697,3 +1708,12 @@ figure.fluidratio {
 }
 
 
+/* 
+  ----------------
+  New message form
+  ----------------
+*/
+
+.title-label {
+  font-weight: 600;
+}

@@ -1,52 +1,51 @@
 - content_for :javascript do
   initialize_send_message_form('#{I18n.locale}');
 
-.grid_10.prefix_7.suffix_7
-  #new_message_form
+#new_message_form.centered-section
+  - if params[:message_type]
+    %h2= t(".send_message_to_user", :person => @target_person.given_name_or_username)
+  - else
+    %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => link_to(@target_person.given_name_or_username, @target_person)).html_safe   
+  %p
+    = t(".this_message_is_private", :person => @target_person.given_name_or_username)
     - if params[:message_type]
-      %h2= t(".send_message_to_user", :person => @target_person.given_name_or_username)
+      = t(".you_will_get_notified", :person => @target_person.given_name_or_username)
     - else
-      %h2= t(".#{transaction_proposal_form_title(@listing)}", :listing => link_to(@listing.title, @listing), :person => link_to(@target_person.given_name_or_username, @target_person)).html_safe   
-    %p
-      = t(".this_message_is_private", :person => @target_person.given_name_or_username)
-      - if params[:message_type]
-        = t(".you_will_get_notified", :person => @target_person.given_name_or_username)
-      - else
-        = t(".you_will_get_notified_of_acceptance", :person => @target_person.given_name_or_username)
-    = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
-      = form.error_messages
-      .form_field_container
-        - if params[:message_type]
-          = form.label :title, t('.title') + ":"
-          = form.text_field :title, :class => "text_field", :maxlength => "120"
-        - else
-          .title_label
-            = t(".title") + ":"
-          .title_content
-            = get_message_title(@listing)
-            = form.hidden_field :title, :value => get_message_title(@listing)
-      .form_field_container
-        = fields_for "conversation[message_attributes]", Message.new do |message_form|
-          = message_form.label :content, t('.message') + ":"
-          = message_form.text_area :content, :class => "text_area"
-          = message_form.hidden_field :sender_id, :value => @current_user.id
-      .form_field_container
-        = hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", true
-        = hidden_field_tag "conversation[conversation_participants][#{@target_person.id}]", false
-        - if @listing
-          = form.hidden_field :listing_id, :value => @listing.id
-        - if params[:message_type]
-          = form.hidden_field :status, :value => params[:message_type]
-        - if params[:profile_message]
-          = hidden_field_tag "profile_message", params[:profile_message]
-          = hidden_field_tag "target_person_id", @target_person.id
-        - if params[:comment_message]
-          = hidden_field_tag "comment_message", params[:comment_message]
-          = hidden_field_tag :listing_id, @listing.id
-          = hidden_field_tag "target_person_id", @target_person.id
-        - if params[:message_type]
-          = form.submit t(".send_message"), :class => "send_button"
-        - else
-          = form.submit t(".send_#{@listing.discussion_type}_message"), :class => "send_button"
+      = t(".you_will_get_notified_of_acceptance", :person => @target_person.given_name_or_username)
+  = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
+    
+    - if params[:message_type]
+      = form.label :title, t('.title') + ":"
+      = form.text_field :title, :class => "text_field", :maxlength => "120"
+    - else
+      .title-label
+        = t(".title")
+      .title_content
+        = get_message_title(@listing)
+        = form.hidden_field :title, :value => get_message_title(@listing)
+      
+    = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = message_form.label :content, t('.message')
+      = message_form.text_area :content, :class => "text_area"
+      = message_form.hidden_field :sender_id, :value => @current_user.id
+      
+    = hidden_field_tag "conversation[conversation_participants][#{@current_user.id}]", true
+    = hidden_field_tag "conversation[conversation_participants][#{@target_person.id}]", false
+    - if @listing
+      = form.hidden_field :listing_id, :value => @listing.id
+    - if params[:message_type]
+      = form.hidden_field :status, :value => params[:message_type]
+    - if params[:profile_message]
+      = hidden_field_tag "profile_message", params[:profile_message]
+      = hidden_field_tag "target_person_id", @target_person.id
+    - if params[:comment_message]
+      = hidden_field_tag "comment_message", params[:comment_message]
+      = hidden_field_tag :listing_id, @listing.id
+      = hidden_field_tag "target_person_id", @target_person.id
+    - if params[:message_type]
+      = form.button t(".send_message"), :class => "send_button"
+    - else
+      = form.button t(".send_#{@listing.discussion_type}_message"), :class => "send_button"
 
+  
 

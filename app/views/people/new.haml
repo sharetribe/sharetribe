@@ -44,9 +44,9 @@
     = form.text_field :username, :class => :text_field, :maxlength => "20"
     
     -# Name
-    = form.label :given_name, t('.given_name'), :class => "before_description"
+    = form.label :given_name, t('.given_name')
     = form.text_field :given_name, :class => :text_field, :maxlength => "30"
-    = form.label :family_name, t('.family_name'), :class => "before_description"
+    = form.label :family_name, t('.family_name')
     = form.text_field :family_name, :class => :text_field, :maxlength => "30"
     - if @current_community.select_whether_name_is_shown_to_everybody
       .checkbox-container
@@ -54,7 +54,7 @@
         = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
     
     -# Email
-    = form.label :email, t('.email'), :class => "before_description"
+    = form.label :email, t('.email')
     = form.text_field :email, :class => :text_field, :maxlenght => "255"
     
     -# Honey pot: hidden field to detect spammers
