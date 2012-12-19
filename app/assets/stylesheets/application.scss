@@ -255,6 +255,10 @@ input[type=text], input[type=password], textarea {
   display:none;
 }
 
+.inline-label-container {
+  margin-top: lines(0.5);
+}
+
 label {
   width: 100%;
   display: block;
@@ -264,6 +268,11 @@ label {
 label.inline {
   width: auto;
   display: inline;
+  margin-right: lines(0.5);
+}
+
+.label-info {
+  @include small-type;
 }
 
 button {

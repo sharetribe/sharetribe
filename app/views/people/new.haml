@@ -21,16 +21,22 @@
     %p
       = t(".if_you_already_have_account_you_can")
       = link_to(t(".join_with_your_existing_account"), new_tribe_membership_path, :class => "form") + "."
-  = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
-    = form.error_messages
+  = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
+    
+    -# Invite code
     - if @current_community.join_with_invite_only?
-      = label_tag :invitation_code, t('.invitation_code'), :class => "inline"
-      %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
+      .inline-label-container
+        = label_tag :invitation_code, t('.invitation_code'), :class => "inline"
+        = link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info")
       = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
     - elsif params[:code]
       = hidden_field_tag "invitation_code", params[:code]
-    = form.label :username, (username_label + ":"), :class => "inline"
+    
+    -# Username
+    = form.label :username, username_label
     = form.text_field :username, :class => :text_field, :maxlength => "20"
+    
+    -# Name
     = form.label :given_name, t('.given_name'), :class => "before_description"
     = form.text_field :given_name, :class => :text_field, :maxlength => "30"
     = form.label :family_name, t('.family_name'), :class => "before_description"
@@ -39,23 +45,30 @@
       .checkbox-container
         %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
         = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
+    
+    -# Email
     = form.label :email, t('.email'), :class => "before_description"
     = form.text_field :email, :class => :text_field, :maxlenght => "255"
-    - # Honey pot: hidden field to detect spammers
+    
+    -# Honey pot: hidden field to detect spammers
     = form.label :email_confirmation, "You should not see this field, if CSS is working. If you see this, please send feedback on left!", :class => "unwanted_text_field" 
     = form.text_field :email_confirmation, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"       
      
-    = form.label :password, t('common.password') + ":"
+    -# Password 
+    = form.label :password, t('common.password')
     = form.password_field :password, :class => :text_field, :maxlength => "255"
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
-
+    
+    -# Terms
     .checkbox-container
       %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
       = form.label :terms, t('.i_accept_the'), :class => "checkbox"
       = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link"
+    
     = form.hidden_field :consent, :value => @current_community.consent
     = hidden_field_tag :community, @current_community.domain
+    
     = button_tag(t('.create_new_account'), :class => "send_button")
 
 
