@@ -107,6 +107,28 @@ body {
   }
 }
 
+@mixin facebook-connect-button {
+  cursor: pointer;
+  color: white;
+  display: block;
+  border: em(2) solid #25567c;
+  text-align: left;
+  @include border-radius(em(5));
+  @include single-text-shadow;
+  @include background-image(linear-gradient(#5a87ac, #265376));
+  &:hover { @include background-image(linear-gradient(#6f99bc, #37668a)); }
+
+  .fb-icon {
+    position: absolute;
+    @include large-type;
+  }
+
+  .fb-text {
+    @include big-type;
+    padding: em(2) em(10) em(7) em(25);
+  }
+}
+
 // For simple, one-column views
 .centered-section {
   padding: lines(0.5);
@@ -118,6 +140,12 @@ body {
   }
   form {
     padding-bottom: lines(2);
+  }
+  a.fb-connect {
+    @include facebook-connect-button;
+    padding: em(10) 2% em(6) 2%;
+    width: 95%;
+    margin-bottom: lines(0.5);
   }
 }
 
@@ -199,28 +227,6 @@ body {
   }
   cursor: pointer;
   padding: lines(0.4) lines(0.5) lines(0.5) lines(0.5);
-}
-
-@mixin facebook-connect-button {
-  cursor: pointer;
-  color: white;
-  display: block;
-  border: em(2) solid #25567c;
-  text-align: left;
-  @include border-radius(em(5));
-  @include single-text-shadow;
-  @include background-image(linear-gradient(#5a87ac, #265376));
-  &:hover { @include background-image(linear-gradient(#6f99bc, #37668a)); }
-
-  .fb-icon {
-    position: absolute;
-    @include large-type;
-  }
-
-  .fb-text {
-    @include big-type;
-    padding: em(2) em(10) em(7) em(25);
-  }
 }
 
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
@@ -1158,6 +1164,7 @@ figure.fluidratio {
   
   button {
     display: none;
+    margin-top: 0;
   }
   
   a.map-link {
@@ -1669,12 +1676,7 @@ figure.fluidratio {
 
 .login-form {
   
-  a.fb-connect {
-    @include facebook-connect-button;
-    padding: em(10) 2% em(6) 2%;
-    width: 95%;
-    margin-bottom: lines(0.5);
-  }
+  
   
 }
 

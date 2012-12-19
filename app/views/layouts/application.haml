@@ -26,10 +26,10 @@
         %a.intro-button
           Join this tribe
       - else
-        %a.fb-connect{:href => "#"}
+        %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
           %i.ss-icon.ss-social.ss-facebook.fb-icon
           .fb-text Connect
-      = link_to("...or join without Facebook", "#", :class => "regular-link")
+      = link_to("...or join without Facebook", sign_up_path, :class => "regular-link")
       
 .tribe-navigation
 
@@ -54,8 +54,8 @@
           English
     
     .language-menu.toggle-menu
-      %a{href: '#'} English
-      %a{href: '#'} Finnish
+      %a{href: change_locale_path(:locale => "en")} English
+      %a{href: change_locale_path(:locale => "fi")} Finnish
       %a{href: '#'} French
     
 %article.page-content

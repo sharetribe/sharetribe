@@ -1030,19 +1030,21 @@ en:
       family_name: "Family name"
       given_name: "Given name"
       i_accept_the: "I accept the"
-      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can"
+      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can also"
       join_with_your_existing_account: "join this community with your existing account"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
       not_required: ", not required"
       password_again: "Confirm password"
       show_my_name_to_others: "Show my real name to other %{service_name} users"
-      sign_up: "Create a new account in %{service_name}"
+      sign_up: "Create a new %{service_name} account"
       terms: "terms of use"
       username_is_in_use: "This username is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and community admin"
       visible_to_everybody: "visible to everybody"
+      create_account_with_facebook: "Create an account with Facebook"
+      or_create_new_account_without_facebook: "...or create an account without using Facebook below."
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. %{service_name} does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
       read_more_about_kassi_communities: "Read more about %{service_name} communities"
@@ -1184,7 +1186,7 @@ en:
       search_verb: Search
   sessions:
     new:
-      create_new_account: "Create a new account to %{service_name}"
+      create_new_account: "Create a new account"
       i_forgot_my_password: "I forgot my username or password"
       login: "Log in"
       login_to_kassi: "Log in to %{service_name}"

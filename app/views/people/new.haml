@@ -3,8 +3,14 @@
 
 
 .signup-form.centered-section
+
   %h2
     = t('.sign_up')
+  %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
+    %i.ss-icon.ss-social.ss-facebook.fb-icon
+    .fb-text= t(".create_account_with_facebook")
+  %p= t(".or_create_new_account_without_facebook")
+  
   - if community_file?("signup_information", true)
     = render :file => community_file("signup_information", true)
   - elsif @current_community.allowed_emails

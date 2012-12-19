@@ -256,7 +256,7 @@ Kassi::Application.routes.draw do
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
   match "/:locale/login" => "sessions#new", :as => :login
-  match "/change_locale" => "i18n#change_locale"
+  match "/change_locale" => "i18n#change_locale", :as => :change_locale
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
