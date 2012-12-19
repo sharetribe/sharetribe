@@ -1,86 +1,62 @@
 - content_for :javascript do
   initialize_signup_form("#{I18n.locale}","#{t("people.new.username_is_in_use")}","#{t("people.new.username_is_invalid")}","#{email_not_accepted_message}","#{t("people.new.captcha_was_wrong")}", "#{t("people.new.invalid_invitation_code")}", #{@current_community.real_name_required?}, #{@current_community.join_with_invite_only?} );
 
-%div{:class => @container_class}
-  %div{:class => @grid_class}
-    #signup_form
-      %h2
-        = t('.sign_up')
-      - if community_file?("signup_information", true)
-        = render :file => community_file("signup_information", true)
-      - elsif @current_community.allowed_emails
-        %p
-          = t('.email_restriction_instructions', 
-                :community_name => @current_community.name,
-                :allowed_emails => @current_community.allowed_emails,
-                :count => (@current_community.allowed_emails.split(",").count)) 
-      - if @current_community.label.eql?("okl")
-        %p
-          = t('okl.member_id_is_your_username')
-          = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
-      - unless ( @current_community.allowed_emails.present?)
-        %p
-          = t(".if_you_already_have_account_you_can")
-          = link_to(t(".join_with_your_existing_account"), new_tribe_membership_path, :class => "form") + "."
-      = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
-        = form.error_messages
-        - if @current_community.join_with_invite_only?
-          .form_field_container
-            = label_tag :invitation_code, t('.invitation_code'), :class => "before_description"
-            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
-            = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
-        - elsif params[:code]
-          = hidden_field_tag "invitation_code", params[:code]
-        .form_field_container 
-          = form.label :username, (username_label + ":"), :class => "before_description"
-          - unless @current_community.label.eql?("okl")
-            %span.tiny_description
-              = "(#{t('.visible_to_everybody')})" 
-          = form.text_field :username, :class => :text_field, :maxlength => "20"
-        .form_field_container
-          = form.label :given_name, t('.given_name'), :class => "before_description"
-          = form.text_field :given_name, :class => :text_field, :maxlength => "30"
-        .form_field_container
-          = form.label :family_name, t('.family_name'), :class => "before_description"
-          = form.text_field :family_name, :class => :text_field, :maxlength => "30"
-        - if @current_community.select_whether_name_is_shown_to_everybody
-          .form_field_container
-            .signup_checkbox_container
-              .signup_checkbox_input_container
-                %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :style => "opacity: 0;", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
-              .signup_checkbox_label_container
-                = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
-        .form_field_container
-          = form.label :email, t('.email'), :class => "before_description"
-          %span.tiny_description
-            = "(#{t('.visible_only_to_you')})"
-          = form.text_field :email, :class => :text_field, :maxlenght => "255"
-          - # Honey pot: hidden field to detect spammers
-          = form.label :email_confirmation, "You should not see this field, if CSS is working. If you see this, please send feedback on left!", :class => "unwanted_text_field" 
-          = form.text_field :email_confirmation, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"       
-        .form_field_container  
-          = form.label :password, t('common.password') + ":"
-          = form.password_field :password, :class => :text_field, :maxlength => "255"
-        .form_field_container  
-          = form.label :password2, t('.password_again')
-          = form.password_field :password2, :class => :text_field, :maxlength => "255"
-        - if APP_CONFIG.use_recaptcha && @current_community.use_captcha
-          .form_field_container
-            = form.label :recaptcha, t('.enter_captcha') 
-            %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_captcha_link")
-            #captcha_container
-              = recaptcha_tags :ajax => true
-        .form_field_container
-          .signup_checkbox_container
-            .signup_checkbox_input_container
-              %input{:type => "checkbox", :id => "person_terms", :style => "opacity: 0;", :name => "person[terms]"}
-            .signup_checkbox_label_container
-              = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-              = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
-        .form_field_container
-        = form.hidden_field :consent, :value => @current_community.consent
-        = hidden_field_tag :community, @current_community.domain
-        = submit_tag(t('.create_new_account'), :class => "send_button")
+
+.signup-form.centered-section
+  %h2
+    = t('.sign_up')
+  - if community_file?("signup_information", true)
+    = render :file => community_file("signup_information", true)
+  - elsif @current_community.allowed_emails
+    %p
+      = t('.email_restriction_instructions', 
+            :community_name => @current_community.name,
+            :allowed_emails => @current_community.allowed_emails,
+            :count => (@current_community.allowed_emails.split(",").count)) 
+  - if @current_community.label.eql?("okl")
+    %p
+      = t('okl.member_id_is_your_username')
+      = link_to t("okl.join_here"), "http://www.omakotiliitto.fi/liittymislomake", :class => "green_part_link"
+  - unless ( @current_community.allowed_emails.present?)
+    %p
+      = t(".if_you_already_have_account_you_can")
+      = link_to(t(".join_with_your_existing_account"), new_tribe_membership_path, :class => "form") + "."
+  = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form| 
+    = form.error_messages
+    - if @current_community.join_with_invite_only?
+      = label_tag :invitation_code, t('.invitation_code'), :class => "inline"
+      %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
+      = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
+    - elsif params[:code]
+      = hidden_field_tag "invitation_code", params[:code]
+    = form.label :username, (username_label + ":"), :class => "inline"
+    = form.text_field :username, :class => :text_field, :maxlength => "20"
+    = form.label :given_name, t('.given_name'), :class => "before_description"
+    = form.text_field :given_name, :class => :text_field, :maxlength => "30"
+    = form.label :family_name, t('.family_name'), :class => "before_description"
+    = form.text_field :family_name, :class => :text_field, :maxlength => "30"
+    - if @current_community.select_whether_name_is_shown_to_everybody
+      .checkbox-container
+        %input{:type => "checkbox", :id => "person_show_real_name_to_other_users", :name => "person[show_real_name_to_other_users]", :checked => true, :value => "1"}
+        = form.label :show_real_name_to_other_users, t('.show_my_name_to_others'), :class => "checkbox"
+    = form.label :email, t('.email'), :class => "before_description"
+    = form.text_field :email, :class => :text_field, :maxlenght => "255"
+    - # Honey pot: hidden field to detect spammers
+    = form.label :email_confirmation, "You should not see this field, if CSS is working. If you see this, please send feedback on left!", :class => "unwanted_text_field" 
+    = form.text_field :email_confirmation, :class => "unwanted_text_field", :id => "error_regristration_unwanted_email2", :autocomplete => "off"       
+     
+    = form.label :password, t('common.password') + ":"
+    = form.password_field :password, :class => :text_field, :maxlength => "255"
+    = form.label :password2, t('.password_again')
+    = form.password_field :password2, :class => :text_field, :maxlength => "255"
+
+    .checkbox-container
+      %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
+      = form.label :terms, t('.i_accept_the'), :class => "checkbox"
+      = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link"
+    = form.hidden_field :consent, :value => @current_community.consent
+    = hidden_field_tag :community, @current_community.domain
+    = button_tag(t('.create_new_account'), :class => "send_button")
 
 
 = render :partial => "help_texts", :collection => ["help_captcha", "terms", "help_invitation_code"], :as => :field

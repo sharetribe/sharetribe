@@ -109,9 +109,16 @@ body {
 
 // For simple, one-column views
 .centered-section {
+  padding: lines(0.5);
   margin-left: auto;
   margin-right: auto;
   max-width: lines(23);
+  input[type=text], input[type=password], textarea {
+    //margin-bottom: lines(0.5);
+  }
+  form {
+    padding-bottom: lines(2);
+  }
 }
 
 .avatar {
@@ -197,14 +204,45 @@ body {
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
+form {
+  
+  .checkbox-container {
+    position: relative;
+  
+    input[type=checkbox] {
+      position: absolute;
+      top: lines(0.5) + em(3);
+    }
+
+    label {
+      display: inline-block;
+      width: auto;
+      padding: 0 0 0 lines(1);
+      margin-top: lines(0.5) - em(3);
+    }
+    
+    label.error {
+      display: block;
+      margin: lines(0.5) 0;
+      padding: em(5) 2.5% em(10) 2.5%;
+      width: 95%;
+    }
+    
+    a {
+      display: inline-block;
+    }
+    
+  }
+  
+}
+
 input[type=text], input[type=password], textarea {
   
   @include box-sizing(border-box);
   @include border-radius(em(5));
   border: 1px solid $aside;
-  width: 95%;
+  width: 100%;
   padding: em(5) em(8);
-  margin: lines(0.5) 2.5%;
   
   @include media(tablet) {
     margin: 0;
@@ -213,9 +251,35 @@ input[type=text], input[type=password], textarea {
   
 }
 
-button, input[type=submit] {
+.unwanted_text_field {
+  display:none;
+}
+
+label {
+  width: 100%;
+  display: block;
+  margin-top: lines(0.5);
+}
+
+label.inline {
+  width: auto;
+  display: inline;
+}
+
+button {
   @include button;
-  padding: em(6) lines(1);
+  padding: em(4) lines(1) em(8) lines(1);
+  margin-top: lines(0.5);
+}
+
+label.error {
+  @include border-radius(em(5));
+  padding: em(5) 2.5% em(10) 2.5%;
+  background: red;
+  color: $background;
+  display: block;
+  width: 95%;
+  margin: lines(0.5) 0;
 }
 
 
@@ -1481,7 +1545,6 @@ figure.fluidratio {
   }
 
   .social {
-    
     position: relative;
     padding-top: lines(0.5);
     
@@ -1494,13 +1557,6 @@ figure.fluidratio {
       padding-top: em(5);
     }
     
-//    .fb-like, .twitter-share-button {
-//      display: inline-block;
-//      margin-right: lines(0.25);
-//    }
-//    .twitter-share-button {
-//      padding-top: lines(1);
-//    }
   }
   
   .discussion {
@@ -1557,23 +1613,6 @@ figure.fluidratio {
       textarea {
         width: 95%;
         height: lines(4);
-        margin: 0;
-      }
-      
-      .comment-form-checkbox {
-        
-        position: relative;
-      
-        input[type=checkbox] {
-          position: absolute;
-          top: lines(0.5);
-        }
-
-        label {
-          display: block;
-          padding: em(6) 0 lines(0.5) lines(1);
-        }
-        
       }
 
     }
@@ -1607,4 +1646,15 @@ figure.fluidratio {
     }
   }
   
+}
+
+
+/*
+  ----------------
+  Signup form
+  ----------------
+*/
+
+.hidden_description_terms {
+  display: none;
 }

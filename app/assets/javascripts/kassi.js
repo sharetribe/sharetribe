@@ -270,13 +270,12 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
-	$("input[type=checkbox]").uniform();
 	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
-				error.appendTo(element.parent().parent().parent().parent().parent());
+				error.appendTo(element.parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
 			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
 			} else {
