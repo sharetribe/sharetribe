@@ -1222,25 +1222,25 @@ ru:
     notifications:
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       newsletters: "Новостная рассылка"
-      community_updates: ~
+      community_updates: "Новости сообщества"
       email_about_accept_reminders: "...я забыл принять решение по событию"
       email_about_new_badges: "...я получил новый значок"
       email_about_new_comments_to_own_listing: "...кто-либо оставил комментарий на мой запрос или предложение"
       email_about_new_messages: "...кто-нибудь отправил мне сообщение"
       email_about_new_received_testimonials: "...кто-либо оставил отзыв обо мне"
       email_about_testimonial_reminders: "...если я забыл оставить отзыв о событии"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Оповещать <b>ежедневно</b> при наличии новых сообщений"
+      email_weekly_community_updates: "Оповещать <b>еженедельно</b> при наличии новых сообщений"
+      do_not_email_community_updates: "Не посылать обновления"
       email_newsletters: "Отправляйте мне иногда рассылку новостей %{service_name}"
       email_when_conversation_accepted: "...кто-нибудь принял мой запрос или предложение"
       email_when_conversation_rejected: "...кто-нибудь отверг мой запрос или предложение"
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      unsubscribe_succesful: "Вы успешно отписались от рассылки!"
+      unsubscribe_info_text: "Вы больше не будете получать подобные письма. Проверьте свои %{settings_link}, чтобы выбрать, какие письма вы хотели бы получать, а какие нет, либо посетите %{homepage_link}"
+      settings_link: настройки
+      homepage_link: "домашнюю страницу"
+      unsubscribe_unsuccesful: "Ошибка при отказе от подписки"
+      unsuccessful_unsubscribe_info_text: "Причина этого может заключаться в том, что ссылка, по которой вы перешли, устарела или сломана. Свяжитесь с нами с помощью кнопки, расположенной слева, или войдите в свою учётную запись, чтобы изменить настройки."
     profile:
       about_you: "О вас:"
       city: "Город:"

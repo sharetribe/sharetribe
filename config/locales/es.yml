@@ -390,20 +390,20 @@ es:
       has_updated_request_you_follow_in_kassi: "%{author} ha actualizado la oferta '%{listing}' que estás siguiendo en %{service_name}"
       you_can_view_the_changes_in: "Puede ver los cambios en"
     community_updates:
-      added_offer: ~
-      added_request: ~
-      update_mail_title: ~
-      title_link_text: ~
-      intro_paragraph: ~
-      intro_paragraph_link_text: ~
-      could_you_share_something: ~
-      do_you_need_help_with_anything: ~
-      post_a_new_listing: ~
-      reduce_email_footer_text: ~
-      tribe_creation_promotion_footer: ~
-      settings_link_text: ~
-      unsubscribe_link_text: ~
-      create_tribe_link_text: ~
+      added_offer: "añadir una oferta:"
+      added_request: "añadir una solicitud:"
+      update_mail_title: "%{title_link} actualización de la comunidad"
+      title_link_text: "%{community_name} %{service_name}"
+      intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."
+      intro_paragraph_link_text: "%{community_name} %{service_name}"
+      could_you_share_something: "¿Podrías compartir algo?"
+      do_you_need_help_with_anything: "¿Necesitas ayuda con algo?"
+      post_a_new_listing: "¡Publica un nuevo aviso!"
+      reduce_email_footer_text: "¿Demasiados email? %{settings_link} o %{unsubscribe_link}."
+      tribe_creation_promotion_footer: "¿Sabías que puedes crear un mercado comunitario como este de forma gratuita para tu vecindario, comuna, asociación u otra comunidad local? %{create_tribe_link} o descubre más respondiendo este email."
+      settings_link_text: "Edita tu configuración de email aquí"
+      unsubscribe_link_text: "cancelar suscripción"
+      create_tribe_link_text: "Crea una tú mismo"
     newsletter:
       weekly_news_from_kassi: "Noticias semanales de %{community} %{service_name}"
       hi: "Hola %{name},"
@@ -1225,25 +1225,25 @@ es:
     notifications:
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
-      community_updates: ~
+      community_updates: "Actualizaciones de la comunidad"
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
-      email_daily_community_updates: ~
-      email_weekly_community_updates: ~
-      do_not_email_community_updates: ~
+      email_daily_community_updates: "Enviarme un email de actualización <b>diariamente</b> si hay nuevas publicaciones"
+      email_weekly_community_updates: "Enviarme un email de actualización <b>semanalmente</b> si hay nuevas publicaciones"
+      do_not_email_community_updates: "No enviarme emails de actualización"
       email_newsletters: "Enviarme ocasionalmente %{service_name} newsletter"
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
-      unsubscribe_succesful: ~
-      unsubscribe_info_text: ~
-      settings_link: ~
-      homepage_link: ~
-      unsubscribe_unsuccesful: ~
-      unsuccessful_unsubscribe_info_text: ~
+      unsubscribe_succesful: "Suscripción cancelada exitosamente"
+      unsubscribe_info_text: "Ya no recibirás más emails de este tipo. Revisa tu %{settings_link} para seleccionar otros emails que quieras o no quieras recibir, o vuelve a %{homepage_link}."
+      settings_link: opciones
+      homepage_link: "página de inicio"
+      unsubscribe_unsuccesful: "Error en la cancelación de la suscripción"
+      unsuccessful_unsubscribe_info_text: "La razón puede ser que el enlace para cancelar la suscripción en el que hiciste clic era viejo o estaba roto. Contáctanos a través del botón de feedback en la izquierda y cancelaramos la suscripción por ti, o inicia sesión para cambiar la configuración de tu email."
     profile:
       about_you: "Acerca de ti:"
       city: "Ciudad:"
@@ -1325,3 +1325,6 @@ es:
     seconds_ago: "hace %{count} segundos"
     year_ago: "un año atrás"
     years_ago: "%{count} años atrás"
+    days_since:
+      one: "%{count} día"
+      other: "%{count} días"

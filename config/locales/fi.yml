@@ -1220,7 +1220,7 @@ fi:
     notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
-      community_updates: "Tapahtumapäivitykset"
+      community_updates: Tapahtumapäivitykset
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_new_badges: "...olen ansainnut uuden %{service_name}-merkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
@@ -1235,8 +1235,8 @@ fi:
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
       unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
       unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."
-      settings_link: "asetuksesi"
-      homepage_link: "etusivulle"
+      settings_link: asetuksesi
+      homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
       unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta vasemmalta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
@@ -1321,5 +1321,5 @@ fi:
     year_ago: "%{count} vuosi sitten"
     years_ago: "%{count} vuotta sitten"
     days_since:
-      one: "päivän"
+      one: päivän
       other: "%{count} päivän"
