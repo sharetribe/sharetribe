@@ -1,20 +1,14 @@
 - content_for :javascript do
   initialize_reset_password_form();
   
-.grid_10.prefix_7.suffix_7
-  #login_form
-    -# login_form is used to get similar layout as on login page
-    %h2
-      = t('sessions.password_forgotten.change_your_password')
-    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|  
-      = devise_error_messages!
-      = f.hidden_field :reset_password_token
-      .form_field_container
-        = f.label :password, t('settings.account.new_password') + ":"
-        = f.password_field :password, :class => :text_field, :maxlength => "255"
-      .form_field_container 
-        = f.label :password_confirmation, t('settings.account.confirm_new_password') + ":"
-        = f.password_field :password_confirmation, :class => :text_field, :maxlength => "255"
-      .form_field_container  
-        = f.submit t('settings.account.save'), :class => "send_button"
+.centered-section
+  %h2= t('sessions.password_forgotten.change_your_password')
+  = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|  
+    = devise_error_messages!
+    = f.hidden_field :reset_password_token
+    = f.label :password, t('settings.account.new_password') + ":"
+    = f.password_field :password, :class => :text_field, :maxlength => "255"
+    = f.label :password_confirmation, t('settings.account.confirm_new_password') + ":"
+    = f.password_field :password_confirmation, :class => :text_field, :maxlength => "255"
+    = f.button t('settings.account.save'), :class => "send_button"
 

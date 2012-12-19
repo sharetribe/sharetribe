@@ -117,7 +117,8 @@ function initialize_feedback_tab() {
 
 function initialize_login_form() {
 	$('#password_forgotten_link').click(function() { 
-		$('#password_forgotten').slideToggle('fast'); 
+		$('#password_forgotten').slideToggle('fast');
+		$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		$('input.request_password').focus();
 	});
   $('#login_form input.text_field:first').focus();
@@ -418,7 +419,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 }
 
 function initialize_reset_password_form() {
-	var password_form_id = "#person_new";
+	var password_form_id = "#new_person";
 	$(password_form_id).validate({
 		errorPlacement: function(error, element) {
 			error.insertAfter(element);

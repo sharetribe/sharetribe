@@ -21,6 +21,7 @@
     %p
       = t(".if_you_already_have_account_you_can")
       = link_to(t(".join_with_your_existing_account"), new_tribe_membership_path, :class => "form") + "."
+  
   = form_for @person, :url => APP_CONFIG.login_domain.to_s + people_path do |form|
     
     -# Invite code

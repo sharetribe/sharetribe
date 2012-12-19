@@ -73,7 +73,7 @@ en:
       trade: swapping
       share_for_free: "sharing for free"
     username: Username
-    username_or_email: "Username or email"
+    username_or_email: "Email or username"
     what_is_this: "What's this?"
   conversations:
     index:
@@ -1195,8 +1195,8 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
-      log_in_with_your_facebook_account: "Log in with your Facebook account:"
-      or_sign_up_with_your_username: "...or with your username and password:"
+      log_in_with_your_facebook_account: "Log in with your Facebook account"
+      or_sign_up_with_your_username: "...or with your username or email:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
