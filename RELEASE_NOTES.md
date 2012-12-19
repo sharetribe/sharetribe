@@ -11,6 +11,11 @@ When updating, always run the following commands to update gem set and database 
  - rake RAILS_ENV=production db:migrate
  -  And check this file for changes between your old version and the one you are updating, and do the necessary manual operations if needed.
 
+2.4.7
+-----
+
+New logic and layout for community updates email
+
 2.4.6
 -----
 
