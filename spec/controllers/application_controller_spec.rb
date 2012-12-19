@@ -86,4 +86,14 @@ describe ApplicationController do
     end
   end
   
+  describe "#check_auth_token" do
+    it "logs person in when auth_token is valid" do
+      p1 = FactoryGirl.create(:person)
+      t = p1.new_email_auth_token
+      get :index, {:auth => t}
+      response.status.should == 302 #redirection to url withouth token in query string
+      assigns("current_user").id.should == p1.id
+    end
+    
+  end
 end

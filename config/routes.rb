@@ -140,6 +140,7 @@ Kassi::Application.routes.draw do
             get :avatar
             get :account
             get :notifications
+            get :unsubscribe
           end
         end
         resources :invitations

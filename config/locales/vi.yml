@@ -386,6 +386,21 @@ vi:
       has_updated_offer_you_follow_in_kassi: "%{author} đã cập nhật yêu cầu '%{listing}' bạn đang theo dõi trong %{service_name}"
       has_updated_request_you_follow_in_kassi: "%{author} đã cập nhật hỗ trợ '%{listing}' bạn đang theo dõi trong %{service_name}"
       you_can_view_the_changes_in: "Bạn có thể xem những thay đổi trong"
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      could_you_share_something: ~
+      do_you_need_help_with_anything: ~
+      post_a_new_listing: ~
+      reduce_email_footer_text: ~
+      tribe_creation_promotion_footer: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Tin tức hàng tuần từ %{community} %{service_name}"
       hi: "Chào %{name},"
@@ -1203,16 +1218,25 @@ vi:
     notifications:
       i_want_to_get_email_notification_when: "Tôi muốn nhận email thông báo khi..."
       newsletters: "Bản in các hoạt động"
+      community_updates: ~
       email_about_accept_reminders: "...tôi đã quên để chấp nhận một sự kiện"
       email_about_new_badges: "...tôi đã đạt được một huy hiệu mới"
       email_about_new_comments_to_own_listing: ".. .người nào đó bình luận về sự hỗ trợ hoặc yêu cầu của tôi"
       email_about_new_messages: ".. .người nào đó gửi cho tôi một tin nhắn"
       email_about_new_received_testimonials: ".. .người nào đó cho tôi thông tin phản hồi"
       email_about_testimonial_reminders: "...Tôi đã quên để đưa ra thông tin phản hồi về một sự kiện"
-      email_about_weekly_events: "Gửi cho tôi một email mỗi tuần những gì đang xảy ra tại %{service_name}"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: ".. .người nào đó chấp nhận sự hỗ trợ hoặc yêu cầu của tôi"
       email_when_conversation_rejected: ".. .người nào đó từ chối sự hỗ trợ hoặc yêu cầu của tôi"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Về bạn:"
       city: "Thành phố:"

@@ -386,6 +386,21 @@ ca:
       has_updated_offer_you_follow_in_kassi: "%{author} ha actualitzat la sol·licitud '%{listing}' que estàs siguint a Kassi"
       has_updated_request_you_follow_in_kassi: "%{author} ha actualizat l'oferta '%{listing}' que estàs seguint a Kassi"
       you_can_view_the_changes_in: "Pots veure els canvis a"
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      could_you_share_something: ~
+      do_you_need_help_with_anything: ~
+      post_a_new_listing: ~
+      reduce_email_footer_text: ~
+      tribe_creation_promotion_footer: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Notícies setmanals de %{community} Kassi"
       hi: "Hola %{name},"
@@ -1204,16 +1219,25 @@ ca:
     notifications:
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."
       newsletters: Butlletins
+      community_updates: ~
       email_about_accept_reminders: "...he oblidat acceptar un esdeveniment"
       email_about_new_badges: "...he obtingut una nova medalla"
       email_about_new_comments_to_own_listing: "...algú ha comentat la meva oferta o sol·licitud"
       email_about_new_messages: "...algú m'envia un missatge"
       email_about_new_received_testimonials: "...algú em dóna suggeriments"
       email_about_testimonial_reminders: "...he oblidat fer un suggeriment o donar informació sobre un esdeveniment"
-      email_about_weekly_events: "Envia'm un correu cada setmana per conèixer el que està passant a Kassi"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: "...algú ha acceptat la meva oferta o sol·licitud"
       email_when_conversation_rejected: "...algú ha rebutjat la meva oferta o sol·licitud"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Sobre tu:"
       city: "Ciutat:"

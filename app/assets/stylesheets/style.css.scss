@@ -2127,13 +2127,12 @@ div.listing_author_feedback_percentage {
 		width: 137px;
 		line-height: 110%;
 	}
-	label.checkbox {
+	label.checkbox, label.radiobutton {
 		float: left;
 		width: 590px;
 		padding-top: 7px;
 		margin-left: 3px;
 		font-size: 13px;
-		font-weight: bold;
 	}
 	input.text_field {
 		@include new_listing_form_field;

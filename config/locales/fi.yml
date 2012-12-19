@@ -389,7 +389,18 @@ fi:
     community_updates:
       added_offer: "lisäsi tarjouksen:"
       added_request: "lisäsi pyynnön:"
-      update_mail_title: "%{community_name}-%{service_name_genetive} uusimmat kuulumiset"
+      update_mail_title: "%{title_link} uusimmat kuulumiset"
+      title_link_text: "%{community_name}-%{service_name_genetive}"
+      intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."
+      intro_paragraph_link_text: "%{community_name}-%{service_name_inessive}"
+      could_you_share_something: "Voisitko tarjota jotain?"
+      do_you_need_help_with_anything: "Tarvitsetko apua tai tavaraa?"
+      post_a_new_listing: "Lisää uusi ilmoitus!"
+      reduce_email_footer_text: "Liikaa sähköpostia? %{settings_link} tai %{unsubscribe_link}."
+      tribe_creation_promotion_footer: "Tiesitkö, että voit avata tällaisen oman verkkotorin ilmaiseksi myös työpaikallesi, harrastusseurallesi tai muulle paikalliselle yhteisölle? %{create_tribe_link} tai kysy lisätietoa vastaamalla tähän sähköpostiin."
+      settings_link_text: "Säädä sähköpostit harvemmaksi"
+      unsubscribe_link_text: "peruuta tämän sähköpostin tulo kokonaan"
+      create_tribe_link_text: "Luo uusi yhteisö heti"
     newsletter:
       weekly_news_from_kassi: "Viikon tapahtumat %{community}-%{service_name_inessive}"
       hi: "Hei %{name},"
@@ -1209,16 +1220,25 @@ fi:
     notifications:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
+      community_updates: Tapahtumapäivitykset
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
       email_about_new_badges: "...olen ansainnut uuden %{service_name}-merkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
       email_about_testimonial_reminders: "...olen unohtanut antaa palautetta tapahtumasta"
-      email_about_weekly_events: "Lähetä minulle viikottainen tiedote siitä, mitä yhteisöissäni tapahtuu"
+      email_daily_community_updates: "Lähetä viesti <b>päivittäin</b>, jos yhteisöissäni on uusia ilmoituksia"
+      email_weekly_community_updates: "Lähetä viesti <b>viikoittain</b>, jos yhteisöissäni on uusia ilmoituksia"
+      do_not_email_community_updates: "Älä lähetä minulle sähköpostia uusimmista ilmoituksista"
       email_newsletters: "Lähetä minulle silloin tällöin ilmestyvä %{service_name}-uutiskirje"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+      unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
+      unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."
+      settings_link: asetuksesi
+      homepage_link: etusivulle
+      unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
+      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta vasemmalta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
       about_you: "Tietoa sinusta:"
       city: "Kaupunki:"
@@ -1300,3 +1320,6 @@ fi:
     seconds_ago: "%{count} sekuntia sitten"
     year_ago: "%{count} vuosi sitten"
     years_ago: "%{count} vuotta sitten"
+    days_since:
+      one: päivän
+      other: "%{count} päivän"

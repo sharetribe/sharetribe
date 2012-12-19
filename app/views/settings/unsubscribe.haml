@@ -1,0 +1,10 @@
+.grid_10.prefix_7.suffix_7
+  #new_message_form
+    - if @unsubscribe_successful
+      %h2
+        = t("settings.notifications.unsubscribe_succesful")
+      = t("settings.notifications.unsubscribe_info_text", :settings_link => link_to(t("settings.notifications.settings_link"), notifications_person_settings_path(:person_id => @person_to_unsubscribe.id)), :homepage_link => link_to(t("settings.notifications.homepage_link"), root_path) ).html_safe
+    - else
+      %h2
+        = t("settings.notifications.unsubscribe_unsuccesful")
+      = t("settings.notifications.unsuccessful_unsubscribe_info_text")

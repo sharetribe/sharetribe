@@ -60,9 +60,7 @@ describe PeopleController do
       
       person_count = Person.count
       
-      #sign_in member # For some reason only sign_in (Devise) doesn't work so 2 next lines to fix that
-      request.env['warden'].stub :authenticate! => member
-      controller.stub :current_person => member
+      sign_in_for_spec(member)
       
       request.env["HTTP_REFERER"] = "http://test.host/en/people/#{member.id}"
       put :update, {:person => {:email => "something@el.se"}, :person_id => member.id}

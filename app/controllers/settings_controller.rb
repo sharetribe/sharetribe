@@ -2,7 +2,7 @@ class SettingsController < ApplicationController
   
   layout "settings"
   
-  before_filter do |controller|
+  before_filter :except => :unsubscribe do |controller|
     controller.ensure_logged_in "you_must_log_in_to_view_your_settings"
   end
   
@@ -32,6 +32,27 @@ class SettingsController < ApplicationController
   end
 
   def notifications
+  end
+  
+  def unsubscribe
+    @person_to_unsubscribe = @current_user
+    
+    # Check if trying to unsubscribe with expired token and allow that
+    if @person_to_unsubscribe.nil? && session[:expired_auth_token]
+      @person_to_unsubscribe = AuthToken.find_by_token(session[:expired_auth_token]).person
+    end
+    
+    if @person_to_unsubscribe && @person_to_unsubscribe.id == params[:person_id]
+      if params[:email_type] == "community_updates"
+        @person_to_unsubscribe.min_days_between_community_updates = 100000
+        @person_to_unsubscribe.save!
+        @unsubscribe_successful = true
+        render :unsubscribe, :layout => "application"
+      end
+    else
+      @unsubscribe_successful = false
+      render :unsubscribe, :layout => "application", :status => :unauthorized
+    end
   end
   
   private

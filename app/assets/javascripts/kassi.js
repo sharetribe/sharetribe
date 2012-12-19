@@ -337,7 +337,7 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
 }
 
 function initialize_update_notification_settings_form(locale, person_id) {
-	$("input[type=checkbox]").uniform();
+	$("input[type=checkbox], input[type=radio]").uniform();
 	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
 		submitHandler: function(form) {

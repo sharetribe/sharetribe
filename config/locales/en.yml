@@ -391,7 +391,7 @@ en:
       added_request: "added a request:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name} %{service_name}"
-      intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}"
+      intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."
       intro_paragraph_link_text: "%{community_name} %{service_name}"
       could_you_share_something: "Could you share something?"
       do_you_need_help_with_anything: "Need help with anything?"
@@ -399,6 +399,7 @@ en:
       reduce_email_footer_text: "Too much email? %{settings_link} or %{unsubscribe_link}."
       tribe_creation_promotion_footer: "Did you know you can create a community marketplace like this for free for your neigborhood, town, association or other local community? %{create_tribe_link} or find out more by replying to this email."
       settings_link_text: "Edit your email settings here"
+      unsubscribe_link_text: unsubscribe
       create_tribe_link_text: "Create one yourself"
     newsletter:
       weekly_news_from_kassi: "Weekly news from %{community} %{service_name}"
@@ -1219,16 +1220,25 @@ en:
     notifications:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: Newsletters
+      community_updates: "Community updates"
       email_about_accept_reminders: "...I have forgotten to accept an event"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
       email_about_new_messages: "...somebody sends me a message"
       email_about_new_received_testimonials: "...somebody gives me feedback"
       email_about_testimonial_reminders: "...I have forgotten to give feedback on an event"
-      email_about_weekly_events: "Send me an email every week on what is happening in my tribes"
-      email_newsletters: "Send me occasional %{service_name} newsletter"
+      email_daily_community_updates: "Send me an update email <b>daily</b> if there are new listings"
+      email_weekly_community_updates: "Send me an update email <b>weekly</b> if there are new listings"
+      do_not_email_community_updates: "Don't send me update emails"
+      email_newsletters: "Send me occasional %{service_name} newsletters"
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
+      unsubscribe_succesful: "Unsubscribe succesful"
+      unsubscribe_info_text: "You will no longer receive this type of email. Check your %{settings_link} to choose other emails you want or don't want to recieve, or return to %{homepage_link}."
+      settings_link: settings
+      homepage_link: "home page"
+      unsubscribe_unsuccesful: "Error in unsubscribing"
+      unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or log in to change your email settings."
     profile:
       about_you: "About you:"
       city: "City:"
@@ -1310,3 +1320,6 @@ en:
     seconds_ago: "%{count} seconds ago"
     year_ago: "%{count} year ago"
     years_ago: "%{count} years ago"
+    days_since:
+      one: "%{count} day"
+      other: "%{count} days"

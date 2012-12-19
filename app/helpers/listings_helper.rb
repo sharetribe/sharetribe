@@ -62,7 +62,7 @@ module ListingsHelper
       if listing.share_type.eql?("trade")
         t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}") + ": #{listing.title}"
       else
-        localized_share_type_label(listing.share_type).capitalize + ": #{listing.title}"
+        localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s + ": #{listing.title}"
       end
     else
       t("listings.show.#{listing.category}_#{listing.listing_type}") + ": #{listing.title}"

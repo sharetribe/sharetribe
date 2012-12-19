@@ -3,7 +3,7 @@ class ListingImage < ActiveRecord::Base
   belongs_to :listing
   
   paperclip_options = {
-        :styles => { :medium => "300x640>", :thumb => "85x85#", :original => "640x640>" },
+        :styles => { :medium => "300x640>", :thumb => "85x85#", :original => "640x640>", :email => "150x100#" },
         :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
         :url => "/system/:attachment/:id/:style/:filename"
         }

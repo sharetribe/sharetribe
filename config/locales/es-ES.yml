@@ -386,6 +386,21 @@ es-ES:
       has_updated_offer_you_follow_in_kassi: ~
       has_updated_request_you_follow_in_kassi: ~
       you_can_view_the_changes_in: "Puede ver los cambios en"
+    community_updates:
+      added_offer: ~
+      added_request: ~
+      update_mail_title: ~
+      title_link_text: ~
+      intro_paragraph: ~
+      intro_paragraph_link_text: ~
+      could_you_share_something: ~
+      do_you_need_help_with_anything: ~
+      post_a_new_listing: ~
+      reduce_email_footer_text: ~
+      tribe_creation_promotion_footer: ~
+      settings_link_text: ~
+      unsubscribe_link_text: ~
+      create_tribe_link_text: ~
     newsletter:
       weekly_news_from_kassi: "Noticias semanales de %{community} Kassi"
       hi: "Hola %{name},"
@@ -1205,16 +1220,25 @@ es-ES:
     notifications:
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
+      community_updates: ~
       email_about_accept_reminders: "...He olvidado aceptar un evento"
       email_about_new_badges: "...He obtenido una nueva medalla"
       email_about_new_comments_to_own_listing: ".. .alguien comenta mi oferta o solicitud"
       email_about_new_messages: ".. .alguien me envía un mensaje"
       email_about_new_received_testimonials: ".. .alguien me da sugerencias"
       email_about_testimonial_reminders: "...He olvidado hacer una sugerencia o dar información sobre un evento"
-      email_about_weekly_events: "Enviarme un correo electrónico cada semana para saber lo que está sucediendo en Kassi"
+      email_daily_community_updates: ~
+      email_weekly_community_updates: ~
+      do_not_email_community_updates: ~
       email_newsletters: ~
       email_when_conversation_accepted: ".. .alguien acepta mi oferta o solicitud"
       email_when_conversation_rejected: ".. .alguien rechaza mi oferta o solicitud"
+      unsubscribe_succesful: ~
+      unsubscribe_info_text: ~
+      settings_link: ~
+      homepage_link: ~
+      unsubscribe_unsuccesful: ~
+      unsuccessful_unsubscribe_info_text: ~
     profile:
       about_you: "Acerca de usted:"
       city: "Ciudad:"
