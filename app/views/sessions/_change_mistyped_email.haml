@@ -1,9 +1,7 @@
 = form_for @current_user, :html => {:id => 'change_mistyped_email_form'} do |form|
-  .form_field_container
-    %label{:for => "email"}
-      = t('settings.account.new_email') + ":"
-    = form.text_field("email", :class => "text_field text_field_account", :maxlenght => "255")
-    = hidden_field_tag "request_new_email_confirmation", true
-  .form_field_container  
-    = submit_tag t('settings.account.change'), :class => "send_button"
+  %label{:for => "email"}
+    = t('settings.account.new_email') + ":"
+  = form.text_field("email", :class => "text_field text_field_account", :maxlenght => "255")
+  = hidden_field_tag "request_new_email_confirmation", true
+  = button_tag t('settings.account.change'), :class => "send_button"
     

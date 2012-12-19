@@ -1,6 +1,7 @@
 function initialize_confirmation_pending_form(locale, email_in_use_message) {
 	$('#mistyped_email_link').click(function() { 
-		$('#password_forgotten').slideToggle('fast'); 
+		$('#password_forgotten').slideToggle('fast');
+		$("html, body").animate({ scrollTop: $(document).height() }, 1000); 
 		$('input.email').focus();
 	});
 	var form_id = "#change_mistyped_email_form";
