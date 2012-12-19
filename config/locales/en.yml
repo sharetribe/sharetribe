@@ -83,7 +83,7 @@ en:
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
     new:
-      favor_offer_message_form_title: "Ask help from"
+      favor_offer_message_form_title: "Ask help from %{person}"
       favor_offer_message_title: "Service request: %{title}"
       favor_request_message_form_title: "Offer help to %{person}"
       favor_request_message_title: "Service offer: %{title}"
@@ -592,16 +592,16 @@ en:
       news_items: "News articles"
       polls: Polls
     application:
-      default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
-      feedback: "Feedback to %{service_name} staff"
+      feedback: "What would you like to tell us?"
+      default_feedback: "Did you encounter a problem with %{service_name}? Have a suggestion for improving the service? Noticed some suspicious content? Or just have something you want to discuss with us? Let us know!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
-      give_feedback: "Give feedback on %{service_name}"
+      give_feedback: "Contact us"
       keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
       meta_description: "%{service_name} is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
-      to_see_what_others_have_suggested: "to see what other users have suggested."
+      to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
       your_email_address: "Your email address (not required)"
       formerly_known_as_kassi: "formerly known as Kassi"
     conversations:

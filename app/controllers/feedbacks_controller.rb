@@ -1,10 +1,12 @@
-class Admin::FeedbacksController < ApplicationController
+class FeedbacksController < ApplicationController
   
   skip_filter :check_email_confirmation
   skip_filter :not_public_in_private_community, :only => [ :create ]
   skip_filter :dashboard_only
   
-  protect_from_forgery :except => :create
+  def new
+    @feedback = Feedback.new  
+  end
   
   def create
     @feedback = Feedback.new(params[:feedback].except(:title))
@@ -31,9 +33,8 @@ class Admin::FeedbacksController < ApplicationController
       end
     end
     respond_to do |format|
-      format.html { redirect_to (error_page ? root : params[:feedback][:url]) }
-      format.js { render :layout => false }
-    end
+      format.html { redirect_to root }
+    end 
   end
   
 end

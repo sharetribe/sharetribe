@@ -128,7 +128,7 @@ Kassi::Application.routes.draw do
             put :cancel
           end
           resources :messages
-          resources :feedbacks, :controller => :testimonials do
+          resources :xs, :controller => :testimonials do
             collection do
               put :skip
             end  
@@ -155,7 +155,6 @@ Kassi::Application.routes.draw do
     end  
 
     namespace :admin do
-      resources :feedbacks
       resources :news_items
       resources :communities
       resources :polls do
@@ -169,6 +168,7 @@ Kassi::Application.routes.draw do
         end
       end
     end
+    resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
       collection do
         get :sign_in

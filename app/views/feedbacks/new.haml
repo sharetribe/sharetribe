@@ -1,0 +1,21 @@
+- content_for :javascript do
+  initialize_user_feedback_form("#{I18n.locale}");
+
+.new-feedback-form.centered-section
+  %h2= t("layouts.application.give_feedback")
+  = form_for @feedback, :url => user_feedbacks_path do |form|
+    - unless logged_in?
+      = form.label :email, t("layouts.application.your_email_address")
+      = form.text_field :email, :class => "text_field"
+    = form.label :title, "You should not see this field, if CSS is working.", :class => "unwanted_text_field" 
+    = form.text_field :title, :class => "unwanted_text_field", :id => "error_feedback_unwanted_title"
+    = form.label :content, t("layouts.application.feedback")
+    = form.text_area :content, :class => "feedback", :placeholder => t("layouts.application.default_feedback")
+    = form.hidden_field :author_id, :value => (logged_in? ? @current_user.id : "Anonymous")
+    = form.hidden_field :url, :value => request.headers["HTTP_REFERER"]
+    = form.button t("layouts.application.send_feedback_to_admin"), :class => "send_button"
+    %p 
+      = t("layouts.application.or_check_our")
+      = link_to t("layouts.application.feedback_forum"), "http://kassi.uservoice.com"
+      = t("layouts.application.to_see_what_others_have_suggested")
+  
