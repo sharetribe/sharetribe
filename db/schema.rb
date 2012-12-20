@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203142830) do
+ActiveRecord::Schema.define(:version => 20121220133808) do
+
+  create_table "auth_tokens", :force => true do |t|
+    t.string   "token"
+    t.string   "person_id"
+    t.datetime "expires_at"
+    t.integer  "times_used"
+    t.datetime "last_use_attempt"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "auth_tokens", ["token"], :name => "index_auth_tokens_on_token", :unique => true
 
   create_table "badges", :force => true do |t|
     t.string   "person_id"
@@ -238,13 +250,13 @@ ActiveRecord::Schema.define(:version => 20121203142830) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
-    t.string   "visibility",    :default => "everybody"
+    t.string   "visibility",    :default => "this_community"
     t.string   "listing_type"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",         :default => true,        :null => false
+    t.boolean  "delta",         :default => true,             :null => false
     t.boolean  "open",          :default => true
     t.string   "share_type"
     t.string   "privacy",       :default => "private"
@@ -309,27 +321,27 @@ ActiveRecord::Schema.define(:version => 20121203142830) do
   end
 
   create_table "people", :id => false, :force => true do |t|
-    t.string   "id",                            :limit => 22,                   :null => false
+    t.string   "id",                                 :limit => 22,                   :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "is_admin",                                    :default => 0
-    t.string   "locale",                                      :default => "fi"
+    t.integer  "is_admin",                                         :default => 0
+    t.string   "locale",                                           :default => "fi"
     t.text     "preferences"
-    t.integer  "active_days_count",                           :default => 0
+    t.integer  "active_days_count",                                :default => 0
     t.datetime "last_page_load_date"
-    t.integer  "test_group_number",                           :default => 1
-    t.boolean  "active",                                      :default => true
+    t.integer  "test_group_number",                                :default => 1
+    t.boolean  "active",                                           :default => true
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "show_real_name_to_other_users",               :default => true
+    t.boolean  "show_real_name_to_other_users",                    :default => true
     t.string   "username"
     t.string   "email"
-    t.string   "encrypted_password",                          :default => "",   :null => false
+    t.string   "encrypted_password",                               :default => "",   :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                               :default => 0
+    t.integer  "sign_in_count",                                    :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -345,6 +357,8 @@ ActiveRecord::Schema.define(:version => 20121203142830) do
     t.datetime "image_updated_at"
     t.string   "facebook_id"
     t.string   "authentication_token"
+    t.datetime "community_updates_last_sent_at"
+    t.integer  "min_days_between_community_updates",               :default => 1
   end
 
   add_index "people", ["confirmation_token"], :name => "index_people_on_confirmation_token", :unique => true

@@ -50,7 +50,7 @@ module ListingsHelper
     Listing::VALID_VISIBILITIES.each do |visibility|
       if visibility.eql?("this_community")
         array << [t(".#{visibility}", :community => @current_community.name), visibility]
-      elsif !(visibility.eql?("communities") && @current_user.communities.size < 2) 
+      else 
         array << [t(".#{visibility}"), visibility]
       end
     end
