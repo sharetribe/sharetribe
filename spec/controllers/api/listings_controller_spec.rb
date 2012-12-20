@@ -16,12 +16,12 @@ describe Api::ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
     
-    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1)
+    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
-    FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :share_type => "sell").communities = [@c1]
-    FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago).communities = [@c2]
-    FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway").communities = [@c1]
-    @l4 = FactoryGirl.create(:listing, :listing_type => "request", :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => "borrow")
+    FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :share_type => "sell", :privacy => "public").communities = [@c1]
+    FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
+    FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
+    @l4 = FactoryGirl.create(:listing, :listing_type => "request", :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => "borrow", :privacy => "public")
     @l4.communities = [@c1]
     @l4.update_attribute(:valid_until, 2.days.ago)
 
@@ -161,6 +161,7 @@ describe Api::ListingsController do
                     :category => "item",
                     :share_type => "sell",
                     :visibility => "this_community",
+                    :privacy => "public",
                     :community_id => @c1.id,
                     :valid_until => 2.months.from_now,
                     :format => :json
@@ -170,6 +171,7 @@ describe Api::ListingsController do
       resp["title"].should == "new great listing"
       resp["description"].should == "This is what you need!"
       resp["visibility"].should == "this_community"
+      resp["privacy"].should == "public"
       resp["share_type"].should == "sell"
       resp["category"].should == "item"
       resp["listing_type"].should == "offer"

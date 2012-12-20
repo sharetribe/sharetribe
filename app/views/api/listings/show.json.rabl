@@ -2,7 +2,7 @@ object @listing
 attributes :id, :title, :description, :status, :listing_type,
            :category, :share_type, :times_viewed,
            :created_at, :updated_at, :valid_until,
-           :visibility
+           :visibility, :privacy
            
 node do |listing|
   if listing.listing_images.present?

@@ -2,9 +2,7 @@ class Api::ListingsController < Api::ApiController
   include ListingsHelper
   before_filter :authenticate_person!, :except => [:index, :show]
   before_filter :require_community, :except => :show
-  
-  # TODO: limit the visibility of one listing. The below doesn't work yet as the param name is different in this case (only id)
-  #before_filter :ensure_authorized_to_view_listing, :only => [:show]
+  before_filter :ensure_authorized_to_view_listing, :only => [:show]
   
   def index
     @page = params["page"] || 1
@@ -25,7 +23,7 @@ class Api::ListingsController < Api::ApiController
     end
     
     unless @current_user && @current_user.communities.include?(@current_community)
-      query["visibility"] = "everybody"
+      query["privacy"] = "public"
     end
     
     if params["search"]
@@ -91,6 +89,7 @@ class Api::ListingsController < Api::ApiController
                                         "share_type", 
                                         "listing_type", 
                                         "visibility",
+                                        "privacy",
                                         "origin",
                                         "destination",
                                         "origin_loc_attributes",
