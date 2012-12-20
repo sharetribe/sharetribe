@@ -387,8 +387,8 @@ ru:
       has_updated_request_you_follow_in_kassi: "%{author} обновил предложение «%{listing}», за которым вы следите в %{service_name}"
       you_can_view_the_changes_in: "Вы можете просмотреть изменения"
     community_updates:
-      added_offer: "добавлено предложение:"
-      added_request: "добавлен запрос:"
+      added_offer: "%{name_link} добавлено предложение:"
+      added_request: "%{name_link} добавлен запрос:"
       update_mail_title: "Обновления сообщества %{title_link}"
       title_link_text: "%{community_name}%{service_name}"
       intro_paragraph: "В этом письме содержится несколько новостей сообщества %{community_link} за последние %{time_since_last_update}"

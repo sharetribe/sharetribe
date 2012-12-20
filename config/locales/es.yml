@@ -390,8 +390,8 @@ es:
       has_updated_request_you_follow_in_kassi: "%{author} ha actualizado la oferta '%{listing}' que estás siguiendo en %{service_name}"
       you_can_view_the_changes_in: "Puede ver los cambios en"
     community_updates:
-      added_offer: "añadir una oferta:"
-      added_request: "añadir una solicitud:"
+      added_offer: "%{name_link} añadir una oferta:"
+      added_request: "%{name_link} añadir una solicitud:"
       update_mail_title: "%{title_link} actualización de la comunidad"
       title_link_text: "%{community_name} %{service_name}"
       intro_paragraph: "Aquí están algunos de los sucesos que han ocurrido en la %{community_link} durante el pasado %{time_since_last_update}."

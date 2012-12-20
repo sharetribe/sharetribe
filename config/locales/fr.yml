@@ -387,8 +387,8 @@ fr:
       has_updated_request_you_follow_in_kassi: "%{author} a mis à jour l'offre '%{listing}' que vous suivez dans %{service_name}"
       you_can_view_the_changes_in: "Vous pouvez voir les changements de"
     community_updates:
-      added_offer: "a ajouté une offre : "
-      added_request: "a ajouté une demande : "
+      added_offer: "%{name_link} a ajouté une offre : "
+      added_request: "%{name_link} a ajouté une demande : "
       update_mail_title: "Actualités de la tribu %{title_link}"
       title_link_text: "%{community_name} %{service_name}"
       intro_paragraph: "Voici une partie de ce qu'il s'est passé dans la tribu %{community_link} depuis %{time_since_last_update}."
