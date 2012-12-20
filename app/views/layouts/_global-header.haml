@@ -80,7 +80,7 @@
         .ss-user.icon-with-text
         .text-with-icon
           Profile
-      %a.inbox-menu-button{href: '#'}
+      %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
         .ss-mail.icon-with-text
         .text-with-icon
           Inbox 

@@ -15,7 +15,7 @@
   = form_for @conversation, :url => person_messages_path(:person_id => @current_user.id) do |form|
     
     - if params[:message_type]
-      = form.label :title, t('.title') + ":"
+      = form.label :title, t('.title')
       = form.text_field :title, :class => "text_field", :maxlength => "120"
     - else
       .title-label

@@ -837,13 +837,16 @@ figure.fluidratio {
   background-size: cover;
   -moz-background-size: cover;  /* Firefox 3.6 */
   background-position: center;  /* Internet Explorer 7/8 */
-  
-  background-image: url("/assets/new-design/cover-image5.png");
   background-position: center center;
+  
   @include media(tablet) {
     /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
     @include fluid-ratio(em(1600) em(195), em(300) em(195));
   }
+}
+
+figure.tribe-cover {
+  background-image: url("/assets/new-design/cover-image5.png");
 }
 
 .cover-image {
@@ -1013,7 +1016,7 @@ figure.fluidratio {
 .tribe-navigation {
   position: relative;
   background: $link;
-  @include box-shadow(rgba(0,0,0,0.2) 0 em(-4) em(3) em(1));
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(-2) em(2) em(1));
   z-index: 600;
 }
 
@@ -1098,6 +1101,17 @@ figure.fluidratio {
     width: lines(10);
     top: em(46);
   }
+}
+
+
+/*
+  --------
+  Inbox header
+  --------
+*/
+
+figure.inbox-cover {
+  background-image: url("/assets/new-design/inbox-cover3.jpg");
 }
 
 
