@@ -15,8 +15,8 @@
                   %p{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;color:#464646;font-weight: normal; font-size: 14px;margin-bottom:0;padding:0;"}
                     
                     = t("emails.community_updates.added_#{listing.listing_type}", :name_link => link_to( listing.author.given_name_or_username, person_url(listing.author, :auth => @auth_token, :ref => "weeklymail"), :style => "color:#d25427;font-weight:bold;text-decoration:none;")).html_safe
-                  %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;color:#d25427;font-size:30px;line-height:30px;margin-bottom:16px;display:block; margin-top:0;"}
-                    = link_to listed_listing_title(listing), listing_url(listing, :auth => @auth_token, :ref => "weeklymail"), :style => "color:#d25427!important;text-decoration:none", :target => "_blank"
+                  %h2{:style => "font-family:Helvetica Neue, Helvetica, Arial, sans-serif;color:#464646;font-weight: normal; font-size: 30px;margin-bottom:0;padding:0;margin-top:0px;text-decoration:none;"}
+                    = link_to listed_listing_title(listing), listing_url(listing, :auth => @auth_token, :ref => "weeklymail"), :style => "color:#d25427;text-decoration:none", :target => "_blank"
           - unless listing.listing_images.empty?
             = link_to(image_tag(listing.listing_images.first.image.url(:email), :class => "listing_main_image", :alt => listing.title, :height => "100", :width => "150", :style => "display:block;margin-left:30px;margin-bottom:20px;margin-top:4px;border:0", :align => "right"), listing_url(listing, :auth => @auth_token, :ref => "weeklymail"))
           - unless listing.description.blank?
