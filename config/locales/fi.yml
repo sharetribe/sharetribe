@@ -387,8 +387,8 @@ fi:
       has_updated_request_you_follow_in_kassi: "%{author} on päivittänyt seuraamasi tarjouksen %{listing}"
       you_can_view_the_changes_in: "Voit nähdä muutokset osoitteessa"
     community_updates:
-      added_offer: "lisäsi tarjouksen:"
-      added_request: "lisäsi pyynnön:"
+      added_offer: "%{name_link} lisäsi tarjouksen:"
+      added_request: "%{name_link} lisäsi pyynnön:"
       update_mail_title: "%{title_link} uusimmat kuulumiset"
       title_link_text: "%{community_name}-%{service_name_genetive}"
       intro_paragraph: "Tässä poimintoja siitä, mitä %{community_link} on tapahtunut viimeisen %{time_since_last_update} aikana."

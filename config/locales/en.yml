@@ -387,8 +387,8 @@ en:
       has_updated_request_you_follow_in_kassi: "%{author} has updated the offer '%{listing}' you are following in %{service_name}"
       you_can_view_the_changes_in: "You can view the changes in"
     community_updates:
-      added_offer: "added an offer:"
-      added_request: "added a request:"
+      added_offer: "%{name_link} added an offer:"
+      added_request: "%{name_link} added a request:"
       update_mail_title: "%{title_link} community update"
       title_link_text: "%{community_name} %{service_name}"
       intro_paragraph: "Here are some of the things that happened in the %{community_link} during the past %{time_since_last_update}."
