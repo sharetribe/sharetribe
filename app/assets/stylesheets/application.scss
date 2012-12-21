@@ -40,9 +40,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .page-content {
   
+  padding-bottom: lines(3);
+  
   h1 {
     margin: lines(0.25) 0 lines(0.5);
-    font-weight: 600;
+    font-weight: 700;
+    //-webkit-font-smoothing: antialiased;
     
     @include media(small-tablet) {
       @include large-type;
@@ -103,7 +106,7 @@ body {
   padding: lines(0.5);
   @include clearfix;
   @include media(tablet) {
-    padding: lines(1) lines(0);
+    padding: lines(1) lines(0.5);
   }
 }
 
@@ -220,24 +223,6 @@ body {
   padding-top: lines(0.05);
 }
 
-@mixin button() {
-  @include border-radius(em(5));
-  background: $link;
-  border: em(2) solid darken($link, 10%);
-  color: $background;
-  text-align: center;
-  &:hover { 
-    background: darken($link, 5%);
-    border: em(2) solid darken($link, 15%); 
-  };
-  &:active {
-    background: darken($link, 10%);
-    border: em(2) solid darken($link, 20%);
-  }
-  cursor: pointer;
-  padding: lines(0.4) lines(0.5) lines(0.5) lines(0.5);
-}
-
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
@@ -257,13 +242,6 @@ form {
       padding: 0 0 0 lines(1);
       margin-top: lines(0.5) - em(3);
       font-weight: 600;
-    }
-    
-    label.error {
-      display: block;
-      margin: lines(0.5) 0;
-      padding: em(5) 2.5% em(10) 2.5%;
-      width: 95%;
     }
     
     a {
@@ -314,20 +292,61 @@ label.inline {
   @include small-type;
 }
 
-button {
+@mixin button {
+  @include box-sizing(border-box);
+  @include border-radius(em(5));
+  background: $link;
+  border: em(2) solid darken($link, 10%);
+  color: $background;
+  text-align: center;
+  cursor: pointer;
+  padding: em(2) em(11) em(4) em(11);
+  margin: lines(0.5) 0;
+  
+  &:hover { 
+    background: darken($link, 5%);
+    border: em(2) solid darken($link, 15%); 
+  };
+  
+  &:active {
+    background: darken($link, 10%);
+    border: em(2) solid darken($link, 20%);
+  }
+
+}
+
+@mixin big-button {
   @include button;
-  padding: em(4) lines(1) em(8) lines(1);
-  margin: lines(0.75) 0;
+  @include big-type;
+  padding-top: em(8);
+  padding-bottom: em(10);
+}
+
+button, .button {
+  @include button;
+  @include media(tablet) {
+    padding: em(5) em(16) em(7) em(16);
+  }
 }
 
 label.error {
   @include border-radius(em(5));
-  padding: em(5) 2.5% em(10) 2.5%;
+  padding: em(5) em(10) em(10) em(10);
   background: red;
   color: $background;
   display: block;
-  width: 95%;
-  margin: lines(0.5) 0;
+  width: 100%;
+  @include box-sizing(border-box);
+  margin: lines(0.5) 0 lines(0.5) 0;
+  position: relative;
+  &:before {
+    content: "";
+    border: em(8) solid transparent;
+    border-bottom-color: red;
+    position: absolute;
+    left: em(18); top: em(-16);
+  }
+  
 }
 
 
@@ -338,11 +357,12 @@ label.error {
 */
 
 .global-header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   border: 0;
   background: $background;
   @include box-shadow(rgba(0,0,0,0.2) 0 em(2) em(5));
-  position: static;
   width: 100%;
   z-index: 10000;
 
@@ -352,14 +372,6 @@ label.error {
   
   @include media(tablet) {
     position: fixed;
-  }
-}
-
-.top-margin {
-  @include media(tablet) {
-    width: 100%;
-    height: em(47);
-    background: $background;
   }
 }
 
@@ -471,7 +483,11 @@ label.error {
   // Hidden on small screens, because 
   // this functionality is in .user-menu
   display: none;
-  &:hover { background: $highlight; }
+  color: $body;
+  &:hover { 
+    background: $highlight;
+    color: $body;
+  }
   
   @include media(tablet) {
     // Shown on wider screens, while the
@@ -582,6 +598,8 @@ label.error {
   border: solid $border;
   border-width: 0 1px 0;
   z-index: 6;
+  height: em(48);
+  overflow: hidden;
   
   .login-icon {
     width: em(15);
@@ -615,28 +633,19 @@ label.error {
 }
 
 .login-menu {
-  
-  input[type=text], input[type=password] {
-    width: 94%;
-  }
+  @include box-sizing(border-box);
+  padding: lines(0.75 )lines(0.5) lines(0.5) lines(0.5);
+
   
   input[type=text] {
-    margin: 4% 3% 3% 3%;
-  }
-  
-  input[type=password] {
-    margin: 0 3% 3% 3%;
-  }
-  
-  button, input[type=submit] {
-    margin: 0 3% 3% 3%;
+    margin-bottom: lines(0.5);
   }
   
   @include media(tablet) {
     // Makes the menu float on top of the content
     position: absolute;
     right: 0; top: lines(2);
-    width: lines(14);
+    width: lines(14) + em(2);
     border: solid $emphasis;
     border-width: 0 1px 1px;
   }
@@ -651,6 +660,7 @@ label.error {
   border-width: 0 1px 0;
   z-index: 5;
   display: none;
+  height: em(48);
   
   .feedback-icon {
     width: em(15);
@@ -807,6 +817,7 @@ label.error {
 
 .tribe-header {
   position: relative;
+  padding-top: em(47);
 }
 
 .coverimage {
@@ -900,7 +911,7 @@ figure.tribe-cover {
   
   h1 {
     color: $background;
-    font-weight: 600;
+    font-weight: 500;
     @include small-type;
   }
   
@@ -964,10 +975,10 @@ figure.tribe-cover {
     &:hover { color: lighten($link, 30%); }
   }
   .intro-button {
-    @include button;
-    @include big-type;
-    width: lines(5.5);
+    @include big-button;
+    width: 100%;
     display: block;
+    margin: 0;
   }
   @include media(desktop) {
     display: block;
@@ -984,14 +995,6 @@ figure.tribe-cover {
 .actions-menu {
   position: relative;
   @include clearfix;
-
-  // Left-aligned links
-  a {
-    display: block;
-    float: left;
-    padding: em(10) lines(0.4) em(10) lines(0.6);
-    color: $emphasis;
-  }
   
   // Right-aligned links
   .offset-link {
@@ -1002,12 +1005,12 @@ figure.tribe-cover {
     height: lines(1);
     min-width: lines(1);
     overflow: hidden;
-    padding-top: lines(0.6);
+    padding: lines(0.5);
   }
   
   @include media(tablet) {
     a {
-      padding: lines(0.4) lines(0.8);
+      padding: em(9) lines(0.8) em(11) lines(0.8);
     }
   }
 
@@ -1016,7 +1019,7 @@ figure.tribe-cover {
 .tribe-navigation {
   position: relative;
   background: $link;
-  @include box-shadow(rgba(0,0,0,0.2) 0 em(-2) em(2) em(1));
+  @include box-shadow(rgba(0,0,0,0.2) 0 em(-3) em(2) em(1));
   z-index: 600;
 }
 
@@ -1029,18 +1032,27 @@ figure.tribe-cover {
     display: none;
   }
   
-  .menu-text-link {
+  // Left-aligned links
+  a {
+    display: block;
+    float: left;
+    padding: em(10) em(15) em(10) em(15);
+    color: $emphasis;
+    height: em(24);
+    overflow: hidden;
     color: $background;
     &:hover { 
       background: darken($link, 5%);
     }
   }
   
-  .menu-text-first-child { margin-left: lines(0); }
-  
-  .menu-text-link-selected { 
+  a.selected {
     color: $body;
     background: $background;
+  }
+  
+  a.first-child { 
+    margin-left: lines(0); 
   }
   
   .about-toggle.toggled {
@@ -1059,9 +1071,10 @@ figure.tribe-cover {
       display: none;
     }
     
-    .menu-text-first-child { margin-left: lines(10.5); }
+    a.first-child { 
+      margin-left: lines(10.5); 
+    }
     
-    //&:first-child { margin-left: lines(10.5); }
   }
   
   @include media(small-desktop) {
@@ -1075,16 +1088,16 @@ figure.tribe-cover {
 }
 
 .select-language {
+  height: em(24);
+  overflow: hidden;
   &:hover { background: darken($link, 5%); }
   color: $background;
   float: right;
-  //padding: em(10) lines(1.6) em(12) lines(0.8);
+  padding: em(9) lines(1.6) em(11) lines(0.8);
   
   .current-language {
     display: block;
     float: left;
-    
-    padding: em(10) lines(1.6) em(12) lines(0.8);
   }
   
   .icon-dropdown {
@@ -1099,19 +1112,62 @@ figure.tribe-cover {
     position: absolute;
     right: 0;
     width: lines(10);
-    top: em(46);
+    top: em(44);
   }
 }
 
-
 /*
-  --------
+  ------------
   Inbox header
-  --------
+  ------------
 */
 
-figure.inbox-cover {
-  background-image: url("/assets/new-design/inbox-cover3.jpg");
+.left-hand-navigation {
+  position: absolute;
+  a {
+    padding: lines(0.25) lines(0.5);
+    display: block;
+    font-weight: normal;
+    //@include mid-type;
+    cursor: pointer;
+    @include border-radius(em(5));
+  }
+  a.selected {
+    background: lighten($link, 40%);
+    &:after {
+      content: "→";
+    };
+  }
+}
+
+.inbox-feed {
+  
+  margin-left: lines(10.5);
+  margin-top: lines(3.5);
+  
+  h1 {
+    @include huge-type;
+    display: inline-block;
+  }
+  
+  .inbox-feed-item {
+    .feed-content {
+      max-width: lines(25);
+      margin: em(-3) 0 0 lines(2.25);
+    }
+  }
+  
+  span.header-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(21);
+    margin-left: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    margin-left: lines(10.5);
+  }
+  
 }
 
 
@@ -1124,7 +1180,10 @@ figure.inbox-cover {
 .feed-actions {
   background: $background;
   
-  .new-listing-link {
+  .request-link {
+    display: block;
+    float: left;
+    padding: em(10) em(15) em(10) em(15);
     color: $link;
     &:hover { color: darken($link, 15%); }
   }
@@ -1132,12 +1191,11 @@ figure.inbox-cover {
   @include media(tablet) {
     padding-top: lines(1.8);
     
-    .new-listing-link {
-      @include button;
+    .request-link {
+      @include big-button;
+      width: 100%; 
+      margin: 0 0 lines(0.5) 0;
       &:hover { color: $background; }
-      text-align: center;    
-      margin: lines(0) lines(1.5) lines(0.75) lines(0);
-      @include big-type;
     }
     
   }
@@ -1146,18 +1204,27 @@ figure.inbox-cover {
 
 .feed-filters {
   background: $emphasis;
+  padding: lines(0.5);
   
   .filter-title {
     display: none;
   }
   
+  .feed-filter-dropdowns {
+    margin-top: lines(0.25);
+  }
+  
   @include media(tablet) {
-    
     background: $background;
+    padding: 0;
     
     .filter-title {
-      margin-bottom: lines(0.5);
+      margin-bottom: lines(0.25);
       display: block;
+    }
+    
+    .feed-filter-dropdowns {
+      margin-top: 0;
     }
     
     select, option { 
@@ -1167,58 +1234,45 @@ figure.inbox-cover {
     
   }
   
-  .feed-filter-dropdowns {
-    padding-bottom: lines(0.5);
-    margin-left: 2.5%;
-    @include media(tablet) {
-      margin-bottom: 0;
-      margin-left: 0;
-      select {
-        margin-bottom: lines(0.5);
-      }
-    }
-  }
-  
 }
 
 .feed-search {
-  
+
   input[type=text] {
-    display: block;
+    display: inline;
+    @include box-sizing(border-box);
+    width: 75%;
   }
   
   button {
-    display: none;
-    margin-top: 0;
+    margin: 0 0 0 2%;
+    display: inline;
+    width: 22%;
   }
   
-  a.map-link {
+  a.map-link, .hidden, .hidden-text {
     display: none;
   }
   
-  .hidden-text {
-    display: none;
-  }
-
   @include media(tablet) {
     background: transparent;
     padding: 0;
     
     .hidden {
-      display: inline;
+      display: inline-block;
     }
     
     input[type=text] {
       position: absolute;
       top: lines(1.8); left: lines(13.5);
-      display: inline;
       width: lines(11.5);
     }
 
     button {
       position: absolute;
       top: lines(1.8); left: lines(25.5);
-      display: inline;
+      width: auto;
+      margin-left: 0;
     }
     
     a.map-link {
@@ -1251,12 +1305,7 @@ figure.inbox-cover {
   @include media(tablet) {
     // Turns into a sidebar
     float: left;
-    width: lines(13.5);
-    
-    .actions-menu a {
-      float: none;
-      width: auto;
-    }
+    width: lines(11.5);
     
     .toggle {
       display: none;
@@ -1266,21 +1315,28 @@ figure.inbox-cover {
       display: block;
     }
   }
+  
 }
 
 
   
 .feed {
-  background: $background;
   
   @include media(tablet) {
     // Makes space for sidebar
     margin-left: lines(13.5);
-    padding-top: lines(4.8);
   }
   
 }
 
+#homepage-feed {
+  
+  @include media(tablet) {
+    // Makes space for sidebar
+    padding-top: lines(4.8);
+  }
+  
+}
 
 .feed-item {
   position: relative;
@@ -1403,9 +1459,6 @@ figure.inbox-cover {
       border: none !important;
       background: none;
       
-      select {
-        margin: 0;
-      }
     }
   }
 }
@@ -1446,11 +1499,9 @@ figure.inbox-cover {
     }    
   }
   
-  .request-link {
-    width: 90%;
+  .button {
     margin: 0 0 lines(0.5) 0;
     max-width: 100%;
-    @include button;
     display: block;
     
     @include media(tablet) {
@@ -1539,7 +1590,6 @@ figure.inbox-cover {
       right: lines(0); top: lines(17.5);
       width: lines(15);
       height: lines(10);
-      @include border-radius(em(5));
     }
   }
   
@@ -1572,6 +1622,21 @@ figure.inbox-cover {
     
     .listing-author-description {
       padding-left: lines(3.25);
+      
+      .icon-with-text, .text-with-icon {
+        
+      }
+      
+      .icon-with-text {
+        margin-top: 0;
+        @include small-type;
+      }
+      
+      .text-with-icon {
+        margin-top: em(4);
+        @include small-type;
+      }
+         
     }
     
     @include media(tablet) {
@@ -1581,9 +1646,20 @@ figure.inbox-cover {
         width: lines(4.5);
         height: lines(4.5);
       }
+      
       .listing-author-description {
         padding-left: lines(6);
+        .icon-with-text {
+          margin-top: em(2);
+          @include normal-type;
+        }
+
+        .text-with-icon {
+          margin-top: 0;
+          @include normal-type;
+        }
       }
+      
     }
     
   }
@@ -1607,6 +1683,7 @@ figure.inbox-cover {
   
     h2 {
       margin-top: 0;
+      margin-bottom: lines(0.25);
     }
     
     .comment {
@@ -1731,3 +1808,17 @@ figure.inbox-cover {
 .title-label {
   font-weight: 600;
 }
+
+/* 
+  ----------------
+  New feedback form
+  ----------------
+*/
+
+.new-feedback-form {
+  margin-top: lines(0);
+  @include media(tablet) {
+    margin-top: lines(2);
+  }
+}
+

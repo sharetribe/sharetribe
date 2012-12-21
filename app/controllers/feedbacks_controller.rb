@@ -4,6 +4,8 @@ class FeedbacksController < ApplicationController
   skip_filter :not_public_in_private_community, :only => [ :create ]
   skip_filter :dashboard_only
   
+  layout "feedback"
+  
   def new
     @feedback = Feedback.new  
   end

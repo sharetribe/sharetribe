@@ -1,0 +1,20 @@
+- unless conversation.other_party(@current_user).nil?
+  - last_message = conversation.last_message(@current_user)
+  .feed-item.inbox-feed-item{:class => (conversation.read_by?(@current_user) ? "" : "unread"), :id => "conversation_#{conversation.id.to_s}"}
+    .feed-author-avatar
+      = small_avatar_thumb conversation.other_party(@current_user)
+    .feed-content
+      .author
+        = link_to last_message.sender.name, last_message.sender
+        %time{datetime: "#{last_message.created_at}"}= time_ago(last_message.created_at)
+      %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
+      %small.feed-excerpt
+        = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\""
+      %small.feed-listing-icons
+        %i.ss-check.icon-with-text 
+        .text-with-icon 
+          This request has been completed.
+          = link_to "Give feedback", "#"
+          |
+          = link_to "Skip feedback", "#"
+      

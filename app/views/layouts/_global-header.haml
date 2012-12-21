@@ -19,7 +19,7 @@
         -# if three digits:
         -#.badge.huge-badge 500
 
-      .inbox-toggle.toggle
+      %a.inbox-toggle.toggle{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
         %i.icon.ss-mail
         -# if single digit:
         .badge 5
@@ -68,40 +68,41 @@
         %textarea{placeholder: 'Feedback? Let us know here.'}
       
     %nav.tribe-menu.toggle-menu
+      %a{href: '/'}
+        Sharetribe Lauttasaari
       %a{href: '#'}
-        Kisko Labs
+        Omakotitori
       %a{href: '#'}
-        Ruoholahden Asukkaat
-      %a{href: '#'}
-        Find another tribe
+        Create a new marketplace
     
-    %nav.user-menu.toggle-menu
-      %a.profile-menu-button{href: '#'}
-        .ss-user.icon-with-text
-        .text-with-icon
-          Profile
-      %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
-        .ss-mail.icon-with-text
-        .text-with-icon
-          Inbox 
-          .badge.big-badge 50 
-      %a.notifications-menu-button{href: '#'}
-        .ss-earth.icon-with-text
-        .text-with-icon
-          Notifications
-          .badge.huge-badge 500
-      %a.feedback-menu-button{href: new_user_feedback_path}
-        .ss-megaphone.icon-with-text
-        .text-with-icon
-          Contact us
-      %a{href: '#'}
-        .ss-settings.icon-with-text
-        .text-with-icon
-          Settings
-      %a{href: logout_path}
-        .ss-logout.icon-with-text
-        .text-with-icon
-          Log out
+    - if @current_user
+      %nav.user-menu.toggle-menu
+        %a.profile-menu-button{href: '#'}
+          .ss-user.icon-with-text
+          .text-with-icon
+            Profile
+        %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
+          .ss-mail.icon-with-text
+          .text-with-icon
+            Messages 
+            .badge.big-badge 50 
+        %a.notifications-menu-button{href: '#'}
+          .ss-earth.icon-with-text
+          .text-with-icon
+            Notifications
+            .badge.huge-badge 500
+        %a.feedback-menu-button{href: new_user_feedback_path}
+          .ss-megaphone.icon-with-text
+          .text-with-icon
+            Contact us
+        %a{href: '#'}
+          .ss-settings.icon-with-text
+          .text-with-icon
+            Settings
+        %a{href: logout_path}
+          .ss-logout.icon-with-text
+          .text-with-icon
+            Log out
     
     %nav.login-menu.toggle-menu
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
@@ -110,7 +111,7 @@
         = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => "Email or username"
         = password_field_tag "person[password]", nil, :placeholder => "Password"
         = button_tag t('sessions.new.login')
-        = link_to t('sessions.new.create_new_account'), sign_up_path
-        = link_to t('sessions.new.i_forgot_my_password'), "#"
+        = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-menu-link"
+        = link_to t('sessions.new.i_forgot_my_password'), "#", :class => "login-menu-link"
         
           

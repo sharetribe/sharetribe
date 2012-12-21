@@ -75,6 +75,11 @@ $line-height: 24;
   line-height: lines(1); // 24px
 }
 
+@mixin mid-type {
+  font-size: em(18);
+  line-height: lines(1, 22);
+}
+
 @mixin big-type {
   font-size: em(22); // roughly 16*1.382 (shorter part of golden ratio)
   line-height: lines(1, 22); // 24px

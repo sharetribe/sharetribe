@@ -1,6 +1,6 @@
 .feed-navigation
   .feed-actions.actions-menu
-    %a.new-listing-link{href: '#'} 
+    %a.request-link{href: '#'} 
       %i.ss-plus.icon-with-text
       .text-with-icon Post a new listing!
     %a.offset-link.toggle{href: '#', data: {toggle: '.feed-filters'}}
@@ -18,7 +18,7 @@
       %a.map-link{href: 'map.html', title: 'Map view'}
         %i.ss-maplocation.icon-with-text
         .text-with-icon.hidden-text Map
-  
+    
     .feed-filter-dropdowns
       .filter-title
         Show:
@@ -47,6 +47,7 @@
         %option Services
         %option Rideshare
         %option Spaces
+      
 
 #homepage-feed.feed
   - if @offers.total_entries > 0

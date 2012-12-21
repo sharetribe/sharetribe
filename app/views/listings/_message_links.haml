@@ -18,4 +18,4 @@
         .text-with-icon= t("listings.edit_links.close_#{@listing.listing_type}")
   - else
     - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
-    = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s), :class => "request-link"
+    = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s), :class => "button"

@@ -3,36 +3,17 @@
 = render :partial => 'layouts/global-header'
 
 %header.inbox-header
-  
-  .top-margin
-  
-  .coverimage
-    %figure.inbox-cover.fluidratio 
-      
-.tribe-navigation
-
-  .wrapper
-
-    %nav.tribe-actions.actions-menu
-      %a.menu-text-link-selected.menu-text{href: '#', title: 'Inbox'}
-        %i.ss-mail.icon-with-text
-        .text-with-icon.hidden Inbox
-      %a.menu-text-link{href: '#', title: 'Notifications'}
-        %i.ss-earth.icon-with-text
-        .text-with-icon.hidden Notifications
-      %a.menu-text-link{href: '#', title: 'Settings'}
-        %i.ss-settings.icon-with-text
-        .text-with-icon.hidden Settings
-      .select-language.toggle{data: {toggle: '.language-menu'}}
-        %i.icon-dropdown.ss-dropdown
-        .current-language
-          English
-    
-    .language-menu.toggle-menu
-      %a{href: change_locale_path(:locale => "en")} English
-      %a{href: change_locale_path(:locale => "fi")} Finnish
-      %a{href: '#'} French
     
 %article.page-content
+  
   .wrapper
+  
+    .left-hand-navigation
+      %a.selected
+        .ss-mail.icon-with-text
+        .text-with-icon Messages
+      %a
+        .ss-earth.icon-with-text
+        .text-with-icon Notifications
+  
     = yield

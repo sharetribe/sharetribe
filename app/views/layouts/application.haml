@@ -4,8 +4,6 @@
 
 %header.tribe-header
   
-  .top-margin
-  
   .coverimage
     %figure.tribe-cover.fluidratio
   
@@ -22,7 +20,7 @@
           %a{href: "#"}
             Read more
     .join-action-buttons
-      - if @no_fb_connect
+      - unless @no_fb_connect
         %a.intro-button
           Join this tribe
       - else
@@ -36,16 +34,16 @@
   .wrapper
 
     %nav.tribe-actions.actions-menu
-      %a.menu-text-link-selected.menu-text-first-child{href: '#', title: 'Home'}
+      %a.selected.first-child{href: '#', title: 'Home'}
         %i.ss-home.icon-with-text
         .text-with-icon.hidden Home
-      %a.menu-text-link{href: '#', title: 'Members'}
+      %a{href: '#', title: 'Members'}
         %i.ss-usergroup.icon-with-text
         .text-with-icon.hidden Members
-      %a.menu-text-link{href: '#', title: 'About'}
+      %a{href: '#', title: 'About'}
         %i.ss-help.icon-with-text
         .text-with-icon.hidden About
-      %a.menu-text-link{href: '#', title: 'Admin'}
+      %a{href: '#', title: 'Admin'}
         %i.ss-wrench.icon-with-text
         .text-with-icon.hidden Admin
       .select-language.toggle{data: {toggle: '.language-menu'}}
