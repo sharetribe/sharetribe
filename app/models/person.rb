@@ -581,6 +581,15 @@ class Person < ActiveRecord::Base
     end
   end
   
+  def add_listings_visible_to_all_to(community)
+    listings.each do |listing|
+      if listing.visibility == "all_communities" && !listing.communities.include?(community)
+        listing.communities << community
+      end
+    end
+    
+  end
+  
   
   
   private
