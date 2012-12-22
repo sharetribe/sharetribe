@@ -11,10 +11,11 @@
   .feed-filters.toggle-menu-filters
   
     .feed-search
-      %input{type: 'text', placeholder: 'What do you need?'}
-      %button
-        %i.ss-search.icon-with-text
-        .text-with-icon.hidden Search
+      = form_tag({ :action => :index, :controller => :homepage }, :method => "get") do
+        %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: 'What do you need?'}
+        %button{type: 'submit'}
+          %i.ss-search.icon-with-text
+          .text-with-icon.hidden Search
       %a.map-link{href: 'map.html', title: 'Map view'}
         %i.ss-maplocation.icon-with-text
         .text-with-icon.hidden-text Map
