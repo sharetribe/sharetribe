@@ -1501,18 +1501,15 @@ figure.tribe-cover {
   
   .button {
     margin: 0 0 lines(0.5) 0;
-    max-width: 100%;
+    width: 100%;
     display: block;
     
     @include media(tablet) {
+      @include big-button;
       margin: 0;
       position: absolute;
       right: 0; top: lines(1);
-      width: lines(10) - em(4);
-      
-      &:hover { color: $background; }
-      text-align: center;
-      @include big-type;
+      width: lines(11) - em(2); 
     }
   }
   
