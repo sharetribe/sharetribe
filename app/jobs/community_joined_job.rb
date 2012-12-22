@@ -16,11 +16,7 @@ class CommunityJoinedJob < Struct.new(:person_id, :community_id, :host)
     
     EventFeedEvent.create(:person1_id => current_user.id, :community_id => current_community.id, :category => "join")
     
-    current_user.listings.each do |listing|
-      if ["all_communities"].include?(listing.visibility) && !listing.communities.include?(current_community)
-        listing.communities << current_community
-      end
-    end
+    current_user.add_listings_visible_to_all_to(current_community)
   end
   
 end

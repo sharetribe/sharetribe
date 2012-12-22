@@ -8,30 +8,35 @@ class HomepageController < ApplicationController
   skip_filter :not_public_in_private_community, :only => :sign_in
 
   def index
-    if @current_user && @current_user.member_of?(@current_community)
-      @event_feed_events = @current_community.event_feed_events.limit(5).order("id DESC")
-    else
-      @event_feed_events = @current_community.event_feed_events.non_members_only.limit(5).order("id DESC")
-    end
     listings_per_page = 10
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
     params[:page] = 1 unless request.xhr? 
+    @query = params[:q]
     
-    @requests = Listing.requests.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
-    @offers = Listing.offers.visible_to(@current_user, @current_community).currently_open.paginate(:per_page => listings_per_page, :page => params[:page])
-        
-    # TODO This below should only be done if the count is actually shown, otherwise unnecessary.
-    #If browsing Sharetribe unlogged, count also the number of private listings available 
-    unless @current_user
-      @private_listings = {}
-      @private_listings["request"] = Listing.requests.currently_open.private_to_community(@current_community).count
-      @private_listings["offer"] = Listing.offers.currently_open.private_to_community(@current_community).count
+    if @query # Search used
+      with = {:open => true}
+      unless @current_user && @current_user.communities.include?(@current_community)
+        with[:visible_to_everybody] = true
+      end
+      with[:community_ids] = @current_community.id
+
+      @listings = Listing.search(@query, 
+                                :include => :listing_images, 
+                                :page => params[:page],
+                                :per_page => listings_per_page, 
+                                :star => true,
+                                :with => with
+                                )
+      
+    else # no search used
+
+      @listings = Listing.visible_to(@current_user, @current_community).currently_open.order("created_at DESC").paginate(:per_page => listings_per_page, :page => params[:page])
     end
     
     if request.xhr? # checks if AJAX request
-      render :partial => "recent_listing", :collection => @offers, :as => :listing   
+      render :partial => "recent_listing", :collection => @listings, :as => :listing   
     else
       if @current_community.news_enabled?
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
