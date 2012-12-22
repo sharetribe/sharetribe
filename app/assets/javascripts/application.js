@@ -5,10 +5,8 @@
 // the compiled file.
 //
 //= require jquery
-// require jquery_ujs
-// require jquery.uniform.min
 //= require jquery.form
-// require jquery.lightbox_me
+//= require jquery.fancybox
 //= require jquery.validate.min
 //= require jquery.pageless
 //= require jquery.autosize-min

@@ -5,8 +5,12 @@
       .text-with-icon Post a new listing!
     %a.offset-link.toggle{href: '#', data: {toggle: '.feed-filters'}}
       %i.ss-search
-    %a.offset-link.toggle{href: 'map.html', title: 'Map view'}
-      %i.ss-maplocation
+    - if params[:map]
+      %a.offset-link.toggle{href: root, title: 'List view'}
+        %i.ss-list
+    - else
+      %a.offset-link.toggle{href: (root + '?map=true'), title: 'Map view'}
+        %i.ss-maplocation
 
   .feed-filters.toggle-menu-filters
   
@@ -16,9 +20,14 @@
         %button{type: 'submit'}
           %i.ss-search.icon-with-text
           .text-with-icon.hidden Search
-      %a.map-link{href: 'map.html', title: 'Map view'}
-        %i.ss-maplocation.icon-with-text
-        .text-with-icon.hidden-text Map
+      - if params[:map]
+        %a.map-link{href: root, title: 'List view'}
+          %i.ss-list.icon-with-text
+          .text-with-icon.hidden-text List
+      - else
+        %a.map-link{href: (root + '?map=true'), title: 'Map view'}
+          %i.ss-maplocation.icon-with-text
+          .text-with-icon.hidden-text Map
     
     .feed-filter-dropdowns
       .filter-title
@@ -50,8 +59,11 @@
         %option Spaces
       
 
-#homepage-feed.feed
-  - if @listings.total_entries > 0
-    = render :partial => "recent_listing", :collection => @listings, :as => :listing
-    = will_paginate(@listings)
-    = pageless(@listings.total_pages, '#homepage-feed', root_path, t('.loading_more_content'), false)
+.homepage-feed.feed
+  - if params[:map]
+    = render :partial => "map"
+  - else
+    - if @listings.total_entries > 0
+      = render :partial => "recent_listing", :collection => @listings, :as => :listing
+      = will_paginate(@listings)
+      = pageless(@listings.total_pages, '#homepage-feed', root_path, t('.loading_more_content'), false)

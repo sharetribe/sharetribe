@@ -1,0 +1,13 @@
+- content_for :extra_javascript do
+  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
+  =# javascript_include_tag "https://code.google.com/apis/gears/gears_init.js"
+  = javascript_include_tag 'markerclusterer.js'
+
+- community_location_lat = @current_community.location ? @current_community.location.latitude : nil
+- community_location_lon = @current_community.location ? @current_community.location.longitude : nil
+
+- content_for :extra_javascript do
+  :javascript
+    $(document).ready(function() { initialize_listing_map('#{params[:listing_type]}','#{community_location_lat}','#{community_location_lon}'); });
+
+#map-canvas.map

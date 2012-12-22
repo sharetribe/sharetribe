@@ -1134,6 +1134,7 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
+      open_listings: "Avoimet ilmoitukset"
       contact: "Lähetä viesti käyttäjälle %{person}"
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
@@ -1147,9 +1148,9 @@ fi:
       received_feedback: "Saatu palaute:"
       positive: positiivista
       hide_description: "Vähemmän tekstiä"
-      joined_this_community: "...liittyi tähän yhteisöön %{time_ago}"
-      was_last_seen: "...oli viimeksi aktiivinen %{time_ago}"
-      was_invited_by: "...liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
+      joined_this_community: "Liittyi tähän yhteisöön %{time_ago}"
+      was_last_seen: "Viimeksi aktiivinen %{time_ago}"
+      was_invited_by: "Liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
       show_all_badges: "Näytä kaikki %{service_name}-merkit"

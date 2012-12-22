@@ -4,122 +4,67 @@
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
   
-.grid_6
-  = large_avatar_thumb(@person)
-  - if @current_user && @current_user.is_admin?
-    #edit_links
-      = render :partial => "edit_links"
-  - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
-    .profile_trustcloud_header.profile_badges_header
-      = t('.trustcloud')
-      &nbsp;
-      = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
-    .profile_trustcloud
-      = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}&darkcolor=2F5707&lightcolor=44731B&viewerisowner=#{( current_user?(@person) ? "1" : "0")}&lightbox=1\"></script>".html_safe
-      = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
+.view-profile
+
+  .profile-description.section
   
-  - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
-    .profile_badges_header
-      = "#{t('.badges')} (#{@person.badges.size})"
-      %br/
-      = link_to t(".what_are_these"), "#", :id => "badges_description_link"
-    .profile_badges
-      = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
-      .profile_badges_link_to_all
-        = link_to t(".show_all_badges"), person_badges_path(:person_id => @person.id)
-  - if @person.received_testimonials.size > 0    
-    .profile_feedback_header
-      .profile_feedback_average_image
-        %div{:class => grade_profile_image_class(@person.feedback_positive_percentage)}
-          &nbsp;
-      .profile_feedback_average
-        .profile_feedback_average_title
-          = t(".received_feedback")
-        .profile_feedback_average_value
-          = @person.feedback_positive_percentage.to_s + "%"
-        .profile_feedback_average_description
-          = t(".positive")
-          %br/
-          = "(#{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-    .profile_feedback_list
-      .profile_feedback_arrow
-        &nbsp;
-      .profile_feedback_texts
-        = render :partial => "profile_feedback", :collection => @person.received_testimonials.limit(1), :as => :testimonial, :spacer_template => "profile_feedback_spacer"
-      .profile_testimonials_link_to_all
-        = link_to t(".show_all_testimonials") + " (#{@person.received_testimonials.size})", person_testimonials_path(:person_id => @person.id)
-        
-.grid_18
-  #inactive_notification
-    = render :partial => "inactive_notification"
-  .grid_11.alpha
-    %h1= @person.name
-    #profile_info
-      - if logged_in?
-        .profile_info_row
-          .profile_info_row_title
-            = t(".address")
-          .profile_info_row_content
-            - if @person.location.present?
-              = @person.location.address
-            - elsif current_user?(@person)
-              = link_to t(".add_location"), person_settings_path(@person)
-        .profile_info_row    
-          .profile_info_row_title
-            = t(".phone_number")
-          .profile_info_row_content
-            - if @person.phone_number && !@person.phone_number.blank?
-              = @person.phone_number 
-            - elsif current_user?(@person)
-              = link_to t(".add_phone_number"), person_settings_path(@person)
-      .profile_info_row    
-        .profile_info_row_title
-          = t(".about_me")
-        .profile_info_row_content
-          #profile_description_preview
-            - if @person.description && !@person.description.blank?
-              - text_with_line_breaks do
-                = truncate(@person.description, :length => 200, :omission => "...")
-              - if @person.description.length > 200
-                %br/
-                = link_to t(".show_full_description"), "#", :id => "description_preview_link"
-            - elsif current_user?(@person)
-              = link_to t(".add_description"), person_settings_path(@person)
-            - else
-              %br/
-          - if @person.description && @person.description.length > 200      
-            #profile_description_full
-              - text_with_line_breaks do
-                = @person.description
-              %br/  
-              = link_to t(".hide_description"), "#", :id => "description_full_link"
-        #edit_info_link
-          - if current_user?(@person)
-            = link_to t(".edit_profile_info"), profile_person_settings_path(:person_id => @current_user.id.to_s)
-          - else
-            = link_to t(".contact", :person => @person.given_name_or_username), new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)
-  .grid_7.omega
-    #profile_community_info
-      %h5
-        = @person.given_name_or_username +    "..."
-      = t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
-      - if @community_membership.last_page_load_date
-        %br/
-        = t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
-      - if @community_membership.invitation && @community_membership.invitation.inviter
-        %br/
-        = t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe        
-    - if logged_in? && @person.location && @person.location.address != ""
+    %h1
+      = @person.name
+    
+    #profile_message_links
+      %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
+        .ss-compose.icon-with-text
+        .text-with-icon= t(".contact", :person => @person.given_name_or_username)
+    
+    .profile-details
+    
+      .profile-image
+        = large_avatar_thumb(@person)
+
+      - if @person.description && !@person.description.blank?
+        - text_with_line_breaks do
+          = @person.description
+
+      .profile-icons
+        - if @person.phone_number && !@person.phone_number.blank?
+          .profile-icon
+            .ss-phone.icon-with-text
+            .text-with-icon= @person.phone_number
+        .profile-icon
+          .ss-adduser.icon-with-text 
+          .text-with-icon= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
+        - if @community_membership.last_page_load_date
+          .profile-icon
+            .ss-refresh.icon-with-text
+            .text-with-icon= t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
+        - if @community_membership.invitation && @community_membership.invitation.inviter
+          .profile-icon
+            .ss-users.icon-with-text
+            .text-with-icon= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
+    
+    - if logged_in? && @person.location && !@person.location.address.blank?
       #googlemap
         = render :partial => "googlemap"
         = render :partial => "profile_location", :locals => { :location => @person.location }
-
-  .clear  
+        
+  .profile-listings.section
+    %h2 
+      .ss-page.icon-with-text
+      .text-with-icon
+        = t(".open_listings")
+        %span= "(#{@listings.count})"
+  
+  .profile-listings.section
+    %h2 
+      .ss-star.icon-with-text
+      .text-with-icon
+        = t(".testimonials")
+        %span= "(#{@listings.count})"
+  
+  .profile-listings.section
+    %h2 
+      .ss-medal.icon-with-text
+      .text-with-icon
+        = t(".badges")
+        %span= "(#{@listings.count})"
     
-  #listings
-    = render :partial => "profile_listings"
-
-
-- if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
-  = render :partial => "help_texts", :collection => ["badges_description"], :as => :field
-  = render :partial => "badge_description", :collection => @person.badges.order("id DESC").limit(6), :as => :badge

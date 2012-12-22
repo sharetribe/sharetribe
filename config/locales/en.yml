@@ -1148,6 +1148,7 @@ en:
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
     show:
+      open_listings: "Open listings"
       contact: "Contact %{person}"
       about_me: "About me:"
       add_description: "Tell something about yourself"
@@ -1161,9 +1162,9 @@ en:
       received_feedback: "Received feedback:"
       positive: positive
       hide_description: "Show less"
-      joined_this_community: "...joined this community %{time_ago}"
-      was_last_seen: "...was last seen %{time_ago}"
-      was_invited_by: "...was invited by %{inviter_name}"
+      joined_this_community: "Joined %{time_ago}"
+      was_last_seen: "Last seen %{time_ago}"
+      was_invited_by: "Invited by %{inviter_name}"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_badges: "Show all badges"

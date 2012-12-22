@@ -232,7 +232,8 @@ function initialize_reply_form(locale) {
   );
 }
 
-function initialize_comment_form(locale) {
+function initialize_listing_view(locale) {
+  $(".fancybox").fancybox();
 	auto_resize_text_areas("listing_comment_content_text_area");
 	prepare_ajax_form(
     "#new_comment",
@@ -276,7 +277,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
-				error.appendTo(element.parent());
+				error.appendTo(element.parent().parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
 			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
 			} else {

@@ -4,6 +4,7 @@
 @import 'colors'; // color presets and their logic
 @import 'type';   // typography presets and tools
 @import 'media-queries'; // media query presets
+@import 'jquery.fancybox'; // media query presets
 
 /*
   --------------------------
@@ -73,6 +74,10 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
+  }
+  
+  br {
+    height: lines(0.5);
   }
   
   @include media(tablet) {
@@ -224,6 +229,7 @@ body {
 }
 
 .icon-with-text { display: inline-block; padding-right: em(4); margin-top: em(2); }
+.ss-list { margin-top: em(3); }
 .text-with-icon { display: inline-block; vertical-align: top; }
 
 form {
@@ -305,11 +311,13 @@ label.inline {
   
   &:hover { 
     background: darken($link, 5%);
+    color: $background;
     border: em(2) solid darken($link, 15%); 
   };
   
   &:active {
     background: darken($link, 10%);
+    color: $background;
     border: em(2) solid darken($link, 20%);
   }
 
@@ -318,8 +326,8 @@ label.inline {
 @mixin big-button {
   @include button;
   @include big-type;
-  padding-top: em(8);
-  padding-bottom: em(10);
+  padding-top: em(7);
+  padding-bottom: em(11);
 }
 
 button, .button {
@@ -331,12 +339,12 @@ button, .button {
 
 label.error {
   @include border-radius(em(5));
+  @include box-sizing(border-box);
   padding: em(5) em(10) em(10) em(10);
   background: red;
   color: $background;
   display: block;
   width: 100%;
-  @include box-sizing(border-box);
   margin: lines(0.5) 0 lines(0.5) 0;
   position: relative;
   &:before {
@@ -424,9 +432,9 @@ label.error {
 
 
 .select-tribe {
-  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat;
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
   &:hover { 
-    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat; 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
   }
   margin: 0 0;
   padding: lines(0.5) lines(0.5) lines(0.5) lines(1.75);
@@ -449,9 +457,9 @@ label.error {
 
   @include media(tablet) {
     padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
-    background: $background url("/assets/new-design/sharetribe-logo2.png") lines(0.65) lines(0.35) no-repeat;
+    background: $background url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat;
     &:hover { 
-      background: $highlight url("/assets/new-design/sharetribe-logo2.png") lines(0.65) lines(0.35) no-repeat; 
+      background: $highlight url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat; 
     }
     margin: 0 lines(12) 0 lines(0);
     max-width: lines(8.75);
@@ -653,7 +661,11 @@ label.error {
 
 .feedback-menu-toggle {
   background: $background;
-  &:hover { background: $highlight; }
+  color: $body;
+  &:hover { 
+    background: $highlight;
+    color: $body;
+  }
   position: absolute;
   right: lines(6); top: 0;
   border: solid $border;
@@ -796,12 +808,12 @@ label.error {
   }
   
   &.toggled-logo {
-    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.45) lines(0.35) no-repeat;
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
     color: $background !important;
     border-color: $emphasis;
     
     @include media(tablet) {
-      background: $emphasis url("/assets/new-design/sharetribe-logo2.png") lines(0.45) lines(0.35) no-repeat;
+      background: $emphasis url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat;
       border-bottom-color: $emphasis !important;
     }
   }
@@ -1006,6 +1018,7 @@ figure.tribe-cover {
     min-width: lines(1);
     overflow: hidden;
     padding: lines(0.5);
+    &:hover { color: $link; }
   }
   
   @include media(tablet) {
@@ -1036,7 +1049,7 @@ figure.tribe-cover {
   a {
     display: block;
     float: left;
-    padding: em(10) em(15) em(10) em(15);
+    padding: em(8) em(15) em(12) em(15);
     color: $emphasis;
     height: em(24);
     overflow: hidden;
@@ -1093,7 +1106,7 @@ figure.tribe-cover {
   &:hover { background: darken($link, 5%); }
   color: $background;
   float: right;
-  padding: em(9) lines(1.6) em(11) lines(0.8);
+  padding: em(8) lines(1.6) em(12) lines(0.8);
   
   .current-language {
     display: block;
@@ -1102,7 +1115,7 @@ figure.tribe-cover {
   
   .icon-dropdown {
     position: absolute;
-    right: lines(0.5); top: lines(0.5);
+    right: lines(0.5); top: em(11);
   }
 }
 
@@ -1322,14 +1335,24 @@ figure.tribe-cover {
   
 .feed {
   
+  .map {
+    display: block;
+    width: 100%;
+    height: lines(12.5);
+  }
+  
   @include media(tablet) {
     // Makes space for sidebar
     margin-left: lines(13.5);
+    
+    .map {
+      height: lines(18);
+    }
   }
   
 }
 
-#homepage-feed {
+.homepage-feed {
   
   @include media(tablet) {
     // Makes space for sidebar
@@ -1483,7 +1506,6 @@ figure.tribe-cover {
 */
 
 .view-item {
-  background: $background;
   
   .item-description {
     @include media(tablet) {
@@ -1584,7 +1606,7 @@ figure.tribe-cover {
     
     @include media(tablet) {
       position: absolute;
-      right: lines(0); top: lines(17.5);
+      right: lines(0); top: lines(16.5);
       width: lines(15);
       height: lines(10);
     }
@@ -1767,6 +1789,115 @@ figure.tribe-cover {
 }
 
 
+
+.view-profile {
+  
+  .profile-description {
+    
+    .profile-details {
+      min-height: lines(5);
+    }
+    
+    p, li {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }
+    
+    @include media(tablet) {
+      padding-right: lines(16); // Makes horizontal space for image
+      
+      .profile-details {
+        min-height: 0;
+      }
+    }    
+  }
+  
+  .button {
+    margin: 0 0 lines(0.5) 0;
+    width: 100%;
+    display: block;
+    
+    @include media(tablet) {
+      @include big-button;
+      margin: 0;
+      position: absolute;
+      right: 0; top: lines(1);
+      width: lines(8.5) + em(5); 
+    }
+  }
+  
+  .profile-image {
+    position: relative;
+    float: right;
+    width: lines(4.5);
+    height: lines(4.5);
+    margin: 0 0 lines(0.5) lines(0.5);
+
+    img {
+      display: block;
+      width: lines(4.5);
+      height: lines(4.5);
+      @include border-radius(em(5));
+    }
+    
+    @include media(tablet) {
+      float: none;
+      margin: 0;
+      position: absolute;
+      right: lines(0); top: lines(5);
+      width: lines(12);
+      height: lines(12);
+      img {
+        width: lines(12);
+        max-width: lines(12);
+        height: lines(12);
+      }
+    }
+  }
+  
+  .profile-icons {
+    padding-top: lines(0.5);
+    
+    .profile-icon {
+      display: inline-block;
+      margin-right: lines(1);
+    }
+    
+  }
+  
+  .jsmap {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+    
+    @include media(tablet) {
+      margin-top: 0;
+      position: absolute;
+      right: lines(0); top: lines(18.5);
+      width: lines(12);
+      height: lines(10);
+    }
+  }
+  
+  .profile-listings, .profile-testimonials, .profile-badges {
+    
+    h2 {
+      margin-top: 0;
+      margin-bottom: lines(0.25);
+    }
+    
+    @include media(tablet) {  
+      h2 {
+        @include big-type;
+      }
+    }
+  }
+  
+}
+
 /*
   ----------------
   Login form
@@ -1793,6 +1924,10 @@ figure.tribe-cover {
 
 .hidden_description_terms {
   display: none;
+}
+
+.button {
+  display: block;
 }
 
 

@@ -20,7 +20,7 @@
           %a{href: "#"}
             Read more
     .join-action-buttons
-      - unless @no_fb_connect
+      - if @no_fb_connect
         %a.intro-button
           Join this tribe
       - else

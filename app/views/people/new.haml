@@ -68,15 +68,16 @@
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
     
     -# Terms
-    .checkbox-container
-      %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
-      = form.label :terms, t('.i_accept_the'), :class => "checkbox"
-      = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link"
+    .outer-checkbox-container
+      .checkbox-container
+        %input{:type => "checkbox", :id => "person_terms", :name => "person[terms]"}
+        = form.label :terms, t('.i_accept_the'), :class => "checkbox"
+        = link_to t(".terms"), "#", :tabindex => "-1", :id => "terms_link"
     
     = form.hidden_field :consent, :value => @current_community.consent
     = hidden_field_tag :community, @current_community.domain
     
-    = button_tag(t('.create_new_account'), :class => "send_button")
+    = button_tag t('.create_new_account')
 
 
 = render :partial => "help_texts", :collection => ["help_captcha", "terms", "help_invitation_code"], :as => :field

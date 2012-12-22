@@ -74,7 +74,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
+    image_tag person.image.url(:medium), :alt => person.name(session[:cookie])
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
@@ -277,7 +277,8 @@ module ApplicationHelper
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
-    text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
+    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n\n/, "</p><p>")
+    "<p>#{text}</p>"
   end
   
   # general method for making urls as links and line breaks as <br /> tags
