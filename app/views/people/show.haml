@@ -54,17 +54,27 @@
         = t(".open_listings")
         %span= "(#{@listings.count})"
   
-  .profile-listings.section
+  .profile-testimonials.section
     %h2 
-      .ss-star.icon-with-text
+      .ss-like.icon-with-text
       .text-with-icon
-        = t(".testimonials")
-        %span= "(#{@listings.count})"
+        = t(".received_feedback")
+    - if @person.received_testimonials.size > 0
+      .small-text
+        = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
+    - if @person.received_testimonials.size > 0
+      = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
+      .load-more-link
+        = link_to "More reviews", "#"
+    - else
+      .load-more-link
+        No reviews
   
-  .profile-listings.section
+  .profile-badges.section
     %h2 
       .ss-medal.icon-with-text
       .text-with-icon
         = t(".badges")
         %span= "(#{@listings.count})"
+    = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
     

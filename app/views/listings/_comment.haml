@@ -7,8 +7,8 @@
   .comment-content
     - text_with_line_breaks do  
       = comment.content
-  .comment-icons
-    - if current_user?(comment.listing.author) && !current_user?(comment.author)
+  - if current_user?(comment.listing.author) && !current_user?(comment.author)
+    .comment-icons
       %a{href: new_person_message_path(:person_id => comment.author.id, :message_type => "free", :comment_message => true, :listing_id => comment.listing.id)}
         .comment-icon
           .ss-mail.icon-with-text

@@ -32,7 +32,9 @@
 */
 
 $primary-hue: 25;
-$secondary-hue: $primary-hue + (360/1.618); // not used in this prototype
+$notification-hue: 80;
+$error-hue: 0;
+//$secondary-hue: $primary-hue + (360/1.618); // not used currently
 
 $background:  hsl($primary-hue, 0%, 100%);
 $highlight:   hsl($primary-hue, 0%, 91%);
@@ -43,5 +45,9 @@ $body:        hsl($primary-hue, 0%, 23.6%);
 $emphasis:    hsl($primary-hue, 0%, 9%);
 
 $link:        hsl($primary-hue, 73.4%, 49%);
-$link2:       hsl($secondary-hue, 76.4%, 50%);
+//$link2:       hsl($secondary-hue, 76.4%, 50%);
 //$link:      darken(desaturate(hsl($primary-hue, 61.8%, 50%), 23.6%), 11.8%); // Darkened and desaturated version
+
+// notification colors
+$green:       hsl($notification-hue, 73.4%, 38.2%);
+$red:       hsl($error-hue, 73.4%, 38.2%);

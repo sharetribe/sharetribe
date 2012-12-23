@@ -357,7 +357,6 @@ label.error {
   
 }
 
-
 /*
   ------------------------
   Global Sharetribe header
@@ -1883,17 +1882,125 @@ figure.tribe-cover {
   }
   
   .profile-listings, .profile-testimonials, .profile-badges {
-    
+
     h2 {
       margin-top: 0;
       margin-bottom: lines(0.25);
     }
     
+    .load-more-link {
+      border-top: 1px dotted $border;
+      text-align: center;
+      padding: lines(0.5);
+    }
+    
     @include media(tablet) {  
+      padding-right: lines(16);
       h2 {
         @include big-type;
       }
     }
+  }
+  
+  .profile-testimonials {
+    
+    h2 {
+      display: inline-block;
+    }
+    
+    .small-text { 
+      display: inline-block; 
+      vertical-align: top;
+      @include normal-type;
+    }
+    
+    .testimonial {
+      position: relative;
+      border-top: 1px dotted $border;
+      padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+
+      .avatar {
+        position: absolute;
+        left: 0; top: lines(0.5);
+        img {
+          @include border-radius(em(5));
+        }
+      }
+      
+      .testimonial-description {
+        position: relative;
+        min-height: lines(1.5);
+      }
+      
+      .testimonial-text {
+        color: $aside;
+        font-style: italic;
+        padding-left: lines(1.5);
+        margin-top: lines(0.25);
+      }
+      
+      .testimonial-icon {
+        position: absolute;
+        @include large-type;
+      }
+      
+      .ss-like {
+        color: $green;
+      }
+      
+      .ss-dislike {
+        color: $red;
+      }
+      
+    }
+    
+    @include media(tablet) {
+      padding-top: lines(1.5);
+      padding-right: lines(16);
+
+      .testimonial {
+        padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+
+        .avatar {
+          width: lines(2);
+        }
+
+        h3 {
+          margin: 0;
+        }
+      }
+
+    }
+    
+  }
+  
+  .profile-badges {
+    
+    h2 {
+      padding-bottom: lines(0.25);  
+      margin-bottom: lines(0.5);
+      border-bottom: 1px dotted $border;
+    }
+    
+    .profile-badge {
+      display: inline-block;
+      margin-right: lines(0.5);
+      img {
+        width: lines(3);
+      }
+    }
+    
+    @include media(tablet) { 
+      
+      .profile-badge {
+        img {
+          width: auto;
+        }
+        
+      }
+      
+    }
+    
   }
   
 }

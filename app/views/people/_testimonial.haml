@@ -1,23 +1,26 @@
 .testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }"}
   - listing = testimonial.participation.conversation.listing
-  .testimonial-image
-    %div{:class => grade_image_class(testimonial.displayed_grade), :title => t("people.profile_feedback.grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."}
-      &nbsp;
-  .testimonial-description
+  .avatar
+    = small_avatar_thumb(testimonial.author)
+  .testimonial-title
     = link_to testimonial.author.given_name_or_username, testimonial.author
     = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category}")
     - if listing.visibility.eql?("disabled")
       &ldquo;#{listing.title}&rdquo;
     - else
       = link_to listing.title, listing
-    = t(".#{profile_testimonial_other_person_role(@person, listing).eql?('request') ? 'from' : 'to'}_user")
+    = t("testimonials.testimonial.#{profile_testimonial_other_person_role(@person, listing).eql?('request') ? 'from' : 'to'}_user")
     = @person.given_name_or_username
     = time_ago(testimonial.created_at) + "."
-    %br/
-    .testimonial_description_text
-      - if !testimonial.text || testimonial.text.eql?("")
-        &ldquo;#{grade_text(testimonial.displayed_grade).capitalize}&rdquo;
+  .testimonial-description
+    .testimonial-icon
+      - if testimonial.displayed_grade > 4
+        .ss-like
+      - elsif testimonial.displayed_grade < 3
+        .ss-dislike
       - else
+        .ss-scales
+    .testimonial-text
+      - if testimonial.text && !testimonial.text.blank?
         - text_with_line_breaks do
           &ldquo;#{testimonial.text}&rdquo;
-      

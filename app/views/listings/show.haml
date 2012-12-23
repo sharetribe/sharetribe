@@ -63,7 +63,7 @@
           = link_to @listing.author.name, @listing.author, :id => "listing_author_link"
         - if @listing.author.received_testimonials.size > 0
           %br/
-          .ss-star.icon-with-text
+          .ss-like.icon-with-text
           .text-with-icon
             = t(".feedback")
             = @listing.author.feedback_positive_percentage.to_s + "%"
