@@ -2,9 +2,6 @@ class PeopleController < Devise::RegistrationsController
   
   include UrlHelper, PeopleHelper
   
-  layout :choose_layout
-  
-  
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
@@ -32,6 +29,7 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def show
+    session[:selected_tab] = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
     @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
     @listings = show_closed? ? @listings : @listings.currently_open 
@@ -40,6 +38,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def new
+    session[:selected_tab] = "members"
     redirect_to root if logged_in?
     @person = Person.new
     @container_class = params[:private_community] ? "container_12" : "container_24"
@@ -339,14 +338,6 @@ class PeopleController < Devise::RegistrationsController
   end
 
   private
-  
-  def choose_layout
-    if @current_community && @current_community.private && action_name.eql?("new")
-      'private'
-    else
-      'application'
-    end
-  end
   
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries

@@ -8,7 +8,7 @@
     
     - if @current_user  
       
-      .notifications-toggle.toggle
+      %a.notifications-toggle.toggle{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
         %i.icon.ss-earth
         -# if single digit:
         .badge 5
@@ -58,11 +58,11 @@
       
       
     %nav.tribe-menu.toggle-menu
-      %a{href: '/'}
+      %a{href: root}
         Sharetribe Lauttasaari
       %a{href: '#'}
         Omakotitori
-      %a{href: '#'}
+      %a{href: "http://www.sharetribe.com?ref="}
         Create a new marketplace
     
     - if @current_user
@@ -76,7 +76,7 @@
           .text-with-icon
             Messages 
             .badge.big-badge 50 
-        %a.notifications-menu-button{href: '#'}
+        %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
           .ss-earth.icon-with-text
           .text-with-icon
             Notifications
@@ -85,7 +85,7 @@
           .ss-megaphone.icon-with-text
           .text-with-icon
             Contact us
-        %a{href: '#'}
+        %a{href: person_settings_path(@current_user)}
           .ss-settings.icon-with-text
           .text-with-icon
             Settings

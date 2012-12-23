@@ -651,13 +651,10 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
-  $("input[type=checkbox]").uniform();
-  $('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
-  $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {
 			if (element.attr("name") == "community_membership[consent]") {
-				error.appendTo(element.parent().parent().parent().parent().parent());
+				error.appendTo(element.parent().parent());
 			} else {
 			  error.insertAfter(element);
 			}

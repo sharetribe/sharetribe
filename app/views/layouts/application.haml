@@ -19,33 +19,37 @@
           goods, services, rides, and spaces. In Sharetribe you can...
           %a{href: "#"}
             Read more
-    .join-action-buttons
-      - if @no_fb_connect
-        %a.intro-button
-          Join this tribe
-      - else
-        %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
-          %i.ss-icon.ss-social.ss-facebook.fb-icon
-          .fb-text Connect
-      = link_to("...or join without Facebook", sign_up_path, :class => "regular-link")
+    - if @current_user && @current_user.member_of?(@current_community)
+      .join-action-buttons
+        - if @current_user
+          = link_to t(".invite_your_friends"), "#", :class => "intro-button"
+          = t(".invite_your_friends_description")
+    - else
+      - unless @current_user
+        .join-action-buttons
+          %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
+            %i.ss-icon.ss-social.ss-facebook.fb-icon
+            .fb-text= t(".connect")
+          = link_to(t(".or_join_without_facebook"), sign_up_path, :class => "regular-link")
       
 .tribe-navigation
 
   .wrapper
 
     %nav.tribe-actions.actions-menu
-      %a.selected.first-child{href: '#', title: 'Home'}
+      %a.first-child{:href => root, :title => t('header.home'), :class => (session[:selected_tab].eql?("home") ? "selected" : "")}
         %i.ss-home.icon-with-text
-        .text-with-icon.hidden Home
-      %a{href: '#', title: 'Members'}
+        .text-with-icon.hidden= t('header.home')
+      %a{:href => "#", :title => "Members", :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
         %i.ss-usergroup.icon-with-text
         .text-with-icon.hidden Members
-      %a{href: '#', title: 'About'}
+      %a{:href => about_infos_path, :title => t('header.about'), :class => (session[:selected_tab].eql?("about") ? "selected" : "")}
         %i.ss-help.icon-with-text
-        .text-with-icon.hidden About
-      %a{href: '#', title: 'Admin'}
-        %i.ss-wrench.icon-with-text
-        .text-with-icon.hidden Admin
+        .text-with-icon.hidden= t('header.about')
+      - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
+        %a{:href => edit_admin_community_path(:id => @current_community.id, :type => "tribe_info"), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
+          %i.ss-wrench.icon-with-text
+          .text-with-icon.hidden= t("layouts.logged_in.admin")
       .select-language.toggle{data: {toggle: '.language-menu'}}
         %i.icon-dropdown.ss-dropdown
         .current-language

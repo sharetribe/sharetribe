@@ -25,6 +25,7 @@ class ListingsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
+    session[:selected_tab] = "home"
     if params[:format] == "atom"
       redirect_to :controller => "Api::ListingsController", :action => :index
       return
@@ -139,12 +140,14 @@ class ListingsController < ApplicationController
   end
 
   def show
+    session[:selected_tab] = "home"
     unless current_user?(@listing.author)
       @listing.increment!(:times_viewed)
     end
   end
   
   def new
+    session[:selected_tab] = "home"
     @listing = Listing.new
     @listing.listing_type = params[:type]
     @listing.category = params[:category]
@@ -185,6 +188,7 @@ class ListingsController < ApplicationController
   end
   
   def edit
+    session[:selected_tab] = "home"
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end

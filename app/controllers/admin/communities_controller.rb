@@ -9,6 +9,7 @@ class Admin::CommunitiesController < ApplicationController
   skip_filter :dashboard_only
   
   def edit
+    session[:selected_tab] = "admin"
     @community = @current_community
   end
   

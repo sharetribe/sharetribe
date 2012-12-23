@@ -589,7 +589,10 @@ fi:
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
-      formerly_known_as_kassi: "aiemmin nimellä Kassi"
+      connect: "Yhdistä"
+      invite_your_friends: "Kutsu kaverisi!"
+      invite_your_friends_description: "Saat enemmän irti %{service_name_elative} kun kaverisi ovat mukana."
+      or_join_without_facebook: "...tai liity ilman Facebook-tunnustasi"
     conversations:
       messages: Viestit
       notifications: Tiedotteet

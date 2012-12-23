@@ -42,7 +42,7 @@
           .profile-icon
             %a{href: person_settings_path(@person)}
               .ss-phone.icon-with-text
-              .text-with-icon= link_to t(".add_phone_number")
+              .text-with-icon= t(".add_phone_number")
         .profile-icon
           .ss-adduser.icon-with-text 
           .text-with-icon= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))

@@ -996,6 +996,7 @@ figure.tribe-cover {
   }
   @include media(desktop) {
     display: block;
+    width: lines(9) + em(2);
   }
   
   a.fb-connect {
@@ -1366,7 +1367,7 @@ figure.tribe-cover {
 .feed-item {
   position: relative;
   padding: lines(0.5) lines(0.5) lines(0.5) lines(0.5);
-  border: solid $border;
+  border: 1px dotted $border;
   border-width: 1px 0 0;
   
   h2 {

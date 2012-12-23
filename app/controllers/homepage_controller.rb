@@ -1,13 +1,12 @@
 class HomepageController < ApplicationController
 
   before_filter :save_current_path, :except => :sign_in
-  
-  layout :choose_layout
 
   skip_filter :dashboard_only
   skip_filter :not_public_in_private_community, :only => :sign_in
 
   def index
+    session[:selected_tab] = "home"
     listings_per_page = 10
     
     # If requesting a specific page on non-ajax request, we'll ignore that
@@ -42,25 +41,6 @@ class HomepageController < ApplicationController
         @news_items = @current_community.news_items.order("created_at DESC").limit(2)
         @news_item_count = @current_community.news_items.count
       end  
-    end
-  end
-  
-  def sign_in
-    redirect_to root_path unless @current_community.private?
-    @requests = @current_community.listings.requests.currently_open.limit(5)
-    @total_request_count = @current_community.listings.requests.currently_open.count
-    @offers = @current_community.listings.offers.currently_open.limit(5)
-    @total_offer_count = @current_community.listings.offers.currently_open.count
-    @container_class = "container_12"
-  end
-  
-  private
-  
-  def choose_layout
-    if 'sign_in'.eql? action_name
-      'private'
-    else
-      'application'
     end
   end
 
