@@ -12,9 +12,14 @@
       = @person.name
     
     #profile_message_links
-      %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
-        .ss-compose.icon-with-text
-        .text-with-icon= t(".contact", :person => @person.given_name_or_username)
+      - if current_user?(@person)
+        %a.button{href: profile_person_settings_path(:person_id => @current_user.id.to_s)}
+          .ss-compose.icon-with-text
+          .text-with-icon= t(".edit_profile_info") 
+      - else
+        %a.button{href: new_person_message_path(:person_id => @person.id, :message_type => "free", :profile_message => true)}
+          .ss-compose.icon-with-text
+          .text-with-icon= t(".contact", :person => @person.given_name_or_username)  
     
     .profile-details
     
@@ -24,12 +29,20 @@
       - if @person.description && !@person.description.blank?
         - text_with_line_breaks do
           = @person.description
-
+      - elsif current_user?(@person)
+        %a{href: person_settings_path(@person)}
+          .ss-chat.icon-with-text
+          .ss.text-with-icon= t(".add_description")
       .profile-icons
         - if @person.phone_number && !@person.phone_number.blank?
           .profile-icon
             .ss-phone.icon-with-text
             .text-with-icon= @person.phone_number
+        - elsif current_user?(@person)
+          .profile-icon
+            %a{href: person_settings_path(@person)}
+              .ss-phone.icon-with-text
+              .text-with-icon= link_to t(".add_phone_number")
         .profile-icon
           .ss-adduser.icon-with-text 
           .text-with-icon= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
@@ -46,35 +59,58 @@
       #googlemap
         = render :partial => "googlemap"
         = render :partial => "profile_location", :locals => { :location => @person.location }
+    - elsif current_user?(@person)
+      %a.action-link{href: person_settings_path(@person)}
+        .ss-maplocation.icon-with-text
+        .text-with-icon= t(".add_location")
+    
+    - if current_user?(@person) && !@person.has_profile_picture?
+      %a.add-profile-picture-link{href: avatar_person_settings_path(@person)}
+        .ss-picture.icon-with-text
+        .text-with-icon= t("listings.show.add_profile_picture")
+    
+    .bottom-margin
         
   .profile-listings.section
-    %h2 
+    %h2
       .ss-page.icon-with-text
       .text-with-icon
-        = t(".open_listings")
-        %span= "(#{@listings.count})"
+        - if @listings.size > 0
+          = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+        - else
+          = t(".no_open_listings")
+    - if @listings.size > 0
+      = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
+      - if @listings.size > 3
+        .load-more-link
+          = link_to t(".show_all_open_listings"), "#"
   
   .profile-testimonials.section
     %h2 
       .ss-like.icon-with-text
       .text-with-icon
-        = t(".received_feedback")
+        - if @person.received_testimonials.size > 0
+          = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+        - else
+          = t(".no_reviews")
     - if @person.received_testimonials.size > 0
       .small-text
         = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
     - if @person.received_testimonials.size > 0
       = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-      .load-more-link
-        = link_to "More reviews", "#"
-    - else
-      .load-more-link
-        No reviews
+      - if @person.received_testimonials.size > 3
+        .load-more-link
+          = link_to t(".show_all_reviews"), "#"
   
   .profile-badges.section
     %h2 
       .ss-medal.icon-with-text
       .text-with-icon
-        = t(".badges")
-        %span= "(#{@listings.count})"
-    = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
+        - if @person.badges.size > 0
+          = pluralize(@person.badges.size, t(".badge"), t(".badges"))
+        - else
+          = t(".no_badges")
+    - if @person.badges.size > 1
+      .badge-list
+        = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
     

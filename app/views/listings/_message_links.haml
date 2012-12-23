@@ -5,7 +5,7 @@
         .ss-unlock.icon-with-text
         .text-with-icon= t("listings.edit_links.reopen_#{@listing.listing_type}")
     - else
-      .ss-lock.icon-with-text
+      .ss-unlock.icon-with-text
       .text-with-icon= t("listings.reply_link.#{@listing.listing_type}_closed")
 - else
   - if current_user?(@listing.author)
@@ -14,7 +14,7 @@
         .ss-draw.icon-with-text
         .text-with-icon= t("listings.edit_links.edit_#{@listing.listing_type}")
       %a.action-link{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
-        .ss-unlock.icon-with-text
+        .ss-lock.icon-with-text
         .text-with-icon= t("listings.edit_links.close_#{@listing.listing_type}")
   - else
     - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"

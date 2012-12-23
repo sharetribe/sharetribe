@@ -1148,7 +1148,6 @@ en:
       show_also_closed: "Show also closed"
       show_only_open: "Show only open"
     show:
-      open_listings: "Open listings"
       contact: "Contact %{person}"
       about_me: "About me:"
       add_description: "Tell something about yourself"
@@ -1156,10 +1155,9 @@ en:
       add_phone_number: "Add phone number"
       address: "Location:"
       as_expected: "As expected"
-      badges: Badges
-      edit_profile_info: "Edit your information"
+      edit_profile_info: "Edit profile"
       exceeded_expectations: "Exceeded expectations"
-      received_feedback: "Reviews"
+      received_feedback: "reviews"
       positive: positive
       hide_description: "Show less"
       joined_this_community: "Joined %{time_ago}"
@@ -1174,6 +1172,17 @@ en:
       slightly_better_than_expected: "Exceeded expectations"
       slightly_less_than_expected: "Worse than expected"
       what_are_these: "What are these?"
+      review: "review"
+      reviews: "reviews"
+      badge: badge
+      badges: badges
+      open_listing: "open listing"
+      open_listings: "open listings"
+      no_open_listings: "No open listings"
+      no_reviews: "No reviews"
+      no_badges: "No badges"
+      show_all_open_listings: "Show all open listings"
+      show_all_reviews: "Show all reviews"
       trustcloud: TrustCloud
   search:
     show:

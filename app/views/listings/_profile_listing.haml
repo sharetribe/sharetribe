@@ -1,10 +1,5 @@
 .feed-item.feed-request
-  .feed-author-avatar
-    = small_avatar_thumb(listing.author)
   .feed-content
-    .author
-      = link_to listing.author.name, listing.author
-      %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
     %h2
       = link_to listed_listing_title(listing), listing
     - unless listing.description.blank?
@@ -14,10 +9,23 @@
       .feed-listing-icon
         %i.ss-pricetag.icon-with-text 
         .text-with-icon 22€ / hour
+      .feed-listing-icon
+        %i.ss-calendar.icon-with-text
+        .text-with-icon 
+          %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
       - if listing.comments.size > 0
         .feed-listing-icon
           %a{href: listing_path(listing) + "#comments"}
             %i.ss-chat.icon-with-text
             .text-with-icon= listing.comments.size
+      - if current_user?(listing.author)
+        .feed-listing-icon
+          %a{href: edit_listing_path(listing)}
+            .ss-draw.icon-with-text
+            .text-with-icon= t("listings.edit_links.edit_#{listing.listing_type}")
+        .feed-listing-icon
+          %a{href: close_person_listing_path(@current_user, listing), data: { method: "put", remote: "true"}}
+            .ss-lock.icon-with-text
+            .text-with-icon= t("listings.edit_links.close_#{listing.listing_type}")
   .feed-image
     = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)

@@ -113,6 +113,9 @@ body {
   @include media(tablet) {
     padding: lines(1) lines(0.5);
   }
+  @include media(desktop) {
+    padding: lines(1) lines(0);
+  }
 }
 
 @mixin facebook-connect-button {
@@ -1397,17 +1400,13 @@ figure.tribe-cover {
     background: $background;
   }
   
-  .feed-listing-price {
+  .feed-listing-icon {
     display: inline-block;
     margin-right: lines(1);
   }
   
-  .feed-listing-comment {
-    display: inline-block;
-  }
-  
   @include media(tablet) {
-    padding: lines(1) lines(0) lines(0.75) lines(0);
+    padding: lines(1) lines(0);
     
     .feed-content {
       margin: em(-3) lines(6) 0 lines(2.25);
@@ -1437,13 +1436,18 @@ figure.tribe-cover {
   
   img {
     @include border-radius(em(5));
-    width: 100%;
+    width: lines(3);
+    height: lines(3);
   }
 
   @include media(tablet) {
     right: 0; top: lines(1);
     width: lines(5);
     height: lines(5);
+    img {
+      width: lines(5);
+      height: lines(5);
+    }
   }
 
 }
@@ -1805,7 +1809,7 @@ figure.tribe-cover {
     }
     
     @include media(tablet) {
-      padding-right: lines(16); // Makes horizontal space for image
+      padding-right: lines(14); // Makes horizontal space for image
       
       .profile-details {
         min-height: 0;
@@ -1874,10 +1878,60 @@ figure.tribe-cover {
     
     @include media(tablet) {
       margin-top: 0;
+      margin-bottom: lines(2);
       position: absolute;
       right: lines(0); top: lines(18.5);
       width: lines(12);
       height: lines(10);
+    }
+  }
+  
+  .action-link {
+    display: block;
+    width: 100%;
+    margin-right: lines(0.5);
+    cursor: pointer;
+    
+    @include media(tablet) {
+      position: absolute;
+      right: 0; top: lines(17.5);
+      width: lines(10.5);
+      text-align: left;
+      padding-bottom: lines(0.25);
+    }
+    
+  }
+  
+  .add-profile-picture-link {
+    display: none;
+    @include media(tablet) {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      margin: 0;
+      width: lines(10);
+      padding: lines(0.5) lines(1);
+      display: block;
+      top: lines(15);
+      color: $background;
+      background: $link;
+      @include border-bottom-radius(em(5));
+      &:hover {
+        color: $background;
+        background: darken($link, 10%); 
+      }
+    }
+  }
+  
+  .bottom-margin {
+    display: none;
+    
+    @include media(tablet) {
+      display: block;
+      position: absolute;
+      top: lines(28.5);
+      width: 100%;
+      height: lines(5);
     }
   }
   
@@ -1886,6 +1940,9 @@ figure.tribe-cover {
     h2 {
       margin-top: 0;
       margin-bottom: lines(0.25);
+      .text-with-icon {
+        padding-top: em(2);
+      }
     }
     
     .load-more-link {
@@ -1895,11 +1952,58 @@ figure.tribe-cover {
     }
     
     @include media(tablet) {  
-      padding-right: lines(16);
+      padding-right: lines(14);
       h2 {
         @include big-type;
+        .text-with-icon {
+          padding-top: 0;
+        }
       }
     }
+  }
+  
+  .profile-listings {
+    
+    
+    .feed-item {
+      padding: lines(0.5) lines(0);
+      
+      .feed-content {
+        margin: 0 lines(4.25) 0 0;
+        max-width: 100%;
+      }
+      
+      h2 {
+        margin-bottom: 0;
+        @include normal-type;
+        font-weight: 600;
+      }
+      
+      @include media(tablet) {
+        padding: lines(0.5) lines(0);
+        
+        .feed-content {
+          margin: 0 lines(5) 0 0;
+        }
+      }
+      
+    }
+    
+    .feed-image {
+
+      @include media(tablet) {
+        top: lines(0.75);
+        width: lines(4);
+        height: lines(4);
+        img {
+          width: lines(4);
+          height: lines(4);
+        }
+      }
+    }
+    
+    
+    
   }
   
   .profile-testimonials {
@@ -1915,10 +2019,11 @@ figure.tribe-cover {
     }
     
     .testimonial {
+      @include small-type;
       position: relative;
       border-top: 1px dotted $border;
-      padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
-
+      padding: lines(0.25) 0 lines(0.25) lines(1.5);
+      
       .avatar {
         position: absolute;
         left: 0; top: lines(0.5);
@@ -1927,9 +2032,13 @@ figure.tribe-cover {
         }
       }
       
+      h3, small {
+        display: inline;
+      }
+      
       .testimonial-description {
         position: relative;
-        min-height: lines(1.5);
+        min-height: lines(1.5);   
       }
       
       .testimonial-text {
@@ -1955,11 +2064,12 @@ figure.tribe-cover {
     }
     
     @include media(tablet) {
-      padding-top: lines(1.5);
-      padding-right: lines(16);
+      padding-top: lines(1);
+      padding-right: lines(14);
 
       .testimonial {
-        padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+        @include normal-type;
+        padding: lines(0.5) 0 lines(0.25) lines(2.5);
 
         .avatar {
           width: lines(2);
@@ -1976,10 +2086,14 @@ figure.tribe-cover {
   
   .profile-badges {
     
+    .badge-list {
+      border-top: 1px dotted $border;
+      padding-top: lines(0.5);
+    }
+    
     h2 {
       padding-bottom: lines(0.25);  
       margin-bottom: lines(0.5);
-      border-bottom: 1px dotted $border;
     }
     
     .profile-badge {
@@ -1991,6 +2105,11 @@ figure.tribe-cover {
     }
     
     @include media(tablet) { 
+      
+      h2 {
+        margin-bottom: 0;
+        padding-bottom: lines(0.25);
+      }
       
       .profile-badge {
         img {

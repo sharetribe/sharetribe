@@ -1134,7 +1134,6 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
-      open_listings: "Avoimet ilmoitukset"
       contact: "Lähetä viesti käyttäjälle %{person}"
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
@@ -1161,6 +1160,17 @@ fi:
       slightly_less_than_expected: "Ei vastannut odotuksia"
       what_are_these: "Mitä nämä ovat?"
       trustcloud: TrustCloud
+      review: "palaute"
+      reviews: "palautetta"
+      badge: "%{service_name}-merkki"
+      badges: "%{service_name}-merkit"
+      open_listing: "avoin ilmoitus"
+      open_listings: "avointa ilmoitusta"
+      no_open_listings: "Ei avoimia ilmoituksia"
+      no_reviews: "Ei palautteita"
+      no_badges: "Ei %{service_name}-merkkejä"
+      show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
+      show_all_reviews: "Näytä kaikki palautteet"
   search:
     show:
       all_results: Kaikista

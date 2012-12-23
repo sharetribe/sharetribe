@@ -67,7 +67,7 @@
     
     - if @current_user
       %nav.user-menu.toggle-menu
-        %a.profile-menu-button{href: '#'}
+        %a.profile-menu-button{href: person_path(@current_user)}
           .ss-user.icon-with-text
           .text-with-icon
             Profile
