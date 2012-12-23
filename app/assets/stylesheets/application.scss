@@ -2095,8 +2095,8 @@ figure.tribe-cover {
     }
     
     h2 {
-      padding-bottom: lines(0.25);  
-      margin-bottom: lines(0.5);
+      margin-bottom: 0;
+      padding-bottom: lines(0.25);
     }
     
     .profile-badge {
@@ -2108,11 +2108,6 @@ figure.tribe-cover {
     }
     
     @include media(tablet) { 
-      
-      h2 {
-        margin-bottom: 0;
-        padding-bottom: lines(0.25);
-      }
       
       .profile-badge {
         img {
