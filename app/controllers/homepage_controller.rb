@@ -14,8 +14,19 @@ class HomepageController < ApplicationController
     params[:page] = 1 unless request.xhr? 
     @query = params[:q]
     
+    filter_params = params.slice("listing_type", "category", "share_type")
+    filter_params.reject!{ |key,value| value == "all"} # all means the fliter doesn't need to be included
+    
     if @query # Search used
       with = {:open => true}
+      if filter_params["listing_type"]
+         with[:is_request] = true if filter_params["listing_type"].eql?("request")
+         with[:is_offer] = true if filter_params["listing_type"].eql?("offer")
+       end
+      if filter_params["category"]
+        with[:category] = filter_params["category"]
+      end
+      
       unless @current_user && @current_user.communities.include?(@current_community)
         with[:visible_to_everybody] = true
       end
@@ -30,8 +41,8 @@ class HomepageController < ApplicationController
                                 )
       
     else # no search used
-
-      @listings = Listing.visible_to(@current_user, @current_community).currently_open.order("created_at DESC").paginate(:per_page => listings_per_page, :page => params[:page])
+      
+      @listings = Listing.find_with(filter_params, @current_user, @current_community).currently_open.order("created_at DESC").paginate(:per_page => listings_per_page, :page => params[:page])
     end
     
     if request.xhr? # checks if AJAX request

@@ -85,7 +85,7 @@ class Listing < ActiveRecord::Base
     indexes comments.content, :as => :comments
     
     # attributes
-    has created_at, updated_at
+    has created_at, updated_at, category
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
@@ -226,18 +226,18 @@ class Listing < ActiveRecord::Base
       conditions[0] = "listing_type = ?"
       conditions[1] = params[:listing_type]
     end
-    if params[:category] && !params[:category][0].eql?("all") 
-      conditions[0] += " AND category IN (?)"
-      conditions << params[:category]
-    end
     listings = where(conditions)
+    if params[:category] && !params[:category][0].eql?("all") 
+      listings = listings.where(['category IN (?)', params[:category]])
+    end
+
     if params[:share_type] && !params[:share_type][0].eql?("all")
       listings = listings.where(['share_type IN (?)', params[:share_type]])
     end
     if params[:tag]
       listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
     end 
-    listings.visible_to(current_user, current_community).order("listings.id DESC")
+    listings.visible_to(current_user, current_community).order("listings.created_at DESC")
   end
   
   # Returns true if listing exists and valid_until is set

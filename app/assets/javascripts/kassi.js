@@ -561,7 +561,37 @@ function initialize_profile_feedback_view() {
 }
 
 function initialize_homepage() {
-  $("input[type=radio]").uniform();
+  $('#feed-filter-dropdowns select').change(
+    function() {
+      reload_homepage_view();
+    }
+  );
+}
+
+function reload_homepage_view() {
+  // Make AJAX request based on selected items
+  var request_path = window.location.toString();
+  var filters = {};
+  var type = $('#listing_type').val();
+  if (type == "all" || type == "offer" || type == "request") {
+    filters["listing_type"] = type;
+    filters["share_type"] = "all";    
+  } else {
+    filters["share_type"] = type;
+    filters["listing_type"] = "all";
+  }
+  filters["category"] = $('#listing_category').val();
+  
+  for (var key in filters) {
+    
+    request_path = UpdateQueryString(key, filters[key], request_path);
+  }
+  $.get(request_path, filters, function(data, status, xhr) {
+
+    $('#homepage-feed').html(data);
+    // alert("d" + xhr.URL);
+    history.pushState(null, document.title, request_path);
+  });
 }
 
 function initialize_invitation_form(locale, rails_env) {
@@ -771,6 +801,30 @@ var faceGrade = {
       $(this).siblings().andSelf().removeClass('grade-over');
     });    
   } 
+}
+
+// Credits to ellemayo's StackOverflow answer: http://stackoverflow.com/a/11654596/150382
+function UpdateQueryString(key, value, url) {
+    if (!url) url = window.location.href;
+    var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)", "gi");
+
+    if (url.match(re)) {
+        if (value)
+            return url.replace(re, '$1' + key + "=" + value + '$2');
+        else
+            return url.replace(re, '$2');
+    }
+    else {
+        if (value) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?',
+                hash = url.split('#');
+            url = hash[0] + separator + key + '=' + value;
+            if (hash[1]) url += '#' + hash[1];
+            return url;
+        }
+        else
+            return url;
+    }
 }
 
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup

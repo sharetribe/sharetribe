@@ -1,3 +1,6 @@
+- content_for :javascript do
+  initialize_homepage();
+
 .feed-navigation
   .feed-actions.actions-menu
     %a.request-link{href: new_request_path(:type => "offer")} 
@@ -29,34 +32,34 @@
           %i.ss-maplocation.icon-with-text
           .text-with-icon.hidden-text Map
     
-    .feed-filter-dropdowns
+    .feed-filter-dropdowns#feed-filter-dropdowns
       .filter-title
         Show:
-      %select.item-type
-        %option All listings types
-        %option Requests
-        %option — Borrowing
-        %option — Buying
-        %option — Taking for free
-        %option — Renting
-        %option — Swapping
-        %option Offers
-        %option — Giving away
-        %option — Lending
-        %option — Renting out
-        %option — Selling
-        %option — Sharing for free
-        %option — Swapping
-      %select.item-category
-        %option All categories
-        %option Items
-        %option — Clothing
-        %option — Furniture
-        %option — Electronics
-        %option — Tools
-        %option Services
-        %option Rideshare
-        %option Spaces
+      %select.item-type#listing_type
+        %option{label: "All listings types", value: "all"}
+        %option{label: "Requests", value: "request"}
+        %option{label: "— Borrowing", value: "borrow"}
+        %option{label: "— Buying", value: "buy"}
+        %option{label: "— Taking for free", value: "receive"}
+        %option{label: "— Renting", value: "rent"}
+        %option{label: "— Swapping", value: "trade"}
+        %option{label: "Offers", value: "offer"}
+        %option{label: "— Giving away", value: "give_away"}
+        %option{label: "— Lending", value: "lend"}
+        %option{label: "— Renting out", value: "rent_out"}
+        %option{label: "— Selling", value: "sell"}
+        %option{label: "— Sharing for free", value: "share_for_free"}
+        %option{label: "— Swapping", value: "trade"}
+      %select.item-category#listing_category
+        %option{label: "All categories", value: "all"}
+        %option{label: "Items", value: "item"}
+        %option{label: "— Clothing", value: "item"}
+        %option{label: "— Furniture", value: "item"}
+        %option{label: "— Electronics", value: "item"}
+        %option{label: "— Tools", value: "item"}
+        %option{label: "Services", value: "favor"}
+        %option{label: "Rideshare", value: "rideshare"}
+        %option{label: "Spaces", value: "housing"}
       
 
 .homepage-feed.feed
