@@ -1581,7 +1581,7 @@ figure.tribe-cover {
     position: relative;
     float: right;
     width: lines(4.5);
-    margin: 0 0 0 lines(0.5);
+    margin: 0 0 lines(0.5) lines(0.5);
 
     img {
       display: block;
@@ -1595,8 +1595,10 @@ figure.tribe-cover {
       position: absolute;
       right: lines(0); top: lines(5);
       width: lines(15);
+      height: lines(11.25);
       img {
         width: lines(15);
+        height: lines(11.25);
         max-width: lines(15);
       }
     }
@@ -1609,7 +1611,7 @@ figure.tribe-cover {
     
     @include media(tablet) {
       position: absolute;
-      right: lines(0); top: lines(16.5);
+      right: lines(0); top: lines(17.75);
       width: lines(15);
       height: lines(10);
     }
@@ -1990,6 +1992,7 @@ figure.tribe-cover {
     }
     
     .feed-image {
+      right: lines(0);
 
       @include media(tablet) {
         top: lines(0.75);
