@@ -1,14 +1,14 @@
 %header.global-header
   .wrapper
       
-    .select-tribe.toggle{data: {toggle: '.tribe-menu'}}
+    .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu'}}
       .current-tribe
         Lauttasaari
       %i.icon-dropdown.ss-dropdown
     
     - if @current_user  
       
-      %a.notifications-toggle.toggle{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
+      %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
         %i.icon.ss-earth
         -# if single digit:
         .badge 5
@@ -19,7 +19,7 @@
         -# if three digits:
         -#.badge.huge-badge 500
 
-      %a.inbox-toggle.toggle{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
+      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
         %i.icon.ss-mail
         -# if single digit:
         .badge 5
@@ -31,7 +31,7 @@
         -#.badge.huge-badge 500
       
     
-      .user-menu-toggle.toggle{data: {toggle: '.user-menu'}}
+      .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
         = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
         .user-name= @current_user.name_or_username
 
@@ -48,16 +48,16 @@
     
     - else  
     
-      .login-menu-toggle.toggle{data: {toggle: '.login-menu'}}
+      .login-menu-toggle.toggle.hidden{data: {toggle: '.login-menu'}}
         .login-icon.ss-login
         .login-text Log in
         
-      %a.feedback-menu-toggle.toggle{href: new_user_feedback_path}
+      %a.feedback-menu-toggle.toggle.hidden{href: new_user_feedback_path}
         .feedback-icon.ss-megaphone
         .feedback-text Contact us
       
       
-    %nav.tribe-menu.toggle-menu
+    %nav.tribe-menu.toggle-menu.hidden
       %a{href: root}
         Sharetribe Lauttasaari
       %a{href: '#'}
@@ -66,7 +66,7 @@
         Create a new marketplace
     
     - if @current_user
-      %nav.user-menu.toggle-menu
+      %nav.user-menu.toggle-menu.hidden
         %a.profile-menu-button{href: person_path(@current_user)}
           .ss-user.icon-with-text
           .text-with-icon
@@ -94,7 +94,7 @@
           .text-with-icon
             Log out
     
-    %nav.login-menu.toggle-menu
+    %nav.login-menu.toggle-menu.hidden
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
         - if @current_community
           = hidden_field_tag :community, @current_community.domain

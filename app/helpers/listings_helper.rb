@@ -80,4 +80,8 @@ module ListingsHelper
     return t("listings.index.#{category_string}")
   end
   
+  def get_icon_class(icon_type)
+    Listing::LISTING_ICONS[icon_type] || Listing::LISTING_ICONS["other"]
+  end
+  
 end

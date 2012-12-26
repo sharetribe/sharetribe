@@ -1,5 +1,5 @@
 .googlemap
-  .jsmap{:id => "map_canvas"}
+  .jsmap{:id => "map_canvas", :style => (listing.has_image? ? "" : "top: 8em;") }
   :javascript 
     $(document).ready(function() { 
       if (!#{rideshare}){

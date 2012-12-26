@@ -5,6 +5,7 @@
 // the compiled file.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery.form
 //= require jquery.fancybox
 //= require jquery.validate.min

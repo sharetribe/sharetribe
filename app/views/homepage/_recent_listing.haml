@@ -19,5 +19,6 @@
           %a{href: listing_path(listing) + "#comments"}
             %i.ss-chat.icon-with-text
             .text-with-icon= listing.comments.size
-  .feed-image
-    = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)
+  - if listing.has_image?
+    .feed-image
+      = image_tag listing.listing_images.first.image.url(:medium), :alt => listed_listing_title(listing)

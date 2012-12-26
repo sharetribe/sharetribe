@@ -124,17 +124,76 @@ function initialize_login_form() {
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
-	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
-	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
-	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
+function reload_selected_links(locale, link) {
+  
+  $('.option-group').addClass('hidden');
+  link.addClass('hidden');
+  $('.' + link.parent().attr('class') + '-options').removeClass('hidden');
+  $('.form-fields').addClass('hidden');
+  if (link.parent().hasClass('listing_type')) {
+    $('.category').children().addClass('hidden');
+    $('.subcategory').children().addClass('hidden');
+    $('.share_type').children().addClass('hidden');
+  } else if (link.parent().hasClass('category')) {
+    $('.subcategory').children().addClass('hidden');
+    $('.share_type').children().addClass('hidden');
+  } else if (link.parent().hasClass('subcategory')) {
+    $('.share_type').children().addClass('hidden');
+  }
+  
+}
+
+function reload_option_links(locale, link) {
+  
+  var sections = ["listing_type", "category", "subcategory", "share_type"];
+  
+  $('.selected[name=' + link.attr('name') + ']').removeClass('hidden');
+  
+  for (var i = 0; i < sections.length; i++) {
+    
+    if (link.parent().hasClass(sections[i] + '-options')) {
+      $('.' + sections[i] + '-options').addClass('hidden');
+      if (i == (sections.length - 1)) {
+        // If this is the last selection before displaying the form,
+        // prepare the form parameters and make the ajax call
+        $('.form-fields').removeClass('hidden');
+        var new_listing_path = '/' + locale + '/listings/new';
+        var params = {};
+        for (var j = 0; j < sections.length; j++) {
+          params[sections[j]] = $('.' + sections[j]).children().not('.hidden').attr('name');
+        }
+        $.get(new_listing_path, params, function(data) {
+          $('.form-fields').html(data);
+        });
+      } else {
+        // Otherwise just display the next selection form
+        $('.' + sections[i + 1] + '-options').removeClass('hidden'); 
+      }
+      return;
+    }
+  }
+
+}
+
+function initialize_new_listing_form_selectors(locale) {
+  
+  $('.new-listing-form').find('a.selected').click(
+    function() {
+      reload_selected_links(locale, $(this));
+    }
+  );
+  
+  $('.new-listing-form').find('a.option').click(
+    function() {
+      reload_option_links(locale, $(this));
+    }
+  );
+  
+}
+
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
 	$('input.title_text_field:first').focus();
-	$("select.listing_date_select, input[type=checkbox], input[type=file], input[type=radio]").uniform({
-		selectClass: 'selector2',
-		fileDefaultText: fileDefaultText, 
-		fileBtnText: fileBtnText
-	});
-	$("select.visibility_select").uniform({selectClass: 'selector3'});
+	
 	$(':radio[name=valid_until_select]').change(function() {
 		if ($(this).val() == "for_now") {
 			$('select.listing_date_select').attr('disabled', 'disabled');
@@ -145,8 +204,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			$('selector2').removeClass('disabled');
 			$("label[for='for_now_radio_button']").addClass('disabled_grey');
 		}
-		$.uniform.update("select.listing_date_select");
 	});
+	
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	
 	// Change the origin and destination requirements based on listing_type
@@ -178,7 +237,6 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[title]": {required: true},
 			"listing[origin]": {required: rs, address_validator: true},
 			"listing[destination]": {required: rs, address_validator: true},
-			"listing[share_type]": {required: true},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
 			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
 			"listing[valid_until(4i)]": { min_date: is_rideshare, max_date: is_rideshare },
@@ -187,14 +245,13 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[share_type]": { required: share_type_message },
 			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
 			"listing[valid_until(2i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
 			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
 		},
-		 // Run validations only when submitting the form.
+		// Run validations only when submitting the form.
 		 onkeyup: false,
          onclick: false,
          onfocusout: false,

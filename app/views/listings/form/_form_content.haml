@@ -1,48 +1,22 @@
 = render :partial => "listings/form/javascripts", :locals => { :listing_id => "false" }
 
-.grid_16.prefix_4.suffix_4
-  #new_listing_form_tabs
-    %div{:class => get_new_listing_tab_class("request")} 
-      = link_to t('.request_something'), new_listing_path(:type => "request", :category => @listing.category), :remote => :true
-    %div{:class => get_new_listing_tab_class("offer")} 
-      = link_to t('.offer_something'), new_listing_path(:type => "offer", :category => @listing.category), :remote => :true
-
-.grid_16.prefix_4.suffix_4
-
-  #new_listing_form
-    #listing_form_title
-      = t(".i_want_to_#{@listing.listing_type}")
-    #listing_type_select_icons
-      - Listing::VALID_CATEGORIES.each do |category|
-        %div{:class => get_type_select_icon_class(category)} 
-          = link_to t(".#{category}"), new_listing_path(:type => @listing.listing_type, :category => category), :remote => :true
-    
-    - if @listing.category 
-      #listing_required_fields_description
-        = t("common.fields_that_are_mandatory")
-    
-      #new_listing_form_main  
-        = form_for @listing, :html => {:multipart => true} do |form|
-          = form.error_messages
-          - if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
-            = render :partial => "listings/form/share_type", :locals => { :form => form }
-          - unless @listing.category.eql?("rideshare")
-            = render :partial => "listings/form/title", :locals => { :form => form }
-          - if @listing.category.eql?("rideshare")
-            = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc, :rideshare => true }
-            = render :partial => "listings/form/destination", :locals => { :form => form, :destination_loc => @listing.destination_loc, :rideshare => true } 
-            = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => true }
-            = render :partial => "listings/form/departure_time", :locals => { :form => form }  
-          = render :partial => "listings/form/description", :locals => { :form => form }
-          - unless @listing.category.eql?("rideshare")
-            = render :partial => "listings/form/tag_list", :locals => { :form => form }
-            = render :partial => "listings/form/valid_until", :locals => { :form => form }
-            = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc, :rideshare => false }
-            = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => false}
-            = render :partial => "listings/form/images", :locals => { :form => form }
-          = render :partial => "listings/form/visibility", :locals => { :form => form }
-          = render :partial => "listings/form/privacy", :locals => { :form => form }
-          = form.hidden_field :current_community_id, :value => @current_community.id
-          = render :partial => "listings/form/send_button", :locals => { :form => form }
+= form_for @listing, :html => {:multipart => true} do |form|
+  - unless @listing.category.eql?("rideshare")
+    = render :partial => "listings/form/title", :locals => { :form => form }
+  - if @listing.category.eql?("rideshare")
+    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc, :rideshare => true }
+    = render :partial => "listings/form/destination", :locals => { :form => form, :destination_loc => @listing.destination_loc, :rideshare => true } 
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => true }
+    = render :partial => "listings/form/departure_time", :locals => { :form => form }  
+  = render :partial => "listings/form/description", :locals => { :form => form }
+  - unless @listing.category.eql?("rideshare")
+    = render :partial => "listings/form/valid_until", :locals => { :form => form }
+    = render :partial => "listings/form/origin", :locals => { :form => form, :origin_loc => @listing.origin_loc, :rideshare => false }
+    = render :partial => "listings/form/googlemap", :locals => { :form => form, :rideshare => false}
+    = render :partial => "listings/form/images", :locals => { :form => form }
+  = render :partial => "listings/form/visibility", :locals => { :form => form }
+  = render :partial => "listings/form/privacy", :locals => { :form => form }
+  = form.hidden_field :current_community_id, :value => @current_community.id
+  = render :partial => "listings/form/send_button", :locals => { :form => form }
 
 = render :partial => "listings/help_texts", :collection => ["help_share_type", "help_tags", "help_valid_until"], :as => :field

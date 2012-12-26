@@ -45,6 +45,25 @@ class Listing < ActiveRecord::Base
 
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
+  VALID_SUBCATEGORIES = {
+    "item" => [
+      "tools",
+      "sports",
+      "music",
+      "books",
+      "games",
+      "furniture",
+      "outdoors",
+      "food",
+      "electronics",
+      "pets",
+      "film",
+      "clothes",
+      "garden",
+      "travel",
+      "other"
+    ]  
+  }
   VALID_SHARE_TYPES = {
     "offer" => {
       "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
@@ -61,6 +80,39 @@ class Listing < ActiveRecord::Base
   }
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
+  
+  LISTING_ICONS = {
+    "offer" => "ss-share",
+    "request" => "ss-tip",
+    "item" => "ss-suitcase",
+    "favor" => "ss-heart",
+    "rideshare" => "ss-car",
+    "housing" => "ss-warehouse",
+    "other" => "ss-page",
+    "tools" => "ss-wrench",
+    "sports" => "ss-tabletennis",
+    "music" => "ss-music",
+    "books" => "ss-bookmark",
+    "games" => "ss-fourdie",
+    "furniture" => "ss-lodging",
+    "outdoors" => "ss-campfire",
+    "food" => "ss-sidedish",
+    "electronics" => "ss-smartphone",
+    "pets" => "ss-tropicalfish",
+    "film" => "ss-moviefolder",
+    "clothes" => "ss-hanger",
+    "garden" => "ss-tree",
+    "travel" => "ss-departure",
+    "give_away" => "ss-gift",
+    "share_for_free" => "ss-gift",
+    "lend" => "ss-flowertag",
+    "borrow" => "ss-flowertag",
+    "trade" => "ss-reload",
+    "buy" => "ss-moneybag",
+    "sell" => "ss-moneybag",
+    "rent" => "ss-pricetag",
+    "rent_out" => "ss-pricetag"
+  }
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
@@ -194,6 +246,20 @@ class Listing < ActiveRecord::Base
          errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
        end
      end  
+  end
+  
+  def self.all_unique_share_types
+    share_types = []
+    VALID_TYPES.each do |listing_type|
+      VALID_CATEGORIES.each do |category|
+        if VALID_SHARE_TYPES[listing_type][category] 
+          VALID_SHARE_TYPES[listing_type][category].each do |share_type|
+            share_types << share_type
+          end
+        end  
+      end
+    end
+    share_types.uniq!.sort
   end
   
   def self.unique_share_types(listing_type)
@@ -446,6 +512,10 @@ class Listing < ActiveRecord::Base
         end
       end
     end
+  end
+  
+  def has_image?
+    !listing_images.empty?
   end
   
 end

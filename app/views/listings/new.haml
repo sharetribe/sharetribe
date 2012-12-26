@@ -1,2 +1,67 @@
-#listing_form_wrapper
-  = render :partial => "listings/form/form_content"       
+:javascript
+  $(document).ready(function() {
+    initialize_new_listing_form_selectors("#{I18n.locale}");
+  });
+
+- content_for :extra_javascript do
+  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
+
+.new-listing-form.centered-section
+
+  .listing_type
+    - Listing::VALID_TYPES.each do |listing_type|
+      %a.select.selected.hidden{:href => "#", :name => listing_type}
+        .link-icon{:class => get_icon_class(listing_type)}
+        .link-text= t(".selected_listing_type", :listing_type => t(".selected_#{listing_type}"))
+
+  .category
+    - Listing::VALID_CATEGORIES.each do |category|
+      %a.select.selected.hidden{:href => "#", :name => category}
+        .link-icon{:class => get_icon_class(category)}
+        .link-text= t(".selected_category", :category => t(".selected_#{category}"))
+  
+  .subcategory
+    - Listing::VALID_SUBCATEGORIES["item"].each do |subcategory|
+      %a.select.selected.hidden{:href => "#", :name => subcategory}
+        .link-icon{:class => get_icon_class(subcategory)}
+        .link-text= t(".selected_subcategory", :subcategory => t(".#{subcategory}"))
+   
+  .share_type
+    - Listing.all_unique_share_types.each do |share_type|
+      %a.select.selected.hidden{:href => "#", :name => share_type}
+        .link-icon{:class => get_icon_class(share_type)}
+        .link-text= t(".selected_share_type", :share_type => t(".selected_#{share_type}"))
+    
+  .option-group.listing_type-options
+    %h2
+      = t(".what_do_you_want")
+    - Listing::VALID_TYPES.each do |listing_type|
+      %a.select.option{:href => "#", :name => listing_type}
+        .link-icon{:class => get_icon_class(listing_type)}
+        .link-text= t(".#{listing_type}")
+      
+  .option-group.category-options.hidden
+    %h2
+      = t(".what_can_you_offer")
+    - Listing::VALID_CATEGORIES.each do |category|
+      %a.select.option{:href => "#", :name => category}
+        .link-icon{:class => get_icon_class(category)}
+        .link-text= t(".#{category}")
+  
+  .option-group.subcategory-options.hidden
+    %h2
+      = t(".what_kind_of_category", :category => t(".item_with_article"))
+    - Listing::VALID_SUBCATEGORIES["item"].each do |subcategory|
+      %a.select.option{:href => "#", :name => subcategory}
+        .link-icon{:class => get_icon_class(subcategory)}
+        .link-text= t(".#{subcategory}")
+  
+  .option-group.share_type-options.hidden
+    %h2
+      = t(".how_do_you_share")
+    - Listing.all_unique_share_types.each do |share_type|
+      %a.select.option{:href => "#", :name => share_type}
+        .link-icon{:class => get_icon_class(share_type)}
+        .link-text= t(".#{share_type}")
+
+  .form-fields.hidden

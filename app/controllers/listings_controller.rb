@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
   end
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:type]}", "create_one_here".to_sym, sign_up_path])
+    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:listing_type]}", "create_one_here".to_sym, sign_up_path])
   end
 
   before_filter :save_current_path, :only => :show
@@ -149,8 +149,9 @@ class ListingsController < ApplicationController
   def new
     session[:selected_tab] = "home"
     @listing = Listing.new
-    @listing.listing_type = params[:type]
+    @listing.listing_type = params[:listing_type]
     @listing.category = params[:category]
+    @listing.share_type = params[:share_type]
     #@latitude = 13
     if @listing.category == "rideshare"
 	    @listing.build_origin_loc(:location_type => "origin_loc")
@@ -165,9 +166,10 @@ class ListingsController < ApplicationController
       end
     end
     1.times { @listing.listing_images.build }
-    respond_to do |format|
-      format.html
-      format.js {render :layout => false}
+    if request.xhr?
+      render :partial => "listings/form/form_content" 
+    else
+      render
     end
   end
   

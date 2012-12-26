@@ -167,6 +167,19 @@ body {
     margin-bottom: lines(0.5);
   }
   
+  .jsmap {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+  }
+  
+  select.full-width {
+    display: block;
+    width: 100%;
+    margin-top: em(5);
+  }
+  
 }
 
 .avatar {
@@ -2179,3 +2192,60 @@ figure.tribe-cover {
   }
 }
 
+/* 
+  ----------------
+  New listing form
+  ----------------
+*/
+
+.new-listing-form {
+  
+  .hidden {
+    display: none;
+  }
+  
+  .listing_type, .category, .subcategory, .share_type {
+    
+    .hidden {
+      display: none;
+    }
+    
+  }
+  
+  a.option {
+    &:after {
+      content: "→";
+      display: block;
+      position: absolute;
+      right: lines(0.5); top: em(6);
+      color: $link;
+    }
+  }
+  
+  a.select {
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    &:hover { background: $highlight; }
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(7);
+      left: em(10);
+    }
+    .link-text {
+      margin-left: lines(1.5);
+      margin-right: lines(1.5);
+      padding: em(5) 0 em(10) 0;
+    }
+  }
+  
+  a.selected {
+    background: $highlight;
+    position: relative;
+  }
+  
+}

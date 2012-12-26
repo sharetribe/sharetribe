@@ -85,7 +85,7 @@
 
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       #googlemap
-        = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare")}
+        = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare"), :listing => @listing}
         = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
         - if @listing.category == "rideshare"
           = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
