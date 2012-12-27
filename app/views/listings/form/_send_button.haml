@@ -1,5 +1,6 @@
 = form.hidden_field(:listing_type, :value => @listing.listing_type)
 = form.hidden_field(:category, :value => @listing.category)
-= form.hidden_field(:share_type, :value => @listing.share_type)
+- if @listing.share_type && !@listing.share_type.blank?
+  = form.hidden_field(:share_type, :value => @listing.share_type)
 = form.button t(".save_#{@listing.listing_type}"), :class => "send_button"
   

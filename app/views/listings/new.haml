@@ -34,7 +34,7 @@
     
   .option-group.listing_type-options
     %h2
-      = t(".what_do_you_want")
+      = t(".what_do_you_want_to_do")
     - Listing::VALID_TYPES.each do |listing_type|
       %a.select.option{:href => "#", :name => listing_type}
         .link-icon{:class => get_icon_class(listing_type)}
@@ -42,7 +42,10 @@
       
   .option-group.category-options.hidden
     %h2
-      = t(".what_can_you_offer")
+      .option-group-title.category.offer.hidden
+        = t(".what_can_you_offer")
+      .option-group-title.category.request.hidden
+        = t(".what_do_you_need")
     - Listing::VALID_CATEGORIES.each do |category|
       %a.select.option{:href => "#", :name => category}
         .link-icon{:class => get_icon_class(category)}
@@ -50,7 +53,9 @@
   
   .option-group.subcategory-options.hidden
     %h2
-      = t(".what_kind_of_category", :category => t(".item_with_article"))
+      - Listing::VALID_CATEGORIES.each do |category|
+        .option-group-title.subcategory.hidden{:class => category}
+          = t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))
     - Listing::VALID_SUBCATEGORIES["item"].each do |subcategory|
       %a.select.option{:href => "#", :name => subcategory}
         .link-icon{:class => get_icon_class(subcategory)}
@@ -58,7 +63,10 @@
   
   .option-group.share_type-options.hidden
     %h2
-      = t(".how_do_you_share")
+      .option-group-title.share_type.offer.hidden
+        = t(".how_do_you_want_to_share_it")
+      .option-group-title.share_type.request.hidden
+        = t(".how_do_you_want_to_get_it")
     - Listing.all_unique_share_types.each do |share_type|
       - link_class = ""
       - Listing::VALID_SHARE_TYPES.each do |listing_type, hash|

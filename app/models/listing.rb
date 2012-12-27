@@ -75,7 +75,7 @@ class Listing < ActiveRecord::Base
       "item" => ["borrow", "buy", "rent", "trade", "receive"],
       "favor" => nil, 
       "rideshare" => nil,
-      "housing" => ["rent", "buy"],
+      "housing" => ["rent", "buy", "accept_for_free"],
     }
   }
   VALID_VISIBILITIES = ["this_community", "all_communities"]
@@ -92,7 +92,7 @@ class Listing < ActiveRecord::Base
     "tools" => "ss-wrench",
     "sports" => "ss-tabletennis",
     "music" => "ss-music",
-    "books" => "ss-bookmark",
+    "books" => "ss-book",
     "games" => "ss-fourdie",
     "furniture" => "ss-lodging",
     "outdoors" => "ss-campfire",
@@ -105,6 +105,7 @@ class Listing < ActiveRecord::Base
     "travel" => "ss-departure",
     "give_away" => "ss-gift",
     "share_for_free" => "ss-gift",
+    "accept_for_free" => "ss-gift",
     "lend" => "ss-flowertag",
     "borrow" => "ss-flowertag",
     "trade" => "ss-reload",

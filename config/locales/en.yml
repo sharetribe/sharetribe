@@ -72,6 +72,7 @@ en:
       sell: selling
       trade: swapping
       share_for_free: "sharing for free"
+      accept_for_free: "accepting for free"
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
@@ -104,6 +105,7 @@ en:
       housing_offer_sell_message_form_title: "Buy %{listing} from %{person}"
       housing_offer_rent_out_message_form_title: "Rent %{listing} from %{person}"
       housing_offer_share_for_free_message_form_title: "Request %{listing} from %{person}"
+      housing_offer_accept_for_free_message_form_title: "Offer %{listing} to %{person}"
       housing_request_buy_message_form_title: "Sell %{listing} to %{person}"
       housing_request_rent_message_form_title: "Rent out %{listing} to %{person}"
       item_offer_message_title: "Item request: %{title}"
@@ -825,6 +827,7 @@ en:
         request_type: "Request type"
         sell: Selling
         share_for_free: "Sharing for free"
+        accept_for_free: "Accepting for free"
         trade: Swapping
       tag_list:
         comma_separate: "(comma separate)"
@@ -888,6 +891,7 @@ en:
       rideshares: Rideshare
       sells: Selling
       share_for_frees: "Sharing for free"
+      accept_for_frees: "Accepting for free"
       trades: Swapping
     link_labels:
       link_label_for_favor_offer: "Request this service"
@@ -895,6 +899,7 @@ en:
       link_label_for_housing_offer_sell: "Buy this space"
       link_label_for_housing_offer_rent_out: "Rent this space"
       link_label_for_housing_offer_share_for_free: "Request this space"
+      link_label_for_housing_offer_accept_for_free: "Offer this space"
       link_label_for_housing_request_buy: "Offer to sell this space"
       link_label_for_housing_request_rent: "Offer to rent out this space"
       link_label_for_item_offer_lend: "Borrow this item"
@@ -919,6 +924,7 @@ en:
       message_link_label_for_housing_offer_sell: "Send private message to seller"
       message_link_label_for_housing_offer_rent_out: "Send private message to renter"
       message_link_label_for_housing_offer_share_for_free: "Send private message to offerer"
+      message_link_label_for_housing_offer_accept_for_free: "Send private message to requester"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -933,7 +939,8 @@ en:
       request_something: "Request something!"
       search_returned_no_results: "Your search did not return any results."
     new:
-      offer: "I have something I could offer to the others"
+      listing: "listing"
+      offer: "I have something to offer to the others"
       request: "I need something"
       selected_offer: Offer
       selected_request: Request
@@ -955,10 +962,12 @@ en:
       selected_sell: Sell
       selected_trade: Swap
       selected_share_for_free: "Share for free"
-      how_do_you_share: "How do you want to share it?"
-      item: "An item - something I own"
+      selected_accept_for_free: "Accept for free"
+      how_do_you_want_to_share_it: "How do you want to share it?"
+      how_do_you_want_to_get_it: "How do you want to get it?"
+      item: "An item - something tangible"
       favor: "Help - a skill or a service"
-      rideshare: "A shared ride - in my car or other transport"
+      rideshare: "A shared ride - in a car or other transport"
       housing: "A space - an apartment, an office or a garden"
       borrow: "I want to borrow it"
       buy: "I want to buy it"
@@ -970,9 +979,10 @@ en:
       sell: "I'm selling it"
       trade: "I want to swap it for something else"
       share_for_free: "I'm sharing it for free"
-      what_can_you_offer: "What can you offer to the others?"
+      accept_for_free: "I'd like to get it for free"
       item_with_article: "an item"
       favor_with_article: "help"
+      rideshare_with_article: "ride"
       housing_with_article: "a space"
       what_kind_of_category: "What kind of %{category} are we talking about?"
       tools: "Tools"
@@ -990,7 +1000,9 @@ en:
       garden: "Garden"
       travel: "Travel"
       other: "Other"
-      what_do_you_want: "What do you want to do?"
+      what_do_you_want_to_do: "What do you want to do?"
+      what_can_you_offer: "What can you offer to the others?"
+      what_do_you_need: "What do you need?"
     please_comment: Comment
     reply_link:
       offer_closed: "Offer is closed"
