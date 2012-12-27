@@ -82,6 +82,11 @@ function add_validator_methods() {
 function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
+  setTimeout(hideNotice, 5000);
+}
+
+var hideNotice = function() {
+  $('.flash-notifications').fadeOut('slow');
 }
 
 function initialize_user_feedback_form() {

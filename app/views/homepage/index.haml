@@ -23,14 +23,6 @@
         %button{type: 'submit'}
           %i.ss-search.icon-with-text
           .text-with-icon.hidden Search
-      - if params[:map]
-        %a.map-link{href: root, title: 'List view'}
-          %i.ss-list.icon-with-text
-          .text-with-icon.hidden-text List
-      - else
-        %a.map-link{href: (root + '?map=true'), title: 'Map view'}
-          %i.ss-maplocation.icon-with-text
-          .text-with-icon.hidden-text Map
     
     .feed-filter-dropdowns#feed-filter-dropdowns
       .filter-title
@@ -60,7 +52,17 @@
         %option{label: "Services", value: "favor"}
         %option{label: "Rideshare", value: "rideshare"}
         %option{label: "Spaces", value: "housing"}
-      
+
+
+.feed-map-link
+  - if params[:map]
+    %a.map-link{href: root, title: 'List view'}
+      %i.ss-list.icon-with-text
+      .text-with-icon.hidden-text List
+  - else
+    %a.map-link{href: (root + '?map=true'), title: 'Map view'}
+      %i.ss-maplocation.icon-with-text
+      .text-with-icon.hidden-text Map      
 
 .homepage-feed.feed
   - if params[:map]

@@ -508,7 +508,7 @@ en:
       but_that_is_visible_only_to_registered_members: "but that is visible only to registered members."
       but_those_are_visible_only_to_registered_members: "but those are visible only to registered members."
       create_new_account_for_yourself: "Create yourself a new account"
-      examples_of_what_you_could_offer_to_others: "What could you offer to the others"
+      examples_of_what_you_could_offer_to_others: "What could you offer to others"
       examples_of_what_you_could_request_to_others: "What could you request from the others"
       favor_offer_list: "computer assistance, clothes repair, baking, bike fixing"
       favor_request_list: "babysitting, piano lessons, walking dogs, mowing lawn"
@@ -723,7 +723,7 @@ en:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       you_are_now_member: "You have successfully joined this community"
       you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
-      you_must_log_in_to_create_new_offer: "You must log in to %{service_name} to create a new offer. If you don't have an account you can"
+      you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can"
       additional_email_confirmed_dashboard: "Your email is now confirmed."
       you_must_log_in_to_create_new_request: "You must log in to %{service_name} to create a new request. If you don't have an account you can"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
@@ -940,7 +940,7 @@ en:
       search_returned_no_results: "Your search did not return any results."
     new:
       listing: "listing"
-      offer: "I have something to offer to the others"
+      offer: "I have something to offer to others"
       request: "I need something"
       selected_offer: Offer
       selected_request: Request
@@ -1001,7 +1001,7 @@ en:
       travel: "Travel"
       other: "Other"
       what_do_you_want_to_do: "What do you want to do?"
-      what_can_you_offer: "What can you offer to the others?"
+      what_can_you_offer: "What can you offer to others?"
       what_do_you_need: "What do you need?"
     please_comment: Comment
     reply_link:
@@ -1197,7 +1197,7 @@ en:
       volunteer_gold: "Volunteer (gold)"
       volunteer_gold_description: "You know nothing better than helping others. You have 25 open service offers in your profile, fabulous!"
       volunteer_silver: "Volunteer (silver)"
-      volunteer_silver_description: "You have a lot to give to the others: you have listed 10 services that you could do in %{service_name}!"
+      volunteer_silver_description: "You have a lot to give to others: you have listed 10 services that you could do in %{service_name}!"
     profile_feedback:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"

@@ -11,7 +11,6 @@
 //= require jquery.validate.min
 //= require jquery.pageless
 //= require jquery.autosize-min
-// require jquery.watermark.min
 //= html5shiv-printshiv
 //= ss-pika
 //= require sharetribe_common

@@ -4,7 +4,7 @@
 @import 'colors'; // color presets and their logic
 @import 'type';   // typography presets and tools
 @import 'media-queries'; // media query presets
-@import 'jquery.fancybox'; // media query presets
+@import 'jquery.fancybox'; // Image previews
 
 /*
   --------------------------
@@ -40,11 +40,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .page-content {
-  
   padding-bottom: lines(3);
   
   h1 {
-    margin: lines(0.25) 0 lines(0.5);
+    margin: lines(0) 0 lines(0.5);
     font-weight: 700;
     //-webkit-font-smoothing: antialiased;
     
@@ -56,7 +55,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   h2 {
-    margin: lines(1) 0 lines(0.5);
+    margin: lines(0) 0 lines(0.5);
     @include normal-type;
     //text-transform: uppercase;
     font-weight: 600;
@@ -111,14 +110,15 @@ body {
   padding: lines(0.5);
   @include clearfix;
   @include media(tablet) {
-    padding: lines(1) lines(0.5);
+    padding: lines(0) lines(0.5);
   }
   @include media(desktop) {
-    padding: lines(1) lines(0);
+    padding: lines(0) lines(0);
   }
 }
 
 @mixin facebook-connect-button {
+  position: relative;
   cursor: pointer;
   color: white;
   display: block;
@@ -131,13 +131,27 @@ body {
 
   .fb-icon {
     position: absolute;
-    @include large-type;
+    @include big-type;
+    top: em(10);
+    left: em(7);
   }
 
   .fb-text {
-    @include big-type;
-    padding: em(2) em(10) em(7) em(25);
+    padding: em(0) em(10) em(7) em(30);
   }
+  
+  @include media(tablet) {
+    .fb-icon {
+      @include large-type;
+      top: em(6);
+      left: em(5);
+    }
+    .fb-text {
+      @include big-type;
+      padding: em(1) em(10) em(7) em(25);
+    }
+  }
+  
 }
 
 // User for simple centered views with mostly forms
@@ -178,6 +192,10 @@ body {
     display: block;
     width: 100%;
     margin-top: em(5);
+  }
+  
+  @include media(desktop) {
+    padding: 0 lines(0.5);
   }
   
 }
@@ -234,7 +252,6 @@ body {
   }
 }
 
-// Only used for the Font Awesome icons in this prototype
 .icon {
   @include big-type;
   height: lines(1, 24);
@@ -1056,6 +1073,9 @@ figure.tribe-cover {
   background: $link;
   @include box-shadow(rgba(0,0,0,0.2) 0 em(-3) em(2) em(1));
   z-index: 600;
+  @include media(tablet) {
+    margin-bottom: lines(1.25);
+  }
 }
 
 .tribe-actions { 
@@ -1205,6 +1225,49 @@ figure.tribe-cover {
   
 }
 
+/*
+  -------------------
+  Flash notifications
+  -------------------
+*/
+
+.flash-notifications {
+  
+  .flash-notification {
+    margin: lines(0.5);
+    position: relative;
+    @include box-sizing(border-box);
+    padding: em(8) em(20) em(12) em(20);
+    @include border-radius(em(5));
+    .flash-icon {
+      position: absolute;
+      top: em(10);
+      left: em(12);
+    }
+    .flash-text {
+      margin-left: lines(0.75);
+      min-height: lines(0.5);
+    }
+  }
+  
+  .flash-notice, .flash-warning {
+    border: 1px solid $border;
+    background: $highlight;
+  }
+  
+  .flash-error {
+    color: $background;
+    background: red;
+  }
+  
+  @include media(tablet) {
+    .flash-notification {
+      margin: 0 0 lines(1) 0;
+    }
+  }
+  
+}
+
 
 /*
   --------
@@ -1224,7 +1287,6 @@ figure.tribe-cover {
   }
   
   @include media(tablet) {
-    padding-top: lines(1.8);
     
     .request-link {
       @include big-button;
@@ -1240,6 +1302,7 @@ figure.tribe-cover {
 .feed-filters {
   background: $emphasis;
   padding: lines(0.5);
+  position: relative;
   
   .filter-title {
     display: none;
@@ -1272,6 +1335,7 @@ figure.tribe-cover {
 }
 
 .feed-search {
+  position: relative;
 
   input[type=text] {
     display: inline;
@@ -1285,7 +1349,7 @@ figure.tribe-cover {
     width: 22%;
   }
   
-  a.map-link, .hidden, .hidden-text {
+  .hidden {
     display: none;
   }
   
@@ -1299,22 +1363,38 @@ figure.tribe-cover {
     
     input[type=text] {
       position: absolute;
-      top: lines(1.8); left: lines(13.5);
+      top: lines(-3); left: lines(13.5);
       width: lines(11.5);
     }
 
     button {
       position: absolute;
-      top: lines(1.8); left: lines(25.5);
+      top: lines(-3); left: lines(25.5);
       width: auto;
+      min-width: lines(5);
       margin-left: 0;
     }
+    
+  }
+
+}
+
+.feed-map-link {
+  position: relative;
+  
+  a.map-link, .hidden-text {
+    display: none;
+  }
+  
+  @include media(tablet) {
+    background: transparent;
+    padding: 0;
     
     a.map-link {
       display: inline;
       cursor: pointer;
       position: absolute;
-      top: lines(1.35); right: lines(0);
+      top: lines(0); right: 0;
       padding-top: lines(0.2);
       color: $body;
       &:hover { color: $link; }
@@ -1331,8 +1411,9 @@ figure.tribe-cover {
       display: inline-block;
     }
   }
-
+  
 }
+
 
 .feed-navigation {
   background: $emphasis;
@@ -1377,8 +1458,8 @@ figure.tribe-cover {
 .homepage-feed {
   
   @include media(tablet) {
-    // Makes space for sidebar
-    padding-top: lines(4.8);
+    // Makes space for search
+    padding-top: lines(3);
   }
   
 }
@@ -1474,55 +1555,6 @@ figure.tribe-cover {
 
 
 /*
-  --------
-  Map view
-  --------
-*/
-
-.map-navigation {
-  background: $link;
-  
-  .feed-filters {
-    position: absolute;
-    left: 0; top: lines(2) - em(2);
-    width: 100%;
-    z-index: 9000;
-    border-bottom: 1px solid $border;
-  }
-  
-  @include media(tablet) {
-    
-    // Shows filters all the time, instead hiding them behind a toggle
-    .toggle {
-      display: none;
-    }
-    
-    .feed-filters {
-      display: block;
-      width: lines(13);
-      text-align: right;
-      top: 0; left: auto; right: 0;
-      border: none !important;
-      background: none;
-      
-    }
-  }
-}
-
-#map-container {
-  position: absolute;
-  top: lines(4); left: 0; right: 0; bottom: 0;
-  z-index: -1;
-}
-
-#map {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-
-
-/*
   ----------------
   Single item view
   ----------------
@@ -1553,7 +1585,7 @@ figure.tribe-cover {
       @include big-button;
       margin: 0;
       position: absolute;
-      right: 0; top: lines(1);
+      right: 0; top: lines(0.25);
       width: lines(11) - em(2); 
     }
   }
@@ -1613,7 +1645,7 @@ figure.tribe-cover {
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(5);
+      right: lines(0); top: lines(4.25);
       width: lines(15);
       height: lines(11.25);
       img {
@@ -1631,7 +1663,7 @@ figure.tribe-cover {
     
     @include media(tablet) {
       position: absolute;
-      right: lines(0); top: lines(17.75);
+      right: lines(0); top: lines(17);
       width: lines(15);
       height: lines(10);
     }
@@ -1848,7 +1880,7 @@ figure.tribe-cover {
       @include big-button;
       margin: 0;
       position: absolute;
-      right: 0; top: lines(1);
+      right: 0; top: lines(0.25);
       width: lines(8.5) + em(5); 
     }
   }
@@ -1871,7 +1903,7 @@ figure.tribe-cover {
       float: none;
       margin: 0;
       position: absolute;
-      right: lines(0); top: lines(5);
+      right: lines(0); top: lines(4.25);
       width: lines(12);
       height: lines(12);
       img {
@@ -1902,7 +1934,7 @@ figure.tribe-cover {
       margin-top: 0;
       margin-bottom: lines(2);
       position: absolute;
-      right: lines(0); top: lines(18.5);
+      right: lines(0); top: lines(17.75);
       width: lines(12);
       height: lines(10);
     }
@@ -1973,7 +2005,8 @@ figure.tribe-cover {
       padding: lines(0.5);
     }
     
-    @include media(tablet) {  
+    @include media(tablet) {
+      margin-top: lines(1); 
       padding-right: lines(14);
       h2 {
         @include big-type;
@@ -2087,7 +2120,6 @@ figure.tribe-cover {
     }
     
     @include media(tablet) {
-      padding-top: lines(1);
       padding-right: lines(14);
 
       .testimonial {

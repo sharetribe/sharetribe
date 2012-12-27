@@ -4,11 +4,11 @@ class ListingsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
 
   before_filter :only => [ :edit, :update, :close, :follow, :unfollow ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+    controller.ensure_logged_in t(".you_must_log_in_to_view_this_content")
   end
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in(["you_must_log_in_to_create_new_#{params[:listing_type]}", "create_one_here".to_sym, sign_up_path])
+    controller.ensure_logged_in "listings/must_log_in_to_create_new"
   end
 
   before_filter :save_current_path, :only => :show

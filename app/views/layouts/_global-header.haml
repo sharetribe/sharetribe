@@ -19,7 +19,7 @@
         -# if three digits:
         -#.badge.huge-badge 500
 
-      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
+      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: "Inbox"}
         %i.icon.ss-mail
         -# if single digit:
         .badge 5
