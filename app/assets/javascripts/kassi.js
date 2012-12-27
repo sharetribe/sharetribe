@@ -175,7 +175,11 @@ function display_form_fields(sections, locale) {
 
 // Make changes based on a click in an "option" link in the listing form
 function reload_option_links(locale, link, valid_share_types) {
+  
   var sections = ["listing_type", "category", "share_type"];
+  // Use this instead if subcategories are used
+  // var sections = ["listing_type", "category", "subcategory", "share_type"];
+  
   $('.selected[name=' + link.attr('name') + ']').removeClass('hidden');
   
   for (var i = 0; i < sections.length; i++) {
@@ -199,6 +203,8 @@ function reload_option_links(locale, link, valid_share_types) {
              display_option_links(sections[i + 1]);
            }
         } else {
+          // Display correct titles in category and subcategory form depending on
+          // previous selections
           if (sections[i + 1] == "category") {
             $('.option-group-title.category.' + listing_type).removeClass('hidden');
           } else if (sections[i + 1] == "subcategory") {
@@ -237,9 +243,9 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 	
 	$(':radio[name=valid_until_select]').change(function() {
 		if ($(this).val() == "for_now") {
-			$('select.listing_date_select').attr('disabled', 'disabled');
+			$('select.listing_datetime_select').attr('disabled', 'disabled');
 		} else {
-			$('select.listing_date_select').removeAttr('disabled');
+			$('select.listing_datetime_select').removeAttr('disabled');
 		}
 	});
 	
@@ -256,13 +262,9 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
-				error.appendTo(element.parent().parent());
+				error.appendTo(element.parent());
 			} else if (element.attr("name") == "listing[valid_until(1i)]") {
-				if (is_rideshare == "true" || is_offer == "true") {
-					error.appendTo(element.parent().parent().parent());
-				} else {	
-					error.appendTo(element.parent().parent().parent());
-				}
+				error.appendTo(element.parent());
 			} else {
 				error.insertAfter(element);
 			}
@@ -273,28 +275,21 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[origin]": {required: rs, address_validator: true},
 			"listing[destination]": {required: rs, address_validator: true},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
-			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(4i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(3i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(2i)]": { min_date: is_rideshare, max_date: is_rideshare },
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-			"listing[valid_until(2i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
+			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message }
 		},
 		// Run validations only when submitting the form.
-		 onkeyup: false,
-         onclick: false,
-         onfocusout: false,
-		 onsubmit: true,
+		onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+		onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
 		}
-	});	
+	});
+	
 	set_textarea_maxlength();
 	auto_resize_text_areas("listing_description_textarea");
 }
