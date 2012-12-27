@@ -1,6 +1,6 @@
 :javascript
   $(document).ready(function() {
-    initialize_new_listing_form_selectors("#{I18n.locale}");
+    initialize_new_listing_form_selectors("#{I18n.locale}", #{Listing::VALID_SHARE_TYPES.to_json});
   });
 
 - content_for :extra_javascript do
@@ -60,7 +60,12 @@
     %h2
       = t(".how_do_you_share")
     - Listing.all_unique_share_types.each do |share_type|
-      %a.select.option{:href => "#", :name => share_type}
+      - link_class = ""
+      - Listing::VALID_SHARE_TYPES.each do |listing_type, hash|
+        - hash.each do |category, array|
+          - if array && array.include?(share_type)
+            - link_class += "#{listing_type} #{category} "
+      %a.select.option.share-type-option.hidden{:href => "#", :name => share_type, :class => link_class}
         .link-icon{:class => get_icon_class(share_type)}
         .link-text= t(".#{share_type}")
 

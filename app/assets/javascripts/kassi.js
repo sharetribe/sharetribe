@@ -128,7 +128,10 @@ function reload_selected_links(locale, link) {
   
   $('.option-group').addClass('hidden');
   link.addClass('hidden');
-  $('.' + link.parent().attr('class') + '-options').removeClass('hidden');
+  $('.share-type-option').each(function(index) { 
+    $(this).addClass('hidden'); 
+  });
+  display_option_links(link.parent().attr('class'));
   $('.form-fields').addClass('hidden');
   if (link.parent().hasClass('listing_type')) {
     $('.category').children().addClass('hidden');
@@ -143,10 +146,39 @@ function reload_selected_links(locale, link) {
   
 }
 
-function reload_option_links(locale, link) {
+// Make changes based on a click in a "selected" link in the listing form
+function display_option_links(section_name) {
+  $('.' + section_name + '-options').removeClass('hidden');
+  // Make sure that only the correct share types are displayed.
+  if (section_name == "share_type") {
+    listing_type = $('.listing_type').children().not('.hidden').attr('name');
+    category = $('.category').children().not('.hidden').attr('name');
+    $('.share-type-option').each(function(index) {
+      if ($(this).hasClass(listing_type) && $(this).hasClass(category)) {
+        $(this).removeClass('hidden');
+      }
+    });
+  }
+}
+
+// Load new listing form with AJAX
+function display_form_fields(sections, locale) {
+  $('.form-fields').removeClass('hidden');
+  var new_listing_path = '/' + locale + '/listings/new';
+  var params = {};
   
+  for (var j = 0; j < sections.length; j++) {
+    params[sections[j]] = $('.' + sections[j]).children().not('.hidden').attr('name');
+  }
+  
+  $.get(new_listing_path, params, function(data) {
+    $('.form-fields').html(data);
+  });
+}
+
+// Make changes based on a click in an "option" link in the listing form
+function reload_option_links(locale, link, valid_share_types) {
   var sections = ["listing_type", "category", "subcategory", "share_type"];
-  
   $('.selected[name=' + link.attr('name') + ']').removeClass('hidden');
   
   for (var i = 0; i < sections.length; i++) {
@@ -156,18 +188,22 @@ function reload_option_links(locale, link) {
       if (i == (sections.length - 1)) {
         // If this is the last selection before displaying the form,
         // prepare the form parameters and make the ajax call
-        $('.form-fields').removeClass('hidden');
-        var new_listing_path = '/' + locale + '/listings/new';
-        var params = {};
-        for (var j = 0; j < sections.length; j++) {
-          params[sections[j]] = $('.' + sections[j]).children().not('.hidden').attr('name');
-        }
-        $.get(new_listing_path, params, function(data) {
-          $('.form-fields').html(data);
-        });
+        display_form_fields(sections, locale);
       } else {
-        // Otherwise just display the next selection form
-        $('.' + sections[i + 1] + '-options').removeClass('hidden'); 
+        // If the last section would be share types, but there are no share types
+        // for this category, display form instead of the section. Otherwise,
+        // display the next section normally.
+        if (sections[i + 1] == "share_type") {
+          listing_type = $('.listing_type').children().not('.hidden').attr('name');
+           category = $('.category').children().not('.hidden').attr('name');
+           if (valid_share_types[listing_type][category] == null) {
+             display_form_fields(sections, locale);
+           } else {
+             display_option_links(sections[i + 1]);
+           }
+         } else {
+           display_option_links(sections[i + 1]);
+        }
       }
       return;
     }
@@ -175,7 +211,8 @@ function reload_option_links(locale, link) {
 
 }
 
-function initialize_new_listing_form_selectors(locale) {
+// Initialize the listing type & category selection part of the form
+function initialize_new_listing_form_selectors(locale, valid_share_types) {
   
   $('.new-listing-form').find('a.selected').click(
     function() {
@@ -185,12 +222,13 @@ function initialize_new_listing_form_selectors(locale) {
   
   $('.new-listing-form').find('a.option').click(
     function() {
-      reload_option_links(locale, $(this));
+      reload_option_links(locale, $(this), valid_share_types);
     }
   );
   
 }
 
+// Initialize the actual form fields
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
 	$('input.title_text_field:first').focus();
 	
