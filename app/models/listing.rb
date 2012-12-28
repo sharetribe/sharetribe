@@ -136,9 +136,11 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
+    indexes category
+    indexes share_type
     
     # attributes
-    has created_at, updated_at, category
+    has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean

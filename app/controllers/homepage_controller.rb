@@ -7,7 +7,7 @@ class HomepageController < ApplicationController
 
   def index
     session[:selected_tab] = "home"
-    listings_per_page = 10
+    listings_per_page = 3
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing
@@ -18,13 +18,20 @@ class HomepageController < ApplicationController
     filter_params.reject!{ |key,value| value == "all"} # all means the fliter doesn't need to be included
     
     if @query # Search used
-      with = {:open => true}
+      with = {:open => true} # used for attributes
+      conditions = {}        # used indexed fields (as sphinx doesn't support string attributes) 
+      
       if filter_params["listing_type"]
          with[:is_request] = true if filter_params["listing_type"].eql?("request")
          with[:is_offer] = true if filter_params["listing_type"].eql?("offer")
-       end
+      end
+      
       if filter_params["category"]
-        with[:category] = filter_params["category"]
+        conditions[:category] = filter_params["category"]
+      end
+      
+      if filter_params["share_type"]
+        conditions[:share_type] = filter_params["share_type"]
       end
       
       unless @current_user && @current_user.communities.include?(@current_community)
@@ -37,7 +44,8 @@ class HomepageController < ApplicationController
                                 :page => params[:page],
                                 :per_page => listings_per_page, 
                                 :star => true,
-                                :with => with
+                                :with => with,
+                                :conditions => conditions
                                 )
       
     else # no search used
