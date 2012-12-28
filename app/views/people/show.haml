@@ -73,12 +73,10 @@
         
   .profile-listings.section
     %h2
-      .ss-page.icon-with-text
-      .text-with-icon
-        - if @listings.size > 0
-          = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
-        - else
-          = t(".no_open_listings")
+      - if @listings.size > 0
+        = pluralize(@listings.count, t(".open_listing"), t(".open_listings"))
+      - else
+        = t(".no_open_listings")
     - if @listings.size > 0
       = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
       - if @listings.size > 3
@@ -86,13 +84,11 @@
           = link_to t(".show_all_open_listings"), "#"
   
   .profile-testimonials.section
-    %h2 
-      .ss-like.icon-with-text
-      .text-with-icon
-        - if @person.received_testimonials.size > 0
-          = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
-        - else
-          = t(".no_reviews")
+    %h2
+      - if @person.received_testimonials.size > 0
+        = pluralize(@person.received_testimonials.size, t(".review"), t(".reviews"))
+      - else
+        = t(".no_reviews")
     - if @person.received_testimonials.size > 0
       .small-text
         = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
@@ -103,13 +99,11 @@
           = link_to t(".show_all_reviews"), "#"
   
   .profile-badges.section
-    %h2 
-      .ss-medal.icon-with-text
-      .text-with-icon
-        - if @person.badges.size > 0
-          = pluralize(@person.badges.size, t(".badge"), t(".badges"))
-        - else
-          = t(".no_badges")
+    %h2
+      - if @person.badges.size > 0
+        = pluralize(@person.badges.size, t(".badge"), t(".badges"))
+      - else
+        = t(".no_badges")
     - if @person.badges.size > 1
       .badge-list
         = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge

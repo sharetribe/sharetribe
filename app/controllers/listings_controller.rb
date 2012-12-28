@@ -8,7 +8,7 @@ class ListingsController < ApplicationController
   end
 
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "listings/must_log_in_to_create_new"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
 
   before_filter :save_current_path, :only => :show
@@ -183,7 +183,7 @@ class ListingsController < ApplicationController
       render :action => :new
     else
       path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
-      flash[:notice] = ["#{@listing.listing_type}_created_successfully", "create_new_#{@listing.listing_type}".to_sym, path]
+      flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_#{@listing.listing_type}"), path)).html_safe
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
       redirect_to @listing
     end

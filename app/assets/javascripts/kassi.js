@@ -83,6 +83,9 @@ function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
   setTimeout(hideNotice, 5000);
+  $('.flash-notifications').click(function() {
+    $('.flash-notifications').fadeOut('slow');
+  });
 }
 
 var hideNotice = function() {
@@ -383,7 +386,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
-      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" },
+      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password1" },
 			"recaptcha_response_field": {required: true, captcha: true },
 			"invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
 		},

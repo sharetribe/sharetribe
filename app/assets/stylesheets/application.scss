@@ -1250,6 +1250,10 @@ figure.tribe-cover {
     }
   }
   
+  .narrow-notification {
+    width: lines(26);
+  }
+  
   .flash-notice, .flash-warning {
     border: 1px solid $border;
     background: $highlight;
@@ -1601,7 +1605,7 @@ figure.tribe-cover {
     @include media(tablet) {
       margin: 0;
       position: absolute;
-      right: 0; top: lines(1);
+      right: 0; top: lines(0.5);
       width: lines(11) - em(4);
       @include big-type;
       text-align: left;
@@ -2006,7 +2010,7 @@ figure.tribe-cover {
     }
     
     @include media(tablet) {
-      margin-top: lines(1); 
+      margin-top: lines(2); 
       padding-right: lines(14);
       h2 {
         @include big-type;

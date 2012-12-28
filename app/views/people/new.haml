@@ -41,7 +41,7 @@
     
     -# Username
     = form.label :username, username_label
-    = form.text_field :username, :class => :text_field, :maxlength => "20"
+    = form.text_field :username, :class => :text_field, :maxlength => "20", :id => "person_username1"
     
     -# Name
     = form.label :given_name, t('.given_name')
@@ -63,7 +63,7 @@
      
     -# Password 
     = form.label :password, t('common.password')
-    = form.password_field :password, :class => :text_field, :maxlength => "255"
+    = form.password_field :password, :class => :text_field, :maxlength => "255", :id => "person_password1"
     = form.label :password2, t('.password_again')
     = form.password_field :password2, :class => :text_field, :maxlength => "255"
     

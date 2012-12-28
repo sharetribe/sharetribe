@@ -145,10 +145,10 @@ class PeopleController < Devise::RegistrationsController
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
-      flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
+      flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
-      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+      flash[:notice] = t("layouts.notifications.account_creation_successful", :person_name => view_context.link_to((@person.given_name_or_username).to_s, person_path(@person))).html_safe
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
