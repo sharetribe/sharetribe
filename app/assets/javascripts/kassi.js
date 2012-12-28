@@ -676,15 +676,16 @@ function reload_homepage_view() {
     filters["listing_type"] = "all";
   }
   filters["category"] = $('#listing_category').val();
+  filters["q"] = undefined; // Disable search now as Sphinx won't play nicely with filters yet
   
+  // Update request path with updated query params
   for (var key in filters) {
-    
     request_path = UpdateQueryString(key, filters[key], request_path);
   }
-  $.get(request_path, filters, function(data, status, xhr) {
+  
+  $.get(request_path, filters, function(data) {
 
     $('#homepage-feed').html(data);
-    // alert("d" + xhr.URL);
     history.pushState(null, document.title, request_path);
   });
 }

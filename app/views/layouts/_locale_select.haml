@@ -1,3 +1,1 @@
-= form_tag("/change_locale", :method => "get") do
-  = hidden_field_tag :redirect_uri, @return_to
-  = select_tag 'locale', options_for_select(available_locales, (logged_in? ? @current_user.locale : params[:locale])), :onchange => 'this.form.submit()', :class => 'language_select'
+%a{href: change_locale_path(:locale => "#{loc_array[1]}", :redirect_uri => "#{@return_to}")} #{loc_array[0]}

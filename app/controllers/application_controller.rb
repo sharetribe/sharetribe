@@ -21,19 +21,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :root, :logged_in?, :current_user?
 
-  def set_locale    
+  def set_locale
+
     locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
 
     if locale.blank? && @current_community
       locale = @current_community.default_locale
     end
-
+    
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
     else
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
-
+    
     # A hack to get the path where the user is
     # redirected after the locale is changed
     new_path = request.fullpath.clone
@@ -277,4 +278,5 @@ class ApplicationController < ActionController::Base
       render :file => "public/errors/maintenance.html", :layout => false and return
     end
   end
+
 end
