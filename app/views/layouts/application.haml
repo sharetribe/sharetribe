@@ -53,13 +53,11 @@
       .select-language.toggle{data: {toggle: '.language-menu'}}
         %i.icon-dropdown.ss-dropdown
         .current-language
-          English
+          = get_full_locale_name(I18n.locale)
     
     .language-menu.toggle-menu.hidden
-      %a{href: change_locale_path(:locale => "en")} English
-      %a{href: change_locale_path(:locale => "fi")} Finnish
-      %a{href: '#'} French
-    
+      = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
+      
 %article.page-content
   .wrapper
     - { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|

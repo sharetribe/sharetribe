@@ -111,6 +111,15 @@ module ApplicationHelper
     end
   end
   
+  def get_full_locale_name(locale)
+    Kassi::Application.config.AVAILABLE_LOCALES.each do |l|
+      if l[1].to_s == locale.to_s
+        return l[0]
+      end
+    end
+    return locale # return the short string if no match found for longer name
+  end
+  
   def self.send_error_notification(message, error_class="Special Error", parameters={})
     if APP_CONFIG.use_airbrake
       Airbrake.notify(
