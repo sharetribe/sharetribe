@@ -16,43 +16,18 @@
         %i.ss-maplocation
 
   .feed-filters.toggle-menu-filters
-  
-    .feed-search
-      = form_tag({ :action => :index, :controller => :homepage }, :method => "get") do
+    = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
+      .feed-search
         %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: 'What do you need?'}
         %button{type: 'submit'}
           %i.ss-search.icon-with-text
-          .text-with-icon.hidden Search
+          .text-with-icon.hidden= t("homepage.filters.search")
     
-    .feed-filter-dropdowns#feed-filter-dropdowns
-      .filter-title
-        Show:
-      %select.item-type#listing_type
-        %option{label: "All listings types", value: "all"}
-        %option{label: "Requests", value: "request"}
-        %option{label: "— Borrowing", value: "borrow"}
-        %option{label: "— Buying", value: "buy"}
-        %option{label: "— Taking for free", value: "receive"}
-        %option{label: "— Renting", value: "rent"}
-        %option{label: "— Swapping", value: "trade"}
-        %option{label: "Offers", value: "offer"}
-        %option{label: "— Giving away", value: "give_away"}
-        %option{label: "— Lending", value: "lend"}
-        %option{label: "— Renting out", value: "rent_out"}
-        %option{label: "— Selling", value: "sell"}
-        %option{label: "— Sharing for free", value: "share_for_free"}
-        %option{label: "— Swapping", value: "trade"}
-      %select.item-category#listing_category
-        %option{label: "All categories", value: "all"}
-        %option{label: "Items", value: "item"}
-        %option{label: "— Clothing", value: "item"}
-        %option{label: "— Furniture", value: "item"}
-        %option{label: "— Electronics", value: "item"}
-        %option{label: "— Tools", value: "item"}
-        %option{label: "Services", value: "favor"}
-        %option{label: "Rideshare", value: "rideshare"}
-        %option{label: "Spaces", value: "housing"}
-
+      .feed-filter-dropdowns#feed-filter-dropdowns
+        .filter-title
+          = t("homepage.filters.show")
+        = render :partial => "filter_share_types"
+        = render :partial => "filter_categories"
 
 .feed-map-link
   - if params[:map]
@@ -62,7 +37,7 @@
   - else
     %a.map-link{href: (root + '?map=true'), title: 'Map view'}
       %i.ss-maplocation.icon-with-text
-      .text-with-icon.hidden-text Map      
+      .text-with-icon.hidden-text= t("homepage.filters.map")      
 
 .homepage-feed.feed
   - if params[:map]
@@ -71,4 +46,4 @@
     - if @listings.total_entries > 0
       = render :partial => "recent_listing", :collection => @listings, :as => :listing
       = will_paginate(@listings)
-      = pageless(@listings.total_pages, '#homepage-feed', root_path, t('.loading_more_content'), false)
+      = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'), false)

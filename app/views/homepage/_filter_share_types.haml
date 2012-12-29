@@ -1,0 +1,7 @@
+%select.item-type#share_type{name: "share_type"}
+  %option{label: "#{t("homepage.filters.all_listing_types")}", value: "all"}
+  - Listing::VALID_TYPES.each do |type|
+    %option{label: "#{t("common.listing_types.#{type}").capitalize}", value: "#{type}", selected: params[:share_type] == type}
+    - if Listing::VALID_SHARE_TYPES[type]
+      - Listing::VALID_SHARE_TYPES[type].values.flatten.compact.uniq.each do |share_type|
+        %option{label: "- #{t("common.share_types.#{share_type}").capitalize}", value: "#{share_type}", selected: params[:share_type] == share_type}

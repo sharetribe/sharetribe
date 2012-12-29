@@ -61,6 +61,9 @@ en:
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
     password: Password
+    listing_types:
+      request: "request"
+      offer: "offer"
     share_types:
       borrow: borrowing
       buy: buying
@@ -73,6 +76,11 @@ en:
       trade: swapping
       share_for_free: "sharing for free"
       accept_for_free: "accepting for free"
+    categories:
+      item: "items"
+      favor: "services"
+      rideshare: "rideshare"
+      housing: "spaces"
     username: Username
     username_or_email: "Email or username"
     what_is_this: "What's this?"
@@ -586,6 +594,12 @@ en:
       other_offers: "other offers"
       other_request: "other request"
       other_requests: "other requests"
+    filters:
+      show: "Show:"
+      search: "Search"
+      map: "Map"
+      all_listing_types: "All listing types"
+      all_categories: "All categories"
   layouts:
     admin:
       admin: "%{service_name} admin panel"

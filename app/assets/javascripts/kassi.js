@@ -658,7 +658,10 @@ function initialize_profile_feedback_view() {
 function initialize_homepage() {
   $('#feed-filter-dropdowns select').change(
     function() {
-      reload_homepage_view();
+      
+      $("#homepage-filters").submit();
+      // It's challenging to get the pageless right if reloading just the small part so reload all page
+      //reload_homepage_view();
     }
   );
 }
@@ -667,16 +670,8 @@ function reload_homepage_view() {
   // Make AJAX request based on selected items
   var request_path = window.location.toString();
   var filters = {};
-  var type = $('#listing_type').val();
-  if (type == "all" || type == "offer" || type == "request") {
-    filters["listing_type"] = type;
-    filters["share_type"] = "all";    
-  } else {
-    filters["share_type"] = type;
-    filters["listing_type"] = "all";
-  }
+  filters["share_type"] = $('#share_type').val();
   filters["category"] = $('#listing_category').val();
-  filters["q"] = undefined; // Disable search now as Sphinx won't play nicely with filters yet
   
   // Update request path with updated query params
   for (var key in filters) {
@@ -684,8 +679,7 @@ function reload_homepage_view() {
   }
   
   $.get(request_path, filters, function(data) {
-
-    $('#homepage-feed').html(data);
+    $('.homepage-feed').html(data);
     history.pushState(null, document.title, request_path);
   });
 }
