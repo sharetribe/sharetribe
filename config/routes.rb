@@ -62,29 +62,31 @@ Kassi::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))
   
-  scope :module => "api", :constraints => ApiRequest do
-    resources :tokens, :only => :create
-    resources :listings do
-      resources :comments
-    end
-    resources :people do
-      resources :conversations do
-        member do
-          post :messages, :controller => :conversations, :action => "new_message"
-        end
-      end
-      resources :devices
-      resources :listings
-      resources :feedbacks, :controller => :testimonials
-      resources :badges
-    end
 
-    match '/' => 'dashboard#api'    
-  end
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
+    
+    scope :module => "api", :constraints => ApiRequest do
+      resources :tokens, :only => :create
+      resources :listings do
+        resources :comments
+      end
+      resources :people do
+        resources :conversations do
+          member do
+            post :messages, :controller => :conversations, :action => "new_message"
+          end
+        end
+        resources :devices
+        resources :listings
+        resources :feedbacks, :controller => :testimonials
+        resources :badges
+      end
 
+      match '/' => 'dashboard#api'    
+    end
+    
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} 
     devise_scope :person do  
       # these matches need to be before the general resources to have more priority
