@@ -8,6 +8,11 @@
 
 - content_for :extra_javascript do
   :javascript
-    $(document).ready(function() { initialize_listing_map('#{params[:listing_type]}','#{community_location_lat}','#{community_location_lon}'); });
+    $(document).ready(function() {SetFiltersForMap("#{@filter_params['listing_type']}",
+                                                        "#{@filter_params['category']}",
+                                                        "#{@filter_params['share_type']}",
+                                                        "#{@filter_params['search']}");
+                                                        initialize_listing_map('#{community_location_lat}',
+                                                        '#{community_location_lon}'); });
 
 #map-canvas.map

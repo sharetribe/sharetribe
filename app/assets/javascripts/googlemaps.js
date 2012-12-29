@@ -17,6 +17,7 @@ var listing_type;
 var listing_category = ["all"];
 var listing_sharetypes = ["all"];
 var listing_tags = [];
+var listing_search;
 var flagMarker;
 var markers = [];
 var markerContents = [];
@@ -462,8 +463,7 @@ function addCommunityMarkers() {
 	});
 }
 
-function initialize_listing_map(type, community_location_lat, community_location_lon) {
-  listing_type = type;
+function initialize_listing_map(community_location_lat, community_location_lon) {
   infowindow = new google.maps.InfoWindow();
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
@@ -510,8 +510,8 @@ function addListingMarkers() {
   markers = [];
   
   var starttime = new Date().getTime();
-  var request_path = '/api/query'
-	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, 'tag[]': listing_tags }, function(data) {	
+  var request_path = '/listings/locations_json'
+	$.get(request_path, { listing_type: listing_type, 'category[]': listing_category, 'share_type[]': listing_sharetypes, search: listing_search}, function(data) {	
 
 	  var data_arr = data.data;
 		for (i in data_arr) {
@@ -594,6 +594,13 @@ function clearMarkers() {
             markers[n].setMap(null);
         }
     }
+}
+
+function SetFiltersForMap(type, category, sharetypes, search) {
+  if (type)       { listing_type = type;               } else { listing_type = "all";}
+  if (category)   { listing_category = [category];     } else { listing_category = ["all"];}
+  if (sharetypes) { listing_sharetypes = [sharetypes]; } else { listing_sharetypes = ["all"];}
+  if (search)     { listing_search = search            } else { listing_search = "";}
 }
 
 

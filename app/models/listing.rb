@@ -288,25 +288,62 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  def self.find_with(params, current_user=nil, current_community=nil)
-    params = params || {}  # Set params to empty hash if it's nil
-    conditions = []
-    if params[:listing_type] && !params[:listing_type].eql?("all") 
-      conditions[0] = "listing_type = ?"
-      conditions[1] = params[:listing_type]
-    end
-    listings = where(conditions)
-    if params[:category] && !params[:category][0].eql?("all") 
-      listings = listings.where(['category IN (?)', params[:category]])
+  def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
+    params ||= {}  # Set params to empty hash if it's nil
+    params[:include] ||= [:listing_images]
+    
+    params.reject!{ |key,value| value == "all" || value == ["all"]} # all means the fliter doesn't need to be included
+        
+    # expect that share_type might contain also listing_type, if so fix params
+    if VALID_TYPES.include?(params[:share_type])
+      params[:listing_type] = params[:share_type]
+      params.delete(:share_type)
     end
 
-    if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.where(['share_type IN (?)', params[:share_type]])
+    params[:search] ||= params[:q] # Read search query also from q param
+    
+    # Two ways of finding, with or without sphinx
+    if params[:search].present?
+      
+      with = {:open => true} # 'with' hash is used for attributes
+      conditions = params.slice(:category, :share_type) # used indexed fields (as sphinx doesn't support string attributes) 
+      
+      if params[:listing_type]
+         with[:is_request] = true if params[:listing_type].eql?("request")
+         with[:is_offer] = true if params[:listing_type].eql?("offer")
+      end
+      
+      unless current_user && current_user.communities.include?(current_community)
+        with[:visible_to_everybody] = true
+      end
+      with[:community_ids] = current_community.id
+
+      listings = Listing.search(params[:search], 
+                                :include => params[:include], 
+                                :page => page,
+                                :per_page => per_page, 
+                                :star => true,
+                                :with => with,
+                                :conditions => conditions
+                                )
+    else # No search query used, no sphinx needed
+      listings = where([])
+      if params[:listing_type] 
+        listings = listings.where(["listing_type = ?", params[:listing_type]])
+      end
+      if params[:category] 
+        listings = listings.where(['category IN (?)', params[:category]])
+      end
+
+      if params[:share_type]
+        listings = listings.where(['share_type IN (?)', params[:share_type]])
+      end
+      if params[:tag]
+        listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
+      end 
+      listings = listings.currently_open.visible_to(current_user, current_community).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
-    if params[:tag]
-      listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
-    end 
-    listings.visible_to(current_user, current_community).order("listings.created_at DESC")
+    return listings
   end
   
   # Returns true if listing exists and valid_until is set
@@ -477,27 +514,18 @@ class Listing < ActiveRecord::Base
   
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-    # json_dict = {
-    #   :listing_type => self.listing_type,
-    #   :category => self.category,
-    #   :id => self.id,
-    #   :latitude => self.origin_loc.latitude,
-    #   :longitude => self.origin_loc.longitude
-    # }
-    # 
-    # json_dict[:location] = self.location.as_json if self.location
-    # json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
-    # json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
-    # 
-    # json_dict
     
-    {
+    # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
+    hash = {
       :listing_type => self.listing_type,
       :category => self.category,
-      :id => self.id,
-      :latitude => self.origin_loc.latitude,
-      :longitude => self.origin_loc.longitude
+      :id => self.id
     }
+    if self.origin_loc
+      hash.merge!({:latitude => self.origin_loc.latitude,
+                  :longitude => self.origin_loc.longitude})
+    end
+    return hash
   end
   
   # Send notifications to the users following this listing

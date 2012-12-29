@@ -196,6 +196,7 @@ Kassi::Application.routes.draw do
         get :more_listings
         get :browse
         get :random
+        get :locations_json
       end
       resources :images, :controller => :listing_images
       resources :comments
@@ -262,7 +263,6 @@ Kassi::Application.routes.draw do
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
-  match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'

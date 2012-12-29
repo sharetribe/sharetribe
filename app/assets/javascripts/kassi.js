@@ -664,6 +664,23 @@ function initialize_homepage() {
       //reload_homepage_view();
     }
   );
+  
+  // make map/list button change the value in the filter form and submit the form
+  // in order to keep all filter values combinable and remembered
+  $('#map-button').click(
+    function() {
+      $("#hidden-map-toggle").val(true);
+      $("#homepage-filters").submit();
+      return false;
+    }
+  );
+  $('#list-button').click(
+    function() {
+      $("#hidden-map-toggle").val(undefined);
+      $("#homepage-filters").submit();
+      return false;
+    }
+  );
 }
 
 function reload_homepage_view() {

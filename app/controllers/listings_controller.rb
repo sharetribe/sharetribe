@@ -111,10 +111,13 @@ class ListingsController < ApplicationController
   end
   
   
-  # A (stub) method for serving Listing data (with locations) as JSON through AJAX-requests.
-  def serve_listing_data
-    @listings = Listing.currently_open.joins(:origin_loc).group("listings.id").
-                order("listings.created_at DESC").find_with(params, @current_user, @current_community).select("listings.id, listing_type, category, latitude, longitude")
+  # method for serving Listing data (with locations) as JSON through AJAX-requests.
+  def locations_json
+    params[:include] = :origin_loc
+    params.delete("controller")
+    params.delete("action")
+    # Limit the amount of listings to get to 150 newest to avoid slowing down the map too much.
+    @listings = Listing.find_with(params, @current_user, @current_community, 150)
     render :json => { :data => @listings }
   end
   

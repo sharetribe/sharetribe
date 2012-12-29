@@ -28,19 +28,20 @@
           = t("homepage.filters.show")
         = render :partial => "filter_share_types"
         = render :partial => "filter_categories"
+      %input{type: "hidden", name: "map", id: "hidden-map-toggle",value: params[:map]}
 
 .feed-map-link
-  - if params[:map]
-    %a.map-link{href: root, title: 'List view'}
+  - if params[:map].present?
+    %a.map-link{href: root, title: 'List view', id: "list-button"}
       %i.ss-list.icon-with-text
-      .text-with-icon.hidden-text List
+      .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
-    %a.map-link{href: (root + '?map=true'), title: 'Map view'}
+    %a.map-link{href: (root + '?map=true'), title: 'Map view', id: "map-button"}
       %i.ss-maplocation.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
 .homepage-feed.feed
-  - if params[:map]
+  - if params[:map].present?
     = render :partial => "map"
   - else
     - if @listings.total_entries > 0
