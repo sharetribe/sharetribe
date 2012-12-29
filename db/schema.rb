@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220133808) do
+ActiveRecord::Schema.define(:version => 20121229224803) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -245,21 +245,22 @@ ActiveRecord::Schema.define(:version => 20121220133808) do
     t.string   "author_id"
     t.string   "category"
     t.string   "title"
-    t.integer  "times_viewed",  :default => 0
+    t.integer  "times_viewed",   :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
-    t.string   "visibility",    :default => "this_community"
+    t.string   "visibility",     :default => "this_community"
     t.string   "listing_type"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",         :default => true,             :null => false
-    t.boolean  "open",          :default => true
+    t.boolean  "delta",          :default => true,             :null => false
+    t.boolean  "open",           :default => true
     t.string   "share_type"
-    t.string   "privacy",       :default => "private"
+    t.string   "privacy",        :default => "private"
+    t.integer  "comments_count", :default => 0
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

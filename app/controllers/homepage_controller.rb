@@ -24,6 +24,7 @@ class HomepageController < ApplicationController
     
     
     @filter_params[:search] = params[:q] if params[:q]
+    @filter_params[:include] = [:listing_images, :author]
       
     @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
    

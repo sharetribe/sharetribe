@@ -341,7 +341,7 @@ class Listing < ActiveRecord::Base
       if params[:tag]
         listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
       end 
-      listings = listings.currently_open.visible_to(current_user, current_community).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
+      listings = listings.currently_open.includes(params[:include]).visible_to(current_user, current_community).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end
