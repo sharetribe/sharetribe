@@ -106,8 +106,8 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     unless on_dashboard?
-      # Otherwise pick the domain normally from the request subdomain
-      if @current_community = Community.find_by_domain(request.subdomain)
+      # Otherwise pick the domain normally from the request subdomain or custom domain
+      if @current_community = Community.find_by_domain(request.subdomain) || @current_community = Community.find_by_domain(request.host)
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
@@ -233,12 +233,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-   # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
-    # # And you if you need your own rules for redirection or rewrite, add here.
+  # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
+  # # And you if you need your own rules for redirection or rewrite, add here.
   def domain_redirect
     # to speed up the check on every page load, only check first 
-    # if different domain than specified in config
-    if request.domain != APP_CONFIG.domain && APP_CONFIG.domain == 'sharetribe.com'
+    # if different domain than specified in config and doesn't match any custom domain
+    if request.domain != APP_CONFIG.domain && ! Community.find_by_domain(request.host) && APP_CONFIG.domain == 'sharetribe.com'
       
       # Redirect contry domain dashboards to .com with correct language
       redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
@@ -247,13 +247,10 @@ class ApplicationController < ActionController::Base
       redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
       redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
       
-      # Redirect to right commnunity (changing to .com)
+      # Redirect to right community (changing to .com)
       redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/
       
       redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
-      
-      
-      
     end 
   end
   

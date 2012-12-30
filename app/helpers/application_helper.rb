@@ -164,7 +164,7 @@ module ApplicationHelper
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
-    ["", "www","dashboardtranslate"].include?(request.subdomain)
+    ["", "www","dashboardtranslate"].include?(request.subdomain) && request.domain == APP_CONFIG.domain
   end
   
   def facebook_like(recommend=false)
