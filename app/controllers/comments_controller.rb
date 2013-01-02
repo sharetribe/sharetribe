@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   
   before_filter do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_send_a_comment"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_comment")
   end
   
   before_filter :ensure_authorized_to_comment

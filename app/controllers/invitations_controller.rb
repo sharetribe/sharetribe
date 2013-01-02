@@ -3,7 +3,7 @@ class InvitationsController < ApplicationController
   skip_filter :dashboard_only
   
   before_filter :only => :create do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_invite_new_user"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_invite_new_user")
   end
   
   before_filter :users_can_invite_new_users, :only => :create

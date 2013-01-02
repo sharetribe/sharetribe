@@ -3,7 +3,7 @@ class NewsItemsController < ApplicationController
   layout "layouts/infos"
   
   before_filter :only => [ :create, :destroy ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_add_news_item"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_add_news_item")
   end
   
   skip_filter :dashboard_only

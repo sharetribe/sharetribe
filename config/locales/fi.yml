@@ -79,6 +79,7 @@ fi:
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
     index:
+      messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa Sharetribe-yhteisöissä joihin kuulut."
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
       messages_partitive: viestiä
@@ -578,6 +579,8 @@ fi:
       other_request: "muu pyyntö"
       other_requests: "muuta pyyntöä"
   layouts:
+    no_tribe:
+      inbox: "Postilaatikko"
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"

@@ -1,8 +1,6 @@
 #conversations.inbox-feed
-  %h1
-    Messages
-  %span.header-info that you have exchanged with other Sharetribe members.
-
+  %p
+    = t(".messages_from_all_tribes")
   - if @conversations && !@conversations.empty?
     = render :partial => @conversations
     = will_paginate(@conversations)

@@ -7,7 +7,7 @@ class CommunitiesController < ApplicationController
   skip_filter :single_community_only
   
   before_filter :only => [ :set_organization_email ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
   
   respond_to :html, :json

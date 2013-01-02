@@ -1232,19 +1232,42 @@ figure.tribe-cover {
 }
 
 /*
-  ------------
-  Inbox header
-  ------------
+  --------------------------------------
+  Common header (no tribe customization)
+  --------------------------------------
+*/
+
+.no-tribe-title {
+  color: $background;
+  position: absolute;
+  bottom: em(-4);
+  left: em(2);
+  
+  @include lft-etica;
+  @include mega-type;
+  z-index: 0;
+  @include media(tablet) {
+    right: 0;
+    left: auto;
+    @include giga-type;
+  }
+}
+
+/*
+  -----------
+  Inbox
+  -----------
 */
 
 .inbox-feed {
   
-  margin-left: lines(10.5);
-  margin-top: lines(3.5);
-  
   h1 {
     @include huge-type;
     display: inline-block;
+  }
+  
+  p {
+    padding: lines(0.25) lines(0.5) 0 lines(0.5);
   }
   
   .inbox-feed-item {
@@ -1262,7 +1285,11 @@ figure.tribe-cover {
   }
   
   @include media(tablet) {
+    margin-top: lines(1);
     margin-left: lines(10.5);
+    p {
+      padding: 0;
+    }
   }
   
 }

@@ -1,0 +1,20 @@
+= render :partial => 'layouts/head'
+   
+= render :partial => 'layouts/global-header'
+
+%header.tribe-header
+
+  .coverimage
+    %figure.tribe-cover.fluidratio
+  
+  .wrapper
+    .no-tribe-title
+      = t(".#{session[:no_tribe_title]}")
+    
+%article.page-content
+  
+  .wrapper
+  
+    = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+  
+    = yield

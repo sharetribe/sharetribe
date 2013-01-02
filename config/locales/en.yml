@@ -88,6 +88,7 @@ en:
     what_is_this: "What's this?"
   conversations:
     index:
+      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the tribes you belong to."
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
@@ -605,6 +606,8 @@ en:
       all_listing_types: "All listing types"
       all_categories: "All categories"
   layouts:
+    no_tribe:
+      inbox: "Inbox"
     admin:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"

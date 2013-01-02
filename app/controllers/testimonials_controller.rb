@@ -1,7 +1,7 @@
 class TestimonialsController < ApplicationController
   
   before_filter :except => :index do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_give_feedback"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_give_feedback")
   end
   
   before_filter :ensure_authorized_to_give_feedback, :except => :index

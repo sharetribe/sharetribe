@@ -304,6 +304,7 @@ module ApplicationHelper
     return url
   end
   
+  # Admin view left hand navigation content
   def admin_links_for(community)
     [
       { 
@@ -317,6 +318,24 @@ module ApplicationHelper
         :icon_class => "ss-layout", 
         :path => edit_look_and_feel_admin_community_path(community),
         :name => "tribe_look_and_feel"
+      } 
+    ]
+  end
+  
+  # Inbox view left hand navigation content
+  def inbox_links_for(person)
+    [
+      { 
+        :text => t("layouts.conversations.messages"),
+        :icon_class => "ss-mail", 
+        :path => received_person_messages_path(:person_id => person.id.to_s),
+        :name => "inbox"
+      },
+      {
+        :text => t("layouts.conversations.notifications"),
+        :icon_class => "ss-earth", 
+        :path => notifications_person_messages_path(:person_id => person.id.to_s),
+        :name => "notifications"
       } 
     ]
   end
