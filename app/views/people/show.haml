@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").limit(6).collect(&:name))});
+  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").limit(6).collect(&:name))}, "#{@person.id}");
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
@@ -78,10 +78,11 @@
       - else
         = t(".no_open_listings")
     - if @listings.size > 0
-      = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
-      - if @listings.size > 3
-        .load-more-link
-          = link_to t(".show_all_open_listings"), "#"
+      #profile-listings-list
+        = render :partial => "listings/profile_listing", :collection => @listings.limit(3), :as => :listing
+        - if @listings.total_pages > 1
+          .load-more-link#load-more-listings
+            = link_to t(".show_all_open_listings"), "#"
   
   .profile-testimonials.section
     %h2
@@ -92,11 +93,11 @@
     - if @person.received_testimonials.size > 0
       .small-text
         = "(#{@person.feedback_positive_percentage.to_s}% #{t("people.show.positive")}, #{@person.received_positive_testimonials.size}/#{@person.received_testimonials.size})"
-    - if @person.received_testimonials.size > 0
-      = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
-      - if @person.received_testimonials.size > 3
-        .load-more-link
-          = link_to t(".show_all_reviews"), "#"
+      #profile-testimonials-list
+        = render :partial => "testimonial", :collection => @person.received_testimonials.limit(3)
+        - if @person.received_testimonials.size > 3
+          .load-more-link#load-more-testimonials
+            = link_to t(".show_all_reviews"), "#"
   
   .profile-badges.section
     %h2
@@ -106,5 +107,5 @@
         = t(".no_badges")
     - if @person.badges.size > 1
       .badge-list
-        = render :partial => "profile_badge", :collection => @person.badges.order("id DESC").limit(6), :as => :badge
+        = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
     

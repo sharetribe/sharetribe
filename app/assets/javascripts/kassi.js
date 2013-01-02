@@ -620,7 +620,25 @@ function initialize_browse_view(listing_type, listing_style, locale) {
 	);
 }
 
-function initialize_profile_view(badges) {
+function initialize_profile_view(badges, profile_id) {
+	$('#load-more-listings').click(function() { 
+	  request_path = profile_id + "/listings";
+	  $.get(request_path, function(data) {
+      $('#profile-listings-list').html(data);
+    });
+    return false;
+  });
+	
+	$('#load-more-testimonials').click(function() { 
+	  request_path = profile_id + "/testimonials";
+	  $.get(request_path, {per_page: 200, page: 1}, function(data) {
+      $('#profile-testimonials-list').html(data);
+    });
+    return false;
+  });
+	
+	
+	// The code below is not used in early 3.0 version, but part of it will probably be used again soon, so kept here.
 	$('#description_preview_link').click(function() { 
 		$('#profile_description_preview').hide();
 		$('#profile_description_full').show(); 
