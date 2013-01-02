@@ -12,6 +12,7 @@
 //= require jquery.pageless
 //= require jquery.autosize-min
 //= html5shiv-printshiv
+//= ss-social
 //= ss-pika
 //= require sharetribe_common
 //= require kassi
