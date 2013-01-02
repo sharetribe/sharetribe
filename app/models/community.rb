@@ -182,6 +182,17 @@ class Community < ActiveRecord::Base
     where("allowed_emails LIKE '%#{email_ending}%'")
   end
   
+  # Find community by domain, which can be full domain or just subdomain
+  def find_by_domain(domain_string)
+    if domain_string =~ /\./ # not just a subdomain
+      if domain_string.match(APP_CONFIG.domain)
+        
+      end
+    else
+      Community.where(["domain = ?", domain_string])
+    end
+  end
+  
   # Check if communities with this category are email restricted
   def self.email_restricted?(community_category)
     ["company", "university"].include?(community_category)
