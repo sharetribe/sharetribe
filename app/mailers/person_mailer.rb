@@ -214,9 +214,6 @@ class PersonMailer < ActionMailer::Base
       delivery_method = APP_CONFIG.mail_delivery_method.to_sym unless Rails.env.test?
     end
     
-    @recipient.update_attribute(:community_updates_last_sent_at, Time.now)
-    
-    
     mail(:to => @recipient.email,
          :subject => subject,
          :delivery_method => delivery_method) do |format|
@@ -346,6 +343,8 @@ class PersonMailer < ActionMailer::Base
             end
           end
         end
+        # After sending updates for all communities that had something new, update the time of last sent updates to Time.now.
+        person.update_attribute(:community_updates_last_sent_at, Time.now)
       end
     end
   end

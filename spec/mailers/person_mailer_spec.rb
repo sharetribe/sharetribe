@@ -185,17 +185,32 @@ describe PersonMailer do
   
   describe "#deliver_community_updates" do
     before(:each) do
+      
+      # for some reason there were more existing users here than should, which confused results
+      # delete all to have clear table
+      Person.all.each(&:destroy) 
+      
       @c1 = FactoryGirl.create(:community)
+      @c2 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person)
       @p1.communities << @c1
+      @p2 = FactoryGirl.create(:person)
+      @p2.communities << @c1
+      @p2.communities << @c2
+      
       @l1 = FactoryGirl.create(:listing, 
           :listing_type => "request", 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.hours.ago, 
           :author => @p1).communities = [@c1]
-      @p2 = FactoryGirl.create(:person)
-      @p2.communities << @c1
+      @l2 = FactoryGirl.create(:listing, 
+          :listing_type => "request", 
+          :title => "motorbike", 
+          :description => "fast!", 
+          :created_at => 1.hours.ago, 
+          :author => @p2).communities = [@c2]
+
       @p3 = FactoryGirl.create(:person)
       @p3.communities << @c1
       @p4 = FactoryGirl.create(:person)
@@ -211,24 +226,25 @@ describe PersonMailer do
       @p1.update_attribute(:min_days_between_community_updates, 1)
       @p2.update_attribute(:min_days_between_community_updates, 1)
       @p3.update_attribute(:min_days_between_community_updates, 7)
-      @p4.update_attribute(:min_days_between_community_updates, 7)   
+      @p4.update_attribute(:min_days_between_community_updates, 7)
     end
     
     it "should send only to people who want it now" do
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 2
       ActionMailer::Base.deliveries[0].to.include?(@p2.email).should be_true
-      ActionMailer::Base.deliveries[1].to.include?(@p4.email).should be_true
-           
+      ActionMailer::Base.deliveries[1].to.include?(@p2.email).should be_true
+      ActionMailer::Base.deliveries[2].to.include?(@p4.email).should be_true
+      ActionMailer::Base.deliveries.size.should == 3           
     end
     
     it "should contain specific time information" do
       @p1.update_attribute(:community_updates_last_sent_at, 1.day.ago)
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 3
+      ActionMailer::Base.deliveries.size.should == 4
       ActionMailer::Base.deliveries[0].body.include?("during the past 1 day").should be_true
       ActionMailer::Base.deliveries[1].body.include?("during the past 14 days").should be_true
-      ActionMailer::Base.deliveries[2].body.include?("during the past 9 days").should be_true
+      ActionMailer::Base.deliveries[2].body.include?("during the past 14 days").should be_true
+      ActionMailer::Base.deliveries[3].body.include?("during the past 9 days").should be_true
     end
     
     it "should send with default 7 days to those with nil as last time sent" do
@@ -236,9 +252,9 @@ describe PersonMailer do
       @p5.communities << @c1
       @p5.update_attribute(:community_updates_last_sent_at, nil)     
       PersonMailer.deliver_community_updates
-      ActionMailer::Base.deliveries.size.should == 3
-      ActionMailer::Base.deliveries[2].to.include?(@p5.email).should be_true
-      ActionMailer::Base.deliveries[2].body.include?("during the past 7 days").should be_true
+      ActionMailer::Base.deliveries.size.should == 4
+      ActionMailer::Base.deliveries[3].to.include?(@p5.email).should be_true
+      ActionMailer::Base.deliveries[3].body.include?("during the past 7 days").should be_true
     end
     
   end
