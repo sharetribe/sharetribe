@@ -157,7 +157,7 @@ body {
   
 }
 
-// User for simple centered views with mostly forms
+// User for simple centered views, mostly with forms
 .centered-section {
   padding: lines(0.5);
   margin-left: auto;
@@ -203,6 +203,15 @@ body {
   
 }
 
+// Used for views with left hand navigation
+.left-navi-section {
+  padding: lines(0.5);
+  
+  @include media(desktop) {
+    padding: 0 lines(0.5);
+  }
+}
+
 .avatar {
   position: relative;
   width: lines(1);
@@ -212,21 +221,6 @@ body {
   }
 }
 
-// The "Selling" bit after post headings
-// and the reputation indicator after usernames
-.postfix {
-  color: $aside;
-  font-size: em(12);
-  font-weight: normal;
-  white-space: nowrap;
-  position: relative;
-  left: em(2); top: em(-2);
-  @include ff-tisa;
-  
-  &.reputation.less-positive {
-    background: $emphasis;
-  }
-}
 
 // These display the amount of notifications
 // .big-badge is for two-number figures

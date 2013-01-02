@@ -40,9 +40,9 @@
       %a.first-child{:href => root, :title => t('header.home'), :class => (session[:selected_tab].eql?("home") ? "selected" : "")}
         %i.ss-home.icon-with-text
         .text-with-icon.hidden= t('header.home')
-      %a{:href => "#", :title => "Members", :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
+      %a{:href => "#", :title => t('header.members'), :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
         %i.ss-usergroup.icon-with-text
-        .text-with-icon.hidden Members
+        .text-with-icon.hidden= t('header.members')
       %a{:href => about_infos_path, :title => t('header.about'), :class => (session[:selected_tab].eql?("about") ? "selected" : "")}
         %i.ss-help.icon-with-text
         .text-with-icon.hidden= t('header.about')

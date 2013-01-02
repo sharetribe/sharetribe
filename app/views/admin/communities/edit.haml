@@ -1,7 +1,7 @@
 - content_for :javascript do
   initialize_admin_edit_tribe_form("#{I18n.locale}","#{@community.id}");
 
-#new_news_item_form
+#new_news_item_form.
   %h2= t(".edit_community", :tribe_name => @community.name)
   = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
     .form_field_container
