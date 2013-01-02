@@ -217,10 +217,10 @@ class PeopleController < Devise::RegistrationsController
             flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
-        flash[:error] = @person.errors.first
+        flash[:error] = t("layouts.notifications.#{@person.errors.first}")
       end
     rescue RestClient::RequestFailed => e
-      flash[:error] = "update_error"
+      flash[:error] = t("layouts.notifications.update_error")
     end
     
     redirect_to :back
@@ -229,9 +229,9 @@ class PeopleController < Devise::RegistrationsController
   
   def update_avatar
     if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
-      flash[:notice] = :avatar_upload_successful
+      flash[:notice] = t("layouts.notifications.avatar_upload_successful")
     else 
-      flash[:error] = :avatar_upload_failed
+      flash[:error] = t("layouts.notifications.avatar_upload_failed")
     end
     redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
   end
@@ -357,14 +357,12 @@ class PeopleController < Devise::RegistrationsController
     #@person.update_attribute(:active, 0)
     @person.update_attribute(:active, (status.eql?("activated") ? true : false))
     @person.listings.update_all(:open => false) if status.eql?("deactivated") 
-    notice = "person_#{status}"
+    flash[:notice] = t("layouts.notifications.person_#{status}")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @person
       }
       format.js {
-        flash.now[:notice] = notice
         render :layout => false 
       }
     end

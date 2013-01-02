@@ -60,13 +60,7 @@
       
 %article.page-content
   .wrapper
-    - { :notice => "ss-check", :warning => "ss-info", :error => "ss-alert" }.each do |announcement, icon_class|
-      - if flash[announcement]
-        .flash-notifications
-          .flash-notification{:class => "flash-#{announcement.to_s} #{controller_name.eql?('listings') & action_name.eql?('show') ? 'narrow-notification' : ''}"}
-            .flash-icon{:class => icon_class}
-            .flash-text
-              = flash[announcement]            
+    = render :partial => "layouts/notifications"         
     = yield
 
 - if APP_CONFIG.use_google_analytics

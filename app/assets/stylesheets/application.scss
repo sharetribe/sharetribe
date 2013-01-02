@@ -1608,7 +1608,7 @@ figure.tribe-cover {
     @include media(tablet) {
       margin: 0;
       position: absolute;
-      right: 0; top: lines(0.5);
+      right: 0; top: lines(0.25);
       width: lines(11) - em(4);
       @include big-type;
       text-align: left;

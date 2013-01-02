@@ -127,9 +127,9 @@ class SessionsController < ApplicationController
     if Person.find_by_email(params[:email])
       #Call devise based method
       resource = Person.send_reset_password_instructions(params)
-      flash[:notice] = :password_recovery_sent
+      flash[:notice] = t("layouts.notifications.password_recovery_sent")
     else
-      flash[:error] = :email_not_found
+      flash[:error] = t("layouts.notifications.email_not_found")
     end
 
     
