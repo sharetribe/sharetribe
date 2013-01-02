@@ -8,11 +8,11 @@
       .text-with-icon Post a new listing!
     %a.offset-link.toggle{href: '#', data: {toggle: '.feed-filters'}}
       %i.ss-search
-    - if params[:map]
-      %a.offset-link.toggle{href: root, title: 'List view'}
+    - if params[:map].present?
+      %a.offset-link.list-button.toggle{href: root, title: 'List view'}
         %i.ss-list
     - else
-      %a.offset-link.toggle{href: (root + '?map=true'), title: 'Map view'}
+      %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: 'Map view'}
         %i.ss-maplocation
 
   .feed-filters.toggle-menu-filters
@@ -32,11 +32,11 @@
 
 .feed-map-link
   - if params[:map].present?
-    %a.map-link{href: root, title: 'List view', id: "list-button"}
+    %a.map-link.list-button{href: root, title: 'List view'}
       %i.ss-list.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
-    %a.map-link{href: (root + '?map=true'), title: 'Map view', id: "map-button"}
+    %a.map-link.map-button{href: (root + '?map=true'), title: 'Map view'}
       %i.ss-maplocation.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
