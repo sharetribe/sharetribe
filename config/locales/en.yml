@@ -1,8 +1,10 @@
 en:
   admin:
     communities:
-      edit:
-        edit_community: "Edit tribe %{tribe_name}"
+      edit_details:
+        tribe_details: "Tribe details"
+        tribe_look_and_feel: "Tribe look and feel"
+        edit_community: "Edit tribe \"%{tribe_name}\" details"
         tribe_name: "Tribe name:"
         tribe_slogan: "Tribe slogan:"
         tribe_description: "Description:"
@@ -664,6 +666,8 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      community_updated: "Tribe details updated."
+      community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
       avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."

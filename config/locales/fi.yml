@@ -8,7 +8,13 @@ fi:
         name: "Merkin nimi"
         save_badge: "Tallenna ansiomerkki"
     communities:
-      edit:
+      edit_details:
+        tribe_details: "Yhteisön tiedot"
+        tribe_look_and_feel: "Yhteisön ulkoasu"
+        edit_community: "Muokkaa yhteisön \"%{tribe_name}\" tietoja"
+        tribe_name: "Yhteisön nimi:"
+        tribe_slogan: "Yhteisön slogan:"
+        tribe_description: "Yhteisön kuvaus:"
         update_information: "Päivitä tiedot"
     news_items:
       index:
@@ -633,6 +639,8 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      community_updated: "Yhteisön tiedot päivitetty."
+      community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Yhteisöön liittyminen onnistui. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."
       avatar_upload_failed: "Profiilikuvan päivitys epäonnistui. Muistathan, että kuvan pitää olla joko .png, .jpg tai .gif -tiedosto."

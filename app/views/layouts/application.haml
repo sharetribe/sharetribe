@@ -13,10 +13,9 @@
         = image_tag '/assets/new-design/tribe-logo2.png'
     .tribe-intro.hidden
       .intro-wrapper
-        %h1 Lauttasaari neighbor help service
-        %p 
-          Sharetribe is a place where the members of our community can share
-          goods, services, rides, and spaces. In Sharetribe you can...
+        %h1= @current_community.slogan
+        %p
+          = truncate(@current_community.description, :length => 130, :omission => "...")
           %a{href: "#"}
             Read more
     - if @current_user && @current_user.member_of?(@current_community)
@@ -47,7 +46,7 @@
         %i.ss-help.icon-with-text
         .text-with-icon.hidden= t('header.about')
       - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
-        %a{:href => edit_admin_community_path(:id => @current_community.id, :type => "tribe_info"), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
+        %a{:href => edit_details_admin_community_path(@current_community), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
           %i.ss-wrench.icon-with-text
           .text-with-icon.hidden= t("layouts.logged_in.admin")
       .select-language.toggle{data: {toggle: '.language-menu'}}

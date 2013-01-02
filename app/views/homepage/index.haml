@@ -15,7 +15,7 @@
       %a.offset-link.toggle{href: (root + '?map=true'), title: 'Map view'}
         %i.ss-maplocation
 
-  .feed-filters.toggle-menu-filters
+  .feed-filters.toggle-menu-feed-filters
     = form_tag({ :action => :index, :controller => :homepage}, :method => "get", :id => "homepage-filters") do
       .feed-search
         %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: 'What do you need?'}
@@ -28,7 +28,7 @@
           = t("homepage.filters.show")
         = render :partial => "filter_share_types"
         = render :partial => "filter_categories"
-      %input{type: "hidden", name: "map", id: "hidden-map-toggle",value: params[:map]}
+      %input{type: "hidden", name: "map", id: "hidden-map-toggle", value: params[:map]}
 
 .feed-map-link
   - if params[:map].present?

@@ -8,12 +8,26 @@
   
   .wrapper
   
-    .left-hand-navigation
+    .left-navi
       %a.selected
-        .ss-mail.icon-with-text
-        .text-with-icon Messages
+        .ss-mail.left-navi-link-icon
+        .left-navi-link-text Messages
       %a
-        .ss-earth.icon-with-text
-        .text-with-icon Notifications
+        .ss-earth.left-navi-link-icon
+        .left-navi-link-text Notifications
+  
+    .left-navi-dropdown.toggle{data: {toggle: '.left-navi-menu'}}
+      .ss-page.icon-with-text
+      .text-with-icon Tribe details
+      %i.icon-dropdown.ss-dropdown
+
+
+    .left-navi-menu.toggle-menu.hidden 
+      %a.selected
+        .ss-page.icon-with-text
+        .text-with-icon Tribe details
+      %a
+        .ss-layout.icon-with-text
+        .text-with-icon Look and feel
   
     = yield

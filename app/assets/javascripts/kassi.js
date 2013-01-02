@@ -773,7 +773,6 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
   auto_resize_text_areas("new_tribe_text_area");
   translate_validation_messages(locale);
   $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
- 	$("input[type=checkbox]").uniform();
   var form_id = "#edit_community_" + community_id;
   $(form_id).validate({
  		rules: {
@@ -951,7 +950,7 @@ function UpdateQueryString(key, value, url) {
 
 function closeAllToggleMenus() {
   $('.toggle-menu').addClass('hidden');
-  $('.toggle-menu-filters').addClass('hidden');
+  $('.toggle-menu-feed-filters').addClass('hidden');
   $('.toggle').removeClass('toggled');
   $('.toggle').removeClass('toggled-logo');
 }
