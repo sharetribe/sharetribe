@@ -655,13 +655,22 @@ function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
 }
 
-function initialize_homepage() {
+function initialize_homepage(filters_in_use) {
+  
+  if (filters_in_use) { 
+    // keep filters dropdown open in mobile view if any filters selected
+    $('#filters-toggle').click();
+  }
+  
   $('#feed-filter-dropdowns select').change(
     function() {
       
-      $("#homepage-filters").submit();
       // It's challenging to get the pageless right if reloading just the small part so reload all page
+      // instead of the method below that would do AJAX update (currently works only partially)
       //reload_homepage_view();
+      
+      $("#homepage-filters").submit();    
+      
     }
   );
   
@@ -955,33 +964,34 @@ function closeAllToggleMenus() {
   $('.toggle').removeClass('toggled-logo');
 }
 
+function toggleDropdown() {
+  
+  //Gets the target toggleable menu from the link's data-attribute
+  var target = $(this).attr('data-toggle');
+  
+  if ($(target).hasClass('hidden')) {
+    // Opens the target toggle menu
+    closeAllToggleMenus();
+    $(target).removeClass('hidden');
+    if($(this).hasClass('select-tribe')) {
+      $(this).addClass('toggled-logo');
+    } else {
+      $(this).addClass('toggled');
+    }
+  } else {
+    // Closes the target toggle menu
+    $(target).addClass('hidden');
+    $(this).removeClass('toggled');
+    $(this).removeClass('toggled-logo');
+  }
+  
+}
+
 $(function(){
   
   // Collapses all toggle menus on load
   // They're uncollapsed by default to provice support for when JS is turned off
   closeAllToggleMenus();
-  
-  $('.toggle').on('click', function() {
-    
-    // Gets the target toggleable menu from the link's data-attribute
-    var target = $(this).attr('data-toggle');
-    
-    if ($(target).hasClass('hidden')) {
-      // Opens the target toggle menu
-      closeAllToggleMenus();
-      $(target).removeClass('hidden');
-      if($(this).hasClass('select-tribe')) {
-        $(this).addClass('toggled-logo');
-      } else {
-        $(this).addClass('toggled');
-      }
-    } else {
-      // Closes the target toggle menu
-      $(target).addClass('hidden');
-      $(this).removeClass('toggled');
-      $(this).removeClass('toggled-logo');
-    }
-    
-  });
+  $('.toggle').on('click', toggleDropdown);
     
 });

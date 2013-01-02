@@ -1,12 +1,12 @@
 - content_for :javascript do
-  initialize_homepage();
+  initialize_homepage(#{filters_in_use?});
 
 .feed-navigation
   .feed-actions.actions-menu
     %a.request-link{href: new_request_path(:type => "offer")} 
       %i.ss-plus.icon-with-text
       .text-with-icon Post a new listing!
-    %a.offset-link.toggle{href: '#', data: {toggle: '.feed-filters'}}
+    %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
     - if params[:map].present?
       %a.offset-link.list-button.toggle{href: root, title: 'List view'}
