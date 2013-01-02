@@ -15,6 +15,5 @@
 //= ss-pika
 //= require sharetribe_common
 //= require kassi
-//= require main
 //= require googlemaps
 //= require_self 

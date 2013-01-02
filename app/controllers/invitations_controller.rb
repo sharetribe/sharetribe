@@ -11,18 +11,16 @@ class InvitationsController < ApplicationController
   def create
     @invitation = Invitation.new(params[:invitation])
     if @invitation.save
-      notice = [:notice, "invitation_sent"]
+      flash[:notice] = t("layouts.notifications.invitation_sent")
       Delayed::Job.enqueue(InvitationCreatedJob.new(@invitation.id, request.host))
     else
-      notice = [:error, "invitation_could_not_be_sent"]
+      flash[:error] = t("layouts.notifications.invitation_could_not_be_sent")
     end
     respond_to do |format|
-      format.html { 
-        flash[notice[0]] = notice[1]
+      format.html {
         redirect_to root 
       }
       format.js {
-        flash.now[notice[0]] = notice[1]
         render :layout => false 
       }
     end
@@ -32,7 +30,7 @@ class InvitationsController < ApplicationController
   
   def users_can_invite_new_users
     unless @current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community)
-      flash[:error] = "inviting_new_users_is_not_allowed_in_this_community"
+      flash[:error] = t("layouts.notifications.inviting_new_users_is_not_allowed_in_this_community")
       redirect_to root and return
     end
   end

@@ -38,7 +38,7 @@ class TermsController < ApplicationController
     session[:temp_cookie] = session[:temp_person_id] = nil
     session[:temp_community_id] = nil
     session[:consent_changed] = nil
-    flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
     redirect_to (session[:return_to] || root)
   end
   

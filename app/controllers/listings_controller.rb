@@ -15,11 +15,11 @@ class ListingsController < ApplicationController
   before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
   
   before_filter :only => [ :close ] do |controller|
-    controller.ensure_current_user_is_listing_author "only_listing_author_can_close_a_listing"
+    controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_close_a_listing")
   end
   
   before_filter :only => [ :edit, :update ] do |controller|
-    controller.ensure_current_user_is_listing_author "only_listing_author_can_edit_a_listing"
+    controller.ensure_current_user_is_listing_author t("layouts.notifications.only_listing_author_can_edit_a_listing")
   end
   
   skip_filter :dashboard_only
@@ -209,7 +209,7 @@ class ListingsController < ApplicationController
     end
     if @listing.update_fields(params[:listing])
       @listing.location.update_attributes(params[:location]) if @listing.location
-      flash[:notice] = "#{@listing.listing_type}_updated_successfully"
+      flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_updated_successfully")
       Delayed::Job.enqueue(ListingUpdatedJob.new(@listing.id, request.host))
       redirect_to @listing
     else
@@ -219,14 +219,12 @@ class ListingsController < ApplicationController
   
   def close
     @listing.update_attribute(:open, false)
-    notice = "#{@listing.listing_type}_closed"
+    flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_closed")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @listing 
       }
       format.js {
-        flash.now[:notice] = notice
         render :layout => false 
       }
     end
@@ -269,14 +267,14 @@ class ListingsController < ApplicationController
       if @listing.public?
         # This situation occurs when the user tries to access a listing
         # via a different community url.
-        flash[:error] = "this_content_is_not_available_in_this_community"
+        flash[:error] = t("layouts.notifications.this_content_is_not_available_in_this_community")
         redirect_to root and return
       elsif @current_user
-        flash[:error] = "you_are_not_authorized_to_view_this_content"
+        flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
         redirect_to root and return
       else
         session[:return_to] = request.fullpath
-        flash[:warning] = "you_must_log_in_to_view_this_content"
+        flash[:warning] = t("layouts.notifications.you_must_log_in_to_view_this_content")
         redirect_to login_path and return
       end
     end
@@ -284,14 +282,12 @@ class ListingsController < ApplicationController
   
   def change_follow_status(status)
     status.eql?("follow") ? @current_user.follow(@listing) : @current_user.unfollow(@listing)
-    notice = "you_#{status}ed_listing"
+    flash[:notice] = t("layouts.notifications.you_#{status}ed_listing")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @listing 
       }
       format.js {
-        flash.now[:notice] = notice
         render :follow, :layout => false 
       }
     end

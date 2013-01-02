@@ -50,14 +50,14 @@ class ConfirmationsController < Devise::ConfirmationsController
         if on_dashboard?
           redirect_to new_tribe_path and return
         else
-          flash[:notice] = "additional_email_confirmed"
+          flash[:notice] = t("layouts.notifications.additional_email_confirmed")
           redirect_to :controller => "community_memberships", :action => "new" and return
         end
       end
       
       #respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render_with_scope :new }
       # This is changed from Devise's default
-      flash[:error] = "confirmation_link_is_wrong_or_used"
+      flash[:error] = t("layouts.notifications.confirmation_link_is_wrong_or_used")
       if @current_user
         if on_dashboard?
           redirect_to new_tribe_path

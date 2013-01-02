@@ -50,7 +50,7 @@ class PeopleController < Devise::RegistrationsController
     error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
-      flash[:error] = :registration_considered_spam
+      flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
     end
@@ -63,7 +63,7 @@ class PeopleController < Devise::RegistrationsController
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
-        flash[:error] = :unknown_error
+        flash[:error] = t("layouts.notifications.unknown_error")
         redirect_to error_redirect_path and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
@@ -89,7 +89,7 @@ class PeopleController < Devise::RegistrationsController
       # Anyway if Captha responses with error, show message to user
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
-      flash[:error] = :unknown_error
+      flash[:error] = t("layouts.notifications.unknown_error")
       ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
       redirect_to error_redirect_path and return
     end
@@ -128,7 +128,7 @@ class PeopleController < Devise::RegistrationsController
       # Anyway if ASI responses with error, show message to user
       # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.
-      flash[:error] = :unknown_error
+      flash[:error] = t("layouts.notifications.unknown_error")
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
       redirect_to error_redirect_path and return
     end
@@ -175,7 +175,7 @@ class PeopleController < Devise::RegistrationsController
 
     session[:person_id] = @person.id    
     sign_in(resource_name, @person)
-    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
     
     # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
     redirect_to :controller => :community_memberships, :action => :new
@@ -209,12 +209,12 @@ class PeopleController < Devise::RegistrationsController
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
-        flash[:notice] = :person_updated_successfully
+        flash[:notice] = t("layouts.notifications.person_updated_successfully")
         
         # Send new confirmation email, if was changing for that 
         if params["request_new_email_confirmation"]
             @person.send_confirmation_instructions
-            flash[:notice] = :email_confirmation_sent_to_new_address
+            flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
         flash[:error] = @person.errors.first

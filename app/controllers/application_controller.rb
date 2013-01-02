@@ -152,7 +152,7 @@ class ApplicationController < ActionController::Base
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
     if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
-      flash[:warning] = "you_need_to_confirm_your_account_first"
+      flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
@@ -172,7 +172,7 @@ class ApplicationController < ActionController::Base
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
     clear_user_session
-    flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
+    flash[:error] = t("layouts.notifications.error_with_session")
     ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
     redirect_to root_path and return
   end
@@ -223,7 +223,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_is_admin
     unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
-      flash[:error] = "only_kassi_administrators_can_access_this_area"
+      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end
   end
