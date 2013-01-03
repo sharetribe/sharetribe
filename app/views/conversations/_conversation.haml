@@ -1,15 +1,16 @@
-- unless conversation.other_party(@current_user).nil?
-  - last_message = conversation.last_message(@current_user)
+- other_party = conversation.other_party(@current_user)
+- unless other_party.nil?
+  - last_message = conversation.last_message
   .feed-item.inbox-feed-item{:class => (conversation.read_by?(@current_user) ? "" : "unread"), :id => "conversation_#{conversation.id.to_s}"}
     .feed-author-avatar
-      = small_avatar_thumb conversation.other_party(@current_user)
+      = small_avatar_thumb other_party
     .feed-content
       .author
-        = link_to last_message.sender.name, last_message.sender
-        %time{datetime: "#{last_message.created_at}"}= time_ago(last_message.created_at)
+        = link_to other_party.name, other_party
+        %time{datetime: "#{conversation.last_message_at}"}= time_ago(conversation.last_message_at)
       %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
       %small.feed-excerpt
-        = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\""
+        = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"" if last_message
       %small.feed-listing-icons
         %i.ss-check.icon-with-text 
         .text-with-icon 

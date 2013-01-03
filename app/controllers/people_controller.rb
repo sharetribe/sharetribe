@@ -8,7 +8,7 @@ class PeopleController < Devise::RegistrationsController
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
-  before_filter :person_belongs_to_current_community, :only => :show
+  before_filter :person_belongs_to_current_community, :only => [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
@@ -31,10 +31,7 @@ class PeopleController < Devise::RegistrationsController
   def show
     session[:selected_tab] = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
-    @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
-    @listings = show_closed? ? @listings : @listings.currently_open 
-    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
-    render :partial => "listings/additional_listings" if request.xhr?
+    @listings = persons_listings(@person)
   end
 
   def new

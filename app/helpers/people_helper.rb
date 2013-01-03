@@ -3,6 +3,10 @@ require 'base64'
 
 module PeopleHelper
   
+  def persons_listings(person, per_page=3, page=1)
+    person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
+  end
+  
   # Class is selected if listing type is currently selected
   def get_profile_tab_class(tab_name)
     current_tab_name = params[:type] || "offers"

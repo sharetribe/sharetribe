@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121229224803) do
+ActiveRecord::Schema.define(:version => 20130103081705) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -122,7 +122,8 @@ ActiveRecord::Schema.define(:version => 20121229224803) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :default => "pending"
+    t.string   "status",          :default => "pending"
+    t.datetime "last_message_at"
   end
 
   create_table "delayed_jobs", :force => true do |t|

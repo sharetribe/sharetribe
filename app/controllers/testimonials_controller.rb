@@ -13,9 +13,8 @@ class TestimonialsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:skip]
   
   def index
-    @testimonials = @person.received_testimonials.paginate(:per_page => 10, :page => params[:page])
-    @grade_amounts = @person.grade_amounts
-    render :partial => "additional_testimonials" if request.xhr?
+    @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])
+    render :partial => "people/testimonial", :collection => @testimonials if request.xhr?
   end
   
   def new

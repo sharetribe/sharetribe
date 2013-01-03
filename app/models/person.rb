@@ -265,12 +265,6 @@ class Person < ActiveRecord::Base
       self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
     end
   end
-
-  
-  # Returns conversations for the "received" and "sent" actions
-  def messages_that_are(action)
-    conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
-  end
   
   def feedback_average
     ((received_testimonials.average(:grade) * 4 + 1) * 10).round / 10.0

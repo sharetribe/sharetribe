@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+  include PeopleHelper
   
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:close, :update, :follow, :unfollow]
@@ -10,7 +11,8 @@ class ListingsController < ApplicationController
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_create_new_listing", :sign_up_link => view_context.link_to(t("layouts.notifications.create_one_here"), sign_up_path)).html_safe
   end
-
+  
+  before_filter :person_belongs_to_current_community, :only => [:index]
   before_filter :save_current_path, :only => :show
   before_filter :ensure_authorized_to_view, :only => [ :show, :follow, :unfollow ]
   
@@ -25,12 +27,20 @@ class ListingsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
-    session[:selected_tab] = "home"
-    if params[:format] == "atom"
+    if params[:format] == "atom" # API request for feed
       redirect_to :controller => "Api::ListingsController", :action => :index
       return
     end
-    redirect_to root
+    session[:selected_tab] = "home"
+    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
+      # Returns the listings for one person formatted for profile page view
+        per_page = params[:per_page] || 200 # the point is to show all here by default
+        page = params[:page] || 1
+        @listings = persons_listings(@person, per_page, page)
+        render :partial => "listings/profile_listing", :collection => @listings, :as => :listing
+        return
+    end
+    redirect_to root  # Other requests for listings redirect to home
   end
   
   def requests

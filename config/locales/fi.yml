@@ -489,6 +489,9 @@ fi:
     offers: Tarjotaan
     requests: Tarvitaan
     search_kassi: "Hae %{service_name_elative}"
+    create_new_marketplace: "Luo uusi verkkotori"
+    contact_us: "Ota yhteyttä"
+    profile: "Käyttäjäprofiili"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
@@ -621,8 +624,8 @@ fi:
       admin: Ylläpito
       go_to_your_profile_page: Profiili
       hi: Hei
-      login: "Kirjaudu sisään"
-      logout: Ulos
+      login: "Kirjaudu"
+      logout: "Kirjaudu ulos"
       notifications: Tiedotteet
       requests: Kutsut
       settings: Asetukset

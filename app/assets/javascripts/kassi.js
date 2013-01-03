@@ -86,6 +86,9 @@ function initialize_defaults(locale) {
   $('.flash-notifications').click(function() {
     $('.flash-notifications').fadeOut('slow');
   });
+  $('#login-toggle-button').click(function() { 
+    $('#person_login').focus();
+  });
 }
 
 var hideNotice = function() {
@@ -620,7 +623,25 @@ function initialize_browse_view(listing_type, listing_style, locale) {
 	);
 }
 
-function initialize_profile_view(badges) {
+function initialize_profile_view(badges, profile_id) {
+	$('#load-more-listings').click(function() { 
+	  request_path = profile_id + "/listings";
+	  $.get(request_path, function(data) {
+      $('#profile-listings-list').html(data);
+    });
+    return false;
+  });
+	
+	$('#load-more-testimonials').click(function() { 
+	  request_path = profile_id + "/testimonials";
+	  $.get(request_path, {per_page: 200, page: 1}, function(data) {
+      $('#profile-testimonials-list').html(data);
+    });
+    return false;
+  });
+	
+	
+	// The code below is not used in early 3.0 version, but part of it will probably be used again soon, so kept here.
 	$('#description_preview_link').click(function() { 
 		$('#profile_description_preview').hide();
 		$('#profile_description_full').show(); 
@@ -655,13 +676,22 @@ function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
 }
 
-function initialize_homepage() {
+function initialize_homepage(filters_in_use) {
+  
+  if (filters_in_use) { 
+    // keep filters dropdown open in mobile view if any filters selected
+    $('#filters-toggle').click();
+  }
+  
   $('#feed-filter-dropdowns select').change(
     function() {
       
-      $("#homepage-filters").submit();
       // It's challenging to get the pageless right if reloading just the small part so reload all page
+      // instead of the method below that would do AJAX update (currently works only partially)
       //reload_homepage_view();
+      
+      $("#homepage-filters").submit();    
+      
     }
   );
   
@@ -955,33 +985,34 @@ function closeAllToggleMenus() {
   $('.toggle').removeClass('toggled-logo');
 }
 
+function toggleDropdown() {
+  
+  //Gets the target toggleable menu from the link's data-attribute
+  var target = $(this).attr('data-toggle');
+  
+  if ($(target).hasClass('hidden')) {
+    // Opens the target toggle menu
+    closeAllToggleMenus();
+    $(target).removeClass('hidden');
+    if($(this).hasClass('select-tribe')) {
+      $(this).addClass('toggled-logo');
+    } else {
+      $(this).addClass('toggled');
+    }
+  } else {
+    // Closes the target toggle menu
+    $(target).addClass('hidden');
+    $(this).removeClass('toggled');
+    $(this).removeClass('toggled-logo');
+  }
+  
+}
+
 $(function(){
   
   // Collapses all toggle menus on load
   // They're uncollapsed by default to provice support for when JS is turned off
   closeAllToggleMenus();
-  
-  $('.toggle').on('click', function() {
-    
-    // Gets the target toggleable menu from the link's data-attribute
-    var target = $(this).attr('data-toggle');
-    
-    if ($(target).hasClass('hidden')) {
-      // Opens the target toggle menu
-      closeAllToggleMenus();
-      $(target).removeClass('hidden');
-      if($(this).hasClass('select-tribe')) {
-        $(this).addClass('toggled-logo');
-      } else {
-        $(this).addClass('toggled');
-      }
-    } else {
-      // Closes the target toggle menu
-      $(target).addClass('hidden');
-      $(this).removeClass('toggled');
-      $(this).removeClass('toggled-logo');
-    }
-    
-  });
+  $('.toggle').on('click', toggleDropdown);
     
 });
