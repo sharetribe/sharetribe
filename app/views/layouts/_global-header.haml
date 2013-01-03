@@ -50,11 +50,11 @@
     
       .login-menu-toggle.toggle.hidden{data: {toggle: '.login-menu'}}
         .login-icon.ss-login
-        .login-text Log in
+        .login-text= t("layouts.logged_in.login")
         
       %a.feedback-menu-toggle.toggle.hidden{href: new_user_feedback_path}
         .feedback-icon.ss-megaphone
-        .feedback-text Contact us
+        .feedback-text= t("header.contact_us")
       
       
     %nav.tribe-menu.toggle-menu.hidden
@@ -71,29 +71,29 @@
         %a.profile-menu-button{href: person_path(@current_user)}
           .ss-user.icon-with-text
           .text-with-icon
-            Profile
+            = t("header.profile")
         %a.inbox-menu-button{href: received_person_messages_path(:person_id => @current_user.id.to_s)}
           .ss-mail.icon-with-text
           .text-with-icon
-            Messages 
+            = t("layouts.conversations.messages") 
             .badge.big-badge 50 
         %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
           .ss-earth.icon-with-text
           .text-with-icon
-            Notifications
+            = t("layouts.conversations.notifications")
             .badge.huge-badge 500
         %a.feedback-menu-button{href: new_user_feedback_path}
           .ss-megaphone.icon-with-text
           .text-with-icon
-            Contact us
+            = t("header.contact_us")
         %a{href: person_settings_path(@current_user)}
           .ss-settings.icon-with-text
           .text-with-icon
-            Settings
+            = t("layouts.logged_in.settings")
         %a{href: logout_path}
           .ss-logout.icon-with-text
           .text-with-icon
-            Log out
+            = t("layouts.logged_in.logout")
     
     %nav.login-menu.toggle-menu.hidden
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
