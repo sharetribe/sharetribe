@@ -36,15 +36,7 @@ class ConversationsController < ApplicationController
     session[:no_tribe_title] = "inbox"
     session[:selected_left_navi_link] = "messages"
     params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
-  end
-  
-  def sent
-    session[:no_tribe_title] = "inbox"
-    session[:selected_left_navi_link] = "messages"
-    params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
+    @conversations = @current_user.conversations.order("last_message_at DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
