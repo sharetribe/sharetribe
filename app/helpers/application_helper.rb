@@ -329,7 +329,7 @@ module ApplicationHelper
         :text => t("layouts.conversations.messages"),
         :icon_class => "ss-mail", 
         :path => received_person_messages_path(:person_id => person.id.to_s),
-        :name => "inbox"
+        :name => "messages"
       },
       {
         :text => t("layouts.conversations.notifications"),
@@ -337,6 +337,36 @@ module ApplicationHelper
         :path => notifications_person_messages_path(:person_id => person.id.to_s),
         :name => "notifications"
       } 
+    ]
+  end
+  
+  # Settings view left hand navigation content
+  def settings_links_for(person)
+    [
+      { 
+        :text => t("layouts.settings.profile"),
+        :icon_class => "ss-userfile", 
+        :path => profile_person_settings_path(:person_id => person.id.to_s),
+        :name => "profile"
+      },
+      {
+        :text => t("layouts.settings.avatar"),
+        :icon_class => "ss-picturefile", 
+        :path => avatar_person_settings_path(:person_id => person.id.to_s),
+        :name => "avatar"
+      },
+      {
+        :text => t("layouts.settings.account"),
+        :icon_class => "ss-lockfile", 
+        :path => account_person_settings_path(:person_id => person.id.to_s) ,
+        :name => "account"
+      },
+      {
+        :text => t("layouts.settings.notifications"),
+        :icon_class => "ss-callbell", 
+        :path => notifications_person_settings_path(:person_id => person.id.to_s),
+        :name => "notifications"
+      }
     ]
   end
   

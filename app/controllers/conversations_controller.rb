@@ -50,6 +50,7 @@ class ConversationsController < ApplicationController
   end
   
   def show
+    session[:selected_left_navi_link] = "messages"
     session[:selected_left_navi_link] = "inbox"
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
     @other_party = @conversation.other_party(@current_user)

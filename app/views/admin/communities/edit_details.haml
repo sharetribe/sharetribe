@@ -3,7 +3,7 @@
   
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
-#new_news_item_form.left-navi-section
+.left-navi-section
   %h2= t(".edit_community", :tribe_name => @community.name)
   = form_for @community, :url => admin_community_path(@community), :method => :put do |form|
     = form.label :name, t(".tribe_name"), :class => "input"

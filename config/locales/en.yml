@@ -611,6 +611,7 @@ en:
   layouts:
     no_tribe:
       inbox: "Inbox"
+      settings: "Settings"
     admin:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"
@@ -1356,19 +1357,19 @@ en:
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
     profile:
-      about_you: "About you:"
-      city: "City:"
-      family_name: "Family name:"
-      given_name: "Given name:"
-      location_description: "You can give either your exact location or only your zip code. Please add at least your zip code. You can also select a location from the map."
-      phone_number: "Phone number:"
-      postal_code: "Postal code:"
+      about_you: "About you"
+      city: "City"
+      family_name: "Family name"
+      given_name: "Given name"
+      location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
+      phone_number: "Phone number"
+      postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview
-      street_address: "Location:"
+      street_address: "Location"
       these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
-      visible_to_registered_users: "visible to users that have logged in"
+      visible_to_registered_users: "(visible to users that have logged in)"
     save_information: "Save information"
   sms:
     or_check_the_offer_in_kassi: "or check the offer %{listing_url}"

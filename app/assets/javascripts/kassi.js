@@ -412,13 +412,9 @@ function initialize_terms_form() {
 
 function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
 	auto_resize_text_areas("update_profile_description_text_area");
-	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
 	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parent());
-		},	
 		rules: {
       "person[street_address]": {required: false, address_validator: true},
 			"person[given_name]": {required: name_required, maxlength: 30},
@@ -436,7 +432,6 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
 }
 
 function initialize_update_notification_settings_form(locale, person_id) {
-	$("input[type=checkbox]").uniform();
 	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
 		submitHandler: function(form) {
@@ -446,10 +441,6 @@ function initialize_update_notification_settings_form(locale, person_id) {
 }
 
 function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
-	$("input[type=file]").uniform({
-		fileDefaultText: fileDefaultText, 
-		fileBtnText: fileBtnText
-	});
 	var form_id = "#avatar_form";
 	$(form_id).validate({
 		rules: {

@@ -584,6 +584,7 @@ fi:
   layouts:
     no_tribe:
       inbox: "Postilaatikko"
+      settings: "Asetukset"
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
@@ -747,7 +748,7 @@ fi:
       account: "Tilin tiedot"
       avatar: Profiilikuva
       notifications: Tiedotteet
-      profile: Profiilitiedot
+      profile: Profiilin tiedot
       settings: Asetukset
   listings:
     bubble_listing_not_visible:
@@ -1326,19 +1327,19 @@ fi:
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
     profile:
-      about_you: "Tietoa sinusta:"
-      city: "Kaupunki:"
-      family_name: "Sukunimi:"
-      given_name: "Etunimi:"
-      location_description: "Sijainti voi olla joko tarkka katuosoite tai vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin kartalta."
-      phone_number: "Puhelinnumero:"
-      postal_code: "Postinumero:"
+      about_you: "Tietoa sinusta"
+      city: "Kaupunki"
+      family_name: "Sukunimi"
+      given_name: "Etunimi"
+      location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
+      phone_number: "Puhelinnumero"
+      postal_code: "Postinumero"
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
-      street_address: "Sijainti:"
+      street_address: "Sijainti"
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name_genetive} käyttäjille"
       visible_to_everybody: "näytetään kaikille"
-      visible_to_registered_users: "näytetään kirjautuneille käyttäjille"
+      visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
     save_information: "Tallenna tiedot"
   sms:
     or_check_the_offer_in_kassi: " tai katsoa tarjouksen: %{listing_url}"

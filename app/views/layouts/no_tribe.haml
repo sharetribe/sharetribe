@@ -14,7 +14,7 @@
 %article.page-content
   
   .wrapper
-  
-    = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
-  
-    = yield
+    .no-tribe-section
+      - links = session[:no_tribe_title].eql?("inbox") ? inbox_links_for(@current_user) : settings_links_for(@current_user)       
+      = render :partial => "layouts/left_hand_navigation", :locals => { :links => links }
+      = yield
