@@ -3,7 +3,7 @@
       
     .select-tribe.toggle.hidden{data: {toggle: '.tribe-menu'}}
       .current-tribe
-        Lauttasaari
+        = @current_community.name
       %i.icon-dropdown.ss-dropdown
     
     - if @current_user  
@@ -58,12 +58,13 @@
       
       
     %nav.tribe-menu.toggle-menu.hidden
-      %a{href: root}
-        Sharetribe Lauttasaari
-      %a{href: '#'}
-        Omakotitori
-      %a{href: "http://www.sharetribe.com?ref=gh"}
-        Create a new marketplace
+      - if @current_user && @current_user.communities.present?
+        - @current_user.communities.each do |community|
+          %a{href: "#{default_protocol}#{community.full_domain}"}= community.name
+      - else
+        %a{href: "#{default_protocol}#{@current_community.full_domain}"}= @current_community.name
+      %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh")}
+        = t("header.create_new_marketplace")
     
     - if @current_user
       %nav.user-menu.toggle-menu.hidden
