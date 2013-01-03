@@ -48,7 +48,7 @@
     
     - else  
     
-      .login-menu-toggle.toggle.hidden{data: {toggle: '.login-menu'}}
+      .login-menu-toggle.toggle.hidden#login-toggle-button{data: {toggle: '.login-menu'}}
         .login-icon.ss-login
         .login-text= t("layouts.logged_in.login")
         
@@ -99,8 +99,8 @@
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
         - if @current_community
           = hidden_field_tag :community, @current_community.domain
-        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => "Email or username"
-        = password_field_tag "person[password]", nil, :placeholder => "Password"
+        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email")
+        = password_field_tag "person[password]", nil, :placeholder => t("common.password")
         = button_tag t('sessions.new.login')
         = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-menu-link"
         = link_to t('sessions.new.i_forgot_my_password'), "#", :class => "login-menu-link"

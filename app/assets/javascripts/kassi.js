@@ -86,6 +86,9 @@ function initialize_defaults(locale) {
   $('.flash-notifications').click(function() {
     $('.flash-notifications').fadeOut('slow');
   });
+  $('#login-toggle-button').click(function() { 
+    $('#person_login').focus();
+  });
 }
 
 var hideNotice = function() {
