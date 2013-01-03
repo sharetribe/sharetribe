@@ -14,6 +14,7 @@
 //= html5shiv-printshiv
 //= ss-social
 //= ss-pika
+//= require infobubble
 //= require sharetribe_common
 //= require kassi
 //= require googlemaps

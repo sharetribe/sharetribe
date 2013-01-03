@@ -464,7 +464,21 @@ function addCommunityMarkers() {
 }
 
 function initialize_listing_map(community_location_lat, community_location_lon) {
-  infowindow = new google.maps.InfoWindow();
+  // infowindow = new google.maps.InfoWindow();
+  infowindow = new InfoBubble({
+    shadowStyle: 0,
+    borderRadius: 5,
+    borderWidth: 1,
+    arrowPosition: 30,
+    arrowStyle: 0
+  });
+  if ($(window).width() >= 768) {
+    infowindow.setMinHeight(235);
+    infowindow.setMinWidth(425);
+  } else {
+    infowindow.setMinHeight(150);
+    infowindow.setMinWidth(225);
+  } 
   directionsService = new google.maps.DirectionsService();
   directionsDisplay = new google.maps.DirectionsRenderer();
   directionsDisplay.setOptions( { suppressMarkers: true } );
