@@ -25,6 +25,18 @@ class Community < ActiveRecord::Base
     
   serialize :settings, Hash
   
+  paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+                      :header => "192x192#",  
+                      :original => "600x600>"
+  }})
+  has_attached_file :logo, paperclip_options_for_logo
+  
+  paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+                      :header => "1600x195#",  
+                      :original => "3200x3200>"
+  }})
+  has_attached_file :cover_photo, paperclip_options_for_cover_photo
+  
   attr_accessor :terms
   
   def address

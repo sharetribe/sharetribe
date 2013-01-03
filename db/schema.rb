@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130103125240) do
+ActiveRecord::Schema.define(:version => 20130103145816) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -91,6 +91,14 @@ ActiveRecord::Schema.define(:version => 20130103125240) do
     t.string   "plan"
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|

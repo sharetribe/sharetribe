@@ -2,12 +2,13 @@ en:
   admin:
     communities:
       edit_details:
-        tribe_details: "Tribe details"
-        tribe_look_and_feel: "Tribe look and feel"
-        edit_community: "Edit tribe \"%{tribe_name}\" details"
-        tribe_name: "Tribe name:"
-        tribe_slogan: "Tribe slogan:"
-        tribe_description: "Description:"
+        community_details: "Tribe details"
+        community_look_and_feel: "Tribe look and feel"
+        edit_community: "Edit tribe \"%{community_name}\" details"
+        edit_community_look_and_feel: "Edit tribe \"%{community_name}\" look and feel"
+        community_name: "Tribe name:"
+        community_slogan: "Tribe slogan:"
+        community_description: "Description:"
         update_information: "Update information"
     badges:
       index:

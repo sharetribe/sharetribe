@@ -10,7 +10,7 @@
   .wrapper
     .tribe-logo
       %a{href: '/'}
-        = image_tag '/assets/new-design/tribe-logo2.png'
+        = image_tag @current_community.logo.url(:header)
     .tribe-intro.hidden
       .intro-wrapper
         %h1= @current_community.slogan

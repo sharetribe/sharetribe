@@ -9,12 +9,13 @@ fi:
         save_badge: "Tallenna ansiomerkki"
     communities:
       edit_details:
-        tribe_details: "Yhteisön tiedot"
-        tribe_look_and_feel: "Yhteisön ulkoasu"
-        edit_community: "Muokkaa yhteisön \"%{tribe_name}\" tietoja"
-        tribe_name: "Yhteisön nimi:"
-        tribe_slogan: "Yhteisön slogan:"
-        tribe_description: "Yhteisön kuvaus:"
+        community_details: "Yhteisön tiedot"
+        community_look_and_feel: "Yhteisön ulkoasu"
+        edit_community: "Muokkaa yhteisön \"%{community_name}\" tietoja"
+        edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
+        community_name: "Yhteisön nimi:"
+        community_slogan: "Yhteisön slogan:"
+        community_description: "Yhteisön kuvaus:"
         update_information: "Päivitä tiedot"
     news_items:
       index:
