@@ -444,7 +444,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 	var form_id = "#avatar_form";
 	$(form_id).validate({
 		rules: {
-			"file": { required: true, accept: "(jpe?g|gif|png)" } 
+			"person[image]": { accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
@@ -452,7 +452,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 	});	
 }
 
-function initialize_update_account_info_form(locale, change_text, cancel_text, email_default, pw1_default, pw2_default, email_in_use_message) {
+function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message) {
 	$('#account_email_link').toggle(
 		function() {
 			$('#account_email_content').hide();
@@ -484,7 +484,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	);
 	var email_form_id = "#email_form";
 	$(email_form_id).validate({
-		errorClass: "error_account",
 		rules: {
 			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"}
 		},
@@ -497,7 +496,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	});
 	var password_form_id = "#password_form";
 	$(password_form_id).validate({
-		errorClass: "error_account",
 		rules: {
 			"person[password]": { required: true, minlength: 4 },
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }

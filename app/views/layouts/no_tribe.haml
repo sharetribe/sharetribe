@@ -15,6 +15,7 @@
   
   .wrapper
     .no-tribe-section
+      = render :partial => "layouts/notifications" 
       - links = session[:no_tribe_title].eql?("inbox") ? inbox_links_for(@current_user) : settings_links_for(@current_user)       
       = render :partial => "layouts/left_hand_navigation", :locals => { :links => links }
       = yield

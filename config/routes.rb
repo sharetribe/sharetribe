@@ -121,6 +121,7 @@ Kassi::Application.routes.draw do
         resources :messages, :controller => :conversations do 
           collection do
             get :received
+            get :sent
             get :notifications
           end
           member do

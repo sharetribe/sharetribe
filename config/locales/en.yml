@@ -1335,7 +1335,8 @@ en:
       confirm_new_password: "Confirm new password"
       delete_account: "Delete account"
       email: "Email address:"
-      instructions_to_delete_account: "If you want to delete your account, contact us by using the feedback button on the left."
+      instructions_to_delete_account: "If you want to delete your account, %{contact_admin_link}."
+      contact_admin: "please contact the administrators"
       new_email: "New email address"
       new_password: "New password"
       save: Save

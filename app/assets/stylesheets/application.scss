@@ -2425,9 +2425,9 @@ figure.tribe-cover {
 */
 
 .new-feedback-form {
-  margin-top: lines(0);
+  padding-top: lines(1);
   @include media(tablet) {
-    margin-top: lines(2);
+    padding-top: lines(3);
   }
 }
 
@@ -2495,4 +2495,79 @@ figure.tribe-cover {
     margin-left: lines(0.25);
   }
   
+}
+
+/*
+  ----------------
+  Person settings
+  ----------------
+*/
+
+.account-settings {
+  
+  #account_email_form, #account_password_form {
+  	display: none;
+  }
+
+  .account-settings-row {
+    position: relative;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    margin-bottom: lines(1);
+    
+    .account-settings-text {
+      margin-left: lines(1.5);
+      padding: em(5) 0 em(10) 0;
+    }
+
+    .account-settings-icon {
+      position: absolute;
+      top: em(7);
+      left: em(10);
+    }
+    
+  }
+  
+  .email-form {
+    margin-top: lines(0.5);
+    padding: 0 lines(0.5);
+  }
+
+  .password-form {
+    padding: 0 lines(0.5);
+    
+    input[type=password] {
+      margin-top: lines(0.5);
+    }
+    
+  }
+  
+  p {
+    padding: 0 lines(0.5) lines(0.25) lines(0.5);
+  }
+  
+  @include media(tablet) {
+    
+    a.change-link {
+       margin-left: lines(0.5);
+     }
+      
+  }
+  
+}
+
+.notification-settings {
+  h2 {
+    margin-bottom: 0;
+  }
+  
+  h2.lower {
+    margin-top: lines(1);
+  }
+  
+  .checkbox-container {
+    label {
+      font-weight: 500;
+    }
+  }
 }

@@ -491,7 +491,7 @@ fi:
     search_kassi: "Hae %{service_name_elative}"
     create_new_marketplace: "Luo uusi verkkotori"
     contact_us: "Ota yhteyttä"
-    profile: "Käyttäjäprofiili"
+    profile: "Oma profiili"
   homepage:
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
@@ -1305,7 +1305,8 @@ fi:
       confirm_new_password: "Uusi salasana uudestaan"
       delete_account: "Käyttäjätilin poisto"
       email: "Sähköpostiosoite:"
-      instructions_to_delete_account: "Jos haluat kokonaan poistaa käyttäjätilisi palvelusta, ota ylläpitoon yhteyttä vasemman laidan palautelinkin kautta."
+      instructions_to_delete_account: "Jos haluat poistaa käyttäjätilisi, %{contact_admin_link}."
+      contact_admin: "otathan yhteyttä ylläpitoon"
       new_email: "Uusi sähköpostiosoite"
       new_password: "Uusi salasana"
       save: Tallenna
