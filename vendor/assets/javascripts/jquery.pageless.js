@@ -65,7 +65,7 @@
                  , pagination: '.pagination'
                  , params: {}
                  , url: location.href
-                 , loaderImage: "/assets/load.gif"
+                 , loaderImage: "/assets/ajax-loader-grey.gif"
                  , method: 'get'
                  }
     , container
@@ -82,7 +82,7 @@
                  , pagination: '.pagination'
                  , params: {}
                  , url: location.href
-                 , loaderImage: "/assets/load.gif"
+                 , loaderImage: "/assets/ajax-loader-grey.gif"
                  , method: 'get'
                  };
     stopListener();
