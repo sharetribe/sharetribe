@@ -386,4 +386,16 @@ module ApplicationHelper
     APP_CONFIG.always_use_ssl ? "https://" : "http://"
   end
   
+  # Return the right badge size depending on the unread message count
+  def get_messages_badge_class(unread_count)
+    case unread_count
+    when 1..9
+      "badge"
+    when 10..99
+      "badge big-badge"
+    else
+      "badge huge-badge"
+    end
+  end
+  
 end

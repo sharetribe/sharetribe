@@ -1,0 +1,3 @@
+- if Conversation.unread_count(@current_user.id) > 0
+  %div{:class => get_messages_badge_class(Conversation.unread_count(@current_user.id))}
+    = Conversation.unread_count(@current_user.id).to_s

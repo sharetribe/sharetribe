@@ -467,6 +467,10 @@ label.error {
   
 }
 
+.unread {
+  background: $highlight;
+}
+
 /*
   ------------------------
   Global Sharetribe header
@@ -1277,19 +1281,17 @@ figure.fluidratio {
 
 .inbox-feed {
   
-  h1 {
-    @include huge-type;
-    display: inline-block;
-  }
-  
   p {
     padding: lines(0.25) lines(0.5) 0 lines(0.5);
   }
   
   .inbox-feed-item {
     .feed-content {
-      max-width: lines(25);
+      max-width: lines(30);
       margin: em(-3) 0 0 lines(2.25);
+    }
+    small {
+      display: block;
     }
   }
   
@@ -1315,10 +1317,6 @@ figure.fluidratio {
     border-bottom: 1px dotted $border;
     min-height: lines(2);
     padding: lines(0.5) 0;
-  } 
-  
-  .unread {
-    background: $highlight;
   }
   
   .notification-text {

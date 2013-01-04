@@ -10,19 +10,12 @@
       
       %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
         %i.icon.ss-earth
-        -# if single digit:
-        .badge 5
-
-        -# if two digits:
-        -#.badge.big-badge 50 
-
-        -# if three digits:
-        -#.badge.huge-badge 500
+        .badge.big-badge 55
 
       %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
         %i.icon.ss-mail
         -# if single digit:
-        .badge 5
+        = render :partial => "layouts/messages_badge"
 
         -# if two digits:
         -#.badge.big-badge 50 
