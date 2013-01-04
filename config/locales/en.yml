@@ -583,9 +583,12 @@ en:
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
-      email: "Your friend's email address:"
-      message: "A personal message:"
+      email: "Your friend's email address"
+      message: "A personal message"
       send_invitation: "Send invitation"
+      add_as_many_emails_as_you_want: "Add the email address(es) of your friend(s) to the field below. If you add multiple email addresses, separate them with comma."
+      invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
+      invitation_message_field_placeholder: "I joined this amazing service. You should join me!"
     news_item:
       show_less: "Show less"
       show_more: "Show more"

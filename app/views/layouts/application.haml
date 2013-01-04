@@ -20,7 +20,7 @@
     - if @current_user && @current_user.member_of?(@current_community)
       .join-action-buttons
         - if @current_user
-          = link_to t(".invite_your_friends"), "#", :class => "intro-button"
+          = link_to t(".invite_your_friends"), new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
           %small
             = t(".invite_your_friends_description")
     - else
