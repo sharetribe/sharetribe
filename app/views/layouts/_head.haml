@@ -40,11 +40,12 @@
   - else
     = stylesheet_link_tag 'application'
 
-  = javascript_include_tag "//use.typekit.net/wja3pck.js"
-  :javascript
-    try{Typekit.load();}catch(e){
-      alert(e);
-    }
+  - if APP_CONFIG.typekit_url
+    = javascript_include_tag APP_CONFIG.typekit_url
+    :javascript
+      try{Typekit.load();}catch(e){
+        alert(e);
+      }
     
   = javascript_include_tag 'application'
   = yield(:extra_javascript)
