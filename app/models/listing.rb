@@ -88,7 +88,7 @@ class Listing < ActiveRecord::Base
     "favor" => "ss-heart",
     "rideshare" => "ss-car",
     "housing" => "ss-warehouse",
-    "other" => "ss-textfile",
+    "other" => "ss-file",
     "tools" => "ss-wrench",
     "sports" => "ss-tabletennis",
     "music" => "ss-music",

@@ -212,7 +212,7 @@ Kassi::Application.routes.draw do
         get :about
         get :how_to_use
         get :terms
-        get :register_details
+        get :privacy
         get :news
       end  
     end

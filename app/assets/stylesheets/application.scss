@@ -103,6 +103,10 @@ body {
   //border-width: 0 0 lines(1);
 }
 
+ul {
+  padding-left: lines(1);
+}
+
 .wrapper {
   background: $background;
   position: relative;
@@ -411,8 +415,8 @@ label.radiobutton {
 @mixin button {
   @include box-sizing(border-box);
   @include border-radius(em(5));
-  background: $link;
-  border: em(2) solid darken($link, 10%);
+  background: $link2;
+  border: em(2) solid darken($link2, 10%);
   color: $background;
   text-align: center;
   cursor: pointer;
@@ -420,15 +424,15 @@ label.radiobutton {
   margin: lines(0.5) 0;
   
   &:hover { 
-    background: darken($link, 5%);
+    background: darken($link2, 5%);
     color: $background;
-    border: em(2) solid darken($link, 15%); 
+    border: em(2) solid darken($link2, 15%); 
   };
   
   &:active {
-    background: darken($link, 10%);
+    background: darken($link2, 10%);
     color: $background;
-    border: em(2) solid darken($link, 20%);
+    border: em(2) solid darken($link2, 20%);
   }
 
 }
@@ -2597,5 +2601,18 @@ figure.fluidratio {
     label {
       font-weight: 500;
     }
+  }
+}
+
+/*
+  ----------------
+  About 
+  ----------------
+*/
+
+.about-section {
+  h3 {
+    padding-top: lines(0.5);
+    padding-bottom: lines(0.25);
   }
 }
