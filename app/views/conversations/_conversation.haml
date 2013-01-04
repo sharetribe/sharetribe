@@ -11,11 +11,5 @@
       %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
       %small.feed-excerpt
         = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"" if last_message
-      %small.feed-listing-icons
-        %i.ss-check.icon-with-text 
-        .text-with-icon 
-          This request has been completed.
-          = link_to "Give feedback", "#"
-          |
-          = link_to "Skip feedback", "#"
+      = render :partial => "status", :locals => { :conversation => conversation }
       

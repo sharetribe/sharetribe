@@ -103,6 +103,10 @@ body {
   //border-width: 0 0 lines(1);
 }
 
+ul {
+  padding-left: lines(1);
+}
+
 .wrapper {
   background: $background;
   position: relative;
@@ -252,7 +256,7 @@ body {
       min-height: em(38);
     }
     a.selected {
-      background: lighten($link, 40%);
+      background: $highlight;
       &:after {
         display: block;
         position: absolute;
@@ -411,8 +415,8 @@ label.radiobutton {
 @mixin button {
   @include box-sizing(border-box);
   @include border-radius(em(5));
-  background: $link;
-  border: em(2) solid darken($link, 10%);
+  background: $link2;
+  border: em(2) solid darken($link2, 10%);
   color: $background;
   text-align: center;
   cursor: pointer;
@@ -420,15 +424,15 @@ label.radiobutton {
   margin: lines(0.5) 0;
   
   &:hover { 
-    background: darken($link, 5%);
+    background: darken($link2, 5%);
     color: $background;
-    border: em(2) solid darken($link, 15%); 
+    border: em(2) solid darken($link2, 15%); 
   };
   
   &:active {
-    background: darken($link, 10%);
+    background: darken($link2, 10%);
     color: $background;
-    border: em(2) solid darken($link, 20%);
+    border: em(2) solid darken($link2, 20%);
   }
 
 }
@@ -465,6 +469,10 @@ label.error {
     left: em(18); top: em(-16);
   }
   
+}
+
+.unread {
+  background: $highlight;
 }
 
 /*
@@ -1019,7 +1027,7 @@ figure.fluidratio {
 
 .tribe-intro {
   padding: lines(0.55) lines(0.75);
-  background-color: transparentize($emphasis, 0.5);
+  background-color: transparentize($emphasis, 0.35);
   position: absolute;
   left: lines(4.3); top: lines(-3.85); right: lines(0.5);
   margin-bottom: lines(1);
@@ -1079,7 +1087,7 @@ figure.fluidratio {
   left: lines(31);
   top: lines(-7) + em(1);
   padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
-  background-color: transparentize($emphasis, 0.5);
+  background-color: transparentize($emphasis, 0.35);
   @include border-radius(em(5));
   display: none;
   color: $background;
@@ -1277,19 +1285,17 @@ figure.fluidratio {
 
 .inbox-feed {
   
-  h1 {
-    @include huge-type;
-    display: inline-block;
-  }
-  
   p {
     padding: lines(0.25) lines(0.5) 0 lines(0.5);
   }
   
   .inbox-feed-item {
     .feed-content {
-      max-width: lines(25);
+      max-width: lines(30);
       margin: em(-3) 0 0 lines(2.25);
+    }
+    small {
+      display: block;
     }
   }
   
@@ -1315,10 +1321,6 @@ figure.fluidratio {
     border-bottom: 1px dotted $border;
     min-height: lines(2);
     padding: lines(0.5) 0;
-  } 
-  
-  .unread {
-    background: $highlight;
   }
   
   .notification-text {
@@ -2599,5 +2601,18 @@ figure.fluidratio {
     label {
       font-weight: 500;
     }
+  }
+}
+
+/*
+  ----------------
+  About 
+  ----------------
+*/
+
+.about-section {
+  h3 {
+    padding-top: lines(0.5);
+    padding-bottom: lines(0.25);
   }
 }

@@ -304,6 +304,36 @@ module ApplicationHelper
     return url
   end
   
+  # About view left hand navigation content
+  def about_links
+    [
+      { 
+        :text => t('layouts.infos.about'),
+        :icon_class => "ss-info", 
+        :path => about_infos_path,
+        :name => "about"
+      },
+      { 
+        :text => t('layouts.infos.how_to_use'),
+        :icon_class => "ss-signpost", 
+        :path => how_to_use_infos_path,
+        :name => "how_to_use"
+      },
+      { 
+        :text => t('layouts.infos.terms'),
+        :icon_class => "ss-textfile", 
+        :path => terms_infos_path,
+        :name => "terms"
+      },
+      { 
+        :text => t('layouts.infos.register_details'),
+        :icon_class => "ss-lockfile", 
+        :path => privacy_infos_path,
+        :name => "privacy"
+      },
+    ]
+  end
+  
   # Admin view left hand navigation content
   def admin_links_for(community)
     [
@@ -384,6 +414,18 @@ module ApplicationHelper
   # returns either "http://" or "https://" based on configuration settings
   def default_protocol
     APP_CONFIG.always_use_ssl ? "https://" : "http://"
+  end
+  
+  # Return the right badge size depending on the unread message count
+  def get_messages_badge_class(unread_count)
+    case unread_count
+    when 1..9
+      "badge"
+    when 10..99
+      "badge big-badge"
+    else
+      "badge huge-badge"
+    end
   end
   
 end

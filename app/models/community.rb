@@ -194,6 +194,12 @@ class Community < ActiveRecord::Base
                         "$link: ##{custom_color1};",
                         true)
       end
+      if custom_color2.present? 
+        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+                        /\$link2:\s*#\w{6};/,
+                        "$link2: ##{custom_color2};",
+                        true)
+      end
       if cover_photo.present?
         replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
                         /background-image:\s*url\(\"[^\"]+\"\);/,
@@ -216,6 +222,11 @@ class Community < ActiveRecord::Base
         f.write(text.gsub(search, replace))
       end
     end
+  end
+  
+  # 
+  def full_name
+    settings[:service_name] ? settings[:service_name] : "Sharetribe #{name}"
   end
 
 end

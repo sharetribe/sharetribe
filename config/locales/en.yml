@@ -636,7 +636,7 @@ en:
       your_email_address: "Your email address (not required)"
       connect: "Connect"
       invite_your_friends: "Invite friends!"
-      invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is for everyone."
+      invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
       or_join_without_facebook: "...or join without Facebook"
     conversations:
       messages: Messages
@@ -650,7 +650,7 @@ en:
       how_to_use: "How to use"
       info_about_kassi: "Information about %{service_name}"
       news: News
-      register_details: "Register details"
+      register_details: "Privacy"
       terms: "Terms of use"
     logged_in:
       admin: Admin
