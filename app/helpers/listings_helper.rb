@@ -50,11 +50,15 @@ module ListingsHelper
     Listing::VALID_VISIBILITIES.each do |visibility|
       if visibility.eql?("this_community")
         array << [t(".#{visibility}", :community => @current_community.name), visibility]
-      elsif !(visibility.eql?("communities") && @current_user.communities.size < 2) 
+      else 
         array << [t(".#{visibility}"), visibility]
       end
     end
     return array  
+  end
+  
+  def privacy_array
+    Listing::VALID_PRIVACY_OPTIONS.collect { |option| [t(".#{option}"), option] }
   end
   
   def listed_listing_title(listing)
@@ -76,7 +80,6 @@ module ListingsHelper
     return t("listings.index.#{category_string}")
   end
   
-  
   def localized_share_type_label(share_type_string)
     return nil if share_type_string.nil?
     return t("common.share_types.#{share_type_string}")
@@ -86,4 +89,9 @@ module ListingsHelper
     return nil if listing_type_string.nil?
     return t("listings.show.#{listing_type_string}")
   end
+
+  def get_icon_class(icon_type)
+    Listing::LISTING_ICONS[icon_type] || Listing::LISTING_ICONS["other"]
+  end
+
 end

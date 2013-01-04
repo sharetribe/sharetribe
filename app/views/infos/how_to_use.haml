@@ -1,1 +1,4 @@
-= render :file => community_file("how_to_use", true)
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
+
+.left-navi-section.about-section
+  = render :file => community_file("how_to_use", true)

@@ -1,9 +1,0 @@
-- if @current_user.notifications.unread.count > 0
-  .logged_in_icon_notifications_notifications{:onclick => "location.href='/people/#{@current_user.id}/messages/notifications';", :title => t('.notifications')}
-    .logged_in_icon_notification_text
-      = link_to @current_user.notifications.unread.count.to_s, notifications_person_messages_path(:person_id => @current_user.id), :title => t('.notifications'), :id => "notifications_link"
-- else
-  .logged_in_icon_notifications
-    %a{:href => notifications_person_messages_path(:person_id => @current_user.id), :title => t('.notifications'), :id => "notifications_link" }
-      %span{:class => "not_visible"}
-        a

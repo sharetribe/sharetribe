@@ -39,7 +39,8 @@ FactoryGirl.define do
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
-    visibility "everybody"
+    visibility "this_community"
+    privacy "private"
     communities { [ FactoryGirl.create(:community) ] }
   end
 

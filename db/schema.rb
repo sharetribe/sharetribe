@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218125831) do
+ActiveRecord::Schema.define(:version => 20130104122958) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -91,6 +91,16 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.string   "plan"
     t.integer  "user_limit"
     t.float    "monthly_price_in_euros"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "cover_photo_file_name"
+    t.string   "cover_photo_content_type"
+    t.integer  "cover_photo_file_size"
+    t.datetime "cover_photo_updated_at"
+    t.string   "custom_color1"
+    t.string   "custom_color2"
   end
 
   create_table "communities_listings", :id => false, :force => true do |t|
@@ -122,7 +132,8 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.integer  "listing_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",     :default => "pending"
+    t.string   "status",          :default => "pending"
+    t.datetime "last_message_at"
   end
 
   create_table "delayed_jobs", :force => true do |t|
@@ -245,21 +256,22 @@ ActiveRecord::Schema.define(:version => 20121218125831) do
     t.string   "author_id"
     t.string   "category"
     t.string   "title"
-    t.integer  "times_viewed",  :default => 0
+    t.integer  "times_viewed",   :default => 0
     t.string   "language"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "last_modified"
-    t.string   "visibility",    :default => "everybody"
+    t.string   "visibility",     :default => "this_community"
     t.string   "listing_type"
     t.text     "description"
     t.string   "origin"
     t.string   "destination"
     t.datetime "valid_until"
-    t.boolean  "delta",         :default => true,        :null => false
-    t.boolean  "open",          :default => true
+    t.boolean  "delta",          :default => true,             :null => false
+    t.boolean  "open",           :default => true
     t.string   "share_type"
-    t.string   "privacy",       :default => "private"
+    t.string   "privacy",        :default => "private"
+    t.integer  "comments_count", :default => 0
   end
 
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"

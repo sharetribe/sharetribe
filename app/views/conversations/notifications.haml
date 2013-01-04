@@ -1,8 +1,7 @@
-- if @notifications.empty?
-  #no_conversations
+#conversations.inbox-notifications.left-navi-section
+  - if @notifications.empty?
     = t(".no_notifications")
-- else
-  #conversations
+  - else
     = render :partial => "notification", :collection => @notifications, :as => :notification, :spacer_template => "inbox_spacer"
     = will_paginate(@notifications)
     = pageless(@notifications.total_pages, '#conversations', "#{action_name}", t('.loading_more_notifications'))

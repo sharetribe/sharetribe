@@ -40,11 +40,30 @@ class Listing < ActiveRecord::Base
   scope :rideshare, :conditions => { :category => "rideshare"}
   
   scope :currently_open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
-  scope :public, :conditions  => "visibility = 'everybody'"
-  scope :private, :conditions  => "visibility <> 'everybody'"
-  
+  scope :public, :conditions  => "privacy = 'public'"
+  scope :private, :conditions  => "privacy = 'private'"
+
   VALID_TYPES = ["offer", "request"]
   VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
+  VALID_SUBCATEGORIES = {
+    "item" => [
+      "tools",
+      "sports",
+      "music",
+      "books",
+      "games",
+      "furniture",
+      "outdoors",
+      "food",
+      "electronics",
+      "pets",
+      "film",
+      "clothes",
+      "garden",
+      "travel",
+      "other"
+    ]  
+  }
   VALID_SHARE_TYPES = {
     "offer" => {
       "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
@@ -56,10 +75,45 @@ class Listing < ActiveRecord::Base
       "item" => ["borrow", "buy", "rent", "trade", "receive"],
       "favor" => nil, 
       "rideshare" => nil,
-      "housing" => ["rent", "buy"],
+      "housing" => ["rent", "buy", "accept_for_free"],
     }
   }
-  VALID_VISIBILITIES = ["everybody", "this_community", "communities"]
+  VALID_VISIBILITIES = ["this_community", "all_communities"]
+  VALID_PRIVACY_OPTIONS = ["private", "public"]
+  
+  LISTING_ICONS = {
+    "offer" => "ss-share",
+    "request" => "ss-tip",
+    "item" => "ss-suitcase",
+    "favor" => "ss-heart",
+    "rideshare" => "ss-car",
+    "housing" => "ss-warehouse",
+    "other" => "ss-file",
+    "tools" => "ss-wrench",
+    "sports" => "ss-tabletennis",
+    "music" => "ss-music",
+    "books" => "ss-book",
+    "games" => "ss-fourdie",
+    "furniture" => "ss-lodging",
+    "outdoors" => "ss-campfire",
+    "food" => "ss-sidedish",
+    "electronics" => "ss-smartphone",
+    "pets" => "ss-tropicalfish",
+    "film" => "ss-moviefolder",
+    "clothes" => "ss-hanger",
+    "garden" => "ss-tree",
+    "travel" => "ss-departure",
+    "give_away" => "ss-gift",
+    "share_for_free" => "ss-gift",
+    "accept_for_free" => "ss-gift",
+    "lend" => "ss-flowertag",
+    "borrow" => "ss-flowertag",
+    "trade" => "ss-reload",
+    "buy" => "ss-moneybag",
+    "sell" => "ss-moneybag",
+    "rent" => "ss-pricetag",
+    "rent_out" => "ss-pricetag"
+  }
   
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
@@ -82,12 +136,14 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
+    indexes category
+    indexes share_type
     
     # attributes
     has created_at, updated_at
     has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
     has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    has "visibility = 'everybody'", :as => :visible_to_everybody, :type => :boolean
+    has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
     
@@ -120,21 +176,10 @@ class Listing < ActiveRecord::Base
   # Filter out listings that current user cannot see
   def self.visible_to(current_user, current_community, ids=nil)
     id_condition = ids ? ids : "SELECT listing_id FROM communities_listings WHERE community_id = '#{current_community.id}'"
-    if current_user
-      where("
-        (listings.visibility = 'everybody' 
-        OR (
-          listings.visibility IN ('communities','this_community') 
-          AND listings.id IN (
-            SELECT listing_id 
-            FROM communities_listings
-            WHERE community_id IN (#{current_user.communities.collect { |c| "'#{c.id}'" }.join(",")})
-          )
-        ))
-        AND listings.id IN (#{id_condition})
-      ")
+    if current_user && current_user.member_of?(current_community)
+      where("listings.id IN (#{id_condition})")
     else 
-      where("listings.visibility = 'everybody' AND listings.id IN (#{id_condition})")
+      where("listings.privacy = 'public' AND listings.id IN (#{id_condition})")
     end
   end
   
@@ -149,20 +194,20 @@ class Listing < ActiveRecord::Base
         AND communities_listings.community_id = '#{current_community.id}'
       ") > 0
     elsif current_community
-      return current_community.listings.include?(self) && self.visibility.eql?("everybody")
+      return current_community.listings.include?(self) && public?
     elsif current_user
-      return true if self.visibility.eql?("everybody")
+      return true if self.privacy.eql?("public")
       self.communities.each do |community|
         return true if current_user.communities.include?(community)
       end
       return false #if user doesn't belong to any community where listing is visible
     else #if no user or community specified, return if visible to anyone
-      return self.visibility.eql?("everybody")
+      return public?
     end
   end
   
   def public?
-    self.visibility.eql?("everybody")
+    self.privacy.eql?("public")
   end
   
   # Get only  listings that are private to current community (or to many communities including current)
@@ -206,6 +251,20 @@ class Listing < ActiveRecord::Base
      end  
   end
   
+  def self.all_unique_share_types
+    share_types = []
+    VALID_TYPES.each do |listing_type|
+      VALID_CATEGORIES.each do |category|
+        if VALID_SHARE_TYPES[listing_type][category] 
+          VALID_SHARE_TYPES[listing_type][category].each do |share_type|
+            share_types << share_type
+          end
+        end  
+      end
+    end
+    share_types.uniq!.sort
+  end
+  
   def self.unique_share_types(listing_type)
     share_types = []
     VALID_CATEGORIES.each do |category|
@@ -229,25 +288,62 @@ class Listing < ActiveRecord::Base
     "#{id}-#{title.gsub(/\W/, '-').downcase}"
   end
   
-  def self.find_with(params, current_user=nil, current_community=nil)
-    params = params || {}  # Set params to empty hash if it's nil
-    conditions = []
-    if params[:listing_type] && !params[:listing_type].eql?("all") 
-      conditions[0] = "listing_type = ?"
-      conditions[1] = params[:listing_type]
+  def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
+    params ||= {}  # Set params to empty hash if it's nil
+    params[:include] ||= [:listing_images]
+    
+    params.reject!{ |key,value| value == "all" || value == ["all"]} # all means the fliter doesn't need to be included
+        
+    # expect that share_type might contain also listing_type, if so fix params
+    if VALID_TYPES.include?(params[:share_type])
+      params[:listing_type] = params[:share_type]
+      params.delete(:share_type)
     end
-    if params[:category] && !params[:category][0].eql?("all") 
-      conditions[0] += " AND category IN (?)"
-      conditions << params[:category]
+
+    params[:search] ||= params[:q] # Read search query also from q param
+    
+    # Two ways of finding, with or without sphinx
+    if params[:search].present?
+      
+      with = {:open => true} # 'with' hash is used for attributes
+      conditions = params.slice(:category, :share_type) # used indexed fields (as sphinx doesn't support string attributes) 
+      
+      if params[:listing_type]
+         with[:is_request] = true if params[:listing_type].eql?("request")
+         with[:is_offer] = true if params[:listing_type].eql?("offer")
+      end
+      
+      unless current_user && current_user.communities.include?(current_community)
+        with[:visible_to_everybody] = true
+      end
+      with[:community_ids] = current_community.id
+
+      listings = Listing.search(params[:search], 
+                                :include => params[:include], 
+                                :page => page,
+                                :per_page => per_page, 
+                                :star => true,
+                                :with => with,
+                                :conditions => conditions
+                                )
+    else # No search query used, no sphinx needed
+      listings = where([])
+      if params[:listing_type] 
+        listings = listings.where(["listing_type = ?", params[:listing_type]])
+      end
+      if params[:category] 
+        listings = listings.where(['category IN (?)', params[:category]])
+      end
+
+      if params[:share_type]
+        listings = listings.where(['share_type IN (?)', params[:share_type]])
+      end
+      if params[:tag]
+        listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
+      end 
+      listings = listings.currently_open.includes(params[:include]).visible_to(current_user, current_community).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
-    listings = where(conditions)
-    if params[:share_type] && !params[:share_type][0].eql?("all")
-      listings = listings.where(['share_type IN (?)', params[:share_type]])
-    end
-    if params[:tag]
-      listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
-    end 
-    listings.visible_to(current_user, current_community).order("listings.id DESC")
+    return listings
   end
   
   # Returns true if listing exists and valid_until is set
@@ -418,27 +514,18 @@ class Listing < ActiveRecord::Base
   
   # This is used to provide clean JSON-strings for map view queries
   def as_json(options = {})
-    # json_dict = {
-    #   :listing_type => self.listing_type,
-    #   :category => self.category,
-    #   :id => self.id,
-    #   :latitude => self.origin_loc.latitude,
-    #   :longitude => self.origin_loc.longitude
-    # }
-    # 
-    # json_dict[:location] = self.location.as_json if self.location
-    # json_dict[:origin_loc] = self.origin_loc.as_json if self.origin_loc
-    # json_dict[:destination_loc] = self.destination_loc.as_json if self.destination_loc
-    # 
-    # json_dict
     
-    {
+    # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
+    hash = {
       :listing_type => self.listing_type,
       :category => self.category,
-      :id => self.id,
-      :latitude => self.origin_loc.latitude,
-      :longitude => self.origin_loc.longitude
+      :id => self.id
     }
+    if self.origin_loc
+      hash.merge!({:latitude => self.origin_loc.latitude,
+                  :longitude => self.origin_loc.longitude})
+    end
+    return hash
   end
   
   # Send notifications to the users following this listing
@@ -456,6 +543,10 @@ class Listing < ActiveRecord::Base
         end
       end
     end
+  end
+  
+  def has_image?
+    !listing_images.empty?
   end
   
 end

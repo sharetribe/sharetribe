@@ -1,20 +1,17 @@
-%h3 Mikä #{service_name} on?
+%h3 Sharetribe
 
-%p 
-  #{service_name} on yhteisöllinen verkkotori, jossa ihmiset voivat muun muassa lainata, vuokrata, ostaa ja myydä tavaroitaan, vaihtaa palveluita sekä järjestää kimppakyytejä paikallisen yhteisönsä (esimerkiksi yliopistokampus, kaupunginosa, yritys tai yhdistys) jäsenten kesken.
+%p
+  #{@current_community.full_name} on yksi monista Sharetribe-verkkoyhteisöistä. Sharetribe on alusta, jonka avulla kuka tahansa voi perustaa omalle paikalliselle yhteisölleen (esimerkiksi yliopiston kampukselle, naapurustolle, yhdistykselle tai yritykselle) oman verkkotorin. Sharetriben avulla yhteisön jäsenet voivat muun muassa lainata, vuokrata, ostaa ja myydä tavaroitaan toisilleen, vaihtaa palveluita sekä järjestää kimppakyytejä.
   
 %p
-  #{service_name(:inessive)} voit kertoa muille, mitä voisit jakaa heidän kanssaan, ja pyytää kun tarvitset jotain. Tällainen jakamistoiminta säästää aikaasi ja rahaasi sekä luontoa, ja se on samalla kätevä tapa tutustua muihin yhteisösi jäseniin.
-  
-%p
-  Olet tällä hetkellä #{@current_community.name_with_separator(I18n.locale)}-yhteisön Sharetribessa. Haluaisitko perustaa Sharetriben omalle yhteisöllesi? Se on ilmaista ja vie vain muutaman minuutin! Jos haluat tietää lisää,
+  Haluaisitko perustaa Sharetriben omalle yhteisöllesi? Se on ilmaista ja vie vain muutaman minuutin! Jos haluat tietää lisää,
   = link_to("klikkaa tästä", "http://www.sharetribe.com/?ref=about") + "."
 
 %p
-  #{service_name} on avointa lähdekoodia, joten voit halutessasi asentaa palvelun omalle palvelimellesi ja osallistua sen kehitykseen. Voit ladata koodin itsellesi
+  Sharetribe on avointa lähdekoodia, joten voit halutessasi myös asentaa palvelun omalle palvelimellesi ja osallistua sen kehitykseen. Voit ladata koodin itsellesi
   = link_to("täältä", "https://github.com/sharetribe/sharetribe") + "." 
 
-%h3 Kuka on #{service_name(:genetive)} takana?
+%h3 Kuka on Sharetriben takana?
 
 %p
-  #{service_name(:partitive)} ylläpitää ja kehittää Sharetribe Oy, vuonna 2011 perustettu suomalainen yritys. Yrityksen perustajajäsenet ovat Juho Makkonen, Antti Virolainen and Niklas Begley. Jos sinulla on lisäkysymyksiä, voit ottaa meihin yhteyttä sähköpostilla: team@sharetribe.com tai etunimi.sukunimi@sharetribe.com.
+  #{service_name(:partitive)} ylläpitää ja kehittää Sharetribe Oy, vuonna 2011 perustettu suomalainen yritys. Yrityksen perustajajäsenet ovat Juho Makkonen, Antti Virolainen ja Niklas Begley. Jos sinulla on lisäkysymyksiä, voit ottaa meihin yhteyttä sähköpostilla: info@sharetribe.com tai etunimi.sukunimi@sharetribe.com.

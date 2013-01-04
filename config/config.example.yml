@@ -113,6 +113,12 @@ default: &default_settings
   use_funneld: false
   funneld_key: "enter_your_key_here"
 
+  # Typekit fonts
+  # If you want to use fonts from a typekit package, put your personal url here.
+  # Normally you can leave this empty and generic default fonts will be used.
+  # Format example: "//use.typekit.net/your_code_here.js"
+  typekit_url:
+
   # CAS is a centralized authentication system, it is completely optional
   # If not needed leave to false
   use_CAS: false

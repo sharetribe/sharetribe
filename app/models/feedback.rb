@@ -4,4 +4,6 @@ class Feedback < ActiveRecord::Base
   
   validates_presence_of :content, :author_id, :url
   
+  attr_accessor :title
+  
 end

@@ -1,5 +1,22 @@
 en:
   admin:
+    communities:
+      edit_details:
+        community_details: "Tribe details"
+        community_look_and_feel: "Tribe look and feel"
+        edit_community: "Edit community \"%{community_name}\" details"
+        community_name: "Tribe name:"
+        community_slogan: "Tribe slogan:"
+        community_description: "Description:"
+        update_information: "Update information"
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Edit community \"%{community_name}\" look and feel"
+        community_logo: "Logo"
+        community_cover_photo: "Cover photo"
+        community_custom_color1: "Main color"
+        logo_instructions_text: "Logo file will be cut in square and resized to 192x192 pixel if needed."
+        cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
+        custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
     badges:
       index:
         add_new_badge: "Add new badge"
@@ -65,24 +82,31 @@ en:
       sell: selling
       trade: swapping
       share_for_free: "sharing for free"
+      accept_for_free: "accepting for free"
+    categories:
+      item: "items"
+      favor: "services"
+      rideshare: "rideshare"
+      housing: "spaces"
     username: Username
-    username_or_email: "Username or email"
+    username_or_email: "Email or username"
     what_is_this: "What's this?"
   conversations:
     index:
+      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the tribes you belong to."
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
     new:
-      favor_offer_message_form_title: "Ask help from"
+      favor_offer_message_form_title: "Ask help from %{person}"
       favor_offer_message_title: "Service request: %{title}"
-      favor_request_message_form_title: "Offer help to"
+      favor_request_message_form_title: "Offer help to %{person}"
       favor_request_message_title: "Service offer: %{title}"
-      housing_offer_message_form_title: "Offer space to"
+      housing_offer_message_form_title: "Offer space to %{person}"
       housing_offer_message_title: "Space request: %{title}"
-      housing_request_message_form_title: "Request space from"
+      housing_request_message_form_title: "Request space from %{person}"
       housing_request_message_title: "Space available: %{title}"
       item_offer_lend_message_form_title: "Borrow %{listing} from %{person}"
       item_offer_sell_message_form_title: "Buy %{listing} from %{person}"
@@ -97,15 +121,16 @@ en:
       housing_offer_sell_message_form_title: "Buy %{listing} from %{person}"
       housing_offer_rent_out_message_form_title: "Rent %{listing} from %{person}"
       housing_offer_share_for_free_message_form_title: "Request %{listing} from %{person}"
+      housing_offer_accept_for_free_message_form_title: "Offer %{listing} to %{person}"
       housing_request_buy_message_form_title: "Sell %{listing} to %{person}"
       housing_request_rent_message_form_title: "Rent out %{listing} to %{person}"
       item_offer_message_title: "Item request: %{title}"
-      item_request_message_form_title: "Offer an item to"
+      item_request_message_form_title: "Offer an item to %{person}"
       item_request_message_title: "Item offer: %{title}"
       message: Message
-      rideshare_offer_message_form_title: "Ask for a ride from"
+      rideshare_offer_message_form_title: "Ask for a ride from %{person}"
       rideshare_offer_message_title: "Rideshare request: %{title}"
-      rideshare_request_message_form_title: "Offer a ride to"
+      rideshare_request_message_form_title: "Offer a ride to %{person}"
       rideshare_request_message_title: "Rideshare offer: %{title}"
       send_offer_message: "Send the offer"
       send_request_message: "Send the request"
@@ -485,11 +510,19 @@ en:
     about: About
     community: Community
     home: Home
+    members: Community
     mobile_version: "Mobile version"
     offers: Offers
     requests: Requests
     search_kassi: "Search %{service_name}"
+    create_new_marketplace: "Create a new marketplace"
+    contact_us: "Contact us"
+    profile: "Profile"
   homepage:
+    filter_share_types: 
+      listing_types:
+        request: "Requests"
+        offer: "Offers"
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
       additionally_one_private_request_exists: "Additionally  there is <b>one other request</b>,"
@@ -500,7 +533,7 @@ en:
       but_that_is_visible_only_to_registered_members: "but that is visible only to registered members."
       but_those_are_visible_only_to_registered_members: "but those are visible only to registered members."
       create_new_account_for_yourself: "Create yourself a new account"
-      examples_of_what_you_could_offer_to_others: "What could you offer to the others"
+      examples_of_what_you_could_offer_to_others: "What could you offer to others"
       examples_of_what_you_could_request_to_others: "What could you request from the others"
       favor_offer_list: "computer assistance, clothes repair, baking, bike fixing"
       favor_request_list: "babysitting, piano lessons, walking dogs, mowing lawn"
@@ -524,6 +557,8 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
+      what_do_you_need: "What do you need?"
+      post_new_listing: "Post a new listing!"
       are_offering: offer
       add_news_item: "Add an article"
       inform_others_about_events: "Latest news and events in the community."
@@ -570,33 +605,40 @@ en:
       please_offer: Offer
       comment: comment
       comments: comments
-    sign_in:
-      recent_offers: "What members are offering right now"
-      recent_requests: "What members need right now"
-      plus: "...plus"
-      other_offer: "other offer"
-      other_offers: "other offers"
-      other_request: "other request"
-      other_requests: "other requests"
+    filters:
+      show: "Show:"
+      search: "Search"
+      map: "Map"
+      list: "List"
+      all_listing_types: "All listing types"
+      all_categories: "All categories"
   layouts:
+    no_tribe:
+      inbox: "Inbox"
+      settings: "Settings"
     admin:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"
+      tribe_info: "Basic tribe information"
       news_items: "News articles"
       polls: Polls
     application:
-      default_feedback: "Suggest a new feature, report a bug, tell your opinion about the service, or just drop a note to say hello!"
-      feedback: "Feedback to %{service_name} staff"
+      read_more: "Read more"
+      feedback: "What would you like to tell us?"
+      default_feedback: "Did you encounter a problem with %{service_name}? Have a suggestion for improving the service? Noticed some suspicious content? Or just have something you want to discuss with us? Let us know!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
-      give_feedback: "Give feedback on %{service_name}"
+      give_feedback: "Contact us"
       keywords: "%{service_name}, Kassi, share resources in a community, borrow items, service, favor, item, rideshare, space, car pooling, housing, accommodation, help, helping, offer, request, rent, swap, exchange, buying, selling, buy, sell, giving, give, ecological, community, online community, local"
       meta_description: "%{service_name} is a service that helps members of associations and other communities to sell and lend items to each other, organize car pooling and help each other in many other ways."
       or_check_our: "...or check our"
       send_feedback_to_admin: "Send feedback"
-      to_see_what_others_have_suggested: "to see what other users have suggested."
+      to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
       your_email_address: "Your email address (not required)"
-      formerly_known_as_kassi: "formerly known as Kassi"
+      connect: "Connect"
+      invite_your_friends: "Invite friends!"
+      invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
+      or_join_without_facebook: "...or join without Facebook"
     conversations:
       messages: Messages
       notifications: Notifications
@@ -609,7 +651,7 @@ en:
       how_to_use: "How to use"
       info_about_kassi: "Information about %{service_name}"
       news: News
-      register_details: "Register details"
+      register_details: "Privacy"
       terms: "Terms of use"
     logged_in:
       admin: Admin
@@ -636,6 +678,8 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      community_updated: "Tribe details updated."
+      community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "You are now a member of this community. Next you need to confirm your email address."
       avatar_upload_failed: "Avatar upload failed. Remember that the photo has to be a .png, .jpg or .gif -file."
@@ -652,15 +696,16 @@ en:
       error_with_session: "Error with session."
       feedback_considered_spam: "Feedback not saved, due to its formatting. Try again or use the feedback forum."
       feedback_not_saved: "Feedback could not be sent."
-      feedback_saved: "Thanks for your feedback!"
-      feedback_sent_to: "Feedback sent to"
+      feedback_saved: "Thanks a lot for your feedback! We'll get back to you as soon as possible."
+      feedback_sent_to: "Feedback sent to %{target_person}."
       feedback_skipped: "Feedback skipped"
       invitation_cannot_be_sent: "Invitation could not be sent"
       invitation_sent: "Invitation sent successfully"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed in this %{service_name} community"
       login_again: "Please, log in again."
-      login_failed: "Login failed. Please enter correct credentials."
-      login_successful: "Welcome to %{service_name}, "
+      login_failed: "Login failed. Please enter correct credentials. If you have forgotten your username or password, click the link below."
+      account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
+      login_successful: "Welcome, %{person_name}!"
       logout_successful: "You have now been logged out of %{service_name}. Welcome again!"
       news_item_created: "Article created"
       news_item_creation_failed: "Article creation failed"
@@ -669,7 +714,7 @@ en:
       news_item_deleted: "Article removed"
       offer_accepted: "Offer accepted"
       offer_closed: "Offer closed"
-      offer_created_successfully: "Offer created successfully."
+      offer_created_successfully: "Offer created successfully. %{new_listing_link}."
       offer_rejected: "Offer rejected"
       offer_updated_successfully: "Offer updated successfully"
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
@@ -692,7 +737,7 @@ en:
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"
       request_closed: "Request closed"
-      request_created_successfully: "Request created successfully."
+      request_created_successfully: "Request created successfully. %{new_listing_link}."
       request_rejected: "Request rejected"
       request_updated_successfully: "Request updated successfully"
       message_sent: "Message sent"
@@ -711,9 +756,9 @@ en:
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
       you_are_now_member: "You have successfully joined this community"
       you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
-      you_must_log_in_to_create_new_offer: "You must log in to %{service_name} to create a new offer. If you don't have an account you can"
+      you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
+      create_one_here: "create one here"
       additional_email_confirmed_dashboard: "Your email is now confirmed."
-      you_must_log_in_to_create_new_request: "You must log in to %{service_name} to create a new request. If you don't have an account you can"
       you_must_log_in_to_give_feedback: "You must log in to give feedback"
       you_must_log_in_to_invite_new_users: "You must log in to invite new users to %{service_name}"
       you_must_log_in_to_send_a_comment: "You must log in to send a new comment"
@@ -743,12 +788,13 @@ en:
       wrote: wrote
       send_private_message: "Send private message to %{person}"
     comment_form:
+      ask_a_question: "Comment on the listing or ask for more details. All the other users will be able to see your comment."
       log_in: "log in"
       send_comment: "Send comment"
       to_send_a_comment: "to send a new comment."
       write_comment: "Write a new comment:"
-      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send a new comment because this offer is closed."
-      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send a new comment because this request is closed."
+      you_cannot_send_a_new_comment_because_offer_is_closed: "You cannot send new comments because this offer is closed."
+      you_cannot_send_a_new_comment_because_request_is_closed: "You cannot send new comments because this request is closed."
       you_must: "You must"
       subscribe_to_comments: "Notify me of new comments and updates"
     edit:
@@ -814,6 +860,7 @@ en:
         request_type: "Request type"
         sell: Selling
         share_for_free: "Sharing for free"
+        accept_for_free: "Accepting for free"
         trade: Swapping
       tag_list:
         comma_separate: "(comma separate)"
@@ -830,10 +877,13 @@ en:
       valid_until_radio_buttons:
         for_the_time_being: "For the time being"
       visibility:
-        communities: "All my %{service_name} communities"
-        everybody: "All internet users"
+        all_communities: "All my %{service_name} communities"
         this_community: "Only members of this tribe"
         visibility: Visibility
+      privacy:
+        privacy: Privacy
+        private: "Private (only logged-in users can see)"
+        public: "Public (visible to non-logged-in users)"
     help_texts:
       help_share_type_title: "Type of the offer or request"
       help_tags_title: Tags
@@ -874,6 +924,7 @@ en:
       rideshares: Rideshare
       sells: Selling
       share_for_frees: "Sharing for free"
+      accept_for_frees: "Accepting for free"
       trades: Swapping
     link_labels:
       link_label_for_favor_offer: "Request this service"
@@ -881,6 +932,7 @@ en:
       link_label_for_housing_offer_sell: "Buy this space"
       link_label_for_housing_offer_rent_out: "Rent this space"
       link_label_for_housing_offer_share_for_free: "Request this space"
+      link_label_for_housing_offer_accept_for_free: "Offer this space"
       link_label_for_housing_request_buy: "Offer to sell this space"
       link_label_for_housing_request_rent: "Offer to rent out this space"
       link_label_for_item_offer_lend: "Borrow this item"
@@ -905,6 +957,7 @@ en:
       message_link_label_for_housing_offer_sell: "Send private message to seller"
       message_link_label_for_housing_offer_rent_out: "Send private message to renter"
       message_link_label_for_housing_offer_share_for_free: "Send private message to offerer"
+      message_link_label_for_housing_offer_accept_for_free: "Send private message to requester"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -918,6 +971,71 @@ en:
       offer_something: "Offer something!"
       request_something: "Request something!"
       search_returned_no_results: "Your search did not return any results."
+    new:
+      listing: "listing"
+      offer: "I have something to offer to others"
+      request: "I need something"
+      selected_offer: Offer
+      selected_request: Request
+      selected_listing_type: "Listing type: %{listing_type}"
+      selected_category: "Category: %{category}"
+      selected_subcategory: "Subcategory: %{subcategory}"
+      selected_share_type: "Share type: %{share_type}"
+      selected_item: "Item"
+      selected_favor: "Service"
+      selected_rideshare: "Rideshare"
+      selected_housing: "Space"
+      selected_borrow: Borrowing
+      selected_buy: Buying
+      selected_give_away: "Giving away"
+      selected_lend: Lending
+      selected_receive: "Take for free"
+      selected_rent: "Renting"
+      selected_rent_out: "Renting out"
+      selected_sell: Selling
+      selected_trade: Swapping
+      selected_share_for_free: "Sharing for free"
+      selected_accept_for_free: "Accepting for free"
+      how_do_you_want_to_share_it: "How do you want to share it?"
+      how_do_you_want_to_get_it: "How do you want to get it?"
+      item: "An item - something tangible"
+      favor: "Help - a skill or a service"
+      rideshare: "A shared ride - in a car or other transport"
+      housing: "A space - an apartment, an office or a garden"
+      borrow: "I want to borrow it"
+      buy: "I want to buy it"
+      give_away: "I'm giving it away for free"
+      lend: "I can lend it for free"
+      receive: "I can accept it for free"
+      rent: "I want to rent it"
+      rent_out: "I'm renting it out for a fee"
+      sell: "I'm selling it"
+      trade: "I want to swap it for something else"
+      share_for_free: "I'm sharing it for free"
+      accept_for_free: "I'd like to get it for free"
+      item_with_article: "an item"
+      favor_with_article: "help"
+      rideshare_with_article: "ride"
+      housing_with_article: "a space"
+      what_kind_of_category: "What kind of %{category} are we talking about?"
+      tools: "Tools"
+      sports: "Sports"
+      music: "Music"
+      books: "Books & magazines"
+      games: "Games & toys"
+      furniture: "Furniture"
+      outdoors: "Camping & Outdoors"
+      food: "Food & kitchen"
+      electronics: "Electronics"
+      pets: "Pets & animals"
+      film: "Film & movies"
+      clothes: "Clothes & accessories"
+      garden: "Garden"
+      travel: "Travel"
+      other: "Other"
+      what_do_you_want_to_do: "What do you want to do?"
+      what_can_you_offer: "What can you offer to others?"
+      what_do_you_need: "What do you need?"
     please_comment: Comment
     reply_link:
       offer_closed: "Offer is closed"
@@ -935,6 +1053,7 @@ en:
       offer: Offer
       offer_author: "Offered by"
       offer_created: Created
+      open_until: "Open until %{date}"
       feedback: "Feedback:"
       qr_code: "QR code"
       request: Request
@@ -1007,7 +1126,7 @@ en:
       captcha_incorrect: "reCAPTCHA check failed. Please write the words in the image to the box below."
       captcha_was_wrong: "Captcha text was incorrect."
       create_new_account: "Create account"
-      email: "Email address:"
+      email: "Email address"
       email_is_in_use: "The email you gave is already in use."
       email_is_in_use_or_not_allowed: "This email is not allowed for this community or it is already in use. Please use an address that is associated with this community (see instructions above). If you still cannot get in, send us feedback by clicking the link on the left."
       email_not_allowed: "This email is not allowed for this community. Please use an address that is associated with this community. If you still cannot get in, send us feedback by clicking the link on the left."
@@ -1015,22 +1134,24 @@ en:
         one: "This community is only for %{community_name}. To join you need a '%{allowed_emails}' email address."
         other: "This community is only for %{community_name}. To join you need an email address that has one of the following endings: %{allowed_emails}"
       enter_captcha: "I'm a human:"
-      family_name: "Family name:"
-      given_name: "Given name:"
+      family_name: "Family name"
+      given_name: "Given name"
       i_accept_the: "I accept the"
-      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can"
+      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can also"
       join_with_your_existing_account: "join this community with your existing account"
       invalid_invitation_code: "The invitation code is not valid."
-      invitation_code: "Invitation code:"
+      invitation_code: "Invitation code"
       not_required: ", not required"
-      password_again: "Confirm password:"
+      password_again: "Confirm password"
       show_my_name_to_others: "Show my real name to other %{service_name} users"
-      sign_up: "Create a new account in %{service_name}"
+      sign_up: "Create a new %{service_name} account"
       terms: "terms of use"
       username_is_in_use: "This username is already in use."
       username_is_invalid: "Username is invalid. Allowed characters are letters, numbers and underscore."
       visible_only_to_you: "visible only to you and community admin"
       visible_to_everybody: "visible to everybody"
+      create_account_with_facebook: "Create an account with Facebook"
+      or_create_new_account_without_facebook: "...or create an account without using Facebook below."
     not_member:
       explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. %{service_name} does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
       read_more_about_kassi_communities: "Read more about %{service_name} communities"
@@ -1109,21 +1230,21 @@ en:
       volunteer_gold: "Volunteer (gold)"
       volunteer_gold_description: "You know nothing better than helping others. You have 25 open service offers in your profile, fabulous!"
       volunteer_silver: "Volunteer (silver)"
-      volunteer_silver_description: "You have a lot to give to the others: you have listed 10 services that you could do in %{service_name}!"
+      volunteer_silver_description: "You have a lot to give to others: you have listed 10 services that you could do in %{service_name}!"
     profile_feedback:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       grade: "grade:"
       and_gave_following_feedback: "and gave the following feedback"
       less_than_expected: "Worse than expected"
-      offered_favor: "offered help"
-      offered_housing: "offered space"
-      offered_item: "offered an item"
+      offered_favor: "offered help in"
+      offered_housing: "offered"
+      offered_item: "offered"
       offered_rideshare: "offered a ride"
-      requested_favor: "requested help"
-      requested_housing: "requested space"
-      requested_item: "requested an item"
-      requested_rideshare: "requested a ride"
+      requested_favor: "got help in"
+      requested_housing: "got a space"
+      requested_item: "got"
+      requested_rideshare: "got a ride"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
     profile_listings:
@@ -1141,15 +1262,13 @@ en:
       add_phone_number: "Add phone number"
       address: "Location:"
       as_expected: "As expected"
-      badges: Badges
-      edit_profile_info: "Edit your information"
+      edit_profile_info: "Edit profile"
       exceeded_expectations: "Exceeded expectations"
-      received_feedback: "Received feedback:"
       positive: positive
       hide_description: "Show less"
-      joined_this_community: "...joined this community %{time_ago}"
-      was_last_seen: "...was last seen %{time_ago}"
-      was_invited_by: "...was invited by %{inviter_name}"
+      joined_this_community: "Joined %{time_ago}"
+      was_last_seen: "Last seen %{time_ago}"
+      was_invited_by: "Invited by %{inviter_name}"
       less_than_expected: "Worse than expected"
       phone_number: "Phone number:"
       show_all_badges: "Show all badges"
@@ -1159,6 +1278,17 @@ en:
       slightly_better_than_expected: "Exceeded expectations"
       slightly_less_than_expected: "Worse than expected"
       what_are_these: "What are these?"
+      review: "received review"
+      reviews: "received reviews"
+      badge: badge
+      badges: badges
+      open_listing: "open listing"
+      open_listings: "open listings"
+      no_open_listings: "No open listings"
+      no_reviews: "No reviews"
+      no_badges: "No badges"
+      show_all_open_listings: "Show all open listings"
+      show_all_reviews: "Show all reviews"
       trustcloud: TrustCloud
   search:
     show:
@@ -1172,7 +1302,7 @@ en:
       search_verb: Search
   sessions:
     new:
-      create_new_account: "Create a new account to %{service_name}"
+      create_new_account: "Create a new account"
       i_forgot_my_password: "I forgot my username or password"
       login: "Log in"
       login_to_kassi: "Log in to %{service_name}"
@@ -1183,8 +1313,8 @@ en:
       account_creation_link_text: "click here"
       cancle_facebook_connect: "If you don't want to link this account, you can %{cancel_link}."
       facebook_cancel_link_text: cancel
-      log_in_with_your_facebook_account: "Log in with your Facebook account:"
-      or_sign_up_with_your_username: "...or with your username and password:"
+      log_in_with_your_facebook_account: "Log in with your Facebook account"
+      or_sign_up_with_your_username: "...or with your username or email:"
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
@@ -1209,7 +1339,8 @@ en:
       confirm_new_password: "Confirm new password"
       delete_account: "Delete account"
       email: "Email address:"
-      instructions_to_delete_account: "If you want to delete your account, contact us by using the feedback button on the left."
+      instructions_to_delete_account: "If you want to delete your account, %{contact_admin_link}."
+      contact_admin: "please contact the administrators"
       new_email: "New email address"
       new_password: "New password"
       save: Save
@@ -1240,19 +1371,19 @@ en:
       unsubscribe_unsuccesful: "Error in unsubscribing"
       unsuccessful_unsubscribe_info_text: "The reason might that the unsubscribe link you clicked was old or otherwise broken. Contact us via feedback button on the left and we can unsubscribe you, or log in to change your email settings."
     profile:
-      about_you: "About you:"
-      city: "City:"
-      family_name: "Family name:"
-      given_name: "Given name:"
-      location_description: "You can give either your exact location or only your zip code. Please add at least your zip code. You can also select a location from the map."
-      phone_number: "Phone number:"
-      postal_code: "Postal code:"
+      about_you: "About you"
+      city: "City"
+      family_name: "Family name"
+      given_name: "Given name"
+      location_description: "You can give either your exact location or, for example, only your zip code. Please add at least your zip code. You can also select a location from the map below."
+      phone_number: "Phone number"
+      postal_code: "Postal code"
       profile_page: "in your profile page"
       profilemap: Mapview
-      street_address: "Location:"
+      street_address: "Location"
       these_fields_are_shown_in_your: "This information is visible to all %{service_name} users"
       visible_to_everybody: "visible to everybody"
-      visible_to_registered_users: "visible to users that have logged in"
+      visible_to_registered_users: "(visible to users that have logged in)"
     save_information: "Save information"
   sms:
     or_check_the_offer_in_kassi: "or check the offer %{listing_url}"

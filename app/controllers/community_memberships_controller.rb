@@ -1,7 +1,7 @@
 class CommunityMembershipsController < ApplicationController
   
   before_filter do |controller|
-    controller.ensure_logged_in("you_must_log_in_to_view_this_page")
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_page")
   end
   
   skip_filter :dashboard_only
@@ -10,7 +10,7 @@ class CommunityMembershipsController < ApplicationController
   
   def new
     if @current_user.communities.include?(@current_community)
-      flash[:notice] = "you_are_already_member"
+      flash[:notice] = t("layouts.notifications.you_are_already_member")
       redirect_to root 
     end
     @community_membership = CommunityMembership.new
@@ -26,7 +26,7 @@ class CommunityMembershipsController < ApplicationController
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the CommunityMembershipsController", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
-        flash[:error] = :unknown_error
+        flash[:error] = t("layouts.notifications.unknown_error")
         render :action => :new and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
@@ -67,10 +67,10 @@ class CommunityMembershipsController < ApplicationController
       invitation.use_once! if invitation.present?
       
       Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id, request.host))
-      flash[:notice] = "you_are_now_member"
+      flash[:notice] = t("layouts.notifications.you_are_now_member")
       redirect_to root 
     else
-      flash[:error] = "joining_community_failed"
+      flash[:error] = t("layouts.notifications.joining_community_failed")
       logger.info { "Joining a community failed, because: #{@community_membership.errors.full_messages}" }
       render :action => :new
     end

@@ -1,17 +1,17 @@
 class ConversationsController < ApplicationController
 
-  layout "conversations"
+  layout "no_tribe", :only => [ :index, :received, :sent, :show, :notifications ]
   
   before_filter :only => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_send_a_message"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
   end
   
   before_filter :except => [ :new, :create ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_your_inbox"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_your_inbox")
   end
   
   before_filter :only => [ :index, :received, :sent, :notifications ] do |controller|
-    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
   before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
@@ -27,22 +27,22 @@ class ConversationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:accept, :reject]
   
   def index
+    session[:no_tribe_title] = "inbox"
+    session[:selected_left_navi_link] = "messages"
     redirect_to received_person_messages_path(:person_id => @current_user.id)
   end
   
   def received
+    session[:no_tribe_title] = "inbox"
+    session[:selected_left_navi_link] = "messages"
     params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("received").paginate(:per_page => 15, :page => params[:page])
-    request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
-  end
-  
-  def sent
-    params[:page] = 1 unless request.xhr?
-    @conversations = @current_user.messages_that_are("sent").paginate(:per_page => 15, :page => params[:page])
+    @conversations = @current_user.conversations.order("last_message_at DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_messages") : (render :action => :index)
   end
   
   def notifications
+    session[:no_tribe_title] = "inbox"
+    session[:selected_left_navi_link] = "notifications"
     @notifications = @current_user.notifications.paginate(:per_page => 20, :page => params[:page])
     @unread_notifications = @current_user.notifications.unread.all
     @current_user.mark_all_notifications_as_read
@@ -50,6 +50,8 @@ class ConversationsController < ApplicationController
   end
   
   def show
+    session[:selected_left_navi_link] = "messages"
+    session[:selected_left_navi_link] = "inbox"
     @current_user.read(@conversation) unless @conversation.read_by?(@current_user)
     @other_party = @conversation.other_party(@current_user)
   end

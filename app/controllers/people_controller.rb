@@ -2,16 +2,13 @@ class PeopleController < Devise::RegistrationsController
   
   include UrlHelper, PeopleHelper
   
-  layout :choose_layout
-  
-  
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
   before_filter :only => [ :update, :update_avatar ] do |controller|
     controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
   end
   
-  before_filter :person_belongs_to_current_community, :only => :show
+  before_filter :person_belongs_to_current_community, :only => [:show]
   before_filter :ensure_is_admin, :only => [ :activate, :deactivate ]
   
   skip_filter :check_email_confirmation, :only => [ :update]
@@ -32,14 +29,13 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def show
+    session[:selected_tab] = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
-    @listings = params[:type] && params[:type].eql?("requests") ? @person.requests : @person.offers
-    @listings = show_closed? ? @listings : @listings.currently_open 
-    @listings = @listings.visible_to(@current_user, @current_community).order("open DESC, id DESC").paginate(:per_page => 15, :page => params[:page])
-    render :partial => "listings/additional_listings" if request.xhr?
+    @listings = persons_listings(@person)
   end
 
   def new
+    session[:selected_tab] = "members"
     redirect_to root if logged_in?
     @person = Person.new
     @container_class = params[:private_community] ? "container_12" : "container_24"
@@ -51,7 +47,7 @@ class PeopleController < Devise::RegistrationsController
     error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
-      flash[:error] = :registration_considered_spam
+      flash[:error] = t("layouts.notifications.registration_considered_spam")
       ApplicationHelper.send_error_notification("Registration Honey Pot is hit.", "Honey pot")
       redirect_to error_redirect_path and return
     end
@@ -64,7 +60,7 @@ class PeopleController < Devise::RegistrationsController
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
-        flash[:error] = :unknown_error
+        flash[:error] = t("layouts.notifications.unknown_error")
         redirect_to error_redirect_path and return
       else
         invitation = Invitation.find_by_code(params[:invitation_code].upcase)
@@ -90,7 +86,7 @@ class PeopleController < Devise::RegistrationsController
       # Anyway if Captha responses with error, show message to user
       # Also notify admins that this kind of error happened.
       # TODO: if this ever happens, should change the message to something else than "unknown error"
-      flash[:error] = :unknown_error
+      flash[:error] = t("layouts.notifications.unknown_error")
       ApplicationHelper.send_error_notification("New user Sign up failed because Captha check failed, when it shouldn't.", "Captcha error")
       redirect_to error_redirect_path and return
     end
@@ -129,7 +125,7 @@ class PeopleController < Devise::RegistrationsController
       # Anyway if ASI responses with error, show message to user
       # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
       # Also notify admins that this kind of error happened.
-      flash[:error] = :unknown_error
+      flash[:error] = t("layouts.notifications.unknown_error")
       ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
       redirect_to error_redirect_path and return
     end
@@ -146,10 +142,10 @@ class PeopleController < Devise::RegistrationsController
       session[:allowed_email] = "@#{params[:person][:email].split('@')[1]}" if community_email_restricted?
       redirect_to domain + new_tribe_path
     elsif @current_community.email_confirmation
-      flash[:notice] = "account_creation_succesful_you_still_need_to_confirm_your_email"
+      flash[:notice] = t("layouts.notifications.account_creation_succesful_you_still_need_to_confirm_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending"
     else
-      flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+      flash[:notice] = t("layouts.notifications.account_creation_successful", :person_name => view_context.link_to((@person.given_name_or_username).to_s, person_path(@person))).html_safe
       redirect_to(session[:return_to].present? ? domain + session[:return_to]: domain + root_path)
     end
   end
@@ -176,7 +172,7 @@ class PeopleController < Devise::RegistrationsController
 
     session[:person_id] = @person.id    
     sign_in(resource_name, @person)
-    flash[:notice] = [:login_successful, (@person.given_name_or_username + "!").to_s, person_path(@person)]
+    flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
     
     # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
     redirect_to :controller => :community_memberships, :action => :new
@@ -210,18 +206,18 @@ class PeopleController < Devise::RegistrationsController
           #if password changed Devise needs a new sign in.
           sign_in @person, :bypass => true
         end
-        flash[:notice] = :person_updated_successfully
+        flash[:notice] = t("layouts.notifications.person_updated_successfully")
         
         # Send new confirmation email, if was changing for that 
         if params["request_new_email_confirmation"]
             @person.send_confirmation_instructions
-            flash[:notice] = :email_confirmation_sent_to_new_address
+            flash[:notice] = t("layouts.notifications.email_confirmation_sent_to_new_address")
         end
       else
-        flash[:error] = @person.errors.first
+        flash[:error] = t("layouts.notifications.#{@person.errors.first}")
       end
     rescue RestClient::RequestFailed => e
-      flash[:error] = "update_error"
+      flash[:error] = t("layouts.notifications.update_error")
     end
     
     redirect_to :back
@@ -230,9 +226,9 @@ class PeopleController < Devise::RegistrationsController
   
   def update_avatar
     if params[:person] && params[:person][:image] && @person.update_attributes(params[:person])
-      flash[:notice] = :avatar_upload_successful
+      flash[:notice] = t("layouts.notifications.avatar_upload_successful")
     else 
-      flash[:error] = :avatar_upload_failed
+      flash[:error] = t("layouts.notifications.avatar_upload_failed")
     end
     redirect_to avatar_person_settings_path(:person_id => @current_user.id.to_s)  
   end
@@ -340,14 +336,6 @@ class PeopleController < Devise::RegistrationsController
 
   private
   
-  def choose_layout
-    if @current_community && @current_community.private && action_name.eql?("new")
-      'private'
-    else
-      'application'
-    end
-  end
-  
   def verify_recaptcha_unless_already_accepted(options={})
     # Check if this captcha is already accepted, because ReCAPTCHA API will return false for further queries
     if session[:last_accepted_captha] == "#{params["recaptcha_challenge_field"]}#{params["recaptcha_response_field"]}"
@@ -366,14 +354,12 @@ class PeopleController < Devise::RegistrationsController
     #@person.update_attribute(:active, 0)
     @person.update_attribute(:active, (status.eql?("activated") ? true : false))
     @person.listings.update_all(:open => false) if status.eql?("deactivated") 
-    notice = "person_#{status}"
+    flash[:notice] = t("layouts.notifications.person_#{status}")
     respond_to do |format|
-      format.html { 
-        flash[:notice] = notice
+      format.html {
         redirect_to @person
       }
       format.js {
-        flash.now[:notice] = notice
         render :layout => false 
       }
     end

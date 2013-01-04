@@ -73,15 +73,15 @@ module ApplicationHelper
   
   def small_avatar_thumb(person)
     return "" if person.nil?
-    link_to((image_tag person.image.url(:thumb), :width => 50, :height => 50), person)
+    link_to((image_tag person.image.url(:thumb)), person)
   end
   
   def medium_avatar_thumb(person)
-    link_to((image_tag person.image.url(:thumb), :width => 70, :height => 70), person)
+    link_to((image_tag person.image.url(:thumb)), person)
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :width => 218, :alt => person.name(session[:cookie])
+    image_tag person.image.url(:medium), :alt => person.name(session[:cookie])
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
@@ -116,6 +116,15 @@ module ApplicationHelper
     else
       return Kassi::Application.config.AVAILABLE_LOCALES
     end
+  end
+  
+  def get_full_locale_name(locale)
+    Kassi::Application.config.AVAILABLE_LOCALES.each do |l|
+      if l[1].to_s == locale.to_s
+        return l[0]
+      end
+    end
+    return locale # return the short string if no match found for longer name
   end
   
   def self.send_error_notification(message, error_class="Special Error", parameters={})
@@ -284,7 +293,8 @@ module ApplicationHelper
   # general method for making urls as links and line breaks as <br /> tags
   def add_links_and_br_tags(text)
     pattern = /[\.)]*$/
-    text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n/, "<br />")
+    text = text.gsub(/https?:\/\/\S+/) { |link_url| link_to(truncate(link_url.gsub(pattern,""), :length => 50, :omission => "..."), link_url.gsub(pattern,"")) + link_url.match(pattern)[0]}.gsub(/\n\n/, "</p><p>")
+    "<p>#{text}</p>"
   end
   
   # general method for making urls as links and line breaks as <br /> tags
@@ -299,6 +309,130 @@ module ApplicationHelper
       url += "&#{key}=#{value}"
     end
     return url
-  end  
+  end
+  
+  # About view left hand navigation content
+  def about_links
+    [
+      { 
+        :text => t('layouts.infos.about'),
+        :icon_class => "ss-info", 
+        :path => about_infos_path,
+        :name => "about"
+      },
+      { 
+        :text => t('layouts.infos.how_to_use'),
+        :icon_class => "ss-signpost", 
+        :path => how_to_use_infos_path,
+        :name => "how_to_use"
+      },
+      { 
+        :text => t('layouts.infos.terms'),
+        :icon_class => "ss-textfile", 
+        :path => terms_infos_path,
+        :name => "terms"
+      },
+      { 
+        :text => t('layouts.infos.register_details'),
+        :icon_class => "ss-lockfile", 
+        :path => privacy_infos_path,
+        :name => "privacy"
+      },
+    ]
+  end
+  
+  # Admin view left hand navigation content
+  def admin_links_for(community)
+    [
+      { 
+        :text => t("admin.communities.edit_details.community_details"),
+        :icon_class => "ss-page", 
+        :path => edit_details_admin_community_path(community),
+        :name => "tribe_details"
+      },
+      {
+        :text => t("admin.communities.edit_details.community_look_and_feel"),
+        :icon_class => "ss-layout", 
+        :path => edit_look_and_feel_admin_community_path(community),
+        :name => "tribe_look_and_feel"
+      } 
+    ]
+  end
+  
+  # Inbox view left hand navigation content
+  def inbox_links_for(person)
+    [
+      { 
+        :text => t("layouts.conversations.messages"),
+        :icon_class => "ss-mail", 
+        :path => received_person_messages_path(:person_id => person.id.to_s),
+        :name => "messages"
+      },
+      {
+        :text => t("layouts.conversations.notifications"),
+        :icon_class => "ss-earth", 
+        :path => notifications_person_messages_path(:person_id => person.id.to_s),
+        :name => "notifications"
+      } 
+    ]
+  end
+  
+  # Settings view left hand navigation content
+  def settings_links_for(person)
+    [
+      { 
+        :text => t("layouts.settings.profile"),
+        :icon_class => "ss-userfile", 
+        :path => profile_person_settings_path(:person_id => person.id.to_s),
+        :name => "profile"
+      },
+      {
+        :text => t("layouts.settings.avatar"),
+        :icon_class => "ss-picturefile", 
+        :path => avatar_person_settings_path(:person_id => person.id.to_s),
+        :name => "avatar"
+      },
+      {
+        :text => t("layouts.settings.account"),
+        :icon_class => "ss-lockfile", 
+        :path => account_person_settings_path(:person_id => person.id.to_s) ,
+        :name => "account"
+      },
+      {
+        :text => t("layouts.settings.notifications"),
+        :icon_class => "ss-callbell", 
+        :path => notifications_person_settings_path(:person_id => person.id.to_s),
+        :name => "notifications"
+      }
+    ]
+  end
+  
+  def dashboard_link(args)
+    locale_part = "" 
+    selected_locale = args[:locale].to_s
+    if selected_locale.present? && selected_locale != "en"
+      Kassi::Application.config.AVAILABLE_DASHBOARD_LOCALES.each do |name, loc|
+        locale_part = "/#{selected_locale}" and break if loc == selected_locale
+      end
+    end
+    return "#{default_protocol}www.#{APP_CONFIG.domain}#{locale_part}#{args[:ref] ? "?ref=#{args[:ref]}" : ""}"
+  end
+  
+  # returns either "http://" or "https://" based on configuration settings
+  def default_protocol
+    APP_CONFIG.always_use_ssl ? "https://" : "http://"
+  end
+  
+  # Return the right badge size depending on the unread message count
+  def get_messages_badge_class(unread_count)
+    case unread_count
+    when 1..9
+      "badge"
+    when 10..99
+      "badge big-badge"
+    else
+      "badge huge-badge"
+    end
+  end
   
 end

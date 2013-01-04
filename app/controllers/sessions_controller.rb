@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     
     # In case of failure, set the message already here and 
     # clear it afterwards, if authentication worked.
-    flash[:error] = :login_failed
+    flash[:error] = t("layouts.notifications.login_failed")
     
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"
@@ -94,7 +94,7 @@ class SessionsController < ApplicationController
     if not @current_community
       redirect_to domain + new_tribe_path
     elsif @current_user.communities.include?(@current_community) || @current_user.is_admin?
-      flash[:notice] = [:login_successful, (@current_user.given_name_or_username + "!").to_s, person_path(@current_user)]
+      flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@current_user.given_name_or_username, person_path(@current_user))).html_safe
       EventFeedEvent.create(:person1_id => @current_user.id, :community_id => current_community.id, :category => "login") unless (@current_user.is_admin? && !@current_user.communities.include?(@current_community))
       if session[:return_to]
         redirect_to domain + session[:return_to]
@@ -114,7 +114,7 @@ class SessionsController < ApplicationController
     sign_out
     session[:cookie] = nil
     session[:person_id] = nil
-    flash[:notice] = :logout_successful
+    flash[:notice] = t("layouts.notifications.logout_successful")
     redirect_to root
   end
   
@@ -127,9 +127,9 @@ class SessionsController < ApplicationController
     if Person.find_by_email(params[:email])
       #Call devise based method
       resource = Person.send_reset_password_instructions(params)
-      flash[:notice] = :password_recovery_sent
+      flash[:notice] = t("layouts.notifications.password_recovery_sent")
     else
-      flash[:error] = :email_not_found
+      flash[:error] = t("layouts.notifications.email_not_found")
     end
 
     

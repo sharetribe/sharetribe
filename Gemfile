@@ -15,7 +15,8 @@ gem 'capistrano' # could be removed as not currently used
 group :assets do  
   gem 'sass-rails', "  ~> 3.2.5"
   gem 'coffee-rails', "~> 3.2.2"
-  gem 'uglifier'  
+  gem 'uglifier'
+  gem 'compass-rails'
 end  
   
 gem 'jquery-rails'

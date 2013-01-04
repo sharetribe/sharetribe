@@ -6,14 +6,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.uniform.min
 //= require jquery.form
-//= require jquery.lightbox_me
+//= require jquery.fancybox
 //= require jquery.validate.min
 //= require jquery.pageless
 //= require jquery.autosize-min
-//= require jquery.watermark.min
-//= require jquery.tabSlideOut.v1.3
+//= html5shiv-printshiv
+//= ss-social
+//= ss-pika
+//= require infobubble
 //= require sharetribe_common
 //= require kassi
 //= require googlemaps

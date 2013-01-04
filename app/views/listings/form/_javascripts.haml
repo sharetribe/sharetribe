@@ -4,6 +4,3 @@
   $(document).ready(function() {
     initialize_new_listing_form("#{t('listings.form.images.no_file_selected')}", "#{t('listings.form.images.select_file')}", "#{I18n.locale}", "#{t('error_messages.listings.share_type')}", "#{valid_until_msg}", "#{@listing.rideshare?}", "#{@listing.listing_type == "offer" ? "true" : "false"}", "#{listing_id}", "#{t('people.new.address_validator')}", "#{t('listings.form.share_type.select')}");
   });
-
-- content_for :extra_javascript do
-  = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"

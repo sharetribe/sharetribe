@@ -1,9 +1,9 @@
-.single_testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }"}
+.testimonial{:class => "light_#{testimonial.displayed_grade > 2 ? 'green' : 'red' }"}
   - listing = testimonial.participation.conversation.listing
-  .testimonial_image
+  .testimonial-image
     %div{:class => grade_image_class(testimonial.displayed_grade), :title => t("people.profile_feedback.grade").capitalize + " " + grade_text(testimonial.displayed_grade).downcase + "."}
       &nbsp;
-  .testimonial_description
+  .testimonial-description
     = link_to testimonial.author.given_name_or_username, testimonial.author
     = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category}")
     - if listing.visibility.eql?("disabled")

@@ -1,1 +1,11 @@
-= render :file => community_file("about", true)
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
+
+.left-navi-section.about-section
+  %h3= @current_community.slogan ? @current_community.slogan : t("common.default_community_slogan")
+  - if @current_community.description
+    - text_with_line_breaks do
+      = @current_community.description
+  - else
+    %p
+      = t("common.default_community_slogan")
+  = render :file => community_file("about", true)

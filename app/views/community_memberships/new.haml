@@ -1,47 +1,41 @@
 - content_for :javascript do
   initialize_new_community_membership_form("#{t("people.new.email_is_in_use_or_not_allowed")}",#{@current_community.join_with_invite_only?}, "#{t("people.new.invalid_invitation_code")}");
 
-.grid_10.prefix_7.suffix_7
-  #login_form
-    %h2
-      = t('.join_community', :community => @current_community.name)
-    %p
-      = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
-    %p
-      - if @current_community.join_with_invite_only?
-        = t('.you_can_join_with_invite_only')
-      - elsif @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
-        - if @current_community.allowed_emails.split(",").size > 1
-          = t('.you_can_join_email_confirmation_multiple_addresses', :email_endings => @current_community.allowed_emails.split(",").join(", "))
-        - else
-          = t('.you_can_join_email_confirmation', :email_ending => @current_community.allowed_emails)
+.centered-section
+  %h2
+    = t('.join_community', :community => @current_community.name)
+  %p
+    = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
+  %p
+    - if @current_community.join_with_invite_only?
+      = t('.you_can_join_with_invite_only')
+    - elsif @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
+      - if @current_community.allowed_emails.split(",").size > 1
+        = t('.you_can_join_email_confirmation_multiple_addresses', :email_endings => @current_community.allowed_emails.split(",").join(", "))
       - else
-        = t('.you_can_join')
-    - unless @current_community.private?
-      %p
-        = t(".if_want_to_view_content")
-        = link_to(t(".log_out"), logout_path) + "."
-    = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
-      - if @current_community.join_with_invite_only?
-        .form_field_container
-          = label_tag :invitation_code, t('people.new.invitation_code'), :class => "before_description"
-          %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
-          = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
-      - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
-        .form_field_container
-          = form.label :email, t('people.new.email'), :class => "before_description"
-          = form.text_field :email, :class => :text_field, :maxlenght => "255"
-      .form_field_container
-        .signup_checkbox_container
-          .signup_checkbox_input_container
-            %input{:type => "checkbox", :id => "community_membership_consent", :style => "opacity: 0;", :name => "community_membership[consent]"}
-          .signup_checkbox_label_container
-            = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
-            = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
-      .form_field_container
-        = form.hidden_field :community_id, :value => @current_community.id
-        = form.hidden_field :person_id, :value => @current_user.id
-        = form.hidden_field :consent, :value => @current_community.consent
-        = submit_tag(t('.join_community_button'), :class => "send_button")
+        = t('.you_can_join_email_confirmation', :email_ending => @current_community.allowed_emails)
+    - else
+      = t('.you_can_join')
+  - unless @current_community.private?
+    %p
+      = t(".if_want_to_view_content")
+      = link_to(t(".log_out"), logout_path) + "."
+  = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
+    - if @current_community.join_with_invite_only?
+      = label_tag :invitation_code, t('people.new.invitation_code'), :class => "before_description"
+      %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
+      = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
+    - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
+      = form.label :email, t('people.new.email'), :class => "before_description"
+      = form.text_field :email, :class => :text_field, :maxlenght => "255"
+    .outer-checkbox-container
+      .checkbox-container
+        %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}
+        = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
+        = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
+    = form.hidden_field :community_id, :value => @current_community.id
+    = form.hidden_field :person_id, :value => @current_user.id
+    = form.hidden_field :consent, :value => @current_community.consent
+    = button_tag(t('.join_community_button'), :class => "send_button")
 
 = render :partial => "people/help_texts", :collection => ["terms", "help_invitation_code"], :as => :field

@@ -7,7 +7,7 @@ class CommunitiesController < ApplicationController
   skip_filter :single_community_only
   
   before_filter :only => [ :set_organization_email ] do |controller|
-    controller.ensure_logged_in "you_must_log_in_to_view_this_content"
+    controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_view_this_content")
   end
   
   respond_to :html, :json
@@ -63,6 +63,10 @@ class CommunitiesController < ApplicationController
     @community.use_captcha = false
     @community.save
     @community.community_memberships.first.update_attribute(:admin, true) #make creator an admin
+    
+    # Add his listings that have visibility in all communities to the new one
+    @community.community_memberships.first.person.add_listings_visible_to_all_to(@community)
+    
     location.community = @community
     location.save
     clear_session_variables

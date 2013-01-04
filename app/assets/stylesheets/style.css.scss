@@ -1,5 +1,4 @@
 @import "common";
-@import "tab_slide_out";
 
 /* Used for divs with rounded left or right */
 @mixin half_rounded_side($side, $radius: 7px) {
@@ -3209,6 +3208,22 @@ span.option_percentage_admin_view {
 input.resend_email_confirmation_button {
 	@include send_button;
 	width: 330px;
+}
+
+.signup_checkbox_container {
+	overflow: hidden;
+	margin-left: 110px;
+	margin-bottom: 5px;
+}
+
+.signup_checkbox_input_container {
+	margin-right: 10px;
+	float: left;
+}
+
+.signup_checkbox_label_container {
+	margin-top: 8px;
+	float: left;
 }
 
 /* Tag cloud - Massi code */

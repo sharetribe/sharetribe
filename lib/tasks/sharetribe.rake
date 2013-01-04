@@ -127,7 +127,7 @@ namespace :sharetribe do
                         :author =>  people_array[row[1]],
                         :receiver => people_array[row[2]],  
                         :text   =>  row[3],
-                        :grade   =>  row[4]/5.0,
+                        :grade   =>  row[4]-1/4.0,
                         :participation => participations_array[row[5]]
 
               )

@@ -121,24 +121,11 @@ class Person < ActiveRecord::Base
 
   validate :community_email_type_is_correct
 
-  paperclip_options = {
-        :styles => { :medium => "200x350>", :thumb => "50x50#", :original => "600x800>" },
-        :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
-        :url => "/system/:attachment/:id/:style/:filename"
-        }
-  if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
-    paperclip_options.merge!({
-      :path => "images/:class/:attachment/:id/:style/:filename",
-      :url => "/system/:class/:attachment/:id/:style/:filename",
-      :storage => :s3,
-      :s3_protocol => 'https',
-      :s3_credentials => {
-            :bucket            => APP_CONFIG.s3_bucket_name, 
-            :access_key_id     => APP_CONFIG.aws_access_key_id, 
-            :secret_access_key => APP_CONFIG.aws_secret_access_key 
-      }
-    })
-  end
+  paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
+                      :medium => "200x350>", 
+                      :thumb => "50x50#", 
+                      :original => "600x800>"
+  }})
   
   has_attached_file :image, paperclip_options
         
@@ -266,12 +253,6 @@ class Person < ActiveRecord::Base
     if self.facebook_id
       self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
     end
-  end
-
-  
-  # Returns conversations for the "received" and "sent" actions
-  def messages_that_are(action)
-    conversations.joins(:participations).where("participations.last_#{action}_at IS NOT NULL").order("participations.last_#{action}_at DESC").uniq
   end
   
   def feedback_average
@@ -598,6 +579,16 @@ class Person < ActiveRecord::Base
     return true if community_updates_last_sent_at.nil?
     return community_updates_last_sent_at + min_days_between_community_updates.days - 45.minutes < Time.now
   end
+
+  def add_listings_visible_to_all_to(community)
+    listings.each do |listing|
+      if listing.visibility == "all_communities" && !listing.communities.include?(community)
+        listing.communities << community
+      end
+    end
+    
+  end
+  
   
   private
   

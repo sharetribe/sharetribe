@@ -1,7 +1,7 @@
 class Comment < ActiveRecord::Base
   
   belongs_to :author, :class_name => "Person"
-  belongs_to :listing
+  belongs_to :listing, :counter_cache => true
   has_many :notifications, :as => :notifiable, :dependent => :destroy
   
   attr_accessor :author_follow_status

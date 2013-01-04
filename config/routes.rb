@@ -62,29 +62,31 @@ Kassi::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))
   
-  scope :module => "api", :constraints => ApiRequest do
-    resources :tokens, :only => :create
-    resources :listings do
-      resources :comments
-    end
-    resources :people do
-      resources :conversations do
-        member do
-          post :messages, :controller => :conversations, :action => "new_message"
-        end
-      end
-      resources :devices
-      resources :listings
-      resources :feedbacks, :controller => :testimonials
-      resources :badges
-    end
 
-    match '/' => 'dashboard#api'    
-  end
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
+    
+    scope :module => "api", :constraints => ApiRequest do
+      resources :tokens, :only => :create
+      resources :listings do
+        resources :comments
+      end
+      resources :people do
+        resources :conversations do
+          member do
+            post :messages, :controller => :conversations, :action => "new_message"
+          end
+        end
+        resources :devices
+        resources :listings
+        resources :feedbacks, :controller => :testimonials
+        resources :badges
+      end
 
+      match '/' => 'dashboard#api'    
+    end
+    
     devise_for :people, :controllers => { :confirmations => "confirmations", :registrations => "people", :omniauth_callbacks => "sessions"}, :path_names => { :sign_in => 'login'} 
     devise_scope :person do  
       # these matches need to be before the general resources to have more priority
@@ -128,7 +130,7 @@ Kassi::Application.routes.draw do
             put :cancel
           end
           resources :messages
-          resources :feedbacks, :controller => :testimonials do
+          resources :xs, :controller => :testimonials do
             collection do
               put :skip
             end  
@@ -156,8 +158,13 @@ Kassi::Application.routes.draw do
     end  
 
     namespace :admin do
-      resources :feedbacks
       resources :news_items
+      resources :communities do
+        member do
+          get :edit_details
+          get :edit_look_and_feel
+        end
+      end
       resources :polls do
         collection do
           get :add_option
@@ -169,6 +176,7 @@ Kassi::Application.routes.draw do
         end
       end
     end
+    resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
       collection do
         get :sign_in
@@ -194,6 +202,7 @@ Kassi::Application.routes.draw do
         get :more_listings
         get :browse
         get :random
+        get :locations_json
       end
       resources :images, :controller => :listing_images
       resources :comments
@@ -204,7 +213,7 @@ Kassi::Application.routes.draw do
         get :about
         get :how_to_use
         get :terms
-        get :register_details
+        get :privacy
         get :news
       end  
     end
@@ -256,11 +265,10 @@ Kassi::Application.routes.draw do
   match "/:locale/signup/check_captcha" => "people#check_captcha", :as => :check_captcha
   match "/:locale/confirmation_pending" => "sessions#confirmation_pending", :as => :confirmation_pending
   match "/:locale/login" => "sessions#new", :as => :login
-  match "/change_locale" => "i18n#change_locale"
+  match "/change_locale" => "i18n#change_locale", :as => :change_locale
   match '/:locale/tag_cloud' => "tag_cloud#index", :as => :tag_cloud
   match "/:locale/offers/map/" => "listings#offers_on_map", :as => :offers_on_map
   match "/:locale/requests/map/" => "listings#requests_on_map", :as => :requests_on_map
-  match "/api/query" => "listings#serve_listing_data", :as => :listings_data
   match "/:locale/listing_bubble/:id" => "listings#listing_bubble", :as => :listing_bubble
   match "/:locale/listing_bubble_multiple/:ids" => "listings#listing_bubble_multiple", :as => :listing_bubble_multiple
   match '/:locale/:page_type' => 'dashboard#campaign'

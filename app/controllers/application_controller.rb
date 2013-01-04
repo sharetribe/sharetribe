@@ -21,19 +21,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :root, :logged_in?, :current_user?
 
-  def set_locale    
+  def set_locale
+
     locale = (logged_in? && @current_community && @current_community.locales.include?(@current_user.locale)) ? @current_user.locale : params[:locale]
 
     if locale.blank? && @current_community
       locale = @current_community.default_locale
     end
-
+    
     if ENV['RAILS_ENV'] == 'test'
       I18n.locale = locale
     else
       I18n.locale = available_locales.collect { |l| l[1] }.include?(locale) ? locale : APP_CONFIG.default_locale
     end
-
+    
     # A hack to get the path where the user is
     # redirected after the locale is changed
     new_path = request.fullpath.clone
@@ -151,7 +152,7 @@ class ApplicationController < ActionController::Base
     # If confirmation is required, but not done, redirect to confirmation pending announcement page
     # (but allow confirmation to come through)
     if @current_community && @current_community.email_confirmation && @current_user && @current_user.confirmed_at.blank?
-      flash[:warning] = "you_need_to_confirm_your_account_first"
+      flash[:warning] = t("layouts.notifications.you_need_to_confirm_your_account_first")
       redirect_to :controller => "sessions", :action => "confirmation_pending" unless params[:controller] == 'devise/confirmations'
     end
   end
@@ -163,6 +164,7 @@ class ApplicationController < ActionController::Base
 
   def person_belongs_to_current_community
     @person = Person.find(params[:person_id] || params[:id])
+    return if @person.nil? #in case there was no real person, on need to stop activity
     redirect_to not_member_people_path and return unless @person.communities.include?(@current_community)
   end
 
@@ -171,7 +173,7 @@ class ApplicationController < ActionController::Base
   def session_unauthorized
     # For some reason, ASI session is no longer valid => log the user out
     clear_user_session
-    flash[:error] = ["error_with_session", t("layouts.notifications.login_again"), login_path]
+    flash[:error] = t("layouts.notifications.error_with_session")
     ApplicationHelper.send_error_notification("ASI session was unauthorized. This may be normal, if session just expired, but if this occurs frequently something is wrong.", "ASI session error", params)
     redirect_to root_path and return
   end
@@ -203,7 +205,7 @@ class ApplicationController < ActionController::Base
       e.community_id      = @current_community ? @current_community.id : nil
       begin
         if (params["file"] || params["image"] || (params["listing"] && params["listing"]["listing_images_attributes"] ||
-            params["person"] && params["person"]["image"]))
+            params["person"] && params["person"]["image"]) || (params["community"] && (params["community"]["cover_photo"] || params["community"]["logo"])))
           # This case breaks iomage upload (reason unknown) if we use to_json, so we'll have to skip it 
           e.parameters    = params.inspect.gsub('=>', ':')
         else  #normal case
@@ -222,7 +224,7 @@ class ApplicationController < ActionController::Base
 
   def ensure_is_admin
     unless @current_user && @current_community && @current_user.has_admin_rights_in?(@current_community)
-      flash[:error] = "only_kassi_administrators_can_access_this_area"
+      flash[:error] = t("layouts.notifications.only_kassi_administrators_can_access_this_area")
       redirect_to root and return
     end
   end
@@ -305,4 +307,5 @@ class ApplicationController < ActionController::Base
       render :file => "public/errors/maintenance.html", :layout => false and return
     end
   end
+
 end

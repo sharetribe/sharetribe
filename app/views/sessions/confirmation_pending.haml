@@ -1,6 +1,34 @@
-.grid_10.prefix_7.suffix_7
-  #new_message_form
-    %h2
-      = t("sessions.confirmation_pending.confirm_your_email")
-    = render :partial => "confirmation_form"
-     
+- content_for :javascript do
+  initialize_confirmation_pending_form("#{I18n.locale}","#{email_not_accepted_message}");
+
+#new-message-form.centered-section
+  %h2
+    = t("sessions.confirmation_pending.confirm_your_email")
+  - if @current_community && @current_user
+    - email_to_confirm = @current_user.email
+  - else
+    - email_to_confirm = session[:unconfirmed_email]
+
+  %p
+    - if @current_community
+      = t("sessions.confirmation_pending.account_confirmation_instructions").html_safe
+    - else
+      = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard").html_safe
+
+  - if @current_community
+    %b
+      = t("sessions.confirmation_pending.get_started")
+    %p
+      = t("sessions.confirmation_pending.getting_started_instructions", :profile_url => profile_person_settings_path(:person_id => @current_user.id)).html_safe
+
+  %p
+    = form_for(Person, :as => "person", :url => confirmation_path("person"), :html => { :method => :post }) do |form|
+      .form_field_container
+        = form.hidden_field :email, :value => email_to_confirm
+        = form.hidden_field :id, :value => @current_user.id
+        = form.button t("sessions.confirmation_pending.resend_confirmation_instructions"), :class => "resend_email_confirmation_button"
+      %p
+        = t("sessions.confirmation_pending.your_current_email_is", :email => email_to_confirm).html_safe
+        = link_to t('sessions.confirmation_pending.change_email'), "#", :id => "mistyped_email_link", :class => "green_part_link"
+      #password_forgotten
+        = render :partial => "sessions/change_mistyped_email"

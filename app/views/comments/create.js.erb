@@ -2,7 +2,7 @@
 $("#comment_notice").html('<div class="comment_notice"><%= t("layouts.notifications.#{flash[:comment_notice]}") %></div');
  
 /* Add the new message to the bottom of the message list */
-$("#comments").append("<%= escape_javascript(render(:partial => 'listings/comment', :collection => [@comment])) %>");
+$("#comment-list").append("<%= escape_javascript(render(:partial => 'listings/comment', :collection => [@comment])) %>");
 
 /* Update comment count */
 $("#comment_count").html("(<%= @comment.listing.comments.count %>)");

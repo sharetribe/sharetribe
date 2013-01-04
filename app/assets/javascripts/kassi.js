@@ -32,8 +32,6 @@ function add_validator_methods() {
   			var current_time = new Date();
   			maximum_date = new Date((current_time.getFullYear() + 1),current_time.getMonth(),current_time.getDate(),0,0,0);
   			if (is_rideshare == "true") {
-  				// alert ("Datetime select: " + get_datetime_from_datetime_select() + "\n Max date: " + maximum_date);
-  				//alert ("Max date: " + maximum_date);
   				return get_datetime_from_datetime_select() < maximum_date;
   			} else {
   				return get_date_from_date_select() < maximum_date;
@@ -81,24 +79,30 @@ function add_validator_methods() {
 }
 
 // Initialize code that is needed for every view
-function initialize_defaults(default_text, feedback_default_text, locale) {
+function initialize_defaults(locale) {
   add_validator_methods();
   translate_validation_messages(locale);
-	$('input.search_field').watermark(default_text, {className: 'default_text'});
-	$("select.language_select").uniform();
-	$('#close_notification_link').click(function() { $('#notifications').slideUp('fast'); });
-	// Make sure that Sharetribe cannot be used if js is disabled
-	$('.wrapper').addClass('js_enabled');
-	initialize_feedback_tab();
-	$('textarea.feedback').watermark(feedback_default_text, {className: 'default_textarea_text'});
-	prepare_ajax_form(
-    "#new_feedback",
-    locale, 
-    {
-		  "feedback[email]": {required: false, email: true},
+  setTimeout(hideNotice, 5000);
+  $('.flash-notifications').click(function() {
+    $('.flash-notifications').fadeOut('slow');
+  });
+  $('#login-toggle-button').click(function() { 
+    $('#person_login').focus();
+  });
+}
+
+var hideNotice = function() {
+  $('.flash-notifications').fadeOut('slow');
+}
+
+function initialize_user_feedback_form() {
+  form_id = "#new_feedback"
+  $(form_id).validate({
+    rules: {
+      "feedback[email]": {required: false, email: true},
 			"feedback[content]": {required: true, minlength: 1}
 		}
-  );
+	});
 }
 
 function initialize_feedback_tab() {
@@ -117,35 +121,145 @@ function initialize_feedback_tab() {
 
 function initialize_login_form() {
 	$('#password_forgotten_link').click(function() { 
-		$('#password_forgotten').slideToggle('fast'); 
+		$('#password_forgotten').slideToggle('fast');
+		$("html, body").animate({ scrollTop: $(document).height() }, 1000);
 		$('input.request_password').focus();
 	});
   $('#login_form input.text_field:first').focus();
 }
 
-function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {	
-	$('#help_tags_link').click(function() { $('#help_tags').lightbox_me({centered: true}); });
-	$('#help_share_type_link').click(function() { $('#help_share_type').lightbox_me({centered: true}); });
-	$('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true}); });
+function reload_selected_links(locale, link) {
+  
+  $('.option-group').addClass('hidden');
+  link.addClass('hidden');
+  $('.share-type-option').each(function(index) { 
+    $(this).addClass('hidden'); 
+  });
+  $('.form-fields').addClass('hidden');
+  if (link.parent().hasClass('listing_type')) {
+    $('.category').children().addClass('hidden');
+    $('.subcategory').children().addClass('hidden');
+    $('.share_type').children().addClass('hidden');
+    $('.option-group-title').addClass('hidden');
+  } else if (link.parent().hasClass('category')) {
+    $('.subcategory').children().addClass('hidden');
+    $('.share_type').children().addClass('hidden');
+    $('.group-options-title').addClass('hidden');
+    $('.option-group-title.subcategory').addClass('hidden');
+  } else if (link.parent().hasClass('subcategory')) {
+    $('.share_type').children().addClass('hidden');
+    $('.group-options-title').addClass('hidden');
+  }
+  display_option_links(link.parent().attr('class'));
+  
+}
+
+// Make changes based on a click in a "selected" link in the listing form
+function display_option_links(section_name) {
+  $('.' + section_name + '-options').removeClass('hidden');
+  // Make sure that only the correct share types are displayed.
+  if (section_name == "share_type") {
+    listing_type = $('.listing_type').children().not('.hidden').attr('name');
+    category = $('.category').children().not('.hidden').attr('name');
+    $('.share-type-option').each(function(index) {
+      if ($(this).hasClass(listing_type) && $(this).hasClass(category)) {
+        $(this).removeClass('hidden');
+      }
+    });
+  }
+}
+
+// Load new listing form with AJAX
+function display_form_fields(sections, locale) {
+  $('.form-fields').removeClass('hidden');
+  var new_listing_path = '/' + locale + '/listings/new';
+  var params = {};
+  
+  for (var j = 0; j < sections.length; j++) {
+    params[sections[j]] = $('.' + sections[j]).children().not('.hidden').attr('name');
+  }
+  
+  $.get(new_listing_path, params, function(data) {
+    $('.form-fields').html(data);
+  });
+}
+
+// Make changes based on a click in an "option" link in the listing form
+function reload_option_links(locale, link, valid_share_types) {
+  
+  var sections = ["listing_type", "category", "share_type"];
+  // Use this instead if subcategories are used
+  // var sections = ["listing_type", "category", "subcategory", "share_type"];
+  
+  $('.selected[name=' + link.attr('name') + ']').removeClass('hidden');
+  
+  for (var i = 0; i < sections.length; i++) {
+    listing_type = $('.listing_type').children().not('.hidden').attr('name');
+    if (link.parent().hasClass(sections[i] + '-options')) {
+      $('.' + sections[i] + '-options').addClass('hidden');
+      if (i == (sections.length - 1)) {
+        // If this is the last selection before displaying the form,
+        // prepare the form parameters and make the ajax call
+        display_form_fields(sections, locale);
+      } else {
+        // If the last section would be share types, but there are no share types
+        // for this category, display form instead of the section. Otherwise,
+        // display the next section normally.
+        if (sections[i + 1] == "share_type") {
+          category = $('.category').children().not('.hidden').attr('name');
+          if (valid_share_types[listing_type][category] == null) {
+             display_form_fields(sections, locale);
+           } else {
+             $('.option-group-title.share_type.' + listing_type).removeClass('hidden');
+             display_option_links(sections[i + 1]);
+           }
+        } else {
+          // Display correct titles in category and subcategory form depending on
+          // previous selections
+          if (sections[i + 1] == "category") {
+            $('.option-group-title.category.' + listing_type).removeClass('hidden');
+          } else if (sections[i + 1] == "subcategory") {
+            category = $('.category').children().not('.hidden').attr('name');
+            $('.option-group-title.subcategory.' + category).removeClass('hidden');
+          }
+          display_option_links(sections[i + 1]);
+        }
+      }
+      return;
+    }
+  }
+
+}
+
+// Initialize the listing type & category selection part of the form
+function initialize_new_listing_form_selectors(locale, valid_share_types) {
+  
+  $('.new-listing-form').find('a.selected').click(
+    function() {
+      reload_selected_links(locale, $(this));
+    }
+  );
+  
+  $('.new-listing-form').find('a.option').click(
+    function() {
+      reload_option_links(locale, $(this), valid_share_types);
+    }
+  );
+  
+}
+
+// Initialize the actual form fields
+function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
 	$('input.title_text_field:first').focus();
-	$("select.listing_date_select, input[type=checkbox], input[type=file], input[type=radio]").uniform({
-		selectClass: 'selector2',
-		fileDefaultText: fileDefaultText, 
-		fileBtnText: fileBtnText
-	});
-	$("select.visibility_select").uniform({selectClass: 'selector3'});
+	
 	$(':radio[name=valid_until_select]').change(function() {
 		if ($(this).val() == "for_now") {
-			$('select.listing_date_select').attr('disabled', 'disabled');
-			$('selector2').addClass('disabled');
-			$("label[for='for_now_radio_button']").removeClass('disabled_grey');
+			$('select.listing_datetime_select').attr('disabled', 'disabled');
 		} else {
-			$('select.listing_date_select').removeAttr('disabled');
-			$('selector2').removeClass('disabled');
-			$("label[for='for_now_radio_button']").addClass('disabled_grey');
+			$('select.listing_datetime_select').removeAttr('disabled');
 		}
-		$.uniform.update("select.listing_date_select");
 	});
+	
 	form_id = (listing_id == "false") ? "#new_listing" : ("#edit_listing_" + listing_id);
 	
 	// Change the origin and destination requirements based on listing_type
@@ -158,16 +272,10 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 	
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "listing[share_type]") {
-				error.appendTo(element.parent().parent());
-			} else if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
-				error.appendTo(element.parent().parent());
+			if (element.attr("name") == "listing[listing_images_attributes][0][image]")	{
+				error.appendTo(element.parent());
 			} else if (element.attr("name") == "listing[valid_until(1i)]") {
-				if (is_rideshare == "true" || is_offer == "true") {
-					error.appendTo(element.parent().parent().parent());
-				} else {	
-					error.appendTo(element.parent().parent());
-				}
+				error.appendTo(element.parent());
 			} else {
 				error.insertAfter(element);
 			}
@@ -177,31 +285,22 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[title]": {required: true},
 			"listing[origin]": {required: rs, address_validator: true},
 			"listing[destination]": {required: rs, address_validator: true},
-			"listing[share_type]": {required: true},
 			"listing[listing_images_attributes][0][image]": { accept: "(jpe?g|gif|png)" },
-			"listing[valid_until(5i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(4i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(3i)]": { min_date: is_rideshare, max_date: is_rideshare },
-			"listing[valid_until(2i)]": { min_date: is_rideshare, max_date: is_rideshare },
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[share_type]": { required: share_type_message },
-			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
-			"listing[valid_until(2i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(3i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(4i)]": { min_date: date_message, max_date: date_message  },
-			"listing[valid_until(5i)]": { min_date: date_message, max_date: date_message  }
+			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message }
 		},
-		 // Run validations only when submitting the form.
-		 onkeyup: false,
-         onclick: false,
-         onfocusout: false,
-		 onsubmit: true,
+		// Run validations only when submitting the form.
+		onkeyup: false,
+    onclick: false,
+    onfocusout: false,
+		onsubmit: true,
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
 		}
-	});	
+	});
+	
 	set_textarea_maxlength();
 	auto_resize_text_areas("listing_description_textarea");
 }
@@ -231,7 +330,8 @@ function initialize_reply_form(locale) {
   );
 }
 
-function initialize_comment_form(locale) {
+function initialize_listing_view(locale) {
+  $(".fancybox").fancybox();
 	auto_resize_text_areas("listing_comment_content_text_area");
 	prepare_ajax_form(
     "#new_comment",
@@ -270,13 +370,12 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
 	$('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
 	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
-	$("input[type=checkbox]").uniform();
 	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
 			if (element.attr("name") == "person[terms]") {
-				error.appendTo(element.parent().parent().parent().parent().parent());
+				error.appendTo(element.parent().parent());
 			} else if (element.attr("name") == "recaptcha_response_field") {
 			  error.appendTo(element.parent().parent().parent().parent().parent().parent().parent().parent().parent());
 			} else {
@@ -290,7 +389,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
       "person[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
       "person[terms]": "required",
       "person[password]": { required: true, minlength: 4 },
-      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password" },
+      "person[password2]": { required: true, minlength: 4, equalTo: "#person_password1" },
 			"recaptcha_response_field": {required: true, captcha: true },
 			"invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
 		},
@@ -313,13 +412,9 @@ function initialize_terms_form() {
 
 function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
 	auto_resize_text_areas("update_profile_description_text_area");
-	$("input[type=checkbox]").uniform();
 	$('input.text_field:first').focus();
 	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
-		errorPlacement: function(error, element) {
-			error.appendTo(element.parent());
-		},	
 		rules: {
       "person[street_address]": {required: false, address_validator: true},
 			"person[given_name]": {required: name_required, maxlength: 30},
@@ -337,7 +432,6 @@ function initialize_update_profile_info_form(locale, person_id, address_validato
 }
 
 function initialize_update_notification_settings_form(locale, person_id) {
-	$("input[type=checkbox], input[type=radio]").uniform();
 	var form_id = "#edit_person_" + person_id;
 	$(form_id).validate({
 		submitHandler: function(form) {
@@ -347,14 +441,10 @@ function initialize_update_notification_settings_form(locale, person_id) {
 }
 
 function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
-	$("input[type=file]").uniform({
-		fileDefaultText: fileDefaultText, 
-		fileBtnText: fileBtnText
-	});
 	var form_id = "#avatar_form";
 	$(form_id).validate({
 		rules: {
-			"file": { required: true, accept: "(jpe?g|gif|png)" } 
+			"person[image]": { accept: "(jpe?g|gif|png)" } 
 		},
 		submitHandler: function(form) {
 		  disable_and_submit(form_id, form, "false", locale);
@@ -362,7 +452,7 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 	});	
 }
 
-function initialize_update_account_info_form(locale, change_text, cancel_text, email_default, pw1_default, pw2_default, email_in_use_message) {
+function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message) {
 	$('#account_email_link').toggle(
 		function() {
 			$('#account_email_content').hide();
@@ -394,7 +484,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	);
 	var email_form_id = "#email_form";
 	$(email_form_id).validate({
-		errorClass: "error_account",
 		rules: {
 			"person[email]": {required: true, email: true, remote: "/people/check_email_availability"}
 		},
@@ -407,7 +496,6 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 	});
 	var password_form_id = "#password_form";
 	$(password_form_id).validate({
-		errorClass: "error_account",
 		rules: {
 			"person[password]": { required: true, minlength: 4 },
 			"person[password2]": { required: true, minlength: 4, equalTo: "#person_password" }
@@ -419,7 +507,7 @@ function initialize_update_account_info_form(locale, change_text, cancel_text, e
 }
 
 function initialize_reset_password_form() {
-	var password_form_id = "#person_new";
+	var password_form_id = "#new_person";
 	$(password_form_id).validate({
 		errorPlacement: function(error, element) {
 			error.insertAfter(element);
@@ -509,7 +597,7 @@ function initialize_browse_view(listing_type, listing_style, locale) {
   $('#left_link_panel_browse').find('a').click(
     function() {
       if (listing_style == 'listing') {
-        $("#search_results").html('<div id="loader"><img src="/assets/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+        $("#search_results").html('<div id="loader"><img src="/assets/ajax-loader-grey.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
       }
       reload_browse_view($(this), listing_type, listing_style, locale);
     }
@@ -517,14 +605,32 @@ function initialize_browse_view(listing_type, listing_style, locale) {
 	$('#tag_cloud').find('a').click(
 	  function() {
 		  if (listing_style == 'listing') {
-				$("#search_results").html('<div id="loader"><img src="/assets/load.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
+				$("#search_results").html('<div id="loader"><img src="/assets/ajax-loader-grey.gif" title="load" alt="loading more results" style="margin: 10px auto" /></div>');
 			}
 		  reload_browse_view($(this), listing_type,listing_style, locale);
 		}
 	);
 }
 
-function initialize_profile_view(badges) {
+function initialize_profile_view(badges, profile_id) {
+	$('#load-more-listings').click(function() { 
+	  request_path = profile_id + "/listings";
+	  $.get(request_path, function(data) {
+      $('#profile-listings-list').html(data);
+    });
+    return false;
+  });
+	
+	$('#load-more-testimonials').click(function() { 
+	  request_path = profile_id + "/testimonials";
+	  $.get(request_path, {per_page: 200, page: 1}, function(data) {
+      $('#profile-testimonials-list').html(data);
+    });
+    return false;
+  });
+	
+	
+	// The code below is not used in early 3.0 version, but part of it will probably be used again soon, so kept here.
 	$('#description_preview_link').click(function() { 
 		$('#profile_description_preview').hide();
 		$('#profile_description_full').show(); 
@@ -559,8 +665,59 @@ function initialize_profile_feedback_view() {
 	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
 }
 
-function initialize_homepage() {
-  $("input[type=radio]").uniform();
+function initialize_homepage(filters_in_use) {
+  
+  if (filters_in_use) { 
+    // keep filters dropdown open in mobile view if any filters selected
+    $('#filters-toggle').click();
+  }
+  
+  $('#feed-filter-dropdowns select').change(
+    function() {
+      
+      // It's challenging to get the pageless right if reloading just the small part so reload all page
+      // instead of the method below that would do AJAX update (currently works only partially)
+      //reload_homepage_view();
+      
+      $("#homepage-filters").submit();    
+      
+    }
+  );
+  
+  // make map/list button change the value in the filter form and submit the form
+  // in order to keep all filter values combinable and remembered
+  $('.map-button').click(
+    function() {
+      $("#hidden-map-toggle").val(true);
+      $("#homepage-filters").submit();
+      return false;
+    }
+  );
+  $('.list-button').click(
+    function() {
+      $("#hidden-map-toggle").val(undefined);
+      $("#homepage-filters").submit();
+      return false;
+    }
+  );
+}
+
+function reload_homepage_view() {
+  // Make AJAX request based on selected items
+  var request_path = window.location.toString();
+  var filters = {};
+  filters["share_type"] = $('#share_type').val();
+  filters["category"] = $('#listing_category').val();
+  
+  // Update request path with updated query params
+  for (var key in filters) {
+    request_path = UpdateQueryString(key, filters[key], request_path);
+  }
+  
+  $.get(request_path, filters, function(data) {
+    $('.homepage-feed').html(data);
+    history.pushState(null, document.title, request_path);
+  });
 }
 
 function initialize_invitation_form(locale, rails_env) {
@@ -631,14 +788,28 @@ function initialize_admin_new_poll_form() {
   
 }
 
+function initialize_admin_edit_tribe_form(locale, community_id) {
+  auto_resize_text_areas("new_tribe_text_area");
+  translate_validation_messages(locale);
+  $('#invite_only_help_text_link').click(function() { $('#invite_only_help_text').lightbox_me({centered: true}); });
+  var form_id = "#edit_community_" + community_id;
+  $(form_id).validate({
+ 		rules: {
+ 			"community[name]": {required: true, minlength: 2, maxlength: 50},
+ 			"community[slogan]": {required: true, minlength: 2, maxlength: 100},
+ 			"community[description]": {required: true, minlength: 2, maxlength: 500}
+ 		},
+ 		submitHandler: function(form) {
+ 		  disable_and_submit(form_id, form, "false", locale);
+ 		}
+ 	});
+}
+
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
-  $("input[type=checkbox]").uniform();
-  $('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
-  $('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {
 			if (element.attr("name") == "community_membership[consent]") {
-				error.appendTo(element.parent().parent().parent().parent().parent());
+				error.appendTo(element.parent().parent());
 			} else {
 			  error.insertAfter(element);
 			}
@@ -757,6 +928,30 @@ var faceGrade = {
   } 
 }
 
+// Credits to ellemayo's StackOverflow answer: http://stackoverflow.com/a/11654596/150382
+function UpdateQueryString(key, value, url) {
+    if (!url) url = window.location.href;
+    var re = new RegExp("([?|&])" + key + "=.*?(&|#|$)", "gi");
+
+    if (url.match(re)) {
+        if (value)
+            return url.replace(re, '$1' + key + "=" + value + '$2');
+        else
+            return url.replace(re, '$2');
+    }
+    else {
+        if (value) {
+            var separator = url.indexOf('?') !== -1 ? '&' : '?',
+                hash = url.split('#');
+            url = hash[0] + separator + key + '=' + value;
+            if (hash[1]) url += '#' + hash[1];
+            return url;
+        }
+        else
+            return url;
+    }
+}
+
 //FB Popup from: http://stackoverflow.com/questions/4491433/turn-omniauth-facebook-login-into-a-popup
 // Didn't work now, but I leave here to make things faster if want to invesetigate more.
 
@@ -771,3 +966,42 @@ var faceGrade = {
 //   popupCenter($(this).attr("href"), $(this).attr("data-width"), $(this).attr("data-height"), "authPopup");
 //   e.stopPropagation(); return false;
 // });
+
+function closeAllToggleMenus() {
+  $('.toggle-menu').addClass('hidden');
+  $('.toggle-menu-feed-filters').addClass('hidden');
+  $('.toggle').removeClass('toggled');
+  $('.toggle').removeClass('toggled-logo');
+}
+
+function toggleDropdown() {
+  
+  //Gets the target toggleable menu from the link's data-attribute
+  var target = $(this).attr('data-toggle');
+  
+  if ($(target).hasClass('hidden')) {
+    // Opens the target toggle menu
+    closeAllToggleMenus();
+    $(target).removeClass('hidden');
+    if($(this).hasClass('select-tribe')) {
+      $(this).addClass('toggled-logo');
+    } else {
+      $(this).addClass('toggled');
+    }
+  } else {
+    // Closes the target toggle menu
+    $(target).addClass('hidden');
+    $(this).removeClass('toggled');
+    $(this).removeClass('toggled-logo');
+  }
+  
+}
+
+$(function(){
+  
+  // Collapses all toggle menus on load
+  // They're uncollapsed by default to provice support for when JS is turned off
+  closeAllToggleMenus();
+  $('.toggle').on('click', toggleDropdown);
+    
+});

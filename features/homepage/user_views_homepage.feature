@@ -64,9 +64,9 @@ Feature: User views homepage
     And there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
     And visibility of that listing is "this_community"
     And there is favor request with title "massage" from "kassi_testperson2"
-    And visibility of that listing is "communities"
+    And visibility of that listing is "all_communities"
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"
-    And visibility of that listing is "communities"
+    And visibility of that listing is "all_communities"
     And that listing is visible to members of community "test2"
     When I am on the homepage
     Then I should not see "car spare parts"
@@ -141,7 +141,7 @@ Feature: User views homepage
     And the system processes jobs
     Then I should not see "logged in to Sharetribe."
     When there is item offer with title "hammer" from "kassi_testperson2" and with share type "lend"
-    And visibility of that listing is "everybody"
+    And privacy of that listing is "public"
     And I go to the homepage
     And I follow "hammer"
     And I fill in "comment_content" with "Test comment"

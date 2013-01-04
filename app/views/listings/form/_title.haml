@@ -1,3 +1,2 @@
-.new_listing_form_field_container
-  = form.label :title, t(".#{@listing.category}_you_#{@listing.listing_type}") + "*:", :class => "input"
-  = form.text_field(:title, :class => "title_text_field", :maxlength => "90")
+= form.label :title, t(".#{@listing.category}_you_#{@listing.listing_type}") + "*", :class => "input"
+= form.text_field(:title, :class => "title_text_field", :maxlength => "90")
