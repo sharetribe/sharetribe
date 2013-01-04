@@ -20,10 +20,17 @@ class Admin::CommunitiesController < ApplicationController
   
   def update
     @community = Community.find(params[:id])
+    need_to_regenerate_css = params[:custom_color] != @community.custom_color || params[:cover_photo]
     params[:community][:join_with_invite_only] = params[:community][:join_with_invite_only].present?
+    
     if @community.update_attributes(params[:community])
       flash[:notice] = t("layouts.notifications.community_updated")
-      redirect_to edit_details_admin_community_path(@community)   
+      @community.generate_customization_stylesheet if need_to_regenerate_css
+      if params[:community_settings_page] == "look_and_feel"
+        redirect_to edit_look_and_feel_admin_community_path(@community)
+      else
+        redirect_to edit_details_admin_community_path(@community)   
+      end
     else
       flash[:error] = t("layouts.notifications.community_update_failed")
       render :action => :edit_details

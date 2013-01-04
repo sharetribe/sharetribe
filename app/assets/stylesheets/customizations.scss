@@ -44,7 +44,7 @@ $aside:       hsl($primary-hue, 0%, 50%);
 $body:        hsl($primary-hue, 0%, 23.6%);
 $emphasis:    hsl($primary-hue, 0%, 9%);
 
-$link:        hsl($primary-hue, 73.4%, 49%);
+$link:        #D96E21;
 //$link2:       hsl($secondary-hue, 76.4%, 50%);
 //$link:      darken(desaturate(hsl($primary-hue, 61.8%, 50%), 23.6%), 11.8%); // Darkened and desaturated version
 
@@ -54,5 +54,5 @@ $red:       hsl($error-hue, 73.4%, 38.2%);
 
 // Tribe cover photo
 figure.tribe-cover {
-  background-image: url("/assets/new-design/cover-image2.png");
+  background-image: url("/cover_photos/header/missing.png");
 }

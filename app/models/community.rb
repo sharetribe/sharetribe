@@ -183,10 +183,14 @@ class Community < ActiveRecord::Base
                     "@import 'customizations';",
                     "@import 'customizations-#{domain}';",
                     true)
-    # replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
-    #                 "@import 'customizations';",
-    #                 "@import 'customizations-#{domain}';",
-    #                 true)
+    replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+                    /\$link:\s*#\w{6};/,
+                    "$link: ##{custom_color};",
+                    true)
+    replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+                    /background-image:\s*url\(\"[^\"]+\"\);/,
+                    "background-image: url(\"#{cover_photo.url(:header)}\");",
+                    true)
     
   end
   
