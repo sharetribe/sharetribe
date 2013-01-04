@@ -5,7 +5,7 @@
   .feed-actions.actions-menu
     %a.request-link{href: new_request_path(:type => "offer")} 
       %i.ss-plus.icon-with-text
-      .text-with-icon Post a new listing!
+      .text-with-icon= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
     - if params[:map].present?

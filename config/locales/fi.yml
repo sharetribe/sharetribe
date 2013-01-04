@@ -528,6 +528,7 @@ fi:
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
+      post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
       inform_others_about_events: "Yhteisön uusimmat uutiset ja tapahtumat."
@@ -593,6 +594,7 @@ fi:
       tribe_info: "Yhteisön perustiedot"
       polls: Kyselyt
     application:
+      read_more: "Lue lisää"
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"
       feedback_forum: "palautefoorumiltamme,"
@@ -830,6 +832,7 @@ fi:
         request_type: Pyyntötapa
         sell: Myydään
         share_for_free: "Tarjotaan käyttöön ilmaiseksi"
+        accept_for_free: "Otetaan vastaan ilmaiseksi"
         trade: Vaihdetaan
       tag_list:
         comma_separate: "(erota pilkulla)"

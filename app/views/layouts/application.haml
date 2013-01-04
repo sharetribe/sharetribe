@@ -16,8 +16,7 @@
         %h1= @current_community.slogan
         %p
           = truncate(@current_community.description, :length => 130, :omission => "...")
-          %a{href: "#"}
-            Read more
+          = link_to t(".read_more"), about_infos_path
     - if @current_user && @current_user.member_of?(@current_community)
       .join-action-buttons
         - if @current_user
