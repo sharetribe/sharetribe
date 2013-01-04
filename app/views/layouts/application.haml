@@ -21,7 +21,8 @@
       .join-action-buttons
         - if @current_user
           = link_to t(".invite_your_friends"), "#", :class => "intro-button"
-          = t(".invite_your_friends_description")
+          %small
+            = t(".invite_your_friends_description")
     - else
       - unless @current_user
         .join-action-buttons

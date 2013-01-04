@@ -246,10 +246,9 @@ body {
       padding: lines(0.25) lines(0.5);
       display: block;
       font-weight: normal;
-      //@include mid-type;
       cursor: pointer;
       @include border-radius(em(5));
-      width: lines(8.75);
+      width: lines(9.5);
       min-height: em(38);
     }
     a.selected {
@@ -1107,6 +1106,9 @@ figure.fluidratio {
     @include facebook-connect-button;
     padding: em(10) em(5) em(6) em(10);
     width: lines(8.25);
+  }
+  small {
+    margin-top: lines(0.25);
   }
   
 }

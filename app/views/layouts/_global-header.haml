@@ -8,7 +8,7 @@
     
     - if @current_user  
       
-      %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
+      %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
         %i.icon.ss-earth
         -# if single digit:
         .badge 5
@@ -19,7 +19,7 @@
         -# if three digits:
         -#.badge.huge-badge 500
 
-      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: "Inbox"}
+      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
         %i.icon.ss-mail
         -# if single digit:
         .badge 5

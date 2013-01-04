@@ -64,9 +64,6 @@ en:
     fields_that_are_mandatory: "Fields marked with star (*) are mandatory."
     or: or
     password: Password
-    listing_types:
-      request: "request"
-      offer: "offer"
     share_types:
       borrow: borrowing
       buy: buying
@@ -514,6 +511,10 @@ en:
     contact_us: "Contact us"
     profile: "Profile"
   homepage:
+    filter_share_types: 
+      listing_types:
+        request: "Requests"
+        offer: "Offers"
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
       additionally_one_private_request_exists: "Additionally  there is <b>one other request</b>,"
@@ -548,6 +549,7 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
+      what_do_you_need: "What do you need?"
       post_new_listing: "Post a new listing!"
       are_offering: offer
       add_news_item: "Add an article"
@@ -595,14 +597,6 @@ en:
       please_offer: Offer
       comment: comment
       comments: comments
-    sign_in:
-      recent_offers: "What members are offering right now"
-      recent_requests: "What members need right now"
-      plus: "...plus"
-      other_offer: "other offer"
-      other_offers: "other offers"
-      other_request: "other request"
-      other_requests: "other requests"
     filters:
       show: "Show:"
       search: "Search"
@@ -635,7 +629,7 @@ en:
       your_email_address: "Your email address (not required)"
       connect: "Connect"
       invite_your_friends: "Invite friends!"
-      invite_your_friends_description: "Get more out of %{service_name} by letting your friends know."
+      invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is for everyone."
       or_join_without_facebook: "...or join without Facebook"
     conversations:
       messages: Messages
@@ -1262,7 +1256,6 @@ en:
       as_expected: "As expected"
       edit_profile_info: "Edit profile"
       exceeded_expectations: "Exceeded expectations"
-      received_feedback: "reviews"
       positive: positive
       hide_description: "Show less"
       joined_this_community: "Joined %{time_ago}"
@@ -1277,8 +1270,8 @@ en:
       slightly_better_than_expected: "Exceeded expectations"
       slightly_less_than_expected: "Worse than expected"
       what_are_these: "What are these?"
-      review: "review"
-      reviews: "reviews"
+      review: "received review"
+      reviews: "received reviews"
       badge: badge
       badges: badges
       open_listing: "open listing"

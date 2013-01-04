@@ -75,6 +75,12 @@ fi:
       sell: myydään
       trade: vaihdetaan
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
+      accept_for_free: "otetaan vastaan ilmaiseksi"
+    categories:
+      item: "tavarat"
+      favor: "palvelukset"
+      rideshare: "kimppakyydit"
+      housing: "tilat"
     username: Käyttäjätunnus
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
@@ -494,6 +500,10 @@ fi:
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
   homepage:
+    filter_share_types: 
+      listing_types:
+        request: "Pyynnöt"
+        offer: "Tarjoukset"
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
       additionally_one_private_request_exists: "Lisäksi palvelussa on <b>yksi muu pyyntö</b>,"
@@ -528,6 +538,7 @@ fi:
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
+      what_do_you_need: "Mitä tarvitset?"
       post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat
       add_news_item: "Lisää uutinen"
@@ -575,14 +586,13 @@ fi:
       please_offer: Tarjoa
       comment: kommentti
       comments: kommenttia
-    sign_in:
-      recent_offers: "Mitä yhteisön jäsenet tarjoavat juuri nyt"
-      recent_requests: "Mitä yhteisön jäsenet tarvitsevat juuri nyt"
-      plus: Lisäksi
-      other_offer: "muu tarjous"
-      other_offers: "muuta tarjousta"
-      other_request: "muu pyyntö"
-      other_requests: "muuta pyyntöä"
+    filters:
+      show: "Näytä:"
+      search: "Hae"
+      map: "Kartta"
+      list: "Lista"
+      all_listing_types: "Kaikki ilmoitustyypit"
+      all_categories: "Kaikki ilmoituskategoriat"
   layouts:
     no_tribe:
       inbox: "Postilaatikko"
@@ -608,7 +618,7 @@ fi:
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
       connect: "Yhdistä"
       invite_your_friends: "Kutsu kaverisi!"
-      invite_your_friends_description: "%{service_name} toimii parhaiten kun kaverisi ovat mukana."
+      invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on kaikkien kannalta."
       or_join_without_facebook: "...tai liity ilman Facebook-tunnustasi"
     conversations:
       messages: Viestit
@@ -1021,13 +1031,13 @@ fi:
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja
-      offer_created: "Tarjous lisätty"
+      offer_created: "Luotu"
       open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
       request_author: Pyytäjä
-      request_created: "Pyyntö lisätty"
+      request_created: "Luotu"
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
       send_private_message: "Lähetä yksityisviesti"
@@ -1233,7 +1243,6 @@ fi:
       as_expected: "Vastasi odotuksia"
       edit_profile_info: "Muokkaa tietojasi"
       exceeded_expectations: "Ylitti odotukset"
-      received_feedback: "Saatu palaute:"
       positive: positiivista
       hide_description: "Vähemmän tekstiä"
       joined_this_community: "Liittyi tähän yhteisöön %{time_ago}"
@@ -1249,8 +1258,8 @@ fi:
       slightly_less_than_expected: "Ei vastannut odotuksia"
       what_are_these: "Mitä nämä ovat?"
       trustcloud: TrustCloud
-      review: "palaute"
-      reviews: "palautetta"
+      review: "saatu palaute"
+      reviews: "saatua palautetta"
       badge: "%{service_name}-merkki"
       badges: "%{service_name}-merkkiä"
       open_listing: "avoin ilmoitus"

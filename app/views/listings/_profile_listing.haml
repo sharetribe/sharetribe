@@ -6,9 +6,10 @@
       %small.feed-excerpt
         = "\"#{truncate_html(listing.description, :length => 120, :omission => '...')}\""
     %small.feed-listing-icons
-      .feed-listing-icon
-        %i.ss-pricetag.icon-with-text 
-        .text-with-icon 22€ / hour
+      -# This will be used when listings can have a price
+      -#.feed-listing-icon
+      -#  %i.ss-pricetag.icon-with-text 
+      -#  .text-with-icon 22€ / hour
       .feed-listing-icon
         %i.ss-calendar.icon-with-text
         .text-with-icon 

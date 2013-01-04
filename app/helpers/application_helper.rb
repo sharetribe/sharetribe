@@ -308,13 +308,13 @@ module ApplicationHelper
   def admin_links_for(community)
     [
       { 
-        :text => t("admin.communities.edit_details.tribe_details"),
+        :text => t("admin.communities.edit_details.community_details"),
         :icon_class => "ss-page", 
         :path => edit_details_admin_community_path(community),
         :name => "tribe_details"
       },
       {
-        :text => t("admin.communities.edit_details.tribe_look_and_feel"),
+        :text => t("admin.communities.edit_details.community_look_and_feel"),
         :icon_class => "ss-layout", 
         :path => edit_look_and_feel_admin_community_path(community),
         :name => "tribe_look_and_feel"
