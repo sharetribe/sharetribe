@@ -8,6 +8,10 @@ class InvitationsController < ApplicationController
   
   before_filter :users_can_invite_new_users, :only => :create
   
+  def new
+    @invitation = Invitation.new
+  end
+  
   def create
     @invitation = Invitation.new(params[:invitation])
     if @invitation.save

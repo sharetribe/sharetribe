@@ -571,9 +571,12 @@ fi:
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
-      email: "Kaverisi sähköpostiosoite:"
-      message: "Viesti kaverillesi:"
+      email: "Kaveri(e)si sähköpostiosoite"
+      message: "Viesti kaver(e)illesi"
       send_invitation: "Lähetä kutsu"
+      add_as_many_emails_as_you_want: "Lisää kaveri(e)si sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, eroita osoitteet pilkulla."
+      invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
+      invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
