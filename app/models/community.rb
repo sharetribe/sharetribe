@@ -19,7 +19,8 @@ class Community < ActiveRecord::Base
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_length_of :description, :in => 2..500, :allow_nil => true
   validates_inclusion_of :category, :in => VALID_CATEGORIES
-  
+  validates_format_of :custom_color1, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true
+  validates_format_of :custom_color2, :with => /^[A-F0-9_-]{6}$/i, :allow_nil => true 
   # The settings hash contains some community specific settings:
   # locales: which locales are in use, the first one is the default
     
@@ -27,14 +28,16 @@ class Community < ActiveRecord::Base
   
   paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "192x192#",  
-                      :original => "600x600>"
-  }})
+                      :original => "600x600>"},
+                      :default_url => "/logos/header/default.png"
+  })
   has_attached_file :logo, paperclip_options_for_logo
   
   paperclip_options_for_cover_photo = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
                       :header => "1600x195#",  
-                      :original => "3200x3200>"
-  }})
+                      :original => "3200x3200>"},
+                      :default_url => "/cover_photos/header/default.jpg"
+  })
   has_attached_file :cover_photo, paperclip_options_for_cover_photo
   
   attr_accessor :terms
@@ -177,21 +180,27 @@ class Community < ActiveRecord::Base
   end
   
   def generate_customization_stylesheet
-    FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
-    FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{domain}.scss" )
-    replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
-                    "@import 'customizations';",
-                    "@import 'customizations-#{domain}';",
-                    true)
-    replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
-                    /\$link:\s*#\w{6};/,
-                    "$link: ##{custom_color1};",
-                    true)
-    replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
-                    /background-image:\s*url\(\"[^\"]+\"\);/,
-                    "background-image: url(\"#{cover_photo.url(:header)}\");",
-                    true)
-    
+    if custom_color1 || cover_photo.present?
+      
+      FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
+      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{domain}.scss" )
+      replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
+                      "@import 'customizations';",
+                      "@import 'customizations-#{domain}';",
+                      true)
+      if custom_color1.present? 
+        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+                        /\$link:\s*#\w{6};/,
+                        "$link: ##{custom_color1};",
+                        true)
+      end
+      if cover_photo.present?
+        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+                        /background-image:\s*url\(\"[^\"]+\"\);/,
+                        "background-image: url(\"#{cover_photo.url(:header)}\");",
+                        true)
+      end
+    end
   end
   
   def stylesheet_filename
