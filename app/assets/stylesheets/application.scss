@@ -1,12 +1,13 @@
-@import 'compass';
+@import 'customizations';  // color presets and cover image
 
-@import 'reset';  // jonikorpi's custom CSS reset
-@import 'colors'; // color presets and their logic
-@import 'type';   // typography presets and tools
-@import 'media-queries'; // media query presets
+@import 'compass';         // The Compass framework
+
+@import 'reset';           // jonikorpi's custom CSS reset
+@import 'type';            // typography presets and tools
+@import 'media-queries';   // media query presets
 @import 'jquery.fancybox'; // Image previews
-@import 'ss-social';  // ss-social icon set
-@import 'ss-pika';  // ss-pika icon set  
+@import 'ss-social';       // ss-social icon set
+@import 'ss-pika';         // ss-pika icon set  
 
 
 /*
@@ -975,10 +976,6 @@ figure.fluidratio {
     /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
     @include fluid-ratio(em(1600) em(195), em(300) em(195));
   }
-}
-
-figure.tribe-cover {
-  background-image: url("/assets/new-design/cover-image5.png");
 }
 
 .cover-image {

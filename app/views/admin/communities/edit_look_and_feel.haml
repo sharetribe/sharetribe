@@ -1,3 +1,4 @@
+
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 
 #new_news_item_form.left-navi-section
@@ -7,6 +8,8 @@
     = form.file_field(:logo, :class => "file_field")
     = form.label :name, t(".community_cover_photo"), :class => "input"
     = form.file_field(:logo, :class => "file_field")
+    = form.label :custom_color, t(".community_custom_color"), :class => "input"
+    = form.text_field :custom_color, :maxlength => "6", :class => "text_field"
     
     %br
     = form.button t(".update_information"), :id => "edit_community_button", :class => "send_button"

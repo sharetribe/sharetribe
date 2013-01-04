@@ -35,7 +35,10 @@
     %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
 
   / CSS
-  = stylesheet_link_tag 'application'
+  - if @current_community.has_customizations?
+    = stylesheet_link_tag @current_community.stylesheet_filename
+  - else
+    = stylesheet_link_tag 'application'
 
   = javascript_include_tag "//use.typekit.net/wja3pck.js"
   :javascript
