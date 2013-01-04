@@ -20,10 +20,10 @@ fi:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
         community_logo: "Logo"
         community_cover_photo: "Kansikuva"
-        community_custom_color: "Pääväri"
+        community_custom_color1: "Pääväri"
         logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
-        custom_color_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset hex-kooodin, sen valinnassa auttaa esim. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset hex-kooodin, sen valinnassa auttaa esim. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
     news_items:
       index:
         news_items: "Uusimmat uutiset"
