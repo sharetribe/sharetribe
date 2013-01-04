@@ -20,7 +20,7 @@ class Admin::CommunitiesController < ApplicationController
   
   def update
     @community = Community.find(params[:id])
-    need_to_regenerate_css = params[:custom_color] != @community.custom_color || params[:cover_photo]
+    need_to_regenerate_css = params[:custom_color1] != @community.custom_color1 || params[:cover_photo]
     params[:community][:join_with_invite_only] = params[:community][:join_with_invite_only].present?
     
     if @community.update_attributes(params[:community])

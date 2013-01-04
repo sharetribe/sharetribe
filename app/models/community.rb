@@ -71,7 +71,7 @@ class Community < ActiveRecord::Base
   end
   
   def has_customizations?
-    custom_color.present? || cover_photo_file_name.present?
+    custom_color1.present? || cover_photo_file_name.present?
   end
   
   # If community name has several words, add an extra space
@@ -185,7 +185,7 @@ class Community < ActiveRecord::Base
                     true)
     replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
                     /\$link:\s*#\w{6};/,
-                    "$link: ##{custom_color};",
+                    "$link: ##{custom_color1};",
                     true)
     replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
                     /background-image:\s*url\(\"[^\"]+\"\);/,
