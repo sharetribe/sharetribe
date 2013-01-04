@@ -1,5 +1,5 @@
 .feed-item.feed-request
-  .feed-content
+  .feed-content{:class => (listing.has_image? ? "profile-content-with-image" : "")}
     %h3
       = link_to listed_listing_title(listing), listing
     - unless listing.description.blank?

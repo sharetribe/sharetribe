@@ -610,8 +610,8 @@ fi:
     filters:
       show: "Näytä:"
       search: "Hae"
-      map: "Kartta"
-      list: "Lista"
+      map: "Näytä kartta"
+      list: "Näytä lista"
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
   layouts:
@@ -936,6 +936,7 @@ fi:
       link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
       link_label_for_housing_request_buy: "Myy pyydetty tila"
       link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
+      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
       link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
       link_label_for_item_offer_rent_out: "Vuokraa tämä tavara"
       link_label_for_item_offer_sell: "Osta tämä tavara"
@@ -1012,7 +1013,7 @@ fi:
       sell: "Myyn sen"
       trade: "Haluan vaihtaa sen johonkin muuhun"
       share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
-      accept_for_free: "Toivon saavani sen ilmaiseksi"
+      accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
       item_with_article: "tavarasta"
       favor_with_article: "palveluksesta"
       rideshare_with_article: "kyydistä"
@@ -1406,7 +1407,7 @@ fi:
   terms:
     show:
       accept_terms: "%{service_name_genetive} käyttöehtojen hyväksyminen"
-      here: täällä
+      here: "klikkaamalla tästä"
       i_accept_new_terms: "Hyväksyn uudet käyttöehdot"
       i_accept_terms: "Hyväksyn käyttöehdot"
       terms: "%{service_name_genetive} käyttöehdot"

@@ -1,7 +1,7 @@
 .feed-item.feed-request
   .feed-author-avatar
     = small_avatar_thumb(listing.author)
-  .feed-content
+  .feed-content{:class => (listing.has_image? ? "content-with-image" : "")}
     .author
       = link_to listing.author.name, listing.author
       %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)

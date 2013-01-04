@@ -611,8 +611,8 @@ en:
     filters:
       show: "Show:"
       search: "Search"
-      map: "Map"
-      list: "List"
+      map: "Show map"
+      list: "Show list"
       all_listing_types: "All listing types"
       all_categories: "All categories"
   layouts:
@@ -935,7 +935,7 @@ en:
       link_label_for_housing_offer_sell: "Buy this space"
       link_label_for_housing_offer_rent_out: "Rent this space"
       link_label_for_housing_offer_share_for_free: "Request this space"
-      link_label_for_housing_offer_accept_for_free: "Offer this space"
+      link_label_for_housing_request_accept_for_free: "Offer this space"
       link_label_for_housing_request_buy: "Offer to sell this space"
       link_label_for_housing_request_rent: "Offer to rent out this space"
       link_label_for_item_offer_lend: "Borrow this item"
@@ -950,17 +950,6 @@ en:
       link_label_for_item_request_trade: "Offer to swap this item"
       link_label_for_rideshare_offer: "Request this ride"
       link_label_for_rideshare_request: "Offer ride"
-      message_link_label_for_offer: "Send private message to offerer"
-      message_link_label_for_request: "Send private message to requester"
-      message_link_label_for_item_offer_lend: "Send private message to lender"
-      message_link_label_for_item_offer_rent_out: "Send private message to renter"
-      message_link_label_for_item_offer_sell: "Send private message to seller"
-      message_link_label_for_item_offer_give_away: "Send private message to offerer"
-      message_link_label_for_item_offer_trade: "Send private message to offerer"
-      message_link_label_for_housing_offer_sell: "Send private message to seller"
-      message_link_label_for_housing_offer_rent_out: "Send private message to renter"
-      message_link_label_for_housing_offer_share_for_free: "Send private message to offerer"
-      message_link_label_for_housing_offer_accept_for_free: "Send private message to requester"
     listed_listing:
       edit: Edit
     listed_listing_closed_status:
@@ -1409,7 +1398,7 @@ en:
   terms:
     show:
       accept_terms: "Accepting %{service_name} terms of use"
-      here: here
+      here: "by clicking here"
       i_accept_new_terms: "I accept the new terms"
       i_accept_terms: "I accept the terms"
       terms: "%{service_name} terms of use"

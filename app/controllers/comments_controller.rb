@@ -9,7 +9,6 @@ class CommentsController < ApplicationController
   
   def create
     if @comment.save
-      flash[:notice] = t("layouts.notifications.comment_sent")
       Delayed::Job.enqueue(CommentCreatedJob.new(@comment.id, @current_community.id, request.host))
     else
       flash[:error] = t("layouts.notifications.comment_cannot_be_empty")

@@ -673,8 +673,7 @@ label.error {
   }
   
   .icon-dropdown {
-    position: absolute;
-    right: lines(0.5); top: lines(0.6);
+    display: none;
   }
   
   @include media(tablet) {
@@ -693,6 +692,12 @@ label.error {
     
     .badge {
       display: none;
+    }
+    
+    .icon-dropdown {
+      display: block;
+      position: absolute;
+      right: lines(0.5); top: lines(0.6);
     }
   }
   
@@ -882,6 +887,35 @@ label.error {
     &:after {
       color: $background;
     }
+  }
+  
+  a.login-form {
+    padding: 0;
+    &:hover {
+      color: lighten($link, 20%);
+      background: none;
+    }
+    &:after {
+      content: "";
+    }
+  }
+  
+  a.fb-connect {
+    @include facebook-connect-button;
+    @include normal-type;
+    padding: em(10) 2% em(6) 2%;
+    &:after {
+      content: "";
+    }
+    .fb-text {
+      @include normal-type;
+      padding-left: lines(1.5);
+    }
+  }
+  
+  p.login-form {
+    color: $background;
+    margin: lines(0.25) 0 lines(0.5) 0;
   }
   
   .feedback {
@@ -1410,6 +1444,8 @@ figure.fluidratio {
     
     .request-link {
       @include big-button;
+      padding-top: em(8);
+      padding-bottom: em(10);
       width: 100%; 
       margin: 0 0 lines(0.5) 0;
       &:hover { color: $background; }
@@ -1515,10 +1551,9 @@ figure.fluidratio {
       cursor: pointer;
       position: absolute;
       top: lines(0); right: 0;
-      padding-top: lines(0.2);
+      padding-top: em(9);
       color: $body;
-      &:hover { color: $link; }
-      @include big-type;    
+      &:hover { color: $link; }   
     }
     
   }
@@ -1605,6 +1640,17 @@ figure.fluidratio {
       @include small-type;
       padding-bottom: lines(0.25);
     }
+  }
+  
+  // Used only if there is an image for the listing
+  .content-with-image {
+    min-height: lines(5);
+  }
+  
+  // Used only if there is an image for the listing,
+  // with profile listing
+  .profile-content-with-image {
+    min-height: lines(4.5);
   }
   
   .feed-author-avatar {
@@ -1835,13 +1881,11 @@ figure.fluidratio {
       margin: 0;
       position: absolute;
       right: 0; top: lines(0.25);
-      width: lines(11) - em(4);
-      @include big-type;
+      width: lines(15) - em(4);
       text-align: left;
       .action-link {
         display: block;
         width: 100%;
-        padding-bottom: lines(0.25);
       }
     }
   }

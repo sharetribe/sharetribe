@@ -10,34 +10,18 @@
       
       %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
         %i.icon.ss-earth
-        .badge.big-badge 55
+        = render :partial => "layouts/notifications_badge"
 
       %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
         %i.icon.ss-mail
-        -# if single digit:
         = render :partial => "layouts/messages_badge"
-
-        -# if two digits:
-        -#.badge.big-badge 50 
-
-        -# if three digits:
-        -#.badge.huge-badge 500
-      
     
       .user-menu-toggle.toggle.hidden{data: {toggle: '.user-menu'}}
         = image_tag @current_user.image.url(:thumb), alt: '', class: 'user-avatar'
         .user-name= @current_user.name_or_username
 
         %i.icon-dropdown.ss-dropdown
-
-        -# if single digit:
-        -#.badge 5
-
-        -# if two digits:
-        -#.badge.big-badge 50 
-
-        -# if three digits:
-        .badge.huge-badge 500
+        = render :partial => "layouts/user_badge"
     
     - else  
     
@@ -53,7 +37,7 @@
     %nav.tribe-menu.toggle-menu.hidden
       - if @current_user && @current_user.communities.present?
         - @current_user.communities.each do |community|
-          %a{href: "#{default_protocol}#{community.full_domain}"}= community.name
+          %a{href: "#{default_protocol}#{community.full_domain}"}= community.full_name
       - else
         %a{href: "#{default_protocol}#{@current_community.full_domain}"}= @current_community.name
       %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh")}
@@ -69,12 +53,12 @@
           .ss-mail.icon-with-text
           .text-with-icon
             = t("layouts.conversations.messages") 
-            .badge.big-badge 50 
+            = render :partial => "layouts/messages_badge"
         %a.notifications-menu-button{href: notifications_person_messages_path(:person_id => @current_user.id.to_s)}
           .ss-earth.icon-with-text
           .text-with-icon
             = t("layouts.conversations.notifications")
-            .badge.huge-badge 500
+            = render :partial => "layouts/notifications_badge"
         %a.feedback-menu-button{href: new_user_feedback_path}
           .ss-megaphone.icon-with-text
           .text-with-icon
@@ -92,10 +76,15 @@
       = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
         - if @current_community
           = hidden_field_tag :community, @current_community.domain
+        - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
+          %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
+            %i.ss-icon.ss-social.ss-facebook.fb-icon
+            .fb-text= t("sessions.new.log_in_with_your_facebook_account")
+          %p.login-form= t("sessions.new.or_sign_up_with_your_username")
         = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email")
         = password_field_tag "person[password]", nil, :placeholder => t("common.password")
         = button_tag t('sessions.new.login')
-        = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-menu-link"
-        = link_to t('sessions.new.i_forgot_my_password'), "#", :class => "login-menu-link"
+        = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-form"
+        = link_to t('sessions.new.i_forgot_my_password'), login_path(:password_forgotten => true), :class => "login-form"
         
           

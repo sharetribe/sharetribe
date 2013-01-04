@@ -13,11 +13,12 @@
     
     #listing_message_links
       = render :partial => "message_links"
-
-    .item-image
-      - @listing.listing_images.each do |listing_image|
-        %a.fancybox{:href => listing_image.image.url(:original)}
-          = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
+    
+    - unless @listing.listing_images.empty?
+      .item-image
+        - @listing.listing_images.each do |listing_image|
+          %a.fancybox{:href => listing_image.image.url(:original)}
+            = image_tag listing_image.image.url(:medium), :alt => listed_listing_title(@listing)
     
     - if @listing.description && !@listing.description.blank?
       - text_with_line_breaks do

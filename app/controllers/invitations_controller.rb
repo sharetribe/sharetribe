@@ -9,6 +9,7 @@ class InvitationsController < ApplicationController
   before_filter :users_can_invite_new_users, :only => :create
   
   def new
+    session[:selected_tab] = "members"
     @invitation = Invitation.new
   end
   

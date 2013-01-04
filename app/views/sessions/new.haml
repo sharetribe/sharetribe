@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_login_form();
+  initialize_login_form(#{params[:password_forgotten]});
 
 .login-form.centered-section
   - if @facebook_merge
@@ -19,10 +19,6 @@
   %h2
     = t('.login_to_kassi')
   - if APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
-    -# <fb:login-button show-faces="false" width="200" max-rows="1"></fb:login-button>
-    -# <div class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1" api-key="208630779265610"></div>
-    -# <div class="fb-login-button">Login with Facebook</div>
-    -# <div class="fb-like" data-send="true" data-layout="button_count" data-width="200" data-show-faces="false"></div>  
     %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
       %i.ss-icon.ss-social.ss-facebook.fb-icon
       .fb-text= t(".log_in_with_your_facebook_account")

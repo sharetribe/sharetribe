@@ -119,7 +119,12 @@ function initialize_feedback_tab() {
   });
 }
 
-function initialize_login_form() {
+function initialize_login_form(password_forgotten) {
+  if (password_forgotten == true) {
+    $('#password_forgotten').slideDown('fast');
+		$("html, body").animate({ scrollTop: $(document).height() }, 1000);
+		$('input.request_password').focus();
+  }
 	$('#password_forgotten_link').click(function() { 
 		$('#password_forgotten').slideToggle('fast');
 		$("html, body").animate({ scrollTop: $(document).height() }, 1000);
