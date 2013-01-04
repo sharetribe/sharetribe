@@ -252,7 +252,7 @@ body {
       min-height: em(38);
     }
     a.selected {
-      background: lighten($link, 40%);
+      background: $highlight;
       &:after {
         display: block;
         position: absolute;
@@ -1023,7 +1023,7 @@ figure.fluidratio {
 
 .tribe-intro {
   padding: lines(0.55) lines(0.75);
-  background-color: transparentize($emphasis, 0.5);
+  background-color: transparentize($emphasis, 0.35);
   position: absolute;
   left: lines(4.3); top: lines(-3.85); right: lines(0.5);
   margin-bottom: lines(1);
@@ -1083,7 +1083,7 @@ figure.fluidratio {
   left: lines(31);
   top: lines(-7) + em(1);
   padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
-  background-color: transparentize($emphasis, 0.5);
+  background-color: transparentize($emphasis, 0.35);
   @include border-radius(em(5));
   display: none;
   color: $background;
