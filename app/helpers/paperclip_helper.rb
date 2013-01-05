@@ -6,7 +6,7 @@ module PaperclipHelper
           :url => "/system/:attachment/:id/:style/:filename"
     }
           
-    if APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
+    if ApplicationHelper.use_s3?
       paperclip_options.merge!({
         :path => "images/:class/:attachment/:id/:style/:filename",
         :url => "/system/:class/:attachment/:id/:style/:filename",

@@ -428,4 +428,8 @@ module ApplicationHelper
     end
   end
   
+  def self.use_s3?
+    APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
+  end
+  
 end

@@ -4,11 +4,11 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'deploy:push', 'deploy:migrate', 'deploy:restart' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart']
+task :deploy_staging_migrations => ['deploy:set_staging_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css' ]
+task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'deploy:push']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push']
+task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'deploy:push', 'deploy:generate_custom_css']
+task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css']
 
 
 namespace :deploy do
@@ -41,6 +41,14 @@ namespace :deploy do
   task :restart do
     puts 'Restarting app servers ...'
     puts `heroku restart --app #{APP}`
+  end
+  
+  task :generate_custom_css do
+    puts 'Generating custom CSS for tribes who use it ...'
+    Community.with_customizations.each do |community|
+      puts "Generating custom CSS for #{community.name}"
+      community.generate_customization_stylesheet
+    end
   end
   
   task :tag do
