@@ -21,13 +21,14 @@ Feature: User views a single listing
     And I have "2" testimonials with grade "0.5"
     And I am on the home page
     And I follow "Massage"
-    Then I should see "Contact by phone"
+    Then I should see "0000-123456"
     And I should see "Feedback:"
     And I should see "100%"
     And I should see "(2/2)"
     And I should see "Add profile picture"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I follow "Profile picture"
+    And I follow "Profile picture" within ".left-navi"
     And I attach a valid image file to "avatar_file"
     And I press "Save picture"
     And I go to the home page

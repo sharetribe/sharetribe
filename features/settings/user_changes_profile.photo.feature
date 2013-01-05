@@ -8,6 +8,7 @@ Feature: User changes profile photo
   Scenario: title
     Given I am logged in as "kassi_testperson1"
     And I am on the home page
+    When I click ".user-menu-toggle"
     When I follow "Settings"
     And I follow "Profile picture"
     And I attach a valid image file to "avatar_file"

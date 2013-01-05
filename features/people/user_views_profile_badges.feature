@@ -45,7 +45,7 @@ Feature: User views profile badges
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson2"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Sent"
     And I follow "Give feedback"
     And I follow "As expected"

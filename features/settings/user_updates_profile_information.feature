@@ -9,9 +9,10 @@ Feature: User updates profile information
       | person | 
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I fill in "Given name:" with "Test"
-    And I fill in "Family name:" with "Dude"
+    And I fill in "Given name" with "Test"
+    And I fill in "Family name" with "Dude"
     And I fill in "Location:" with "Broadway"
     And wait for 2 seconds
     # These features removed with google map functionality
@@ -33,8 +34,9 @@ Feature: User updates profile information
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     And I can choose whether I want to show my username to others in community "test"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I fill in "Given name:" with "Testijeppe"
+    And I fill in "Given name" with "Testijeppe"
     And I uncheck "person_show_real_name_to_other_users"
     And I press "Save information"
     Then I should see "kassi_testperson2"

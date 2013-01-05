@@ -12,7 +12,7 @@ Feature: User rejects a request
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Service offer: Massage"
     And I follow "Reject offer"
     Then I should see "Offer rejected"
@@ -27,7 +27,7 @@ Feature: User rejects a request
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Reject offer"
     Then I should see "Offer rejected" within ".flash-notifications"
     And I should see "Offer rejected" within ".conversation_status_label"

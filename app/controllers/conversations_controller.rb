@@ -107,7 +107,7 @@ class ConversationsController < ApplicationController
   def ensure_authorized_to_view_message
     @conversation = Conversation.find(params[:id])
     unless @conversation.participants.include?(@current_user)
-      flash[:error] = "you_are_not_authorized_to_view_this_content"
+      flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end
   end

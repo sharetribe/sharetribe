@@ -12,7 +12,7 @@ Feature: User replies to a conversation
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Test message"
     And I fill in "Write a reply:" with "This is a reply"
     And I press "Send reply"
@@ -28,7 +28,7 @@ Feature: User replies to a conversation
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Test message"
     And I press "Send reply"
     Then I should see "This field is required"

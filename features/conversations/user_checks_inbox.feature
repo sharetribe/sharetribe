@@ -12,12 +12,13 @@ Feature: User checks inbox
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    Then I should see "Messages" within "h1"
-    And I should see "Service offer: Massage" within "div.conversation_center"
-    And I should see "Received" within ".inbox_tab_selected"
-    And I should see "Sent" within ".inbox_tab_unselected"
-    And I should see "Test message" within "div.conversation_center"
+    When I follow "inbox-link"
+    Then I should see "Inbox" within ".no-tribe-title"
+    And I should see "Service offer: Massage" within ".inbox-feed"
+    And I should see "Messages" within ".selected"
+    And I should see "Notifications" within ".left-navi"
+    And I should not see "Notifications" within ".selected"
+    And I should see "Test message" within ".inbox-feed"
 
   @javascript
   Scenario: Viewing sent messages
@@ -28,11 +29,10 @@ Feature: User checks inbox
     And there is favor request with title "Massage" from "kassi_testperson2"
     And there is a message "Test message" from "kassi_testperson1" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    And I follow "Sent"
-    Then I should see "Messages" within "h1"
-    And I should see "Service offer: Massage" within "div.conversation_center"
-    And I should see "Test message" within "div.conversation_center"
+    When I follow "inbox-link"
+    Then I should see "Inbox" within ".no-tribe-title"
+    And I should see "Service offer: Massage" within ".inbox-feed"
+    And I should see "Test message" within ".inbox-feed"
   
   @javascript
   Scenario: Viewing a single conversation in received messages
@@ -43,11 +43,13 @@ Feature: User checks inbox
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Service offer: Massage"
-    Then I should see "Service offer: Massage" within "h2"
+    Then I should see "Service offer: Massage" within "#conversation_title_bar"
   
+  # TODO: The inbox logic has changed so should thing this one through
   @javascript
+  @fix_for_new_design
   Scenario: Viewing received messages when there are multiple messages from different senders
     Given there are following users:
       | person | 
@@ -66,17 +68,17 @@ Feature: User checks inbox
     And there is a message "Test3" from "kassi_testperson1" about that listing
     And there is a reply "Fine" to that message by "kassi_testperson2"
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     Then I should see "Reply to massage"
     And I should see "Service offer: Massage"
-    And I should not see "Another test" within ".unread"
+    And I should not see "Another test"
     And I should not see "Test1"
     And I should not see "Test2"
     And I should see "Rideshare request: Helsinki - Turku" 
     And I should see "Fine"
     And I should see "3" within "#logged_in_messages_icon"
     And I follow "Fine"
-    And I follow "Messages"
+    And I follow "inbox-link"
     And I should not see "Fine" within ".unread"
     And I should see "2" within "#logged_in_messages_icon"  
   
@@ -99,8 +101,7 @@ Feature: User checks inbox
     And there is a message "Test3" from "kassi_testperson1" about that listing
     And there is a reply "Fine" to that message by "kassi_testperson2"
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
-    And I follow "Sent"
+    When I follow "inbox-link"
     Then I should see "Ok"
     And I should see "Service offer: Massage"
     And I should not see "Another test"
@@ -108,7 +109,7 @@ Feature: User checks inbox
     And I should see "Test2"
     And I should see "Item request: Hammer"
     And I should see "Rideshare request: Helsinki - Turku"
-    And I should see "Test3"
+    And I should see "Fine"
   
   @javascript
   Scenario: Trying to view inbox without logging in

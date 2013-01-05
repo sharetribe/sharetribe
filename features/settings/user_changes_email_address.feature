@@ -9,6 +9,7 @@ Feature: User changes email address
       | person | 
       | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
     And I follow "Account"
     And I follow "account_email_link"
@@ -25,6 +26,7 @@ Feature: User changes email address
       | person | 
       | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
+    When I click ".user-menu-toggle"
     When I follow "Settings"
     And I follow "Account"
     And I follow "account_email_link"

@@ -12,7 +12,7 @@ Feature: User accepts a request
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I should see "1" within "#logged_in_messages_icon"
     And I follow "Service offer: Massage"
     And I follow "Accept offer"
@@ -29,7 +29,7 @@ Feature: User accepts a request
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I should see "1" within "#logged_in_messages_icon"
     And I should see "Service offer: Massage" within ".unread"
     And I follow "Accept offer"

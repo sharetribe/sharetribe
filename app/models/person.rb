@@ -176,7 +176,7 @@ class Person < ActiveRecord::Base
    end
 
   def name_or_username(cookie=nil)
-    if given_name.present? || family_name.present?
+    if (given_name.present? || family_name.present?) && show_real_name_to_other_users
       return "#{given_name} #{family_name}"
     else
       return username

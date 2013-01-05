@@ -13,7 +13,7 @@ Feature: User skips feedback
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Service offer: Massage"
     And I follow "Skip feedback"
     Then I should see "Feedback skipped" within ".flash-notifications"
@@ -29,7 +29,7 @@ Feature: User skips feedback
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Skip feedback"
     Then I should see "Feedback skipped" within ".flash-notifications"
     And I should see "Feedback skipped" within ".conversation_status_label_links"  

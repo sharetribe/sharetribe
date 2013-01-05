@@ -13,7 +13,7 @@ Feature: User gives feedback from transaction
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Give feedback"
     And I follow "Much better than expected"
     And I fill in "How did things go:" with "Everything was great!"
@@ -40,7 +40,7 @@ Feature: User gives feedback from transaction
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Give feedback"
     And I press "send_testimonial_button"
     Then I should see "Remember to grade the user by clicking one of the icons above"
@@ -56,7 +56,7 @@ Feature: User gives feedback from transaction
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Give feedback"
     And I follow "Much better than expected"
     And I press "send_testimonial_button"

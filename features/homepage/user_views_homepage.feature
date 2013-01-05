@@ -133,12 +133,12 @@ Feature: User views homepage
     And THIS SCENARIO IS NOT CURRENTLY IN USE AS EVENT FEED IS NOT VISIBLE
     And I should not see "Latest events"
     When I go to the signup page
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Chuck"
-    And I fill in "Family name:" with "The Man"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Chuck"
+    And I fill in "Family name" with "The Man"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     And the system processes jobs
@@ -167,7 +167,7 @@ Feature: User views homepage
     When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson2"
-    When I follow "Messages"
+    When I follow "inbox-link"
     And I follow "Accept"
     And the system processes jobs
     And I go to the home page

@@ -8,12 +8,12 @@ Feature: User creates a new account
     Given I am not logged in
     And I am on the signup page
     Then I should not see "This community is only for"
-    When I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "Welcome to Sharetribe, Testmanno!" within ".flash-notifications"
@@ -24,12 +24,12 @@ Feature: User creates a new account
   Scenario: Trying to create account with unavailable username 
     Given I am not logged in
     And I am on the signup page
-    When I fill in "Username" with "kassi_testperson2"
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with "kassi_testperson2"
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I press "Create account"
     Then I should see "This username is already in use." 
   
@@ -37,12 +37,12 @@ Feature: User creates a new account
   Scenario: Trying to create account with invalid username 
     Given I am not logged in
     And I am on the signup page
-    When I fill in "Username" with "sirkka-liisa"
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with "sirkka-liisa"
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I press "Create account"
     Then I should see "Username is invalid." 
   
@@ -50,11 +50,11 @@ Feature: User creates a new account
   Scenario: Trying to create account with unavailable email
     Given I am not logged in
     And I am on the signup page
-    When I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
+    When I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
     And I fill in "Email address" with "kassi_testperson2@example.com"
     And I press "Create account"
     Then I should see "The email you gave is already in use." 
@@ -63,20 +63,20 @@ Feature: User creates a new account
   Scenario: Trying to create an account without given name and last name
     Given I am not logged in
     And I am on the signup page
-    When I fill in "Username:" with random username
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with random username
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "This field is required."
     When given name and last name are not required in community "test"
     And I am on the signup page
-    When I fill in "Username:" with random username
-    And I fill in "Username:" with random username
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    When I fill in "person[username]" with random username
+    And I fill in "person[username]" with random username
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see "Welcome to Sharetribe" within ".flash-notifications"
@@ -86,13 +86,13 @@ Feature: User creates a new account
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"
     And I am on the signup page
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
     And I uncheck "person_show_real_name_to_other_users"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should see my username
@@ -105,12 +105,12 @@ Feature: User creates a new account
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"
     And I am on the signup page
-    And I fill in "Username:" with random username
-    And I fill in "Given name:" with "Testmanno"
-    And I fill in "Family name:" with "Namez"
-    And I fill in "Password:" with "test"
-    And I fill in "Confirm password:" with "test"
-    And I fill in "Email address:" with random email
+    And I fill in "person[username]" with random username
+    And I fill in "Given name" with "Testmanno"
+    And I fill in "Family name" with "Namez"
+    And I fill in "person_password1" with "test"
+    And I fill in "Confirm password" with "test"
+    And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
     Then I should not see my username

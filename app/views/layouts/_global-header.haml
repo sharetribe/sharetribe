@@ -12,7 +12,7 @@
         %i.icon.ss-earth
         = render :partial => "layouts/notifications_badge"
 
-      %a.inbox-toggle.toggle.hidden{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
+      %a.inbox-toggle.toggle.hidden#inbox-link{href: received_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.messages")}
         %i.icon.ss-mail
         = render :partial => "layouts/messages_badge"
     
