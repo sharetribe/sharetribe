@@ -170,8 +170,9 @@ fi:
       request_sent_to: "Tarjous lähetetty käyttäjälle"
       send_reply: "Lähetä viesti"
       write_a_reply: "Kirjoita vastaus:"
-      conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}."
-      conversation_with_user: "Keskustelu käyttäjän %{person} kanssa."
+      conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
+      conversation_with_user: "Keskustelu käyttäjän %{person} kanssa"
+      last_message_at: "(uusin viesti %{time})"
     status:
       feedback_given: "Palaute annettu"
       feedback_skipped: "Palaute ohitettu"

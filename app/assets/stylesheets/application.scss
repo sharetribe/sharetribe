@@ -1315,70 +1315,6 @@ figure.fluidratio {
 }
 
 /*
-  -----------
-  Inbox
-  -----------
-*/
-
-.inbox-feed {
-  
-  p {
-    padding: lines(0.25) lines(0.5) 0 lines(0.5);
-  }
-  
-  .inbox-feed-item {
-    .feed-content {
-      max-width: lines(30);
-      margin: em(-3) 0 0 lines(2.25);
-    }
-    small {
-      display: block;
-    }
-  }
-  
-  span.header-info {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: em(21);
-    margin-left: lines(0.25);
-  }
-  
-  @include media(tablet) {
-    p {
-      padding: 0;
-    }
-  }
-  
-}
-
-.inbox-notifications {
-  
-  .notification {
-    position: relative;
-    border-bottom: 1px dotted $border;
-    min-height: lines(2);
-    padding: lines(0.5) 0;
-  }
-  
-  .notification-text {
-    padding: em(5) lines(0.5) em(10) lines(2); 
-  }
-
-  .notification-icon {
-    position: absolute;
-    top: em(19);
-    left: em(17);
-  }
-  
-  small {
-    margin-top: lines(0.25);
-    display: block;
-    color: $aside;
-  }
-  
-}
-
-/*
   -------------------
   Flash notifications
   -------------------
@@ -1427,11 +1363,187 @@ figure.fluidratio {
   }
 }
 
+/*
+  -----------
+  Inbox
+  -----------
+*/
+
+.inbox-feed {
+  
+  p {
+    padding: lines(0.25) lines(0.5) 0 lines(0.5);
+  }
+  
+  .inbox-feed-item {
+    padding: lines(0.75) 0;
+    .feed-author-avatar {
+      left: lines(0.75);
+    }
+    .feed-content {
+      max-width: lines(30);
+      margin: em(-3) 0 0 lines(3);
+    }
+    small {
+      display: block;
+      position: relative;
+    }
+    .conversation-icon {
+      position: absolute;
+      top: em(2);
+      left: em(10);
+    }
+    .conversation-text {
+      margin-left: lines(1.5);
+      margin-right: lines(1.5);
+      padding: 0 0 em(5) 0;
+    }
+    
+  }
+  
+  span.header-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(21);
+    margin-left: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    p {
+      padding: 0;
+    }
+  }
+  
+}
 
 /*
-  --------
-  Feed view
-  --------
+  -------------------
+  Inbox notifications
+  -------------------
+*/
+
+.inbox-notifications {
+  
+  .notification {
+    position: relative;
+    border-bottom: 1px dotted $border;
+    min-height: lines(2);
+    padding: lines(0.5) 0;
+  }
+  
+  .notification-text {
+    padding: em(5) lines(0.5) em(10) lines(2); 
+  }
+
+  .notification-icon {
+    position: absolute;
+    top: em(19);
+    left: em(17);
+  }
+  
+  small {
+    margin-top: lines(0.25);
+    display: block;
+    color: $aside;
+  }
+  
+}
+
+/*
+  -------------------
+  Single conversation
+  -------------------
+*/
+
+.conversation {
+  
+  .message {
+    position: relative;
+    border-top: 1px dotted $border;
+    padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+
+    .avatar {
+      position: absolute;
+      left: 0; top: lines(0.5);
+      img {
+        @include border-radius(em(5));
+      }
+    }
+
+    h3, small {
+      display: inline;
+    }
+
+    small {
+      color: $aside;
+    }
+
+    .message-content, .message-icon {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }
+
+    .message-icons {
+      padding-top: lines(0.25);
+      padding-bottom: lines(0.25);
+    }
+
+    .message-icon {
+      display: inline-block;
+      margin-right: lines(0.5);
+    }
+
+  }
+
+  .message-form {
+    border-top: 1px dotted $border;
+    padding-top: lines(0.5);
+    position: relative;
+
+    textarea {
+      width: 95%;
+      height: lines(4);
+    }
+
+  }
+  
+  @include media(tablet) {
+ 
+    h2 {
+      @include big-type;
+    }
+    
+    .message {
+      padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+      
+      .avatar {
+        width: lines(2);
+      }
+      
+      h3 {
+        margin: 0;
+      }
+    }
+    
+    .message-form {
+      textarea {
+        width: 100%;
+        height: lines(6);
+      }
+    }
+    
+  }
+  
+}
+
+
+
+/*
+  ----------
+  Homepage
+  ----------
 */
 
 .feed-actions {

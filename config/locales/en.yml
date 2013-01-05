@@ -171,8 +171,9 @@ en:
       request_sent_to: "Request sent to"
       send_reply: "Send reply"
       write_a_reply: "Write a reply:"
-      conversation_about_listing: "Conversation with %{person} about %{listing}."
-      conversation_with_user: "Conversation with %{person}."
+      conversation_about_listing: "With %{person} about %{listing}"
+      conversation_with_user: "With %{person}"
+      last_message_at: "(latest message %{time})"
     status:
       feedback_given: "Feedback given"
       feedback_skipped: "Feedback skipped"
@@ -1289,7 +1290,7 @@ en:
   sessions:
     new:
       create_new_account: "Create a new account"
-      i_forgot_my_password: "I forgot my username or password"
+      i_forgot_my_password: "Username or password forgotten"
       login: "Log in"
       login_to_kassi: "Log in to %{service_name}"
       connect_your_facebook_to_kassi: "Connect your Facebook account to %{service_name}"
@@ -1351,7 +1352,7 @@ en:
       email_when_conversation_accepted: "...somebody accepts my offer or request"
       email_when_conversation_rejected: "...somebody rejects my offer or request"
       unsubscribe_succesful: "Unsubscribe succesful"
-      unsubscribe_info_text: "You will no longer receive this type of email. Check your %{settings_link} to choose other emails you want or don't want to recieve, or return to %{homepage_link}."
+      unsubscribe_info_text: "You will no longer receive this type of email. Check your %{settings_link} to choose what kind of emails you want to receive from %{service_name}, or return to %{homepage_link}."
       settings_link: settings
       homepage_link: "home page"
       unsubscribe_unsuccesful: "Error in unsubscribing"
