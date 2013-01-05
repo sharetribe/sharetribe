@@ -35,6 +35,7 @@ Feature: User closes a listing
       | kassi_testperson1 |
     And there is item request with title "Hammer" from "kassi_testperson1" and with share type "buy"  
     And I am logged in as "kassi_testperson1"
+    When I click ".user-menu-toggle"
     When I follow "Profile"
     And I follow "Requests"
     And I follow "Close request"

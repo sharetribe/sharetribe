@@ -61,7 +61,7 @@ Feature: User creates a new community
     And I press "Create account"
     #And "test@example.com" should receive an email
     Then I should see "Please confirm your email address"
-    When I follow "Home"
+    When I follow "header_home_link"
     And I follow "GET STARTED NOW!"
     And I follow "Association"
     #And I follow "Create for free"

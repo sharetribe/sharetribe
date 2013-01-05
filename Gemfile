@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.10'
 
 # Deploy with Capistrano
 gem 'capistrano' # could be removed as not currently used
@@ -39,7 +39,7 @@ gem "will_paginate"
 gem 'whenever' # could be removed as not currently used
 gem 'newrelic_rpm'
 gem 'memcache-client', ">= 1.8.5"
-gem 'thinking-sphinx', :require => 'thinking_sphinx'
+gem 'thinking-sphinx', "~>2.0.14", :require => 'thinking_sphinx'
 gem 'flying-sphinx'
 gem 'recaptcha'
 gem "airbrake"
@@ -63,8 +63,7 @@ gem "truncate_html"
 
 group :test do
 
-  gem 'capybara', "1.1.3" # because version 2 causes too many unambiguous matches with current test suite
-  # TODO: upgrade with changes from: http://techblog.fundinggates.com/blog/2012/08/capybara-2-0-upgrade-guide/
+  gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber' 
   gem 'selenium-webdriver'

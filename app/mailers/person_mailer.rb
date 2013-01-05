@@ -185,7 +185,8 @@ class PersonMailer < ActionMailer::Base
     end
     
     set_locale @recipient.locale
-    default_url_options[:host] = "#{@community.full_domain}/#{@recipient.locale}"
+    default_url_options[:host] = "#{@community.full_domain}"
+    default_url_options[:locale] = @recipient.locale
     @time_since_last_update = t("timestamps.days_since", 
         :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
         DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))

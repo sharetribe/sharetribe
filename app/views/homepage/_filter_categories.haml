@@ -1,7 +1,7 @@
 %select.item-category#listing_category{name: "category"}
-  %option{label: "#{t("homepage.filters.all_categories")}", value: "all"}
+  %option{value: "all"}= "#{t("homepage.filters.all_categories")}"
   - Listing::VALID_CATEGORIES.each do |category|
-    %option{label: "#{t("common.categories.#{category}").capitalize}", value: "#{category}", selected: params[:category] == category}
+    %option{value: "#{category}", selected: params[:category] == category}= "#{t("common.categories.#{category}").capitalize}"
   
     -# Subcategories are not yet in use, but can be listed by uncommenting this and adding translations
     -# - if Listing::VALID_SUBCATEGORIES[category]

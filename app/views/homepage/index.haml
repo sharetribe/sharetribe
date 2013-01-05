@@ -5,7 +5,7 @@
   .feed-actions.actions-menu
     %a.request-link{href: new_request_path(:type => "offer")} 
       %i.ss-addfile.icon-with-text
-      .text-with-icon= t(".post_new_listing")
+      .text-with-icon#post_new_listing= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
     - if params[:map].present?
@@ -47,4 +47,4 @@
     - if @listings.total_entries > 0
       = render :partial => "recent_listing", :collection => @listings, :as => :listing
       = will_paginate(@listings)
-      = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'), false)
+      = pageless(@listings.total_pages, '.homepage-feed', request.fullpath, t('.loading_more_content'))

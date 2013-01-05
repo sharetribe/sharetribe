@@ -129,7 +129,7 @@ describe PersonMailer do
   
   describe "#community_updates" do
     
-    before(:all) do
+    before(:each) do
       @c1 = FactoryGirl.create(:community)
       @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
       @p1.communities << @c1
@@ -163,6 +163,10 @@ describe PersonMailer do
     it "should contain latest listings" do
       @email.should have_body_text("A very nice bike")
       @email.should have_body_text("new hammer")
+    end
+    
+    it "should have correct links" do
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/\d+\-hammer\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
     end
     
     it "should pick only new listings" do

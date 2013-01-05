@@ -18,7 +18,7 @@ Feature: User browses listings
     And that listing is closed
     And there is item request with title "tool" from "kassi_testperson2" and with share type "buy"
     And I am on the home page
-    When I follow "Offers"
+    And I select "Offers" from "#share_type"
     Then I should see "car spare parts"
     And I should see "massage"
     And I should see "Helsinki - Turku"
@@ -26,7 +26,7 @@ Feature: User browses listings
     And I should see "saw"
     And I should not see "axe"
     And I should not see "tool"
-    And I follow "Items"
+    And I select "Items" from "#listing_category"
     And I should see "car spare parts"
     And I should not see "massage"
     And I should not see "Helsinki - Turku"
@@ -34,15 +34,15 @@ Feature: User browses listings
     And I should see "saw"
     And I should not see "axe"
     And I should not see "tool"
-    And I follow "Lending"
+    And I select "- Lending" from "#share_type"
     And I should not see "car spare parts"
     And I should not see "massage"
     And I should not see "Helsinki - Turku"
     And I should not see "Apartment"
-    And I should see "saw"
+    And I should see "saw" 
     And I should not see "axe"
     And I should not see "tool"
-    And I follow "Selling"
+    And I select "- Selling" from "#share_type"
     And I should see "car spare parts"
     And I should not see "massage"
     And I should not see "Helsinki - Turku"
@@ -137,7 +137,7 @@ Feature: User browses listings
       | person | 
       | kassi_testperson1 |
     And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And there is favor request with title "massage" from "kassi_testperson1"
     And there is housing request with title "apartment" and with share type "rent"
     And visibility of that listing is "disabled"
@@ -204,7 +204,7 @@ Feature: User browses listings
       | kassi_testperson1 |
       | kassi_testperson2 |
     And there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And there is favor request with title "massage" from "kassi_testperson2"
     And visibility of that listing is "all_communities"
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"

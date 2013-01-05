@@ -10,7 +10,7 @@ Feature: User accepts new terms
     When I log in as "kassi_testperson2"
     Then I should see "Terms of use have changed"
     When I press "I accept the new terms"
-    Then I should see "Welcome to Sharetribe"
+    Then I should see "Welcome"
     And I should not see "Log in"
   
   @javascript

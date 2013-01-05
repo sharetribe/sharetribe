@@ -19,7 +19,8 @@ Feature: User views profile page
     And that listing is closed
     And I am logged in as "kassi_testperson1"
     And I should not see "Feedback average:"
-    When I follow "profile"
+    When I click ".user-menu-toggle"
+    When I follow "Profile"
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
@@ -76,7 +77,7 @@ Feature: User views profile page
        | kassi_testperson1 |
        | kassi_testperson2 |
      And there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
-     And visibility of that listing is "this_community"
+     And privacy of that listing is "private"
      And there is favor offer with title "massage" from "kassi_testperson1"
      And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
      And visibility of that listing is "disabled"

@@ -23,7 +23,7 @@ Feature: User creates a new listing
   Scenario: Creating a new item offer successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Share with others!"
+    When I follow "Post a new listing!"
     And I follow "an item"
     And I should see "Offer type*:"
     And I select "Lending" from "listing_share_type"

@@ -12,7 +12,7 @@ Feature: User views homepage
     And there is item offer with title "bike" from "kassi_testperson1" and with share type "sell"
     And that listing is closed
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     When I am on the homepage
     And I should see "car spare parts"
     And I should not see "bike"
@@ -35,15 +35,17 @@ Feature: User views homepage
     And I should not see "offer item"
   
   @javascript
+  @fix_for_new_design
   Scenario: User browses homepage with requests with visibility settings
      Given there are following users:
        | person | 
        | kassi_testperson1 |
      And there is item request with title "car spare parts" from "kassi_testperson2" and with share type "buy"
-     And visibility of that listing is "this_community"
+     And privacy of that listing is "private"
      And there is favor request with title "massage" from "kassi_testperson1"
      And there is housing request with title "place to live" and with share type "rent"
-     And visibility of that listing is "disabled"
+     And visibility of that listing is "all_communities"
+     And privacy of that listing is "private"
      And I am on the home page page
      And I should not see "car spare parts"
      And I should see "massage"
@@ -62,11 +64,12 @@ Feature: User views homepage
        | kassi_testperson1 |
        | kassi_testperson2 |
     And there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And there is favor request with title "massage" from "kassi_testperson2"
     And visibility of that listing is "all_communities"
     And there is item request with title "saw" from "kassi_testperson2" and with share type "buy"
     And visibility of that listing is "all_communities"
+    And privacy of that listing is "private"
     And that listing is visible to members of community "test2"
     When I am on the homepage
     Then I should not see "car spare parts"
@@ -78,6 +81,7 @@ Feature: User views homepage
     And I should see "saw"
   
   @javascript
+  @fix_for_new_design
   Scenario: User browses homepage when there is no content
     Given there are following users:
        | person | 
@@ -98,32 +102,35 @@ Feature: User views homepage
     And I should not see "No open item, service or rideshare offers."
   
   @javascript
+  @fix_for_new_design
   Scenario: User browses homepage when there are only private listings. He should see blank slates
      Given there are following users:
        | person | 
        | kassi_testperson1 |
      And there is item offer with title "car spare parts" from "kassi_testperson2" and with share type "sell"
-     And visibility of that listing is "this_community"
+     And privacy of that listing is "private"
      And there is housing request with title "place to live" and with share type "rent"
-     And visibility of that listing is "this_community"
+     And privacy of that listing is "private"
      And I am on the home page page
      And I should not see "car spare parts"
      And I should not see "place to live"
      And I should see "There is already one request, but that is visible only to registered members."
      And I should see "There is already one offer, but that is visible only to registered members."
      When there is item request with title "bike parts" from "kassi_testperson2" and with share type "buy"
-     And visibility of that listing is "this_community"
+     And privacy of that listing is "private"
      And I am on the homepage
      Then I should not see "bike parts"
      And I should see "There are already 2 requests, but those are visible only to registered members."
   
   @javascript
+  @fix_for_new_design
   Scenario: User views event feed
     Given there are following users:
       | person | 
       | kassi_testperson1 |
       | kassi_testperson2 |
     When I am on the homepage
+    And THIS SCENARIO IS NOT CURRENTLY IN USE AS EVENT FEED IS NOT VISIBLE
     And I should not see "Latest events"
     When I go to the signup page
     And I fill in "Username:" with random username
@@ -164,7 +171,7 @@ Feature: User views homepage
     And I go to the home page
     Then I should see "agreed to lend hammer to"
     When there is item offer with title "power drill" from "kassi_testperson2" and with share type "lend"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And I am on the home page
     And I follow "power drill"
     And I fill in "comment_content" with "Test comment"
@@ -204,4 +211,4 @@ Feature: User views homepage
     And "kassi_testperson1" is superadmin
     And I am on the home page
     Then I should not see "Join community"
-    And I should see "What others need"
+    And I should see "Post a new listing"
