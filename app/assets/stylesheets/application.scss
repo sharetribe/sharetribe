@@ -355,6 +355,7 @@ form {
       width: auto;
       padding: 0 0 0 lines(1);
       margin-top: lines(0.5) - em(3);
+      margin-bottom: em(3);
       font-weight: 600;
     }
     
@@ -387,12 +388,14 @@ input[type=text], input[type=password], textarea {
 
 .inline-label-container {
   margin-top: lines(0.5);
+  margin-bottom: em(1);
 }
 
 label {
   width: 100%;
   display: block;
   margin-top: lines(0.5);
+  margin-bottom: em(3);
   font-weight: 600;
 }
 
@@ -1400,10 +1403,6 @@ figure.fluidratio {
     }
   }
   
-  .narrow-notification {
-    width: lines(26);
-  }
-  
   .flash-notice, .flash-warning {
     border: 1px solid $border;
     background: $highlight;
@@ -1420,6 +1419,12 @@ figure.fluidratio {
     }
   }
   
+}
+
+.narrow-notification {
+  @include media(tablet) {
+    margin-right: lines(16);
+  }
 }
 
 
@@ -1642,17 +1647,6 @@ figure.fluidratio {
     }
   }
   
-  // Used only if there is an image for the listing
-  .content-with-image {
-    min-height: lines(5);
-  }
-  
-  // Used only if there is an image for the listing,
-  // with profile listing
-  .profile-content-with-image {
-    min-height: lines(4.5);
-  }
-  
   .feed-author-avatar {
     position: absolute;
     width: lines(1.5);
@@ -1668,6 +1662,17 @@ figure.fluidratio {
   .feed-listing-icon {
     display: inline-block;
     margin-right: lines(1);
+  }
+  
+  // Used only if there is an image for the listing
+  .content-with-image {
+    min-height: lines(3);
+  }
+
+  // Used only if there is an image for the listing,
+  // with profile listing
+  .profile-content-with-image {
+    min-height: lines(2.5);
   }
   
   @include media(tablet) {
@@ -1689,6 +1694,17 @@ figure.fluidratio {
     small {
       @include normal-type;
       margin-top: lines(0.25);
+    }
+    
+    // Used only if there is an image for the listing
+    .content-with-image {
+      min-height: lines(5);
+    }
+
+    // Used only if there is an image for the listing,
+    // with profile listing
+    .profile-content-with-image {
+      min-height: lines(4.5);
     }
   }
 }
@@ -2659,4 +2675,110 @@ figure.fluidratio {
     padding-top: lines(0.5);
     padding-bottom: lines(0.25);
   }
+}
+
+/*
+  ----------------
+  Testimonial form
+  ----------------
+*/
+
+
+
+@mixin feedback_grade_link($image_pos) {
+	a {
+		float: left;
+		width: 50px;
+		height: 50px;
+		display: block;
+		color: transparent;
+		margin-right: 10px;
+		background: $form_bg url("/assets/kaapo/basic_link.png") 0 $image_pos no-repeat;
+		&:focus { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
+		&:hover { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
+	}
+}
+@mixin feedback_grade_link($image_pos: 0) {
+	float: left;
+	a {
+		display: inline-block; 
+		height: 50px; 
+		width: 50px; 
+		text-indent: -999em; 
+		overflow: hidden;
+		margin-right: 10px;
+		background: transparent url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat;
+	}
+	a.grade { background-position: 0 ($image_pos); }
+	a.grade-over { background-position: 0 ($image_pos - 100px); }
+}
+
+
+
+.testimonial-form {
+  
+  .grade_link_wrapper {
+  	overflow: hidden;
+  	margin-left: 10px;
+  	padding-top: 3px;
+  }
+
+  .feedback_grade_image_5 {
+  	@include feedback_grade_link;
+  }
+
+  .feedback_grade_image_4 {
+  	@include feedback_grade_link(-150px);
+  }
+
+  .feedback_grade_image_3 {
+  	@include feedback_grade_link(-300px);
+  }
+
+  .feedback_grade_image_2 {
+  	@include feedback_grade_link(-450px);
+  }
+
+  .feedback_grade_image_1 {
+  	@include feedback_grade_link(-600px);
+  }
+
+  a.grade {
+    color: $body;
+    cursor: pointer;
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    &:hover { background: $highlight; }
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(8);
+      left: em(12);
+    }
+    .link-text {
+      margin-left: em(40);
+      margin-right: lines(1.5);
+      padding: em(6) 0 em(10) 0;
+    }
+  }
+  
+  a.hidden {
+    display: none;
+  }
+
+  a.positive {
+    color: $green;
+    background: lighten($green, 40%);
+     &:hover { background: lighten($green, 40%); }
+  }
+
+  a.negative {
+    color: $red;
+    background: lighten($red, 40%);
+    &:hover { background: lighten($red, 40%); }
+  }  
 }

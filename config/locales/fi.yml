@@ -457,7 +457,7 @@ fi:
       valid_until: "Viimeinen voimassaolopäivä ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
     testimonials:
       you_must_explain_not_neutral_feedback: "Jos haluat antaa jonkin muun arvosanan kuin odotusten mukaan, sinun pitää perustella arvosanasi."
-      you_must_select_a_grade: "Muistathan antaa arvion käyttäjän toiminnasta klikkaamalla yhtä yllä olevista ikoneista (ikonien selitykset näet pitämällä hiirtä hetken niiden yläpuolella)"
+      you_must_select_a_grade: "Muistathan kertoa, oliko kokemuksesi positiivinen vai negatiivinen."
   error_pages:
     back_to_kassi_front_page: "Takaisin %{service_name_genetive} etusivulle"
     error_404:
@@ -1250,7 +1250,7 @@ fi:
       show_also_closed: "Näytä myös suljetut"
       show_only_open: "Näytä vain avoimet"
     show:
-      contact: "Lähetä viesti käyttäjälle %{person}"
+      contact: "Lähetä yksityisviesti"
       about_me: "Tietoa minusta:"
       add_description: "Kerro jotain itsestäsi"
       add_location: "Lisää sijainti"
@@ -1419,13 +1419,16 @@ fi:
       as_expected: "Vastasi odotuksia"
       exceeded_expectations: "Ylitti täysin odotukset"
       give_feedback_to: "Anna palautetta käyttäjälle %{person}"
-      grade: "Yleisarvosana kokemuksesta"
+      grade: "Millainen kokemus oli?"
       less_than_expected: "Ei vastannut lainkaan odotuksia"
       send_feedback: "Lähetä palaute"
       slightly_better_than_expected: "Ylitti osin odotukset"
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
-      textual_feedback: "Miten tapahtuma sujui"
+      textual_feedback: "Miten tapahtuma sujui?"
       this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
+      positive: "Positiivinen"
+      negative: "Negatiivinen"
+      default_textual_feedback: "Kaikki meni hienosti, paljon kiitoksia!"
     testimonial:
       from_user: käyttäjältä
       to_user: käyttäjälle
