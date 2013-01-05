@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.10'
 
 # Deploy with Capistrano
 gem 'capistrano' # could be removed as not currently used
