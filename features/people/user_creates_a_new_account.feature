@@ -16,7 +16,7 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Sharetribe, Testmanno!" within "#notifications"
+    Then I should see "Welcome to Sharetribe, Testmanno!" within ".flash-notifications"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
   
@@ -79,7 +79,7 @@ Feature: User creates a new account
     And I fill in "Email address:" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Sharetribe" within "#notifications"
+    Then I should see "Welcome to Sharetribe" within ".flash-notifications"
   
   @javascript  
   Scenario: Creating a new account without allowing to show real name

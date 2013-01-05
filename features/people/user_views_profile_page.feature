@@ -80,7 +80,7 @@ Feature: User views profile page
      And privacy of that listing is "private"
      And there is favor offer with title "massage" from "kassi_testperson1"
      And there is housing request with title "apartment" from "kassi_testperson1" and with share type "rent"
-     And visibility of that listing is "disabled"
+     And that listing is closed
      And I am on the home page
      And I should not see "car spare parts"
      When I follow "massage"

@@ -12,5 +12,5 @@ Feature: User changes profile photo
     And I follow "Profile picture"
     And I attach a valid image file to "avatar_file"
     And I press "Save picture"
-    Then I should see "Avatar upload successful" within "#notifications"
+    Then I should see "Avatar upload successful" within ".flash-notifications"
     And I should see the image I just uploaded

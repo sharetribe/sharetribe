@@ -1,6 +1,6 @@
 - if @listing.closed?
   .action-links
-    - if current_user?(@listing.author)
+    - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       %a.action-link{href: edit_listing_path(@listing)}
         .ss-unlock.icon-with-text
         .text-with-icon= t("listings.edit_links.reopen_#{@listing.listing_type}")
@@ -8,7 +8,7 @@
       .ss-unlock.icon-with-text
       .text-with-icon= t("listings.reply_link.#{@listing.listing_type}_closed")
 - else
-  - if current_user?(@listing.author)
+  - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
     .action-links
       %a.action-link{href: edit_listing_path(@listing)}
         .ss-draw.icon-with-text

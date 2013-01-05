@@ -4,7 +4,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request successfully
     Given I am logged in
     And I am on the home page
-    When I follow "Tell what you need!"
+    When I follow "Post a new listing!"
     And I follow "a ride"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
@@ -14,13 +14,13 @@ Feature: User creates a new rideshare
     And wait for 2 seconds
     And I press "Save request"
     Then I should see "Rideshare request: Tampere - Turku" within "h1"
-    And I should see "Request created successfully" within "#notifications"
+    And I should see "Request created successfully" within ".flash-notifications"
 
   @javascript
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Tell what you need!"
+    When I follow "Post a new listing!"
     And I follow "a ride"
     And wait for 1 seconds
     And I fill in "listing_origin" with "This place should not exist"
@@ -34,7 +34,7 @@ Feature: User creates a new rideshare
   Scenario: Creating a new rideshare item request with wrong address in destination
     Given I am logged in
     And I am on the home page
-    When I follow "Tell what you need!"
+    When I follow "Post a new listing!"
     And I follow "a ride"
     And wait for 1 seconds
     And I fill in "listing_origin" with "Tampere"
@@ -58,7 +58,7 @@ Feature: User creates a new rideshare
     And wait for 2 seconds
     And I press "Save offer"
     Then I should see "Rideshare offer: Tampere - Turku" within "h1"
-    And I should see "Offer created successfully" within "#notifications"
+    And I should see "Offer created successfully" within ".flash-notifications"
 
   @javascript
   Scenario: Creating a new rideshare item offer with wrong address in destination

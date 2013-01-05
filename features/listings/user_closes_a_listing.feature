@@ -4,6 +4,7 @@ Feature: User closes a listing
   I want to be able to close the listing
   
   @javascript
+  @fix_for_new_design
   Scenario: User closes and opens listing successfully
     Given there are following users:
       | person | 
@@ -12,21 +13,21 @@ Feature: User closes a listing
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Close request"
-    Then I should see "Request closed" within "#notifications"
+    Then I should see "Request closed" within ".flash-notifications"
     And I should see "Request is closed" within "#listing_closed_status_wide"
-    And I should see "Reopen request" within "#edit_links"
-    And I should not see "Edit request" within "#edit_links"
-    And I should not see "Close request" within "#edit_links"
-    And I should see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
-    And I should not see "Write a new comment:" within "#comment_form"
+    And I should see "Reopen request" within ".action-links"
+    And I should not see "Edit request" within ".action-links"
+    And I should not see "Close request" within ".action-links"
+    And I should see "You cannot send new comments because this request is closed." within ".discussion section"
+    And I should not see "Write a new comment:" within ".discussion section"
     And I follow "Reopen request"
     And I press "Save request"
-    And I should see "Request updated successfully" within "#notifications"
-    And I should not see "Reopen request" within "#edit_links"
-    And I should see "Edit request" within "#edit_links"
-    And I should see "Close request" within "#edit_links"
+    And I should see "Request updated successfully" within ".flash-notifications"
+    And I should not see "Reopen request" within ".action-links"
+    And I should see "Edit request" within ".action-links"
+    And I should see "Close request" within ".action-links"
     And I should not see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
-    And I should see "Write a new comment:" within "#comment_form"
+    And I should see "Write a new comment:" within ".discussion section"
   
   @javascript
   Scenario: User closes and opens listing successfully from own profile
@@ -37,21 +38,20 @@ Feature: User closes a listing
     And I am logged in as "kassi_testperson1"
     When I click ".user-menu-toggle"
     When I follow "Profile"
-    And I follow "Requests"
     And I follow "Close request"
-    Then I should see "Request closed" within "#notifications"
+    Then I should see "Request closed" within ".flash-notifications"
     And I should see "Request is closed"
     And I should see "Reopen request"
     And I should not see "Edit request"
     And I should not see "Close request"
     And I follow "Reopen request"
     And I press "Save request"
-    And I should see "Request updated successfully" within "#notifications"
-    And I should not see "Reopen request" within "#edit_links"
-    And I should see "Edit request" within "#edit_links"
-    And I should see "Close request" within "#edit_links"
+    And I should see "Request updated successfully" within ".flash-notifications"
+    And I should not see "Reopen request" within ".action-links"
+    And I should see "Edit request" within ".action-links"
+    And I should see "Close request" within ".action-links"
     And I should not see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
-    And I should see "Write a new comment:" within "#comment_form"
+    And I should see "Write a new comment:" within ".discussion section"
   
   
 

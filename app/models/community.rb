@@ -73,8 +73,15 @@ class Community < ActiveRecord::Base
     admins.collect { |p| p.email }
   end
   
+  
   def has_customizations?
+    # NOTE: Change also self.with_customizations if changing this
     custom_color1.present? || cover_photo_file_name.present?
+  end
+  
+  def self.with_customizations
+    # NOTE: Change also has_customizations? if changing this
+    where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL")
   end
   
   # If community name has several words, add an extra space

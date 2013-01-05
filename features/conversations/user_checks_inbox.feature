@@ -117,7 +117,7 @@ Feature: User checks inbox
       | kassi_testperson1 |
     And I am not logged in
     When I try to go to inbox of "kassi_testperson1"
-    Then I should see "You must log in to Sharetribe to view your inbox." within "#notifications"
+    Then I should see "You must log in to Sharetribe to view your inbox." within ".flash-notifications"
     And I should see "Log in to Sharetribe" within "h2"
   
   @javascript
@@ -128,7 +128,7 @@ Feature: User checks inbox
       | kassi_testperson2 |
     And I am logged in as "kassi_testperson2"
     When I try to go to inbox of "kassi_testperson1"
-    Then I should see "You are not authorized to view this content" within "#notifications"
+    Then I should see "You are not authorized to view this content" within ".flash-notifications"
   
   @javascript
   Scenario: Trying to view somebody else's single conversation
@@ -141,4 +141,4 @@ Feature: User checks inbox
     And there is a message "Reply to massage" from "kassi_testperson3" about that listing
     And I am logged in as "kassi_testperson1"
     When I go to the conversation path of "kassi_testperson1"
-    Then I should see "You are not authorized to view this content" within "#notifications"  
+    Then I should see "You are not authorized to view this content" within ".flash-notifications"  

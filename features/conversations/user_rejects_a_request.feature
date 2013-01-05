@@ -29,5 +29,5 @@ Feature: User rejects a request
     And I am logged in as "kassi_testperson1"
     When I follow "Messages"
     And I follow "Reject offer"
-    Then I should see "Offer rejected" within "#notifications"
+    Then I should see "Offer rejected" within ".flash-notifications"
     And I should see "Offer rejected" within ".conversation_status_label"

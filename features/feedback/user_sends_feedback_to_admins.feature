@@ -10,7 +10,7 @@ Feature: User sends feedback to admins
     And I fill in "Your email address" with "test@example.com"
     And I fill in "Feedback to Sharetribe staff" with "Feedback"
     And I press "Send feedback"
-    Then I should see "Thanks for your feedback!" within "#notifications"
+    Then I should see "Thanks for your feedback!" within ".flash-notifications"
   
   @javascript
   Scenario: Giving feedback successfully when logged in

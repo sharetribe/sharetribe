@@ -143,6 +143,7 @@ Feature: User views homepage
     And I press "Create account"
     And the system processes jobs
     Then I should not see "Chuck joined Test Sharetribe"
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson1"
     And the system processes jobs
@@ -163,6 +164,7 @@ Feature: User views homepage
     And I follow "Borrow this item"
     And I fill in "Message:" with "I want to borrow this item"
     And I press "Send the request"
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson2"
     When I follow "Messages"
@@ -179,6 +181,7 @@ Feature: User views homepage
     And the system processes jobs
     Then I should see "Comment sent"
     And the total number of comments should be 2
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     Then I should not see "commented offer power drill"
     And the system processes jobs

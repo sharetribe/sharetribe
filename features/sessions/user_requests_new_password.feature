@@ -10,7 +10,7 @@ Feature: User requests new password
     And I follow "I forgot my username or password"
     And I fill in "Email:" with "kassi_testperson2@example.com"
     And I press "Request new password"
-    Then I should see "Instructions to change your password were sent to your email." within "#notifications"
+    Then I should see "Instructions to change your password were sent to your email." within ".flash-notifications"
    
   @javascript 
   Scenario: title

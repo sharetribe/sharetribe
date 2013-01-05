@@ -20,7 +20,7 @@ Feature: User deletes news item
     And I follow "News"
     Then I should see "Remove article"
     When I follow "Remove article"
-    Then I should see "Article removed" within "#notifications"
+    Then I should see "Article removed" within ".flash-notifications"
     
   @javascript
   Scenario: Admin deletes news item successfully from news page
@@ -37,7 +37,7 @@ Feature: User deletes news item
     And I follow "News"
     Then I should see "Remove article"
     When I follow "Remove article"
-    Then I should see "Article removed" within "#notifications"
+    Then I should see "Article removed" within ".flash-notifications"
   
   
   

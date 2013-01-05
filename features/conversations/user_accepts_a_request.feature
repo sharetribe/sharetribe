@@ -16,7 +16,7 @@ Feature: User accepts a request
     And I should see "1" within "#logged_in_messages_icon"
     And I follow "Service offer: Massage"
     And I follow "Accept offer"
-    Then I should see "Offer accepted" within "#notifications"
+    Then I should see "Offer accepted" within ".flash-notifications"
     And I should see "Offer accepted" within ".conversation_status_label"
     And I should not see "1" within "#logged_in_messages_icon"
   
@@ -33,7 +33,7 @@ Feature: User accepts a request
     And I should see "1" within "#logged_in_messages_icon"
     And I should see "Service offer: Massage" within ".unread"
     And I follow "Accept offer"
-    Then I should see "Offer accepted" within "#notifications"
+    Then I should see "Offer accepted" within ".flash-notifications"
     And I should see "Offer accepted" within ".conversation_status_label"
     And I should not see "1" within "#logged_in_messages_icon"
     And I should not see ".unread"

@@ -41,6 +41,7 @@ Feature: Admin deactivates user
     When I follow "Deactivate"
     Then I should see "This user is no longer active in Sharetribe"
     And I should not see "Deactivate"
+    And I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "profile"

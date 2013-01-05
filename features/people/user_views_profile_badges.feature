@@ -19,7 +19,7 @@ Feature: User views profile badges
        | person | 
        | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
-    When I follow "Tell what you need!"
+    When I follow "Post a new listing!"
     And I follow "an item"
     And I select "Borrowing" from "listing_share_type"
     And I fill in "listing_title" with "Hammer"
@@ -52,6 +52,7 @@ Feature: User views profile badges
     And I fill in "How did things go:" with "Everything went ok."
     And I press "send_testimonial_button"
     And the system processes jobs
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "profile"

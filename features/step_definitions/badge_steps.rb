@@ -39,6 +39,7 @@ When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"
     steps %Q{
       And there is a message "I request this" from "kassi_testperson2" about that listing
       And the request is accepted
+      And I click ".user-menu-toggle"
       And I follow "Logout"
       And I log in as "kassi_testperson2"
       And I follow "Messages"
@@ -47,6 +48,7 @@ When /^I get "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"
       And I follow "#{grade}"
       And I fill in "How did things go:" with "Random text"
       And I press "send_testimonial_button"
+      And I click ".user-menu-toggle"
       And I follow "Logout"
       And I log in as "kassi_testperson1"
       And the system processes jobs
@@ -77,7 +79,7 @@ Then /^I create a new (item|favor|rideshare) (offer|request) listing(?: with sha
   if listing_type.eql?("offer")
     steps %Q{ When I follow "Post a new listing!" }
   else
-    steps %Q{ When I follow "Tell what you need!" }
+    steps %Q{ When I follow "Post a new listing!" }
   end
   case category
   when "item"

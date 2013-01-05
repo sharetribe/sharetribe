@@ -21,6 +21,7 @@ Feature: User comments a listing
     And the system processes jobs
     And I should not see "Follow this listing"
     And I should see "Stop following this listing"
+    When I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
     Then I should see "1" within "#logged_in_notifications_icon"
@@ -30,6 +31,7 @@ Feature: User comments a listing
     And I fill in "comment_content" with "Test answer"
     And I press "Send comment"
     And the system processes jobs
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson2"
     And the system processes jobs
@@ -45,11 +47,13 @@ Feature: User comments a listing
     And I should not see "Stop following this listing"
     When I follow "Follow this listing"
     Then I should see "You are now following this listing"
+    When I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson1"
     And I follow "Massage"
     And I fill in "comment_content" with "Test answer 2"
     And I press "Send comment"
+    When I click ".user-menu-toggle"
     And I follow "Logout"
     And I log in as "kassi_testperson2"
     And the system processes jobs

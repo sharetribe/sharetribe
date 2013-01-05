@@ -15,7 +15,7 @@ Feature: User changes password
     And I fill in "person_password" with "testi"
     And I fill in "person_password2" with "testi"
     And I press "password_submit"
-    Then I should see "Information updated" within "#notifications"
+    Then I should see "Information updated" within ".flash-notifications"
     
   @javascript
   Scenario: Changing email address successfully

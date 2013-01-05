@@ -11,7 +11,7 @@ Feature: User creates news item
     And I fill in "news_item_title" with "Test title"
     And I fill in "news_item_content" with "Test content"
     And I press "Save article"
-    And I should see "Article created" within "#notifications"
+    And I should see "Article created" within ".flash-notifications"
     And I should see "Test title"
     And I should see "Test content"
   

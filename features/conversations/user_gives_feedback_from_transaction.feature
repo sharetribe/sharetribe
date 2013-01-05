@@ -18,9 +18,10 @@ Feature: User gives feedback from transaction
     And I follow "Much better than expected"
     And I fill in "How did things go:" with "Everything was great!"
     And I press "send_testimonial_button"
-    Then I should see "Feedback sent to" within "#notifications"
+    Then I should see "Feedback sent to" within ".flash-notifications"
     And I should see "Feedback given" within ".conversation_status_label_links"
     And the system processes jobs
+    And I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson2"
     When I follow "notifications_link"
@@ -71,7 +72,7 @@ Feature: User gives feedback from transaction
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And the offer is accepted
     When I go to the give feedback path of "kassi_testperson1"
-    Then I should see "You must log in to give feedback" within "#notifications"
+    Then I should see "You must log in to give feedback" within ".flash-notifications"
   
   @javascript
   Scenario: Try to give feedback on somebody else's transaction
@@ -85,6 +86,6 @@ Feature: User gives feedback from transaction
     And the offer is accepted
     And I am logged in as "kassi_testperson1"
     When I go to the give feedback path of "kassi_testperson3"
-    Then I should see "You are not authorized to give feedback on this event" within "#notifications"
+    Then I should see "You are not authorized to give feedback on this event" within ".flash-notifications"
     When I go to the give feedback path of "kassi_testperson1"
-    Then I should see "You are not authorized to give feedback on this event" within "#notifications"
+    Then I should see "You are not authorized to give feedback on this event" within ".flash-notifications"
