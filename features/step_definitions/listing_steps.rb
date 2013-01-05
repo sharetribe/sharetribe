@@ -4,7 +4,8 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
                                :title => title,
                                :share_type => share_type,
                                :author => (@people && @people[author] ? @people[author] : Person.first),
-                               :communities => [Community.find_by_domain("test")]
+                               :communities => [Community.find_by_domain("test")],
+                               :privacy => "public"
                                )
   @listing.update_attribute(:tag_list, tags.split(", ")) if tags
 end
@@ -16,7 +17,8 @@ Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]
                                :destination => destination,
                                :author => @people[author],
                                :communities => [Community.find_by_domain("test")],
-                               :share_type => nil
+                               :share_type => nil,
+                               :privacy => "public"
                                )
 end
 

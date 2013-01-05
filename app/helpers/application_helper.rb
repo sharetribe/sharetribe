@@ -84,7 +84,7 @@ module ApplicationHelper
     image_tag person.image.url(:medium), :alt => person.name(session[:cookie])
   end
 
-  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results', two_div_update=false)
+  def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')
 
     opts = {
       :totalPages => total_pages,
@@ -92,14 +92,6 @@ module ApplicationHelper
       :loaderMsg  => loader_message,
       :div1       => target_id
     }
-    
-    if two_div_update
-      opts.merge!( {
-        :div1         => "#recent_requests",
-        :div2         => "#recent_offers",
-        :split_string => "<!--SPLIT_req-off-->"
-      })
-    end
     
     javascript_tag("$('#{target_id}').pageless(#{opts.to_json});")
   end

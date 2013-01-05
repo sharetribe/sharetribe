@@ -38,7 +38,7 @@ Feature: User views a single listing
   Scenario: User tries to view a listing restricted viewable to community members without logging in
     Given I am not logged in
     And there is favor request with title "Massage" from "kassi_testperson1"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"
@@ -56,7 +56,7 @@ Feature: User views a single listing
   Scenario: User belongs to multiple communities, adds listing in one and sees it in another
     Given I am not logged in
     And there is favor request with title "Massage" from "kassi_testperson1"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And I am on the home page
     When I go to the listing page
     Then I should see "You must log in to view this content"

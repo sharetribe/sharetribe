@@ -81,8 +81,8 @@
             %i.ss-icon.ss-social.ss-facebook.fb-icon
             .fb-text= t("sessions.new.log_in_with_your_facebook_account")
           %p.login-form= t("sessions.new.or_sign_up_with_your_username")
-        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email")
-        = password_field_tag "person[password]", nil, :placeholder => t("common.password")
+        = text_field_tag "person[login]", nil, :value => session[:form_login], :placeholder => t("common.username_or_email"), :id => :upper_person_login
+        = password_field_tag "person[password]", nil, :placeholder => t("common.password"), :id => :upper_person_password
         = button_tag t('sessions.new.login')
         = link_to t('sessions.new.create_new_account'), sign_up_path, :class => "login-form"
         = link_to t('sessions.new.i_forgot_my_password'), login_path(:password_forgotten => true), :class => "login-form"

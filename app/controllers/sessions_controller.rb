@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
   # from the params hash if we explicitly allow it to. That's
   # why we need to call the before filter below.
   before_filter :allow_params_authentication!, :only => :create
- 
+   
   def new
     @facebook_merge = session["devise.facebook_data"].present?
     if @facebook_merge
@@ -119,8 +119,7 @@ class SessionsController < ApplicationController
   end
   
   def index
-    # this is not in use in Sharetribe, but bots seem to try the url so implementing this to avoid errors
-    render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    redirect_to login_path
   end
   
   def request_new_password

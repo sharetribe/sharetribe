@@ -9,7 +9,8 @@ Feature: User views profile badges
        | person | 
        | kassi_testperson1 |
     And I am logged in as "kassi_testperson1"
-    When I follow "profile"
+    When I click ".user-menu-toggle"
+    When I follow "Profile"
     Then I should not see "Badges"
   
   @javascript

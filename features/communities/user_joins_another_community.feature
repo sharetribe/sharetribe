@@ -13,13 +13,13 @@ Feature: User joins another community
     And I am on the home page
     And I log in as "kassi_testperson3"
     Then I should see "Join community"
-    And I should not see "What others need"
+    And I should not see "Post a new listing"
     When I press "Join community"
     Then I should see "This field is required"
     When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
-    And I should see "What others need"
+    And I should see "Post a new listing"
   
   @javascript
   Scenario: User joins another community that is invitation-only
@@ -33,15 +33,15 @@ Feature: User joins another community
     And I am on the home page
     And I am logged in as "kassi_testperson3"
     Then Invitation with code "GH1JX8" should have 1 usages_left
-    And I should see "Invitation code:"
+    And I should see "Invitation code"
     When I check "community_membership_consent"
-    And I fill in "Invitation code:" with "random"
+    And I fill in "Invitation code" with "random"
     And I press "Join community"
     Then I should see "The invitation code is not valid."
-    When I fill in "Invitation code:" with "GH1JX8"
+    When I fill in "Invitation code" with "GH1JX8"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
-    And I should see "What others need"
+    And I should see "Post a new listing"
     And Invitation with code "GH1JX8" should have 0 usages_left
   
   @javascript
@@ -53,7 +53,7 @@ Feature: User joins another community
     And I move to community "test2"
     And this community requires users to have an email address of type "@gmail.com"
     Then I should see "Join community"
-    And I should not see "What others need"
+    And I should not see "Post a new listing"
     And I should see "Email address:"
     When I check "community_membership_consent"
     And I press "Join community"
@@ -74,7 +74,7 @@ Feature: User joins another community
       | person | 
       | kassi_testperson3 |
     And there is favor request with title "Massage" from "kassi_testperson3"
-    And visibility of that listing is "this_community"
+    And privacy of that listing is "private"
     And there is favor request with title "Sewing" from "kassi_testperson3"
     And visibility of that listing is "all_communities"
     And I log in as "kassi_testperson3"
@@ -84,7 +84,7 @@ Feature: User joins another community
     And I move to community "test2"
     And I am on the home page
     Then I should see "Join community"
-    And I should not see "What others need"
+    And I should not see "Post a new listing"
     When I press "Join community"
     Then I should see "This field is required"
     When I check "community_membership_consent"

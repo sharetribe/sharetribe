@@ -7,9 +7,9 @@ end
 
 Given /^I log in(?: as "([^"]*)")?$/ do |person|
   visit login_path(:locale => :en)
-  fill_in("person[login]", :with => (person ? person : "kassi_testperson1"))
-  fill_in("person[password]", :with => "testi")
-  click_button("Log in")
+  fill_in("main_person_login", :with => (person ? person : "kassi_testperson1"))
+  fill_in("main_person_password", :with => "testi")
+  click_button(:main_log_in_button)
 end
 
 Given /^I log in to this private community(?: as "([^"]*)")?$/ do |person|

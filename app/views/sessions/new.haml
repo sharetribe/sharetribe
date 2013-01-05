@@ -30,13 +30,13 @@
   = form_tag("#{APP_CONFIG.login_domain}#{sessions_path}",:action => "create") do
     %label{:for => "login"}
       = username_or_email_label + ":"
-    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field 
+    = text_field_tag "person[login]", nil, :value => session[:form_login], :class => :text_field, :id => :main_person_login 
     %label{:for => "password"}
       = t('common.password') + ":"
-    = password_field_tag "person[password]", nil, :class => :text_field  
+    = password_field_tag "person[password]", nil, :class => :text_field, :id => :main_person_password 
     - if @current_community
       = hidden_field_tag :community, @current_community.domain
-    = button_tag(t('.login'), :class => "send_button")
+    = button_tag(t('.login'), :class => "send_button", :id => :main_log_in_button)
     .links
       - unless @facebook_merge
         = link_to t('.create_new_account'), (@current_community ? sign_up_path : new_tribe_path), :class => "green_part_link"

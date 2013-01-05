@@ -87,7 +87,7 @@ function initialize_defaults(locale) {
     $('.flash-notifications').fadeOut('slow');
   });
   $('#login-toggle-button').click(function() { 
-    $('#person_login').focus();
+    $('#upper_person_login').focus();
   });
 }
 
