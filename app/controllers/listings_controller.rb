@@ -229,7 +229,6 @@ class ListingsController < ApplicationController
   
   def close
     @listing.update_attribute(:open, false)
-    flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_closed")
     respond_to do |format|
       format.html {
         redirect_to @listing 

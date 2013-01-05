@@ -348,15 +348,16 @@ function initialize_listing_view(locale) {
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
 	auto_resize_text_areas("text_area");
 	$('textarea').focus();
-	faceGrade.create('.feedback_grade_images');
+	//faceGrade.create('.feedback_grade_images');
+	style_grade_selectors();
 	var form_id = "#new_testimonial";
 	$(form_id).validate({
 		errorPlacement: function(error, element) {
-			if (element.attr("name") == "testimonial[text]") {
-				error.appendTo(element.parent());
-			} else {
-				error.appendTo(element.parent().parent().parent());
-			}	
+			if (element.attr("name") == "testimonial[grade]") {
+				error.appendTo(element.parent().parent());
+			}	else {
+			  error.insertAfter(element);
+			}
 		},	
 		rules: {
 			"testimonial[grade]": {required: true},
@@ -370,6 +371,87 @@ function initialize_give_feedback_form(locale, grade_error_message, text_error_m
 		}
 	});
 }
+
+function style_grade_selectors() {
+  $(".feedback-grade").each(function() {
+    $(this).find('label').hide();
+    $(this).find('.grade').each(
+      function() {
+        $(this).removeClass('hidden');
+        $(this).click(
+          function() {
+            $(this).siblings().removeClass('negative').removeClass('positive');
+            $(this).addClass($(this).attr('id'));
+            $(".feedback-grade").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
+            //alert($(this).attr('name'));
+          }
+        );
+      }  
+    );
+  });
+}
+
+// Widget that turns radio buttons to Kaapo faces
+// var faceGrade = {
+//   create: function(selector) {
+//     // loop over every element matching the selector
+//     $(selector).each(function() {
+//       var $list = $('<div class="grade_link_wrapper"></div>');
+//       // loop over every radio button in each container
+//      var id = 1;
+//       $(this)
+//         .find('input:radio')
+//         .each(function(i) {
+//           var grade = $.trim($(this).parent().text());
+//           var $item = $('<a href="#"></a>')
+//             .attr('title', grade)
+//            .attr('id', '' + id + '')
+//             .text(grade);
+//          var $wrapper_div = $('<div></div>');
+//          $wrapper_div.addClass('feedback_grade_image_' + id);  
+//          id++;
+//           faceGrade.addHandlers($(this).find('.grade'));
+//          $wrapper_div.append($item);
+//           $list.append($wrapper_div);
+//           
+//           if($(this).is(':checked')) {
+//             $item.addClass('grade');
+//           }
+//         });
+//         // Hide the original radio buttons
+//         $(this).find('label').hide();
+//         $(this).find('.grade').removeClass('hidden');
+//     });
+//   },
+//   addHandlers: function(item) {
+//     $(item).click(function(e) {
+//       // Handle Star click
+//       alert("Click");
+//       var $star = $(this);
+//       var $allLinks = $(this).parent().parent();
+//       
+//       // Set the radio button value
+//       $allLinks
+//         .parent()
+//         .find('input:radio[id=grade-' + $star.context.id + ']')
+//         .attr('checked', true);
+//         
+//       // Set the grades
+//       $allLinks.children().children().removeClass('grade');
+//       $star.addClass('grade');
+//       
+//       // prevent default link click
+//       e.preventDefault();
+//           
+//     }).hover(function() {
+//       // Handle star mouse over
+//       $(this).addClass('grade-over');
+//     }, function() {
+//       // Handle star mouse out
+//       $(this).siblings().andSelf().removeClass('grade-over');
+//     });    
+//   } 
+// }
 
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
 	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
@@ -871,66 +953,6 @@ function get_datetime_from_datetime_select() {
 	minutes = $('#listing_valid_until_5i').val();
 	date = new Date(year,month-1,day,hours,minutes);
 	return date;
-}
-
-// Widget that turns radio buttons to Kaapo faces
-var faceGrade = {
-  create: function(selector) {
-    // loop over every element matching the selector
-    $(selector).each(function() {
-      var $list = $('<div class="grade_link_wrapper"></div>');
-      // loop over every radio button in each container
-			var id = 1;
-      $(this)
-        .find('input:radio')
-        .each(function(i) {
-          var grade = $.trim($(this).parent().text());
-          var $item = $('<a href="#"></a>')
-            .attr('title', grade)
-						.attr('id', '' + id + '')
-            .text(grade);
-					var $wrapper_div = $('<div></div>');
-					$wrapper_div.addClass('feedback_grade_image_' + id);	
-					id++;
-          faceGrade.addHandlers($item);
-					$wrapper_div.append($item);
-          $list.append($wrapper_div);
-          
-          if($(this).is(':checked')) {
-            $item.addClass('grade');
-          }
-        });
-        // Hide the original radio buttons
-        $(this).append($list).find('label').hide();
-    });
-  },
-  addHandlers: function(item) {
-    $(item).click(function(e) {
-      // Handle Star click
-      var $star = $(this);
-      var $allLinks = $(this).parent().parent();
-      
-      // Set the radio button value
-      $allLinks
-        .parent()
-        .find('input:radio[id=grade-' + $star.context.id + ']')
-        .attr('checked', true);
-        
-      // Set the grades
-      $allLinks.children().children().removeClass('grade');
-      $star.addClass('grade');
-      
-      // prevent default link click
-      e.preventDefault();
-          
-    }).hover(function() {
-      // Handle star mouse over
-      $(this).addClass('grade-over');
-    }, function() {
-      // Handle star mouse out
-      $(this).siblings().andSelf().removeClass('grade-over');
-    });    
-  } 
 }
 
 // Credits to ellemayo's StackOverflow answer: http://stackoverflow.com/a/11654596/150382

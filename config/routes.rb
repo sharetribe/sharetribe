@@ -130,7 +130,7 @@ Kassi::Application.routes.draw do
             put :cancel
           end
           resources :messages
-          resources :xs, :controller => :testimonials do
+          resources :feedbacks, :controller => :testimonials do
             collection do
               put :skip
             end  

@@ -7,6 +7,11 @@ class Testimonial < ActiveRecord::Base
     [ "slightly_better_than_expected", { :form_value => "4", :db_value => 0.75, :default => false } ],
     [ "exceeded_expectations", { :form_value => "5", :db_value => 1, :default => false } ]
   ]
+  
+  GRADES = [
+    [ "positive", { :form_value => "5", :db_value => 1, :default => false, :icon => "ss-like" } ],
+    [ "negative", { :form_value => "1", :db_value => 0, :default => false, :icon => "ss-dislike" } ]
+  ]
 
   belongs_to :author, :class_name => "Person"
   belongs_to :receiver, :class_name => "Person"

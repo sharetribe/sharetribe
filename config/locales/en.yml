@@ -458,7 +458,7 @@ en:
       valid_until: "This date must be between current time and one year from now."
     testimonials:
       you_must_explain_not_neutral_feedback: "If you want to give non-neutral feedback, you must explain why."
-      you_must_select_a_grade: "Remember to grade the user by clicking one of the icons above (you can see the explanations of the icons by hovering mouse over them)"
+      you_must_select_a_grade: "Remember to tell whether your experience was positive or negative."
   error_pages:
     back_to_kassi_front_page: "Back to %{service_name} front page"
     error_404:
@@ -1416,13 +1416,16 @@ en:
       as_expected: "As expected"
       exceeded_expectations: "Much better than expected"
       give_feedback_to: "Give feedback to %{person}"
-      grade: "Rate the experience"
+      grade: "What is your overall feeling?"
       less_than_expected: "Worse than expected"
       send_feedback: "Send feedback"
       slightly_better_than_expected: "Slightly better than expected"
       slightly_less_than_expected: "Slightly worse than expected"
-      textual_feedback: "How did things go"
+      textual_feedback: "How did things go?"
       this_will_be_shown_in_profile: "The feedback you give will be visible to other users in the profile page of %{person}. It helps other members of this tribe to evaluate whether %{person} is a trustworthy person."
+      positive: "Positive"
+      negative: "Negative"
+      default_textual_feedback: "Everything went smoothly, thanks a lot!"
     testimonial:
       from_user: from
       to_user: to
