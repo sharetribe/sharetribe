@@ -1,5 +1,22 @@
 nl:
   admin:
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        community_name: ~
+        community_slogan: ~
+        community_description: ~
+        update_information: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_cover_photo: ~
+        community_custom_color1: ~
+        logo_instructions_text: ~
+        cover_photo_instructions_text: ~
+        custom_color1_instructions_text: ~
     badges:
       index:
         add_new_badge: "Voeg nieuwe badge toe"
@@ -65,11 +82,18 @@ nl:
       sell: verkopen
       trade: ruilen
       share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
     username: Gebruikersnaam
     username_or_email: ~
     what_is_this: "Wat is dit?"
   conversations:
     index:
+      messages_from_all_tribes: ~
       loading_more_messages: "Laad meer berichten"
       message_partitive: bericht
       messages_partitive: berichten
@@ -97,6 +121,7 @@ nl:
       housing_offer_sell_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_offer_message_title: "Item verzoek: %{title}"
@@ -148,6 +173,7 @@ nl:
       write_a_reply: "Schrijf een antwoord:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      last_message_at: ~
     status:
       feedback_given: "Feedback gegeven"
       feedback_skipped: "Feedback overgeslagen"
@@ -485,11 +511,19 @@ nl:
     about: "Over Kassi"
     community: Gemeenschap
     home: Home
+    members: ~
     mobile_version: "Mobiele versie"
     offers: Aanbod
     requests: Verzoeken
     search_kassi: "Zoek Kassi"
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
   homepage:
+    filter_share_types:
+      listing_types:
+        request: ~
+        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Daarnaast is er <b>één ander aanbod</b>,"
       additionally_one_private_request_exists: "Daarnaast is er <b>één ander verzoek</b>,"
@@ -524,6 +558,8 @@ nl:
     event_feed:
       latest_events: ~
     index:
+      what_do_you_need: ~
+      post_new_listing: ~
       are_offering: aanbod
       add_news_item: ~
       inform_others_about_events: ~
@@ -538,8 +574,6 @@ nl:
       or: of
       or_see_what_the_others: "...of kijk wat de anderen"
       recent_events: "Recente evenementen"
-      recent_offers: "Wat anderen kunnen bieden"
-      recent_requests: "Wat anderen nodig hebben"
       request_something: "Vertel wat je nodig hebt!"
       request_something_description: "Vertel anderen of jij een item, rit of hulp nodig hebt"
       requesting: gezocht
@@ -551,6 +585,9 @@ nl:
       email: ~
       message: ~
       send_invitation: ~
+      add_as_many_emails_as_you_want: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
     news_item:
       show_less: ~
       show_more: ~
@@ -570,23 +607,27 @@ nl:
       please_offer: Aanbod
       comment: ~
       comments: ~
-    sign_in:
-      recent_offers: ~
-      recent_requests: ~
-      plus: ~
-      other_offer: ~
-      other_offers: ~
-      other_request: ~
-      other_requests: ~
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      all_listing_types: ~
+      all_categories: ~
   layouts:
+    no_tribe:
+      inbox: ~
+      settings: ~
     admin:
       admin: "Kassi admin dashboard"
       back_to_kassi: "Terug naar Kassi"
+      tribe_info: ~
       news_items: ~
       polls: ~
     application:
-      default_feedback: "Geef nieuwe ideeën, rapporteer een fout, geef je mening, of laat gewoon een berichtje achter om gedag te zeggen!"
+      read_more: ~
       feedback: "Feedback aan Kassi personeel"
+      default_feedback: "Geef nieuwe ideeën, rapporteer een fout, geef je mening, of laat gewoon een berichtje achter om gedag te zeggen!"
       feedback_forum: "feedback forum"
       feedback_handle: Feedback
       give_feedback: "Geef feedback aan kassi"
@@ -596,7 +637,10 @@ nl:
       send_feedback_to_admin: "Verstuur feedback"
       to_see_what_others_have_suggested: "om te zien wat voor ideeën andere gebruikers hebben."
       your_email_address: "Jou email adres (niet verplicht)"
-      formerly_known_as_kassi: ~
+      connect: ~
+      invite_your_friends: ~
+      invite_your_friends_description: ~
+      or_join_without_facebook: ~
     conversations:
       messages: Berichten
       notifications: Notificaties
@@ -636,6 +680,8 @@ nl:
       settings: ~
       sign_up: ~
     notifications:
+      community_updated: ~
+      community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Avatar upload is mislukt. Vergeet niet dat de foto een .png, .jpg or .gif - bestand moet zijn."
@@ -660,6 +706,7 @@ nl:
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: "Log opnieuw in alstublieft."
       login_failed: "Login mislukt. Vul de goede gegevens in."
+      account_creation_successful: ~
       login_successful: "Welkom bij Kassi, "
       logout_successful: "Je bent nu uitgelogd uit Kassi."
       news_item_created: ~
@@ -711,9 +758,8 @@ nl:
       you_have_already_given_feedback_about_this_event: "Je heb al feedback gegeven over dit evenement"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_offer: "Je moet ingelogd zijn om een nieuw aanbod te maken. Als je nog geen account hebt kun je er"
+      you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_create_new_request: "Je moet ingelogd zijn om ee nieuw verzoek te maken. Als je nog geen account hebt kun je er"
       you_must_log_in_to_give_feedback: "Je moet inloggen om feedback te geven"
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: "Je moet inloggen om een nieuwe reactie te versturen"
@@ -743,6 +789,7 @@ nl:
       wrote: ~
       send_private_message: ~
     comment_form:
+      ask_a_question: ~
       log_in: "log in"
       send_comment: "Verzend commentaar"
       to_send_a_comment: "om een nieuw commentaar te verzenden."
@@ -814,6 +861,7 @@ nl:
         request_type: "Verzoek type"
         sell: Verkoop
         share_for_free: ~
+        accept_for_free: ~
         trade: Handel
       tag_list:
         comma_separate: "(comma separate)"
@@ -830,10 +878,13 @@ nl:
       valid_until_radio_buttons:
         for_the_time_being: "Voor nu"
       visibility:
-        communities: "Mijn Kassi gemeenschappen"
-        everybody: "Alle internet gebruikers"
+        all_communities: ~
         this_community: "Alleen %{community} leden"
         visibility: Zichtbaarheid
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
     help_texts:
       help_share_type_title: "Type aanbod of verzoek"
       help_tags_title: Tags
@@ -874,6 +925,7 @@ nl:
       rideshares: "Rit delen"
       sells: Verkopen
       share_for_frees: ~
+      accept_for_frees: ~
       trades: Ruilen
     link_labels:
       link_label_for_favor_offer: "Vraag een gunst"
@@ -881,6 +933,7 @@ nl:
       link_label_for_housing_offer_sell: ~
       link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_accept_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
       link_label_for_item_offer_lend: ~
@@ -895,16 +948,6 @@ nl:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: "vraag om een rit"
       link_label_for_rideshare_request: "Bied een rit aan"
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: Bewerken
     listed_listing_closed_status:
@@ -918,6 +961,71 @@ nl:
       offer_something: "Bied iets aan!"
       request_something: "Vraag iets aan!"
       search_returned_no_results: "Geen zoekresultaten."
+    new:
+      listing: ~
+      offer: ~
+      request: ~
+      selected_offer: ~
+      selected_request: ~
+      selected_listing_type: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_share_type: ~
+      selected_item: ~
+      selected_favor: ~
+      selected_rideshare: ~
+      selected_housing: ~
+      selected_borrow: ~
+      selected_buy: ~
+      selected_give_away: ~
+      selected_lend: ~
+      selected_receive: ~
+      selected_rent: ~
+      selected_rent_out: ~
+      selected_sell: ~
+      selected_trade: ~
+      selected_share_for_free: ~
+      selected_accept_for_free: ~
+      how_do_you_want_to_share_it: ~
+      how_do_you_want_to_get_it: ~
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      trade: ~
+      share_for_free: ~
+      accept_for_free: ~
+      item_with_article: ~
+      favor_with_article: ~
+      rideshare_with_article: ~
+      housing_with_article: ~
+      what_kind_of_category: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+      what_do_you_want_to_do: ~
+      what_can_you_offer: ~
+      what_do_you_need: ~
     please_comment: Commentaar
     reply_link:
       offer_closed: "Aanbod is gesloten"
@@ -935,6 +1043,7 @@ nl:
       offer: Aanbod
       offer_author: "Aangeboden door"
       offer_created: "Aanbod aangemaakt"
+      open_until: ~
       feedback: ~
       qr_code: ~
       request: Verzoek
@@ -1029,6 +1138,8 @@ nl:
       username_is_invalid: "Gebruikersnaam is ongeldig. Toegestane tekens zijn, nummers en liggend streepje."
       visible_only_to_you: ~
       visible_to_everybody: ~
+      create_account_with_facebook: ~
+      or_create_new_account_without_facebook: ~
     not_member:
       explanation_text: "Je bent momenteel in de %{community} gemeenschap. Je hebt geprobeerd om het profiel te zien van een gebruiker uit een andere gemeenschap. Kassi steunt op dit moment niet het zien van meerdere gemeenschappen, dus je kunt toegang tot dit profiel krijgen door de %{community} gemeenschap. We werken aan een optie waar je meerdere gemeenschappen tegelijk kunt hebben. These optie zal later aan de service worden toegevoegd."
       read_more_about_kassi_communities: "Lees meer over de Kassi gemeenschappen"
@@ -1139,10 +1250,8 @@ nl:
       add_phone_number: ~
       address: "Adres:"
       as_expected: "Zoals verwacht"
-      badges: Badges
       edit_profile_info: "Wijzig profile"
       exceeded_expectations: "Verwachtingen overtroffen"
-      received_feedback: ~
       positive: ~
       hide_description: "Laat minder zien"
       joined_this_community: ~
@@ -1157,6 +1266,17 @@ nl:
       slightly_better_than_expected: "Verwachtingen overtroffen"
       slightly_less_than_expected: "Minder dan verwacht"
       what_are_these: "Wat zijn dit?"
+      review: ~
+      reviews: ~
+      badge: ~
+      badges: Badges
+      open_listing: ~
+      open_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      no_badges: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
       trustcloud: ~
   search:
     show:
@@ -1208,6 +1328,7 @@ nl:
       delete_account: ~
       email: "Email adres:"
       instructions_to_delete_account: ~
+      contact_admin: ~
       new_email: "Nieuw email adres"
       new_password: "Nieuw wachtwoord"
       save: Opslaan
@@ -1298,6 +1419,9 @@ nl:
       slightly_less_than_expected: "Iets Minder dan verwacht"
       textual_feedback: "Op- of aanmerkingen"
       this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
     testimonial:
       from_user: van
       to_user: naar

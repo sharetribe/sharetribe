@@ -4,4 +4,4 @@
     %option{value: "#{type}", selected: params[:share_type] == type}= "#{t(".listing_types.#{type}").mb_chars.capitalize.to_s}"
     - if Listing::VALID_SHARE_TYPES[type]
       - Listing::VALID_SHARE_TYPES[type].values.flatten.compact.uniq.each do |share_type|
-        %option{value: "#{share_type}", selected: params[:share_type] == share_type}= "- #{t("common.share_types.#{share_type}").capitalize}"
+        %option{value: "#{share_type}", selected: params[:share_type] == share_type}= "- #{t("common.share_types.#{share_type}").mb_chars.capitalize.to_s}"

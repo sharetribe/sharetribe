@@ -1,5 +1,22 @@
 sw:
   admin:
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        community_name: ~
+        community_slogan: ~
+        community_description: ~
+        update_information: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_cover_photo: ~
+        community_custom_color1: ~
+        logo_instructions_text: ~
+        cover_photo_instructions_text: ~
+        custom_color1_instructions_text: ~
     badges:
       index:
         add_new_badge: "Ongeza beji mpya"
@@ -65,11 +82,18 @@ sw:
       sell: kuuza
       trade: ~
       share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
     username: ~
     username_or_email: ~
     what_is_this: "Nini hii?"
   conversations:
     index:
+      messages_from_all_tribes: ~
       loading_more_messages: ~
       message_partitive: ujumbe
       messages_partitive: ujumbe
@@ -97,6 +121,7 @@ sw:
       housing_offer_sell_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_offer_message_title: ~
@@ -148,6 +173,7 @@ sw:
       write_a_reply: "Andika jibu:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      last_message_at: ~
     status:
       feedback_given: ~
       feedback_skipped: ~
@@ -485,11 +511,19 @@ sw:
     about: ~
     community: ~
     home: ~
+    members: ~
     mobile_version: ~
     offers: ~
     requests: ~
     search_kassi: ~
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
   homepage:
+    filter_share_types:
+      listing_types:
+        request: ~
+        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: ~
       additionally_one_private_request_exists: ~
@@ -524,6 +558,8 @@ sw:
     event_feed:
       latest_events: ~
     index:
+      what_do_you_need: ~
+      post_new_listing: ~
       are_offering: ~
       add_news_item: ~
       inform_others_about_events: ~
@@ -538,8 +574,6 @@ sw:
       or: ~
       or_see_what_the_others: ~
       recent_events: ~
-      recent_offers: ~
-      recent_requests: ~
       request_something: ~
       request_something_description: ~
       requesting: ~
@@ -551,6 +585,9 @@ sw:
       email: ~
       message: ~
       send_invitation: ~
+      add_as_many_emails_as_you_want: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
     news_item:
       show_less: ~
       show_more: ~
@@ -570,23 +607,27 @@ sw:
       please_offer: ~
       comment: ~
       comments: ~
-    sign_in:
-      recent_offers: ~
-      recent_requests: ~
-      plus: ~
-      other_offer: ~
-      other_offers: ~
-      other_request: ~
-      other_requests: ~
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      all_listing_types: ~
+      all_categories: ~
   layouts:
+    no_tribe:
+      inbox: ~
+      settings: ~
     admin:
       admin: ~
       back_to_kassi: ~
+      tribe_info: ~
       news_items: ~
       polls: ~
     application:
-      default_feedback: ~
+      read_more: ~
       feedback: ~
+      default_feedback: ~
       feedback_forum: ~
       feedback_handle: ~
       give_feedback: ~
@@ -596,7 +637,10 @@ sw:
       send_feedback_to_admin: ~
       to_see_what_others_have_suggested: ~
       your_email_address: ~
-      formerly_known_as_kassi: ~
+      connect: ~
+      invite_your_friends: ~
+      invite_your_friends_description: ~
+      or_join_without_facebook: ~
     conversations:
       messages: ~
       notifications: ~
@@ -636,6 +680,8 @@ sw:
       settings: ~
       sign_up: ~
     notifications:
+      community_updated: ~
+      community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: ~
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: ~
@@ -660,6 +706,7 @@ sw:
       inviting_new_users_is_not_allowed_in_this_community: ~
       login_again: ~
       login_failed: ~
+      account_creation_successful: ~
       login_successful: ~
       logout_successful: ~
       news_item_created: ~
@@ -711,9 +758,8 @@ sw:
       you_have_already_given_feedback_about_this_event: ~
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_offer: ~
+      you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_create_new_request: ~
       you_must_log_in_to_give_feedback: ~
       you_must_log_in_to_invite_new_users: ~
       you_must_log_in_to_send_a_comment: ~
@@ -743,6 +789,7 @@ sw:
       wrote: ~
       send_private_message: ~
     comment_form:
+      ask_a_question: ~
       log_in: ~
       send_comment: ~
       to_send_a_comment: ~
@@ -814,6 +861,7 @@ sw:
         request_type: ~
         sell: ~
         share_for_free: ~
+        accept_for_free: ~
         trade: ~
       tag_list:
         comma_separate: ~
@@ -830,10 +878,13 @@ sw:
       valid_until_radio_buttons:
         for_the_time_being: ~
       visibility:
-        communities: ~
-        everybody: ~
+        all_communities: ~
         this_community: ~
         visibility: ~
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
     help_texts:
       help_share_type_title: ~
       help_tags_title: ~
@@ -874,6 +925,7 @@ sw:
       rideshares: ~
       sells: ~
       share_for_frees: ~
+      accept_for_frees: ~
       trades: ~
     link_labels:
       link_label_for_favor_offer: ~
@@ -881,6 +933,7 @@ sw:
       link_label_for_housing_offer_sell: ~
       link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_accept_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
       link_label_for_item_offer_lend: ~
@@ -895,16 +948,6 @@ sw:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: ~
       link_label_for_rideshare_request: ~
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: ~
     listed_listing_closed_status:
@@ -918,6 +961,71 @@ sw:
       offer_something: ~
       request_something: ~
       search_returned_no_results: ~
+    new:
+      listing: ~
+      offer: ~
+      request: ~
+      selected_offer: ~
+      selected_request: ~
+      selected_listing_type: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_share_type: ~
+      selected_item: ~
+      selected_favor: ~
+      selected_rideshare: ~
+      selected_housing: ~
+      selected_borrow: ~
+      selected_buy: ~
+      selected_give_away: ~
+      selected_lend: ~
+      selected_receive: ~
+      selected_rent: ~
+      selected_rent_out: ~
+      selected_sell: ~
+      selected_trade: ~
+      selected_share_for_free: ~
+      selected_accept_for_free: ~
+      how_do_you_want_to_share_it: ~
+      how_do_you_want_to_get_it: ~
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      trade: ~
+      share_for_free: ~
+      accept_for_free: ~
+      item_with_article: ~
+      favor_with_article: ~
+      rideshare_with_article: ~
+      housing_with_article: ~
+      what_kind_of_category: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+      what_do_you_want_to_do: ~
+      what_can_you_offer: ~
+      what_do_you_need: ~
     please_comment: ~
     reply_link:
       offer_closed: ~
@@ -935,6 +1043,7 @@ sw:
       offer: ~
       offer_author: ~
       offer_created: ~
+      open_until: ~
       feedback: ~
       qr_code: ~
       request: ~
@@ -1028,6 +1137,8 @@ sw:
       username_is_invalid: ~
       visible_only_to_you: ~
       visible_to_everybody: ~
+      create_account_with_facebook: ~
+      or_create_new_account_without_facebook: ~
     not_member:
       explanation_text: ~
       read_more_about_kassi_communities: ~
@@ -1138,10 +1249,8 @@ sw:
       add_phone_number: ~
       address: ~
       as_expected: ~
-      badges: ~
       edit_profile_info: ~
       exceeded_expectations: ~
-      received_feedback: ~
       positive: ~
       hide_description: ~
       joined_this_community: ~
@@ -1156,6 +1265,17 @@ sw:
       slightly_better_than_expected: ~
       slightly_less_than_expected: ~
       what_are_these: ~
+      review: ~
+      reviews: ~
+      badge: ~
+      badges: ~
+      open_listing: ~
+      open_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      no_badges: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
       trustcloud: ~
   search:
     show:
@@ -1207,6 +1327,7 @@ sw:
       delete_account: ~
       email: ~
       instructions_to_delete_account: ~
+      contact_admin: ~
       new_email: ~
       new_password: ~
       save: ~
@@ -1297,6 +1418,9 @@ sw:
       slightly_less_than_expected: ~
       textual_feedback: ~
       this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
     testimonial:
       from_user: ~
       to_user: ~

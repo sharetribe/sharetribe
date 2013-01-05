@@ -1,5 +1,22 @@
 fr:
   admin:
+    communities:
+      edit_details:
+        community_details: "Détails de la tribu"
+        community_look_and_feel: "Présentation et aspect de la tribu"
+        edit_community: "Modifier les détails de la tribu \"%{community_name}\""
+        community_name: "Nom de la tribu : "
+        community_slogan: "Slogan de la tribu : "
+        community_description: "Description : "
+        update_information: "Mettre les informations à jour"
+      edit_look_and_feel:
+        edit_community_look_and_feel: "Modifier la présentation et l'aspect de la tribu \"%{community_name}\""
+        community_logo: Logo
+        community_cover_photo: "Photo de couverture"
+        community_custom_color1: "Couleur principale"
+        logo_instructions_text: "Le logo sera redimensionné en carré de 192x192 pixels si nécessaire."
+        cover_photo_instructions_text: "La photo de couverture sera redimensionnée en 1600x195 pixels et les images trop grandes seront coupées."
+        custom_color1_instructions_text: "Vous pouvez changer la couleur principale de l'interface de cette tribu en entrant une valeur hexadécimale. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> peut vous aider à choisir cette valeur que pourrez alors copier."
     badges:
       index:
         add_new_badge: "Ajouter un nouveau badge"
@@ -55,32 +72,39 @@ fr:
     or: ou
     password: "Mot de passe "
     share_types:
-      borrow: "à emprunter "
-      buy: "à acheter "
-      give_away: "à donner "
-      lend: "à prêter "
+      borrow: emprunt
+      buy: achat
+      give_away: don
+      lend: prêt
       receive: "accepter gratuitement "
-      rent: "cherche à louer "
-      rent_out: "à louer "
-      sell: "à vendre "
-      trade: "à échanger "
-      share_for_free: "à partager "
+      rent: location
+      rent_out: location
+      sell: vente
+      trade: échange
+      share_for_free: "partage gratuit"
+      accept_for_free: "accepter gratuitement"
+    categories:
+      item: objets
+      favor: services
+      rideshare: covoiturage
+      housing: lieux
     username: "Nom d'utilisateur "
     username_or_email: "Nom d'utilisateur ou e-mail"
     what_is_this: "Qu'est-ce que c'est ?"
   conversations:
     index:
+      messages_from_all_tribes: "Voici les messages que vous avez échangés avec d'autres personnes dans toutes les tribus auxquelles vous appartenez."
       loading_more_messages: "Chargement de la suite des messages"
       message_partitive: message
       messages_partitive: messages
       no_received_messages: "Pas de messages reçus"
       no_sent_messages: "Pas de messages envoyés"
     new:
-      favor_offer_message_form_title: "Demander un service à"
+      favor_offer_message_form_title: "Demander un service à %{person}"
       favor_offer_message_title: "Demande de service : %{title}"
-      favor_request_message_form_title: "Proposer un service à"
+      favor_request_message_form_title: "Proposer un service à %{person}"
       favor_request_message_title: "Offre de service : %{title}"
-      housing_offer_message_form_title: "Répondre à"
+      housing_offer_message_form_title: "Répondre à %{person}"
       housing_offer_message_title: "Répondre à votre annonce %{title}"
       housing_request_message_form_title: "Répondre à"
       housing_request_message_title: "Répondre à votre annonce %{title}"
@@ -97,6 +121,7 @@ fr:
       housing_offer_sell_message_form_title: "Acheter %{listing} de %{person}"
       housing_offer_rent_out_message_form_title: "Louer %{listing} de %{person}"
       housing_offer_share_for_free_message_form_title: "Demander %{listing} à %{person}"
+      housing_offer_accept_for_free_message_form_title: "Offre %{listing} à %{person}"
       housing_request_buy_message_form_title: "Vendre %{listing} à %{person}"
       housing_request_rent_message_form_title: "Louer %{listing} à %{person}"
       item_offer_message_title: "Demande d'objet : %{title}"
@@ -148,6 +173,7 @@ fr:
       write_a_reply: "Ecrire une réponse :"
       conversation_about_listing: "Discussion avec %{person} à propos de %{listing}"
       conversation_with_user: "Discussion avec %{person}."
+      last_message_at: "(dernier message %{time})"
     status:
       feedback_given: "Avis donné"
       feedback_skipped: "Pas d'avis"
@@ -452,7 +478,7 @@ fr:
       kassi_does_not_currently_work_without_javascript: "Pour le moment, %{service_name} ne fonctionne pas sans JavaScript. Essayez d'activer javascript à partir des préférences de votre navigateur puis rechargez cette page. Si vous souhaitez utiliser %{service_name} sans javascript, veuillez nous envoyer vos commentaires en utilisant le formulaire ci-dessous."
       kassi_does_not_currently_work_without_javascript_dashboard: "Malheureusement, %{service_name} ne fonctionne pas sans Javascript. Activez Javascript dans les réglages de votre navigateur et rechargez la page. Si vous souhaitez utiliser %{service_name} sans Javascript, %{contact_us}."
       contact_us: "nous contacter"
-      send_feedback: "Envoyer commentaires"
+      send_feedback: "Envoyer votre commentaire"
       your_feedback_to_admins: "Vos commentaires aux administrateurs"
     send: Envoyer
     your_email_address: "Votre adresse email"
@@ -485,11 +511,19 @@ fr:
     about: "A propos"
     community: Communauté
     home: Accueil
+    members: Tribu
     mobile_version: "Version mobile"
     offers: Offres
     requests: Demandes
     search_kassi: "Chercher sur %{service_name}"
+    create_new_marketplace: "Créer une nouvelle tribu"
+    contact_us: "Nous contacter"
+    profile: Profil
   homepage:
+    filter_share_types:
+      listing_types:
+        request: Demandes
+        offer: Offres
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Il y a aussi <b>une autre offre</b>,"
       additionally_one_private_request_exists: "Il y a aussi <b>une autre demande</b>,"
@@ -524,6 +558,8 @@ fr:
     event_feed:
       latest_events: "Que se passe t-il"
     index:
+      what_do_you_need: "De quoi avez-vous besoin ?"
+      post_new_listing: "Déposez une nouvelle annonce !"
       are_offering: offrent
       add_news_item: "Ajouter un article"
       inform_others_about_events: "Dernières actualités et évènements dans la tribu."
@@ -538,8 +574,6 @@ fr:
       or: ou
       or_see_what_the_others: "...ou regardez ce que les autres"
       recent_events: "Evénements les plus récents"
-      recent_offers: "Ce que proposent les autres"
-      recent_requests: "Ce dont les autres ont besoin"
       request_something: "Demandez ce dont vous avez besoin !"
       request_something_description: "Dites aux autres si vous avez besoin d'un objet, de covoiturage ou d'aide"
       requesting: demandent
@@ -547,10 +581,13 @@ fr:
       tell_it_here: "Dites-le ici !"
       welcome_to_new_kassi: "Bienvenue sur la nouvelle version de %{service_name} !"
     invitation_form:
-      invite_your_friends: "Invitez vos amis sur %{service_name}"
-      email: "L'adresse email de votre ami :"
-      message: "Message personnel :"
-      send_invitation: "Envoyer l'invitation"
+      invite_your_friends: "Inviter vos amis sur %{service_name}"
+      email: "La (les) adresse(s) email(s) de vos ami(e)(s)"
+      message: "Votre message"
+      send_invitation: "Envoyer l' (les) invitation(s)"
+      add_as_many_emails_as_you_want: "Ajoutez la ou les adresse(s) de vos ami(e)s ci-dessous. Si vous ajoutez plusieurs adresses, séparez les par une virgule."
+      invitation_emails_field_placeholder: "ami1@exemple.fr, ami2@exemple.fr, ..."
+      invitation_message_field_placeholder: "Je me suis inscrit sur ce site. Viens m'y rejoindre !"
     news_item:
       show_less: Réduire
       show_more: Développer
@@ -570,33 +607,40 @@ fr:
       please_offer: Offrir
       comment: commentaire
       comments: commentaires
-    sign_in:
-      recent_offers: "Ce que les membres offrent actuellement"
-      recent_requests: "Ce dont les membres ont besoin actuellement"
-      plus: "... plus"
-      other_offer: "autre offre"
-      other_offers: "autres offers"
-      other_request: "autre demande"
-      other_requests: "autres demandes"
+    filters:
+      show: "Voir : "
+      search: Chercher
+      map: "Voir la carte"
+      list: "Voir la liste"
+      all_listing_types: "Tous les types d'annonces"
+      all_categories: "Toutes les catégories"
   layouts:
+    no_tribe:
+      inbox: "Boîte de réception"
+      settings: Paramètres
     admin:
       admin: "Panneau administrateur %{service_name}"
       back_to_kassi: "Retour à la page d'accueil de %{service_name}"
+      tribe_info: "Informations de base de la tribu"
       news_items: "Nouveaux articles"
       polls: Sondages
     application:
-      default_feedback: "Proposer une nouvelle fonctionnalité, signaler un bug, donnez votre opinion sur le service ou laissez-nous juste un mot pour dire bonjour !"
+      read_more: "Lire la suite"
       feedback: "Vos commentaires pour l'équipe de %{service_name}"
+      default_feedback: "Vous avez rencontré un problème sur %{service_name} ? Vous souhaitez proposer une nouvelle fonctionnalité ? Vous avez remarqué une annonce suspecte ? Ou vous voulez juste discuter avec nous ? Dites le nous !"
       feedback_forum: "forum de discussion"
       feedback_handle: Commentaires
-      give_feedback: "Faites vos commentaires sur %{service_name}"
+      give_feedback: "Nous contacter"
       keywords: "%{service_name}, service, article, objet, transport, covoiturage, logement, hébergement, aide, aide, offre, demande, location, affaires, échange, achat, vente, acheter, vendre, don, donner, Kassi, écologique, communauté, communauté en ligne"
       meta_description: "%{service_name} est un service qui aide les membres d'associations et d'autres communautés à se rendre service, à se vendre et prêter des objets, à organiser des covoiturages et à s'entraider de plusieurs autres façons."
-      or_check_our: "...ou consultez notre"
-      send_feedback_to_admin: "Envoyer commentaires"
-      to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré."
-      your_email_address: "Votre adresse email (non-obligatoire)"
-      formerly_known_as_kassi: "anciennement Kassi"
+      or_check_our: "... ou consultez notre"
+      send_feedback_to_admin: "Envoyer votre commentaire"
+      to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
+      your_email_address: "Votre adresse email (non obligatoire)"
+      connect: "Se connecter"
+      invite_your_friends: "Invitez des amis !"
+      invite_your_friends_description: "Plus il y a de gens sur %{service_name}, plus cela est utile et efficace."
+      or_join_without_facebook: "ou créer un compte sans utiliser Facebook"
     conversations:
       messages: Messages
       notifications: Notifications
@@ -636,10 +680,12 @@ fr:
       settings: Paramètres
       sign_up: S'inscrire
     notifications:
+      community_updated: "La mise à jour des informations de la tribu a réussi."
+      community_update_failed: "La mise à jour des informations de la tribu a échoué."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Compte créé avec succès. Vous devez à présent confirmer votre adresse email."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Vous êtes désormais membre de cette communauté. Il vous reste à confirmer votre adresse email."
       avatar_upload_failed: "Le chargement de l'image de profil a échoué. Les formats d'image acceptés sont : .png, .jpg ou .gif."
-      avatar_upload_successful: "Téléchargement d'image du profil réussi."
+      avatar_upload_successful: "Téléchargement réussi de l'image du profil"
       comment_cannot_be_empty: "Commentaire ne peut pas être vide"
       comment_sent: "Commentaire envoyé"
       confirmation_link_is_wrong_or_used: "Le lien de confirmation est déjà utilisé ou se trouve en panne. Essayez de vous connecter ou contactez-nous si le problème persiste."
@@ -652,16 +698,17 @@ fr:
       error_with_session: "Erreur avec la session."
       feedback_considered_spam: "Commentaire n'a pas pu être enregistré en raison de sa mise en forme. Essayez à nouveau ou utiliser le forum de discussion."
       feedback_not_saved: "Commentaire n'a pas pu être envoyé."
-      feedback_saved: "Merci pour vos commentaires !"
+      feedback_saved: "Merci pour votre commentaire ! Si vous avez laissé votre email, nous vous répondrons dès que possible."
       feedback_sent_to: "Avis envoyé à"
       feedback_skipped: "Pas d'avis"
-      invitation_cannot_be_sent: "L'invitation n'a pas pu être envoyée"
-      invitation_sent: "L'invitation a été envoyée"
+      invitation_cannot_be_sent: "L' (les) invitation(s) n'a (n'ont) pas pu être envoyée(s)"
+      invitation_sent: "L' (les) invitation(s) a (ont) été envoyée(s)"
       inviting_new_users_is_not_allowed_in_this_community: "Inviter de nouveaux utilisateurs n'est pas autorisé dans la communauté %{service_name}"
       login_again: "Merci de vous reconnecter."
       login_failed: "Échec de la connexion. Veuillez saisir les identifiants corrects."
-      login_successful: "Bienvenue sur %{service_name}, "
-      logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue à nouveau !"
+      account_creation_successful: "Bienvenue sur %{service_name}, %{person_name} !"
+      login_successful: "Bienvenue, %{person_name} !"
+      logout_successful: "Vous avez été déconnecté de %{service_name}. Bienvenue de nouveau !"
       news_item_created: "Article créé"
       news_item_creation_failed: "Erreur lors de la création de l'article"
       news_item_update_failed: "Erreur lors de la mise à jour de l'article"
@@ -711,9 +758,8 @@ fr:
       you_have_already_given_feedback_about_this_event: "Vous avez déjà donné un avis sur cet événement"
       you_are_now_member: "Vous avez rejoint cette communauté"
       you_are_already_member: "Vous êtes déjà membre de la communauté %{service_name}. Bon retour !"
-      you_must_log_in_to_create_new_offer: "Vous devez être connecté à %{service_name} pour créer une nouvelle offre. Si vous n'avez pas de compte, vous pouvez"
+      you_must_log_in_to_create_new_listing: "Vous devez vous connecter à %{service_name} pour créer une nouvelle annonce. Si vous n'avez pas encore de compte vous pouvez %{sign_up_link}."
       additional_email_confirmed_dashboard: "Votre adresse email est confirmée."
-      you_must_log_in_to_create_new_request: "Vous devez être connecté à %{service_name} pour créer une nouvelle demande. Si vous n'avez pas de compte, vous pouvez"
       you_must_log_in_to_give_feedback: "Vous devez vous connecter pour donner un avis"
       you_must_log_in_to_invite_new_users: "Vous devez vous connecter pour pouvoir inviter de nouveaux utilisateurs sur %{service_name}"
       you_must_log_in_to_send_a_comment: "Vous devez vous connecter pour envoyer un nouveau commentaire"
@@ -727,14 +773,14 @@ fr:
       you_unfollowed_listing: "Vous ne suivez plus cette annonce"
       joining_community_failed: "Rejoindre cette communauté a échoué."
     profile_extras_header:
-      back_to_profile_of_person: "Retour au profil d'utilisateur"
+      back_to_profile_of_person: "Retour au profil"
       badges: Badges
       testimonials: "Avis reçus"
     settings:
       account: Compte
       avatar: "Image du profil"
       notifications: Notifications
-      profile: "Info profil"
+      profile: "Info du profil"
       settings: Paramètres
   listings:
     bubble_listing_not_visible:
@@ -743,6 +789,7 @@ fr:
       wrote: "a écrit"
       send_private_message: "Envoyer un message à %{person}"
     comment_form:
+      ask_a_question: "Ajoutez un commentaire ou posez une question pour demander des détails. Tous les autres utilisateurs pourront voir votre commentaire."
       log_in: "vous connecter"
       send_comment: "Envoyer un commentaire"
       to_send_a_comment: "pour envoyer un nouveau commentaire."
@@ -770,19 +817,19 @@ fr:
         at: A
         departure_time: "Heure de départ"
       departure_time_radio_buttons:
-        repeated: "Répété (préciser les dates dans 'description détaillée')"
+        repeated: "Récurrent (préciser les dates dans 'description détaillée')"
       description:
         detailed_description: "Description détaillée"
       destination:
         destination: "Lieu d'arrivée"
       form_content:
         favor: Service
-        housing: Logement
+        housing: lieu
         item: Objet
         offer_something: "Proposer quelque chose"
         request_something: "Demander quelque chose"
         rideshare: Covoiturage
-        i_want_to_offer: "Je veux proposer..."
+        i_want_to_offer: "Je souhaite proposer..."
         i_want_to_request: "J'ai besoin de..."
       googlemap:
         googlemap_copy: "Extrémités depuis plan"
@@ -799,30 +846,31 @@ fr:
         location: Lieu
         origin: "Lieu de départ"
       send_button:
-        save_offer: "Enregistrer offre"
-        save_request: "Enregistrer demande"
+        save_offer: "Sauvegarder l'offre"
+        save_request: "Sauvegarder la demande"
       share_type:
         select: Selectionner
-        borrow: Emprunter
-        buy: Acheter
-        give_away: Donner
-        lend: Prêter
+        borrow: Emprunt
+        buy: Achat
+        give_away: Don
+        lend: Prêt
         offer_type: "Type d'offre"
         receive: "Accepter gratuitement"
-        rent: Louer
-        rent_out: Louer
+        rent: Location
+        rent_out: Location
         request_type: "Type de demande"
-        sell: Vendre
+        sell: Vente
         share_for_free: "A partager"
-        trade: Echanger
+        accept_for_free: ~
+        trade: Échange
       tag_list:
         comma_separate: "(séparés par une virgule)"
         tags: Tags
       title:
         favor_you_offer: "Service que vous proposez"
         favor_you_request: "Service dont vous avez besoin"
-        housing_you_offer: "Logement que vous proposez"
-        housing_you_request: "Logement dont vous avez besoin"
+        housing_you_offer: "Lieu que vous proposez"
+        housing_you_request: "Lieu dont vous avez besoin"
         item_you_offer: "Objet que vous proposez"
         item_you_request: "Objet dont vous avez besoin"
       valid_until:
@@ -830,22 +878,25 @@ fr:
       valid_until_radio_buttons:
         for_the_time_being: "Pas de date d'expiration"
       visibility:
-        communities: "Toutes mes communautés %{service_name}"
-        everybody: "Tous les utilisateurs d'internet"
+        all_communities: "Toutes mes tribus %{service_name}"
         this_community: "Seuls les membres de %{community}"
         visibility: Visibilité
+      privacy:
+        privacy: Visibilité
+        private: "Privée (visible uniquement aux utilisateurs connectés)"
+        public: "Publique (visible même aux utilisateurs non connectés)"
     help_texts:
       help_share_type_title: "Type d'offre ou de demande"
       help_tags_title: Tags
       help_valid_until_title: "Date d'expiration"
     index:
       all_categories: "Toutes les catégories"
-      all_offer_types: "Tout type d'offre"
-      all_request_types: "Tout type de demande"
+      all_offer_types: "Tout type d'offres"
+      all_request_types: "Tout type de demandes"
       category: Catégorie
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
-      housing: Logement
+      housing: Lieux
       items: Objets
       list_view: "Vue en liste"
       listings: Listes
@@ -856,33 +907,35 @@ fr:
       request_something: "Demandez quelque chose !"
       request_type: "Type de demande"
       requests: Demandes
-      rideshare: Covoiturage
+      rideshare: Trajet
       search_verb: Chercher
       you_have_something_others_do_not: "Vous avez quelque chose à offrir ?"
       feed_title: "%{listing_type} de %{community_name} %{service_name} %{optional_category}"
     left_panel_link:
-      borrows: "A emprunter"
-      buys: "A acheter"
+      borrows: Emprunt
+      buys: Achat
       favors: Services
-      give_aways: "A donner"
-      housings: Logement
+      give_aways: Don
+      housings: Lieux
       items: Objets
-      lends: "A prêter"
+      lends: Prêt
       receives: "A accepter gratuitement"
-      rent_outs: "A louer"
-      rents: "Cherche à louer"
+      rent_outs: Location
+      rents: Location
       rideshares: Covoiturage
-      sells: "A vendre"
+      sells: Vente
       share_for_frees: "A partager"
-      trades: "A échanger"
+      accept_for_frees: ~
+      trades: Échange
     link_labels:
       link_label_for_favor_offer: "Demander ce service"
       link_label_for_favor_request: "Proposer votre aide"
-      link_label_for_housing_offer_sell: "Acheter ce logement"
-      link_label_for_housing_offer_rent_out: "Louer ce logement"
-      link_label_for_housing_offer_share_for_free: "Demander ce logement"
-      link_label_for_housing_request_buy: "Proposer de vendre ce logement"
-      link_label_for_housing_request_rent: "Proposer de louer ce logement"
+      link_label_for_housing_offer_sell: "Acheter ce lieu"
+      link_label_for_housing_offer_rent_out: "Louer ce lieu"
+      link_label_for_housing_offer_share_for_free: "Demander ce lieu"
+      link_label_for_housing_request_accept_for_free: "Proposer ce lieu"
+      link_label_for_housing_request_buy: "Proposer de vendre ce lieu"
+      link_label_for_housing_request_rent: "Proposer de louer ce lieu"
       link_label_for_item_offer_lend: "Emprunter cet objet"
       link_label_for_item_offer_rent_out: "Louer cet objet"
       link_label_for_item_offer_sell: "Acheter cet objet"
@@ -895,16 +948,6 @@ fr:
       link_label_for_item_request_trade: "Proposer d'échanger cet objet"
       link_label_for_rideshare_offer: "Demander un transport"
       link_label_for_rideshare_request: "Proposer un transport"
-      message_link_label_for_offer: "Envoyer un message à l'annonceur"
-      message_link_label_for_request: "Envoyer un message au demandeur"
-      message_link_label_for_item_offer_lend: "Envoyer un message au prêteur"
-      message_link_label_for_item_offer_rent_out: "Envoyer un message au loueur"
-      message_link_label_for_item_offer_sell: "Envoyé un message privé au vendeur"
-      message_link_label_for_item_offer_give_away: "Envoyer un message au donneur"
-      message_link_label_for_item_offer_trade: "Envoyer un message au donneur"
-      message_link_label_for_housing_offer_sell: "Envoyer un message au vendeur"
-      message_link_label_for_housing_offer_rent_out: "Envoyer une message privé au loueur"
-      message_link_label_for_housing_offer_share_for_free: "Envoyer une message privé au donneur"
     listed_listing:
       edit: Modifier
     listed_listing_closed_status:
@@ -918,6 +961,71 @@ fr:
       offer_something: "Proposez quelque chose !"
       request_something: "Demandez quelque chose !"
       search_returned_no_results: "Pas de résultats à votre recherche."
+    new:
+      listing: annonce
+      offer: "J'ai quelque chose à proposer"
+      request: "J'ai besoin de quelque chose"
+      selected_offer: Offre
+      selected_request: Demande
+      selected_listing_type: "Type d'annonce : %{listing_type}"
+      selected_category: "Catégorie : %{category}"
+      selected_subcategory: "Sous-catégorie : %{subcategory}"
+      selected_share_type: "Type de partage : %{share_type}"
+      selected_item: Objet
+      selected_favor: Service
+      selected_rideshare: Covoiturage
+      selected_housing: Lieu
+      selected_borrow: Emprunt
+      selected_buy: Achat
+      selected_give_away: Don
+      selected_lend: Prêt
+      selected_receive: ~
+      selected_rent: Location
+      selected_rent_out: Location
+      selected_sell: Vente
+      selected_trade: Échange
+      selected_share_for_free: ~
+      selected_accept_for_free: ~
+      how_do_you_want_to_share_it: "Comment voulez-vous le partager ?"
+      how_do_you_want_to_get_it: "Comment souhaitez-vous l'obtenir ?"
+      item: "Un objet - quelque chose de concret"
+      favor: "Une aide - une compétence ou un service"
+      rideshare: "Un trajet - en covoiturage ou avec un autre moyen"
+      housing: "Un lieu - un appartement, un bureau ou un jardin"
+      borrow: "Je souhaite l'emprunter"
+      buy: "Je souhaite l'acheter"
+      give_away: "Je le donne gratuitement"
+      lend: "Je le prête gratuitement"
+      receive: "Je souhaite l'obtenir gratuitement"
+      rent: "Je souhaite le louer"
+      rent_out: "Je le loue contre un montant"
+      sell: "Je le vends"
+      trade: "Je l'échange contre autre chose"
+      share_for_free: "Je le partage gratuitement"
+      accept_for_free: "Je souhaite l'obtenir gratuitement"
+      item_with_article: "un objet"
+      favor_with_article: aide
+      rideshare_with_article: trajet
+      housing_with_article: "un lieu"
+      what_kind_of_category: "De quel type de %{category} parlons-nous ?"
+      tools: Outils
+      sports: Sports
+      music: Musique
+      books: "Livres et magazines"
+      games: "Jeux et jouets"
+      furniture: Mobilier
+      outdoors: "Plein air et extérieur"
+      food: "Nourriture et cuisine"
+      electronics: "Équipement électronique"
+      pets: Animaux
+      film: Films
+      clothes: "Vêtements et accessoires"
+      garden: Jardin
+      travel: Voyage
+      other: Autre
+      what_do_you_want_to_do: "Que voulez-vous faire ?"
+      what_can_you_offer: "Que pouvez-vous proposer aux autres ?"
+      what_do_you_need: "De quoi avez-vous besoin ?"
     please_comment: "Faire un commentaire"
     reply_link:
       offer_closed: "Offre fermée"
@@ -935,6 +1043,7 @@ fr:
       offer: "Offre "
       offer_author: "Offert par"
       offer_created: "Offre créée"
+      open_until: "Valide jusqu'au %{date}"
       feedback: "Remarque :"
       qr_code: "QR code"
       request: Demande
@@ -958,7 +1067,7 @@ fr:
       category: Catégorie
       did_not_found_what_you_were_looking_for: "Vous n'avez pas trouvé ce que vous cherchiez ?"
       favors: Services
-      housing: Logement
+      housing: Lieux
       items: Objets
       list_view: "Vue en liste"
       map_view: Plan
@@ -1006,8 +1115,8 @@ fr:
       address_validator: "Emplacement inconnu."
       captcha_incorrect: "Vérification reCAPTCHA échouée. Veuillez saisir les mots de l'image dans la case dessous."
       captcha_was_wrong: "Texte Captcha incorrecte."
-      create_new_account: "Créer un compte utilisateur"
-      email: "Adresse email :"
+      create_new_account: "Créer un compte"
+      email: "Adresse email"
       email_is_in_use: "L'adresse email que vous avez saisi est déjà utilisée."
       email_is_in_use_or_not_allowed: "Cette adresse email n'est pas acceptée pour cette communauté ou est déjà utilisée. Veuillez utiliser une adresse associée à cette communauté (voir instructions plus haut). Si vous n'arrivez toujours pas à vous connecter, envoyez-nous vos commentaires en utilisant le lien à gauche."
       email_not_allowed: "Cette adresse email n'est pas autorisée au sein de cette communauté. Merci d'utiliser une adresse qui lui est associée. Si, malgré tout, vous n'arrivez à la rejoindre, envoyez nous un feedback en cliquant sur le lien à gauche."
@@ -1015,22 +1124,24 @@ fr:
         one: "Cette communauté est réservé à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail du type %{allowed_emails}."
         other: "Cette communauté est réservé à %{community_name}. Pour la rejoindre, vous devez avoir une adresse e-mail se terminant par %{allowed_emails}."
       enter_captcha: "Je suis un être humain :"
-      family_name: "Nom de famille :"
-      given_name: "Prénom :"
+      family_name: "Nom de famille"
+      given_name: Prénom
       i_accept_the: "J'accepte les"
       if_you_already_have_account_you_can: "Si vous avez déjà un compte dans une autre communauté %{service_name}, vous pouvez"
-      join_with_your_existing_account: "rejoignez cette communauté avec votre compte"
+      join_with_your_existing_account: "rejoindre cette communauté avec votre compte"
       invalid_invitation_code: "Le code d'invitation n'est pas valide."
       invitation_code: "Code d'invitation :"
       not_required: ", pas demandé"
-      password_again: "Confirmer le mot de passe :"
-      show_my_name_to_others: "Montrer mon vrai nom aux autres utilisateurs de %{service_name}"
+      password_again: "Confirmer le mot de passe"
+      show_my_name_to_others: "Montrer mon nom complet aux autres utilisateurs de %{service_name}"
       sign_up: "Créer un nouveau compte sur %{service_name}"
       terms: "conditions d'utilisation"
       username_is_in_use: "Ce nom d'utilisateur est déjà utilisé."
       username_is_invalid: "Nom d'utilisateur incorrect. Les caractères autorisés sont les lettres, les chiffres et le tiret bas ('_')."
       visible_only_to_you: "visible uniquement à vous et à l'administrateur de la communauté"
       visible_to_everybody: "visible à tout le monde"
+      create_account_with_facebook: "Créez un compte avec Facebook"
+      or_create_new_account_without_facebook: "... ou créez un compte sans utiliser Facebook, ci-dessous."
     not_member:
       explanation_text: "Vous faites actuellement partie de la communauté %{community}. Vous avez essayé de visionner le profil d'un utilisateur appartenant à une autre communauté. Pour le moment, %{service_name} ne permet pas de faire partie de plusieurs communautés, vous ne pouvez donc pas accéder à ce profil via la communauté %{community}. Nous travaillons sur l'option d'appartenir à plusieurs communautés à la fois. Cette fonctionnalité sera ajoutée au service ultérieurement."
       read_more_about_kassi_communities: "En savoir plus sur les communautés %{service_name}"
@@ -1075,7 +1186,7 @@ fr:
       helper_silver: "Aidant (argent)"
       helper_silver_description: "Vous aimez passer du temps à aider les autres : 6 services rendus !"
       jack_of_all_trades: "Homme à tout faire"
-      jack_of_all_trades_description: "Vos talents sont vraiment multiples ! Vous avez participé à des échanges de ressources dans 5 rôles différents. Continuez donc et cumulez les huit : donneur d'article, aidant, conducteur de covoiturage, logeur, demandeur d'article, demandeur de service, demandeur de covoiturage et demandeur de logement."
+      jack_of_all_trades_description: "Vos talents sont vraiment multiples ! Vous avez participé à des échanges de ressources dans 5 rôles différents. Continuez donc et cumulez les huit : donneur d'article, aidant, conducteur de covoiturage, logeur, demandeur d'article, demandeur de service, demandeur de covoiturage et demandeur de lieu."
       lender_bronze: "Prêteur (bronze)"
       lender_bronze_description: "Vous avez listé trois articles que vous souhaitez prêter, génial !"
       lender_gold: "Prêteur (or)"
@@ -1117,11 +1228,11 @@ fr:
       and_gave_following_feedback: "et a donné l'avis suivant"
       less_than_expected: "Ne correspondait pas à mes attentes"
       offered_favor: "a rendu service"
-      offered_housing: "a proposé un logement"
+      offered_housing: "a proposé un lieu"
       offered_item: "a proposé un objet"
       offered_rideshare: "a proposé un transport"
       requested_favor: "a reçu un service"
-      requested_housing: "a demandé un logement"
+      requested_housing: "a demandé un lieu"
       requested_item: "a reçu un objet"
       requested_rideshare: "a demandé un transport"
       slightly_better_than_expected: "Mieux qu'attendu"
@@ -1135,23 +1246,21 @@ fr:
       show_only_open: "Voir uniquement les offres et demandes en cours"
     show:
       contact: "Contacter %{person}"
-      about_me: "Qui suis-je :"
+      about_me: "A propos de moi : "
       add_description: "Parlez un peu de vous"
-      add_location: "Ajouter un emplacement"
+      add_location: "Ajouter une adresse"
       add_phone_number: "Ajouter un numéro de téléphone"
-      address: "Adresse :"
+      address: "Adresse : "
       as_expected: "Correspondait à mes attentes"
-      badges: Badges
-      edit_profile_info: "Modifier profil"
+      edit_profile_info: "Modifier votre profil"
       exceeded_expectations: "Dépassait mes attentes"
-      received_feedback: "Avis reçus :"
       positive: positif
       hide_description: Réduire
       joined_this_community: "...a rejoint la communauté %{time_ago}"
       was_last_seen: "...était connecté pour la dernière fois %{time_ago}"
       was_invited_by: "... a été invité par %{inviter_name}"
       less_than_expected: "Ne correspondait pas à mes attentes"
-      phone_number: "Numéro de téléphone :"
+      phone_number: "Numéro de téléphone : "
       show_all_badges: "Montrer tous les badges %{service_name}"
       show_all_feedback: "Montrer tous les avis"
       show_all_testimonials: "Montrer tous les commentaires"
@@ -1159,6 +1268,17 @@ fr:
       slightly_better_than_expected: "Dépassait mes attentes"
       slightly_less_than_expected: "Ne correspondait pas à mes attentes"
       what_are_these: "Qu'est-ce que c'est ?"
+      review: "avis reçu"
+      reviews: "avis reçus"
+      badge: badge
+      badges: Badges
+      open_listing: "annonce disponible"
+      open_listings: "annonces disponibles"
+      no_open_listings: "Aucune annonce disponible"
+      no_reviews: "Aucun avis"
+      no_badges: "Pas de badges"
+      show_all_open_listings: "Voir toutes les annonces disponibles"
+      show_all_reviews: "Vois tous les avis"
       trustcloud: TrustCloud
   search:
     show:
@@ -1183,7 +1303,7 @@ fr:
       account_creation_link_text: "cliquez ici"
       cancle_facebook_connect: "Si vous ne voulez pas lier ce compte, vous pouvez %{cancel_link}."
       facebook_cancel_link_text: annuler
-      log_in_with_your_facebook_account: "Connectez-vous avec votre compte Facebook :"
+      log_in_with_your_facebook_account: "Se connecter avec Facebook"
       or_sign_up_with_your_username: "...ou avec votre nom d'utilisateur et votre mot de passe : "
     password_forgotten:
       email: Email
@@ -1208,8 +1328,9 @@ fr:
       change: Changer
       confirm_new_password: "Confirmez votre nouveau mot de passe"
       delete_account: "Supprimer le compte"
-      email: "Adresse email :"
+      email: "Adresse email : "
       instructions_to_delete_account: "Si vous voulez supprimer votre compte, contactez nous en utilisant le bouton \"Feedback\" sur la gauche."
+      contact_admin: "merci de contacter les administrateurs"
       new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"
       save: Sauvegarder
@@ -1240,19 +1361,19 @@ fr:
       unsubscribe_unsuccesful: "Erreur lors de la désinscription"
       unsuccessful_unsubscribe_info_text: "Cela est peut être du au fait que le lien de désinscription que vous avez cliqué est ancien ou cassé. Contactez nous grâce au bouton \"feedback\" et nous vous désabonnerons, ou bien connectez vous pour gérer vos réglages d'emails."
     profile:
-      about_you: "Qui suis-je :"
-      city: "Ville :"
-      family_name: "Nom :"
-      given_name: "Prénom :"
+      about_you: "A propos de vous"
+      city: Ville
+      family_name: Nom
+      given_name: Prénom
       location_description: "Entrez votre position exacte ou, au moins, votre code postal. Vous pouvez également choisir un emplacement depuis la carte."
-      phone_number: "Numéro de téléphone :"
-      postal_code: "Code postal :"
+      phone_number: "Numéro de téléphone"
+      postal_code: "Code postal"
       profile_page: "sur votre page de profil"
       profilemap: Plan
-      street_address: "Adresse :"
+      street_address: Adresse
       these_fields_are_shown_in_your: "Cette information sera visible par tous les utilisateurs de %{service_name}"
       visible_to_everybody: "visible à tout le monde"
-      visible_to_registered_users: "visible par les utilisateurs connectés"
+      visible_to_registered_users: "(visible par les utilisateurs connectés)"
     save_information: "Sauvegarder les informations"
   sms:
     or_check_the_offer_in_kassi: "ou voir l'offre %{listing_url}"
@@ -1300,6 +1421,9 @@ fr:
       slightly_less_than_expected: "Ne correspondait pas tout à fait à mes attentes"
       textual_feedback: "Description textuelle"
       this_will_be_shown_in_profile: "L'avis que vous donnez sera visible par les autres utilisateurs dans le profil de %{person}. Cela permet aux membres de la tribu de savoir si %{person} est une personne de confiance."
+      positive: Positif
+      negative: Négatif
+      default_textual_feedback: "Tout a bien fonctionné, merci !"
     testimonial:
       from_user: par
       to_user: à

@@ -1,5 +1,22 @@
 es-ES:
   admin:
+    communities:
+      edit_details:
+        community_details: ~
+        community_look_and_feel: ~
+        edit_community: ~
+        community_name: ~
+        community_slogan: ~
+        community_description: ~
+        update_information: ~
+      edit_look_and_feel:
+        edit_community_look_and_feel: ~
+        community_logo: ~
+        community_cover_photo: ~
+        community_custom_color1: ~
+        logo_instructions_text: ~
+        cover_photo_instructions_text: ~
+        custom_color1_instructions_text: ~
     badges:
       index:
         add_new_badge: "Agregar una nueva medalla"
@@ -65,11 +82,18 @@ es-ES:
       sell: Vender
       trade: Intercambiar
       share_for_free: ~
+      accept_for_free: ~
+    categories:
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
     username: "Nombre de usuario"
     username_or_email: ~
     what_is_this: "Qué es esto?"
   conversations:
     index:
+      messages_from_all_tribes: ~
       loading_more_messages: "Cargando más mensajes"
       message_partitive: Mensaje
       messages_partitive: Mensajes
@@ -97,6 +121,7 @@ es-ES:
       housing_offer_sell_message_form_title: ~
       housing_offer_rent_out_message_form_title: ~
       housing_offer_share_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: ~
       housing_request_rent_message_form_title: ~
       item_offer_message_title: "Artículo solicitado: %{title}"
@@ -148,6 +173,7 @@ es-ES:
       write_a_reply: "Escribe una respuesta:"
       conversation_about_listing: ~
       conversation_with_user: ~
+      last_message_at: ~
     status:
       feedback_given: "Sugerencia dada"
       feedback_skipped: "Sugerencia omitida"
@@ -487,11 +513,19 @@ es-ES:
     about: "Acerca de Kassi"
     community: Comunidad
     home: Inicio
+    members: ~
     mobile_version: "Versión móvil"
     offers: Ofertas
     requests: Solicitudes
     search_kassi: "Buscar en Kassi"
+    create_new_marketplace: ~
+    contact_us: ~
+    profile: ~
   homepage:
+    filter_share_types:
+      listing_types:
+        request: ~
+        offer: ~
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Adicionalmente existe <b>y esta otra oferta</b>,"
       additionally_one_private_request_exists: "Adicionalmente  existe <b>y esta otra solicitiud</b>,"
@@ -526,6 +560,8 @@ es-ES:
     event_feed:
       latest_events: ~
     index:
+      what_do_you_need: ~
+      post_new_listing: ~
       are_offering: oferta
       add_news_item: ~
       inform_others_about_events: ~
@@ -540,8 +576,6 @@ es-ES:
       or: "y"
       or_see_what_the_others: "...o revisa lo de los demás"
       recent_events: "Eventos recientes"
-      recent_offers: "Lo que los demás pueden ofrecer"
-      recent_requests: "Lo que otros necesitan"
       request_something: "Cuéntanos qué necesitas"
       request_something_description: "Di a los demás cuando necesitas ayuda, un artículo o un traslado"
       requesting: Necesidad
@@ -553,6 +587,9 @@ es-ES:
       email: "Dirección de correo electrónico de tu amigo:"
       message: "Un mensaje personal:"
       send_invitation: "Enviar invitación"
+      add_as_many_emails_as_you_want: ~
+      invitation_emails_field_placeholder: ~
+      invitation_message_field_placeholder: ~
     news_item:
       show_less: ~
       show_more: ~
@@ -572,23 +609,27 @@ es-ES:
       please_offer: Oferta
       comment: ~
       comments: ~
-    sign_in:
-      recent_offers: "Que están ofreciendo sus miembros en este momento"
-      recent_requests: "Qué necesitan los usuarios en este momento"
-      plus: "...plus"
-      other_offer: "otra oferta"
-      other_offers: "otras ofertas"
-      other_request: "otra solicitud"
-      other_requests: "otras solicitudes"
+    filters:
+      show: ~
+      search: ~
+      map: ~
+      list: ~
+      all_listing_types: ~
+      all_categories: ~
   layouts:
+    no_tribe:
+      inbox: ~
+      settings: ~
     admin:
       admin: "Panel de administración de Kassi"
       back_to_kassi: "Volver a Kassi"
+      tribe_info: ~
       news_items: ~
       polls: ~
     application:
-      default_feedback: "Sugiere una nueva aplicación, reporta un error, dános tu opinión acerca del servicio, o simplemente deja una nota diciendo hola!"
+      read_more: ~
       feedback: "Sugerencia al equipo de Kassi"
+      default_feedback: "Sugiere una nueva aplicación, reporta un error, dános tu opinión acerca del servicio, o simplemente deja una nota diciendo hola!"
       feedback_forum: "Forum de sugerencias"
       feedback_handle: Sugerencia
       give_feedback: "Da una sugerencia en Kassi"
@@ -598,7 +639,10 @@ es-ES:
       send_feedback_to_admin: "Enviar sugerencia"
       to_see_what_others_have_suggested: "Ver lo que otros usuarios han sugerido."
       your_email_address: "Tu dirección email (no obligatorio)"
-      formerly_known_as_kassi: ~
+      connect: ~
+      invite_your_friends: ~
+      invite_your_friends_description: ~
+      or_join_without_facebook: ~
     conversations:
       messages: Mensajes
       notifications: Notificaciones
@@ -638,6 +682,8 @@ es-ES:
       settings: Opciones
       sign_up: Registrarse
     notifications:
+      community_updated: ~
+      community_update_failed: ~
       account_creation_succesful_you_still_need_to_confirm_your_email: "Cuenta creada correctamente. A continuación deberás confirmar tu dirección de correo electrónico."
       community_joined_succesfully_you_still_need_to_confirm_your_email: ~
       avatar_upload_failed: "Falló la actualización del avatar. Recuerda que la foto debe ser un archivo  .png, .jpg or .gif ."
@@ -662,6 +708,7 @@ es-ES:
       inviting_new_users_is_not_allowed_in_this_community: "Invitar a nuevos usuarios no está permitido en ésta comunidad de Kassi"
       login_again: "Por favor, vuelva a iniciar la sesión"
       login_failed: "Falló el inicio de sesión. Por favor ingrese correctamente las credenciales."
+      account_creation_successful: ~
       login_successful: "Bienvenido a Kassi, "
       logout_successful: "Ahora se encuentra registrado en Kassi. ¡Bienvenido nuevamente!"
       news_item_created: ~
@@ -713,9 +760,8 @@ es-ES:
       you_have_already_given_feedback_about_this_event: "Ya has enviado una sugerencia sobre este evento"
       you_are_now_member: ~
       you_are_already_member: ~
-      you_must_log_in_to_create_new_offer: "Debe iniciar su sesión en Kassi para crear una nueva oferta. Si no tiene una cuenta puede"
+      you_must_log_in_to_create_new_listing: ~
       additional_email_confirmed_dashboard: ~
-      you_must_log_in_to_create_new_request: "Debe iniciar su sesión en Kassi para crear una nueva solicitud. Si no tiene una cuenta puede"
       you_must_log_in_to_give_feedback: "Debe iniciar su sesión para dar una sugerencia"
       you_must_log_in_to_invite_new_users: "Debe iniciar sesión para invitar a nuevos usuarios a Kassi"
       you_must_log_in_to_send_a_comment: "Debe iniciar su sesión para enviar un nuevo comentario"
@@ -745,6 +791,7 @@ es-ES:
       wrote: ~
       send_private_message: ~
     comment_form:
+      ask_a_question: ~
       log_in: Registrarse
       send_comment: "Enviar comentario"
       to_send_a_comment: "Enviar un nuevo comentario"
@@ -816,6 +863,7 @@ es-ES:
         request_type: "Tipo de solicitud"
         sell: Vender
         share_for_free: ~
+        accept_for_free: ~
         trade: Comercio
       tag_list:
         comma_separate: ~
@@ -832,10 +880,13 @@ es-ES:
       valid_until_radio_buttons:
         for_the_time_being: "Por el momento"
       visibility:
-        communities: "Todas mis comunidades en Kassi"
-        everybody: "Todos los usuarios de internet"
+        all_communities: ~
         this_community: "Sólo miembros de %{community}"
         visibility: Visibilidad
+      privacy:
+        privacy: ~
+        private: ~
+        public: ~
     help_texts:
       help_share_type_title: "Tipo de oferta o solicitud"
       help_tags_title: Etiquetas
@@ -876,6 +927,7 @@ es-ES:
       rideshares: "Traslado compartido"
       sells: Vender
       share_for_frees: ~
+      accept_for_frees: ~
       trades: Comercio
     link_labels:
       link_label_for_favor_offer: Contacto
@@ -883,6 +935,7 @@ es-ES:
       link_label_for_housing_offer_sell: ~
       link_label_for_housing_offer_rent_out: ~
       link_label_for_housing_offer_share_for_free: ~
+      link_label_for_housing_request_accept_for_free: ~
       link_label_for_housing_request_buy: ~
       link_label_for_housing_request_rent: ~
       link_label_for_item_offer_lend: ~
@@ -897,16 +950,6 @@ es-ES:
       link_label_for_item_request_trade: ~
       link_label_for_rideshare_offer: Contacto
       link_label_for_rideshare_request: Contacto
-      message_link_label_for_offer: ~
-      message_link_label_for_request: ~
-      message_link_label_for_item_offer_lend: ~
-      message_link_label_for_item_offer_rent_out: ~
-      message_link_label_for_item_offer_sell: ~
-      message_link_label_for_item_offer_give_away: ~
-      message_link_label_for_item_offer_trade: ~
-      message_link_label_for_housing_offer_sell: ~
-      message_link_label_for_housing_offer_rent_out: ~
-      message_link_label_for_housing_offer_share_for_free: ~
     listed_listing:
       edit: Editar
     listed_listing_closed_status:
@@ -920,6 +963,71 @@ es-ES:
       offer_something: "Ofrecer algo!"
       request_something: "Solicitar algo!"
       search_returned_no_results: "Su búsqueda no obtuvo resultados"
+    new:
+      listing: ~
+      offer: ~
+      request: ~
+      selected_offer: ~
+      selected_request: ~
+      selected_listing_type: ~
+      selected_category: ~
+      selected_subcategory: ~
+      selected_share_type: ~
+      selected_item: ~
+      selected_favor: ~
+      selected_rideshare: ~
+      selected_housing: ~
+      selected_borrow: ~
+      selected_buy: ~
+      selected_give_away: ~
+      selected_lend: ~
+      selected_receive: ~
+      selected_rent: ~
+      selected_rent_out: ~
+      selected_sell: ~
+      selected_trade: ~
+      selected_share_for_free: ~
+      selected_accept_for_free: ~
+      how_do_you_want_to_share_it: ~
+      how_do_you_want_to_get_it: ~
+      item: ~
+      favor: ~
+      rideshare: ~
+      housing: ~
+      borrow: ~
+      buy: ~
+      give_away: ~
+      lend: ~
+      receive: ~
+      rent: ~
+      rent_out: ~
+      sell: ~
+      trade: ~
+      share_for_free: ~
+      accept_for_free: ~
+      item_with_article: ~
+      favor_with_article: ~
+      rideshare_with_article: ~
+      housing_with_article: ~
+      what_kind_of_category: ~
+      tools: ~
+      sports: ~
+      music: ~
+      books: ~
+      games: ~
+      furniture: ~
+      outdoors: ~
+      food: ~
+      electronics: ~
+      pets: ~
+      film: ~
+      clothes: ~
+      garden: ~
+      travel: ~
+      other: ~
+      what_do_you_want_to_do: ~
+      what_can_you_offer: ~
+      what_do_you_need: ~
     please_comment: Comentario
     reply_link:
       offer_closed: "Oferta cerrada"
@@ -937,6 +1045,7 @@ es-ES:
       offer: Oferta
       offer_author: "Ofertado por"
       offer_created: "Oferta creada"
+      open_until: ~
       feedback: ~
       qr_code: "Código QR"
       request: Solicitud
@@ -1031,6 +1140,8 @@ es-ES:
       username_is_invalid: "Nombre de usuario no es válido. Los carácteres permitidos son letras, números y guión bajo."
       visible_only_to_you: "visible solamente a usted y al administrador de la comunidad"
       visible_to_everybody: "Visible para todos"
+      create_account_with_facebook: ~
+      or_create_new_account_without_facebook: ~
     not_member:
       explanation_text: "Usted actualmente se encuentra en la comunidad de %{community}. Intentó ver el perfil de un usuario que pertenece a otra comunidad. Actualmente, Kassi no permite que usted ingrese a distintas comunidades simultáneamente, por lo que no puede acceder al perfil de este usuario a través de la comunidad de %{community} . Estamos trabajando en una opción que permita ingresar a más de una comunidad al mismo tiempo. Esta opción estará disponible pronto en el sitio."
       read_more_about_kassi_communities: "Lea más sobre las comunidades de Kassi"
@@ -1141,10 +1252,8 @@ es-ES:
       add_phone_number: "Agregar número de teléfono"
       address: "Ubicación:"
       as_expected: "Lo esperado"
-      badges: Medallas
       edit_profile_info: "Editar su información"
       exceeded_expectations: "Superó las expectativas"
-      received_feedback: ~
       positive: ~
       hide_description: "Mostrar menos"
       joined_this_community: "...súmate a esta comunidad"
@@ -1159,6 +1268,17 @@ es-ES:
       slightly_better_than_expected: "Ha superado las expectativas"
       slightly_less_than_expected: "Peor de lo esperado"
       what_are_these: "Qué son estos?"
+      review: ~
+      reviews: ~
+      badge: ~
+      badges: Medallas
+      open_listing: ~
+      open_listings: ~
+      no_open_listings: ~
+      no_reviews: ~
+      no_badges: ~
+      show_all_open_listings: ~
+      show_all_reviews: ~
       trustcloud: ~
   search:
     show:
@@ -1210,6 +1330,7 @@ es-ES:
       delete_account: ~
       email: "Dirección de correo electrónico:"
       instructions_to_delete_account: ~
+      contact_admin: ~
       new_email: "Nieva Dirección de Correo Electrónico"
       new_password: "Nueva contraseña"
       save: Guardar
@@ -1300,6 +1421,9 @@ es-ES:
       slightly_less_than_expected: "Un poco peor de lo esperado"
       textual_feedback: "Sugerencia textual"
       this_will_be_shown_in_profile: ~
+      positive: ~
+      negative: ~
+      default_textual_feedback: ~
     testimonial:
       from_user: Desde
       to_user: a
