@@ -34,7 +34,6 @@ class TestimonialsController < ApplicationController
   
   def skip
     @participation.update_attribute(:feedback_skipped, true)
-    flash[:notice] = t("layouts.notifications.feedback_skipped")
     respond_to do |format|
       format.html { redirect_to single_conversation_path(:conversation_type => "received", :person_id => @current_user.id, :id => @conversation.id) }
       format.js { render :layout => false }

@@ -1,6 +1,3 @@
-/* Display notice */
-$("#notification_container").html("<%= escape_javascript(render(:partial => 'layouts/notifications')) %>");
-
 /* Close the invitation form */
 if ("<%= Rails.env %>" != "test") {
   $('div.invitation_form_hidden_parts').slideUp('fast');

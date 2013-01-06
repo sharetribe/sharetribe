@@ -6,10 +6,7 @@
       = small_avatar_thumb other_party
     .feed-content
       .author
-        - if conversation.listing
-          = t("conversations.show.conversation_about_listing", :person => link_to(other_party.name, other_party), :listing => link_to(conversation.listing.title, conversation.listing)).html_safe
-        - else
-          = t("conversations.show.conversation_with_user", :person => link_to(other_party.name, other_party)).html_safe
+        = render :partial => "conversation_with", :locals => { :conversation => conversation, :other_party => other_party }
         = t("conversations.show.last_message_at", :time => time_ago(conversation.last_message_at))
       %h2= link_to conversation.title, single_conversation_path(:conversation_type => action_name, :id => conversation.id)
       %small.feed-excerpt
@@ -18,6 +15,8 @@
           .conversation-text= "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"" if last_message
         - else
           = "\"#{truncate(last_message.content, :length => 100, :omission => "...")}\"" if last_message
-      %small
-        = render :partial => "status", :locals => { :conversation => conversation }
+      - unless conversation.status.eql?("free")
+        %small
+          %div{:id => "conversation_#{conversation.id.to_s}_status"}
+            = render :partial => "status", :locals => { :conversation => conversation }
       

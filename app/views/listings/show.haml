@@ -54,11 +54,7 @@
 
     .listing-author
       .listing-author-image
-        - if current_user?(@listing.author) && !@listing.author.has_profile_picture?
-          .listing_author_add_profile_picture_link
-            = link_to t(".add_profile_picture"), avatar_person_settings_path(@listing.author)
-        - else
-          = medium_avatar_thumb(@listing.author)
+        = medium_avatar_thumb(@listing.author)    
       .listing-author-description
         %h3
           = t(".#{@listing.listing_type}_author")
