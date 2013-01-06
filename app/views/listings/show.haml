@@ -29,19 +29,19 @@
       -#.listing-icon
       -#  %i.ss-pricetag.icon-with-text 
       -#  .text-with-icon 22€ / hour
-      .listing-icon
-        %i.ss-calendar.icon-with-text 
-        .text-with-icon
+      .icon-with-text-container
+        %i.ss-calendar.icon-part 
+        .text-part
           = t(".#{@listing.listing_type}_created") + " " + time_ago(@listing.created_at)
-      .listing-icon
-        %i.ss-view.icon-with-text 
-        .text-with-icon
+      .icon-with-text-container
+        %i.ss-view.icon-part
+        .text-part
           = t(".times_viewed")
           = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
       - if @listing.valid_until && @listing.open?
-        .listing-icon
-          %i.ss-alarmclock.icon-with-text 
-          .text-with-icon
+        .icon-with-text-container
+          %i.ss-alarmclock.icon-part 
+          .text-part
             = t(".open_until", :date => l(@listing.valid_until, :format => :short))
     
     - if @listing.public? && ! @current_community.private? 

@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").limit(6).collect(&:name))}, "#{@person.id}");
+  initialize_profile_view(#{array_or_string_for_javascript(@person.badges.order("id DESC").collect(&:name))}, "#{@person.id}");
 
 - content_for :extra_javascript do
   = javascript_include_tag "https://maps.google.com/maps/api/js?sensor=true"
@@ -35,25 +35,25 @@
           .ss.text-with-icon= t(".add_description")
       .profile-icons
         - if @person.phone_number && !@person.phone_number.blank?
-          .profile-icon
-            .ss-phone.icon-with-text
-            .text-with-icon= @person.phone_number
+          .icon-with-text-container
+            .ss-phone.icon-part
+            .text-part= @person.phone_number
         - elsif current_user?(@person)
-          .profile-icon
+          .icon-with-text-container
             %a{href: person_settings_path(@person)}
-              .ss-phone.icon-with-text
-              .text-with-icon= t(".add_phone_number")
-        .profile-icon
-          .ss-adduser.icon-with-text 
-          .text-with-icon= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
+              .ss-phone.icon-part
+              .text-part= t(".add_phone_number")
+        .icon-with-text-container
+          .ss-adduser.icon-part 
+          .text-part= t(".joined_this_community", :name => @person.given_name_or_username, :time_ago => time_ago(@community_membership.created_at))
         - if @community_membership.last_page_load_date
-          .profile-icon
-            .ss-refresh.icon-with-text
-            .text-with-icon= t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
+          .icon-with-text-container
+            .ss-refresh.icon-part
+            .text-part= t(".was_last_seen", :time_ago => time_ago(@community_membership.last_page_load_date))
         - if @community_membership.invitation && @community_membership.invitation.inviter
-          .profile-icon
-            .ss-users.icon-with-text
-            .text-with-icon= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
+          .icon-with-text-container
+            .ss-users.icon-part
+            .text-part= t(".was_invited_by", :inviter_name => (link_to @community_membership.invitation.inviter.name, @community_membership.invitation.inviter)).html_safe
     
     - if logged_in? && @person.location && !@person.location.address.blank?
       #googlemap
@@ -108,4 +108,6 @@
     - if @person.badges.size > 1
       .badge-list
         = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
-    
+
+- if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
+  = render :partial => "badge_description", :collection => @person.badges.order("id DESC"), :as => :badge    

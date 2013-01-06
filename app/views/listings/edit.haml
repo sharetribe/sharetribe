@@ -29,5 +29,5 @@
     = form.hidden_field :current_community_id, :value => @current_community.id
     = render :partial => "listings/form/send_button", :locals => { :form => form }
   
-- ["help_share_type", "help_tags", "help_valid_until"].each do |field|
+- ["help_valid_until"].each do |field|
   = render :partial => "listings/help_texts", :locals => { :field => field }

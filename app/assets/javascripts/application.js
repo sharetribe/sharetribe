@@ -12,6 +12,7 @@
 //= require jquery.validate.min
 //= require jquery.pageless
 //= require jquery.autosize-min
+//= require jquery.lightbox_me
 //= html5shiv-printshiv
 //= ss-social
 //= ss-pika

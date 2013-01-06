@@ -465,7 +465,7 @@ label.radiobutton {
 button, .button {
   @include button;
   @include media(tablet) {
-    padding: em(5) em(16) em(7) em(16);
+    padding: em(3) em(16) em(9) em(16);
   }
 }
 
@@ -613,7 +613,8 @@ label.error {
     //left: lines(9.5) - em(1); 
     left: lines(0); 
     top: lines(2); 
-    right: lines(25.5) - em(2);
+    //right: lines(25.5) - em(2);
+    width: lines(16.5);
     border: solid $emphasis;
     border-width: 0 1px 1px;
 //    border: solid $border;
@@ -1298,6 +1299,7 @@ figure.fluidratio {
     right: 0;
     width: lines(10);
     top: em(44);
+    z-index: 999999;
   }
 }
 
@@ -1378,6 +1380,106 @@ figure.fluidratio {
   }
 }
 
+
+/*
+  -----------
+  Lightbox
+  -----------
+*/
+
+.lightbox {
+  @include box-sizing(border-box);
+  display: none;
+  position: relative;
+  margin: lines(10) auto;
+  max-width: lines(22);
+  padding: lines(1.25) lines(1);
+}
+
+.lightbox-content {
+  position: relative;
+  @include box-sizing(border-box);
+  width: 100%;
+  background: $background;
+  padding: lines(1);
+  @include border-radius(em(5));
+  
+  h2 {
+    margin-bottom: lines(0.25);
+  }
+  
+  h3, h4 {
+    margin-top: lines(0.5);
+    margin-bottom: lines(0.25);
+  }
+  
+  p {
+    margin-bottom: lines(0.5);
+    @include small-type;
+  }
+  
+  .consent {
+    margin-top: lines(2);
+  }
+  
+  @include media(tablet) {
+    h2 {
+      @include big-type;
+    }
+    p {
+      @include normal-type;
+    }
+  }
+}
+
+.badge-lightbox {
+  max-width: lines(28);
+  
+  .badge-lightbox-content {
+    min-height: lines(5);
+  }
+  
+  small {
+    margin-top: lines(0.5);
+    font-style: italic;
+    color: $aside;
+  }
+  
+  .badge-image {
+    float: right;
+    width: lines(5);
+    margin-left: lines(0.5);
+    img {
+      width: 100%;
+    }
+  }
+  
+  @include media(tablet) {
+    .badge-lightbox-content {
+      min-height: lines(10);
+    }
+    .badge-image {
+      width: lines(8);
+    }
+  }
+}
+
+a.lightbox-x {
+  @include box-sizing(border-box);
+  padding: em(7);
+  position: absolute;
+  right: lines(-0.5);
+  top: lines(-0.5);
+  width: lines(1.5);
+  height: lines(1.5);
+  @include border-radius(50%);
+  @include big-type;
+  background: $emphasis;
+  border: em(3) solid $background;
+  color: $background;
+}
+
+
 /*
   -----------
   Inbox
@@ -1430,6 +1532,9 @@ figure.fluidratio {
   @include media(tablet) {
     p {
       padding: 0;
+    }
+    .inbox-feed-item {
+      
     }
   }
   
@@ -1732,6 +1837,7 @@ figure.fluidratio {
       width: auto;
       min-width: lines(5);
       margin-left: 0;
+      padding: em(5) em(16) em(7) em(16);
     }
     
   }
@@ -2111,12 +2217,6 @@ figure.fluidratio {
       color: $body;
       &:hover { color: $link; }
     }
-    
-    .listing-icon {
-      display: inline-block;
-      margin-right: lines(1);
-    }
-    
   }
   
   
@@ -2151,6 +2251,7 @@ figure.fluidratio {
     display: block;
     width: 100%;
     height: lines(8);
+    top: 0;
     
     @include media(tablet) {
       position: absolute;
@@ -2160,9 +2261,13 @@ figure.fluidratio {
     }
   }
   
+  .upper-map {
+    @include media(tablet) {
+      top: lines(4);
+    }
+  }
+  
   .listing-author {
-    
-    
     position: relative;
     padding-top: lines(1);
     min-height: lines(5);
@@ -2407,12 +2512,6 @@ figure.fluidratio {
   
   .profile-icons {
     padding-top: lines(0.5);
-    
-    .profile-icon {
-      display: inline-block;
-      margin-right: lines(1);
-    }
-    
   }
   
   .jsmap {
@@ -2688,10 +2787,6 @@ figure.fluidratio {
   Signup form
   ----------------
 */
-
-.hidden_description_terms {
-  display: none;
-}
 
 .button {
   display: block;

@@ -255,6 +255,7 @@ function initialize_new_listing_form_selectors(locale, valid_share_types) {
 
 // Initialize the actual form fields
 function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share_type_message, date_message, is_rideshare, is_offer, listing_id, address_validator) {
+  $('#help_valid_until_link').click(function() { $('#help_valid_until').lightbox_me({centered: true, zIndex: 1000000}); });
 	$('input.title_text_field:first').focus();
 	
 	$(':radio[name=valid_until_select]').change(function() {
@@ -348,7 +349,6 @@ function initialize_listing_view(locale) {
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
 	auto_resize_text_areas("text_area");
 	$('textarea').focus();
-	//faceGrade.create('.feedback_grade_images');
 	style_grade_selectors();
 	var form_id = "#new_testimonial";
 	$(form_id).validate({
@@ -383,7 +383,6 @@ function style_grade_selectors() {
             $(this).siblings().removeClass('negative').removeClass('positive');
             $(this).addClass($(this).attr('id'));
             $(".feedback-grade").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
-            //alert($(this).attr('name'));
           }
         );
       }  
@@ -391,72 +390,17 @@ function style_grade_selectors() {
   });
 }
 
-// Widget that turns radio buttons to Kaapo faces
-// var faceGrade = {
-//   create: function(selector) {
-//     // loop over every element matching the selector
-//     $(selector).each(function() {
-//       var $list = $('<div class="grade_link_wrapper"></div>');
-//       // loop over every radio button in each container
-//      var id = 1;
-//       $(this)
-//         .find('input:radio')
-//         .each(function(i) {
-//           var grade = $.trim($(this).parent().text());
-//           var $item = $('<a href="#"></a>')
-//             .attr('title', grade)
-//            .attr('id', '' + id + '')
-//             .text(grade);
-//          var $wrapper_div = $('<div></div>');
-//          $wrapper_div.addClass('feedback_grade_image_' + id);  
-//          id++;
-//           faceGrade.addHandlers($(this).find('.grade'));
-//          $wrapper_div.append($item);
-//           $list.append($wrapper_div);
-//           
-//           if($(this).is(':checked')) {
-//             $item.addClass('grade');
-//           }
-//         });
-//         // Hide the original radio buttons
-//         $(this).find('label').hide();
-//         $(this).find('.grade').removeClass('hidden');
-//     });
-//   },
-//   addHandlers: function(item) {
-//     $(item).click(function(e) {
-//       // Handle Star click
-//       alert("Click");
-//       var $star = $(this);
-//       var $allLinks = $(this).parent().parent();
-//       
-//       // Set the radio button value
-//       $allLinks
-//         .parent()
-//         .find('input:radio[id=grade-' + $star.context.id + ']')
-//         .attr('checked', true);
-//         
-//       // Set the grades
-//       $allLinks.children().children().removeClass('grade');
-//       $star.addClass('grade');
-//       
-//       // prevent default link click
-//       e.preventDefault();
-//           
-//     }).hover(function() {
-//       // Handle star mouse over
-//       $(this).addClass('grade-over');
-//     }, function() {
-//       // Handle star mouse out
-//       $(this).siblings().andSelf().removeClass('grade-over');
-//     });    
-//   } 
-// }
+
 
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
-	$('#help_captcha_link').click(function() { $('#help_captcha').lightbox_me({centered: true}); });
-	$('#help_invitation_code_link').click(function() { $('#help_invitation_code').lightbox_me({centered: true}); });
-	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
+	$('#help_invitation_code_link').click(function(link) {
+	  link.preventDefault();
+	  $('#help_invitation_code').lightbox_me({ zIndex: 1000000 }); 
+	});
+	$('#terms_link').click(function(link) {
+	  link.preventDefault();
+	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	});
 	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
 	$(form_id).validate({
@@ -494,7 +438,10 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 }
 
 function initialize_terms_form() {
-	$('#terms_link').click(function() { $('#terms').lightbox_me({centered: true}); });
+	$('#terms_link').click(function(link) {
+	  link.preventDefault();
+	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	});
 }
 
 function initialize_update_profile_info_form(locale, person_id, address_validator, name_required) {
@@ -711,6 +658,7 @@ function initialize_profile_view(badges, profile_id) {
 	$('#trustcloud_description_link').click(function() { $('#trustcloud_description').lightbox_me({centered: true}); });
 	for (var i = 0; i < badges.length; i++) {
 		$('#' + badges[i] + '_description_link').click(function(badge) {
+		  badge.preventDefault();
 			$('#' + badge.currentTarget.id + '_target').lightbox_me({centered: true});
 		});
 	}
@@ -874,6 +822,10 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
+  $('#terms_link').click(function(link) {
+	  link.preventDefault();
+	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	});
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {
 			if (element.attr("name") == "community_membership[consent]") {

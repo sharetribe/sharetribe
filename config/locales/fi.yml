@@ -141,8 +141,8 @@ fi:
       send_message_to_user: "Lähetä viesti käyttäjälle %{person}"
     notifications:
       badgenotification:
-        see_all_your_badges: "Katso kaikki %{service_name}-merkkisi"
-        you_have_earned_badge: "Olet ansainnut %{service_name}-merkin"
+        see_all_your_badges: "Katso kaikki ansiomerkkisi"
+        you_have_earned_badge: "Olet ansainnut ansiomerkin"
       comment_to_followed_listing_notification:
         has_commented: "%{author} kommentoi"
         offer_you_follow: "seuraamaasi tarjousta"
@@ -338,7 +338,7 @@ fi:
   emails:
     accept_reminder:
       offer_accusative: tarjouksen
-      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille %{service_name_genetive} käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös %{service_name}-merkkien saaminen edellyttää hyvän palautteen saamista."
+      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille %{service_name_genetive} käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös ansiomerkkien saaminen edellyttää hyvän palautteen saamista."
       remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
       remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
       request_accusative: pyynnön
@@ -348,9 +348,9 @@ fi:
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
     badge_migration_notification:
       badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
-      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko %{service_name}-merkkisarja!"
-      you_have_received_badges: "Olet saanut %{service_name}-merkkejä!"
-      you_have_received_badges_in_kassi: "Olet ansainnut uusia %{service_name}-merkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
+      badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko ansiomerkkisarja!"
+      you_have_received_badges: "Olet saanut ansiomerkkejä!"
+      you_have_received_badges_in_kassi: "Olet ansainnut uusia ansiomerkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
@@ -386,8 +386,8 @@ fi:
       you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
       join_kassi_in: "Voit liittyä palveluun osoitteessa"
     new_badge:
-      you_can_view_all_your_badges_in: "Voit nähdä kaikki %{service_name}-merkkisi osoitteessa"
-      you_have_achieved_a_badge: "Olet ansainnut %{service_name}-merkin '%{badge_name}'!"
+      you_can_view_all_your_badges_in: "Voit nähdä kaikki ansiomerkkisi osoitteessa"
+      you_have_achieved_a_badge: "Olet ansainnut ansiomerkin '%{badge_name}'!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} on kommentoinut tarjoustasi %{listing}"
       has_commented_your_request_in_kassi: "%{author} on kommentoinut pyyntöäsi %{listing}"
@@ -448,7 +448,7 @@ fi:
       change_my_password: "Vaihda salasanani"
       reset_password_instructions: "<p>Olet ilmeisesti unohtanut käyttäjätunnuksesi tai salasanasi %{service_name}-palveluun. Tämä viesti auttaa sinua kirjautumaan jälleen sisään.</p><p>Käyttäjätunuksesi on: %{username}</p><p>Jos et muista salasanaasi, voit uusia sen klikkaamalla linkkiä: %{password_reset_link}</p><br/><p>Jos et itse pyytänyt tätä viestiä %{service_name}-palvelussa, sinun ei tarvitse reagoida tähän mitenkään. Salasanasi ei vaihdu, ellet itse vaihda sitä ylläolevan linkin kautta.</p>"
     testimonial_reminder:
-      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien %{service_name}-merkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
+      feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien ansiomerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
   error_messages:
@@ -771,7 +771,7 @@ fi:
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      badges: "%{service_name}-merkit"
+      badges: "Ansiomerkit"
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
@@ -1099,13 +1099,13 @@ fi:
     join_here: "liity tästä."
   people:
     badge_description:
-      badge_achieved_at: "%{service_name}-merkki ansaittu"
-      you_do_not_yet_have_this_badge: "%{service_name}-merkkiä ei ole vielä ansaittu."
+      badge_achieved_at: "Ansiomerkki ansaittu"
+      you_do_not_yet_have_this_badge: "Ansiomerkkiä ei ole vielä ansaittu."
     edit_links:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: "%{service_name}-merkit"
+      badges_description_title: "Ansiomerkit"
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
@@ -1267,7 +1267,7 @@ fi:
       was_invited_by: "Liittyi yhteisöön käyttäjän %{inviter_name} kutsumana"
       less_than_expected: "Ei vastannut odotuksia"
       phone_number: "Puhelinnumero:"
-      show_all_badges: "Näytä kaikki %{service_name}-merkit"
+      show_all_badges: "Näytä kaikki ansiomerkit"
       show_all_feedback: "Näytä kaikki palautteet"
       show_all_testimonials: "Näytä kaikki palautteet"
       show_full_description: "Näytä koko teksti"
@@ -1277,13 +1277,13 @@ fi:
       trustcloud: TrustCloud
       review: "saatu palaute"
       reviews: "saatua palautetta"
-      badge: "%{service_name}-merkki"
-      badges: "%{service_name}-merkkiä"
+      badge: "ansiomerkki"
+      badges: "ansiomerkkiä"
       open_listing: "avoin ilmoitus"
       open_listings: "avointa ilmoitusta"
       no_open_listings: "Ei avoimia ilmoituksia"
       no_reviews: "Ei palautteita"
-      no_badges: "Ei %{service_name}-merkkejä"
+      no_badges: "Ei ansiomerkkejä"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
   search:
@@ -1349,7 +1349,7 @@ fi:
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
       email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
-      email_about_new_badges: "...olen ansainnut uuden %{service_name}-merkin"
+      email_about_new_badges: "...olen ansainnut uuden ansiomerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"
       email_about_new_received_testimonials: "...joku antaa minulle palautetta"
