@@ -38,7 +38,7 @@ namespace :deploy do
       puts `git checkout new-design-deploy-fonts`
       puts `git rebase develop`
       puts `git checkout develop`
-      puts `cp -R ../tmp-sharetribe-webfonts app/assets/webfonts`
+      puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
       puts `git push staging new-design-deploy-fonts:master --force`
     end
   end
