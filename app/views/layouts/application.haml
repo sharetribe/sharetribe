@@ -13,9 +13,16 @@
         = image_tag @current_community.logo.url(:header)
     .tribe-intro.hidden
       .intro-wrapper
-        %h1= @current_community.slogan
+        %h1
+          - if @current_community.slogan && !@current_community.slogan.blank?
+            = @current_community.slogan
+          - else
+            = t("common.default_community_slogan")
         %p
-          = truncate(@current_community.description, :length => 130, :omission => "...")
+          - if @current_community.description && !@current_community.description.blank?
+            = truncate(@current_community.description, :length => 130, :omission => "...")
+          - else
+            = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
           = link_to t(".read_more"), about_infos_path
     - if @current_user && @current_user.member_of?(@current_community)
       .join-action-buttons

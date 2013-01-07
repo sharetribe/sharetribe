@@ -2,20 +2,21 @@
   .action-links
     - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
       %a.action-link{href: edit_listing_path(@listing)}
-        .ss-unlock.icon-with-text
-        .text-with-icon= t("listings.edit_links.reopen_#{@listing.listing_type}")
+        .ss-unlock.icon-part
+        .text-part= t("listings.edit_links.reopen_#{@listing.listing_type}")
     - else
-      .ss-unlock.icon-with-text
-      .text-with-icon= t("listings.reply_link.#{@listing.listing_type}_closed")
+      .icon-with-text-container
+        .ss-unlock.icon-part
+        .text-part= t("listings.reply_link.#{@listing.listing_type}_closed")
 - else
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community))
     .action-links
-      %a.action-link{href: edit_listing_path(@listing)}
-        .ss-draw.icon-with-text
-        .text-with-icon= t("listings.edit_links.edit_#{@listing.listing_type}")
-      %a.action-link{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
-        .ss-lock.icon-with-text
-        .text-with-icon= t("listings.edit_links.close_#{@listing.listing_type}")
+      %a.icon-with-text-container{href: edit_listing_path(@listing)}
+        .ss-draw.icon-part
+        .text-part= t("listings.edit_links.edit_#{@listing.listing_type}")
+      %a.icon-with-text-container{href: close_person_listing_path(@current_user, @listing), data: { method: "put", remote: "true"}}
+        .ss-lock.icon-part
+        .text-part= t("listings.edit_links.close_#{@listing.listing_type}")
   - else
     - listing_type_string = "#{@listing.category}_#{@listing.listing_type}#{@listing.share_type? ? '_' + @listing.share_type : ''}"
     = link_to t("listings.link_labels.link_label_for_#{listing_type_string}"), reply_to_listing_path(:id => @listing.id.to_s), :class => "button"

@@ -7,16 +7,6 @@ module PeopleHelper
     person.listings.currently_open.visible_to(@current_user, @current_community).order("created_at DESC").paginate(:per_page => per_page, :page => page)
   end
   
-  # Class is selected if listing type is currently selected
-  def get_profile_tab_class(tab_name)
-    current_tab_name = params[:type] || "offers"
-    "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
-  end
-  
-  def grade_profile_image_class(feedback_positive_percentage)
-    "profile_feedback_average_image_#{grade_number_profile(feedback_positive_percentage).to_s}"
-  end
-  
   def grade_image_class(grade)
     "feedback_average_image_#{grade_number(grade).to_s}"
   end
