@@ -244,8 +244,8 @@ class Community < ActiveRecord::Base
         
         # There was trouble making Compas find CSS from other folders so use simple copy. :)
         # FIXME: Extend Compass load path to avoid this unnecessary copy operation
-        FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.css")
-        FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.css")
+        FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
+        FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
         
         Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
         
