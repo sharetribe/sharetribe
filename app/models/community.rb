@@ -1,5 +1,6 @@
 class Community < ActiveRecord::Base
-  
+
+  require 'compass'
   require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 

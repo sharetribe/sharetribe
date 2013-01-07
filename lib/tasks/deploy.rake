@@ -34,7 +34,12 @@ namespace :deploy do
     if APP == PRODUCTION_APP
       puts `git push production master:master`
     else
-      puts `git push staging develop:master`
+      puts `cp -R app/assets/webfonts ../tmp-sharetribe-webfonts`
+      puts `git checkout new-design-deploy-fonts`
+      puts `git rebase develop`
+      puts `git checkout develop`
+      puts `cp -R ../tmp-sharetribe-webfonts app/assets/webfonts`
+      puts `git push staging new-design-deploy-fonts:master --force`
     end
   end
   
