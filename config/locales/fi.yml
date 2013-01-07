@@ -557,6 +557,10 @@ fi:
     event_feed:
       latest_events: "Mitä %{service_name_inessive} tapahtuu"
     index:
+      private_listing_notification: "Tässä yhteisössä on yhteensä %{listing_count} ilmoitusta. Näistä %{private_listing_count} näkyy ainoastaan yhteisön jäsenille. Jos haluat nähdä myös nämä ilmoitukset, sinun pitää %{log_in_link}."
+      private_listing_notification_log_in: "kirjautua sisään"
+      is: "on"
+      are: "ovat"
       what_do_you_need: "Mitä tarvitset?"
       post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat

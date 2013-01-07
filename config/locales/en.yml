@@ -558,6 +558,10 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
+      private_listing_notification: "There are %{listing_count} listings in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see those listings, you need to %{log_in_link}."
+      private_listing_notification_log_in: "log in"
+      is: "is"
+      are: "are"
       what_do_you_need: "What do you need?"
       post_new_listing: "Post a new listing!"
       are_offering: offer

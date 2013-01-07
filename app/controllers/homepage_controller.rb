@@ -22,6 +22,10 @@ class HomepageController < ApplicationController
       @filter_params.delete("share_type")
     end
     
+    unless @current_user
+      @listing_count = Listing.currently_open.count
+      @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
+    end
     
     @filter_params[:search] = params[:q] if params[:q]
     @filter_params[:include] = [:listing_images, :author]

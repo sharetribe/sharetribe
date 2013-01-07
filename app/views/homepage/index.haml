@@ -41,6 +41,12 @@
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
 .homepage-feed.feed
+  - unless logged_in? || @private_listing_count < 1
+    .private-listing-notification
+      .icon-with-text-container
+        .ss-info.icon-part
+        .text-part
+          = t(".private_listing_notification", :listing_count => @listing_count, :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe
   - if params[:map].present?
     = render :partial => "map"
   - else
