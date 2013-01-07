@@ -34,7 +34,12 @@ namespace :deploy do
     if APP == PRODUCTION_APP
       puts `git push production master:master`
     else
-      puts `git push staging develop:master`
+      puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+      puts `git checkout new-design-deploy-fonts`
+      puts `git rebase develop`
+      puts `git checkout develop`
+      puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+      puts `git push staging new-design-deploy-fonts:master --force`
     end
   end
   
@@ -43,12 +48,9 @@ namespace :deploy do
     puts `heroku restart --app #{APP}`
   end
   
-  task :generate_custom_css do
+  task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
-    Community.with_customizations.each do |community|
-      puts "Generating custom CSS for #{community.name}"
-      community.generate_customization_stylesheet
-    end
+    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
   end
   
   task :tag do

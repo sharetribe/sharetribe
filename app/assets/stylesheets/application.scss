@@ -3072,3 +3072,7 @@ a.lightbox-x {
     &:hover { background: lighten($red, 40%); }
   }  
 }
+
+figure.tribe-cover {
+  background-image: url($cover-photo-url);
+}

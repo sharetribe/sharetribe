@@ -1,5 +1,6 @@
 class Community < ActiveRecord::Base
-  
+
+  require 'compass'
   require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 
@@ -77,12 +78,10 @@ class Community < ActiveRecord::Base
   
   
   def has_customizations?
-    # NOTE: Change also self.with_customizations if changing this
-    custom_color1.present? || cover_photo_file_name.present?
+    stylesheet_url.present?
   end
   
   def self.with_customizations
-    # NOTE: Change also has_customizations? if changing this
     where("custom_color1 IS NOT NULL OR cover_photo_file_name IS NOT NULL")
   end
   
@@ -186,9 +185,10 @@ class Community < ActiveRecord::Base
   
   # Generates the customization stylesheet scss files to app/assets
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
-  def self.generate_customization_stylesheets
-    Community.each do |community|
-      community.generate_customization_stylesheet if community.has_customizations?
+  def self.generate_customization_stylesheets    
+    Community.with_customizations.each do |community|
+      puts "Generating custom CSS for #{community.name}"
+      community.generate_customization_stylesheet
     end
   end
   
@@ -220,8 +220,8 @@ class Community < ActiveRecord::Base
       end
       if cover_photo.present?
         replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
-                        /background-image:\s*url\(\"[^\"]+\"\);/,
-                        "background-image: url(\"#{cover_photo.url(:header)}\");",
+                        /\$cover-photo-url:\s*\"[^\"]+\";/,
+                        "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
       end
       
@@ -230,8 +230,17 @@ class Community < ActiveRecord::Base
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        `mkdir public/assets` # Just in case it doesn't exist
+        #`mkdir public/assets` # Just in case it doesn't exist
         
+        
+        Compass.add_configuration(
+            {
+                :project_path => '.',
+                :sass_path => 'app/assets/stylesheets/webfonts',
+                :css_path => 'public/assets'
+            },
+            'custom' # A name for the configuration, can be anything you want
+        )
         Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
         
         url = new_filename_with_time_stamp
