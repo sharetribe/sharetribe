@@ -187,9 +187,10 @@ class Community < ActiveRecord::Base
   
   # Generates the customization stylesheet scss files to app/assets
   # This should be run before assets:precompile in order to precompile stylesheets for each community that has customizations
-  def self.generate_customization_stylesheets
-    Community.each do |community|
-      community.generate_customization_stylesheet if community.has_customizations?
+  def self.generate_customization_stylesheets    
+    Community.with_customizations.each do |community|
+      puts "Generating custom CSS for #{community.name}"
+      community.generate_customization_stylesheet
     end
   end
   

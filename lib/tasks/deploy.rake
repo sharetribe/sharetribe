@@ -48,12 +48,9 @@ namespace :deploy do
     puts `heroku restart --app #{APP}`
   end
   
-  task :generate_custom_css do
+  task :generate_custom_css => :environment do
     puts 'Generating custom CSS for tribes who use it ...'
-    Community.with_customizations.each do |community|
-      puts "Generating custom CSS for #{community.name}"
-      community.generate_customization_stylesheet
-    end
+    puts  `heroku run rake sharetribe:generate_customization_stylesheets --app #{APP}`
   end
   
   task :tag do

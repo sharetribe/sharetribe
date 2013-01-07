@@ -193,4 +193,9 @@ namespace :sharetribe do
         
     Location.new(:latitude =>  lat, :longitude =>  lon, :location_type  => location_type, :address => "#{lat},#{lon}", :google_address => "#{lat},#{lon}")
   end
+  
+  desc "Generates customized CSS stylesheets for all communities that have customizations"
+  task :generate_customization_stylesheets => :environment do
+    Community.generate_customization_stylesheets
+  end
 end
