@@ -14,6 +14,14 @@ function add_validator_methods() {
   			return value.match(new RegExp("(^[A-Za-z0-9_]*$)"));
   		}
   	);
+  
+  $.validator.
+    addMethod("regex",
+      function(value, element, regexp) {
+        var re = new RegExp(regexp);
+        return re.test(value);
+      }
+  );
 
   $.validator.	
   	addMethod("min_date", 
@@ -815,6 +823,11 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
  		  disable_and_submit(form_id, form, "false", locale);
  		}
  	});
+}
+
+function initialize_admin_edit_tribe_look_and_feel_form(locale) {
+  
+  
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

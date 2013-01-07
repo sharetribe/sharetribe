@@ -236,7 +236,7 @@ class Community < ActiveRecord::Base
         Compass.add_configuration(
             {
                 :project_path => '.',
-                :sass_path => 'app/assets/stylesheets',
+                :sass_path => 'app/assets/stylesheets/webfonts',
                 :css_path => 'public/assets'
             },
             'custom' # A name for the configuration, can be anything you want
