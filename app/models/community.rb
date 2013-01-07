@@ -212,10 +212,11 @@ class Community < ActiveRecord::Base
                         "$link: ##{custom_color1};",
                         true)
       end
-      if custom_color2.present? 
+      color2 = custom_color2 || custom_color1
+      if color2.present? 
         replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
                         /\$link2:\s*#\w{6};/,
-                        "$link2: ##{custom_color2};",
+                        "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
@@ -230,7 +231,7 @@ class Community < ActiveRecord::Base
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        #`mkdir public/assets` # Just in case it doesn't exist
+        `mkdir public/assets` # Just in case it doesn't exist
         
         
         Compass.add_configuration(
