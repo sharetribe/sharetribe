@@ -220,8 +220,8 @@ class Community < ActiveRecord::Base
       end
       if cover_photo.present?
         replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
-                        /background-image:\s*url\(\"[^\"]+\"\);/,
-                        "background-image: url(\"#{cover_photo.url(:header)}\");",
+                        /\$cover-photo-url:\s*\"[^\"]+\";/,
+                        "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
       end
       
