@@ -825,9 +825,17 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
  	});
 }
 
-function initialize_admin_edit_tribe_look_and_feel_form(locale) {
-  
-  
+function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id) {
+  translate_validation_messages(locale);
+  var form_id = "#edit_community_" + community_id;
+  $(form_id).validate({
+ 		rules: {
+ 			"community[custom_color1]": {required: false, minlength: 6, maxlength: 6, regex: "^[a-fA-f0-9]$"}
+ 		},
+ 		submitHandler: function(form) {
+ 		  disable_and_submit(form_id, form, "false", locale);
+ 		}
+ 	});
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
