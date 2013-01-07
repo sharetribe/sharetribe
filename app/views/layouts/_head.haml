@@ -39,7 +39,10 @@
     = stylesheet_link_tag @current_community.stylesheet_url
   - else
     = stylesheet_link_tag 'application'
-
+  
+  /[if lt IE 9]
+    = stylesheet_link_tag 'old_ie'
+  
   - if APP_CONFIG.typekit_url
     = javascript_include_tag APP_CONFIG.typekit_url
     :javascript

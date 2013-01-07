@@ -1011,6 +1011,11 @@ figure.fluidratio {
   }
   
 }
+
+// Dirty IE fix
+.hidden-cover {
+  display: none;
+}
   
 .tribe-logo {
   width: lines(3);
