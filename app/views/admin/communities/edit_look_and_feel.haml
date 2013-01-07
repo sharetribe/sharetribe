@@ -1,5 +1,5 @@
 - content_for :javascript do
-  initialize_admin_edit_tribe_look_and_feel_form("#{I18n.locale}");
+  initialize_admin_edit_tribe_look_and_feel_form("#{I18n.locale}", "#{@community.id}");
   
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => admin_links_for(@community) }
 

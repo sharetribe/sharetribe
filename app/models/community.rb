@@ -233,14 +233,14 @@ class Community < ActiveRecord::Base
         #`mkdir public/assets` # Just in case it doesn't exist
         
         
-        # Compass.add_configuration(
-        #     {
-        #         :project_path => '.',
-        #         :sass_path => 'app/assets/stylesheets/webfonts',
-        #         :css_path => 'public/assets'
-        #     },
-        #     'custom' # A name for the configuration, can be anything you want
-        # )
+        Compass.add_configuration(
+            {
+                :project_path => '.',
+                :sass_path => 'app/assets/stylesheets',
+                :css_path => 'public/assets'
+            },
+            'custom' # A name for the configuration, can be anything you want
+        )
         
         # There was trouble making Compas find CSS from other folders so use simple copy. :)
         # FIXME: Extend Compass load path to avoid this unnecessary copy operation
