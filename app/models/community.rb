@@ -1,4 +1,6 @@
 class Community < ActiveRecord::Base
+  
+  require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 
   has_many :members, :through => :community_memberships, :source => :person, :foreign_key => :member_id
@@ -192,6 +194,11 @@ class Community < ActiveRecord::Base
   
   def generate_customization_stylesheet
     if custom_color1 || cover_photo.present?
+      stylesheet_filename = "custom-style-#{domain}"
+      new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
+
+      
+      # Copy original SCSS and do customizations by search & replace
       
       FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
       FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{domain}.scss" )
@@ -217,11 +224,34 @@ class Community < ActiveRecord::Base
                         "background-image: url(\"#{cover_photo.url(:header)}\");",
                         true)
       end
+      
+      url = stylesheet_filename
+      unless Rails.env.development? # Dev mode uses on-the-fly SCSS compiling
+        
+        # Generate CSS from SCSS
+        css_file = "public/assets/#{new_filename_with_time_stamp}.css"
+        `mkdir public/assets` # Just in case it doesn't exist
+        
+        Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
+        
+        url = new_filename_with_time_stamp
+        
+        # If using S3 as storage (e.g. in Heroku) need to move the generated files to S3
+        if ApplicationHelper.use_s3?
+          
+          AWS.config :access_key_id =>  APP_CONFIG.aws_access_key_id,  :secret_access_key => APP_CONFIG.aws_secret_access_key
+          s3 = AWS::S3.new
+          b = s3.buckets.create(APP_CONFIG.s3_bucket_name)
+          basename = File.basename("#{Rails.root}/#{css_file}")
+          o = b.objects["assets/custom/#{basename}"]
+          o.write(:file => "#{Rails.root}/#{css_file}", :cache_control => "public, max-age=30000000", :content_type => "text/css")
+          o.acl = :public_read
+          url = o.public_url.to_s
+          
+        end
+      end
+      update_attribute(:stylesheet_url, url)
     end
-  end
-  
-  def stylesheet_filename
-    "custom-style-#{domain}"
   end
   
   def replace_in_file(file_name, search, replace, only_once=false)
