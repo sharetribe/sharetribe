@@ -2,10 +2,13 @@
 
 @import 'compass';         // The Compass framework
 
+@import "compass/css3/images"; 
+@import "compass/utilities/general/hacks";
+
+
 @import 'reset';           // jonikorpi's custom CSS reset
 @import 'type';            // typography presets and tools
 @import 'media-queries';   // media query presets
-@import 'jquery.fancybox'; // Image previews
 @import 'ss-social';       // ss-social icon set
 @import 'ss-pika';         // ss-pika icon set  
 
@@ -126,16 +129,23 @@ ul {
 }
 
 @mixin facebook-connect-button {
+  @include box-sizing(border-box);
   position: relative;
   cursor: pointer;
   color: white;
   display: block;
-  border: em(2) solid #25567c;
+  //border: em(2) solid #25567c;
   text-align: left;
-  @include border-radius(em(5));
   @include single-text-shadow;
+  @include filter-gradient(#5a87ac, #265376);
+  background: #25567c;
   @include background-image(linear-gradient(#5a87ac, #265376));
-  &:hover { @include background-image(linear-gradient(#6f99bc, #37668a)); }
+  &:hover {
+    @include filter-gradient(#6f99bc, #37668a);
+    background: #6f99bc;
+    @include background-image(linear-gradient(#6f99bc, #37668a)); 
+  }
+  @include border-radius(em(5));
 
   .fb-icon {
     position: absolute;
@@ -187,7 +197,7 @@ ul {
   a.fb-connect {
     @include facebook-connect-button;
     padding: em(10) 2% em(6) 2%;
-    width: 95%;
+    width: 100%;
     margin-bottom: lines(0.5);
   }
   
@@ -518,54 +528,6 @@ label.error {
   }
 }
 
-.sharetribe-logo {
-  background: $background;
-  &:hover { background: $highlight; }
-  position: absolute;
-  left: 0; top: 0;
-  padding: lines(0.5);
-  //padding-right: lines(0.5) - em(2); // compensates for borders
-  padding-right: lines(0.5);
-  width: lines(1);
-  font-weight: bold;
-  //border: solid $border;
-  //border-width: 0 1px 0;
-  
-  // The question mark icon
-  .icon {
-    position: absolute;
-    right: em(5); top: lines(0.375);
-    @include small-type
-  }
-
-  @include media(tablet) {
-    // Shows all of the logo, not just the "S"
-    width: lines(9.5 - 1.5);
-    padding-left: lines(1);
-    
-    .icon {
-      right: lines(0.5);
-    }
-  }
-  
-}
-
-.sharetribe-menu {
-//  border: solid $border;
-//  border-width: 0 0 1px;
-  
-  @include media(tablet) {
-    // Makes the menu float on top of the content
-    position: absolute;
-    left: 0; top: lines(2);
-//    border-width: 0 1px 1px;
-    //width: lines(9.5) - em(2); // compensates for borders
-    width: lines(9.5);
-  }
-}
-
-
-
 .select-tribe {
   background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
   &:hover { 
@@ -589,20 +551,21 @@ label.error {
     position: absolute;
     right: lines(2.5); top: em(14);
   }
+  
+  border: solid $border;
+  border-width: 0 1px 0;
 
   @include media(tablet) {
     padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
-    background: $background url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat;
+    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
     &:hover { 
-      background: $highlight url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat; 
+      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
     }
     margin: 0 lines(12) 0 lines(0);
     max-width: lines(8.75);
     .icon-dropdown {
       right: lines(0.5);
     }
-    border: solid $border;
-    border-width: 0 1px 0;
   }
 }
 
@@ -873,8 +836,8 @@ label.error {
 }
 
 .toggle-menu {
+  background: $emphasis;
   background-color: transparentize($emphasis, 0.05);
-  //background: $emphasis;
   border-color: $emphasis !important; // Goes well with the dark background, I think!
   @include media(tablet) {
     // Makes sure they're never obscured by other elements
@@ -983,7 +946,7 @@ label.error {
     border-color: $emphasis;
     
     @include media(tablet) {
-      background: $emphasis url("/assets/new-design/sharetribe-logo2.png") lines(0.5) lines(0.35) no-repeat;
+      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
       border-bottom-color: $emphasis !important;
     }
   }
@@ -1080,6 +1043,7 @@ figure.fluidratio {
 
 .tribe-intro {
   padding: lines(0.55) lines(0.75);
+  background: $emphasis;
   background-color: transparentize($emphasis, 0.35);
   position: absolute;
   left: lines(4.3); top: lines(-3.85); right: lines(0.5);
@@ -1094,7 +1058,6 @@ figure.fluidratio {
   }
   
   a {
-    padding-left: lines(0.5);
     color: lighten($link, 20%);
     &:hover { color: lighten($link, 30%); }
     &:after { content: "→"; }
@@ -1140,6 +1103,7 @@ figure.fluidratio {
   left: lines(31);
   top: lines(-7) + em(1);
   padding: lines(0.9) lines(0.95) lines(0.8) lines(0.95);
+  background: $emphasis;
   background-color: transparentize($emphasis, 0.35);
   @include border-radius(em(5));
   display: none;
@@ -1166,7 +1130,7 @@ figure.fluidratio {
   a.fb-connect {
     @include facebook-connect-button;
     padding: em(10) em(5) em(6) em(10);
-    width: lines(8.25);
+    width: 100%;
   }
   small {
     margin-top: lines(0.25);
@@ -1464,19 +1428,41 @@ figure.fluidratio {
   }
 }
 
+.image-lightbox {
+  max-width: em(800);
+}
+
+.image-lightbox-content {
+  padding: lines(0.5);
+  img {
+    width: 100%;
+  }
+}
+
 a.lightbox-x {
+  border: em(2) solid $background;
+  width: lines(1.25);
+  height: lines(1.25);
+  
   @include box-sizing(border-box);
-  padding: em(7);
+  padding: em(1) em(4);
   position: absolute;
   right: lines(-0.5);
   top: lines(-0.5);
-  width: lines(1.5);
-  height: lines(1.5);
+  &:hover {
+    background: $body;
+  }
+
   @include border-radius(50%);
-  @include big-type;
   background: $emphasis;
   border: em(3) solid $background;
   color: $background;
+  @include media(tablet) {
+    width: lines(1.5);
+    height: lines(1.5);
+    @include big-type;
+    padding: em(7);
+  }
 }
 
 
@@ -2203,18 +2189,13 @@ a.lightbox-x {
   .action-links {
     margin: 0 0 lines(0.5) 0;
     
-    .action-link {
-      display: inline;
-      margin-right: lines(0.5);
-    }
-    
     @include media(tablet) {
       margin: 0;
       position: absolute;
       right: 0; top: 0;
       width: lines(15) - em(4);
       text-align: left;
-      .action-link {
+      .icon-with-text-container {
         display: block;
         width: 100%;
       }

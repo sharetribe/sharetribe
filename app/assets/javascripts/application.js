@@ -8,7 +8,6 @@
 //= require jquery-ui-1.9.2.custom
 //= require jquery_ujs
 //= require jquery.form
-//= require jquery.fancybox
 //= require jquery.validate.min
 //= require jquery.pageless
 //= require jquery.autosize-min

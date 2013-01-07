@@ -337,7 +337,7 @@ function initialize_reply_form(locale) {
 }
 
 function initialize_listing_view(locale) {
-  $(".fancybox").fancybox();
+  $('#listing-image-link').click(function() { $('#listing-image-lightbox').lightbox_me({centered: true, zIndex: 1000000}); });
 	auto_resize_text_areas("listing_comment_content_text_area");
 	prepare_ajax_form(
     "#new_comment",
@@ -675,10 +675,6 @@ function initialize_homepage_news_items(news_item_ids) {
       $('#' + news_item.currentTarget.id + '_full').hide();
     });
   }
-}
-
-function initialize_profile_feedback_view() {
-	$('#help_feedback_link').click(function() { $('#feedback_description').lightbox_me({centered: true}); });
 }
 
 function initialize_homepage(filters_in_use) {

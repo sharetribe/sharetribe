@@ -65,8 +65,8 @@ fi:
       show:
         edit_poll: "Muokkaa kyselyä"
   common:
-    default_community_slogan: "Lainaa, auta, jaa"
-    default_community_description: "%{service_name}ssa yhteisön jäsenet voivat jakaa tavaroita, palveluita ja kyytejä. Voit kertoa muille mitä voisit tarjota heille ja pyytää apua kun tarvitset sitä."
+    default_community_slogan: "Lainaa, myy, auta, jaa"
+    default_community_description: "%{service_name} on verkkotori, jossa yhteisön jäsenet voivat jakaa tavaroita, palveluita, kyytejä ja tiloja."
     cancel: Peruuta
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai

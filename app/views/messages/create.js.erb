@@ -10,4 +10,4 @@ $("#new_message")[0].reset();
 
 /* Enable send button */
 $('#new_message button').removeAttr('disabled');
-$('#new_message button').text('<%= t("conversations.show.send_reply") %>');
+$('#new_message button').empty().append('<%= t("conversations.show.send_reply") %>');
