@@ -174,7 +174,12 @@ class PeopleController < Devise::RegistrationsController
     sign_in(resource_name, @person)
     flash[:notice] = t("layouts.notifications.login_successful", :person_name => view_context.link_to(@person.given_name_or_username, person_path(@person))).html_safe
     
-    # We don't create the community membership yet, because we can use the already existing checks for invitations and email types.
+    # We can create a membership for the user if there are no restrictions
+    # - not an Invite only community
+    # - has same terms of use
+    # - if there's email limitation the user has suitable email in FB
+    # But as this is bit complicated, for now   
+    # we don't create the community membership yet, because we can use the already existing checks for invitations and email types.
     redirect_to :controller => :community_memberships, :action => :new
   end
   

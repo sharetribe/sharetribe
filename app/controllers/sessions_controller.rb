@@ -158,7 +158,7 @@ class SessionsController < ApplicationController
                        "id"  => data.id}
 
       session["devise.facebook_data"] = facebook_data
-      redirect_to :action => :new
+      redirect_to :action => :create_facebook_based, :controller => :people
     end
   end
   
