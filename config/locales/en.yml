@@ -159,6 +159,7 @@ en:
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
       no_notifications: "No notifications."
+      notifications_from_all_tribes: "This view contains notifications from all the tribes you belong to."
       testimonialnotification:
         give_feedback_to: "Give feedback to %{name}"
         has_given_you_feedback_on_event: "has given you feedback on event"
@@ -513,6 +514,7 @@ en:
     community: Community
     home: Home
     members: Community
+    new_listing: "New listing"
     mobile_version: "Mobile version"
     offers: Offers
     requests: Requests
@@ -1309,6 +1311,7 @@ en:
       facebook_cancel_link_text: cancel
       log_in_with_your_facebook_account: "Log in with your Facebook account"
       or_sign_up_with_your_username: "...or with your username or email:"
+      we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
@@ -1328,6 +1331,7 @@ en:
       account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can start using %{service_name}."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
+    settings_affect_all_tribes: "These settings affect all the Sharetribe communities you belong to."
     account:
       change: Change
       confirm_new_password: "Confirm new password"

@@ -1,4 +1,5 @@
 #conversations.inbox-notifications.left-navi-section
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t(".notifications_from_all_tribes") }
   - if @notifications.empty?
     = t(".no_notifications")
   - else

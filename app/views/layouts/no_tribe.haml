@@ -20,7 +20,7 @@
         = render :partial => "layouts/notifications"
         - if session[:no_tribe_title].eql?("inbox")
           = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
-        - elsif session[:no_tribe_title].eql?("inbox")
+        - elsif session[:no_tribe_title].eql?("settings")
           = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }     
         
         = yield

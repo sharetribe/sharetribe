@@ -27,99 +27,16 @@ class ListingsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
-    if params[:format] == "atom" # API request for feed
-      redirect_to :controller => "Api::ListingsController", :action => :index
-      return
-    end
-    session[:selected_tab] = "home"
-    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
-      # Returns the listings for one person formatted for profile page view
-        per_page = params[:per_page] || 200 # the point is to show all here by default
-        page = params[:page] || 1
-        @listings = persons_listings(@person, per_page, page)
-        render :partial => "listings/profile_listing", :collection => @listings, :as => :listing
-        return
-    end
-    redirect_to root  # Other requests for listings redirect to home
+    redirect_to root
   end
   
   def requests
-    params[:listing_type] = "request"
-    @to_render = {:action => :index}
-    @listing_style = "listing"
-    load
+    redirect_to root
   end
   
   def offers
-    params[:listing_type] = "offer"
-    @to_render = {:action => :index}
-    @listing_style = "listing"
-    load
+    redirect_to root
   end
-
-  # detect the browser and return the approriate layout
-  def detect_browser
-    if APP_CONFIG.force_mobile_ui
-        return true
-    end
-    
-    mobile_browsers = ["android", "ipod", "opera mini", "blackberry", 
-"palm","hiptop","avantgo","plucker", "xiino","blazer","elaine", "windows ce; ppc;", 
-"windows ce; smartphone;","windows ce; iemobile", 
-"up.browser","up.link","mmp","symbian","smartphone", 
-"midp","wap","vodafone","o2","pocket","kindle", "mobile","pda","psp","treo"]
-    if request.headers["HTTP_USER_AGENT"]
-	    agent = request.headers["HTTP_USER_AGENT"].downcase
-	    mobile_browsers.each do |m|
-		    return true if agent.match(m)
-	    end    
-    end
-    return false
-  end
-    
-
-  # Used to load listings to be shown
-  # How the results are rendered depends on 
-  # the type of request and if @to_render is set
-  def load
-    @title = params[:listing_type]
-    @tag = params[:tag]
-    @to_render ||= {:partial => "listings/listed_listings"}
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community).paginate(:per_page => 15, :page => params[:page])
-    @request_path = request.fullpath
-    if request.xhr? && params[:page] && params[:page].to_i > 1
-      render :partial => "listings/additional_listings"
-    else
-      render @to_render
-    end
-  end 
-  
-  def loadmap
-    @title = params[:listing_type]
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user)
-    @listing_style = "map"
-    @to_render ||= {:partial => "listings/listings_on_map"}
-    @request_path = request.fullpath
-    render  @to_render
-  end
-
-  # The following two are simple dummy implementations duplicating the
-  # functionality of normal listing methods.
-  def requests_on_map
-    params[:listing_type] = "request"
-    @to_render = {:action => :index}
-    @listings = Listing.currently_open.order("created_at DESC").find_with(params, @current_user, @current_community)
-    @listing_style = "map"
-    load
-  end
-
-  def offers_on_map
-    params[:listing_type] = "offer"
-    @to_render = {:action => :index}
-    @listing_style = "map"
-    load
-  end
-  
   
   # method for serving Listing data (with locations) as JSON through AJAX-requests.
   def locations_json
@@ -160,7 +77,7 @@ class ListingsController < ApplicationController
   end
   
   def new
-    session[:selected_tab] = "home"
+    session[:selected_tab] = "new_listing"
     @listing = Listing.new
     @listing.listing_type = params[:listing_type]
     @listing.category = params[:category]

@@ -1,11 +1,10 @@
 ---
 :Person:
   :image:
+  - :medium
   - :original
-:ListingImage:
-  :image:
-  - :email
-  - :original
+  - :small
+  - :thumb
 :Community:
   :logo:
   - :header
@@ -13,3 +12,10 @@
   :cover_photo:
   - :header
   - :original
+:ListingImage:
+  :image:
+  - :big
+  - :email
+  - :medium
+  - :original
+  - :thumb

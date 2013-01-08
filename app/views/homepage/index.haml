@@ -3,7 +3,7 @@
 
 .feed-navigation
   .feed-actions.actions-menu
-    %a.request-link{href: new_request_path(:type => "offer")} 
+    %a.request-link{href: new_listing_path + "?ref=homepage"} 
       %i.ss-addfile.icon-with-text
       .text-with-icon#post_new_listing= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
@@ -42,7 +42,7 @@
 
 .homepage-feed.feed
   - unless logged_in? || @private_listing_count < 1
-    .private-listing-notification
+    .permanent-notification.private-listing-notification
       .icon-with-text-container
         .ss-info.icon-part
         .text-part

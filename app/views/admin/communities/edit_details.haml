@@ -15,7 +15,8 @@
     .checkbox-container
       %input{:type => "checkbox", :id => "community_join_with_invite_only", :name => "community[join_with_invite_only]", :checked => @community.join_with_invite_only? }
       = form.label :terms, t('communities.new_tribe_form.restrict_tribe_to_invited_people'), :class => "checkbox"
-      = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link"
-    = form.button t(".update_information"), :id => "edit_community_button", :class => "send_button"
+      %small
+        = link_to t("common.what_is_this"), "#", :id => "invite_only_help_text_link"
+    = form.button t(".update_information"), :id => "edit_community_button"
 
 = render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field

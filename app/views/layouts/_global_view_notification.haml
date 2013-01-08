@@ -1,0 +1,8 @@
+-# This partial is attached to views that are "global", thus that
+-# contain information from all person's tribes
+- if @current_user.communities.size > 1
+  .permanent-notification.global-view-notification
+    .icon-with-text-container
+      .ss-info.icon-part
+      .text-part
+        = text

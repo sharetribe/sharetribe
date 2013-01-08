@@ -159,6 +159,7 @@ fi:
         your_request: pyyntöäsi
       loading_more_notifications: "Ladataan lisää tiedotteita"
       no_notifications: "Ei tiedotteita."
+      notifications_from_all_tribes: "Tässä näkymässä näytetään tiedotteet kaikista Sharetribe-yhteisöistä joihin kuulut."
       testimonialnotification:
         give_feedback_to: "Anna palautetta käyttäjälle %{name}"
         has_given_you_feedback_on_event: "on antanut sinulle palautetta tapahtumasta"
@@ -509,10 +510,11 @@ fi:
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
-    about: "Tietoa palvelusta"
+    about: "Tietoa"
     community: Yhteisö
     home: Etusivu
     members: Yhteisö
+    new_listing: "Uusi ilmoitus"
     mobile_version: Mobiiliversio
     offers: Tarjotaan
     requests: Tarvitaan
@@ -661,7 +663,7 @@ fi:
       admin: Ylläpito
       go_to_your_profile_page: Profiili
       hi: Hei
-      login: Kirjaudu
+      login: "Kirjaudu sisään"
       logout: "Kirjaudu ulos"
       notifications: Tiedotteet
       requests: Kutsut
@@ -1298,15 +1300,16 @@ fi:
       i_forgot_my_password: "Käyttäjätunnus tai salasana unohtunut"
       login: "Kirjaudu sisään"
       login_to_kassi: "Kirjaudu sisään %{service_name_illative}"
-      connect_your_facebook_to_kassi: "Yhdistä Facebook tili %{service_name_illative}"
+      connect_your_facebook_to_kassi: "Yhdistä Facebook-tilisi %{service_name_illative}"
       facebook_account: "Facebook-tilisi:"
-      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään yhdistääksesi tunnuksesi Facebook tiliin."
-      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi tunnuksen Facebook-tiedoillasi."
+      log_in_to_link_account: "Jos sinulla on jo tunnus %{service_name_inessive}, kirjaudu sisään alla olevan lomakkeen avulla yhdistääksesi tunnuksesi Facebook-tiliin."
+      you_can_also_create_new_account: "Jos sinulla ei ennestään ole tunnusta %{service_name_inessive}, %{accont_creation_link} luodaksesi uuden tunnuksen Facebook-tiedoillasi."
       account_creation_link_text: "klikkaa tästä"
-      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, %{cancel_link}."
-      facebook_cancel_link_text: "voit perua yhdistämisen"
+      cancle_facebook_connect: "Jos et halua yhdistää tätä tunnusta, voit %{cancel_link}."
+      facebook_cancel_link_text: "perua yhdistämisen"
       log_in_with_your_facebook_account: "Kirjaudu Facebook-tililläsi"
       or_sign_up_with_your_username: "...tai sitten käyttäjätunnuksellasi ja salasanallasi:"
+      we_will_not_post_without_asking_you: "Emme koskaan postaa puolestasi Facebookiin kysymättä ensin sinulta."
     password_forgotten:
       email: Sähköposti
       password_recovery_instructions: "Anna sähköpostiosoitteesi, niin sinulle lähetetään käyttäjätunnuksesi ja ohjeet salasanan vaihtamiseen."
@@ -1326,6 +1329,7 @@ fi:
       account_confirmation_instructions: "Saat pian sähköpostin, jossa on linkki, jota sinun on klikattava varmistaaksesi sähköpostiosoitteesi. Varmistuksen jälkeen voit aloittaa %{service_name_genetive} käytön."
       account_confirmation_instructions_dashboard: "Saat pian sähköpostin, jossa linkki, jolla voit vahvistaa syöttämäsi sähköpostiosoitteen."
   settings:
+    settings_affect_all_tribes: "Nämä asetukset vaikuttavat kaikkiin Sharetribe-yhteisöihin joihin kuulut."
     account:
       change: Vaihda
       confirm_new_password: "Uusi salasana uudestaan"
