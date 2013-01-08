@@ -1,6 +1,6 @@
 - content_for :extra_javascript do
   :javascript
-    $(document).ready(function() { initialize_invitation_form("#{I18n.locale}", "#{Rails.env}"); })
+    $(document).ready(function() { initialize_invitation_form("#{I18n.locale}", "#{t('homepage.invitation_form.errors_in_emails')}"); })
 
 #invitation_form.centered-section
   %h2= t("homepage.invitation_form.invite_your_friends")

@@ -14,21 +14,25 @@ class InvitationsController < ApplicationController
   end
   
   def create
-    @invitation = Invitation.new(params[:invitation])
-    if @invitation.save
-      flash[:notice] = t("layouts.notifications.invitation_sent")
-      Delayed::Job.enqueue(InvitationCreatedJob.new(@invitation.id, request.host))
-    else
+    invitation_emails = params[:invitation][:email].split(",")
+    sending_problems = nil
+    
+    invitation_emails.each do |email|
+      invitation = Invitation.new(params[:invitation].merge!({:email => email.strip}))
+      if invitation.save
+        Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, request.host))
+      else
+        sending_problems = true
+      end
+    end
+    
+    if sending_problems
       flash[:error] = t("layouts.notifications.invitation_could_not_be_sent")
+    else
+      flash[:notice] = t("layouts.notifications.invitation_sent")
     end
-    respond_to do |format|
-      format.html {
-        redirect_to root 
-      }
-      format.js {
-        render :layout => false 
-      }
-    end
+    
+    redirect_to new_person_invitation_path
   end
   
   private
