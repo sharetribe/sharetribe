@@ -17,6 +17,7 @@ en:
         logo_instructions_text: "Logo file will be cut in square and resized to 192x192 pixel if needed."
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
+        invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
     badges:
       index:
         add_new_badge: "Add new badge"
@@ -588,6 +589,7 @@ en:
       add_as_many_emails_as_you_want: "Add the email address(es) of your friend(s) to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing service. You should join me!"
+      errors_in_emails: "Check that there are valid emails, separated by comma."
     news_item:
       show_less: "Show less"
       show_more: "Show more"
@@ -745,7 +747,7 @@ en:
       request_updated_successfully: "Request updated successfully"
       message_sent: "Message sent"
       this_content_is_not_available_in_this_community: "This content is not available in this community."
-      unknown_error: "Unknown error. Please use the feedback link to send details about what happened."
+      unknown_error: "Unknown error. Please use the Contact us link to send details about what happened."
       update_error: "An error occurred when trying to update your information, please try again"
       welcome_message: "Welcome to %{service_name}! %{service_name} is a service that helps the members of the %{community} community to sell and lend items to each other, organize car pooling and help each other in many other ways."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "You are not authorized to give feedback on this event"

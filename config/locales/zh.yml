@@ -17,6 +17,7 @@ zh:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: 添加新的徽章
@@ -558,6 +559,10 @@ zh:
     event_feed:
       latest_events: 事情发展的如何
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: 提议
@@ -569,13 +574,9 @@ zh:
       news: 新闻
       no_news: "没有新闻\n"
       more_news: 更多新闻
-      offer_something: 列出您的物品和技能!
-      offer_something_description: 添加您能提供的物品，技能和顺风车
       or: 或者
       or_see_what_the_others: 或者看看其他的……
       recent_events: 最近的事件
-      request_something: 说出你的需要！
-      request_something_description: 如果你需要某样物品，搭顺风车或者帮助，告诉别人
       requesting: 需求
       teaser_text: "Kassi是针对 %{community} 社区的服务。在这里您可以租售或赠送物品，提供或请求帮助，拼车。您能出借某些东西或者帮助他人么？"
       tell_it_here: 在这里说出来！

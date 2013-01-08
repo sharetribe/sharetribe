@@ -26,7 +26,7 @@
             - else
               = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
             = link_to t(".read_more"), about_infos_path
-      - if @current_user && @current_user.member_of?(@current_community)
+      - if @current_user && @current_community.allows_user_to_send_invitations?(@current_user)
         .join-action-buttons
           - if @current_user
             = link_to t(".invite_your_friends"), new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
@@ -35,59 +35,67 @@
       - else
         - unless @current_user
           .join-action-buttons
-            %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
-              %i.ss-icon.ss-social.ss-facebook.fb-icon
-              .fb-text= t(".connect")
-            = link_to(t(".or_join_without_facebook"), sign_up_path, :class => "regular-link")
+            - if @current_user
+              = link_to t(".invite_your_friends"), new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
+              %small
+                = t(".invite_your_friends_description")
+        - else
+          - unless @current_user
+            .join-action-buttons
+              %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
+                %i.ss-icon.ss-social.ss-facebook.fb-icon
+                .fb-text= t(".connect")
+              = link_to(t(".or_join_without_facebook"), sign_up_path, :class => "regular-link")
 
-  .tribe-navigation
+    .tribe-navigation
 
-    .wrapper
+      .wrapper
 
-      %nav.tribe-actions.actions-menu
-        %a.first-child{:href => root, :title => t('header.home'), :class => (session[:selected_tab].eql?("home") ? "selected" : "")}
-          %i.ss-home.icon-with-text
-          .text-with-icon.hidden= t('header.home')
-        %a{:href => "#", :title => t('header.members'), :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
-          %i.ss-usergroup.icon-with-text
-          .text-with-icon.hidden= t('header.members')
-        %a{:href => about_infos_path, :title => t('header.about'), :class => (session[:selected_tab].eql?("about") ? "selected" : "")}
-          %i.ss-help.icon-with-text
-          .text-with-icon.hidden= t('header.about')
-        - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
-          %a{:href => edit_details_admin_community_path(@current_community), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
-            %i.ss-wrench.icon-with-text
-            .text-with-icon.hidden= t("layouts.logged_in.admin")
-        .select-language.toggle{data: {toggle: '.language-menu'}}
-          %i.icon-dropdown.ss-dropdown
-          .current-language
-            = get_full_locale_name(I18n.locale)
+        %nav.tribe-actions.actions-menu
+          %a.first-child{:href => root, :title => t('header.home'), :class => (session[:selected_tab].eql?("home") ? "selected" : "")}
+            %i.ss-home.icon-with-text
+            .text-with-icon.hidden= t('header.home')
+          %a{:href => "#", :title => t('header.members'), :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
+            %i.ss-usergroup.icon-with-text
+            .text-with-icon.hidden= t('header.members')
+          %a{:href => about_infos_path, :title => t('header.about'), :class => (session[:selected_tab].eql?("about") ? "selected" : "")}
+            %i.ss-help.icon-with-text
+            .text-with-icon.hidden= t('header.about')
+          - if logged_in? && @current_user.has_admin_rights_in?(@current_community)
+            %a{:href => edit_details_admin_community_path(@current_community), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
+              %i.ss-wrench.icon-with-text
+              .text-with-icon.hidden= t("layouts.logged_in.admin")
+          .select-language.toggle{data: {toggle: '.language-menu'}}
+            %i.icon-dropdown.ss-dropdown
+            .current-language
+              = get_full_locale_name(I18n.locale)
 
-      .language-menu.toggle-menu.hidden
-        = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
+        .language-menu.toggle-menu.hidden
+          = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
 
-  %article.page-content
-    .wrapper
-      = render :partial => "layouts/notifications"         
-      = yield
+    %article.page-content
+      .wrapper
+        = render :partial => "layouts/notifications"         
+        = yield
 
-  - if APP_CONFIG.use_google_analytics
-    <script type="text/javascript">
+    - if APP_CONFIG.use_google_analytics
+      <script type="text/javascript">
 
-    var _gaq = _gaq || [];
-    = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-    = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
-    _gaq.push(['_trackPageview']);
-    _gaq.push(['_trackPageLoadTime']);
+      var _gaq = _gaq || [];
+      = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+      = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+      _gaq.push(['_trackPageview']);
+      _gaq.push(['_trackPageLoadTime']);
 
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+      (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
 
-    </script>
+      </script>
 
-  /[if lt IE 9]
-    = javascript_include_tag "ss-social"
-    = javascript_include_tag "ss-pika"
+    /[if lt IE 9]
+      = javascript_include_tag "ss-social"
+      = javascript_include_tag "ss-pika"
+  

@@ -122,8 +122,9 @@ class Person < ActiveRecord::Base
   validate :community_email_type_is_correct
 
   paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
-                      :medium => "200x350>", 
-                      :thumb => "50x50#", 
+                      :medium => "288x288#",
+                      :small => "108x108#",
+                      :thumb => "48x48#",
                       :original => "600x800>"
   }})
   

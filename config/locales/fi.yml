@@ -1,12 +1,5 @@
 fi:
   admin:
-    badges:
-      index:
-        add_new_badge: "Lisää uusi ansiomerkki"
-        existing_badges: "Tallennetut ansiomerkit"
-        image: "Merkin kuva"
-        name: "Merkin nimi"
-        save_badge: "Tallenna ansiomerkki"
     communities:
       edit_details:
         community_details: "Yhteisön tiedot"
@@ -18,12 +11,20 @@ fi:
         update_information: "Päivitä tiedot"
       edit_look_and_feel:
         edit_community_look_and_feel: "Muokkaa yhteisön \"%{community_name}\" ulkoasua"
-        community_logo: "Logo"
-        community_cover_photo: "Kansikuva"
-        community_custom_color1: "Pääväri"
+        community_logo: Logo
+        community_cover_photo: Kansikuva
+        community_custom_color1: Pääväri
         logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset hex-kooodin, sen valinnassa auttaa esim. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
+    badges:
+      index:
+        add_new_badge: "Lisää uusi ansiomerkki"
+        existing_badges: "Tallennetut ansiomerkit"
+        image: "Merkin kuva"
+        name: "Merkin nimi"
+        save_badge: "Tallenna ansiomerkki"
     news_items:
       index:
         news_items: "Uusimmat uutiset"
@@ -84,10 +85,10 @@ fi:
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
       accept_for_free: "otetaan vastaan ilmaiseksi"
     categories:
-      item: "tavarat"
-      favor: "palvelukset"
-      rideshare: "kimppakyydit"
-      housing: "tilat"
+      item: tavarat
+      favor: palvelukset
+      rideshare: kimppakyydit
+      housing: tilat
     username: Käyttäjätunnus
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
@@ -121,6 +122,7 @@ fi:
       housing_offer_sell_message_form_title: "Osta %{listing} käyttäjältä %{person}"
       housing_offer_rent_out_message_form_title: "Vuokraa %{listing} käyttäjältä %{person}"
       housing_offer_share_for_free_message_form_title: "Pyydä käyttöoikeutta tilaan %{listing} käyttäjältä %{person}"
+      housing_offer_accept_for_free_message_form_title: ~
       housing_request_buy_message_form_title: "Myy %{listing} käyttäjälle %{person}"
       housing_request_rent_message_form_title: "Anna vuokralle %{listing} käyttäjälle %{person}"
       item_offer_message_title: "Tavarapyyntö: %{title}"
@@ -519,10 +521,10 @@ fi:
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
   homepage:
-    filter_share_types: 
+    filter_share_types:
       listing_types:
-        request: "Pyynnöt"
-        offer: "Tarjoukset"
+        request: Pyynnöt
+        offer: Tarjoukset
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
       additionally_one_private_request_exists: "Lisäksi palvelussa on <b>yksi muu pyyntö</b>,"
@@ -560,7 +562,7 @@ fi:
       private_listing_notification: "Tässä yhteisössä on yhteensä %{listing_count} ilmoitusta. Näistä %{private_listing_count} näkyy ainoastaan yhteisön jäsenille. Jos haluat nähdä myös nämä ilmoitukset, sinun pitää %{log_in_link}."
       private_listing_notification_log_in: "kirjautua sisään"
       is: "on"
-      are: "ovat"
+      are: ovat
       what_do_you_need: "Mitä tarvitset?"
       post_new_listing: "Lisää uusi ilmoitus!"
       are_offering: tarjoavat
@@ -608,26 +610,26 @@ fi:
       comments: kommenttia
     filters:
       show: "Näytä:"
-      search: "Hae"
+      search: Hae
       map: "Näytä kartta"
       list: "Näytä lista"
       all_listing_types: "Kaikki ilmoitustyypit"
       all_categories: "Kaikki ilmoituskategoriat"
   layouts:
     no_tribe:
-      inbox: "Postilaatikko"
-      settings: "Asetukset"
       feedback: "Ota yhteyttä"
+      inbox: Postilaatikko
+      settings: Asetukset
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
-      news_items: Uutiset
       tribe_info: "Yhteisön perustiedot"
+      news_items: Uutiset
       polls: Kyselyt
     application:
       read_more: "Lue lisää"
-      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback: "Palaute ylläpidolle"
+      default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
       feedback_forum: "palautefoorumiltamme,"
       feedback_handle: Palaute
       give_feedback: "Anna palautetta %{service_name_elative}"
@@ -637,7 +639,7 @@ fi:
       send_feedback_to_admin: "Lähetä palaute ylläpidolle"
       to_see_what_others_have_suggested: "mitä muut ovat sanoneet."
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
-      connect: "Yhdistä"
+      connect: Yhdistä
       invite_your_friends: "Kutsu kaverisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
       or_join_without_facebook: "...tai liity ilman Facebook-tunnustasi"
@@ -659,7 +661,7 @@ fi:
       admin: Ylläpito
       go_to_your_profile_page: Profiili
       hi: Hei
-      login: "Kirjaudu"
+      login: Kirjaudu
       logout: "Kirjaudu ulos"
       notifications: Tiedotteet
       requests: Kutsut
@@ -692,7 +694,6 @@ fi:
       additional_email_confirmed: "Antamasi email osoite on nyt vahvistettu. Voit liittyä tähän yhteisöön syöttämällä vahvistetun osoitteen uudestaan."
       create_new_offer: "Tarjoa jotain muuta"
       create_new_request: "Pyydä jotain muuta"
-      you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       create_one_here: "luoda uuden"
       email_confirmation_sent_to_new_address: "Sähköpostivarmistus lähetetty uuteen osoitteeseen."
       email_not_found: "Antamaasi sähköpostiosoitetta ei löytynyt %{service_name_genetive} tietokannasta."
@@ -759,9 +760,8 @@ fi:
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
       you_are_now_member: "Yhteisöön liittyminen onnistui."
       you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
-      you_must_log_in_to_create_new_offer: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit "
+      you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."
-      you_must_log_in_to_create_new_request: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden pyynnön. Jos sinulla ei ole vielä tunnusta, voit "
       you_must_log_in_to_give_feedback: "Sinun on kirjauduttava sisään jotta voisit antaa palautetta"
       you_must_log_in_to_invite_new_users: "Sinun on kirjauduttava sisään jotta voisit kutsua uusia käyttäjiä"
       you_must_log_in_to_send_a_comment: "Sinun pitää kirjautua sisään jotta voisit kirjoittaa uuden kommentin"
@@ -776,13 +776,13 @@ fi:
       joining_community_failed: "Yhteisöön liittyminen epäonnistui"
     profile_extras_header:
       back_to_profile_of_person: "Takaisin käyttäjän profiiliin"
-      badges: "Ansiomerkit"
+      badges: Ansiomerkit
       testimonials: "Saatu palaute"
     settings:
       account: "Tilin tiedot"
       avatar: Profiilikuva
       notifications: Tiedotteet
-      profile: Profiilin tiedot
+      profile: "Profiilin tiedot"
       settings: Asetukset
   listings:
     bubble_listing_not_visible:
@@ -927,6 +927,7 @@ fi:
       rideshares: Kimppakyydit
       sells: Myydään
       share_for_frees: "Tarjotaan käyttöön ilmaiseksi"
+      accept_for_frees: ~
       trades: Vaihdetaan
     link_labels:
       link_label_for_favor_offer: "Pyydä palvelusta"
@@ -934,9 +935,9 @@ fi:
       link_label_for_housing_offer_sell: Osta
       link_label_for_housing_offer_rent_out: Vuokraa
       link_label_for_housing_offer_share_for_free: "Pyydä käyttöoikeutta"
+      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
       link_label_for_housing_request_buy: "Myy pyydetty tila"
       link_label_for_housing_request_rent: "Tarjoa vuokralle pyydetty tila"
-      link_label_for_housing_request_accept_for_free: "Tarjoa tätä tilaa"
       link_label_for_item_offer_lend: "Pyydä tämä tavara lainaan"
       link_label_for_item_offer_rent_out: "Vuokraa tämä tavara"
       link_label_for_item_offer_sell: "Osta tämä tavara"
@@ -949,16 +950,6 @@ fi:
       link_label_for_item_request_trade: "Tarjoudu vaihtamaan tämä tavara"
       link_label_for_rideshare_offer: "Pyydä kyytiä"
       link_label_for_rideshare_request: "Tarjoa kyytiä"
-      message_link_label_for_offer: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_request: "Lähetä yksityisviesti pyytäjälle"
-      message_link_label_for_item_offer_lend: "Lähetä yksityisviesti lainaajalle"
-      message_link_label_for_item_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
-      message_link_label_for_item_offer_sell: "Lähetä yksityisviesti myyjälle"
-      message_link_label_for_item_offer_give_away: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_item_offer_trade: "Lähetä yksityisviesti tarjoajalle"
-      message_link_label_for_housing_offer_sell: "Lähetä yksityisviesti myyjälle"
-      message_link_label_for_housing_offer_rent_out: "Lähetä yksityisviesti vuokraajalle"
-      message_link_label_for_housing_offer_share_for_free: "Lähetä yksityisviesti tarjoajalle"
     listed_listing:
       edit: Muokkaa
     listed_listing_closed_status:
@@ -973,19 +964,19 @@ fi:
       request_something: "Pyydä jotakin!"
       search_returned_no_results: "Antamallasi hakusanalla ei löytynyt tuloksia."
     new:
-      listing: "ilmoitus"
+      listing: ilmoitus
       offer: "Haluan tarjota muille jotain"
       request: "Tarvitsen jotain"
-      selected_offer: "Tarjous"
-      selected_request: "Pyyntö"
+      selected_offer: Tarjous
+      selected_request: Pyyntö
       selected_listing_type: "Ilmoitustyyppi: %{listing_type}"
       selected_category: "Kategoria: %{category}"
       selected_subcategory: "Alakategoria: %{subcategory}"
       selected_share_type: "Jakamistapa: %{share_type}"
-      selected_item: "Tavara"
-      selected_favor: "Palvelus"
-      selected_rideshare: "Kimppakyyti"
-      selected_housing: "Tila"
+      selected_item: Tavara
+      selected_favor: Palvelus
+      selected_rideshare: Kimppakyyti
+      selected_housing: Tila
       selected_borrow: Lainataan
       selected_buy: Ostetaan
       selected_give_away: "Annetaan ilmaiseksi"
@@ -993,8 +984,8 @@ fi:
       selected_receive: "Otetaan vastaan ilmaiseksi"
       selected_rent: Vuokrataan
       selected_rent_out: "Annetaan vuokralle"
-      selected_sell: "Myydään"
-      selected_trade: "Vaihdetaan"
+      selected_sell: Myydään
+      selected_trade: Vaihdetaan
       selected_share_for_free: "Annetaan käyttöön ilmaiseksi"
       selected_accept_for_free: "Otetaan vastaan ilmaiseksi"
       how_do_you_want_to_share_it: "Millä tavalla haluat jakaa sen?"
@@ -1014,26 +1005,26 @@ fi:
       trade: "Haluan vaihtaa sen johonkin muuhun"
       share_for_free: "Tarjoan sen käyttöön ilmaiseksi"
       accept_for_free: "Toivoisin saavani sen käyttöön ilmaiseksi"
-      item_with_article: "tavarasta"
-      favor_with_article: "palveluksesta"
-      rideshare_with_article: "kyydistä"
-      housing_with_article: "tilasta"
+      item_with_article: tavarasta
+      favor_with_article: palveluksesta
+      rideshare_with_article: kyydistä
+      housing_with_article: tilasta
       what_kind_of_category: "Millaisesta %{category} on kyse?"
-      tools: "Työkalut"
-      sports: "Urheilu"
-      music: "Musiikki"
+      tools: Työkalut
+      sports: Urheilu
+      music: Musiikki
       books: "Kirjat & lehdet"
       games: "Pelit & lelut"
-      furniture: "Huonekalut"
+      furniture: Huonekalut
       outdoors: "Ulkoilu ja retkeily"
       food: "Ruoka ja ruuanlaitto"
-      electronics: "Elektroniikka"
+      electronics: Elektroniikka
       pets: "Eläimet ja lemmikit"
       film: "Elokuvat ja tv-sarjat"
       clothes: "Vaatteet ja asusteet"
-      garden: "Puutarha"
-      travel: "Matkailu"
-      other: "Muut"
+      garden: Puutarha
+      travel: Matkailu
+      other: Muut
       what_do_you_want_to_do: "Mitä haluat tehdä?"
       what_can_you_offer: "Mitä haluat tarjota muille?"
       what_do_you_need: "Mitä tarvitset?"
@@ -1053,13 +1044,13 @@ fi:
       no_description: "Ei kuvausta"
       offer: Tarjous
       offer_author: Tarjoaja
-      offer_created: "Luotu"
+      offer_created: Luotu
       open_until: "Avoinna %{date} asti"
       feedback: "Palaute:"
       qr_code: "QR koodi"
       request: Pyyntö
       request_author: Pyytäjä
-      request_created: "Luotu"
+      request_created: Luotu
       rideshare_offer: Kyytitarjous
       rideshare_request: Kyytitarve
       send_private_message: "Lähetä yksityisviesti"
@@ -1110,7 +1101,7 @@ fi:
       activate: Aktivoi
       deactivate: "Muuta epäaktiiviseksi"
     help_texts:
-      badges_description_title: "Ansiomerkit"
+      badges_description_title: Ansiomerkit
       feedback_description_title: Palaute
       help_captcha_title: "Olethan ihminen"
       help_invitation_code_title: "Tarvitset kutsun liittyäksesi"
@@ -1279,11 +1270,10 @@ fi:
       slightly_better_than_expected: "Ylitti odotukset"
       slightly_less_than_expected: "Ei vastannut odotuksia"
       what_are_these: "Mitä nämä ovat?"
-      trustcloud: TrustCloud
       review: "saatu palaute"
       reviews: "saatua palautetta"
-      badge: "ansiomerkki"
-      badges: "ansiomerkkiä"
+      badge: ansiomerkki
+      badges: ansiomerkkiä
       open_listing: "avoin ilmoitus"
       open_listings: "avointa ilmoitusta"
       no_open_listings: "Ei avoimia ilmoituksia"
@@ -1291,6 +1281,7 @@ fi:
       no_badges: "Ei ansiomerkkejä"
       show_all_open_listings: "Näytä kaikki avoimet ilmoitukset"
       show_all_reviews: "Näytä kaikki palautteet"
+      trustcloud: TrustCloud
   search:
     show:
       all_results: Kaikista
@@ -1373,15 +1364,15 @@ fi:
       unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta vasemmalta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
       about_you: "Tietoa sinusta"
-      city: "Kaupunki"
-      family_name: "Sukunimi"
-      given_name: "Etunimi"
+      city: Kaupunki
+      family_name: Sukunimi
+      given_name: Etunimi
       location_description: "Sijainti voi olla joko tarkka katuosoite tai vaikkapa vain postinumero. Täytäthän ainakin postinumerosi. Voit myös valita sijainnin alla olevalta kartalta."
-      phone_number: "Puhelinnumero"
-      postal_code: "Postinumero"
+      phone_number: Puhelinnumero
+      postal_code: Postinumero
       profile_page: profiilisivullasi
       profilemap: Karttanäkymä
-      street_address: "Sijainti"
+      street_address: Sijainti
       these_fields_are_shown_in_your: "Nämä tiedot näytetään kaikille %{service_name_genetive} käyttäjille"
       visible_to_everybody: "näytetään kaikille"
       visible_to_registered_users: "(näytetään kirjautuneille käyttäjille)"
@@ -1432,8 +1423,8 @@ fi:
       slightly_less_than_expected: "Ei täysin vastannut odotuksia"
       textual_feedback: "Miten tapahtuma sujui?"
       this_will_be_shown_in_profile: "Antamasi palaute näkyy muille yhteisön jäsenille käyttäjän %{person} profiilisivulla. Palautteen avulla muut jäsenet voivat arvoida käyttäjän %{person} luotettavuutta."
-      positive: "Positiivinen"
-      negative: "Negatiivinen"
+      positive: Positiivinen
+      negative: Negatiivinen
       default_textual_feedback: "Kaikki meni hienosti, paljon kiitoksia!"
     testimonial:
       from_user: käyttäjältä

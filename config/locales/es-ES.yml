@@ -17,6 +17,7 @@ es-ES:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Agregar una nueva medalla"
@@ -560,6 +561,10 @@ es-ES:
     event_feed:
       latest_events: ~
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: oferta
@@ -571,13 +576,9 @@ es-ES:
       news: Noticias
       no_news: ~
       more_news: ~
-      offer_something: "Comparte con los demás!"
-      offer_something_description: "Haz una lista de las cosas y favores que puedes ofrecer a los demás"
       or: "y"
       or_see_what_the_others: "...o revisa lo de los demás"
       recent_events: "Eventos recientes"
-      request_something: "Cuéntanos qué necesitas"
-      request_something_description: "Di a los demás cuando necesitas ayuda, un artículo o un traslado"
       requesting: Necesidad
       teaser_text: "Kassi es un servicio para la comunidad de %{community} . Aquí podrás prestar arrendar, regalar y vender cosas, dar y hacer favores o compartir trayectos de traslado. ¿Puedes prestar algo a alguien o ayudarlo?"
       tell_it_here: "Dilo aquí!"

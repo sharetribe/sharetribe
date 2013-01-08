@@ -22,6 +22,21 @@ function add_validator_methods() {
         return re.test(value);
       }
   );
+  $.validator.
+    addMethod("email_list",
+      function(value, element, param) {
+        var emails = value.split(',');
+        var re = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,6})+)$/i);
+        for (var i = 0; i < emails.length; i++) {
+          console.log(emails[i]);
+          if (!re.test($.trim(emails[i]))) {
+            console.log(emails[i] + "was not ok?");
+            return false; 
+          } 
+        }
+        return true;
+      }
+  );
 
   $.validator.	
   	addMethod("min_date", 
@@ -740,31 +755,19 @@ function reload_homepage_view() {
   });
 }
 
-function initialize_invitation_form(locale, rails_env) {
-  // Focus triggering causes a recursion in Firefox in tests,
-  // so skipping it in test environment
-  if (rails_env == "test") {
-    $('div.invitation_form_hidden_parts').slideDown('fast');
-  } else {
-    $('#invitation_email').focus(function() {
-      $('div.invitation_form_hidden_parts').slideDown('fast');
-      auto_resize_text_areas("invitation_message_text");
-      $(document).bind('focusin.invitation_form_hidden_parts click.invitation_form_hidden_parts',function(e) {
-        if ($(e.target).closest('.invitation_form_hidden_parts, #invitation_email').length) return;
-        $(document).unbind('.invitation_form_hidden_parts');
-        $('div.invitation_form_hidden_parts').slideUp('fast');
-      });
-    });
-    $('div.invitation_form_hidden_parts').slideUp('fast');
-  }
-  prepare_ajax_form(
-    "#new_invitation",
-    locale, 
-    {
-      "invitation[email]": {required: true, email: true},
-      "invitation[message]": {required: false, maxlength: 5000}
-    }
-  );
+function initialize_invitation_form(locale, email_error_message) {
+	$("#new_invitation").validate({
+		rules: {
+			"invitation[email]": {required: true, email_list: true},
+			"invitation[message]": {required: false, maxlength: 5000}
+		},
+		messages: {
+			"invitation[email]": { email_list: email_error_message}
+		},
+		submitHandler: function(form) {
+		  disable_and_submit("#new_invitation", form, "false", locale);
+		}
+	});
 }
 
 
@@ -825,9 +828,20 @@ function initialize_admin_edit_tribe_form(locale, community_id) {
  	});
 }
 
-function initialize_admin_edit_tribe_look_and_feel_form(locale) {
-  
-  
+function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, invalid_color_code_message) {
+  translate_validation_messages(locale);
+  var form_id = "#edit_community_" + community_id;
+  $(form_id).validate({
+ 		rules: {
+ 			"community[custom_color1]": {required: false, minlength: 6, maxlength: 6, regex: "^([a-fA-F0-9]+)?$"}
+ 		},
+ 		messages: {
+			"community[custom_color1]": { regex: invalid_color_code_message }
+		},
+ 		submitHandler: function(form) {
+ 		  disable_and_submit(form_id, form, "false", locale);
+ 		}
+ 	});
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {

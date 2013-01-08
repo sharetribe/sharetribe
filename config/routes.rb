@@ -66,7 +66,6 @@ Kassi::Application.routes.draw do
   
   # Adds locale to every url right after the root path
   scope "(/:locale)" do
-    
     scope :module => "api", :constraints => ApiRequest do
       resources :tokens, :only => :create
       resources :listings do
@@ -91,6 +90,7 @@ Kassi::Application.routes.draw do
     devise_scope :person do  
       # these matches need to be before the general resources to have more priority
       get "/people/confirmation" => "confirmations#show", :as => :confirmation
+      put "/people/confirmation" => "confirmations#create"
       match "/people/password/edit" => "devise/passwords#edit"
       post "/people/password" => "devise/passwords#create"
       put "/people/password" => "devise/passwords#update"

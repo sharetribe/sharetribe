@@ -17,6 +17,7 @@ nl:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Voeg nieuwe badge toe"
@@ -558,6 +559,10 @@ nl:
     event_feed:
       latest_events: ~
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: aanbod
@@ -569,13 +574,9 @@ nl:
       news: Nieuws
       no_news: ~
       more_news: ~
-      offer_something: "Noem jou items en vaardigheden!"
-      offer_something_description: "Voeg de items, vaardigheden en ritten toe die jij kan aanbieden"
       or: of
       or_see_what_the_others: "...of kijk wat de anderen"
       recent_events: "Recente evenementen"
-      request_something: "Vertel wat je nodig hebt!"
-      request_something_description: "Vertel anderen of jij een item, rit of hulp nodig hebt"
       requesting: gezocht
       teaser_text: "Kassi is een service voor de %{community} gemeenschap. Hier kan je lenen, huren, weggeven en spullen verkopen, geef en krijg hulp of deel ritten. Kan jij iemand iets lenen of helpen?"
       tell_it_here: "Vertel het hier!"

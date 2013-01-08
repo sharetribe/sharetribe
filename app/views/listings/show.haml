@@ -104,8 +104,9 @@
       = render :partial => "comment", :collection => @listing.comments
     = render :partial => "comment_form"
 
-#listing-image-lightbox.lightbox.image-lightbox
-  .lightbox-content.image-lightbox-content
-    %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
-      .ss-delete
-    = image_tag @listing.listing_images.first.image.url(:original)
+- unless @listing.listing_images.empty?
+  #listing-image-lightbox.lightbox.image-lightbox
+    .lightbox-content.image-lightbox-content
+      %a{:href => "#", :class => "close lightbox-x", :id => "close_x"}
+        .ss-delete
+      = image_tag @listing.listing_images.first.image.url(:original)

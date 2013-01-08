@@ -28,7 +28,8 @@ module ApplicationHelper
       distance_in_days = (distance_in_minutes/1440.0).round
       case distance_in_days
         when 0..30    then time = t('timestamps.days_ago', :count => distance_in_days)
-        when 31..364  then time = t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
+        when 31..50   then time = t('timestamps.month_ago', :count => 1)  
+        when 51..364  then time = t('timestamps.months_ago', :count => (distance_in_days.to_f / 30.0).round)
         else               time = t('timestamps.years_ago', :count => (distance_in_days.to_f / 365.24).round)
       end
     end
@@ -77,7 +78,7 @@ module ApplicationHelper
   end
   
   def medium_avatar_thumb(person)
-    link_to((image_tag person.image.url(:thumb)), person)
+    link_to((image_tag person.image.url(:small)), person)
   end
   
   def large_avatar_thumb(person)

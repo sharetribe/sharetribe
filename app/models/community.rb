@@ -76,6 +76,9 @@ class Community < ActiveRecord::Base
     admins.collect { |p| p.email }
   end
   
+  def allows_user_to_send_invitations?(user)
+    (users_can_invite_new_users && user.member_of?(self)) || user.has_admin_rights_in?(self)
+  end
   
   def has_customizations?
     stylesheet_url.present?
@@ -212,10 +215,11 @@ class Community < ActiveRecord::Base
                         "$link: ##{custom_color1};",
                         true)
       end
-      if custom_color2.present? 
+      color2 = custom_color2 || custom_color1
+      if color2.present? 
         replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
                         /\$link2:\s*#\w{6};/,
-                        "$link2: ##{custom_color2};",
+                        "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
@@ -230,17 +234,23 @@ class Community < ActiveRecord::Base
         
         # Generate CSS from SCSS
         css_file = "public/assets/#{new_filename_with_time_stamp}.css"
-        #`mkdir public/assets` # Just in case it doesn't exist
+        `mkdir public/assets` # Just in case it doesn't exist
         
         
         Compass.add_configuration(
             {
                 :project_path => '.',
-                :sass_path => 'app/assets/stylesheets/webfonts',
+                :sass_path => 'app/assets/stylesheets',
                 :css_path => 'public/assets'
             },
             'custom' # A name for the configuration, can be anything you want
         )
+        
+        # There was trouble making Compas find CSS from other folders so use simple copy. :)
+        # FIXME: Extend Compass load path to avoid this unnecessary copy operation
+        FileUtils.cp("app/assets/webfonts/ss-social.css","app/assets/stylesheets/ss-social.scss")
+        FileUtils.cp("app/assets/webfonts/ss-pika.css","app/assets/stylesheets/ss-pika.scss")
+        
         Compass.compiler.compile("app/assets/stylesheets/#{stylesheet_filename}.scss", css_file)
         
         url = new_filename_with_time_stamp

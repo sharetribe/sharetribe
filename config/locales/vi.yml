@@ -17,6 +17,7 @@ vi:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Thêm huy hiệu mới"
@@ -558,6 +559,10 @@ vi:
     event_feed:
       latest_events: "Điều gì đang xảy ra"
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: "hỗ trợ"
@@ -569,13 +574,9 @@ vi:
       news: "Tin tức"
       no_news: "Không có tin tức"
       more_news: "Thêm tin tức"
-      offer_something: "Chia sẻ với những người khác!"
-      offer_something_description: "Danh sách những thứ và những việc làm bạn có thể hỗ trợ cho những người khác"
       or: và
       or_see_what_the_others: "...hoặc xem những gì người khác"
       recent_events: "Những sự kiện gần đây"
-      request_something: "Cho biết bạn cần gì!"
-      request_something_description: "Cho những người khác biết khi bạn cần sự giúp đỡ, một thứ gì đó, một cuốc xe hoặc một không gian"
       requesting: cần
       teaser_text: "%{service_name} là một dịch vụ cho cộng đồng %{community}. Ở đây bạn có thể cho vay, cho thuê, cho đi và bán đồ đạc, cho và nhận giúp đỡ hoặc cho quá giang xe. Bạn có thể cho người khác mượn một thứ gì đó hoặc giúp đỡ họ không?"
       tell_it_here: "Cho nó biết ở đây!"
