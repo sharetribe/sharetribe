@@ -4,9 +4,10 @@ class FeedbacksController < ApplicationController
   skip_filter :not_public_in_private_community, :only => [ :create ]
   skip_filter :dashboard_only
   
-  layout "feedback"
+  layout "no_tribe"
   
   def new
+    session[:no_tribe_title] = "feedback"
     @feedback = Feedback.new  
   end
   

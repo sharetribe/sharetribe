@@ -617,6 +617,7 @@ fi:
     no_tribe:
       inbox: "Postilaatikko"
       settings: "Asetukset"
+      feedback: "Ota yhteyttä"
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
@@ -705,7 +706,7 @@ fi:
       invitation_sent: "Kutsu lähetetty"
       inviting_new_users_is_not_allowed_in_this_community: "Uusien käyttäjien kutsuminen ei ole sallittua tässä %{service_name}-yhteisössä"
       login_again: "Kirjaudu uudestaan."
-      login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein. Jos olet unohtanut tunnuksesi tai salasanasi, klikkaa alla olevaa linkkiä."
+      login_failed: "Kirjautuminen epäonnistui. Syötithän tunnuksen ja salasanan oikein."
       account_creation_successful: "Tervetuloa %{service_name_illative}, %{person_name}!"
       login_successful: "Tervetuloa, %{person_name}!"
       logout_successful: "Olet kirjautunut ulos %{service_name_elative}. Tervetuloa uudestaan!"

@@ -402,12 +402,12 @@ function style_grade_selectors() {
 
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
 	$('#help_invitation_code_link').click(function(link) {
-	  link.preventDefault();
-	  $('#help_invitation_code').lightbox_me({ zIndex: 1000000 }); 
+	  //link.preventDefault();
+	  $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 
 	});
 	$('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
 	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
@@ -448,7 +448,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 function initialize_terms_form() {
 	$('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
 }
 
@@ -833,7 +833,7 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale) {
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {

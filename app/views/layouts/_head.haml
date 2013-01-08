@@ -33,7 +33,10 @@
     %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
     %meta{ :property => "og:description", :content => render(:file => community_file("fb_graph_description", true))}
-
+  
+  /[if lt IE 9]
+    = javascript_include_tag "html5shiv-printshiv"
+    
   / CSS
   - if @current_community.has_customizations?
     = stylesheet_link_tag @current_community.stylesheet_url
@@ -55,15 +58,10 @@
   = csrf_meta_tag
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
-  / Favicons
-  -# %link{ href: image_path("favicon.ico"), rel: "shortcut icon" }
-  -# %link{ href: image_path("apple-touch-icon-144x144.png"), rel: "apple-touch-icon", sizes: "144x144" }
 
   %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/assets/dashboard/sharetribe_logo.png"}
   
   = auto_discovery_link_tag(:atom, atom_feed_url )
   
-%body
-
   -# load Facebook SDK for the whole page
   = render :partial => "layouts/facebook_sdk"

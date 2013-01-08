@@ -536,7 +536,7 @@ label.error {
   margin: 0 0;
   padding: lines(0.5) lines(0.5) lines(0.5) lines(1.75);
   position: relative;
-  max-width: lines(30);
+  max-width: lines(100);
   
   .current-tribe {
     display: block;
@@ -989,6 +989,7 @@ label.error {
 }
 
 figure.fluidratio {
+  display: block;
   height: lines(4.3);
   background-size: cover;
   -moz-background-size: cover;  /* Firefox 3.6 */
@@ -1001,6 +1002,10 @@ figure.fluidratio {
   }
 }
 
+figure.tribe-cover {
+  background-image: url($cover-photo-url);
+}
+
 .cover-image {
   position: relative;
   
@@ -1010,11 +1015,6 @@ figure.fluidratio {
     display: block;
   }
   
-}
-
-// Dirty IE fix
-.hidden-cover {
-  display: none;
 }
   
 .tribe-logo {
@@ -2345,7 +2345,7 @@ a.lightbox-x {
       padding-left: lines(8.5);
       padding-top: em(5);
     }
-    
+ 
   }
   
   .discussion {
@@ -2809,7 +2809,7 @@ a.lightbox-x {
 .new-feedback-form {
   padding-top: lines(1);
   @include media(tablet) {
-    padding-top: lines(3);
+    padding-top: 0;
   }
 }
 
@@ -3071,8 +3071,4 @@ a.lightbox-x {
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
   }  
-}
-
-figure.tribe-cover {
-  background-image: url($cover-photo-url);
 }

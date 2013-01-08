@@ -8,13 +8,10 @@
 //= require jquery-ui-1.9.2.custom
 //= require jquery_ujs
 //= require jquery.form
-//= require jquery.validate.min
+//= require jquery.validate
 //= require jquery.pageless
 //= require jquery.autosize-min
 //= require jquery.lightbox_me
-//= html5shiv-printshiv
-//= ss-social
-//= ss-pika
 //= require infobubble
 //= require sharetribe_common
 //= require kassi

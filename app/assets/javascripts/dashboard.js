@@ -12,7 +12,7 @@
 //= require jquery.ui.selectmenu
 //= require jquery.watermark.min
 //= require jquery.autosize-min
-//= require jquery.validate.min
+//= require jquery.validate
 //= require sharetribe_common
 //= require kassi_dashboard
 //= require googlemaps

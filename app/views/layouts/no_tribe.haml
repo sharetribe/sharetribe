@@ -1,21 +1,26 @@
 = render :partial => 'layouts/head'
-   
-= render :partial => 'layouts/global-header'
 
-%header.tribe-header
+%body
+ 
+  = render :partial => 'layouts/global-header'
 
-  .coverimage
-    %figure.tribe-cover.fluidratio
-  
-  .wrapper
-    .no-tribe-title
-      = t(".#{session[:no_tribe_title]}")
-    
-%article.page-content
-  
-  .wrapper
-    .no-tribe-section
-      = render :partial => "layouts/notifications" 
-      - links = session[:no_tribe_title].eql?("inbox") ? inbox_links_for(@current_user) : settings_links_for(@current_user)       
-      = render :partial => "layouts/left_hand_navigation", :locals => { :links => links }
-      = yield
+  %header.tribe-header
+
+    .coverimage
+      %figure.tribe-cover.fluidratio
+
+    .wrapper
+      .no-tribe-title
+        = t(".#{session[:no_tribe_title]}")
+
+  %article.page-content
+
+    .wrapper
+      .no-tribe-section
+        = render :partial => "layouts/notifications"
+        - if session[:no_tribe_title].eql?("inbox")
+          = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+        - elsif session[:no_tribe_title].eql?("inbox")
+          = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }     
+        
+        = yield
