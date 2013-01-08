@@ -2,12 +2,13 @@
   initialize_update_notification_settings_form('#{I18n.locale}','#{@person.id.to_s}');
 
 #person_settings_form.left-navi-section.settings-section.notification-settings
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   = form_for @person do |form|
   
     %h2= t(".community_updates")
     = render :partial => "community_updates_radiobutton", :collection => [["email_daily_community_updates", 1], ["email_weekly_community_updates", 7], ["do_not_email_community_updates", 100000]], :as => :options
     
-    %h2= t(".newsletters")
+    %h2.lower= t(".newsletters")
     = render :partial => "notification_checkbox", :collection => ["email_newsletters"], :as => :notification_type
     
     %h2.lower= t(".i_want_to_get_email_notification_when")

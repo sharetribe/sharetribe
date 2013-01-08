@@ -159,6 +159,7 @@ en:
         your_request: "your request"
       loading_more_notifications: "Loading more notifications"
       no_notifications: "No notifications."
+      notifications_from_all_tribes: "This view contains notifications from all the tribes you belong to."
       testimonialnotification:
         give_feedback_to: "Give feedback to %{name}"
         has_given_you_feedback_on_event: "has given you feedback on event"
@@ -513,6 +514,7 @@ en:
     community: Community
     home: Home
     members: Community
+    new_listing: "New listing"
     mobile_version: "Mobile version"
     offers: Offers
     requests: Requests
@@ -620,6 +622,7 @@ en:
     no_tribe:
       inbox: "Inbox"
       settings: "Settings"
+      feedback: "Contact us"
     admin:
       admin: "%{service_name} admin panel"
       back_to_kassi: "Back to %{service_name}"
@@ -707,7 +710,7 @@ en:
       invitation_sent: "Invitation sent successfully"
       inviting_new_users_is_not_allowed_in_this_community: "Inviting new users is not allowed in this %{service_name} community"
       login_again: "Please, log in again."
-      login_failed: "Login failed. Please enter correct credentials. If you have forgotten your username or password, click the link below."
+      login_failed: "Login failed. Please enter correct credentials."
       account_creation_successful: "Welcome to %{service_name}, %{person_name}!"
       login_successful: "Welcome, %{person_name}!"
       logout_successful: "You have now been logged out of %{service_name}. Welcome again!"
@@ -1146,8 +1149,8 @@ en:
       create_account_with_facebook: "Create an account with Facebook"
       or_create_new_account_without_facebook: "...or create an account without using Facebook below."
     not_member:
-      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. %{service_name} does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
-      read_more_about_kassi_communities: "Read more about %{service_name} communities"
+      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another Sharetribe community. You cannot access this profile through %{community} community."
+      read_more_about_kassi_communities: "Read more about Sharetribe communities"
       this_user_does_not_belong_to_this_community: "This user does not belong to %{community} community"
     profile_badge:
       active_member_bronze: "Active member (bronze)"
@@ -1308,6 +1311,7 @@ en:
       facebook_cancel_link_text: cancel
       log_in_with_your_facebook_account: "Log in with your Facebook account"
       or_sign_up_with_your_username: "...or with your username or email:"
+      we_will_not_post_without_asking_you: "We will never post to Facebook without asking you."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Give your email address and you receive your username and instructions on how to change your password."
@@ -1327,6 +1331,7 @@ en:
       account_confirmation_instructions: "You will soon receive an email with a link that you need to click to confirm the email address you entered. After confirming your email you can start using %{service_name}."
       account_confirmation_instructions_dashboard: "You will soon receive an email with a link that you need to click to confirm the email address you entered."
   settings:
+    settings_affect_all_tribes: "These settings affect all the Sharetribe communities you belong to."
     account:
       change: Change
       confirm_new_password: "Confirm new password"

@@ -2,7 +2,7 @@
   initialize_update_account_info_form("#{I18n.locale}","#{t(".change")}","#{t("common.cancel")}","#{t("people.new.email_is_in_use")}");
 
 #person_settings_form.left-navi-section.settings-section.account-settings
-  
+  = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
   -# Username
   .account-settings-row
     .ss-key.account-settings-icon

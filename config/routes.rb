@@ -247,12 +247,8 @@ Kassi::Application.routes.draw do
   match '/:locale/admin' => 'admin/news_items#index', :as => :admin
   match '/badges/:style/:id.:format' => "badges#image"
   match "/people/:person_id/inbox/:id", :to => redirect("/fi/people/%{person_id}/messages/%{id}")
-  match "/:locale/load" => "listings#load", :as => :load
-  match "/:locale/loadmap" => "listings#loadmap", :as => :loadmap
   match "/:locale/offers" => "listings#offers", :as => :offers
   match "/:locale/requests" => "listings#requests", :as => :requests
-  match "/:locale/offers/tag/:tag" => "listings#offers", :as => :offers_with_tag
-  match "/:locale/requests/tag/:tag" => "listings#requests", :as => :requests_with_tag
   match "/:locale/people/:person_id/messages/:conversation_type/:id" => "conversations#show", :as => :single_conversation
   #match "/:locale/people/:person_id/messages" => "conversations#received", :as => :reply_to_listing
   match "/:locale/listings/:id/reply" => "conversations#new", :as => :reply_to_listing

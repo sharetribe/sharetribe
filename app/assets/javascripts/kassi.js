@@ -417,12 +417,12 @@ function style_grade_selectors() {
 
 function initialize_signup_form(locale, username_in_use_message, invalid_username_message, email_in_use_message, captcha_message, invalid_invitation_code_message, name_required, invitation_required) {
 	$('#help_invitation_code_link').click(function(link) {
-	  link.preventDefault();
-	  $('#help_invitation_code').lightbox_me({ zIndex: 1000000 }); 
+	  //link.preventDefault();
+	  $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 
 	});
 	$('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
 	var form_id = "#new_person";
 	//name_required = (name_required == 1) ? true : false
@@ -463,7 +463,7 @@ function initialize_signup_form(locale, username_in_use_message, invalid_usernam
 function initialize_terms_form() {
 	$('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
 }
 
@@ -577,77 +577,6 @@ function initialize_reset_password_form() {
 		  disable_and_submit(password_form_id, form, "false", locale);
 		}
 	});	
-}
-
-function reload_browse_view(link, listing_type, listing_style, locale) {
-	type = link.attr("name").split("_")[0];
-	title = link.attr("name").split("_")[1];
-	allLinks = link.parent().parent().parent().find('a');
-	
-	// Handle selected items
-	if (type == "sharetypes") {
-		if (title == "all") {
-			link.parent().find('a').removeClass("selected");
-			link.addClass("selected");
-		} else {
-			if (link.hasClass("selected")) {
-				link.removeClass("selected");
-			} else {
-				link.addClass("selected");
-				link.parent().find('a[name=' + type + '_all]').removeClass("selected");
-			}
-		}
-		var none_selected = true; 
-		link.parent().find('a').each(function() {
-			if ($(this).hasClass("selected")) {
-				none_selected = false;
-			}
-		});
-		if (none_selected) {
-			link.parent().find('a[name=' + type + '_all]').addClass("selected");
-		}
-		link.parent().find('a').each(function() {
-			if ($(this).hasClass("selected")) {
-				none_selected = false;
-			}
-		});
-	} else if (type == "tags") {
-		if(link.hasClass("selected")) {
-			link.removeClass("selected");
-		} else {
-			link.addClass("selected");
-		}
-	} else {
-		link.parent().find('a').removeClass("selected");
-		link.addClass("selected");
-	}
-	
-	// Make AJAX request based on selected items
-	var sections = new Array();
-	var sectionTypes = ["categories","sharetypes", "tags"];
-	for (var i = 0; i < sectionTypes.length; i++) {
-		sections[sectionTypes[i]] = new Array();
-	}
-	allLinks.each(function() {
-	  var link_array = $(this).attr("name").split("_");
-		link_type = link_array[0];
-		link_title = link_array[1];
-		if (link_array.length > 2) {
-		  link_title += "_" + link_array[2];
-		}
-		if ($(this).hasClass("selected")) {
-			sections[link_type].push(link_title);
-		}
-	});
-	if (listing_style == "map") {
-		//var request_path = '/' + locale + '/loadmap'
-		filtersUpdated(sections['categories'], sections['sharetypes'], sections['tags']);
-	} else {
-		var request_path = '/' + locale + '/load';
-		$.get(request_path, { listing_type: listing_type, 'category[]': sections['categories'], 'share_type[]': sections['sharetypes'], 'tag[]': sections['tags'] }, function(data) {
-			$('#search_results').html(data);
-		});
-	}
 }
 
 function initialize_profile_view(badges, profile_id) {
@@ -847,7 +776,7 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
   $('#terms_link').click(function(link) {
 	  link.preventDefault();
-	  $('#terms').lightbox_me({ zIndex: 1000000 }); 
+	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 
 	});
   $('#new_community_membership').validate({
     errorPlacement: function(error, element) {

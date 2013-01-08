@@ -34,7 +34,7 @@ class Admin::CommunitiesController < ApplicationController
                    edit_look_and_feel_admin_community_path(@community) : 
                    edit_details_admin_community_path(@community))  
     else
-      flash[:error] = t("layouts.notifications.community_update_failed")
+      flash.now[:error] = t("layouts.notifications.community_update_failed")
       render :action => return_to_action  
     end
   end

@@ -370,7 +370,7 @@ form {
   .checkbox-container {
     position: relative;
   
-    input[type=checkbox] {
+    input[type=checkbox], input[type=radio] {
       position: absolute;
       top: lines(0.5) + em(3);
     }
@@ -382,6 +382,10 @@ form {
       margin-top: lines(0.5) - em(3);
       margin-bottom: em(3);
       font-weight: 600;
+    }
+    
+    label.radio {
+      margin-top: lines(0.5) - em(2);
     }
     
     a {
@@ -503,6 +507,14 @@ label.error {
   background: $highlight;
 }
 
+// Notification that doesn't disappear
+.permanent-notification {
+  margin-bottom: lines(0.5);
+  @include small-type;
+  color: $aside;
+}
+
+
 /*
   ------------------------
   Global Sharetribe header
@@ -536,7 +548,7 @@ label.error {
   margin: 0 0;
   padding: lines(0.5) lines(0.5) lines(0.5) lines(1.75);
   position: relative;
-  max-width: lines(30);
+  max-width: lines(100);
   
   .current-tribe {
     display: block;
@@ -730,7 +742,7 @@ label.error {
   }
   
   @include media(tablet) {
-    width: lines(7);
+    width: lines(8.5);
     
     .login-icon {
       float: left;
@@ -771,7 +783,7 @@ label.error {
     color: $body;
   }
   position: absolute;
-  right: lines(6); top: 0;
+  right: lines(8.5); top: 0;
   border: solid $border;
   border-width: 0 1px 0;
   z-index: 5;
@@ -796,7 +808,7 @@ label.error {
   }
   
   @include media(tablet) {
-    width: lines(8);
+    width: lines(7.25);
     display: block;
     
     .feedback-icon {
@@ -989,6 +1001,7 @@ label.error {
 }
 
 figure.fluidratio {
+  display: block;
   height: lines(4.3);
   background-size: cover;
   -moz-background-size: cover;  /* Firefox 3.6 */
@@ -999,6 +1012,10 @@ figure.fluidratio {
     /* This element will have fluid ratio from 4:1 at 1600px to 2:1 at 300px. */
     @include fluid-ratio(em(1600) em(195), em(300) em(195));
   }
+}
+
+figure.tribe-cover {
+  background-image: url($cover-photo-url);
 }
 
 .cover-image {
@@ -1186,7 +1203,7 @@ figure.fluidratio {
   a {
     display: block;
     float: left;
-    padding: em(8) em(15) em(12) em(15);
+    padding: em(8) em(7) em(12) em(9);
     color: $emphasis;
     height: em(24);
     overflow: hidden;
@@ -1221,13 +1238,17 @@ figure.fluidratio {
       display: none;
     }
     
+    a {
+      padding: em(8) em(15) em(12) em(15);
+    }
+    
     a.first-child { 
       margin-left: lines(10.5); 
     }
     
   }
   
-  @include media(small-desktop) {
+  @include media(desktop) {
     
     // Show texts only in really wide viewports
     .hidden {
@@ -1575,7 +1596,7 @@ a.lightbox-x {
   
   .notification {
     position: relative;
-    border-bottom: 1px dotted $border;
+    border-top: 1px dotted $border;
     min-height: lines(2);
     padding: lines(0.5) 0;
   }
@@ -1724,11 +1745,7 @@ a.lightbox-x {
 */
 
 .private-listing-notification {
-  margin-bottom: lines(0.5);
-  @include small-type;
-  color: $aside;
   padding: 0 lines(0.75);
-  
   @include media(tablet) {
     padding: 0;
   }
@@ -2278,9 +2295,11 @@ a.lightbox-x {
       left: em(3);
       @include border-radius(em(5));
       @include box-shadow(rgba(0,0,0,0.2) 0 0 em(3) em(2));
+      width: lines(2);
 
       img {
         @include border-radius(em(5));
+        width: 100%;
       }
     }
     
@@ -2306,9 +2325,9 @@ a.lightbox-x {
     @include media(tablet) {
       padding-top: lines(1.25);
       
-      img {
+      .listing-author-image {
         width: lines(4.5);
-        height: lines(4.5);
+        padding: em(5) em(5) em(2) em(5);
       }
       
       .listing-author-description {
@@ -2340,7 +2359,7 @@ a.lightbox-x {
       padding-left: lines(8.5);
       padding-top: em(5);
     }
-    
+ 
   }
   
   .discussion {
@@ -2764,7 +2783,26 @@ a.lightbox-x {
 
 .login-form {
   
-  
+  .facebook-account-info {
+    color: $body;
+    position: relative;
+    @include box-sizing(border-box);
+    display: block;
+    width: 100%;
+    @include border-radius(em(5));
+    border: 1px solid $border;
+    margin-bottom: lines(0.25);
+    .link-icon {
+      position: absolute;
+      top: em(8);
+      left: em(12);
+    }
+    .link-text {
+      margin-left: em(40);
+      margin-right: lines(1.5);
+      padding: em(6) 0 em(10) 0;
+    }
+  }
   
 }
 
@@ -2804,7 +2842,7 @@ a.lightbox-x {
 .new-feedback-form {
   padding-top: lines(1);
   @include media(tablet) {
-    padding-top: lines(3);
+    padding-top: 0;
   }
 }
 
@@ -2923,6 +2961,10 @@ a.lightbox-x {
     padding: 0 lines(0.5) lines(0.25) lines(0.5);
   }
   
+  p.global-settings {
+    padding: 0 0 lines(0.25) 0;
+  }
+  
   @include media(tablet) {
     
     a.change-link {
@@ -2968,65 +3010,7 @@ a.lightbox-x {
   ----------------
 */
 
-
-
-@mixin feedback_grade_link($image_pos) {
-	a {
-		float: left;
-		width: 50px;
-		height: 50px;
-		display: block;
-		color: transparent;
-		margin-right: 10px;
-		background: $form_bg url("/assets/kaapo/basic_link.png") 0 $image_pos no-repeat;
-		&:focus { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
-		&:hover { background: $form_bg url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat; };
-	}
-}
-@mixin feedback_grade_link($image_pos: 0) {
-	float: left;
-	a {
-		display: inline-block; 
-		height: 50px; 
-		width: 50px; 
-		text-indent: -999em; 
-		overflow: hidden;
-		margin-right: 10px;
-		background: transparent url("/assets/kaapo/basic_link.png") 0 ($image_pos - 50px) no-repeat;
-	}
-	a.grade { background-position: 0 ($image_pos); }
-	a.grade-over { background-position: 0 ($image_pos - 100px); }
-}
-
-
-
 .testimonial-form {
-  
-  .grade_link_wrapper {
-  	overflow: hidden;
-  	margin-left: 10px;
-  	padding-top: 3px;
-  }
-
-  .feedback_grade_image_5 {
-  	@include feedback_grade_link;
-  }
-
-  .feedback_grade_image_4 {
-  	@include feedback_grade_link(-150px);
-  }
-
-  .feedback_grade_image_3 {
-  	@include feedback_grade_link(-300px);
-  }
-
-  .feedback_grade_image_2 {
-  	@include feedback_grade_link(-450px);
-  }
-
-  .feedback_grade_image_1 {
-  	@include feedback_grade_link(-600px);
-  }
 
   a.grade {
     color: $body;
@@ -3066,8 +3050,4 @@ a.lightbox-x {
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
   }  
-}
-
-figure.tribe-cover {
-  background-image: url($cover-photo-url);
 }
