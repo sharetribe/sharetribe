@@ -78,7 +78,7 @@ module ApplicationHelper
   end
   
   def medium_avatar_thumb(person)
-    link_to((image_tag person.image.url(:thumb)), person)
+    link_to((image_tag person.image.url(:small)), person)
   end
   
   def large_avatar_thumb(person)

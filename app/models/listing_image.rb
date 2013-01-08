@@ -3,9 +3,10 @@ class ListingImage < ActiveRecord::Base
   belongs_to :listing
   
   paperclip_options = PaperclipHelper.paperclip_default_options.merge!({:styles => { 
-        :medium => "300x640>", 
-        :thumb => "85x85#", 
-        :original => "640x640>", 
+        :medium => "360x270#", 
+        :thumb => "120x120#", 
+        :original => "1600x1600>",
+        :big => "800x800>",
         :email => "150x100#"
   }})
 
