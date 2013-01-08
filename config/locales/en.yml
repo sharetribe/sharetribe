@@ -1149,8 +1149,8 @@ en:
       create_account_with_facebook: "Create an account with Facebook"
       or_create_new_account_without_facebook: "...or create an account without using Facebook below."
     not_member:
-      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another community. %{service_name} does not currently support belonging to multiple communities, so you cannot access this profile through %{community} community. We are working on an option to belong to more than one community at the same time. This feature will be added to the service later."
-      read_more_about_kassi_communities: "Read more about %{service_name} communities"
+      explanation_text: "You are currently in %{community} community. You tried to view the profile of a user that belongs to another Sharetribe community. You cannot access this profile through %{community} community."
+      read_more_about_kassi_communities: "Read more about Sharetribe communities"
       this_user_does_not_belong_to_this_community: "This user does not belong to %{community} community"
     profile_badge:
       active_member_bronze: "Active member (bronze)"
