@@ -10,8 +10,22 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   # POST /resource/confirmation
   def create
+    if params[:person] && params[:person][:email] && params[:person][:email] != @current_user.email
+      # If user submitted the email change form, change the email before sending again.
+      if Person.email_available?(params[:person][:email])
+        if @current_community.email_allowed?(params[:person][:email])
+          @current_user.update_attribute(:email, params[:person][:email])
+        else
+          flash[:error] = t("people.new.email_not_allowed")
+          redirect_to :controller => "sessions", :action => "confirmation_pending" and return
+        end
+      else
+        flash[:error] = t("people.new.email_is_in_use")
+        redirect_to :controller => "sessions", :action => "confirmation_pending" and return
+      end
+    end
+      
     self.resource = resource_class.send_confirmation_instructions(resource_params)
-    
 
     if successfully_sent?(resource)
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))

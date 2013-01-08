@@ -22,7 +22,7 @@
       = t("sessions.confirmation_pending.getting_started_instructions", :profile_url => profile_person_settings_path(:person_id => @current_user.id)).html_safe
 
   %p
-    = form_for(Person, :as => "person", :url => confirmation_path("person"), :html => { :method => :post }) do |form|
+    = form_for(Person, :as => "person", :url => confirmation_path(), :html => { :method => :post }) do |form|
       .form_field_container
         = form.hidden_field :email, :value => email_to_confirm
         = form.hidden_field :id, :value => @current_user.id
