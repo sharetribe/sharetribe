@@ -17,6 +17,7 @@ lv:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Pievienot jaunu žetonu"
@@ -558,6 +559,10 @@ lv:
     event_feed:
       latest_events: ~
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: ~
@@ -569,13 +574,9 @@ lv:
       news: ~
       no_news: ~
       more_news: ~
-      offer_something: ~
-      offer_something_description: ~
       or: ~
       or_see_what_the_others: ~
       recent_events: ~
-      request_something: ~
-      request_something_description: ~
       requesting: ~
       teaser_text: ~
       tell_it_here: ~

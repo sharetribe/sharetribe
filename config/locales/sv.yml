@@ -17,6 +17,7 @@ sv:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Lägg till nytt märke"
@@ -349,9 +350,9 @@ sv:
       you_have_not_yet_accepted_or_rejected_request: "Du har inte antagit eller avslagit förfrågan om '%{title}' som du tog emot den %{date}."
     badge_migration_notification:
       badge_description1: "Du kan få många olika märken för %{service_name} som ett erkännande av dina aktiviteter inom denna tjänstekategori. Du får märken om du är aktiv genom att till exempel lägga till nya erbjudanden och förfrågningar, kommenterar andras innehåll, från alla former av utbyte ( sälja och låna prylar, hjälpa andra, organisera samåkning osv). Observera ayy du endast får märken för de utbyten där du har fått positiv feedback."
-      badge_description2: ~
-      you_have_received_badges: ~
-      you_have_received_badges_in_kassi: ~
+      badge_description2: "En person med många märken är troligen väldigt aktiv, pålitlig och omtyckt av andra. Så var aktiv i %{service_name}: köp, sälj, låna ut och låna prylar, hjälp andra och ordna samåkning så kommer din samling av märken att växa!"
+      you_have_received_badges: "Du har fått märken i %{service_name}!"
+      you_have_received_badges_in_kassi: "Du har fått nya märken i %{service_name}. Du kan se dina märken genom att logga in på %{service_name} och gå till"
     confirmation_instructions:
       confirmation_instructions_signature: ~
       welcome_to_kassi: ~
@@ -359,25 +360,25 @@ sv:
       confirmation_link_text: ~
       turning_on_confirmations_in_this_community: ~
     common:
-      check_your_settings: ~
-      hey: ~
-      kassi_team: ~
-      thanks: ~
-      want_to_control_emails: ~
+      check_your_settings: "Kontrollera dina inställningar"
+      hey: "Hej %{name},"
+      kassi_team: "%{service_name} teamet"
+      thanks: "Tack,"
+      want_to_control_emails: "Vill du kontrollera vilka mejl du har fått från %{service_name}?"
       dont_want_to_receive_these_emails: ~
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
     conversation_status_changed:
-      has_accepted_your_offer: ~
-      has_accepted_your_request: ~
-      has_rejected_your_offer: ~
-      has_rejected_your_request: ~
-      you_can_view_the_offer_in: ~
-      you_can_view_the_request_in: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
+      has_accepted_your_offer: "%{accepter} har antagit ditt erbjudande angående %{listing}"
+      has_accepted_your_request: "%{accepter} har antagit din förfrågan om erbjudande av %{listing}"
+      has_rejected_your_offer: "%{accepter} har avslagit ditt erbjudande angående %{listing}"
+      has_rejected_your_request: "%{accepter} har avslagit din förfrågan om erbjudande av %{listing}"
+      you_can_view_the_offer_in: "Du kan se ditt erbjudande och relaterad konversation på"
+      you_can_view_the_request_in: "Du kan se din förfrågan och relaterad konversation på"
+      your_offer_was_accepted: "Ditt erbjudande är antaget"
+      your_offer_was_rejected: "Ditt erbjudande avslogs"
+      your_request_was_accepted: "Din förfrågan avslogs"
       your_request_was_rejected: ~
     invitation_to_kassi:
       hi: ~
@@ -387,7 +388,7 @@ sv:
       you_can_join_kassi_using_invitation_code: ~
       join_kassi_in: ~
     new_badge:
-      you_can_view_all_your_badges_in: ~
+      you_can_view_all_your_badges_in: "Du kan se alla dina märken i "
       you_have_achieved_a_badge: ~
     new_comment:
       has_commented_your_offer_in_kassi: ~
@@ -558,6 +559,10 @@ sv:
     event_feed:
       latest_events: ~
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: ~
@@ -569,13 +574,9 @@ sv:
       news: ~
       no_news: ~
       more_news: ~
-      offer_something: ~
-      offer_something_description: ~
       or: ~
       or_see_what_the_others: ~
       recent_events: ~
-      request_something: ~
-      request_something_description: ~
       requesting: ~
       teaser_text: ~
       tell_it_here: ~

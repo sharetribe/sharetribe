@@ -2,8 +2,8 @@ el:
   admin:
     communities:
       edit_details:
-        community_details: "Λεπτομέρειες του tribe"
-        community_look_and_feel: "Εμφάνιση του tribe"
+        community_details: "Βασικά στοιχεία"
+        community_look_and_feel: Εμφάνιση
         edit_community: "Επεξεργασία των στοιχείων της κοινότητας %{community_name}"
         community_name: "Όνομα:"
         community_slogan: "Slogan:"
@@ -17,6 +17,7 @@ el:
         logo_instructions_text: "Το λογότυπο θα περικοπεί σε τετράγωνο μεγέθους 192x192 pixel αν είναι απαραίτητο."
         cover_photo_instructions_text: "Το μέγεθος της φωτογραφίας εξώφυλλου θα γίνει 1600x195 pixels και ψηλότερες εικόνες θα περικοπούν στο κέντρο."
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
+        invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
     badges:
       index:
         add_new_badge: "Προσθήκη νέας κονκάρδας"
@@ -65,8 +66,8 @@ el:
       show:
         edit_poll: Επεξεργασία
   common:
-    default_community_slogan: "Δάνεισε, βοήθα, μοιράσου"
-    default_community_description: "Μέσω του %{service_name} τα μέλη της κοινότητάς μας μπορούν να μοιράζονται αγαθά, υπηρεσίες, να συνταξιδεύουν ή να βρίσκουν συγκάτοικους. Μπορείς να πεις στους άλλους τι έχεις να προσφέρεις ή να βρεις βοήθεια αν χρειάζεσαι."
+    default_community_slogan: "Δάνεισε, βοήθα, πούλα, μοιράσου"
+    default_community_description: "Μέσω του %{service_name} τα μέλη της κοινότητάς μας μπορούν να μοιράζονται αγαθά, υπηρεσίες, να συνταξιδεύουν ή να βρίσκουν συγκάτοικους."
     cancel: Άκυρο
     fields_that_are_mandatory: "Τα πεδία με το αστεράκι (*) είναι υποχρεωτικά."
     or: ή
@@ -187,8 +188,8 @@ el:
     status_link:
       accept_offer: "Αποδοχή προσφοράς"
       accept_request: "Αποδοχή αιτήματος"
-      reject_offer: "Απόρριψη προσφοράς"
-      reject_request: "Απόρριψη αιτήματος"
+      reject_offer: "Κάποια άλλη φορά"
+      reject_request: "Κάποια άλλη φορά"
   communities:
     map_bubble:
       view_tribe: "Εμφάνιση του sharetribe"
@@ -558,6 +559,10 @@ el:
     event_feed:
       latest_events: "Τι νέα;"
     index:
+      private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλεις να τις δεις, πρέπει να %{log_in_link}."
+      private_listing_notification_log_in: συνδεθείς
+      is: είναι
+      are: είναι
       what_do_you_need: "Τι χρειάζεστε;"
       post_new_listing: "Κάντε μια καταχώρηση!"
       are_offering: προσφέρουν
@@ -569,13 +574,9 @@ el:
       news: Νέα
       no_news: "Κανένα νέο"
       more_news: "Περισσότερα νέα"
-      offer_something: "Πρόσφερε κάτι!"
-      offer_something_description: "Aντικείμενα, βοήθειά, διαδρομές με το όχημά σου"
       or: ή
       or_see_what_the_others: "ή δες οι άλλοι τι"
       recent_events: Πρόσφατα
-      request_something: "Γράψε τι χρειάζεσαι!"
-      request_something_description: "Βιβλία, βοήθεια για κάτι, να σε πάνε κάπου"
       requesting: χρειάζονται
       teaser_text: "Το %{service_name} είναι μια υπηρεσία για την κοινότητα \"%{community}\". Εδώ μπορείς να δανείσεις, να νοικιάσεις, να χαρίσεις και να πουλήσεις πράγματα, να προσφέρεις και να ζητήσεις βοήθεια ή να βρεις συνταξιδιώτες. Έχεις κάτι που μπορείς να δανείσεις; Μπορείς να προσφέρεις βοήθεια;"
       tell_it_here: "Πες το!"

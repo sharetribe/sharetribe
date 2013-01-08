@@ -17,6 +17,7 @@ ru:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Добавить новый значок"
@@ -558,6 +559,10 @@ ru:
     event_feed:
       latest_events: "Последние действия"
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: "что предлагают"
@@ -569,13 +574,9 @@ ru:
       news: Новости
       no_news: "Нет новостей"
       more_news: "Ещё новости"
-      offer_something: "Перечислите вещи и услуги, которые можете предложить!"
-      offer_something_description: "Добавьте вещи, услуги или поездки, которые вы можете предложить"
       or: или
       or_see_what_the_others: "...или посмотрите,"
       recent_events: "Недавние события"
-      request_something: "Запросить что-нибудь"
-      request_something_description: "Расскажите другим, если вам нужна какая-нибудь вещь, услуга помощь с поездкой или место для проживания/работы"
       requesting: "запрашивают другие"
       teaser_text: "%{service_name} — сервис для сообщества %{community}. С помощью него вы можете обмениваться вещами, продавать, покупать, отдавать и брать их на прокат, получить или оказать помощь, либо договориться о совместном использовании транспорта. У вас есть что предложить другим?"
       tell_it_here: "Расскажите об этом здесь!"

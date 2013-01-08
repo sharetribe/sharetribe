@@ -17,6 +17,7 @@ ca:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Afegir una nova medalla"
@@ -560,6 +561,10 @@ ca:
     event_feed:
       latest_events: ~
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: ofereixen
@@ -571,13 +576,9 @@ ca:
       news: Notícies
       no_news: "No hi ha cap notícia"
       more_news: "Més notícies"
-      offer_something: Ofereix!
-      offer_something_description: "Fes una llista de les coses i favors que pots oferir"
       or: i
       or_see_what_the_others: "...o mira el que la resta"
       recent_events: "Esdeveniments recents"
-      request_something: Demana!
-      request_something_description: "Digues què és allò que necessites. Un objecte? Ajuda? Compartir viatge?"
       requesting: necessiten
       teaser_text: "Kassi és un servei per a la comunitat de %{community}. Pots prestar, llogar, regalar i vendre coses, fer i demanar favors o compartir viatges amb cotxe. Pots prestar alguna cosa a algú o ajudar-lo?"
       tell_it_here: "Diga-ho aquí!"

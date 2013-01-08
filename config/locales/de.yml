@@ -17,6 +17,7 @@ de:
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
+        invalid_color_code: ~
     badges:
       index:
         add_new_badge: "Neues Abzeichen hinzufügen"
@@ -558,6 +559,10 @@ de:
     event_feed:
       latest_events: "Was ist los"
     index:
+      private_listing_notification: ~
+      private_listing_notification_log_in: ~
+      is: ~
+      are: ~
       what_do_you_need: ~
       post_new_listing: ~
       are_offering: Angebot
@@ -569,13 +574,9 @@ de:
       news: News
       no_news: "Keine News"
       more_news: "Weitere Nachrichten"
-      offer_something: "Mit Anderen teilen!"
-      offer_something_description: "Sachen und Taten die Sie Anderen anbieten können"
       or: und
       or_see_what_the_others: "....oder zu sehen was Andere"
       recent_events: "Jüngste Ereignisse"
-      request_something: "Sagen Sie was Sie brauchen!"
-      request_something_description: "Sagen Sie jemand anderem wenn Sie Hilfe brauchen, ein Gegenstand benötigen, eine Mitfahrgelegenheit suchen oder eine Unterkunft brauchen."
       requesting: brauchen
       teaser_text: "%{service_name} ist ein Dienst für die %{community} Community. Hier können Sie Dinge verleihen, vermieten, verschenken oder verkaufen und Hilfe bekommen oder Mifahrgelegenheiten anbieten. Können Sie jemandem etwas verleihen oder jemandem helfen?"
       tell_it_here: "Sagen Sie es hier!"
