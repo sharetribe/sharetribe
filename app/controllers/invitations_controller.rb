@@ -2,11 +2,11 @@ class InvitationsController < ApplicationController
   
   skip_filter :dashboard_only
   
-  before_filter :only => :create do |controller|
+  before_filter do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_invite_new_user")
   end
   
-  before_filter :users_can_invite_new_users, :only => :create
+  before_filter :users_can_invite_new_users
   
   def new
     session[:selected_tab] = "members"
@@ -38,7 +38,7 @@ class InvitationsController < ApplicationController
   private
   
   def users_can_invite_new_users
-    unless @current_community.users_can_invite_new_users || @current_user.has_admin_rights_in?(@current_community)
+    unless @current_community.allows_user_to_send_invitations?(@current_user)
       flash[:error] = t("layouts.notifications.inviting_new_users_is_not_allowed_in_this_community")
       redirect_to root and return
     end

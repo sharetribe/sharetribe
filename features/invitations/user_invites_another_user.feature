@@ -7,35 +7,41 @@ Feature: User joins invite only community
   Scenario: User invites another user successfully
     Given there are following users:
       | person | 
-      | kassi_testperson1 |
+      | kassi_testperson2 |
     And I am on the homepage
-    And I should not see "Your friend's email address"
+    And I should not see "Invite friends"
     When I log in as "kassi_testperson2"
-    Then I should not see "Your friend's email address"
+    And I am on invitation page of "kassi_testperson2"
+    Then I should not see "Invite your friends"
+    # I Should be redirected to front page
+    And I should see "Post a new listing"
     When users can invite new users to join community "test"
-    And I am on the homepage
+    And I am on invitation page of "kassi_testperson2"
     Then I should see "Your friend's email address"
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
     Then I should see "Invitation sent successfully" 
-    # Make sure that sending multiple invitations in a row works
-    # (this had problems before)
     When I fill in "invitation_email" with "test@example.com"
+    And I press "Send invitation"
+    Then I should see "Invitation sent successfully" 
+    When I fill in "invitation_email" with "test@example.com, another.test@example.com,third.strange.guy@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"
+    Then I should see "Invitation sent successfully" 
+    
   
   @javascript
   Scenario: User tries to invite another user with invalid email address
     Given there are following users:
       | person | 
       | kassi_testperson1 |
-    And I am on the homepage
     And I am logged in as "kassi_testperson1"
+    And I am on invitation page of "kassi_testperson1"
     And users can invite new users to join community "test"
     And I press "Send invitation"
     Then I should see "This field is required." 
     When I fill in "invitation_email" with "test"
-    Then I should see "Please enter a valid email address."
+    Then I should see "Check that there are valid emails"
   
   

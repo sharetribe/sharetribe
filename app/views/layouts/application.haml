@@ -24,7 +24,7 @@
           - else
             = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
           = link_to t(".read_more"), about_infos_path
-    - if @current_user && @current_user.member_of?(@current_community)
+    - if @current_user && @current_community.allows_user_to_send_invitations?(@current_user)
       .join-action-buttons
         - if @current_user
           = link_to t(".invite_your_friends"), new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
