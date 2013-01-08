@@ -106,7 +106,7 @@ Kassi::Application.routes.draw do
           get :check_invitation_code
           get :not_member
           get :cancel
-          post :create_facebook_based
+          get :create_facebook_based
         end
         member do 
           put :update_avatar

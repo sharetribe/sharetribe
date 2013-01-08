@@ -10,7 +10,7 @@ Feature: Facebook connect
       | facebooker | Mircos     | markus@example.com |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
@@ -21,7 +21,7 @@ Feature: Facebook connect
       | facebooker | Marcos |
     Then user "facebooker" should have "image_file_size" with value "nil"
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Connect your Facebook account"
     When I fill in "person_login" with "facebooker"
     And I fill in "person_password" with "testi"
@@ -33,7 +33,7 @@ Feature: Facebook connect
   
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Connect your Facebook account"
     And I should see "Markus Sugarberg"
     When I follow "click here"
@@ -53,13 +53,13 @@ Feature: Facebook connect
       | person | facebook_id | given_name |
       | marko | 597013691 | Marko |
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
    
   Scenario: User connects to FB but cancels the linking
     Given I am on the home page
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Connect your Facebook account"
     And I should see "Markus Sugarberg"
     When I follow "cancel"
@@ -72,7 +72,7 @@ Feature: Facebook connect
   Scenario: The facebook login doesn't succeed
     Given I am on the home page
     And there will be and error in my Facebook login
-    When I follow "facebook_connect"
+    When I click "#cover-photo-fb-button"
     Then I should see "Could not authorize you from Facebook"
   
   
