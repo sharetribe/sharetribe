@@ -44,6 +44,7 @@ small {
 h1, h2, h3, h4, h5, h6 {
   @include lft-etica;
   color: $emphasis;
+  -webkit-font-smoothing: antialiased;
 }
 
 .page-content {
@@ -64,12 +65,11 @@ h1, h2, h3, h4, h5, h6 {
   h2 {
     margin: lines(0) 0 lines(0.5);
     @include normal-type;
-    //text-transform: uppercase;
     font-weight: 600;
     
     @include media(small-tablet) {
-      @include normal-type;
-      letter-spacing: normal;
+      @include big-type;
+      //letter-spacing: normal;
       font-weight: 600;
       text-transform: none;
     }
@@ -514,6 +514,19 @@ label.error {
   color: $aside;
 }
 
+// Creates some bottom padding for absolute-positioned views
+.bottom-margin {
+  display: none;
+  
+  @include media(tablet) {
+    display: block;
+    position: absolute;
+    top: lines(28.5);
+    width: 100%;
+    height: lines(5);
+  }
+}
+
 
 /*
   ------------------------
@@ -808,7 +821,7 @@ label.error {
   }
   
   @include media(tablet) {
-    width: lines(7.25);
+    width: lines(7);
     display: block;
     
     .feedback-icon {
@@ -820,6 +833,11 @@ label.error {
       display: block;
     }
   }
+  
+  @include media(small-desktop) {
+    width: lines(8.5);
+  }
+  
 }
   
 
@@ -1102,9 +1120,8 @@ figure.tribe-cover {
     }
     h1 {
       @include large-type;
-      font-weight: 500;
+      font-weight: 600;
       margin-bottom: em(1);
-      line-height: em(20);
     }
     p {
       display: block;
@@ -1128,7 +1145,7 @@ figure.tribe-cover {
   text-align: center;
   height: lines(4.25);
   a.regular-link {
-    display: block;
+    display: inline;
     padding-top: lines(0.25); 
     color: lighten($link, 20%);
     &:hover { color: lighten($link, 30%); }
@@ -1825,6 +1842,15 @@ a.lightbox-x {
     margin: 0 0 0 2%;
     display: inline;
     width: 22%;
+    .icon-with-text-container {
+      margin-right: 0;
+      .icon-part {
+        position: static;
+      }
+      .text-part {
+        display: none;
+      }
+    }
   }
   
   .hidden {
@@ -1849,9 +1875,17 @@ a.lightbox-x {
       position: absolute;
       top: lines(-3); left: lines(25.5);
       width: auto;
-      min-width: lines(5);
       margin-left: 0;
-      padding: em(5) em(16) em(7) em(16);
+      padding: em(4) em(10) em(6) em(16);
+      .icon-with-text-container {
+        margin-right: em(10);
+        .icon-part {
+          position: absolute;
+        }
+        .text-part {
+          display: block;
+        }
+      }
     }
     
   }
@@ -1877,15 +1911,17 @@ a.lightbox-x {
       padding-top: em(9);
       color: $body;
       &:hover { color: $link; }   
+      margin-right: lines(0.5);
     }
     
   }
   
-  @include media(small-desktop) {
+  @include media(desktop) {
     
     // Show texts only in really wide viewports
     
     .hidden-text {
+      margin-right: 0;
       display: inline-block;
     }
   }
@@ -2575,18 +2611,6 @@ a.lightbox-x {
         color: $background;
         background: darken($link, 10%); 
       }
-    }
-  }
-  
-  .bottom-margin {
-    display: none;
-    
-    @include media(tablet) {
-      display: block;
-      position: absolute;
-      top: lines(28.5);
-      width: 100%;
-      height: lines(5);
     }
   }
   

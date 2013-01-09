@@ -34,7 +34,7 @@
           .ss-chat.icon-with-text
           .ss.text-with-icon= t(".add_description")
       .profile-icons
-        - if @person.phone_number && !@person.phone_number.blank?
+        - if logged_in? && @person.phone_number && !@person.phone_number.blank?
           .icon-with-text-container
             .ss-phone.icon-part
             .text-part= @person.phone_number

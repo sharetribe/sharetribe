@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     
     # In case of failure, set the message already here and 
     # clear it afterwards, if authentication worked.
-    flash[:error] = t("layouts.notifications.login_failed")
+    flash.now[:error] = t("layouts.notifications.login_failed")
     
     # Since the authentication happens in the rack layer,
     # we need to tell Devise to call the action "sessions#new"

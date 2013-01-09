@@ -38,7 +38,7 @@
           %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
             %i.ss-icon.ss-social.ss-facebook.fb-icon
             .fb-text#cover-photo-fb-button= t(".connect")
-          = link_to(t(".or_join_without_facebook"), sign_up_path, :class => "regular-link")
+          = t(".join_without_facebook", :join_without_facebook_link => link_to(t(".join_without_facebook_link"), sign_up_path(:no_fb => true), :class => "regular-link")).html_safe
           
 
     .tribe-navigation

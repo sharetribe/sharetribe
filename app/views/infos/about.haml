@@ -1,7 +1,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
 .left-navi-section.about-section
-  %h3= (@current_community.slogan && !@current_community.slogan.blank?) ? @current_community.slogan : t("common.default_community_slogan")
+  %h2= (@current_community.slogan && !@current_community.slogan.blank?) ? @current_community.slogan : t("common.default_community_slogan")
   - if @current_community.description && !@current_community.description.blank?
     - text_with_line_breaks do
       = @current_community.description

@@ -9,10 +9,10 @@
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
     - if params[:map].present?
-      %a.offset-link.list-button.toggle{href: root, title: 'List view'}
+      %a.offset-link.list-button.toggle{href: root, title: t("homepage.filters.list")}
         %i.ss-list
     - else
-      %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: 'Map view'}
+      %a.offset-link.map-button.toggle{href: (root + '?map=true'), title: t("homepage.filters.map")}
         %i.ss-maplocation
 
   .feed-filters.toggle-menu-feed-filters
@@ -20,8 +20,9 @@
       .feed-search
         %input{name: 'q', id: 'search', value: params[:q], type: 'text', placeholder: t(".what_do_you_need")}
         %button{type: 'submit'}
-          %i.ss-search.icon-with-text
-          .text-with-icon.hidden= t("homepage.filters.search")
+          .icon-with-text-container
+            %i.ss-search.icon-part
+            .text-part.hidden= t("homepage.filters.search")
     
       .feed-filter-dropdowns#feed-filter-dropdowns
         .filter-title
@@ -32,11 +33,11 @@
 
 .feed-map-link
   - if params[:map].present?
-    %a.map-link.list-button{href: root, title: 'List view'}
+    %a.map-link.list-button{href: root, title: t("homepage.filters.list")}
       %i.ss-list.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.list")
   - else
-    %a.map-link.map-button{href: (root + '?map=true'), title: 'Map view'}
+    %a.map-link.map-button{href: (root + '?map=true'), title: t("homepage.filters.map")}
       %i.ss-maplocation.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 

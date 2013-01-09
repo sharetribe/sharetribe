@@ -561,7 +561,7 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
-      private_listing_notification: "There are %{listing_count} listings in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see those listings, you need to %{log_in_link}."
+      private_listing_notification: "There are %{listing_count} open listings in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see those listings, you need to %{log_in_link}."
       private_listing_notification_log_in: "log in"
       is: "is"
       are: "are"
@@ -642,10 +642,11 @@ en:
       send_feedback_to_admin: "Send feedback"
       to_see_what_others_have_suggested: "to see what other users have suggested, and vote for the ideas there."
       your_email_address: "Your email address (not required)"
-      connect: "Connect"
+      connect: "Sign up"
       invite_your_friends: "Invite friends!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
-      or_join_without_facebook: "...or join without Facebook"
+      join_without_facebook: "...or alternatively %{join_without_facebook_link}"
+      join_without_facebook_link: "sign up without Facebook"
     conversations:
       messages: Messages
       notifications: Notifications
@@ -1133,7 +1134,7 @@ en:
       family_name: "Family name"
       given_name: "Given name"
       i_accept_the: "I accept the"
-      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can also"
+      if_you_already_have_account_you_can: "If you already have an account in another %{service_name} community you can also %{join_link}."
       join_with_your_existing_account: "join this community with your existing account"
       invalid_invitation_code: "The invitation code is not valid."
       invitation_code: "Invitation code"
