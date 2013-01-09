@@ -1,0 +1,15 @@
+#edit-profile-listing-links
+  - if listing.closed?
+    .feed-listing-icon
+      %a{href: edit_listing_path(listing)}
+        .ss-lock.icon-with-text
+        .text-with-icon= t("listings.edit_links.reopen_#{listing.listing_type}")
+  - else
+    .feed-listing-icon
+      %a{href: edit_listing_path(listing)}
+        .ss-draw.icon-with-text
+        .text-with-icon= t("listings.edit_links.edit_#{listing.listing_type}")
+    .feed-listing-icon
+      %a{href: close_person_listing_path(@current_user, listing), data: { method: "put", remote: "true"}}
+        .ss-lock.icon-with-text
+        .text-with-icon= t("listings.edit_links.close_#{listing.listing_type}")

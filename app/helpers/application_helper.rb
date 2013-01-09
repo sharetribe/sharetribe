@@ -345,7 +345,7 @@ module ApplicationHelper
       },
       {
         :text => t("admin.communities.edit_details.community_look_and_feel"),
-        :icon_class => "ss-layout", 
+        :icon_class => "ss-paintroller", 
         :path => edit_look_and_feel_admin_community_path(community),
         :name => "tribe_look_and_feel"
       } 

@@ -11,6 +11,14 @@
     %h1
       = listed_listing_title(@listing)
     
+    - if @listing.valid_until && @listing.category.eql?("rideshare")
+      .listing-departure-time
+        .icon-with-text-container
+          %i.ss-car.icon-part 
+          .text-part
+            %strong
+              = t("listings.form.departure_time.departure_time") + ": " + l(@listing.valid_until, :format => :short)
+    
     #listing_message_links
       = render :partial => "message_links"
     
@@ -38,7 +46,7 @@
         .text-part
           = t(".times_viewed")
           = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
-      - if @listing.valid_until && @listing.open?
+      - if @listing.valid_until && @listing.open? && !@listing.category.eql?("rideshare")
         .icon-with-text-container
           %i.ss-alarmclock.icon-part 
           .text-part
@@ -102,7 +110,8 @@
     
     #comment-list
       = render :partial => "comment", :collection => @listing.comments
-    = render :partial => "comment_form"
+    #comment-form
+      = render :partial => "comment_form"
 
 - unless @listing.listing_images.empty?
   #listing-image-lightbox.lightbox.image-lightbox

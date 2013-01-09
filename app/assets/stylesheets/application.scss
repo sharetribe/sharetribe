@@ -2027,6 +2027,10 @@ a.lightbox-x {
     }
   }
   
+  .listing-departure-time {
+    padding: lines(0.25) 0 lines(0.5) 0;
+  }
+  
   
   .item-image {
     position: relative;
@@ -2407,7 +2411,6 @@ a.lightbox-x {
   
   .profile-listings {
     
-    
     .feed-item {
       padding: lines(0.5) lines(0);
       
@@ -2420,6 +2423,10 @@ a.lightbox-x {
         margin-bottom: 0;
         @include normal-type;
         font-weight: 600;
+      }
+      
+      #edit-profile-listing-links {
+        display: inline;
       }
       
       @include media(tablet) {
@@ -2639,7 +2646,7 @@ a.lightbox-x {
   ----------------
 */
 
-.new-listing-form {
+.new-listing-form, .edit-listing-form {
   
   h2 {
     margin-top: lines(0.5);
