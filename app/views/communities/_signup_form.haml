@@ -44,4 +44,4 @@
         = form.hidden_field :community_category, :value => session[:community_category]
         = submit_tag(t('people.new.create_new_account'), :class => "send_button")
         
-= render :partial => "people/help_texts", :collection => ["terms"], :as => :field 
+= render :partial => "people/help_texts_old", :collection => ["terms"], :as => :field 

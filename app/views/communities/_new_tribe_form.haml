@@ -76,5 +76,5 @@
           = form.submit t(".create_your_tribe"), :class => "form_button", :id => "create_community_button"
 
 - if session[:community_locale]
-  = render :partial => "people/help_texts", :collection => ["terms"], :as => :field
-= render :partial => "people/help_texts", :collection => ["invite_only_help_text"], :as => :field
+  = render :partial => "people/help_texts_old", :collection => ["terms"], :as => :field
+= render :partial => "people/help_texts_old", :collection => ["invite_only_help_text"], :as => :field
