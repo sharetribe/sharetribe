@@ -1,4 +1,4 @@
-- if @current_user && @current_user.has_admin_rights_in?(@current_community) && !current_user?(@listing.author)
+- if @current_user && @current_user.has_admin_rights_in?(@current_community) && !current_user?(@listing.author) && @current_user.member_of?(@current_community)
   - if @listing.closed?
     %a.icon-with-text-container{href: edit_listing_path(@listing)}
       .ss-unlock.icon-part
