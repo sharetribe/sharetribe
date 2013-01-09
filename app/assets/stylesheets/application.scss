@@ -1146,7 +1146,7 @@ figure.tribe-cover {
   height: lines(4.25);
   a.regular-link {
     display: inline;
-    padding-top: lines(0.25); 
+    padding-top: lines(0.5); 
     color: lighten($link, 20%);
     &:hover { color: lighten($link, 30%); }
   }

@@ -433,4 +433,8 @@ module ApplicationHelper
     APP_CONFIG.s3_bucket_name && APP_CONFIG.aws_access_key_id && APP_CONFIG.aws_secret_access_key
   end
   
+  def facebook_connect_in_use?
+    APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
+  end
+  
 end

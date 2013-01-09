@@ -629,6 +629,7 @@ fi:
       news_items: Uutiset
       polls: Kyselyt
     application:
+      join_this_community: "Liity yhteisöön"
       read_more: "Lue lisää"
       feedback: "Palaute ylläpidolle"
       default_feedback: "Tee kehitysehdotus, ilmoita virheestä, kerro mielipiteesi palvelusta tai ota yhteyttä muuten vain!"
@@ -644,9 +645,8 @@ fi:
       connect: Liity
       invite_your_friends: "Kutsu kaverisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
-      or_join_without_facebook: "...tai liity ilman Facebook-tunnustasi"
       join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
-      join_without_facebook_link: "liity ilman Facebookia"
+      join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
     conversations:
       messages: Viestit
       notifications: Tiedotteet

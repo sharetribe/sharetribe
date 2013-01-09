@@ -35,11 +35,12 @@
                 = t(".invite_your_friends_description")
       - else
         .join-action-buttons
-          %a.fb-connect{:href => person_omniauth_authorize_path(:facebook)}
-            %i.ss-icon.ss-social.ss-facebook.fb-icon
-            .fb-text#cover-photo-fb-button= t(".connect")
-          = t(".join_without_facebook", :join_without_facebook_link => link_to(t(".join_without_facebook_link"), sign_up_path(:no_fb => true), :class => "regular-link")).html_safe
-          
+          - if facebook_connect_in_use?
+            = render :partial => "layouts/facebook_connect_button", :locals => { :button_text => t(".connect") }
+            %small
+              = t(".join_without_facebook", :join_without_facebook_link => link_to(t(".join_without_facebook_link"), sign_up_path(:no_fb => true), :class => "regular-link")).html_safe
+          - else
+            = link_to t(".join_this_community"), sign_up_path, :class => "intro-button"
 
     .tribe-navigation
 

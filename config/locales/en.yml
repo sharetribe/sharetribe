@@ -630,6 +630,7 @@ en:
       news_items: "News articles"
       polls: Polls
     application:
+      join_this_community: "Join community"
       read_more: "Read more"
       feedback: "What would you like to tell us?"
       default_feedback: "Did you encounter a problem with %{service_name}? Have a suggestion for improving the service? Noticed some suspicious content? Or just have something you want to discuss with us? Let us know!"
@@ -646,7 +647,7 @@ en:
       invite_your_friends: "Invite friends!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
       join_without_facebook: "...or alternatively %{join_without_facebook_link}"
-      join_without_facebook_link: "sign up without Facebook"
+      join_without_facebook_link: "sign up without using Facebook"
     conversations:
       messages: Messages
       notifications: Notifications
