@@ -55,7 +55,7 @@
           %a{:href => new_listing_path + "?ref=tribe_navi", :title => t('header.new_listing'), :class => (session[:selected_tab].eql?("new_listing") ? "selected" : "")}
             %i.ss-addfile.icon-with-text
             .text-with-icon.hidden= t('header.new_listing')
-          %a{:href => "#", :title => t('header.members'), :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
+          %a{:href => people_path, :title => t('header.members'), :class => (session[:selected_tab].eql?("members") ? "selected" : "")}
             %i.ss-usergroup.icon-with-text
             .text-with-icon.hidden= t('header.members')
           %a{:href => about_infos_path, :title => t('header.about'), :class => (session[:selected_tab].eql?("about") ? "selected" : "")}

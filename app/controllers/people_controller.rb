@@ -24,8 +24,10 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
   
   def index
-    # this is not yet in use in this version of Sharetribe, but old URLs point here so implement this to avoid errors
-   render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+    session[:selected_tab] = "members"
+    params[:page] = 1 unless request.xhr?
+    @people = @current_community.members.order("family_name").paginate(:per_page => 15, :page => params[:page])
+    request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
   end
   
   def show

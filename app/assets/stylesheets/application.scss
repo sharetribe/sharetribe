@@ -3049,9 +3049,9 @@ a.lightbox-x {
 }
 
 /*
-  ----------------
-  Testimonial form
-  ----------------
+  -----------------------
+  New testimonial form
+  -----------------------
 */
 
 .testimonial-form {
@@ -3094,4 +3094,46 @@ a.lightbox-x {
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }
   }  
+}
+
+/*
+  -----------------
+  Community section
+  -----------------
+*/
+
+.members-intro {
+  width: 100%;
+  text-align: center;
+  p {
+    margin-bottom: lines(2);
+  }
+}
+
+.member {
+  @include box-sizing(border-box);
+  display: inline-block;
+  width: em(180);
+  border: em(10) solid $background;
+  @include box-shadow(rgba(0,0,0,0.2) 0 0 em(8));
+  @include border-radius(em(5));
+  h3 {
+    margin-top: lines(0.25);
+    margin-bottom: lines(0.25);
+  }
+  
+  img {
+    width: 100%;
+  }
+  vertical-align: top;
+  margin-right: lines(1);
+  margin-bottom: lines(1);
+  &:nth-child(5n+5) {
+    margin-right: 0;
+  }
+  
+  
+  @include media(tablet) {
+    
+  }
 }
