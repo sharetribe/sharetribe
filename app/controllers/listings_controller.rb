@@ -27,6 +27,19 @@ class ListingsController < ApplicationController
   skip_filter :dashboard_only
   
   def index
+    if params[:format] == "atom" # API request for feed
+      redirect_to :controller => "Api::ListingsController", :action => :index
+      return
+    end
+    session[:selected_tab] = "home"
+    if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
+      # Returns the listings for one person formatted for profile page view
+      per_page = params[:per_page] || 200 # the point is to show all here by default
+      page = params[:page] || 1
+      @listings = persons_listings(@person, per_page, page)
+      render :partial => "listings/profile_listing", :collection => @listings, :as => :listing
+      return
+    end
     redirect_to root
   end
   

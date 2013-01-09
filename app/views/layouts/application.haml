@@ -1,6 +1,8 @@
 = render :partial => 'layouts/head'
 
 %body
+
+  = render :partial => "layouts/noscript"
  
   = render :partial => 'layouts/global-header'
 
@@ -71,29 +73,29 @@
         .language-menu.toggle-menu.hidden
           = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
 
-    %article.page-content
-      .wrapper
-        = render :partial => "layouts/notifications"         
-        = yield
+  %article.page-content
+    .wrapper
+      = render :partial => "layouts/notifications"         
+      = yield
 
-    - if APP_CONFIG.use_google_analytics
-      <script type="text/javascript">
+  - if APP_CONFIG.use_google_analytics
+    <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-      = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
-      _gaq.push(['_trackPageview']);
-      _gaq.push(['_trackPageLoadTime']);
+    var _gaq = _gaq || [];
+    = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
+    = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
 
-      (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-      </script>
+    </script>
 
-    /[if lt IE 9]
-      = javascript_include_tag "ss-social"
-      = javascript_include_tag "ss-pika"
+  /[if lt IE 9]
+    = javascript_include_tag "ss-social"
+    = javascript_include_tag "ss-pika"
   

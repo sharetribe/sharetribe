@@ -1503,257 +1503,17 @@ a.lightbox-x {
   }
 }
 
-
 /*
-  -----------
-  Inbox
-  -----------
+  ------------------------
+  Noscript
+  ------------------------
 */
 
-.inbox-feed {
-  
-  p {
-    padding: lines(0.25) lines(0.5) 0 lines(0.5);
-  }
-  
-  .inbox-feed-item {
-    padding: lines(0.75) 0 lines(0.5) 0;
-    .feed-author-avatar {
-      left: lines(0.75);
-    }
-    .feed-content {
-      max-width: lines(30);
-      margin: em(-3) 0 0 lines(3);
-    }
-    small {
-      display: block;
-      position: relative;
-    }
-    .conversation-icon {
-      color: $aside;
-      position: absolute;
-      top: em(2);
-    }
-    .conversation-text {
-      color: $aside;
-      margin-left: lines(1);
-      margin-right: lines(1.5);
-      padding: 0;
-    }
-    .status-links {
-      padding-bottom: lines(0.5);
-    }
-    
-  }
-  
-  span.header-info {
-    display: inline-block;
-    vertical-align: top;
-    padding-top: em(21);
-    margin-left: lines(0.25);
-  }
-  
-  @include media(tablet) {
-    p {
-      padding: 0;
-    }
-    .inbox-feed-item {
-      
-    }
-  }
-  
+.noscript {
+  padding-top: lines(4);
+  max-width: lines(42);
+  margin: 0 auto;
 }
-
-.conversation-status-container {
-  padding-bottom: lines(0.5);
-}
-
-.conversation-status {
-  
-  .status-links {
-    padding-top: lines(0.25);
-  }
-  
-  .status-link {
-    @include button;
-    margin-right: lines(0.5);
-  }
-  
-  .accept {
-    color: $green;
-    background: lighten($green, 40%);
-    border-color: $green;
-    &:hover { 
-      color: lighten($green, 10%);
-      background: lighten($green, 50%); 
-      border-color: lighten($green, 10%);
-    }
-  }
-  
-  .reject {
-    color: $red;
-    background: lighten($red, 40%);
-    border-color: $red;
-    &:hover { 
-      color: lighten($red, 10%);
-      background: lighten($red, 50%); 
-      border-color: lighten($red, 10%);
-    }
-  }
-  
-}
-
-/*
-  -------------------
-  Inbox notifications
-  -------------------
-*/
-
-.inbox-notifications {
-  
-  .notification {
-    position: relative;
-    border-top: 1px dotted $border;
-    min-height: lines(2);
-    padding: lines(0.5) 0;
-  }
-  
-  .notification-text {
-    padding: em(5) lines(0.5) em(10) lines(2); 
-  }
-
-  .notification-icon {
-    position: absolute;
-    top: em(19);
-    left: em(17);
-  }
-  
-  small {
-    margin-top: lines(0.25);
-    display: block;
-    color: $aside;
-  }
-  
-}
-
-/*
-  -------------------
-  Single conversation
-  -------------------
-*/
-
-.conversation {
-  
-  .conversation-status {
-
-    .status-links {
-      padding-top: lines(0);
-      padding-bottom: lines(0.5);
-    }
-    
-  }
-  
-  .avatar-container {
-    position: relative;
-  }
-  
-  .avatar {
-    position: absolute;
-    top: em(6);
-  }
-  
-  .avatar-text {
-    padding-left: lines(1.5);
-    min-height: lines(1);
-    padding: em(4) 0 lines(0.75) lines(1.5);
-  }
-  
-  h2 {
-    margin-bottom: lines(0.25);
-  }
-  
-  .message {
-    position: relative;
-    border-top: 1px dotted $border;
-    padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
-
-    .avatar {
-      position: absolute;
-      left: 0; top: lines(0.5);
-      img {
-        @include border-radius(em(5));
-      }
-    }
-
-    h3, small {
-      display: inline;
-    }
-
-    small {
-      color: $aside;
-    }
-
-    .message-content, .message-icon {
-      @include small-type;
-      @include media(small-tablet) {
-        @include normal-type;
-      }
-    }
-
-    .message-icons {
-      padding-top: lines(0.25);
-      padding-bottom: lines(0.25);
-    }
-
-    .message-icon {
-      display: inline-block;
-      margin-right: lines(0.5);
-    }
-
-  }
-
-  .message-form {
-    border-top: 1px dotted $border;
-    padding-top: lines(0.5);
-    position: relative;
-
-    textarea {
-      width: 95%;
-      height: lines(4);
-    }
-
-  }
-  
-  @include media(tablet) {
- 
-    h2 {
-      @include big-type;
-    }
-    
-    .message {
-      padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
-      
-      .avatar {
-        width: lines(2);
-      }
-      
-      h3 {
-        margin: 0;
-      }
-    }
-    
-    .message-form {
-      textarea {
-        width: 100%;
-        height: lines(6);
-      }
-    }
-    
-  }
-  
-}
-
-
 
 /*
   ----------
@@ -1783,8 +1543,7 @@ a.lightbox-x {
     
     .request-link {
       @include big-button;
-      padding-top: em(8);
-      padding-bottom: em(10);
+      padding: em(8) em(8) em(10) em(8);
       width: 100%; 
       margin: 0 0 lines(0.5) 0;
       &:hover { color: $background; }
@@ -1818,6 +1577,9 @@ a.lightbox-x {
     
     .feed-filter-dropdowns {
       margin-top: 0;
+      select {
+        margin-bottom: lines(0.25);
+      }
     }
     
     select, option { 
@@ -1881,6 +1643,7 @@ a.lightbox-x {
         margin-right: em(10);
         .icon-part {
           position: absolute;
+          left: 0;
         }
         .text-part {
           display: block;
@@ -2935,6 +2698,256 @@ a.lightbox-x {
   }
   
 }
+
+/*
+  -----------
+  Inbox
+  -----------
+*/
+
+.inbox-feed {
+  
+  p {
+    padding: lines(0.25) lines(0.5) 0 lines(0.5);
+  }
+  
+  .inbox-feed-item {
+    padding: lines(0.75) 0 lines(0.5) 0;
+    .feed-author-avatar {
+      left: lines(0.75);
+    }
+    .feed-content {
+      max-width: lines(30);
+      margin: em(-3) 0 0 lines(3);
+    }
+    small {
+      display: block;
+      position: relative;
+    }
+    .conversation-icon {
+      color: $aside;
+      position: absolute;
+      top: em(2);
+    }
+    .conversation-text {
+      color: $aside;
+      margin-left: lines(1);
+      margin-right: lines(1.5);
+      padding: 0;
+    }
+    .status-links {
+      padding-bottom: lines(0.5);
+    }
+    
+  }
+  
+  span.header-info {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: em(21);
+    margin-left: lines(0.25);
+  }
+  
+  @include media(tablet) {
+    p {
+      padding: 0;
+    }
+    .inbox-feed-item {
+      
+    }
+  }
+  
+}
+
+.conversation-status-container {
+  padding-bottom: lines(0.5);
+}
+
+.conversation-status {
+  
+  .status-links {
+    padding-top: lines(0.25);
+  }
+  
+  .status-link {
+    @include button;
+    margin-right: lines(0.5);
+  }
+  
+  .accept {
+    color: $green;
+    background: lighten($green, 40%);
+    border-color: $green;
+    &:hover { 
+      color: lighten($green, 10%);
+      background: lighten($green, 50%); 
+      border-color: lighten($green, 10%);
+    }
+  }
+  
+  .reject {
+    color: $red;
+    background: lighten($red, 40%);
+    border-color: $red;
+    &:hover { 
+      color: lighten($red, 10%);
+      background: lighten($red, 50%); 
+      border-color: lighten($red, 10%);
+    }
+  }
+  
+}
+
+/*
+  -------------------
+  Inbox notifications
+  -------------------
+*/
+
+.inbox-notifications {
+  
+  .notification {
+    position: relative;
+    border-top: 1px dotted $border;
+    min-height: lines(2);
+    padding: lines(0.5) 0;
+  }
+  
+  .notification-text {
+    padding: em(5) lines(0.5) em(10) lines(2); 
+  }
+
+  .notification-icon {
+    position: absolute;
+    top: em(19);
+    left: em(17);
+  }
+  
+  small {
+    margin-top: lines(0.25);
+    display: block;
+    color: $aside;
+  }
+  
+}
+
+/*
+  -------------------
+  Single conversation
+  -------------------
+*/
+
+.conversation {
+  
+  .conversation-status {
+
+    .status-links {
+      padding-top: lines(0);
+      padding-bottom: lines(0.5);
+    }
+    
+  }
+  
+  .avatar-container {
+    position: relative;
+  }
+  
+  .avatar {
+    position: absolute;
+    top: em(6);
+  }
+  
+  .avatar-text {
+    padding-left: lines(1.5);
+    min-height: lines(1);
+    padding: em(4) 0 lines(0.75) lines(1.5);
+  }
+  
+  h2 {
+    margin-bottom: lines(0.25);
+  }
+  
+  .message {
+    position: relative;
+    border-top: 1px dotted $border;
+    padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+
+    .avatar {
+      position: absolute;
+      left: 0; top: lines(0.5);
+      img {
+        @include border-radius(em(5));
+      }
+    }
+
+    h3, small {
+      display: inline;
+    }
+
+    small {
+      color: $aside;
+    }
+
+    .message-content, .message-icon {
+      @include small-type;
+      @include media(small-tablet) {
+        @include normal-type;
+      }
+    }
+
+    .message-icons {
+      padding-top: lines(0.25);
+      padding-bottom: lines(0.25);
+    }
+
+    .message-icon {
+      display: inline-block;
+      margin-right: lines(0.5);
+    }
+
+  }
+
+  .message-form {
+    border-top: 1px dotted $border;
+    padding-top: lines(0.5);
+    position: relative;
+
+    textarea {
+      width: 95%;
+      height: lines(4);
+    }
+
+  }
+  
+  @include media(tablet) {
+ 
+    h2 {
+      @include big-type;
+    }
+    
+    .message {
+      padding: lines(0.5) lines(1) lines(0.25) lines(2.5);
+      
+      .avatar {
+        width: lines(2);
+      }
+      
+      h3 {
+        margin: 0;
+      }
+    }
+    
+    .message-form {
+      textarea {
+        width: 100%;
+        height: lines(6);
+      }
+    }
+    
+  }
+  
+}
+
 
 /*
   ----------------

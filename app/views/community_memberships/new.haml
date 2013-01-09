@@ -22,8 +22,8 @@
       = link_to(t(".log_out"), logout_path) + "."
   = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
     - if @current_community.join_with_invite_only?
-      = label_tag :invitation_code, t('people.new.invitation_code'), :class => "before_description"
-      %span{:class => "small"}= link_to(t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "form_small")
+      = label_tag :invitation_code, t('people.new.invitation_code'), :class => "inline"
+      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info"
       = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"

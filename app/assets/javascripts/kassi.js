@@ -774,6 +774,9 @@ function initialize_admin_edit_tribe_look_and_feel_form(locale, community_id, in
 }
 
 function initialize_new_community_membership_form(email_invalid_message, invitation_required, invalid_invitation_code_message) {
+  $('#help_invitation_code_link').click(function(link) {
+	  $('#help_invitation_code').lightbox_me({centered: true, zIndex: 1000000 }); 
+	});
   $('#terms_link').click(function(link) {
 	  link.preventDefault();
 	  $('#terms').lightbox_me({ centered: true, zIndex: 1000000 }); 

@@ -13,7 +13,12 @@ class TestimonialsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => [:skip]
   
   def index
-    redirect_to person_path(@person)
+    if request.xhr?
+      @testimonials = @person.received_testimonials.paginate(:per_page => params[:per_page], :page => params[:page])
+      render :partial => "people/testimonial", :collection => @testimonials
+    else
+      redirect_to person_path(@person)
+    end
   end
   
   def new
