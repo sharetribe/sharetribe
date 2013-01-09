@@ -66,9 +66,7 @@ Feature: User views profile page
     Then I should see "car spare parts"
     And I should see "Helsinki - Turku"
     And I should not see "Housing"
-    And I should not see "massage"
-    And I should see "Offers (2)" within ".inbox_tab_selected"
-    And I should see "Requests (1)" within ".inbox_tab_unselected"
+    And I should see "massage"
   
   @javascript
   Scenario: User views a profile page with listings with visibility settings

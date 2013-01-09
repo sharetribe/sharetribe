@@ -10,7 +10,7 @@ Feature: User changes profile photo
     And I am on the home page
     When I click ".user-menu-toggle"
     When I follow "Settings"
-    And I follow "Profile picture"
+    And I follow "Profile picture" within ".left-navi"
     And I attach a valid image file to "avatar_file"
     And I press "Save picture"
     Then I should see "Avatar upload successful" within ".flash-notifications"
