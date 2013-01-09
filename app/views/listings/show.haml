@@ -7,6 +7,9 @@
 .view-item
   
   .item-description.section
+  
+    #admin_edit_links
+      = render :partial => "admin_edit_links"   
       
     %h1
       = listed_listing_title(@listing)
