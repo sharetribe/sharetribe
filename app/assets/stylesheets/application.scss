@@ -1516,6 +1516,23 @@ a.lightbox-x {
 }
 
 /*
+  ---------------------
+  Error page
+  ---------------------
+*/
+
+.error-page {
+  padding-top: lines(3);
+  p {
+    padding: lines(0.5) 0;
+  }
+  button {
+    padding: em(7) em(20) em(7) em(20);
+  }
+}
+
+
+/*
   ----------
   Homepage
   ----------
@@ -3111,6 +3128,10 @@ a.lightbox-x {
   @include media(tablet) {
     text-align: center;
     padding: 0;
+    
+    h1 {
+      margin-top: 0;
+    }
     
     p {
       margin: 0 auto lines(2) auto;
