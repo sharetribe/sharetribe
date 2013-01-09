@@ -7,13 +7,11 @@
       - else
         = t(".you_are_the_only_member", :community_name => @current_community.full_name)
       - if @current_community.allows_user_to_send_invitations?(@current_user)
-        %br/
         = t(".wanna_see_more_folks")
         = link_to t(".invite_people_you_know"), new_person_invitation_path(:person_id => @current_user.id)
   - else
     %p
       = t(".there_are_x_members", :count => @people.size, :community_name => @current_community.full_name)
-      %br
       = t(".to_see_the_list_log_in", :log_in_link => link_to(t(".log_in_link"), login_path)).html_safe
 
 - if @current_user && @current_user.member_of?(@current_community)
