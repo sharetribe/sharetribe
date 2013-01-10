@@ -93,8 +93,8 @@ Feature: User views homepage
     #And I should see "No open item, service or rideshare offers."
     When there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
     And I am on the homepage
-    Then I should not see "No open item, service or rideshare requests."
-    And I should see "No open item, service or rideshare offers."
+    #Then I should not see "No open item, service or rideshare requests."
+    #And I should see "No open item, service or rideshare offers."
     When there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
     And I am on the homepage
     Then I should not see "No open item, service or rideshare requests."
