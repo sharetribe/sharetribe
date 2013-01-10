@@ -5,10 +5,10 @@
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
 task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css' ]
-task :deploy_production_migrations => ['deploy:set_production_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
+task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
 
 task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:generate_custom_css']
-task :deploy_production_without_migrations => ['deploy:set_production_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:generate_custom_css']
+task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css']
 
 
 namespace :deploy do

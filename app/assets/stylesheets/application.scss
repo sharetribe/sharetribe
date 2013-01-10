@@ -1823,6 +1823,10 @@ a.lightbox-x {
     .feed-excerpt {
       color: $aside;
       font-style: italic;
+      
+      a {
+        color: $aside;
+      }
     }
     
     small {

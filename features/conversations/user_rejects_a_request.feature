@@ -14,9 +14,9 @@ Feature: User rejects a request
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Service offer: Massage"
-    And I follow "Reject offer"
+    And I follow "Not this time"
     Then I should see "Offer rejected"
-    And I should see "Offer rejected" within ".conversation_status_label"
+    And I should see "Offer rejected" within ".conversation-status"
   
   @javascript
   Scenario: User rejects a request from the received conversations page
@@ -28,6 +28,5 @@ Feature: User rejects a request
     And there is a message "I offer this" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    And I follow "Reject offer"
-    Then I should see "Offer rejected" within ".flash-notifications"
-    And I should see "Offer rejected" within ".conversation_status_label"
+    And I follow "Not this time"
+    And I should see "Offer rejected" within ".conversation-status"

@@ -16,8 +16,7 @@ Feature: User skips feedback
     When I follow "inbox-link"
     And I follow "Service offer: Massage"
     And I follow "Skip feedback"
-    Then I should see "Feedback skipped" within ".flash-notifications"
-    And I should see "Feedback skipped" within ".conversation_status_label_links"
+    And I should see "Feedback skipped" within ".conversation-status"
     
   @javascript
   Scenario: Skipping feedback from the received conversations page
@@ -31,8 +30,7 @@ Feature: User skips feedback
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Skip feedback"
-    Then I should see "Feedback skipped" within ".flash-notifications"
-    And I should see "Feedback skipped" within ".conversation_status_label_links"  
+    And I should see "Feedback skipped" within ".conversation-status"  
   
   
 
