@@ -25,7 +25,7 @@ Feature: User views a single listing
     And I should see "Feedback:"
     And I should see "100%"
     And I should see "(2/2)"
-    And I should see "Add profile picture"
+    #And I should see "Add profile picture"
     When I click ".user-menu-toggle"
     When I follow "Settings"
     And I follow "Profile picture" within ".left-navi"

@@ -16,7 +16,8 @@ Feature: Facebook connect
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Mircos"
     And user "facebooker" should not have "image_file_size" with value "nil"
-    
+  
+  @fix_for_new_design
   Scenario: Facebook connect with different email in Sharetribe DB
     Given there are following users:
       | person | given_name |
@@ -34,6 +35,7 @@ Feature: Facebook connect
     And user "facebooker" should have "facebook_id" with value "597013691"
     And user "facebooker" should not have "image_file_size" with value "nil"
   
+  @fix_for_new_design
   Scenario: Facebook connect first time, without existing account in Sharetribe
     Given I am on the home page
     When I click ".login-menu-toggle"
@@ -61,7 +63,8 @@ Feature: Facebook connect
     And I follow "Log in with your Facebook account"
     Then I should see "Successfully authorized from Facebook account"
     And I should see "Marko"
-   
+  
+  @fix_for_new_design
   Scenario: User connects to FB but cancels the linking
     Given I am on the home page
     When I click ".login-menu-toggle"

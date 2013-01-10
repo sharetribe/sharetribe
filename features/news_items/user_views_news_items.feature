@@ -1,6 +1,7 @@
 Feature: User views news items
   
   @javascript
+  @fix_for_new_design
   Scenario: User views homepage news items
     Given I am logged in as "kassi_testperson2"
     And I am on the home page
@@ -21,6 +22,7 @@ Feature: User views news items
     Then I should see "More news"
   
   @javascript
+  @fix_for_new_design
   Scenario: User views info page news items
     Given I am on the home page
     When I follow "About"

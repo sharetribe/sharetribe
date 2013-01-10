@@ -13,8 +13,7 @@ Feature: User closes a listing
     And I am logged in as "kassi_testperson1"
     When I follow "Hammer"
     And I follow "Close request"
-    Then I should see "Request closed" within ".flash-notifications"
-    And I should see "Request is closed" within "#listing_closed_status_wide"
+    And I should see "Request is closed" within ".action-links"
     And I should see "Reopen request" within ".action-links"
     And I should not see "Edit request" within ".action-links"
     And I should not see "Close request" within ".action-links"
@@ -26,8 +25,8 @@ Feature: User closes a listing
     And I should not see "Reopen request" within ".action-links"
     And I should see "Edit request" within ".action-links"
     And I should see "Close request" within ".action-links"
-    And I should not see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
-    And I should see "Write a new comment:" within ".discussion section"
+    And I should not see "You cannot send a new comment because this request is closed." within "#comments"
+    And I should see "Public discussion" within "#comments"
   
   @javascript
   Scenario: User closes and opens listing successfully from own profile
@@ -39,8 +38,7 @@ Feature: User closes a listing
     When I click ".user-menu-toggle"
     When I follow "Profile"
     And I follow "Close request"
-    Then I should see "Request closed" within ".flash-notifications"
-    And I should see "Request is closed"
+    #And I should see "Request is closed"
     And I should see "Reopen request"
     And I should not see "Edit request"
     And I should not see "Close request"
@@ -50,8 +48,8 @@ Feature: User closes a listing
     And I should not see "Reopen request" within ".action-links"
     And I should see "Edit request" within ".action-links"
     And I should see "Close request" within ".action-links"
-    And I should not see "You cannot send a new comment because this request is closed." within "#listing_comment_form"
-    And I should see "Write a new comment:" within ".discussion section"
+    And I should not see "You cannot send a new comment because this request is closed." within "#comments"
+    And I should see "Public discussion" within "#comments"
   
   
 

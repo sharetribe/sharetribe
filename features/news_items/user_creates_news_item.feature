@@ -1,6 +1,7 @@
 Feature: User creates news item
  
   @javascript
+  @fix_for_new_design
   Scenario: User creates a news item 
     Given I am logged in
     And I am on the home page
@@ -16,6 +17,7 @@ Feature: User creates news item
     And I should see "Test content"
   
   @javascript
+  @fix_for_new_design
   Scenario: User tries to create a news item with false information
     Given I am logged in
     And news are enabled in community "test"
@@ -26,6 +28,7 @@ Feature: User creates news item
     Then I should see "This field is required."
   
   @javascript
+  @fix_for_new_design
   Scenario: User tries to create a news item without logging in
     Given I am on the home page
     And news are enabled in community "test"

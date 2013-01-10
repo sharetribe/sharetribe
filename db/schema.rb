@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107095027) do
+ActiveRecord::Schema.define(:version => 20130110222425) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "badges", ["person_id"], :name => "index_badges_on_person_id"
 
   create_table "cached_ressi_events", :force => true do |t|
     t.string   "user_id"
@@ -104,6 +106,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.string   "stylesheet_url"
   end
 
+  add_index "communities", ["domain"], :name => "index_communities_on_domain"
+
   create_table "communities_listings", :id => false, :force => true do |t|
     t.integer "community_id"
     t.integer "listing_id"
@@ -121,6 +125,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.integer  "invitation_id"
     t.datetime "last_page_load_date"
   end
+
+  add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"
 
   create_table "contact_requests", :force => true do |t|
     t.string   "email"
@@ -241,6 +247,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.integer "listing_id"
   end
 
+  add_index "listing_followers", ["listing_id"], :name => "index_listing_followers_on_listing_id"
+
   create_table "listing_images", :force => true do |t|
     t.integer  "listing_id"
     t.datetime "created_at"
@@ -275,8 +283,10 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.integer  "comments_count", :default => 0
   end
 
+  add_index "listings", ["category"], :name => "index_listings_on_category"
   add_index "listings", ["listing_type"], :name => "index_listings_on_listing_type"
   add_index "listings", ["open"], :name => "index_listings_on_open"
+  add_index "listings", ["share_type"], :name => "index_listings_on_share_type"
   add_index "listings", ["visibility"], :name => "index_listings_on_visibility"
 
   create_table "locations", :force => true do |t|
@@ -292,6 +302,10 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.integer  "community_id"
   end
 
+  add_index "locations", ["community_id"], :name => "index_locations_on_community_id"
+  add_index "locations", ["listing_id"], :name => "index_locations_on_listing_id"
+  add_index "locations", ["person_id"], :name => "index_locations_on_person_id"
+
   create_table "messages", :force => true do |t|
     t.string   "sender_id"
     t.text     "content"
@@ -299,6 +313,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.datetime "updated_at"
     t.integer  "conversation_id"
   end
+
+  add_index "messages", ["conversation_id"], :name => "index_messages_on_conversation_id"
 
   create_table "news_items", :force => true do |t|
     t.string   "title"
@@ -322,6 +338,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.string   "description"
   end
 
+  add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
+
   create_table "participations", :force => true do |t|
     t.string   "person_id"
     t.integer  "conversation_id"
@@ -332,6 +350,9 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.datetime "last_received_at"
     t.boolean  "feedback_skipped", :default => false
   end
+
+  add_index "participations", ["conversation_id"], :name => "index_participations_on_conversation_id"
+  add_index "participations", ["person_id"], :name => "index_participations_on_person_id"
 
   create_table "people", :id => false, :force => true do |t|
     t.string   "id",                                 :limit => 22,                   :null => false
@@ -464,6 +485,8 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.float    "wau_weekly_growth"
   end
 
+  add_index "statistics", ["community_id"], :name => "index_statistics_on_community_id"
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -490,5 +513,7 @@ ActiveRecord::Schema.define(:version => 20130107095027) do
     t.datetime "updated_at"
     t.string   "receiver_id"
   end
+
+  add_index "testimonials", ["receiver_id"], :name => "index_testimonials_on_receiver_id"
 
 end
