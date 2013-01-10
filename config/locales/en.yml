@@ -83,7 +83,7 @@ en:
       sell: selling
       trade: swapping
       share_for_free: "sharing for free"
-      accept_for_free: "accepting for free"
+      accept_for_free: "wanting to use for free"
     categories:
       item: "items"
       favor: "services"
@@ -283,6 +283,8 @@ en:
       for_other: other
   community_memberships:
     new:
+      welcome_fb_user: "Welcome to %{service_name}, %{name}!"
+      fb_join_accept_terms: "There's one more step to join this community: you need to accept its terms of use."
       join_community: "Join community '%{community}'"
       you_are_not_a_member_of_this_community: "You have a user account in %{service_name}, but you are not yet a member of %{service_name} community '%{community}'."
       you_can_join: "You can join this community by accepting the terms of use and clicking 'Join community' below."
@@ -763,7 +765,7 @@ en:
       you_cannot_send_message_to_yourself: "You cannot send a message to yourself"
       you_followed_listing: "You are now following this listing"
       you_have_already_given_feedback_about_this_event: "You have already given feedback about this event"
-      you_are_now_member: "You have successfully joined this community"
+      you_are_now_member: "You have successfully joined this community. Welcome!"
       you_are_already_member: "You are already a member of this %{service_name} community. Welcome back!"
       you_must_log_in_to_create_new_listing: "You must log in to %{service_name} to create a new listing. If you don't have an account you can %{sign_up_link}."
       create_one_here: "create one here"
@@ -1010,7 +1012,7 @@ en:
       sell: "I'm selling it"
       trade: "I want to swap it for something else"
       share_for_free: "I'm sharing it for free"
-      accept_for_free: "I'd like to get it for free"
+      accept_for_free: "I'd like to use it for free"
       item_with_article: "an item"
       favor_with_article: "help"
       rideshare_with_article: "ride"

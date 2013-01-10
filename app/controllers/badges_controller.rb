@@ -6,8 +6,7 @@ class BadgesController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    redirect_to person_testimonials_path(:person_id => @person.id) unless @person.badges_visible_to?(@current_user)
-    @badges = possible_badges_visible_to?(@current_user) ? Badge::UNIQUE_BADGES : @person.badges.collect(&:name)
+    redirect_to @person
   end
   
   def show

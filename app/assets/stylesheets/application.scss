@@ -3160,6 +3160,7 @@ a.lightbox-x {
   
   img {
     width: 100%;
+    @include border-radius(em(5));
   }
   
   .member-image {

@@ -318,7 +318,8 @@ function initialize_new_listing_form(fileDefaultText, fileBtnText, locale, share
 			"listing[valid_until(1i)]": { min_date: is_rideshare, max_date: is_rideshare }
 		},
 		messages: {
-			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message }
+			"listing[valid_until(1i)]": { min_date: date_message, max_date: date_message },
+			"listing[origin]": { address_validator: "Ei osoitetta" }
 		},
 		// Run validations only when submitting the form.
 		onkeyup: false,
