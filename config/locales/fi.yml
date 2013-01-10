@@ -83,7 +83,7 @@ fi:
       sell: myydään
       trade: vaihdetaan
       share_for_free: "tarjotaan käyttöön ilmaiseksi"
-      accept_for_free: "otetaan vastaan ilmaiseksi"
+      accept_for_free: "halutaan käyttöön ilmaiseksi"
     categories:
       item: tavarat
       favor: palvelukset
@@ -283,6 +283,8 @@ fi:
       for_other: taholle
   community_memberships:
     new:
+      welcome_fb_user: "Tervetuloa %{service_name_illative}, %{name}!"
+      fb_join_accept_terms: "Liittyäksesi tähän yhteisöön sinun tulee vielä hyväksyä sen käyttöehdot."
       join_community: "Liittyminen yhteisöön '%{community}'"
       you_are_not_a_member_of_this_community: "Sinulla on käyttäjätunnus %{service_name_inessive}, mutta et vielä ole %{service_name}-yhteisön '%{community}' jäsen."
       you_can_join: "Voit liittyä yhteisöön hyväksymällä yhteisön käyttöehdot ja klikkaamalla alareunasta 'Liity yhteisöön' -nappia."
@@ -762,7 +764,7 @@ fi:
       you_cannot_send_message_to_yourself: "Et voi lähettää viestiä itsellesi"
       you_followed_listing: "Aloit seurata ilmoitusta"
       you_have_already_given_feedback_about_this_event: "Olet jo antanut palautetta tästä tapahtumasta"
-      you_are_now_member: "Yhteisöön liittyminen onnistui."
+      you_are_now_member: "Yhteisöön liittyminen onnistui. Tervetuloa!"
       you_are_already_member: "Olet liittynyt tähän %{service_name}-yhteisöön jo aiemmin. Tervetuloa takaisin!"
       you_must_log_in_to_create_new_listing: "Sinun pitää kirjautua sisään %{service_name_illative}, jotta voisit luoda uuden tarjouksen. Jos sinulla ei ole vielä tunnusta, voit %{sign_up_link}."
       additional_email_confirmed_dashboard: "Sähköpostiosoitteesi on nyt vahvistettu."

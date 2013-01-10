@@ -62,7 +62,7 @@ class CommunityMembershipsController < ApplicationController
 
     # This is reached only if requirements are fulfilled
     if @community_membership.save
-      
+      session[:fb_join] = nil
       # If invite was used, reduce usages left
       invitation.use_once! if invitation.present?
       

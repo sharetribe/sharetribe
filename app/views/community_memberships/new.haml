@@ -4,8 +4,9 @@
 .centered-section
   %h2
     = t('.join_community', :community => @current_community.name)
-  %p
-    = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
+  - unless session[:fb_join]
+    %p
+      = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
   %p
     - if @current_community.join_with_invite_only?
       = t('.you_can_join_with_invite_only')
@@ -15,8 +16,12 @@
       - else
         = t('.you_can_join_email_confirmation', :email_ending => @current_community.allowed_emails)
     - else
-      = t('.you_can_join')
-  - unless @current_community.private?
+      - if session[:fb_join]
+        = t('.welcome_fb_user', :name => @current_user.given_name_or_username)
+        = t('.fb_join_accept_terms')
+      - else
+        = t('.you_can_join')
+  - unless @current_community.private? || @current_user.communities.size < 1
     %p
       = t(".if_want_to_view_content")
       = link_to(t(".log_out"), logout_path) + "."

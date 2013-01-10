@@ -5,7 +5,7 @@ $("#listing_message_links").html("<%= escape_javascript(render(:partial => 'list
 $("#admin_edit_links").html("<%= escape_javascript(render(:partial => 'listings/admin_edit_links')) %>");
 
 /* Update profile listing page links */
-$("#edit-profile-listing-links").html("<%= escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
+$("#edit-profile-listing-links-" + <%= @listing.id.to_s %>).html("<%= escape_javascript(render(:partial => 'listings/edit_profile_listing_links', :locals => { :listing => @listing })) %>");
 
 /* Close comment form */
 $("#comment-form").html("<%= escape_javascript(render(:partial => 'listings/comment_form')) %>");

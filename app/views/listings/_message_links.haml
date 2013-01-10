@@ -1,14 +1,13 @@
 - if @listing.closed?
   .action-links
+    .icon-with-text-container
+      .ss-lock.icon-part
+      .text-part= t("listings.reply_link.#{@listing.listing_type}_closed")
     - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
       %a.action-link{href: edit_listing_path(@listing)}
         .icon-with-text-container
           .ss-unlock.icon-part
           .text-part= t("listings.edit_links.reopen_#{@listing.listing_type}")
-    - else
-      .icon-with-text-container
-        .ss-unlock.icon-part
-        .text-part= t("listings.reply_link.#{@listing.listing_type}_closed")
 - else
   - if current_user?(@listing.author) || (@current_user && @current_user.has_admin_rights_in?(@current_community) && !@current_user.member_of?(@current_community))
     .action-links
