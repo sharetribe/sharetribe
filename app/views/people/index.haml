@@ -1,6 +1,6 @@
 .members-intro
   %h1= t(".meet_the_people")
-  - if @current_user && @current_user.member_of?(@current_community)
+  - if @current_user && (@current_user.member_of?(@current_community) || @current_user.is_admin?)
     %p
       - if @people.total_entries > 1
         = t(".here_are_the_members", :count => @people.total_entries, :community_name => @current_community.full_name)
