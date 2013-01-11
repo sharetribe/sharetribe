@@ -25,7 +25,7 @@ Feature: User creates a new community
     And I press "Create your tribe"
     Then I should see "Done!"
     When I follow "Go to your tribe"
-    Then I should see "Lend, help, share"
+    Then I should see "Lend, sell, help, share"
     And community "testtribe" should not require invite to join
   
   @no_subdomain

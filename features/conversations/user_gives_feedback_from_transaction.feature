@@ -15,11 +15,11 @@ Feature: User gives feedback from transaction
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Give feedback"
-    And I follow "Much better than expected"
-    And I fill in "How did things go:" with "Everything was great!"
+    And I click "#positive-grade-link"
+    And I fill in "How did things go?" with "Everything was great!"
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within ".flash-notifications"
-    And I should see "Feedback given" within ".conversation_status_label_links"
+    And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
     And I click ".user-menu-toggle"
     When I follow "Logout"
@@ -28,7 +28,7 @@ Feature: User gives feedback from transaction
     Then I should see "has given you feedback on event Service offer: Massage."
     And I should see "Give feedback to"
     And I should see "see all the feedback you have received"
-    And I should not see "1" within "#logged_in_notifications_icon"
+    And I should not see "1" within ".inbox-toggle"
   
   @javascript
   Scenario: Try to give feedback without required information
@@ -43,7 +43,7 @@ Feature: User gives feedback from transaction
     When I follow "inbox-link"
     And I follow "Give feedback"
     And I press "send_testimonial_button"
-    Then I should see "Remember to grade the user by clicking one of the icons above"
+    #Then I should see "Remember to grade the user by clicking one of the icons above"
     And I should see "This field is required"
     
   @javascript
@@ -58,7 +58,7 @@ Feature: User gives feedback from transaction
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Give feedback"
-    And I follow "Much better than expected"
+    And I click "#positive-grade-link"
     And I press "send_testimonial_button"
     Then I should see "This field is required"
   

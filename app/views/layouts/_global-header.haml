@@ -8,7 +8,7 @@
     
     - if @current_user  
       
-      %a.notifications-toggle.toggle.hidden{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
+      %a.notifications-toggle.toggle.hidden#notifications_link{href: notifications_person_messages_path(:person_id => @current_user.id.to_s), title: t("layouts.conversations.notifications")}
         %i.icon.ss-earth
         = render :partial => "layouts/notifications_badge"
 

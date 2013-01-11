@@ -45,7 +45,7 @@ Feature: User checks inbox
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
     And I follow "Service offer: Massage"
-    Then I should see "Service offer: Massage" within "#conversation_title_bar"
+    Then I should see "Service offer: Massage" within "h2"
   
   # TODO: The inbox logic has changed so should thing this one through
   @javascript
@@ -73,14 +73,14 @@ Feature: User checks inbox
     And I should see "Service offer: Massage"
     And I should not see "Another test"
     And I should not see "Test1"
-    And I should not see "Test2"
+    And I should see "Test2"
     And I should see "Rideshare request: Helsinki - Turku" 
     And I should see "Fine"
-    And I should see "3" within "#logged_in_messages_icon"
+    And I should see "3" within ".inbox-toggle"
     And I follow "Fine"
     And I follow "inbox-link"
     And I should not see "Fine" within ".unread"
-    And I should see "2" within "#logged_in_messages_icon"  
+    And I should see "2" within ".inbox-toggle"  
   
   @javascript
   Scenario: Viewing sent messages when there are multiple messages from different senders

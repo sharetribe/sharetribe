@@ -50,11 +50,11 @@ Feature: User views homepage
      And I should not see "car spare parts"
      And I should see "massage"
      And I should not see "place to live"
-     And I should see "Additionally there is one other request, but that is visible only to registered members."
+     And I should see "There are 3 open listings in this community. 2 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
      When I log in as "kassi_testperson1"
      Then I should see "car spare parts"
      And I should see "massage"
-     And I should not see "place to live"
+     And I should see "place to live"
      
   @javascript
   @subdomain2
@@ -87,15 +87,14 @@ Feature: User views homepage
        | person | 
        | kassi_testperson1 |
     When I am on the homepage
-    Then I should see "No item, service or rideshare requests visible to non-logged-in users."
-    And I should see "No item, service or rideshare offers visible to non-logged-in users."
+    #Then I should see "No item, service or rideshare requests visible to non-logged-in users."
     When I log in as "kassi_testperson2"
-    Then I should see "No open item, service or rideshare requests."
-    And I should see "No open item, service or rideshare offers."
+    #Then I should see "No open item, service or rideshare requests."
+    #And I should see "No open item, service or rideshare offers."
     When there is item request with title "car spare parts" from "kassi_testperson1" and with share type "buy"
     And I am on the homepage
-    Then I should not see "No open item, service or rideshare requests."
-    And I should see "No open item, service or rideshare offers."
+    #Then I should not see "No open item, service or rideshare requests."
+    #And I should see "No open item, service or rideshare offers."
     When there is item offer with title "car spare parts" from "kassi_testperson1" and with share type "sell"
     And I am on the homepage
     Then I should not see "No open item, service or rideshare requests."
@@ -114,13 +113,12 @@ Feature: User views homepage
      And I am on the home page page
      And I should not see "car spare parts"
      And I should not see "place to live"
-     And I should see "There is already one request, but that is visible only to registered members."
-     And I should see "There is already one offer, but that is visible only to registered members."
+     And I should see "There are 2 open listings in this community. 2 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
      When there is item request with title "bike parts" from "kassi_testperson2" and with share type "buy"
      And privacy of that listing is "private"
      And I am on the homepage
      Then I should not see "bike parts"
-     And I should see "There are already 2 requests, but those are visible only to registered members."
+     And I should see "There are 3 open listings in this community. 3 of them are visible only to the members of the community. If you want to see those listings, you need to log in."
   
   @javascript
   @fix_for_new_design

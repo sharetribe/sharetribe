@@ -1,6 +1,7 @@
 Feature: User deletes news item
   
   @javascript
+  @fix_for_new_design
   Scenario: User deletes news item successfully
     Given there are following users:
       | person | locale | 
@@ -23,6 +24,7 @@ Feature: User deletes news item
     Then I should see "Article removed" within ".flash-notifications"
     
   @javascript
+  @fix_for_new_design
   Scenario: Admin deletes news item successfully from news page
     Given there are following users:
       | person | 
