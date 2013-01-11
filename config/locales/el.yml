@@ -83,7 +83,7 @@ el:
       sell: πώληση
       trade: ανταλλαγή
       share_for_free: δωρεάν
-      accept_for_free: δωρεάν
+      accept_for_free: "δωρεάν χρήση"
     categories:
       item: αντικείμενα
       favor: υπηρεσίες
@@ -159,6 +159,7 @@ el:
         your_request: "το αίτημά σου"
       loading_more_notifications: "Εμφάνιση περισσότερων ειδοποιήσεων"
       no_notifications: "Καμία ειδοποίηση."
+      notifications_from_all_tribes: "Εδώ φαίνονται ειδοποιήσεις από όλα τα tribes στα οποία συμμετέχετε."
       testimonialnotification:
         give_feedback_to: "Κάνε κριτική για τον/την %{name}"
         has_given_you_feedback_on_event: "σχολίασε για σένα σχετικά με το"
@@ -282,6 +283,8 @@ el:
       for_other: άλλο
   community_memberships:
     new:
+      welcome_fb_user: "Καλωσήρθες στο %{service_name}!"
+      fb_join_accept_terms: "Υπάρχει ένα ακόμα βήμα για να εγγραφείς στην κοινότητα: πρέπει να αποδεχτείς τους όρους χρήσης."
       join_community: "Εγγραφή στην κοινότητα %{community}"
       you_are_not_a_member_of_this_community: "Έχεις λογαριασμό στο %{service_name} αλλά δεν είσαι ακόμα μέλος της κοινότητας '%{community}'."
       you_can_join: "Μπορείς να γραφτείς σε αυτή την κοινότητα αφού αποδεχτείς τους όρους χρήσης και κάνεις κλικ στο κουμπί \"Εγγραφή στην κοινότητα\"."
@@ -476,7 +479,7 @@ el:
     error_description: "Περιγραφή του σφάλματος"
     no_javascript:
       javascript_is_disabled_in_your_browser: "Το Javascript είναι απενεργοποιημένο στον browser σας"
-      kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και ανανέωσε τη σελίδα. Αν θέλεις να χρησιμοποιείς το %{service_name} χωρίς Javascript, παρακαλούμε στείλε μας τα σχόλιά σου χρησιμοποιώντας την παρακάτω φόρμα."
+      kassi_does_not_currently_work_without_javascript: "Δυστυχώς το %{service_name} δεν λειτουργεί -προς το παρόν- χωρίς Javascript. Προσπάθησε να ενεργοποιήσεις το Javascript από τις ρυθμίσεις του browser σου και ανανέωσε τη σελίδα."
       kassi_does_not_currently_work_without_javascript_dashboard: "To %{service_name} δεν λειτουργεί χωρίς Javascript. Προσπαθήστε να ενεργοποιήσετε το Javascript από τις ρυθμίσεις του browser σας και ανανεώστε τη σελίδα. Αν θέλετε να χρησιμοποιήσετε το %{service_name} χωρίς Javascript, παρακαλούμε %{contact_us}."
       contact_us: "επικοινωνήστε μαζί μας"
       send_feedback: Αποστολή
@@ -513,6 +516,7 @@ el:
     community: Κοινότητα
     home: Αρχική
     members: Κοινότητα
+    new_listing: Καταχώρηση
     mobile_version: "Έκδοση για κινητά"
     offers: Προσφορές
     requests: Αιτήματα
@@ -589,6 +593,7 @@ el:
       add_as_many_emails_as_you_want: "Γράψτε τις ηλεκτρονικές διευθύνσεις των φίλων σας στην παρακάτω φόρμα. Αν γράψετε πάνω από μία, χωρίστε τες με κόμμα."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "Γράφτηκα σε αυτή τη φανταστική υπηρεσία. Έλα κι εσύ!"
+      errors_in_emails: "Ελέγξτε ότι τα email που βάλατε είναι έγκυρα και ότι χωρίζονται μεταξύ τους με κόμμα."
     news_item:
       show_less: "Εμφάνιση λιγότερων"
       show_more: "Εμφάνιση περισσότερων"
@@ -619,6 +624,7 @@ el:
     no_tribe:
       inbox: Εισερχόμενα
       settings: Ρυθμίσεις
+      feedback: "Επικοινωνήστε μαζί μας"
     admin:
       admin: "Διαχείριση του %{service_name}"
       back_to_kassi: "Επιστροφή στο %{service_name}"
@@ -626,6 +632,7 @@ el:
       news_items: Άρθρα
       polls: Δημοσκοπήσεις
     application:
+      join_this_community: "Εγγραφή στην κοινότητα"
       read_more: "Διαβάστε περισσότερα"
       feedback: "Τι θα θέλατε να μας πείτε;"
       default_feedback: "Αντιμετωπίσατε κάποιο πρόβλημα με το %{service_name}; Έχετε κάποια πρόταση για να βελτιωθεί η υπηρεσία; Μήπως βρήκατε ύποπτο περιεχόμενο; Απλώς έχετε κάτι να μας πείτε; Στείλτε μας!"
@@ -641,7 +648,8 @@ el:
       connect: Σύνδεση
       invite_your_friends: "Προσκαλέστε φίλους!"
       invite_your_friends_description: "Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται."
-      or_join_without_facebook: "... ή συνδεθείτε χωρίς Facebook."
+      join_without_facebook: "... ή %{join_without_facebook_link}"
+      join_without_facebook_link: "κάνε εγγραφή χωρίς το Facebook"
     conversations:
       messages: Μηνύματα
       notifications: Ειδοποιήσεις
@@ -706,7 +714,7 @@ el:
       invitation_sent: "Η πρόσκληση εστάλη επιτυχώς"
       inviting_new_users_is_not_allowed_in_this_community: "Σε αυτή την κοινότητα δεν επιτρέπεται να προσκαλέσεις άλλους χρήστες"
       login_again: "Παρακαλούμε, συνδέσου ξανά."
-      login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώσε τα σωστά στοιχεία. Αν έχετε ξεχάσει το όνομα χρήστη ή τον κωδικό πρόσβασης, πατήστε τον παρακάτω σύνδεσμο."
+      login_failed: "Η σύνδεση απέτυχε. Παρακαλούμε δώστε τα σωστά στοιχεία."
       account_creation_successful: "Καλωσήρθες στο %{service_name}!"
       login_successful: "Καλωσήρθες στο %{service_name}!"
       logout_successful: "Έχεις αποσυνδεθεί από το %{service_name}. Τα λέμε!"
@@ -745,7 +753,7 @@ el:
       request_updated_successfully: "Το αίτημα ενημερώθηκε"
       message_sent: "Το μήνυμα εστάλη"
       this_content_is_not_available_in_this_community: "Αυτό το περιεχόμενο δεν είναι διαθέσιμο σε αυτή την κοινότητα."
-      unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε χρησιμοποίησε τη σελίδα σχολίων (Feedback) για να μας στείλεις λεπτομέρειες για το τι συνέβη."
+      unknown_error: "Άγνωστο σφάλμα. Παρακαλούμε επικοινωνήστε μαζί μας και πείτε μας τι συνέβη."
       update_error: "Παρουσιάστηκε σφάλμα κατά την προσπάθεια ενημέρωσης των στοιχείων σου, παρακαλούμε προσπάθησε ξανά"
       welcome_message: "Καλωσήρθες στο %{service_name}! Το %{service_name} είναι μια υπηρεσία που βοηθά τα μέλη της κοινότητας \"%{community}\" να ανταλλάσουν χάρες, να πωλούν και να δανείζουν αντικείμενα μεταξύ τους, να κανονίζουν να ταξιδέψουν μαζί και να βοηθούν ο ένας τον άλλο με πολλούς και διαφορετικούς τρόπους."
       you_are_not_allowed_to_give_feedback_on_this_transaction: "Δεν έχεις δικαίωμα να κάνεις κριτική για αυτό το συμβάν"
@@ -757,7 +765,7 @@ el:
       you_cannot_send_message_to_yourself: "Δεν γίνεται να στείλεις μήνυμα στον εαυτό σου"
       you_followed_listing: "Παρακολουθείς αυτή την καταχώρηση"
       you_have_already_given_feedback_about_this_event: "Έχεις ήδη σχολιάσει σε αυτό το συμβάν"
-      you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα επιτυχώς"
+      you_are_now_member: "Γράφτηκες σε αυτή την κοινότητα. Καλωσήρθες!"
       you_are_already_member: "Είσαι ήδη μέλος αυτής της κοινότητας %{service_name}. Καλωσήρθες ξανά!"
       you_must_log_in_to_create_new_listing: "Πρέπει να συνδεθείς στο %{service_name} για να καταχωρήσεις κάτι καινούριο. Αν δεν έχεις λογαριασμό μπορείς να %{sign_up_link}."
       additional_email_confirmed_dashboard: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου σου επιβεβαιώθηκε."
@@ -1003,7 +1011,7 @@ el:
       sell: "Το πουλάω"
       trade: "Το ανταλλάζω"
       share_for_free: "Το μοιράζομαι δωρεάν"
-      accept_for_free: "Θα το ήθελα δωρεάν"
+      accept_for_free: "Θα ήθελα να το χρησιμοποίησω δωρεάν"
       item_with_article: "ένα αντικείμενο"
       favor_with_article: βοήθεια
       rideshare_with_article: "να συνταξιδέψω"
@@ -1093,6 +1101,16 @@ el:
     member_id_or_email: "ID μέλους ή email"
     join_here: ""
   people:
+    index:
+      loading_more_members: "Εμφάνιση περισσότερων μελών"
+      meet_the_people: "Γνωρίστε τους υπόλοιπους"
+      you_are_the_only_member: "Είσαι το μόνο μέλος της κοινότητας \"%{community_name}\"."
+      here_are_the_members: "Εδώ εμφανίζονται τα %{count} μέλη της κοινότητας \"%{community_name}\"."
+      wanna_see_more_folks: "Θα θέλατε να εμφανίζεται περισσότερος κόσμος εδώ;"
+      invite_people_you_know: "Προσκαλέστε τα άτομα που γνωρίζετε!"
+      there_are_x_members: "Υπάρχουν %{count} μέλη στην κοινότητα \"%{community_name}\"."
+      to_see_the_list_log_in: "Για να δείτε την πλήρη λίστα των μελών πρέπει να %{log_in_link}."
+      log_in_link: συνδεθείτε
     badge_description:
       badge_achieved_at: "Η κονκάρδα κερδίθηκε στις "
       you_do_not_yet_have_this_badge: "Δεν έχεις κερδίσει αυτή την κονκάρδα ακόμη"
@@ -1144,8 +1162,8 @@ el:
       create_account_with_facebook: "Συνδεθείτε μέσω Facebook"
       or_create_new_account_without_facebook: "... ή δημιουργήστε λογαριασμό χωρίς το Facebook."
     not_member:
-      explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Προς το παρόν, το %{service_name} δεν υποστηρίζει το να είσαι μέλος σε πολλαπλές κοινότητες γι' αυτό δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\". Δουλεύουμε για να δημιουργήσουμε τη δυνατότητα να είσαι μέλος πάνω από μίας κοινότητας ταυτόχρονα και αυτό θα προστεθεί στην υπηρεσία αργότερα."
-      read_more_about_kassi_communities: "Διάβασε περισσότερα για τις κοινότητες %{service_name}"
+      explanation_text: "Είσαι στην κοινότητα \"%{community}\". Προσπάθησες να δεις το προφίλ ενός χρήστη που ανήκει σε μια άλλη κοινότητα. Δεν μπορείς να δεις αυτό το προφίλ μέσω της κοινότητας \"%{community}\"."
+      read_more_about_kassi_communities: "Διαβάστε περισσότερα για τις κοινότητες Sharetribe"
       this_user_does_not_belong_to_this_community: "Αυτός ο χρήστης δεν συμμετέχει στην κοινότητα \"%{community}\""
     profile_badge:
       active_member_bronze: "Ενεργό μέλος (χάλκινο)"
@@ -1306,6 +1324,7 @@ el:
       facebook_cancel_link_text: ακυρώσετε
       log_in_with_your_facebook_account: "Συνδεθείτε μέσω Facebook"
       or_sign_up_with_your_username: "... ή με το όνομα χρήστη ή το email σας:"
+      we_will_not_post_without_asking_you: "Δε θα δημοσιευτεί τίποτα στο Facebook χωρίς την άδειά σας."
     password_forgotten:
       email: Email
       password_recovery_instructions: "Γράψε την ηλεκτρονική σου διεύθυνση και θα λάβεις οδηγίες για να αλλάξεις τον κωδικό σου."
@@ -1325,6 +1344,7 @@ el:
       account_confirmation_instructions: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες. Αφού γίνει η επιβεβαίωση μπορείς να χρησιμοποιήσεις το %{service_name}."
       account_confirmation_instructions_dashboard: "Σύντομα θα λάβεις ένα email με ένα σύνδεσμο στον οποίο πρέπει να κάνεις κλικ για να επιβεβαιώσεις την ηλεκτρονική διεύθυνση που δήλωσες."
   settings:
+    settings_affect_all_tribes: "Αυτές οι ρυθμίσεις αφορούν όλες τις κοινότητες Sharetribe στις οποίες συμμετέχετε."
     account:
       change: Αλλαγή
       confirm_new_password: "Επιβεβαίωση κωδικού"

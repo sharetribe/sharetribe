@@ -159,6 +159,7 @@ de:
         your_request: "Ihre Anfrage"
       loading_more_notifications: "Weitere Benachrichtigungen laden"
       no_notifications: "Keine Benachrichtigungen."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Gebe Feedback zu %{name}"
         has_given_you_feedback_on_event: "hat Ihnen Feedback zu einem Ereignis gegeben"
@@ -282,6 +283,8 @@ de:
       for_other: Andere
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: "'%{community}' Community beitreten"
       you_are_not_a_member_of_this_community: "Sie haben ein Benutzerkonto in %{service_name}, sind aber noch kein Mitglied der %{service_name} '%{community}' Community."
       you_can_join: "Sie können dieser Community beitreten indem Sie die Nutzungsbedingungen akzeptieren und unten auf 'Community beitreten' klicken."
@@ -513,6 +516,7 @@ de:
     community: Community
     home: Hauptseite
     members: ~
+    new_listing: ~
     mobile_version: "Mobile Version"
     offers: Angebote
     requests: Anfragen
@@ -589,6 +593,7 @@ de:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: "Weniger anzeigen"
       show_more: "Mehr anzeigen"
@@ -619,6 +624,7 @@ de:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: "%{service_name}Admin-panel"
       back_to_kassi: "Zurück zu %{service_name}"
@@ -626,6 +632,7 @@ de:
       news_items: "News Artikel"
       polls: Umfragen
     application:
+      join_this_community: ~
       read_more: ~
       feedback: "Feedback zu %{service_name} Mitarbeiter"
       default_feedback: "Schlagen Sie eine neue Funktion vor, melden Sie Fehler, sagen Sie uns Ihre Meinung zum Service oder sagen Sie einfach Hallo!"
@@ -641,7 +648,8 @@ de:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: Nachrichten
       notifications: Benachrichtigungen
@@ -1093,6 +1101,16 @@ de:
     member_id_or_email: "Mitglieds-Id oder Email"
     join_here: "hier beitreten."
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Abzeichen erhalten "
       you_do_not_yet_have_this_badge: "Abzeichen noch nicht erhalten."
@@ -1309,6 +1327,7 @@ de:
       facebook_cancel_link_text: abbrechen
       log_in_with_your_facebook_account: "Melden Sie sich mit Ihrem Facebook-Konto an:"
       or_sign_up_with_your_username: ".. .oder mit Ihrem Benutzernamen und Passwort:"
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Geben Sie Ihre Email Adresse ein um Ihren Benutzernamen und Anweisungen zu erhalten, wie Sie Ihr Passwort ändern können."
@@ -1328,6 +1347,7 @@ de:
       account_confirmation_instructions: "Sie werden bald eine Email erhalten mit einem Link den Sie anklicken müssen um die eingegebene Email Adresse zu bestätigen. Nach der Bestätigung Ihrer Email, können Sie mit der Nutzung von %{service_name} anfangen."
       account_confirmation_instructions_dashboard: "Sie werden bald eine Email mit einem Link erhalten den Sie anklicken müssen um die eingegebene Email Adresse zu bestätigen."
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Ändern
       confirm_new_password: "Neues Passwort bestätigen"

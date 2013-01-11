@@ -159,6 +159,7 @@ sw:
         your_request: ~
       loading_more_notifications: ~
       no_notifications: ~
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: ~
         has_given_you_feedback_on_event: ~
@@ -282,6 +283,8 @@ sw:
       for_other: ~
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
       you_can_join: ~
@@ -513,6 +516,7 @@ sw:
     community: ~
     home: ~
     members: ~
+    new_listing: ~
     mobile_version: ~
     offers: ~
     requests: ~
@@ -589,6 +593,7 @@ sw:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: ~
       show_more: ~
@@ -619,6 +624,7 @@ sw:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: ~
       back_to_kassi: ~
@@ -626,6 +632,7 @@ sw:
       news_items: ~
       polls: ~
     application:
+      join_this_community: ~
       read_more: ~
       feedback: ~
       default_feedback: ~
@@ -641,7 +648,8 @@ sw:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: ~
       notifications: ~
@@ -1093,6 +1101,16 @@ sw:
     member_id_or_email: ~
     join_here: ~
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: ~
       you_do_not_yet_have_this_badge: ~
@@ -1303,6 +1321,7 @@ sw:
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: ~
       or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: ~
       password_recovery_instructions: ~
@@ -1322,6 +1341,7 @@ sw:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: ~
       confirm_new_password: ~

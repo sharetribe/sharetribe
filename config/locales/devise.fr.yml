@@ -3,14 +3,14 @@ fr:
     messages:
       expired: "a expiré, demandez en un nouveau s'il vous plaît"
       not_found: "n'a pas été trouvé(e)"
-      already_confirmed: "a déjà été validé(e)"
+      already_confirmed: "a déjà été validé(e), essayez de vous connecter"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
         one: "1 erreur a empêché ce(tte) %{resource} d'être sauvegardé(e) :"
         other: "%{count} erreurs ont empêché ce(tte) %{resource} d'être sauvegardé(e) :"
   devise:
     failure:
-      already_authenticated: "Vous êtes déjà connecté !"
+      already_authenticated: "Vous êtes déjà connecté."
       unauthenticated: "Vous devez vous connecter ou vous inscrire pour continuer."
       unconfirmed: "Vous devez valider votre compte pour continuer."
       locked: "Votre compte est verrouillé."

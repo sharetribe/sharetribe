@@ -159,6 +159,7 @@ vi:
         your_request: "bạn yêu cầu"
       loading_more_notifications: "Nạp thêm thông báo"
       no_notifications: "Không có thông báo"
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Cho phản hồi đến %{name}"
         has_given_you_feedback_on_event: "cho bạn thông tin phản hồi về sự kiện"
@@ -282,6 +283,8 @@ vi:
       for_other: khác
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: "Tham gia cộng đồng '%{community}'"
       you_are_not_a_member_of_this_community: "Bạn có một tài khoản người dùng tại %{service_name}, nhưng bạn chưa là thành viên của %{service_name} cộng đồng '%{community} '."
       you_can_join: "Bạn có thể tham gia cộng đồng này bằng việc chấp nhận các điều khoản sử dụng và bấm vào 'Tham gia cộng đồng' dưới đây."
@@ -513,6 +516,7 @@ vi:
     community: "Cộng đồng"
     home: "Trang chủ"
     members: ~
+    new_listing: ~
     mobile_version: "Phiên bản di động"
     offers: "Các hỗ trợ"
     requests: "Các yêu cầu"
@@ -589,6 +593,7 @@ vi:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: "Hiển thị ít hơn"
       show_more: "Hiển thị thêm"
@@ -619,6 +624,7 @@ vi:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: "ban quản trị %{service_name}"
       back_to_kassi: "Trở về %{service_name}"
@@ -626,6 +632,7 @@ vi:
       news_items: "Tin bài"
       polls: "Thăm dò ý kiến"
     application:
+      join_this_community: ~
       read_more: ~
       feedback: "Thông tin phản hồi đến đội ngũ %{service_name}"
       default_feedback: "Đề nghị một đặc tính mới, thông báo lỗi, cho biết ý kiến của bạn về dịch vụ, hoặc chỉ để lại chú ý bằng cách nói xin chào!"
@@ -641,7 +648,8 @@ vi:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: "Các thông điệp"
       notifications: "Các thông báo"
@@ -1093,6 +1101,16 @@ vi:
     member_id_or_email: "Định danh hoặc email của thành viên"
     join_here: "tham gia ở đây."
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Huy hiệu đạt được "
       you_do_not_yet_have_this_badge: "Huy hiệu chưa đạt được được."
@@ -1304,6 +1322,7 @@ vi:
       facebook_cancel_link_text: "hủy bỏ"
       log_in_with_your_facebook_account: "Đăng nhập với tài khoản Facebook của bạn:"
       or_sign_up_with_your_username: "...hoặc với tên người dùng và mật khẩu của bạn:"
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Cho địa chỉ email của bạn và bạn nhận được tên người dùng và hướng dẫn về làm thế nào để thay đổi mật khẩu của bạn."
@@ -1323,6 +1342,7 @@ vi:
       account_confirmation_instructions: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập. Sau khi xác nhận email của bạn, bạn có thể bắt đầu sử dụng %{service_name}."
       account_confirmation_instructions_dashboard: "Bạn sẽ sớm nhận được một email với một liên kết mà bạn cần phải nhấn để xác nhận địa chỉ email bạn đã nhập."
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: "Thay đổi"
       confirm_new_password: "Xác nhận mật khẩu mới"

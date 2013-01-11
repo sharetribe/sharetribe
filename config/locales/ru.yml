@@ -2,22 +2,22 @@ ru:
   admin:
     communities:
       edit_details:
-        community_details: ~
-        community_look_and_feel: ~
-        edit_community: ~
-        community_name: ~
-        community_slogan: ~
-        community_description: ~
-        update_information: ~
+        community_details: "Подробности о сообществе"
+        community_look_and_feel: "Оформление сообщества"
+        edit_community: "Изменить информацию о сообществе «%{community_name}»"
+        community_name: "Название сообщества"
+        community_slogan: "Девиз сообщества:"
+        community_description: "Описание:"
+        update_information: "Обновить информацию"
       edit_look_and_feel:
-        edit_community_look_and_feel: ~
-        community_logo: ~
-        community_cover_photo: ~
-        community_custom_color1: ~
-        logo_instructions_text: ~
-        cover_photo_instructions_text: ~
-        custom_color1_instructions_text: ~
-        invalid_color_code: ~
+        edit_community_look_and_feel: "Изменить оформление сообщества «%{community_name}»"
+        community_logo: Логотип
+        community_cover_photo: Обложка
+        community_custom_color1: "Основной цвет"
+        logo_instructions_text: "Изображение логотипа будет обрезано и уменьшено в размере до размера 192×192 пиксела."
+        cover_photo_instructions_text: "Изображение обложки будет уменьшено до размера 1600×95 пикселов, более высокие изображения будут обрезаны сверху и снизу."
+        custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
+        invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
     badges:
       index:
         add_new_badge: "Добавить новый значок"
@@ -122,7 +122,7 @@ ru:
       housing_offer_sell_message_form_title: "Купить %{listing} у %{person}"
       housing_offer_rent_out_message_form_title: "Взять в аренду %{listing} у %{person}"
       housing_offer_share_for_free_message_form_title: "Запросить %{listing} у %{person}"
-      housing_offer_accept_for_free_message_form_title: ~
+      housing_offer_accept_for_free_message_form_title: "Предложить %{listing} %{person}"
       housing_request_buy_message_form_title: "Продать %{listing} %{person}"
       housing_request_rent_message_form_title: "Дать в аренду %{listing} %{person}"
       item_offer_message_title: "Запрос вещи: %{title}"
@@ -159,6 +159,7 @@ ru:
         your_request: "ваш запрос"
       loading_more_notifications: "Загрузка оповещений"
       no_notifications: "Нет оповещений."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Оставить отзыв о %{name}"
         has_given_you_feedback_on_event: "оставил отзыв о событии"
@@ -174,7 +175,7 @@ ru:
       write_a_reply: "Написать ответ:"
       conversation_about_listing: "Диалог с %{person} о %{listing}."
       conversation_with_user: "Диалог с %{person}."
-      last_message_at: ~
+      last_message_at: "(последнее сообщение: %{time})"
     status:
       feedback_given: "Отзыв отправлен"
       feedback_skipped: "Отзыв отменён"
@@ -207,7 +208,7 @@ ru:
       go_to_your_tribe: "Перейти в сообщество"
       we_will_contact_you_about_invoicing: "Мы свяжемся с вами позже по вопросу выставления счёта."
     index:
-      find_your_local_tribe: "Найти местное сообщество"
+      find_your_local_tribe: "Найти сообщество поблизости"
       or_start_your_own: "...или %{start_your_own_tribe_link}"
       start_your_own_tribe_link: "создайте своё!"
     select_pricing_plan:
@@ -282,6 +283,8 @@ ru:
       for_other: прочее
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: "Присоединяйтесь к сообществу '%{community}'"
       you_are_not_a_member_of_this_community: "У вас есть учетная запись пользователя в %{service_name}, но вы не являетесь членом сообщества '%{community}'."
       you_can_join: "Вы можете присоединиться к этому сообществу, приняв условия использования и нажав кнопку \"Присоединиться\" ниже."
@@ -512,19 +515,20 @@ ru:
     about: "О сервисе"
     community: Сообщество
     home: Главная
-    members: ~
+    members: Сообщество
+    new_listing: "Новый листинг"
     mobile_version: "Мобильная версия"
     offers: Предложения
     requests: Запросы
     search_kassi: "Поиск в %{service_name}"
     create_new_marketplace: ~
-    contact_us: ~
-    profile: ~
+    contact_us: "Обратная связь"
+    profile: Профиль
   homepage:
     filter_share_types:
       listing_types:
-        request: ~
-        offer: ~
+        request: Запросы
+        offer: Предложения
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Кроме того, есть <b>одно другое предложение</b>,"
       additionally_one_private_request_exists: "Кроме того, есть <b>один другой запрос</b>,"
@@ -559,7 +563,7 @@ ru:
     event_feed:
       latest_events: "Последние действия"
     index:
-      private_listing_notification: ~
+      private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -586,9 +590,10 @@ ru:
       email: "Адрес электронной почты вашего друга:"
       message: "Личное сообщение:"
       send_invitation: "Отправить приглашение"
-      add_as_many_emails_as_you_want: ~
-      invitation_emails_field_placeholder: ~
+      add_as_many_emails_as_you_want: "Введите в поле адреса электронной почты своих друзей. Если вы хотите пригласить нескольких друзей, разделите их адреса электронной почты с помощью запятой."
+      invitation_emails_field_placeholder: "друг1@example.com, друг2@example.com, ..."
       invitation_message_field_placeholder: ~
+      errors_in_emails: "Проверьте правильность адресов электронной почты, разделённых запятой."
     news_item:
       show_less: Меньше
       show_more: Больше
@@ -609,24 +614,26 @@ ru:
       comment: комментарий
       comments: комментария
     filters:
-      show: ~
-      search: ~
-      map: ~
+      show: "Показать:"
+      search: Поиск
+      map: "Показать карту"
       list: ~
-      all_listing_types: ~
-      all_categories: ~
+      all_listing_types: "Все типы листингов"
+      all_categories: "Все категории"
   layouts:
     no_tribe:
-      inbox: ~
-      settings: ~
+      inbox: Входящие
+      settings: Настройки
+      feedback: "Обратная связь"
     admin:
       admin: "Администрирование %{service_name}"
       back_to_kassi: "Вернуться в %{service_name}"
-      tribe_info: ~
+      tribe_info: "Основная информация о сообществе"
       news_items: "Новостные статьи"
       polls: Опросы
     application:
-      read_more: ~
+      join_this_community: "Присоединиться к сообществу"
+      read_more: Подробнее
       feedback: "Отзыв команде %{service_name}"
       default_feedback: "Предложите новую функцию, сообщите об ошибке, выразите своё мнение о сервисе, либо просто скажите нам «Привет»!"
       feedback_forum: форум
@@ -639,9 +646,10 @@ ru:
       to_see_what_others_have_suggested: "чтобы увидеть, что предлагают другие пользователи."
       your_email_address: "Ваш адрес email (необязательно)"
       connect: ~
-      invite_your_friends: ~
-      invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      invite_your_friends: "Приглашайте друзей!"
+      invite_your_friends_description: "Чем больше людей вступит в сообщество %{service_name}, тем более полезным оно будет."
+      join_without_facebook: "…либо %{join_without_facebook_link}"
+      join_without_facebook_link: "зарегистрироваться без Facebook"
     conversations:
       messages: Сообщения
       notifications: Оповещения
@@ -681,8 +689,8 @@ ru:
       settings: Настройки
       sign_up: Регистрация
     notifications:
-      community_updated: ~
-      community_update_failed: ~
+      community_updated: "Информация о сообществе обновлена."
+      community_update_failed: "Не удалось обновить информацию о сообществе."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Учётная запись создана успешно. Теперь вам нужно подтвердить свой адрес электронной почты."
       community_joined_succesfully_you_still_need_to_confirm_your_email: "Теперь вы являетесь членом этого сообщества. Далее вам необходимо подтвердить свой адрес электронной почты."
       avatar_upload_failed: "Ошибка загрузки аватара. Картинка должна быть в формате .png, .jpg или .gif."
@@ -707,7 +715,7 @@ ru:
       inviting_new_users_is_not_allowed_in_this_community: "Сообщество %{service_name} не позволяет приглашать новых пользователей"
       login_again: "Попробуйте войти ещё раз."
       login_failed: "Не удалось войти. Проверьте правильность введённых данных."
-      account_creation_successful: ~
+      account_creation_successful: "Добро пожаловать в %{service_name}, %{person_name}!"
       login_successful: "Добро пожаловать в %{service_name}, "
       logout_successful: "Вы только что вышли из %{service_name}. Заходите ещё!"
       news_item_created: "Статья создана"
@@ -759,7 +767,7 @@ ru:
       you_have_already_given_feedback_about_this_event: "Вы уже оставляли отзыв об этом событии"
       you_are_now_member: "Вы успешно присоединилась к этому сообществу"
       you_are_already_member: "Вы уже являетесь членом этого сообщества %{service_name}. С возвращением!"
-      you_must_log_in_to_create_new_listing: ~
+      you_must_log_in_to_create_new_listing: "Вы должны авторизоваться в %{service_name} для создания нового листинга. Если у вас нет учётной записи, вы можете %{sign_up_link}."
       additional_email_confirmed_dashboard: "Ваш адрес электронной почты подтверждён."
       you_must_log_in_to_give_feedback: "Вы должны войти, чтобы отправить отзыв"
       you_must_log_in_to_invite_new_users: "Для того, чтобы пригласить новых пользователей, вы должны войти в %{service_name}"
@@ -790,7 +798,7 @@ ru:
       wrote: написал
       send_private_message: "Отправить личное сообщение для %{person}"
     comment_form:
-      ask_a_question: ~
+      ask_a_question: "Оставьте комментарий или запросите более подробную информацию. Ваш комментарий смогут увидеть все остальные пользователи."
       log_in: войти
       send_comment: Отправить
       to_send_a_comment: "для отправки комментария."
@@ -862,7 +870,7 @@ ru:
         request_type: "Тип запроса"
         sell: Продам
         share_for_free: "Бесплатно поделюсь"
-        accept_for_free: ~
+        accept_for_free: "Приму в дар"
         trade: Обмен
       tag_list:
         comma_separate: "(разделённые запятыми)"
@@ -879,13 +887,13 @@ ru:
       valid_until_radio_buttons:
         for_the_time_being: Неопределённая
       visibility:
-        all_communities: ~
+        all_communities: "Все мои сообщества в %{service_name}"
         this_community: "Только члены этого сообщества"
         visibility: Видимость
       privacy:
         privacy: ~
-        private: ~
-        public: ~
+        private: "Приватные (только для авторизованных пользователей)"
+        public: "Публичные (видимые всем пользователям)"
     help_texts:
       help_share_type_title: "Тип предложения или запроса"
       help_tags_title: Метки
@@ -964,13 +972,13 @@ ru:
       search_returned_no_results: "Ничего не найдено."
     new:
       listing: ~
-      offer: ~
-      request: ~
-      selected_offer: ~
-      selected_request: ~
-      selected_listing_type: ~
-      selected_category: ~
-      selected_subcategory: ~
+      offer: "Я могу что-то предложить другим людям"
+      request: "Мне что-то нужно"
+      selected_offer: Предложение
+      selected_request: Запрос
+      selected_listing_type: "Тип листинга: %{listing_type}"
+      selected_category: "Категория: %{category}"
+      selected_subcategory: "Подкатегория: %{subcategory}"
       selected_share_type: ~
       selected_item: ~
       selected_favor: ~
@@ -989,19 +997,19 @@ ru:
       selected_accept_for_free: ~
       how_do_you_want_to_share_it: ~
       how_do_you_want_to_get_it: ~
-      item: ~
-      favor: ~
-      rideshare: ~
-      housing: ~
+      item: "Вещь — что-то осязаемое"
+      favor: "Помощь — услуга или умение"
+      rideshare: "Совместная поездка — на автомобиле или ином транспорте"
+      housing: "Пространство — жильё, офис или огород"
       borrow: ~
-      buy: ~
-      give_away: ~
+      buy: "Я хочу купить это"
+      give_away: "Я отдаю это даром"
       lend: ~
-      receive: ~
+      receive: "Я принимаю это в дар"
       rent: ~
       rent_out: ~
-      sell: ~
-      trade: ~
+      sell: "Я продаю это"
+      trade: "Я хочу обменять это"
       share_for_free: ~
       accept_for_free: ~
       item_with_article: ~
@@ -1009,21 +1017,21 @@ ru:
       rideshare_with_article: ~
       housing_with_article: ~
       what_kind_of_category: ~
-      tools: ~
-      sports: ~
-      music: ~
-      books: ~
-      games: ~
-      furniture: ~
-      outdoors: ~
-      food: ~
-      electronics: ~
-      pets: ~
-      film: ~
-      clothes: ~
-      garden: ~
-      travel: ~
-      other: ~
+      tools: Инструменты
+      sports: Спорттовары
+      music: Музыка
+      books: "Книги и журналы"
+      games: "Игры и игрушки"
+      furniture: Мебель
+      outdoors: "Товары для отдыха"
+      food: "Кухонная утварь"
+      electronics: Электроника
+      pets: "Домашние животные"
+      film: Фильмы
+      clothes: "Одежда и аксессуары"
+      garden: "Сад и огород"
+      travel: Путешествия
+      other: Прочее
       what_do_you_want_to_do: ~
       what_can_you_offer: ~
       what_do_you_need: ~
@@ -1044,7 +1052,7 @@ ru:
       offer: Предложение
       offer_author: Предложено
       offer_created: Создано
-      open_until: ~
+      open_until: "Действительно до %{date}"
       feedback: "Репутация:"
       qr_code: QR-код
       request: Запрос
@@ -1093,6 +1101,16 @@ ru:
     member_id_or_email: "ID пользователя или электронная почта"
     join_here: присоединиться.
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: "Вы — единственный участник сообщества %{community_name}."
+      here_are_the_members: "Количество участников сообщества %{community_name}: %{count} чел."
+      wanna_see_more_folks: "Хотите видеть здесь больше людей?"
+      invite_people_you_know: "Приглашайте знакомых!"
+      there_are_x_members: "Количество участников сообщества %{community_name}: %{count} чел."
+      to_see_the_list_log_in: "Чтобы увидеть полный список участников, необходимо %{log_in_link}."
+      log_in_link: авторизоваться
     badge_description:
       badge_achieved_at: "Значок заработан "
       you_do_not_yet_have_this_badge: "Значок пока не заработан."
@@ -1143,8 +1161,8 @@ ru:
       username_is_invalid: "Имя пользователя некорректно. Можно использовать только буквы, цифры и знак подчёркивания."
       visible_only_to_you: "видимо только вам"
       visible_to_everybody: "видимо для всех"
-      create_account_with_facebook: ~
-      or_create_new_account_without_facebook: ~
+      create_account_with_facebook: "Создать учётную запись с помощью Facebook"
+      or_create_new_account_without_facebook: "…или создать учётную запись с помощью обычной формы."
     not_member:
       explanation_text: "В настоящее время вы являетесь членом сообщества %{community}. Вы хотите просмотреть профиль пользователя, который принадлежит к другому сообществу. Kassi временно не поддерживает возможность одновременной принадлежности одного и того же пользователя к разным сообществам, таким образом, вы не можете просмотреть этот профиль, находясь в сообществе %{community}. Такая возможность будет добавлена чуть позже, мы работаем над этим."
       read_more_about_kassi_communities: "Узнайте больше о сообществах Kassi"
@@ -1277,11 +1295,11 @@ ru:
       badges: Значки
       open_listing: ~
       open_listings: ~
-      no_open_listings: ~
-      no_reviews: ~
-      no_badges: ~
-      show_all_open_listings: ~
-      show_all_reviews: ~
+      no_open_listings: "Нет открытых листингов"
+      no_reviews: "Нет обзоров"
+      no_badges: "Нет значков"
+      show_all_open_listings: "Показать все открытые листинги"
+      show_all_reviews: "Показать все обзоры"
       trustcloud: TrustCloud
   search:
     show:
@@ -1308,6 +1326,7 @@ ru:
       facebook_cancel_link_text: "отменить это действие"
       log_in_with_your_facebook_account: "Зайти через Facebook:"
       or_sign_up_with_your_username: "…или с помощью логина и пароля:"
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Введите свой адрес электронной почты и вы получите инструкции как изменить пароль."
@@ -1327,13 +1346,14 @@ ru:
       account_confirmation_instructions: "Вскоре вы получите электронное письмо с ссылкой, которую нужно нажать для подтверждения электронной почты. После подтверждения вашей электронной почты вы сможете начать использовать %{service_name} ."
       account_confirmation_instructions_dashboard: "Вскоре вы получите электронное письмо со ссылкой, по которой нужно будет перейти для подтверждения электронной почты."
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Изменить
       confirm_new_password: "Подтвердить новый пароль"
       delete_account: "Удалить учётную запись"
       email: "Адрес электронной почты:"
       instructions_to_delete_account: "Если вы хотите удалить свою учётную запись, используйте форму связи слева."
-      contact_admin: ~
+      contact_admin: "свяжитесь с администратором"
       new_email: "Новый адрес электронной почты"
       new_password: "Новый пароль"
       save: Сохранить
@@ -1424,9 +1444,9 @@ ru:
       slightly_less_than_expected: "Немного хуже, чем ожидалось"
       textual_feedback: "Текст отзыва"
       this_will_be_shown_in_profile: "Оставленный вами отзыв будет виден другим пользователям на странице профиля %{person}. Это поможет другим членам сообщества оценить степень доверия к пользователю %{person}."
-      positive: ~
-      negative: ~
-      default_textual_feedback: ~
+      positive: Положительный
+      negative: Отрицательный
+      default_textual_feedback: "Всё прошло отлично, большое спасибо!"
     testimonial:
       from_user: от
       to_user: для
