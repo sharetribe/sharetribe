@@ -159,6 +159,7 @@ zh:
         your_request: "您的请求\n"
       loading_more_notifications: 载入更多提醒
       no_notifications: 没有提醒
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "评价%{name}"
         has_given_you_feedback_on_event: 基于事件...的评价
@@ -282,6 +283,8 @@ zh:
       for_other: 其他
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: 加入社区
       you_are_not_a_member_of_this_community: ~
       you_can_join: ~
@@ -513,6 +516,7 @@ zh:
     community: 社区
     home: 主页
     members: ~
+    new_listing: ~
     mobile_version: 移动版
     offers: 提议
     requests: 请求
@@ -589,6 +593,7 @@ zh:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: 显示更少
       show_more: "显示更多\n"
@@ -619,6 +624,7 @@ zh:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: Kassi控制面板
       back_to_kassi: 回到Kassi
@@ -626,6 +632,7 @@ zh:
       news_items: 新文章
       polls: ~
     application:
+      join_this_community: ~
       read_more: ~
       feedback: 向Kassi员工发送反馈
       default_feedback: 有任何意见，建议，或者程序漏洞需要提交
@@ -641,7 +648,8 @@ zh:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: 私信
       notifications: 通知
@@ -1093,6 +1101,16 @@ zh:
     member_id_or_email: ~
     join_here: 加入这里
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "已获得的徽章 "
       you_do_not_yet_have_this_badge: 徽章尚未获得。
@@ -1303,6 +1321,7 @@ zh:
       facebook_cancel_link_text: 取消
       log_in_with_your_facebook_account: 用你FACEBOOK账号登录
       or_sign_up_with_your_username: 用你的账号和密码
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: E-mail
       password_recovery_instructions: 输入注册时的E-mail地址，您会受到您的用户名及更改密码的说明。
@@ -1322,6 +1341,7 @@ zh:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: 修改
       confirm_new_password: 确认新密码

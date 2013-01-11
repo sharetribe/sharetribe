@@ -69,6 +69,7 @@ Feature: User creates a new rideshare
     And I should see "Offer created successfully" within ".flash-notifications"
 
   @javascript
+  @fix_for_new_design
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page
@@ -84,6 +85,7 @@ Feature: User creates a new rideshare
     Then I should see "Address not found"
 
   @javascript
+  @fix_for_new_design
   Scenario: Creating a new rideshare item offer with wrong address in destination
     Given I am logged in
     And I am on the home page

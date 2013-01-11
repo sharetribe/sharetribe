@@ -512,7 +512,7 @@ fi:
       offer_partitive: tarjousta
       request_partitive: pyyntöä
   header:
-    about: "Tietoa"
+    about: Tietoa
     community: Yhteisö
     home: Etusivu
     members: Yhteisö
@@ -593,6 +593,7 @@ fi:
       add_as_many_emails_as_you_want: "Lisää kaveri(e)si sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, eroita osoitteet pilkulla."
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
+      errors_in_emails: ~
     news_item:
       show_less: "Näytä vähemmän"
       show_more: "Näytä lisää"
@@ -621,9 +622,9 @@ fi:
       all_categories: "Kaikki ilmoituskategoriat"
   layouts:
     no_tribe:
-      feedback: "Ota yhteyttä"
       inbox: Postilaatikko
       settings: Asetukset
+      feedback: "Ota yhteyttä"
     admin:
       admin: "%{service_name_genetive} ylläpitonäkymä"
       back_to_kassi: "Takaisin %{service_name_illative}"
@@ -1102,7 +1103,7 @@ fi:
   people:
     index:
       loading_more_members: "Ladataan lisää jäseniä"
-      meet_the_people: "Ihmiset"
+      meet_the_people: Ihmiset
       you_are_the_only_member: "Olet tämän yhteisön ainoa jäsen."
       here_are_the_members: "Tässä ovat yhteisön %{community_name} %{count} jäsentä."
       wanna_see_more_folks: "Haluaisitko, että täällä olisi enemmän väkeä?"

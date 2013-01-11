@@ -159,6 +159,7 @@ es:
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Da una sugerencia a %{name}"
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
@@ -285,6 +286,8 @@ es:
       for_other: otro
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: "Únete a la comunidad de '%{community}'"
       you_are_not_a_member_of_this_community: "Tienes una cuenta de usuario en %{service_name}, pero todavía no eres miembro de la comunidad '%{community}' de %{service_name}."
       you_can_join: "Puedes unirte a esta comunidad aceptando los términos de uso y haciendo click en \"Únete a la comunidad\" más abajo."
@@ -518,6 +521,7 @@ es:
     community: Comunidad
     home: Inicio
     members: ~
+    new_listing: ~
     mobile_version: "Versión móvil"
     offers: Ofertas
     requests: Solicitudes
@@ -594,6 +598,7 @@ es:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: "Menos de"
       show_more: "Más de"
@@ -624,6 +629,7 @@ es:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: "Panel de administración de %{service_name}"
       back_to_kassi: "Volver a %{service_name}"
@@ -631,6 +637,7 @@ es:
       news_items: "Nuevos artículos"
       polls: Encuestas
     application:
+      join_this_community: ~
       read_more: ~
       feedback: "Sugerencia al equipo de %{service_name}"
       default_feedback: "Sugiere una nueva aplicación, reporta un error, dános tu opinión acerca del servicio, o simplemente déjanos una nota diciendo ¡Hola!"
@@ -646,7 +653,8 @@ es:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: Mensajes
       notifications: Notificaciones
@@ -1098,6 +1106,16 @@ es:
     member_id_or_email: "Identificación de usuario o email"
     join_here: "Ingresa aquí."
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Medalla obtenida "
       you_do_not_yet_have_this_badge: "La medalla todavía no ha sido ganada."
@@ -1311,6 +1329,7 @@ es:
       facebook_cancel_link_text: cancelar
       log_in_with_your_facebook_account: "Inicia sesión con tu cuenta de Facebook:"
       or_sign_up_with_your_username: "... o con tu nombre de usuario y contraseña:"
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -1330,6 +1349,7 @@ es:
       account_confirmation_instructions: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada. Después de confirmar tu e-mail puedes comenzar a usar %{service_name}."
       account_confirmation_instructions_dashboard: "Pronto recibirás un e-mail con un link al que deberás hacer clic para confirmar la cuenta e-mail ingresada."
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"

@@ -159,6 +159,7 @@ es-ES:
         your_request: "Su solicitud"
       loading_more_notifications: "Cargando más notificaciones"
       no_notifications: "No hay notificaciones."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Da una sugerencia a %{name}"
         has_given_you_feedback_on_event: "Has recibido una sugerencia del evento"
@@ -282,6 +283,8 @@ es-ES:
       for_other: ~
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
       you_can_join: ~
@@ -515,6 +518,7 @@ es-ES:
     community: Comunidad
     home: Inicio
     members: ~
+    new_listing: ~
     mobile_version: "Versión móvil"
     offers: Ofertas
     requests: Solicitudes
@@ -591,6 +595,7 @@ es-ES:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: ~
       show_more: ~
@@ -621,6 +626,7 @@ es-ES:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: "Panel de administración de Kassi"
       back_to_kassi: "Volver a Kassi"
@@ -628,6 +634,7 @@ es-ES:
       news_items: ~
       polls: ~
     application:
+      join_this_community: ~
       read_more: ~
       feedback: "Sugerencia al equipo de Kassi"
       default_feedback: "Sugiere una nueva aplicación, reporta un error, dános tu opinión acerca del servicio, o simplemente deja una nota diciendo hola!"
@@ -643,7 +650,8 @@ es-ES:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: Mensajes
       notifications: Notificaciones
@@ -1095,6 +1103,16 @@ es-ES:
     member_id_or_email: ~
     join_here: ~
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Medalla obtenida "
       you_do_not_yet_have_this_badge: "La medalla no ha sido lograda."
@@ -1306,6 +1324,7 @@ es-ES:
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: ~
       or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: Email
       password_recovery_instructions: "Dános una dirección de correo a la cual enviar tu nombre de usuario y las instrucciones para realizar el cambio de contraseña."
@@ -1325,6 +1344,7 @@ es-ES:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Cambiar
       confirm_new_password: "Confirmar nueva contraseña"

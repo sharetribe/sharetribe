@@ -159,6 +159,7 @@ ca:
         your_request: "La seva sol·licitud"
       loading_more_notifications: "Carregant més notificacions"
       no_notifications: "Cap notificació."
+      notifications_from_all_tribes: ~
       testimonialnotification:
         give_feedback_to: "Dona un suggeriment a %{name}"
         has_given_you_feedback_on_event: "Heu rebut un suggeriment de l'esdeveniment"
@@ -282,6 +283,8 @@ ca:
       for_other: ~
   community_memberships:
     new:
+      welcome_fb_user: ~
+      fb_join_accept_terms: ~
       join_community: ~
       you_are_not_a_member_of_this_community: ~
       you_can_join: ~
@@ -515,6 +518,7 @@ ca:
     community: Comunitat
     home: Inici
     members: ~
+    new_listing: ~
     mobile_version: "Versió mòbil"
     offers: Ofertes
     requests: Sol·licituds
@@ -591,6 +595,7 @@ ca:
       add_as_many_emails_as_you_want: ~
       invitation_emails_field_placeholder: ~
       invitation_message_field_placeholder: ~
+      errors_in_emails: ~
     news_item:
       show_less: "Menys de"
       show_more: "Més de"
@@ -621,6 +626,7 @@ ca:
     no_tribe:
       inbox: ~
       settings: ~
+      feedback: ~
     admin:
       admin: "Panell d'administració de Kassi"
       back_to_kassi: "Tornar a Kassi"
@@ -628,6 +634,7 @@ ca:
       news_items: "Nous articles"
       polls: Enquestes
     application:
+      join_this_community: ~
       read_more: ~
       feedback: "Suggeriment a l'equip de Kassi"
       default_feedback: "Suggereix una nova aplicació, informa d'un error, fes-nos arribar la teva opinió sobre el servei o simplement deixa'ns una nota dient-nos hola!"
@@ -643,7 +650,8 @@ ca:
       connect: ~
       invite_your_friends: ~
       invite_your_friends_description: ~
-      or_join_without_facebook: ~
+      join_without_facebook: ~
+      join_without_facebook_link: ~
     conversations:
       messages: Missatges
       notifications: Notificacions
@@ -1095,6 +1103,16 @@ ca:
     member_id_or_email: ~
     join_here: "Inicia sessió aquí."
   people:
+    index:
+      loading_more_members: ~
+      meet_the_people: ~
+      you_are_the_only_member: ~
+      here_are_the_members: ~
+      wanna_see_more_folks: ~
+      invite_people_you_know: ~
+      there_are_x_members: ~
+      to_see_the_list_log_in: ~
+      log_in_link: ~
     badge_description:
       badge_achieved_at: "Has aconseguit una medalla "
       you_do_not_yet_have_this_badge: "Encara no has guanyat la medalla"
@@ -1305,6 +1323,7 @@ ca:
       facebook_cancel_link_text: ~
       log_in_with_your_facebook_account: ~
       or_sign_up_with_your_username: ~
+      we_will_not_post_without_asking_you: ~
     password_forgotten:
       email: "Correu electrònic"
       password_recovery_instructions: "Escriu el teu correu electrònic per enviar-te el nom d'usuari i les instruccions per a realitzar el canvi de contrasenya."
@@ -1324,6 +1343,7 @@ ca:
       account_confirmation_instructions: ~
       account_confirmation_instructions_dashboard: ~
   settings:
+    settings_affect_all_tribes: ~
     account:
       change: Canviar
       confirm_new_password: "Confirmar nova contrasenya"
