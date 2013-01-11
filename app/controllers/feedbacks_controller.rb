@@ -1,7 +1,6 @@
 class FeedbacksController < ApplicationController
   
   skip_filter :check_email_confirmation
-  skip_filter :not_public_in_private_community, :only => [ :create ]
   skip_filter :dashboard_only
   
   layout "no_tribe"

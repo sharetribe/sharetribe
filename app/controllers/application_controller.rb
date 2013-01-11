@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :show_maintenance_page
 
-  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :not_public_in_private_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
+  before_filter :domain_redirect, :force_ssl, :check_auth_token, :fetch_logged_in_user, :dashboard_only, :single_community_only, :fetch_community, :fetch_community_membership,  :cannot_access_without_joining, :set_locale, :generate_event_id, :set_default_url_for_mailer
   before_filter :check_email_confirmation, :except => [ :confirmation_pending, :check_email_availability_and_validity]
 
 
@@ -114,17 +114,6 @@ class ApplicationController < ActionController::Base
         # No community found with this domain, so redirecting to dashboard.
         redirect_to root_url(:subdomain => "www")
       end
-    end
-  end
-  
-  # Before filter to make sure non logged in users cannot access private communities
-  def not_public_in_private_community
-    return if controller_name.eql?("passwords")
-    if @current_community && @current_community.private? && !@current_user
-      @container_class = "container_12"
-      @private_layout = true
-      set_locale 
-      redirect_to :controller => :homepage, :action => :sign_in
     end
   end
   

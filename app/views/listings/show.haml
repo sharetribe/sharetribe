@@ -55,7 +55,7 @@
           .text-part
             = t(".open_until", :date => l(@listing.valid_until, :format => :short))
     
-    - if @listing.public? && ! @current_community.private? 
+    - if @listing.public? 
       .social
         .fb-like-container
           = facebook_like(current_user?(@listing.author))

@@ -3,7 +3,6 @@ class HomepageController < ApplicationController
   before_filter :save_current_path, :except => :sign_in
 
   skip_filter :dashboard_only
-  skip_filter :not_public_in_private_community, :only => :sign_in
 
   def index
     session[:selected_tab] = "home"

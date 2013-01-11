@@ -21,7 +21,7 @@
         = t('.fb_join_accept_terms')
       - else
         = t('.you_can_join')
-  - unless @current_community.private? || @current_user.communities.size < 1
+  - unless @current_user.communities.size < 1
     %p
       = t(".if_want_to_view_content")
       = link_to(t(".log_out"), logout_path) + "."
