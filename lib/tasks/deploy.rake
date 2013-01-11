@@ -32,7 +32,7 @@ namespace :deploy do
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
-      puts `git push production master:master`
+      puts `git push production new-design-deploy-fonts:master --force`
     else
       puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
       puts `git checkout new-design-deploy-fonts`
