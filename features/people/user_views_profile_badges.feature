@@ -58,7 +58,7 @@ Feature: User views profile badges
     And I log in as "kassi_testperson1"
     When I click ".user-menu-toggle"
     And I follow "Profile"
-    Then I should see "2 badges"
+    Then I should see "1 badge"
     And I should see badge with alt text "First event"
     And I should see "2" within ".notifications-toggle"
     When I follow "notifications_link"
