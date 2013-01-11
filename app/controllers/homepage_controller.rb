@@ -23,7 +23,7 @@ class HomepageController < ApplicationController
     end
     
     unless @current_user
-      @listing_count = Listing.currently_open.count
+      @listing_count = @current_community.listings.currently_open.count
       @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
     end
     

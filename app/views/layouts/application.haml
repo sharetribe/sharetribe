@@ -24,7 +24,7 @@
               = t("common.default_community_slogan")
           %p
             - if @current_community.description && !@current_community.description.blank?
-              = truncate(@current_community.description, :length => 130, :omission => "...")
+              = truncate(@current_community.description, :length => 145, :omission => "...")
             - else
               = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
             = link_to t(".read_more"), about_infos_path

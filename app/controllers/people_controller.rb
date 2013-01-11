@@ -26,7 +26,7 @@ class PeopleController < Devise::RegistrationsController
   def index
     session[:selected_tab] = "members"
     params[:page] = 1 unless request.xhr?
-    @people = @current_community.members.order("family_name").paginate(:per_page => 15, :page => params[:page])
+    @people = @current_community.members.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
     request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
   end
   
