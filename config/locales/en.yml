@@ -563,6 +563,7 @@ en:
     event_feed:
       latest_events: "What's going on"
     index:
+      available_on_the_app_store: "Available on the app store"
       private_listing_notification: "There are %{listing_count} open listings in this community. %{private_listing_count} of them %{be_verb} visible only to the members of the community. If you want to see those listings, you need to %{log_in_link}."
       private_listing_notification_log_in: "log in"
       is: "is"
@@ -614,7 +615,7 @@ en:
       comment: comment
       comments: comments
     filters:
-      show: "Show:"
+      show: "Filter:"
       search: "Search"
       map: "Show map"
       list: "Show list"

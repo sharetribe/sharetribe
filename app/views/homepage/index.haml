@@ -30,6 +30,9 @@
         = render :partial => "filter_share_types"
         = render :partial => "filter_categories"
       %input{type: "hidden", name: "map", id: "hidden-map-toggle", value: params[:map]}
+      
+      .app-store-badge
+        = link_to image_tag("/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :title => t(".available_on_the_app_store")
 
 .feed-map-link
   - if params[:map].present?

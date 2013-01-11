@@ -6,7 +6,7 @@ class FeedbacksController < ApplicationController
   layout "no_tribe"
   
   def new
-    session[:no_tribe_title] = "feedback"
+    @no_tribe_title = "feedback"
     @feedback = Feedback.new  
   end
   

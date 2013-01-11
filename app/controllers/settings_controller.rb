@@ -13,33 +13,33 @@ class SettingsController < ApplicationController
   skip_filter :dashboard_only
   
   def show
-    session[:no_tribe_title] = "settings"
-    session[:selected_left_navi_link] = "profile"
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "profile"
     add_location_to_person
     render :action => :profile
   end
   
   def profile
-    session[:no_tribe_title] = "settings"
-    session[:selected_left_navi_link] = "profile"
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "profile"
     # This is needed if person doesn't yet have a location
     # Build a new one based on old street address or then empty one.
     add_location_to_person
   end
   
   def avatar
-    session[:no_tribe_title] = "settings"
-    session[:selected_left_navi_link] = "avatar"
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "avatar"
   end
   
   def account
-    session[:no_tribe_title] = "settings"
-    session[:selected_left_navi_link] = "account"
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "account"
   end
 
   def notifications
-    session[:no_tribe_title] = "settings"
-    session[:selected_left_navi_link] = "notifications"
+    @no_tribe_title = "settings"
+    @selected_left_navi_link = "notifications"
   end
   
   def unsubscribe

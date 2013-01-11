@@ -11,16 +11,16 @@
 
     .wrapper
       .no-tribe-title
-        = t(".#{session[:no_tribe_title]}")
+        = t(".#{@no_tribe_title}")
 
   %article.page-content
 
     .wrapper
       .no-tribe-section
         = render :partial => "layouts/notifications"
-        - if session[:no_tribe_title].eql?("inbox")
+        - if @no_tribe_title.eql?("inbox")
           = render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
-        - elsif session[:no_tribe_title].eql?("settings")
+        - elsif @no_tribe_title.eql?("settings")
           = render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }     
         
         = yield

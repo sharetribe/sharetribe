@@ -8,13 +8,13 @@ class Admin::CommunitiesController < ApplicationController
   
   def edit_details
     session[:selected_tab] = "admin"
-    session[:selected_left_navi_link] = "tribe_details"
+    @selected_left_navi_link = "tribe_details"
     @community = @current_community
   end
   
   def edit_look_and_feel
     session[:selected_tab] = "admin"
-    session[:selected_left_navi_link] = "tribe_look_and_feel"
+    @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
   end
   

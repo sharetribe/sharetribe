@@ -1539,6 +1539,17 @@ a.lightbox-x {
   ----------
 */
 
+.app-store-badge {
+  display: none;
+  @include media(tablet) {
+    display: block;
+    margin-top: lines(0.75);
+    img {
+      width: 75%;
+    }
+  }
+}
+
 .private-listing-notification {
   padding: 0 lines(0.75);
   @include media(tablet) {
