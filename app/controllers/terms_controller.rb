@@ -2,7 +2,6 @@ class TermsController < ApplicationController
   
   layout :choose_layout
   
-  skip_filter :not_public_in_private_community, :dashboard_only
   skip_filter :single_community_only, :only => :create
   
   def show

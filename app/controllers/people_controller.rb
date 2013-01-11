@@ -14,7 +14,6 @@ class PeopleController < Devise::RegistrationsController
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
-  skip_filter :not_public_in_private_community, :only => [ :new, :create, :check_username_availability, :check_email_availability_and_validity, :check_email_availability, :check_email_availability_for_new_tribe, :check_invitation_code]
   skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
   
   # Skip auth token check as current jQuery doesn't provide it automatically

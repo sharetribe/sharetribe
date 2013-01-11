@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :request_new_password ]
   skip_filter :cannot_access_without_joining, :only => [ :destroy, :confirmation_pending ]
-  skip_filter :not_public_in_private_community, :only => [ :create, :request_new_password ]
   
   # For security purposes, Devise just authenticates an user
   # from the params hash if we explicitly allow it to. That's
@@ -44,11 +43,7 @@ class SessionsController < ApplicationController
     # we need to tell Devise to call the action "sessions#new"
     # in case something goes bad.
     if current_community
-      if current_community.private?
-        person = authenticate_person!(:recall => "homepage#sign_in")
-      else
-        person = authenticate_person!(:recall => "sessions#new")
-      end
+      person = authenticate_person!(:recall => "sessions#new")
     else
       person = authenticate_person!(:recall => "dashboard#login")
     end
@@ -135,8 +130,6 @@ class SessionsController < ApplicationController
     
     if on_dashboard?
       redirect_to dashboard_login_path
-    elsif @current_community && @current_community.private?
-      redirect_to :controller => :homepage, :action => :sign_in
     else
       redirect_to login_path
     end
