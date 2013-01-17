@@ -1,7 +1,6 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
-  include UrlHelper
   
   skip_filter :check_email_confirmation
   skip_filter :dashboard_only

@@ -1,7 +1,7 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
-  include UrlHelper, ApplicationHelper
+  include ApplicationHelper
   protect_from_forgery
   layout 'application'
 
@@ -147,7 +147,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_url_for_mailer
-    url = community_url(request.host_with_port, @current_community)
+    url = @current_community ? "#{request.protocol}#{@current_community.full_domain}" : "#{request.protocol}www.#{APP_CONFIG.domain}"
     ActionMailer::Base.default_url_options = {:host => url}
   end
 
@@ -220,17 +220,6 @@ class ApplicationController < ActionController::Base
 
   def fetch_translations
     WebTranslateIt.fetch_translations
-  end
-
-  # returns the request_url_with_port in a way that the community subdomain is switched to be the
-  # first part of the request
-  # This method is used to ensure that using the community subdomain and not the login subdomain
-  def  community_url(request_url_with_port, community)
-    unless community.blank?
-      return request_url_with_port.sub(/[^\/\.]+\./, "#{community.domain}.")
-    else
-      return request_url_with_port
-    end
   end
   
   # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.

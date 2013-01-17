@@ -190,10 +190,12 @@ class Community < ActiveRecord::Base
   # Find community by domain, which can be full domain or just subdomain
   def find_by_domain(domain_string)
     if domain_string =~ /\./ # not just a subdomain
-      if domain_string.match(APP_CONFIG.domain)
-        
+      if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
+        Community.where(["domain = ?", domain_string.split(".").first])
+      else # custom domain
+        Community.where(["domain = ?", domain_string])        
       end
-    else
+    else # just a subdomain
       Community.where(["domain = ?", domain_string])
     end
   end
