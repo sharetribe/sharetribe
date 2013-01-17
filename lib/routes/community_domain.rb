@@ -1,6 +1,6 @@
 class CommunityDomain  
   def self.matches?(request)
-    request.domain != APP_CONFIG.domain || 
+    ! APP_CONFIG.domain.include?(request.domain) || 
       (request.subdomain != 'www' && 
        request.subdomain != ''    &&
        request.subdomain != 'dashboardtranslate')

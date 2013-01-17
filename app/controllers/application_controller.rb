@@ -112,7 +112,7 @@ class ApplicationController < ActionController::Base
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
         # No community found with this domain, so redirecting to dashboard.
-        redirect_to root_url(:subdomain => "www")
+        redirect_to "http://www.#{APP_CONFIG.domain}"
       end
     end
   end

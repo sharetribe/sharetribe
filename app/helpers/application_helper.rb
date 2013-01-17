@@ -164,7 +164,7 @@ module ApplicationHelper
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
-    ["", "www","dashboardtranslate"].include?(request.subdomain) && request.domain == APP_CONFIG.domain
+    ["", "www","dashboardtranslate"].include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
   end
   
   def facebook_like(recommend=false)
@@ -277,10 +277,6 @@ module ApplicationHelper
   
   def community_email_restricted?
     ["university", "company"].include? session[:community_category]
-  end
-  
-  def get_url_for(community)
-    "http://#{with_subdomain(community.domain)}/#{I18n.locale}"
   end
   
   # general method for making urls as links and line breaks as <br /> tags

@@ -20,7 +20,7 @@ class Community < ActiveRecord::Base
   
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
-  validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
+  validates_format_of :domain, :with => /^[A-Z0-9_\-\.]*$/i
   validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_length_of :description, :in => 2..500, :allow_nil => true
@@ -166,8 +166,13 @@ class Community < ActiveRecord::Base
   
   #returns full domain without protocol
   def full_domain
+    # assume that if  port is used in domain config, it should 
+    # be added to the end of the full domain for links to work
+    # This concerns usually mostly testing and development
+    port_string = APP_CONFIG.domain[/\:\d+$/]
+    
     if self.domain =~ /\./ # custom domain
-      self.domain
+      "#{self.domain}#{port_string}"
     else # just a subdomain specified
       "#{self.domain}.#{APP_CONFIG.domain}"
     end
@@ -214,33 +219,34 @@ class Community < ActiveRecord::Base
   
   def generate_customization_stylesheet
     if custom_color1 || cover_photo.present?
-      stylesheet_filename = "custom-style-#{domain}"
+      community_filename = domain.gsub(".", "_")
+      stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
 
       
       # Copy original SCSS and do customizations by search & replace
       
       FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
-      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{domain}.scss" )
+      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
-                      "@import 'customizations-#{domain}';",
+                      "@import 'customizations-#{community_filename}';",
                       true)
       if custom_color1.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link:\s*#\w{6};/,
                         "$link: ##{custom_color1};",
                         true)
       end
       color2 = custom_color2 || custom_color1
       if color2.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link2:\s*#\w{6};/,
                         "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)
