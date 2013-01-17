@@ -252,6 +252,13 @@ module ApplicationHelper
         :elative => "Kassista",
         :partitive => "Kassia"
         }
+      when "Omakotitori" then {
+        :illative => "Omakotitoriin",
+        :genetive => "Omakotitorin",
+        :inessive => "Omakotitorissa",
+        :elative => "Omakotitorista",
+        :partitive => "Omakotitoria"
+        }
       else nil
     end
   end

@@ -36,7 +36,7 @@
     .outer-checkbox-container
       .checkbox-container
         %input{:type => "checkbox", :id => "community_membership_consent", :name => "community_membership[consent]"}
-        = form.label :terms, t('people.new.i_accept_the'), :class => "checkbox"
+        = form.label :consent, t('people.new.i_accept_the'), :class => "checkbox"
         = link_to t("people.new.terms"), "#", :tabindex => "-1", :id => "terms_link", :class => "form"
     = form.hidden_field :community_id, :value => @current_community.id
     = form.hidden_field :person_id, :value => @current_user.id

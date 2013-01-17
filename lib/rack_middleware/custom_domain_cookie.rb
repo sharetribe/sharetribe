@@ -7,7 +7,7 @@
 class CustomDomainCookie
   def initialize(app, default_domain)
     @app = app
-    @default_domain = default_domain
+    @default_domain = default_domain.split(':').first
   end
 
   def call(env)
