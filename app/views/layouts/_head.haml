@@ -61,7 +61,7 @@
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-  %link{:rel => "image_src", :href => "http://#{@current_community.domain}.#{request.domain}/assets/dashboard/sharetribe_logo.png"}
+  %link{:rel => "image_src", :href => "http://#{@current_community.full_domain}/assets/dashboard/sharetribe_logo.png"}
   
   = auto_discovery_link_tag(:atom, atom_feed_url )
   
