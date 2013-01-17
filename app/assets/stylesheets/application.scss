@@ -3219,4 +3219,20 @@ a.lightbox-x {
     }
     
   }
+  
+}
+
+// Fix to make the paginated member list to be displayed correctly.
+// Pagination creates one extra element inside the member list,
+// so this needs to be taken into account.
+.paginated-member {
+  //width: lines(20);
+  @include media(tablet) {
+    &:nth-child(5n+5) {
+      margin-right: lines(1);
+    }
+    &:nth-child(5n+6) {
+      margin-right: 0;
+    }
+  }
 }
