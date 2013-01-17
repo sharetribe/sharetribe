@@ -563,6 +563,7 @@ fr:
     event_feed:
       latest_events: "Que se passe t-il"
     index:
+      available_on_the_app_store: "Disponible sur l'app store"
       private_listing_notification: "Il y a %{listing_count} annonces disponibles dans cette tribu. %{private_listing_count} d'entre elles ne %{be_verb} visible(s) qu'aux membres de la tribu. Si vous voulez les voir, vous devez vous %{log_in_link}."
       private_listing_notification_log_in: connecter
       is: est
@@ -614,7 +615,7 @@ fr:
       comment: commentaire
       comments: commentaires
     filters:
-      show: "Voir : "
+      show: "Filtrer : "
       search: Chercher
       map: "Voir sur la carte"
       list: "Voir la liste"
@@ -645,7 +646,7 @@ fr:
       send_feedback_to_admin: "Envoyer votre commentaire"
       to_see_what_others_have_suggested: "pour voir ce que les autres ont suggéré et votez pour vos fonctionnalités préférées."
       your_email_address: "Votre adresse email (non obligatoire)"
-      connect: "Se connecter"
+      connect: S'inscrire
       invite_your_friends: "Invitez des amis !"
       invite_your_friends_description: "Plus il y a de gens sur %{service_name}, plus cela est utile et efficace."
       join_without_facebook: "...ou bien %{join_without_facebook_link}"
@@ -1102,8 +1103,8 @@ fr:
     join_here: rejoindre.
   people:
     index:
-      loading_more_members: ~
-      meet_the_people: ~
+      loading_more_members: "Chargement des autres membres"
+      meet_the_people: "Découvrez les membres"
       you_are_the_only_member: "Vous êtes le seul membre de la tribu %{community_name}."
       here_are_the_members: "Voici les %{count} membres de la tribu %{community_name}."
       wanna_see_more_folks: "Vous voulez voir plus de monde ici ?"
@@ -1350,7 +1351,7 @@ fr:
       confirm_new_password: "Confirmez votre nouveau mot de passe"
       delete_account: "Supprimer le compte"
       email: "Adresse email : "
-      instructions_to_delete_account: "Si vous voulez supprimer votre compte, contactez nous en utilisant le bouton \"Feedback\" sur la gauche."
+      instructions_to_delete_account: "Si vous voulez supprimer votre compte, %{contact_admin_link}."
       contact_admin: "merci de contacter les administrateurs"
       new_email: "Nouvelle adresse email"
       new_password: "Votre nouveau mot de passe"

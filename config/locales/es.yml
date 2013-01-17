@@ -2,18 +2,18 @@ es:
   admin:
     communities:
       edit_details:
-        community_details: ~
+        community_details: "Detalles de la tribu"
         community_look_and_feel: ~
-        edit_community: ~
-        community_name: ~
-        community_slogan: ~
-        community_description: ~
-        update_information: ~
+        edit_community: "Editar detalles de la comunidad \"%{community_name}\""
+        community_name: "Nombre de la tribu:"
+        community_slogan: "Eslogan de la tribu:"
+        community_description: "Descripción:"
+        update_information: "Actualizar información"
       edit_look_and_feel:
         edit_community_look_and_feel: ~
-        community_logo: ~
+        community_logo: Logo
         community_cover_photo: ~
-        community_custom_color1: ~
+        community_custom_color1: "Color principal"
         logo_instructions_text: ~
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
@@ -568,6 +568,7 @@ es:
     event_feed:
       latest_events: "Qué está pasando"
     index:
+      available_on_the_app_store: ~
       private_listing_notification: ~
       private_listing_notification_log_in: ~
       is: ~

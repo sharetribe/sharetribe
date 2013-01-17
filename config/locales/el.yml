@@ -563,6 +563,7 @@ el:
     event_feed:
       latest_events: "Τι νέα;"
     index:
+      available_on_the_app_store: "Διατίθεται στο app store"
       private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλεις να τις δεις, πρέπει να %{log_in_link}."
       private_listing_notification_log_in: συνδεθείς
       is: είναι
