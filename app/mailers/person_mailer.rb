@@ -22,7 +22,6 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s)}" : "test_url"
     @message = message
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"),
          :reply_to => APP_CONFIG.sharetribe_mail_from_address) 
@@ -34,7 +33,6 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(comment.listing.author, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
     @comment = comment
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
   end
@@ -43,7 +41,6 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(recipient, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
     @comment = comment
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
   end
@@ -52,7 +49,6 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(recipient, host)
     @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => listing.id.to_s)}" : "test_url"
     @listing = listing
-    alert_if_erroneus_host(host, @url)
     mail(:to => @recipient.email,
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
   end
@@ -391,11 +387,21 @@ class PersonMailer < ActionMailer::Base
     
   end
   
+  def welcome_email(person, community)
+    @recipient = person
+    set_locale @recipient.locale
+    @current_community = community
+    @auth_token = @recipient.new_email_auth_token
+    mail(:to => @recipient.email,
+         :subject => t("emails.welcome_email.subject", :community => community.full_name, :person => person.given_name_or_username))
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)
     @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
     set_locale recipient.locale
+    @auth_token = recipient.new_email_auth_token
     recipient
   end
   

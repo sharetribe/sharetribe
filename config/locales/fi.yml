@@ -16,7 +16,7 @@ fi:
         community_custom_color1: Pääväri
         logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
-        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset hex-kooodin, sen valinnassa auttaa esim. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
     badges:
       index:
@@ -588,10 +588,11 @@ fi:
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
-      email: "Kaveri(e)si sähköpostiosoite"
-      message: "Viesti kaver(e)illesi"
+      invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
+      email: "Kutsuttavan sähköpostiosoite"
+      message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
-      add_as_many_emails_as_you_want: "Lisää kaveri(e)si sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, eroita osoitteet pilkulla."
+      add_as_many_emails_as_you_want: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: ~
@@ -648,6 +649,7 @@ fi:
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
       connect: Liity
       invite_your_friends: "Kutsu kaverisi!"
+      invite_your_neighbors: "Kutsu naapurisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
       join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
       join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
@@ -1136,23 +1138,23 @@ fi:
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
-      email: "Sähköpostiosoite:"
+      email: "Sähköpostiosoite"
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_restriction_instructions:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
-      enter_captcha: "Olen ihminen:"
-      family_name: "Sukunimi:"
-      given_name: "Etunimi:"
+      enter_captcha: "Olen ihminen"
+      family_name: "Sukunimi"
+      given_name: "Etunimi"
       i_accept_the: Hyväksyn
       if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä, voit %{join_link}."
       join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      password_again: "Salasana uudelleen:"
+      password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus %{service_name_illative}"
       terms: käyttöehdot

@@ -1080,7 +1080,7 @@ figure.tribe-cover {
 .tribe-intro {
   padding: lines(0.55) lines(0.75);
   background: $emphasis;
-  background-color: transparentize($emphasis, 0.35);
+  background-color: transparentize($emphasis, 0.25);
   position: absolute;
   left: lines(4.3); top: lines(-3.85); right: lines(0.5);
   margin-bottom: lines(1);
@@ -1994,7 +1994,7 @@ a.lightbox-x {
 
 .bubble-spacer {
   width: 100%;
-  height: 1px;
+  height: 2px;
   border-bottom: 1px dotted $border;
 }
 

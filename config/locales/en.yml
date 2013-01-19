@@ -364,7 +364,7 @@ en:
       turning_on_confirmations_in_this_community: "We are starting to use email confirmations in this %{service_name} community."
     common:
       check_your_settings: "Check your settings"
-      hey: "Hi %{name},"
+      hey: "Hello %{name},"
       kassi_team: "The %{service_name} Team"
       thanks: "Thanks,"
       want_to_control_emails: "Want to control which emails you receive from %{service_name}?"
@@ -456,6 +456,9 @@ en:
       feedback_is_public_and_is_shown: "Feedback is public and is shown to all the other users. Based on the feedback the other users can judge, whether %{name} is a trustworthy person and somebody they want to interact with. Thus, it's good to always remember to give feedback on events, and also remind the other party to give feedback to you. You also need positive feedback in order to achieve most of the badges."
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
+    welcome_email:
+      subject: "Welcome to %{community}, %{person}"
+      
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
@@ -588,10 +591,11 @@ en:
       welcome_to_new_kassi: "Welcome to new %{service_name}!"
     invitation_form:
       invite_your_friends: "Invite your friends to %{service_name}!"
-      email: "Your friend's email address"
+      invite_your_neighbors: "Invite your neighbors to %{service_name}!"
+      email: "Email address(es)"
       message: "A personal message"
       send_invitation: "Send invitation"
-      add_as_many_emails_as_you_want: "Add the email address(es) of your friend(s) to the field below. If you add multiple email addresses, separate them with comma."
+      add_as_many_emails_as_you_want: "Add the email addresses of the people you are inviting to the field below. If you add multiple email addresses, separate them with comma."
       invitation_emails_field_placeholder: "friend1@example.com, friend2@example.com, ..."
       invitation_message_field_placeholder: "I joined this amazing service. You should join me!"
       errors_in_emails: "Check that there are valid emails, separated by comma."
@@ -648,6 +652,7 @@ en:
       your_email_address: "Your email address (not required)"
       connect: "Sign up"
       invite_your_friends: "Invite friends!"
+      invite_your_neighbors: "Invite neighbors!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
       join_without_facebook: "...or alternatively %{join_without_facebook_link}"
       join_without_facebook_link: "sign up without using Facebook"
