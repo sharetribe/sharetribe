@@ -394,13 +394,13 @@ en:
       you_can_view_all_your_badges_in: "You can view all your badges in"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
-      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}"
-      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}"
+      has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}."
+      has_commented_your_request_in_kassi: "%{author} has commented on your request %{listing}."
       you_can_reply_to_comment_in: "You can view all the comments and reply to them at"
       you_have_a_new_comment: "%{author} has commented on your listing in %{service_name}"
       listing_you_follow_has_a_new_comment: "%{author} has commented on a listing you follow in %{service_name}"
       has_commented_offer_you_follow_in_kassi: "%{author} has commented on the request '%{listing}' you are following in %{service_name}"
-      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}"
+      has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}."
     new_message:
       conversation_title: "Message thread title: %{title}"
       do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
@@ -458,7 +458,23 @@ en:
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     welcome_email:
       subject: "Welcome to %{community}, %{person}"
-      
+      welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
+      p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community you belong to, for free? %{click_here_link} to find out more!"
+      click_here_link_text: "Click here"
+      update_your_profile: "<strong>1) Update your profile.</strong> Adding your real name and profile picture and telling something about yourself will make you appear more trustworthy. Adding your contact details will make things easier for you, since you don't have to add them separately each time you create a new listing. %{update_profile_link}."
+      update_your_profile_link_text: "Update your profile here"
+      add_something_you_could_offer: "<strong>2) Add something you could offer to others to %{service_name}.</strong> Could you lend your power drill, tennis racket or fondue pot? Do you like to sew, assemble furniture or fiddle with computers? Is there some things in your closet you want to get rid off? %{add_offer_link}"
+      add_offer_link_text: "Add them as offers to %{service_name}!"
+      is_there_something_you_need: "<strong>3) Is there something you need right now? </strong> Perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? The first thing to do is to search %{service_name}: maybe someone is already offering what you need. If you don't find what you're looking for, you can %{add_request_link}."
+      add_request_link_text: "post a new request"
+      invite_your_friends: "<strong>4) Invite your friends. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone.  Do you know people who might be interested in joining? Tell them about Sharetribe by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
+      invite_link_text: "using our easy invite form"
+      member_list_link_text: "check out the member list"
+      get_mobile_app: "<strong>5) Get our mobile app. </strong> Did you know that you can use %{service_name} on the go? Now it's easier than ever to add listings by simply taking photos of things you own, and seeing what others are doing near you. If you have an iPhone, you can %{app_store_link}. If you are on Android or Windows Phone, %{mobile_web_link}."
+      app_store_link_text: "download the app from the App Store"
+      mobile_web_link_text: "try our responsive mobile web app"
+      go_explore: "<strong>6) Go explore! </strong> See what others are already offering and requesting in %{service_name}. Maybe you'll find something you need. Maybe you could help someone else out. Have fun!"
+      love_team: "Love,<br /><i>The %{service_name} Crew</i>"
   error_messages:
     listings:
       departure_time: "Departure time must be between current time and one year from now."
