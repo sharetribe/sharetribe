@@ -34,10 +34,9 @@ namespace :sharetribe do
                  :description =>  row[7],
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "person"),
                  :confirmed_at=>  Time.now,
-                 :communities =>  [@community],
-                 :image => (image_path && File.exists?(image_path) ? File.new(image_path) : nil)
-                 
+                 :communities =>  [@community]                 
           )
+          p.update_attribute(:image, File.new(image_path)) if image_path && File.exists?(image_path)
           people_array << p
         end
       end
