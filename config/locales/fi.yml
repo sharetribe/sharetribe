@@ -458,7 +458,7 @@ fi:
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
     welcome_email:
       title_link_text: "%{community_name}-%{service_name_illative}"
-      subject: "Tervetuloa %{community}, %{person}"
+      subject: "Tervetuloa %{community} - tässä muutama vinkki alkuun pääsemiseksi"
       welcome_some_tips: "Tervetuloa %{community_link}! Tässä muutama vinkki, joilla pääset alkuun."
       p_s_did_you_know: "P.S. Tiesitkö, että voit perustaa tällaisen verkkotorin ilmaiseksi mille tahansa paikalliselle yhteisölle johon kuulut? %{click_here_link} jos haluat tietää lisää!"
       click_here_link_text: "Klikkaa tästä"

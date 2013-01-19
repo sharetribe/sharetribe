@@ -457,7 +457,8 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     welcome_email:
-      subject: "Welcome to %{community}, %{person}"
+      subject: "Welcome to %{community} - here are some tips to get you started"
+      title_link_text: "%{community_name} %{service_name}"
       welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
       p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community you belong to, for free? %{click_here_link} to find out more!"
       click_here_link_text: "Click here"
