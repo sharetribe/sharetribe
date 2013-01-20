@@ -147,8 +147,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_url_for_mailer
-    url = @current_community ? "#{request.protocol}#{@current_community.full_domain}" : "#{request.protocol}www.#{APP_CONFIG.domain}"
+    url = @current_community ? "#{@current_community.full_domain}" : "www.#{APP_CONFIG.domain}"
     ActionMailer::Base.default_url_options = {:host => url}
+    if APP_CONFIG.always_use_ssl
+      ActionMailer::Base.default_url_options[:protocol] = "https"
+    end
   end
 
   def person_belongs_to_current_community
