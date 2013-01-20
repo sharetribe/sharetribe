@@ -39,7 +39,7 @@ class PersonMailer < ActionMailer::Base
   
   def new_comment_to_followed_listing_notification(comment, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
+    #@url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
     @comment = comment
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
@@ -382,6 +382,19 @@ class PersonMailer < ActionMailer::Base
     
   end
   
+  def welcome_email(person, community)
+    @recipient = person
+    set_locale @recipient.locale
+    @current_community = community
+    default_url_options[:host] = "#{@current_community.full_domain}"
+    default_url_options[:locale] = @recipient.locale
+    @auth_token = @recipient.new_email_auth_token
+    @title_link_text = t("emails.welcome_email.title_link_text", :community_name => @current_community.name_with_separator(@recipient.locale))
+    mail(:to => @recipient.email, :subject => t("emails.welcome_email.subject", :community => @title_link_text, :person => person.given_name_or_username)) do |format|
+      format.html { render :layout => false }
+    end
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)
@@ -389,7 +402,7 @@ class PersonMailer < ActionMailer::Base
     set_locale recipient.locale
     recipient
   end
-    
+  
   # selects a set of listings to include in the community updates email
   def select_listings_to_show(requests, offers, recipient)
     selected = []

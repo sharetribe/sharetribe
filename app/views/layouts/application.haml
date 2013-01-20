@@ -32,7 +32,8 @@
         - if @current_community.allows_user_to_send_invitations?(@current_user)
           .join-action-buttons
             - if @current_user
-              = link_to t(".invite_your_friends"), new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
+              - link_label = @current_community.category.eql?("neighborhood") ? t(".invite_your_neighbors") : t(".invite_your_friends")
+              = link_to link_label, new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
               %small
                 = t(".invite_your_friends_description")
       - else

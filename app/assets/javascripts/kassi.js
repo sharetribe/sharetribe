@@ -513,29 +513,22 @@ function initialize_update_avatar_form(fileDefaultText, fileBtnText, locale) {
 function initialize_update_account_info_form(locale, change_text, cancel_text, email_in_use_message) {
 	$('#account_email_link').toggle(
 		function() {
-			$('#account_email_content').hide();
 			$('#account_email_form').show();
 			$(this).text(cancel_text);
-			$('#person_email').watermark(email_default, {className: 'default_text'});
 			$('#person_email').focus();
 		},
 		function() {
-			$('#account_email_content').show();
 			$('#account_email_form').hide();
 			$(this).text(change_text);
 		}
 	);
 	$('#account_password_link').toggle(
 		function() {
-			$('#account_password_content').hide();
 			$('#account_password_form').show();
 			$(this).text(cancel_text);
-			$('#person_password').watermark(pw1_default, {className: 'default_text'});
-			$('#person_password2').watermark(pw2_default, {className: 'default_text'});
 			$('#person_password').focus();
 		},
 		function() {
-			$('#account_password_content').show();
 			$('#account_password_form').hide();
 			$(this).text(change_text);
 		}

@@ -16,7 +16,7 @@ fi:
         community_custom_color1: Pääväri
         logo_instructions_text: "Logotiedosto leikataan neliöksi ja muutetaan tarvittaessa kokoon 192x192 pikseliä."
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
-        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset hex-kooodin, sen valinnassa auttaa esim. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
+        custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
     badges:
       index:
@@ -456,6 +456,26 @@ fi:
       feedback_is_public_and_is_shown: "Palaute on julkista ja näkyy kaikille muille käyttäjille. Sen perusteella muut käyttäjät voivat arvioida, onko %{name} luotettava henkilö, ja kannattaako hänen kanssaan olla tekemisissä. Kannattaa siis aina muistaa antaa palautetta tapahtumista, ja muistuttaa myös toista osapuolta antamaan palautetta sinulle, jotta molempien pyynnöt ja tarjoukset sujuvat varmemmin myös jatkossa. Myös useimpien ansiomerkkien saamiseen vaaditaan hyväksytyn tapahtuman lisäksi positiivista palautetta toiselta osapuolelta."
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
+    welcome_email:
+      title_link_text: "%{community_name}-%{service_name_illative}"
+      subject: "Tervetuloa %{community} - tässä muutama vinkki alkuun pääsemiseksi"
+      welcome_some_tips: "Tervetuloa %{community_link}! Tässä muutama vinkki, joilla pääset alkuun."
+      p_s_did_you_know: "P.S. Tiesitkö, että voit perustaa tällaisen verkkotorin ilmaiseksi mille tahansa paikalliselle yhteisölle johon kuulut? %{click_here_link} jos haluat tietää lisää!"
+      click_here_link_text: "Klikkaa tästä"
+      update_your_profile: "<strong>1) Päivitä käyttäjäprofiilisi.</strong> Jos lisäät oikean nimesi ja kuvasi ja kerrot jotain itsestäsi, vaikutat luotettavammalta muiden käyttäjien silmissä. Jos lisäät profiiliisi myös yhteystietosi, sinun ei tarvitse lisätä niitä erikseen jokaiseen ilmoitukseen. %{update_profile_link}."
+      update_your_profile_link_text: "Päivitä käyttäjäprofiilisi tästä"
+      add_something_you_could_offer: "<strong>2) Voisitko tarjota mulle jotain?</strong> Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? %{add_offer_link}"
+      add_offer_link_text: "Lisää kaikista näistä ilmoitus %{service_name_illative}!"
+      is_there_something_you_need: "<strong>3) Tarvitsetko jotain? </strong> Ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Kokeile ensin hakea %{service_name_elative}: ehkä joku tarjoaa jo juuri sitä mitä tarvitse. Jos et löydä mitä etsit, voit %{add_request_link}."
+      add_request_link_text: "´lisätä uuden pyynnön"
+      invite_your_friends: "<strong>4) Kutsu kaverisi. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
+      invite_link_text: "käyttämällä helppoa kutsulomakettamme"
+      member_list_link_text: "tutustu käyttäjälistaan"
+      get_mobile_app: "<strong>5) Lataa mobiilisovelluksemme. </strong> Tiesitkö, että voit käyttää %{service_name_partitive} myös mobiilisti? Ilmoitusten lisääminen hoituu parilla klikkauksella kännykkäkameran avulla, ja näet aina, mitä ympärilläsi tapahtuu. Jos sinulla on iPhone, voit %{app_store_link}. Jos sinulla on Android- tai Windows Phone -puhelin, %{mobile_web_link}."
+      app_store_link_text: "ladata sovelluksen App Storesta"
+      mobile_web_link_text: "kokeile HTML5-sovellustamme"
+      go_explore: "<strong>6) Selaile ja tutustu! </strong> Katso mitä muut tarjoavat tai pyytävät tällä hetkellä %{service_name_inessive}. Ehkä löydät jotain mitä tarvitset. Ehkä voit tarjota apua jollekulle toiselle. Pidä hauskaa!"
+      love_team: "Rakkaudella,<br /><i>%{service_name}-tiimi</i>"
   error_messages:
     listings:
       departure_time: "Lähtöaika ei voi olla aikaisempi kuin nykyhetki eikä yli vuoden päässä nykyhetkestä."
@@ -588,10 +608,11 @@ fi:
       welcome_to_new_kassi: "%{service_name} on uudistunut!"
     invitation_form:
       invite_your_friends: "Kutsu kaverisi %{service_name_illative}!"
-      email: "Kaveri(e)si sähköpostiosoite"
-      message: "Viesti kaver(e)illesi"
+      invite_your_neighbors: "Kutsu naapurisi %{service_name_illative}!"
+      email: "Kutsuttavan sähköpostiosoite"
+      message: "Viesti kutsuttavalle"
       send_invitation: "Lähetä kutsu"
-      add_as_many_emails_as_you_want: "Lisää kaveri(e)si sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, eroita osoitteet pilkulla."
+      add_as_many_emails_as_you_want: "Lisää kutsuttavien sähköpostiosoitteet alla olevaan kenttään. Jos lisäät enemmän kuin yhden osoitteen, erota osoitteet pilkulla."
       invitation_emails_field_placeholder: "kaveri1@esimerkki.fi, kaveri2@esimerkki.fi, ..."
       invitation_message_field_placeholder: "Tämä palvelu on mahtava, kannattaa ehdottomasti liittyä!"
       errors_in_emails: ~
@@ -648,6 +669,7 @@ fi:
       your_email_address: "Sähköpostiosoitteesi (vapaaehtoinen)"
       connect: Liity
       invite_your_friends: "Kutsu kaverisi!"
+      invite_your_neighbors: "Kutsu naapurisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
       join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
       join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
@@ -1136,23 +1158,23 @@ fi:
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
-      email: "Sähköpostiosoite:"
+      email: "Sähköpostiosoite"
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_restriction_instructions:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
-      enter_captcha: "Olen ihminen:"
-      family_name: "Sukunimi:"
-      given_name: "Etunimi:"
+      enter_captcha: "Olen ihminen"
+      family_name: "Sukunimi"
+      given_name: "Etunimi"
       i_accept_the: Hyväksyn
       if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä, voit %{join_link}."
       join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"
       invalid_invitation_code: "Kutsukoodi ei kelpaa."
       invitation_code: "Kutsukoodi:"
       not_required: ", ei pakollinen"
-      password_again: "Salasana uudelleen:"
+      password_again: "Salasana uudelleen"
       show_my_name_to_others: "Näytä oikea nimeni muille käyttäjille"
       sign_up: "Luo uusi tunnus %{service_name_illative}"
       terms: käyttöehdot

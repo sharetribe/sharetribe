@@ -7,7 +7,7 @@ class SettingsController < ApplicationController
   end
   
   before_filter do |controller|
-    controller.ensure_authorized "you_are_not_authorized_to_view_this_content"
+    controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
   skip_filter :dashboard_only
