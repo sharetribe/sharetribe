@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
-  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load
+  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
