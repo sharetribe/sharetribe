@@ -23,14 +23,14 @@
     %meta{ :property => "og:title", :content => "#{@listing.title} - #{service_name} - #{@current_community.name}"} 
     %meta{ :property => "og:type", :content =>"website"}
     %meta{ :property => "og:url", :content =>"#{request.protocol}#{request.host_with_port}#{request.fullpath}"}   
-    %meta{ :property => "og:image", :content =>"http://#{@current_community.full_domain}/#{fb_image}"}
+    %meta{ :property => "og:image", :content =>"#{@current_community.full_url}/#{fb_image}"}
     %meta{ :property => "og:site_name", :content =>"#{service_name}: "}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
     %meta{ :property => "og:description", :content => @listing.description}
   - else
     %meta{ :property => "og:title", :content => render(:file => community_file("fb_graph_title", false))} 
     %meta{ :property => "og:type", :content =>"website"}
-    %meta{ :property => "og:url", :content =>"#{request.protocol}#{@current_community.full_domain}"} 
+    %meta{ :property => "og:url", :content =>"#{@current_community.full_url}"} 
     %meta{ :property => "og:image", :content => "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"}
     %meta{ :property => "og:site_name", :content =>"#{service_name}"}
     %meta{ :property => "fb:admins", :content =>"Gnomet,juhomakkonen"}
@@ -61,7 +61,7 @@
   :javascript
     $(document).ready(function() { initialize_defaults("#{I18n.locale}"); #{yield :javascript} });
 
-  %link{:rel => "image_src", :href => "http://#{@current_community.full_domain}/assets/dashboard/sharetribe_logo.png"}
+  %link{:rel => "image_src", :href => "#{@current_community.full_url}/assets/dashboard/sharetribe_logo.png"}
   
   = auto_discovery_link_tag(:atom, atom_feed_url )
   

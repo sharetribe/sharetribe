@@ -83,7 +83,7 @@ module PeopleHelper
   # but there's already a community with the
   # email provided.
   def restricted_tribe_already_exists_error_message(existing_community)
-    t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), "http://#{existing_community.full_domain}")).html_safe 
+    t("communities.signup_form.existing_community_with_this_email", :community_category => t("communities.signup_form.for_#{existing_community.category}"), :link => self.class.helpers.link_to(t("communities.signup_form.here"), existing_community.full_url)).html_safe 
   end
   
 end

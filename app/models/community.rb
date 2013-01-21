@@ -163,19 +163,31 @@ class Community < ActiveRecord::Base
   def new_members_during_last(time)
     community_memberships.where(:created_at => time.ago..Time.now).collect(&:person)
   end
+
+  # Returns the full domain with default protocol in front
+  def full_url
+    full_domain(:with_protocol => true)
+  end
   
   #returns full domain without protocol
-  def full_domain
+  def full_domain(options= {})
     # assume that if  port is used in domain config, it should 
     # be added to the end of the full domain for links to work
     # This concerns usually mostly testing and development
     port_string = APP_CONFIG.domain[/\:\d+$/]
     
     if self.domain =~ /\./ # custom domain
-      "#{self.domain}#{port_string}"
+      dom = "#{self.domain}#{port_string}"
     else # just a subdomain specified
-      "#{self.domain}.#{APP_CONFIG.domain}"
+      dom = "#{self.domain}.#{APP_CONFIG.domain}"
     end
+    
+    if options[:with_protocol]
+      dom = "#{(APP_CONFIG.always_use_ssl ? "https://" : "http://")}#{dom}"
+    end
+    
+    return dom
+    
   end
 
   def has_new_listings_since?(time)

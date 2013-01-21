@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
   def create
  
     if current_community = Community.find_by_domain(params[:community])
-      domain = "#{request.protocol}#{current_community.full_domain}"
+      domain = current_community.full_url
     else
       domain = "#{request.protocol}#{request.host_with_port}"
     end
