@@ -275,9 +275,9 @@ class ApplicationController < ActionController::Base
   end
   
   def force_ssl
+    # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      puts "REQ_HEAD: #{request.headers.inspect}"
-      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless true #request.ssl?
+      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl? || request.headers["HTTP_VIA"].include?("sharetribe_proxy")
     end
   end
   
