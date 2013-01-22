@@ -30,7 +30,8 @@
 
     var _gaq = _gaq || [];
     = "_gaq.push(['_setAccount', '#{APP_CONFIG.google_analytics_key}']);"
-    = "_gaq.push(['_setDomainName', '#{APP_CONFIG.google_analytics_domain}']);"
+    = "_gaq.push(['_setDomainName', '.#{request.domain}']);"
+    _gaq.push(['_setAllowLinker', true]);
     _gaq.push(['_trackPageview']);
     _gaq.push(['_trackPageLoadTime']);
 
