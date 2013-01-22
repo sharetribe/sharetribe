@@ -43,7 +43,7 @@ Feature: User gives feedback from transaction
     When I follow "inbox-link"
     And I follow "Give feedback"
     And I press "send_testimonial_button"
-    #Then I should see "Remember to grade the user by clicking one of the icons above"
+    Then I should see "Remember to tell whether your experience was positive or negative."
     And I should see "This field is required"
     
   @javascript

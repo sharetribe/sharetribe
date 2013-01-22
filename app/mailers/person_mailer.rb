@@ -389,7 +389,12 @@ class PersonMailer < ActionMailer::Base
     default_url_options[:host] = "#{@current_community.full_domain}"
     default_url_options[:auth] = @recipient.new_email_auth_token
     default_url_options[:locale] = @recipient.locale
-    mail(:to => @recipient.email, :subject => t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)) do |format|
+    if @recipient.has_admin_rights_in?(@current_community)
+      subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
+    else
+      subject = t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)
+    end
+    mail(:to => @recipient.email, :subject => subject) do |format|
       format.html { render :layout => false }
     end
   end

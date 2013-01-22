@@ -364,6 +364,12 @@ module ApplicationHelper
         :icon_class => "ss-paintroller", 
         :path => edit_look_and_feel_admin_community_path(community),
         :name => "tribe_look_and_feel"
+      },
+      {
+        :text => t("admin.communities.edit_details.invite_people"),
+        :icon_class => "ss-adduser", 
+        :path => new_person_invitation_path(:person_id => @current_user.id),
+        :name => "invite_people"
       } 
     ]
   end
