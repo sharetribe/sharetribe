@@ -338,7 +338,7 @@ en:
       pricing: Pricing
       contact: Contact
       university_example_link: "<a href=\"http://aalto.sharetribe.com/en\">Sharetribe of Aalto University</a>"
-      company_example_link: "<a href=\"http://htckeilaniemi.sharetribe.com/en\">Sharetribe of HTC Keilaniemi</a>"
+      company_example_link: "<a href=\"https://if.sharetribe.com/en\">Sharetribe of IF</a>"
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
@@ -468,12 +468,12 @@ en:
       add_offer_link_text: "Add them as offers to %{service_name}!"
       is_there_something_you_need: "<strong>3) Is there something you need right now? </strong> Perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? The first thing to do is to search %{service_name}: maybe someone is already offering what you need. If you don't find what you're looking for, you can %{add_request_link}."
       add_request_link_text: "post a new request"
-      invite_your_friends: "<strong>4) Invite your friends. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone.  Do you know people who might be interested in joining? Tell them about Sharetribe by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
+      invite_your_friends: "<strong>4) Invite your friends. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone. Do you know people who might be interested in joining? Tell them about %{service_name} by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
       invite_link_text: "using our easy invite form"
       member_list_link_text: "check out the member list"
       get_mobile_app: "<strong>5) Get our mobile app. </strong> Did you know that you can use %{service_name} on the go? Now it's easier than ever to add listings by simply taking photos of things you own, and seeing what others are doing near you. If you have an iPhone, you can %{app_store_link}. If you are on Android or Windows Phone, %{mobile_web_link}."
       app_store_link_text: "download the app from the App Store"
-      mobile_web_link_text: "try our responsive mobile web app"
+      mobile_web_link_text: "try our mobile web app"
       go_explore: "<strong>6) Go explore! </strong> See what others are already offering and requesting in %{service_name}. Maybe you'll find something you need. Maybe you could help someone else out. Have fun!"
       love_team: "Love,<br /><i>The %{service_name} Crew</i>"
   error_messages:
