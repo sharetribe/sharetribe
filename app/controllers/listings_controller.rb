@@ -56,8 +56,8 @@ class ListingsController < ApplicationController
     params[:include] = :origin_loc
     params.delete("controller")
     params.delete("action")
-    # Limit the amount of listings to get to 150 newest to avoid slowing down the map too much.
-    @listings = Listing.find_with(params, @current_user, @current_community, 150)
+    # Limit the amount of listings to get to 500 newest to avoid slowing down the map too much.
+    @listings = Listing.find_with(params, @current_user, @current_community, 500)
     render :json => { :data => @listings }
   end
   

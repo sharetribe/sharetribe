@@ -35,11 +35,11 @@
       
       
     %nav.tribe-menu.toggle-menu.hidden
+      %a{href: "#{@current_community.full_url}"}= @current_community.full_name
       - if @current_user && @current_user.communities.present?
         - @current_user.communities.each do |community|
-          %a{href: "#{default_protocol}#{community.full_domain}"}= community.full_name
-      - else
-        %a{href: "#{default_protocol}#{@current_community.full_domain}"}= @current_community.name
+          - unless community == @current_community
+            %a{href: "#{community.full_url}"}= community.full_name
       %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh")}
         = t("header.create_new_marketplace")
     

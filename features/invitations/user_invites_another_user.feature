@@ -17,7 +17,7 @@ Feature: User joins invite only community
     And I should see "Post a new listing"
     When users can invite new users to join community "test"
     And I am on invitation page of "kassi_testperson2"
-    Then I should see "Your friend's email address"
+    Then I should see "Email address(es)"
     And I fill in "invitation_email" with "test@example.com"
     And I fill in "invitation_message" with "test"
     And I press "Send invitation"

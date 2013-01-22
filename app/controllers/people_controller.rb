@@ -1,6 +1,6 @@
 class PeopleController < Devise::RegistrationsController
   
-  include UrlHelper, PeopleHelper
+  include PeopleHelper
   
   skip_before_filter :verify_authenticity_token, :only => [:creates]
   
@@ -44,7 +44,7 @@ class PeopleController < Devise::RegistrationsController
   end
 
   def create
-    @current_community ? domain = "http://#{with_subdomain(params[:community])}" : domain = "#{request.protocol}#{request.host_with_port}"
+    @current_community ? domain = @current_community.full_url : domain = "#{request.protocol}#{request.host_with_port}"
     error_redirect_path = domain + sign_up_path
     
     if params[:person][:email_confirmation].present? # Honey pot for spammerbots
@@ -135,7 +135,7 @@ class PeopleController < Devise::RegistrationsController
     # If invite was used, reduce usages left
     invitation.use_once! if invitation.present?
     
-    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id, request.host)) if @current_community
+    Delayed::Job.enqueue(CommunityJoinedJob.new(@person.id, @current_community.id)) if @current_community
     
     if !@current_community
       session[:consent] = APP_CONFIG.consent

@@ -1,7 +1,6 @@
 require 'rest_client'
 
 class SessionsController < ApplicationController
-  include UrlHelper
   
   skip_filter :check_email_confirmation
   skip_filter :dashboard_only
@@ -25,7 +24,7 @@ class SessionsController < ApplicationController
   def create
  
     if current_community = Community.find_by_domain(params[:community])
-      domain = "#{request.protocol}#{with_subdomain(current_community.domain)}"
+      domain = current_community.full_url
     else
       domain = "#{request.protocol}#{request.host_with_port}"
     end

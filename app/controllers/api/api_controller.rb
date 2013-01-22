@@ -102,7 +102,7 @@ class Api::ApiController < ApplicationController
         render :json => ["No community found with given id"] and return
       else
         # Set also @root__url that can be used in building links that point to the right community instead of api subdomain
-        @url_root = "#{request.protocol}#{@current_community.full_domain}"
+        @url_root = @current_community.full_url
       end
     end
   end

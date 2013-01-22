@@ -359,7 +359,7 @@ fi:
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
-      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla linkkiä:"
+      need_to_confirm: "Sinun täytyy vahvistaa sähköpostiosoitteesi klikkaamalla alla olevaa linkkiä:"
       confirmation_link_text: "Varmista tunnukseni"
       turning_on_confirmations_in_this_community: "Otamme käyttöön sähköpostivarmistukset tässä %{service_name}-yhteisössä."
     common:
@@ -467,7 +467,7 @@ fi:
       add_something_you_could_offer: "<strong>2) Voisitko tarjota mulle jotain?</strong> Voisitko lainata sähköporaasi, tennismailaasi tai fonduepataasi? Pidätkö ompelusta, huonekalujen kokoamisesta tai tietokonehommista? Onko nurkissasi turhia tavaroita, joista haluaisit eroon? %{add_offer_link}"
       add_offer_link_text: "Lisää kaikista näistä ilmoitus %{service_name_illative}!"
       is_there_something_you_need: "<strong>3) Tarvitsetko jotain? </strong> Ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Kokeile ensin hakea %{service_name_elative}: ehkä joku tarjoaa jo juuri sitä mitä tarvitse. Jos et löydä mitä etsit, voit %{add_request_link}."
-      add_request_link_text: "´lisätä uuden pyynnön"
+      add_request_link_text: "lisätä uuden pyynnön"
       invite_your_friends: "<strong>4) Kutsu kaverisi. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
       invite_link_text: "käyttämällä helppoa kutsulomakettamme"
       member_list_link_text: "tutustu käyttäjälistaan"

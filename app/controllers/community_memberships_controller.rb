@@ -66,7 +66,7 @@ class CommunityMembershipsController < ApplicationController
       # If invite was used, reduce usages left
       invitation.use_once! if invitation.present?
       
-      Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id, request.host))
+      Delayed::Job.enqueue(CommunityJoinedJob.new(@current_user.id, @current_community.id))
       flash[:notice] = t("layouts.notifications.you_are_now_member")
       redirect_to root 
     else

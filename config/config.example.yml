@@ -210,9 +210,9 @@ test:
   # The tests currently work only with ASI encryptor
   use_asi_encryptor: true
   
-  # The domain should be set to lvh.me (which redirects to localhost)
+  # The domain should be set to lvh.me:9887 (which redirects to localhost)
   # to be able to run the tests with subdomains.
-  domain: lvh.me
+  domain: lvh.me:9887
   # NOTE: If you are running tests without internet connection, you might need to modify your hosts file.
   # And add lines: (where there is one tab separating the ip and the domain)
   #127.0.0.1       lvh.me

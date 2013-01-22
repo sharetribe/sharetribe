@@ -33,7 +33,7 @@ Kassi::Application.configure do
   config.active_support.deprecation = :stderr  
   
   # As instructed by Devise, to make local mails work
-  config.action_mailer.default_url_options = { :host => 'test.lvh.me:3000' }
+  config.action_mailer.default_url_options = { :host => 'test.lvh.me:9887' }
   
   # Use chrome for testing javascript
   if ENV["USE_CHROME"]

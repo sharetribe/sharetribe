@@ -15,9 +15,12 @@ class Community < ActiveRecord::Base
   
   VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
   
+  # Here is a list of subdomain names that we don't want people to reserve for their communities. This should be moved to config.
+  RESERVED_SUBDOMAINS = %w{ www wiki mail calendar doc docs admin dashboard translate alpha beta gamma test developer proxy community tribe git partner partners global sharetribe application share dev st aalto ospn kassi video photos fi fr cl gr us usa subdomain abbesses alesia alexandredumas almamarceau anatolefrance antony anvers argentine artsetmetiers asnieresgennevilliers assembleenationale aubervillierspantin avenueemilezola avron balard barbesrochechouart basiliquedesaintdenis bastille belair belleville berault bercy bibliothequefrancoismitterrand billancourt birhakeim blanche bobignypablopicasso bobignypantin boissiere bolivar bonnenouvelle botzaris boucicaut boulognejeanjaures boulognepontdesaintcloud bourse breguetsabin brochant butteschaumont buzenval cadet cambronne campoformio cardinallemoine carrefourpleyel censierdaubenton champselyseesclemenceau chardonlagache charentonecoles charlesdegaulleetoile charlesmichels charonne chateaudeau chateaudevincennes chateaulandon chateaurouge chatelet chatillonmontrouge chausseedantin cheminvert chevaleret cite clunylasorbonne colonelfabien commerce concorde convention corentincariou corentincelton corvisart courcelles couronnes coursaintemilion creteillechat creteilprefecture creteiluniversite crimee croixdechavaux danube daumesnil denfertrochereau dugommier dupleix duroc ecolemilitaire ecoleveterinaire edgarquinet eglisedauteuil eglisedepantin esplanadedeladefense etiennemarcel europe exelmans faidherbechaligny falguiere felixfaure fillesducalvaire fortdaubervilliers franklinroosevelt funiculairegarebasse funiculairegarehaute gabrielperi gaite gallieni gambetta garedausterlitz garedelest garedelyon garedunord garibaldi georgev glaciere goncourt grandsboulevards guymoquet havrecaumartin hoche hoteldeville iena invalides jacquesbonsergent jasmin jaures javelandrecitroen jourdain julesjoffrin jussieu kleber lachapelle lacourneuve8mai1945 ladefense lafourche lamarckcaulaincourt lamottepicquetgrenelle lamuette latourmaubourg laumiere ledrurollin lekremlinbicetre lepeletier lesagnettes lesgobelins leshalles lessablons liberte liege louisblanc louisemichel lourmel louvrerivoli mabillon madeleine mairiedeclichy mairiedemontreuil mairiedesaintouen mairiedeslilas mairiedissy mairiedivry maisonblanche maisonsalfortlesjuilliottes maisonsalfortstade malakoffplateaudevanves malakoffrueetiennedolet malesherbes maraichers marcadetpoissonniers marcelsembat marxdormoy maubertmutualite menilmontant michelangeauteuil michelangemolitor michelbizot mirabeau miromesnil monceau montgallet montparnassebienvenue moutonduvernet nation nationale notredamedelorette notredamedeschamps oberkampf odeon olympiades opera orlyouest orlysud ourcq palaisroyal parmentier passy pasteur pelleport pereire perelachaise pernety philippeauguste picpus pierreetmariecurie pigalle placedeclichy placedesfites placeditalie placemonge plaisance pointedulac poissonniere pontdelevalloisbecon pontdeneuilly pontdesevres pontmarie pontneuf portedauphine portedauteuil portedebagnolet portedechamperret portedecharenton portedechoisy portedeclichy portedeclignancourt portedelachapelle portedelavillette portedemontreuil portedepantin portedesaintcloud portedesaintouen portedeslilas portedevanves portedeversailles portedevincennes porteditalie portedivry portedoree portedorleans portemaillot presaintgervais pyramides pyramides pyrenees quaidelagare quaidelarapee quatreseptembre rambuteau ranelagh raspail reaumursebastopol rennes republique reuillydiderot richardlenoir richelieudrouot riquet robespierre rome ruedelapompe ruedesboulets ruedubac ruesaintmaur saintambroise saintaugustin saintdenisportedeparis saintdenisuniversite saintfargeau saintfrancoisxavier saintgeorges saintgermaindespres saintjacques saintlazare saintmande saintmarcel saintmichel saintpaul saintphilippeduroule saintplacide saintsebastienfroissart saintsulpice segur sentier sevresbabylone sevreslecourbe simplon solferino stalingrad strasbourgsaintdenis sullymorland telegraphe temple ternes tolbiac trinitedestiennedorves trocadero tuileries vaneau varenne vaugirard vavin victorhugo villejuifleolagrange villejuiflouisaragon villejuifpaulvaillantcouturier villiers volontaires voltaire wagram}
+  
   validates_length_of :name, :in => 2..50
   validates_length_of :domain, :in => 2..50
-  validates_format_of :domain, :with => /^[A-Z0-9_-]*$/i
+  validates_format_of :domain, :with => /^[A-Z0-9_\-\.]*$/i
   validates_uniqueness_of :domain
   validates_length_of :slogan, :in => 2..100, :allow_nil => true
   validates_length_of :description, :in => 2..500, :allow_nil => true
@@ -131,8 +134,7 @@ class Community < ActiveRecord::Base
   end
   
   def self.domain_available?(domain)
-    reserved_names = %w{ www wiki mail calendar doc docs admin dashboard translate alpha beta gamma test developer community tribe git partner partners global sharetribe application share dev st aalto ospn kassi video photos fi fr cl gr us usa subdomain abbesses alesia alexandredumas almamarceau anatolefrance antony anvers argentine artsetmetiers asnieresgennevilliers assembleenationale aubervillierspantin avenueemilezola avron balard barbesrochechouart basiliquedesaintdenis bastille belair belleville berault bercy bibliothequefrancoismitterrand billancourt birhakeim blanche bobignypablopicasso bobignypantin boissiere bolivar bonnenouvelle botzaris boucicaut boulognejeanjaures boulognepontdesaintcloud bourse breguetsabin brochant butteschaumont buzenval cadet cambronne campoformio cardinallemoine carrefourpleyel censierdaubenton champselyseesclemenceau chardonlagache charentonecoles charlesdegaulleetoile charlesmichels charonne chateaudeau chateaudevincennes chateaulandon chateaurouge chatelet chatillonmontrouge chausseedantin cheminvert chevaleret cite clunylasorbonne colonelfabien commerce concorde convention corentincariou corentincelton corvisart courcelles couronnes coursaintemilion creteillechat creteilprefecture creteiluniversite crimee croixdechavaux danube daumesnil denfertrochereau dugommier dupleix duroc ecolemilitaire ecoleveterinaire edgarquinet eglisedauteuil eglisedepantin esplanadedeladefense etiennemarcel europe exelmans faidherbechaligny falguiere felixfaure fillesducalvaire fortdaubervilliers franklinroosevelt funiculairegarebasse funiculairegarehaute gabrielperi gaite gallieni gambetta garedausterlitz garedelest garedelyon garedunord garibaldi georgev glaciere goncourt grandsboulevards guymoquet havrecaumartin hoche hoteldeville iena invalides jacquesbonsergent jasmin jaures javelandrecitroen jourdain julesjoffrin jussieu kleber lachapelle lacourneuve8mai1945 ladefense lafourche lamarckcaulaincourt lamottepicquetgrenelle lamuette latourmaubourg laumiere ledrurollin lekremlinbicetre lepeletier lesagnettes lesgobelins leshalles lessablons liberte liege louisblanc louisemichel lourmel louvrerivoli mabillon madeleine mairiedeclichy mairiedemontreuil mairiedesaintouen mairiedeslilas mairiedissy mairiedivry maisonblanche maisonsalfortlesjuilliottes maisonsalfortstade malakoffplateaudevanves malakoffrueetiennedolet malesherbes maraichers marcadetpoissonniers marcelsembat marxdormoy maubertmutualite menilmontant michelangeauteuil michelangemolitor michelbizot mirabeau miromesnil monceau montgallet montparnassebienvenue moutonduvernet nation nationale notredamedelorette notredamedeschamps oberkampf odeon olympiades opera orlyouest orlysud ourcq palaisroyal parmentier passy pasteur pelleport pereire perelachaise pernety philippeauguste picpus pierreetmariecurie pigalle placedeclichy placedesfites placeditalie placemonge plaisance pointedulac poissonniere pontdelevalloisbecon pontdeneuilly pontdesevres pontmarie pontneuf portedauphine portedauteuil portedebagnolet portedechamperret portedecharenton portedechoisy portedeclichy portedeclignancourt portedelachapelle portedelavillette portedemontreuil portedepantin portedesaintcloud portedesaintouen portedeslilas portedevanves portedeversailles portedevincennes porteditalie portedivry portedoree portedorleans portemaillot presaintgervais pyramides pyramides pyrenees quaidelagare quaidelarapee quatreseptembre rambuteau ranelagh raspail reaumursebastopol rennes republique reuillydiderot richardlenoir richelieudrouot riquet robespierre rome ruedelapompe ruedesboulets ruedubac ruesaintmaur saintambroise saintaugustin saintdenisportedeparis saintdenisuniversite saintfargeau saintfrancoisxavier saintgeorges saintgermaindespres saintjacques saintlazare saintmande saintmarcel saintmichel saintpaul saintphilippeduroule saintplacide saintsebastienfroissart saintsulpice segur sentier sevresbabylone sevreslecourbe simplon solferino stalingrad strasbourgsaintdenis sullymorland telegraphe temple ternes tolbiac trinitedestiennedorves trocadero tuileries vaneau varenne vaugirard vavin victorhugo villejuifleolagrange villejuiflouisaragon villejuifpaulvaillantcouturier villiers volontaires voltaire wagram}
-    ! (reserved_names.include?(domain) || find_by_domain(domain).present?)
+    ! (RESERVED_SUBDOMAINS.include?(domain) || find_by_domain(domain).present?)
   end
   
   def self.find_by_email_ending(email)
@@ -161,10 +163,31 @@ class Community < ActiveRecord::Base
   def new_members_during_last(time)
     community_memberships.where(:created_at => time.ago..Time.now).collect(&:person)
   end
+
+  # Returns the full domain with default protocol in front
+  def full_url
+    full_domain(:with_protocol => true)
+  end
   
   #returns full domain without protocol
-  def full_domain
-    "#{self.domain}.#{APP_CONFIG.domain}"
+  def full_domain(options= {})
+    # assume that if  port is used in domain config, it should 
+    # be added to the end of the full domain for links to work
+    # This concerns usually mostly testing and development
+    port_string = APP_CONFIG.domain[/\:\d+$/]
+    
+    if self.domain =~ /\./ # custom domain
+      dom = "#{self.domain}#{port_string}"
+    else # just a subdomain specified
+      dom = "#{self.domain}.#{APP_CONFIG.domain}"
+    end
+    
+    if options[:with_protocol]
+      dom = "#{(APP_CONFIG.always_use_ssl ? "https://" : "http://")}#{dom}"
+    end
+    
+    return dom
+    
   end
 
   def has_new_listings_since?(time)
@@ -174,6 +197,19 @@ class Community < ActiveRecord::Base
   def self.find_by_allowed_email(email)
     email_ending = "@#{email.split('@')[1]}"
     where("allowed_emails LIKE '%#{email_ending}%'")
+  end
+  
+  # Find community by domain, which can be full domain or just subdomain
+  def find_by_domain(domain_string)
+    if domain_string =~ /\./ # not just a subdomain
+      if domain_string.match(APP_CONFIG.domain) # subdomain with default domain attached
+        Community.where(["domain = ?", domain_string.split(".").first])
+      else # custom domain
+        Community.where(["domain = ?", domain_string])        
+      end
+    else # just a subdomain
+      Community.where(["domain = ?", domain_string])
+    end
   end
   
   # Check if communities with this category are email restricted
@@ -197,33 +233,34 @@ class Community < ActiveRecord::Base
   
   def generate_customization_stylesheet
     if custom_color1 || cover_photo.present?
-      stylesheet_filename = "custom-style-#{domain}"
+      community_filename = domain.gsub(".", "_")
+      stylesheet_filename = "custom-style-#{community_filename}"
       new_filename_with_time_stamp = "#{stylesheet_filename}-#{Time.now.strftime("%Y%m%d%H%M%S")}"
 
       
       # Copy original SCSS and do customizations by search & replace
       
       FileUtils.cp("app/assets/stylesheets/application.scss", "app/assets/stylesheets/#{stylesheet_filename}.scss" )
-      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{domain}.scss" )
+      FileUtils.cp("app/assets/stylesheets/customizations.scss", "app/assets/stylesheets/customizations-#{community_filename}.scss" )
       replace_in_file("app/assets/stylesheets/#{stylesheet_filename}.scss",
                       "@import 'customizations';",
-                      "@import 'customizations-#{domain}';",
+                      "@import 'customizations-#{community_filename}';",
                       true)
       if custom_color1.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link:\s*#\w{6};/,
                         "$link: ##{custom_color1};",
                         true)
       end
       color2 = custom_color2 || custom_color1
       if color2.present? 
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$link2:\s*#\w{6};/,
                         "$link2: ##{color2};",
                         true)
       end
       if cover_photo.present?
-        replace_in_file("app/assets/stylesheets/customizations-#{domain}.scss",
+        replace_in_file("app/assets/stylesheets/customizations-#{community_filename}.scss",
                         /\$cover-photo-url:\s*\"[^\"]+\";/,
                         "$cover-photo-url: \"#{cover_photo.url(:header)}\";",
                         true)

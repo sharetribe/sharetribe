@@ -164,7 +164,7 @@ module ApplicationHelper
   # If we are not in a single community defined by a subdomain,
   # we are on dashboard
   def on_dashboard?
-    ["", "www","dashboardtranslate"].include?(request.subdomain)
+    ["", "www","dashboardtranslate"].include?(request.subdomain) && APP_CONFIG.domain.include?(request.domain)
   end
   
   def facebook_like(recommend=false)
@@ -217,20 +217,33 @@ module ApplicationHelper
   # Class methods to access the service_name stored in the thread to work with I18N and DelayedJob etc async stuff.
   # If called without host information, set's the server default
   def self.store_community_service_name_to_thread_from_host(host=nil)
-      ser_name = APP_CONFIG.global_service_name || "Sharetribe"
-      
-      if host.present?
-        community_domain = host.split(".")[0] #pick the subdomain part
-        community = Community.find_by_domain(community_domain)
-      
-        # if community has it's own setting, dig it out here
-        if community && community.settings && community.settings["service_name"].present?
-          ser_name = community.settings["service_name"]
-        end
-      end
-      
-      store_community_service_name_to_thread(ser_name)
+    community = nil
+    if host.present?
+      community_domain = host.split(".")[0] #pick the subdomain part
+      community = Community.find_by_domain(community_domain)
     end
+    store_community_service_name_to_thread_from_community(community)
+  end
+  
+  def self.store_community_service_name_to_thread_from_community_id(community_id=nil)
+    community = nil
+    if community_id.present?
+      community = Community.find_by_id(community_id)
+      
+    end
+    store_community_service_name_to_thread_from_community(community)
+  end
+  
+  def self.store_community_service_name_to_thread_from_community(community=nil)
+    ser_name = APP_CONFIG.global_service_name || "Sharetribe"
+    
+    # if community has it's own setting, dig it out here
+    if community && community.settings && community.settings["service_name"].present?
+      ser_name = community.settings["service_name"]
+    end
+    
+    store_community_service_name_to_thread(ser_name)
+  end
     
   def self.fetch_community_service_name_from_thread
     Thread.current[:current_community_service_name] || APP_CONFIG.global_service_name || "Sharetribe"
@@ -251,6 +264,13 @@ module ApplicationHelper
         :inessive => "Kassissa",
         :elative => "Kassista",
         :partitive => "Kassia"
+        }
+      when "Omakotitori" then {
+        :illative => "Omakotitoriin",
+        :genetive => "Omakotitorin",
+        :inessive => "Omakotitorissa",
+        :elative => "Omakotitorista",
+        :partitive => "Omakotitoria"
         }
       else nil
     end
@@ -277,10 +297,6 @@ module ApplicationHelper
   
   def community_email_restricted?
     ["university", "company"].include? session[:community_category]
-  end
-  
-  def get_url_for(community)
-    "http://#{with_subdomain(community.domain)}/#{I18n.locale}"
   end
   
   # general method for making urls as links and line breaks as <br /> tags

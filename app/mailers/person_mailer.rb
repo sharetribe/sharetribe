@@ -148,7 +148,7 @@ class PersonMailer < ActionMailer::Base
     @community = community
     @recipient = recipient
     set_locale @recipient.locale
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
+    @url_base = "#{@community.full_url}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
@@ -183,7 +183,7 @@ class PersonMailer < ActionMailer::Base
         DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
     @auth_token = @recipient.new_email_auth_token
     
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
+    @url_base = "#{@community.full_url}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
@@ -223,7 +223,7 @@ class PersonMailer < ActionMailer::Base
     
     @community = recipient.communities.first # We pick random community to point the settings link to
     
-    @url_base = "http://#{@community.full_domain}/#{recipient.locale}"
+    @url_base = "#{@community.full_url}/#{recipient.locale}"
     @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
     
     mail(:to => @recipient.email, :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|

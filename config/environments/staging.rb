@@ -5,7 +5,7 @@ Kassi::Application.configure do
   
   # Code is not reloaded between requests
   # If live updates for translations are in use, caching is set to false.
-  config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load.present? ? false : true)
+  config.cache_classes = (APP_CONFIG.update_translations_on_every_page_load == "true" ? false : true)
 
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = true

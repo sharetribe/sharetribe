@@ -1,7 +1,7 @@
 require 'will_paginate/array'
 
 class ApplicationController < ActionController::Base
-  include UrlHelper, ApplicationHelper
+  include ApplicationHelper
   protect_from_forgery
   layout 'application'
 
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   before_filter :log_to_ressi if APP_CONFIG.log_to_ressi
 
   # This updates translation files from WTI on every page load. Only useful in translation test servers.
-  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load
+  before_filter :fetch_translations if APP_CONFIG.update_translations_on_every_page_load == "true"
 
   rescue_from RestClient::Unauthorized, :with => :session_unauthorized
 
@@ -106,13 +106,13 @@ class ApplicationController < ActionController::Base
   # Before filter to get the current community
   def fetch_community
     unless on_dashboard?
-      # Otherwise pick the domain normally from the request subdomain
-      if @current_community = Community.find_by_domain(request.subdomain)
+      # Otherwise pick the domain normally from the request subdomain or custom domain
+      if @current_community = Community.find_by_domain(request.subdomain) || @current_community = Community.find_by_domain(request.host)
         # Store to thread the service_name used by current community, so that it can be included in all translations
         ApplicationHelper.store_community_service_name_to_thread(service_name)
       else
         # No community found with this domain, so redirecting to dashboard.
-        redirect_to root_url(:subdomain => "www")
+        redirect_to "http://www.#{APP_CONFIG.domain}"
       end
     end
   end
@@ -147,8 +147,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_default_url_for_mailer
-    url = community_url(request.host_with_port, @current_community)
+    url = @current_community ? "#{@current_community.full_domain}" : "www.#{APP_CONFIG.domain}"
     ActionMailer::Base.default_url_options = {:host => url}
+    if APP_CONFIG.always_use_ssl
+      ActionMailer::Base.default_url_options[:protocol] = "https"
+    end
   end
 
   def person_belongs_to_current_community
@@ -221,24 +224,13 @@ class ApplicationController < ActionController::Base
   def fetch_translations
     WebTranslateIt.fetch_translations
   end
-
-  # returns the request_url_with_port in a way that the community subdomain is switched to be the
-  # first part of the request
-  # This method is used to ensure that using the community subdomain and not the login subdomain
-  def  community_url(request_url_with_port, community)
-    unless community.blank?
-      return request_url_with_port.sub(/[^\/\.]+\./, "#{community.domain}.")
-    else
-      return request_url_with_port
-    end
-  end
   
-   # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
-    # # And you if you need your own rules for redirection or rewrite, add here.
+  # # These rules are specific to the Sharetribe.com server, but shouldn't cause trouble for open source installations.
+  # # And you if you need your own rules for redirection or rewrite, add here.
   def domain_redirect
     # to speed up the check on every page load, only check first 
-    # if different domain than specified in config
-    if request.domain != APP_CONFIG.domain && APP_CONFIG.domain == 'sharetribe.com'
+    # if different domain than specified in config and doesn't match any custom domain
+    if request.domain != APP_CONFIG.domain && ! Community.find_by_domain(request.host) && APP_CONFIG.domain == 'sharetribe.com'
       
       # Redirect contry domain dashboards to .com with correct language
       redirect_to "#{request.protocol}www.sharetribe.com/es" and return if request.host =~ /^(www\.)?sharetribe\.cl/
@@ -247,13 +239,10 @@ class ApplicationController < ActionController::Base
       redirect_to "#{request.protocol}www.sharetribe.com/fr" and return if request.host =~ /^(www\.)?sharetribe\.fr/
       redirect_to "#{request.protocol}www.sharetribe.com/fi" and return if request.host =~ /^(www\.)?sharetribe\.fi/
       
-      # Redirect to right commnunity (changing to .com)
+      # Redirect to right community (changing to .com)
       redirect_to "#{request.protocol}#{request.subdomain}.sharetribe.com#{request.fullpath}" and return if request.host =~ /^.+\.?sharetribe\.(cl|gr|fr|fi|us|de)/ || request.host =~ /^.+\.?sharetri\.be/  || request.host =~ /^.+\.?kassi\.eu/
       
       redirect_to "#{request.protocol}samraksh.sharetribe.com#{request.fullpath}" and return if request.host =~ /^(www\.)?samraksh\.org/
-      
-      
-      
     end 
   end
   
@@ -286,8 +275,9 @@ class ApplicationController < ActionController::Base
   end
   
   def force_ssl
+    # If defined in the config, always redirect to https (unless already using https or coming through Sharetribe proxy)
     if APP_CONFIG.always_use_ssl
-      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl?
+      redirect_to({:protocol => 'https'}.merge(params), :flash => flash) unless request.ssl? || ( request.headers["HTTP_VIA"] && request.headers["HTTP_VIA"].include?("sharetribe_proxy"))
     end
   end
   

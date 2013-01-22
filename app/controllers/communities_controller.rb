@@ -45,10 +45,6 @@ class CommunitiesController < ApplicationController
     end
   end
 
-  def edit
-    @community = Community.find(params[:id])
-  end
-
   def create
     params[:community][:location][:address] = params[:community][:address] if params[:community][:address]
     location = Location.new(params[:community][:location])
@@ -71,20 +67,6 @@ class CommunitiesController < ApplicationController
     location.save
     clear_session_variables
     render :action => :new
-  end
-
-  def update
-    @community = Community.find(params[:id])
-
-    respond_to do |format|
-      if @community.update_attributes(params[:community])
-        format.html { redirect_to(@community, :notice => 'Community was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
-      end
-    end
   end
   
   def check_domain_availability
