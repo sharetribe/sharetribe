@@ -387,10 +387,9 @@ class PersonMailer < ActionMailer::Base
     set_locale @recipient.locale
     @current_community = community
     default_url_options[:host] = "#{@current_community.full_domain}"
+    default_url_options[:auth] = @recipient.new_email_auth_token
     default_url_options[:locale] = @recipient.locale
-    @auth_token = @recipient.new_email_auth_token
-    @title_link_text = t("emails.welcome_email.title_link_text", :community_name => @current_community.name_with_separator(@recipient.locale))
-    mail(:to => @recipient.email, :subject => t("emails.welcome_email.subject", :community => @title_link_text, :person => person.given_name_or_username)) do |format|
+    mail(:to => @recipient.email, :subject => t("emails.welcome_email.subject", :community => @current_community.full_name, :person => person.given_name_or_username)) do |format|
       format.html { render :layout => false }
     end
   end

@@ -322,7 +322,7 @@ class Community < ActiveRecord::Base
   end
   
   def full_name
-    settings[:service_name] ? settings[:service_name] : "Sharetribe #{name}"
+    settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
 
 end

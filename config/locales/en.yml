@@ -457,8 +457,9 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     welcome_email:
+      welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}."
+      settings_link_text: "Check your settings"
       subject: "Welcome to %{community} - here are some tips to get you started"
-      title_link_text: "%{community_name} %{service_name}"
       welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."
       p_s_did_you_know: "P.S. Did you know you can create a marketplace like this for any community you belong to, for free? %{click_here_link} to find out more!"
       click_here_link_text: "Click here"
@@ -468,6 +469,7 @@ en:
       add_offer_link_text: "Add them as offers to %{service_name}!"
       is_there_something_you_need: "<strong>3) Is there something you need right now? </strong> Perhaps you would like to share a ride? Or borrow some tools? Or need someone to walk your dog? The first thing to do is to search %{service_name}: maybe someone is already offering what you need. If you don't find what you're looking for, you can %{add_request_link}."
       add_request_link_text: "post a new request"
+      invite_your_friends_invite_only: "<strong>4) Help the community grow. </strong> The more people there are in %{service_name}, the more useful the community is for everyone. This %{service_name} community is 'invite only', so people need an invite from an existing member to join. Do you know people who might be interested in joining? Give them an access to %{service_name} by %{invite_link}. If you want to see who are already members, %{member_list_link}."
       invite_your_friends: "<strong>4) Invite your friends. </strong> The more people there are in %{service_name}, the more helpful the community is for everyone. Do you know people who might be interested in joining? Tell them about %{service_name} by %{invite_link} or sending them this link: %{url}. If you want to see who are already members, %{member_list_link}."
       invite_link_text: "using our easy invite form"
       member_list_link_text: "check out the member list"
