@@ -22,11 +22,15 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
     @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s, :locale => @recipient.locale )}" : "test_url"
     @message = message
-    mail(:to => @recipient.email,
+    
+    sending_params = {:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"),
-         :reply_to => APP_CONFIG.sharetribe_mail_from_address)
+         :reply_to => APP_CONFIG.sharetribe_mail_from_address}
          # reply_to no-reply address so that people notice immediately that it didn't work
-         # and hopefully read the actual message and answer with the link 
+         # and hopefully read the actual message and answer with the link
+    sending_params.merge!(:from => @current_community.settings["custom_email_from_address"]) if @current_community && @current_community.settings["custom_email_from_address"]
+    mail(sending_params)
+
   end
   
   def new_comment_to_own_listing_notification(comment, host=nil)
