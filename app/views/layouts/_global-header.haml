@@ -39,8 +39,9 @@
       - if @current_user && @current_user.communities.present?
         - @current_user.communities.each do |community|
           - unless community == @current_community
-            %a{href: "#{community.full_url}"}= community.full_name
-      %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh")}
+            %a{href: "#{community.full_url}", on_click: "_gaq.push(['_link', '#{community.full_url}']); return false;"}
+              = community.full_name
+      %a{href: dashboard_link(:locale => I18n.locale, :ref => "gh"), on_click: "_gaq.push(['_link', '#{dashboard_link(:locale => I18n.locale, :ref => "gh")}']); return false;"}
         = t("header.create_new_marketplace")
     
     - if @current_user

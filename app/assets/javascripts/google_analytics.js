@@ -2,6 +2,7 @@ function start_analytics(api_key, domain) {
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', api_key]);
 	_gaq.push(['_setDomainName', '.' + domain]);
+	_gaq.push(['_setAllowLinker', true]);
 	_gaq.push(['_trackPageview']);
 	_gaq.push(['_trackPageLoadTime']);
 
