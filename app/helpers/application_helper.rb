@@ -219,8 +219,8 @@ module ApplicationHelper
   def self.store_community_service_name_to_thread_from_host(host=nil)
     community = nil
     if host.present?
-      community_domain = host.split(".")[0] #pick the subdomain part
-      community = Community.find_by_domain(community_domain)
+      community_domain = host.split(".")[0] #pick the subdomain part to search primarily with that
+      community = Community.find_by_domain(community_domain) || Community.find_by_domain(host)
     end
     store_community_service_name_to_thread_from_community(community)
   end

@@ -14,24 +14,24 @@ class PersonMailer < ActionMailer::Base
   
   DEFAULT_TIME_FOR_COMMUNITY_UPDATES = 7.days
   
-  default :from => APP_CONFIG.sharetribe_mail_from_address, :reply_to => APP_CONFIG.sharetribe_reply_to_address
+  default :from => APP_CONFIG.sharetribe_mail_from_address
   
   layout 'email'
 
   def new_message_notification(message, host=nil)
     @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s, :locale => @recipient.locale )}" : "test_url"
     @message = message
     mail(:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"),
-         :reply_to => APP_CONFIG.sharetribe_mail_from_address) 
+         :reply_to => APP_CONFIG.sharetribe_mail_from_address)
          # reply_to no-reply address so that people notice immediately that it didn't work
          # and hopefully read the actual message and answer with the link 
   end
   
   def new_comment_to_own_listing_notification(comment, host=nil)
     @recipient = set_up_recipient(comment.listing.author, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
+    @url = host ? "http://#{host}#{listing_path(:id => comment.listing.id.to_s, :locale => @recipient.locale)}##{comment.id.to_s}" : "test_url"
     @comment = comment
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.you_have_a_new_comment", :author => comment.author.name))
@@ -47,7 +47,7 @@ class PersonMailer < ActionMailer::Base
   
   def new_update_to_followed_listing_notification(listing, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => listing.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}#{listing_path(:id => listing.id.to_s, :locale => @recipient.locale)}" : "test_url"
     @listing = listing
     mail(:to => @recipient.email,
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
@@ -55,7 +55,7 @@ class PersonMailer < ActionMailer::Base
   
   def conversation_status_changed(conversation, host=nil)
     @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s, :locale => @recipient.locale)}" : "test_url"
     @conversation = conversation
     mail(:to => @recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
@@ -63,7 +63,7 @@ class PersonMailer < ActionMailer::Base
   
   def new_badge(badge, host=nil)
     @recipient = set_up_recipient(badge.person, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}" : "test_url"
+    @url = host ? "http://#{host}#{person_badges_path(:person_id => @recipient.id, :locale => @recipient.locale)}" : "test_url"
     @badge = badge
     @badge_name = t("people.profile_badge.#{@badge.name}")
     mail(:to => @recipient.email,
@@ -72,8 +72,8 @@ class PersonMailer < ActionMailer::Base
   
   def new_testimonial(testimonial, host=nil)
     @recipient = set_up_recipient(testimonial.receiver, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_testimonials_path(:person_id => @recipient.id)}" : "test_url"
-    @give_feedback_url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id)}" : "test_url"
+    @url = host ? "http://#{host}#{person_testimonials_path(:person_id => @recipient.id, :locale => @recipient.locale)}" : "test_url"
+    @give_feedback_url = host ? "http://#{host}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id, :locale => @recipient.locale)}" : "test_url"
     @testimonial = testimonial
     mail(:to => @recipient.email,
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
@@ -81,7 +81,7 @@ class PersonMailer < ActionMailer::Base
   
   def testimonial_reminder(participation, host=nil)
     @recipient = set_up_recipient(participation.person, host)
-    @url = host ? "http://#{host}/#{@recipient.locale}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id)}" : "test_url"
+    @url = host ? "http://#{host}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => participation.conversation.id, :locale => @recipient.locale)}" : "test_url"
     @participation = participation
     @other_party = @participation.conversation.other_party(@participation.person)
     mail(:to => @recipient.email,
@@ -104,7 +104,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
     set_locale @recipient.locale
     @no_settings = true
-    @url = "http://aalto.sharetribe.com/#{@recipient.locale}#{person_badges_path(:person_id => @recipient.id)}"
+    @url = "http://aalto.sharetribe.com#{person_badges_path(:person_id => @recipient.id, :locale => @recipient.locale)}"
     mail(:to => recipient.email, :subject => t("emails.badge_migration_notification.you_have_received_badges"))
   end
   
@@ -129,7 +129,7 @@ class PersonMailer < ActionMailer::Base
   def accept_reminder(conversation, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
     @conversation = conversation
-    @url = host ? "http://#{host}/#{@recipient.locale}#{person_message_path(:person_id => @recipient.id, :id => @conversation.id.to_s)}" : "test_url"
+    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => @conversation.id.to_s, :locale => @recipient.locale)}" : "test_url"
     mail(:to => @recipient.email,
          :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
@@ -148,8 +148,8 @@ class PersonMailer < ActionMailer::Base
     @community = community
     @recipient = recipient
     set_locale @recipient.locale
-    @url_base = "#{@community.full_url}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    @url_base = "#{@community.full_url}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(5)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(5)
 
@@ -223,8 +223,8 @@ class PersonMailer < ActionMailer::Base
     
     @community = recipient.communities.first # We pick random community to point the settings link to
     
-    @url_base = "#{@community.full_url}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    @url_base = "#{@community.full_url}"
+    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id, :locale => @recipient.locale)}"
     
     mail(:to => @recipient.email, :subject => t("emails.newsletter.occasional_newsletter_title")) do |format|
       format.html { render :layout => "newsletter" }
@@ -397,7 +397,7 @@ class PersonMailer < ActionMailer::Base
   private
   
   def set_up_recipient(recipient, host=nil)
-    @settings_url = host ? "http://#{host}/#{recipient.locale}#{notifications_person_settings_path(:person_id => recipient.id)}" : "test_url"
+    @settings_url = host ? "http://#{host}#{notifications_person_settings_path(:person_id => recipient.id, :locale => recipient.locale)}" : "test_url"
     set_locale recipient.locale
     recipient
   end
