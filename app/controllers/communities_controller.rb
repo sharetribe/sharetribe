@@ -66,6 +66,7 @@ class CommunitiesController < ApplicationController
     location.community = @community
     location.save
     clear_session_variables
+    PersonMailer.welcome_email(@current_user, @community).deliver
     render :action => :new
   end
   
