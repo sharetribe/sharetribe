@@ -885,12 +885,16 @@ function closeAllToggleMenus() {
   $('.toggle-menu-feed-filters').addClass('hidden');
   $('.toggle').removeClass('toggled');
   $('.toggle').removeClass('toggled-logo');
+  $('.toggle').removeClass('toggled-full-logo');
+  $('.toggle').removeClass('toggled-icon-logo');
+  $('.toggle').removeClass('toggled-no-logo');
 }
 
 function toggleDropdown() {
   
   //Gets the target toggleable menu from the link's data-attribute
   var target = $(this).attr('data-toggle');
+  var logo_class = $(this).attr('data-logo_class');
   
   if ($(target).hasClass('hidden')) {
     // Opens the target toggle menu
@@ -898,6 +902,9 @@ function toggleDropdown() {
     $(target).removeClass('hidden');
     if($(this).hasClass('select-tribe')) {
       $(this).addClass('toggled-logo');
+      if (logo_class != undefined) {
+        $(this).addClass(logo_class);
+      }
     } else {
       $(this).addClass('toggled');
     }
@@ -906,6 +913,9 @@ function toggleDropdown() {
     $(target).addClass('hidden');
     $(this).removeClass('toggled');
     $(this).removeClass('toggled-logo');
+    if (logo_class != undefined) {
+      $(this).removeClass(logo_class);
+    }
   }
   
 }

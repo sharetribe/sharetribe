@@ -555,10 +555,6 @@ label.error {
 }
 
 .select-tribe {
-  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
-  &:hover { 
-    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
-  }
   margin: 0 0;
   padding: lines(0.5) lines(2.5) lines(0.5) lines(1.75);
   position: relative;
@@ -583,16 +579,43 @@ label.error {
 
   @include media(tablet) {
     padding: lines(0.5) lines(0.5) lines(0.5) lines(7.25);
-    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
-    &:hover { 
-      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
-    }
     margin: 0 lines(12) 0 lines(0);
     max-width: lines(8.75);
     .icon-dropdown {
       right: lines(0.5);
     }
   }
+}
+
+.full-logo {
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  &:hover { 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
+  }
+  @include media(tablet) {
+    background: $background url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
+    &:hover { 
+      background: $highlight url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat; 
+    }
+  }
+}
+
+.icon-logo {
+  background: $background url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  &:hover { 
+    background: $highlight url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat; 
+  }
+  padding-left: lines(1.75);
+  max-width: lines(14.25);
+}
+
+.no-logo {
+  background: $background;
+  &:hover { 
+    background: $highlight; 
+  }
+  padding-left: lines(0.5);
+  max-width: lines(15.5);
 }
 
 .tribe-menu {
@@ -972,14 +995,28 @@ label.error {
   }
   
   &.toggled-logo {
-    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
     color: $background !important;
     border-color: $emphasis;
     
     @include media(tablet) {
-      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
       border-bottom-color: $emphasis !important;
     }
+  }
+  
+  &.toggled-full-logo {
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+    
+    @include media(tablet) {
+      background: $emphasis url("/assets/new-design/sharetribe-logo.png") lines(0.5) lines(0.35) no-repeat;
+    }
+  }
+  
+  &.toggled-icon-logo {
+    background: $emphasis url("/assets/new-design/sharetribe-logo-icon.png") lines(0.5) lines(0.35) no-repeat;
+  }
+  
+  &.toggled-no-logo {
+    background: $emphasis;
   }
   
 }
