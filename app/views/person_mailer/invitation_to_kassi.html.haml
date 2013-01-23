@@ -3,7 +3,7 @@
 %br/
 %br/
 
-= t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
+= t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.full_name_with_separator(@invitation.inviter.locale))
 
 %br/
 %br/

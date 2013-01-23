@@ -97,6 +97,12 @@ class Community < ActiveRecord::Base
     (name.include?(" ") && locale.to_s.eql?("fi")) ? "#{name} " : name
   end
   
+  # If community full name has several words, add an extra space
+  # to the end to make Finnish translation look better.
+  def full_name_with_separator(locale)
+    (full_name.include?(" ") && locale.to_s.eql?("fi")) ? "#{full_name} " : full_name
+  end
+  
   def active_poll
     polls.where(:active => true).first
   end

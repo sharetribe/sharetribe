@@ -387,7 +387,7 @@ fi:
       your_request_was_rejected: "Pyyntösi hylättiin"
     invitation_to_kassi:
       hi: Hei!
-      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään yhteisön %{community} %{service_name}-verkkopalvelua."
+      you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään %{community}-verkkopalvelua."
       info_about_kassi: "%{service_name} on palvelu, jossa yhteisön jäsenet voivat muun muassa lainata, vaihtaa ja myydä tavaroita, järjestää kimppakyytejä sekä auttaa toisiaan eri tavoin."
       here_is_a_message_from: "%{inviter} lähetti sinulle tämän saateviestin:"
       you_can_join_kassi_using_invitation_code: "Tässä henkilökohtainen kutsukoodisi palveluun: %{code}"
