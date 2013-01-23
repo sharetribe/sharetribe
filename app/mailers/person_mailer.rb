@@ -180,15 +180,17 @@ class PersonMailer < ActionMailer::Base
     end
     
     set_locale @recipient.locale
-    default_url_options[:host] = "#{@community.full_domain}"
-    default_url_options[:locale] = @recipient.locale
+
     @time_since_last_update = t("timestamps.days_since", 
         :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
         DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
     @auth_token = @recipient.new_email_auth_token
     
-    @url_base = "#{@community.full_url}/#{recipient.locale}"
-    @settings_url = "#{@url_base}#{notifications_person_settings_path(:person_id => recipient.id)}"
+    default_url_options[:host] = "#{@community.full_domain}"
+    default_url_options[:locale] = @recipient.locale
+    default_url_options[:ref] = "weeklymail"
+    default_url_options[:auth] = @auth_token
+    
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
     
@@ -200,7 +202,7 @@ class PersonMailer < ActionMailer::Base
     end
     
     @title_link_text = t("emails.community_updates.title_link_text", 
-          :community_name => @community.name_with_separator(@recipient.locale))
+          :community_name => @community.full_name)
     subject = t("emails.community_updates.update_mail_title", :title_link => @title_link_text)
     
     if APP_CONFIG.mail_delivery_method == "postmark"
@@ -393,6 +395,7 @@ class PersonMailer < ActionMailer::Base
     default_url_options[:host] = "#{@current_community.full_domain}"
     default_url_options[:auth] = @recipient.new_email_auth_token
     default_url_options[:locale] = @recipient.locale
+    default_url_options[:ref] = "welcome_email"
     if @recipient.has_admin_rights_in?(@current_community)
       subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
     else

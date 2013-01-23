@@ -17,7 +17,7 @@
                         - if @recipient.has_admin_rights_in?(@current_community)
                           
                           %p
-                            = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name, root_url(:ref => "welcome_email"), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = t("emails.welcome_email.you_have_just_created_community", :community_link => link_to(@current_community.full_name, root_url, :style => "color:#d96e21; text-decoration: none;")).html_safe
                             
                           %p
                             = t("emails.welcome_email.you_now_have_admin_rights", :edit_community_details_link => link_to(t("emails.welcome_email.edit_community_details_link_text"), edit_details_admin_community_url(@current_community), :style => "color:#d96e21; text-decoration: none;")).html_safe
@@ -41,7 +41,7 @@
                         
                         - else
                           %p
-                            = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name, root_url(:ref => "welcome_email"), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = t("emails.welcome_email.welcome_some_tips", :community_link => link_to(@current_community.full_name, root_url(), :style => "color:#d96e21; text-decoration: none;")).html_safe
                           %p
                             = t("emails.welcome_email.update_your_profile", :update_profile_link => link_to(t("emails.welcome_email.update_your_profile_link_text"), person_settings_url(@recipient), :style => "color:#d96e21; text-decoration: none;")).html_safe
 
@@ -58,7 +58,7 @@
                               = t("emails.welcome_email.invite_your_friends", :invite_link => link_to(t("emails.welcome_email.invite_link_text"), new_person_invitation_url(:person_id => @recipient.id), :style => "color:#d96e21; text-decoration: none;"), :url => link_to(@current_community.full_url, @current_community.full_url, :style => "color:#d96e21; text-decoration: none;"), :member_list_link => link_to(t("emails.welcome_email.member_list_link_text"), people_url, :style => "color:#d96e21; text-decoration: none;")).html_safe 
 
                           %p
-                            = t("emails.welcome_email.get_mobile_app", :app_store_link => link_to(t("emails.welcome_email.app_store_link_text"), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :style => "color:#d96e21; text-decoration: none;"), :mobile_web_link => link_to(t("emails.welcome_email.mobile_web_link_text"), root_url(:ref => "welcome_email"), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = t("emails.welcome_email.get_mobile_app", :app_store_link => link_to(t("emails.welcome_email.app_store_link_text"), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :style => "color:#d96e21; text-decoration: none;"), :mobile_web_link => link_to(t("emails.welcome_email.mobile_web_link_text"), root_url, :style => "color:#d96e21; text-decoration: none;")).html_safe
 
                           %p
                             = t("emails.welcome_email.go_explore").html_safe
@@ -67,9 +67,9 @@
                             = t("emails.welcome_email.love_team").html_safe
 
                           %p
-                            = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=weeklymail", :style => "color:#d96e21; text-decoration: none;")).html_safe
+                            = t("emails.welcome_email.p_s_did_you_know", :click_here_link => link_to(t("emails.welcome_email.click_here_link_text"), "http://#{APP_CONFIG.domain}/#{@recipient.locale}?ref=welcome_mail", :style => "color:#d96e21; text-decoration: none;")).html_safe
                       %td{:width => "7.5%"}
             %tr
               %td{:style => "text-align: left;width:100%;max-width:602px;padding: 0 45px;"}
                 %p{:style => "margin-top:15px;margin-bottom:15px;font-family:helvetica,arial,sans-serif;font-size:12px;color:#464646;"}
-                  = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(:person_id => @recipient.id, :ref => "weeklymail"), :style => "color:#d96e21; text-decoration: none;")).html_safe
+                  = t("emails.welcome_email.welcome_email_footer_text", :settings_link => link_to(t("emails.welcome_email.settings_link_text"), notifications_person_settings_url(:person_id => @recipient.id), :style => "color:#d96e21; text-decoration: none;")).html_safe
