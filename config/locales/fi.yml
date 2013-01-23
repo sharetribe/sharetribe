@@ -73,6 +73,7 @@ fi:
     fields_that_are_mandatory: "Tähdellä (*) merkityt tiedot ovat pakollisia."
     or: tai
     password: Salasana
+    service_name: "%{service_name}"
     share_types:
       borrow: "halutaan lainata"
       buy: ostetaan
@@ -470,8 +471,8 @@ fi:
       add_offer_link_text: "Lisää kaikista näistä ilmoitus %{service_name_illative}!"
       is_there_something_you_need: "<strong>Tarvitsetko jotain? </strong> Ehkä haluaisit jakaa kimppakyydin? Tai jonkin työkalun lainaan? Tai jonkun kävelyttämään koiraasi? Kokeile ensin hakea %{service_name_elative}: ehkä joku tarjoaa jo juuri sitä mitä tarvitset. Jos et löydä mitä etsit, voit %{add_request_link}."
       add_request_link_text: "lisätä uuden pyynnön"
-      invite_your_friends: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
       invite_your_friends_invite_only: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tähän yhteisöön voi liittyä ainoastaan saamalla kutsun toiselta jäseneltä. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Tarjoa heille pääsy palveluun %{invite_link}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
+      invite_your_friends: "<strong>Levitä sanaa. </strong> Mitä enemmän ihmisiä %{service_name_inessive} on, sitä paremmin palvelu toimii kaikkien kannalta. Tiedätkö jonkun, joka voisi olla kiinnostunut %{service_name_elative}? Kerro siitä heille %{invite_link} tai lähettämällä heille tämän linkin: %{url}. Jos haluat nähdä, keitä palvelussa on jäsenenä tällä hetkellä, %{member_list_link}."
       invite_link_text: "käyttämällä helppoa kutsulomakettamme"
       member_list_link_text: "voit selailla jäsenlistaa"
       get_mobile_app: "<strong>Lataa mobiilisovelluksemme. </strong> Tiesitkö, että voit käyttää %{service_name_partitive} myös mobiilisti? Ilmoitusten lisääminen hoituu parilla klikkauksella kännykkäkameran avulla, ja näet aina, mitä ympärilläsi tapahtuu. Jos sinulla on iPhone, voit %{app_store_link}. Jos sinulla on Android- tai Windows Phone -puhelin, %{mobile_web_link}."
@@ -1169,7 +1170,7 @@ fi:
       captcha_incorrect: "reCAPTCHA varmistus epäonnistui. Kirjoita kuvassa näkyvät sanat alla olevaan kenttään."
       captcha_was_wrong: "Kirjoittamasi teksti ei vastannut kuvan sanoja."
       create_new_account: "Luo tunnus"
-      email: "Sähköpostiosoite"
+      email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
       email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
       email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
@@ -1177,8 +1178,8 @@ fi:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
       enter_captcha: "Olen ihminen"
-      family_name: "Sukunimi"
-      given_name: "Etunimi"
+      family_name: Sukunimi
+      given_name: Etunimi
       i_accept_the: Hyväksyn
       if_you_already_have_account_you_can: "Jos sinulla on jo käyttäjätunnus jossain %{service_name}-yhteisössä, voit %{join_link}."
       join_with_your_existing_account: "liittyä tähän yhteisöön olemassaolevalla tunnuksellasi"

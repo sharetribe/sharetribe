@@ -9,6 +9,7 @@ de:
         community_slogan: ~
         community_description: ~
         update_information: ~
+        invite_people: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -72,6 +73,7 @@ de:
     fields_that_are_mandatory: "Mit einem Stern (*) gekennzeichnete Felder sind Pflichtfelder."
     or: oder
     password: Passwort
+    service_name: ~
     share_types:
       borrow: ausleihen
       buy: kaufen
@@ -456,6 +458,36 @@ de:
       feedback_is_public_and_is_shown: "Feedback ist öffentlich und wird allen anderen Benutzern angezeigt. Basierend auf den Feedbacks können andere Benutzer beurteilen ob %{name} eine vertrauenswürdige Person ist und ob diese jemand ist mit dem sie interagieren würden. Daher ist es immer gut Feedbacks zu Ereignissen zu vergeben und die andere Person zu erinnern ein Feedback zurückzugeben. Ausserdem benötigen SIe positives Feedbacks um die meisten Abzeichen erhalten zu können."
       remember_to_give_feedback_to: "Zur Erinnerung: vergessen Sie nicht, ein Feedback an %{name} zu geben"
       you_have_not_given_feedback_yet: "Noch haben Sie kein Feedback an %{name} über die Veranstaltung '%{event}' vergeben. Denken Sie daran Feedback zu geben darüber wie %{given_name} die Veranstaltung durchgeführt hat."
+    welcome_email:
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+      subject: ~
+      welcome_some_tips: ~
+      p_s_did_you_know: ~
+      click_here_link_text: ~
+      update_your_profile: ~
+      update_your_profile_link_text: ~
+      add_something_you_could_offer: ~
+      add_offer_link_text: ~
+      is_there_something_you_need: ~
+      add_request_link_text: ~
+      invite_your_friends_invite_only: ~
+      invite_your_friends: ~
+      invite_link_text: ~
+      member_list_link_text: ~
+      get_mobile_app: ~
+      app_store_link_text: ~
+      mobile_web_link_text: ~
+      go_explore: ~
+      love_team: ~
+      congrats_for_creating_community: ~
+      you_have_just_created_community: ~
+      you_now_have_admin_rights: ~
+      edit_community_details_link_text: ~
+      add_content: ~
+      spread_the_word: ~
+      spread_the_word_invite_only: ~
+      have_fun: ~
   error_messages:
     listings:
       departure_time: "Die Abfahrzeit muss zwischen der aktuellen Zeit und einem Jahr liegen."
@@ -588,6 +620,7 @@ de:
       welcome_to_new_kassi: "Willkommen in der neuen %{service_name}!"
     invitation_form:
       invite_your_friends: "Laden Sie Ihre Freunde zu  %{service_name} ein !"
+      invite_your_neighbors: ~
       email: "Email Adresse Ihres Freundes:"
       message: "Eine persönliche Nachricht:"
       send_invitation: "Einladung senden"
@@ -648,6 +681,7 @@ de:
       your_email_address: "Ihre Email Adresse (nicht erforderlich)"
       connect: ~
       invite_your_friends: ~
+      invite_your_neighbors: ~
       invite_your_friends_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~

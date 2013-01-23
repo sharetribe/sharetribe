@@ -9,6 +9,7 @@ ca:
         community_slogan: ~
         community_description: ~
         update_information: ~
+        invite_people: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -72,6 +73,7 @@ ca:
     fields_that_are_mandatory: "Els camps marcats amb (*) són obligatoris"
     or: o
     password: Contrasenya
+    service_name: ~
     share_types:
       borrow: prèstecs
       buy: comprar
@@ -458,6 +460,36 @@ ca:
       you_have_not_given_feedback_yet: |-
           Encara no has enviat un suggeriment a %{name} sobre l'esdeveniment '%{event}'.
           Recorda fer un suggeriment de com %{given_name} va actuar a l'esdeveniment.
+    welcome_email:
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+      subject: ~
+      welcome_some_tips: ~
+      p_s_did_you_know: ~
+      click_here_link_text: ~
+      update_your_profile: ~
+      update_your_profile_link_text: ~
+      add_something_you_could_offer: ~
+      add_offer_link_text: ~
+      is_there_something_you_need: ~
+      add_request_link_text: ~
+      invite_your_friends_invite_only: ~
+      invite_your_friends: ~
+      invite_link_text: ~
+      member_list_link_text: ~
+      get_mobile_app: ~
+      app_store_link_text: ~
+      mobile_web_link_text: ~
+      go_explore: ~
+      love_team: ~
+      congrats_for_creating_community: ~
+      you_have_just_created_community: ~
+      you_now_have_admin_rights: ~
+      edit_community_details_link_text: ~
+      add_content: ~
+      spread_the_word: ~
+      spread_the_word_invite_only: ~
+      have_fun: ~
   error_messages:
     listings:
       departure_time: "L'hora de sortida ha desituar-se entre la data actual i un any a contar des d'avui."
@@ -590,6 +622,7 @@ ca:
       welcome_to_new_kassi: "Benvingut al nou Kassi!"
     invitation_form:
       invite_your_friends: "Convida als teus amics a Kassi!"
+      invite_your_neighbors: ~
       email: "Adreça de correu electrònic del teu amic:"
       message: "Missatge personal:"
       send_invitation: "Enviar invitació"
@@ -650,6 +683,7 @@ ca:
       your_email_address: "Correu electrònic (no obligatori)"
       connect: ~
       invite_your_friends: ~
+      invite_your_neighbors: ~
       invite_your_friends_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~

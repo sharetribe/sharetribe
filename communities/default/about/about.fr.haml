@@ -1,24 +1,20 @@
-%h3 Qu'est-ce que #{service_name} ?
+%h3 Sharetribe  %
 
 %p 
-  #{service_name} est un service qui permet de prêter, emprunter, acheter et vendre des biens, proposer des services, organiser des covoiturages et échanger des ressources à l'intérieur d'une communauté locale plus facilement. Les utilisateurs de #{service_name} peuvent se proposer et se demander des objets, des services, des transports et des logements.
+  #{service_name} est une place de marché qui permet facilement de prêter, emprunter, acheter et vendre des biens, échanger des services, organiser des covoiturages ou partager des lieux entre les membres d'une communauté locale - université ou campus, voisinage, entreprise, association... Tout est possible. 
+  
+%p  
+  Sur #{service_name} vous proposez aux autres ce que vous pouvez partager avec eux et demandez de l'aide quand vous en avez besoin. Partager permet de faire des économies de temps, d'argent et de ressources naturelles. C'est aussi un très bon moyen pour faire la connaissance de nouvelles personnes.
+  
+%p  
+  Vous êtes actuellement connecté à la tribu #{@current_community.name}. Voulez-vous créer une tribu pour une autre de vos communauté ? C'est gratuit et cela ne prend qu'un instant ! Si vous voulez en savoir plus,  
+  = link_to("cliquez ici", "http://www.sharetribe.com/?ref=about") + "."
 
-%p   
-  L'objectif de #{service_name} est de créer un annuaire communautaire de biens et de services, et de diminuer ainsi le besoin d'acheter de nouveaux objets et des services extérieurs à la communauté. L'utilisation de #{service_name} permet donc de faire des économies de temps, d'argent et de ressources naturelles. C'est aussi un très bon moyen pour faire la connaissance de nouvelles personnes.
+%p
+  #{service_name} est open source et son code est accessible librement. Vous pouvez donc l'installer sur votre propre serveur ou participer au développement si vous le souhaitez. Vous pouvez voir le code
+  = link_to("ici", "https://github.com/sharetribe/sharetribe") + "." 
 
-%h3 A qui s'adresse #{service_name} ?
+%h3 Qui est derrière #{service_name} ?
 
-%p 
-  #{service_name} est un service en ligne pour des communautés locales telles que les campus, les communes, les entreprises et les associations. Vous êtes actuellement en train de visiter la communauté #{service_name} de #{@current_community.name} .
-
-%p 
-  Voudriez-vous utiliser #{service_name} au sein de votre école, commune, entreprise ou association ? Pour en savoir plus, allez sur
-  = link_to "http://www.sharetribe.com", "http://www.sharetribe.com/fr"
-  et communiquez-nous votre adresse email à l'aide du formulaire de contact pour obtenir plus d'informations sur le service.
-
-%h3 Les créateurs de #{service_name}
-
-%p 
-  #{service_name} a été développé comme une part de
-  = link_to("OtaSizzle research project", "http://sizl.org")
-  de l'université Aalto. Les chercheurs Antti Virolainen et Juho Makkonen sont responsables du développement du service. Si vous avez des questions ou des commentaires concernant le service, veuillez les adresser à info (aet) sharetribe.com ou directement à l'adresse personnelle d'Antti ou Juho (prénom.nom@sharetribe.com).
+%p
+  #{service_name} est développé et maintenu par Sharetribe Ltd, une entreprise fondée en 2011 par trois finlandais : Juho Makkonen, Antti Virolainen et Niklas Begley. Si vous avez des questions, vous pouvez nous joindre par email : info@sharetribe.com ou en utilisant prenom.nom@sharetribe.com.

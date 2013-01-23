@@ -9,6 +9,7 @@ vi:
         community_slogan: ~
         community_description: ~
         update_information: ~
+        invite_people: ~
       edit_look_and_feel:
         edit_community_look_and_feel: ~
         community_logo: ~
@@ -72,6 +73,7 @@ vi:
     fields_that_are_mandatory: "Các trường được đánh dấu ngôi sao (*) là bắt buộc"
     or: hoặc
     password: "Mật khẩu"
+    service_name: ~
     share_types:
       borrow: mượn
       buy: mua
@@ -420,9 +422,9 @@ vi:
       added_offer: "%{name_link} đã thêm hỗ trợ:"
       added_request: "%{name_link} đã thêm yêu cầu:"
       update_mail_title: ~
-      title_link_text: "%{service_name} %{community_name}"
+      title_link_text: "%{community_name}"
       intro_paragraph: ~
-      intro_paragraph_link_text: "%{service_name} %{community_name}"
+      intro_paragraph_link_text: "%{community_name}"
       could_you_share_something: "Bạn có thể chia sẻ thứ gì đó không?"
       do_you_need_help_with_anything: "Cần giúp gì?"
       post_a_new_listing: "Gửi danh sách mới!"
@@ -456,6 +458,36 @@ vi:
       feedback_is_public_and_is_shown: "Thông tin phản hồi là công khai và được hiển thị cho tất cả các người dùng khác. Dựa trên thông tin phản hồi những người dùng khác có thể nhận xét, nếu %{name} là một người đáng tin cậy và một người nào đó họ muốn liên lạc. Như vậy, điều đó là tốt để luôn luôn nhớ đưa ra thông tin phản hồi về các sự kiện, và cũng nhắc nhở nhóm khác đưa ra thông tin phản hồi cho bạn. Bạn cũng cần thông tin phản hồi tích cực để đạt được nhiều huy hiệu nhất."
       remember_to_give_feedback_to: "Nhắc nhở: nhớ đưa ra thông tin phản hồi cho %{name}"
       you_have_not_given_feedback_yet: "Bạn chưa đưa ra thông tin phản hồi cho %{name} về sự kiện '%{event}'. Hãy nhớ cung cấp thông tin phản hồi về việc làm thế nào %{given_name} được thực hiện trong sự kiện này."
+    welcome_email:
+      welcome_email_footer_text: ~
+      settings_link_text: ~
+      subject: ~
+      welcome_some_tips: ~
+      p_s_did_you_know: ~
+      click_here_link_text: ~
+      update_your_profile: ~
+      update_your_profile_link_text: ~
+      add_something_you_could_offer: ~
+      add_offer_link_text: ~
+      is_there_something_you_need: ~
+      add_request_link_text: ~
+      invite_your_friends_invite_only: ~
+      invite_your_friends: ~
+      invite_link_text: ~
+      member_list_link_text: ~
+      get_mobile_app: ~
+      app_store_link_text: ~
+      mobile_web_link_text: ~
+      go_explore: ~
+      love_team: ~
+      congrats_for_creating_community: ~
+      you_have_just_created_community: ~
+      you_now_have_admin_rights: ~
+      edit_community_details_link_text: ~
+      add_content: ~
+      spread_the_word: ~
+      spread_the_word_invite_only: ~
+      have_fun: ~
   error_messages:
     listings:
       departure_time: "Thời gian khởi hành phải nằm trong khoảng từ thời gian hiện tại và một năm sau."
@@ -588,6 +620,7 @@ vi:
       welcome_to_new_kassi: "Chào mừng %{service_name} mới!"
     invitation_form:
       invite_your_friends: "Mời bạn bè của bạn vào %{service_name}!"
+      invite_your_neighbors: ~
       email: "Địa chỉ email bạn của bạn:"
       message: "Thông điệp cá nhân:"
       send_invitation: "Gửi lời mời"
@@ -648,6 +681,7 @@ vi:
       your_email_address: "Địa chỉ email của bạn (không bắt buộc)"
       connect: ~
       invite_your_friends: ~
+      invite_your_neighbors: ~
       invite_your_friends_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
