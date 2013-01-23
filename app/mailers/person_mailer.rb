@@ -241,7 +241,7 @@ class PersonMailer < ActionMailer::Base
     @no_settings = true
     @invitation = invitation
     set_locale @invitation.inviter.locale
-    @url = host ? "http://#{host}/#{@invitation.inviter.locale}/signup?code=#{@invitation.code}" : "test_url"
+    @url = host ? sign_up_url(:locale => @invitation.inviter.locale, :code => @invitation.code ) : "test_url"
     subject = t("emails.invitation_to_kassi.you_have_been_invited_to_kassi", :inviter => @invitation.inviter.name, :community => @invitation.community.name)
     mail(:to => @invitation.email, :subject => subject, :reply_to => @invitation.inviter.email)
   end

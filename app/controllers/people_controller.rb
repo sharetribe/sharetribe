@@ -38,6 +38,7 @@ class PeopleController < Devise::RegistrationsController
   def new
     session[:selected_tab] = "members"
     redirect_to root if logged_in?
+    session[:invitation_code] = params[:code] if params[:code]
     @person = Person.new
     @container_class = params[:private_community] ? "container_12" : "container_24"
     @grid_class = params[:private_community] ? "grid_6 prefix_3 suffix_3" : "grid_10 prefix_7 suffix_7"
@@ -58,6 +59,7 @@ class PeopleController < Devise::RegistrationsController
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
         # (This actually should not happen since the code is checked with javascript)
+        session[:invitation_code] = nil # reset code from session if there was issues so that's not used again
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the controller", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
@@ -101,7 +103,6 @@ class PeopleController < Devise::RegistrationsController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
     
-    # Try to create a new person in ASI.
     begin
 
       params["person"].delete(:terms) #remove terms part which confuses Devise
@@ -119,6 +120,7 @@ class PeopleController < Devise::RegistrationsController
         membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
         membership.invitation = invitation if invitation.present?
         membership.save!
+        session[:invitation_code] = nil
       end
     rescue RestClient::RequestFailed => e
       logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"

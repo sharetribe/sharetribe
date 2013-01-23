@@ -23,6 +23,8 @@ class CommunityMembershipsController < ApplicationController
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
         # abort user creation if invitation is not usable. 
         # (This actually should not happen since the code is checked with javascript)
+        # This could happen if invitation code is coming from hidden field and is wrong/used for some reason
+        session[:invitation_code] = nil # reset code from session if there was issues so that's not used again
         ApplicationHelper.send_error_notification("Invitation code check did not prevent submiting form, but was detected in the CommunityMembershipsController", "Invitation code error")
         
         # TODO: if this ever happens, should change the message to something else than "unknown error"
@@ -63,6 +65,7 @@ class CommunityMembershipsController < ApplicationController
     # This is reached only if requirements are fulfilled
     if @community_membership.save
       session[:fb_join] = nil
+      session[:invitation_code] = nil
       # If invite was used, reduce usages left
       invitation.use_once! if invitation.present?
       

@@ -8,7 +8,7 @@
     %p
       = t('.you_are_not_a_member_of_this_community', :community => @current_community.name)
   %p
-    - if @current_community.join_with_invite_only?
+    - if @current_community.join_with_invite_only? && session[:invitation_code].blank?
       = t('.you_can_join_with_invite_only')
     - elsif @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       - if @current_community.allowed_emails.split(",").size > 1
@@ -27,9 +27,12 @@
       = link_to(t(".log_out"), logout_path) + "."
   = form_for @community_membership, :url => { :controller => "community_memberships", :action => "create" } do |form|
     - if @current_community.join_with_invite_only?
-      = label_tag :invitation_code, t('people.new.invitation_code'), :class => "inline"
-      = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info"
-      = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
+      - if session[:invitation_code]
+        = hidden_field_tag "invitation_code", session[:invitation_code]
+      - else
+        = label_tag :invitation_code, t('people.new.invitation_code'), :class => "inline"
+        = link_to t('common.what_is_this'), "#", :tabindex => "-1", :id => "help_invitation_code_link", :class => "label-info"
+        = text_field_tag "invitation_code", nil, :class => :text_field, :maxlength => "20", :value => (params[:code] || "")
     - if @current_community.allowed_emails? && ! @current_user.has_valid_email_for_community?(@current_community)
       = form.label :email, t('people.new.email'), :class => "before_description"
       = form.text_field :email, :class => :text_field, :maxlenght => "255"

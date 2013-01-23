@@ -56,6 +56,10 @@ When /^I move to community "([^"]*)"$/ do |community|
   Capybara.app_host = "http://#{community}.lvh.me:9887"
 end
 
+When /^I arrive to sign up page with the link in the invitation email with code "(.*?)"$/ do |code|
+  visit "/en/signup?code=#{code}"
+end
+
 Given /^there is an existing community with "([^"]*)" in allowed emails and with slogan "([^"]*)"$/ do |email_ending, slogan|
   @existing_community = FactoryGirl.create(:community, :allowed_emails => email_ending, :slogan => slogan, :category => "company")
 end
@@ -71,3 +75,5 @@ end
 Then /^community "(.*?)" should not require invite to join$/ do |community|
    Community.find_by_domain(community).join_with_invite_only.should_not be_true
 end
+
+
