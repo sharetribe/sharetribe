@@ -66,13 +66,14 @@
             %a{:href => edit_details_admin_community_path(@current_community), :title => t("layouts.logged_in.admin"), :class => (session[:selected_tab].eql?("admin") ? "selected" : "")}
               %i.ss-wrench.icon-with-text
               .text-with-icon.hidden= t("layouts.logged_in.admin")
-          .select-language.toggle{data: {toggle: '.language-menu'}}
-            %i.icon-dropdown.ss-dropdown
-            .current-language
-              = get_full_locale_name(I18n.locale)
-
-        .language-menu.toggle-menu.hidden
-          = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
+          - if available_locales.size > 1
+            .select-language.toggle{data: {toggle: '.language-menu'}}
+              %i.icon-dropdown.ss-dropdown
+              .current-language
+                = get_full_locale_name(I18n.locale)
+        - if available_locales.size > 1
+          .language-menu.toggle-menu.hidden
+            = render :partial => "layouts/locale_select", :collection => available_locales, :as => :loc_array
 
   %article.page-content
     .wrapper
