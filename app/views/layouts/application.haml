@@ -18,15 +18,21 @@
       .tribe-intro.hidden
         .intro-wrapper
           %h1
-            - if @current_community.slogan && !@current_community.slogan.blank?
-              = @current_community.slogan
+            - if @community_customization
+              = @community_customization.slogan
             - else
-              = t("common.default_community_slogan")
+              - if @current_community.slogan && !@current_community.slogan.blank?
+                = @current_community.slogan
+              - else
+                = t("common.default_community_slogan")
           %p
-            - if @current_community.description && !@current_community.description.blank?
-              = truncate(@current_community.description, :length => 145, :omission => "...")
+            - if @community_customization
+              = @community_customization.description
             - else
-              = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
+              - if @current_community.description && !@current_community.description.blank?
+                = truncate(@current_community.description, :length => 145, :omission => "...")
+              - else
+                = truncate(t("common.default_community_description"), :length => 130, :omission => "...")
             = link_to t(".read_more"), about_infos_path
       - if @current_user
         - if @current_community.allows_user_to_send_invitations?(@current_user)

@@ -10,6 +10,7 @@ class Community < ActiveRecord::Base
   has_many :polls, :dependent => :destroy
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
+  has_many :community_customizations, :dependent => :destroy
   
   has_and_belongs_to_many :listings
   
