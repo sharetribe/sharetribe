@@ -15,7 +15,7 @@ Feature: User creates a new rideshare
     And I select "2013" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save request"
-    Then I should see "Rideshare request: Tampere - Turku" within ".item-description section"
+    Then I should see "Rideshare request: Tampere - Turku" within ".item-description"
     And I should see "Request created successfully" within ".flash-notifications"
 
   @javascript
@@ -65,7 +65,7 @@ Feature: User creates a new rideshare
     And I select "2013" from "listing_valid_until_1i"
     And wait for 2 seconds
     And I press "Save offer"
-    Then I should see "Rideshare offer: Tampere - Turku" within "h1"
+    Then I should see "Rideshare offer: Tampere - Turku" within ".item-description"
     And I should see "Offer created successfully" within ".flash-notifications"
 
   @javascript

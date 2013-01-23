@@ -14,6 +14,7 @@ Feature: User changes email address
     And I follow "Account" within ".left-navi"
     And I follow "account_email_link"
     And I fill in "person_email" with random email
+    And wait for 1 seconds
     And I press "email_submit"
     Then I should see "Information updated" within ".flash-notifications"
     And I should see the email I gave within "#account_email_content"

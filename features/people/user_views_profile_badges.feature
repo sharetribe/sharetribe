@@ -13,6 +13,7 @@ Feature: User views profile badges
     When I follow "Profile"
     Then I should not see "Badges"
   
+  @fix_for_new_design
   @javascript
   Scenario: User has rookie badge
     Given there are following users:
