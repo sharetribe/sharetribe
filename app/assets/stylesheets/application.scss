@@ -1131,8 +1131,8 @@ figure.tribe-cover {
   }
   
   a {
-    color: lighten($link, 20%);
-    &:hover { color: lighten($link, 30%); }
+    color: lighten($link2, 20%);
+    &:hover { color: lighten($link2, 30%); }
     &:after { content: "→"; }
   }
   
@@ -1185,8 +1185,8 @@ figure.tribe-cover {
   a.regular-link {
     display: inline;
     padding-top: lines(0.5); 
-    color: lighten($link, 20%);
-    &:hover { color: lighten($link, 30%); }
+    color: lighten($link2, 20%);
+    &:hover { color: lighten($link2, 30%); }
   }
   .intro-button {
     @include big-button;

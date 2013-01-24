@@ -459,4 +459,28 @@ module ApplicationHelper
     APP_CONFIG.fb_connect_id && ! @facebook_merge && @current_community && ! @current_community.label.eql?("okl")
   end
   
+  def community_slogan
+    if @community_customization
+      @community_customization.slogan
+    else
+      if @current_community.slogan && !@current_community.slogan.blank?
+        @current_community.slogan
+      else
+        t("common.default_community_slogan")
+      end
+    end
+  end
+  
+  def community_description
+    if @community_customization
+      @community_customization.description
+    else
+      if @current_community.description && !@current_community.description.blank?
+        truncate(@current_community.description, :length => 145, :omission => "...")
+      else
+        truncate(t("common.default_community_description"), :length => 130, :omission => "...")
+      end
+    end
+  end
+  
 end
