@@ -316,7 +316,7 @@ ul {
 // .huge-badge is for three-number figures
 .badge {
   @include small-type;
-  background: $link;
+  background: $link2;
   text-align: center;
   width: em(18, 13);
   line-height: em( (18 - 1 - 5), 13 );

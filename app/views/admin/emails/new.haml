@@ -5,7 +5,7 @@
 
 .new-member-email-form.left-navi-section
   %h2= t(".send_email_to_members_title")
-  = form_for :email, :url => admin_community_emails_path(:community_id => @current_community.id) do |form|
+  = form_for :email, :url => admin_community_emails_path(:community_id => @current_community.id), :html => { :id => "new_member_email" } do |form|
     = form.label :subject, t(".email_subject")
     = form.text_field :subject
     = form.label :content, t(".email_content")

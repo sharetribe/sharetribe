@@ -19,6 +19,18 @@ fi:
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
+    emails:
+      new:
+        send_email_to_members: "Lähetä sähköpostia jäsenille"
+        send_email_to_members_title: "Lähetä sähköpostiviesti kaikille tämän yhteisön jäsenille"
+        email_subject: "Viestin otsikko"
+        email_content: "Viestin sisältö"
+        email_content_placeholder: "Mitä haluat kertoa jäsenille?"
+        email_language: "Viestin saajan kieli"
+        any_language: "Kaikki kielet"
+        send_email: "Lähetä viesti"
+        message_will_be_sent_only_to_people_with_this_language: "Tämä viesti lähetetään vain niille jäsenille, jotka käyttävät %{service_name_partitive} valitsemallasi kielellä."
+        email_sent: "Viesti lähetetty."
     news_items:
       index:
         news_items: "Uusimmat uutiset"

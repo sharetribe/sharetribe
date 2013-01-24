@@ -366,7 +366,7 @@ module ApplicationHelper
         :name => "tribe_look_and_feel"
       },
       {
-        :text => t("admin.communities.new.send_email_to_members"),
+        :text => t("admin.emails.new.send_email_to_members"),
         :icon_class => "ss-mail", 
         :path => new_admin_community_email_path(:community_id => @current_community.id),
         :name => "email_members"

@@ -21,7 +21,7 @@ en:
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
     emails:
       new:
-        send_email_to_members: "Email members"
+        send_email_to_members: "Send an email to members"
         send_email_to_members_title: "Send an email to all the members of this community"
         email_subject: "Email subject"
         email_content: "Email content"
@@ -30,6 +30,7 @@ en:
         any_language: "Any language"
         send_email: "Send the email"
         message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
+        email_sent: "Email sent."
     news_items:
       index:
         news_items: "Newest articles"
@@ -1400,6 +1401,7 @@ en:
       add_avatar_submit: "Save picture"
       update_profile_picture: "Update profile picture"
     notifications:
+      email_from_admins: "I'm willing to receive occasional updates from the administrator(s) of this community"
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: Newsletters
       community_updates: "Community updates"

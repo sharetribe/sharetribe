@@ -136,8 +136,8 @@ function initialize_email_members_form() {
   form_id = "#new_member_email"
   $(form_id).validate({
     rules: {
-      "email[title]": {required: false, email: true},
-			"email[content]": {required: true, minlength: 1}
+      "email[subject]": {required: true, minlength: 2},
+			"email[content]": {required: true, minlength: 2}
 		}
 	});
 }
