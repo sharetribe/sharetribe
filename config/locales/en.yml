@@ -19,13 +19,17 @@ en:
         cover_photo_instructions_text: "Cover photo file will be resized to 1600x195 pixel size and taller images will be cut in the middle."
         custom_color1_instructions_text: "You can change the main color of the user interface of this community by entering a hex color value. <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> can help you choose the color and copy the code here."
         invalid_color_code: "Color code should contain 6 numbers or letters A-F, for example D96E21"
-    badges:
-      index:
-        add_new_badge: "Add new badge"
-        existing_badges: "Existing badges"
-        image: "Badge picture"
-        name: "Badge name"
-        save_badge: "Save badge"
+    emails:
+      new:
+        send_email_to_members: "Email members"
+        send_email_to_members_title: "Send an email to all the members of this community"
+        email_subject: "Email subject"
+        email_content: "Email content"
+        email_content_placeholder: "What do you want to say to the members?"
+        email_language: "Language of the email receivers"
+        any_language: "Any language"
+        send_email: "Send the email"
+        message_will_be_sent_only_to_people_with_this_language: "Note: the email will be sent only to the members who are using %{service_name} in the language you choose."
     news_items:
       index:
         news_items: "Newest articles"

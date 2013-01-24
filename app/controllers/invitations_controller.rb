@@ -9,7 +9,7 @@ class InvitationsController < ApplicationController
   before_filter :users_can_invite_new_users
   
   def new
-    session[:selected_tab] = "members"
+    @selected_tribe_navi_tab = "members"
     @invitation = Invitation.new
   end
   

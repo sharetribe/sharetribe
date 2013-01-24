@@ -19,13 +19,6 @@ fi:
         cover_photo_instructions_text: "Kansikuva muutetaan 1600x195 pikselin kokoon ja korkeammat kuvat leikataan tarvittaessa keskeltä."
         custom_color1_instructions_text: "Voit vaihtaa käyttöliittymän päävärin. Värin valintaan tarvitset värin hex-koodin. Sen selville saamisessa auttaa esimerkiksi <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a>, josta voit kopioida sopivan värin koodin."
         invalid_color_code: "Värikoodin tulisi sisältää 6 merkkiä, ja vain numeroita tai kirjaimia A-F, esimerkiksi: D96E21"
-    badges:
-      index:
-        add_new_badge: "Lisää uusi ansiomerkki"
-        existing_badges: "Tallennetut ansiomerkit"
-        image: "Merkin kuva"
-        name: "Merkin nimi"
-        save_badge: "Tallenna ansiomerkki"
     news_items:
       index:
         news_items: "Uusimmat uutiset"

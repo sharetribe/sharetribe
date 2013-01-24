@@ -406,6 +406,22 @@ class PersonMailer < ActionMailer::Base
     end
   end
   
+  # A message from the community admin to all the community members
+  def community_member_emails(sender, community, email_subject, email_content)
+    community.members.each do |recipient|
+      community_member_email(sender, recipient, community, email_subject, email_content)
+    end
+  end
+  
+  # A message from the community admin to a single community member
+  def community_member_email(sender, recipient, community, email_subject, email_content)
+    @recipient = recipient
+    set_locale @recipient.locale
+    mail(:to => @recipient.email, :subject => subject) do |format|
+      format.html { render :layout => false }
+    end
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)

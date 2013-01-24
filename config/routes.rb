@@ -106,6 +106,7 @@ Kassi::Application.routes.draw do
           get :edit_details
           get :edit_look_and_feel
         end
+        resources :emails
       end
       resources :polls do
         collection do
