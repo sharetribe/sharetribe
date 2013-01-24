@@ -36,6 +36,10 @@ Given /^my phone number in my profile is "([^"]*)"$/ do |phone_number|
   @test_person.set_phone_number(phone_number, @session.cookie)
 end
 
+Given /^user "(.*?)" has additional email "(.*?)"$/ do |username, email|
+  Email.create(:person => Person.find_by_username(username), :address => email, :confirmed_at => Time.now)
+end
+
 Given /^there will be and error in my Facebook login$/ do 
   OmniAuth.config.mock_auth[:facebook] = :access_denied
 end
@@ -57,6 +61,11 @@ Given /^there are following users:$/ do |person_table|
     end
     @people[hash['person']] = @hash_person
   end
+end
+
+When /^I log out$/ do
+  find(".user-menu-toggle").click
+  click_link "Logout"
 end
 
 # Filling in with random strings
@@ -136,5 +145,21 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
   user.send(attribute).send(verb) == value
-  
 end
+
+Then /^I should be logged in$/ do
+  if page.respond_to? :should
+    page.should have_no_css(".login-menu-toggle")
+  else
+    assert page.has_no_css?(".login-menu-toggle")
+  end
+end
+
+Then /^I should not be logged in$/ do
+  if page.respond_to? :should
+    page.should have_css(".login-menu-toggle")
+  else
+    assert page.has_css?(".login-menu-toggle")
+  end
+end
+

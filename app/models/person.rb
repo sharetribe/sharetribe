@@ -145,7 +145,15 @@ class Person < ActiveRecord::Base
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
-      where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+
+      matched = where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+      
+      if matched.nil? # If not found search still by additional email
+        e = Email.find_by_address(login.downcase)
+        matched = e.person if e
+      end
+      
+      return matched
     else
       where(conditions).first
     end
