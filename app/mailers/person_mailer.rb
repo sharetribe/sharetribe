@@ -410,6 +410,25 @@ class PersonMailer < ActionMailer::Base
     end
   end
   
+  # A message from the community admin to all the community members
+  def self.community_member_emails(sender, community, email_subject, email_content, email_locale)
+    community.members.each do |recipient|
+      if recipient.preferences["email_from_admins"] && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
+        community_member_email(sender, recipient, email_subject, email_content).deliver
+      end
+    end
+  end
+  
+  # A message from the community admin to a single community member
+  def community_member_email(sender, recipient, email_subject, email_content)
+    @recipient = recipient
+    @email_content = email_content
+    set_locale recipient.locale
+    mail(:to => @recipient.email, :subject => email_subject, :from => sender.email) do |format|
+      format.html { render :layout => false }
+    end
+  end
+  
   private
   
   def set_up_recipient(recipient, host=nil)

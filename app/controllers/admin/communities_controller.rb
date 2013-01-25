@@ -7,13 +7,13 @@ class Admin::CommunitiesController < ApplicationController
   skip_filter :dashboard_only
   
   def edit_details
-    session[:selected_tab] = "admin"
+    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_details"
     @community = @current_community
   end
   
   def edit_look_and_feel
-    session[:selected_tab] = "admin"
+    @selected_tribe_navi_tab = "admin"
     @selected_left_navi_link = "tribe_look_and_feel"
     @community = @current_community
   end

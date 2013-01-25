@@ -23,20 +23,20 @@ class PeopleController < Devise::RegistrationsController
   helper_method :show_closed?
   
   def index
-    session[:selected_tab] = "members"
+    @selected_tribe_navi_tab = "members"
     params[:page] = 1 unless request.xhr?
     @people = @current_community.members.order("created_at DESC").paginate(:per_page => 5, :page => params[:page])
     request.xhr? ? (render :partial => "additional_members") : (render :action => :index)
   end
   
   def show
-    session[:selected_tab] = "members"
+    @selected_tribe_navi_tab = "members"
     @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
     @listings = persons_listings(@person)
   end
 
   def new
-    session[:selected_tab] = "members"
+    @selected_tribe_navi_tab = "members"
     redirect_to root if logged_in?
     session[:invitation_code] = params[:code] if params[:code]
     @person = Person.new

@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
       redirect_to :controller => "Api::ListingsController", :action => :index
       return
     end
-    session[:selected_tab] = "home"
+    @selected_tribe_navi_tab = "home"
     if request.xhr? && params[:person_id] # AJAX request to load on person's listings for profile view
       # Returns the listings for one person formatted for profile page view
       per_page = params[:per_page] || 200 # the point is to show all here by default
@@ -83,14 +83,14 @@ class ListingsController < ApplicationController
   end
 
   def show
-    session[:selected_tab] = "home"
+    @selected_tribe_navi_tab = "home"
     unless current_user?(@listing.author)
       @listing.increment!(:times_viewed)
     end
   end
   
   def new
-    session[:selected_tab] = "new_listing"
+    @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
     @listing.listing_type = params[:listing_type]
     @listing.category = params[:category]
@@ -133,7 +133,7 @@ class ListingsController < ApplicationController
   end
   
   def edit
-    session[:selected_tab] = "home"
+    @selected_tribe_navi_tab = "home"
 	  if !@listing.origin_loc
 	      @listing.build_origin_loc(:location_type => "origin_loc")
 	  end

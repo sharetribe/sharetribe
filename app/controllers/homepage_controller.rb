@@ -5,7 +5,7 @@ class HomepageController < ApplicationController
   skip_filter :dashboard_only
 
   def index
-    session[:selected_tab] = "home"
+    @selected_tribe_navi_tab = "home"
     listings_per_page = 10
     
     # If requesting a specific page on non-ajax request, we'll ignore that

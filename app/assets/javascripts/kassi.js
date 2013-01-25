@@ -132,6 +132,16 @@ function initialize_user_feedback_form() {
 	});
 }
 
+function initialize_email_members_form() {
+  form_id = "#new_member_email"
+  $(form_id).validate({
+    rules: {
+      "email[subject]": {required: true, minlength: 2},
+			"email[content]": {required: true, minlength: 2}
+		}
+	});
+}
+
 function initialize_feedback_tab() {
   $('.feedback_div').tabSlideOut({
   	tabHandle: '.handle',                     //class of the element that will become your tab
