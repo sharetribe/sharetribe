@@ -144,7 +144,8 @@ describe PersonMailer do
           :title => "hammer", 
           :created_at => 2.days.ago, 
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", 
-          :share_type => "sell").communities = [@c1]
+          :share_type => "sell")
+      @l2.communities << @c1
       @l3 = FactoryGirl.create(:listing, 
           :listing_type => "offer", 
           :title => "sledgehammer", 
@@ -166,7 +167,7 @@ describe PersonMailer do
     end
     
     it "should have correct links" do
-      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/\d+\-hammer\?ref=weeklymail\&amp;auth\=#{@p1.auth_tokens.last.token}.*/)
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/#{@l2.id}\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
     end
     
     it "should pick only new listings" do
