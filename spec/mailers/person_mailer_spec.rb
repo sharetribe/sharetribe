@@ -166,7 +166,7 @@ describe PersonMailer do
     end
     
     it "should have correct links" do
-      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/\d+\-hammer\?auth\=#{@p1.auth_tokens.last.token}\&amp;ref=weeklymail.*/)
+      @email.should have_body_text(/.*<a href=\"http\:\/\/#{@c1.domain}\.#{APP_CONFIG.domain}\/#{@p1.locale}\/listings\/\d+\-hammer\?ref=weeklymail\&amp;auth\=#{@p1.auth_tokens.last.token}.*/)
     end
     
     it "should pick only new listings" do
