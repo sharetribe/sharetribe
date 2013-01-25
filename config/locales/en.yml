@@ -379,6 +379,8 @@ en:
       edit_your_email_settings_here: "Edit your email settings here"
       message_not_displaying_correctly: "Is this email not displaying correctly?"
       view_it_in_your_browser: "View it in your browser"
+      or: or
+      unsubscribe_from_these_emails: "unsubscribe from this type of emails"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
       has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
@@ -783,7 +785,7 @@ en:
       poll_updated: "Poll updated"
       poll_deleted: "Poll removed"
       read_more: "Read more!"
-      registration_considered_spam: "Registration did not work, please send feedback on the left and mention \"email2 error\"."
+      registration_considered_spam: "Registration did not work, please send feedback from header menu and mention \"email2 error\"."
       reply_cannot_be_empty: "You can't send an empty message"
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"

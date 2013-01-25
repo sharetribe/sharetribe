@@ -61,6 +61,9 @@ class PersonMailer < ActionMailer::Base
     @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
     @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s, :locale => @recipient.locale)}" : "test_url"
     @conversation = conversation
+    
+    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    
     mail(:to => @recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
@@ -413,17 +416,17 @@ class PersonMailer < ActionMailer::Base
   # A message from the community admin to all the community members
   def self.community_member_emails(sender, community, email_subject, email_content, email_locale)
     community.members.each do |recipient|
-      if recipient.preferences["email_from_admins"] && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
-        community_member_email(sender, recipient, email_subject, email_content).deliver
+      if recipient.should_receive?("email_from_admins") && (email_locale.eql?("any") || recipient.locale.eql?(email_locale))
+        community_member_email(sender, recipient, email_subject, email_content, community).deliver
       end
     end
   end
   
   # A message from the community admin to a single community member
-  def community_member_email(sender, recipient, email_subject, email_content)
-    @recipient = recipient
+  def community_member_email(sender, recipient, email_subject, email_content, community)
+    @recipient = set_up_recipient(recipient, community.full_domain)
     @email_content = email_content
-    set_locale recipient.locale
+    @email_type = "email_from_admins"
     mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>") do |format|
       format.html { render :layout => false }
     end
@@ -431,8 +434,14 @@ class PersonMailer < ActionMailer::Base
   
   private
   
-  def set_up_recipient(recipient, host=nil)
-    @settings_url = host ? "http://#{host}#{notifications_person_settings_path(:person_id => recipient.id, :locale => recipient.locale)}" : "test_url"
+  def set_up_recipient(recipient, host=nil, ref="email")
+    @url_params = {}
+    @url_params[:host] = (@current_community ? "#{@current_community.full_domain}" : host)
+    @url_params[:auth] = recipient.new_email_auth_token
+    @url_params[:locale] = recipient.locale
+    @url_params[:ref] = ref
+        
+    @settings_url = @url_params[:host] ? notifications_person_settings_url(@url_params.merge(:person_id => recipient.id, :locale => recipient.locale)) : "test_url"
     set_locale recipient.locale
     recipient
   end

@@ -94,6 +94,10 @@ class Person < ActiveRecord::Base
     # "email_when_new_friend_request",
     # "email_when_new_feedback_on_transaction",
     # "email_when_new_listing_from_friend"
+  ]
+  EMAIL_NEWSLETTER_TYPES = [
+    "email_newsletters",
+    "email_from_admins"
   ] 
   
   PERSONAL_EMAIL_ENDINGS = ["gmail.com", "hotmail.com", "yahoo.com"]
@@ -285,7 +289,7 @@ class Person < ActiveRecord::Base
   def set_default_preferences
     self.preferences = {}
     EMAIL_NOTIFICATION_TYPES.each { |t| self.preferences[t] = true }
-    self.preferences["email_newsletters"] = true
+    EMAIL_NEWSLETTER_TYPES.each { |t| self.preferences[t] = true }
     save
   end
   

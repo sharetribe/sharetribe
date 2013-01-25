@@ -379,6 +379,8 @@ fi:
       edit_your_email_settings_here: "Muokkaa sähköpostiasetuksiasi tästä"
       message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
       view_it_in_your_browser: "Katso verkkoselaimellasi"
+      or: tai
+      unsubscribe_from_these_emails: "peru tämäntyyppisten viestien vastaanotto kokonaan"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -783,7 +785,7 @@ fi:
       poll_updated: "Kysely päivitetty"
       poll_deleted: "Kysely poistettu"
       read_more: "Lue lisää!"
-      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon vasemman laidan palautenapilla ja mainitse \"email2 virhe\"."
+      registration_considered_spam: "Rekisteröityminen ei onnistunut. Ota yhteys ylläpitoon ylälaidan palautenapilla ja mainitse \"email2 virhe\"."
       reply_cannot_be_empty: "Et voi lähettää tyhjää viestiä"
       reply_sent: "Vastaus lähetetty"
       request_accepted: "Pyyntö hyväksytty"
@@ -1177,8 +1179,8 @@ fi:
       create_new_account: "Luo tunnus"
       email: Sähköpostiosoite
       email_is_in_use: "Antamasi sähköpostiosoite on jo käytössä."
-      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
-      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta vasemman laidan linkistä."
+      email_is_in_use_or_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön (tai se on jo käytössä). Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön (kts. ylälaidan ohjeteksti). Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
+      email_not_allowed: "Tämä osoite ei kelpaa tähän yhteisöön. Käytä osoitetta, joka todistaa sinun kuuluvan tähän yhteisöön. Jos et silti pääse sisään, lähetä palautetta ylälaidan valikon kautta."
       email_restriction_instructions:
         one: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset '%{allowed_emails}'-sähköpostiosoitteen."
         other: "Tämä on %{community_name}-yhteisölle rajattu %{service_name}. Liittyäksesi tarvitset sähköpostiosoitteen, jonka pääte on jokin seuraavista: %{allowed_emails}"
@@ -1373,8 +1375,8 @@ fi:
     confirmation_pending:
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
       check_your_email: "Tarkista sähköpostisi"
-      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
-      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä <a href=\"#\" id=\"give_feedback_link\">palautetta</a> vasemmalta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_conrimation_instructions: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tämän tarkistus tekee jakamisympäristöstä turvallisemman, sillä voit luottaa siihen, että tässä %{service_name}-yhteisössä (<b>%{community_name}</b>) on vain tänne kuuluvia jäseniä.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
+      account_confirmation_instructions_any_email: "Saat pian varmistussähköpostin, jossa olevaa linkkiä klikkaamalla pääset sisään tähän %{service_name}-yhteisöön.</p><p>Tarkistuksen tarkoituksena on tehdä yhteisöstä mahdollisimman luotettava ympäristö.</p><p>Jos %{service_name_genetive} käytössä tulee ongelmia, lähetä palautetta ylälaidan valikon kautta. Myös kehitysideat ovat hyvin tervetulleita!"
       get_started: "Alkuun pääseminen"
       getting_started_instructions: "Kun olet varmistanut tunnuksesi, on hyvä lisätä kuva ja haluamasi tiedot <a href=\"%{profile_url}\">profiiliisi</a>, tai voit myös jatkaa suoraan lisäämällä %{service_name_illative} <a href=\"/fi/listings/new/offer\">tarjouksen</a> jostain, mitä voisit mahdollisesti lainata, vuokrata, myydä tai tehdä yhteisön jäsenille. Tai jos tarvitset jotain tiettyä tavaraa tai apua, jätä siitä <a href=\"/fi/listings/new/request\">pyyntö</a>."
       resend_confirmation_instructions: "Lähetä uusi varmistusähköposti"
@@ -1420,7 +1422,7 @@ fi:
       settings_link: asetuksesi
       homepage_link: etusivulle
       unsubscribe_unsuccesful: "Sähköpostin poiskytkentä epäonnistui"
-      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta vasemmalta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
+      unsuccessful_unsubscribe_info_text: "Linkki, jota klikkasit saattaa olla vanhentunut, tai kyse voi olla ohjelmistovirheestä. Laita palautetta ylälaidan valikosta, niin voimme poistaa sinut postilistalta, tai kirjaudu sisään, niin voit itse vaihtaa sähköpostiasetuksesi."
     profile:
       about_you: "Tietoa sinusta"
       city: Kaupunki
