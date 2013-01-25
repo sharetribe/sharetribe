@@ -424,7 +424,7 @@ class PersonMailer < ActionMailer::Base
     @recipient = recipient
     @email_content = email_content
     set_locale recipient.locale
-    mail(:to => @recipient.email, :subject => email_subject, :from => sender.email) do |format|
+    mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>") do |format|
       format.html { render :layout => false }
     end
   end
