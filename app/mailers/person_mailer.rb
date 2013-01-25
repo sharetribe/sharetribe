@@ -190,6 +190,7 @@ class PersonMailer < ActionMailer::Base
     @url_params[:locale] = @recipient.locale
     @url_params[:ref] = "weeklymail"
     @url_params[:auth] = @auth_token
+    @url_params.freeze # to avoid accidental modifications later
     
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
@@ -397,6 +398,8 @@ class PersonMailer < ActionMailer::Base
     @url_params[:auth] = @recipient.new_email_auth_token
     @url_params[:locale] = @recipient.locale
     @url_params[:ref] = "welcome_email"
+    @url_params.freeze # to avoid accidental modifications later
+        
     if @recipient.has_admin_rights_in?(@current_community)
       subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
     else
