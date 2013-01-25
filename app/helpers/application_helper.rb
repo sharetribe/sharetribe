@@ -63,6 +63,11 @@ module ApplicationHelper
   end
   
   # Changes line breaks to <br>-tags and transforms URLs to links
+  def text_with_line_breaks_html_safe(&block)
+    haml_concat add_p_tags(capture_haml(&block)).html_safe
+  end
+  
+  # Changes line breaks to <br>-tags and transforms URLs to links
   def text_with_line_breaks(&block)
     haml_concat add_links_and_br_tags(capture_haml(&block)).html_safe
   end
@@ -297,6 +302,10 @@ module ApplicationHelper
   
   def community_email_restricted?
     ["university", "company"].include? session[:community_category]
+  end
+  
+  def add_p_tags(text)
+    text.gsub(/\n/, "</p><p>")
   end
   
   # general method for making urls as links and line breaks as <br /> tags
