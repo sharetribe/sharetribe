@@ -185,11 +185,11 @@ class PersonMailer < ActionMailer::Base
         :count => time_difference_in_days(@recipient.community_updates_last_sent_at || 
         DEFAULT_TIME_FOR_COMMUNITY_UPDATES.ago))
     @auth_token = @recipient.new_email_auth_token
-    
-    default_url_options[:host] = "#{@community.full_domain}"
-    default_url_options[:locale] = @recipient.locale
-    default_url_options[:ref] = "weeklymail"
-    default_url_options[:auth] = @auth_token
+    @url_params = {}
+    @url_params[:host] = "#{@community.full_domain}"
+    @url_params[:locale] = @recipient.locale
+    @url_params[:ref] = "weeklymail"
+    @url_params[:auth] = @auth_token
     
     @requests = @community.listings.currently_open.requests.visible_to(@recipient, @community).limit(10)
     @offers = @community.listings.currently_open.offers.visible_to(@recipient, @community).limit(10)
@@ -392,10 +392,11 @@ class PersonMailer < ActionMailer::Base
     @recipient = person
     set_locale @recipient.locale
     @current_community = community
-    default_url_options[:host] = "#{@current_community.full_domain}"
-    default_url_options[:auth] = @recipient.new_email_auth_token
-    default_url_options[:locale] = @recipient.locale
-    default_url_options[:ref] = "welcome_email"
+    @url_params = {}
+    @url_params[:host] = "#{@current_community.full_domain}"
+    @url_params[:auth] = @recipient.new_email_auth_token
+    @url_params[:locale] = @recipient.locale
+    @url_params[:ref] = "welcome_email"
     if @recipient.has_admin_rights_in?(@current_community)
       subject = t("emails.welcome_email.congrats_for_creating_community", :community => @current_community.full_name)
     else
