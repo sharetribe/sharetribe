@@ -27,7 +27,7 @@
           .join-action-buttons
             - if @current_user
               - link_label = @current_community.category.eql?("neighborhood") ? t(".invite_your_neighbors") : t(".invite_your_friends")
-              = link_to link_label, new_person_invitation_path(:person_id => @current_user.id), :class => "intro-button"
+              = link_to link_label, new_invitation_path(), :class => "intro-button"
               %small
                 = t(".invite_your_friends_description")
       - else

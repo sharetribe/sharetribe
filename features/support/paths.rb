@@ -44,8 +44,8 @@ module NavigationHelpers
       news_items_path
     when /new tribe in English/
       new_tribe_path(:community_locale => "en")
-    when /invitation page of "(.*)"$/i
-      new_person_invitation_path(:person_id => @people[$1].id)
+    when /invitation page"$/i
+      new_invitation_path
     # the following are examples using path_to_pickle
 
     when /^#{capture_model}(?:'s)? page$/                           # eg. the forum's page

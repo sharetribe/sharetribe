@@ -87,7 +87,7 @@ Kassi::Application.routes.draw do
             get :unsubscribe
           end
         end
-        resources :invitations
+        resources :invitations # This could be removed, but now saved for a while to keep links in old emails working
         resources :badges
         resources :testimonials
         resources :poll_answers
@@ -119,6 +119,7 @@ Kassi::Application.routes.draw do
         end
       end
     end
+    resources :invitations
     resources :user_feedbacks, :controller => :feedbacks
     resources :homepage do
       collection do

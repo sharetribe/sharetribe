@@ -374,7 +374,7 @@ module ApplicationHelper
       {
         :text => t("admin.communities.edit_details.invite_people"),
         :icon_class => "ss-adduser", 
-        :path => new_person_invitation_path(:person_id => @current_user.id),
+        :path => new_invitation_path,
         :name => "invite_people"
       } 
     ]

@@ -8,7 +8,7 @@
         = t(".you_are_the_only_member", :community_name => @current_community.full_name)
       - if @current_community.allows_user_to_send_invitations?(@current_user)
         = t(".wanna_see_more_folks")
-        = link_to t(".invite_people_you_know"), new_person_invitation_path(:person_id => @current_user.id)
+        = link_to t(".invite_people_you_know"), new_invitation_path
   - else
     %p
       = t(".there_are_x_members", :count => @people.total_entries, :community_name => @current_community.full_name)

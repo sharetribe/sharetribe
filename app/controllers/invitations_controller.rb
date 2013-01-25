@@ -18,7 +18,7 @@ class InvitationsController < ApplicationController
     sending_problems = nil
     
     invitation_emails.each do |email|
-      invitation = Invitation.new(params[:invitation].merge!({:email => email.strip}))
+      invitation = Invitation.new(params[:invitation].merge!({:email => email.strip, :inviter => @current_user}))
       if invitation.save
         Delayed::Job.enqueue(InvitationCreatedJob.new(invitation.id, request.host))
       else
@@ -32,7 +32,7 @@ class InvitationsController < ApplicationController
       flash[:notice] = t("layouts.notifications.invitation_sent")
     end
     
-    redirect_to new_person_invitation_path
+    redirect_to new_invitation_path
   end
   
   private
