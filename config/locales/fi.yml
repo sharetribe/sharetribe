@@ -380,7 +380,7 @@ fi:
       message_not_displaying_correctly: "Eikö tämä viesti näy oikein sähköpostissa?"
       view_it_in_your_browser: "Katso verkkoselaimellasi"
       or: tai
-      unsubscribe_from_these_emails: "peru tämäntyyppisten viestien vastaanotto kokonaan"
+      unsubscribe_from_these_emails: "lopeta tällaisten viestien vastaanotto kokonaan"
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
       has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
@@ -1402,6 +1402,7 @@ fi:
       add_avatar_submit: "Tallenna kuva"
       update_profile_picture: "Profiilikuvan päivitys"
     notifications:
+      email_from_admins: "Tämän yhteisön ylläpitäjä voi lähettää minulle sähköpostia"
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
