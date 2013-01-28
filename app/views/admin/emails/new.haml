@@ -16,5 +16,7 @@
       .select-tag-dropdown 
         - options = [[t(".any_language"), "any"]] | available_locales
         = select_tag "email[locale]", options_for_select(options, "any")
+    - else
+      = form.hidden_field :locale, :value => "any"
     = button_tag t(".send_email"), :class => "send_button"
 
