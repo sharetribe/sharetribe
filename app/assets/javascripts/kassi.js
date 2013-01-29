@@ -134,6 +134,7 @@ function initialize_user_feedback_form() {
 
 function initialize_email_members_form() {
   form_id = "#new_member_email"
+  auto_resize_text_areas("email_members_text_area");
   $(form_id).validate({
     rules: {
       "email[subject]": {required: true, minlength: 2},

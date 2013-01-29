@@ -9,7 +9,7 @@
     = form.label :subject, t(".email_subject")
     = form.text_field :subject
     = form.label :content, t(".email_content")
-    = form.text_area :content, :placeholder => t(".email_content_placeholder")
+    = form.text_area :content, :placeholder => t(".email_content_placeholder"), :class => "email_members_text_area"
     - if available_locales.size > 1
       = label_tag "email_language", t(".email_language")
       = render :partial => "layouts/permanent_notification", :locals => { :text => t(".message_will_be_sent_only_to_people_with_this_language") }
