@@ -4,10 +4,10 @@
 #task :deploy_staging => ['deploy:set_staging_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 #task :deploy_production => ['deploy:set_production_app', 'deploy:push', 'deploy:restart', 'deploy:tag']
 
-task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css' ]
+task :deploy_staging_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css' ]
 task :deploy_production_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:migrate', 'deploy:restart', 'deploy:generate_custom_css']
 
-task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:push', 'deploy:generate_custom_css']
+task :deploy_staging_without_migrations => ['deploy:set_staging_app', 'i18n:write_error_pages', 'deploy:update_webfonts_folder', 'deploy:push', 'deploy:generate_custom_css']
 task :deploy_production_without_migrations => ['deploy:set_production_app', 'deploy:push', 'deploy:generate_custom_css']
 
 
@@ -29,16 +29,20 @@ namespace :deploy do
   	APP = PRODUCTION_APP
   end
 
+  task :update_webfonts_folder do
+    puts 'Copying webfonts folder ...'
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `git checkout new-design-deploy-fonts`
+    puts `git rebase develop`
+    puts `git checkout develop`
+    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  end
+  
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
       puts `git push production new-design-deploy-fonts:master --force`
     else
-      puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-      puts `git checkout new-design-deploy-fonts`
-      puts `git rebase develop`
-      puts `git checkout develop`
-      puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
       puts `git push staging new-design-deploy-fonts:master --force`
     end
   end
