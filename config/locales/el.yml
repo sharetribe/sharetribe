@@ -19,13 +19,18 @@ el:
         cover_photo_instructions_text: "Το μέγεθος της φωτογραφίας εξώφυλλου θα γίνει 1600x195 pixels και ψηλότερες εικόνες θα περικοπούν στο κέντρο."
         custom_color1_instructions_text: "Μπορείτε να αλλάξετε το κυρίως χρώμα του περιβάλλοντος αυτής της κοινότητας εισάγοντας ένα χρώμα σε δεκαεξαδική μορφή. Στο <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> μπορείτε να βρείτε το χρώμα που θέλετε και να αντιγράψετε τον κατάλληλο κωδικό εδώ."
         invalid_color_code: "Ο κωδικός του χρώματος πρέπει να αποτελείται από 6 χαρακτήρες, αριθμούς ή γράμματα από A-F, για παράδειγμα D96E21."
-    badges:
-      index:
-        add_new_badge: "Προσθήκη νέας κονκάρδας"
-        existing_badges: "Υπάρχουσες κονκάρδες"
-        image: "Εικόνα κονκάρδας"
-        name: "Όνομα κονκάρδας"
-        save_badge: "Αποθήκευση κονκάρδας"
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Νεότερα άρθρα"
@@ -374,6 +379,8 @@ el:
       edit_your_email_settings_here: "Επεξεργαστείτε τις ρυθμίσεις ηλεκτρονικού ταχυδρομείου εδώ"
       message_not_displaying_correctly: "Μήπως αυτό το μήνυμα δεν εμφανίζεται σωστά;"
       view_it_in_your_browser: "Δείτε το στο φυλλομετρητή σας."
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "Ο/Η %{accepter} έχει αποδεχτεί την προσφορά σου σχετικά με το αίτημα \"%{listing}\""
       has_accepted_your_request: "Ο/Η %{accepter} έχει αποδεχτεί το αίτημά σου σχετικά με την προσφορά %{listing}"
@@ -387,7 +394,7 @@ el:
       your_request_was_rejected: "Το αίτημά σου απορρίφθηκε"
     invitation_to_kassi:
       hi: Γεια!
-      you_have_been_invited_to_kassi: "Ο/Η %{inviter} σε προσκάλεσε να χρησιμοποιήσεις το %{community}."
+      you_have_been_invited_to_kassi: "Ο/Η %{inviter} σας προσκαλεί να χρησιμοποιήσετε την υπηρεσία %{community}."
       info_about_kassi: "Το %{service_name} είναι μια υπηρεσία στην οποία τα μέλη μιας κοινότητας μπορούν, για παράδειγμα, να δανείσουν, να ανταλλάξουν και να πουλήσουν αντικείμενα, να βρουν συνταξιδιώτες και να γενικά να βοηθηθούν με διάφορους τρόπους."
       here_is_a_message_from: "Ο %{inviter} σου στέλνει ένα προσωπικό μήνυμα:"
       you_can_join_kassi_using_invitation_code: "Χρησιμοποίησε αυτό τον κωδικό για να γραφτείς στην υπηρεσία: %{code}"
@@ -601,7 +608,7 @@ el:
       is: είναι
       are: είναι
       what_do_you_need: "Τι χρειάζεστε;"
-      post_new_listing: "Κάντε μια καταχώρηση!"
+      post_new_listing: Καταχώρηση
       are_offering: προσφέρουν
       add_news_item: "Προσθήκη άρθρου"
       inform_others_about_events: "Τελευταία νέα και γεγονότα στην κοινότητα"
@@ -1395,6 +1402,7 @@ el:
       add_avatar_submit: "Αποθήκευση εικόνας"
       update_profile_picture: "Αλλαγή της εικόνας προφίλ"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Θέλω να λαμβάνω ειδοποίηση με email όταν..."
       newsletters: Newsletters
       community_updates: "Νέα της κοινότητας"

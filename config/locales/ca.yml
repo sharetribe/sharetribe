@@ -19,13 +19,18 @@ ca:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
-    badges:
-      index:
-        add_new_badge: "Afegir una nova medalla"
-        existing_badges: "Medalles existents"
-        image: "Imatge de la medalla"
-        name: "Nom de la medalla"
-        save_badge: "Desar medalla"
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Articles més recents"
@@ -374,6 +379,8 @@ ca:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha acceptat la teva oferta considerant la sol·licitud %{listing}"
       has_accepted_your_request: "%{accepter} ha acceptat la teva sol·licitud considerant l'oferta %{listing}"
@@ -546,7 +553,7 @@ ca:
       offer_partitive: ~
       request_partitive: ~
   header:
-    about: "Sobre Kassi"
+    about: Sobre
     community: Comunitat
     home: Inici
     members: ~
@@ -1394,6 +1401,7 @@ ca:
       add_avatar_submit: "Desa la imatge"
       update_profile_picture: "Actualitza la imatge de perfil"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Desitjo rebre una notificació de correu electrònic quan..."
       newsletters: Butlletins
       community_updates: ~
