@@ -21,8 +21,8 @@ class HomepageController < ApplicationController
       @filter_params.delete("share_type")
     end
     
+    @listing_count = @current_community.listings.currently_open.count
     unless @current_user
-      @listing_count = @current_community.listings.currently_open.count
       @private_listing_count = Listing.currently_open.private_to_community(@current_community).count
     end
     
