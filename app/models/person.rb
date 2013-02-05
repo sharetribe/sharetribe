@@ -236,11 +236,12 @@ class Person < ActiveRecord::Base
     else  
 
       #Handle location information
-      if self.location 
-        #delete location always (it would be better to check for changes)
-        self.location.delete
-      end
       if params[:location]
+        if self.location && self.location.address != params[:street_address]
+          #delete location and create a new one
+          self.location.delete
+        end
+        
         # Set the address part of the location to be similar to what the user wrote.
         # the google_address field will store the longer string for the exact position.
         params[:location][:address] = params[:street_address] if params[:street_address]
