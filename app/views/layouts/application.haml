@@ -28,7 +28,10 @@
               - link_label = @current_community.category.eql?("neighborhood") ? t(".invite_your_neighbors") : t(".invite_your_friends")
               = link_to link_label, new_invitation_path, :class => "intro-button"
               %small
-                = t(".invite_your_friends_description")
+                - if @current_community.join_with_invite_only?
+                  = t(".invite_your_friends_invite_only_description")
+                - else 
+                  = t(".invite_your_friends_description")
       - else
         .join-action-buttons
           - if facebook_connect_in_use?

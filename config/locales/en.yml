@@ -305,6 +305,7 @@ en:
     api:
       coming_soon: "Coming soon!"
     index:
+      watch_the_video: "Watch the video"
       get_started: "GET STARTED NOW!"
       browse_communities_around_you: "join a tribe near you"
       slogan: "Share with your community."
@@ -690,6 +691,7 @@ en:
       invite_your_friends: "Invite friends!"
       invite_your_neighbors: "Invite neighbors!"
       invite_your_friends_description: "The more people there are in %{service_name}, the more useful it is."
+      invite_your_friends_invite_only_description: "People cannot join this community unless they are invited."
       join_without_facebook: "...or alternatively %{join_without_facebook_link}"
       join_without_facebook_link: "sign up without using Facebook"
     conversations:
