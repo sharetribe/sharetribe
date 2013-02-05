@@ -30,7 +30,11 @@ class HomepageController < ApplicationController
     @filter_params[:include] = [:listing_images, :author]
       
     @listings = Listing.find_with(@filter_params, @current_user, @current_community, listings_per_page, params[:page])
-   
+
+    @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_en_135x40.svg"    
+    if File.exists?("app/assets/images/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg")
+       @app_store_badge_filename = "/assets/Available_on_the_App_Store_Badge_#{I18n.locale}_135x40.svg"
+    end
     
     if request.xhr? # checks if AJAX request
       render :partial => "recent_listing", :collection => @listings, :as => :listing   

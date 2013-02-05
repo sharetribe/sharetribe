@@ -188,14 +188,14 @@ class PeopleController < Devise::RegistrationsController
   end
   
   def update
-    
-	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty?) || (params[:person][:street_address].blank? || params[:person][:street_address].empty?)
+
+	  if params[:person] && params[:person][:location] && (params[:person][:location][:address].empty? || params[:person][:street_address].blank?)
       params[:person].delete("location")
       if @person.location
         @person.location.delete
       end
 	  end
-	  
+	  	  
 	  #Check that people don't exploit changing email to be confirmed to join an email restricted community
 	  if params["request_new_email_confirmation"] && @current_community && ! @current_community.email_allowed?(params[:person][:email])
 	    flash[:error] = t("people.new.email_not_allowed")
@@ -208,7 +208,7 @@ class PeopleController < Devise::RegistrationsController
     if params[:person][:email] && @person.confirmed_at
       Email.create(:person => @person, :address => @person.email, :confirmed_at => @person.confirmed_at) unless Email.find_by_address(@person.email)
     end
-	  
+
     begin
       if @person.update_attributes(params[:person], session[:cookie])
         if params[:person][:password]

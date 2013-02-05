@@ -72,5 +72,7 @@ group :test do
   gem 'factory_girl_rails'
   gem "pickle"
   gem 'email_spec'
+  gem 'action_mailer_cache_delivery'
+  gem "parallel_tests", :group => :development
 end
 
