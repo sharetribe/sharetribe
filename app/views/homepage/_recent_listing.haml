@@ -6,7 +6,11 @@
       = link_to listing.author.name, listing.author
       %time{datetime: "#{listing.created_at}"}= time_ago(listing.created_at)
     %h2
-      = link_to listed_listing_title(listing), listing
+      = link_to listing.title, listing, :class => "listing-title"
+      %a.share-type-link{:href => share_type_url(listing)}
+        .icon-with-text-container
+          .icon-part{:class => Listing::LISTING_ICONS[listing.category]}
+          .text-part= listed_listing_share_type(listing)
     - unless listing.description.blank?
       %small.feed-excerpt
         = "\"#{truncate_html(listing.description, :length => 120, :omission => '...')}\""
