@@ -1,6 +1,8 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    action_mailer_cache_delivery (0.3.4)
+      actionmailer (~> 3.0)
     actionmailer (3.2.11)
       actionpack (= 3.2.11)
       mail (~> 2.4.4)
@@ -188,6 +190,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.4.0)
       mime-types
+    parallel (0.6.2)
+    parallel_tests (0.9.3)
+      parallel
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
@@ -310,6 +315,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_mailer_cache_delivery
   acts-as-taggable-on
   airbrake
   aws-sdk
@@ -337,6 +343,7 @@ DEPENDENCIES
   newrelic_rpm
   omniauth-facebook
   paperclip
+  parallel_tests
   pickle
   postmark-rails
   rabl

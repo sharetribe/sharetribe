@@ -35,14 +35,17 @@ Feature: User creates a new community
     And I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Company"
-    #And I follow "Create for free"
     And I fill in "email" with "test@mycompany.com"
     And I press "Continue"
-    #And "test@mycompany.com" should receive an email
+    And wait for 1 second
+    Then I should see "Please confirm your email address" 
+    And "test@mycompany.com" should receive an email
+    Then I press "Resend confirmation instructions"
+    And wait for 1 second
     Then I should see "Please confirm your email address"
-    #TODO: Test the process after the email address has been confirmed
-    #When I open the email
-    #And I follow "Confirm my account"
+    Then save and open all raw emails
+    When I open the email
+    And I click the first link in the email
 
   @www_subdomain
   @javascript
@@ -50,7 +53,6 @@ Feature: User creates a new community
     Given I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Association"
-    #And I follow "Create for free"
     And I fill in "Your email address" with "test@example.com"
     And I fill in "Pick a username" with random username
     And I fill in "Your given name" with "Testmanno"
@@ -59,15 +61,34 @@ Feature: User creates a new community
     And I fill in "Confirm your password" with "test"
     And I check "person_terms"
     And I press "Create account"
-    #And "test@example.com" should receive an email
-    Then I should see "Please confirm your email address"
+    And wait for 1 second
+    Then "test@example.com" should receive an email
+    And I should see "Please confirm your email address"
+    
+    # make sure that another try doesn't let the user through without confirmation either
     When I follow "header_home_link"
     And I follow "GET STARTED NOW!"
     And I follow "Association"
-    #And I follow "Create for free"
     Then I should see "Please confirm your email address"
-    #When I open the email
-    #And I follow "Confirm my account"
+    
+    # confirm the address
+    When I open the email
+    And I click the first link in the email
+    Then I should see "Your account was successfully confirmed"
+    #And I select "English" from "community_locale"
+    And I go to new tribe in English # a hack because normal select doesn't work because UI styling
+    And I fill in "community_name" with "Test tribe"
+    And I fill in "community_domain" with "testtribe"
+    And I fill in "community_address" with "Otaniemi"
+    # because terms are already accepted when registering new account
+    And I should not see "I accept the terms of use"
+    And wait for 2 seconds
+    And I press "Create your tribe"
+    Then I should see "Done!"
+    When I follow "Go to your tribe"
+    Then I should see "Lend, sell, help, share"
+    And community "testtribe" should not require invite to join
+
   
   @no_subdomain
   @javascript
@@ -77,7 +98,6 @@ Feature: User creates a new community
     And I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Company"
-    #And I follow "Create for free"
     And I fill in "email" with "test@mycompany.com"
     And I press "Continue"
     Then I should see "There already exists a tribe for this company."
@@ -91,29 +111,11 @@ Feature: User creates a new community
     And I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Company"
-    #And I follow "Create for free"
     And I fill in "Your company email address" with "test@mycompany.com"
     And I press "Create account"
     Then I should see "There already exists a tribe for this company"
     When I follow "here"
     Then I should see "Hey hey my my"
-  
-  # @no_subdomain
-  # @javascript
-  # Scenario: Existing logged in user creates a premium community
-  #   Given I am logged in as "kassi_testperson1"
-  #   And I am on the home page
-  #   When I follow "GET STARTED NOW!"
-  #   And I follow "Association"
-  #   And I follow "Create your tribe"
-  #   And I go to new tribe in English
-  #   And I fill in "community_name" with "Test tribe"
-  #   And I fill in "community_domain" with "testtribe"
-  #   And I fill in "community_address" with "Otaniemi"
-  #   And I check "community_terms"
-  #   And wait for 2 seconds
-  #   And I press "Create your tribe"
-  #   Then I should see "We will contact you later by email about invoicing."
   
   @no_subdomain
   @javascript
@@ -122,13 +124,8 @@ Feature: User creates a new community
     And I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Association"
-    #And I follow "Create for free"
-    # jQuery UI styling of the dropdown menu seems to prevent 
-    # capybara from selecting the correct locale, so instead
-    # using a dirty workaround.
-    #
     #And I select "English" from "community_locale"  
-    And I go to new tribe in English
+    And I go to new tribe in English # a hack because normal select doesn't work because UI styling
     And I fill in "community_name" with "S"
     And I fill in "community_domain" with "test"
     And I fill in "community_address" with "dsfdsfdsfdsfdsfdssd"
@@ -144,7 +141,6 @@ Feature: User creates a new community
     And I am on the home page
     When I follow "GET STARTED NOW!"
     And I follow "Association"
-    #And I follow "Create for free"
     And I go to new tribe in English
     And I fill in "community_name" with "Test tribe"
     And I fill in "community_domain" with "testtribe"
