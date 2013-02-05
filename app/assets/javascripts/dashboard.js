@@ -13,6 +13,7 @@
 //= require jquery.watermark.min
 //= require jquery.autosize-min
 //= require jquery.validate
+//= require jquery.prettyPhoto
 //= require sharetribe_common
 //= require kassi_dashboard
 //= require googlemaps

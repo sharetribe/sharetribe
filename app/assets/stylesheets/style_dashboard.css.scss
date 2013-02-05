@@ -896,3 +896,19 @@ div.wrapper {
     &:hover { color: $light_orange;}
   }
 }
+
+#home_more_info {
+  h4 {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .video_link {
+    font-family: $serif_font;
+    text-align: center;
+    width: 100%;
+    a {
+      font-size: 30px;
+    } 
+  }
+}

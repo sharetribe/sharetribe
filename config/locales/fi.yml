@@ -305,6 +305,7 @@ fi:
     api:
       coming_soon: "Tulossa pian!"
     index:
+      watch_the_video: "Katso video (englanninkielinen)"
       get_started: "ALOITA TÄSTÄ!"
       browse_communities_around_you: "liity lähellä olevaan yhteisöön"
       slogan: "Yhteisösi markkinapaikka verkossa."
@@ -690,6 +691,7 @@ fi:
       invite_your_friends: "Kutsu kaverisi!"
       invite_your_neighbors: "Kutsu naapurisi!"
       invite_your_friends_description: "Mitä enemmän ihmisiä on mukana, sitä hyödyllisempi %{service_name} on."
+      invite_your_friends_invite_only_description: "Tähän yhteisöön voi liittyä vain jos saa kutsun toiselta jäseneltä."
       join_without_facebook: "...tai vaihtoehtoisesti %{join_without_facebook_link}"
       join_without_facebook_link: "liity käyttämättä Facebook-tunnuksia"
     conversations:
