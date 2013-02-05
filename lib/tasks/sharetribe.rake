@@ -58,6 +58,7 @@ namespace :sharetribe do
                  :category =>     row[5].split(" ")[0].downcase,
                  :share_type =>   row[6].blank? ? nil : row[6].downcase,
                  :visibility =>   row[7].downcase,
+                 :privacy =>      "public",
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "origin_loc"),
                  :destination_loc => row[10].blank? ? nil : random_location_around(row[10], "destination_loc"),
                  :origin =>       row[11].blank? ? nil : row[11],
