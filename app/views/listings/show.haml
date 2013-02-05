@@ -12,7 +12,11 @@
       = render :partial => "admin_edit_links"   
       
     %h1
-      = listed_listing_title(@listing)
+      %span.listing-title= @listing.title
+      %a.share-type-link{:href => share_type_url(@listing)}
+        .icon-with-text-container
+          .icon-part{:class => Listing::LISTING_ICONS[@listing.category]}
+          .text-part= listed_listing_share_type(@listing)
     
     - if @listing.valid_until && @listing.category.eql?("rideshare")
       .listing-departure-time

@@ -535,6 +535,39 @@ label.error {
   }
 }
 
+.listing-title {
+  margin-right: lines(0.25);
+}
+
+// Share type label
+.share-type-link {
+  @include ff-tisa;
+  color: $aside;
+  font-size: em(10);
+  font-weight: normal;
+  white-space: nowrap;
+  position: relative;
+  left: em(2);
+  top: em(1);
+  background: $highlight;
+  color: $body;
+  padding: em(0) em(0) em(3) em(6);
+  @include border-radius(em(5));
+  &:hover {
+    background: $aside;
+    color: $background;
+  }
+  .icon-with-text-container {
+    .ss-car, .ss-heart {
+      top: em(3);
+    }
+  }
+  @include media(tablet) {
+    padding: em(0) em(2) em(3) em(10);
+    top: em(1);
+  }
+}
+
 
 /*
   ------------------------
@@ -1828,39 +1861,6 @@ a.lightbox-x {
     margin-top: lines(0.25, 13);
   }
   
-  .listing-title {
-    margin-right: lines(0.25);
-  }
-
-  // Share type label
-  .share-type-link {
-    @include ff-tisa;
-    color: $aside;
-    font-size: em(10);
-    font-weight: normal;
-    white-space: nowrap;
-    position: relative;
-    left: em(2);
-    top: em(1);
-    background: $highlight;
-    color: $body;
-    padding: em(0) em(0) em(3) em(6);
-    @include border-radius(em(5));
-    &:hover {
-      background: $aside;
-      color: $background;
-    }
-    .icon-with-text-container {
-      .ss-car, .ss-heart {
-        top: em(3);
-      }
-    }
-    @include media(tablet) {
-      padding: em(0) em(2) em(3) em(10);
-      top: em(1);
-    }
-  }
-  
   .feed-content {
     margin: em(-3) lines(3.25) 0 lines(2);
     padding: 0;
@@ -1982,34 +1982,6 @@ a.lightbox-x {
   
   small {
     margin-top: lines(0.25, 13);
-  }
-  
-  .listing-title {
-    margin-right: lines(0.25);
-  }
-
-  // Share type label
-  .share-type-link {
-    @include ff-tisa;
-    color: $aside;
-    font-size: em(10);
-    font-weight: normal;
-    white-space: nowrap;
-    position: relative;
-    left: em(2);
-    top: em(1);
-    background: $highlight;
-    color: $body;
-    padding: em(0) em(0) em(3) em(6);
-    @include border-radius(em(5));
-    &:hover {
-      background: $aside;
-      color: $background;
-    }
-    @include media(tablet) {
-      padding: em(0) em(2) em(3) em(10);
-      top: em(1);
-    }
   }
   
   .author { 
