@@ -271,11 +271,18 @@ module ApplicationHelper
         :partitive => "Kassia"
         }
       when "Omakotitori" then {
-        :illative => "Omakotitoriin",
+        :illative => "Omakotitorille",
         :genetive => "Omakotitorin",
-        :inessive => "Omakotitorissa",
-        :elative => "Omakotitorista",
+        :inessive => "Omakotitorilla",
+        :elative => "Omakotitorilta",
         :partitive => "Omakotitoria"
+        }
+      when "Pakilan tori" then {
+        :illative => "Pakilan torille",
+        :genetive => "Pakilan torin",
+        :inessive => "Pakilan torilla",
+        :elative => "Pakilan torilta",
+        :partitive => "Pakilan toria"
         }
       else nil
     end
