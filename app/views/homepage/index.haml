@@ -8,7 +8,7 @@
       .text-with-icon#post_new_listing= t(".post_new_listing")
     %a.offset-link.toggle{href: '#', id: "filters-toggle", data: {toggle: '.feed-filters'}}
       %i.ss-search
-    - if params[:map].present?
+    - if params[:map] == "true"
       %a.offset-link.list-button.toggle{href: root, title: t("homepage.filters.list")}
         %i.ss-list
     - else
@@ -35,7 +35,7 @@
         = link_to image_tag(@app_store_badge_filename), "https://itunes.apple.com/us/app/sharetribe/id545640772?mt=8", :title => t(".available_on_the_app_store")
 
 .feed-map-link
-  - if params[:map].present?
+  - if params[:map] == "true"
     %a.map-link.list-button{href: root, title: t("homepage.filters.list")}
       %i.ss-list.icon-with-text
       .text-with-icon.hidden-text= t("homepage.filters.list")
@@ -54,7 +54,7 @@
             = t(".private_listing_notification", :listing_count => pluralize(@listing_count, t(".open_listing"), t(".open_listings")), :private_listing_count => @private_listing_count, :log_in_link => link_to(t(".private_listing_notification_log_in"), login_path), :be_verb => (@private_listing_count > 1 ? t(".are")  : t(".is"))).html_safe        
           - else
             = t(".no_listings_notification")
-  - if params[:map].present?
+  - if params[:map] == "true"
     = render :partial => "map"
   - else
     - if @listings.total_entries > 0
