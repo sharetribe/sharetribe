@@ -2762,18 +2762,6 @@ a.lightbox-x {
     margin-top: lines(0.5);
   }
   
-  .hidden {
-    display: none;
-  }
-  
-  .listing_type, .category, .subcategory, .share_type, .option-group {
-    
-    .hidden {
-      display: none;
-    }
-    
-  }
-  
   a.option {
     &:after {
       content: "→";
@@ -2812,6 +2800,14 @@ a.lightbox-x {
   
   select.listing_datetime_select {
     margin-left: lines(0.25);
+  }
+  
+  .selected-group, .option-group {
+    
+    .hidden {
+      display: none;
+    }
+    
   }
   
 }
