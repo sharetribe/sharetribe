@@ -126,3 +126,41 @@ Feature: User creates a new listing
     And the system processes jobs
     And I am on the homepage
     Then I should see "Hammer"
+
+  @javascript
+  Scenario: Create a new listing successfully after going back and forth in the listing form
+    Given I am logged in
+    And I am on the home page
+    When I follow "Post a new listing!"
+    And I follow "I need something"
+    And I should see "What do you need?"
+    And I should see "Listing type: Request"
+    And I follow "An item"
+    And I should see "Listing type: Request"
+    And I should see "Category: Item"
+    And I should see "What kind of item do you need?"
+    And I follow "Tools"
+    And I should see "Listing type: Request"
+    And I should see "Category: Item"
+    And I should see "Subcategory: Tools"
+    And I should see "How do you want to get it?"
+    And I follow "buy it"
+    And I should see "Share type: Buying"
+    And I should see "Item you need*"
+    And I follow "Listing type: Request"
+    And I should not see "Listing type: Request"
+    And I should not see "Category: Item"
+    And I should not see "Item you need*"
+    And I should not see "Subcategory: Tools"
+    And I should not see "Share type: Buying"
+    And I follow "I have something to offer to others"
+    And I follow "A shared ride"
+    And I should see "Origin*"
+    And I follow "Category: Rideshare"
+    And I follow "A space"
+    And I follow "Garden"
+    And I follow "I'm sharing it for free"
+    And I follow "Share type: Sharing for free"
+    And I follow "I'm selling it"
+    And I should see "Space you offer*"
+    

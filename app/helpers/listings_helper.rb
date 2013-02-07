@@ -105,5 +105,25 @@ module ListingsHelper
   def get_icon_class(icon_type)
     Listing::LISTING_ICONS[icon_type] || Listing::LISTING_ICONS["other"]
   end
+  
+  def listing_form_menu_title(attribute)
+    # - if 
+    # t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))
+  end
+  
+  def listing_form_menu_titles
+    titles = {
+      "listing_type" => t(".what_do_you_want_to_do"),
+      "category" => {
+        "offer" => t(".what_can_you_offer"),
+        "request" => t(".what_do_you_need")
+      },
+      "subcategory" => Hash[Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES["category"].collect { |category| [category, t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))]}],
+      "share_type" => {
+        "offer" => t(".how_do_you_want_to_share_it"),
+        "request" => t(".how_do_you_want_to_get_it")
+      }
+    }
+  end
 
 end
