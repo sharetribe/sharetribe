@@ -8,22 +8,24 @@
 
 #new_listing_form.new-listing-form.centered-section
 
-  - Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES.each do |attribute, values|
-    - if values.size > 1
-      .selected-attributes{:name => "#{attribute}"}
-        - values.each do |value|
-          %a.select.selected{:href => "#"}
-            .link-icon{:class => get_icon_class(value)}
-            .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}"))
-  
-  %h2.listing-form-title
+  - logger.info listing_form_menu_titles.inspect
 
   - Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES.each do |attribute, values|
     - if values.size > 1
-      .option-group{:name => "#{attribute}"}
+      .selected-group{:name => attribute}
+        - values.each do |value|
+          %a.select.selected{:href => "#", :name => value}
+            .link-icon{:class => get_icon_class(value)}
+            .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}"))
+  
+  %h2.listing-form-title{:id => "foo"}
+
+  - Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES.each do |attribute, values|
+    - if values.size > 1
+      .option-group{:name => attribute}
         - values.each do |value|
           %a.select.option{:href => "#", :name => value}
             .link-icon{:class => get_icon_class(value)}
             .link-text= t(".#{value}")
 
-  .form-fields.hidden
+  .form-fields
