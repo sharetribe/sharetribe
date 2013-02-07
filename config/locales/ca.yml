@@ -305,6 +305,7 @@ ca:
     api:
       coming_soon: ~
     index:
+      watch_the_video: ~
       get_started: ~
       browse_communities_around_you: ~
       slogan: "Un mercat en línia per a la seva comunitat."
@@ -604,8 +605,11 @@ ca:
     event_feed:
       latest_events: ~
     index:
+      no_listings_notification: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -692,6 +696,7 @@ ca:
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:

@@ -19,13 +19,18 @@ zh:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
-    badges:
-      index:
-        add_new_badge: 添加新的徽章
-        existing_badges: 已获得的徽章
-        image: 徽章图片
-        name: 徽章名称
-        save_badge: 保存徽章
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: 最新的文章
@@ -300,10 +305,11 @@ zh:
     api:
       coming_soon: ~
     index:
+      watch_the_video: ~
       get_started: 现在开始！
       browse_communities_around_you: ~
       slogan: ~
-      create_your_own: 创建你自己
+      create_your_own: 创建你自己的
       sharing_website: 共享网址
       main_description: ~
       kassi_for_your_company: 对于你的公司
@@ -313,7 +319,7 @@ zh:
       kassi_for_your_university: 对于你的学校
       kassi_for_your_university_description: ~
       want_kassi_for_your_community: ~
-      email_default_text: 你的邮箱地址
+      email_default_text: 您的邮箱地址
       send: 发送！
       or_drop_us_a_line: ~
       thanks_for_contacting_us: ~
@@ -374,6 +380,8 @@ zh:
       edit_your_email_settings_here: 编辑你的邮箱设定
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} 已经接受了您关于%{listing}的请求"
       has_accepted_your_request: "%{accepter}已经接受了您关于 %{listing}的请求"
@@ -595,8 +603,11 @@ zh:
     event_feed:
       latest_events: 事情发展的如何
     index:
+      no_listings_notification: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -607,7 +618,7 @@ zh:
       inform_others_about_events: ~
       lend_rent_help_carpool: 出售，出租，帮助，拼车
       loading_more_content: 正在加载更多内容
-      more_events: 更多事件……
+      more_events: 更多事件…
       news: 新闻
       no_news: "没有新闻\n"
       more_news: 更多新闻
@@ -683,6 +694,7 @@ zh:
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
@@ -737,7 +749,7 @@ zh:
       create_new_offer: 出售其他物品
       create_new_request: 请求其他物品
       create_one_here: 在此创建
-      email_confirmation_sent_to_new_address: 邮件确认信已经送往你的新地址
+      email_confirmation_sent_to_new_address: 电子邮件确认信已经送往你的新地址。
       email_not_found: 无法在Kassi中找到您所提供的邮箱地址
       error_with_session: 内容错误
       feedback_considered_spam: 格式错误，评价失败。请重试或者使用论坛评价。
@@ -1370,7 +1382,7 @@ zh:
       get_started: 开始使用Kassi
       getting_started_instructions: ~
       resend_confirmation_instructions: 再次发送确认信
-      your_current_email_is: 你的邮箱是
+      your_current_email_is: "你的的电子邮箱是%{email}。"
       change_email: 改变
       confirm_your_email: 确认你的邮箱
       account_confirmation_instructions: ~
@@ -1392,6 +1404,7 @@ zh:
       add_avatar_submit: 保存图片
       update_profile_picture: 更新头像
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: 寄给我一封Email通知当…
       newsletters: 简报
       community_updates: ~
