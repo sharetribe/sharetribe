@@ -121,7 +121,7 @@ Feature: User joins invite only community
     And I should receive 2 emails
     When I open the email
     And I follow "confirmation" in the email
-    Then I should see "succesfully confirmed"
+    Then I should see "successfully confirmed"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
     When I click ".user-menu-toggle"

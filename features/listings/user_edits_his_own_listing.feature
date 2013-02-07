@@ -29,12 +29,14 @@ Feature: User edits his own listing
     And I attach a valid image file to "listing_listing_images_attributes_0_image"
     And I press "Save request"
     And the system processes jobs
-    Then I should see "Buying: Sledgehammer" within ".item-description"
+    Then I should see "Sledgehammer" within ".item-description"
+    And I should see "Buying"
     And I should see "Request updated successfully" within ".flash-notifications"
     And I should see the image I just uploaded
     When I follow "Edit request"
     Then I should see the image I just uploaded
     And I follow "Remove image"
+    And wait for 2 seconds
     And I press "Save request"
     Then I should not see the image I just uploaded
     And I click ".user-menu-toggle"
@@ -98,7 +100,8 @@ Feature: User edits his own listing
     And I follow "Edit request"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save request"
-    Then I should see "Buying: Sledgehammer" within ".item-description"
+    Then I should see "Sledgehammer" within ".item-description"
+    And I should see "Buying"
     And I should see "Request updated successfully" within ".flash-notifications"
     
   @javascript
@@ -114,5 +117,6 @@ Feature: User edits his own listing
     And I follow "Edit request"
     And I fill in "listing_title" with "Sledgehammer"
     And I press "Save request"
-    Then I should see "Buying: Sledgehammer" within ".item-description"
+    Then I should see "Sledgehammer" within ".item-description"
+    And I should see "Buying"
     And I should see "Request updated successfully" within ".flash-notifications"
