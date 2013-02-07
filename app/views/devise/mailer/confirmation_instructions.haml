@@ -1,17 +1,13 @@
 
 -if @confirmation_token
-  - link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host)
+  - link = confirmation_url(:confirmation_token => @confirmation_token, :host => @host, :locale => I18n.locale)
 - else
   - if $host
-    - link = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :host => $host)
+    - link = confirmation_url(:confirmation_token => @resource.confirmation_token, :host => $host, :locale => I18n.locale)
   - else
-    - link = confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)
+    - link = confirmation_url(:confirmation_token => @resource.confirmation_token, :locale => I18n.locale)
 %p
   = t("emails.common.hey", :name => @resource.given_name_or_username)
-
-  -# Welcome text is now left out to make this template more usable also in cases when user did not recently join.
-  -# %p
-  -#   = t("emails.confirmation_instructions.welcome_to_kassi")
 
 -# This part can be enabled if need to send mails in some communities where staring to use mail confirmation now 
 -# %p

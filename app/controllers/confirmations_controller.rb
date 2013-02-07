@@ -10,7 +10,7 @@ class ConfirmationsController < Devise::ConfirmationsController
   
   # POST /resource/confirmation
   def create
-    if params[:person] && params[:person][:email] && params[:person][:email] != @current_user.email
+    if params[:person] && params[:person][:email] && params[:person][:email] != @current_user.email && @current_community
       # If user submitted the email change form, change the email before sending again.
       if Person.email_available?(params[:person][:email])
         if @current_community.email_allowed?(params[:person][:email])
@@ -24,8 +24,18 @@ class ConfirmationsController < Devise::ConfirmationsController
         redirect_to :controller => "sessions", :action => "confirmation_pending" and return
       end
     end
-      
-    self.resource = resource_class.send_confirmation_instructions(resource_params)
+    
+    # If looks like were confirming here a company email on dashboard, send manually 
+    if session[:unconfirmed_email] && 
+           session[:allowed_email] &&
+           session[:unconfirmed_email].match(session[:allowed_email]) && 
+           @current_user.has_email?(params[:person][:email]) 
+      @current_user.send_email_confirmation_to(params[:person][:email], request.host_with_port)
+      flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
+      redirect_to new_tribe_path and return
+    else
+      self.resource = resource_class.send_confirmation_instructions(resource_params)
+    end
 
     if successfully_sent?(resource)
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))

@@ -148,6 +148,7 @@ class PersonMailer < ActionMailer::Base
     @resource = email.person
     @confirmation_token = email.confirmation_token
     @host = host
+    email.update_attribute(:confirmation_sent_at, Time.now)
     mail(:to => email.address, :subject => t("devise.mailer.confirmation_instructions.subject"), :template_path => 'devise/mailer', :template_name => 'confirmation_instructions')
   end
   

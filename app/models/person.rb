@@ -435,6 +435,17 @@ class Person < ActiveRecord::Base
     return allowed
   end
   
+  def send_email_confirmation_to(address, host)
+    if email == address # check primary email
+      self.send_confirmation_instructions
+    elsif e = Email.find_by_person_id_and_address(id, address) #unconfirmed additional email
+      PersonMailer.additional_email_confirmation(e, host).deliver
+    else
+      return false
+    end
+    return true # if address found and email sent
+  end
+  
   def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
     data = facebook_data.extra.raw_info
     

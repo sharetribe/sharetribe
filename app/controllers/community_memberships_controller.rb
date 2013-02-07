@@ -49,9 +49,7 @@ class CommunityMembershipsController < ApplicationController
         end
         
         # Send confirmation
-        PersonMailer.additional_email_confirmation(e, request.host_with_port).deliver
-        e.confirmation_sent_at = Time.now
-        e.save
+        @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port)
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
         render :action => :new and return

@@ -78,6 +78,7 @@ When /^(?:|I )fill in "([^"]*)" with random (username|email)(?: within "([^"]*)"
   when "email"
     value = "#{generate_random_username}@example.com"
     @values["email"] = value
+    Thread.current[:latest_used_random_email] = value
   end
   with_scope(selector) do
     fill_in(field, :with => value)
@@ -121,7 +122,7 @@ end
 Then /^I should see my username$/ do
   username = Person.order("updated_at").last.username
   if @values && @values["username"]
-    puts "it seems there username of last created person is stored, so use that"
+    # puts "it seems there username of last created person is stored, so use that"
     username = @values["username"]
   end
   if page.respond_to? :should
@@ -145,6 +146,16 @@ Then /^user "([^"]*)" (should|should not) have "([^"]*)" with value "([^"]*)"$/ 
   verb = verb.gsub(" ", "_")
   value = nil if value == "nil"
   user.send(attribute).send(verb) == value
+end
+
+Then /^user "(.*?)" should have additional (confirmed|unconfirmed) email "(.*?)"$/ do |username, conf, email|
+  p = Person.find_by_username(username)
+  e = Email.find_by_person_id_and_address(p.id, email)
+  if conf == "unconfirmed"
+    e.confirmed_at.should be_nil
+  else
+    e.confirmed_at.should_not be_nil
+  end
 end
 
 Then /^I should be logged in$/ do

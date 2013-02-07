@@ -47,24 +47,49 @@ Feature: User joins another community
   @javascript
   Scenario: User joins another community that accepts only certain email addresses
     Given there are following users:
-      | person | 
-      | kassi_testperson3 |
-    When I am logged in as "kassi_testperson3"
-    And I move to community "test2"
-    And this community requires users to have an email address of type "@gmail.com"
+      | person | email |
+      | kassi_testperson3 | k3@lvh.me |
+    And I am logged in as "kassi_testperson3"
+    And community "test2" requires users to have an email address of type "@example.com"
+    When I move to community "test2"
+    And I am on the home page
     Then I should see "Join community"
     And I should not see "Post a new listing"
-    And I should see "Email address:"
+    And I should see "Email address"
     When I check "community_membership_consent"
     And I press "Join community"
     Then I should see "This field is required."
-    When I fill in "Email address" with "random@email.com"
+    
+    # Try address that is already occupied by other user
+    When I fill in "Email address" with "kassi_testperson1@example.com"
+    And I check "community_membership_consent"
     And I press "Join community"
     Then I should see "This email is not allowed for this community or it is already in use."
+    
+    #try address that doesn't match the requirement
     When I fill in "Email address" with "random@gmail.com"
+    And I check "community_membership_consent"
     And I press "Join community"
-    Then I should see "Please confirm your email address"
-    When I confirm the email "random@gmail.com"
+    Then I should see "This email is not allowed for this community or it is already in use."
+    And "random@gmail.com" should have no emails
+    And "random@example.com" should have no emails
+    
+    # Try good address
+    When I fill in "Email address" with "random@example.com"
+    And I check "community_membership_consent"
+    And I press "Join community"
+    Then I should not see "This email is not allowed for this community or it is already in use."
+    
+    And wait for 1 second
+    Then I should see "You need to confirm your email first"
+    And "random@example.com" should receive an email
+    And user "kassi_testperson3" should have additional unconfirmed email "random@example.com"
+    When I open the email
+    And I follow "confirmation" in the email
+    Then I should see "Join community 'Test2'"
+    And user "kassi_testperson3" should have additional confirmed email "random@example.com"
+    And I should not see "Email address"
+    And I check "community_membership_consent"
     And I press "Join community"
     Then I should see "You have successfully joined this community"
   

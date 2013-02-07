@@ -118,7 +118,12 @@ Feature: User joins invite only community
     And I press "Create account"
     Then I should not see "The invitation code is not valid."
     And I should not see "This field is required."
+    And I should receive 2 emails
+    When I open the email
+    And I follow "confirmation" in the email
+    Then I should see "succesfully confirmed"
     And Most recently created user should be member of "test" community with its latest consent accepted with invitation code "GH1JX8"
     And Invitation with code "GH1JX8" should have 0 usages_left
-    When I follow "Testmanno2"
+    When I click ".user-menu-toggle"
+    When I follow "Profile"
     Then I should see "Invited by"

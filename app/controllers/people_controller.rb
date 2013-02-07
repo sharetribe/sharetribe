@@ -14,7 +14,7 @@ class PeopleController < Devise::RegistrationsController
   skip_filter :check_email_confirmation, :only => [ :update]
   skip_filter :dashboard_only
   skip_filter :single_community_only, :only => [ :create, :update, :check_username_availability, :check_email_availability, :check_email_availability_and_validity, :check_email_availability_for_new_tribe]
-  skip_filter :cannot_access_without_joining, :only => [ :check_email_validity, :check_invitation_code ]
+  skip_filter :cannot_access_without_joining, :only => [ :check_email_availability_and_validity, :check_invitation_code ]
   
   # Skip auth token check as current jQuery doesn't provide it automatically
   skip_before_filter :verify_authenticity_token, :only => [:activate, :deactivate]
@@ -254,12 +254,14 @@ class PeopleController < Devise::RegistrationsController
     # If asked from dashboard, only check availability
     return check_email_availability if @current_community.nil?
     
-    
+    # this can be asked from community_membership page or new user page 
+    email = params[:person] && params[:person][:email] ? params[:person][:email] : params[:community_membership][:email]
+        
     available = true
     
     #first check if the community allows this email
     if @current_community.allowed_emails.present?
-      available = @current_community.email_allowed?(params[:person][:email])
+      available = @current_community.email_allowed?(email)
     end
     
     if available
@@ -274,7 +276,7 @@ class PeopleController < Devise::RegistrationsController
   
   # this checks only that email is not already in use
   def check_email_availability
-    email = params[:person] ? params[:person][:email] : params[:email]
+    email = params[:person] ? params[:person][:email] : params[:email] || params[:community_membership][:email]
     available = email_available_for_user?(@current_user, email)
     
     respond_to do |format|
@@ -298,17 +300,6 @@ class PeopleController < Devise::RegistrationsController
     
     respond_to do |format|
       format.json { render :json => available.to_json }
-    end
-  end
-  
-  #This checks only that email is valid
-  def check_email_validity
-    valid = true
-    if @current_community.allowed_emails.present?
-      valid = @current_community.email_allowed?(params[:community_membership][:email])
-    end
-    respond_to do |format|
-      format.json { render :json => valid }
     end
   end
   
