@@ -50,12 +50,6 @@ Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, 
   Invitation.find_by_code(code).usages_left.should == usages.to_i
 end
 
-# Private communities are not in use now, so change the method name to easily make those tests undefined
-# TODO: decide if private communities will be used again, and if not delete these.
-Given /^community "([^"]*)" is private WHICH IS NOT IN USE NOW$/ do |community|
-  community = Community.find_by_domain(community).update_attribute(:private, true)
-end
-
 When /^I move to community "([^"]*)"$/ do |community|
   Capybara.default_host = "#{community}.lvh.me"
   Capybara.app_host = "http://#{community}.lvh.me:9887"

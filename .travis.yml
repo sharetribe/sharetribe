@@ -4,7 +4,7 @@ rvm:
 
 env:
   - SUITE="rake spec"
-  - SUITE="cucumber '--tags ~@javascript --tags ~@badge --tags ~@pending --tags ~@fix_for_new_design'"
+  - SUITE="cucumber -ptravis"
 
 notifications:
   recipients:
