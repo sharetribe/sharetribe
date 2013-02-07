@@ -230,7 +230,7 @@ function display_form_fields(sections, locale) {
 // Make changes based on a click in an "option" link in the listing form
 function reload_option_links(locale, link, valid_share_types) {
   
-  var sections = ["listing_type", "category", "share_type"];
+  var sections = ["listing_type", "category", "subcategory", "share_type"];
   // Use this instead if subcategories are used
   // var sections = ["listing_type", "category", "subcategory", "share_type"];
   
@@ -275,7 +275,54 @@ function reload_option_links(locale, link, valid_share_types) {
 }
 
 // Initialize the listing type & category selection part of the form
-function initialize_new_listing_form_selectors(locale, valid_share_types) {
+function initialize_new_listing_form_selectors(locale, attribute_hash, listing_form_titles) {
+  var selected_attributes = {};
+  
+  select(link)
+    if link == option_link
+      selected_attributes.add(link.name)
+      if attribute_hash[link.name] == attribute_hash.last? 
+        show_form()
+      end
+    else
+      selected_attributes.remove(link.name)
+      if link after in attribute_hash
+        selected_attributes.remove(i)
+      end
+      if form?
+        remove_form()
+      end
+    end 
+  end
+  
+  selected_links.each do |link|
+    if link.name in selected_attributes
+      link.show
+    else
+      link.hide
+    end
+  end
+  
+  title = 
+  
+  option_link_groups.each do |menu|
+    if menu.name == link.name
+      menu.show
+    else
+      
+    
+  end
+  
+  if selected_attributes.size == attributes.size
+    show_form
+  else
+    hide_form
+  end
+  
+  
+  
+  reload_selected_links(locale, $(this), attribute_hash, listing_form_titles);
+  reload_option_links(locale, $(this), attribute_hash, listing_form_titles);
   
   $('.new-listing-form').find('a.selected').click(
     function() {
