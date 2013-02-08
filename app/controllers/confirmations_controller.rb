@@ -51,6 +51,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       if on_dashboard?
         redirect_to new_tribe_path
       else
+        PersonMailer.welcome_email(current_user, current_community).deliver
         respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
       end
     else
@@ -64,6 +65,7 @@ class ConfirmationsController < Devise::ConfirmationsController
         if on_dashboard?
           redirect_to new_tribe_path and return
         else
+          PersonMailer.welcome_email(current_user, current_community).deliver
           flash[:notice] = t("layouts.notifications.additional_email_confirmed")
           redirect_to :controller => "community_memberships", :action => "new" and return
         end

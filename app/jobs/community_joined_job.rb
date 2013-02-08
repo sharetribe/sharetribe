@@ -17,8 +17,6 @@ class CommunityJoinedJob < Struct.new(:person_id, :community_id)
     EventFeedEvent.create(:person1_id => current_user.id, :community_id => current_community.id, :category => "join")
     
     current_user.add_listings_visible_to_all_to(current_community)
-    
-    PersonMailer.welcome_email(current_user, current_community).deliver
   end
   
 end
