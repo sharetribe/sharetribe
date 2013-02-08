@@ -1,6 +1,6 @@
 :javascript
   $(document).ready(function() {
-    initialize_new_listing_form_selectors("#{I18n.locale}", #{Listing::MOCK_ATTRIBUTE_HASH.to_json}, #{listing_form_menu_titles.to_json});
+    initialize_new_listing_form_selectors("#{I18n.locale}", #{@current_community.categories_tree.to_json}, #{listing_form_menu_titles.to_json});
   });
 
 - content_for :extra_javascript do
@@ -10,7 +10,7 @@
 
   - logger.info listing_form_menu_titles.inspect
 
-  - Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES.each do |attribute, values|
+  - @current_community.available_categorization_values.each do |attribute, values|
     - if values.size > 1
       .selected-group{:name => attribute}
         - values.each do |value|
@@ -20,7 +20,7 @@
   
   %h2.listing-form-title{:id => "foo"}
 
-  - Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES.each do |attribute, values|
+  - @current_community.available_categorization_values.each do |attribute, values|
     - if values.size > 1
       .option-group{:name => attribute}
         - values.each do |value|

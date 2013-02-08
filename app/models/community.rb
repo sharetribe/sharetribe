@@ -331,5 +331,13 @@ class Community < ActiveRecord::Base
   def full_name
     settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
+  
+  def categories_tree
+    return Listing::MOCK_ATTRIBUTE_HASH
+  end
+  
+  def available_categorization_values
+    return Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES
+  end
 
 end

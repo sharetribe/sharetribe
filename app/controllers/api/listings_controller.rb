@@ -82,6 +82,11 @@ class Api::ListingsController < Api::ApiController
       end
     end
     
+    # fix old style visibility setting "everybody" to new format
+    if params["visibility"] == "everybody"
+      params["visibility"] = "all_communities"
+      params["privacy"] ||= "public"
+    end
     
     @listing = Listing.new(params.slice("title", 
                                         "description", 
