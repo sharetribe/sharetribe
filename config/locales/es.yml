@@ -308,6 +308,7 @@ es:
     api:
       coming_soon: Próximamente!
     index:
+      watch_the_video: ~
       get_started: "COMIENZA AHORA!"
       browse_communities_around_you: "únete a una tribu cercana"
       slogan: "Un sitio exclusivo para compartir"
@@ -607,8 +608,11 @@ es:
     event_feed:
       latest_events: "Qué está pasando"
     index:
+      no_listings_notification: ~
       available_on_the_app_store: "Disponible en la App Store"
       private_listing_notification: "Hay %{listing_count} publicaciones abiertas en esta comunidad. %{private_listing_count} de ellas %{be_verb} visibles sólo para los miembros de la comunidad. Si quieres ver esas publicaciones, necesitas %{log_in_link}."
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: "inicia sesión"
       is: es
       are: son
@@ -695,6 +699,7 @@ es:
       invite_your_friends: "Invita amigos!"
       invite_your_neighbors: ~
       invite_your_friends_description: "Mientras más gente hay en %{service_name}, más útil será."
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: "... o alternativamente %{join_without_facebook_link}"
       join_without_facebook_link: "regístrate sin usar Facebook"
     conversations:

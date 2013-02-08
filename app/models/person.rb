@@ -435,6 +435,17 @@ class Person < ActiveRecord::Base
     return allowed
   end
   
+  def send_email_confirmation_to(address, host)
+    if email == address # check primary email
+      self.send_confirmation_instructions
+    elsif e = Email.find_by_person_id_and_address(id, address) #unconfirmed additional email
+      PersonMailer.additional_email_confirmation(e, host).deliver
+    else
+      return false
+    end
+    return true # if address found and email sent
+  end
+  
   def self.find_for_facebook_oauth(facebook_data, logged_in_user=nil)
     data = facebook_data.extra.raw_info
     
@@ -471,6 +482,9 @@ class Person < ActiveRecord::Base
   # returns the same if its available, otherwise "same1", "same2" etc.
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
+    if initial_name.blank?
+      initial_name = "fb_username_missing"
+    end
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
     current_name = current_name[0..19] #truncate to 20 chars or less
     i = 1

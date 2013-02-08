@@ -19,13 +19,18 @@ es-ES:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
-    badges:
-      index:
-        add_new_badge: "Agregar una nueva medalla"
-        existing_badges: "Medallas existentes"
-        image: "Imagen de medalla"
-        name: "Nombre de la medalla"
-        save_badge: "Guardar medalla"
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: ~
@@ -300,6 +305,7 @@ es-ES:
     api:
       coming_soon: ~
     index:
+      watch_the_video: ~
       get_started: ~
       browse_communities_around_you: ~
       slogan: "Un mercado en línea para su comunidad."
@@ -374,6 +380,8 @@ es-ES:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} ha aceptado tu oferta considerando la solicitud %{listing}"
       has_accepted_your_request: "%{accepter} ha aceptado tu solicitud considerando la oferta %{listing}"
@@ -597,8 +605,11 @@ es-ES:
     event_feed:
       latest_events: ~
     index:
+      no_listings_notification: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -685,6 +696,7 @@ es-ES:
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
@@ -1395,6 +1407,7 @@ es-ES:
       add_avatar_submit: "Guardar imagen"
       update_profile_picture: "Actualizar imagen de perfil"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Quiero recibir una notificación por correo electrónico cuando..."
       newsletters: Boletines
       community_updates: ~

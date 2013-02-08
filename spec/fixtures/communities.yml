@@ -7,7 +7,8 @@ test_community:
      "locales" => ["en", "fi"]
      }.to_yaml.inspect %>
 
-  real_name_required: 1
+  real_name_required: true
+  email_confirmation: true
   news_enabled: false
   all_users_can_add_news: false
 
@@ -18,7 +19,7 @@ test_community2:
   consent: "KASSI_FI1.0"
   settings: <%= {
      "locales" => ["en"]}.to_yaml.inspect %>
-  real_name_required: 1
+  real_name_required: true
   allowed_emails: "@example.com"
   
 

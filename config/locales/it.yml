@@ -19,13 +19,18 @@ it:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: "Il codice del colore deve contenere 6 numeri o lettere A-F, per esempio D96E21"
-    badges:
-      index:
-        add_new_badge: ~
-        existing_badges: ~
-        image: ~
-        name: ~
-        save_badge: ~
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Nuovi articoli"
@@ -103,14 +108,14 @@ it:
       no_received_messages: "Nessun messaggio ricevuto"
       no_sent_messages: "Nessun messaggio inviato"
     new:
-      favor_offer_message_form_title: ~
+      favor_offer_message_form_title: "Chiedi aiuto da %{person}"
       favor_offer_message_title: ~
       favor_request_message_form_title: ~
       favor_request_message_title: ~
       housing_offer_message_form_title: ~
       housing_offer_message_title: ~
       housing_request_message_form_title: ~
-      housing_request_message_title: ~
+      housing_request_message_title: "Spazio disponibile: %{title}"
       item_offer_lend_message_form_title: ~
       item_offer_sell_message_form_title: ~
       item_offer_give_away_message_form_title: ~
@@ -145,8 +150,8 @@ it:
       send_message_to_user: ~
     notifications:
       badgenotification:
-        see_all_your_badges: ~
-        you_have_earned_badge: ~
+        see_all_your_badges: "Vedi i tuoi badge"
+        you_have_earned_badge: "Hai guadagnato il badge"
       comment_to_followed_listing_notification:
         has_commented: ~
         offer_you_follow: ~
@@ -163,9 +168,9 @@ it:
       no_notifications: ~
       notifications_from_all_tribes: ~
       testimonialnotification:
-        give_feedback_to: ~
+        give_feedback_to: "Rilascia feedback a %{name}"
         has_given_you_feedback_on_event: ~
-        see_all_the_feedback_you_have_received: ~
+        see_all_the_feedback_you_have_received: "Mostra tutti i feedback che hai ricevuto"
     show:
       in_response_to_offer: ~
       in_response_to_request: ~
@@ -173,26 +178,26 @@ it:
       offer_sent_to: ~
       request_sent_by: ~
       request_sent_to: ~
-      send_reply: ~
-      write_a_reply: ~
+      send_reply: "Invia risposta"
+      write_a_reply: "Scrivi una risposta:"
       conversation_about_listing: ~
       conversation_with_user: ~
       last_message_at: "(ultimo messaggio %{time})"
     status:
       feedback_given: ~
       feedback_skipped: ~
-      give_feedback: ~
-      offer_accepted: ~
-      offer_rejected: ~
-      request_accepted: ~
-      request_rejected: ~
+      give_feedback: "Rilascia feedback"
+      offer_accepted: "Offerta accettata"
+      offer_rejected: "Offerta rifiutata"
+      request_accepted: "Richiesta accettata"
+      request_rejected: "Richiesta rifiutata"
       skip_feedback: ~
       waiting_confirmation_from_listing_author: ~
     status_link:
-      accept_offer: ~
-      accept_request: ~
-      reject_offer: ~
-      reject_request: ~
+      accept_offer: "Accetta offerta"
+      accept_request: "Accetta richiesta"
+      reject_offer: "Non questa volta"
+      reject_request: "Non questa volta"
   communities:
     map_bubble:
       view_tribe: ~
@@ -300,6 +305,7 @@ it:
     api:
       coming_soon: ~
     index:
+      watch_the_video: ~
       get_started: "INIZIA ADESSO!"
       browse_communities_around_you: ~
       slogan: ~
@@ -347,12 +353,12 @@ it:
       offer_accusative: ~
       remember_to_accept_listing: ~
       remember_to_accept_offer: ~
-      remember_to_accept_request: ~
+      remember_to_accept_request: "Ricorda di accettare o rifiutare una richiesta"
       request_accusative: ~
       you_can_accept_or_reject_offer_at: ~
       you_can_accept_or_reject_request_at: ~
       you_have_not_yet_accepted_or_rejected_offer: ~
-      you_have_not_yet_accepted_or_rejected_request: ~
+      you_have_not_yet_accepted_or_rejected_request: "Non hai ancora accettato o rifiutatao la richiesta '%{title}' che hai ricevuto il %{date}"
     badge_migration_notification:
       badge_description1: ~
       badge_description2: ~
@@ -374,6 +380,8 @@ it:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: ~
       has_accepted_your_request: ~
@@ -381,10 +389,10 @@ it:
       has_rejected_your_request: ~
       you_can_view_the_offer_in: ~
       you_can_view_the_request_in: ~
-      your_offer_was_accepted: ~
-      your_offer_was_rejected: ~
-      your_request_was_accepted: ~
-      your_request_was_rejected: ~
+      your_offer_was_accepted: "La tua offerta è stata accettata"
+      your_offer_was_rejected: "La tua offerta è stata rifiutata"
+      your_request_was_accepted: "La tua richiesta è stata accettata"
+      your_request_was_rejected: "La tua richiesta è stata rifiutata"
     invitation_to_kassi:
       hi: Ciao!
       you_have_been_invited_to_kassi: ~
@@ -450,7 +458,7 @@ it:
       text_version_text: ~
       occasional_newsletter_title: ~
     reply_to_contact_request:
-      thank_you_for_your_interest: ~
+      thank_you_for_your_interest: "Grazie per il tuo interesse in %{service_name}!"
     reset_password_instructions:
       change_my_password: "Cambia la mia password"
       reset_password_instructions: ~
@@ -595,8 +603,11 @@ it:
     event_feed:
       latest_events: ~
     index:
+      no_listings_notification: ~
       available_on_the_app_store: "Disponibile su app store"
       private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: è
       are: ~
@@ -683,6 +694,7 @@ it:
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
@@ -758,15 +770,15 @@ it:
       news_item_update_failed: ~
       news_item_updated: "Articolo aggiornato"
       news_item_deleted: "Articolo rimosso"
-      offer_accepted: ~
-      offer_closed: ~
-      offer_created_successfully: ~
-      offer_rejected: ~
-      offer_updated_successfully: ~
-      only_kassi_administrators_can_access_this_area: ~
+      offer_accepted: "Offerta accettata"
+      offer_closed: "Offerta chiusa"
+      offer_created_successfully: "Offerta creata con successo. %{new_listing_link}."
+      offer_rejected: "Offerta rifiutata"
+      offer_updated_successfully: "Offerta aggiornata con successo"
+      only_kassi_administrators_can_access_this_area: "Solo gli amministratori di %{service_name} possono accedere a questa area"
       only_listing_author_can_close_a_listing: ~
       only_listing_author_can_edit_a_listing: ~
-      password_recovery_sent: ~
+      password_recovery_sent: "Le istruzioni per cambiare la tua password sono state inviate alla tua email."
       person_activated: "Utente attivato"
       person_deactivated: "Utente disattivato"
       person_updated_successfully: ~
@@ -780,7 +792,7 @@ it:
       read_more: ~
       registration_considered_spam: ~
       reply_cannot_be_empty: ~
-      reply_sent: ~
+      reply_sent: "Risposta inviata con successo"
       request_accepted: "Richiesta accettata"
       request_closed: "Richiesta chiusa"
       request_created_successfully: "Richiesta creata con successo. %{new_listing_link}"
@@ -837,21 +849,21 @@ it:
       log_in: ~
       send_comment: ~
       to_send_a_comment: ~
-      write_comment: ~
+      write_comment: "Scrivi un nuovo commento:"
       you_cannot_send_a_new_comment_because_offer_is_closed: ~
       you_cannot_send_a_new_comment_because_request_is_closed: ~
-      you_must: ~
+      you_must: Devi
       subscribe_to_comments: ~
     edit:
-      edit_offer: ~
-      edit_request: ~
+      edit_offer: "Modifica offerta"
+      edit_request: "Modifica richiesta"
     edit_links:
-      close_offer: ~
-      close_request: ~
-      edit_offer: ~
-      edit_request: ~
-      reopen_offer: ~
-      reopen_request: ~
+      close_offer: "Chiudi offerta"
+      close_request: "Chiudi richiesta"
+      edit_offer: "Modifica offerta"
+      edit_request: "Modifica richiesta"
+      reopen_offer: "Riapri offerta"
+      reopen_request: "Riapri richiesta"
     follow_links:
       follow: ~
       unfollow: ~
@@ -890,8 +902,8 @@ it:
         location: ~
         origin: ~
       send_button:
-        save_offer: ~
-        save_request: ~
+        save_offer: "Salva offerta"
+        save_request: "Salva richiesta"
       share_type:
         select: ~
         borrow: ~
@@ -1392,6 +1404,7 @@ it:
       add_avatar_submit: "Salva immagine"
       update_profile_picture: "Aggiorna l'immagine del profilo"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: ~
       newsletters: ~
       community_updates: ~

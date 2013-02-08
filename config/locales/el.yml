@@ -305,6 +305,7 @@ el:
     api:
       coming_soon: Σύντομα!
     index:
+      watch_the_video: ~
       get_started: "ΞΕΚΙΝΗΣΤΕ ΕΔΩ!"
       browse_communities_around_you: "βρείτε ένα sharetribe κοντά σε σας"
       slogan: "Μοιραζόμαστε πόρους στην κοινότητά μας."
@@ -602,8 +603,11 @@ el:
     event_feed:
       latest_events: "Τι νέα;"
     index:
+      no_listings_notification: ~
       available_on_the_app_store: "Διατίθεται στο app store"
       private_listing_notification: "Υπάρχουν %{listing_count} καταχωρήσεις σε αυτή την κοινότητα. %{private_listing_count} από αυτές %{be_verb} ορατές μόνο σε μέλη της κοινότητας. Αν θέλεις να τις δεις, πρέπει να %{log_in_link}."
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: συνδεθείς
       is: είναι
       are: είναι
@@ -690,6 +694,7 @@ el:
       invite_your_friends: "Προσκαλέστε φίλους!"
       invite_your_neighbors: ~
       invite_your_friends_description: "Όσο περισσότεροι χρησιμοποιούν το %{service_name} τόσο πιο χρήσιμο γίνεται."
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: "... ή %{join_without_facebook_link}"
       join_without_facebook_link: "κάνε εγγραφή χωρίς το Facebook"
     conversations:

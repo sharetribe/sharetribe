@@ -19,13 +19,18 @@ de:
         cover_photo_instructions_text: ~
         custom_color1_instructions_text: ~
         invalid_color_code: ~
-    badges:
-      index:
-        add_new_badge: "Neues Abzeichen hinzufügen"
-        existing_badges: "Bestehende Abzeichen"
-        image: "Bild des Abzeichens"
-        name: "Name des Abzeichens"
-        save_badge: "Abzeichen speichern"
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Neueste Artikel"
@@ -300,6 +305,7 @@ de:
     api:
       coming_soon: "In Kürze!"
     index:
+      watch_the_video: ~
       get_started: "STARTEN SIE JETZT!"
       browse_communities_around_you: "Treten Sie einem Stamm in Ihrer Nähe bei"
       slogan: "Mit Ihrer Community teilen."
@@ -374,6 +380,8 @@ de:
       edit_your_email_settings_here: ~
       message_not_displaying_correctly: ~
       view_it_in_your_browser: ~
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} hat Ihr Angebot unter Berücksichtigung Ihrer Anfrage akzeptiert %{listing}"
       has_accepted_your_request: "%{accepter} hat Ihre Anfrage unter Berücksichtigung Ihres Angebots akzeptiert %{listing}"
@@ -595,8 +603,11 @@ de:
     event_feed:
       latest_events: "Was ist los"
     index:
+      no_listings_notification: ~
       available_on_the_app_store: ~
       private_listing_notification: ~
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -683,6 +694,7 @@ de:
       invite_your_friends: ~
       invite_your_neighbors: ~
       invite_your_friends_description: ~
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: ~
       join_without_facebook_link: ~
     conversations:
@@ -1398,6 +1410,7 @@ de:
       add_avatar_submit: "Bild speichern"
       update_profile_picture: "Profilbild aktualisieren"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Ich möchte eine Email Benachrichtigung erhalten wenn..."
       newsletters: Newsletter
       community_updates: ~

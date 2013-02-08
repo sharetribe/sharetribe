@@ -31,6 +31,10 @@ Given /^community "([^"]*)" requires invite to join$/ do |community|
   Community.find_by_domain(community).update_attribute(:join_with_invite_only, true)
 end
 
+Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
+  Community.find_by_domain(community).update_attribute(:allowed_emails, email)
+end
+
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|
   Community.find_by_domain(community).update_attribute(:users_can_invite_new_users, true)
 end
@@ -43,12 +47,6 @@ end
 
 Then /^Invitation with code "([^"]*)" should have (\d+) usages_left$/ do |code, usages|
   Invitation.find_by_code(code).usages_left.should == usages.to_i
-end
-
-# Private communities are not in use now, so change the method name to easily make those tests undefined
-# TODO: decide if private communities will be used again, and if not delete these.
-Given /^community "([^"]*)" is private WHICH IS NOT IN USE NOW$/ do |community|
-  community = Community.find_by_domain(community).update_attribute(:private, true)
 end
 
 When /^I move to community "([^"]*)"$/ do |community|
