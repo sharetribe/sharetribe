@@ -482,6 +482,9 @@ class Person < ActiveRecord::Base
   # returns the same if its available, otherwise "same1", "same2" etc.
   # Changes most special characters to _ to match with current validations
   def self.available_username_based_on(initial_name)
+    if initial_name.blank?
+      initial_name = "fb_username_missing"
+    end
     current_name = initial_name.gsub(/[^A-Z0-9_]/i,"_")
     current_name = current_name[0..19] #truncate to 20 chars or less
     i = 1

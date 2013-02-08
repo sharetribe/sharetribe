@@ -33,7 +33,6 @@ end
 
 Given /^community "([^"]*)" requires users to have an email address of type "(.*?)"$/ do |community, email|
   Community.find_by_domain(community).update_attribute(:allowed_emails, email)
-  puts Community.find_by_domain(community).allowed_emails
 end
 
 Given /^users can invite new users to join community "([^"]*)"$/ do |community|

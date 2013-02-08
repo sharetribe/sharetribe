@@ -41,7 +41,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       #respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
       if on_dashboard?
         flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
-        redirect_to new_tribe_path
+        redirect_to new_tribe_path and return
       else
         set_flash_message(:notice, :send_instructions) if is_navigational_format?
         redirect_to :controller => "sessions", :action => "confirmation_pending" # This is changed from Devise's default
