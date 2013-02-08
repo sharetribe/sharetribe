@@ -13,7 +13,8 @@ Feature: User views a single listing
     And there is favor request with title "Massage" from "kassi_testperson1"
     And I am on the home page
     When I follow "Massage"
-    Then I should see "Service request: Massage"
+    Then I should see "Massage"
+    And I should see "Service request"
     And I should see "Requested by"
     And I should not see "Feedback:"
     And I should not see "Contact by phone"

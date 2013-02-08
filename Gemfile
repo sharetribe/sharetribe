@@ -74,5 +74,6 @@ group :test do
   gem 'email_spec'
   gem 'action_mailer_cache_delivery'
   gem "parallel_tests", :group => :development
+  gem 'spork-rails'
 end
 

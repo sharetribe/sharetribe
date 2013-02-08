@@ -801,7 +801,7 @@ function initialize_new_community_membership_form(email_invalid_message, invitat
 			}
 		},
 		rules: {
-		  "community_membership[email]": {required: true, email: true, remote: "/people/check_email_validity"},
+		  "community_membership[email]": {required: true, email: true, remote: "/people/check_email_availability_and_validity"},
 		  "community_membership[consent]": {required: true},
 		  "invitation_code": {required: invitation_required, remote: "/people/check_invitation_code"}
 		},

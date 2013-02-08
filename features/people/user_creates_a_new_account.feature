@@ -3,7 +3,7 @@ Feature: User creates a new account
   As a person who does not have an account in Sharetribe
   I want to create a new account in Sharetribe
   
-  @javascript  
+  
   Scenario: Creating a new account successfully
     Given I am not logged in
     And I am on the signup page
@@ -16,11 +16,17 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Sharetribe, Testmanno!" within ".flash-notifications"
+    Then I should see "Confirm your email"
+    When wait for 1 seconds
+    Then I should receive 2 emails
+    When I open the email
+    And I click the first link in the email
+    Then I should see "Your account was successfully confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
+
   
-  @javascript  
+  @javascript
   Scenario: Trying to create account with unavailable username 
     Given I am not logged in
     And I am on the signup page
@@ -33,7 +39,7 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "This username is already in use." 
   
-  @javascript  
+  @javascript
   Scenario: Trying to create account with invalid username 
     Given I am not logged in
     And I am on the signup page
@@ -46,7 +52,6 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "Username is invalid." 
   
-  @javascript
   Scenario: Trying to create account with unavailable email
     Given I am not logged in
     And I am on the signup page
@@ -79,14 +84,17 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
-    Then I should see "Welcome to Sharetribe" within ".flash-notifications"
+    And wait for 1 seconds
+    Then I should receive 2 emails
+    When I open the email
+    And I click the first link in the email
+    Then I should see "Your account was successfully confirmed"
   
-  @javascript  
   Scenario: Creating a new account without allowing to show real name
     Given I am not logged in
     And I can choose whether I want to show my username to others in community "test"
     And I am on the signup page
-    And I fill in "person[username]" with random username
+    When I fill in "person[username]" with random username
     And I fill in "Given name" with "Testmanno"
     And I fill in "Family name" with "Namez"
     And I uncheck "person_show_real_name_to_other_users"
@@ -95,6 +103,11 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
+    And wait for 1 seconds
+    Then I should receive 2 emails
+    When I open the email
+    And I click the first link in the email
+    Then I should see "Your account was successfully confirmed"
     Then I should see my username
     And I should not see "Testmanno"
     And I should not see "Testmanno!"
@@ -113,8 +126,13 @@ Feature: User creates a new account
     And I fill in "Email address" with random email
     And I check "person_terms"
     And I press "Create account"
+    Then I should see "Confirm your email"
+    When wait for 1 seconds
+    Then I should receive 2 emails
+    When I open the email
+    And I click the first link in the email
     Then I should not see my username
-    And I should see "Testmanno!"
+    And I should see "Testmanno Namez"
     And Most recently created user should be member of "test" community with its latest consent accepted
     
   @subdomain2  

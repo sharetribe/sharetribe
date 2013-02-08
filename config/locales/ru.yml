@@ -19,13 +19,18 @@ ru:
         cover_photo_instructions_text: "Изображение обложки будет уменьшено до размера 1600×95 пикселов, более высокие изображения будут обрезаны сверху и снизу."
         custom_color1_instructions_text: "Вы можете изменить основной цвет интерфейса этого сообщества, введя его шестнадцатеричное значение. Сайт <a href=\"http://www.colorpicker.com/?colorcode=D96E21\" target=\"_blank\">ColorPicker.com</a> поможет выбрать и скопировать подходящий цвет."
         invalid_color_code: "Код цвета должен содержать 6 цифр или букв от A до F, например D96E21"
-    badges:
-      index:
-        add_new_badge: "Добавить новый значок"
-        existing_badges: "Существующие значки"
-        image: "Изображение значка"
-        name: "Название значка"
-        save_badge: "Сохранить значок"
+    emails:
+      new:
+        send_email_to_members: ~
+        send_email_to_members_title: ~
+        email_subject: ~
+        email_content: ~
+        email_content_placeholder: ~
+        email_language: ~
+        any_language: ~
+        send_email: ~
+        message_will_be_sent_only_to_people_with_this_language: ~
+        email_sent: ~
     news_items:
       index:
         news_items: "Новые статьи"
@@ -300,6 +305,7 @@ ru:
     api:
       coming_soon: Скоро!
     index:
+      watch_the_video: ~
       get_started: "НАЧНИТЕ СЕЙЧАС!"
       browse_communities_around_you: "присоединяйтесь к сообществу рядом с вами"
       slogan: "Виртуальный рынок вашего сообщества."
@@ -374,6 +380,8 @@ ru:
       edit_your_email_settings_here: "Редактировать настройки получения писем"
       message_not_displaying_correctly: "Письмо отображается неправильно?"
       view_it_in_your_browser: "Открыть в браузере"
+      or: ~
+      unsubscribe_from_these_emails: ~
     conversation_status_changed:
       has_accepted_your_offer: "%{accepter} принял ваше предложение по запросу %{listing}"
       has_accepted_your_request: "%{accepter} принял ваш запрос по предложению %{listing}"
@@ -595,8 +603,11 @@ ru:
     event_feed:
       latest_events: "Последние действия"
     index:
+      no_listings_notification: ~
       available_on_the_app_store: ~
       private_listing_notification: "В этом сообществе содержится %{listing_count} открытых листингов. Из них %{private_listing_count}%{be_verb}видимы только для членов сообщества. Если вы хотите их увидеть, вам нужно %{log_in_link}."
+      open_listing: ~
+      open_listings: ~
       private_listing_notification_log_in: ~
       is: ~
       are: ~
@@ -683,6 +694,7 @@ ru:
       invite_your_friends: "Приглашайте друзей!"
       invite_your_neighbors: ~
       invite_your_friends_description: "Чем больше людей вступит в сообщество %{service_name}, тем более полезным оно будет."
+      invite_your_friends_invite_only_description: ~
       join_without_facebook: "…либо %{join_without_facebook_link}"
       join_without_facebook_link: "зарегистрироваться без Facebook"
     conversations:
@@ -1397,6 +1409,7 @@ ru:
       add_avatar_submit: Сохранить
       update_profile_picture: "Обновить картинку"
     notifications:
+      email_from_admins: ~
       i_want_to_get_email_notification_when: "Я хочу получать уведомления по электронной почте, когда"
       newsletters: "Новостная рассылка"
       community_updates: "Новости сообщества"
