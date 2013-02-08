@@ -1,7 +1,7 @@
 = render :partial => "layouts/left_hand_navigation", :locals => { :links => about_links }
 
 .left-navi-section.about-section
-  %h1= community_slogan
+  %h2= community_slogan
   %p= community_description
   #sharetribe
     = render :file => community_file("about", true)

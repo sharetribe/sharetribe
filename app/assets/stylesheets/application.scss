@@ -41,10 +41,14 @@ small {
   display: block;
 }
 
+h1, h3 {
+  -webkit-font-smoothing: antialiased;
+}
+
 h1, h2, h3, h4, h5, h6 {
   @include lft-etica;
   color: $emphasis;
-  -webkit-font-smoothing: antialiased;
+  
 }
 
 .page-content {
@@ -53,7 +57,6 @@ h1, h2, h3, h4, h5, h6 {
   h1 {
     margin: lines(0) 0 lines(0.5);
     font-weight: 700;
-    //-webkit-font-smoothing: antialiased;
     
     @include media(small-tablet) {
       @include large-type;
@@ -65,12 +68,11 @@ h1, h2, h3, h4, h5, h6 {
   h2 {
     margin: lines(0) 0 lines(0.5);
     @include normal-type;
-    font-weight: 600;
+    font-weight: 500;
     
     @include media(small-tablet) {
       @include big-type;
-      //letter-spacing: normal;
-      font-weight: 600;
+      font-weight: 500;
       text-transform: none;
     }
   }
@@ -548,23 +550,20 @@ label.error {
   white-space: nowrap;
   position: relative;
   left: em(2);
-  top: em(1);
+  top: em(-2);
   background: $highlight;
   color: $body;
-  padding: em(0) em(0) em(3) em(6);
+  padding: em(0) em(0) em(2) em(8);
   @include border-radius(em(5));
   &:hover {
     background: $aside;
     color: $background;
   }
   .icon-with-text-container {
-    .ss-car, .ss-heart {
-      top: em(3);
-    }
+
   }
   @include media(tablet) {
     padding: em(0) em(2) em(3) em(10);
-    top: em(1);
   }
 }
 
@@ -1853,7 +1852,7 @@ a.lightbox-x {
   border-width: 1px 0 0;
   
   h2 {
-    line-height: lines(0.75);
+    line-height: em(21);
     margin: 0;
   }
   
@@ -1867,7 +1866,7 @@ a.lightbox-x {
     max-width: lines(20);
     .author { 
       @include small-type;
-      padding-bottom: lines(0.25);
+      margin-bottom: lines(0.25);
     }
   }
   
@@ -1904,10 +1903,6 @@ a.lightbox-x {
     
     .feed-content {
       margin: em(-3) lines(6) 0 lines(2.25);
-    }
-    
-    h2 {
-      @include big-type;
     }
     
     .feed-excerpt {

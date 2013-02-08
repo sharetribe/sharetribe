@@ -3,7 +3,6 @@ Feature: User creates a new account
   As a person who does not have an account in Sharetribe
   I want to create a new account in Sharetribe
   
-  
   Scenario: Creating a new account successfully
     Given I am not logged in
     And I am on the signup page
@@ -18,10 +17,11 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "Confirm your email"
     When wait for 1 seconds
-    Then I should receive 2 emails
+    Then I should receive 1 email
     When I open the email
     And I click the first link in the email
-    Then I should see "Your account was successfully confirmed"
+    Then I should have 2 emails
+    And I should see "Your account was successfully confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
 
@@ -85,10 +85,11 @@ Feature: User creates a new account
     And I check "person_terms"
     And I press "Create account"
     And wait for 1 seconds
-    Then I should receive 2 emails
+    Then I should receive 1 email
     When I open the email
     And I click the first link in the email
-    Then I should see "Your account was successfully confirmed"
+    Then I should have 2 emails
+    And I should see "Your account was successfully confirmed"
   
   Scenario: Creating a new account without allowing to show real name
     Given I am not logged in
@@ -104,10 +105,11 @@ Feature: User creates a new account
     And I check "person_terms"
     And I press "Create account"
     And wait for 1 seconds
-    Then I should receive 2 emails
+    Then I should receive 1 email
     When I open the email
     And I click the first link in the email
-    Then I should see "Your account was successfully confirmed"
+    Then I should have 2 emails
+    And I should see "Your account was successfully confirmed"
     Then I should see my username
     And I should not see "Testmanno"
     And I should not see "Testmanno!"
@@ -128,10 +130,11 @@ Feature: User creates a new account
     And I press "Create account"
     Then I should see "Confirm your email"
     When wait for 1 seconds
-    Then I should receive 2 emails
+    Then I should receive 1 email
     When I open the email
     And I click the first link in the email
-    Then I should not see my username
+    Then I should have 2 emails
+    And I should not see my username
     And I should see "Testmanno Namez"
     And Most recently created user should be member of "test" community with its latest consent accepted
     
