@@ -185,7 +185,6 @@ function select_listing_form_menu_link(link, locale, attribute_hash, listing_for
         selected_attributes[ordered_attributes[i]] = null;
       }
     }
-    console.log(selected_attributes); 
   }
   update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
 }
