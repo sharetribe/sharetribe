@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130124150000) do
+ActiveRecord::Schema.define(:version => 20130208085827) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -49,6 +49,26 @@ ActiveRecord::Schema.define(:version => 20130124150000) do
     t.integer  "test_group_number"
     t.integer  "community_id"
   end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent"
+    t.string   "icon"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "categories", ["name"], :name => "index_categories_on_name"
+
+  create_table "category_translations", :force => true do |t|
+    t.integer  "category_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "category_translations", ["category_id"], :name => "index_category_translations_on_category_id"
 
   create_table "comments", :force => true do |t|
     t.string   "author_id"
@@ -108,6 +128,16 @@ ActiveRecord::Schema.define(:version => 20130124150000) do
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
+
+  create_table "communities_categories", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "category_id"
+    t.integer  "share_type_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "communities_categories", ["community_id", "category_id"], :name => "communities_categories"
 
   create_table "communities_listings", :id => false, :force => true do |t|
     t.integer "community_id"
@@ -448,12 +478,25 @@ ActiveRecord::Schema.define(:version => 20130124150000) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
-  create_table "share_types", :force => true do |t|
-    t.integer "listing_id"
-    t.string  "name"
+  create_table "share_type_translations", :force => true do |t|
+    t.integer  "share_type_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
-  add_index "share_types", ["listing_id"], :name => "index_share_types_on_listing_id"
+  add_index "share_type_translations", ["share_type_id"], :name => "index_share_type_translations_on_share_type_id"
+
+  create_table "share_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent"
+    t.string   "icon"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "share_types", ["name"], :name => "index_share_types_on_name"
 
   create_table "statistics", :force => true do |t|
     t.integer  "community_id"
