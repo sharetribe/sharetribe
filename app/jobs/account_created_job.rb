@@ -1,5 +1,7 @@
 class AccountCreatedJob < Struct.new(:person_id, :community_id, :email)
   
+  include DelayedAirbrakeNotification
+  
   # This before hook should be included in all Jobs to make sure that the service_name is 
   # correct as it's stored in the thread and the same thread handles many different communities
   # if the job doesn't have host parameter, should call the method with nil, to set the default service_name

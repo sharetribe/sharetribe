@@ -43,7 +43,7 @@ class PersonMailer < ActionMailer::Base
   
   def new_comment_to_followed_listing_notification(comment, recipient, host=nil)
     @recipient = set_up_recipient(recipient, host)
-    #@url = host ? "http://#{host}/#{@recipient.locale}#{listing_path(:id => comment.listing.id.to_s)}##{comment.id.to_s}" : "test_url"
+    @url = host ? "http://#{host}/#{listing_path(:id => comment.listing.id.to_s, :locale => @recipient.locale)}##{comment.id.to_s}" : "test_url"
     @comment = comment
     mail(:to => @recipient.email,
          :subject => t("emails.new_comment.listing_you_follow_has_a_new_comment", :author => comment.author.name))
