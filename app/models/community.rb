@@ -418,7 +418,7 @@ class Community < ActiveRecord::Base
     values["listing_type"] = listing_types.collect(&:name)
     values["category"] = main_categories.collect(&:name)
     values["subcategory"] = subcategories.collect(&:name)
-    values["share_type"] = share_types.collect(&:name)
+    values["share_type"] = share_types.collect(&:name).reject { |st| values["listing_type"].include?(st) }
     return values
   end
   

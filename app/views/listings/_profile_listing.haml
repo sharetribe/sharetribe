@@ -2,10 +2,7 @@
   .feed-content{:class => (listing.has_image? ? "profile-content-with-image" : "")}
     %h3
       = link_to listing.title, listing, :class => "listing-title"
-      %a.share-type-link{:href => share_type_url(listing)}
-        .icon-with-text-container
-          .icon-part{:class => Listing::LISTING_ICONS[listing.category]}
-          .text-part= listed_listing_share_type(listing)
+      = render :partial => "listings/share_type_link", :locals => { :listing => listing }
     - unless listing.description.blank?
       %small.feed-excerpt
         = "\"#{truncate_html(listing.description, :length => 120, :omission => '...')}\""
