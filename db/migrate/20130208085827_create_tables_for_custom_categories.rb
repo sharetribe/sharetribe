@@ -2,7 +2,7 @@ class CreateTablesForCustomCategories < ActiveRecord::Migration
   def up
     create_table :categories do |t|
       t.string :name
-      t.integer :parent
+      t.integer :parent_id
       t.string :icon
       t.timestamps
     end
@@ -11,7 +11,7 @@ class CreateTablesForCustomCategories < ActiveRecord::Migration
     drop_table :share_types
     create_table :share_types do |t|
       t.string :name
-      t.integer :parent
+      t.integer :parent_id
       t.string :icon
       t.timestamps
     end
@@ -30,7 +30,7 @@ class CreateTablesForCustomCategories < ActiveRecord::Migration
       t.timestamps
     end
     
-    create_table :communities_categories do |t|
+    create_table :community_categories do |t|
       t.integer :community_id
       t.integer :category_id
       t.integer :share_type_id
@@ -41,7 +41,7 @@ class CreateTablesForCustomCategories < ActiveRecord::Migration
     add_index :share_types, :name
     add_index :category_translations, :category_id
     add_index :share_type_translations, :share_type_id
-    add_index :communities_categories, [:community_id, :category_id], :name => "communities_categories"
+    add_index :community_categories, [:community_id, :category_id], :name => "community_categories"
     
   end
 
@@ -55,7 +55,7 @@ class CreateTablesForCustomCategories < ActiveRecord::Migration
     end
     drop_table :category_translations
     drop_table :share_type_translations
-    drop_table :community_id
+    drop_table :community_categories
     
   end
 end

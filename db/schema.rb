@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(:version => 20130208085827) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
-    t.integer  "parent"
+    t.integer  "parent_id"
     t.string   "icon"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -129,7 +129,14 @@ ActiveRecord::Schema.define(:version => 20130208085827) do
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"
 
-  create_table "communities_categories", :force => true do |t|
+  create_table "communities_listings", :id => false, :force => true do |t|
+    t.integer "community_id"
+    t.integer "listing_id"
+  end
+
+  add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+
+  create_table "community_categories", :force => true do |t|
     t.integer  "community_id"
     t.integer  "category_id"
     t.integer  "share_type_id"
@@ -137,14 +144,7 @@ ActiveRecord::Schema.define(:version => 20130208085827) do
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "communities_categories", ["community_id", "category_id"], :name => "communities_categories"
-
-  create_table "communities_listings", :id => false, :force => true do |t|
-    t.integer "community_id"
-    t.integer "listing_id"
-  end
-
-  add_index "communities_listings", ["listing_id", "community_id"], :name => "communities_listings"
+  add_index "community_categories", ["community_id", "category_id"], :name => "community_categories"
 
   create_table "community_customizations", :force => true do |t|
     t.integer  "community_id"
@@ -490,7 +490,7 @@ ActiveRecord::Schema.define(:version => 20130208085827) do
 
   create_table "share_types", :force => true do |t|
     t.string   "name"
-    t.integer  "parent"
+    t.integer  "parent_id"
     t.string   "icon"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

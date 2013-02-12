@@ -7,40 +7,72 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 #  listing_type = valid_st.keys[SecureRandom.random_number(valid_st.keys.length)]
 
-Person.all.each { |p| p.set_default_preferences }
+default_categories = [
+  {
+  "item" => [
+    "tools",
+    "sports",
+    "music",
+    "books",
+    "games",
+    "furniture",
+    "outdoors",
+    "food",
+    "electronics",
+    "pets",
+    "film",
+    "clothes",
+    "garden",
+    "travel",
+    "other"
+    ]
+  },
+  "favor",
+  "rideshare",
+  "housing" 
+]
 
-user = Person.first
-for i in 1..500
-  listing_type = Listing::VALID_TYPES[SecureRandom.random_number(2)]
-  category = Listing::VALID_CATEGORIES[SecureRandom.random_number(4)]
-  valid_until = DateTime.now + 1.month
-  tag_list = [
-    "#{SecureRandom.random_number(33) + 1}tag",
-    "#{SecureRandom.random_number(33) + 1}longertag",
-    "#{SecureRandom.random_number(33) + 1}verylongtag"
-  ]
-  listing = user.create_listing(:listing_type => listing_type, :category => category, :valid_until => valid_until, :tag_list => tag_list, :description => "Test #{listing_type} #{category}")
-  
-  if(category.eql? "rideshare")
-    origin_lat = SecureRandom.random_number() * 0.15 + 60.15
-    origin_lng = SecureRandom.random_number() * 0.5 + 24.70
-    listing.build_origin_loc(:latitude => origin_lat, :longitude => origin_lng)
-    dest_lat = SecureRandom.random_number() * 0.15 + 60.15
-    dest_lng = SecureRandom.random_number() * 0.5 + 24.70
-    listing.build_destination_loc(:latitude => dest_lat, :longitude => dest_lng)
-    listing.origin = "Origin #{i}"
-    listing.destination = "Destination #{i}"
+default_share_types = {
+  "offer" => {:categories => ["item", "favor", "rideshare", "housing"]},
+    "sell" => {:parent => "offer", :categories => ["item", "housing"]},
+    "rent_out" => {:parent => "offer", :categories => ["item", "housing"]},
+    "lend" => {:parent => "offer", :categories => ["item"]}, 
+    #"trade" => {:parent => "offer", :categories => ["item"]}, 
+    "give_away" => {:parent => "offer", :categories => ["item"]},
+    "share_for_free" => {:parent => "offer", :categories => ["housing"]},
+    
+  "request" => {:categories => ["item", "favor", "rideshare", "housing"]}, 
+    "buy" => {:parent => "request", :categories => ["item", "housing"]},
+    "rent" => {:parent => "request", :categories => ["item", "housing"]},
+    "borrow" => {:parent => "request", :categories => ["item"]},
+    #"trade" => {:parent => "request", :categories => ["item"]}, 
+    "receive" => {:parent => "request", :categories => ["item"]}, 
+    "accept_for_free" => {:parent => "request", :categories => ["housing"]}
+}
+
+
+default_categories.each do |category| 
+  if category.class == String
+    Category.create([{:name => category, :icon => category}])
+  elsif category.class == Hash
+    parent = Category.create(:name => category.keys.first)
+    category.values.first.each do |subcategory|
+      c = Category.create({:name => subcategory, :icon => subcategory, :parent_id => parent.id})
+      # As subcategories won't get their own link to share_types (as they inherit that from parent category)
+      # We create a CommunityCategory entry here to mark that these subcategories exist in the default tribe
+      CommunityCategory.create(:category => c)
+    end
   else
-    lat = SecureRandom.random_number() * 0.15 + 60.15
-    lng = SecureRandom.random_number() * 0.5 + 24.70
-    listing.build_location(:latitude => lat, :longitude => lng)
-    listing.title = "#{listing_type} - #{category} - test#{i}"
+    puts "Invalid data for default_categories. It must be array of Strings and Hashes."
+    return
   end
-  
-  if(Listing::VALID_SHARE_TYPES[listing_type][category])
-    share_type = Listing::VALID_SHARE_TYPES[listing_type][category][SecureRandom.random_number(Listing::VALID_SHARE_TYPES[listing_type][category].length)]
-    listing.share_types.build(:name => share_type)
+end
+
+default_share_types.each do |share_type, details|
+  parent = ShareType.find_by_name(details[:parent]) if details[:parent]
+  s = ShareType.create(:name => share_type, :icon => share_type, :parent => parent)
+  details[:categories].each do |category_name|
+    c = Category.find_by_name(category_name)
+    CommunityCategory.create(:category => c, :share_type => s) if c
   end
-  listing.save
-  Community.find_by_domain("aalto").listings << listing
 end
