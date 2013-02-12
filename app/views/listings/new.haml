@@ -14,7 +14,7 @@
         - values.each do |value|
           %a.select.selected{:href => "#", :name => value}
             .link-icon{:class => get_icon_class(value)}
-            .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}"))
+            .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}", :default => value.capitalize))
   
   %h2.listing-form-title{:id => "foo"}
 

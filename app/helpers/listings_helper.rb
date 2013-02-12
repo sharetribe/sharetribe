@@ -64,12 +64,12 @@ module ListingsHelper
   def listed_listing_share_type(listing)
     if listing.share_type
       if listing.share_type.eql?("trade")
-        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}")
+        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}", :default => listing.share_type.capitalize)
       else
         localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
       end
     else
-      t("listings.show.#{listing.category}_#{listing.listing_type}")
+      t("listings.show.#{listing.category}_#{listing.listing_type}", :default => "#{listing.category.capitalize } #{listing.listing_type.downcase}")
     end
   end
   
@@ -89,17 +89,17 @@ module ListingsHelper
   def localized_category_label(category_string)
     return nil if category_string.nil?
     category_string += "s" if ["item", "favor"].include?(category_string)
-    return t("listings.index.#{category_string}")
+    return t("listings.index.#{category_string}", :default => category_string.capitalize)
   end
   
   def localized_share_type_label(share_type_string)
     return nil if share_type_string.nil?
-    return t("common.share_types.#{share_type_string}")
+    return t("common.share_types.#{share_type_string}", :default => share_type_string.capitalize)
   end
   
   def localized_listing_type_label(listing_type_string)
     return nil if listing_type_string.nil?
-    return t("listings.show.#{listing_type_string}")
+    return t("listings.show.#{listing_type_string}", :default => listing_type_string.capitalize)
   end
 
   def get_icon_class(icon_type)

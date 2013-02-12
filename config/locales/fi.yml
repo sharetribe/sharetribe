@@ -108,6 +108,10 @@ fi:
       no_received_messages: "Ei vastaanotettuja viestejä"
       no_sent_messages: "Ei lähetettyjä viestejä"
     new:
+      offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
+      offer_message_title: "Tarjous: %{title}"
+      request_message_form_title: "Pyydä %{listing} käyttäjältä %{person}"
+      request_message_title: "Pyyntö: %{title}"
       favor_offer_message_form_title: "Pyydä palvelusta käyttäjältä"
       favor_offer_message_title: "Palveluspyyntö: %{title}"
       favor_request_message_form_title: "Tarjoa palvelus käyttäjälle"
@@ -772,6 +776,7 @@ fi:
       news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
       offer_closed: "Tarjous suljettu"
+      listing_created_successfully: "Ilmoitus tallennettu."
       offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
@@ -923,6 +928,7 @@ fi:
         comma_separate: "(erota pilkulla)"
         tags: Avainsanat
       title:
+        listing_title: "Ilmoituksen otsikko"
         favor_you_offer: "Palvelus jonka tarjoat"
         favor_you_request: "Palvelus jonka tarvitset"
         housing_you_offer: "Tila jonka tarjoat"
@@ -984,6 +990,8 @@ fi:
       accept_for_frees: ~
       trades: Vaihdetaan
     link_labels:
+      offer_this: "Tarjoa"
+      request_this: "Pyydä"
       link_label_for_favor_offer: "Pyydä palvelusta"
       link_label_for_favor_request: "Tarjoa apuasi"
       link_label_for_housing_offer_sell: Osta

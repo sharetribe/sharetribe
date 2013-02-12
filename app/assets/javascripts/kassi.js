@@ -189,6 +189,8 @@ function select_listing_form_menu_link(link, locale, attribute_hash, listing_for
   update_listing_form_view(locale, attribute_hash, listing_form_menu_titles, ordered_attributes, selected_attributes);
 }
 
+// Return true if the menu for the given attribute should be shown in
+// the listing form in this community.
 function menu_applicable(attribute, selected_attributes, attribute_hash) {
   if (attribute == "listing_type") {
     var values = attribute_hash

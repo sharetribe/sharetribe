@@ -84,7 +84,7 @@ class Listing < ActiveRecord::Base
   LISTING_ICONS = {
     "offer" => "ss-share",
     "request" => "ss-tip",
-    "item" => "ss-suitcase",
+    "item" => "ss-box",
     "favor" => "ss-heart",
     "rideshare" => "ss-car",
     "housing" => "ss-warehouse",
@@ -112,7 +112,10 @@ class Listing < ActiveRecord::Base
     "buy" => "ss-moneybag",
     "sell" => "ss-moneybag",
     "rent" => "ss-pricetag",
-    "rent_out" => "ss-pricetag"
+    "rent_out" => "ss-pricetag",
+    "job" => "ss-briefcase",
+    "announcement" => "ss-newspaper",
+    "news" => "ss-newspaper"
   }
   
   before_validation :set_rideshare_title, :set_valid_until_time
@@ -123,10 +126,11 @@ class Listing < ActiveRecord::Base
   validates_length_of :title, :in => 2..90, :allow_nil => false
   validates_length_of :origin, :destination, :in => 2..48, :allow_nil => false, :if => :rideshare?
   validates_length_of :description, :maximum => 5000, :allow_nil => true
-  validates_inclusion_of :listing_type, :in => VALID_TYPES
-  validates_inclusion_of :category, :in => VALID_CATEGORIES
+  # TODO: validate with community specific details
+  # validates_inclusion_of :listing_type, :in => VALID_TYPES
+  # validates_inclusion_of :category, :in => VALID_CATEGORIES
+  # validate :given_share_type_is_one_of_valid_share_types
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
-  validate :given_share_type_is_one_of_valid_share_types
   validate :valid_until_is_not_nil
   
   # Index for sphinx search

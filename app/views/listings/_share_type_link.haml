@@ -1,4 +1,4 @@
 %a.share-type-link{:href => share_type_url(listing)}
   .icon-with-text-container
-    .icon-part{:class => Listing::LISTING_ICONS[listing.category]}
+    .icon-part{:class => Listing::LISTING_ICONS[(listing.subcategory? ? listing.subcategory : listing.category)]}
     .text-part= listed_listing_share_type(listing)
