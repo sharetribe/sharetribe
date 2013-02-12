@@ -111,14 +111,14 @@ module ListingsHelper
     # t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))
   end
   
-  def listing_form_menu_titles
+  def listing_form_menu_titles(community_attribute_values)
     titles = {
       "listing_type" => t(".what_do_you_want_to_do"),
       "category" => {
         "offer" => t(".what_can_you_offer"),
         "request" => t(".what_do_you_need")
       },
-      "subcategory" => Hash[Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES["category"].collect { |category| [category, t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))]}],
+      "subcategory" => Hash[community_attribute_values["category"].collect { |category| [category, t(".what_kind_of_category", :category => t(".#{category}_with_article", :default => t(".listing")))]}],
       "share_type" => {
         "offer" => t(".how_do_you_want_to_share_it"),
         "request" => t(".how_do_you_want_to_get_it")

@@ -115,32 +115,6 @@ class Listing < ActiveRecord::Base
     "rent_out" => "ss-pricetag"
   }
   
-  MOCK_ATTRIBUTE_HASH = {
-    "offer" => {
-      "item" => {
-        "subcategory" => ["tools", "sports", "music", "books", "games"],
-        "share_type" => ["lend", "sell", "rent_out", "trade", "give_away"]
-      },
-      "favor" => {
-        "subcategory" => ["furniture_assemble", "walking_dogs"]
-      }, 
-      "rideshare" => {},
-      "housing" => {
-        "share_type" => ["rent_out", "sell", "share_for_free"]
-      }
-    },
-    "request" => {
-      "rideshare" => {}
-    }
-  }
-  
-  MOCK_UNIQUE_ATTRIBUTE_VALUES = {
-    "listing_type" => ["offer", "request"],
-    "category" => ["item", "favor", "rideshare", "housing"],
-    "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
-    "share_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
-  }
-  
   before_validation :set_rideshare_title, :set_valid_until_time
   before_save :downcase_tags, :set_community_visibilities
   after_create :check_possible_matches

@@ -11,6 +11,9 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
+  has_many :community_categories, :dependent  => :destroy
+  has_many :categories, :through => :community_categories
+  has_many :share_types, :through => :community_categories
   
   has_and_belongs_to_many :listings
   
@@ -332,12 +335,139 @@ class Community < ActiveRecord::Base
     settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
   end
   
+  # categories_tree
+  # Returns a hash that represents the cateogrization tree that is in use at this community
+  # Some assumptions are made here:
+  # - Listing types and share_types are only linked to top level categories in DB
+  # If wanting to do differently, this code needs to be changed and probably the UI code too
+  # Example of a returned tree:
+  #   "offer" => {
+  #     "item" => {
+  #       "subcategory" => ["tools", "sports", "music", "books", "games"],
+  #       "share_type" => ["lend", "sell", "rent_out", "trade", "give_away"]
+  #     },
+  #     "favor" => {
+  #       "subcategory" => ["furniture_assemble", "walking_dogs"]
+  #     }, 
+  #     "rideshare" => {},
+  #     "housing" => {
+  #       "share_type" => ["rent_out", "sell", "share_for_free"]
+  #     }
+  #   },
+  #   "request" => {
+  #     "rideshare" => {}
+  #   }
+  # }
   def categories_tree
-    return Listing::MOCK_ATTRIBUTE_HASH
+    tree = {}
+    
+    # store few variables here so that they are fetched only once during the loops
+    this_tribe_community_categories = community_categories
+    this_tribe_categories = categories
+    this_tribe_share_types = share_types
+    
+    listing_types.each do |listing_type| # Listing types are the root level of the tree
+      categories_for_listing_type = {}
+      
+      # pick the categories that are linked for this listing type in this community
+      # "top_level_linked_community_category" means that we assume here that those categories that are linked
+      # to listing types, are top level categories (not sub categories)
+      this_tribe_community_categories.select{|cc| cc.share_type_id == listing_type.id}.each do |top_level_linked_community_category|
+        
+        category_hash = {} # empty by default if no subcategories or share_types
+
+        # Check for existing subcategories for this category
+        this_tribe_categories.select{|cat| cat.parent_id == top_level_linked_community_category.category_id}.each do |subcat|
+          category_hash["subcategory"] ||= []
+          category_hash["subcategory"] << subcat.name
+        end
+        
+        # Check for existing linked share_types for this category
+        this_tribe_share_types.select{|st|  
+                this_tribe_community_categories.select{|comcat| 
+                  comcat.category_id == top_level_linked_community_category.category_id && 
+                  st.id == comcat.share_type_id
+                }.present? &&
+                st.parent_id == top_level_linked_community_category.share_type_id}.each do |sub_share_type|
+          category_hash["share_type"] ||= []
+          category_hash["share_type"] << sub_share_type.name
+        end
+        
+        # Insert this top level category to hash and make it's value contain the sub categories and share types
+        categories_for_listing_type[top_level_linked_community_category.category.name] = category_hash
+      end
+      
+      tree[listing_type.name] = categories_for_listing_type
+    end
+    return tree
   end
   
+  
+  # available_categorization_values
+  # Returns a hash of lists of values for different categorization aspects in use in this community
+  # Used to simplify UI building
+  # Example hash:
+  # {
+  #   "listing_type" => ["offer", "request"],
+  #   "category" => ["item", "favor", "rideshare", "housing"],
+  #   "subcategory" => ["tools", "sports", "music", "books", "games", "furniture_assemble", "walking_dogs"],
+  #   "share_type" => ["lend", "sell", "rent_out", "give_away", "share_for_free", "borrow", "buy", "rent", "trade", "receive", "accept_for_free"]
+  # }
   def available_categorization_values
-    return Listing::MOCK_UNIQUE_ATTRIBUTE_VALUES
+    values = {}
+    values["listing_type"] = listing_types.collect(&:name)
+    values["category"] = main_categories.collect(&:name)
+    values["subcategory"] = subcategories.collect(&:name)
+    values["share_type"] = share_types.collect(&:name)
+    return values
+  end
+  
+
+  # returns all categories
+  def categories
+    unique_categorizations(:category)
+  end
+  
+  def main_categories
+    categories.select{|c| c.parent_id.nil?}
+  end
+  
+  def subcategories
+    categories.select{|c| ! c.parent_id.nil?}
+  end
+  
+  # Finds all top level share_types (=listing_types) used in this community
+  def listing_types
+    share_types.select{|s| s.parent_id.nil?}
+  end
+  
+  # finds community specific share_types or default values if no customizations found
+  def share_types
+    unique_categorizations(:share_type)
+  end
+  
+  
+
+
+  private
+  
+  # Returns an array of unique categories or share_types used in this community.
+  def unique_categorizations(categorization_type)
+    unless [:category, :share_type].include?(categorization_type)
+      throw "unique_categorizations called with wrong type. Only :category and :share_type allowed" 
+    end
+    return community_categories.collect(&categorization_type).compact.uniq
+  end
+
+  def community_categories
+    custom = CommunityCategory.find_all_by_community_id(id, :include => [:category, :share_type])
+    if custom.present?
+      # use custom values
+      return custom
+    else
+      # Use defaults
+      return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+    end
   end
 
 end
