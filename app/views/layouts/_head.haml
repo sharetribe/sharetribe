@@ -24,7 +24,7 @@
   - if @listing && action_name.eql?("show")
     - fb_image = @listing.listing_images.empty? ? "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png" : @listing.listing_images.first.image.url(:medium)
     %meta{ :property => "og:title", :content => "#{@listing.title} - #{@current_community.full_name}"} 
-    %meta{ :property => "og:image", :content =>"#{@current_community.full_url}/#{fb_image}"}
+    %meta{ :property => "og:image", :content => fb_image}
     %meta{ :property => "og:site_name", :content =>"#{@current_community.full_name}: "}
     %meta{ :property => "og:description", :content => @listing.description}
   - else
