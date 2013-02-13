@@ -333,7 +333,9 @@ class Person < ActiveRecord::Base
   end
   
   def create_listing(params)
-    listings.create params
+    params = Listing.find_category_and_share_type_based_on_string_params(params)
+
+    listings.create params #.except([:category, :share_type])
   end
   
   def read(conversation)

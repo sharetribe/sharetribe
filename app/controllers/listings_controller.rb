@@ -93,10 +93,10 @@ class ListingsController < ApplicationController
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
     @listing.listing_type = params[:listing_type]
-    @listing.category = params[:category]
-    @listing.share_type = params[:share_type]
+    @listing.category = Category.find_by_name(params[:category])
+    @listing.share_type = ShareType.find_by_name(params[:share_type])
     #@latitude = 13
-    if @listing.category.name == "rideshare"
+    if @listing.category && @listing.category.name == "rideshare"
 	    @listing.build_origin_loc(:location_type => "origin_loc")
 	    @listing.build_destination_loc(:location_type => "destination_loc")
     else

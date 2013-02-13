@@ -354,12 +354,19 @@ class Listing < ActiveRecord::Base
     return listings
   end
   
+  def self.find_category_and_share_type_based_on_string_params(p)
+    p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
+    p[:share_type] = ShareType.find_by_name(p[:share_type])
+    return p
+  end
+  
   # Returns true if listing exists and valid_until is set
   def temporary?
     !new_record? && valid_until
   end
   
   def update_fields(params)
+    params = Listing.find_category_and_share_type_based_on_string_params(params)
     update_attribute(:valid_until, nil) unless params[:valid_until]
     update_attributes(params)
   end
