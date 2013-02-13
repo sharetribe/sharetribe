@@ -526,7 +526,7 @@ class Listing < ActiveRecord::Base
     # This is currently optimized for the needs of the map, so if extending, make a separate JSON mode, and keep map data at minimum
     hash = {
       :listing_type => self.listing_type,
-      :category => self.category,
+      :category => self.category.name,
       :id => self.id
     }
     if self.origin_loc

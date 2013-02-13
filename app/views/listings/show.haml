@@ -15,7 +15,7 @@
       %span.listing-title= @listing.title
       = render :partial => "listings/share_type_link", :locals => { :listing => @listing }
     
-    - if @listing.valid_until && @listing.category.eql?("rideshare")
+    - if @listing.valid_until && @listing.category.name.eql?("rideshare")
       .listing-departure-time
         .icon-with-text-container
           %i.ss-car.icon-part 
@@ -50,7 +50,7 @@
         .text-part
           = t(".times_viewed")
           = pluralize(@listing.times_viewed.to_s, t(".time"), t(".times"))
-      - if @listing.valid_until && @listing.open? && !@listing.category.eql?("rideshare")
+      - if @listing.valid_until && @listing.open? && !@listing.category.name.eql?("rideshare")
         .icon-with-text-container
           %i.ss-alarmclock.icon-part 
           .text-part
@@ -98,9 +98,9 @@
 
     - if @listing.origin_loc && @listing.origin_loc.address != ""
       #googlemap
-        = render :partial => "googlemap", :locals => { :rideshare => (@listing.category == "rideshare"), :listing => @listing}
+        = render :partial => "googlemap", :locals => { :rideshare => (@listing.category.name == "rideshare"), :listing => @listing}
         = render :partial => "origin", :locals => { :origin_loc => @listing.origin_loc }
-        - if @listing.category == "rideshare"
+        - if @listing.category.name == "rideshare"
           = render :partial => "destination", :locals => { :destination_loc => @listing.destination_loc }
         
     .bottom-margin  

@@ -1,11 +1,11 @@
 module ConversationsHelper
   
   def get_message_title(listing)
-    t("conversations.new.#{listing.category}_#{listing.listing_type}_message_title", :title => listing.title, :default => t("conversations.new.#{listing.listing_type}_message_title", :title => listing.title))
+    t("conversations.new.#{listing.category.name}_#{listing.listing_type}_message_title", :title => listing.title, :default => t("conversations.new.#{listing.listing_type}_message_title", :title => listing.title))
   end
   
   def transaction_proposal_form_title(listing)
-    "#{listing.category}_#{listing.listing_type}#{listing.share_type? ? '_' + @listing.share_type.name : ''}_message_form_title"
+    "#{listing.category.name}_#{listing.listing_type}#{listing.share_type? ? '_' + @listing.share_type.name : ''}_message_form_title"
   end
   
   def icon_for(status)

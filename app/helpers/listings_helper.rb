@@ -13,7 +13,7 @@ module ListingsHelper
   
   # Class is selected if category is currently selected
   def get_type_select_icon_class(category)
-    "listing_type_select_icon_#{@listing.category.eql?(category) ? 'selected' : 'unselected'}_#{category}"
+    "listing_type_select_icon_#{@listing.category.name.eql?(category) ? 'selected' : 'unselected'}_#{category}"
   end
   
   # The classes the checkbox gets depend on to which categories its' share type belongs to.
@@ -42,7 +42,7 @@ module ListingsHelper
   end
   
   def share_type_array
-    Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].sort { |a,b| a <=> b }.collect { |st| [t(".#{st}"), st] }
+    Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].sort { |a,b| a <=> b }.collect { |st| [t(".#{st}"), st] }
   end
   
   def visibility_array
@@ -64,12 +64,12 @@ module ListingsHelper
   def listed_listing_share_type(listing)
     if listing.share_type
       if listing.share_type.name.eql?("offer_to_swap") || listing.share_type.name.eql?("request_to_swap")
-        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
+        t("listings.show.#{listing.category.name}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
       else
         localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
       end
     else
-      t("listings.show.#{listing.category}_#{listing.listing_type}", :default => "#{listing.category.capitalize } #{listing.listing_type.downcase}")
+      t("listings.show.#{listing.category.name}_#{listing.listing_type}", :default => "#{listing.category.display_name.capitalize } #{listing.listing_type.downcase}")
     end
   end
   
@@ -79,17 +79,21 @@ module ListingsHelper
   
   def share_type_url(listing, map=false)
     if listing.share_type
-      root_path(:share_type => listing.share_type.name, :category => listing.category, :map => map)
+      root_path(:share_type => listing.share_type.name, :category => listing.category.name, :map => map)
     else
-      root_path(:share_type => listing.listing_type, :category => listing.category, :map => map)
+      root_path(:share_type => listing.listing_type, :category => listing.category.name, :map => map)
     end
   end
   
-  # expects category_string to be "item", "favor", "rideshare" or "housing"
-  def localized_category_label(category_string)
-    return nil if category_string.nil?
-    category_string += "s" if ["item", "favor"].include?(category_string)
-    return t("listings.index.#{category_string}", :default => category_string.capitalize)
+  # expects category to be "item", "favor", "rideshare" or "housing"
+  def localized_category_label(category)
+    return nil if category.nil?
+    if category.class == String
+      category += "s" if ["item", "favor"].include?(category)
+      return t("listings.index.#{category}", :default => category.capitalize)
+    else
+      return category.display_name.capitalize
+    end
   end
   
   def localized_share_type_label(share_type)

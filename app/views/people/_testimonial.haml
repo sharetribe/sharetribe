@@ -7,7 +7,7 @@
     %h3
       = link_to testimonial.author.given_name_or_username, testimonial.author
     %small
-      = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category}")
+      = t("people.profile_feedback.#{profile_testimonial_other_person_role(@person, listing)}ed_#{listing.category.name}")
       - if listing.visibility.eql?("disabled")
         &ldquo;#{listing.title}&rdquo;
       - else

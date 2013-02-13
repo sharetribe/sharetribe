@@ -96,7 +96,7 @@ class ListingsController < ApplicationController
     @listing.category = params[:category]
     @listing.share_type = params[:share_type]
     #@latitude = 13
-    if @listing.category == "rideshare"
+    if @listing.category.name == "rideshare"
 	    @listing.build_origin_loc(:location_type => "origin_loc")
 	    @listing.build_destination_loc(:location_type => "destination_loc")
     else
@@ -125,7 +125,7 @@ class ListingsController < ApplicationController
       1.times { @listing.listing_images.build } if @listing.listing_images.empty?
       render :action => :new
     else
-      path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category)
+      path = new_request_category_path(:type => @listing.listing_type, :category => @listing.category.name)
       flash[:notice] = t("layouts.notifications.#{@listing.listing_type}_created_successfully", :new_listing_link => view_context.link_to(t("layouts.notifications.create_new_#{@listing.listing_type}"), path), :default => t("layouts.notifications.listing_created_successfully")).html_safe
       Delayed::Job.enqueue(ListingCreatedJob.new(@listing.id, request.host))
       redirect_to @listing
