@@ -25,17 +25,13 @@ FactoryGirl.define do
     email
   end  
 
-  factory :share_type do
-    name "borrow"
-  end  
-
   factory :listing do
     title "Sledgehammer"
     description("test")
     author
     listing_type "request"
-    category "item"
-    share_type "buy"
+    association :category
+    association :share_type
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
@@ -140,5 +136,15 @@ FactoryGirl.define do
     longitude 25.7475
     address "helsinki"
     google_address "Helsinki, Finland"
+  end
+  
+  factory :category do
+    name "item"
+    icon "item"
+  end
+  
+  factory :share_type do
+    name "sell"
+    icon "sell"
   end
 end

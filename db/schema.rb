@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212104852) do
+ActiveRecord::Schema.define(:version => 20130213160145) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -322,6 +322,8 @@ ActiveRecord::Schema.define(:version => 20130212104852) do
     t.string   "privacy",        :default => "private"
     t.integer  "comments_count", :default => 0
     t.string   "subcategory"
+    t.integer  "category_id"
+    t.integer  "share_type_id"
   end
 
   add_index "listings", ["category"], :name => "index_listings_on_category"

@@ -30,8 +30,11 @@ class Listing < ActiveRecord::Base
 
   has_and_belongs_to_many :communities
   has_and_belongs_to_many :followers, :class_name => "Person", :join_table => "listing_followers"
+
+  belongs_to :category  
+  belongs_to :share_type
+
   
-  has_many :share_types, :dependent => :destroy
   
   attr_accessor :current_community_id
   
