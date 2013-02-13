@@ -167,4 +167,3 @@ Feature: User creates a new listing
     And I follow "Share type: Sharing for free"
     And I follow "I'm selling it"
     And I should see "Space you offer*"
-    
