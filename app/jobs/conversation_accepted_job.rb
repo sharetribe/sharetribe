@@ -17,7 +17,7 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
       PersonMailer.conversation_status_changed(conversation, host).deliver
     end
     if conversation.status.eql?("accepted")
-      if conversation.listing.share_type.eql?(["give_away"]) && Time.now.month == 12
+      if conversation.listing.share_type.name.eql?(["give_away"]) && Time.now.month == 12
         conversation.offerer.give_badge("santa", host)
       end
       Delayed::Job.enqueue(TestimonialReminderJob.new(conversation.id, host), :priority => 0, :run_at => 1.week.from_now)

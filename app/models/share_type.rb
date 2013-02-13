@@ -7,4 +7,17 @@ class ShareType < ActiveRecord::Base
   
   validates_presence_of :name
   validates_uniqueness_of :name
+  
+  def display_name
+    if I18n.locale && translation(I18n.locale)
+      translation(I18n.locale)
+    else
+      return name
+    end
+    
+  end
+  
+  def translation(locale)
+    translations.where(:locale => locale).first.name
+  end
 end

@@ -102,7 +102,7 @@ describe Listing do
   
     before(:each) do
       @listing.listing_type = "offer"
-      @listing.share_type = "lend"
+      @listing.share_type = FactoryGirl.create(:share_type, :name => "lend")
     end
     
     it "should be valid when there is no valid until" do
@@ -156,7 +156,7 @@ describe Listing do
     end
     
     it "is not valid with share type" do
-      @listing.share_type = "buy"
+      @listing.share_type = FactoryGirl.create(:share_type, :name => "buy")
       @listing.should_not be_valid
     end  
     
@@ -309,7 +309,7 @@ describe Listing do
   def valid_with_share_types
     if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category]
       Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category].each do |st|
-        @listing.share_type = st
+        @listing.share_type = FactoryGirl.create(:share_type, :name => st)
         @listing.should be_valid
       end
     end  
@@ -324,7 +324,7 @@ describe Listing do
   def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
     @listing.listing_type = listing_type
     @listing.category = category
-    @listing.share_type = share_type
+    @listing.share_type = FactoryGirl.create(:share_type, :name => share_type)
     @listing.should_not be_valid
   end
   

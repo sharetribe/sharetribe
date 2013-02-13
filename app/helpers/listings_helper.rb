@@ -63,8 +63,8 @@ module ListingsHelper
   
   def listed_listing_share_type(listing)
     if listing.share_type
-      if listing.share_type.eql?("trade")
-        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type}", :default => listing.share_type.capitalize)
+      if listing.share_type.name.eql?("offer_to_swap") || listing.share_type.name.eql?("request_to_swap")
+        t("listings.show.#{listing.category}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
       else
         localized_share_type_label(listing.share_type).mb_chars.capitalize.to_s
       end
@@ -79,7 +79,7 @@ module ListingsHelper
   
   def share_type_url(listing, map=false)
     if listing.share_type
-      root_path(:share_type => listing.share_type, :category => listing.category, :map => map)
+      root_path(:share_type => listing.share_type.name, :category => listing.category, :map => map)
     else
       root_path(:share_type => listing.listing_type, :category => listing.category, :map => map)
     end
@@ -92,9 +92,9 @@ module ListingsHelper
     return t("listings.index.#{category_string}", :default => category_string.capitalize)
   end
   
-  def localized_share_type_label(share_type_string)
-    return nil if share_type_string.nil?
-    return t("common.share_types.#{share_type_string}", :default => share_type_string.capitalize)
+  def localized_share_type_label(share_type)
+    return nil if share_type.nil?
+    return share_type.display_name.capitalize
   end
   
   def localized_listing_type_label(listing_type_string)
