@@ -1,6 +1,6 @@
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
   @listing = FactoryGirl.create(:listing, :listing_type => type, 
-                               :category => category,
+                               :category => find_or_create_category(category),
                                :title => title,
                                :share_type => share_type,
                                :author => (@people && @people[author] ? @people[author] : Person.first),
@@ -12,7 +12,7 @@ end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
   @listing = FactoryGirl.create(:listing, :listing_type => type, 
-                               :category => "rideshare",
+                               :category => find_or_create_category("rideshare"),
                                :origin => origin,
                                :destination => destination,
                                :author => @people[author],

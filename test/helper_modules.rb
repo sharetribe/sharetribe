@@ -65,4 +65,13 @@ module TestHelpers
     controller.stub :current_person => person
   end
   
+  def find_or_create_category(category_name)
+    Category.find_by_name(category_name) || FactoryGirl.create(:category, :name => category_name)
+  end
+  
+  def find_or_create_share_type(share_type_name)
+    ShareType.find_by_name(share_type_name) || FactoryGirl.create(:share_type, :name => share_type_name)
+  end
+  
+  
 end

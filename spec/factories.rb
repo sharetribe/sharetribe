@@ -30,8 +30,8 @@ FactoryGirl.define do
     description("test")
     author
     listing_type "request"
-    association :category
-    association :share_type
+    category {find_or_create_category("item")}
+    share_type {find_or_create_share_type("sell")}
     tag_list("tools, hammers")
     valid_until 3.months.from_now
     times_viewed 0
