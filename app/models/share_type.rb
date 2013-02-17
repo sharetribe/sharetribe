@@ -1,5 +1,7 @@
 class ShareType < ActiveRecord::Base
   has_many :sub_share_types, :class_name => "ShareType", :foreign_key => "parent_id"
+  # children is a more generic alias for sub share_types, used in classification.rb
+  has_many :children, :class_name => "ShareType", :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "ShareType"
   has_many :communities, :through => :community_categories
   has_many :listings

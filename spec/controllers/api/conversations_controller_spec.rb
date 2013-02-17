@@ -69,10 +69,11 @@ describe Api::ConversationsController do
                     :format => :json
       response.status.should == 201
       resp = JSON.parse(response.body)
+      @l1.listing_type.should == "offer"
       #puts response.body
       #puts resp.to_yaml
       #check that title is done automatically
-      resp["title"].should == "Item offer: Sledgehammer"
+      resp["title"].should == "Item request: Sledgehammer"
       resp["messages"].count.should == 1
       resp["messages"][0]["content"].should == "This will be the first message of the conversation"
       resp["messages"][0]["sender_id"].should == @p1.id
@@ -114,12 +115,14 @@ describe Api::ConversationsController do
   describe "new_message" do
     it "adds a message to the conversation" do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
+      puts "This test might fail about 'Devise::Mailer' if run with spork."
       post :new_message, :id => @con1.id, 
                          :person_id => @p1.id,
                          :community_id => @c1.id,
                          :content => "I'd like to continue this topic",
                          :format => :json
       response.status.should == 201
+      assert !ActionMailer::Base.deliveries.empty?
       #puts response.body
       resp = JSON.parse(response.body)
       #puts resp.to_yaml

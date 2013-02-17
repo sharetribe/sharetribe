@@ -8,7 +8,33 @@ class Api::ListingsController < Api::ApiController
     @page = params["page"] || 1
     @per_page = params["per_page"] || 50
     
-    query = params.slice("category", "listing_type")
+    # listing type is old param, but if it's defined and share_type is not, we use that as share_type
+    params["share_type"] = params["share_type"] || params["listing_type"] 
+    
+    query = {}
+    joined_tables = []
+    
+    if params["cateogry"]
+      cateogry = Category.find_by_name(params["cateogry"])
+      if cateogry
+        query[:cateogries] = {:id => cateogry.with_all_children.collect(&:id)} 
+        joined_tables << :cateogry
+      else
+       response.status = :bad_request
+       render :json => ["Category '#{params["cateogry"]}' not found."] and return
+      end
+    end
+    
+    if params["share_type"]   
+      share_type = ShareType.find_by_name(params["share_type"])
+      if share_type
+        query[:share_types] = {:id => share_type.with_all_children.collect(&:id)}
+        joined_tables << :share_type
+      else
+        response.status = :bad_request
+        render :json => ["Share type '#{params["share_type"]}' not found."] and return
+      end
+    end
     
     if params["status"] == "closed"
       query["open"] = false
@@ -30,7 +56,7 @@ class Api::ListingsController < Api::ApiController
       @listings = search_listings(params["search"], query)
     elsif @current_community
       listings_to_query = (query["open"] ? @current_community.listings.currently_open : @current_community.listings)
-      @listings = listings_to_query.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
+      @listings = listings_to_query.joins(joined_tables).where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
     else
       # This is actually not currently supported. Community_id is currently required parameter.
       @listings = Listing.where(query).order("created_at DESC").paginate(:per_page => @per_page, :page => @page)
@@ -43,8 +69,8 @@ class Api::ListingsController < Api::ApiController
       
       @category_label = (params["category"] ? "(" + localized_category_label(params["category"]) + ")" : "")
       
-      if ["request","offer"].include?params['listing_type']
-        listing_type_label = t("listings.index.#{params['listing_type']+"s"}")
+      if ["request","offer"].include?params['share_type']
+        listing_type_label = t("listings.index.#{params['share_type']+"s"}")
       else
          listing_type_label = t("listings.index.listings")
       end
@@ -88,11 +114,21 @@ class Api::ListingsController < Api::ApiController
       params["privacy"] ||= "public"
     end
     
+    category = Category.find_by_name(params["category"])
+
+    unless category && @current_community.categories.include?(category)
+      response.status = 400
+      render :json => ["Given category is not available in this community."] and return
+    end
+    
+    share_type = ShareType.find_by_name(params["share_type"])
+    unless share_type && @current_community.share_types.include?(share_type)
+      response.status = 400
+      render :json => ["Given share_type is not available in this community."] and return
+    end
+    
     @listing = Listing.new(params.slice("title", 
-                                        "description", 
-                                        "category", 
-                                        "share_type", 
-                                        "listing_type", 
+                                        "description",   
                                         "visibility",
                                         "privacy",
                                         "origin",
@@ -100,7 +136,9 @@ class Api::ListingsController < Api::ApiController
                                         "origin_loc_attributes",
                                         "valid_until",
                                         "destination_loc_attributes"
-                                        ).merge({"author_id" => current_person.id, 
+                                        ).merge({"author_id" => current_person.id,
+                                                 "category" => category,
+                                                 "share_type" => share_type,
                                                  "listing_images_attributes" => {"0" => {"image" => params["image"]} }}))
     
     
@@ -130,9 +168,9 @@ class Api::ListingsController < Api::ApiController
       with[:open] = false if attributes["open"] == false
     end
     
-    if attributes["listing_type"]
-      with[:is_request] = true if attributes["listing_type"].eql?("request")
-      with[:is_offer] = true if attributes["listing_type"].eql?("offer")
+    if attributes["share_type"]
+      with[:is_request] = true if attributes["share_type"].eql?("request")
+      with[:is_offer] = true if attributes["share_type"].eql?("offer")
     end
     
     

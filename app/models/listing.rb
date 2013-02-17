@@ -38,10 +38,6 @@ class Listing < ActiveRecord::Base
   
   attr_accessor :current_community_id
   
-  scope :requests, :conditions => { :listing_type => 'request' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
-  scope :offers, :conditions => { :listing_type => 'offer' }, :include => [ :listing_images ], :order => "listings.created_at DESC"
-  scope :rideshare, :conditions => { :category => "rideshare"}
-  
   scope :currently_open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   scope :public, :conditions  => "privacy = 'public'"
   scope :private, :conditions  => "privacy = 'private'"
@@ -133,6 +129,8 @@ class Listing < ActiveRecord::Base
   # validates_inclusion_of :listing_type, :in => VALID_TYPES
   # validates_inclusion_of :category, :in => VALID_CATEGORIES
   # validate :given_share_type_is_one_of_valid_share_types
+  validates_presence_of :category
+  validates_presence_of :share_type
   validates_inclusion_of :valid_until, :allow_nil => :true, :in => DateTime.now..DateTime.now + 1.year 
   validate :valid_until_is_not_nil
   
@@ -190,6 +188,28 @@ class Listing < ActiveRecord::Base
     end
   end
   
+  def self.requests
+    with_share_type_or_its_children("request")
+  end
+  
+  def self.offers
+    with_share_type_or_its_children("offer")
+  end
+  
+  def self.with_share_type_or_its_children(share_type)
+    share_type = ShareType.find_by_name(share_type) unless share_type.class == ShareType
+    joins(:share_type).where({:share_types => {:id => share_type.with_all_children.collect(&:id)}})
+  end
+  
+  def self.rideshare
+    with_category_or_its_children("rideshare")
+  end
+  
+  def self.with_category_or_its_children(category)
+    category = Category.find_by_name(category) unless category.class == Category
+    joins(:category).where({:categories => {:id => category.with_all_children.collect(&:id)}})
+  end
+  
   def visible_to?(current_user, current_community)
     if current_user && current_community
       Listing.count_by_sql("
@@ -231,7 +251,7 @@ class Listing < ActiveRecord::Base
   end
   
   def rideshare?
-    category.eql?("rideshare")
+    category && category.name.eql?("rideshare")
   end
   
   def set_rideshare_title
@@ -243,20 +263,20 @@ class Listing < ActiveRecord::Base
   # sets the time to midnight (unless rideshare listing, where exact time matters)
   def set_valid_until_time
     if valid_until
-      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category.eql?("rideshare")
+      self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category && category.name.eql?("rideshare")
     end  
   end
   
   def given_share_type_is_one_of_valid_share_types
-    if ["favor", "rideshare"].include?(category)
-       errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil)) unless share_type.nil?
-     elsif share_type.nil?
-       errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
-     elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
-       unless VALID_SHARE_TYPES[listing_type][category].include?(share_type)
-         errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
-       end
-     end  
+    if ["favor", "rideshare"].include?(category.name)
+      errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil)) unless share_type.nil?
+    elsif share_type.nil?
+      errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
+    elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
+      unless VALID_SHARE_TYPES[listing_type][category].include?(share_type)
+        errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
+      end
+    end  
   end
   
   def self.all_unique_share_types
@@ -358,6 +378,13 @@ class Listing < ActiveRecord::Base
     p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
     p[:share_type] = ShareType.find_by_name(p[:share_type])
     return p
+  end
+  
+  # Listing type is not anymore stored separately, so we serach it by share_type top level parent
+  # And return a string here, as that's what expected in most existing cases (e.g. translation strings)
+  def listing_type
+    return nil if share_type.nil?
+    share_type.top_level_parent.name
   end
   
   # Returns true if listing exists and valid_until is set
@@ -485,7 +512,6 @@ class Listing < ActiveRecord::Base
       logger.info "Error while calculating route: #{e.message}"
       # encountered and error with routing so continue and try the other method
     end
-    
     # try second if exact match or closeness by geocoded coordinates is close enough
     begin
       if  (( origin.casecmp(candidate.origin) == 0 || distance_between(get_coordinates(origin), get_coordinates(candidate.origin)) < location_tolerance) && 

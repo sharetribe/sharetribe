@@ -29,7 +29,6 @@ FactoryGirl.define do
     title "Sledgehammer"
     description("test")
     author
-    listing_type "request"
     category {find_or_create_category("item")}
     share_type {find_or_create_share_type("sell")}
     tag_list("tools, hammers")

@@ -50,13 +50,15 @@ namespace :sharetribe do
           if image_path && File.exists?(image_path)
             image = ListingImage.new(:image => File.new(image_path))
           end
+          
+          category = Category.find_by_name(row[5].split(" ")[0].downcase)
+          share_type = ShareType.find_by_name(row[6].blank? ? row[4].downcase : row[6].downcase)
           l = Listing.create!(
                  :author =>       people_array[row[1]],
                  :title =>        row[2],
                  :description =>  row[3],
-                 :listing_type => row[4].downcase,
-                 :category =>     row[5].split(" ")[0].downcase,
-                 :share_type =>   row[6].blank? ? nil : row[6].downcase,
+                 :category =>     category,
+                 :share_type =>   share_type,
                  :visibility =>   row[7].downcase,
                  :privacy =>      "public",
                  :location =>     row[9].blank?  ? nil : random_location_around(row[9], "origin_loc"),

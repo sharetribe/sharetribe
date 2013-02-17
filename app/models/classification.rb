@@ -10,6 +10,35 @@ module Classification
   end
   
   def translation(locale)
-    translations.where(:locale => locale).first.name
+    translation = translations.where(:locale => locale)
+     if translation.empty?
+       name
+     else
+       translation.first.name
+     end
   end
+  
+  # returns the classification object which is highest in the hierarchy starting from self.
+  def top_level_parent
+    if parent
+      parent.top_level_parent
+    else
+      self
+    end
+  end
+  
+  #returns a flattened array of all child objects, including self
+  def with_all_children
+    
+    # first add self
+    child_array = [self] 
+    
+    # Then add children with their children too
+    children.each do |child|
+      child_array << child.with_all_children
+    end
+    
+    return child_array.flatten
+  end
+  
 end

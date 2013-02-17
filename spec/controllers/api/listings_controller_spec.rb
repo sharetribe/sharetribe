@@ -16,12 +16,12 @@ describe Api::ListingsController do
     @p1.communities << @c1
     @p1.ensure_authentication_token!
     
-    @l1 = FactoryGirl.create(:listing, :listing_type => "request", :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
+    @l1 = FactoryGirl.create(:listing, :share_type => find_or_create_share_type("buy"), :title => "bike", :description => "A very nice bike", :created_at => 3.days.ago, :author => @p1, :privacy => "public")
     @l1.communities = [@c1]
-    FactoryGirl.create(:listing, :listing_type => "offer", :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :share_type => "sell", :privacy => "public").communities = [@c1]
-    FactoryGirl.create(:listing, :listing_type => "request", :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
-    FactoryGirl.create(:listing, :listing_type => "request", :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
-    @l4 = FactoryGirl.create(:listing, :listing_type => "request", :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => "borrow", :privacy => "public")
+    FactoryGirl.create(:listing, :title => "hammer", :created_at => 2.days.ago, :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", :share_type => find_or_create_share_type("sell"), :privacy => "public").communities = [@c1]
+    FactoryGirl.create(:listing, :share_type => find_or_create_share_type("buy"), :title => "help me", :created_at => 12.days.ago, :privacy => "public").communities = [@c2]
+    FactoryGirl.create(:listing, :share_type => find_or_create_share_type("buy"), :title => "old junk", :open => false, :description => "This should be closed already, but nice stuff anyway", :privacy => "public").communities = [@c1]
+    @l4 = FactoryGirl.create(:listing, :title => "car", :created_at => 2.months.ago, :description => "I needed a car earlier, but now this listing is no more open", :share_type => find_or_create_share_type("borrow"), :privacy => "public")
     @l4.communities = [@c1]
     @l4.update_attribute(:valid_until, 2.days.ago)
 
@@ -58,15 +58,15 @@ describe Api::ListingsController do
       resp = JSON.parse(response.body)
       resp["listings"].count.should == 1
     
-      get :index, :community_id => @c1.id, :listing_type => "offer", :format => :json
+      get :index, :community_id => @c1.id, :share_type => "offer", :format => :json
       resp = JSON.parse(response.body)
       resp["listings"].count.should == 1
     
-      get :index, :community_id => @c2.id, :listing_type => "offer", :format => :json
+      get :index, :community_id => @c2.id, :share_type => "offer", :format => :json
       resp = JSON.parse(response.body)
       resp["listings"].count.should == 0
     
-      get :index, :community_id => @c1.id, :listing_type => "request", :format => :json
+      get :index, :community_id => @c1.id, :share_type => "request", :format => :json
       resp = JSON.parse(response.body)
       resp["listings"].count.should == 1
     end
@@ -95,7 +95,7 @@ describe Api::ListingsController do
     end
   
     it "returns an array of lisitings with correct attributes" do
-      get :index, :community_id => @c1.id, :listing_type => "offer", :format => :json
+      get :index, :community_id => @c1.id, :share_type => "offer", :format => :json
       response.status.should == 200
       resp = JSON.parse(response.body)
       resp["listings"].count.should == 1
@@ -157,7 +157,6 @@ describe Api::ListingsController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "new great listing", 
                     :description => "This is what you need!", 
-                    :listing_type => "offer",
                     :category => "item",
                     :share_type => "sell",
                     :visibility => "this_community",
@@ -183,8 +182,8 @@ describe Api::ListingsController do
       listings_count = Listing.count
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :description => "This is what you need!", 
-                    :listing_type => "offer",
                     :share_type => "sell",
+                    :category => "item",
                     :visibility => "this_community",
                     :community_id => @c1.id,
                     :format => :json
@@ -193,14 +192,12 @@ describe Api::ListingsController do
       resp = JSON.parse(response.body)
       #puts resp.inspect
       resp[0].should match /Title is too short/
-      resp[1].should match /Category is not included in the list/
     end
     
     it "supports image upload" do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "nice looking offer", 
                     :description => "Testing photo upload", 
-                    :listing_type => "offer",
                     :category => "item",
                     :share_type => "sell",
                     :visibility => "this_community",
@@ -223,7 +220,6 @@ describe Api::ListingsController do
         request.env['Sharetribe-API-Token'] = @p1.authentication_token
         post :create, :title => "hammer", 
                       :description => "well located hammer", 
-                      :listing_type => "offer",
                       :category => "item",
                       :share_type => "sell",
                       :visibility => "this_community",
@@ -246,8 +242,8 @@ describe Api::ListingsController do
         request.env['Sharetribe-API-Token'] = @p1.authentication_token
         post :create, :title => "Ride in Finland", 
                       :description => "Join the road trip", 
-                      :listing_type => "offer",
                       :category => "rideshare",
+                      :share_type => "offer",
                       :visibility => "this_community",
                       :community_id => @c1.id,
                       :valid_until => 2.days.from_now,
@@ -265,7 +261,6 @@ describe Api::ListingsController do
         response.status.should == 201
         #puts Location.last.to_yaml
         Location.count.should == 2
-        #puts "hox #{Listing.last.inspect}"
         Listing.last.origin_loc.latitude.should == 62.2426
         Listing.last.destination_loc.longitude.should == 26.7475
         Listing.last.destination.should == "office"
@@ -313,7 +308,7 @@ describe Api::ListingsController do
     end
   
     it "supports fliter parameters" do
-      get :index, :community_id => @c1.id, :format => :atom, :listing_type => "request", :locale => "en"
+      get :index, :community_id => @c1.id, :format => :atom, :share_type => "request", :locale => "en"
       response.status.should == 200
       doc = Nokogiri::XML::Document.parse(response.body)
       doc.search("feed/entry").count.should == 1

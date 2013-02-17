@@ -92,7 +92,6 @@ class ListingsController < ApplicationController
   def new
     @selected_tribe_navi_tab = "new_listing"
     @listing = Listing.new
-    @listing.listing_type = params[:listing_type]
     @listing.category = Category.find_by_name(params[:category])
     @listing.share_type = ShareType.find_by_name(params[:share_type])
     #@latitude = 13

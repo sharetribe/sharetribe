@@ -40,53 +40,35 @@ describe Listing do
     @listing.should_not be_valid
   end
   
-  it "is not valid without listing type" do
-    @listing.listing_type = nil
-    @listing.should_not be_valid
-  end
-  
-  it "is only valid if listing type is one of the valid types" do
-    @listing.listing_type = "test"
-    @listing.should_not be_valid
-    Listing::VALID_TYPES.each do |type|
-      @listing.listing_type = type
-      valid_with_share_types
-    end  
-  end
-  
   it "is not valid without category" do
-    @listing.category = nil
+    @listing.category_id = nil
     @listing.should_not be_valid
   end 
   
-  it "is only valid if category is one of the valid categories" do
-    @listing.category = FactoryGirl.create(:category, :name => "test") 
-    @listing.should_not be_valid
+  it "is  valid if category is one of the listed valid categories" do
     Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category|
-      @listing.category = FactoryGirl.create(:category, :name => category) 
+      @listing.category = find_or_create_category(category) 
       valid_with_share_types
     end  
   end
-  
-  it "is only valid if the share type corresponds with the category" do
-    @listing.share_type = nil
-    @listing.should_not be_valid
-    Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
-    Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
-    [
-      ["request", "item", "test"],
-      ["request", "favor", "borrow"],
-      ["request", "rideshare", "sell"],
-      ["request", "housing", "test"],
-      ["offer", "item", "test"],
-      ["offer", "housing", "test"]
-    ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
-  end
 
-  it "should not be valid when there is no valid until" do
-    @listing.valid_until = nil
-    @listing.should_not be_valid
-  end
+
+  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
+  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES
+  # it "is only valid if the share type corresponds with the category" do
+  #   @listing.share_type = nil
+  #   @listing.should_not be_valid
+  #   Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("offer", c) }
+  #   Listing::VALID_CATEGORIES.each { |c| listing_is_valid_with_correct_share_type("request", c) }
+  #   [
+  #     ["request", "item", "test"],
+  #     ["request", "favor", "borrow"],
+  #     ["request", "rideshare", "sell"],
+  #     ["request", "housing", "test"],
+  #     ["offer", "item", "test"],
+  #     ["offer", "housing", "test"]
+  #   ].each { |array| listing_is_not_valid_with_incorrect_share_type(array[0], array[1], array[2]) }
+  # end
   
   it "should not be valid when valid until date is before current date" do
     @listing.valid_until = DateTime.now - 1.day - 1.minute
@@ -101,8 +83,7 @@ describe Listing do
   context "with listing type 'offer'" do
   
     before(:each) do
-      @listing.listing_type = "offer"
-      @listing.share_type = FactoryGirl.create(:share_type, :name => "lend")
+      @listing.share_type = find_or_create_share_type("lend")
     end
     
     it "should be valid when there is no valid until" do
@@ -115,9 +96,9 @@ describe Listing do
   context "with category 'rideshare'" do
     
     before(:each) do
-      @listing.share_type = nil
-      @listing.category = FactoryGirl.create(:category, :name => "rideshare") 
-      @listing.origin = "Otaniemi"
+      @listing.share_type = find_or_create_share_type("offer")
+      @listing.category = find_or_create_category("rideshare") 
+      @listing.origin = "Otaniemi, Espoo"
       @listing.destination = "Turku"
     end  
     
@@ -155,15 +136,10 @@ describe Listing do
       @listing.should_not be_valid
     end
     
-    it "is not valid with share type" do
-      @listing.share_type = FactoryGirl.create(:share_type, :name => "buy")
-      @listing.should_not be_valid
-    end  
-    
     it "should have a title in the form of [ORIGIN]-[DESTINATION]" do    
       @listing.title = "test"
       @listing.should be_valid
-      @listing.title.should == "Otaniemi - Turku"
+      @listing.title.should == "Otaniemi, Espoo - Turku"
     end
     
     it "should not be valid when valid until is less than current time" do
@@ -172,7 +148,7 @@ describe Listing do
     end
     
     it "should be valid when there is no valid until" do
-      @listing.listing_type = "offer"
+      @listing.share_type = find_or_create_share_type("offer")
       @listing.valid_until = nil
       @listing.should be_valid
     end
@@ -180,7 +156,7 @@ describe Listing do
     describe "#origin_and_destination_close_enough?" do
       it "should return true, when comparing listings with origin and destination close enough" do
         other_listing = FactoryGirl.build(:listing)
-        other_listing.category = FactoryGirl.create(:category, :name => "rideshare") 
+        other_listing.category = find_or_create_category("rideshare") 
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Simonkatu 4"
         @listing.destination = "helsinki"
@@ -190,7 +166,7 @@ describe Listing do
       
       it "should return true, when comparing listings with origin and destination exact same string, but not found on map." do
         other_listing = FactoryGirl.build(:listing)
-        other_listing.category = FactoryGirl.create(:category, :name => "rideshare") 
+        other_listing.category = find_or_create_category("rideshare") 
         other_listing.origin = "Otski"
         other_listing.destination = "Taikki"
         @listing.origin = "Otski"
@@ -215,7 +191,7 @@ describe Listing do
       it "should return false when comparing places too far away (either destination or origin)" do
         sleep 1 # without this there might be too many requests going to gmaps API and it will respond "over quota limit".
         other_listing = FactoryGirl.build(:listing)
-        other_listing.category = FactoryGirl.create(:category, :name => "rideshare") 
+        other_listing.category = find_or_create_category("rideshare") 
         other_listing.origin = "Otakaari 20"
         other_listing.destination = "Vilhonvuorenkatu 3"
         @listing.destination = "Espoon keskus"
@@ -224,7 +200,7 @@ describe Listing do
       
       it "returns true even with long distances if differences are small enough" do
         other_listing = FactoryGirl.build(:listing)
-        other_listing.category = FactoryGirl.create(:category, :name => "rideshare")
+        other_listing.category = find_or_create_category("rideshare")
         other_listing.origin = "Lahti"
         other_listing.destination = "Oulu"
         @listing.destination = "Rovaniemi"
@@ -233,7 +209,7 @@ describe Listing do
       
       it "should handle location nicknames in Helsinki if journey planner in use" do
         other_listing = FactoryGirl.build(:listing)
-        other_listing.category = FactoryGirl.create(:category, :name => "rideshare")
+        other_listing.category = find_or_create_category("rideshare")
         other_listing.origin = "dipoli"
         other_listing.destination = "taik"
         @listing.origin = "otski"
@@ -257,12 +233,12 @@ describe Listing do
             author = FactoryGirl.build(:person)
             request_author = FactoryGirl.build(:person)
             offer.id = 13
-            offer.category = FactoryGirl.create(:category, :name => "rideshare")
+            offer.category = find_or_create_category("rideshare")
             offer.origin = "Otakaari 20"
             offer.destination = "Vilhonvuorenkatu 3"
-            offer.listing_type = "offer"
+            offer.share_type = find_or_create_share_type("offer")
             offer.author = author
-            request.listing_type = "request"
+            request.share_type = find_or_create_share_type("request")
             request.author = request_author
             
             SmsHelper.should_receive(:send).with(/Danny.+Otakaari 20.+ Vilhonvuorenkatu 3 .+ 358507654321.+ http:\/\/.+ /, request_author.phone_number).and_return(true)
@@ -291,9 +267,9 @@ describe Listing do
             end
             
             author.should_receive(:phone_number).once.and_return(nil)
-            offer.listing_type = "offer"
+            offer.share_type = find_or_create_share_type("offer")
             offer.author = author
-            request.listing_type = "request"
+            request.share_type = find_or_create_share_type("request")
             request.author = FactoryGirl.build(:person)
             
             request.inform_requester_about_potential_match(request, offer)
@@ -309,22 +285,22 @@ describe Listing do
   def valid_with_share_types
     if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name]
       Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].each do |st|
-        @listing.share_type = FactoryGirl.create(:share_type, :name => st)
+        @listing.share_type = find_or_create_share_type(st)
         @listing.should be_valid
       end
     end  
   end
   
   def listing_is_valid_with_correct_share_type(listing_type, category)
-    @listing.listing_type = listing_type
-    @listing.category = FactoryGirl.create(:category, :name => category)
+    @listing.share_type = find_or_create_share_type(listing_type)
+    @listing.category = find_or_create_category(category)
     valid_with_share_types
   end
   
   def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
-    @listing.listing_type = listing_type
-    @listing.category = FactoryGirl.create(:category, :name => category)
-    @listing.share_type = FactoryGirl.create(:share_type, :name => share_type)
+    @listing.share_type = find_or_create_share_type(listing_type)
+    @listing.category = find_or_create_category(category)
+    @listing.share_type = find_or_create_share_type(share_type)
     @listing.should_not be_valid
   end
   

@@ -1,8 +1,8 @@
 Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: from "([^"]*)")?(?: and with share type "([^"]*)")?(?: and with tags "([^"]*)")?$/ do |category, type, title, author, share_type, tags|
-  @listing = FactoryGirl.create(:listing, :listing_type => type, 
+  @listing = FactoryGirl.create(:listing, 
                                :category => find_or_create_category(category),
                                :title => title,
-                               :share_type => share_type,
+                               :share_type => find_or_create_share_type(share_type),
                                :author => (@people && @people[author] ? @people[author] : Person.first),
                                :communities => [Community.find_by_domain("test")],
                                :privacy => "public"
@@ -11,7 +11,7 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
-  @listing = FactoryGirl.create(:listing, :listing_type => type, 
+  @listing = FactoryGirl.create(:listing,
                                :category => find_or_create_category("rideshare"),
                                :origin => origin,
                                :destination => destination,

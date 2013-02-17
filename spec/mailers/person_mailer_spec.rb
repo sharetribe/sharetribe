@@ -23,7 +23,7 @@ describe PersonMailer do
     @message.save
     email = PersonMailer.new_message_notification(@message).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to 
     assert_equal "You have a new message in Sharetribe", email.subject
   end
   
@@ -33,33 +33,33 @@ describe PersonMailer do
     recipient = @comment.listing.author
     email = PersonMailer.new_comment_to_own_listing_notification(@comment).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [recipient.email], email.to unless recipient.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [recipient.email], email.to unless recipient.email.nil? 
     assert_equal "Teppo Testaaja has commented on your listing in Sharetribe", email.subject
   end
   
   it "should send email about an accepted and rejected offer or request" do
     @conversation = FactoryGirl.create(:conversation)
-     @conversation.participants = [@test_person2, @test_person]
+    @conversation.participants = [@conversation.listing.author, @test_person2]
     @test_person.update_attributes({ "given_name" => "Teppo", "family_name" => "Testaaja" }, @cookie)
     
     @conversation.update_attribute(:status, "accepted")
     email = PersonMailer.conversation_status_changed(@conversation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
-    assert_equal "Your offer was accepted", email.subject
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Your request was accepted", email.subject
     
     @conversation.update_attribute(:status, "rejected")
     email = PersonMailer.conversation_status_changed(@conversation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
-    assert_equal "Your offer was rejected", email.subject
+    assert_equal [@test_person2.email], email.to
+    assert_equal "Your request was rejected", email.subject
   end
   
   it "should send email about a new badge" do
     @badge = FactoryGirl.create(:badge)
     email = PersonMailer.new_badge(@badge).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@badge.person.email], email.to unless @badge.person.email.nil? 
     assert_equal "You have achieved a badge 'Rookie' in Sharetribe!", email.subject
   end
   
@@ -73,7 +73,7 @@ describe PersonMailer do
     @testimonial = Testimonial.new(:grade => 0.75, :text => "Yeah", :author => @test_person, :receiver => @test_person2, :participation_id => @participation.id)
     email = PersonMailer.new_testimonial(@testimonial).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to
     assert_equal "Teppo Testaaja has given you feedback in Sharetribe", email.subject
   end
   
@@ -88,7 +88,7 @@ describe PersonMailer do
     @participation = Participation.find_by_person_id_and_conversation_id(@test_person2.id, @conversation.id)
     email = PersonMailer.testimonial_reminder(@participation).deliver
     assert !ActionMailer::Base.deliveries.empty?
-    assert_equal [@test_person2.email], email.to unless @test_person2.email.nil? #if running tests with Sharetribe account that doesn't get emails from ASI
+    assert_equal [@test_person2.email], email.to 
     assert_equal "Reminder: remember to give feedback to Teppo Testaaja", email.subject
   end
   
@@ -134,24 +134,22 @@ describe PersonMailer do
       @p1 = FactoryGirl.create(:person, :email => "update_tester@example.com")
       @p1.communities << @c1
       @l1 = FactoryGirl.create(:listing, 
-          :listing_type => "request", 
+          :share_type => find_or_create_share_type("request"), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.days.ago, 
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing, 
-          :listing_type => "offer", 
           :title => "hammer", 
           :created_at => 2.days.ago, 
           :description => "<b>shiny</b> new hammer, see details at http://en.wikipedia.org/wiki/MC_Hammer", 
-          :share_type => "sell")
+          :share_type => find_or_create_share_type("sell"))
       @l2.communities << @c1
       @l3 = FactoryGirl.create(:listing, 
-          :listing_type => "offer", 
           :title => "sledgehammer", 
           :created_at => 12.days.ago, 
           :description => "super <b>shiny</b> sledgehammer, borrow it!", 
-          :share_type => "lend").communities = [@c1]
+          :share_type => find_or_create_share_type("lend")).communities = [@c1]
           
       @email = PersonMailer.community_updates(@p1, @p1.communities.first)
     end
@@ -204,13 +202,13 @@ describe PersonMailer do
       @p2.communities << @c2
       
       @l1 = FactoryGirl.create(:listing, 
-          :listing_type => "request", 
+          :share_type => find_or_create_share_type("request"), 
           :title => "bike", 
           :description => "A very nice bike", 
           :created_at => 3.hours.ago, 
           :author => @p1).communities = [@c1]
       @l2 = FactoryGirl.create(:listing, 
-          :listing_type => "request", 
+          :share_type => find_or_create_share_type("request"), 
           :title => "motorbike", 
           :description => "fast!", 
           :created_at => 1.hours.ago, 

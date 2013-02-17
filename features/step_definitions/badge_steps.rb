@@ -11,9 +11,10 @@ Then /^I should not see badge "(.+)"$/ do |badge|
 end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
-  listing_type = role ? role.chop.chop : "request"
+  listing_type = find_or_create_share_type(role ? role.chop.chop : "request")
+  share_type ||= listing_type
   amount.to_i.times do
-    listing = create_listing(listing_type, category, share_type)
+    listing = create_listing(category, share_type)
     conversation = FactoryGirl.create(:conversation, :status => "accepted", :listing => listing)
     conversation.participants << @people["kassi_testperson1"] << @people["kassi_testperson2"]
     participation = Participation.find_by_person_id_and_conversation_id(@people["kassi_testperson1"].id, conversation.id)
@@ -69,8 +70,9 @@ When /^I get the badge "(.+)"$/ do |badge|
 end
 
 When /^I have "([^"]*)" (item|favor|rideshare) (offer|request) listings(?: with share type "([^"]*)")?$/ do |amount, category, listing_type, share_type|
+  share_type ||= listing_type
   amount.to_i.times do
-    listing = create_listing(listing_type, category, share_type)
+    listing = create_listing(category, share_type)
   end
 end
 
