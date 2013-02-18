@@ -5,7 +5,7 @@ module ConversationsHelper
   end
   
   def transaction_proposal_form_title(listing)
-    "#{listing.category.name}_#{listing.listing_type}#{listing.share_type? ? '_' + @listing.share_type.name : ''}_message_form_title"
+    "#{listing.category.name}_#{listing.listing_type}#{listing.share_type.present? ? '_' + @listing.share_type.name : ''}_message_form_title"
   end
   
   def icon_for(status)

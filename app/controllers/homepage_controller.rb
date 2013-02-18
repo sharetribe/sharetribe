@@ -14,12 +14,10 @@ class HomepageController < ApplicationController
     
     @filter_params = params.slice("category", "share_type")
     
-    # Check if share_type param contains a value that is actually a listing type
+    # If no Share Type specified, use listing_type if that is specified.
     # both are chosen in one dropdown
-    if Listing::VALID_TYPES.include?(@filter_params["share_type"])
-      @filter_params["listing_type"] = @filter_params["share_type"]
-      @filter_params.delete("share_type")
-    end
+    @filter_params["share_type"] ||= @filter_params["listing_type"]
+    @filter_params.delete("listing_type")
     
     @listing_count = @current_community.listings.currently_open.count
     unless @current_user

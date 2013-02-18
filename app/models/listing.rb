@@ -38,7 +38,6 @@ class Listing < ActiveRecord::Base
   
   attr_accessor :current_community_id
   
-  scope :currently_open, :conditions => ["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now]
   scope :public, :conditions  => "privacy = 'public'"
   scope :private, :conditions  => "privacy = 'private'"
 
@@ -141,13 +140,15 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
-    indexes category
-    indexes share_type
+    # indexes category.name, :as => :category
+    # indexes share_type.name :as => :share_type
     
     # attributes
     has created_at, updated_at
-    has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
-    has "listing_type = 'request'", :as => :is_request, :type => :boolean
+    #has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
+    #has "listing_type = 'request'", :as => :is_request, :type => :boolean
+    # has category.id, :as => category_id
+    # has share_type.id, :as => share_type_id 
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
@@ -208,6 +209,18 @@ class Listing < ActiveRecord::Base
   def self.with_category_or_its_children(category)
     category = Category.find_by_name(category) unless category.class == Category
     joins(:category).where({:categories => {:id => category.with_all_children.collect(&:id)}})
+  end
+  
+  def self.currently_open(status="open")
+    status = "open" if status.blank?
+    case status
+    when "all"
+      where([])
+    when "open"  
+      where(["open = '1' AND (valid_until IS NULL OR valid_until > ?)", DateTime.now])
+    when "closed"
+      where(["open = '0' OR (valid_until IS NOT NULL AND valid_until < ?)", DateTime.now])
+    end
   end
   
   def visible_to?(current_user, current_community)
@@ -279,32 +292,6 @@ class Listing < ActiveRecord::Base
     end  
   end
   
-  def self.all_unique_share_types
-    share_types = []
-    VALID_TYPES.each do |listing_type|
-      VALID_CATEGORIES.each do |category|
-        if VALID_SHARE_TYPES[listing_type][category] 
-          VALID_SHARE_TYPES[listing_type][category].each do |share_type|
-            share_types << share_type
-          end
-        end  
-      end
-    end
-    share_types.uniq!.sort
-  end
-  
-  def self.unique_share_types(listing_type)
-    share_types = []
-    VALID_CATEGORIES.each do |category|
-      if VALID_SHARE_TYPES[listing_type][category] 
-        VALID_SHARE_TYPES[listing_type][category].each do |share_type|
-          share_types << share_type
-        end
-      end  
-    end     
-    share_types.uniq!.sort
-  end
-  
   def valid_until_is_not_nil
     if !rideshare? && listing_type.eql?("request") && !valid_until
       errors.add(:valid_until, "cannot be empty")
@@ -318,27 +305,48 @@ class Listing < ActiveRecord::Base
   
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
     params ||= {}  # Set params to empty hash if it's nil
-    params[:include] ||= [:listing_images]
+    joined_tables = []
     
-    params.reject!{ |key,value| value == "all" || value == ["all"]} # all means the fliter doesn't need to be included
+    params[:include] ||= [:listing_images]
         
-    # expect that share_type might contain also listing_type, if so fix params
-    if VALID_TYPES.include?(params[:share_type])
-      params[:listing_type] = params[:share_type]
-      params.delete(:share_type)
-    end
+    params.reject!{ |key,value| value == "all" || value == ["all"]} # all means the fliter doesn't need to be included
+
+    # If no Share Type specified, use listing_type param if that is specified.
+    params[:share_type] ||= params[:listing_type]
+    params.delete(:listing_type) # In any case listing_type is not a search param used any more
 
     params[:search] ||= params[:q] # Read search query also from q param
     
+    if params[:cateogry]
+      cateogry = Category.find_by_name(params[:cateogry])
+      if cateogry
+        params[:cateogries] = {:id => cateogry.with_all_children.collect(&:id)} 
+        joined_tables << :cateogry
+      else
+        # ignore the category attribute if it's not found
+      end
+    end
+    
+    if params[:share_type]   
+      share_type = ShareType.find_by_name(params[:share_type])
+      if share_type
+        params[:share_types] = {:id => share_type.with_all_children.collect(&:id)}
+        joined_tables << :share_type
+      else
+        # Ignore share_type if not found
+        # response.status = :bad_request
+        # render :json => ["Share type '#{params["share_type"]}' not found."] and return
+      end
+    end
+    
+    
     # Two ways of finding, with or without sphinx
     if params[:search].present?
-      
-      with = {:open => true} # 'with' hash is used for attributes
-      conditions = params.slice(:category, :share_type) # used indexed fields (as sphinx doesn't support string attributes) 
-      
-      if params[:listing_type]
-         with[:is_request] = true if params[:listing_type].eql?("request")
-         with[:is_offer] = true if params[:listing_type].eql?("offer")
+      with = {}
+      if params[:status] == "open"
+        with[:open] = true 
+      elsif params[:status] == "closed"
+        with[:open] = false
       end
       
       unless current_user && current_user.communities.include?(current_community)
@@ -346,30 +354,26 @@ class Listing < ActiveRecord::Base
       end
       with[:community_ids] = current_community.id
 
+      # with[:category_id] = params[:cateogries][:id] if params[:cateogries].present?
+      # with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+            
       listings = Listing.search(params[:search], 
                                 :include => params[:include], 
                                 :page => page,
                                 :per_page => per_page, 
                                 :star => true,
-                                :with => with,
-                                :conditions => conditions
+                                :with => with
                                 )
+                                
+                                
     else # No search query used, no sphinx needed
-      listings = where([])
-      if params[:listing_type] 
-        listings = listings.where(["listing_type = ?", params[:listing_type]])
-      end
-      if params[:category] 
-        listings = listings.where(['category IN (?)', params[:category]])
-      end
-
-      if params[:share_type]
-        listings = listings.where(['share_type IN (?)', params[:share_type]])
-      end
-      if params[:tag]
-        listings = listings.joins(:taggings).where(['tag_id IN (?)', Tag.ids(params[:tag])]).group(:id)
-      end 
-      listings = listings.currently_open.includes(params[:include]).visible_to(current_user, current_community).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
+      query = {}
+      query[:cateogries] = params[:cateogries] if params[:cateogries]
+      query[:share_types] = params[:share_types] if params[:share_types]
+      query[:author_id] = params[:person_id] if params[:person_id]         # this is not yet used with search
+      
+      
+      listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
   end
@@ -377,6 +381,14 @@ class Listing < ActiveRecord::Base
   def self.find_category_and_share_type_based_on_string_params(p)
     p[:category] = Category.find_by_name(p[:subcategory] || p[:category])
     p[:share_type] = ShareType.find_by_name(p[:share_type])
+    
+    # If there's no specific Share Type defined, use the listing_type param for the "top level share type"
+    if p[:share_type].nil?
+      p[:share_type] = ShareType.find_by_name(p[:listing_type])
+    end
+    
+    p.delete(:listing_type) # Remove old style listing_type from params
+    
     return p
   end
   
