@@ -32,6 +32,7 @@ namespace :deploy do
   task :update_webfonts_folder do
     puts 'Copying webfonts folder ...'
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `rm app/assets/webfonts/* `
     puts `git checkout closed_source`
     puts `git rebase develop`
     puts `git checkout develop`
