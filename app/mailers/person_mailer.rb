@@ -421,7 +421,7 @@ class PersonMailer < ActionMailer::Base
         begin
           community_member_email(sender, recipient, email_subject, email_content, community).deliver
         rescue Exception => e
-          # Catch the exception and continue sending the news letter
+          # Catch the exception and continue sending the emails
           ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
         end
       end
@@ -435,6 +435,27 @@ class PersonMailer < ActionMailer::Base
     @email_type = "email_from_admins"
     mail(:to => @recipient.email, :subject => email_subject, :reply_to => "\"#{sender.name}\"<#{sender.email}>") do |format|
       format.html { render :layout => false }
+    end
+  end
+  
+  # A custom message to all the community starters
+  def self.community_starter_emails
+    CommunityMembership.where(:admin => true).each do |community_membership|
+      begin
+        community_starter_email(community_membership.person, community_membership.community).deliver
+      rescue Exception => e
+        # Catch the exception and continue sending the emails
+        ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
+      end
+    end
+  end
+  
+  # A custom message to a community starter
+  def community_starter_email(person, community)
+    @recipient = set_up_recipient(person, community.full_domain)
+    @community = community
+    mail(:to => @recipient.email, :subject => t("emails.community_starter_email.subject")) do |format|
+      format.html { render "community_starter_email_#{@recipient.locale}", :layout => false }
     end
   end
   
