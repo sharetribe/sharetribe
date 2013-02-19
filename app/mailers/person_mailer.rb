@@ -445,7 +445,7 @@ class PersonMailer < ActionMailer::Base
         community_starter_email(community_membership.person, community_membership.community).deliver
       rescue Exception => e
         # Catch the exception and continue sending the emails
-        ApplicationHelper.send_error_notification("Error sending email to all the members of community #{community.full_name}: #{e.message}", e.class)
+        ApplicationHelper.send_error_notification("Error sending email to all community starters: #{e.message}", e.class)
       end
     end
   end
