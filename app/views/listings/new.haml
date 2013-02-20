@@ -8,21 +8,24 @@
 
 #new_listing_form.new-listing-form.centered-section
 
-  - @current_community.available_categorization_values.each do |attribute, values|
-    - if values.size > 1
-      .selected-group{:name => attribute}
-        - values.each do |value|
-          %a.select.selected{:href => "#", :name => value}
-            .link-icon{:class => get_icon_class(value)}
-            .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}", :default => value.capitalize))
+  #selected-groups
+    - @current_community.available_categorization_values.each do |attribute, values|
+      - if values.size > 1
+        .selected-group{:name => attribute}
+          - values.each do |value|
+            %a.select.selected{:href => "#", :name => value}
+              .link-icon{:class => get_icon_class(value)}
+              .link-text= t(".selected_#{attribute}", attribute.to_sym => t(".selected_#{value}", :default => value.capitalize))
+  
   %h2.listing-form-title{:id => "foo"}
 
-  - @current_community.available_categorization_values.each do |attribute, values|
-    - if values.size > 1
-      .option-group{:name => attribute}
-        - values.each do |value|
-          %a.select.option{:href => "#", :name => value}
-            .link-icon{:class => get_icon_class(value)}
-            .link-text= t(".#{value}")
+  #option-groups
+    - @current_community.available_categorization_values.each do |attribute, values|
+      - if values.size > 1
+        .option-group{:name => attribute}
+          - values.each do |value|
+            %a.select.option{:href => "#", :name => value}
+              .link-icon{:class => get_icon_class(value)}
+              .link-text= t(".#{value}")
 
   .form-fields
