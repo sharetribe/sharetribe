@@ -45,7 +45,7 @@
       .text-with-icon.hidden-text= t("homepage.filters.map")      
 
 .homepage-feed.feed
-  - if @listing_count < 10 || ! logged_in?
+  - if @listing_count < 10 || (!logged_in? && @private_listing_count > 0)
     .permanent-notification.private-listing-notification
       .icon-with-text-container
         .ss-info.icon-part
