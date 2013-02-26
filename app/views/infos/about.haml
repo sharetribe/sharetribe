@@ -2,6 +2,6 @@
 
 .left-navi-section.about-section
   %h2= community_slogan
-  %p= community_description
+  %p= community_description(false)
   #sharetribe
     = render :file => community_file("about", true)

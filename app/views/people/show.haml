@@ -105,7 +105,7 @@
         = pluralize(@person.badges.size, t(".badge"), t(".badges"))
       - else
         = t(".no_badges")
-    - if @person.badges.size > 1
+    - if @person.badges.size > 0
       .badge-list
         = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
 

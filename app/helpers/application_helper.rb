@@ -493,14 +493,14 @@ module ApplicationHelper
     end
   end
   
-  def community_description
+  def community_description(truncate=true)
     if @community_customization
       @community_customization.description
     else
       if @current_community.description && !@current_community.description.blank?
-        truncate(@current_community.description, :length => 145, :omission => "...")
+        truncate ? truncate(@current_community.description, :length => 145, :omission => "...") : @current_community.description
       else
-        truncate(t("common.default_community_description"), :length => 130, :omission => "...")
+        truncate ? truncate(t("common.default_community_description"), :length => 130, :omission => "...") : t("common.default_community_description")
       end
     end
   end

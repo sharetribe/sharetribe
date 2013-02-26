@@ -31,19 +31,21 @@ namespace :deploy do
 
   task :update_webfonts_folder do
     puts 'Copying webfonts folder ...'
+    puts `rm app/assets/webfonts/* `
+    puts `git checkout closed_source`
     puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
-    puts `git checkout new-design-deploy-fonts`
     puts `git rebase develop`
     puts `git checkout develop`
+    puts `mkdir app/assets/webfonts `
     puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
   end
   
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP
-      puts `git push production new-design-deploy-fonts:master --force`
+      puts `git push production closed_source:master --force`
     else
-      puts `git push staging new-design-deploy-fonts:master --force`
+      puts `git push staging closed_source:master --force`
     end
   end
   
