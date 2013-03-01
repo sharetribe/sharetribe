@@ -10,18 +10,19 @@ require 'spork'
 Spork.prefork do
   require 'cucumber/rails'
   require 'email_spec/cucumber'
-  require "#{Rails.root}/db/seeds.rb"
+  CategoriesHelper.load_default_categories_to_db
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
   # prefer to use XPath just remove this line and adjust any selectors in your
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
-  
+  Capybara.ignore_hidden_elements = true
   
 end
  
 Spork.each_run do
+  CategoriesHelper.load_default_categories_to_db
   # By default, any exception happening in your Rails application will bubble up
   # to Cucumber so that your scenario will fail. This is a different from how 
   # your application behaves in the production environment, where an error page will 

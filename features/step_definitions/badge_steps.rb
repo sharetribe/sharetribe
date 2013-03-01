@@ -12,6 +12,7 @@ end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
   listing_type = find_or_create_share_type(role ? role.chop.chop : "request")
+  category = find_or_create_category(category || "item")
   share_type ||= listing_type
   amount.to_i.times do
     listing = create_listing(category, share_type)

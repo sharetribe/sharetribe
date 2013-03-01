@@ -62,7 +62,7 @@ module ListingsHelper
   end
   
   def listed_listing_share_type(listing)
-    if listing.share_type
+    if listing.share_type && listing.share_type.parent
       if listing.share_type.name.eql?("offer_to_swap") || listing.share_type.name.eql?("request_to_swap")
         t("listings.show.#{listing.category.name}_#{listing.listing_type}_#{listing.share_type.name}", :default => listing.share_type.display_name.capitalize)
       else
@@ -78,11 +78,7 @@ module ListingsHelper
   end
   
   def share_type_url(listing, map=false)
-    if listing.share_type
-      root_path(:share_type => listing.share_type.name, :category => listing.category.name, :map => map)
-    else
-      root_path(:share_type => listing.listing_type, :category => listing.category.name, :map => map)
-    end
+    root_path(:share_type => listing.share_type.name, :category => listing.category.name, :map => map)
   end
   
   # expects category to be "item", "favor", "rideshare" or "housing"
