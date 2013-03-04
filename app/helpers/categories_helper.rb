@@ -97,4 +97,12 @@ module CategoriesHelper
     
   end
   
+  def self.remove_all_categories_from_db
+    Category.delete_all
+    CategoryTranslation.delete_all
+    ShareType.delete_all
+    ShareTypeTranslation.delete_all
+    CommunityCategory.delete_all
+  end
+  
 end

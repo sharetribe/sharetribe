@@ -176,3 +176,52 @@ Feature: User creates a new listing
     And I should see "Selling"
     And I should see "Offer created successfully" within ".flash-notifications"
     And I should see the image I just uploaded
+  
+  @javascript
+  Scenario: User creates a new listing in a tribe with some custom categories
+    Given I am logged in
+    And I am on the home page
+    When there are some custom categories
+    And I follow "Post a new listing!"
+    Then I should see "I need something"
+    And I should see "I have something to offer to others"
+    When I follow "I need something"
+    And I follow "An item - something tangible"
+    Then I should see "Tools"
+    And I should see "Doll"
+    When I follow "Bottle"
+    And I follow "buy it"
+    Then I should see "Item you need*"
+    When I follow "Category: Item"
+    And I follow "Wood"
+    Then I should not see "Doll"
+    And I should see "Lost"
+    When I follow "Found"
+    Then I should see "Listing title*"
+    And add default categories back
+    
+  @javascript
+  Scenario: User creates a new listing in a tribe with only custom categories
+    Given I am logged in
+    And I am on the home page   
+    When all categories are custom categories
+    And I follow "Post a new listing!"
+    Then I should not see "I need something"
+    And I should not see "I have something to offer to others"
+    And I should see "Plastic"
+    And I should see "Wood"
+    When I follow "Plastic"
+    Then I should see "Doll"
+    And I should see "Record"
+    And I should see "Bottle"
+    When I follow "Doll"
+    Then I should see "Listing title*"
+    When I follow "Category: Plastic"
+    And I follow "Wood"
+    Then I should not see "Doll"
+    And I should see "Lost"
+    And I should see "Found"
+    When I follow "Lost"
+    Then I should see "Listing title*"
+    And add default categories back
+    
