@@ -14,7 +14,7 @@ class ConversationsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
-  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject ]
+  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject, :edit, :update ]
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   before_filter :check_conversation_type, :only => [ :new, :create ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
@@ -80,11 +80,25 @@ class ConversationsController < ApplicationController
   end
   
   def accept
-    change_status("accepted")
+    @action = "accept"
+    render :edit
   end
   
   def reject
-    change_status("rejected")
+    @action = "reject"
+    render :edit
+  end
+  
+  def update
+    if @conversation.update_attributes(params[:conversation])
+      @conversation.change_status(nil, @current_user, @current_community, request.host)
+      @conversation.listing.update_attribute(:open, false) if params[:close_listing] && params[:close_listing].eql?("true")
+      flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
+      redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
+    else
+      flash.now[:error] = t("layouts.notifications.something_went_wrong")
+      render :edit
+    end  
   end
   
   private
@@ -93,14 +107,6 @@ class ConversationsController < ApplicationController
   # redirected back to that path when needed.
   def save_current_inbox_path
     session[:return_to_inbox_content] = request.fullpath
-  end
-  
-  def change_status(status)
-    @conversation.change_status(status, @current_user, @current_community, request.host)
-    respond_to do |format|
-      format.html { render :action => :show }
-      format.js { render :layout => false }
-    end
   end
   
   def ensure_authorized_to_view_message

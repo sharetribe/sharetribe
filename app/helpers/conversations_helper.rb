@@ -12,8 +12,12 @@ module ConversationsHelper
     case status
     when "accepted"
       "ss-check"
+    when "confirmed"
+      "ss-check"
     when "rejected"
-      "ss-delete"  
+      "ss-delete"
+    when "canceled"  
+      "ss-delete"
     end
   end
   

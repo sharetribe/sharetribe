@@ -6,7 +6,7 @@
       = t("conversations.show.#{conversation.discussion_type}_sent_to")
       = link_to other_party.name, other_party
     - else
-      = t("conversations.show.#{conversation.listing.listing_type}_sent_by")
+      = t("conversations.show.#{conversation.discussion_type}_sent_by")
       = link_to(other_party.name, other_party)
     = t("conversations.show.in_response_to_#{conversation.listing.listing_type}")
     = link_to(conversation.listing.title, conversation.listing)

@@ -85,7 +85,7 @@ class Conversation < ActiveRecord::Base
   end
   
   def change_status(new_status, current_user, current_community, community_domain)
-    update_attribute(:status, new_status)
+    update_attribute(:status, new_status) if new_status
     participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id, community_domain)) 
   end

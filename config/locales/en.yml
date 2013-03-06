@@ -102,6 +102,16 @@ en:
     username_or_email: "Email or username"
     what_is_this: "What's this?"
   conversations:
+    edit:
+      respond_to_offer: "Respond to an offer"
+      respond_to_request: "Respond to a request"
+      accept_offer: "Accept the offer"
+      accept_request: "Accept the request"
+      reject_offer: "Not this time"
+      reject_request: "Not this time"
+      close_listing: "Close the listing %{listing_title_link}"
+      update_later: "Update the listing later"
+      optional_message: "Optional message"
     index:
       messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the tribes you belong to."
       loading_more_messages: "Loading more messages"
@@ -109,6 +119,11 @@ en:
       messages_partitive: messages
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
+    message:
+      accepted_request: "accepted the request"
+      accepted_offer: "accepted the offer"
+      rejected_request: "rejected the request"
+      rejected_offer: "rejected the offer"
     new:
       offer_message_form_title: "Offer %{listing} to %{person}"
       offer_message_title: "Offer: %{title}"
@@ -179,8 +194,8 @@ en:
         see_all_the_feedback_you_have_received: "see all the feedback you have received"
     show:
       in_response_to_offer: "about offer"
-      in_response_to_request: "in response to request"
-      offer_sent_by: "Request sent by"
+      in_response_to_request: "about request"
+      offer_sent_by: "Offer sent by"
       offer_sent_to: "Offer sent to"
       request_sent_by: "Request sent by"
       request_sent_to: "Request sent to"
@@ -198,12 +213,15 @@ en:
       request_accepted: "Request accepted"
       request_rejected: "Request rejected"
       skip_feedback: "Skip feedback"
-      waiting_confirmation_from_listing_author: "Awaiting confirmation from listing author"
+      waiting_confirmation_from_listing_author: "Waiting for listing author to accept"
+      waiting_confirmation_from_requester: "Waiting for requester to confirm as done"
     status_link:
       accept_offer: "Accept offer"
       accept_request: "Accept request"
       reject_offer: "Not this time"
       reject_request: "Not this time"
+      confirm: "Confirm as done"
+      cancel: "Did not happen"
   communities:
     map_bubble:
       view_tribe: "View tribe"
@@ -744,6 +762,7 @@ en:
       settings: Settings
       sign_up: "Sign up"
     notifications:
+      something_went_wrong: "Something went wrong"
       community_updated: "Tribe details updated."
       community_update_failed: "Tribe detail update failed."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Account created successfully. Next you need to confirm your email address."

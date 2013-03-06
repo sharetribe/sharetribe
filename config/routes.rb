@@ -66,8 +66,8 @@ Kassi::Application.routes.draw do
             get :notifications
           end
           member do
-            put :accept
-            put :reject
+            get :accept
+            get :reject
             put :cancel
           end
           resources :messages

@@ -1,3 +1,7 @@
-%a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}", :data => { :method => "put", :remote => "true"}}
+%a{:href => path_for_status_link(status, conversation, @current_user), :class => "status-link #{status}"}
   .icon-with-text{:class => icon_for("#{status}ed")}
-  .text-with-icon= t(".#{status}_#{conversation.discussion_type}")
+  .text-with-icon
+    - if ["accept", "reject"].include?(status)
+      = t(".#{status}_#{conversation.discussion_type}")
+    - else
+      = t(".#{status}")

@@ -2,7 +2,6 @@
   initialize_give_feedback_form('#{I18n.locale}','#{t('error_messages.testimonials.you_must_select_a_grade')}','#{t('error_messages.testimonials.you_must_explain_not_neutral_feedback')}');
 
 
-        
 .centered-section.testimonial-form
   %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
   %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
@@ -21,10 +20,4 @@
     = form.hidden_field :author_id, :value => @current_user.id
     = form.hidden_field :receiver_id, :value => @conversation.other_party(@current_user).id
     = form.hidden_field :participation_id, :value => @participation.id
-    %a.grade.hidden
-      .ss-like.link-icon
-      .link-text Positive
-    %a.grade.hidden
-      .ss-dislike.link-icon
-      .link-text Negative
     = form.button t(".send_feedback"), :class => "send_button", :id => "send_testimonial_button"

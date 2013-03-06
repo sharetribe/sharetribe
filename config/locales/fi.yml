@@ -100,6 +100,16 @@ fi:
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
+    edit:
+      respond_to_offer: "Vastaa tarjoukseen"
+      respond_to_request: "Vastaa pyyntöön"
+      accept_offer: "Hyväksy tarjous"
+      accept_request: "Hyväksy pyyntö"
+      reject_offer: "Ei tällä kertaa"
+      reject_request: "Ei tällä kertaa"
+      close_listing: "Sulje ilmoitus %{listing_title_link}"
+      update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
+      optional_message: "Vapaaehtoinen viesti"
     index:
       messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa Sharetribe-yhteisöissä joihin kuulut."
       loading_more_messages: "Ladataan lisää viestejä"
@@ -178,10 +188,10 @@ fi:
     show:
       in_response_to_offer: "liittyen tarjoukseen"
       in_response_to_request: "vastauksena pyyntöön"
-      offer_sent_by: "Pyynnön lähetti"
-      offer_sent_to: "Pyyntö lähetetty käyttäjälle"
-      request_sent_by: "Tarjouksen lähetti"
-      request_sent_to: "Tarjous lähetetty käyttäjälle"
+      offer_sent_by: "Tarjouksen lähetti"
+      offer_sent_to: "Tarjous lähetetty käyttäjälle"
+      request_sent_by: "Pyynnön lähetti"
+      request_sent_to: "Pyyntö lähetetty käyttäjälle"
       send_reply: "Lähetä viesti"
       write_a_reply: "Kirjoita vastaus:"
       conversation_about_listing: "Keskustelu käyttäjän %{person} kanssa liittyen ilmoitukseen %{listing}"
@@ -197,11 +207,14 @@ fi:
       request_rejected: "Pyyntö hylätty"
       skip_feedback: "Ohita palaute"
       waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
+      waiting_confirmation_from_requester: "Odottaa että pyytäjä varmistaa pyynnön toteutuneeksi"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
       reject_request: "Ei tällä kertaa"
+      confirm: "Merkitse tapahtuneeksi"
+      cancel: "Ei tapahtunut"
   communities:
     map_bubble:
       view_tribe: "Näytä yhteisö"
@@ -742,6 +755,7 @@ fi:
       settings: Asetukset
       sign_up: "Luo uusi tunnus"
     notifications:
+      something_went_wrong: "Jotain meni vikaan"
       community_updated: "Yhteisön tiedot päivitetty."
       community_update_failed: "Yhteisön tietojen päivittäminen epäonnistui."
       account_creation_succesful_you_still_need_to_confirm_your_email: "Käyttäjätunnus luotu. Seuraavaksi sinun pitää vielä varmistaa sähköpostiosoitteesi."

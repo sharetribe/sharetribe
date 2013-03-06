@@ -372,9 +372,14 @@ form {
   .checkbox-container {
     position: relative;
   
-    input[type=checkbox], input[type=radio] {
+    input[type=checkbox] {
       position: absolute;
       top: lines(0.5) + em(3);
+    }
+    
+    input[type=radio] {
+      position: absolute;
+      top: lines(0.5)
     }
 
     label {
@@ -387,7 +392,7 @@ form {
     }
     
     label.radio {
-      margin-top: lines(0.5) - em(2);
+      margin-top: lines(0.5) - em(5);
     }
     
     a {
@@ -2887,7 +2892,7 @@ a.lightbox-x {
     margin-right: lines(0.5);
   }
   
-  .accept {
+  .accept, .confirm {
     color: $green;
     background: lighten($green, 40%);
     border-color: $green;
@@ -2898,7 +2903,7 @@ a.lightbox-x {
     }
   }
   
-  .reject {
+  .reject, .cancel {
     color: $red;
     background: lighten($red, 40%);
     border-color: $red;
@@ -3155,14 +3160,14 @@ a.lightbox-x {
 }
 
 /*
-  -----------------------
-  New testimonial form
-  -----------------------
+  -----------------------------------------------
+  New testimonial form, conversation status form
+  -----------------------------------------------
 */
 
-.testimonial-form {
+.testimonial-form, .conversation-status-form {
 
-  a.grade {
+  a.grade, a.conversation-action {
     color: $body;
     cursor: pointer;
     position: relative;
@@ -3185,17 +3190,17 @@ a.lightbox-x {
     }
   }
   
-  a.hidden {
+  a.hidden, div.hidden {
     display: none;
   }
 
-  a.positive {
+  a.positive, a.accept {
     color: $green;
     background: lighten($green, 40%);
      &:hover { background: lighten($green, 40%); }
   }
 
-  a.negative {
+  a.negative, a.reject {
     color: $red;
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }

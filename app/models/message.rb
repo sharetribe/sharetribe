@@ -5,7 +5,13 @@ class Message < ActiveRecord::Base
   belongs_to :sender, :class_name => "Person"
   belongs_to :conversation
   
-  validates_presence_of :sender_id, :content
+  validates_presence_of :sender_id
+  validate :content_or_action_present
+  
+  # Message must always have either content, action or both
+  def content_or_action_present
+    errors.add(:base, "Message needs to have either action or content.") if content.blank? && action.blank?
+  end
   
   def update_conversation_read_status
     conversation.update_attribute(:last_message_at, created_at)

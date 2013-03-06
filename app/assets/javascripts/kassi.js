@@ -381,11 +381,37 @@ function initialize_reply_form(locale) {
 function initialize_listing_view(locale) {
   $('#listing-image-link').click(function() { $('#listing-image-lightbox').lightbox_me({centered: true, zIndex: 1000000}); });
 	auto_resize_text_areas("listing_comment_content_text_area");
+	$('textarea').focus();
 	prepare_ajax_form(
     "#new_comment",
     locale, 
     {"comment[content]": {required: true, minlength: 1}}
   );
+}
+
+function initialize_change_conversation_status_form(action) {
+	auto_resize_text_areas("text_area");
+	style_action_selectors(action);
+}
+
+function style_action_selectors(action) {
+  $(".conversation-action").each(function() {
+    $(this).find('label').hide();
+    $(this).find('.conversation-action').each(
+      function() {
+        $(this).removeClass('hidden');
+        $(this).click(
+          function() {
+            $(this).siblings().removeClass('accept').removeClass('reject');
+            $(this).addClass($(this).attr('id'));
+            $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
+            $("#conversation_message_attributes_action").val(action);
+            $("#conversation_status").val($(this).attr('id') + 'ed');
+          }
+        );
+      }  
+    );
+  });
 }
 
 function initialize_give_feedback_form(locale, grade_error_message, text_error_message) {
