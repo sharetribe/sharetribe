@@ -107,5 +107,11 @@ class Conversation < ActiveRecord::Base
   def requester
     participants.each { |p| return p unless listing.offerer?(p) }
   end
+  
+  # If payment through Sharetribe is required to
+  # complete the transaction, return true
+  def requires_payment?(community)
+    community.payments_in_use?
+  end
 
 end

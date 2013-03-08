@@ -10,7 +10,7 @@
           .ss-clock.icon-part
           .text-part= t(".waiting_confirmation_from_listing_author")   
     - elsif conversation.status.eql?("accepted")
-      - if @current_community.payments_in_use?
+      - if conversation.requires_payment?(@current_community)
         - if conversation.listing.offerer?(@current_user)
           .icon-with-text-container
             .ss-clock.icon-part
