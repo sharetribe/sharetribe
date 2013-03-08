@@ -1,6 +1,4 @@
 class ConversationsController < ApplicationController
-
-  layout "no_tribe", :only => [ :index, :received, :sent, :show, :notifications ]
   
   before_filter :only => [ :new, :create ] do |controller|
     controller.ensure_logged_in t("layouts.notifications.you_must_log_in_to_send_a_message")
@@ -14,12 +12,14 @@ class ConversationsController < ApplicationController
     controller.ensure_authorized t("layouts.notifications.you_are_not_authorized_to_view_this_content")
   end
   
-  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject, :edit, :update ]
+  before_filter :ensure_authorized_to_view_message, :only => [ :show, :accept, :reject, :confirm, :cancel, :acceptance, :confirmation ]
   before_filter :save_current_inbox_path, :only => [ :received, :sent, :show ]
   before_filter :check_conversation_type, :only => [ :new, :create ]
   before_filter :ensure_listing_is_open, :only => [ :new, :create ]
   before_filter :ensure_listing_author_is_not_current_user, :only => [ :new, :create ]
   before_filter :ensure_authorized_to_reply, :only => [ :new, :create ]
+  before_filter :ensure_authorized_to_accept, :only => [ :accept, :reject, :acceptance ]
+  before_filter :ensure_authorized_to_confirm, :only => [ :confirm, :cancel, :canfirmation ]
   
   skip_filter :dashboard_only
   
@@ -80,25 +80,50 @@ class ConversationsController < ApplicationController
   end
   
   def accept
+    
     @action = "accept"
-    render :edit
   end
   
   def reject
     @action = "reject"
-    render :edit
+    render :accept
   end
   
-  def update
+  # Handles accept and reject forms
+  def acceptance
     if @conversation.update_attributes(params[:conversation])
-      @conversation.change_status(nil, @current_user, @current_community, request.host)
-      @conversation.listing.update_attribute(:open, false) if params[:close_listing] && params[:close_listing].eql?("true")
+      @conversation.accept_or_reject(@current_user, @current_community, params[:close_listing])
       flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
       redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
     else
       flash.now[:error] = t("layouts.notifications.something_went_wrong")
       render :edit
     end  
+  end
+  
+  def confirm
+    @action = "confirm"
+  end
+  
+  def cancel
+    @action = "cancel"
+    render :confirm
+  end
+  
+  # Handles confirm and cancel forms
+  def confirmation
+    if @conversation.update_attributes(params[:conversation])
+      @conversation.confirm_or_cancel(@current_user, @current_community, params[:give_feedback])
+      flash[:notice] = t("layouts.notifications.#{@conversation.discussion_type}_#{@conversation.status}")
+      if params[:give_feedback] && params[:give_feedback].eql?("true")
+        redirect_to new_person_message_feedback_path(:person_id => @current_user.id, :message_id => @conversation.id)
+      else
+        redirect_to person_message_path(:person_id => @current_user.id, :id => @conversation.id)
+      end
+    else
+      flash.now[:error] = t("layouts.notifications.something_went_wrong")
+      render :edit
+    end
   end
   
   private
@@ -155,6 +180,14 @@ class ConversationsController < ApplicationController
       flash[:error] = t("layouts.notifications.you_are_not_authorized_to_view_this_content")
       redirect_to root and return
     end  
+  end
+  
+  def ensure_authorized_to_accept
+    redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) unless @conversation.status.eql?("pending") && current_user?(@conversation.listing.author)
+  end
+  
+  def ensure_authorized_to_confirm
+    redirect_to person_message_path(:person_id => @current_user.id, :message_id => @conversation.id) unless @conversation.status.eql?("accepted") && current_user?(@conversation.requester)
   end
 
 end

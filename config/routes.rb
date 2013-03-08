@@ -68,7 +68,10 @@ Kassi::Application.routes.draw do
           member do
             get :accept
             get :reject
-            put :cancel
+            get :confirm
+            get :cancel
+            put :acceptance
+            put :confirmation
           end
           resources :messages
           resources :feedbacks, :controller => :testimonials do

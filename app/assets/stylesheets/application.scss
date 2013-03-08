@@ -3068,6 +3068,23 @@ a.lightbox-x {
 
 
 /*
+  ------------------------
+  Transaction confirmation
+  ------------------------
+*/
+
+.conversation-status-form {
+  
+  .conversation-action-description {
+    padding: lines(0.25) 0;
+  }
+  
+}
+
+
+
+
+/*
   ----------------
   Person settings
   ----------------
@@ -3194,13 +3211,13 @@ a.lightbox-x {
     display: none;
   }
 
-  a.positive, a.accept {
+  a.positive, a.accept, a.confirm {
     color: $green;
     background: lighten($green, 40%);
      &:hover { background: lighten($green, 40%); }
   }
 
-  a.negative, a.reject {
+  a.negative, a.reject, a.cancel {
     color: $red;
     background: lighten($red, 40%);
     &:hover { background: lighten($red, 40%); }

@@ -1,0 +1,31 @@
+- content_for :javascript do
+  initialize_confirm_transaction_form();
+
+.centered-section.conversation-status-form
+  = form_for @conversation, :url => confirmation_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
+    
+    .conversation-action
+      - ["confirm", "cancel"].each do |action| 
+        %label{:for => "action-#{action}", :class => "radio hidden"}
+          = radio_button_tag "conversation[status]", action, @action.eql?(action), :id => "action-#{action}"
+        %a.conversation-action.hidden{:id => "#{action}", :name => "#{action}-link", :class => (@action.eql?(action) ? action : "")}
+          .link-icon{:class => icon_for("#{action}ed")}
+          .link-text{:id => "#{action}-action-link"}= t(".#{action}")
+    
+    .conversation-action-description
+      - ["confirm", "cancel"].each do |action|
+        %div{:class => "#{action}-description #{@action.eql?(action) ? '' : 'hidden'}"}
+          = t(".#{action}_description")
+    
+    .close-listing-radio-buttons
+    
+      .checkbox-container
+        = radio_button_tag "give_feedback", true, true, :id => "do_give_feedback"
+        = label_tag "do_give_feedback", t(".give_feedback_to", :person_link => link_to(@conversation.other_party(@current_user).name, @conversation.other_party(@current_user))).html_safe, :class => "radio"
+
+      .checkbox-container
+        = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
+        = label_tag "do_not_give_feedback", t(".do_not_give_feedback"), :class => "radio"
+    
+    = form.hidden_field :status, :value => "#{@action}ed"
+    = form.button t(".continue"), :class => "send_button", :id => "send_testimonial_button"

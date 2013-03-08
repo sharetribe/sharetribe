@@ -389,12 +389,16 @@ function initialize_listing_view(locale) {
   );
 }
 
-function initialize_change_conversation_status_form(action) {
+function initialize_accept_transaction_form() {
 	auto_resize_text_areas("text_area");
-	style_action_selectors(action);
+	style_action_selectors();
 }
 
-function style_action_selectors(action) {
+function initialize_confirm_transaction_form() {
+	style_action_selectors();
+}
+
+function style_action_selectors() {
   $(".conversation-action").each(function() {
     $(this).find('label').hide();
     $(this).find('.conversation-action').each(
@@ -402,11 +406,15 @@ function style_action_selectors(action) {
         $(this).removeClass('hidden');
         $(this).click(
           function() {
-            $(this).siblings().removeClass('accept').removeClass('reject');
-            $(this).addClass($(this).attr('id'));
+            var action = $(this).attr('id')
+            $(this).siblings().removeClass('accept').removeClass('reject').removeClass('confirm').removeClass('cancel');
+            $(".confirm-description").addClass('hidden');
+            $(".cancel-description").addClass('hidden');
+            $("." + action + "-description").removeClass('hidden');
+            $(this).addClass(action);
             $(".conversation-action").find('input:radio[id=' + $(this).attr('name') + ']').attr('checked', true);
             $("#conversation_message_attributes_action").val(action);
-            $("#conversation_status").val($(this).attr('id') + 'ed');
+            $("#conversation_status").val(action + 'ed');
           }
         );
       }  

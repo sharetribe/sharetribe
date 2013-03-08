@@ -1,9 +1,9 @@
 - content_for :javascript do
-  initialize_change_conversation_status_form('#{@action}');
+  initialize_accept_transaction_form();
 
 .centered-section.conversation-status-form
   %h2= t(".respond_to_#{@conversation.discussion_type}")
-  = form_for @conversation, :url => person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
+  = form_for @conversation, :url => acceptance_person_message_path(:person_id => @current_user.id, :id => @conversation.id), :html => { :method => "put" } do |form|
     
     .conversation-action
       - ["accept", "reject"].each do |action| 

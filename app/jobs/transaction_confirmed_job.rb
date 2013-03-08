@@ -1,4 +1,4 @@
-class TransactionConfirmedJob < Struct.new(:conversation_id, :current_user_id, :community_id, :host) 
+class TransactionConfirmedJob < Struct.new(:conversation_id, :current_user_id, :community_id) 
   
   include DelayedAirbrakeNotification
   

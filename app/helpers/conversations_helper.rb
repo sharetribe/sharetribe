@@ -22,7 +22,16 @@ module ConversationsHelper
   end
   
   def path_for_status_link(status, conversation, current_user)
-    status.eql?("accept") ? accept_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s) : reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
+    case status
+    when "accept"
+      accept_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "confirm"
+      confirm_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    when "reject"
+      reject_person_message_path(:person_id => @current_user.id, :id => conversation.id.to_s)
+    when "cancel"  
+      cancel_person_message_path(:person_id => current_user.id, :id => conversation.id.to_s)
+    end 
   end
   
 end

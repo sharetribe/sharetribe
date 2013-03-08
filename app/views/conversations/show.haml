@@ -1,6 +1,8 @@
 - content_for :javascript do
   initialize_reply_form('#{I18n.locale}');
 
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => inbox_links_for(@current_user) }
+
 .left-navi-section.conversation
   %h2= @conversation.title
   .avatar-container

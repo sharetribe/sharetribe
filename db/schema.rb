@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130305095824) do
+ActiveRecord::Schema.define(:version => 20130306172327) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20130305095824) do
     t.string   "custom_color2"
     t.string   "stylesheet_url"
     t.string   "service_logo_style",                        :default => "full-logo"
+    t.boolean  "payments_in_use",                           :default => false
   end
 
   add_index "communities", ["domain"], :name => "index_communities_on_domain"

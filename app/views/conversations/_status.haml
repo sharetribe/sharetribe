@@ -10,19 +10,27 @@
           .ss-clock.icon-part
           .text-part= t(".waiting_confirmation_from_listing_author")   
     - elsif conversation.status.eql?("accepted")
-      - if conversation.listing.offerer?(@current_user)
-        .icon-with-text-container
-          .ss-clock.icon-part
-          .text-part= t(".waiting_confirmation_from_requester")
+      - if @current_community.payments_in_use?
+        - if conversation.listing.offerer?(@current_user)
+          .icon-with-text-container
+            .ss-clock.icon-part
+            .text-part= t(".waiting_payment_from_requester")
+        - else
+          = link_to "Pay", "#"
       - else
-        .status-links
-          - ["confirm", "cancel"].each do |status|
-            = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
+        - if conversation.listing.offerer?(@current_user)
+          .icon-with-text-container
+            .ss-clock.icon-part
+            .text-part= t(".waiting_confirmation_from_requester")
+        - else
+          .status-links
+            - ["confirm", "cancel"].each do |status|
+              = render :partial => "status_link", :locals => { :conversation => conversation, :status => status }
     - elsif conversation.status
       .icon-with-text-container
         .icon-part{:class => icon_for(conversation.status)}
         .text-part= t(".#{conversation.discussion_type}_#{conversation.status}")
-      - if conversation.status.eql?("confirmed")
+      - if ["confirmed", "canceled"].include? conversation.status
         - if conversation.has_feedback_from?(@current_user)
           .icon-with-text-container
             .ss-like.icon-part

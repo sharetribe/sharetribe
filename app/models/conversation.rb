@@ -7,7 +7,7 @@ class Conversation < ActiveRecord::Base
   has_many :participations, :dependent => :destroy
   has_many :participants, :through => :participations, :source => :person
   
-  VALID_STATUSES = ["pending", "accepted", "rejected", "free"]
+  VALID_STATUSES = ["pending", "accepted", "rejected", "free", "confirmed", "canceled"]
   
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
@@ -84,10 +84,15 @@ class Conversation < ActiveRecord::Base
     participants.reject { |p| p.id == sender.id }
   end
   
-  def change_status(new_status, current_user, current_community, community_domain)
-    update_attribute(:status, new_status) if new_status
-    participations.find_by_person_id(current_user.id).update_attribute(:is_read, true)
-    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id, community_domain)) 
+  def accept_or_reject(current_user, current_community, close_listing)
+    participations.find_by_person_id(current_user.id).update_attribute(:is_read, true) if offerer.eql?(current_user)
+    listing.update_attribute(:open, false) if close_listing && close_listing.eql?(true)
+    Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
+  end
+  
+  def confirm_or_cancel(current_user, current_community, feedback_given)
+    participations.find_by_person_id(current_user.id).update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
+    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id)) 
   end
   
   def has_feedback_from_all_participants?

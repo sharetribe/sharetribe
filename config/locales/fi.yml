@@ -100,7 +100,7 @@ fi:
     username_or_email: "Käyttäjätunnus tai sähköposti"
     what_is_this: "Mitä tämä tarkoittaa?"
   conversations:
-    edit:
+    accept:
       respond_to_offer: "Vastaa tarjoukseen"
       respond_to_request: "Vastaa pyyntöön"
       accept_offer: "Hyväksy tarjous"
@@ -110,13 +110,31 @@ fi:
       close_listing: "Sulje ilmoitus %{listing_title_link}"
       update_later: "Päivitä ilmoitus ajan tasalle myöhemmin"
       optional_message: "Vapaaehtoinen viesti"
+    confirm:
+      confirm_description: "Jos olet saanut pyytämäsi asian, voit merkitä pyynnön toteutuneeksi. Tämän jälkeen voit antaa toiselle osapuolelle palautetta."
+      cancel_description: "Jos et saanut pyytämäsi asiaa, voit merkitä pyynnön peruuntuneeksi. Voit silti antaa toiselle osapuolelle palautetta ja kertoa miksi pyyntö ei tällä kertaa toteutunut."
+      confirm: "Merkitse toteutuneeksi"
+      cancel: "Ei toteutunut"
+      continue: "Jatka"
+      give_feedback_to: "Anna palautetta käyttäjälle %{person_link}"
+      do_not_give_feedback: "Ohita palaute"
     index:
-      messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa Sharetribe-yhteisöissä joihin kuulut."
+      messages_from_all_tribes: "Täällä näet kaikki muiden käyttäjien kanssa vaihtamasi viestit kaikissa %{service_name}-yhteisöissä joihin kuulut."
       loading_more_messages: "Ladataan lisää viestejä"
       message_partitive: viesti
       messages_partitive: viestiä
       no_received_messages: "Ei vastaanotettuja viestejä"
       no_sent_messages: "Ei lähetettyjä viestejä"
+    conversation:
+      accepted_request: "Pyyntö hyväksytty."
+      accepted_offer: "Tarjous hyväksytty."
+      rejected_request: "Pyyntö hylätty."
+      rejected_offer: "Tarjous hylätty."
+    message:
+      accepted_request: "hyväksyi pyynnön"
+      accepted_offer: "hyväksyi tarjouksen"
+      rejected_request: "hylkäsi pyynnön"
+      rejected_offer: "hylkäsi tarjouksen"
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       offer_message_title: "Tarjous: %{title}"
@@ -203,8 +221,12 @@ fi:
       give_feedback: "Anna palautetta"
       offer_accepted: "Tarjous hyväksytty"
       offer_rejected: "Tarjous hylätty"
+      offer_canceled: "Tarjous peruutettu"
+      offer_confirmed: "Tarjous toteutunut"
       request_accepted: "Pyyntö hyväksytty"
       request_rejected: "Pyyntö hylätty"
+      request_confirmed: "Pyyntö toteutunut"
+      request_canceled: "Pyyntö peruutettu"
       skip_feedback: "Ohita palaute"
       waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
       waiting_confirmation_from_requester: "Odottaa että pyytäjä varmistaa pyynnön toteutuneeksi"
@@ -213,8 +235,8 @@ fi:
       accept_request: "Hyväksy pyyntö"
       reject_offer: "Hylkää tarjous"
       reject_request: "Ei tällä kertaa"
-      confirm: "Merkitse tapahtuneeksi"
-      cancel: "Ei tapahtunut"
+      confirm: "Merkitse toteutuneeksi"
+      cancel: "Ei toteutunut"
   communities:
     map_bubble:
       view_tribe: "Näytä yhteisö"
@@ -791,10 +813,14 @@ fi:
       news_item_updated: "Uutinen tallennettu"
       news_item_deleted: "Uutinen poistettu"
       offer_accepted: "Tarjous hyväksytty"
+      offer_confirmed: "Tarjous merkitty toteutuneeksi"
+      request_confirmed: "Pyyntö merkitty toteutuneeksi"
       offer_closed: "Tarjous suljettu"
       listing_created_successfully: "Ilmoitus tallennettu."
       offer_created_successfully: "Tarjous tallennettu."
       offer_rejected: "Tarjous hylätty"
+      offer_canceled: "Tarjous peruttu"
+      request_canceled: "Pyyntö peruttu"
       offer_updated_successfully: "Tarjous päivitetty onnistuneesti"
       only_kassi_administrators_can_access_this_area: "Vain %{service_name_genetive} ylläpitäjillä on pääsy tähän sisältöön"
       only_listing_author_can_close_a_listing: "Vain ilmoituksen laatija voi sulkea ilmoituksen."
@@ -1520,6 +1546,7 @@ fi:
     testimonial:
       from_user: käyttäjältä
       to_user: käyttäjälle
+      about_listing: "liittyen ilmoitukseen"
   time:
     formats:
       short: "%e. %b %Y kello %H:%M"

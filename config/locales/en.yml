@@ -102,7 +102,7 @@ en:
     username_or_email: "Email or username"
     what_is_this: "What's this?"
   conversations:
-    edit:
+    accept:
       respond_to_offer: "Respond to an offer"
       respond_to_request: "Respond to a request"
       accept_offer: "Accept the offer"
@@ -112,13 +112,26 @@ en:
       close_listing: "Close the listing %{listing_title_link}"
       update_later: "Update the listing later"
       optional_message: "Optional message"
+    confirm:
+      confirm_description: "If your request has been fulfilled you should confirm it as done. Then you can give feedback to the other party."
+      cancel_description: "If your request was not fulfilled, you can mark it as 'not happened'. You can still give feedback to the other party and describe what happened."
+      confirm: "Confirm as done"
+      cancel: "Did not happen"
+      continue: "Continue"
+      give_feedback_to: "Give feedback to %{person_link}"
+      do_not_give_feedback: "Skip feedback"
     index:
-      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the tribes you belong to."
+      messages_from_all_tribes: "This view contains messages you have exchanged with other people in all the %{service_name} communities you belong to."
       loading_more_messages: "Loading more messages"
       message_partitive: message
       messages_partitive: messages
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
+    message:
+      accepted_request: "Request accepted."
+      accepted_offer: "Offer accepted."
+      rejected_request: "Request rejected."
+      rejected_offer: "Offer rejected."
     message:
       accepted_request: "accepted the request"
       accepted_offer: "accepted the offer"
@@ -210,8 +223,12 @@ en:
       give_feedback: "Give feedback"
       offer_accepted: "Offer accepted"
       offer_rejected: "Offer rejected"
+      offer_canceled: "Offer canceled"
+      offer_confirmed: "Offer confirmed"
       request_accepted: "Request accepted"
       request_rejected: "Request rejected"
+      request_confirmed: "Request confirmed"
+      request_canceled: "Request canceled"
       skip_feedback: "Skip feedback"
       waiting_confirmation_from_listing_author: "Waiting for listing author to accept"
       waiting_confirmation_from_requester: "Waiting for requester to confirm as done"
@@ -798,10 +815,12 @@ en:
       news_item_updated: "Article updated"
       news_item_deleted: "Article removed"
       offer_accepted: "Offer accepted"
+      offer_confirmed: "Offer confirmed"
       offer_closed: "Offer closed"
       listing_created_successfully: "Listing created successfully."
       offer_created_successfully: "Offer created successfully. %{new_listing_link}."
       offer_rejected: "Offer rejected"
+      offer_canceled: "Offer canceled"
       offer_updated_successfully: "Offer updated successfully"
       only_kassi_administrators_can_access_this_area: "Only %{service_name} administrators can access this area"
       only_listing_author_can_close_a_listing: "Only listing author can close a listing"
@@ -822,9 +841,11 @@ en:
       reply_cannot_be_empty: "You can't send an empty message"
       reply_sent: "Reply sent successfully"
       request_accepted: "Request accepted"
+      request_confirmed: "Request confirmed"
       request_closed: "Request closed"
       request_created_successfully: "Request created successfully. %{new_listing_link}."
       request_rejected: "Request rejected"
+      request_canceled: "Request canceled"
       request_updated_successfully: "Request updated successfully"
       message_sent: "Message sent"
       this_content_is_not_available_in_this_community: "This content is not available in this community."
@@ -1543,6 +1564,7 @@ en:
     testimonial:
       from_user: from
       to_user: to
+      about_listing: "about listing"
   time:
     formats:
       short: "%e %b %Y at %H:%M"

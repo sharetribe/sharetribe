@@ -1,6 +1,8 @@
 - content_for :javascript do
   initialize_update_avatar_form('#{t('listings.form.images.no_file_selected')}', '#{t('listings.form.images.select_file')}','#{I18n.locale}');
 
+= render :partial => "layouts/left_hand_navigation", :locals => { :links => settings_links_for(@current_user) }
+
 #person_settings_form.left-navi-section.settings-section
   %h2= t(".update_profile_picture")
   = render :partial => "layouts/global_view_notification", :locals => { :text => t("settings.settings_affect_all_tribes") }
