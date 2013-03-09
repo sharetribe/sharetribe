@@ -68,7 +68,7 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
       flash[:notice] = t("layouts.notifications.message_sent")
-      Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, request.host))
+      Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
       if params[:profile_message]
         redirect_to @target_person
       else

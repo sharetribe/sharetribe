@@ -424,16 +424,17 @@ fi:
     community_starter_email:
       subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, yhteisön ilmeen muokkaus ja paljon muuta"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi pyyntöön %{listing}"
-      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi tarjouksesta %{listing}"
-      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi pyyntöön %{listing}"
-      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi tarjouksesta %{listing}"
-      you_can_view_the_offer_in: "Voit nähdä tarjouksesi ja siihen liittyvän keskustelun osoitteessa"
-      you_can_view_the_request_in: "Voit nähdä pyyntösi ja siihen liittyvän keskustelun osoitteessa"
+      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi ilmoituksesta %{listing}."
+      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi liittyen ilmoitukseen %{listing}."
+      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi ilmoituksesta %{listing}."
+      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi liittyen ilmoitukseen %{listing}."
+      view_thread: "Näytä keskustelu"
       your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
       your_offer_was_rejected: "Tarjouksesi hylättiin"
       your_request_was_accepted: "Pyyntösi hyväksyttiin"
       your_request_was_rejected: "Pyyntösi hylättiin"
+      you_can_now_pay_to: "Voit nyt maksaa käyttäjä %{payment_receiver} pyytämän maksun."
+      pay_now: "Maksa nyt"
     invitation_to_kassi:
       hi: Hei!
       you_have_been_invited_to_kassi: "%{inviter} on kutsunut sinut käyttämään %{community}-verkkopalvelua."
@@ -454,9 +455,8 @@ fi:
       has_commented_request_you_follow_in_kassi: "%{author} on kommentoinut seuraamaasi tarjousta %{listing}"
     new_message:
       conversation_title: "Viestiketjun otsikko: %{title}"
-      do_not_reply_to_this_email: "Huom! Älä vastaa tähän sähköpostiviestiin, vaan käytä edellä mainittua vastauslinkkiä."
-      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}:"
-      you_can_reply_to_message_in: "Voit vastata viestiin osoitteessa"
+      view_message: "Näytä viesti"
+      has_sent_you_a_message_in_kassi: "%{sender} on lähettänyt sinulle viestin %{service_name_inessive}."
       you_have_a_new_message: "Sinulle on uusi viesti %{service_name_inessive}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} on antanut sinulle palautetta %{service_name_inessive}"
@@ -508,7 +508,7 @@ fi:
       remember_to_give_feedback_to: "Muistutus: muistathan antaa palautetta käyttäjälle %{name}"
       you_have_not_given_feedback_yet: "Et ole vielä antanut palautetta käyttäjälle %{name} liittyen tapahtumaan '%{event}'. Muistathan antaa palautetta siitä, miten %{given_name} toimi kyseisessä tapahtumassa."
     welcome_email:
-      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name_elative}? %{settings_link}."
+      welcome_email_footer_text: "Millaisia sähköpostiviestejä haluat saada %{service_name_elative}? %{settings_link}"
       settings_link_text: "Tarkista sähköpostiasetuksesi"
       subject: "Tervetuloa yhteisöön %{community} - tässä muutama vinkki alkuun pääsemiseksi"
       welcome_some_tips: "Tervetuloa yhteisöön %{community_link}! Tässä muutama vinkki, joilla pääset alkuun."

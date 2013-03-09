@@ -127,7 +127,7 @@ en:
       messages_partitive: messages
       no_received_messages: "No received messages"
       no_sent_messages: "No sent messages"
-    message:
+    conversation:
       accepted_request: "Request accepted."
       accepted_offer: "Offer accepted."
       rejected_request: "Request rejected."
@@ -426,16 +426,17 @@ en:
     community_starter_email:
       subject: "See the new Sharetribe - membership limit removed, look & feel can be modified, and more"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} has accepted your offer considering request %{listing}"
-      has_accepted_your_request: "%{accepter} has accepted your request considering offer %{listing}"
-      has_rejected_your_offer: "%{accepter} has rejected your offer considering request %{listing}"
-      has_rejected_your_request: "%{accepter} has rejected your request considering offer %{listing}"
-      you_can_view_the_offer_in: "You can view your offer and the related conversation at"
-      you_can_view_the_request_in: "You can view your request and the related conversation at"
+      has_accepted_your_offer: "%{accepter} has accepted your offer considering listing %{listing}."
+      has_accepted_your_request: "%{accepter} has accepted your request considering listing %{listing}."
+      has_rejected_your_offer: "%{accepter} has rejected your offer considering listing %{listing}."
+      has_rejected_your_request: "%{accepter} has rejected your request considering listing %{listing}."
+      view_thread: "View conversation"
       your_offer_was_accepted: "Your offer was accepted"
       your_offer_was_rejected: "Your offer was rejected"
       your_request_was_accepted: "Your request was accepted"
       your_request_was_rejected: "Your request was rejected"
+      you_can_now_pay_to: "You can now pay the requested amount to %{payment_receiver}."
+      pay_now: "Pay now"
     invitation_to_kassi:
       hi: Hi!
       you_have_been_invited_to_kassi: "%{inviter} has invited you to use the %{community} web service."
@@ -456,9 +457,8 @@ en:
       has_commented_request_you_follow_in_kassi: "%{author} has commented on the offer '%{listing}' you are following in %{service_name}."
     new_message:
       conversation_title: "Message thread title: %{title}"
-      do_not_reply_to_this_email: "Note: do not reply directly to this email. Use the reply link above instead."
-      has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}:"
-      you_can_reply_to_message_in: "You can reply to the message in"
+      view_message: "View message"
+      has_sent_you_a_message_in_kassi: "%{sender} has sent you a message in %{service_name}."
       you_have_a_new_message: "You have a new message in %{service_name}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"

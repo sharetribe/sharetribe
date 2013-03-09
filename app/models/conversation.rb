@@ -71,10 +71,10 @@ class Conversation < ActiveRecord::Base
   end
   
   # Send email notification to message receivers and returns the receivers
-  def send_email_to_participants(host)
+  def send_email_to_participants(community)
     recipients(messages.last.sender).each do |recipient|
       if recipient.should_receive?("email_about_new_messages")
-        PersonMailer.new_message_notification(messages.last, host).deliver
+        PersonMailer.new_message_notification(messages.last, community).deliver
       end  
     end
   end
@@ -91,7 +91,9 @@ class Conversation < ActiveRecord::Base
   end
   
   def confirm_or_cancel(current_user, current_community, feedback_given)
-    participations.find_by_person_id(current_user.id).update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
+    participation = participations.find_by_person_id(current_user.id)
+    participation.update_attribute(:is_read, true) if offerer.eql?(current_user)
+    participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
     Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id)) 
   end
   

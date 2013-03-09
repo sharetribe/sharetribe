@@ -18,20 +18,37 @@ class PersonMailer < ActionMailer::Base
   
   layout 'email'
 
-  def new_message_notification(message, host=nil)
-    @recipient = set_up_recipient(message.conversation.other_party(message.sender), host)
-    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => message.conversation.id.to_s, :locale => @recipient.locale )}" : "test_url"
+  add_template_helper(EmailTemplateHelper)
+
+
+
+
+  # New format
+
+  def conversation_status_changed(conversation, community)
+    set_up_urls(conversation.other_party(conversation.listing.author), community)
+    @conversation = conversation
+    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    mail(:to => @recipient.email,
+         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
+  end
+  
+  def new_message_notification(message, community)
+    set_up_urls(message.conversation.other_party(message.sender), community)
     @message = message
-    
+    @email_type =  "email_about_new_messages"
     sending_params = {:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"),
          :reply_to => APP_CONFIG.sharetribe_mail_from_address}
-         # reply_to no-reply address so that people notice immediately that it didn't work
-         # and hopefully read the actual message and answer with the link
+    # reply_to no-reply address so that people notice immediately that it didn't work
+    # and hopefully read the actual message and answer with the link
     sending_params.merge!(:from => @current_community.settings["custom_email_from_address"]) if @current_community && @current_community.settings["custom_email_from_address"]
     mail(sending_params)
-
   end
+  
+  
+  
+  # Old format
   
   def new_comment_to_own_listing_notification(comment, host=nil)
     @recipient = set_up_recipient(comment.listing.author, host)
@@ -55,17 +72,6 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     mail(:to => @recipient.email,
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
-  end
-  
-  def conversation_status_changed(conversation, host=nil)
-    @recipient = set_up_recipient(conversation.other_party(conversation.listing.author), host)
-    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => conversation.id.to_s, :locale => @recipient.locale)}" : "test_url"
-    @conversation = conversation
-    
-    @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
-    
-    mail(:to => @recipient.email,
-         :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
   
   def new_badge(badge, host=nil)
@@ -460,6 +466,17 @@ class PersonMailer < ActionMailer::Base
   end
   
   private
+  
+  def set_up_urls(recipient, community, ref="email")
+    @recipient = recipient
+    @community = community
+    @url_params = {}
+    @url_params[:host] = community.full_domain
+    @url_params[:auth] = @recipient.new_email_auth_token
+    @url_params[:locale] = @recipient.locale
+    @url_params[:ref] = ref
+    set_locale @recipient.locale
+  end
   
   def set_up_recipient(recipient, host=nil, ref="email")
     @url_params = {}

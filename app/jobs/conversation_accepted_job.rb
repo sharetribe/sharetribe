@@ -11,10 +11,11 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
   end
   
   def perform
+    community = Community.find(community_id)
     conversation = Conversation.find(conversation_id)
     current_user = Person.find(current_user_id)
     if conversation.other_party(current_user).should_receive?("email_when_conversation_#{conversation.status}")
-      PersonMailer.conversation_status_changed(conversation, host).deliver
+      PersonMailer.conversation_status_changed(conversation, community).deliver
     end
   end
   

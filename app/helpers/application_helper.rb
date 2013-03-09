@@ -505,4 +505,9 @@ module ApplicationHelper
     end
   end
   
+  
+  def email_link_style
+    "color:#d96e21; text-decoration: none;"
+  end
+  
 end

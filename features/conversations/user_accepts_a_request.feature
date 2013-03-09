@@ -16,8 +16,16 @@ Feature: User accepts a request
     And I should see "1" within ".inbox-toggle"
     And I follow "Service offer: Massage"
     And I follow "Accept offer"
-    And I should see "Offer accepted" within ".conversation-status"
-    And I should not see "1" within ".inbox-toggle"
+    And I fill in "Message" with "Ok, sounds good!"
+    And I follow "Send message"
+    Then I should see "Offer accepted" within ".conversation-status"
+    And I should see "Confirm as done"
+    And I should see "1" within ".inbox-toggle"
+    When I follow "Confirm as done"
+    And I check "Skip feedback"
+    And I follow "Continue"
+    Then I should see "Offer confirmed"
+    And I should see "Feedback skipped"
   
   @javascript
   Scenario: User accepts a request from the received conversations page

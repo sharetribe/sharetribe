@@ -619,6 +619,11 @@ class Person < ActiveRecord::Base
     
   end
   
+  # Return true if this user should use a payment
+  # system in this transaction
+  def should_pay?(conversation, community)
+    conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.requester.id)
+  end
   
   private
   
