@@ -55,6 +55,7 @@ Given /^there are following users:$/ do |person_table|
     #end
     attributes_to_update = hash.except('person','person_id', 'locale')
     @hash_person.update_attributes(attributes_to_update, cookie) unless attributes_to_update.empty?
+    @hash_person.set_default_preferences
     if hash['locale'] 
       @hash_person.locale = hash['locale']
       @hash_person.save

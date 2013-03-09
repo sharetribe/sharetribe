@@ -3,7 +3,7 @@
 
 
 .centered-section.testimonial-form
-  %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).given_name_or_username)
+  %h2= t(".give_feedback_to", :person => @conversation.other_party(@current_user).name)
   %p= t(".this_will_be_shown_in_profile", :person => @conversation.other_party(@current_user).given_name_or_username)
   = form_for @testimonial, :url => person_message_feedbacks_path(:person_id => @current_user.id, :message_id => @conversation.id) do |form|
     = form.error_messages

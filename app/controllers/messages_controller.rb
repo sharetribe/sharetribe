@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(params[:message])
     if @message.save 
-      @message.conversation.send_email_to_participants(@current_community ? @current_community.full_domain : nil)
+      @message.conversation.send_email_to_participants(@current_community)
     else
       flash[:error] = "reply_cannot_be_empty"
     end  

@@ -12,14 +12,6 @@ class Conversation < ActiveRecord::Base
   validates_length_of :title, :in => 1..120, :allow_nil => false
   validates_inclusion_of :status, :in => VALID_STATUSES
   
-  def self.unread_count(person_id)
-    Conversation.scoped.
-    joins(:participations).
-    joins(:listing).
-    where("(participations.is_read = '0' OR (conversations.status = 'pending' AND listings.author_id = '#{person_id}')) AND participations.person_id = '#{person_id}'").
-    count
-  end
-  
   # Creates a new message to the conversation
   def message_attributes=(attributes)
     messages.build(attributes)
@@ -85,7 +77,9 @@ class Conversation < ActiveRecord::Base
   end
   
   def accept_or_reject(current_user, current_community, close_listing)
-    participations.find_by_person_id(current_user.id).update_attribute(:is_read, true) if offerer.eql?(current_user)
+    if offerer.eql?(current_user)
+      participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
+    end
     listing.update_attribute(:open, false) if close_listing && close_listing.eql?(true)
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
   end
@@ -94,7 +88,7 @@ class Conversation < ActiveRecord::Base
     participation = participations.find_by_person_id(current_user.id)
     participation.update_attribute(:is_read, true) if offerer.eql?(current_user)
     participation.update_attribute(:feedback_skipped, true) unless feedback_given && feedback_given.eql?("true")
-    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id)) 
+    Delayed::Job.enqueue(TransactionConfirmedJob.new(id, current_user.id, current_community.id))
   end
   
   def has_feedback_from_all_participants?
@@ -107,7 +101,7 @@ class Conversation < ActiveRecord::Base
   end
   
   def requester
-    participants.each { |p| return p unless listing.offerer?(p) }
+    participants.each { |p| return p if listing.requester?(p) }
   end
   
   # If payment through Sharetribe is required to

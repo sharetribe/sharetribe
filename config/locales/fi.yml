@@ -130,11 +130,19 @@ fi:
       accepted_offer: "Tarjous hyväksytty."
       rejected_request: "Pyyntö hylätty."
       rejected_offer: "Tarjous hylätty."
+      confirmed_request: "Pyyntö toteutettu."
+      confirmed_offer: "Tarjous toteutettu."
+      canceled_request: "Pyyntö peruutettu."
+      canceled_offer: "Tarjous peruutettu."
     message:
       accepted_request: "hyväksyi pyynnön"
       accepted_offer: "hyväksyi tarjouksen"
       rejected_request: "hylkäsi pyynnön"
       rejected_offer: "hylkäsi tarjouksen"
+      confirmed_request: "merkitsi pyynnön toteutuneeksi"
+      confirmed_offer: "merkitsi tarjouksen toteutuneeksi"
+      canceled_request: "peruutti pyynnön"
+      canceled_offer: "peruutti tarjouksen"
     new:
       offer_message_form_title: "Tarjoa %{listing} käyttäjälle %{person}"
       offer_message_title: "Tarjous: %{title}"
@@ -228,8 +236,9 @@ fi:
       request_confirmed: "Pyyntö toteutunut"
       request_canceled: "Pyyntö peruutettu"
       skip_feedback: "Ohita palaute"
-      waiting_confirmation_from_listing_author: "Odottaa ilmoituksen lähettäjän hyväksyntää"
-      waiting_confirmation_from_requester: "Odottaa että pyytäjä varmistaa pyynnön toteutuneeksi"
+      waiting_for_listing_author_to_accept_offer: "Odottaa että %{listing_author_name} hyväksyy tarjouksen"
+      waiting_for_listing_author_to_accept_request: "Odottaa että %{listing_author_name} hyväksyy pyynnön"
+      waiting_confirmation_from_requester: "Odottaa että %{requester_name} merkitsee pyynnön toteutetuksi"
     status_link:
       accept_offer: "Hyväksy tarjous"
       accept_request: "Hyväksy pyyntö"
@@ -403,6 +412,13 @@ fi:
       badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko ansiomerkkisarja!"
       you_have_received_badges: "Olet saanut ansiomerkkejä!"
       you_have_received_badges_in_kassi: "Olet ansainnut uusia ansiomerkkejä. Voit nähdä saamasi merkit kirjautumalla %{service_name_illative} ja menemällä osoitteeseen"
+    transaction_confirmed:
+      request_marked_as_completed: "Pyyntö merkitty toteutuneeksi - muistathan antaa palautetta"
+      request_marked_as_canceled: "Pyyntö peruttu"
+      has_marked_request_as_completed: "%{other_party_full_name} on merkinnyt pyynnön '%{request}' toteutuneeksi. Voit nyt antaa hänelle palautetta."
+      has_marked_request_as_canceled: "%{other_party_full_name} on ilmoittanut, että pyyntö '%{request}' ei toteutunut. Voit silti antaa hänelle palautetta."
+      giving_feedback_is_good_idea: "Palautteen antaminen kannattaa aina. Jos kaikki meni hyvin, voit palautteen avulla kertoa muille jäsenille, että %{other_party_given_name} on luotettava. Jos vastaan tuli ongelmia, niistä kannattaa myös mainita."
+      give_feedback: "Anna palautetta"
     confirmation_instructions:
       confirmation_instructions_signature: "Terveisin,<br/>%{service_name}-tiimi"
       welcome_to_kassi: "Tervetuloa %{service_name_illative}!"
@@ -1473,6 +1489,7 @@ fi:
       email_newsletters: "Lähetä minulle silloin tällöin ilmestyvä %{service_name}-uutiskirje"
       email_when_conversation_accepted: "...joku hyväksyy pyyntöni tai tarjoukseni"
       email_when_conversation_rejected: "...joku hylkää pyyntöni tai tarjoukseni"
+      email_about_completed_transactions: "...joku merkitsee pyyntöni tai tarjoukseni toteutetuksi"
       unsubscribe_succesful: "Tämä sähköpostitiedote on kytketty pois"
       unsubscribe_info_text: "Et jatkossa enää saa tämäntyyppistä sähköpostia. Tarkista %{settings_link}, niin voit valita mistä asioista haluat sähköpostiviestin tai palaa %{homepage_link}."
       settings_link: asetuksesi

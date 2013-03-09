@@ -21,7 +21,6 @@ Feature: User gives feedback from transaction
     Then I should see "Feedback sent to" within ".flash-notifications"
     And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
-    And I click ".user-menu-toggle"
     When I follow "Logout"
     And I log in as "kassi_testperson2"
     When I follow "notifications_link"

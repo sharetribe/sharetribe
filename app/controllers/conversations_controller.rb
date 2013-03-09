@@ -80,7 +80,6 @@ class ConversationsController < ApplicationController
   end
   
   def accept
-    
     @action = "accept"
   end
   

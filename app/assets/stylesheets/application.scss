@@ -2877,6 +2877,12 @@ a.lightbox-x {
   
 }
 
+.conversation-status-lower {
+  padding-top: lines(0.75);
+  border-top: 1px dotted $border;
+  border-bottom: 1px dotted $border;
+}
+
 .conversation-status-container {
   padding-bottom: lines(0.5);
 }
@@ -2989,6 +2995,7 @@ a.lightbox-x {
     position: relative;
     border-top: 1px dotted $border;
     padding: lines(0.25) lines(1) lines(0.25) lines(1.5);
+    min-height: lines(2.25);
 
     .avatar {
       position: absolute;

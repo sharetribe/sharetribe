@@ -26,17 +26,17 @@ class PersonMailer < ActionMailer::Base
   # New format
 
   def conversation_status_changed(conversation, community)
-    set_up_urls(conversation.other_party(conversation.listing.author), community)
-    @conversation = conversation
     @email_type =  (conversation.status == "accepted" ? "email_when_conversation_accepted" : "email_when_conversation_rejected")
+    set_up_urls(conversation.other_party(conversation.listing.author), community, @email_type)
+    @conversation = conversation
     mail(:to => @recipient.email,
          :subject => t("emails.conversation_status_changed.your_#{Listing.opposite_type(conversation.listing.listing_type)}_was_#{conversation.status}"))
   end
   
   def new_message_notification(message, community)
-    set_up_urls(message.conversation.other_party(message.sender), community)
-    @message = message
     @email_type =  "email_about_new_messages"
+    set_up_urls(message.conversation.other_party(message.sender), community, @email_type)
+    @message = message
     sending_params = {:to => @recipient.email,
          :subject => t("emails.new_message.you_have_a_new_message"),
          :reply_to => APP_CONFIG.sharetribe_mail_from_address}
@@ -46,6 +46,13 @@ class PersonMailer < ActionMailer::Base
     mail(sending_params)
   end
   
+  def transaction_confirmed(confirmer, conversation, community)
+    @email_type =  "email_about_completed_transactions"
+    @conversation = conversation
+    set_up_urls(@conversation.other_party(confirmer), community, @email_type)
+    mail(:to => @recipient.email,
+         :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
+  end
   
   
   # Old format

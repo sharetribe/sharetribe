@@ -423,6 +423,11 @@ class Listing < ActiveRecord::Base
     (listing_type.eql?("offer") && author.eql?(person)) || (listing_type.eql?("request") && !author.eql?(person))
   end
   
+  # Returns true if the given person is requester and false if offerer
+  def requester?(person)
+    (listing_type.eql?("request") && author.eql?(person)) || (listing_type.eql?("offer") && !author.eql?(person))
+  end
+  
   def selling_or_renting?
     does_not_have_any_of_share_types?(["trade", "lend", "give_away"])
   end

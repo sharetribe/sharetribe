@@ -1,1 +1,1 @@
-= render :partial => "layouts/badge", :locals => { :count => @current_user.notifications.unread.count + Conversation.unread_count(@current_user.id) }
+= render :partial => "layouts/badge", :locals => { :count => @current_user.notifications.unread.count + @current_user.conversations_requiring_action.count }

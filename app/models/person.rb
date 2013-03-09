@@ -88,7 +88,8 @@ class Person < ActiveRecord::Base
     "email_about_new_badges",
     "email_about_new_received_testimonials",
     "email_about_accept_reminders",
-    "email_about_testimonial_reminders"
+    "email_about_testimonial_reminders",
+    "email_about_completed_transactions"
     
     # These should not yet be shown in UI, although they might be stored in DB
     # "email_when_new_friend_request",
@@ -623,6 +624,20 @@ class Person < ActiveRecord::Base
   # system in this transaction
   def should_pay?(conversation, community)
     conversation.requires_payment?(community) && conversation.status.eql?("accepted") && id.eql?(conversation.requester.id)
+  end
+  
+  # Returns conversations that are either marked unread or
+  # that require some action.
+  def conversations_requiring_action
+    conversations = []
+    participations.each do |p|
+      if !p.is_read || (p.conversation.listing && p.conversation.listing.author.id.eql?(id) && p.conversation.status.eql?("pending")) || (p.conversation.requester && p.conversation.requester.id.eql?(id) && p.conversation.status.eql?("accepted"))
+        conversations << p.conversation
+      else
+        logger.info "Conversation: #{p.conversation.inspect}"
+      end
+    end
+    return conversations
   end
   
   private

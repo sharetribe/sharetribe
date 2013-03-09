@@ -1,7 +1,7 @@
 Feature: Transaction process between two users
 
   @javascript
-  Scenario: Transaction started from a request listing
+  Scenario: Transaction started from an offer listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -15,25 +15,53 @@ Feature: Transaction process between two users
     And I fill in "Message" with "I want to borrow this item"
     And I press "Send the request"
     And the system processes jobs
-    And "kassi_tester1@example.com" should receive an email
+    And "kassi_testperson1@example.com" should receive an email
+    When I follow "inbox-link"
+    Then I should see "to accept the request"
     And I log out
 
+    # Accepting
     When I open the email
     And I follow "View message" in the email
     Then I should see "1" within ".inbox-toggle"
-    When I follow "Service offer: Massage"
-    And I follow "Accept offer"
-    And I fill in "Message" with "Ok, sounds good!"
-    And I follow "Send message"
-    Then I should see "Offer accepted" within ".conversation-status"
-    And I should see "Confirm as done"
-    And I should see "1" within ".inbox-toggle"
+    When I follow "Accept request"
+    And I fill in "conversation_message_attributes_content" with "Ok, that works!"
+    And I press "Send message"
+    Then I should see "Request accepted"
+    And I should see "to mark the request as completed"
+    And I should not see "1" within ".inbox-toggle"
     And the system processes jobs
-    And "kassi_tester2@example.com" should receive an email
-
-    When I follow "Confirm as done"
-    And I check "Skip feedback"
-    And I follow "Continue"
-    Then I should see "Offer confirmed"
+    And "kassi_testperson2@example.com" should receive an email
+    And I log out
+    
+    # Confirming as done
+    When I open the email
+    And I follow "View conversation" in the email
+    And I should see "1" within ".inbox-toggle"
+    And I follow "View conversation" in the email
+    And I follow "Mark completed"
+    And I choose "Skip feedback"
+    And I press "Continue"
+    Then I should see "Request completed"
     And I should see "Feedback skipped"
-  
+    And the system processes jobs
+    And I should not see "1" within ".inbox-toggle"
+    And "kassi_testperson1@example.com" should have 2 emails
+    And I log out
+    
+    # Giving feedback
+    When I open the email with subject "Request completed - remember to give feedback"
+    And I follow "Give feedback" in the email
+    And I click "#positive-grade-link"
+    And I fill in "How did things go?" with "Everything was great!"
+    And I press "send_testimonial_button"
+    Then I should see "Feedback sent to" within ".flash-notifications"
+    And I should see "Feedback given" within ".conversation-status"
+    And the system processes jobs
+    And I log out
+    And "kassi_testperson2@example.com" should receive an email
+    
+    # Viewing feedback
+    When I open the email
+    And I follow "See all my feedback" in the email
+    Then I should see "Everything was great!"

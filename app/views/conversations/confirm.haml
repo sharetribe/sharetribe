@@ -27,5 +27,9 @@
         = radio_button_tag "give_feedback", false, false, :id => "do_not_give_feedback"
         = label_tag "do_not_give_feedback", t(".do_not_give_feedback"), :class => "radio"
     
+    = fields_for "conversation[message_attributes]", Message.new do |message_form|
+      = message_form.hidden_field :sender_id, :value => @current_user.id
+      = message_form.hidden_field :action, :value => @action
+    
     = form.hidden_field :status, :value => "#{@action}ed"
     = form.button t(".continue"), :class => "send_button", :id => "send_testimonial_button"

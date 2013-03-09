@@ -18,15 +18,16 @@
       = message_form.hidden_field :sender_id, :value => @current_user.id
       = message_form.hidden_field :action, :value => @action
     
-    .close-listing-radio-buttons
-    
-      .checkbox-container
-        = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
-        = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
+    - if @conversation.listing.open?
+      .close-listing-radio-buttons
 
-      .checkbox-container
-        = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
-        = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
+        .checkbox-container
+          = radio_button_tag "close_listing", true, true, :id => "do_close_listing"
+          = label_tag "do_close_listing", t(".close_listing", :listing_title_link => link_to(@conversation.listing.title, @conversation.listing)).html_safe, :class => "radio"
+
+        .checkbox-container
+          = radio_button_tag "close_listing", false, false, :id => "do_not_close_listing"
+          = label_tag "do_not_close_listing", t(".update_later"), :class => "radio"
     
     = form.hidden_field :status, :value => "#{@action}ed"
     = form.button t("conversations.new.send_message"), :class => "send_button", :id => "send_testimonial_button"
