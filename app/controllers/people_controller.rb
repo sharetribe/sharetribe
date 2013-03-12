@@ -103,35 +103,26 @@ class PeopleController < Devise::RegistrationsController
     
     params[:person][:show_real_name_to_other_users] = false unless (params[:person][:show_real_name_to_other_users] || ! @current_community || !@current_community.select_whether_name_is_shown_to_everybody)
     
-    begin
-
-      params["person"].delete(:terms) #remove terms part which confuses Devise
-      
-      # This part is copied from Devise's regstration_controller#create
-      build_resource
-      @person = resource
-      if @person.save
-        sign_in(resource_name, resource)
-      end
     
-      @person.set_default_preferences
-      # Make person a member of the current community
-      if @current_community
-        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
-        membership.invitation = invitation if invitation.present?
-        membership.save!
-        session[:invitation_code] = nil
-      end
-    rescue RestClient::RequestFailed => e
-      logger.info "Person create failed because of #{JSON.parse(e.response.body)["messages"]}"
-      # This should not actually ever happen if all the checks work at Sharetribe's end.
-      # Anyway if ASI responses with error, show message to user
-      # Now it's unknown error, since picking the message from ASI and putting it visible without translation didn't work for some reason.
-      # Also notify admins that this kind of error happened.
-      flash[:error] = t("layouts.notifications.unknown_error")
-      ApplicationHelper.send_error_notification("New user Sign up failed because ASI returned: #{JSON.parse(e.response.body)["messages"]}", "Signup error")
-      redirect_to error_redirect_path and return
+
+    params["person"].delete(:terms) #remove terms part which confuses Devise
+    
+    # This part is copied from Devise's regstration_controller#create
+    build_resource
+    @person = resource
+    if @person.save!
+      sign_in(resource_name, resource)
     end
+  
+    @person.set_default_preferences
+    # Make person a member of the current community
+    if @current_community
+      membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+      membership.invitation = invitation if invitation.present?
+      membership.save!
+      session[:invitation_code] = nil
+    end
+  
     session[:person_id] = @person.id
     
     # If invite was used, reduce usages left

@@ -60,7 +60,7 @@ Feature: User views profile badges
     When I click ".user-menu-toggle"
     And I follow "Profile"
     Then I should see "1 badge"
-    And I should see badge with alt text "First event"
+    And I should see badge with alt text "First event" within ".badge-list"
     And I should see "2" within ".notifications-toggle"
     When I follow "notifications_link"
     Then I should see "You have earned the badge First event!"

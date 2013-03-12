@@ -1,5 +1,7 @@
-Then /^I should see badge with alt text "([^\"]*)"$/ do | alt_text |
-  find("img[title='#{alt_text}']")[:alt].should == alt_text
+Then /^I should see badge with alt text "([^\"]*)"(?: within "([^"]*)")?$/ do | alt_text, selector |
+  with_scope(selector) do
+    find("img[title='#{alt_text}']")[:alt].should == alt_text
+  end
 end
 
 Then /^I should see badge "(.+)"$/ do |badge|
