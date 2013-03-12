@@ -20,11 +20,11 @@ class Testimonial < ActiveRecord::Base
     (grade * 4 + 1).to_i
   end
   
-  def notify_receiver(host)
+  def notify_receiver(community)
     Notification.create(:notifiable_id => id, :notifiable_type => "Testimonial", :receiver_id => receiver.id)
     if receiver.should_receive?("email_about_new_received_testimonials")
       begin
-        PersonMailer.new_testimonial(self, host).deliver
+        PersonMailer.new_testimonial(self, community).deliver
       rescue Postmark::InvalidMessageError => e
         # continue exceution if something fails in mailin, but report the issue to AirBrake
         ApplicationHelper.send_error_notification("Error sending email about given feedback", "Email sending error")

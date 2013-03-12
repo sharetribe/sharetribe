@@ -28,7 +28,7 @@ class TestimonialsController < ApplicationController
   def create
     @testimonial = Testimonial.new(params[:testimonial])
     if @testimonial.save
-      Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, request.host))
+      Delayed::Job.enqueue(TestimonialGivenJob.new(@testimonial.id, @current_community))
       flash[:notice] = t("layouts.notifications.feedback_sent_to", :target_person => view_context.link_to(@conversation.other_party(@current_user).given_name_or_username, @conversation.other_party(@current_user))).html_safe
       redirect_to (session[:return_to_inbox_content] || person_message_path(:person_id => @current_user.id, :id => @conversation.id))
     else

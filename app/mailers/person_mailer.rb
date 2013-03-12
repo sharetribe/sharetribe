@@ -54,6 +54,14 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.transaction_confirmed.request_marked_as_#{@conversation.status}"))
   end
   
+  def new_testimonial(testimonial, community)
+    @email_type =  "email_about_new_received_testimonials"
+    set_up_urls(testimonial.receiver, community, @email_type)
+    @testimonial = testimonial
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
+  end
+  
   
   # Old format
   
@@ -88,15 +96,6 @@ class PersonMailer < ActionMailer::Base
     @badge_name = t("people.profile_badge.#{@badge.name}")
     mail(:to => @recipient.email,
          :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
-  end
-  
-  def new_testimonial(testimonial, host=nil)
-    @recipient = set_up_recipient(testimonial.receiver, host)
-    @url = host ? "http://#{host}#{person_testimonials_path(:person_id => @recipient.id, :locale => @recipient.locale)}" : "test_url"
-    @give_feedback_url = host ? "http://#{host}#{new_person_message_feedback_path(:person_id => @recipient.id, :message_id => testimonial.participation.conversation.id, :locale => @recipient.locale)}" : "test_url"
-    @testimonial = testimonial
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
   end
   
   def testimonial_reminder(participation, host=nil)

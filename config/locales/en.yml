@@ -420,7 +420,7 @@ en:
       has_marked_request_as_confirmed: "%{other_party_full_name} has marked the request '%{request}' completed. You can now give feedback to %{other_party_given_name}."
       has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
-      give_feedback: "Give feedback"
+      give_feedback_to: "Give feedback to %{other_party_given_name}"
     confirmation_instructions:
       confirmation_instructions_signature: "Best regards,<br/>The %{service_name} Team"
       welcome_to_kassi: "Welcome to %{service_name}!"
@@ -478,8 +478,8 @@ en:
       you_have_a_new_message: "You have a new message in %{service_name}"
     new_testimonial:
       has_given_you_feedback_in_kassi: "%{name} has given you feedback in %{service_name}"
-      you_can_give_feedback_to: "You can give feedback to %{name} in"
-      you_can_view_all_your_feedback_in: "You can view all the feedback you've received at"
+      you_can_give_feedback_to: "You haven't yet given feedback to %{name}."
+      view_feedback: "View feedback"
     new_update_to_listing:
       listing_you_follow_has_been_updated: "Listing you follow has been updated"
       has_updated_offer_you_follow_in_kassi: "%{author} has updated the request '%{listing}' you are following in %{service_name}"
