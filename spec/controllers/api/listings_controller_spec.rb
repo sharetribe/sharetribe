@@ -85,11 +85,11 @@ describe Api::ListingsController do
       get :index, :community_id => @c1.id, :status => "closed", :format => :json
       response.status.should == 200
       resp = JSON.parse(response.body)
-      resp["listings"].count.should == 1
+      resp["listings"].count.should == 2
     
       get :index, :community_id => @c1.id, :status => "all", :format => :json
       response.status.should == 200
-      resp = JSON.parse(response.body)
+      resp = JSON.parse(response.body)      
       resp["listings"].count.should == 4
     
     end
@@ -157,22 +157,23 @@ describe Api::ListingsController do
       request.env['Sharetribe-API-Token'] = @p1.authentication_token
       post :create, :title => "new great listing", 
                     :description => "This is what you need!", 
-                    :category => "item",
-                    :share_type => "sell",
+                    :category => "favor",
+                    :share_type => "offer",
                     :visibility => "this_community",
                     :privacy => "public",
                     :community_id => @c1.id,
                     :valid_until => 2.months.from_now,
                     :format => :json
+
+      resp = JSON.parse(response.body)
       response.status.should == 201
       Listing.count.should == listings_count + 1
-      resp = JSON.parse(response.body)
+
       resp["title"].should == "new great listing"
       resp["description"].should == "This is what you need!"
       resp["visibility"].should == "this_community"
       resp["privacy"].should == "public"
-      resp["share_type"].should == "sell"
-      resp["category"].should == "item"
+      resp["category"].should == "favor"
       resp["listing_type"].should == "offer"
       resp["valid_until"].to_date.should == 2.months.from_now.to_date
       resp["author"]["id"].should == @p1.id
@@ -211,6 +212,26 @@ describe Api::ListingsController do
       #puts resp.to_yaml
       resp["image_urls"][0].should  match /Australian_painted_lady.jpg/
       
+    end
+    
+    
+    it "puts listings to correct subcategories if needed" do
+      # old clients might post with top level category even if there are obligatory subcategories available
+      request.env['Sharetribe-API-Token'] = @p1.authentication_token
+      post :create, :title => "nice looking offer, but not pointed to sub cat", 
+                    :description => "Testing if this ends up to other sub category", 
+                    :category => "item",
+                    :share_type => "sell",
+                    :visibility => "all_communities",
+                    :community_id => @c1.id,
+                    :format => :json
+      
+      #puts response.body.inspect              
+      response.status.should == 201
+      resp = JSON.parse(response.body)
+      resp["title"].should == "nice looking offer, but not pointed to sub cat"
+      resp["category"].should == "other"
+      resp["visibility"].should == "all_communities"
     end
     
     describe "locations" do
