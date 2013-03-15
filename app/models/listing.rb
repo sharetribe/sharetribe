@@ -106,15 +106,11 @@ class Listing < ActiveRecord::Base
     indexes description
     indexes taggings.tag.name, :as => :tags
     indexes comments.content, :as => :comments
-    # indexes category.name, :as => :category
-    # indexes share_type.name :as => :share_type
     
     # attributes
     has created_at, updated_at
-    #has "listing_type = 'offer'", :as => :is_offer, :type => :boolean
-    #has "listing_type = 'request'", :as => :is_request, :type => :boolean
-    # has category.id, :as => category_id
-    # has share_type.id, :as => share_type_id 
+    has category(:id), :as => :category_id
+    has share_type(:id), :as => :share_type_id 
     has "privacy = 'public'", :as => :visible_to_everybody, :type => :boolean
     has "open = '1' AND (valid_until IS NULL OR valid_until > now())", :as => :open, :type => :boolean
     has communities(:id), :as => :community_ids
@@ -271,11 +267,11 @@ class Listing < ActiveRecord::Base
 
     params[:search] ||= params[:q] # Read search query also from q param
     
-    if params[:cateogry]
-      cateogry = Category.find_by_name(params[:cateogry])
-      if cateogry
-        params[:cateogries] = {:id => cateogry.with_all_children.collect(&:id)} 
-        joined_tables << :cateogry
+    if params[:category]
+      category = Category.find_by_name(params[:category])
+      if category
+        params[:categories] = {:id => category.with_all_children.collect(&:id)} 
+        joined_tables << :category
       else
         # ignore the category attribute if it's not found
       end
@@ -308,10 +304,10 @@ class Listing < ActiveRecord::Base
       end
       with[:community_ids] = current_community.id
 
-      # with[:category_id] = params[:cateogries][:id] if params[:cateogries].present?
-      # with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
+      with[:category_id] = params[:categories][:id] if params[:categories].present?
+      with[:share_type_id] = params[:share_types][:id] if params[:share_types].present?
             
-      listings = Listing.search(params[:search], 
+      listings = Listing.search(params[:search],
                                 :include => params[:include], 
                                 :page => page,
                                 :per_page => per_page, 
@@ -322,11 +318,14 @@ class Listing < ActiveRecord::Base
                                 
     else # No search query used, no sphinx needed
       query = {}
-      query[:cateogries] = params[:cateogries] if params[:cateogries]
+      query[:categories] = params[:categories] if params[:categories]
       query[:share_types] = params[:share_types] if params[:share_types]
       query[:author_id] = params[:person_id] if params[:person_id]         # this is not yet used with search
       
-      
+      puts "POX"
+      puts query[:share_types]
+      puts query[:categories]
+      puts "HOX"
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings

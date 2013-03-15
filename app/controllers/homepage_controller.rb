@@ -6,7 +6,7 @@ class HomepageController < ApplicationController
 
   def index
     @selected_tribe_navi_tab = "home"
-    listings_per_page = 10
+    listings_per_page = 16
     
     # If requesting a specific page on non-ajax request, we'll ignore that
     # and show the normal front page starting from newest listing

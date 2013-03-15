@@ -336,7 +336,7 @@ class Community < ActiveRecord::Base
   end
   
   # categories_tree
-  # Returns a hash that represents the cateogrization tree that is in use at this community
+  # Returns a hash that represents the categorization tree that is in use at this community
   # Some assumptions are made here:
   # - Listing types and share_types are only linked to top level categories in DB
   # If wanting to do differently, this code needs to be changed and probably the UI code too

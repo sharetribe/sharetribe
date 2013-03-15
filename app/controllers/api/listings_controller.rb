@@ -14,14 +14,14 @@ class Api::ListingsController < Api::ApiController
     query = {}
     joined_tables = []
     
-    if params["cateogry"]
-      cateogry = Category.find_by_name(params["cateogry"])
-      if cateogry
-        query[:cateogries] = {:id => cateogry.with_all_children.collect(&:id)} 
-        joined_tables << :cateogry
+    if params["category"]
+      category = Category.find_by_name(params["category"])
+      if category
+        query[:categories] = {:id => category.with_all_children.collect(&:id)} 
+        joined_tables << :category
       else
        response.status = :bad_request
-       render :json => ["Category '#{params["cateogry"]}' not found."] and return
+       render :json => ["Category '#{params["category"]}' not found."] and return
       end
     end
     
