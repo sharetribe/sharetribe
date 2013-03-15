@@ -1,7 +1,7 @@
 %select.item-category#listing_category{name: "category"}
   %option{value: "all"}= "#{t("homepage.filters.all_categories")}"
   - @current_community.main_categories.each do |category|
-    %option{value: "#{category.name}", selected: params[:category] == category.name}= "#{category.translation.mb_chars.capitalize.to_s}"
+    %option{value: "#{category.name}", selected: params[:category] == category.name}= "#{category.display_name.mb_chars.capitalize.to_s}"
     - if category.children
       - category.children.each do |sub_category|
-        %option{label: "- #{sub_category.name}", selected: params[:category] == sub_category.name}= "#{sub_category.translation.mb_chars.capitalize.to_s}"
+        %option{label: "- #{sub_category.name}", selected: params[:category] == sub_category.name}= "#{sub_category.display_name.mb_chars.capitalize.to_s}"

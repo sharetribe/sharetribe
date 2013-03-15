@@ -41,16 +41,6 @@ class Person < ActiveRecord::Base
   attr_protected :is_admin
 
   has_many :listings, :dependent => :destroy, :foreign_key => "author_id"
-  has_many :offers, 
-           :foreign_key => "author_id", 
-           :class_name => "Listing", 
-           :conditions => { :listing_type => "offer" },
-           :order => "id DESC"
-  has_many :requests, 
-           :foreign_key => "author_id", 
-           :class_name => "Listing", 
-           :conditions => { :listing_type => "request" },
-           :order => "id DESC"
   has_many :emails, :dependent => :destroy
   
   has_one :location, :conditions => ['location_type = ?', 'person'], :dependent => :destroy
@@ -268,6 +258,14 @@ class Person < ActiveRecord::Base
     if self.facebook_id
       self.picture_from_url "http://graph.facebook.com/#{self.facebook_id}/picture?type=large"
     end
+  end
+  
+  def offers
+    listings.offers
+  end
+  
+  def requests
+    listings.requests
   end
   
   def feedback_average

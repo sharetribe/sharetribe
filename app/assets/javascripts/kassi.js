@@ -866,10 +866,6 @@ function set_textarea_maxlength() {
     });
 }
 
-// Return listing categories
-function categories() {
-	return ["item", "favor", "rideshare", "housing"];
-}
 
 function get_date_from_date_select() {
 	year = $('#listing_valid_until_1i').val();
