@@ -106,7 +106,8 @@ class Listing < ActiveRecord::Base
     "accept_for_free" => "ss-gift",
     "lend" => "ss-flowertag",
     "borrow" => "ss-flowertag",
-    "trade" => "ss-reload",
+    "offer_to_swap" => "ss-reload",
+    "request_to_swap" => "ss-reload",
     "buy" => "ss-moneybag",
     "sell" => "ss-moneybag",
     "rent" => "ss-pricetag",
@@ -429,11 +430,11 @@ class Listing < ActiveRecord::Base
   end
   
   def selling_or_renting?
-    does_not_have_any_of_share_types?(["trade", "lend", "give_away"])
+    does_not_have_any_of_share_types?(["request_to_swap", "offer_to_swap", "lend", "give_away"])
   end
   
   def lending_or_giving_away?
-    does_not_have_any_of_share_types?(["sell", "rent_out", "trade"])
+    does_not_have_any_of_share_types?(["sell", "rent_out", "request_to_swap", "offer_to_swap"])
   end
   
   def does_not_have_any_of_share_types?(sts)
