@@ -322,10 +322,6 @@ class Listing < ActiveRecord::Base
       query[:share_types] = params[:share_types] if params[:share_types]
       query[:author_id] = params[:person_id] if params[:person_id]         # this is not yet used with search
       
-      puts "POX"
-      puts query[:share_types]
-      puts query[:categories]
-      puts "HOX"
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
