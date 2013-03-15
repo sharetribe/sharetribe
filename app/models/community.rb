@@ -11,11 +11,13 @@ class Community < ActiveRecord::Base
   has_many :event_feed_events, :dependent => :destroy
   has_one :location, :dependent => :destroy
   has_many :community_customizations, :dependent => :destroy
-  has_many :community_categories, :dependent  => :destroy
+  has_many :community_categories # Don't add here :dependent  => :destroy because community_categories method confuses it. Instead use separate hook (delete_specific_community_categories) to get rid of entries in that table when destroying.
   has_many :categories, :through => :community_categories
   has_many :share_types, :through => :community_categories
   
   has_and_belongs_to_many :listings
+  
+  before_destroy :delete_specific_community_categories
   
   VALID_CATEGORIES = ["company", "university", "association", "neighborhood", "congregation", "town", "apartment_building", "other"]
   
@@ -467,6 +469,13 @@ class Community < ActiveRecord::Base
     else
       # Use defaults
       return CommunityCategory.find_all_by_community_id(nil, :include => [:category, :share_type])
+    end
+  end
+  
+  # This method deletes the specific community_category entries (but not the default ones)
+  def delete_specific_community_categories
+    CommunityCategory.find_all_by_community_id(id).each do |c|
+      c.destroy
     end
   end
 
