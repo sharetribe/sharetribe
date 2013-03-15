@@ -256,10 +256,10 @@ class Listing < ActiveRecord::Base
   def self.find_with(params, current_user=nil, current_community=nil, per_page=100, page=1)
     params ||= {}  # Set params to empty hash if it's nil
     joined_tables = []
-    
+        
     params[:include] ||= [:listing_images]
         
-    params.reject!{ |key,value| value == "all" || value == ["all"]} # all means the fliter doesn't need to be included
+    params.reject!{ |key,value| (value == "all" || value == ["all"]) && key != "status"} # all means the fliter doesn't need to be included (except with "status")
 
     # If no Share Type specified, use listing_type param if that is specified.
     params[:share_type] ||= params[:listing_type]
@@ -320,8 +320,7 @@ class Listing < ActiveRecord::Base
       query = {}
       query[:categories] = params[:categories] if params[:categories]
       query[:share_types] = params[:share_types] if params[:share_types]
-      query[:author_id] = params[:person_id] if params[:person_id]         # this is not yet used with search
-      
+      query[:author_id] = params[:person_id] if params[:person_id]    # this is not yet used with search
       listings = joins(joined_tables).where(query).currently_open(params[:status]).visible_to(current_user, current_community).includes(params[:include]).order("listings.created_at DESC").paginate(:per_page => per_page, :page => page)
     end
     return listings
