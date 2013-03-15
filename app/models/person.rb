@@ -341,12 +341,12 @@ class Person < ActiveRecord::Base
     conversation.participations.where(["person_id LIKE ?", self.id]).first.update_attribute(:is_read, true)
   end
    
-  def give_badge(badge_name, host)
+  def give_badge(badge_name, community)
     unless has_badge?(badge_name)
       badge = Badge.create(:person_id => id, :name => badge_name)
       Notification.create(:notifiable_id => badge.id, :notifiable_type => "Badge", :receiver_id => id)
       if should_receive?("email_about_new_badges")
-        PersonMailer.new_badge(badge, host).deliver
+        PersonMailer.new_badge(badge, community).deliver
       end
     end
   end

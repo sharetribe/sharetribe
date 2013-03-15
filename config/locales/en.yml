@@ -463,7 +463,7 @@ en:
       you_can_join_kassi_using_invitation_code: "Here is an invitation code you need to join the service: %{code}"
       join_kassi_in: "You can join %{service_name} at"
     new_badge:
-      you_can_view_all_your_badges_in: "You can view all your badges in"
+      you_can_view_all_your_badges_in: "View all your badges"
       you_have_achieved_a_badge: "You have achieved a badge '%{badge_name}' in %{service_name}!"
     new_comment:
       has_commented_your_offer_in_kassi: "%{author} has commented on your offer %{listing}."
@@ -528,7 +528,7 @@ en:
       remember_to_give_feedback_to: "Reminder: remember to give feedback to %{name}"
       you_have_not_given_feedback_yet: "You have not yet given feedback to %{name} about event '%{event}'. Remember to give feedback on how %{given_name} performed in the event."
     welcome_email:
-      welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}."
+      welcome_email_footer_text: "What kind of emails do you want to receive from %{service_name}? %{settings_link}"
       settings_link_text: "Check your settings"
       subject: "Welcome to %{community} - here are some tips to get you started"
       welcome_some_tips: "Welcome to %{community_link}! Here are some tips to get you started."

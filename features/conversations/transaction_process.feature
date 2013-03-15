@@ -54,15 +54,20 @@ Feature: Transaction process between two users
     And I follow "Give feedback" in the email
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"
+    And "kassi_testperson2@example.com" should have 1 email
+    And save and open all html emails
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within ".flash-notifications"
     And I should see "Feedback given" within ".conversation-status"
     And the system processes jobs
     And I log out
-    # And save and open all html emails
-    # And "kassi_testperson2@example.com" should have 2 emails
-    # 
-    # # Viewing feedback
-    # When I open the email with subject "has given you feedback in Sharetribe"
-    # And I follow "View feedback" in the email
-    # Then I should see "Everything was great!"
+    And "kassi_testperson2@example.com" should have 3 emails
+    
+    # Viewing feedback
+    When I open the email with subject "has given you feedback in Sharetribe"
+    And I follow "View feedback" in the email
+    Then I should see "Everything was great!"
+    
+    # Viewing badge
+    When I open the email with subject "You have achieved a badge"
+    Then I should see "You have achieved a badge 'First event'" in the email body

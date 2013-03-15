@@ -62,6 +62,15 @@ class PersonMailer < ActionMailer::Base
          :subject => t("emails.new_testimonial.has_given_you_feedback_in_kassi", :name => @testimonial.author.name))
   end
   
+  def new_badge(badge, community)
+    @email_type = "email_about_new_badges"
+    set_up_urls(badge.person, community, @email_type)
+    @badge = badge
+    @badge_name = t("people.profile_badge.#{@badge.name}")
+    mail(:to => @recipient.email,
+         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
+  end
+  
   
   # Old format
   
@@ -87,15 +96,6 @@ class PersonMailer < ActionMailer::Base
     @listing = listing
     mail(:to => @recipient.email,
          :subject => t("emails.new_update_to_listing.listing_you_follow_has_been_updated"))
-  end
-  
-  def new_badge(badge, host=nil)
-    @recipient = set_up_recipient(badge.person, host)
-    @url = host ? "http://#{host}#{person_badges_path(:person_id => @recipient.id, :locale => @recipient.locale)}" : "test_url"
-    @badge = badge
-    @badge_name = t("people.profile_badge.#{@badge.name}")
-    mail(:to => @recipient.email,
-         :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
   end
   
   def testimonial_reminder(participation, host=nil)

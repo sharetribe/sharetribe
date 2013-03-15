@@ -5,7 +5,7 @@
       .ss-delete
     
     .badge-image
-      = image_tag "/assets/badges/#{badge_name}_large.png", :alt => t("people.profile_badge.#{badge_name}"), :title => t("people.profile_badge.#{badge_name}")
+      = image_tag "https://s3.amazonaws.com/sharetribe/assets/images/badges/#{badge_name}_large.png", :alt => t("people.profile_badge.#{badge_name}"), :title => t("people.profile_badge.#{badge_name}")
     %h2= t("people.profile_badge.#{badge_name}")
     %p= t("people.profile_badge.#{badge_name}_description")
     %small

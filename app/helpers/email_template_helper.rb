@@ -9,6 +9,15 @@ module EmailTemplateHelper
     }
   end
   
+  def badge_font
+    {
+      :size => "4", 
+      :color => "grey", 
+      :face => "Helvetica Neue, Arial, Helvetica, sans-serif", 
+      :style => "font-size:14px;line-height:20px;font-style: italic;"
+    }
+  end
+  
   def body_link_style
     "color:#d96e21; text-decoration: none;" 
   end

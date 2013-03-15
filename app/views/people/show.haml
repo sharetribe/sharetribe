@@ -99,7 +99,7 @@
           .load-more-link#load-more-testimonials
             = link_to t(".show_all_reviews"), "#"
   
-  .profile-badges.section
+  #badges.profile-badges.section
     %h2
       - if @person.badges.size > 0
         = pluralize(@person.badges.size, t(".badge"), t(".badges"))

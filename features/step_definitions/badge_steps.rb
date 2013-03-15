@@ -3,11 +3,11 @@ Then /^I should see badge with alt text "([^\"]*)"$/ do | alt_text |
 end
 
 Then /^I should see badge "(.+)"$/ do |badge|
-  assert page.has_xpath?("//img[@src='/assets/badges/#{badge}.png']")
+  assert page.has_xpath?("//img[@src='https://s3.amazonaws.com/sharetribe/assets/images/badges/#{badge}.png']")
 end
 
 Then /^I should not see badge "(.+)"$/ do |badge|
-  assert page.has_no_xpath?("//img[@src='/assets/badges/#{badge}.png']")
+  assert page.has_no_xpath?("//img[@src='https://s3.amazonaws.com/sharetribe/assets/images/badges/#{badge}.png']")
 end
 
 Given /^I have "([^"]*)" testimonials? with grade "([^"]*)"(?: from category "([^"]*)")?(?: as "([^"]*)")?(?: with share type "([^"]*)")?$/ do |amount, grade, category, role, share_type|
