@@ -9,7 +9,7 @@ module Classification
     
   end
   
-  def translation(locale)
+  def translation(locale=I18n.locale)
     translation = translations.where(:locale => locale)
      if translation.empty?
        name

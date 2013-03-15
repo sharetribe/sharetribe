@@ -80,6 +80,8 @@ en:
     password: Password
     service_name: "%{service_name}"
     share_types:
+      request: request
+      offer: offer
       borrow: borrowing
       buy: buying
       give_away: "giving away"
@@ -624,10 +626,6 @@ en:
     contact_us: "Contact us"
     profile: "Profile"
   homepage:
-    filter_share_types: 
-      listing_types:
-        request: "Requests"
-        offer: "Offers"
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Additionally  there is <b>one other offer</b>,"
       additionally_one_private_request_exists: "Additionally  there is <b>one other request</b>,"

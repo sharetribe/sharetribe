@@ -45,12 +45,14 @@ describe Listing do
     @listing.should_not be_valid
   end 
   
-  it "is  valid if category is one of the listed valid categories" do
-    Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category|
-      @listing.category = find_or_create_category(category) 
-      valid_with_share_types
-    end  
-  end
+  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
+  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES
+  # it "is valid if category is one of the listed valid categories" do
+  #   Listing::VALID_CATEGORIES.reject { |c| c.eql?("rideshare") }.each do |category|
+  #     @listing.category = find_or_create_category(category) 
+  #     valid_with_share_types
+  #   end  
+  # end
 
 
   # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
@@ -282,26 +284,28 @@ describe Listing do
   
   private
   
-  def valid_with_share_types
-    if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name]
-      Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].each do |st|
-        @listing.share_type = find_or_create_share_type(st)
-        @listing.should be_valid
-      end
-    end  
-  end
-  
-  def listing_is_valid_with_correct_share_type(listing_type, category)
-    @listing.share_type = find_or_create_share_type(listing_type)
-    @listing.category = find_or_create_category(category)
-    valid_with_share_types
-  end
-  
-  def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
-    @listing.share_type = find_or_create_share_type(listing_type)
-    @listing.category = find_or_create_category(category)
-    @listing.share_type = find_or_create_share_type(share_type)
-    @listing.should_not be_valid
-  end
+  # THIS IS DISABLED AS NOW THIS TYPE OF VALIDITY DEPENDS ON THE COMMUNITY, AND THE LISTING COULD 
+  # BE VISIBLE IN COMMUNTIES THAT HAVE DIFFERENT RULES FOR MATCHING CATEGORIES AND SHARE TYPES  
+  # def valid_with_share_types
+  #   if Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name]
+  #     Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].each do |st|
+  #       @listing.share_type = find_or_create_share_type(st)
+  #       @listing.should be_valid
+  #     end
+  #   end  
+  # end
+  # 
+  # def listing_is_valid_with_correct_share_type(listing_type, category)
+  #   @listing.share_type = find_or_create_share_type(listing_type)
+  #   @listing.category = find_or_create_category(category)
+  #   valid_with_share_types
+  # end
+  # 
+  # def listing_is_not_valid_with_incorrect_share_type(listing_type, category, share_type)
+  #   @listing.share_type = find_or_create_share_type(listing_type)
+  #   @listing.category = find_or_create_category(category)
+  #   @listing.share_type = find_or_create_share_type(share_type)
+  #   @listing.should_not be_valid
+  # end
   
 end 

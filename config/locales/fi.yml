@@ -80,6 +80,8 @@ fi:
     password: Salasana
     service_name: "%{service_name}"
     share_types:
+      request: pyyntö
+      offer: tarjous
       borrow: "halutaan lainata"
       buy: ostetaan
       give_away: annetaan
@@ -622,10 +624,6 @@ fi:
     contact_us: "Ota yhteyttä"
     profile: "Oma profiili"
   homepage:
-    filter_share_types:
-      listing_types:
-        request: Pyynnöt
-        offer: Tarjoukset
     additional_private_listings_slate:
       additionally_one_private_offer_exists: "Lisäksi palvelussa on <b>yksi muu tarjous</b>,"
       additionally_one_private_request_exists: "Lisäksi palvelussa on <b>yksi muu pyyntö</b>,"

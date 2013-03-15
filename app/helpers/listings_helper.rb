@@ -16,18 +16,6 @@ module ListingsHelper
     "listing_type_select_icon_#{@listing.category.name.eql?(category) ? 'selected' : 'unselected'}_#{category}"
   end
   
-  # The classes the checkbox gets depend on to which categories its' share type belongs to.
-  def get_share_type_checkbox_classes(share_type)
-    classes = ""
-    Listing::VALID_CATEGORIES.each do |category|
-      if Listing::VALID_SHARE_TYPES[@listing.listing_type][category] &&
-         Listing::VALID_SHARE_TYPES[@listing.listing_type][category].include?(share_type)
-        classes += "#{category} "
-      end  
-    end
-    classes  
-  end
-  
   # Removes extra characters from datetime_select field
   def clear_datetime_select(&block)
     time = "</div><div class='date_select_time_container'><div class='datetime_select_time_label'>#{t('listings.form.departure_time.at')}:</div>"
@@ -39,10 +27,6 @@ module ListingsHelper
   def get_listing_tab_class(tab_name)
     current_tab_name = params[:type] || "list_view"
     "inbox_tab_#{current_tab_name.eql?(tab_name) ? 'selected' : 'unselected'}"
-  end
-  
-  def share_type_array
-    Listing::VALID_SHARE_TYPES[@listing.listing_type][@listing.category.name].sort { |a,b| a <=> b }.collect { |st| [t(".#{st}"), st] }
   end
   
   def visibility_array

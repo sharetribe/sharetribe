@@ -41,41 +41,6 @@ class Listing < ActiveRecord::Base
   scope :public, :conditions  => "privacy = 'public'"
   scope :private, :conditions  => "privacy = 'private'"
 
-  VALID_TYPES = ["offer", "request"]
-  VALID_CATEGORIES = ["item", "favor", "rideshare", "housing"]
-  VALID_SUBCATEGORIES = {
-    "item" => [
-      "tools",
-      "sports",
-      "music",
-      "books",
-      "games",
-      "furniture",
-      "outdoors",
-      "food",
-      "electronics",
-      "pets",
-      "film",
-      "clothes",
-      "garden",
-      "travel",
-      "other"
-    ]  
-  }
-  VALID_SHARE_TYPES = {
-    "offer" => {
-      "item" => ["lend", "sell", "rent_out", "trade", "give_away"],
-      "favor" => nil, 
-      "rideshare" => nil,
-      "housing" => ["rent_out", "sell", "share_for_free"]
-    },
-    "request" => {
-      "item" => ["borrow", "buy", "rent", "trade", "receive"],
-      "favor" => nil, 
-      "rideshare" => nil,
-      "housing" => ["rent", "buy", "accept_for_free"],
-    }
-  }
   VALID_VISIBILITIES = ["this_community", "all_communities"]
   VALID_PRIVACY_OPTIONS = ["private", "public"]
   
@@ -278,18 +243,6 @@ class Listing < ActiveRecord::Base
   def set_valid_until_time
     if valid_until
       self.valid_until = valid_until.utc + (23-valid_until.hour).hours + (59-valid_until.min).minutes + (59-valid_until.sec).seconds unless category && category.name.eql?("rideshare")
-    end  
-  end
-  
-  def given_share_type_is_one_of_valid_share_types
-    if ["favor", "rideshare"].include?(category.name)
-      errors.add(:share_type, errors.generate_message(:share_type, :must_be_nil)) unless share_type.nil?
-    elsif share_type.nil?
-      errors.add(:share_type, errors.generate_message(:share_type, :blank)) 
-    elsif listing_type && category && VALID_TYPES.include?(listing_type) && VALID_CATEGORIES.include?(category)
-      unless VALID_SHARE_TYPES[listing_type][category].include?(share_type)
-        errors.add(:share_type, errors.generate_message(:share_type, :inclusion))
-      end
     end  
   end
   
