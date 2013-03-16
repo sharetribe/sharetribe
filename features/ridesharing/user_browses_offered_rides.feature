@@ -15,7 +15,7 @@ Feature: User browses offered rides
     And there is item offer with title "axe" from "kassi_testperson1" and with share type "lend"
     And I am on the home page
     When I select "Rideshare" from "listing_category"
-    And I select "Offers" from "share_type"
+    And I select "Offer" from "share_type"
     Then I should see "tkk - kamppi"
     And I should see "Sydney - Melbourne"
     But I should not see "axe"

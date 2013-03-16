@@ -18,7 +18,7 @@ Feature: User browses listings
     And that listing is closed
     And there is item request with title "toolbox" from "kassi_testperson2" and with share type "buy"
     And I am on the home page
-    And I select "Offers" from "share_type"
+    And I select "Offer" from "share_type"
     Then I should see "car spare parts"
     And I should see "massage"
     And I should see "Helsinki - Turku"
@@ -82,7 +82,7 @@ Feature: User browses listings
     And that listing is closed
     And there is item offer with title "toolbox" from "kassi_testperson2" and with share type "sell"
     And I am on the home page
-    And I select "Requests" from "share_type"
+    And I select "Request" from "share_type"
     Then I should see "car spare parts"
     And I should see "massage"
     And I should see "Helsinki - Turku"
@@ -144,12 +144,12 @@ Feature: User browses listings
     And privacy of that listing is "private"
     And that listing is closed
     And I am on the home page
-    And I select "Requests" from "share_type"
+    And I select "Request" from "share_type"
     And I should not see "car spare parts"
     And I should see "massage"
     And I should not see "apartment"
     When I log in as "kassi_testperson1"
-    And I select "Requests" from "share_type"
+    And I select "Request" from "share_type"
     Then I should see "car spare parts"
     And I should see "massage"
     And I should not see "apartment"

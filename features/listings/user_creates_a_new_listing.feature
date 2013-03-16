@@ -88,6 +88,7 @@ Feature: User creates a new listing
     When I follow "Post a new listing!"
     And I follow "I need something"
     And I follow "An item"
+    And I follow "Sports"
     And I follow "borrow it"
     And I attach an image with invalid extension to "listing_listing_images_attributes_0_image"
     And I select "31" from "listing_valid_until_3i"
