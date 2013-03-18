@@ -62,7 +62,6 @@ gem "rspec-rails"
 gem "truncate_html"
 
 group :test do
-
   gem 'capybara'
   gem 'cucumber-rails', :require => false
   gem 'cucumber' 
@@ -75,5 +74,6 @@ group :test do
   gem 'action_mailer_cache_delivery'
   gem "parallel_tests", :group => :development
   gem 'spork-rails'
+  gem 'timecop'
 end
 

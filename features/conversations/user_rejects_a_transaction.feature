@@ -1,10 +1,10 @@
-Feature: User rejects a request
+Feature: User rejects a transaction
   In order to announce to another user that I reject his offer or request
   As an author of a listing describing an offer or a request
   I want to be able to reject the conversation
 
   @javascript
-  Scenario: User rejects a request from the conversation page
+  Scenario: User rejects an offer and closes the listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -15,11 +15,12 @@ Feature: User rejects a request
     When I follow "inbox-link"
     And I follow "Service offer: Massage"
     And I follow "Not this time"
+    And I follow "Send message"
     Then I should see "Offer rejected"
     And I should see "Offer rejected" within ".conversation-status"
   
   @javascript
-  Scenario: User rejects a request from the received conversations page
+  Scenario: User rejects a request and does not close the listing
     Given there are following users:
       | person | 
       | kassi_testperson1 |

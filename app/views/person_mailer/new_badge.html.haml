@@ -13,7 +13,7 @@
           %td{:width => "120", :align => "left"}
             = image_tag "https://s3.amazonaws.com/sharetribe/assets/images/badges/#{@badge.name}_medium.png", :width => "100", :height => "100"
           %td{:align => "left", :valign => "top", :style => "padding:10px 0"}
-            %font{badge_font}
+            %font{quote_font}
               = "\"" + t("people.profile_badge.#{@badge.name}_description") + "\""
 
 = render :partial => "action_button", :locals => { :text => t("emails.new_badge.you_can_view_all_your_badges_in"), :url => url}

@@ -4,7 +4,7 @@ Feature: User checks inbox
   I want to be able to go to my inbox and view my messages
   
   @javascript
-  Scenario: Viewing received messages
+  Scenario: Viewing messages
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -13,29 +13,14 @@ Feature: User checks inbox
     And there is a message "Test message" from "kassi_testperson2" about that listing
     And I am logged in as "kassi_testperson1"
     When I follow "inbox-link"
-    Then I should see "Inbox" within ".no-tribe-title"
-    And I should see "Service offer: Massage" within ".inbox-feed"
+    Then I should see "Service offer: Massage" within ".inbox-feed"
     And I should see "Messages" within ".selected"
     And I should see "Notifications" within ".left-navi"
     And I should not see "Notifications" within ".selected"
     And I should see "Test message" within ".inbox-feed"
-
-  @javascript
-  Scenario: Viewing sent messages
-    Given there are following users:
-      | person | 
-      | kassi_testperson1 |
-      | kassi_testperson2 |
-    And there is favor request with title "Massage" from "kassi_testperson2"
-    And there is a message "Test message" from "kassi_testperson1" about that listing
-    And I am logged in as "kassi_testperson1"
-    When I follow "inbox-link"
-    Then I should see "Inbox" within ".no-tribe-title"
-    And I should see "Service offer: Massage" within ".inbox-feed"
-    And I should see "Test message" within ".inbox-feed"
   
   @javascript
-  Scenario: Viewing a single conversation in received messages
+  Scenario: Viewing a single conversation
     Given there are following users:
       | person | 
       | kassi_testperson1 |
@@ -46,10 +31,8 @@ Feature: User checks inbox
     When I follow "inbox-link"
     And I follow "Service offer: Massage"
     Then I should see "Service offer: Massage" within "h2"
-  
-  # TODO: The inbox logic has changed so should thing this one through
+
   @javascript
-  @fix_for_new_design
   Scenario: Viewing received messages when there are multiple messages from different senders
     Given there are following users:
       | person | 
@@ -72,6 +55,7 @@ Feature: User checks inbox
     Then I should see "Reply to massage"
     And I should see "Service offer: Massage"
     And I should not see "Another test"
+    And I should not see "Ok"
     And I should not see "Test1"
     And I should see "Test2"
     And I should see "Rideshare request: Helsinki - Turku" 

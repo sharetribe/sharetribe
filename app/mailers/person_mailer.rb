@@ -22,7 +22,6 @@ class PersonMailer < ActionMailer::Base
 
 
 
-
   # New format
 
   def conversation_status_changed(conversation, community)
@@ -70,6 +69,25 @@ class PersonMailer < ActionMailer::Base
     mail(:to => @recipient.email,
          :subject => t("emails.new_badge.you_have_achieved_a_badge", :badge_name => @badge_name))
   end
+  
+  # Remind users of conversations that have not been accepted or rejected
+  def accept_reminder(conversation, recipient, community)
+    @email_type = "email_about_accept_reminders"
+    set_up_urls(recipient, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
+  end
+  
+  # Remind users of conversations that have not been accepted or rejected
+  def confirm_reminder(conversation, community)
+    @email_type = "email_about_confirm_reminders"
+    set_up_urls(conversation.requester, community, @email_type)
+    @conversation = conversation
+    mail(:to => @recipient.email,
+         :subject => t("emails.confirm_reminder.remember_to_confirm_request"))
+  end
+  
   
   
   # Old format
@@ -142,15 +160,6 @@ class PersonMailer < ActionMailer::Base
     @person = person
     @email = email
     mail(:to => @community.admin_emails, :subject => "New member in #{@community.name} Sharetribe")
-  end
-  
-  # Remind users of conversations that have not been accepted or rejected
-  def accept_reminder(conversation, recipient, host=nil)
-    @recipient = set_up_recipient(recipient, host)
-    @conversation = conversation
-    @url = host ? "http://#{host}#{person_message_path(:person_id => @recipient.id, :id => @conversation.id.to_s, :locale => @recipient.locale)}" : "test_url"
-    mail(:to => @recipient.email,
-         :subject => t("emails.accept_reminder.remember_to_accept_#{@conversation.discussion_type}"))
   end
   
   # The initial email confirmation is sent by Devise, but if people enter additional emails, confirm them with this method

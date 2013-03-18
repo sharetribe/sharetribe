@@ -409,6 +409,9 @@ fi:
       you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."
       you_have_not_yet_accepted_or_rejected_request: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi pyyntöä '%{title}'."
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "Et ole vielä merkinnyt käyttäjältä %{other_party_full_name} %{time} saamaasi pyyntöä '%{title}' toteutuneeksi tai toteutumattomaksi. Muista tehdä merkintä, jotta voit antaa palautetta tapahtuneesta käyttäjälle %{other_party_given_name}."
+      remember_to_confirm_request: "Muista merkitä pyyntö toteutuneeksi tai toteutumattomaksi"
     badge_migration_notification:
       badge_description1: "Voit ansaita %{service_name_inessive} erilaisia merkkejä tunnustuksena aktiivisesta toiminnastasi palvelussa. Merkkejä myönnetään esimerkiksi ahkerasta pyyntöjen ja tarjousten jättämisestä, toisten ilmoitusten kommentoinnista, kaikesta mahdollisesta resurssinvaihdosta (tavaroiden lainaamisesta ja myymisestä, palvelusten tekemisestä, kimppakyytien järjestämisestä ja niin edelleen) sekä ylipäänsä aktiivisesta palvelun käytöstä. Huomattakoon, että merkkeihin oikeuttavat ainoastaan sellaiset vaihdot, joista saatu palaute on ollut positiivista."
       badge_description2: "Paljon merkkejä kerännyt käyttäjä on todennäköisesti aktiivinen ja myös muiden käyttäjien arvostama. Lainaa siis paljon tavaroita, tee palveluksia, kulje kimppakyydeillä ja kerää koko ansiomerkkisarja!"
@@ -442,10 +445,10 @@ fi:
     community_starter_email:
       subject: "Sharetriben uusi ilme - käyttäjämääräraja poistettu, yhteisön ilmeen muokkaus ja paljon muuta"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi ilmoituksesta %{listing}."
-      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi liittyen ilmoitukseen %{listing}."
-      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi ilmoituksesta %{listing}."
-      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi liittyen ilmoitukseen %{listing}."
+      has_accepted_your_offer: "%{accepter} on hyväksynyt tarjouksesi '%{listing}'."
+      has_accepted_your_request: "%{accepter} on hyväksynyt pyyntösi '%{listing}'."
+      has_rejected_your_offer: "%{accepter} on hylännyt tarjouksesi '%{listing}'."
+      has_rejected_your_request: "%{accepter} on hylännyt pyyntösi '%{listing}'."
       view_thread: "Näytä keskustelu"
       your_offer_was_accepted: "Tarjouksesi hyväksyttiin"
       your_offer_was_rejected: "Tarjouksesi hylättiin"
@@ -1475,7 +1478,8 @@ fi:
       i_want_to_get_email_notification_when: "Haluan saada tiedotteen sähköpostilla, kun..."
       newsletters: Uutiskirjeet
       community_updates: Tapahtumapäivitykset
-      email_about_accept_reminders: "...olen unohtanut hyväksyä tapahtuman"
+      email_about_accept_reminders: "...olen unohtanut hyväksyä pyynnön tai tarjouksen"
+      email_about_confirm_reminders: "...olen unohtanut merkitä pyynnön toteutuneeksi"
       email_about_new_badges: "...olen ansainnut uuden ansiomerkin"
       email_about_new_comments_to_own_listing: "...joku kommentoi pyyntöäni tai tarjoustani"
       email_about_new_messages: "...joku lähettää minulle viestin"

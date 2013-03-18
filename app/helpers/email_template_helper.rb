@@ -9,7 +9,7 @@ module EmailTemplateHelper
     }
   end
   
-  def badge_font
+  def quote_font
     {
       :size => "4", 
       :color => "grey", 

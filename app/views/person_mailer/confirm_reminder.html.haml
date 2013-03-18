@@ -1,0 +1,28 @@
+- confirm_url = confirm_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+- cancel_url = cancel_person_message_url(@url_params.merge({:person_id => @recipient.id, :id => @conversation.id.to_s}))
+
+%tr
+  %td{:align => "left"} 
+    %font{body_font}
+      = t("emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request", :date => l(@conversation.created_at.to_date), :title => @conversation.title, :other_party_full_name => @conversation.offerer.name, :other_party_given_name => @conversation.offerer.given_name_or_username)
+
+%tr
+  %td{:align => "left", :style => "padding-top: 15px;"} 
+    %font{body_font}
+      = t("emails.transaction_confirmed.giving_feedback_is_good_idea")
+
+%tr
+  %td
+    %table
+      %tbody
+        %tr
+          %td{:align => "left"}
+            = render :partial => "green_action_button", :locals => { :text => t("conversations.status_link.confirm"), :url => confirm_url}
+          %td
+            = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.cancel"), :url => cancel_url}
+
+
+
+
+
+

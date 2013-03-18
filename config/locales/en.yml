@@ -411,6 +411,9 @@ en:
       you_can_accept_or_reject_request_at: "You can accept or reject the request at"
       you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received on %{date}."
       you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received on %{date}."
+    confirm_reminder:
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request '%{title}' you received on %{date} from %{other_party_full_name}. Remember to either mark it completed or not happened. After that you can give feedback to %{other_party_given_name}."
+      remember_to_confirm_request: "Remember to confirm or cancel a request"
     badge_migration_notification:
       badge_description1: "You can earn several different badges in %{service_name} as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, helping others, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."
       badge_description2: "A person with lots of badges is most likely active, reliable and liked by other users. So be active in %{service_name}: buy, sell, lend and borrow items, help others out, share rides and watch your badge arsenal grow!"
@@ -419,8 +422,8 @@ en:
     transaction_confirmed:
       request_marked_as_confirmed: "Request completed - remember to give feedback"
       request_marked_as_canceled: "Request canceled"
-      has_marked_request_as_confirmed: "%{other_party_full_name} has marked the request '%{request}' completed. You can now give feedback to %{other_party_given_name}."
-      has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request '%{request}'. You can still give feedback to %{other_party_given_name}."
+      has_marked_request_as_confirmed: "%{other_party_full_name} has marked the request about '%{request}' completed. You can now give feedback to %{other_party_given_name}."
+      has_marked_request_as_canceled: "%{other_party_full_name} has canceled the request about '%{request}'. You can still give feedback to %{other_party_given_name}."
       giving_feedback_is_good_idea: "Giving feedback is always a good idea. If everything went well, you should let others know that %{other_party_given_name} can be trusted. If there were any problems, it's good to mention those as well."
       give_feedback_to: "Give feedback to %{other_party_given_name}"
     confirmation_instructions:
@@ -444,10 +447,10 @@ en:
     community_starter_email:
       subject: "See the new Sharetribe - membership limit removed, look & feel can be modified, and more"
     conversation_status_changed:
-      has_accepted_your_offer: "%{accepter} has accepted your offer considering listing %{listing}."
-      has_accepted_your_request: "%{accepter} has accepted your request considering listing %{listing}."
-      has_rejected_your_offer: "%{accepter} has rejected your offer considering listing %{listing}."
-      has_rejected_your_request: "%{accepter} has rejected your request considering listing %{listing}."
+      has_accepted_your_offer: "%{accepter} has accepted your offer %{listing}."
+      has_accepted_your_request: "%{accepter} has accepted your request %{listing}."
+      has_rejected_your_offer: "%{accepter} has rejected your offer %{listing}."
+      has_rejected_your_request: "%{accepter} has rejected your request %{listing}."
       view_thread: "View conversation"
       your_offer_was_accepted: "Your offer was accepted"
       your_offer_was_rejected: "Your offer was rejected"
@@ -1493,7 +1496,8 @@ en:
       i_want_to_get_email_notification_when: "I want to get an email notification when..."
       newsletters: Newsletters
       community_updates: "Community updates"
-      email_about_accept_reminders: "...I have forgotten to accept an event"
+      email_about_accept_reminders: "...I have forgotten to accept an offer or a request"
+      email_about_confirm_reminders: "...I have forgotten to confirm a request as completed"
       email_about_new_badges: "...I have achieved a new badge"
       email_about_new_comments_to_own_listing: "...somebody comments my offer or request"
       email_about_new_messages: "...somebody sends me a message"

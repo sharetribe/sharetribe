@@ -17,6 +17,9 @@ class ConversationAcceptedJob < Struct.new(:conversation_id, :current_user_id, :
     if conversation.other_party(current_user).should_receive?("email_when_conversation_#{conversation.status}")
       PersonMailer.conversation_status_changed(conversation, community).deliver
     end
+    if conversation.status.eql?("accepted")
+      Delayed::Job.enqueue(ConfirmReminderJob.new(conversation.id, community_id), :priority => 0, :run_at => 1.week.from_now)
+    end
   end
   
 end

@@ -78,6 +78,7 @@ class Person < ActiveRecord::Base
     "email_about_new_badges",
     "email_about_new_received_testimonials",
     "email_about_accept_reminders",
+    "email_about_confirm_reminders",
     "email_about_testimonial_reminders",
     "email_about_completed_transactions"
     

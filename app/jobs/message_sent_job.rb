@@ -15,7 +15,7 @@ class MessageSentJob < Struct.new(:last_message_id, :community_id)
     community = Community.find(community_id)
     message.conversation.send_email_to_participants(community)
     
-    # Delayed::Job.enqueue(AcceptReminderJob.new(message.conversation.id, last_message_id, community), :priority => 0, :run_at => 1.week.from_now) unless message.conversation.status.eql?("free")
+    Delayed::Job.enqueue(AcceptReminderJob.new(message.conversation.id, last_message_id, community), :priority => 0, :run_at => 1.week.from_now) unless message.conversation.status.eql?("free")
   end
   
 end
