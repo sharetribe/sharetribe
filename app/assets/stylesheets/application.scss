@@ -531,8 +531,8 @@ label.error {
     display: block;
     position: absolute;
     top: lines(28.5);
-    left: lines(20);
-    width: 100%;
+    left: lines(30);
+    width: lines(12);
     height: lines(5);
   }
 }
@@ -2447,6 +2447,33 @@ a.lightbox-x {
       right: lines(0); top: lines(17.5);
       width: lines(12);
       height: lines(10);
+    }
+  }
+  
+  .trustcloud {
+    display: block;
+    width: 100%;
+    height: lines(8);
+    margin-top: lines(0.5);
+    
+    small {
+      display: inline;
+      margin-left: lines(0.5);
+    }
+    
+    @include media(tablet) {
+      margin-top: 0;
+      margin-bottom: lines(2);
+      position: absolute;
+      right: lines(0); top: lines(19.5);
+      width: lines(12);
+      height: lines(10);
+    }
+  }
+  
+  .trustcloud-lower {
+    @include media(tablet) {
+      right: lines(0); top: lines(28.5);
     }
   }
   

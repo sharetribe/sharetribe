@@ -31,8 +31,9 @@
           = @person.description
       - elsif current_user?(@person)
         %a{href: person_settings_path(@person)}
-          .ss-chat.icon-with-text
-          .ss.text-with-icon= t(".add_description")
+          .icon-with-text-container
+            .ss-chat.icon-part
+            .ss.text-part= t(".add_description")
       .profile-icons
         - if logged_in? && @person.phone_number && !@person.phone_number.blank?
           .icon-with-text-container
@@ -69,7 +70,16 @@
         .ss-picture.icon-with-text
         .text-with-icon= t("listings.show.add_profile_picture")
     
-    .bottom-margin
+    - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
+      .trustcloud{:class => (@person.location ? "trustcloud-lower" : "")}
+        = t('.trustcloud')
+        %small
+          = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
+        = "<script type=\"text/javascript\" src=\"https://api.trustcloud.com/display/showidcard?userid=emailhash-#{Digest::MD5.hexdigest(@person.email)}&darkcolor=ad581a&lightcolor=d96e21&viewerisowner=#{( current_user?(@person) ? "1" : "0")}&lightbox=1\"></script>".html_safe
+        = render :partial => "help_texts", :collection => ["trustcloud_description"], :as => :field
+    
+    - unless @current_community.settings && @current_community.settings["use_trustcloud"]
+      .bottom-margin
         
   .profile-listings.section
     %h2
@@ -99,15 +109,12 @@
           .load-more-link#load-more-testimonials
             = link_to t(".show_all_reviews"), "#"
   
-  .profile-badges.section
-    %h2
+  - if @person.badges.size > 0
+    .profile-badges.section
+      %h2= pluralize(@person.badges.size, t(".badge"), t(".badges"))
       - if @person.badges.size > 0
-        = pluralize(@person.badges.size, t(".badge"), t(".badges"))
-      - else
-        = t(".no_badges")
-    - if @person.badges.size > 0
-      .badge-list
-        = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
+        .badge-list
+          = render :partial => "profile_badge", :collection => @person.badges.order("id DESC"), :as => :badge
 
 - if @person.badges.size > 0 && @person.badges_visible_to?(@current_user)
   = render :partial => "badge_description", :collection => @person.badges.order("id DESC"), :as => :badge    
