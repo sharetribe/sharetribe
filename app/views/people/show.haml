@@ -71,7 +71,7 @@
         .text-with-icon= t("listings.show.add_profile_picture")
     
     - if @current_community.settings && @current_community.settings["use_trustcloud"] && @person.email.present?
-      .trustcloud{:class => (@person.location ? "trustcloud-lower" : "")}
+      .trustcloud{:class => (@person.location && logged_in? ? "trustcloud-lower" : "")}
         = t('.trustcloud')
         %small
           = link_to t("common.what_is_this"), "#", :id => "trustcloud_description_link"
