@@ -87,7 +87,7 @@ module ApplicationHelper
   end
   
   def large_avatar_thumb(person)
-    image_tag person.image.url(:medium), :alt => person.name(session[:cookie])
+    image_tag person.image.url(:medium), :alt => person.name
   end
 
   def pageless(total_pages, target_id, url=nil, loader_message='Loading more results')

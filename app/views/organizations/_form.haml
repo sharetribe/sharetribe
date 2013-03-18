@@ -1,0 +1,27 @@
+- content_for :javascript do
+  initialize_new_organization_form()
+  
+= form_for @organization do |form|
+  = form.label :name, t(".name"), :class => "input"
+  = form.text_field :name, :class => :text_field, :maxlenght => "255"
+  = form.label :allowed_emails, t(".allowed_emails"), :class => "input"
+  = form.text_field :allowed_emails, :class => :text_field, :maxlenght => "255"
+  
+  = form.label :logo, t(".logo"), :class => "input"
+  = form.file_field(:logo, :class => "file_field")
+  %h3
+    = t(".registration_as_seller")
+  
+  - if @organization.merchant_id
+    = t(".merhcant_registration_done")
+  - else
+    = radio_button_tag("merchant_registration", "skip_merchant_registration", true, :id => "skip_merchant_registration")
+    = label_tag("skip_merchant_registration", t(".skip_merchant_registration"), :class => "radiobutton")
+    = radio_button_tag("merchant_registration", "register_as_merchant", false, :id => "register_as_merchant")
+    = label_tag("register_as_merchant", t(".register_as_seller_to_be_able_to_receive_payments "), :class => "radiobutton")
+    
+    #merchant_details
+      = form.label :company_id, t(".company_id"), :class => "input"
+      = form.text_field :company_id, :class => :text_field, :maxlenght => "10" 
+  %br
+  = form.button t(".#{function}"), :class => "send_button"
