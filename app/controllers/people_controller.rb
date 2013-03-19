@@ -31,7 +31,7 @@ class PeopleController < Devise::RegistrationsController
   
   def show
     @selected_tribe_navi_tab = "members"
-    @community_membership = CommunityMembership.find_by_person_id_and_community_id(@person.id, @current_community.id)
+    @community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@person.id, @current_community.id, "accepted")
     @listings = persons_listings(@person)
   end
 
@@ -117,7 +117,7 @@ class PeopleController < Devise::RegistrationsController
       @person.set_default_preferences
       # Make person a member of the current community
       if @current_community
-        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent)
+        membership = CommunityMembership.new(:person => @person, :community => @current_community, :consent => @current_community.consent, :status => "accepted")
         membership.invitation = invitation if invitation.present?
         membership.save!
         session[:invitation_code] = nil

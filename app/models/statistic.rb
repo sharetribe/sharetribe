@@ -61,7 +61,7 @@ class Statistic < ActiveRecord::Base
     #activation
     # create content in first 2 weeks (average of recent month)
     six_to_two_week_old_users = community ? 
-      CommunityMembership.where(:created_at => (6.weeks.ago..2.weeks.ago), :community_id => community.id) :
+      CommunityMembership.where(:created_at => (6.weeks.ago..2.weeks.ago), :community_id => community.id, :status => "accepted") :
       Person.where(:created_at => (6.weeks.ago..2.weeks.ago))
     
     # NOTE: When calculating community stats six_to_two_week_old_users contains membership objects instead of people.
@@ -80,7 +80,7 @@ class Statistic < ActiveRecord::Base
 
     # participate in transcation in first month (average of recent month)
     one_to_two_month_old_users = community ?
-      CommunityMembership.where(:created_at => (2.months.ago..1.month.ago), :community_id => community.id) :
+      CommunityMembership.where(:created_at => (2.months.ago..1.month.ago), :community_id => community.id, :status => "accepted") :
       Person.where(:created_at => (2.months.ago..1.month.ago))
       
     # NOTE: When calculating community stats one_to_two_month_old_users contains membership objects instead of people.
@@ -130,9 +130,9 @@ class Statistic < ActiveRecord::Base
     dau_g3_ids = Conversation.find_by_sql("select distinct person_id from conversations INNER JOIN `participations` ON `conversations`.`id`=`participations`.`conversation_id` where `conversations`.`status` = 'accepted' AND `conversations`.`updated_at` > '#{24.hours.ago.to_formatted_s(:db)}'")
     
     if community #select only people that are members of the community
-      mau_g3_ids = mau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id(i.person_id, community.id)}
-      wau_g3_ids = wau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id(i.person_id, community.id)}
-      dau_g3_ids = dau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id(i.person_id, community.id)}
+      mau_g3_ids = mau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id_and_status(i.person_id, community.id, "accepted")}
+      wau_g3_ids = wau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id_and_status(i.person_id, community.id, "accepted")}
+      dau_g3_ids = dau_g3_ids.select{|i| CommunityMembership.find_by_person_id_and_community_id_and_status(i.person_id, community.id, "accepted")}
     end
     
     @mau_g3 = mau_g3_ids.count  

@@ -105,6 +105,7 @@ FactoryGirl.define do
     association :person
     admin false
     consent "test_consent0.1"
+    status "accepted"
   end
 
   factory :contact_request do

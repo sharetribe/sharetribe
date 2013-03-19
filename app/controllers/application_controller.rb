@@ -126,7 +126,7 @@ class ApplicationController < ActionController::Base
   def fetch_community_membership
     if @current_user
       if @current_user.communities.include?(@current_community)
-        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id(@current_user.id, @current_community.id)
+        @current_community_membership = CommunityMembership.find_by_person_id_and_community_id_and_status(@current_user.id, @current_community.id, "accepted")
         unless @current_community_membership.last_page_load_date && @current_community_membership.last_page_load_date.to_date.eql?(Date.today)
           Delayed::Job.enqueue(PageLoadedJob.new(@current_community_membership.id, request.host))
         end

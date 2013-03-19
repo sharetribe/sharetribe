@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130318085152) do
+ActiveRecord::Schema.define(:version => 20130319162158) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -165,6 +165,7 @@ ActiveRecord::Schema.define(:version => 20130318085152) do
     t.string   "consent"
     t.integer  "invitation_id"
     t.datetime "last_page_load_date"
+    t.string   "status",              :default => "accepted", :null => false
   end
 
   add_index "community_memberships", ["person_id", "community_id"], :name => "memberships"

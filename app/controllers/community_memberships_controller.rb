@@ -17,7 +17,7 @@ class CommunityMembershipsController < ApplicationController
   end
   
   def create
-    @community_membership = CommunityMembership.new(params[:community_membership])
+    @community_membership = CommunityMembership.new(params[:community_membership].merge({:status => "accepted"}))
         
     if @current_community.join_with_invite_only? || params[:invitation_code]
       unless Invitation.code_usable?(params[:invitation_code], @current_community)

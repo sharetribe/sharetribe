@@ -20,6 +20,7 @@ Then /^Most recently created user should be member of "([^"]*)" community with i
     community = Community.find_by_domain(community_domain)
     CommunityMembership.last.community.should == community
     CommunityMembership.last.consent.should == community.consent
+    CommunityMembership.last.status.should == "accepted"
     CommunityMembership.last.invitation.code.should == invitation_code if invitation_code.present?
 end
 

@@ -103,7 +103,7 @@ describe PersonMailer do
   it "should send email to community admins of new feedback if that setting is on" do
     @feedback = FactoryGirl.create(:feedback)
     @community = FactoryGirl.create(:community, :feedback_to_admin => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_feedback(@feedback, @community).deliver
     assert !ActionMailer::Base.deliveries.empty?
@@ -119,7 +119,7 @@ describe PersonMailer do
   
   it "should send email to community admins of new member if wanted" do
     @community = FactoryGirl.create(:community, :email_admins_about_new_members => 1)
-    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id)
+    m = CommunityMembership.create(:person_id => @test_person.id, :community_id => @community.id, :status => "accepted")
     m.update_attribute(:admin, true)
     email = PersonMailer.new_member_notification(@test_person2, @community.domain, @test_person2.email).deliver
     assert !ActionMailer::Base.deliveries.empty?
