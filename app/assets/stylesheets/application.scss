@@ -2471,7 +2471,13 @@ a.lightbox-x {
     }
   }
   
-  .trustcloud-lower {
+  .trustcard-upper {
+    @include media(tablet) {
+      right: lines(0); top: lines(17.5);
+    }
+  }
+  
+  .trustcard-lower {
     @include media(tablet) {
       right: lines(0); top: lines(28.5);
     }
