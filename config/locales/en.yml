@@ -402,17 +402,14 @@ en:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/en\">Sharetribe of Kallio, Helsinki</a>"
   emails:
     accept_reminder:
-      offer_accusative: offer
-      remember_to_accept_listing: "Remember to accept %{listing_type}, even though the actual event has already taken place. Accepting makes it possible for the parties to give feedback to each other. The good feedback you have received will be shown to other %{service_name} users in your profile. It will make you more trustworthy in the eyes of other %{service_name} users and assures that everything will go smoothly for you also in the future. Good feedback also helps you get badges."
       remember_to_accept_offer: "Remember to accept or reject an offer"
       remember_to_accept_request: "Remember to accept or reject a request"
-      request_accusative: request
       you_can_accept_or_reject_offer_at: "You can accept or reject the offer at"
       you_can_accept_or_reject_request_at: "You can accept or reject the request at"
-      you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received on %{date}."
-      you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received on %{date}."
+      you_have_not_yet_accepted_or_rejected_offer: "You have not yet accepted or rejected the offer '%{title}' you received %{date}."
+      you_have_not_yet_accepted_or_rejected_request: "You have not yet accepted or rejected the request '%{title}' you received %{date}."
     confirm_reminder:
-      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request '%{title}' you received on %{date} from %{other_party_full_name}. Remember to either mark it completed or not happened. After that you can give feedback to %{other_party_given_name}."
+      you_have_not_yet_confirmed_or_canceled_request: "You have not yet confirmed or canceled the request '%{title}' you received %{date} from %{other_party_full_name}. Remember to either mark it completed or not happened. After that you can give feedback to %{other_party_given_name}."
       remember_to_confirm_request: "Remember to confirm or cancel a request"
     badge_migration_notification:
       badge_description1: "You can earn several different badges in %{service_name} as a recognition of your actions in the service. You earn badges from actions like adding new offers and requests, commenting on others' content, from all types of resource exchange that takes place (selling and borrowing items, helping others, organizing car pooling and so on) and just generally being an active user of the service. Note that you only get badges from those exchanges where you have received positive feedback."

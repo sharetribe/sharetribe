@@ -29,6 +29,12 @@ Feature: User requests an item in item offer
     Then I should see "Accept"
     When I follow "Item request: Hammer"
     Then I should see "Accept"
+    When "8" days have passed
+    And the system processes jobs
+    Then "kassi_testperson1@example.com" should receive an email
+    When I open the email
+    Then I should see "Remember to accept" in the email body
+    And return to current time
   
   @javascript
   Scenario: Borrowing an item with invalid information

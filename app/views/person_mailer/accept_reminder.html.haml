@@ -4,21 +4,16 @@
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => l(@conversation.created_at.to_date), :title => @conversation.title)
+      = t("emails.accept_reminder.you_have_not_yet_accepted_or_rejected_#{@conversation.discussion_type}", :date => time_ago(@conversation.created_at.to_date), :title => @conversation.title)
 
 %tr
-  %td{:align => "left", :style => "padding-top: 15px;"} 
-    %font{body_font}
-      = t("emails.accept_reminder.remember_to_accept_listing", :listing_type => t("emails.common.#{@conversation.discussion_type}_accusative"))
-
-%tr
-  %td
+  %td{:align => "left", :style => "padding-top: 25px; padding-bottom: 35px;"}
     %table
       %tbody
         %tr
           %td{:align => "left"}
             = render :partial => "green_action_button", :locals => { :text => t("conversations.status_link.accept_#{@conversation.discussion_type}"), :url => accept_url}
-          %td
+          %td{:style => "padding-left: 10px;"}
             = render :partial => "red_action_button", :locals => { :text => t("conversations.status_link.reject_#{@conversation.discussion_type}"), :url => reject_url}
 
 

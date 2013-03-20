@@ -400,11 +400,8 @@ fi:
       city_example_link: "<a href=\"http://kallio.sharetribe.com/fi\">Kallion Sharetribe (Helsinki)</a>"
   emails:
     accept_reminder:
-      offer_accusative: tarjouksen
-      remember_to_accept_listing: "Muistathan merkitä %{listing_type} hyväksytyksi, vaikka siinä mainittu asia olisikin jo hoidettu. Hyväksyminen mahdollistaa palautteen antamisen tapahtumasta. Saamasi hyvä palaute näkyy muille %{service_name_genetive} käyttäjille profiilissasi. Se lisää luotettavuuttasi muiden silmissä ja varmistaa näin, että tapahtumat sujuvat myös jatkossa. Myös ansiomerkkien saaminen edellyttää hyvän palautteen saamista."
       remember_to_accept_offer: "Muista hyväksyä tai hylätä saamasi tarjous"
       remember_to_accept_request: "Muista hyväksyä tai hylätä saamasi pyyntö"
-      request_accusative: pyynnön
       you_can_accept_or_reject_offer_at: "Voit hyväksyä tai hylätä tarjouksen osoitteessa"
       you_can_accept_or_reject_request_at: "Voit hyväksyä tai hylätä pyynnön osoitteessa"
       you_have_not_yet_accepted_or_rejected_offer: "Et ole vielä hyväksynyt etkä hylännyt %{date} saamaasi tarjousta '%{title}'."

@@ -80,7 +80,7 @@ class Conversation < ActiveRecord::Base
     if offerer.eql?(current_user)
       participations.each { |p| p.update_attribute(:is_read, p.person.id.eql?(current_user.id)) }
     end
-    listing.update_attribute(:open, false) if close_listing && close_listing.eql?(true)
+    listing.update_attribute(:open, false) if close_listing && close_listing.eql?("true")
     Delayed::Job.enqueue(ConversationAcceptedJob.new(id, current_user.id, current_community.id)) 
   end
   

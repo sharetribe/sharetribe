@@ -42,7 +42,7 @@ Feature: User checks inbox
     And there is favor request with title "Massage" from "kassi_testperson1"
     And there is a message "Reply to massage" from "kassi_testperson2" about that listing
     And there is a message "Another test" from "kassi_testperson3" about that listing
-    And there is a reply "Ok" to that message by "kassi_testperson1"
+    And there is a reply "great" to that message by "kassi_testperson1"
     And there is housing offer with title "Apartment" from "kassi_testperson2" and with share type "sell"
     And there is a message "Test1" from "kassi_testperson3" about that listing
     And there is item offer with title "Hammer" from "kassi_testperson2" and with share type "lend"
@@ -55,7 +55,7 @@ Feature: User checks inbox
     Then I should see "Reply to massage"
     And I should see "Service offer: Massage"
     And I should not see "Another test"
-    And I should not see "Ok"
+    And I should see "great"
     And I should not see "Test1"
     And I should see "Test2"
     And I should see "Rideshare request: Helsinki - Turku" 

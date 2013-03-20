@@ -4,15 +4,15 @@
 %tr
   %td{:align => "left"} 
     %font{body_font}
-      = t("emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request", :date => l(@conversation.created_at.to_date), :title => @conversation.title, :other_party_full_name => @conversation.offerer.name, :other_party_given_name => @conversation.offerer.given_name_or_username)
+      = t("emails.confirm_reminder.you_have_not_yet_confirmed_or_canceled_request", :date => time_ago(@conversation.created_at.to_date), :title => @conversation.title, :other_party_full_name => @conversation.offerer.name, :other_party_given_name => @conversation.offerer.given_name_or_username)
 
 %tr
-  %td{:align => "left", :style => "padding-top: 15px;"} 
+  %td{:align => "left", :style => "padding: 15px 0;"} 
     %font{body_font}
       = t("emails.transaction_confirmed.giving_feedback_is_good_idea")
 
 %tr
-  %td
+  %td{:align => "left", :style => "padding-bottom: 15px;"}
     %table
       %tbody
         %tr
