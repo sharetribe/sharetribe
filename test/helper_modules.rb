@@ -66,5 +66,12 @@ module TestHelpers
     ShareType.find_by_name(share_type_name) || FactoryGirl.create(:share_type, :name => share_type_name)
   end
   
+  def reset_categories_to_default
+    ShareType.destroy_all #Without this there were some strange entries in the DB without correct parents
+    Category.destroy_all
+    CommunityCategory.destroy_all
+    CategoriesHelper.load_default_categories_to_db
+  end
+  
   
 end

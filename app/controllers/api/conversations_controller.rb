@@ -52,7 +52,7 @@ class Api::ConversationsController < Api::ApiController
     
     if @conversation.save
       response.status = 201
-      Delayed::Job.enqueue(MessageSentJob.new(@conversation.id, @conversation.messages.last.id, @current_community.full_domain))
+      Delayed::Job.enqueue(MessageSentJob.new(@conversation.messages.last.id, @current_community.id))
       respond_with @conversation
     else
       response.status = 400
@@ -76,7 +76,7 @@ class Api::ConversationsController < Api::ApiController
     
     if @message.save 
       response.status = 201
-      @message.conversation.send_email_to_participants(@current_community.full_domain)
+      @message.conversation.send_email_to_participants(@current_community)
       respond_with @conversation
     else
        response.status = 400

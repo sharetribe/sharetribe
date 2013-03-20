@@ -9,6 +9,7 @@ Given /^there is (item|favor|housing) (offer|request) with title "([^"]*)"(?: fr
                                :privacy => "public"
                                )
   @listing.update_attribute(:tag_list, tags.split(", ")) if tags
+  
 end
 
 Given /^there is rideshare (offer|request) from "([^"]*)" to "([^"]*)" by "([^"]*)"$/ do |type, origin, destination, author|
@@ -93,5 +94,5 @@ When /^all categories are custom categories$/ do
 end
 
 Then /^add default categories back$/ do
-  CategoriesHelper.load_default_categories_to_db
+  reset_categories_to_default
 end
