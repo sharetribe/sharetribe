@@ -24,7 +24,8 @@ Feature: User creates a new account
     And I should see "Your account was successfully confirmed"
     And I should not see my username
     And Most recently created user should be member of "test" community with its latest consent accepted
-
+    When I open the email with subject "Welcome to"
+    Then I should see "Here are some tips to get you started." in the email body
   
   @javascript
   Scenario: Trying to create account with unavailable username 
