@@ -482,8 +482,8 @@ module ApplicationHelper
   end
   
   def community_slogan
-    if @community_customization
-      @community_customization.slogan
+    if @community_customization  && !@community_customization.slogan.blank?
+      @community_customization.slogan 
     else
       if @current_community.slogan && !@current_community.slogan.blank?
         @current_community.slogan
@@ -494,7 +494,7 @@ module ApplicationHelper
   end
   
   def community_description(truncate=true)
-    if @community_customization
+    if @community_customization && !@community_customization.description.blank?
       @community_customization.description
     else
       if @current_community.description && !@current_community.description.blank?
@@ -503,6 +503,10 @@ module ApplicationHelper
         truncate ? truncate(t("common.default_community_description"), :length => 130, :omission => "...") : t("common.default_community_description")
       end
     end
+  end
+  
+  def community_blank_slate
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
   end
   
 end
