@@ -509,4 +509,14 @@ module ApplicationHelper
     @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
   end
   
+  def fb_image
+    if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
+      @listing.listing_images.first.image.url(:medium)
+    elsif @current_community.logo?
+      @current_community.logo.url(:header) 
+    else
+      "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+    end
+  end
+  
 end
