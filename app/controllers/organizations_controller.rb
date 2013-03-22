@@ -1,6 +1,7 @@
 class OrganizationsController < ApplicationController
 
   skip_filter :dashboard_only
+  skip_filter :cannot_access_without_joining, :only => [:new, :create]
   
   before_filter :ensure_organization_admin, :except => [:new, :create]
   before_filter do |controller|
@@ -19,8 +20,9 @@ class OrganizationsController < ApplicationController
     end
 
     if @current_user && @organization.save
-      membership = OrganizationMembership.create!(:member_id => @current_user.id, :organization_id => @organization.id)
+      membership = OrganizationMembership.create!(:person_id => @current_user.id, :organization_id => @organization.id)
       membership.update_attribute(:admin, true)
+      flash[:notice] = t("organizations.new.organization_created")
       redirect_to @organization
     else
       flash[:error] = @organization.errors.full_messages

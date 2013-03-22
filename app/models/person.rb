@@ -57,6 +57,7 @@ class Person < ActiveRecord::Base
   has_many :authored_comments, :class_name => "Comment", :foreign_key => "author_id", :dependent => :destroy
   has_many :community_memberships, :dependent => :destroy 
   has_many :communities, :through => :community_memberships, :conditions => ['status = ?', 'accepted']
+  has_many :organization_memberships, :dependent => :destroy
   has_many :organizations, :through => :organization_memberships
   has_many :invitations, :foreign_key => "inviter_id", :dependent => :destroy
   has_many :poll_answers, :class_name => "PollAnswer", :foreign_key => "answerer_id", :dependent => :destroy

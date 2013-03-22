@@ -55,7 +55,6 @@ Feature: Transaction process between two users
     And I click "#positive-grade-link"
     And I fill in "How did things go?" with "Everything was great!"
     And "kassi_testperson2@example.com" should have 1 email
-    And save and open all html emails
     And I press "send_testimonial_button"
     Then I should see "Feedback sent to" within ".flash-notifications"
     And I should see "Feedback given" within ".conversation-status"

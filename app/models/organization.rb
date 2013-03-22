@@ -1,10 +1,11 @@
 class Organization < ActiveRecord::Base
   attr_accessible :allowed_emails, :name, :logo, :company_id
   
-  has_many :members, :through => :organization_memberships, :source => :person, :foreign_key => :member_id
+  has_many :organization_memberships, :dependent => :destroy
+  has_many :members, :through => :organization_memberships, :source => :person
   
   validates_presence_of :name
-  validates_uniqueness_of :name, :company_id
+  validates_uniqueness_of :name
   
   
   paperclip_options_for_logo = PaperclipHelper.paperclip_default_options.merge!({:styles => {  
@@ -19,7 +20,7 @@ class Organization < ActiveRecord::Base
   
   
   def has_admin?(person)
-    membership = OrganizationMembership.find_by_member_id_and_organization_id(person.id, self.id) 
+    membership = OrganizationMembership.find_by_person_id_and_organization_id(person.id, self.id) 
     membership.present? && membership.admin
   end
   
@@ -27,5 +28,9 @@ class Organization < ActiveRecord::Base
     # Call Checkout Finland API here
     puts "MERCHANT REGISTRATION CALLED BUT NOT YET IMPLEMENTED"
     
+  end
+  
+  def has_member?(person)
+    members.include?(person)
   end
 end

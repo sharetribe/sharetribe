@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130319162158) do
+ActiveRecord::Schema.define(:version => 20130322171458) do
 
   create_table "auth_tokens", :force => true do |t|
     t.string   "token"
@@ -387,7 +387,7 @@ ActiveRecord::Schema.define(:version => 20130319162158) do
   add_index "notifications", ["receiver_id"], :name => "index_notifications_on_receiver_id"
 
   create_table "organization_memberships", :force => true do |t|
-    t.string   "member_id"
+    t.string   "person_id"
     t.integer  "organization_id"
     t.boolean  "admin",           :default => false
     t.datetime "created_at",                         :null => false

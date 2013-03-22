@@ -10,6 +10,11 @@ FactoryGirl.define do
   sequence :domain do |n|
     "sharetribe_testcommunity_#{n}" 
   end
+  
+  sequence :organization_name do |n|
+    "test_organization#{n}" 
+  end
+  
 
   factory :person, aliases: [:author, :receiver] do
     id "dMF4WsJ7Kr3BN6ab9B7ckF"
@@ -152,5 +157,9 @@ FactoryGirl.define do
   factory :share_type do
     name "sell"
     icon "sell"
+  end
+  
+  factory :organization do
+    name :organization_name
   end
 end

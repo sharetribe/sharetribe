@@ -4,7 +4,7 @@ class Community < ActiveRecord::Base
   require 'sass/plugin'
 
   has_many :community_memberships, :dependent => :destroy 
-  has_many :members, :through => :community_memberships, :conditions => ['status = ?', 'accepted'], :source => :person, :foreign_key => :member_id
+  has_many :members, :through => :community_memberships, :conditions => ['status = ?', 'accepted'], :source => :person
   has_many :invitations, :dependent => :destroy
   has_many :news_items, :dependent => :destroy
   has_many :polls, :dependent => :destroy
@@ -344,6 +344,10 @@ class Community < ActiveRecord::Base
   
   def full_name
     settings["service_name"] ? settings["service_name"] : "Sharetribe #{name}"
+  end
+  
+  def requires_organization_membership?
+    settings["require_organization_membership"] == true    
   end
   
   # categories_tree

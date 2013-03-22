@@ -137,8 +137,9 @@ class ApplicationController < ActionController::Base
   
   # Before filter to direct a logged-in non-member to join tribe form
   def cannot_access_without_joining
-    if @current_user
-      redirect_to new_tribe_membership_path unless on_dashboard? || @current_community_membership || @current_user.is_admin?
+    if @current_user && ! (on_dashboard? || @current_community_membership || @current_user.is_admin?)
+      flash.keep
+      redirect_to new_tribe_membership_path 
     end
   end
 

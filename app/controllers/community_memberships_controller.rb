@@ -16,8 +16,10 @@ class CommunityMembershipsController < ApplicationController
     elsif existing_membership && existing_membership.status == "pending_email_confirmation"
       redirect_to confirmation_pending_path and return
     end
+    
     @community_membership = CommunityMembership.new
   end
+  
   
   def create
     @community_membership = CommunityMembership.new(params[:community_membership])
@@ -61,6 +63,16 @@ class CommunityMembershipsController < ApplicationController
       
     end
     
+    if @current_community.requires_organization_membership?
+      org = Organization.find_by_id(params[:organization_id])
+      if org.nil?
+        flash[:error] = t("community_memberships.new.you_need_to_choose_an_organization")
+        render :action => :new and return
+      else
+        @current_user.organizations << org unless org.has_member?(@current_user)
+      end
+      
+    end
     
     @community_membership.invitation = invitation if invitation.present?
 
