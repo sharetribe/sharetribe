@@ -41,7 +41,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       flash[:notice] = t("sessions.confirmation_pending.account_confirmation_instructions_dashboard")
       redirect_to new_tribe_path and return
     
-    elsif params[:person][:email] != @current_user.email # resend confirmation for an additional email
+    elsif params[:person][:email] && params[:person][:email] != @current_user.email # resend confirmation for an additional email
       @current_user.send_email_confirmation_to(params[:person][:email], request.host_with_port)
       flash[:notice] = t("sessions.confirmation_pending.check_your_email")
       redirect_to :controller => "sessions", :action => "confirmation_pending" and return

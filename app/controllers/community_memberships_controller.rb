@@ -9,9 +9,12 @@ class CommunityMembershipsController < ApplicationController
   skip_filter :cannot_access_without_joining
   
   def new
-    if @current_user.communities.include?(@current_community)
+    existing_membership = @current_user.community_memberships.where(:community_id => @current_community.id).first
+    if existing_membership && existing_membership.status == "accepted"
       flash[:notice] = t("layouts.notifications.you_are_already_member")
-      redirect_to root 
+      redirect_to root and return
+    elsif existing_membership && existing_membership.status == "pending_email_confirmation"
+      redirect_to confirmation_pending_path and return
     end
     @community_membership = CommunityMembership.new
   end

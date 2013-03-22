@@ -158,27 +158,31 @@ describe Person do
     
     describe "#pending_email" do
       
+      before (:all) do
+        @p = FactoryGirl.create(:person)
+      end
+      
       it "should return nil if none pending" do
-        @test_person.pending_email.should be_nil
+        @p.pending_email.should be_nil
       end
       
       it "should return main email if that's pending" do
-         @test_person.confirmed_at = nil
-         @test_person.pending_email.should == "kassi_testperson1@example.com"
+         @p.update_attribute(:confirmed_at, nil)
+         @p.pending_email.should == "already.confirmed@aix.en.provence.fr"
       end
       
       it "should return additional, if that's pending" do
-        @test_person.confirmed_at = Time.now
-        e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @test_person)
-        @test_person.pending_email.should == "jack@aalto.fi"
+        @p.update_attribute(:confirmed_at, Time.now)
+        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        @p.pending_email.should == "jack@aalto.fi"
       end
       
       it "should pick the right email to return" do
         c = FactoryGirl.create(:community, :allowed_emails => "@example.com, @ex.ample, @something.else")
-        e = FactoryGirl.create(:email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @test_person)
-        e2 = FactoryGirl.create(:email, :address => "jack@example.com", :confirmed_at => nil, :person => @test_person)
+        e = FactoryGirl.create(:additional_email, :address => "jack@aalto.fi", :confirmed_at => nil, :person => @p)
+        e2 = FactoryGirl.create(:additional_email, :address => "jack@example.com", :confirmed_at => nil, :person => @p)
         
-        @test_person.pending_email(c).should == "jack@example.com"
+        @p.pending_email(c).should == "jack@example.com"
         
         
       end

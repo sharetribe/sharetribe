@@ -138,10 +138,10 @@ FactoryGirl.define do
     google_address "Helsinki, Finland"
   end
   
-  factory :email do
+  factory :additional_email, class: Email do
     person
     address "test_person@example.com"
-    confirmed_at "2013-01-10 09:41:18"
+    confirmed_at Time.now
   end
   
   factory :category do

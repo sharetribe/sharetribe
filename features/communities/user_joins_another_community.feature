@@ -81,17 +81,17 @@ Feature: User joins another community
     Then I should not see "This email is not allowed for this community or it is already in use."
     
     And wait for 1 second
-    Then I should see "You need to confirm your email first"
+    Then I should see "Confirm your email"
     And "random@example.com" should receive an email
     And user "kassi_testperson3" should have additional unconfirmed email "random@example.com"
     When I open the email
     And I follow "confirmation" in the email
-    Then I should see "Join community 'Test2'"
+    Then I should see "The email you entered is now confirmed"
     And user "kassi_testperson3" should have additional confirmed email "random@example.com"
     And I should not see "Email address"
-    And I check "community_membership_consent"
-    And I press "Join community"
-    Then I should see "You have successfully joined this community"
+    Then I should see "Post a new listing"
+    When I follow "Community"
+    Then I should see "Meet the people"
   
   @javascript
   Scenario: User joins another community when having both visible and non-visible listings
