@@ -15,7 +15,7 @@ function initialize_confirmation_pending_form(locale, email_in_use_message) {
      messages: {
        "person[email]": { remote: email_in_use_message }
      },
-     onkeyup: false, //Only do validations when form focus changes to avoid exessive ASI calls
+     onkeyup: false, //Only do validations when form focus changes to avoid exessive calls
      submitHandler: function(form) {
        disable_and_submit(form_id, form, "false", locale);  
      }

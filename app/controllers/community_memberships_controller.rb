@@ -17,7 +17,7 @@ class CommunityMembershipsController < ApplicationController
   end
   
   def create
-    @community_membership = CommunityMembership.new(params[:community_membership].merge({:status => "accepted"}))
+    @community_membership = CommunityMembership.new(params[:community_membership])
         
     if @current_community.join_with_invite_only? || params[:invitation_code]
       unless Invitation.code_usable?(params[:invitation_code], @current_community)
@@ -48,11 +48,12 @@ class CommunityMembershipsController < ApplicationController
           e = Email.create(:person => @current_user, :address => params[:community_membership][:email])
         end
         
-        # Send confirmation
+        # Send confirmation and make membership pending
         @current_user.send_email_confirmation_to(params[:community_membership][:email], request.host_with_port)
+        @community_membership.status = "pending_email_confirmation"
         
         flash[:notice] = "#{t("layouts.notifications.you_need_to_confirm_your_account_first")} #{t("sessions.confirmation_pending.check_your_email")}."
-        render :action => :new and return
+        
       end
       
     end
