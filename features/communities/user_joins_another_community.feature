@@ -84,10 +84,31 @@ Feature: User joins another community
     Then I should see "Confirm your email"
     And "random@example.com" should receive an email
     And user "kassi_testperson3" should have additional unconfirmed email "random@example.com"
+    
+    # Try resending
+    When I press "Resend confirmation instructions"
+    Then I should see "Check your inbox"
+    And "random@example.com" should have 2 emails
+    And I should see "Your email is random@example.com. Change"
+    
+    # Try changing the email
+    When I follow "Change"
+    Then I should see "New email address"
+    And the "person_email" field should contain "random@example.com"
+    When I fill in "person_email" with "other.email@wrong.com"
+    And I press "Change"
+    Then I should see "This email is not allowed for this community or it is already in use."
+    When I fill in "person_email" with "other.email@example.com"
+    And I press "Change"
+    Then I should see "Check your inbox"
+    And wait for 1 second
+    And "other.email@example.com" should receive an email
+    
+    # confirm
     When I open the email
     And I follow "confirmation" in the email
     Then I should see "The email you entered is now confirmed"
-    And user "kassi_testperson3" should have additional confirmed email "random@example.com"
+    And user "kassi_testperson3" should have additional confirmed email "other.email@example.com"
     And I should not see "Email address"
     Then I should see "Post a new listing"
     When I follow "Community"
