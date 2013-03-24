@@ -3,6 +3,7 @@ class Organization < ActiveRecord::Base
   
   has_many :organization_memberships, :dependent => :destroy
   has_many :members, :through => :organization_memberships, :source => :person
+  has_many :listings
   
   validates_presence_of :name
   validates_uniqueness_of :name

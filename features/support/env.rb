@@ -8,6 +8,8 @@ require 'rubygems'
 require 'spork'
 require File.expand_path('../../../test/helper_modules', __FILE__)
 include TestHelpers
+
+
  
 Spork.prefork do
   require 'cucumber/rails'
@@ -20,6 +22,17 @@ Spork.prefork do
   # steps to use the XPath syntax.
   Capybara.default_selector = :css
   Capybara.ignore_hidden_elements = true
+
+  # Uncomment this if needed to keep the browser open after the test
+  # Capybara::Selenium::Driver.class_eval do
+  #   def quit
+  #     puts "Press RETURN to quit the browser"
+  #     $stdin.gets
+  #     @browser.quit
+  #   rescue Errno::ECONNREFUSED
+  #     # Browser must have already gone
+  #   end
+  # end
   
 end
  

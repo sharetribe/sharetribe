@@ -334,8 +334,13 @@ class Person < ActiveRecord::Base
   end
   
   def create_listing(params)
+    # Check that this person is member of the (optional) organization
+    if params[:organization_id]
+      org = Organization.find(params[:organization_id])
+      raise "tried to create a listing with organization that the user is not member of" unless org.has_member?(self)
+    end
+    
     params = Listing.find_category_and_share_type_based_on_string_params(params)
-
     listings.create params #.except([:category, :share_type])
   end
   
@@ -523,6 +528,16 @@ class Person < ActiveRecord::Base
   def new_email_auth_token(valid_for = 36.hours)
     t = AuthToken.create(:person => self, :expires_at => valid_for.from_now)
     return t.token
+  end
+  
+  # This is a helper to get nicely formatted array of this person's organizations
+  # for dropdown selection menus
+  def organizations_array
+    arr = []
+    organizations.each do |org|
+      arr << [org.name, org.id]
+    end
+    return arr
   end
   
   # Merge this person with the data from the person given as parameter

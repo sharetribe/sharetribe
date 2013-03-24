@@ -50,7 +50,7 @@
             - Organization.all.each do |org|
               %option{value: org.id}= org.name
         %p
-          = link_to t("create_new_organization"), new_organization_path
+          = link_to t(".create_new_organization"), new_organization_path
       - else
         = hidden_field_tag :organization_id, @current_user.organizations.first.id
         

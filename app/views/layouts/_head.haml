@@ -49,7 +49,7 @@
     = javascript_include_tag APP_CONFIG.typekit_url
     :javascript
       try{Typekit.load();}catch(e){
-        alert(e);
+        // in case of error, just ignore. Default fonts will be used.
       }
     
   = javascript_include_tag 'application'

@@ -37,7 +37,7 @@ Feature: User joins an organization
   @javascript
   Scenario: user logs in and joins an organization that she creates
     Given community "test2" requires organization membership
-    And there is an organization "Coop Example" 
+    #And there is an organization "Coop Example" 
     #with email requirement "@examplecoop.com"
     And I am logged in as "kassi_testperson"
     When I move to community "test2"
@@ -50,10 +50,14 @@ Feature: User joins an organization
     When I follow "Create new organization"
     Then I should see "Create new organization"
     
-    When I fill "name" with "My super corporation"
+    When I fill in "Name" with "My super corporation"
     And I press "Create"
     
-  
+    Then I should see "Join community"
+    When I check "community_membership_consent"
+    And I press "Join community"
+    
+    Then I should see "Post a new listing"
   
   
   

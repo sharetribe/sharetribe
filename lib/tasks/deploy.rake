@@ -40,6 +40,17 @@ namespace :deploy do
     puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
   end
   
+  task :prepare_custom_branch_for_deploy do
+    puts 'Copying webfonts folder ...'
+    puts `rm app/assets/webfonts/* `
+    puts `git checkout closed_source`
+    puts `cp -R app/assets/webfonts/* ../tmp-sharetribe-webfonts/`
+    puts `git rebase custom`
+    puts `git checkout custom`
+    puts `mkdir app/assets/webfonts `
+    puts `cp -R ../tmp-sharetribe-webfonts/* app/assets/webfonts/`
+  end
+  
   task :push do
     puts 'Deploying site to Heroku ...'
     if APP == PRODUCTION_APP

@@ -125,11 +125,11 @@ namespace :sharetribe do
       testimonials_sheet = spreadsheet.worksheet "Testimonials"
       testimonials_sheet.each 1 do |row|
            if row[2].present?
-              Testimonial.create(
+              Testimonial.create!(
                         :author =>  people_array[row[1]],
                         :receiver => people_array[row[2]],  
                         :text   =>  row[3],
-                        :grade   =>  row[4]-1/4.0,
+                        :grade   =>  row[4],
                         :participation => participations_array[row[5]]
 
               )
