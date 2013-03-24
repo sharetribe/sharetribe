@@ -486,8 +486,8 @@ module ApplicationHelper
   end
   
   def community_slogan
-    if @community_customization
-      @community_customization.slogan
+    if @community_customization  && !@community_customization.slogan.blank?
+      @community_customization.slogan 
     else
       if @current_community.slogan && !@current_community.slogan.blank?
         @current_community.slogan
@@ -498,7 +498,7 @@ module ApplicationHelper
   end
   
   def community_description(truncate=true)
-    if @community_customization
+    if @community_customization && !@community_customization.description.blank?
       @community_customization.description
     else
       if @current_community.description && !@current_community.description.blank?
@@ -512,6 +512,20 @@ module ApplicationHelper
   
   def email_link_style
     "color:#d96e21; text-decoration: none;"
+  end
+
+  def community_blank_slate
+    @community_customization && !@community_customization.blank_slate.blank? ? @community_customization.blank_slate : t(".no_listings_notification")
+  end
+  
+  def fb_image
+    if @listing && action_name.eql?("show") && !@listing.listing_images.empty?
+      @listing.listing_images.first.image.url(:medium)
+    elsif @current_community.logo?
+      @current_community.logo.url(:header) 
+    else
+      "https://s3.amazonaws.com/sharetribe/assets/sharetribe_icon.png"
+    end
   end
   
 end

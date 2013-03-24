@@ -152,8 +152,10 @@ ActiveRecord::Schema.define(:version => 20130323143126) do
     t.string   "locale"
     t.string   "slogan"
     t.string   "description"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.text     "blank_slate"
+    t.text     "welcome_email_content"
   end
 
   create_table "community_memberships", :force => true do |t|
