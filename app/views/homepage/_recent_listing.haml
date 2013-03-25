@@ -1,5 +1,5 @@
 -# If listing is made by organization, show that as main author here
-- author = @current_community.requires_organization_membership? ? listing.organization : listing.author
+- author = @current_community.requires_organization_membership? && listing.organization ? listing.organization : listing.author
 .feed-item.feed-request
   .feed-author-avatar
     = small_avatar_thumb(author)
